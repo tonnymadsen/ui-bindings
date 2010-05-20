@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Application Plug-in
+Bundle-SymbolicName: com.rcpcompany.uibindings.shop;singleton:=true
+Bundle-Version: 2.0.0
+Bundle-Activator: com.rcpcompany.uibindings.tests.application.Activator
+Bundle-Vendor: The RCP Company
+Require-Bundle: org.eclipse.ui;bundle-version="[3.0.0,4.0.0)",
+ org.eclipse.core.runtime;bundle-version="[3.0.0,4.0.0)",
+ org.eclipse.ui.forms;bundle-version="[3.0.0,4.0.0)",
+ com.rcpcompany.uibindings.tests.model;bundle-version="[1.0.0,2.0.0)",
+ com.rcpcompany.uibindings;bundle-version="[2.0.0,3.0.0)",
+ org.eclipse.emf.databinding;bundle-version="1.0.0",
+ com.rcpcompany.utils.logging;bundle-version="1.1.2",
+ com.rcpcompany.utils.basic;bundle-version="1.0.3",
+ com.rcpcompany.uibindings.grid;bundle-version="1.0.0",
+ org.eclipse.nebula.widgets.radiogroup;bundle-version="0.1.0",
+ com.rcpcompany.utils.swt.structurevisualizer;bundle-version="1.0.0";resolution:=optional,
+ com.rcpcompany.uibindings.navigator;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Import-Package: com.rcpcompany.utils.databinding
+Export-Package: com.rcpcompany.uibindings.shop.views,
+ com.rcpcompany.uibindings.shop.wizards
