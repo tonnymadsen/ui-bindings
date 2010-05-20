@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Jface Utility Classes
+Bundle-SymbolicName: com.rcpcompany.utils.jface
+Bundle-Version: 1.1.1
+Bundle-Activator: com.rcpcompany.utils.jface.Activator
+Bundle-Vendor: The RCP Company
+Require-Bundle: org.eclipse.ui;bundle-version="[3.3.0,4.0.0)",
+ org.eclipse.core.runtime;bundle-version="[3.0.0,4.0.0)",
+ org.eclipse.emf.ecore;bundle-version="(2.2.0,3.0.0)",
+ com.rcpcompany.utils.logging;bundle-version="[1.1.0,2.0.0)",
+ org.junit4
+Eclipse-LazyStart: true
+Export-Package: com.rcpcompany.utils.jface,
+ com.rcpcompany.utils.jface.providers,
+ com.rcpcompany.utils.jface.tests
