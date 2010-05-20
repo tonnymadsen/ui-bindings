@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.rcpcompany.uibindings/src"
+    modelPluginID="com.rcpcompany.uibindings" modelName="UIBindings" updateClasspath="false"
+    nonNLSMarkers="true" suppressEMFModelTags="true" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
+    suppressUnsettable="true" complianceLevel="6.0" copyrightFields="false" binaryCompatibleReflectiveMethods="true"
+    publicConstructors="true" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
+    interfaceNamePattern="I{0}" classNamePattern="">
+  <foreignModel>uibindings.ecore</foreignModel>
+  <genPackages prefix="UIBindings" basePackage="com.rcpcompany" disposableProviderFactory="true"
+      adapterFactory="false" classPackageSuffix="internal" ecorePackage="uibindings.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="uibindings.ecore#//BindingState">
+      <genEnumLiterals ecoreEnumLiteral="uibindings.ecore#//BindingState/INIT"/>
+      <genEnumLiterals ecoreEnumLiteral="uibindings.ecore#//BindingState/PHASE1"/>
+      <genEnumLiterals ecoreEnumLiteral="uibindings.ecore#//BindingState/PHASE2"/>
+      <genEnumLiterals ecoreEnumLiteral="uibindings.ecore#//BindingState/PHASE3"/>
+      <genEnumLiterals ecoreEnumLiteral="uibindings.ecore#//BindingState/OK"/>
+      <genEnumLiterals ecoreEnumLiteral="uibindings.ecore#//BindingState/DISPOSED"/>
+      <genEnumLiterals ecoreEnumLiteral="uibindings.ecore#//BindingState/DISPOSE_PENDING"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="uibindings.ecore#//DecorationPosition">
+      <genEnumLiterals ecoreEnumLiteral="uibindings.ecore#//DecorationPosition/TopLeft"/>
+      <genEnumLiterals ecoreEnumLiteral="uibindings.ecore#//DecorationPosition/CenterLeft"/>
+      <genEnumLiterals ecoreEnumLiteral="uibindings.ecore#//DecorationPosition/BottomLeft"/>
+      <genEnumLiterals ecoreEnumLiteral="uibindings.ecore#//DecorationPosition/TopRight"/>
+      <genEnumLiterals ecoreEnumLiteral="uibindings.ecore#//DecorationPosition/CenterRight"/>
+      <genEnumLiterals ecoreEnumLiteral="uibindings.ecore#//DecorationPosition/BottomRight"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="uibindings.ecore#//TextCommitStrategy">
+      <genEnumLiterals ecoreEnumLiteral="uibindings.ecore#//TextCommitStrategy/ON_MODIFY"/>
+      <genEnumLiterals ecoreEnumLiteral="uibindings.ecore#//TextCommitStrategy/ON_FOCUS_OUT"/>
+      <genEnumLiterals ecoreEnumLiteral="uibindings.ecore#//TextCommitStrategy/ON_MODIFY_DELAY"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="uibindings.ecore#//SpecialBinding">
+      <genEnumLiterals ecoreEnumLiteral="uibindings.ecore#//SpecialBinding/ROW_NO"/>
+      <genEnumLiterals ecoreEnumLiteral="uibindings.ecore#//SpecialBinding/TREE_ITEM"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="uibindings.ecore#//BindingMessageSeverity">
+      <genEnumLiterals ecoreEnumLiteral="uibindings.ecore#//BindingMessageSeverity/None"/>
+      <genEnumLiterals ecoreEnumLiteral="uibindings.ecore#//BindingMessageSeverity/Information"/>
+      <genEnumLiterals ecoreEnumLiteral="uibindings.ecore#//BindingMessageSeverity/Warning"/>
+      <genEnumLiterals ecoreEnumLiteral="uibindings.ecore#//BindingMessageSeverity/Error"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="uibindings.ecore#//UIAttributePainter"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//IEMFObservableFactory"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//CEObjectHolder">
+      <genTypeParameters ecoreTypeParameter="uibindings.ecore#//CEObjectHolder/X"/>
+    </genDataTypes>
+    <genDataTypes ecoreDataType="uibindings.ecore#//CEResourceHolder"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//DBContext"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//DBBinding"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//ColumnViewer"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//ViewerColumn"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//ImageDescriptor"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//IControlContentAdapter"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//IServiceLocator"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//IConfigurationElement"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//Pattern"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//Throwable"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//IObservable"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//IObservableValue"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//IObservableList"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//IObservableSet"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//IObservableFactory"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//ISWTObservableValue"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//IConverter"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//IValidator"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//EditingDomain"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//Widget"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//FormToolkit"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//Control"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//Composite"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//Table"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//TableColumn"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//Tree"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//TreeColumn"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//Clipboard"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//Image"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//Color"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//Cursor"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//SelectionListener"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//UpdateValueStrategy"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//UpdateListStrategy"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//UpdateSetStrategy"/>
+    <genDataTypes ecoreDataType="uibindings.ecore#//NumberFormat"/>
+    <genClasses image="false" ecoreClass="uibindings.ecore#//BaseObject"/>
+    <genClasses ecoreClass="uibindings.ecore#//Manager">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Manager/editingDomain"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Manager/formToolkit"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uibindings.ecore#//Manager/providers"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//Manager/uiAttributeFactories"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//Manager/decoratorExtenders"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Manager/modelArgumentMediators"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Manager/modelArgumentMediatorClasses"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Manager/textCommitStrategy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Manager/textCommitStrategyDelay"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Manager/editCellAnyKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Manager/editCellSingleClick"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Manager/messageDecorationPosition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Manager/messageDecorationMinimumSeverity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Manager/alternativeDecorationPosition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Manager/autoApplySingleQuickfix"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Manager/alternateRowColors"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Manager/validationErrorsAreFatal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Manager/validationDelay"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Manager/validationDelayWindow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Manager/requiredVBImageDecorationShown"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Manager/assistVBImageDecorationShown"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Manager/quickfixVBImageDecorationShown"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Manager/viewNavigationRecorded"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//Manager/modelInfo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//Manager/treeItems"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Manager/clipboard"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uibindings.ecore#//Manager/observableFactories"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//Manager/quickfixProposalProcessors"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//Manager/contexts"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//BindingContext">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//BindingContext/bindings"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//BindingContext/okBindings"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//BindingContext/top"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//BindingContext/dbContext"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//BindingContext/serviceLocator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//BindingContext/state"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//BindingContext/textCommitStrategy"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//BindingContext/textCommitStrategyCalculated"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//BindingContext/editingDomain"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="uibindings.ecore#//Binding">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//Binding/context"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Binding/state"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Binding/changeable"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Binding/creationPoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uibindings.ecore#//Binding/arguments"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Binding/id"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Binding/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Binding/label"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//Binding/staticDataType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//Binding/dataType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//Binding/modelEType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Binding/modelType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Binding/uIType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Binding/DBBindings"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Binding/MonitoredDBBindings"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Binding/errorConditions"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Binding/widget"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//Binding/control"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//Binding/extraArgumentProviders"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//ValueBinding">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ValueBinding/modelObservable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ValueBinding/modelObservableValue"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference uibindings.ecore#//ValueBinding/modelObject"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference uibindings.ecore#//ValueBinding/modelFeature"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ValueBinding/messagePrefix"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//ValueBinding/decoratorProvider"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//ValueBinding/decorator"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//ValueBinding/UIAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ValueBinding/UIObservable"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//ValueBinding/cell"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="uibindings.ecore#//ValueBindingCell"/>
+    <genClasses ecoreClass="uibindings.ecore#//ColumnBinding">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//ColumnBinding/viewerBinding"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ColumnBinding/viewerColumn"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference uibindings.ecore#//ColumnBinding/columnAdapter"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//ColumnBinding/baseColumn"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//ColumnBinding/subColumns"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uibindings.ecore#//ColumnBinding/cells"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ColumnBinding/factory"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ColumnBinding/cursor"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ColumnBinding/columnVisibility"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//ColumnBindingCellInformation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//ColumnBindingCellInformation/column"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//ColumnBindingCellInformation/element"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//ColumnBindingCellInformation/labelBinding"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//ColumnBindingCellInformation/labelUIAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ColumnBindingCellInformation/labelPainter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ColumnBindingCellInformation/objectValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ColumnBindingCellInformation/sourceValue"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ColumnBindingCellInformation/changeable"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ColumnBindingCellInformation/displayText"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ColumnBindingCellInformation/valueType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ColumnBindingCellInformation/toolTipText"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ColumnBindingCellInformation/enabled"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//ViewerBinding">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//ViewerBinding/columns"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ViewerBinding/list"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ViewerBinding/elements"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ViewerBinding/singleSelection"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ViewerBinding/multipleSelection"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ViewerBinding/viewer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ViewerBinding/firstTableColumnOffset"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="uibindings.ecore#//DecoratorProvider">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference uibindings.ecore#//DecoratorProvider/manager"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//DecoratorProvider/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//DecoratorProvider/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//DecoratorProvider/modelTypes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//DecoratorProvider/uiTypes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//DecoratorProvider/providerCE"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//DecoratorProvider/childCE"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference uibindings.ecore#//DecoratorProvider/decorator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//DecoratorProvider/exactModelTypeMatch"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//JavaDecoratorProvider"/>
+    <genClasses ecoreClass="uibindings.ecore#//EnumDecoratorProvider">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//EnumDecoratorProvider/addingDefaultMappings"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EReference uibindings.ecore#//EnumDecoratorProvider/baseMappings"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//EnumDecoratorProviderEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//EnumDecoratorProviderEntry/model"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//EnumDecoratorProviderEntry/ui"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//NumberDecoratorProvider">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//NumberDecoratorProvider/format"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="uibindings.ecore#//BindingDataType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//BindingDataType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//BindingDataType/valueType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//BindingDataType/eType"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//BindingDataType/dataType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//BindingDataType/eAnnotation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//BindingDataType/parentDataType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//BindingDataType/required"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//BindingDataType/changeable"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//BindingDataType/unsettable"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="uibindings.ecore#//ColumnAdapter">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ColumnAdapter/widget"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ColumnAdapter/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ColumnAdapter/alignment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ColumnAdapter/image"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ColumnAdapter/moveable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ColumnAdapter/resizable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ColumnAdapter/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ColumnAdapter/toolTipText"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//ModelInfo"/>
+    <genClasses ecoreClass="uibindings.ecore#//ModelClassInfo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ModelClassInfo/className"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uibindings.ecore#//ModelClassInfo/features"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//ModelFeatureInfo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ModelFeatureInfo/featureName"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference uibindings.ecore#//ModelFeatureInfo/class"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="uibindings.ecore#//UIBindingDecorator">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//UIBindingDecorator/binding"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIBindingDecorator/changeable"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIBindingDecorator/modelToUIConverter"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIBindingDecorator/UIToModelConverter"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIBindingDecorator/UIToModelAfterConvertValidator"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIBindingDecorator/validUIList"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="uibindings.ecore#//UIBindingDecoratorExtender"/>
+    <genClasses ecoreClass="uibindings.ecore#//UIBindingDecoratorExtenderDescriptor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIBindingDecoratorExtenderDescriptor/priority"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIBindingDecoratorExtenderDescriptor/factory"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="uibindings.ecore#//ArgumentProvider">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uibindings.ecore#//ArgumentProvider/declaredArguments"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="uibindings.ecore#//IDisposable"/>
+    <genClasses image="false" ecoreClass="uibindings.ecore#//IModelArgumentMediator"/>
+    <genClasses image="false" ecoreClass="uibindings.ecore#//IPersistentParty"/>
+    <genClasses image="false" ecoreClass="uibindings.ecore#//Constants"/>
+    <genClasses ecoreClass="uibindings.ecore#//StringToModelClassInfoMapEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//StringToModelClassInfoMapEntry/key"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//StringToModelClassInfoMapEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//StringToModelFeatureInfoMapEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//StringToModelFeatureInfoMapEntry/key"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//StringToModelFeatureInfoMapEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//StringToStringMapEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//StringToStringMapEntry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//StringToStringMapEntry/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uibindings.ecore#//StringToStringMapEntry/arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//StringToObjectMapEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//StringToObjectMapEntry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//StringToObjectMapEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//StringToImageDescriptorMapEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//StringToImageDescriptorMapEntry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//StringToImageDescriptorMapEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//StringToIConfigurationElementMapEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//StringToIConfigurationElementMapEntry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//StringToIConfigurationElementMapEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//StringToBooleanMapEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//StringToBooleanMapEntry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//StringToBooleanMapEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//ObjectToCIMapEntry">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//ObjectToCIMapEntry/key"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//ObjectToCIMapEntry/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="uibindings.ecore#//ServiceRegistry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//ServiceRegistry/services"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//QuickfixProposal">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//QuickfixProposal/label"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//QuickfixProposal/description"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//QuickfixProposal/image"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//QuickfixProposal/relevance"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//QuickfixProposalProcessor"/>
+    <genClasses ecoreClass="uibindings.ecore#//QuickfixProposalProcessorContext"/>
+    <genClasses ecoreClass="uibindings.ecore#//QuickfixProposalProcessorDescriptor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//QuickfixProposalProcessorDescriptor/modelType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//QuickfixProposalProcessorDescriptor/feature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//QuickfixProposalProcessorDescriptor/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//QuickfixProposalProcessorDescriptor/code"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//QuickfixProposalProcessorDescriptor/messagePattern"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//QuickfixProposalProcessorDescriptor/processor"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//TreeItemRelation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//TreeItemRelation/parent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//TreeItemRelation/descriptor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//TreeItemRelation/processor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//TreeItemRelation/featureName"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//TreeItemDescriptor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//TreeItemDescriptor/id"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//TreeItemDescriptor/children"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//TreeItemDescriptor/ce"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//TreeItemDescriptor/modelTypes"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//ConstantTreeItem">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//ConstantTreeItem/descriptor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//ConstantTreeItem/target"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//BindingMessage">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference uibindings.ecore#//BindingMessage/binding"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//BindingMessage/message"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//BindingMessage/severity"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//BindingMessage/messageType"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//BindingMessage/prefix"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference uibindings.ecore#//BindingMessage/targets"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//BindingMessage/data"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//BindingMessage/source"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//BindingMessage/code"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//BindingMessage/details"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//BindingMessageTarget">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//BindingMessageTarget/modelObject"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uibindings.ecore#//BindingMessageTarget/modelFeature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//BindingMessageTarget/modelKey"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="uibindings.ecore#//UIAttribute">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIAttribute/widget"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIAttribute/attribute"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIAttribute/currentValue"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIAttribute/possibleValuesList"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIAttribute/minValue"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIAttribute/maxValue"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIAttribute/tooltipValue"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIAttribute/fontValue"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIAttribute/imageValue"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIAttribute/foregroundValue"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIAttribute/backgroundValue"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIAttribute/enabledValue"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIAttribute/cursorValue"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIAttribute/styleRangeList"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIAttribute/changeable"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIAttribute/fieldAssistAdapter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uibindings.ecore#//UIAttribute/imageDecorations"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//UIAttributeImageDecoration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIAttributeImageDecoration/outside"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIAttributeImageDecoration/imageValue"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIAttributeImageDecoration/tooltipValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIAttributeImageDecoration/position"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference uibindings.ecore#//UIAttributeImageDecoration/attribute"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="uibindings.ecore#//UIAttributeFactory"/>
+    <genClasses ecoreClass="uibindings.ecore#//UIAttributeFactoryDescriptor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIAttributeFactoryDescriptor/typeName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIAttributeFactoryDescriptor/attribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//UIAttributeFactoryDescriptor/factory"/>
+    </genClasses>
+    <genClasses ecoreClass="uibindings.ecore#//EMFObservableFactoryDescriptor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//EMFObservableFactoryDescriptor/packagePrefix"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uibindings.ecore#//EMFObservableFactoryDescriptor/factory"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="uibindings.ecore#//IMessage"/>
+    <genClasses image="false" ecoreClass="uibindings.ecore#//IContentProposal"/>
+  </genPackages>
+</genmodel:GenModel>

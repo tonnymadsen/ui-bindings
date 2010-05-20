@@ -1,0 +1,281 @@
+package com.rcpcompany.uibindings;
+
+import java.util.List;
+
+import org.eclipse.core.databinding.observable.list.IObservableList;
+import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.emf.ecore.EAnnotation;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+
+import com.rcpcompany.uibindings.IBinding.IArgumentValue;
+import com.rcpcompany.uibindings.internal.bindingDataTypes.BindingDataTypeFactory;
+
+/**
+ * <!-- begin-user-doc -->
+ * <p>
+ * This interface is used to adapt between the actual EMF data type of a binding and the needed information in the UI
+ * Bindings framework.
+ * <p>
+ * Adapters exists for
+ * <ul>
+ * <li>{@link EStructuralFeature}</li>
+ * <li>{@link EClassifier}</li>
+ * </ul>
+ * The actual adapters are constructed in {@link BindingDataTypeFactory}.
+ * </p>
+ * <!-- end-user-doc -->
+ * 
+ * <p>
+ * The following features are supported:
+ * <ul>
+ * <li>{@link com.rcpcompany.uibindings.IBindingDataType#getName <em>Name</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IBindingDataType#getValueType <em>Value Type</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IBindingDataType#getEType <em>EType</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IBindingDataType#getDataType <em>Data Type</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IBindingDataType#getEAnnotation <em>EAnnotation</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IBindingDataType#getParentDataType <em>Parent Data Type</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IBindingDataType#isRequired <em>Required</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IBindingDataType#isChangeable <em>Changeable</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IBindingDataType#isUnsettable <em>Unsettable</em>}</li>
+ * </ul>
+ * </p>
+ * 
+ * @see com.rcpcompany.uibindings.IUIBindingsPackage#getBindingDataType()
+ * @generated
+ */
+public interface IBindingDataType extends EObject {
+	/**
+	 * The factory methods for {@link IBindingDataType}.
+	 */
+	public static final class Factory {
+		/**
+		 * Creates and returns a new {@link IBindingDataType binding data type} appropriate for the specified element.
+		 * <p>
+		 * The result is cached and reused.
+		 * 
+		 * @param element the element to return a data type for
+		 * @return the data type object or <code>null</code>
+		 */
+		public static IBindingDataType create(Object element) {
+			return BindingDataTypeFactory.create(element);
+		}
+
+		/**
+		 * Creates and returns a new {@link IBindingDataType binding data type} appropriate for the specified observable
+		 * list.
+		 * 
+		 * @param list the list
+		 * @return the data type object or <code>null</code>
+		 */
+		public static IBindingDataType create(IObservableList list) {
+			return create(list.getElementType());
+		}
+
+		/**
+		 * Creates and returns a new {@link IBindingDataType binding data type} appropriate for the specified observable
+		 * value.
+		 * 
+		 * @param value the value
+		 * @return the data type object or <code>null</code>
+		 */
+		public static IBindingDataType create(IObservableValue value) {
+			return create(value.getValueType());
+		}
+
+		/**
+		 * Returns a list of the {@link IBindingDataType} objects that defines all the super types of the specified data
+		 * type.
+		 * <p>
+		 * If not already calculated, then do that by creating an array with
+		 * <ul>
+		 * <li>IBDTs for all super types (ECore classes)</li>
+		 * <li>IBDTs for all super classes (Java classes) not already added from their Ecore counterparts</li>
+		 * </ul>
+		 * 
+		 * @param dt the data type to test
+		 * @return the super types
+		 */
+		public static IBindingDataType[] getSuperTypes(IBindingDataType dt) {
+			return BindingDataTypeFactory.getSuperTypes(dt);
+		}
+
+		/**
+		 * Tries to convert a Java class to the corresponding {@link EClassifier}.
+		 * <p>
+		 * All registered EMF packages are searched.
+		 * 
+		 * @param cls the class to convert
+		 * @return the corresponding classifier or <code>null</code> if not found
+		 */
+		public static EClassifier convertToClassifier(Class<?> cls) {
+			return BindingDataTypeFactory.convertToClassifier(cls);
+		}
+	}
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc -->
+	 * <p>
+	 * Returns the logical name for a binding based on this data type.
+	 * <p>
+	 * For a feature-based data type this is the name of the feature, for classifiers this is the name of the
+	 * classifier.
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getBindingDataType_Name()
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Returns the value of the '<em><b>Value Type</b></em>' attribute. <!-- begin-user-doc -->
+	 * <p>
+	 * Returns the value type used for values returned by the factory.
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Value Type</em>' attribute.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getBindingDataType_ValueType()
+	 * @generated
+	 */
+	Object getValueType();
+
+	/**
+	 * Returns the value of the '<em><b>EType</b></em>' reference. <!-- begin-user-doc -->
+	 * <p>
+	 * This is the EMF type of the data type.
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>EType</em>' reference.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getBindingDataType_EType()
+	 * @generated
+	 */
+	EClassifier getEType();
+
+	/**
+	 * Returns the value of the '<em><b>Data Type</b></em>' attribute. <!-- begin-user-doc -->
+	 * <p>
+	 * This is the specific class for this data type
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Data Type</em>' attribute.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getBindingDataType_DataType()
+	 * @generated
+	 */
+	Class<?> getDataType();
+
+	/**
+	 * Returns the value of the '<em><b>EAnnotation</b></em>' reference. <!-- begin-user-doc -->
+	 * <p>
+	 * Provides the EMF annotations of this data type.
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>EAnnotation</em>' reference.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getBindingDataType_EAnnotation()
+	 * @generated
+	 */
+	EAnnotation getEAnnotation();
+
+	/**
+	 * Returns the value of the '<em><b>Parent Data Type</b></em>' reference. <!-- begin-user-doc -->
+	 * <p>
+	 * Returns the parent data type of this data type if applicable.
+	 * <p>
+	 * E.g,. for a structural feature, the parent data type is the data type of the
+	 * {@link EStructuralFeature#getEType() typed element} of the feature.
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Parent Data Type</em>' reference.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getBindingDataType_ParentDataType()
+	 * @generated
+	 */
+	IBindingDataType getParentDataType();
+
+	/**
+	 * Returns the value of the '<em><b>Required</b></em>' attribute. <!-- begin-user-doc -->
+	 * <p>
+	 * <code>true</code> if a value is required for a variable with this data type. Note important for structural
+	 * features.
+	 * <p>
+	 * The EMF <code>required</code> property.
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Required</em>' attribute.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getBindingDataType_Required()
+	 * @generated
+	 */
+	boolean isRequired();
+
+	/**
+	 * Returns the value of the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc -->
+	 * <p>
+	 * <code>true</code> if the value of this data type can be changed.
+	 * <p>
+	 * The EMF <code>changeable</code> property.
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Changeable</em>' attribute.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getBindingDataType_Changeable()
+	 * @generated
+	 */
+	boolean isChangeable();
+
+	/**
+	 * Returns the value of the '<em><b>Unsettable</b></em>' attribute. <!-- begin-user-doc -->
+	 * <p>
+	 * <code>true</code> if this data type supports a special <em>unset</em> value as specified by
+	 * {@link EObject#eIsSet(EStructuralFeature)}.
+	 * <p>
+	 * The EMF <code>unsettable</code> property.
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Unsettable</em>' attribute.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getBindingDataType_Unsettable()
+	 * @generated
+	 */
+	boolean isUnsettable();
+
+	/**
+	 * Returns an {@link IArgumentProvider argument provider} with all arguments for this data type.
+	 * 
+	 * @return the argument provider
+	 */
+	IArgumentProvider getArgumentProvider();
+
+	/**
+	 * Handles any additions of arguments from this data type.
+	 * 
+	 * @param <ArgumentType> the argument type
+	 * @param results the result list
+	 * @param binding the binding
+	 * @param name the name of the wanted argument
+	 * @param argumentType the argument type
+	 * @param firstOnly <code>true</code> if only the first result is of interest
+	 * @return <code>true</code> if any results was found
+	 */
+	<ArgumentType> boolean addArguments(List<IArgumentValue<ArgumentType>> results, IBinding binding, String name,
+			Class<? extends ArgumentType> argumentType, boolean firstOnly);
+
+	/**
+	 * Returns the value of the specified argument
+	 * 
+	 * @param <ArgumentType> the argument type
+	 * @param binding the binding
+	 * @param name the name of the wanted argument
+	 * @param argumentType the argument type
+	 * @return the value or <code>null</code>
+	 */
+	<ArgumentType> ArgumentType getArgument(IValueBinding binding, String name,
+			Class<? extends ArgumentType> argumentType);
+
+} // IBindingDataType

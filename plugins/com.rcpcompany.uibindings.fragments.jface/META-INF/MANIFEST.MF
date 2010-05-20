@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.eclipse.jface fragment
+Bundle-SymbolicName: com.rcpcompany.uibindings.fragments.jface
+Bundle-Version: 1.0.1.qualifier
+Bundle-Vendor: The RCP Company
+Fragment-Host: org.eclipse.jface;bundle-version="[3.5.0,4.0.0)"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

@@ -1,0 +1,722 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.nordea.cd.core" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.nordea.cd.core" id="uiBindings" name="UI Bindings Support"/>
+      </appinfo>
+      <documentation>
+         This extension point is used to declare UI binding providers for use in the &lt;em&gt;UIBinding&lt;/em&gt; framework.
+&lt;p&gt;
+A single provider is responsible for the binding of a specific set of business model data types such as date, customer IDs or contact IDs to a specific set of UI types such as Strings, int or date.
+&lt;p&gt;
+In this context a binding covers three specific areas:
+&lt;ul&gt;
+&lt;li&gt;data binding between a specific data value in a model - e.g. an EMF model - with a specific SWT widget. This is done using the Eclipse data binding framework as defined in &lt;code&gt;org.eclipse.core.databinding&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;field assists, including handling of shortcut keys for specific values - e.g. &quot;dd&quot; for the current date (dags dato). This is to some degree done using the field assist framework define in JFace.&lt;/li&gt;
+&lt;li&gt;....&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+This framework is based on the concept of decoration of widgets rather than extension of widgets. Thus it is the idea to use the base widget set - &lt;code&gt;Text&lt;/code&gt;, &lt;code&gt;Label&lt;/code&gt;, &lt;code&gt;Table&lt;/code&gt;, etc - rather than defining new widget types. The later is possible and supported via the &lt;code&gt;dataBinding&lt;/code&gt; element, but it is not recommented.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <choice minOccurs="1" maxOccurs="unbounded">
+            <element ref="bindingDecorator"/>
+            <element ref="decoratorExtender"/>
+            <element ref="uiAttributeFactory"/>
+            <element ref="observablesFactory"/>
+            <element ref="treeItem"/>
+            <element ref="treeItemRelation"/>
+            <element ref="model"/>
+            <element ref="quickfixProcessor"/>
+            <element ref="modelArgumentMediator"/>
+         </choice>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="bindingDecorator">
+      <annotation>
+         <appinfo>
+            <meta.element labelAttribute="name"/>
+         </appinfo>
+         <documentation>
+            A binding decorator for a specific business data type such as a date, an amount, a customer ID or a contact ID.
+&lt;p&gt;
+A specific binding decoration is uniquely identified by both the ID and the combination of (&lt;code&gt;type&lt;/code&gt;, &lt;code&gt;uiType&lt;/code&gt;, &lt;code&gt;modelType&lt;/code&gt;).
+&lt;p&gt;
+Each decorator can have a number of arguments for the label binding in the form of &lt;code&gt;argument&lt;/code&gt; sub-elements.
+         </documentation>
+      </annotation>
+      <complexType>
+         <choice minOccurs="0" maxOccurs="unbounded">
+            <element ref="enum"/>
+            <element ref="number"/>
+            <element ref="javaDecorator"/>
+            <element ref="modelType"/>
+            <element ref="uiType"/>
+            <element ref="argument"/>
+         </choice>
+         <attribute name="type" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the name of the provider. For value bindings this is specified as &lt;code&gt;.type(...)&lt;/code&gt;.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  the optional ID of the data binding
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="exactModelTypeMatch" type="boolean" use="default" value="false">
+            <annotation>
+               <documentation>
+                  if &lt;code&gt;true&lt;/code&gt;, then matching for this provider will use the model type directly, instead of testing against all the super types of the model type.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="decoratorExtender">
+      <annotation>
+         <documentation>
+            An extender of an binding decoration.
+&lt;p&gt;
+Each extender can have a number of arguments for the label binding in the form of &lt;code&gt;argument&lt;/code&gt; sub-elements.
+         </documentation>
+      </annotation>
+      <complexType>
+         <choice minOccurs="0" maxOccurs="unbounded">
+            <element ref="argument"/>
+         </choice>
+         <attribute name="class" type="string">
+            <annotation>
+               <documentation>
+                  the class of the extender.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="com.rcpcompany.uibindings.decorators.extenders.AbstractUIBindingDecoratorExtender:com.rcpcompany.uibindings.IUIBindingDecoratorExtender"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="priority" type="string" use="default" value="100">
+            <annotation>
+               <documentation>
+                  the priority of the extender compared to other extenders. The higher the priority the later the extender will be run and the more important the extensions.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="javaDecorator">
+      <annotation>
+         <documentation>
+            The binding is based on a specific Java implementation of the &lt;code&gt;IUIBindingDecorator&lt;/code&gt;.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the Java based binding decorator to use for this binding.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="com.rcpcompany.uibindings.decorators.BaseUIBindingDecorator:com.rcpcompany.uibindings.IUIBindingDecorator"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="enum">
+      <annotation>
+         <documentation>
+            The definition of a single enumeration set. A definition consists of a set of mappings for the values in the enumeration to text strings. A single enumeration values can be mapped multiple times, in which case the first value is used for the translation from value to string.
+         </documentation>
+      </annotation>
+      <complexType>
+         <choice minOccurs="0" maxOccurs="unbounded">
+            <element ref="mapping"/>
+         </choice>
+         <attribute name="defaultMappings" type="boolean" use="default" value="false">
+            <annotation>
+               <documentation>
+                  whether default mappings should be provided automatically for all en umeration values that are not specified explicitly in the mapping sub-element.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="number">
+      <annotation>
+         <documentation>
+            The definition of a new number type in terms of the number format.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="format" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the format for the number a specified in &lt;code&gt;java.util.Formatter&lt;/code&gt;.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="mapping">
+      <annotation>
+         <documentation>
+            A single mapping between a specific enumeration value (&lt;code&gt;model&lt;/code&gt;) and and corresponding name (&lt;code&gt;ui&lt;/code&gt;). A specific enumeration value can be mapped multiple times to different ui names. The first mapping is the default.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="model" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the enumeration value corresponding to the value. A specific value may be specified multiple times with different target values. Only one of them may have default set to true.
+
+The value is compared to the &lt;code&gt;toString()&lt;/code&gt;of the value.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="ui" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the UI value of the mapping. A specific value may only be specified once.
+&lt;p&gt;
+The UI value need not be specified in which case it defaults to the &lt;code&gt;model&lt;/code&gt; value; this is used to associate images to specific model values.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="modelType">
+      <annotation>
+         <documentation>
+            The specification of a specific model type supported by the binding provider.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the type of a model object that can be supported by this binding provider. The test is performed using &lt;code&gt;instanceof&lt;/code&gt;.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="alsoPrimitive" type="boolean" use="default" value="true">
+            <annotation>
+               <documentation>
+                  used with the boxed Java classes - such as &lt;code&gt;java.lang.Integer&lt;/code&gt; - and specifies that the primitive type is also included.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="uiType">
+      <annotation>
+         <documentation>
+            The specification of a specific UI type supported by the binding provider.
+&lt;p&gt;
+The concrete UI type used in a specific binding depending on the UI observable and thus on the values spsecified in the swt(...), ui(...) and other methods.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the type of a target object that can be supported by this binding provider. The test is performed using &lt;code&gt;instanceof&lt;/code&gt;.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="alsoPrimitive" type="boolean" use="default" value="true">
+            <annotation>
+               <documentation>
+                  used with the boxed Java classes - such as &lt;code&gt;java.lang.Integer&lt;/code&gt; - and specifies that the primitive type is also included.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="defaultBindingMapping">
+      <annotation>
+         <documentation>
+            A specification of a single Java class that shoud be mapped automatically to a specific binding.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="bindingID" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the ID of a specific binding provider
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="identifier" basedOn="com.rcpcompany.uibindings.uiBindings/bindingProvider/@id"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  a class that is mapped to the binding. The test is performed using &lt;code&gt;instanceof&lt;/code&gt;.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="uiAttributeFactory">
+      <annotation>
+         <documentation>
+            The definition of a new &lt;code&gt;IUIAttribute&lt;/code&gt; for a specific set of attributes of a specific set of SWT widgets.
+&lt;p&gt;
+Attributes - or properties - designates the different values a specific SWT widget can have - e.g. a &lt;code&gt;Text&lt;/code&gt;widget have the attributes &lt;code&gt;text&lt;/code&gt;, &lt;code&gt;enabled&lt;/code&gt;, &lt;code&gt;visible&lt;/code&gt;, &lt;code&gt;foreground&lt;/code&gt;, &lt;code&gt;background&lt;/code&gt;, and &lt;code&gt;font&lt;/code&gt;.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="widgetType" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the class of widgets that is handles by this data
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="org.eclipse.swt.widgets.Widget:"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="attribute" type="string">
+            <annotation>
+               <documentation>
+                  the attribute of the widget that should be bound. The empty attribute is used for the default attribute.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  a factory class that will create the wanted &lt;code&gt;IUIAttribute&lt;/code&gt;.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":com.rcpcompany.uibindings.IUIAttributeFactory"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="observablesFactory">
+      <annotation>
+         <documentation>
+            Declaration of a EMF observable factory.
+&lt;p&gt;
+A specific factory is associated with all objects with a specific Java package.
+&lt;p&gt;
+This strategy means:
+&lt;ul&gt;
+&lt;li&gt;problems with subclasses&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="package" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the Java package of the object.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the factory to use for the Java package
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="com.rcpcompany.uibindings.AbstractEMFObservableFactory:com.rcpcompany.uibindings.IEMFObservableFactory"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="treeItem">
+      <annotation>
+         <documentation>
+            The description of an item in a Tree or TreeViewer. Each item has an ID that are used to bind items together in a tree via the &lt;code&gt;treeItemRelation&lt;/code&gt; elements.
+&lt;p&gt;
+A &lt;code&gt;treeItem&lt;/code&gt; can be looked up in one of two ways: either by ID or by class. In the later case the class is matched against the class specified in &lt;code&gt;modelType&lt;/code&gt; sub-elements.
+&lt;p&gt;
+Each item can have a number of arguments for the label binding in the form of &lt;code&gt;argument&lt;/code&gt; sub-elements.
+         </documentation>
+      </annotation>
+      <complexType>
+         <choice minOccurs="0" maxOccurs="unbounded">
+            <element ref="argument"/>
+            <element ref="modelType"/>
+         </choice>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the id of this tree item. A specific tree item can be referred to via the &lt;code&gt;treeItemRelation&lt;/code&gt; element.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="newWizardID" type="string">
+            <annotation>
+               <documentation>
+                  an optional ID for a &quot;new&quot; wizard that will create objects of this type. Only usable for tree items with a single specific modelType element.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="identifier" basedOn="org.eclipse.ui.newWizards/wizard/@id"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="treeItemRelation">
+      <annotation>
+         <documentation>
+            The specification of a specific relationship between a parent and a child both defined with &lt;code&gt;treeItem&lt;/code&gt; elements.
+&lt;p&gt;
+When a node is expanded, all child providers are consulted to return a consolidated list of all children.
+&lt;p&gt;
+The children can be calculated using one of three methods:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;class&lt;/code&gt; is set and specifies a factory that returns the value of list that will be the children.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;featureName&lt;/code&gt; is set and specifies a feature of the parent that contains the child or children.&lt;/li&gt;
+&lt;li&gt;Neigher of these are set in which case the parent will have a constant child.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+If &lt;code&gt;id&lt;/code&gt; is set it specified the ID of the description for th children; otherwise the description is looked up based on the class.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="parent" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the parent in the relationship
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="identifier" basedOn="com.rcpcompany.uibindings.uiBindings/treeItem/@id"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  the id of a specific &lt;code&gt;treeItem&lt;/code&gt; that will then be the child item. If this is &lt;code&gt;null&lt;/code&gt;, then the normal look-up via &lt;code&gt;IManager.getTreeItemDescription(..)&lt;/code&gt; is performed.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="identifier" basedOn="com.rcpcompany.uibindings.uiBindings/treeItem/@id"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string">
+            <annotation>
+               <documentation>
+                  the class name of a factory that will return an observable value or list with the children of the parent. Only one of &lt;code&gt;class&lt;/class&gt; and &lt;code&gt;featureName&lt;/class&gt; may be set.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.core.databinding.observable.masterdetail.IObservableFactory"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="featureName" type="string">
+            <annotation>
+               <documentation>
+                  the name of the structural feature that will return a value or list with the children of the parent. Only one of &lt;code&gt;class&lt;/class&gt; and &lt;code&gt;featureName&lt;/class&gt; may be set.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="priority" type="string" use="default" value="1000">
+            <annotation>
+               <documentation>
+                  a priority for the elements from this relation compared with other relations from the same parent description. The higher the number, earlier in the sequence.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="model">
+      <annotation>
+         <documentation>
+            &lt;p&gt;
+Each model class can have a number of arguments for the label binding in the form of &lt;code&gt;argument&lt;/code&gt; sub-elements.
+         </documentation>
+      </annotation>
+      <complexType>
+         <choice minOccurs="0" maxOccurs="unbounded">
+            <element ref="feature"/>
+            <element ref="argument"/>
+         </choice>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the model class. This can also be the type of an attribute.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="feature">
+      <annotation>
+         <documentation>
+            &lt;p&gt;
+Each feature can have a number of arguments for the label binding in the form of &lt;code&gt;argument&lt;/code&gt; sub-elements.
+         </documentation>
+      </annotation>
+      <complexType>
+         <choice minOccurs="0" maxOccurs="unbounded">
+            <element ref="argument"/>
+         </choice>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="argument">
+      <annotation>
+         <documentation>
+            An argument for a base element.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the name of the argument. See &lt;code&gt;IBinding&lt;/code&gt; for a list of the known arguments.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="value" type="string">
+            <annotation>
+               <documentation>
+                  the value of the argument
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="class">
+      <complexType>
+         <choice minOccurs="0" maxOccurs="unbounded">
+            <element ref="parameter"/>
+         </choice>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The decorator used to do the decoration itself.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":com.rcpcompany.uibindings.decoratorDecorators.IDecoratorDecorator"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="parameter">
+      <complexType>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="value" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="quickfixProcessor">
+      <annotation>
+         <documentation>
+            The declaration of a quick fix processor that can generate a set of quick fixes based on a binding message.
+&lt;p&gt;
+Each processor is only envoked if a set of optional restrictions are all fulfilled.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="feature" type="string">
+            <annotation>
+               <documentation>
+                  optional restriction based on the feature of the binding from the binding message.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="modelType" type="string">
+            <annotation>
+               <documentation>
+                  optional restriction based on the Java data type of the model attribute
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="source" type="string">
+            <annotation>
+               <documentation>
+                  optional restriction based on the source from the binding message.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="code" type="string">
+            <annotation>
+               <documentation>
+                  optional restriction based on the code from the binding message.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="messagePattern" type="string">
+            <annotation>
+               <documentation>
+                  optional restriction based on a regexp pattern for the from the binding message. The pattern must match the complete message - thus use &quot;&lt;code&gt;.*car.*red&lt;/code&gt;&quot; rather than &quot;&lt;code&gt;car.*red&lt;/code&gt;&quot; to match  &quot;&lt;code&gt;The car is red&lt;/code&gt;&quot;.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="processor" type="string" use="required">
+            <annotation>
+               <documentation>
+                  a class with a quick fix proposal processor.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="com.rcpcompany.uibindings.quixkfixes.AbstractQuickfixProposalProcessor:com.rcpcompany.uibindings.IQuickfixProposalProcessor"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="modelArgumentMediator">
+      <annotation>
+         <documentation>
+            Model Argument Mediators are used to add additional arguments to model classes and features based on 3rd party information.
+&lt;p&gt;
+A specific mediator must add arguments to the Manager for a specific class (and all included features). Super-classes are handled automatically based on the super-class hierarchy found in IBindingDataType.
+&lt;p&gt;
+A specific mediator wil only be invoked once for a specific class.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":com.rcpcompany.uibindings.IModelArgumentMediator"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         [Enter the first release in which this extension point appears.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiInfo"/>
+      </appinfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="implementation"/>
+      </appinfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+
+</schema>
