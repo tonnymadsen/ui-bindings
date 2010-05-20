@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Logging Utilities
+Bundle-SymbolicName: com.rcpcompany.utils.logging
+Bundle-Version: 1.2.0.qualifier
+Bundle-Activator: com.rcpcompany.utils.logging.internal.Activator
+Bundle-Vendor: The RCP Company
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.rcpcompany.utils.basic;bundle-version="[1.0.0,2.0.0)",
+ org.junit4
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: com.rcpcompany.utils.logging,
+ com.rcpcompany.utils.logging.tests
