@@ -42,11 +42,11 @@ public interface IFilteringTableAdapter extends IDisposable {
 		 * @return the new filter
 		 */
 		public static IFilteringTableAdapter adapt(IViewerBinding viewer, IObservableValue filter, Text text) {
-			final IFilteringTableAdapter adapter = viewer.getService(IFilteringTableAdapter.class);
-			if (adapter != null) {
-				return adapter;
+			IFilteringTableAdapter adapter = viewer.getService(IFilteringTableAdapter.class);
+			if (adapter == null) {
+				adapter = new FilteringTableAdapter(viewer, filter, text);
 			}
-			return new FilteringTableAdapter(viewer, filter, text);
+			return adapter;
 		}
 
 		/**
