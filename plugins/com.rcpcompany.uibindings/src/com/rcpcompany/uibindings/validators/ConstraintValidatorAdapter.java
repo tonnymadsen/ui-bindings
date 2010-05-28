@@ -17,12 +17,15 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import com.rcpcompany.uibindings.BindingMessageSeverity;
 import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.IDecoratorProvider;
+import com.rcpcompany.uibindings.IJavaDecoratorProvider;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.INumberDecoratorProvider;
+import com.rcpcompany.uibindings.IUIBindingDecorator;
 import com.rcpcompany.uibindings.IUIBindingsFactory;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.bindingMessages.AbstractBindingMessage;
 import com.rcpcompany.uibindings.internal.Activator;
+import com.rcpcompany.uibindings.internal.decorators.FileNameWidgetDecorator;
 import com.rcpcompany.uibindings.internal.decorators.NumberBindingDecorator;
 import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
 
@@ -126,6 +129,13 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 					continue;
 				}
 				cs.add(new NumberConstraint(sf, decorator));
+			} else if (provider instanceof IJavaDecoratorProvider) {
+				final IUIBindingDecorator decorator = provider.getDecorator();
+				if (decorator instanceof FileNameWidgetDecorator) {
+					final FileNameWidgetDecorator fnw = (FileNameWidgetDecorator) decorator;
+					fnw.initForValidation(vb);
+					cs.add(new FileNameConstraint(sf, fnw));
+				}
 			}
 		}
 
@@ -184,6 +194,57 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 			}
 
 			final String m = myDecorator.checkRange(value, d);
+			if (m == null) {
+				return null;
+			}
+
+			/*
+			 * Error found!! Check if the message is already present in the list
+			 */
+			for (final Object o : messages) {
+				final Message f = (Message) o;
+				if (f.getObject() == obj && f.getFeature() == myFeature && f.getMessage().equals(m)) {
+					return f;
+				}
+			}
+
+			/*
+			 * Create new message
+			 */
+			final Message f = new Message(obj, myFeature, m, BindingMessageSeverity.ERROR);
+			messages.add(f);
+
+			return f;
+		}
+	}
+
+	/**
+	 * Construct to handle file name based violations
+	 */
+	public static class FileNameConstraint implements IConstraint {
+
+		private final EStructuralFeature myFeature;
+		private final FileNameWidgetDecorator myDecorator;
+
+		/**
+		 * Constructs and return a new constraint for the specified feature and decorator
+		 * 
+		 * @param feature the feature in question
+		 * @param decorator the decorator to use to perform the validationitself
+		 */
+		public FileNameConstraint(EStructuralFeature feature, FileNameWidgetDecorator decorator) {
+			myFeature = feature;
+			myDecorator = decorator;
+		}
+
+		@Override
+		public Message validate(EObject obj, IObservableList messages) {
+			final Object value = obj.eGet(myFeature);
+			if (value == null) {
+				return null;
+			}
+
+			final String m = myDecorator.checkValue(value);
 			if (m == null) {
 				return null;
 			}

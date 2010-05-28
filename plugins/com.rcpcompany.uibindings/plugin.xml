@@ -371,6 +371,38 @@
                class="com.rcpcompany.uibindings.internal.decorators.ConstantTreeItemDecorator">
          </javaDecorator>
       </bindingDecorator>
+      <bindingDecorator
+            exactModelTypeMatch="false"
+            id="com.rcpcompany.uibindings.basic.FileNameWidget.file"
+            type="fileName">
+         <modelType
+               alsoPrimitive="true"
+               class="java.lang.String">
+         </modelType>
+         <uiType
+               alsoPrimitive="true"
+               class="java.lang.String">
+         </uiType>
+         <javaDecorator
+               class="com.rcpcompany.uibindings.internal.decorators.FileNameWidgetDecorator:file">
+         </javaDecorator>
+      </bindingDecorator>
+      <bindingDecorator
+            exactModelTypeMatch="false"
+            id="com.rcpcompany.uibindings.basic.FileNameWidget.directory"
+            type="directoryName">
+         <modelType
+               alsoPrimitive="true"
+               class="java.lang.String">
+         </modelType>
+         <uiType
+               alsoPrimitive="true"
+               class="java.lang.String">
+         </uiType>
+         <javaDecorator
+               class="com.rcpcompany.uibindings.internal.decorators.FileNameWidgetDecorator:directory">
+         </javaDecorator>
+      </bindingDecorator>
    </extension>
    
    <extension
@@ -708,6 +740,16 @@
       <uiAttributeFactory
             class="com.rcpcompany.uibindings.internal.uiAttributeFactories.RadioGroupUIAttributeFactory"
             widgetType="org.eclipse.nebula.widgets.radiogroup.RadioGroup" attribute="text">
+      </uiAttributeFactory>
+      <uiAttributeFactory
+            attribute="text"
+            class="com.rcpcompany.uibindings.internal.uiAttributeFactories.FileNameWidgetDefaultUIAttributeFactory"
+            widgetType="com.rcpcompany.uibindings.widgets.FileNameControl">
+      </uiAttributeFactory>
+      <uiAttributeFactory
+            attribute=""
+            class="com.rcpcompany.uibindings.internal.uiAttributeFactories.FileNameWidgetDefaultUIAttributeFactory"
+            widgetType="com.rcpcompany.uibindings.widgets.FileNameControl">
       </uiAttributeFactory>
    </extension>
    

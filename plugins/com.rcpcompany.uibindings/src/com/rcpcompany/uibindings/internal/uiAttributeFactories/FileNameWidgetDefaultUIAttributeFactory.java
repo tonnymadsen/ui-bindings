@@ -2,20 +2,20 @@ package com.rcpcompany.uibindings.internal.uiAttributeFactories;
 
 import org.eclipse.jface.fieldassist.IControlContentAdapter;
 import org.eclipse.jface.fieldassist.TextContentAdapter;
-import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Widget;
 
 import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.IUIAttributeFactory;
 import com.rcpcompany.uibindings.internal.observables.TextObservableValue;
 import com.rcpcompany.uibindings.uiAttributes.SimpleUIAttribute;
+import com.rcpcompany.uibindings.widgets.FileNameControl;
 
 /**
- * Default {@link IUIAttributeFactory} for {@link Text} widgets.
+ * Default {@link IUIAttributeFactory} for {@link FileNameControl} widgets.
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class TextDefaultUIAttributeFactory implements IUIAttributeFactory {
+public class FileNameWidgetDefaultUIAttributeFactory implements IUIAttributeFactory {
 
 	@Override
 	public IUIAttribute create(Widget widget, String attribute) {
@@ -26,7 +26,7 @@ public class TextDefaultUIAttributeFactory implements IUIAttributeFactory {
 		private final IControlContentAdapter myAdapter;
 
 		public Attribute(Widget widget, String attribute) {
-			super(widget, attribute, new TextObservableValue((Text) widget), true);
+			super(widget, attribute, new TextObservableValue(((FileNameControl) widget).getTextControl()), true);
 
 			myAdapter = new TextContentAdapter();
 		}
