@@ -2188,6 +2188,15 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	public EReference getModelClassInfo_Types() {
+		return (EReference) modelClassInfoEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getModelFeatureInfo() {
 		return modelFeatureInfoEClass;
 	}
@@ -3906,6 +3915,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		modelClassInfoEClass = createEClass(MODEL_CLASS_INFO);
 		createEAttribute(modelClassInfoEClass, MODEL_CLASS_INFO__CLASS_NAME);
 		createEReference(modelClassInfoEClass, MODEL_CLASS_INFO__FEATURES);
+		createEReference(modelClassInfoEClass, MODEL_CLASS_INFO__TYPES);
 
 		modelFeatureInfoEClass = createEClass(MODEL_FEATURE_INFO);
 		createEAttribute(modelFeatureInfoEClass, MODEL_FEATURE_INFO__FEATURE_NAME);
@@ -4805,6 +4815,11 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				this.getStringToModelFeatureInfoMapEntry(),
 				null,
 				"features", null, 0, -1, IModelClassInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getModelClassInfo_Types(),
+				this.getStringToModelClassInfoMapEntry(),
+				null,
+				"types", null, 0, -1, IModelClassInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(modelFeatureInfoEClass, IModelFeatureInfo.class,
 				"ModelFeatureInfo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

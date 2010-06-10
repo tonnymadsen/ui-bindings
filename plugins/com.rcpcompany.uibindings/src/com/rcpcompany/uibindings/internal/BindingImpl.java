@@ -852,7 +852,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		} else if (argumentType == ImageDescriptor.class) {
 			final ImageDescriptor id = AbstractUIPlugin.imageDescriptorFromPlugin(ce.getContributor().getName(), value);
 			if (id == null) {
-				LogUtils.error(this, "Cannot find image"); //$NON-NLS-1$
+				LogUtils.error(this, "Cannot find image for '" + value + "': " + this); //$NON-NLS-1$
 			}
 			return (ArgumentType) id;
 		} else if (argumentType == IObservableList.class) {
@@ -1436,5 +1436,10 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	@Override
 	public void updateBinding() {
 		// Do nothing
+	}
+
+	@Override
+	public void updateBinding(Object[] objects) {
+		updateBinding();
 	}
 } // BindingImpl

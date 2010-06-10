@@ -949,7 +949,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 					continue;
 				}
 
-				final IModelClassInfo cInfo = getModelClassInfo(className, true);
+				final String type = ce.getAttribute(InternalConstants.TARGET_TYPE_TAG);
+
+				final IModelClassInfo cInfo = getModelClassInfo(className, type, true);
 				readArguments(cInfo, ce);
 
 				for (final IConfigurationElement childCE : ce.getChildren(InternalConstants.FEATURE_TAG)) {
@@ -959,7 +961,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 						continue;
 					}
 
-					final IModelFeatureInfo fInfo = getModelFeatureInfo(className, featureName, true);
+					final IModelFeatureInfo fInfo = getModelFeatureInfo(className, featureName, type, true);
 					readArguments(fInfo, childCE);
 				}
 			} else if (InternalConstants.TREE_ITEM_TAG.equals(elementName)) {
@@ -1821,20 +1823,32 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	}
 
 	@Override
-	public IModelClassInfo getModelClassInfo(String className, boolean create) {
+	public IModelClassInfo getModelClassInfo(String className, String type, boolean create) {
 		IModelClassInfo cInfo = getModelInfo().get(className);
 		if (cInfo == null && create) {
 			cInfo = IUIBindingsFactory.eINSTANCE.createModelClassInfo();
 			cInfo.setClassName(className);
 			getModelInfo().put(className, cInfo);
 		}
+		/*
+		 * Handle the type part
+		 */
+		if (cInfo != null && type != null && type.length() > 0) {
+			IModelClassInfo tInfo = cInfo.getTypes().get(type);
+			if (tInfo == null && create) {
+				tInfo = IUIBindingsFactory.eINSTANCE.createModelClassInfo();
+				tInfo.setClassName(className);
+				cInfo.getTypes().put(type, tInfo);
+			}
+			cInfo = tInfo;
+		}
 
 		return cInfo;
 	}
 
 	@Override
-	public IModelFeatureInfo getModelFeatureInfo(String className, String featureName, boolean create) {
-		final IModelClassInfo cInfo = getModelClassInfo(className, true);
+	public IModelFeatureInfo getModelFeatureInfo(String className, String featureName, String type, boolean create) {
+		final IModelClassInfo cInfo = getModelClassInfo(className, type, true);
 		if (cInfo == null) {
 			return null;
 		}
@@ -2522,9 +2536,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	}
 
 	@Override
-	public void updateBindings() {
+	public void updateBindings(Object[] objects) {
 		for (final IBindingContext c : getContexts()) {
-			c.updateBindings();
+			c.updateBindings(objects);
 		}
 	}
 

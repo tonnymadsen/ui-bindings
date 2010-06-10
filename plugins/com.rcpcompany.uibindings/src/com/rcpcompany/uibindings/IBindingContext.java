@@ -167,9 +167,11 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	}
 
 	/**
-	 * Updates all bindings.
+	 * Updates all bindings for the specified objects.
+	 * 
+	 * @param objects the changed objects or <code>null</code>
 	 */
-	public void updateBindings();
+	public void updateBindings(Object[] objects);
 
 	/**
 	 * Signals that all bindings are performed for this context.

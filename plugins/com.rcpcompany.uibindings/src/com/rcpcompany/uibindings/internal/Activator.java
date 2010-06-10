@@ -3,6 +3,7 @@ package com.rcpcompany.uibindings.internal;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.jface.resource.ResourceManager;
@@ -40,6 +41,12 @@ public class Activator extends AbstractUIPlugin {
 	 * The constructor
 	 */
 	public Activator() {
+	}
+
+	@Override
+	protected void initializeImageRegistry(ImageRegistry reg) {
+		super.initializeImageRegistry(reg);
+		reg.put(InternalConstants.IMG_OPEN_DIALOG, imageDescriptorFromPlugin(ID, "images/open-dialog.gif"));
 	}
 
 	private IPropertyChangeListener myListener = null;

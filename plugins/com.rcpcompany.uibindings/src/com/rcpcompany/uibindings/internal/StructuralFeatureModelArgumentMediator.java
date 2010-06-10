@@ -52,9 +52,8 @@ public class StructuralFeatureModelArgumentMediator implements IModelArgumentMed
 			}
 
 			final IModelFeatureInfo info = IManager.Factory.getManager().getModelFeatureInfo(c.getInstanceClassName(),
-					name, true);
+					name, null, true);
 			info.getDeclaredArguments().put(argName, entry.getValue());
-
 		}
 	}
 }

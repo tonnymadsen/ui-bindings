@@ -65,4 +65,20 @@ public interface IModelClassInfo extends IModelInfo {
 	 */
 	EMap<String, IModelFeatureInfo> getFeatures();
 
+	/**
+	 * Returns the value of the '<em><b>Types</b></em>' map. The key is of type {@link java.lang.String}, and the value
+	 * is of type {@link com.rcpcompany.uibindings.IModelClassInfo}, <!-- begin-user-doc -->
+	 * <p>
+	 * The types map is used to map from a type name to a {@link IModelClassInfo} object for that type. The map is only
+	 * used for {@link IModelClassInfo} objects that are found directly from the {@link IManager}. Thus there are not
+	 * types in two levels.
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Types</em>' map.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getModelClassInfo_Types()
+	 * @generated
+	 */
+	EMap<String, IModelClassInfo> getTypes();
+
 } // IModelClassInfo

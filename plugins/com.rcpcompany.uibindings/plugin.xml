@@ -373,7 +373,7 @@
       </bindingDecorator>
       <bindingDecorator
             exactModelTypeMatch="false"
-            id="com.rcpcompany.uibindings.basic.FileNameWidget.file"
+            id="com.rcpcompany.uibindings.basic.FileNameControl.file"
             type="fileName">
          <modelType
                alsoPrimitive="true"
@@ -384,12 +384,12 @@
                class="java.lang.String">
          </uiType>
          <javaDecorator
-               class="com.rcpcompany.uibindings.internal.decorators.FileNameWidgetDecorator:file">
+               class="com.rcpcompany.uibindings.internal.decorators.FileNameControlDecorator:file">
          </javaDecorator>
       </bindingDecorator>
       <bindingDecorator
             exactModelTypeMatch="false"
-            id="com.rcpcompany.uibindings.basic.FileNameWidget.directory"
+            id="com.rcpcompany.uibindings.basic.FileNameControl.directory"
             type="directoryName">
          <modelType
                alsoPrimitive="true"
@@ -400,7 +400,7 @@
                class="java.lang.String">
          </uiType>
          <javaDecorator
-               class="com.rcpcompany.uibindings.internal.decorators.FileNameWidgetDecorator:directory">
+               class="com.rcpcompany.uibindings.internal.decorators.FileNameControlDecorator:directory">
          </javaDecorator>
       </bindingDecorator>
    </extension>
@@ -743,12 +743,12 @@
       </uiAttributeFactory>
       <uiAttributeFactory
             attribute="text"
-            class="com.rcpcompany.uibindings.internal.uiAttributeFactories.FileNameWidgetDefaultUIAttributeFactory"
+            class="com.rcpcompany.uibindings.internal.uiAttributeFactories.FileNameControlDefaultUIAttributeFactory"
             widgetType="com.rcpcompany.uibindings.widgets.FileNameControl">
       </uiAttributeFactory>
       <uiAttributeFactory
             attribute=""
-            class="com.rcpcompany.uibindings.internal.uiAttributeFactories.FileNameWidgetDefaultUIAttributeFactory"
+            class="com.rcpcompany.uibindings.internal.uiAttributeFactories.FileNameControlDefaultUIAttributeFactory"
             widgetType="com.rcpcompany.uibindings.widgets.FileNameControl">
       </uiAttributeFactory>
    </extension>
@@ -869,6 +869,22 @@
             </argument>
          </feature>
       </model>
+      <model
+            class="java.lang.String"
+            targetType="fileName">
+         <argument
+               name="preferredControl"
+               value="com.rcpcompany.uibindings.widgets.FileNameControl">
+         </argument>
+      </model>
+      <model
+            class="java.lang.String"
+            targetType="directoryName">
+         <argument
+               name="preferredControl"
+               value="com.rcpcompany.uibindings.widgets.FileNameControl">
+         </argument>
+      </model>
       <modelArgumentMediator
             class="com.rcpcompany.uibindings.internal.StructuralFeatureModelArgumentMediator">
       </modelArgumentMediator>
@@ -916,6 +932,10 @@
       <decoratorExtender
             class="com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator$Extender"
             priority="100">
+      </decoratorExtender>
+      <decoratorExtender
+            class="com.rcpcompany.uibindings.internal.decorators.extenders.LabelDecoratorExtender"
+            priority="10000">
       </decoratorExtender>
    </extension>
    <extension

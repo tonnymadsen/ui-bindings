@@ -2398,13 +2398,21 @@ public interface IUIBindingsPackage extends EPackage {
 	int MODEL_CLASS_INFO__FEATURES = MODEL_INFO_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Types</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_CLASS_INFO__TYPES = MODEL_INFO_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Model Class Info</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_CLASS_INFO_FEATURE_COUNT = MODEL_INFO_FEATURE_COUNT + 2;
+	int MODEL_CLASS_INFO_FEATURE_COUNT = MODEL_INFO_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -5785,6 +5793,17 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getModelClassInfo_Features();
 
 	/**
+	 * Returns the meta object for the map '{@link com.rcpcompany.uibindings.IModelClassInfo#getTypes <em>Types</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the map '<em>Types</em>'.
+	 * @see com.rcpcompany.uibindings.IModelClassInfo#getTypes()
+	 * @see #getModelClassInfo()
+	 * @generated
+	 */
+	EReference getModelClassInfo_Types();
+
+	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IModelFeatureInfo
 	 * <em>Model Feature Info</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -8858,6 +8877,14 @@ public interface IUIBindingsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MODEL_CLASS_INFO__FEATURES = eINSTANCE.getModelClassInfo_Features();
+
+		/**
+		 * The meta object literal for the '<em><b>Types</b></em>' map feature. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference MODEL_CLASS_INFO__TYPES = eINSTANCE.getModelClassInfo_Types();
 
 		/**
 		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.ModelFeatureInfoImpl

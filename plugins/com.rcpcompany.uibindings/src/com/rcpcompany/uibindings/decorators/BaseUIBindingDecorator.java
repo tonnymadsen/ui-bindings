@@ -771,6 +771,20 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		}
 
 		@Override
+		public Image getImage() {
+			if (myImageSet) {
+				return myImage;
+			}
+			if (myImageValue == null) {
+				myImageValue = getAttribute().getImageValue();
+			}
+			if (myImageValue != null) {
+				return (Image) myImageValue.getValue();
+			}
+			return null;
+		}
+
+		@Override
 		public void setImage(Image image) {
 			myImage = image;
 			myImageSet = true;

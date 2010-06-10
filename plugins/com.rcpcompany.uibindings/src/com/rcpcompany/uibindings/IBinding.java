@@ -71,6 +71,13 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	public void updateBinding();
 
 	/**
+	 * Updates the binding.
+	 * 
+	 * @param objects the changed objects or <code>null</code>
+	 */
+	public void updateBinding(Object[] objects);
+
+	/**
 	 * Sets the type of the binding. Defaults to the empty string.
 	 * 
 	 * @param type the type name

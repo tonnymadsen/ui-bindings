@@ -85,9 +85,11 @@ public interface IManager extends IBaseObject {
 	}
 
 	/**
-	 * Updates all bindings.
+	 * Updates all bindings for the specified objects.
+	 * 
+	 * @param objects the changed objects or <code>null</code>
 	 */
-	public void updateBindings();
+	public void updateBindings(Object[] objects);
 
 	/**
 	 * Returns the value of the '<em><b>Providers</b></em>' containment reference list. The list contents are of type
@@ -779,20 +781,22 @@ public interface IManager extends IBaseObject {
 	 * Returns the model class information record for the specified model class.
 	 * 
 	 * @param className the class name
-	 * @param create TODO
+	 * @param type the binding type
+	 * @param create <code>true</code> if the record should be created if not already present
 	 * @return the record
 	 */
-	IModelClassInfo getModelClassInfo(String className, boolean create);
+	IModelClassInfo getModelClassInfo(String className, String type, boolean create);
 
 	/**
 	 * Returns the model feature information record for the specified model class and feature.
 	 * 
 	 * @param className the class name
 	 * @param featureName the feature name
-	 * @param create TODO
+	 * @param type the binding type
+	 * @param create <code>true</code> if the record should be created if not already present
 	 * @return the record or <code>null</code>
 	 */
-	IModelFeatureInfo getModelFeatureInfo(String className, String featureName, boolean create);
+	IModelFeatureInfo getModelFeatureInfo(String className, String featureName, String type, boolean create);
 
 	/**
 	 * Returns the decorator provider for the combined triple model type, UI type and type name.

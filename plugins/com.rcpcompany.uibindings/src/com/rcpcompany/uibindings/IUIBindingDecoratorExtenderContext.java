@@ -73,6 +73,13 @@ public interface IUIBindingDecoratorExtenderContext {
 	public void setDecoratingImage(DecorationPosition position, boolean outside, Image image, String tooltip);
 
 	/**
+	 * Returns the image value of this context.
+	 * 
+	 * @return the current image of the context
+	 */
+	public Image getImage();
+
+	/**
 	 * Sets the new image value of this context.
 	 * 
 	 * @param image the new image

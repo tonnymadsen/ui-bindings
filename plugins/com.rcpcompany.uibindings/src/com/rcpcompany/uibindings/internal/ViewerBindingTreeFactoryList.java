@@ -46,12 +46,16 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 
 					@Override
 					public void handleRemove(int index, Object element) {
-						LogUtils.debug(ViewerBindingTreeFactoryList.this, "removed[" + index + "]: " + element);
+						if (Activator.getDefault().TRACE_TREE) {
+							LogUtils.debug(ViewerBindingTreeFactoryList.this, "removed[" + index + "]: " + element);
+						}
 					}
 
 					@Override
 					public void handleAdd(int index, Object element) {
-						LogUtils.debug(ViewerBindingTreeFactoryList.this, "added[" + index + "]: " + element);
+						if (Activator.getDefault().TRACE_TREE) {
+							LogUtils.debug(ViewerBindingTreeFactoryList.this, "added[" + index + "]: " + element);
+						}
 					}
 				});
 			}

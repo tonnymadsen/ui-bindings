@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IArgumentProvider;
 import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingDataType;
@@ -44,7 +45,7 @@ import com.rcpcompany.uibindings.internal.BindingImpl.ArgumentValue;
  */
 public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindingDataType {
 	@Override
-	public abstract IArgumentProvider getArgumentProvider();
+	public abstract IArgumentProvider getArgumentProvider(String type);
 
 	@Override
 	public <ArgumentType> boolean addArguments(List<IArgumentValue<ArgumentType>> results, IBinding binding,
@@ -56,8 +57,21 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 			return true;
 		}
 
-		got |= binding.getArgumentProviderArguments(results, name, this.getArgumentProvider(), argumentType, firstOnly);
-
+		/*
+		 * Avoid recursion when resolving the "type" argument!!!
+		 */
+		if (!Constants.ARG_TYPE.equals(name)) {
+			final String type = binding.getType();
+			if (type != null && type.length() > 0) {
+				got |= binding.getArgumentProviderArguments(results, name, this.getArgumentProvider(type),
+						argumentType, firstOnly);
+				if (got && firstOnly) {
+					return true;
+				}
+			}
+		}
+		got |= binding.getArgumentProviderArguments(results, name, this.getArgumentProvider(null), argumentType,
+				firstOnly);
 		return got;
 	}
 

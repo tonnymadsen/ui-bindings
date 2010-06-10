@@ -93,7 +93,7 @@ public class FilteringTableAdapter implements IFilteringTableAdapter, DisposeLis
 			if ((myText.getStyle() & SWT.CANCEL) != 0) {
 				myText.addSelectionListener(myFilterClearListener);
 			}
-			myText.addFocusListener(myFiterFocusListener);
+			myText.addFocusListener(myFilterFocusListener);
 			myText.addKeyListener(myFilterKeylistener);
 			myTable.addKeyListener(myTableKeylistener);
 		}
@@ -108,7 +108,7 @@ public class FilteringTableAdapter implements IFilteringTableAdapter, DisposeLis
 			if ((myText.getStyle() & SWT.CANCEL) != 0) {
 				myText.removeSelectionListener(myFilterClearListener);
 			}
-			myText.removeFocusListener(myFiterFocusListener);
+			myText.removeFocusListener(myFilterFocusListener);
 			myText.removeKeyListener(myFilterKeylistener);
 			myTable.removeKeyListener(myTableKeylistener);
 		}
@@ -167,7 +167,7 @@ public class FilteringTableAdapter implements IFilteringTableAdapter, DisposeLis
 	/**
 	 * Filter Focus listener: selects all text of the filter when it gets focus
 	 */
-	protected FocusAdapter myFiterFocusListener = new FocusAdapter() {
+	protected FocusAdapter myFilterFocusListener = new FocusAdapter() {
 		@Override
 		public void focusGained(FocusEvent e) {
 			/*

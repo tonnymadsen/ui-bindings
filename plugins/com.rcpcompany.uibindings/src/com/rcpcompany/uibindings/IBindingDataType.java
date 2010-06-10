@@ -246,11 +246,13 @@ public interface IBindingDataType extends EObject {
 	boolean isUnsettable();
 
 	/**
-	 * Returns an {@link IArgumentProvider argument provider} with all arguments for this data type.
+	 * Returns an {@link IArgumentProvider argument provider} with all arguments for this data type and the specified
+	 * binding type.
 	 * 
+	 * @param type the type of the binding
 	 * @return the argument provider
 	 */
-	IArgumentProvider getArgumentProvider();
+	IArgumentProvider getArgumentProvider(String type);
 
 	/**
 	 * Handles any additions of arguments from this data type.

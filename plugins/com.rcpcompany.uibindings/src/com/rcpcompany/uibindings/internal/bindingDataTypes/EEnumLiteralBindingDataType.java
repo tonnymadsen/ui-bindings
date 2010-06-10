@@ -40,10 +40,11 @@ public class EEnumLiteralBindingDataType extends BindingDataTypeImpl {
 	}
 
 	@Override
-	public IArgumentProvider getArgumentProvider() {
+	public IArgumentProvider getArgumentProvider(String type) {
 		final IManager manager = IManager.Factory.getManager();
 		manager.runModelArgumentMediators(myLiteral.getEEnum());
-		return manager.getModelFeatureInfo(myLiteral.getEEnum().getInstanceClassName(), myLiteral.getLiteral(), false);
+		return manager.getModelFeatureInfo(myLiteral.getEEnum().getInstanceClassName(), myLiteral.getLiteral(), type,
+				false);
 	}
 
 	@Override

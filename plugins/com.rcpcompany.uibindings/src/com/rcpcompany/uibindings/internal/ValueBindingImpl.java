@@ -1166,6 +1166,24 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	}
 
 	@Override
+	public void updateBinding(Object[] objects) {
+		if (objects != null) {
+			boolean found = false;
+			final EObject modelObject = getModelObject();
+			for (final Object object : objects) {
+				if (object == modelObject) {
+					found = true;
+					break;
+				}
+			}
+			if (!found) {
+				return;
+			}
+		}
+		updateBinding();
+	}
+
+	@Override
 	public void updateSourceProviderState(ISourceProviderStateContext context) {
 		context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING, this);
 		final IObservableValue v = getModelObservableValue();

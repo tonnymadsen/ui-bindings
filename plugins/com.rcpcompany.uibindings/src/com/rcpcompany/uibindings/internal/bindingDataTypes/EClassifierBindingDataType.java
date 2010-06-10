@@ -38,10 +38,10 @@ public class EClassifierBindingDataType extends BindingDataTypeImpl {
 	}
 
 	@Override
-	public IArgumentProvider getArgumentProvider() {
+	public IArgumentProvider getArgumentProvider(String type) {
 		final IManager manager = IManager.Factory.getManager();
 		manager.runModelArgumentMediators(myClass);
-		return manager.getModelClassInfo(myClass.getInstanceClassName(), false);
+		return manager.getModelClassInfo(myClass.getInstanceClassName(), type, false);
 	};
 
 	@Override

@@ -65,6 +65,15 @@ public class ModelClassInfoImpl extends ModelInfoImpl implements IModelClassInfo
 	protected EMap<String, IModelFeatureInfo> features;
 
 	/**
+	 * The cached value of the '{@link #getTypes() <em>Types</em>}' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getTypes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EMap<String, IModelClassInfo> types;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -125,11 +134,27 @@ public class ModelClassInfoImpl extends ModelInfoImpl implements IModelClassInfo
 	 * 
 	 * @generated
 	 */
+	public EMap<String, IModelClassInfo> getTypes() {
+		if (types == null) {
+			types = new EcoreEMap<String, IModelClassInfo>(
+					IUIBindingsPackage.Literals.STRING_TO_MODEL_CLASS_INFO_MAP_ENTRY,
+					StringToModelClassInfoMapEntryImpl.class, this, IUIBindingsPackage.MODEL_CLASS_INFO__TYPES);
+		}
+		return types;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case IUIBindingsPackage.MODEL_CLASS_INFO__FEATURES:
 			return ((InternalEList<?>) getFeatures()).basicRemove(otherEnd, msgs);
+		case IUIBindingsPackage.MODEL_CLASS_INFO__TYPES:
+			return ((InternalEList<?>) getTypes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -150,6 +175,12 @@ public class ModelClassInfoImpl extends ModelInfoImpl implements IModelClassInfo
 			} else {
 				return getFeatures().map();
 			}
+		case IUIBindingsPackage.MODEL_CLASS_INFO__TYPES:
+			if (coreType) {
+				return getTypes();
+			} else {
+				return getTypes().map();
+			}
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -169,6 +200,9 @@ public class ModelClassInfoImpl extends ModelInfoImpl implements IModelClassInfo
 		case IUIBindingsPackage.MODEL_CLASS_INFO__FEATURES:
 			((EStructuralFeature.Setting) getFeatures()).set(newValue);
 			return;
+		case IUIBindingsPackage.MODEL_CLASS_INFO__TYPES:
+			((EStructuralFeature.Setting) getTypes()).set(newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -187,6 +221,9 @@ public class ModelClassInfoImpl extends ModelInfoImpl implements IModelClassInfo
 		case IUIBindingsPackage.MODEL_CLASS_INFO__FEATURES:
 			getFeatures().clear();
 			return;
+		case IUIBindingsPackage.MODEL_CLASS_INFO__TYPES:
+			getTypes().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -203,6 +240,8 @@ public class ModelClassInfoImpl extends ModelInfoImpl implements IModelClassInfo
 			return CLASS_NAME_EDEFAULT == null ? className != null : !CLASS_NAME_EDEFAULT.equals(className);
 		case IUIBindingsPackage.MODEL_CLASS_INFO__FEATURES:
 			return features != null && !features.isEmpty();
+		case IUIBindingsPackage.MODEL_CLASS_INFO__TYPES:
+			return types != null && !types.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

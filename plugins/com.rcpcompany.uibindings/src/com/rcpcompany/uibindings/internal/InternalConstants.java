@@ -8,6 +8,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 
 import com.rcpcompany.uibindings.IBinding;
+import com.rcpcompany.uibindings.widgets.FileNameControl;
 
 /**
  * Various <em>internal</em> constants that does not belong anywhere else.
@@ -65,6 +66,7 @@ public class InternalConstants {
 	public static final String UI_TYPE_TAG = "uiType"; //$NON-NLS-1$
 	public static final String IMAGE_TAG = "image"; //$NON-NLS-1$
 	public static final String TYPE_TAG = "type"; //$NON-NLS-1$
+	public static final String TARGET_TYPE_TAG = "targetType"; //$NON-NLS-1$
 	public static final String DEFAULT_MAPPINGS_TAG = "defaultMappings"; //$NON-NLS-1$
 	public static final String MAPPING_TAG = "mapping"; //$NON-NLS-1$
 	public static final String ALSO_PRIMITIVE_TAG = "alsoPrimitive"; //$NON-NLS-1$
@@ -81,7 +83,7 @@ public class InternalConstants {
 	public static final String CELL_EDITOR_TYPE_STYLED_TEXT = StyledText.class.getName();
 
 	/**
-	 * Cell Editor Type: Button (realy checkbox)
+	 * Cell Editor Type: Button (really checkbox)
 	 */
 	public static final String CELL_EDITOR_TYPE_BUTTON = Button.class.getName();
 
@@ -95,4 +97,8 @@ public class InternalConstants {
 	 */
 	public static final String CELL_EDITOR_TYPE_CCOMBO = CCombo.class.getName();
 
+	/**
+	 * The resource name for the image in {@link FileNameControl} to designate the open dialog button.
+	 */
+	public static final String IMG_OPEN_DIALOG = "open-dialog";
 }

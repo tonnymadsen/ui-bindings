@@ -134,7 +134,18 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 		if (getColumn().getSpecialBindingType() == SpecialBinding.TREE_ITEM) {
 			final IBindingDataType dataType = IBindingDataType.Factory.create(getElement().eClass());
 			if (dataType != null) {
-				final IArgumentProvider ap = dataType.getArgumentProvider();
+				final String type = lb.getType();
+				if (type != null && type.length() > 0) {
+					final IArgumentProvider ap = dataType.getArgumentProvider(type);
+					if (ap != null) {
+						if (Activator.getDefault().TRACE_TREE) {
+							LogUtils.debug(this, lb + ": added data type argument provider(binding type: " + type
+									+ "): " + dataType);
+						}
+						lb.getExtraArgumentProviders().add(ap);
+					}
+				}
+				final IArgumentProvider ap = dataType.getArgumentProvider(null);
 				if (ap != null) {
 					if (Activator.getDefault().TRACE_TREE) {
 						LogUtils.debug(this, lb + ": added data type argument provider: " + dataType);

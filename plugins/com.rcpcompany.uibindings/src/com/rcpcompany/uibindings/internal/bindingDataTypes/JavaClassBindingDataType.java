@@ -37,8 +37,8 @@ public class JavaClassBindingDataType extends BindingDataTypeImpl {
 	}
 
 	@Override
-	public IArgumentProvider getArgumentProvider() {
-		return IManager.Factory.getManager().getModelClassInfo(myClass.getName(), false);
+	public IArgumentProvider getArgumentProvider(String type) {
+		return IManager.Factory.getManager().getModelClassInfo(myClass.getName(), type, false);
 	};
 
 	@Override

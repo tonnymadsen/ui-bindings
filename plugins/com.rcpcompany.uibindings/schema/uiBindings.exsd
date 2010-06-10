@@ -503,10 +503,17 @@ Each model class can have a number of arguments for the label binding in the for
             <element ref="feature"/>
             <element ref="argument"/>
          </choice>
+         <attribute name="targetType" type="string">
+            <annotation>
+               <documentation>
+                  the target binding type - possibly empty. If specified, the &lt;code&gt;feature&lt;/code&gt; and &lt;code&gt;argument&lt;/code&gt; sub-elements are for the specified type only.
+               </documentation>
+            </annotation>
+         </attribute>
          <attribute name="class" type="string" use="required">
             <annotation>
                <documentation>
-                  the model class. This can also be the type of an attribute.
+                  the model class. This can also be the type of an attribute as well as a Java class or a primitive type.
                </documentation>
                <appinfo>
                   <meta.attribute kind="java"/>

@@ -25,7 +25,7 @@ import com.rcpcompany.uibindings.IUIBindingsFactory;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.bindingMessages.AbstractBindingMessage;
 import com.rcpcompany.uibindings.internal.Activator;
-import com.rcpcompany.uibindings.internal.decorators.FileNameWidgetDecorator;
+import com.rcpcompany.uibindings.internal.decorators.FileNameControlDecorator;
 import com.rcpcompany.uibindings.internal.decorators.NumberBindingDecorator;
 import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
 
@@ -131,8 +131,8 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 				cs.add(new NumberConstraint(sf, decorator));
 			} else if (provider instanceof IJavaDecoratorProvider) {
 				final IUIBindingDecorator decorator = provider.getDecorator();
-				if (decorator instanceof FileNameWidgetDecorator) {
-					final FileNameWidgetDecorator fnw = (FileNameWidgetDecorator) decorator;
+				if (decorator instanceof FileNameControlDecorator) {
+					final FileNameControlDecorator fnw = (FileNameControlDecorator) decorator;
 					fnw.initForValidation(vb);
 					cs.add(new FileNameConstraint(sf, fnw));
 				}
@@ -224,7 +224,7 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 	public static class FileNameConstraint implements IConstraint {
 
 		private final EStructuralFeature myFeature;
-		private final FileNameWidgetDecorator myDecorator;
+		private final FileNameControlDecorator myDecorator;
 
 		/**
 		 * Constructs and return a new constraint for the specified feature and decorator
@@ -232,7 +232,7 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 		 * @param feature the feature in question
 		 * @param decorator the decorator to use to perform the validationitself
 		 */
-		public FileNameConstraint(EStructuralFeature feature, FileNameWidgetDecorator decorator) {
+		public FileNameConstraint(EStructuralFeature feature, FileNameControlDecorator decorator) {
 			myFeature = feature;
 			myDecorator = decorator;
 		}

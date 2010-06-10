@@ -86,6 +86,13 @@ public interface Constants {
 	public static final String ARG_DYNAMIC = "dynamic"; //$NON-NLS-1$
 
 	/**
+	 * Argument name for columns that should have "label decoration". Only relevant for {@link IColumnBinding}.
+	 * <p>
+	 * The argument value is {@link Boolean}. The default is <code>false</code>.
+	 */
+	public static final String ARG_LABEL_DECORATOR = "labelDecorator"; //$NON-NLS-1$
+
+	/**
 	 * Argument name for the image to show with the value.
 	 * <p>
 	 * The argument value is {@link ImageDescriptor}. The default is no image.
@@ -517,6 +524,16 @@ public interface Constants {
 	 * The {@link IBinding} type used for fields that should have a long human readable name.
 	 */
 	public static final String TYPE_LONG_NAME = "longName"; //$NON-NLS-1$
+
+	/**
+	 * The {@link IBinding} type used for fields that contains a file name.
+	 */
+	public static final String TYPE_FILE_NAME = "fileName";
+
+	/**
+	 * The {@link IBinding} type used for fields that contains a directory name.
+	 */
+	public static final String TYPE_DIRECTORY_NAME = "directoryName";
 
 	/**
 	 * This expression evaluates to <code>true</code> and has a very high source priority.
