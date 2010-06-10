@@ -475,7 +475,12 @@ public class UIAttributePainter {
 		final Image image = new Image(control.getDisplay(), bsize.x, bsize.y);
 		gc.copyArea(image, 0, 0);
 		gc.dispose();
-		shell.close();
+		shell.getDisplay().asyncExec(new Runnable() {
+			@Override
+			public void run() {
+				shell.close();
+			}
+		});
 
 		final ImageData imageData = image.getImageData();
 		imageData.transparentPixel = imageData.palette.getPixel(greenScreen.getRGB());
