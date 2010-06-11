@@ -55,7 +55,7 @@ public class UIBindingsUtils {
 	 * 
 	 * @param isFatal <code>true</code> if this is a fatal error - value should not set in data binding
 	 * @param code the code used for the message
-	 * @param m the message for thew error
+	 * @param m the message for the error
 	 * @return a new error status with the given message
 	 */
 	public static IStatus error(boolean isFatal, int code, String m) {
@@ -64,6 +64,19 @@ public class UIBindingsUtils {
 		} else {
 			return new MyNonFatalStatus(IStatus.ERROR, Activator.ID, code, m, null);
 		}
+	}
+
+	/**
+	 * Creates a new validation warning status with the given message.
+	 * <p>
+	 * This warning message does <em>not</em> prevent the data binding to set the value
+	 * 
+	 * @param code the code used for the message
+	 * @param m the message for the warning
+	 * @return a new warning status with the given message
+	 */
+	public static IStatus warning(int code, String m) {
+		return new Status(IStatus.WARNING, Activator.ID, code, m, null);
 	}
 
 	/**
