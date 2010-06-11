@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         id="testApplication"
+         point="org.eclipse.core.runtime.applications">
+      <application
+            cardinality="singleton-global"
+            thread="main"
+            visible="true">
+         <run
+               class="com.rcpcompany.uibindings.tests.application.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="com.rcpcompany.uibindings.tests.application.Perspective"
+            id="com.rcpcompany.uibindings.tests.application.Perspective"
+            name="Test Perspective">
+      </perspective>
+   </extension>
+
+</plugin>

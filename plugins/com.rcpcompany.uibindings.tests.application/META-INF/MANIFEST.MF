@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test Application Plug-in
+Bundle-SymbolicName: com.rcpcompany.uibindings.tests.application;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Vendor: The RCP Company
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ui,
+ com.rcpcompany.utils.logging;bundle-version="1.1.2",
+ com.rcpcompany.utils.basic;bundle-version="1.0.3"
+Export-Package: com.rcpcompany.uibindings.tests.application
+Bundle-Activator: com.rcpcompany.uibindings.tests.application.Activator
