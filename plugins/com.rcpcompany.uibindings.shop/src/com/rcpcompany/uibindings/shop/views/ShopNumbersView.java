@@ -18,6 +18,7 @@ public class ShopNumbersView extends ViewPart {
 		myForm.addField("name");
 		myForm.addField("nextOrderNo");
 		myForm.addField("nextCustomerNo");
+		myForm.addField("tmpdir");
 
 		myForm.finish();
 		IBindingContextSelectionProvider.Factory.adapt(myForm.getContext(), getSite());
