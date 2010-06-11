@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+<extension
+      point="org.eclipse.ui.decorators">
+   <decorator
+         class="com.rcpcompany.uibindings.bindingMessages.ValidationLabelDecorator:propagate"
+         id="com.rcpcompany.uibindings.decorator"
+         label="UI Bindings"
+         lightweight="true"
+         location="TOP_LEFT"
+         state="true">
+         <enablement>
+         <objectClass
+               name="org.eclipse.emf.ecore.EObject">
+         </objectClass>
+      </enablement>
+   </decorator>
+</extension>
+<extension
+      point="org.eclipse.ui.menus">
+   <menuContribution
+         locationURI="menu:navigate">
+      <command
+            commandId="org.eclipse.ui.navigate.backwardHistory"
+            id="com.rcpcompany.uibindings.backwardHistoryMenu"
+            style="pulldown">
+      </command>
+      <command
+            commandId="org.eclipse.ui.navigate.forwardHistory"
+            id="com.rcpcompany.uibindings.forwardHistoryMenu"
+            style="pulldown">
+      </command>
+   </menuContribution>
+   <menuContribution
+         locationURI="toolbar:navigate">
+      <command
+            commandId="org.eclipse.ui.navigate.backwardHistory"
+            id="com.rcpcompany.uibindings.backwardHistoryMenu"
+            style="pulldown">
+      </command>
+      <command
+            commandId="org.eclipse.ui.navigate.forwardHistory"
+            id="com.rcpcompany.uibindings.forwardHistoryMenu"
+            style="pulldown">
+      </command>
+   </menuContribution>
+   <menuContribution
+         class="com.rcpcompany.uibindings.utils.IGlobalNavigationManager$BackwardHistoryMenuContributor"
+         locationURI="menu:com.rcpcompany.uibindings.backwardHistoryMenu">
+   </menuContribution>
+   <menuContribution
+         class="com.rcpcompany.uibindings.utils.IGlobalNavigationManager$ForwardHistoryMenuContributor"
+         locationURI="menu:com.rcpcompany.uibindings.forwardHistoryMenu">
+   </menuContribution>
+</extension>
+<extension
+      point="org.eclipse.ui.handlers">
+   <handler
+         class="com.rcpcompany.uibindings.navigator.handlers.NavigatorViewCollapseAll"
+         commandId="org.eclipse.ui.navigate.collapseAll">
+      <activeWhen>
+         <with
+               variable="activePart">
+            <instanceof
+                  value="com.rcpcompany.uibindings.navigator.views.NavigatorBaseView">
+            </instanceof>
+         </with>
+      </activeWhen>
+   </handler>
+</extension>
+</plugin>
