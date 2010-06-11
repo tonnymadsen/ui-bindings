@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model"
+    nsURI="http://rcp-company.com/schemas/uibindings/testModel" nsPrefix="tm">
+  <eClassifiers xsi:type="ecore:EClass" name="TestObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        unsettable="true">
+      <eAnnotations source="http://rcp-company.com/schemas/uibindings">
+        <details key="foobar" value="b"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="d" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="f" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://rcp-company.com/schemas/uibindings">
+        <details key="foobar" value="not used: feature text"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//TestContainer"
+        eOpposite="#//TestContainer/children"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="b" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ac" eType="#//AmountAndCurrencyStruct"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" lowerBound="1" eType="#//WeightUnit"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeUnit" eType="#//TimeUnit"
+        transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="byte" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="short" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort">
+      <eAnnotations source="http://rcp-company.com/schemas/uibindings">
+        <details key="foobar" value="b"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="long" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="http://rcp-company.com/schemas/uibindings">
+        <details key="foobar" value="b"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bigDecimal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bigInteger" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SubTestObject" eSuperTypes="#//TestObject">
+    <eAnnotations source="http://rcp-company.com/schemas/uibindings">
+      <details key="number.foobar" value="b.sub"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestContainer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//TestObject" containment="true" eOpposite="#//TestObject/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="current" eType="#//TestObject"
+        unsettable="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AmountAndCurrency">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="currency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="WeightUnit">
+    <eLiterals name="G"/>
+    <eLiterals name="KG"/>
+    <eLiterals name="Tonne" literal="TONNE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TimeUnit">
+    <eLiterals name="SEC"/>
+    <eLiterals name="MIN" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="AmountAndCurrencyStruct" instanceClassName="com.rcpcompany.uibinding.tests.model.AmountAndCurrency">
+    <eAnnotations source="http://rcp-company.com/schemas/uibindings">
+      <details key="foobar" value="c"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestGrid">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
+        eType="#//TestGridColumn" transient="true" resolveProxies="false" eOpposite="#//TestGridColumn/grid"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rows" upperBound="-1" eType="#//TestGridRow"
+        transient="true" resolveProxies="false" eOpposite="#//TestGridRow/grid"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestGridColumn">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="grid" eType="#//TestGrid"
+        transient="true" resolveProxies="false" eOpposite="#//TestGrid/columns"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cells" upperBound="-1"
+        eType="#//TestGridCell" transient="true" resolveProxies="false" eOpposite="#//TestGridCell/column"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestGridRow">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="grid" eType="#//TestGrid"
+        transient="true" resolveProxies="false" eOpposite="#//TestGrid/rows"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestGridCell">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="details" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="column" eType="#//TestGridColumn"
+        transient="true" resolveProxies="false" eOpposite="#//TestGridColumn/cells"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="row" eType="#//TestGridRow"
+        transient="true" resolveProxies="false"/>
+  </eClassifiers>
+</ecore:EPackage>

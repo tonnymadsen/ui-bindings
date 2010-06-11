@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://rcp-company.com/schemas/uibindings/testModel"
+            class="com.rcpcompany.uibinding.tests.model.TestModelPackage"
+            genModel="model/EX.genmodel"/>
+   </extension>
+   <extension
+         point="com.rcpcompany.uibindings.uiBindings">
+      <bindingDecorator
+            type="price">
+         <modelType
+               alsoPrimitive="true"
+               class="java.lang.Float">
+         </modelType>
+         <uiType
+               class="java.lang.String">
+         </uiType>
+         <number
+               format="%,.2f">
+         </number>
+         <argument
+               name="min"
+               value="0">
+         </argument>
+         <argument
+               name="max"
+               value="10000">
+         </argument>
+         <argument
+               name="financialUpDown"
+               value="true">
+         </argument>
+      </bindingDecorator>
+      <model
+            class="com.rcpcompany.uibindings.tests.shop.ShopItem">
+         <feature
+               name="price">
+            <argument
+                  name="type"
+                  value="price">
+            </argument>
+         </feature>
+      </model>
+   </extension>
+
+</plugin>

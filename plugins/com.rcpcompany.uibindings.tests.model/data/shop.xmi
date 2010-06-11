@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shop:Shop xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:shop="http://rcp-company.com/schemas/shop.ecore" name="IT Shop">
+  <countries name="Denmark" abbreviation="DK"/>
+  <countries name="Norway" abbreviation="NO"/>
+  <countries name="Sweden" abbreviation="SE"/>
+  <contacts name="Tue Aller" address="Algade 4" city="Trondheim" zip="3400" country="Norway" newsletter="true" birthday="1999-10-10T00:00:00.000+0200"/>
+  <contacts name="Hans Jörgenson" address="Vasagatan 5" city="Stockholm" zip="21 145" country="Norway" customer="//@customers.1" birthday="1976-12-16T00:00:00.000+0100"/>
+  <contacts name="Tonny Madsen" address="Rued Langgaards Vej 7, 5D12" city="København" zip="2300" country="Denmark" customer="//@customers.0" newsletter="true" birthday="1964-11-16T00:00:00.000+0100"/>
+  <contacts name="Henrik Hansen" city="Søborg" country="Norway" birthday="1964-11-16T00:00:00.000+0100"/>
+  <contacts name="Søren Søren" city="Århus" country="Denmark" birthday="1964-11-16T00:00:00.000+0100"/>
+  <shopItems name="EMF Eclipse Modeling Framework" price="200.0"/>
+  <shopItems name="RCP Principles" price="210.0"/>
+  <shopItems name="Eclipse Plug-ins" price="300.0">
+    <information xsi:type="shop:ShopItemDescription" description="By Instantiations"/>
+  </shopItems>
+  <shopItems name="FAQ" price="56.0">
+    <information xsi:type="shop:ShopItemURL" url="http://hello"/>
+  </shopItems>
+  <orders customer="//@customers.0">
+    <items item="//@shopItems.3" count="2"/>
+    <items item="//@shopItems.0"/>
+  </orders>
+  <customers contact="//@contacts.2" orders="//@orders.0"/>
+  <customers contact="//@contacts.1"/>
+</shop:Shop>
