@@ -1,6 +1,7 @@
 package com.rcpcompany.uibindings.internal.bindingMessages.messageAdapters;
 
 import org.eclipse.core.databinding.Binding;
+import org.eclipse.core.databinding.observable.Diffs;
 import org.eclipse.core.databinding.observable.value.AbstractObservableValue;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.IValueChangeListener;
@@ -29,7 +30,7 @@ public class DataBindingDecoratorMessageObservableValue extends AbstractObservab
 	/**
 	 * The current message of the observable value.
 	 */
-	protected final Message myMessage;
+	protected Message myMessage;
 	/**
 	 * The current validation status of the data binding.
 	 */
@@ -44,8 +45,8 @@ public class DataBindingDecoratorMessageObservableValue extends AbstractObservab
 	public DataBindingDecoratorMessageObservableValue(IValueBinding valueBinding, Binding dataBinding) {
 		myValueBinding = valueBinding;
 		myDataBinding = dataBinding;
-		myMessage = new Message(myValueBinding);
 		myValidationStatus = myDataBinding.getValidationStatus();
+		myMessage = new Message(myValueBinding, (IStatus) myValidationStatus.getValue());
 	}
 
 	@Override
@@ -95,13 +96,17 @@ public class DataBindingDecoratorMessageObservableValue extends AbstractObservab
 						+ " -> " + newValue.getMessage());
 			}
 
-			fireValueChange(event.diff);
+			fireValueChange(Diffs.createValueDiff(myMessage, myMessage = new Message(myValueBinding,
+					(IStatus) myValidationStatus.getValue())));
 		}
 	};
 
 	private class Message extends AbstractBindingMessage {
-		public Message(IValueBinding binding) {
+		private final IStatus myStatus;
+
+		public Message(IValueBinding binding, IStatus status) {
 			super(binding);
+			myStatus = status;
 			addTarget(binding.getModelObject(), binding.getModelFeature(), null);
 		}
 
@@ -112,40 +117,28 @@ public class DataBindingDecoratorMessageObservableValue extends AbstractObservab
 
 		@Override
 		public String getMessage() {
-			final Object value = myValidationStatus.getValue();
-			if (value instanceof IStatus) {
-				final IStatus s = (IStatus) value;
-				return s.getMessage();
-			}
-			return null;
+			return myStatus.getMessage();
 		}
 
 		@Override
 		public BindingMessageSeverity getSeverity() {
-			final Object value = myValidationStatus.getValue();
-			if (value instanceof IStatus) {
-				final IStatus s = (IStatus) value;
-				switch (s.getSeverity()) {
-				case IStatus.OK:
-					return BindingMessageSeverity.NONE;
-				case IStatus.INFO:
-					return BindingMessageSeverity.INFORMATION;
-				case IStatus.WARNING:
-					return BindingMessageSeverity.WARNING;
-				case IStatus.ERROR:
-					return BindingMessageSeverity.ERROR;
-				}
+			switch (myStatus.getSeverity()) {
+			case IStatus.OK:
+				return BindingMessageSeverity.NONE;
+			case IStatus.INFO:
+				return BindingMessageSeverity.INFORMATION;
+			case IStatus.WARNING:
+				return BindingMessageSeverity.WARNING;
+			case IStatus.ERROR:
+				return BindingMessageSeverity.ERROR;
+			default:
+				return BindingMessageSeverity.NONE;
 			}
-			return BindingMessageSeverity.NONE;
 		}
 
 		@Override
 		public int getCode() {
-			final Object value = myValidationStatus.getValue();
-			if (value instanceof IStatus) {
-				return ((IStatus) value).getCode();
-			}
-			return Integer.MAX_VALUE;
+			return myStatus.getCode();
 		}
 	}
 }
