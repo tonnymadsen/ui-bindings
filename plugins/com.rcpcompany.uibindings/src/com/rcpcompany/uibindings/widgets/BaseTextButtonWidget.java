@@ -52,7 +52,6 @@ public abstract class BaseTextButtonWidget extends Composite {
 
 		myText = new Text(this, SWT.SINGLE);
 		myText.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false));
-		myText.setMessage("xxxx");
 
 		myDialogButton = toolkit.createLabel(this, "");
 		myDialogButton.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));

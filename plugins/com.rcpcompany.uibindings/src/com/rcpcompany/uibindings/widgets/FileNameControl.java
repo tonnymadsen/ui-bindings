@@ -58,6 +58,18 @@ public class FileNameControl extends BaseTextButtonWidget {
 		setText(path);
 	}
 
+	private void updateMessage() {
+		if (isDirectoryMode() && isExistingOnly()) {
+			getTextControl().setMessage("Enter existing directory name");
+		} else if (isDirectoryMode() && !isExistingOnly()) {
+			getTextControl().setMessage("Enter directory name");
+		} else if (!isDirectoryMode() && isExistingOnly()) {
+			getTextControl().setMessage("Enter existing file name");
+		} else if (!isDirectoryMode() && !isExistingOnly()) {
+			getTextControl().setMessage("Enter file name");
+		}
+	}
+
 	/**
 	 * Set whether the file or directory must already exist
 	 * 
@@ -65,6 +77,8 @@ public class FileNameControl extends BaseTextButtonWidget {
 	 */
 	public void setExistingOnly(boolean existingOnly) {
 		myExistingOnly = existingOnly;
+
+		updateMessage();
 	}
 
 	/**
@@ -85,6 +99,8 @@ public class FileNameControl extends BaseTextButtonWidget {
 	 */
 	public void setExtensions(String[] extensions) {
 		myExtensions = extensions;
+
+		updateMessage();
 	}
 
 	/**
@@ -132,6 +148,8 @@ public class FileNameControl extends BaseTextButtonWidget {
 	 */
 	public void setDirectoryMode(boolean dirMode) {
 		myDirectoryMode = dirMode;
+
+		updateMessage();
 	}
 
 	/**
@@ -140,5 +158,4 @@ public class FileNameControl extends BaseTextButtonWidget {
 	public boolean isDirectoryMode() {
 		return myDirectoryMode;
 	}
-
 }
