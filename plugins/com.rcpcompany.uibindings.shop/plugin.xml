@@ -169,6 +169,7 @@
       <view
             category="com.rcpcompany.uibindings.example.application.viewCategories.shop"
             class="com.rcpcompany.uibindings.views.ValidationView"
+            icon="platform:/plugin/com.rcpcompany.uibindings/images/views/status_view.gif"
             id="com.rcpcompany.uibindings.views.ValidationView"
             name="Validation Status"
             restorable="true">
@@ -209,9 +210,10 @@
             restorable="true">
       </view>
       <view
+            advisor="com.rcpcompany.uibindings.shop.views.advisors.ShopNavigatorAdvisor"
             category="com.rcpcompany.uibindings.example.application.viewCategories.shop"
             class="com.rcpcompany.uibindings.navigator.views.NavigatorBaseView"
-			advisor="com.rcpcompany.uibindings.shop.views.advisors.ShopNavigatorAdvisor"
+            icon="platform:/plugin/com.rcpcompany.uibindings/images/views/navigator_view.gif"
             id="com.rcpcompany.uibindings.shop.views.ShopNavigationView"
             name="Shop Navigator"
             restorable="true">
@@ -426,6 +428,17 @@
                name="image"
                value="icons/house_16x16.png">
          </argument>
+         <feature
+               name="tmpDir">
+            <argument
+                  name="type"
+                  value="directoryName">
+            </argument>
+            <argument
+                  name="label"
+                  value="Temporary Directory">
+            </argument>
+         </feature>
       </model>
       <model
             class="com.rcpcompany.uibindings.tests.shop.Country">
