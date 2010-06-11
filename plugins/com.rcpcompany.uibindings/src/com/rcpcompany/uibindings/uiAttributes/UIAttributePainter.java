@@ -81,8 +81,8 @@ public class UIAttributePainter {
 		if (JFaceResources.getImageRegistry().getDescriptor(CHECKED_KEY) == null) {
 			final Image shot = makeShot(parentControl, false);
 			final int height = shot.getBounds().height;
-			if (height > myMinHeight) {
-				myMinHeight = height;
+			if (height + 3 > myMinHeight) {
+				myMinHeight = height + 3;
 			}
 			JFaceResources.getImageRegistry().put(UNCHECKED_KEY, shot);
 			JFaceResources.getImageRegistry().put(CHECKED_KEY, makeShot(parentControl, true));
@@ -174,7 +174,8 @@ public class UIAttributePainter {
 				myPreparedTextLayout.setFont(null);
 			}
 
-			final int originalTextWidth = myPreparedTextLayout.getBounds().width; // text width without any styles
+			// text width without any styles
+			final int originalTextWidth = myPreparedTextLayout.getBounds().width;
 			boolean containsOtherFont = false;
 
 			@SuppressWarnings("unchecked")
@@ -277,7 +278,8 @@ public class UIAttributePainter {
 			gc.setBackground(background);
 		}
 
-		// LogUtils.debug(this, "\nf=" + gc.getForeground() + " " + foreground + "\nb=" + gc.getBackground() + " "
+		// LogUtils.debug(this, "\nf=" + gc.getForeground() + " " + foreground +
+		// "\nb=" + gc.getBackground() + " "
 		// + background);
 		gc.fillRectangle(areaBounds);
 
@@ -286,7 +288,8 @@ public class UIAttributePainter {
 		 */
 		if (hasFocus() && myParentControl.isFocusControl()) {
 			gc.setForeground(myFocusBorder);
-			// gc.drawFocus(areaBounds.x, areaBounds.y, areaBounds.width, areaBounds.height);
+			// gc.drawFocus(areaBounds.x, areaBounds.y, areaBounds.width,
+			// areaBounds.height);
 			final int oldLineWidth = gc.getLineWidth();
 			gc.setLineWidth(2);
 			gc.drawRectangle(areaBounds.x + 1, areaBounds.y + 1, areaBounds.width - 2, areaBounds.height - 2);
