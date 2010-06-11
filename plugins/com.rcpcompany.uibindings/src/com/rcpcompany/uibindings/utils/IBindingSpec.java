@@ -13,7 +13,7 @@ import com.rcpcompany.uibindings.internal.utils.BindingSpecFactory;
  * This interface is used to parse a text string that describes a binding target in terms of a starting type and a
  * string..
  * <p>
- * Format
+ * Format is described in the wiki.
  * 
  * @author Tonny Madsen, The RCP Company
  */

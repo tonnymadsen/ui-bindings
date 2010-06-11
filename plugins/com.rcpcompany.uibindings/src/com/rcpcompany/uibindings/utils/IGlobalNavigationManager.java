@@ -12,6 +12,9 @@ import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.utils.GlobalNavigationManager;
 import com.rcpcompany.uibindings.internal.utils.MouseDownConverter;
+import com.rcpcompany.uibindings.utils.IGlobalNavigationManager.BackwardHistoryHandler;
+import com.rcpcompany.uibindings.utils.IGlobalNavigationManager.Factory;
+import com.rcpcompany.uibindings.utils.IGlobalNavigationManager.ForwardHistoryHandler;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -24,7 +27,6 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <p>
  * To navigate in the stack use either the {@link #backwardHistory()} and {@link #forwardHistory()} methods or the
  * corresponding handlers {@link BackwardHistoryHandler} and {@link ForwardHistoryHandler}.
- * 
  * 
  * @author Tonny Madsen, The RCP Company
  */
