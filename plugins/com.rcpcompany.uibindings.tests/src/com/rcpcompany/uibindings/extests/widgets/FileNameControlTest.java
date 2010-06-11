@@ -36,7 +36,7 @@ import com.rcpcompany.uibindings.widgets.FileNameControl;
  * @author Tonny Madsen, The RCP Company
  */
 @RunWith(Parameterized.class)
-public class FileNameWidgetTest {
+public class FileNameControlTest {
 	protected final String myType;
 	protected final boolean myNewAllowed;
 	protected final String myExtensions;
@@ -44,7 +44,7 @@ public class FileNameWidgetTest {
 
 	int VD = 50;
 
-	public FileNameWidgetTest(String type, boolean newAllowed, String extensions, String initValue) {
+	public FileNameControlTest(String type, boolean newAllowed, String extensions, String initValue) {
 		myType = type;
 		myNewAllowed = newAllowed;
 		myExtensions = extensions;

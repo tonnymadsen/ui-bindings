@@ -78,7 +78,7 @@ import com.rcpcompany.uibindings.extests.uiAttributes.UIAttributeCComboFactoryPr
 import com.rcpcompany.uibindings.extests.uiAttributes.UIAttributeCheckButtonFactoryPropertiesTest;
 import com.rcpcompany.uibindings.extests.uiAttributes.UIAttributeComboFactoryPropertiesTest;
 import com.rcpcompany.uibindings.extests.uiAttributes.UIAttributeFactoryTest;
-import com.rcpcompany.uibindings.extests.uiAttributes.UIAttributeFileNameWidgetFactoryPropertiesTest;
+import com.rcpcompany.uibindings.extests.uiAttributes.UIAttributeFileNameControlFactoryPropertiesTest;
 import com.rcpcompany.uibindings.extests.uiAttributes.UIAttributeFormFactoryPropertiesTest;
 import com.rcpcompany.uibindings.extests.uiAttributes.UIAttributeHyperlinkFactoryPropertiesTest;
 import com.rcpcompany.uibindings.extests.uiAttributes.UIAttributeImageDecorationTest;
@@ -130,7 +130,7 @@ import com.rcpcompany.uibindings.extests.viewerBindings.ViewerItemDeletorTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerItemMoveTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerReflowTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerSingleSelectionTest;
-import com.rcpcompany.uibindings.extests.widgets.FileNameWidgetTest;
+import com.rcpcompany.uibindings.extests.widgets.FileNameControlTest;
 import com.rcpcompany.uibindings.internal.ManagerSizesTest;
 import com.rcpcompany.uibindings.internal.decorators.extenders.OpenCommandSupportLowLevelTest;
 import com.rcpcompany.uibindings.internal.utils.GlobalNavigationManagerTest;
@@ -229,7 +229,7 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		UIAttributeScaleFactoryPropertiesTest.class, UIAttributeSpinnerFactoryPropertiesTest.class,
 		UIAttributeSliderFactoryPropertiesTest.class, UIAttributeShellFactoryPropertiesTest.class,
 		UIAttributeRadioGroupFactoryPropertiesTest.class, UIAttributeRadioGroupTest.class,
-		UIAttributeFileNameWidgetFactoryPropertiesTest.class, UIAttributeImageDecorationTest.class,
+		UIAttributeFileNameControlFactoryPropertiesTest.class, UIAttributeImageDecorationTest.class,
 
 		/*
 		 * Basic use of bindings
@@ -259,7 +259,7 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		/*
 		 * Widgets
 		 */
-		FileNameWidgetTest.class,
+		FileNameControlTest.class,
 
 		/*
 		 * Decorators

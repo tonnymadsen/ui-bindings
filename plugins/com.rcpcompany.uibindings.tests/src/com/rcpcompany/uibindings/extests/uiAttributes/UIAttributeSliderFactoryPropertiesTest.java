@@ -9,24 +9,23 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.widgets.Slider;
 import org.junit.Test;
 
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIAttribute;
-import com.rcpcompany.uibindings.widgets.FileNameControl;
 
 /**
- * This test checks the properties of the default UI attributes for a {@link FileNameControl} widget - those with
- * attribute = "".
+ * This test checks the properties of the default UI attributes for a {@link Slider} widget - those with attribute = "".
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class UIAttributeFileNameWidgetFactoryPropertiesTest extends BaseUIAttributeFactoryTest<FileNameControl> {
+public class UIAttributeSliderFactoryPropertiesTest extends BaseUIAttributeFactoryTest<Slider> {
 	protected IUIAttribute attribute = null;
 
 	@Test
 	public void testUIAttribute() {
-		final FileNameControl widget = createWidget(FileNameControl.class, SWT.NONE);
+		final Slider widget = createWidget(Slider.class, SWT.NONE);
 
 		assertNoLog(new Runnable() {
 			public void run() {
@@ -43,12 +42,13 @@ public class UIAttributeFileNameWidgetFactoryPropertiesTest extends BaseUIAttrib
 		testObservableValue(widget, "", attribute.getForegroundValue(), Color.class, "foreground");
 		testObservableValue(widget, "", attribute.getFontValue(), Font.class, "font");
 		testObservableValue(widget, "", attribute.getCursorValue(), Cursor.class, "cursor");
-		testObservableValue(widget, "", attribute.getCurrentValue(), String.class, "text");
+		testObservableValue(widget, "", attribute.getCurrentValue(), Integer.TYPE, "selection");
 		testObservableValue(widget, "", attribute.getEnabledValue(), Boolean.TYPE, "enabled");
 		testObservableValue(widget, "", attribute.getTooltipValue(), String.class, "toolTipText");
-		assertEquals(null, attribute.getMinValue());
-		assertEquals(null, attribute.getMaxValue());
-		assertNotNull(attribute.getFieldAssistAdapter());
+		testObservableValue(widget, "", attribute.getMinValue(), Integer.TYPE, "minimum");
+		attribute.getMinValue().setValue(0);
+		testObservableValue(widget, "", attribute.getMaxValue(), Integer.TYPE, "maximum");
+		assertEquals(null, attribute.getFieldAssistAdapter());
 		assertEquals(null, attribute.getPossibleValuesList());
 		assertEquals(null, attribute.getStyleRangeList());
 	}
