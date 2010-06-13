@@ -57,7 +57,7 @@
 <extension
       point="org.eclipse.ui.handlers">
    <handler
-         class="com.rcpcompany.uibindings.navigator.handlers.NavigatorViewCollapseAll"
+         class="com.rcpcompany.uibindings.navigator.internal.handlers.NavigatorViewCollapseAll"
          commandId="org.eclipse.ui.navigate.collapseAll">
       <activeWhen>
          <with

@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: UIBinding based navigator
 Bundle-SymbolicName: com.rcpcompany.uibindings.navigator;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: com.rcpcompany.uibindings.navigator.Activator
+Bundle-Activator: com.rcpcompany.uibindings.navigator.internal.Activator
 Bundle-Vendor: Tonny Madsen, The RCP Company
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,

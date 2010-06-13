@@ -1,4 +1,4 @@
-package com.rcpcompany.uibindings.navigator;
+package com.rcpcompany.uibindings.navigator.internal;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
