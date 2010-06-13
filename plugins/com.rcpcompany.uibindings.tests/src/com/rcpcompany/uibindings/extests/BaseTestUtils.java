@@ -433,6 +433,7 @@ public class BaseTestUtils {
 			@Override
 			public void preExecute(String commandId, ExecutionEvent event) {
 				final IHandler handler = event.getCommand().getHandler();
+				assertNotNull("No handler active for " + event.getCommand().getId(), handler);
 				String hName = handler.toString();
 				if (hName.indexOf('@') >= 0) {
 					hName = hName.substring(0, hName.indexOf('@'));
