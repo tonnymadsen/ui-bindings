@@ -22,8 +22,10 @@
          </javaDecorator>
       </bindingDecorator>
       <bindingDecorator
+            exactModelTypeMatch="true" type=""
             id="com.rcpcompany.uibindings.basic.Object.String"
-            type="" exactModelTypeMatch="true">
+>
+	 <standardArguments             readonly="true" />
          <modelType
                class="java.lang.Object">
          </modelType>
@@ -33,10 +35,6 @@
          <javaDecorator
                class="com.rcpcompany.uibindings.internal.decorators.TextBindingDecorator">
          </javaDecorator>
-         <argument
-               name="readonly"
-               value="true">
-         </argument>
       </bindingDecorator>
       <bindingDecorator
             id="com.rcpcompany.uibindings.basic.Number"
@@ -759,70 +757,47 @@
          point="com.rcpcompany.uibindings.uiBindings">
       <model
             class="java.lang.Boolean">
-         <argument
-               name="preferredCellEditor"
-               value="org.eclipse.swt.widgets.Button">
-         </argument>
-         <argument
-               name="preferredControlFactory"
-               value="com.rcpcompany.uibindings.internal.controlFactories.CheckBoxControlFactory">
-         </argument>
+	<standardArguments
+            preferredCellEditor="org.eclipse.swt.widgets.Button"
+            preferredControlFactory="com.rcpcompany.uibindings.internal.controlFactories.CheckBoxControlFactory" />
       </model>
       <model
             class="boolean">
-         <argument
-               name="preferredCellEditor"
-               value="org.eclipse.swt.widgets.Button">
-         </argument>
-         <argument
-               name="preferredControlFactory"
-               value="com.rcpcompany.uibindings.internal.controlFactories.CheckBoxControlFactory">
-         </argument>
+	<standardArguments
+            preferredCellEditor="org.eclipse.swt.widgets.Button"
+            preferredControlFactory="com.rcpcompany.uibindings.internal.controlFactories.CheckBoxControlFactory" />
       </model>
       <model
             class="java.lang.Enum">
-         <argument
-               name="preferredCellEditor"
-               value="org.eclipse.swt.custom.CCombo">
-         </argument>
-         <argument
-               name="preferredControl"
-               value="org.eclipse.swt.custom.CCombo">
-         </argument>
+	<standardArguments
+            preferredCellEditor="org.eclipse.swt.custom.CCombo"
+            preferredControl="org.eclipse.swt.custom.CCombo" />
       </model>
       <model
             class="org.eclipse.emf.common.util.Enumerator">
-         <argument
-               name="preferredCellEditor"
-               value="org.eclipse.swt.custom.CCombo">
-         </argument>
-         <argument
-               name="preferredControl"
-               value="org.eclipse.swt.custom.CCombo">
-         </argument>
+	<standardArguments
+            preferredCellEditor="org.eclipse.swt.custom.CCombo"
+            preferredControl="org.eclipse.swt.custom.CCombo" />
       </model>
       <model
             class="com.rcpcompany.uibindings.BindingMessageSeverity">
          <feature
                name="INFORMATION">
-            <argument
-                  name="image"
-                  value="IMG_OBJS_INFO_TSK">
-            </argument>
+            <standardArguments
+                  image="IMG_OBJS_INFO_TSK">
+            </standardArguments>
          </feature>
          <feature
                name="WARNING">
-            <argument
-                  name="image"
-                  value="IMG_OBJS_WARN_TSK">
-            </argument>
+            <standardArguments
+                  image="IMG_OBJS_WARN_TSK">
+            </standardArguments>
          </feature>
          <feature
                name="ERROR">
-            <argument
-                  name="image"
-                  value="IMG_OBJS_ERROR_TSK">
-            </argument>
+            <standardArguments
+                  image="IMG_OBJS_ERROR_TSK">
+            </standardArguments>
          </feature>
       </model>
       <model
@@ -833,57 +808,35 @@
          </argument>
          <feature
                name="severity">
-            <argument
-                  name="toolTipText"
-                  value="The severity of the message (informational, warning or error)">
-            </argument>
+	<standardArguments
+               toolTipText="The severity of the message (informational, warning or error" />
          </feature>
          <feature
                name="modelObject">
-            <argument
-                  name="dynamic"
-                  value="true">
-            </argument>
-            <argument
-                  name="label"
-                  value="Object">
-            </argument>
-            <argument
-                  name="toolTipText"
-                  value="The affected object in the message">
-            </argument>
-            <argument
-                  name="type"
-                  value="ident">
-            </argument>
+	<standardArguments
+               dynamic="true"
+               label="Object"
+               toolTipText="The affected object in the message"
+               type="ident" />
          </feature>
          <feature
                name="modelFeature">
-            <argument
-                  name="label"
-                  value="Feature">
-            </argument>
-            <argument
-                  name="toolTipText"
-                  value="The affected feature in the message if any">
-            </argument>
+	<standardArguments
+               label="Feature"
+               toolTipText="The affected feature in the message if any" />
          </feature>
       </model>
       <model
-            class="java.lang.String"
-            targetType="fileName">
-         <argument
-               name="preferredControl"
-               value="com.rcpcompany.uibindings.widgets.FileNameControl">
-         </argument>
+            class="java.lang.String" targetType="fileName" >
+	<standardArguments
+            preferredControl="com.rcpcompany.uibindings.widgets.FileNameControl"
+            />
       </model>
       <model
             class="java.lang.String"
             targetType="directoryName">
-         <argument
-               name="preferredControl"
-               value="com.rcpcompany.uibindings.widgets.FileNameControl">
-         </argument>
+	<standardArguments
+            preferredControl="com.rcpcompany.uibindings.widgets.FileNameControl" />
       </model>
       <modelArgumentMediator
             class="com.rcpcompany.uibindings.internal.StructuralFeatureModelArgumentMediator">

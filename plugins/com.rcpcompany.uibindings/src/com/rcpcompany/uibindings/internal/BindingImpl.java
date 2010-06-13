@@ -763,8 +763,13 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 			final IConfigurationElement ce = (IConfigurationElement) val;
 
 			// TODO: SIMA-921
-			final String value = ce.getAttribute(InternalConstants.VALUE_TAG);
-			s = convertArgumentValue(name, ce, InternalConstants.VALUE_TAG, value, argumentType);
+			String value = ce.getAttribute(name);
+			if (value != null) {
+				s = convertArgumentValue(name, ce, name, value, argumentType);
+			} else {
+				value = ce.getAttribute(InternalConstants.VALUE_TAG);
+				s = convertArgumentValue(name, ce, InternalConstants.VALUE_TAG, value, argumentType);
+			}
 		} else {
 			s = null;
 		}

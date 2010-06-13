@@ -52,6 +52,7 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 
 import com.rcpcompany.uibindings.BindingMessageSeverity;
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.DecorationPosition;
 import com.rcpcompany.uibindings.IArgumentProvider;
 import com.rcpcompany.uibindings.IBindingContext;
@@ -1090,6 +1091,14 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * @param ce the base configuration element
 	 */
 	protected void readArguments(IArgumentProvider provider, IConfigurationElement ce) {
+		for (final IConfigurationElement childCE : ce.getChildren(InternalConstants.STANDARD_ARGUMENTS_TAG)) {
+			for (final String name : Constants.EXT_POINT_ATTRIBUTE_NAMES) {
+				final String value = childCE.getAttribute(name);
+				if (value != null && value.length() > 0) {
+					provider.getDeclaredArguments().put(name, childCE);
+				}
+			}
+		}
 		for (final IConfigurationElement childCE : ce.getChildren(InternalConstants.ARGUMENT_TAG)) {
 			final String name = childCE.getAttribute(InternalConstants.NAME_TAG);
 			if (name == null || name.length() == 0) {
@@ -1435,8 +1444,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	public void setMessageDecorationMinimumSeverity(BindingMessageSeverity newMessageDecorationMinimumSeverity) {
 		setMessageDecorationMinimumSeverityGen(newMessageDecorationMinimumSeverity);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-		ps.setValue(UIBindingPreferences.PREF_MESSAGE_DECORATION_MINIMUM_SEVERITY, newMessageDecorationMinimumSeverity
-				.name());
+		ps.setValue(UIBindingPreferences.PREF_MESSAGE_DECORATION_MINIMUM_SEVERITY,
+				newMessageDecorationMinimumSeverity.name());
 	}
 
 	/**

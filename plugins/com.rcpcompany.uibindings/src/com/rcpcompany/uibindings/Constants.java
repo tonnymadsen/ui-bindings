@@ -102,8 +102,11 @@ public interface Constants {
 	public static final String ARG_IMAGE = "image"; //$NON-NLS-1$
 
 	/**
-	 * Argument name for when a reference type of attribute should allow new values apart from the current set.
-	 * <p>
+	 * Argument name for when a "new" value is allowed. Depends on the actual type of the value.
+	 * <ul>
+	 * <li>for a reference, whether new values are allowed apart from the current set</li>
+	 * <li>for file and directory names, whether a file may not exist</li>
+	 * </ul>
 	 * The argument value is either {@link Boolean#TRUE} or {@link Boolean#FALSE}. The default is <code>false</code> .
 	 */
 	public static final String ARG_NEW_ALLOWED = "newAllowed"; //$NON-NLS-1$
@@ -216,12 +219,13 @@ public interface Constants {
 	/**
 	 * Argument name for the feature name used to decorate a specific reference.
 	 * <p>
-	 * The argument value is a {@link String} with the name of a specific feature in the referenced object.
+	 * The argument value is a {@link String} with The value is a <code>String</code> on the format
+	 * "(&lt;reference&gt; '.')* &lt;attribute&gt;".
 	 */
 	public static final String ARG_FEATURE_NAME = "featureName"; //$NON-NLS-1$
 
 	/**
-	 * Argument name for the feature name used the allowed extensions of file name.
+	 * Argument name for the allowed extensions of file name.
 	 * <p>
 	 * The argument value is a {@link String String array} with the extensions
 	 */
@@ -322,9 +326,20 @@ public interface Constants {
 	/**
 	 * Argument name for the unit of a binding.
 	 * <p>
-	 * The argument is a text string formatted according to the base units of SI. TODO
+	 * The argument is a text string with the base unit type of the binding. E.g. "M"
 	 */
 	public static final String ARG_UNIT = "unit"; //$NON-NLS-1$
+
+	/**
+	 * The arguments that can be used directly as attribute names in the uibindings extension point for
+	 * {@link IArgumentProvider argument providers}.
+	 */
+	public static final String[] EXT_POINT_ATTRIBUTE_NAMES = { ARG_ALIGNMENT, ARG_CELL_EDITOR_TYPE, ARG_DYNAMIC,
+			ARG_EXTENSIONS, ARG_FEATURE_NAME, ARG_HEIGHT, ARG_HELP_ID, ARG_IMAGE, ARG_LABEL, ARG_LABEL_DECORATOR,
+			ARG_MODEL_OBJECT_MESSAGES, ARG_NEW_ALLOWED, ARG_NULL_LABEL, ARG_OPEN_COMMAND, ARG_PREFERRED_CELL_EDITOR,
+			ARG_PREFERRED_CELL_EDITOR_FACTORY, ARG_PREFERRED_CONTROL, ARG_PREFERRED_CONTROL_FACTORY, ARG_RANGE,
+			ARG_READONLY, ARG_REQUIRED, ARG_TEXT, ARG_TEXT_COMMIT_STRATEGY, ARG_TOOL_TIP_TEXT, ARG_TYPE, ARG_UNIT,
+			ARG_VALUE_OBJECT_MESSAGES, ARG_WIDTH };
 
 	/**
 	 * Prefix for all IDs.

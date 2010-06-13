@@ -34,6 +34,7 @@ public class InternalConstants {
 	public static final String BINDING_DECORATOR_TAG = "bindingDecorator"; //$NON-NLS-1$
 	public static final String DECORATOR_EXTENDER_TAG = "decoratorExtender"; //$NON-NLS-1$
 	public static final String ARGUMENT_TAG = "argument"; //$NON-NLS-1$
+	public static final String STANDARD_ARGUMENTS_TAG = "standardArguments"; //$NON-NLS-1$
 	public static final String ATTRIBUTE_TAG = "attribute"; //$NON-NLS-1$
 	public static final String VALUE_TAG = "value"; //$NON-NLS-1$
 	public static final String EXACT_MODEL_TYPE_MATCH_TAG = "exactModelTypeMatch"; //$NON-NLS-1$

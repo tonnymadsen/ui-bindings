@@ -88,6 +88,7 @@ Each decorator can have a number of arguments for the label binding in the form 
             <element ref="modelType"/>
             <element ref="uiType"/>
             <element ref="argument"/>
+            <element ref="standardArguments"/>
          </choice>
          <attribute name="type" type="string" use="required">
             <annotation>
@@ -124,6 +125,7 @@ Each extender can have a number of arguments for the label binding in the form o
       <complexType>
          <choice minOccurs="0" maxOccurs="unbounded">
             <element ref="argument"/>
+            <element ref="standardArguments"/>
          </choice>
          <attribute name="class" type="string">
             <annotation>
@@ -405,6 +407,7 @@ Each item can have a number of arguments for the label binding in the form of &l
          <choice minOccurs="0" maxOccurs="unbounded">
             <element ref="argument"/>
             <element ref="modelType"/>
+            <element ref="standardArguments"/>
          </choice>
          <attribute name="id" type="string" use="required">
             <annotation>
@@ -502,6 +505,7 @@ Each model class can have a number of arguments for the label binding in the for
          <choice minOccurs="0" maxOccurs="unbounded">
             <element ref="feature"/>
             <element ref="argument"/>
+            <element ref="standardArguments"/>
          </choice>
          <attribute name="targetType" type="string">
             <annotation>
@@ -533,6 +537,7 @@ Each feature can have a number of arguments for the label binding in the form of
       <complexType>
          <choice minOccurs="0" maxOccurs="unbounded">
             <element ref="argument"/>
+            <element ref="standardArguments"/>
          </choice>
          <attribute name="name" type="string" use="required">
             <annotation>
@@ -562,6 +567,305 @@ Each feature can have a number of arguments for the label binding in the form of
             <annotation>
                <documentation>
                   the value of the argument
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="standardArguments">
+      <annotation>
+         <documentation>
+            The standard arguments. Non-standard arguments can be added using the &lt;code&gt;argument&lt;/code&gt; sub-element
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="alignment">
+            <annotation>
+               <documentation>
+                  the alignment of a binding widget
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="left">
+                  </enumeration>
+                  <enumeration value="center">
+                  </enumeration>
+                  <enumeration value="right">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+         <attribute name="cellEditorType" type="string">
+            <annotation>
+               <documentation>
+                  the type of a cell editor binding. Only used for cell editors, and falls back on the &quot;type&quot; value if not specified
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="dynamic" type="boolean">
+            <annotation>
+               <documentation>
+                  dynamic bindings - defaults to &lt;code&gt;false&lt;/code&gt;
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="extensions" type="string">
+            <annotation>
+               <documentation>
+                  allowed extensions for file name. Format???
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="featureName" type="string">
+            <annotation>
+               <documentation>
+                  the feature name used to decorate a specific reference.  The value is on the format &quot;(&amp;lt;reference&amp;gt; &apos;.&apos;)* &amp;lt;attribute&amp;gt;&quot;
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="height" type="string">
+            <annotation>
+               <documentation>
+                  the height of the binding in px
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="helpID" type="string">
+            <annotation>
+               <documentation>
+                  the help ID for the control for the binding
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="image" type="string">
+            <annotation>
+               <documentation>
+                  the image to show with the binding.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="resource"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="label" type="string">
+            <annotation>
+               <documentation>
+                  the label of a structural feature or a class when it cannot be deduced correctly automatically. E.g. if the feature is named &quot;ipAddr&quot;, then the automatic name would be &quot;Ip Addr&quot; - which can be fixed by setting this attribute to &quot;IP Address&quot;, or whatever..
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="labelDecorator" type="boolean">
+            <annotation>
+               <documentation>
+                  whether a column that should have general workbench &quot;label decoration&quot;. Only relevant for columns and defaults to false.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="modelObjectMessages" type="boolean">
+            <annotation>
+               <documentation>
+                  whether all (error and warning) messages for the model object or objects of the binding should be added to the context automatically. The meaning of the argument differs slightly for different bindings:
+&lt;ul&gt;
+&lt;li&gt;For a {@link IValueBinding value binding}, this means all messages associated with the model object will be decorated in the binding.&lt;/li&gt;
+&lt;li&gt;For a {@link IViewerBinding viewer binding}, this means all messages associated with any of the row elements will be associated with the viewer. The messages will not be decorated in the viewer and thus it is normally better to use the argument for a specific column in the viewer.&lt;/li&gt;
+&lt;li&gt;For a {@link IColumnBinding column binding}, this means all messages associated with the model object of the specific column and row will be decorated in the column.&lt;/li&gt;
+&lt;/ul&gt;
+The default is &lt;code&gt;false&lt;/code&gt;.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="newAllowed" type="boolean">
+            <annotation>
+               <documentation>
+                  when a &quot;new&quot; value is allowed. Depends on the actual type of the value.
+&lt;ul&gt;
+&lt;li&gt;for a reference, whether new values are allowed apart from the current set&lt;/li&gt;
+&lt;li&gt;for file and directory names, whether a file may not exist&lt;/li&gt;
+&lt;/ul&gt;
+The default is &lt;code&gt;false&lt;/code&gt; .
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="nullLabel" type="string">
+            <annotation>
+               <documentation>
+                  the label used instead of the empty string for null values in references.
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="openCommand" type="string">
+            <annotation>
+               <documentation>
+                  the command to execute to open an item - either via CTRL-click or via a menu item. The argument value is a String formatted as specified in ParameterizedCommand.serialize().
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="preferredCellEditor">
+            <annotation>
+               <documentation>
+                  the preferred Control for cell editing for the binding.
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="org.eclipse.swt.widgets.Text">
+                  </enumeration>
+                  <enumeration value="org.eclipse.swt.widgets.Button">
+                  </enumeration>
+                  <enumeration value="org.eclipse.swt.widgets.Combo">
+                  </enumeration>
+                  <enumeration value="org.eclipse.swt.custom.CCombo">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+         <attribute name="preferredCellEditorFactory" type="string">
+            <annotation>
+               <documentation>
+                  the preferred cell editor factory for cell editing for the binding
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":com.rcpcompany.uibindings.ICellEditorFactory"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="preferredControl" type="string">
+            <annotation>
+               <documentation>
+                  preferred Control for the binding.The attribute value is the name of a class that :
+&lt;ul&gt;
+&lt;li&gt;Inherits from Control - directly or indirectly &lt;/li&gt;
+&lt;li&gt;Supports a constructor (Composite, int) &lt;/li&gt;
+&lt;/ul&gt;
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="org.eclipse.swt.widgets.Control:"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="preferredControlFactory" type="string">
+            <annotation>
+               <documentation>
+                  the preferred Control factory for the binding
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":com.rcpcompany.uibindings.IControlFactory"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="range" type="string">
+            <annotation>
+               <documentation>
+                  the legal range of a {@link NumberBindingDecorator}.
+&lt;p&gt;
+The argument value is an interval on the form &quot;[&amp;lt;start&amp;gt;;&amp;lt;end&amp;gt;]&quot;. &quot;&amp;lt;start&amp;gt;&quot; and &quot;&amp;lt;end&amp;gt;&quot;
+can each be missing meaning the natural limit for the basic decorator type - e.g. -128 for a byte.
+&lt;p&gt;
+The intervals are started and ended with a combination of &quot;[&quot; and &quot;]&quot;:
+&lt;ul&gt;
+&lt;li&gt;&quot;[]&quot; - min and max inclusive&lt;/li&gt;
+&lt;li&gt;&quot;[[&quot; - min inclusive and max exclusive&lt;/li&gt;
+&lt;li&gt;&quot;]]&quot; - min exclusive and max inclusive&lt;/li&gt;
+&lt;li&gt;&quot;][&quot; - min and max exclusive&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+Examples
+&lt;ul&gt;
+&lt;li&gt;&quot;[1;2]&quot; - 1 &amp;lt;= x &amp;lt;= 2&lt;/li&gt;
+&lt;li&gt;&quot;[1;2[&quot; - 1 &amp;lt;= x &amp;lt; 2&lt;/li&gt;
+&lt;li&gt;&quot;[0;1[,[2;3[&quot; - 0 &amp;lt;= x &amp;lt; 1 or 2 &amp;lt;= x &amp;lt; 3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+&lt;strong&gt;NOTE:&lt;/strong&gt; &lt;em&gt;currently only one interval is supported. In some future a list of cmma separated intervals may be specified.&lt;/em&gt;
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="readonly" type="boolean">
+            <annotation>
+               <documentation>
+                  a binding is read/only. Defaults to false.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="required" type="boolean">
+            <annotation>
+               <documentation>
+                  whether a value for this binding is required. The default is false.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="text" type="string">
+            <annotation>
+               <documentation>
+                  the constant text to use for a binding. Primary used for constant cells in trees
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="textCommitStrategy">
+            <annotation>
+               <documentation>
+                  the text commit strategy
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="ON_MODIFY">
+                  </enumeration>
+                  <enumeration value="ON_FOCUS_OUT">
+                  </enumeration>
+                  <enumeration value="ON_MODIFY_DELAY">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+         <attribute name="toolTipText" type="string">
+            <annotation>
+               <documentation>
+                  the tool tip text of a control
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="type" type="string">
+            <annotation>
+               <documentation>
+                  the type of a binding
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="unit" type="string">
+            <annotation>
+               <documentation>
+                  the unit of a binding. 
+
+The argument is a text string with the base unit type of the binding. E.g. &quot;M&quot;
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="valueObjectMessages" type="boolean">
+            <annotation>
+               <documentation>
+                  whether all (error and warning) messages for the value object or objects of the binding should be added to the context automatically.  This is of particular interest when a binding is for a reference and not an attribute. The default is false.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="width" type="string">
+            <annotation>
+               <documentation>
+                  the width of the binding in px
                </documentation>
             </annotation>
          </attribute>
