@@ -31,26 +31,20 @@
                format="%,.2f">
          </number>
          <argument
-               name="min"
-               value="0">
-         </argument>
-         <argument
-               name="max"
-               value="10000">
-         </argument>
-         <argument
                name="financialUpDown"
                value="true">
          </argument>
+         <standardArguments
+               range="[0; 10000]">
+         </standardArguments>
       </bindingDecorator>
       <model
             class="com.rcpcompany.uibindings.tests.shop.ShopItem">
          <feature
                name="price">
-            <argument
-                  name="type"
-                  value="price">
-            </argument>
+            <standardArguments
+                  type="price">
+            </standardArguments>
          </feature>
       </model>
    </extension>
