@@ -1,6 +1,5 @@
 package com.rcpcompany.uibindings.internal.utils;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.core.commands.ParameterizedCommand;
@@ -22,6 +21,11 @@ import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.internal.sourceProviders.BindingSourceProvider;
 import com.rcpcompany.utils.logging.LogUtils;
 
+/**
+ * Implementation of double click adapter on a viewer.
+ * 
+ * @author Tonny Madsen, The RCP Company
+ */
 public class DoubleClickAdapter implements Listener, IDisposable {
 	/**
 	 * The viewer of this adapter
@@ -52,11 +56,6 @@ public class DoubleClickAdapter implements Listener, IDisposable {
 		myViewer.deregisterService(this);
 		myViewer.getControl().removeListener(SWT.MouseDoubleClick, this);
 	}
-
-	/**
-	 * A map with all the known commands. Used to avoid de-serialization of the commands repeatably.
-	 */
-	protected Map<String, ParameterizedCommand> knownCommands = null;
 
 	@Override
 	public void handleEvent(Event event) {
@@ -97,7 +96,17 @@ public class DoubleClickAdapter implements Listener, IDisposable {
 			/*
 			 * Construct the pc...
 			 */
-			final ParameterizedCommand pc = getCommand(cmd);
+			ParameterizedCommand pc = null;
+			final IServiceLocator locator1 = myViewer.getContext().getServiceLocator();
+			final ICommandService cs = (ICommandService) locator1.getService(ICommandService.class);
+			try {
+				pc = cs.deserialize(cmd);
+			} catch (final NotDefinedException ex) {
+				LogUtils.error(this, ex);
+			} catch (final SerializationException ex) {
+				LogUtils.error(this, ex);
+			}
+
 			if (pc == null) {
 				return;
 			}
@@ -110,35 +119,5 @@ public class DoubleClickAdapter implements Listener, IDisposable {
 		} catch (final CommandException ex) {
 			LogUtils.error(this, ex);
 		}
-	}
-
-	/**
-	 * Deserializes the specified command and returns the corresponding parameterized command.
-	 * <p>
-	 * Caches the result.
-	 * <p>
-	 * Can return <code>null</code> if the command cannot be converted.
-	 * 
-	 * @param c the command in String form
-	 * @return the parameterized command or <code>null</code>
-	 */
-	protected ParameterizedCommand getCommand(String c) {
-		if (knownCommands == null) {
-			knownCommands = new HashMap<String, ParameterizedCommand>();
-		}
-		ParameterizedCommand pc = knownCommands.get(c);
-		final IServiceLocator locator = myViewer.getContext().getServiceLocator();
-		final ICommandService cs = (ICommandService) locator.getService(ICommandService.class);
-		if (pc == null) {
-			try {
-				pc = cs.deserialize(c);
-			} catch (final NotDefinedException ex) {
-				LogUtils.error(this, ex);
-			} catch (final SerializationException ex) {
-				LogUtils.error(this, ex);
-			}
-			knownCommands.put(c, pc);
-		}
-		return pc;
 	}
 };
