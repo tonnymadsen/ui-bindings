@@ -267,6 +267,9 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			if (className.equals("org.eclipse.nebula.widgets.radiogroup.RadioGroup")) { //$NON-NLS-1$
 				style &= ~SWT.BORDER;
 			}
+			if (controlClass.equals(Label.class)) {
+				style &= ~SWT.BORDER;
+			}
 
 			/*
 			 * Create the control itself..
