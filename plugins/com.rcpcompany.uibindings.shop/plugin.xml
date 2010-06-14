@@ -424,21 +424,16 @@
          point="com.rcpcompany.uibindings.uiBindings">
       <model
             class="com.rcpcompany.uibindings.tests.shop.Shop">
-         <argument
-               name="image"
-               value="icons/house_16x16.png">
-         </argument>
          <feature
                name="tmpDir">
-            <argument
-                  name="type"
-                  value="directoryName">
-            </argument>
-            <argument
-                  name="label"
-                  value="Temporary Directory">
-            </argument>
+            <standardArguments
+                  label="Temporary Directory"
+                  type="directoryName">
+            </standardArguments>
          </feature>
+         <standardArguments
+               image="icons/house_16x16.png">
+         </standardArguments>
       </model>
       <model
             class="com.rcpcompany.uibindings.tests.shop.Country">
@@ -454,69 +449,55 @@
                name="itemDeletor"
                value="com.rcpcompany.uibindings.items.GenericDeletor">
          </argument>
-         <argument
-               name="preferredCellEditor"
-               value="org.eclipse.swt.custom.CCombo">
-         </argument>
+         <standardArguments
+               preferredCellEditor="org.eclipse.swt.custom.CCombo">
+         </standardArguments>
       </model>
       <model
             class="com.rcpcompany.uibindings.tests.shop.ShopItem">
-         <argument
-               name="openCommand"
-               value="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.example.application.views.InventoryView)">
-         </argument>
          <argument
                name="validValues"
                value="com.rcpcompany.uibindings.shop.observableListFactories.ShopItemsObservableListFactory">
          </argument>
          <feature
                name="price">
-            <argument
-                  name="type"
-                  value="price">
-            </argument>
+            <standardArguments
+                  type="price">
+            </standardArguments>
          </feature>
          <argument
-               name="image"
-               value="icons\shopItem-16x16.png">
+               name="image">
          </argument>
+         <standardArguments
+               image="icons\shopItem-16x16.png"
+               openCommand="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.example.application.views.InventoryView)">
+         </standardArguments>
       </model>
       <model
             class="com.rcpcompany.uibindings.tests.shop.Contact">
-         <argument
-               name="openCommand"
-               value="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.example.application.views.ContactsView)">
-         </argument>
          <argument
                name="validValues"
                value="com.rcpcompany.uibindings.shop.observableListFactories.ContactsObservableListFactory">
          </argument>
          <feature
                name="name">
-            <argument
-                  name="openCommand"
-                  value="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.example.application.views.ContactsView)">
-            </argument>
+            <standardArguments
+                  openCommand="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.example.application.views.ContactsView)"></standardArguments>
          </feature>
-         <argument
-               name="image"
-               value="icons/contact_16x16.png">
-         </argument>
+         <standardArguments
+               image="icons/contact_16x16.png"
+               openCommand="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.example.application.views.ContactsView)"></standardArguments>
       </model>
       <model
             class="com.rcpcompany.uibindings.tests.shop.Customer">
          <argument
-               name="openCommand"
-               value="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.example.application.views.CustomersView)">
-         </argument>
-         <argument
-               name="featureName"
-               value="contact.name">
-         </argument>
-         <argument
                name="validValues"
                value="com.rcpcompany.uibindings.shop.observableListFactories.CustomersObservableListFactory">
          </argument>
+         <standardArguments
+               featureName="contact.name"
+               openCommand="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.example.application.views.CustomersView)">
+         </standardArguments>
       </model>
       <model
             class="com.rcpcompany.uibindings.tests.shop.Order">
@@ -526,91 +507,67 @@
          </argument>
          <feature
                name="price">
-            <argument
-                  name="type"
-                  value="price">
-            </argument>
+            <standardArguments
+                  type="price">
+            </standardArguments>
          </feature>
-         <argument
-               name="featureName"
-               value="no">
-         </argument>
-         <argument
-               name="image"
-               value="icons\order-16x16.png">
-         </argument>
+         <standardArguments
+               featureName="no"
+               image="icons\order-16x16.png">
+         </standardArguments>
       </model>
       <model
             class="com.rcpcompany.uibindings.tests.shop.OrderItem">
-         <argument
-               name="featureName"
-               value="item.name">
-         </argument>
+         <standardArguments
+               featureName="item.name">
+         </standardArguments>
       </model>
       <model
             class="com.rcpcompany.uibindings.tests.shop.ShopItemGroup">
          <argument
-               name="openCommand"
-               value="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.shop.views.GroupView)">
-         </argument>
-         <argument
                name="validValues"
                value="com.rcpcompany.uibindings.shop.observableListFactories.ShopGroupsObservableListFactory">
          </argument>
-         <argument
-               name="nullLabel"
-               value="-no group-">
-         </argument>
-         <argument
-               name="preferredControl"
-               value="org.eclipse.swt.widgets.Combo">
-         </argument>
-         <argument
-               name="preferredCellEditor"
-               value="org.eclipse.swt.custom.CCombo">
-         </argument>
-         <argument
-               name="image"
-               value="icons\group-16x16.gif">
-         </argument>
+         <standardArguments
+               image="icons\group-16x16.gif"
+               nullLabel="-no group-"
+               openCommand="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.shop.views.GroupView)"
+               preferredCellEditor="org.eclipse.swt.custom.CCombo"
+               preferredControl="org.eclipse.swt.widgets.Combo">
+         </standardArguments>
       </model>
       <model
             class="com.rcpcompany.uibindings.tests.shop.CustomerType">
          <feature
                name="Bronce">
-            <argument
-                  name="image"
-                  value="icons/medal_bronze_2.png">
-            </argument>
+            <standardArguments
+                  image="icons/medal_bronze_2.png">
+            </standardArguments>
          </feature>
          <feature
                name="Silver">
-            <argument
-                  name="image"
-                  value="icons/medal_silver_2.png">
-            </argument>
+            <standardArguments
+                  image="icons/medal_silver_2.png">
+            </standardArguments>
          </feature>
          <feature
                name="Gold">
-            <argument
-                  name="image"
-                  value="icons/medal_gold_1.png">
-            </argument>
+            <standardArguments
+                  image="icons/medal_gold_1.png">
+            </standardArguments>
          </feature>
       </model>
       <model
             class="com.rcpcompany.uibindings.tests.shop.ShopItemURL">
-         <argument
-               name="featureName"
-               value="url">
-         </argument>
+         <standardArguments
+               featureName="url">
+         </standardArguments>
       </model>
       <model
             class="com.rcpcompany.uibindings.tests.shop.ShopItemDescription">
-         <argument
-               name="featureName"
-               value="description">
-         </argument>
+         <standardArguments
+               featureName="description">
+         </standardArguments>
       </model>
       <decoratorExtender
             class="com.rcpcompany.uibindings.shop.bindings.ContactExtender"
@@ -659,31 +616,19 @@
       </treeItem>
       <treeItem
             id="com.rcpcompany.uibindings.shop.treeItems.contactFolder">
-         <argument
-               name="text"
-               value="Contacts">
-         </argument>
-         <argument
-               name="image"
-               value="icons/evolution-contacts_16x16.png">
-         </argument>
+         <standardArguments
+               image="icons/evolution-contacts_16x16.png"
+               text="Contacts">
+         </standardArguments>
       </treeItem>
       <treeItem
             id="com.rcpcompany.uibindings.shop.treeItems.shopItemFolder">
-         <argument
-               name="text"
-               value="Shop Items">
-         </argument>
-         <argument
-               name="image">
-         </argument>
+         <standardArguments></standardArguments>
       </treeItem>
       <treeItem
             id="com.rcpcompany.uibindings.shop.treeItems.shopItemGroups">
-         <argument
-               name="text"
-               value="Groups">
-         </argument>
+         <standardArguments
+               text="Groups"></standardArguments>
       </treeItem>
       <treeItem
             id="com.rcpcompany.uibindings.shop.treeItems.shopItemGroup">
