@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test Helper Plug-in
+Bundle-SymbolicName: com.rcpcompany.tests.utils.logging.helper
+Bundle-Version: 1.1.0
+Bundle-Vendor: The RCP Company
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: com.rcpcompany.tests.utils.logging.helper

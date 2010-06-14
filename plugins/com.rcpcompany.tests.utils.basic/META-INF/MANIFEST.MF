@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Basic Utilities Plug-in
+Bundle-SymbolicName: com.rcpcompany.tests.utils.basic
+Bundle-Version: 1.0.0
+Bundle-Vendor: The RCP Company
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Require-Bundle: com.rcpcompany.utils.basic;bundle-version="1.0.1",
+ org.junit4;bundle-version="4.3.1",
+ org.eclipse.core.runtime;bundle-version="3.4.0"
