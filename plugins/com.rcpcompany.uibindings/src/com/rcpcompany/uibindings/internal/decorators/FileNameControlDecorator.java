@@ -58,8 +58,14 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 	public void initForValidation(IValueBinding binding) {
 		setBinding(binding);
 
-		myExtensions = FileNameControl.parseExtensions(getBinding().getArgument(Constants.ARG_EXTENSIONS, String.class,
-				null));
+		final String a = getBinding().getArgument(Constants.ARG_EXTENSIONS, String.class, null);
+		if (a == null) {
+			myExtensions = null;
+		} else if (a instanceof String) {
+			myExtensions = FileNameControl.parseExtensions(a);
+		} else {
+			LogUtils.error(this, Constants.ARG_EXTENSIONS + " in invalid format '" + a + "'");
+		}
 		myExistingOnly = getBinding().getArgument(Constants.ARG_NEW_ALLOWED, Boolean.class, true);
 	}
 

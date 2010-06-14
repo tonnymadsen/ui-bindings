@@ -754,15 +754,10 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		}
 
 		final ArgumentType s;
-		if (argumentType.isInstance(val)) {
-			// OK
-			s = (ArgumentType) val;
-		} else if (val instanceof String) {
-			s = convertArgumentValue(name, null, null, (String) val, argumentType);
-		} else if (val instanceof IConfigurationElement) {
+		if (val instanceof IConfigurationElement) {
 			final IConfigurationElement ce = (IConfigurationElement) val;
 
-			// TODO: SIMA-921
+			// SIMA-921
 			String value = ce.getAttribute(name);
 			if (value != null) {
 				s = convertArgumentValue(name, ce, name, value, argumentType);
@@ -770,6 +765,11 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 				value = ce.getAttribute(InternalConstants.VALUE_TAG);
 				s = convertArgumentValue(name, ce, InternalConstants.VALUE_TAG, value, argumentType);
 			}
+		} else if (argumentType.isInstance(val)) {
+			// OK
+			s = (ArgumentType) val;
+		} else if (val instanceof String) {
+			s = convertArgumentValue(name, null, null, (String) val, argumentType);
 		} else {
 			s = null;
 		}
@@ -832,11 +832,11 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 			 * Special case handling:
 			 */
 			if (name.equals(ARG_ALIGNMENT)) {
-				if ("l".equals(value)) { //$NON-NLS-1$
+				if ("l".equals(value) || "left".equals(value)) { //$NON-NLS-1$
 					return (ArgumentType) (Integer) SWT.LEAD;
-				} else if ("c".equals(value)) { //$NON-NLS-1$
+				} else if ("c".equals(value) || "center".equals(value)) { //$NON-NLS-1$
 					return (ArgumentType) (Integer) SWT.CENTER;
-				} else if ("r".equals(value)) { //$NON-NLS-1$
+				} else if ("r".equals(value) || "right".equals(value)) { //$NON-NLS-1$
 					return (ArgumentType) (Integer) SWT.TRAIL;
 				} else {
 					LogUtils.error(this, ARG_ALIGNMENT + " must be one of 'l', 'c' or 'r', got '" + value + "'", null); //$NON-NLS-1$ //$NON-NLS-2$
