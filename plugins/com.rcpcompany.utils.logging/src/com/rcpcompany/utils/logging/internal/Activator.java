@@ -11,14 +11,16 @@
  *******************************************************************************/
 package com.rcpcompany.utils.logging.internal;
 
+import org.eclipse.core.runtime.ILog;
 import org.eclipse.core.runtime.Plugin;
+import org.eclipse.jface.dialogs.ErrorDialog;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.service.packageadmin.PackageAdmin;
 import org.osgi.util.tracker.ServiceTracker;
 
 /**
- * The bundle activator for the loggin utilities.
+ * The bundle activator for the logging utilities.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -41,6 +43,7 @@ public class Activator extends Plugin {
 	 * The singleton activator.
 	 */
 	private static Activator theActivator;
+	private static ConsoleLog log;
 
 	/**
 	 * Constructs and returns a new activator
@@ -152,4 +155,23 @@ public class Activator extends Plugin {
 		}
 		return (PackageAdmin) bundleTracker.getService();
 	}
+
+	public static ILog getPlatformLog() {
+		if (ErrorDialog.AUTOMATED_MODE) {
+			return getConsoleLog();
+		}
+		if (getDefault() != null) {
+			return getDefault().getLog();
+		} else {
+			return getConsoleLog();
+		}
+	}
+
+	private static ILog getConsoleLog() {
+		if (log == null) {
+			log = new ConsoleLog();
+		}
+		return log;
+	}
+
 }

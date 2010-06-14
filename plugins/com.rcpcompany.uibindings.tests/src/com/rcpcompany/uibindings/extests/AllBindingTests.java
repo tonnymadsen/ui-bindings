@@ -146,7 +146,7 @@ import com.rcpcompany.uibindings.tests.PluginTest;
 import com.rcpcompany.uibindings.views.ValidationViewTest;
 
 @RunWith(Suite.class)
-@Suite.SuiteClasses( {
+@Suite.SuiteClasses({
 
 /*
  * Initial state: no errors during initialization
@@ -154,9 +154,9 @@ import com.rcpcompany.uibindings.views.ValidationViewTest;
 NoErrorsDuringInitializationTest.class,
 
 /*
- * Basiv internal tests.
+ * Basic internal tests.
  */
-PluginTest.class,
+PluginTest.class, PluginQualifierTest.class,
 
 /*
  * Various constants
