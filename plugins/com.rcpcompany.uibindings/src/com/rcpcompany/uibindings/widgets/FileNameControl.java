@@ -5,10 +5,13 @@ import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.DirectoryDialog;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.FileDialog;
+import org.eclipse.swt.widgets.Text;
 
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.InternalConstants;
+import com.rcpcompany.uibindings.internal.observables.TextObservableValue;
 
 /**
  * File and directory name widget.
@@ -19,7 +22,8 @@ public class FileNameControl extends BaseTextButtonWidget {
 	private static Image myButtonImage = Activator.getDefault().getImageRegistry()
 			.get(InternalConstants.IMG_OPEN_DIALOG);
 	private boolean myExistingOnly = true;
-	private String[] myExtensions = null;
+	private String[] myFilterExtensions = null;
+	private String[] myFilterNames = null;
 	private String myDialogTitle = null;
 	private boolean myDirectoryMode = false;
 
@@ -35,6 +39,7 @@ public class FileNameControl extends BaseTextButtonWidget {
 
 	@Override
 	public void open(MouseEvent e) {
+		getTextControl().setFocus();
 		final String path;
 		if (myDirectoryMode) {
 			final DirectoryDialog dialog = new DirectoryDialog(getShell(), isExistingOnly() ? SWT.OPEN : SWT.SAVE);
@@ -45,7 +50,8 @@ public class FileNameControl extends BaseTextButtonWidget {
 			path = dialog.open();
 		} else {
 			final FileDialog dialog = new FileDialog(getShell(), isExistingOnly() ? SWT.OPEN : SWT.SAVE);
-			dialog.setFilterExtensions(getExtensions() != null ? getExtensions() : new String[] { "*.*" });
+			dialog.setFilterExtensions(myFilterExtensions);
+			dialog.setFilterNames(myFilterNames);
 			dialog.setFileName(getText());
 			if (getDialogTitle() != null) {
 				dialog.setText(getDialogTitle());
@@ -54,6 +60,38 @@ public class FileNameControl extends BaseTextButtonWidget {
 		}
 		if (path == null) return;
 		setText(path);
+
+		/*
+		 * Need to provoke the TextObservableValue to accept the text, but faking a Return
+		 */
+		postENTER();
+	}
+
+	/**
+	 * Posts an ENTER (or CR) for the text control to provoke the {@link TextObservableValue}.
+	 */
+	private void postENTER() {
+		final Text c = getTextControl();
+		if (!c.isFocusControl()) return;
+		Event event;
+
+		event = new Event();
+		event.type = SWT.KeyDown;
+		event.stateMask = 0;
+		event.keyCode = SWT.CR;
+		event.character = (char) event.keyCode;
+		event.widget = c;
+
+		c.getDisplay().post(event);
+
+		event = new Event();
+		event.type = SWT.KeyUp;
+		event.stateMask = 0;
+		event.keyCode = SWT.CR;
+		event.character = (char) event.keyCode;
+		event.widget = c;
+
+		c.getDisplay().post(event);
 	}
 
 	private void updateMessage() {
@@ -89,25 +127,16 @@ public class FileNameControl extends BaseTextButtonWidget {
 	}
 
 	/**
-	 * Sets the valid extensions for the files.
-	 * <p>
-	 * See {@link FileDialog#setFilterExtensions(String[])} for a description of the format
+	 * Sets the valid extension names and filters for the files.
 	 * 
-	 * @param extensions the extensions to use
+	 * @param names the names - can be <code>null</code>
+	 * @param filters the filters - cannot be <code>null</code>
 	 */
-	public void setExtensions(String[] extensions) {
-		myExtensions = extensions;
+	public void setExtensions(String[] names, String[] filters) {
+		myFilterNames = names;
+		myFilterExtensions = filters;
 
 		updateMessage();
-	}
-
-	/**
-	 * Returns the extensions for the files.
-	 * 
-	 * @return the extensions
-	 */
-	public String[] getExtensions() {
-		return myExtensions;
 	}
 
 	/**
@@ -120,23 +149,12 @@ public class FileNameControl extends BaseTextButtonWidget {
 	}
 
 	/**
-	 * Retrusn the title of the open dialog.
+	 * Returns the title of the open dialog.
 	 * 
 	 * @return the dialog title
 	 */
 	public String getDialogTitle() {
 		return myDialogTitle;
-	}
-
-	/**
-	 * Parses an extensions specification and returns the corresponding String[].
-	 * 
-	 * @param spec the specification
-	 * @return the corresponding array or <code>null</code>
-	 */
-	public static String[] parseExtensions(String spec) {
-		if (spec == null) return null;
-		return spec.split("\n");
 	}
 
 	/**

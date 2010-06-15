@@ -22,6 +22,8 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.TextCommitStrategy;
+import com.rcpcompany.utils.basic.ToStringUtils;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * {@link IObservableValue} for a number of widgets: {@link Text}, {@link StyledText}, {@link Combo}
@@ -70,8 +72,7 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 	 * <li>select text</li>
 	 * <li>enter "b"</li>
 	 * </ul>
-	 * This results in two modify events: "a" to "" and "" to "b". Though only in one verify
-	 * event...
+	 * This results in two modify events: "a" to "" and "" to "b". Though only one verify event...
 	 * <p>
 	 * Also see <a href="http://jira.marintek.sintef.no/jira/browse/SIMA-623">SIMA-623: Text widget
 	 * with Focus out commit strategy, seems to commit early.</a>
@@ -81,8 +82,7 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 	private final Listener myControlListener = new Listener() {
 		@Override
 		public void handleEvent(Event event) {
-			// LogUtils.debug(this, "Text='" + myAccess.getText(myControl) + "'\n" +
-			// ToStringUtils.toString(event));
+			LogUtils.debug(this, "Text='" + myAdapter.getText(myControl) + "'\n" + ToStringUtils.toString(event));
 			if (updating) return;
 
 			/*
@@ -106,6 +106,8 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 				case SWT.ESC:
 					doSetValue(myOldValue);
 					break;
+				default:
+					break;
 				}
 				return;
 			case SWT.Verify:
@@ -116,10 +118,14 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 				myNextModifyValue = v.substring(0, event.start) + event.text + v.substring(event.end);
 				return;
 			case SWT.Modify:
-				/*
-				 * See comment for myNextModifyValue.
-				 */
-				if (myNextModifyValue != null && !myAdapter.getText(myControl).equals(myNextModifyValue)) return;
+				if (myNextModifyValue != null && !myAdapter.getText(myControl).equals(myNextModifyValue)) /*
+																										 * See
+																										 * comment
+																										 * for
+																										 * myNextModifyValue
+																										 * .
+																										 */
+				return;
 				myNextModifyValue = null;
 				break;
 			case SWT.FocusOut:
@@ -127,6 +133,8 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 				break;
 			case SWT.Selection:
 				forceUpdateValue();
+				break;
+			default:
 				break;
 			}
 
@@ -144,6 +152,8 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 			case ON_MODIFY_DELAY:
 				if (event.type != SWT.Modify) return;
 				break;
+			default:
+				LogUtils.error(this, "Unknown strategy " + myStrategy);
 			}
 
 			updateValue(event.type == SWT.Modify, false);
@@ -161,7 +171,7 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 	protected TextCommitStrategy myStrategy;
 
 	/**
-	 * Used to suppress the events provoked by strategy changes
+	 * Used to suppress the events provoked by strategy changes.
 	 */
 	protected boolean mySuppressStrategyChanges = false;
 
@@ -235,7 +245,7 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 	 * @param text the Text widget
 	 */
 	public TextObservableValue(final Realm realm, Text text) {
-		this(realm, text, myTextAdapter, (text.getStyle() & SWT.SINGLE) == SWT.SINGLE, false);
+		this(realm, text, TEXT_ADAPTER, (text.getStyle() & SWT.SINGLE) == SWT.SINGLE, false);
 	}
 
 	/**
@@ -254,7 +264,7 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 	 * @param text the Text widget
 	 */
 	public TextObservableValue(final Realm realm, StyledText text) {
-		this(realm, text, myStyledTextAdapter, false, false);
+		this(realm, text, STYLEDTEXT_ADAPTER, false, false);
 	}
 
 	/**
@@ -273,7 +283,7 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 	 * @param combo the Text widget
 	 */
 	public TextObservableValue(final Realm realm, Combo combo) {
-		this(realm, combo, myComboAdapter, true, true);
+		this(realm, combo, COMBO_ADAPTER, true, true);
 	}
 
 	/**
@@ -292,7 +302,7 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 	 * @param combo the Text widget
 	 */
 	public TextObservableValue(final Realm realm, CCombo combo) {
-		this(realm, combo, myCComboAdapter, true, true);
+		this(realm, combo, CCOMBO_ADAPTER, true, true);
 	}
 
 	@Override
@@ -449,7 +459,7 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 	 * Private class used to force an delayed update.
 	 */
 	protected class ValueUpdater implements Runnable {
-		boolean cancel = false;
+		private boolean cancel = false;
 
 		void cancel() {
 			cancel = true;
@@ -459,7 +469,7 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 		public void run() {
 			if (isDisposed()) return;
 			if (!cancel) {
-				updateValue(false, true);
+				forceUpdateValue();
 			}
 		}
 	}
@@ -508,7 +518,7 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 		 * @param w the widget
 		 * @return the current text
 		 */
-		public String getText(Control w);
+		String getText(Control w);
 
 		/**
 		 * Sets the text of the widget.
@@ -516,13 +526,13 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 		 * @param w the widget
 		 * @param newText the new text
 		 */
-		public void setText(Control w, String newText);
+		void setText(Control w, String newText);
 	}
 
 	/**
 	 * Access methods for {@link Text} widgets.
 	 */
-	protected static final ControlAdapter myTextAdapter = new ControlAdapter() {
+	protected static final ControlAdapter TEXT_ADAPTER = new ControlAdapter() {
 		@Override
 		public String getText(Control w) {
 			return ((Text) w).getText();
@@ -537,7 +547,7 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 	/**
 	 * Access methods for {@link StyledText} widgets.
 	 */
-	protected static final ControlAdapter myStyledTextAdapter = new ControlAdapter() {
+	protected static final ControlAdapter STYLEDTEXT_ADAPTER = new ControlAdapter() {
 		@Override
 		public String getText(Control w) {
 			return ((StyledText) w).getText();
@@ -552,7 +562,7 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 	/**
 	 * Access methods for {@link Combo} widgets.
 	 */
-	protected static final ControlAdapter myComboAdapter = new ControlAdapter() {
+	protected static final ControlAdapter COMBO_ADAPTER = new ControlAdapter() {
 		@Override
 		public String getText(Control w) {
 			return ((Combo) w).getText();
@@ -567,7 +577,7 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 	/**
 	 * Access methods for {@link CCombo} widgets.
 	 */
-	protected static final ControlAdapter myCComboAdapter = new ControlAdapter() {
+	protected static final ControlAdapter CCOMBO_ADAPTER = new ControlAdapter() {
 		@Override
 		public String getText(Control w) {
 			return ((CCombo) w).getText();

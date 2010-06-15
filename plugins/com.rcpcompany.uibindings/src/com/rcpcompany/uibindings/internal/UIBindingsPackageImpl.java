@@ -1864,6 +1864,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getViewerBinding_Elements() {
 		return (EAttribute) viewerBindingEClass.getEStructuralFeatures().get(2);
 	}
@@ -1873,6 +1874,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getViewerBinding_SingleSelection() {
 		return (EAttribute) viewerBindingEClass.getEStructuralFeatures().get(3);
 	}
@@ -1882,6 +1884,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getViewerBinding_MultipleSelection() {
 		return (EAttribute) viewerBindingEClass.getEStructuralFeatures().get(4);
 	}
@@ -1891,6 +1894,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getViewerBinding_Viewer() {
 		return (EAttribute) viewerBindingEClass.getEStructuralFeatures().get(5);
 	}
@@ -1900,6 +1904,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getViewerBinding_FirstTableColumnOffset() {
 		return (EAttribute) viewerBindingEClass.getEStructuralFeatures().get(6);
 	}
@@ -1909,6 +1914,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getDecoratorProvider() {
 		return decoratorProviderEClass;
 	}
@@ -1918,6 +1924,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getDecoratorProvider_Manager() {
 		return (EReference) decoratorProviderEClass.getEStructuralFeatures().get(0);
 	}
@@ -1927,6 +1934,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDecoratorProvider_Id() {
 		return (EAttribute) decoratorProviderEClass.getEStructuralFeatures().get(1);
 	}
@@ -1936,6 +1944,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDecoratorProvider_Type() {
 		return (EAttribute) decoratorProviderEClass.getEStructuralFeatures().get(2);
 	}
@@ -1945,6 +1954,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDecoratorProvider_ModelTypes() {
 		return (EAttribute) decoratorProviderEClass.getEStructuralFeatures().get(3);
 	}
@@ -1954,6 +1964,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDecoratorProvider_UiTypes() {
 		return (EAttribute) decoratorProviderEClass.getEStructuralFeatures().get(4);
 	}
@@ -1963,6 +1974,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDecoratorProvider_ProviderCE() {
 		return (EAttribute) decoratorProviderEClass.getEStructuralFeatures().get(5);
 	}
@@ -1972,6 +1984,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDecoratorProvider_ChildCE() {
 		return (EAttribute) decoratorProviderEClass.getEStructuralFeatures().get(6);
 	}
@@ -1981,6 +1994,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getDecoratorProvider_Decorator() {
 		return (EReference) decoratorProviderEClass.getEStructuralFeatures().get(7);
 	}
@@ -1990,6 +2004,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDecoratorProvider_ExactModelTypeMatch() {
 		return (EAttribute) decoratorProviderEClass.getEStructuralFeatures().get(8);
 	}
@@ -1999,6 +2014,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getJavaDecoratorProvider() {
 		return javaDecoratorProviderEClass;
 	}
@@ -2008,6 +2024,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getEnumDecoratorProvider() {
 		return enumDecoratorProviderEClass;
 	}
@@ -2017,6 +2034,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEnumDecoratorProvider_AddingDefaultMappings() {
 		return (EAttribute) enumDecoratorProviderEClass.getEStructuralFeatures().get(0);
 	}
@@ -2026,6 +2044,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getEnumDecoratorProvider_BaseMappings() {
 		return (EReference) enumDecoratorProviderEClass.getEStructuralFeatures().get(1);
 	}
@@ -2035,6 +2054,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getEnumDecoratorProviderEntry() {
 		return enumDecoratorProviderEntryEClass;
 	}
@@ -2044,6 +2064,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEnumDecoratorProviderEntry_Model() {
 		return (EAttribute) enumDecoratorProviderEntryEClass.getEStructuralFeatures().get(0);
 	}
@@ -2053,6 +2074,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEnumDecoratorProviderEntry_Ui() {
 		return (EAttribute) enumDecoratorProviderEntryEClass.getEStructuralFeatures().get(1);
 	}
@@ -2062,6 +2084,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getNumberDecoratorProvider() {
 		return numberDecoratorProviderEClass;
 	}
@@ -2071,6 +2094,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getNumberDecoratorProvider_Format() {
 		return (EAttribute) numberDecoratorProviderEClass.getEStructuralFeatures().get(0);
 	}
@@ -2080,6 +2104,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getBindingDataType() {
 		return bindingDataTypeEClass;
 	}
@@ -2089,6 +2114,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBindingDataType_Name() {
 		return (EAttribute) bindingDataTypeEClass.getEStructuralFeatures().get(0);
 	}
@@ -2098,6 +2124,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBindingDataType_ValueType() {
 		return (EAttribute) bindingDataTypeEClass.getEStructuralFeatures().get(1);
 	}
@@ -2107,6 +2134,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getBindingDataType_EType() {
 		return (EReference) bindingDataTypeEClass.getEStructuralFeatures().get(2);
 	}
@@ -2116,6 +2144,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBindingDataType_DataType() {
 		return (EAttribute) bindingDataTypeEClass.getEStructuralFeatures().get(3);
 	}
@@ -2125,6 +2154,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getBindingDataType_EAnnotation() {
 		return (EReference) bindingDataTypeEClass.getEStructuralFeatures().get(4);
 	}
@@ -2134,6 +2164,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getBindingDataType_ParentDataType() {
 		return (EReference) bindingDataTypeEClass.getEStructuralFeatures().get(5);
 	}
@@ -2143,6 +2174,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBindingDataType_Required() {
 		return (EAttribute) bindingDataTypeEClass.getEStructuralFeatures().get(6);
 	}
@@ -2152,6 +2184,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBindingDataType_Changeable() {
 		return (EAttribute) bindingDataTypeEClass.getEStructuralFeatures().get(7);
 	}
@@ -2161,6 +2194,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBindingDataType_Unsettable() {
 		return (EAttribute) bindingDataTypeEClass.getEStructuralFeatures().get(8);
 	}
@@ -2170,6 +2204,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getColumnAdapter() {
 		return columnAdapterEClass;
 	}
@@ -2179,6 +2214,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getColumnAdapter_Widget() {
 		return (EAttribute) columnAdapterEClass.getEStructuralFeatures().get(0);
 	}
@@ -2188,6 +2224,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getColumnAdapter_Text() {
 		return (EAttribute) columnAdapterEClass.getEStructuralFeatures().get(1);
 	}
@@ -2197,6 +2234,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getColumnAdapter_Alignment() {
 		return (EAttribute) columnAdapterEClass.getEStructuralFeatures().get(2);
 	}
@@ -2206,6 +2244,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getColumnAdapter_Image() {
 		return (EAttribute) columnAdapterEClass.getEStructuralFeatures().get(3);
 	}
@@ -2215,6 +2254,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getColumnAdapter_Moveable() {
 		return (EAttribute) columnAdapterEClass.getEStructuralFeatures().get(4);
 	}
@@ -2224,6 +2264,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getColumnAdapter_Resizable() {
 		return (EAttribute) columnAdapterEClass.getEStructuralFeatures().get(5);
 	}
@@ -2233,6 +2274,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getColumnAdapter_Width() {
 		return (EAttribute) columnAdapterEClass.getEStructuralFeatures().get(6);
 	}
@@ -2242,6 +2284,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getColumnAdapter_ToolTipText() {
 		return (EAttribute) columnAdapterEClass.getEStructuralFeatures().get(7);
 	}
@@ -2251,6 +2294,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getModelInfo() {
 		return modelInfoEClass;
 	}
@@ -2260,6 +2304,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getModelClassInfo() {
 		return modelClassInfoEClass;
 	}
@@ -2269,6 +2314,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getModelClassInfo_ClassName() {
 		return (EAttribute) modelClassInfoEClass.getEStructuralFeatures().get(0);
 	}
@@ -2278,6 +2324,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getModelClassInfo_Features() {
 		return (EReference) modelClassInfoEClass.getEStructuralFeatures().get(1);
 	}
@@ -2287,6 +2334,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getModelClassInfo_Types() {
 		return (EReference) modelClassInfoEClass.getEStructuralFeatures().get(2);
 	}
@@ -2296,6 +2344,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getModelFeatureInfo() {
 		return modelFeatureInfoEClass;
 	}
@@ -2305,6 +2354,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getModelFeatureInfo_FeatureName() {
 		return (EAttribute) modelFeatureInfoEClass.getEStructuralFeatures().get(0);
 	}
@@ -2314,6 +2364,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getModelFeatureInfo_Class() {
 		return (EReference) modelFeatureInfoEClass.getEStructuralFeatures().get(1);
 	}
@@ -2323,6 +2374,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getUIBindingDecorator() {
 		return uiBindingDecoratorEClass;
 	}
@@ -2332,6 +2384,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getUIBindingDecorator_Binding() {
 		return (EReference) uiBindingDecoratorEClass.getEStructuralFeatures().get(0);
 	}
@@ -2341,6 +2394,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getUIBindingDecorator_Changeable() {
 		return (EAttribute) uiBindingDecoratorEClass.getEStructuralFeatures().get(1);
 	}
@@ -2350,6 +2404,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getUIBindingDecorator_ModelToUIConverter() {
 		return (EAttribute) uiBindingDecoratorEClass.getEStructuralFeatures().get(2);
 	}
@@ -2359,6 +2414,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getUIBindingDecorator_UIToModelConverter() {
 		return (EAttribute) uiBindingDecoratorEClass.getEStructuralFeatures().get(3);
 	}
@@ -2368,6 +2424,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getUIBindingDecorator_UIToModelAfterConvertValidator() {
 		return (EAttribute) uiBindingDecoratorEClass.getEStructuralFeatures().get(4);
 	}
@@ -2377,6 +2434,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getUIBindingDecorator_ValidUIList() {
 		return (EAttribute) uiBindingDecoratorEClass.getEStructuralFeatures().get(5);
 	}
@@ -2386,6 +2444,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getUIBindingDecoratorExtender() {
 		return uiBindingDecoratorExtenderEClass;
 	}
@@ -2395,6 +2454,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getUIBindingDecoratorExtenderDescriptor() {
 		return uiBindingDecoratorExtenderDescriptorEClass;
 	}
@@ -2404,6 +2464,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getUIBindingDecoratorExtenderDescriptor_Priority() {
 		return (EAttribute) uiBindingDecoratorExtenderDescriptorEClass.getEStructuralFeatures().get(0);
 	}
@@ -2413,6 +2474,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getUIBindingDecoratorExtenderDescriptor_Factory() {
 		return (EAttribute) uiBindingDecoratorExtenderDescriptorEClass.getEStructuralFeatures().get(1);
 	}
@@ -2422,6 +2484,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getArgumentProvider() {
 		return argumentProviderEClass;
 	}
@@ -2431,6 +2494,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getArgumentProvider_DeclaredArguments() {
 		return (EReference) argumentProviderEClass.getEStructuralFeatures().get(0);
 	}
@@ -2440,6 +2504,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getIDisposable() {
 		return iDisposableEClass;
 	}
@@ -2449,6 +2514,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getIModelArgumentMediator() {
 		return iModelArgumentMediatorEClass;
 	}
@@ -2458,6 +2524,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getIPersistentParty() {
 		return iPersistentPartyEClass;
 	}
@@ -2467,6 +2534,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getConstants() {
 		return constantsEClass;
 	}
@@ -2476,6 +2544,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getStringToModelClassInfoMapEntry() {
 		return stringToModelClassInfoMapEntryEClass;
 	}
@@ -2485,6 +2554,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getStringToModelClassInfoMapEntry_Key() {
 		return (EAttribute) stringToModelClassInfoMapEntryEClass.getEStructuralFeatures().get(0);
 	}
@@ -2494,6 +2564,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getStringToModelClassInfoMapEntry_Value() {
 		return (EReference) stringToModelClassInfoMapEntryEClass.getEStructuralFeatures().get(1);
 	}
@@ -2503,6 +2574,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getStringToModelFeatureInfoMapEntry() {
 		return stringToModelFeatureInfoMapEntryEClass;
 	}
@@ -2512,6 +2584,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getStringToModelFeatureInfoMapEntry_Key() {
 		return (EAttribute) stringToModelFeatureInfoMapEntryEClass.getEStructuralFeatures().get(0);
 	}
@@ -2521,6 +2594,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getStringToModelFeatureInfoMapEntry_Value() {
 		return (EReference) stringToModelFeatureInfoMapEntryEClass.getEStructuralFeatures().get(1);
 	}
@@ -2530,6 +2604,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getStringToStringMapEntry() {
 		return stringToStringMapEntryEClass;
 	}
@@ -2539,6 +2614,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getStringToStringMapEntry_Key() {
 		return (EAttribute) stringToStringMapEntryEClass.getEStructuralFeatures().get(0);
 	}
@@ -2548,6 +2624,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getStringToStringMapEntry_Value() {
 		return (EAttribute) stringToStringMapEntryEClass.getEStructuralFeatures().get(1);
 	}
@@ -2557,6 +2634,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getStringToStringMapEntry_Arguments() {
 		return (EReference) stringToStringMapEntryEClass.getEStructuralFeatures().get(2);
 	}
@@ -2566,6 +2644,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getStringToObjectMapEntry() {
 		return stringToObjectMapEntryEClass;
 	}
@@ -2575,6 +2654,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getStringToObjectMapEntry_Key() {
 		return (EAttribute) stringToObjectMapEntryEClass.getEStructuralFeatures().get(0);
 	}
@@ -2584,6 +2664,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getStringToObjectMapEntry_Value() {
 		return (EAttribute) stringToObjectMapEntryEClass.getEStructuralFeatures().get(1);
 	}
@@ -2593,6 +2674,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getStringToImageDescriptorMapEntry() {
 		return stringToImageDescriptorMapEntryEClass;
 	}
@@ -2602,6 +2684,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getStringToImageDescriptorMapEntry_Key() {
 		return (EAttribute) stringToImageDescriptorMapEntryEClass.getEStructuralFeatures().get(0);
 	}
@@ -2611,6 +2694,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getStringToImageDescriptorMapEntry_Value() {
 		return (EAttribute) stringToImageDescriptorMapEntryEClass.getEStructuralFeatures().get(1);
 	}
@@ -2620,6 +2704,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getStringToIConfigurationElementMapEntry() {
 		return stringToIConfigurationElementMapEntryEClass;
 	}
@@ -2629,6 +2714,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getStringToIConfigurationElementMapEntry_Key() {
 		return (EAttribute) stringToIConfigurationElementMapEntryEClass.getEStructuralFeatures().get(0);
 	}
@@ -2638,6 +2724,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getStringToIConfigurationElementMapEntry_Value() {
 		return (EAttribute) stringToIConfigurationElementMapEntryEClass.getEStructuralFeatures().get(1);
 	}
@@ -2647,6 +2734,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getStringToBooleanMapEntry() {
 		return stringToBooleanMapEntryEClass;
 	}
@@ -2656,6 +2744,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getStringToBooleanMapEntry_Key() {
 		return (EAttribute) stringToBooleanMapEntryEClass.getEStructuralFeatures().get(0);
 	}
@@ -2665,6 +2754,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getStringToBooleanMapEntry_Value() {
 		return (EAttribute) stringToBooleanMapEntryEClass.getEStructuralFeatures().get(1);
 	}
@@ -2674,6 +2764,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getObjectToCIMapEntry() {
 		return objectToCIMapEntryEClass;
 	}
@@ -2683,6 +2774,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getObjectToCIMapEntry_Key() {
 		return (EReference) objectToCIMapEntryEClass.getEStructuralFeatures().get(0);
 	}
@@ -2692,6 +2784,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getObjectToCIMapEntry_Value() {
 		return (EReference) objectToCIMapEntryEClass.getEStructuralFeatures().get(1);
 	}
@@ -2701,6 +2794,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getServiceRegistry() {
 		return serviceRegistryEClass;
 	}
@@ -2710,6 +2804,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getServiceRegistry_Services() {
 		return (EAttribute) serviceRegistryEClass.getEStructuralFeatures().get(0);
 	}
@@ -2719,6 +2814,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getQuickfixProposal() {
 		return quickfixProposalEClass;
 	}
@@ -2728,6 +2824,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getQuickfixProposal_Label() {
 		return (EAttribute) quickfixProposalEClass.getEStructuralFeatures().get(0);
 	}
@@ -2737,6 +2834,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getQuickfixProposal_Description() {
 		return (EAttribute) quickfixProposalEClass.getEStructuralFeatures().get(1);
 	}
@@ -2746,6 +2844,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getQuickfixProposal_Image() {
 		return (EAttribute) quickfixProposalEClass.getEStructuralFeatures().get(2);
 	}
@@ -2755,6 +2854,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getQuickfixProposal_Relevance() {
 		return (EAttribute) quickfixProposalEClass.getEStructuralFeatures().get(3);
 	}

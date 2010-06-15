@@ -421,6 +421,37 @@
       </menuContribution>
    </extension>
    <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            class="com.rcpcompany.uibindings.shop.wizards.NewContactWizard"
+            icon="icons/contact-new_16x16.png"
+            id="com.rcpcompany.uibindings.shop.wizards.NewContactWizard"
+            name="Contact">
+      </wizard>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="com.rcpcompany.uibindings.shop.application"
+            name="Shop Demo">
+         <property
+               name="appName"
+               value="Shop Demo">
+         </property>
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="com.rcpcompany.uibindings.tests.shop.Contact"
+            class="com.rcpcompany.uibindings.shop.UIBindingPropertiesAdapterFactory">
+         <adapter
+               type="I">
+         </adapter>
+      </factory>
+   </extension>
+   <extension
          point="com.rcpcompany.uibindings.uiBindings">
       <model
             class="com.rcpcompany.uibindings.tests.shop.Shop">
@@ -482,11 +513,13 @@
          <feature
                name="name">
             <standardArguments
-                  openCommand="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.example.application.views.ContactsView)"></standardArguments>
+                  openCommand="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.example.application.views.ContactsView)">
+            </standardArguments>
          </feature>
          <standardArguments
                image="icons/contact_16x16.png"
-               openCommand="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.example.application.views.ContactsView)"></standardArguments>
+               openCommand="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.example.application.views.ContactsView)">
+         </standardArguments>
       </model>
       <model
             class="com.rcpcompany.uibindings.tests.shop.Customer">
@@ -498,6 +531,13 @@
                featureName="contact.name"
                openCommand="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.example.application.views.CustomersView)">
          </standardArguments>
+         <feature
+               name="logoFileName">
+            <standardArguments
+                  extensions="Image:*.gif;*.png///Other:*.*"
+                  type="fileName">
+            </standardArguments>
+         </feature>
       </model>
       <model
             class="com.rcpcompany.uibindings.tests.shop.Order">
@@ -573,37 +613,6 @@
             class="com.rcpcompany.uibindings.shop.bindings.ContactExtender"
             priority="100">
       </decoratorExtender>
-   </extension>
-   <extension
-         point="org.eclipse.ui.newWizards">
-      <wizard
-            class="com.rcpcompany.uibindings.shop.wizards.NewContactWizard"
-            icon="icons/contact-new_16x16.png"
-            id="com.rcpcompany.uibindings.shop.wizards.NewContactWizard"
-            name="Contact">
-      </wizard>
-   </extension>
-   <extension
-         id="product"
-         point="org.eclipse.core.runtime.products">
-      <product
-            application="com.rcpcompany.uibindings.shop.application"
-            name="Shop Demo">
-         <property
-               name="appName"
-               value="Shop Demo">
-         </property>
-      </product>
-   </extension>
-   <extension
-         point="org.eclipse.core.runtime.adapters">
-      <factory
-            adaptableType="com.rcpcompany.uibindings.tests.shop.Contact"
-            class="com.rcpcompany.uibindings.shop.UIBindingPropertiesAdapterFactory">
-         <adapter
-               type="I">
-         </adapter>
-      </factory>
    </extension>
    <extension
          point="com.rcpcompany.uibindings.uiBindings">

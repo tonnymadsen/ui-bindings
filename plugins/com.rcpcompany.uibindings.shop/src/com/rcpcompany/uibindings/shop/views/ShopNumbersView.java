@@ -1,5 +1,7 @@
 package com.rcpcompany.uibindings.shop.views;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
@@ -22,6 +24,13 @@ public class ShopNumbersView extends ViewPart {
 
 		myForm.finish();
 		IBindingContextSelectionProvider.Factory.adapt(myForm.getContext(), getSite());
+
+		ShopFactory.eINSTANCE.getShop().eAdapters().add(new AdapterImpl() {
+			@Override
+			public void notifyChanged(Notification msg) {
+				System.out.println("shop change " + msg);
+			}
+		});
 	}
 
 	@Override

@@ -33,15 +33,17 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 	public static final int FILE_NAME_ERROR_CODE = 1010;
 
 	/**
-	 * Allowed extension as specified in {@link FileNameControl#setExtensions(String[])}
+	 * Allowed extensions
 	 */
-	protected String[] myExtensions;
+	protected String[] myFilterExtensions;
 
 	/**
 	 * Whether only existing file and directories are allowed
 	 */
 	protected boolean myExistingOnly;
 	protected boolean myDirectoryMode = false;
+
+	private String[] myFilterNames;
 
 	@Override
 	public void init(IValueBinding binding) {
@@ -58,15 +60,49 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 	public void initForValidation(IValueBinding binding) {
 		setBinding(binding);
 
-		final String a = getBinding().getArgument(Constants.ARG_EXTENSIONS, String.class, null);
-		if (a == null) {
-			myExtensions = null;
-		} else if (a instanceof String) {
-			myExtensions = FileNameControl.parseExtensions(a);
-		} else {
-			LogUtils.error(this, Constants.ARG_EXTENSIONS + " in invalid format '" + a + "'");
-		}
 		myExistingOnly = getBinding().getArgument(Constants.ARG_NEW_ALLOWED, Boolean.class, true);
+
+		final String extensions = getBinding().getArgument(Constants.ARG_EXTENSIONS, String.class, null);
+
+		if (extensions != null) {
+			final String[] groups = extensions.split("///");
+
+			myFilterExtensions = new String[groups.length];
+			myFilterNames = new String[groups.length];
+			boolean namesSeen = false;
+
+			for (int j = 0; j < groups.length; j++) {
+				final String g = groups[j];
+				final int i = g.indexOf(':');
+				if (i == -1) {
+					myFilterExtensions[j] = g;
+				} else if (i == 0) {
+					LogUtils.debug(this, "Extensions '" + extensions + "' is malformed: empty labels");
+					myFilterExtensions[j] = g.substring(i + 1);
+				} else if (i == g.length() - 1) {
+					LogUtils.debug(this, "Extensions '" + extensions + "' is malformed: empty filters");
+					namesSeen = true;
+					myFilterNames[j] = g.substring(0, i);
+					myFilterExtensions[j] = "*.*";
+				} else {
+					namesSeen = true;
+					myFilterNames[j] = g.substring(0, i);
+					myFilterExtensions[j] = g.substring(i + 1);
+				}
+			}
+			if (namesSeen) {
+				for (final String s : myFilterNames) {
+					if (s == null) {
+						LogUtils.debug(this, "Extensions '" + extensions
+								+ "' is malformed: some, but not all groups have labels");
+						myFilterNames = null;
+						break;
+					}
+				}
+			} else {
+				myFilterNames = null;
+			}
+		}
 	}
 
 	@Override
@@ -76,7 +112,7 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 		if (getBinding().getControl() instanceof FileNameControl) {
 			final FileNameControl fnw = (FileNameControl) getBinding().getControl();
 			fnw.setDirectoryMode(myDirectoryMode);
-			fnw.setExtensions(myExtensions);
+			fnw.setExtensions(myFilterNames, myFilterExtensions);
 			fnw.setDialogTitle(getBinding().getLabel());
 			fnw.setExistingOnly(myExistingOnly);
 		}
@@ -99,48 +135,49 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 				 * - Check existance
 				 */
 				if (myExistingOnly) {
-					if (!file.exists()) {
+					if (!file.exists())
 						return UIBindingsUtils.error(IManager.Factory.getManager().isValidationErrorsAreFatal(),
 								FILE_NAME_ERROR_CODE, "File does not exist");
-					}
 				}
 
 				/*
 				 * Check type (file/directory)
 				 */
-				if (myDirectoryMode && !file.isDirectory()) {
+				if (myDirectoryMode && !file.isDirectory())
 					return UIBindingsUtils.error(IManager.Factory.getManager().isValidationErrorsAreFatal(),
 							FILE_NAME_ERROR_CODE, "Directory expected");
-				} else if (!myDirectoryMode && !file.isFile()) {
+				else if (!myDirectoryMode && !file.isFile())
 					return UIBindingsUtils.error(IManager.Factory.getManager().isValidationErrorsAreFatal(),
 							FILE_NAME_ERROR_CODE, "File expected");
-				}
 
 				/*
 				 * - Check extension
 				 */
-				if (myExtensions != null) {
+				if (myFilterExtensions != null) {
 					final int i = file.getName().lastIndexOf('.');
-					if (i == -1) {
+					if (i == -1)
 						return UIBindingsUtils.warning(FILE_NAME_ERROR_CODE, "File does not have an extension");
-					}
 					final String ext = file.getName().substring(i + 1);
-					LogUtils.debug(this, "Check '" + v + "' (" + ext + ") against " + Arrays.toString(myExtensions));
+					final String extString = Arrays.toString(myFilterExtensions);
+					LogUtils.debug(this, "Check '" + v + "' (" + ext + ") against " + extString);
 					boolean f = false;
-					for (final String myExtension : myExtensions) {
-						String s = myExtension;
-						if (s.startsWith("*.")) {
-							s = s.substring(2);
-						}
-						if (ext.equals(s)) {
-							f = true;
+					for (final String es : myFilterExtensions) {
+						if (f) {
 							break;
 						}
+						for (String e : es.split(";")) {
+							if (e.startsWith("*.")) {
+								e = e.substring(2);
+							}
+							if (ext.equals(e)) {
+								f = true;
+								break;
+							}
+						}
 					}
-					if (!f) {
+					if (!f)
 						return UIBindingsUtils.error(IManager.Factory.getManager().isValidationErrorsAreFatal(),
-								FILE_NAME_ERROR_CODE, "File should end with one of " + Arrays.toString(myExtensions));
-					}
+								FILE_NAME_ERROR_CODE, "File should end with one of " + extString);
 				}
 
 				return Status.OK_STATUS;
