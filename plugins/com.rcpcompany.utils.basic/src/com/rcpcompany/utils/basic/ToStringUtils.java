@@ -1,13 +1,11 @@
 /*******************************************************************************
  * Copyright (c) 2008, 2009 The RCP Company and Others
  * 
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
+ * All rights reserved. This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License v1.0 which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     The RCP Company - initial API and implementation
+ * 
+ * Contributors: The RCP Company - initial API and implementation
  *******************************************************************************/
 package com.rcpcompany.utils.basic;
 
@@ -31,7 +29,8 @@ public final class ToStringUtils {
 	/**
 	 * Formats the source string to be a human readable name.
 	 * <p>
-	 * The source string is expected to be on the usual mixed-case format as used for Java method and class names.
+	 * The source string is expected to be on the usual mixed-case format as used for Java method
+	 * and class names.
 	 * <p>
 	 * Some examples:
 	 * <ul>
@@ -123,19 +122,16 @@ public final class ToStringUtils {
 	}
 
 	/**
-	 * Returns a string with all the possible choices from the specified array. E.g. if the array is {@code ["red",
+	 * Returns a string with all the possible choices from the specified array. E.g. if the array is
+	 * {@code ["red",
 	 * "yellow", "green"]}, the result is the string {@code "red", "yellow" or "green"}.
 	 * 
 	 * @param array the array
 	 * @return the constructed string
 	 */
 	public static String toOrString(Object[] array) {
-		if (array == null) {
-			return "<null>";
-		}
-		if (array.length == 0) {
-			return "";
-		}
+		if (array == null) return "<null>";
+		if (array.length == 0) return "";
 
 		final StringBuffer sb = new StringBuffer();
 		String delimiter = null;
@@ -167,7 +163,8 @@ public final class ToStringUtils {
 	}
 
 	/**
-	 * Returns a string with all the possible choices from the specified list. E.g. if the list is {@code ["red",
+	 * Returns a string with all the possible choices from the specified list. E.g. if the list is
+	 * {@code ["red",
 	 * "yellow", "green"]}, the result is the string {@code "red", "yellow" or "green"}.
 	 * 
 	 * @param <T> the type of the elements
@@ -175,12 +172,8 @@ public final class ToStringUtils {
 	 * @return the constructed string
 	 */
 	public static <T extends Object> String toOrString(List<T> list) {
-		if (list == null) {
-			return "<null>";
-		}
-		if (list.size() == 0) {
-			return "";
-		}
+		if (list == null) return "<null>";
+		if (list.size() == 0) return "";
 
 		final StringBuffer sb = new StringBuffer();
 		String delimiter = null;
@@ -211,7 +204,7 @@ public final class ToStringUtils {
 		return sb.toString();
 	}
 
-	private static String[] EVENT_TYPE_NAMES = { "None", "KeyDown", "KeyUp", "MouseDown", "MouseUp", "MouseMove",
+	private static final String[] EVENT_TYPE_NAMES = { "None", "KeyDown", "KeyUp", "MouseDown", "MouseUp", "MouseMove",
 			"MouseEnter", "MouseExit", "MouseDoubleClick", "Paint", "Move", "Resize", "Dispose", "Selection",
 			"DefaultSelection", "FocusIn", "FocusOut", "Expand", "Collapse", "Iconify", "Deiconify", "Close", "Show",
 			"Hide", "Modify", "Verify", "Activate", "Deactivate", "Help", "DragDetect", "Arm", "Traverse",
@@ -225,9 +218,7 @@ public final class ToStringUtils {
 	 * @return the description
 	 */
 	public static String toString(Event event) {
-		if (event == null) {
-			return "<null>";
-		}
+		if (event == null) return "<null>";
 
 		final StringBuilder sb = new StringBuilder();
 
@@ -286,8 +277,8 @@ public final class ToStringUtils {
 			sb.append("button=").append(event.button).append(", count=").append(event.count);
 			break;
 		case SWT.Paint:
-			sb.append("\n  gc=").append(event.gc).append(", width=").append(event.width).append(", height=").append(
-					event.height).append(", count=").append(event.count);
+			sb.append("\n  gc=").append(event.gc).append(", width=").append(event.width).append(", height=")
+					.append(event.height).append(", count=").append(event.count);
 			break;
 		case SWT.Move:
 		case SWT.Resize:
@@ -349,8 +340,8 @@ public final class ToStringUtils {
 			break;
 		case SWT.Verify:
 			sb.append("\n  ");
-			sb.append("[").append(event.start).append("; ").append(event.end).append("[='").append(event.text).append(
-					"'");
+			sb.append("[").append(event.start).append("; ").append(event.end).append("[='").append(event.text)
+					.append("'");
 			break;
 		case SWT.Activate:
 		case SWT.Deactivate:
@@ -448,6 +439,9 @@ public final class ToStringUtils {
 		case SWT.ImeComposition:
 			// TODO
 			break;
+		default:
+			// TODO
+			break;
 		}
 		if (event.item != null) {
 			final Widget item = event.item;
@@ -472,9 +466,7 @@ public final class ToStringUtils {
 	public static String toString(KeyEvent event) {
 		final StringBuilder sb = new StringBuilder();
 
-		if (event == null) {
-			return "<null>";
-		}
+		if (event == null) return "<null>";
 
 		toStringKey(sb, event.keyCode, event.stateMask, event.character);
 

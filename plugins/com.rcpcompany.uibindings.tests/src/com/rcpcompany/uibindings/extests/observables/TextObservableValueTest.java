@@ -52,7 +52,7 @@ public class TextObservableValueTest<X extends Control> {
 	public static Collection<Object[]> data() {
 		return Arrays.asList(new Object[][] {
 
-		// Class<X> cls, int style, boolean singleLine
+				// Class<X> cls, int style, boolean singleLine
 
 				{ Text.class, SWT.SINGLE, true },
 
@@ -81,18 +81,10 @@ public class TextObservableValueTest<X extends Control> {
 	private Text w2;
 
 	public String getText() {
-		if (w1 instanceof Text) {
-			return ((Text) w1).getText();
-		}
-		if (w1 instanceof StyledText) {
-			return ((StyledText) w1).getText();
-		}
-		if (w1 instanceof Combo) {
-			return ((Combo) w1).getText();
-		}
-		if (w1 instanceof CCombo) {
-			return ((CCombo) w1).getText();
-		}
+		if (w1 instanceof Text) return ((Text) w1).getText();
+		if (w1 instanceof StyledText) return ((StyledText) w1).getText();
+		if (w1 instanceof Combo) return ((Combo) w1).getText();
+		if (w1 instanceof CCombo) return ((CCombo) w1).getText();
 		return null;
 	}
 
@@ -129,23 +121,25 @@ public class TextObservableValueTest<X extends Control> {
 	}
 
 	/**
-	 * Executes the specified runnable and monitors whether the specified value change occurs and whether the value
-	 * changes.
+	 * Executes the specified runnable and monitors whether the specified value change occurs and
+	 * whether the value changes.
 	 * <p>
-	 * <em>NOTE:</em> There are a special case with multi-line Text widgets: when the complete selected text is changed,
-	 * it happens in two parts: First the text of the widget is changed to "" and then it is changed to the new text.
+	 * <em>NOTE:</em> There are a special case with multi-line Text widgets: when the complete
+	 * selected text is changed, it happens in two parts: First the text of the widget is changed to
+	 * "" and then it is changed to the new text.
 	 * 
 	 * @param changeFromValue the from value expect in a change event
 	 * @param changeToValue the to value expect in a change event
-	 * @param expectDelayChangeEvents <code>true</code> if a {@link DelayedChangeEvent} event is expected
+	 * @param expectDelayChangeEvents <code>true</code> if a {@link DelayedChangeEvent} event is
+	 *            expected
 	 * @param getValue the expected value of the ov1 after the change
 	 * @param change the {@link Runnable} to execute
 	 */
 	public void performChange(final String changeFromValue, final String changeToValue,
 			final boolean expectDelayChangeEvents, String getValue, Runnable change) {
 
-		final boolean changeExpected[] = new boolean[] { !(changeToValue.equals(changeFromValue)) };
-		final boolean dceExpected[] = new boolean[] { expectDelayChangeEvents };
+		final boolean[] changeExpected = new boolean[] { !(changeToValue.equals(changeFromValue)) };
+		final boolean[] dceExpected = new boolean[] { expectDelayChangeEvents };
 
 		final IValueChangeListener valueListener = new IValueChangeListener() {
 			String fromValue = changeFromValue;
@@ -153,7 +147,8 @@ public class TextObservableValueTest<X extends Control> {
 
 			@Override
 			public void handleValueChange(ValueChangeEvent event) {
-				// LogUtils.debug(this, "'" + event.diff.getOldValue() + "' -> '" + event.diff.getNewValue() + "'");
+				// LogUtils.debug(this, "'" + event.diff.getOldValue() + "' -> '" +
+				// event.diff.getNewValue() + "'");
 				assertTrue("No value change expected", changeExpected[0]);
 				assertEquals(fromValue, event.diff.getOldValue());
 				if (event.diff.getNewValue().equals("")) {
@@ -248,6 +243,7 @@ public class TextObservableValueTest<X extends Control> {
 		assertEquals("a", getText());
 
 		performChange("a", b1, strategy != TextCommitStrategy.ON_MODIFY, "b", new Runnable() {
+			@Override
 			public void run() {
 				setText("b"); // <<<<
 			}
@@ -260,18 +256,21 @@ public class TextObservableValueTest<X extends Control> {
 		});
 
 		performChange(b2, b3, strategy != TextCommitStrategy.ON_MODIFY, "c", new Runnable() {
+			@Override
 			public void run() {
 				setText("c"); // <<<<
 			}
 		});
 
 		performChange(b3, b4, false, "c", new Runnable() {
+			@Override
 			public void run() {
 				sleep(2 * DELAY); // <<<<
 			}
 		});
 
 		performChange(b4, b5, false, "c", new Runnable() {
+			@Override
 			public void run() {
 				w2.setFocus(); // <<<<
 			}
@@ -386,7 +385,8 @@ public class TextObservableValueTest<X extends Control> {
 	 * @param b1 expected value after setting the value
 	 * @param stroke the key to press
 	 * @param b2 expected value after 2*DELAY
-	 * @param expectDelayChangeEvents <code>true</code> if a {@link DelayedChangeEvent} event is expected
+	 * @param expectDelayChangeEvents <code>true</code> if a {@link DelayedChangeEvent} event is
+	 *            expected
 	 * @param getValue the value of the observable value after the operation
 	 */
 	public void testKeyStrategy(TextCommitStrategy strategy, String b1, final String stroke, String b2,
@@ -498,7 +498,8 @@ public class TextObservableValueTest<X extends Control> {
 	}
 
 	/**
-	 * Tests that getDelayedChange and getValue are correct when the strategy is changed for the sequence
+	 * Tests that getDelayedChange and getValue are correct when the strategy is changed for the
+	 * sequence
 	 * <nl>
 	 * <li>set iov value to "a" (reset)</li>
 	 * <li>wait DELAY/2</li>
@@ -506,7 +507,8 @@ public class TextObservableValueTest<X extends Control> {
 	 * </nl>
 	 * 
 	 * @param fromStrategy original strategy
-	 * @param expectDelayChangeEvents <code>true</code> if a {@link DelayedChangeEvent} event is expected
+	 * @param expectDelayChangeEvents <code>true</code> if a {@link DelayedChangeEvent} event is
+	 *            expected
 	 * @param b1 the new value
 	 * @param toStrategy new strategy
 	 */
@@ -578,7 +580,8 @@ public class TextObservableValueTest<X extends Control> {
 	 * </nl>
 	 * 
 	 * @param fromStrategy the strategy to test
-	 * @param expectDelayChangeEvents <code>true</code> if a {@link DelayedChangeEvent} event is expected
+	 * @param expectDelayChangeEvents <code>true</code> if a {@link DelayedChangeEvent} event is
+	 *            expected
 	 */
 	private void testASetValueStrategy(TextCommitStrategy fromStrategy, boolean expectDelayChangeEvents, String b1) {
 		manager.setTextCommitStrategy(fromStrategy);
