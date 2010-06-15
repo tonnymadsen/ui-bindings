@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.tests.shop.util;
@@ -42,9 +41,9 @@ public class ShopValidator extends EObjectValidator {
 	public static final ShopValidator INSTANCE = new ShopValidator();
 
 	/**
-	 * A constant for the {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of diagnostic
-	 * {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes} from this package. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * A constant for the {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of
+	 * diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes} from this package.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.emf.common.util.Diagnostic#getSource()
 	 * @see org.eclipse.emf.common.util.Diagnostic#getCode()
@@ -53,56 +52,56 @@ public class ShopValidator extends EObjectValidator {
 	public static final String DIAGNOSTIC_SOURCE = "com.rcpcompany.uibindings.tests.shop";
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Length OK' of 'Shop'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Length
+	 * OK' of 'Shop'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static final int SHOP__NAME_LENGTH_OK = 1;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Price OK' of 'Item'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name Price
+	 * OK' of 'Item'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static final int SHOP_ITEM__NAME_PRICE_OK = 2;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name OK' of 'Item'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Name OK' of
+	 * 'Item'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static final int SHOP_ITEM__NAME_OK = 3;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Abbreviation Length OK' of
-	 * 'Country'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint
+	 * 'Abbreviation Length OK' of 'Country'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static final int COUNTRY__ABBREVIATION_LENGTH_OK = 4;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Abbreviation Case OK' of
-	 * 'Country'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint
+	 * 'Abbreviation Case OK' of 'Country'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static final int COUNTRY__ABBREVIATION_CASE_OK = 5;
 
 	/**
-	 * A constant with a fixed name that can be used as the base value for additional hand written constants. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * A constant with a fixed name that can be used as the base value for additional hand written
+	 * constants. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 5;
 
 	/**
-	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a
-	 * derived class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * A constant with a fixed name that can be used as the base value for additional hand written
+	 * constants in a derived class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -128,8 +127,8 @@ public class ShopValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Calls <code>validateXXX</code> for the corresponding classifier of the model. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Calls <code>validateXXX</code> for the corresponding classifier of the model. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -199,7 +198,8 @@ public class ShopValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the nameLengthOK constraint of '<em>Shop</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Validates the nameLengthOK constraint of '<em>Shop</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -251,7 +251,8 @@ public class ShopValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the namePriceOK constraint of '<em>Item</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Validates the namePriceOK constraint of '<em>Item</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -261,7 +262,8 @@ public class ShopValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the nameOK constraint of '<em>Item</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Validates the nameOK constraint of '<em>Item</em>'. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @generated
 	 */
@@ -341,8 +343,8 @@ public class ShopValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the abbreviationLengthOK constraint of '<em>Country</em>'. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * Validates the abbreviationLengthOK constraint of '<em>Country</em>'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -352,7 +354,8 @@ public class ShopValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the abbreviationCaseOK constraint of '<em>Country</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Validates the abbreviationCaseOK constraint of '<em>Country</em>'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -411,8 +414,8 @@ public class ShopValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Returns the resource locator that will be used to fetch messages for this validator's diagnostics. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the resource locator that will be used to fetch messages for this validator's
+	 * diagnostics. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */

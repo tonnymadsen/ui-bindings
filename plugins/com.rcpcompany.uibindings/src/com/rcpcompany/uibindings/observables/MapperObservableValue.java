@@ -76,9 +76,7 @@ public class MapperObservableValue extends AbstractObservableValue {
 	 */
 	protected void updateValue() {
 		final IObservableValue ov = myMapper.getObservableValue(myBaseObject, myEditingDomain);
-		if (UIBindingsUtils.equals(ov, myCurrentOV)) {
-			return;
-		}
+		if (UIBindingsUtils.equals(ov, myCurrentOV)) return;
 		if (hasListeners()) {
 			if (myCurrentOV != null) {
 				myCurrentOV.removeValueChangeListener(listener);
@@ -92,14 +90,13 @@ public class MapperObservableValue extends AbstractObservableValue {
 		}
 		myCurrentOV = ov;
 		final Object v = myCurrentOV.getValue();
-		if (UIBindingsUtils.equals(v, myCurrentValue)) {
-			return;
-		}
+		if (UIBindingsUtils.equals(v, myCurrentValue)) return;
 
 		final ValueDiff diff = Diffs.createValueDiff(myCurrentValue, v);
 
 		myCurrentValue = v;
 		getRealm().exec(new Runnable() {
+			@Override
 			public void run() {
 				fireValueChange(diff);
 			}

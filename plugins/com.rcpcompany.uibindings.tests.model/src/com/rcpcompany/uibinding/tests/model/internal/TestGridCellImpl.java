@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibinding.tests.model.internal;
@@ -19,13 +18,17 @@ import com.rcpcompany.uibinding.tests.model.TestGridRow;
 import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Test Grid Cell</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Test Grid Cell</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridCellImpl#getDetails <em>Details</em>}</li>
- * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridCellImpl#getPrice <em>Price</em>}</li>
- * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridCellImpl#getColumn <em>Column</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridCellImpl#getDetails <em>Details
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridCellImpl#getPrice <em>Price
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridCellImpl#getColumn <em>Column
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridCellImpl#getRow <em>Row</em>}</li>
  * </ul>
  * </p>
@@ -34,8 +37,8 @@ import com.rcpcompany.uibinding.tests.model.TestModelPackage;
  */
 public class TestGridCellImpl extends EObjectImpl implements TestGridCell {
 	/**
-	 * The default value of the '{@link #getDetails() <em>Details</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getDetails() <em>Details</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDetails()
 	 * @generated
@@ -44,8 +47,8 @@ public class TestGridCellImpl extends EObjectImpl implements TestGridCell {
 	protected static final String DETAILS_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDetails() <em>Details</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getDetails() <em>Details</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDetails()
 	 * @generated
@@ -54,8 +57,8 @@ public class TestGridCellImpl extends EObjectImpl implements TestGridCell {
 	protected String details = DETAILS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getPrice() <em>Price</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getPrice() <em>Price</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getPrice()
 	 * @generated
@@ -64,8 +67,8 @@ public class TestGridCellImpl extends EObjectImpl implements TestGridCell {
 	protected static final float PRICE_EDEFAULT = 0.0F;
 
 	/**
-	 * The cached value of the '{@link #getPrice() <em>Price</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getPrice() <em>Price</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getPrice()
 	 * @generated
@@ -74,8 +77,8 @@ public class TestGridCellImpl extends EObjectImpl implements TestGridCell {
 	protected float price = PRICE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getColumn() <em>Column</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getColumn() <em>Column</em>}' reference. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getColumn()
 	 * @generated
@@ -84,7 +87,8 @@ public class TestGridCellImpl extends EObjectImpl implements TestGridCell {
 	protected TestGridColumn column;
 
 	/**
-	 * The cached value of the '{@link #getRow() <em>Row</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getRow() <em>Row</em>}' reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getRow()
 	 * @generated
@@ -116,6 +120,7 @@ public class TestGridCellImpl extends EObjectImpl implements TestGridCell {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getDetails() {
 		return details;
 	}
@@ -125,6 +130,7 @@ public class TestGridCellImpl extends EObjectImpl implements TestGridCell {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setDetails(String newDetails) {
 		final String oldDetails = details;
 		details = newDetails;
@@ -139,6 +145,7 @@ public class TestGridCellImpl extends EObjectImpl implements TestGridCell {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public float getPrice() {
 		return price;
 	}
@@ -148,6 +155,7 @@ public class TestGridCellImpl extends EObjectImpl implements TestGridCell {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setPrice(float newPrice) {
 		final float oldPrice = price;
 		price = newPrice;
@@ -162,6 +170,7 @@ public class TestGridCellImpl extends EObjectImpl implements TestGridCell {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public TestGridColumn getColumn() {
 		return column;
 	}
@@ -191,6 +200,7 @@ public class TestGridCellImpl extends EObjectImpl implements TestGridCell {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setColumn(TestGridColumn newColumn) {
 		if (newColumn != column) {
 			NotificationChain msgs = null;
@@ -217,6 +227,7 @@ public class TestGridCellImpl extends EObjectImpl implements TestGridCell {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public TestGridRow getRow() {
 		return row;
 	}
@@ -226,6 +237,7 @@ public class TestGridCellImpl extends EObjectImpl implements TestGridCell {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setRow(TestGridRow newRow) {
 		final TestGridRow oldRow = row;
 		row = newRow;
@@ -361,9 +373,7 @@ public class TestGridCellImpl extends EObjectImpl implements TestGridCell {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (details: ");

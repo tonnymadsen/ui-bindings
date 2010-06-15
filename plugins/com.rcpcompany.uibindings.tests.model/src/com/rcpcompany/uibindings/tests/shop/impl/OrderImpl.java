@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.tests.shop.impl;
@@ -27,7 +26,8 @@ import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Order</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Order</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -43,7 +43,8 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  */
 public class OrderImpl extends EObjectImpl implements Order {
 	/**
-	 * The default value of the '{@link #getNo() <em>No</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getNo() <em>No</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getNo()
 	 * @generated
@@ -52,7 +53,8 @@ public class OrderImpl extends EObjectImpl implements Order {
 	protected static final int NO_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getNo() <em>No</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getNo() <em>No</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getNo()
 	 * @generated
@@ -61,8 +63,8 @@ public class OrderImpl extends EObjectImpl implements Order {
 	protected int no = NO_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCustomer() <em>Customer</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getCustomer() <em>Customer</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getCustomer()
 	 * @generated
@@ -71,8 +73,8 @@ public class OrderImpl extends EObjectImpl implements Order {
 	protected Customer customer;
 
 	/**
-	 * The default value of the '{@link #getPrice() <em>Price</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getPrice() <em>Price</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getPrice()
 	 * @generated
@@ -81,8 +83,8 @@ public class OrderImpl extends EObjectImpl implements Order {
 	protected static final float PRICE_EDEFAULT = 0.0F;
 
 	/**
-	 * The cached value of the '{@link #getPrice() <em>Price</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getPrice() <em>Price</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getPrice()
 	 * @generated
@@ -91,8 +93,8 @@ public class OrderImpl extends EObjectImpl implements Order {
 	protected float price = PRICE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getItems() <em>Items</em>}' containment reference list. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getItems() <em>Items</em>}' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getItems()
 	 * @generated
@@ -113,9 +115,7 @@ public class OrderImpl extends EObjectImpl implements Order {
 		myPriceAdapter = new AdapterImpl() {
 			@Override
 			public void notifyChanged(Notification msg) {
-				if (msg.isTouch()) {
-					return;
-				}
+				if (msg.isTouch()) return;
 				if (msg.getFeature() == ShopPackage.Literals.ORDER__ITEMS) {
 					switch (msg.getEventType()) {
 					case Notification.REMOVE:
@@ -186,6 +186,7 @@ public class OrderImpl extends EObjectImpl implements Order {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getNo() {
 		return no;
 	}
@@ -195,10 +196,9 @@ public class OrderImpl extends EObjectImpl implements Order {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Shop getShop() {
-		if (eContainerFeatureID() != ShopPackage.ORDER__SHOP) {
-			return null;
-		}
+		if (eContainerFeatureID() != ShopPackage.ORDER__SHOP) return null;
 		return (Shop) eContainer();
 	}
 
@@ -207,6 +207,7 @@ public class OrderImpl extends EObjectImpl implements Order {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Customer getCustomer() {
 		return customer;
 	}
@@ -256,6 +257,7 @@ public class OrderImpl extends EObjectImpl implements Order {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setCustomer(Customer newCustomer) {
 		if (newCustomer != customer) {
 			NotificationChain msgs = null;
@@ -281,6 +283,7 @@ public class OrderImpl extends EObjectImpl implements Order {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public float getPrice() {
 		return price;
 	}
@@ -290,6 +293,7 @@ public class OrderImpl extends EObjectImpl implements Order {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public void setPrice(float newPrice) {
 		if (getPrice() != newPrice) {
 			setPriceGen(newPrice);
@@ -314,6 +318,7 @@ public class OrderImpl extends EObjectImpl implements Order {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<OrderItem> getItems() {
 		if (items == null) {
 			items = new EObjectContainmentWithInverseEList<OrderItem>(OrderItem.class, this, ShopPackage.ORDER__ITEMS,
@@ -475,9 +480,7 @@ public class OrderImpl extends EObjectImpl implements Order {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (no: ");

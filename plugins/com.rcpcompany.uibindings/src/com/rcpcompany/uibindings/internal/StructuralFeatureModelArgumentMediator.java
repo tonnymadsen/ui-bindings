@@ -26,14 +26,10 @@ public class StructuralFeatureModelArgumentMediator implements IModelArgumentMed
 
 	@Override
 	public void mediateArguments(EClassifier classifier) {
-		if (!(classifier instanceof EClass)) {
-			return;
-		}
+		if (!(classifier instanceof EClass)) return;
 		final EClass c = (EClass) classifier;
 		final EAnnotation annotation = c.getEAnnotation(Constants.EMF_ANNOTATION_SOURCE);
-		if (annotation == null) {
-			return;
-		}
+		if (annotation == null) return;
 		for (final Entry<String, String> entry : annotation.getDetails().entrySet()) {
 			final String key = entry.getKey();
 			final int period = key.indexOf('.');

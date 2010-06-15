@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -18,13 +17,14 @@ import com.rcpcompany.uibindings.IColumnBindingCellInformation;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Object To CI Map Entry</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Object To CI Map Entry</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.internal.ObjectToCIMapEntryImpl#getTypedKey <em>Key</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ObjectToCIMapEntryImpl#getTypedValue <em>Value</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ObjectToCIMapEntryImpl#getTypedValue <em>Value
+ * </em>}</li>
  * </ul>
  * </p>
  * 
@@ -33,8 +33,8 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
 public class ObjectToCIMapEntryImpl extends EObjectImpl implements
 		BasicEMap.Entry<EObject, IColumnBindingCellInformation> {
 	/**
-	 * The cached value of the '{@link #getTypedKey() <em>Key</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getTypedKey() <em>Key</em>}' reference. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTypedKey()
 	 * @generated
@@ -43,8 +43,8 @@ public class ObjectToCIMapEntryImpl extends EObjectImpl implements
 	protected EObject key;
 
 	/**
-	 * The cached value of the '{@link #getTypedValue() <em>Value</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getTypedValue() <em>Value</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTypedValue()
 	 * @generated
@@ -197,6 +197,7 @@ public class ObjectToCIMapEntryImpl extends EObjectImpl implements
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getHash() {
 		if (hash == -1) {
 			final Object theKey = getKey();
@@ -210,6 +211,7 @@ public class ObjectToCIMapEntryImpl extends EObjectImpl implements
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setHash(int hash) {
 		this.hash = hash;
 	}
@@ -219,6 +221,7 @@ public class ObjectToCIMapEntryImpl extends EObjectImpl implements
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EObject getKey() {
 		return getTypedKey();
 	}
@@ -228,6 +231,7 @@ public class ObjectToCIMapEntryImpl extends EObjectImpl implements
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setKey(EObject key) {
 		setTypedKey(key);
 	}
@@ -237,6 +241,7 @@ public class ObjectToCIMapEntryImpl extends EObjectImpl implements
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IColumnBindingCellInformation getValue() {
 		return getTypedValue();
 	}
@@ -246,6 +251,7 @@ public class ObjectToCIMapEntryImpl extends EObjectImpl implements
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IColumnBindingCellInformation setValue(IColumnBindingCellInformation value) {
 		final IColumnBindingCellInformation oldValue = getValue();
 		setTypedValue(value);

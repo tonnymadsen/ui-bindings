@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.tests.shop.impl;
@@ -25,14 +24,16 @@ import com.rcpcompany.uibindings.tests.shop.ShopItemGroup;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Item Group</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Item Group</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemGroupImpl#getName <em>Name</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemGroupImpl#getItems <em>Items</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemGroupImpl#getShop <em>Shop</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemGroupImpl#getDescription <em>Description</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemGroupImpl#getDescription <em>
+ * Description</em>}</li>
  * </ul>
  * </p>
  * 
@@ -40,8 +41,8 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  */
 public class ShopItemGroupImpl extends EObjectImpl implements ShopItemGroup {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getName()
 	 * @generated
@@ -50,8 +51,8 @@ public class ShopItemGroupImpl extends EObjectImpl implements ShopItemGroup {
 	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getName()
 	 * @generated
@@ -60,8 +61,8 @@ public class ShopItemGroupImpl extends EObjectImpl implements ShopItemGroup {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getItems() <em>Items</em>}' reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getItems() <em>Items</em>}' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getItems()
 	 * @generated
@@ -70,8 +71,8 @@ public class ShopItemGroupImpl extends EObjectImpl implements ShopItemGroup {
 	protected EList<ShopItem> items;
 
 	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDescription()
 	 * @generated
@@ -80,8 +81,8 @@ public class ShopItemGroupImpl extends EObjectImpl implements ShopItemGroup {
 	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDescription()
 	 * @generated
@@ -113,6 +114,7 @@ public class ShopItemGroupImpl extends EObjectImpl implements ShopItemGroup {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -122,6 +124,7 @@ public class ShopItemGroupImpl extends EObjectImpl implements ShopItemGroup {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		final String oldName = name;
 		name = newName;
@@ -135,6 +138,7 @@ public class ShopItemGroupImpl extends EObjectImpl implements ShopItemGroup {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<ShopItem> getItems() {
 		if (items == null) {
 			items = new EObjectWithInverseResolvingEList<ShopItem>(ShopItem.class, this,
@@ -148,10 +152,9 @@ public class ShopItemGroupImpl extends EObjectImpl implements ShopItemGroup {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Shop getShop() {
-		if (eContainerFeatureID() != ShopPackage.SHOP_ITEM_GROUP__SHOP) {
-			return null;
-		}
+		if (eContainerFeatureID() != ShopPackage.SHOP_ITEM_GROUP__SHOP) return null;
 		return (Shop) eContainer();
 	}
 
@@ -170,12 +173,12 @@ public class ShopItemGroupImpl extends EObjectImpl implements ShopItemGroup {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setShop(Shop newShop) {
 		if (newShop != eInternalContainer()
 				|| (eContainerFeatureID() != ShopPackage.SHOP_ITEM_GROUP__SHOP && newShop != null)) {
-			if (EcoreUtil.isAncestor(this, newShop)) {
+			if (EcoreUtil.isAncestor(this, newShop))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			}
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null) {
 				msgs = eBasicRemoveFromContainer(msgs);
@@ -197,6 +200,7 @@ public class ShopItemGroupImpl extends EObjectImpl implements ShopItemGroup {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -206,6 +210,7 @@ public class ShopItemGroupImpl extends EObjectImpl implements ShopItemGroup {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setDescription(String newDescription) {
 		final String oldDescription = description;
 		description = newDescription;
@@ -362,9 +367,7 @@ public class ShopItemGroupImpl extends EObjectImpl implements ShopItemGroup {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");

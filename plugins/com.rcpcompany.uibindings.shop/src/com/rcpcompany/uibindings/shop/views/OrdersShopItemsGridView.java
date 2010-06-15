@@ -44,8 +44,9 @@ public class OrdersShopItemsGridView extends ViewPart {
 		final Grid g = new Grid(myForm.addComposite(true, true), SWT.NONE);
 
 		final IGridModel model = new SimpleGridModel(UIBindingsEMFObservables.observeList(myForm.getContext()
-				.getEditingDomain(), shop, ShopPackage.Literals.SHOP__SHOP_ITEMS), UIBindingsEMFObservables
-				.observeList(myForm.getContext().getEditingDomain(), shop, ShopPackage.Literals.SHOP__ORDERS)) {
+				.getEditingDomain(), shop, ShopPackage.Literals.SHOP__SHOP_ITEMS),
+				UIBindingsEMFObservables.observeList(myForm.getContext().getEditingDomain(), shop,
+						ShopPackage.Literals.SHOP__ORDERS)) {
 			@Override
 			public IGridCell getCell(Object columnID, Object rowID) {
 				return new Cell(columnID, rowID);
@@ -98,10 +99,9 @@ public class OrdersShopItemsGridView extends ViewPart {
 			case DATA:
 				// Both myItem and myCustomer non-null!!!
 				for (final OrderItem oi : getRowItem().getItems()) {
-					if (oi.getItem() == getColumnItem()) {
+					if (oi.getItem() == getColumnItem())
 						return UIBindingsEMFObservables.observeValue(null, myForm.getContext().getEditingDomain(), oi,
 								ShopPackage.Literals.ORDER_ITEM__COUNT);
-					}
 				}
 				return Observables.constantObservableValue(SWTObservables.getRealm(Display.getCurrent()), null,
 						String.class);

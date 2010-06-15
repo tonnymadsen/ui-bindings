@@ -27,8 +27,8 @@ import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 
 /**
- * Tests <a href="http://jira.marintek.sintef.no/jira/browse/SIMA-1070">SIMA-1070</a>: Formatting of double values are
- * reflected to model.
+ * Tests <a href="http://jira.marintek.sintef.no/jira/browse/SIMA-1070">SIMA-1070</a>: Formatting of
+ * double values are reflected to model.
  * 
  * @author Tonny Madsen, The RCP Company
  */

@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibinding.tests.model.internal;
@@ -23,12 +22,15 @@ import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 import com.rcpcompany.uibinding.tests.model.TestObject;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Test Container</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Test Container</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestContainerImpl#getChildren <em>Children</em>}</li>
- * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestContainerImpl#getCurrent <em>Current</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestContainerImpl#getChildren <em>
+ * Children</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestContainerImpl#getCurrent <em>Current
+ * </em>}</li>
  * </ul>
  * </p>
  * 
@@ -36,8 +38,8 @@ import com.rcpcompany.uibinding.tests.model.TestObject;
  */
 public class TestContainerImpl extends EObjectImpl implements TestContainer {
 	/**
-	 * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getChildren()
 	 * @generated
@@ -46,8 +48,8 @@ public class TestContainerImpl extends EObjectImpl implements TestContainer {
 	protected EList<TestObject> children;
 
 	/**
-	 * The cached value of the '{@link #getCurrent() <em>Current</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getCurrent() <em>Current</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getCurrent()
 	 * @generated
@@ -56,7 +58,8 @@ public class TestContainerImpl extends EObjectImpl implements TestContainer {
 	protected TestObject current;
 
 	/**
-	 * This is true if the Current reference has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is true if the Current reference has been set. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -87,6 +90,7 @@ public class TestContainerImpl extends EObjectImpl implements TestContainer {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<TestObject> getChildren() {
 		if (children == null) {
 			children = new EObjectContainmentWithInverseEList<TestObject>(TestObject.class, this,
@@ -100,6 +104,7 @@ public class TestContainerImpl extends EObjectImpl implements TestContainer {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public TestObject getCurrent() {
 		if (current != null && current.eIsProxy()) {
 			final InternalEObject oldCurrent = (InternalEObject) current;
@@ -128,6 +133,7 @@ public class TestContainerImpl extends EObjectImpl implements TestContainer {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setCurrent(TestObject newCurrent) {
 		final TestObject oldCurrent = current;
 		current = newCurrent;
@@ -144,6 +150,7 @@ public class TestContainerImpl extends EObjectImpl implements TestContainer {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void unsetCurrent() {
 		final TestObject oldCurrent = current;
 		final boolean oldCurrentESet = currentESet;
@@ -160,6 +167,7 @@ public class TestContainerImpl extends EObjectImpl implements TestContainer {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public boolean isSetCurrent() {
 		return currentESet;
 	}
@@ -204,9 +212,7 @@ public class TestContainerImpl extends EObjectImpl implements TestContainer {
 		case TestModelPackage.TEST_CONTAINER__CHILDREN:
 			return getChildren();
 		case TestModelPackage.TEST_CONTAINER__CURRENT:
-			if (resolve) {
-				return getCurrent();
-			}
+			if (resolve) return getCurrent();
 			return basicGetCurrent();
 		}
 		return super.eGet(featureID, resolve, coreType);

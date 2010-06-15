@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -16,15 +15,17 @@ import com.rcpcompany.uibindings.IQuickfixProposal;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Quickfix Proposal</b></em>'. <!-- end-user-doc
- * -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Quickfix Proposal</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.internal.QuickfixProposalImpl#getLabel <em>Label</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.QuickfixProposalImpl#getDescription <em>Description</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.QuickfixProposalImpl#getDescription <em>Description
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.QuickfixProposalImpl#getImage <em>Image</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.QuickfixProposalImpl#getRelevance <em>Relevance</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.QuickfixProposalImpl#getRelevance <em>Relevance
+ * </em>}</li>
  * </ul>
  * </p>
  * 
@@ -42,8 +43,8 @@ public abstract class QuickfixProposalImpl extends EObjectImpl implements IQuick
 	}
 
 	/**
-	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getLabel()
 	 * @generated
@@ -52,8 +53,8 @@ public abstract class QuickfixProposalImpl extends EObjectImpl implements IQuick
 	protected static final String LABEL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getLabel()
 	 * @generated
@@ -62,8 +63,8 @@ public abstract class QuickfixProposalImpl extends EObjectImpl implements IQuick
 	protected String label = LABEL_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDescription()
 	 * @generated
@@ -72,8 +73,8 @@ public abstract class QuickfixProposalImpl extends EObjectImpl implements IQuick
 	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDescription()
 	 * @generated
@@ -82,8 +83,8 @@ public abstract class QuickfixProposalImpl extends EObjectImpl implements IQuick
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getImage() <em>Image</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getImage() <em>Image</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getImage()
 	 * @generated
@@ -92,8 +93,8 @@ public abstract class QuickfixProposalImpl extends EObjectImpl implements IQuick
 	protected static final ImageDescriptor IMAGE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getImage() <em>Image</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getImage() <em>Image</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getImage()
 	 * @generated
@@ -102,8 +103,8 @@ public abstract class QuickfixProposalImpl extends EObjectImpl implements IQuick
 	protected ImageDescriptor image = IMAGE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getRelevance() <em>Relevance</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getRelevance() <em>Relevance</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getRelevance()
 	 * @generated
@@ -112,8 +113,8 @@ public abstract class QuickfixProposalImpl extends EObjectImpl implements IQuick
 	protected static final int RELEVANCE_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getRelevance() <em>Relevance</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getRelevance() <em>Relevance</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getRelevance()
 	 * @generated
@@ -145,6 +146,7 @@ public abstract class QuickfixProposalImpl extends EObjectImpl implements IQuick
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getLabel() {
 		return label;
 	}
@@ -168,6 +170,7 @@ public abstract class QuickfixProposalImpl extends EObjectImpl implements IQuick
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -191,6 +194,7 @@ public abstract class QuickfixProposalImpl extends EObjectImpl implements IQuick
 	 * 
 	 * @generated
 	 */
+	@Override
 	public ImageDescriptor getImage() {
 		return image;
 	}
@@ -214,6 +218,7 @@ public abstract class QuickfixProposalImpl extends EObjectImpl implements IQuick
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getRelevance() {
 		return relevance;
 	}
@@ -327,9 +332,7 @@ public abstract class QuickfixProposalImpl extends EObjectImpl implements IQuick
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (label: "); //$NON-NLS-1$

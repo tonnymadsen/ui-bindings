@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibinding.tests.model;
@@ -10,7 +9,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Test Container</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Test Container</b></em>'.
+ * <!-- end-user-doc -->
  * 
  * <p>
  * The following features are supported:
@@ -26,12 +26,14 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface TestContainer extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Children</b></em>' containment reference list. The list contents are of type
-	 * {@link com.rcpcompany.uibinding.tests.model.TestObject}. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibinding.tests.model.TestObject#getParent <em>Parent</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Children</b></em>' containment reference list. The list
+	 * contents are of type {@link com.rcpcompany.uibinding.tests.model.TestObject}. It is
+	 * bidirectional and its opposite is '
+	 * {@link com.rcpcompany.uibinding.tests.model.TestObject#getParent <em>Parent</em>}'. <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Children</em>' containment reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Children</em>' containment reference isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -46,8 +48,8 @@ public interface TestContainer extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Current</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Current</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Current</em>' reference isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -62,8 +64,8 @@ public interface TestContainer extends EObject {
 	TestObject getCurrent();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestContainer#getCurrent <em>Current</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestContainer#getCurrent
+	 * <em>Current</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Current</em>' reference.
 	 * @see #isSetCurrent()
@@ -74,7 +76,8 @@ public interface TestContainer extends EObject {
 	void setCurrent(TestObject value);
 
 	/**
-	 * Unsets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestContainer#getCurrent <em>Current</em>}'
+	 * Unsets the value of the '
+	 * {@link com.rcpcompany.uibinding.tests.model.TestContainer#getCurrent <em>Current</em>}'
 	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isSetCurrent()
@@ -85,8 +88,9 @@ public interface TestContainer extends EObject {
 	void unsetCurrent();
 
 	/**
-	 * Returns whether the value of the '{@link com.rcpcompany.uibinding.tests.model.TestContainer#getCurrent
-	 * <em>Current</em>}' reference is set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns whether the value of the '
+	 * {@link com.rcpcompany.uibinding.tests.model.TestContainer#getCurrent <em>Current</em>}'
+	 * reference is set. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Current</em>' reference is set.
 	 * @see #unsetCurrent()

@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -19,11 +18,13 @@ import com.rcpcompany.uibindings.IModelInfo;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Model Info</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Model Info</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.ModelInfoImpl#getDeclaredArguments <em>Declared Arguments</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ModelInfoImpl#getDeclaredArguments <em>Declared
+ * Arguments</em>}</li>
  * </ul>
  * </p>
  * 
@@ -31,8 +32,8 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
  */
 public class ModelInfoImpl extends EObjectImpl implements IModelInfo {
 	/**
-	 * The cached value of the '{@link #getDeclaredArguments() <em>Declared Arguments</em>}' map. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getDeclaredArguments() <em>Declared Arguments</em>}' map.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDeclaredArguments()
 	 * @generated
@@ -64,6 +65,7 @@ public class ModelInfoImpl extends EObjectImpl implements IModelInfo {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EMap<String, Object> getDeclaredArguments() {
 		if (declaredArguments == null) {
 			declaredArguments = new EcoreEMap<String, Object>(IUIBindingsPackage.Literals.STRING_TO_OBJECT_MAP_ENTRY,
@@ -95,11 +97,10 @@ public class ModelInfoImpl extends EObjectImpl implements IModelInfo {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case IUIBindingsPackage.MODEL_INFO__DECLARED_ARGUMENTS:
-			if (coreType) {
+			if (coreType)
 				return getDeclaredArguments();
-			} else {
+			else
 				return getDeclaredArguments().map();
-			}
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

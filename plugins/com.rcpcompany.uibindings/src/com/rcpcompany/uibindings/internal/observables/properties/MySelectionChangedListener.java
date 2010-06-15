@@ -12,6 +12,7 @@ class MySelectionChangedListener extends NativePropertyListener implements ISele
 		super(property, listener);
 	}
 
+	@Override
 	public void selectionChanged(SelectionChangedEvent event) {
 		fireChange(event.getSource(), null);
 	}

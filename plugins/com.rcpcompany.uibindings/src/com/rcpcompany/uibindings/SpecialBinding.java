@@ -7,8 +7,9 @@ import java.util.List;
 import org.eclipse.emf.common.util.Enumerator;
 
 /**
- * <!-- begin-user-doc --> A representation of the literals of the enumeration '<em><b>Special Binding</b></em>', and
- * utility methods for working with them. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the literals of the enumeration '
+ * <em><b>Special Binding</b></em>', and utility methods for working with them. <!-- end-user-doc
+ * -->
  * 
  * @see com.rcpcompany.uibindings.IUIBindingsPackage#getSpecialBinding()
  * @generated
@@ -35,8 +36,8 @@ public enum SpecialBinding implements Enumerator {
 	/**
 	 * The '<em><b>ROW NO</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>ROW NO</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>ROW NO</b></em>' literal object isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -49,8 +50,8 @@ public enum SpecialBinding implements Enumerator {
 	/**
 	 * The '<em><b>TREE ITEM</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>TREE ITEM</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>TREE ITEM</b></em>' literal object isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -61,55 +62,52 @@ public enum SpecialBinding implements Enumerator {
 	public static final int TREE_ITEM_VALUE = 1;
 
 	/**
-	 * An array of all the '<em><b>Special Binding</b></em>' enumerators. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * An array of all the '<em><b>Special Binding</b></em>' enumerators. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	private static final SpecialBinding[] VALUES_ARRAY = new SpecialBinding[] { ROW_NO, TREE_ITEM, };
 
 	/**
-	 * A public read-only list of all the '<em><b>Special Binding</b></em>' enumerators. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * A public read-only list of all the '<em><b>Special Binding</b></em>' enumerators. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static final List<SpecialBinding> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Special Binding</b></em>' literal with the specified literal value. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the '<em><b>Special Binding</b></em>' literal with the specified literal value. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static SpecialBinding get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			final SpecialBinding result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
-				return result;
-			}
+			if (result.toString().equals(literal)) return result;
 		}
 		return null;
 	}
 
 	/**
-	 * Returns the '<em><b>Special Binding</b></em>' literal with the specified name. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Returns the '<em><b>Special Binding</b></em>' literal with the specified name. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static SpecialBinding getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			final SpecialBinding result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
-				return result;
-			}
+			if (result.getName().equals(name)) return result;
 		}
 		return null;
 	}
 
 	/**
-	 * Returns the '<em><b>Special Binding</b></em>' literal with the specified integer value. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the '<em><b>Special Binding</b></em>' literal with the specified integer value. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -160,6 +158,7 @@ public enum SpecialBinding implements Enumerator {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 		return value;
 	}
@@ -169,6 +168,7 @@ public enum SpecialBinding implements Enumerator {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -178,13 +178,14 @@ public enum SpecialBinding implements Enumerator {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 		return literal;
 	}
 
 	/**
-	 * Returns the literal value of the enumerator, which is its string representation. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Returns the literal value of the enumerator, which is its string representation. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */

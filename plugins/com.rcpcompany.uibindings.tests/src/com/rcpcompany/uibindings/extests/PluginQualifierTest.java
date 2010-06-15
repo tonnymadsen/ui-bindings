@@ -16,7 +16,8 @@ import com.rcpcompany.uibindings.internal.Activator;
  * 
  * Some plugins are allowed to have no qualifier string, such as those on the target platform
  * 
- * DO NOT ADD TO ALLTEST! Since the qualifiers are changed by the build script the test is invalidated
+ * DO NOT ADD TO ALLTEST! Since the qualifiers are changed by the build script the test is
+ * invalidated
  * 
  */
 public class PluginQualifierTest {

@@ -10,8 +10,8 @@ import com.rcpcompany.uibindings.IQuickfixProposalProcessor;
 import com.rcpcompany.uibindings.IQuickfixProposalProcessorContext;
 import com.rcpcompany.uibindings.IUIBindingDecorator;
 import com.rcpcompany.uibindings.IValueBinding;
-import com.rcpcompany.uibindings.quixkfixes.AbstractQuickfixProposalProcessor;
 import com.rcpcompany.uibindings.quixkfixes.AbstractQuickfixProposal.Type;
+import com.rcpcompany.uibindings.quixkfixes.AbstractQuickfixProposalProcessor;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -25,23 +25,15 @@ public class NamingQuickfixProposalProcessor extends AbstractQuickfixProposalPro
 	@Override
 	public void getProposals(IQuickfixProposalProcessorContext context, IBindingMessage message) {
 		final IValueBinding binding = message.getBinding();
-		if (binding == null) {
-			return;
-		}
+		if (binding == null) return;
 		final IUIBindingDecorator decorator = binding.getDecorator();
 		final List<Object> list = decorator.getValidUIList();
-		if (list == null) {
-			return;
-		}
+		if (list == null) return;
 
 		final IObservableValue observable = binding.getUIObservable();
-		if (observable.getValueType() != String.class) {
-			return;
-		}
+		if (observable.getValueType() != String.class) return;
 		final String text = (String) observable.getValue();
-		if (text == null) {
-			return; // Possible for Lists
-		}
+		if (text == null) return; // Possible for Lists
 
 		for (final Object e : list) {
 			if (e == null) {
@@ -60,9 +52,7 @@ public class NamingQuickfixProposalProcessor extends AbstractQuickfixProposalPro
 			String wantedString) {
 
 		// Perfect match
-		if (wantedString.equals(gotString)) {
-			return;
-		}
+		if (wantedString.equals(gotString)) return;
 
 		// Case error, but match
 		if (wantedString.equalsIgnoreCase(gotString)) {

@@ -1,19 +1,19 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.tests.shop;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Item Description</b></em>'. <!-- end-user-doc
- * -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Item Description</b></em>'.
+ * <!-- end-user-doc -->
  * 
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.ShopItemDescription#getDescription <em>Description</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.ShopItemDescription#getDescription <em>
+ * Description</em>}</li>
  * </ul>
  * </p>
  * 
@@ -25,8 +25,8 @@ public interface ShopItemDescription extends ShopItemInformation {
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Description</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -39,7 +39,8 @@ public interface ShopItemDescription extends ShopItemInformation {
 	String getDescription();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.ShopItemDescription#getDescription
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItemDescription#getDescription
 	 * <em>Description</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Description</em>' attribute.

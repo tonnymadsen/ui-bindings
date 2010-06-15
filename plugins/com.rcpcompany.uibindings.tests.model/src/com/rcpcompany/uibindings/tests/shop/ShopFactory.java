@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.tests.shop;
@@ -9,8 +8,8 @@ package com.rcpcompany.uibindings.tests.shop;
 import org.eclipse.emf.ecore.EFactory;
 
 /**
- * <!-- begin-user-doc --> The <b>Factory</b> for the model. It provides a create method for each non-abstract class of
- * the model. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> The <b>Factory</b> for the model. It provides a create method for each
+ * non-abstract class of the model. <!-- end-user-doc -->
  * 
  * @see com.rcpcompany.uibindings.tests.shop.ShopPackage
  * @generated
@@ -34,7 +33,8 @@ public interface ShopFactory extends EFactory {
 	Shop createShop();
 
 	/**
-	 * Returns a new object of class '<em>Customer</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Customer</em>'. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @return a new object of class '<em>Customer</em>'.
 	 * @generated
@@ -50,7 +50,8 @@ public interface ShopFactory extends EFactory {
 	ShopItem createShopItem();
 
 	/**
-	 * Returns a new object of class '<em>Item Group</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Item Group</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Item Group</em>'.
 	 * @generated
@@ -66,7 +67,8 @@ public interface ShopFactory extends EFactory {
 	Order createOrder();
 
 	/**
-	 * Returns a new object of class '<em>Order Item</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Order Item</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Order Item</em>'.
 	 * @generated
@@ -74,7 +76,8 @@ public interface ShopFactory extends EFactory {
 	OrderItem createOrderItem();
 
 	/**
-	 * Returns a new object of class '<em>Contact</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Contact</em>'. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @return a new object of class '<em>Contact</em>'.
 	 * @generated
@@ -82,7 +85,8 @@ public interface ShopFactory extends EFactory {
 	Contact createContact();
 
 	/**
-	 * Returns a new object of class '<em>Country</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Country</em>'. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @return a new object of class '<em>Country</em>'.
 	 * @generated
@@ -90,7 +94,8 @@ public interface ShopFactory extends EFactory {
 	Country createCountry();
 
 	/**
-	 * Returns a new object of class '<em>Item Information</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Item Information</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Item Information</em>'.
 	 * @generated
@@ -98,7 +103,8 @@ public interface ShopFactory extends EFactory {
 	ShopItemInformation createShopItemInformation();
 
 	/**
-	 * Returns a new object of class '<em>Item Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Item Description</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Item Description</em>'.
 	 * @generated
@@ -106,7 +112,8 @@ public interface ShopFactory extends EFactory {
 	ShopItemDescription createShopItemDescription();
 
 	/**
-	 * Returns a new object of class '<em>Item URL</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Item URL</em>'. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @return a new object of class '<em>Item URL</em>'.
 	 * @generated

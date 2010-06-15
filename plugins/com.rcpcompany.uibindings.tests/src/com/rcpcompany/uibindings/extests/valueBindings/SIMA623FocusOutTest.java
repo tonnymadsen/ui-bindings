@@ -85,6 +85,7 @@ public class SIMA623FocusOutTest {
 	public void bindUI() {
 		assertNoLog(new Runnable() {
 
+			@Override
 			public void run() {
 				myContext = IBindingContext.Factory.createContext(myView.getScrolledForm());
 

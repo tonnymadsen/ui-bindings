@@ -4,7 +4,8 @@ import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * This interface specifies the context used in {@link IViewerItemCreator#createItem(IViewerItemCreatorContext)}.
+ * This interface specifies the context used in
+ * {@link IViewerItemCreator#createItem(IViewerItemCreatorContext)}.
  * 
  * @author Tonny Madsen, The RCP Company
  */

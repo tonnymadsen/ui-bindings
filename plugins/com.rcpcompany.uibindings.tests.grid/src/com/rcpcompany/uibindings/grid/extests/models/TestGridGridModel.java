@@ -105,15 +105,14 @@ public class TestGridGridModel implements IGridModel {
 
 		@Override
 		public IObservableValue getValue() {
-			if (myColumn == null && myRow == null) {
+			if (myColumn == null && myRow == null)
 				return null;
-			} else if (myColumn == null) {
+			else if (myColumn == null)
 				return UIBindingsEMFObservables.observeValue(null, myEditingDomain, myRow,
 						TestModelPackage.Literals.TEST_GRID_ROW__NUMBER);
-			} else if (myRow == null) {
+			else if (myRow == null)
 				return UIBindingsEMFObservables.observeValue(null, myEditingDomain, myColumn,
 						TestModelPackage.Literals.TEST_GRID_COLUMN__NAME);
-			}
 			// Both myItem and myCustomer non-null!!!
 			final int j = myGrid.getRows().indexOf(myRow);
 			final TestGridCell cell = myColumn.getCells().get(j);

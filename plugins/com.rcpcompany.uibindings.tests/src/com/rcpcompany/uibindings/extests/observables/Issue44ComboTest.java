@@ -27,8 +27,8 @@ import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
 /**
- * Test case for http://code.google.com/p/rcp-company-uibindings/issues/detail?id=44: Combo and CCombo is cleared when
- * underlying list is changed
+ * Test case for http://code.google.com/p/rcp-company-uibindings/issues/detail?id=44: Combo and
+ * CCombo is cleared when underlying list is changed
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -83,6 +83,7 @@ public class Issue44ComboTest {
 	@Test
 	public void test() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final Composite body = myTestView.getBody();
 

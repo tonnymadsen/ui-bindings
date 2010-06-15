@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -13,8 +12,8 @@ import com.rcpcompany.uibindings.IQuickfixProposalProcessorContext;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Quickfix Proposal Processor Context</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Quickfix Proposal Processor Context</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
  * 

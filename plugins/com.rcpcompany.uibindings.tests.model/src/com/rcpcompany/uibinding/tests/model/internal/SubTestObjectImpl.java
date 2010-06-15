@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibinding.tests.model.internal;
@@ -12,8 +11,8 @@ import com.rcpcompany.uibinding.tests.model.SubTestObject;
 import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Sub Test Object</b></em>'. <!-- end-user-doc
- * -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Sub Test Object</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * </p>
  * 

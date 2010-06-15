@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings;
@@ -12,8 +11,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 
 /**
- * <!-- begin-user-doc --> The <b>Factory</b> for the model. It provides a create method for each non-abstract class of
- * the model. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> The <b>Factory</b> for the model. It provides a create method for each
+ * non-abstract class of the model. <!-- end-user-doc -->
  * 
  * @see com.rcpcompany.uibindings.IUIBindingsPackage
  * @generated
@@ -27,7 +26,8 @@ public interface IUIBindingsFactory extends EFactory {
 	IUIBindingsFactory eINSTANCE = com.rcpcompany.uibindings.internal.UIBindingsFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Manager</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Manager</em>'. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @return a new object of class '<em>Manager</em>'.
 	 * @generated
@@ -42,7 +42,8 @@ public interface IUIBindingsFactory extends EFactory {
 	IManager getManager();
 
 	/**
-	 * Returns a new object of class '<em>Binding Context</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Binding Context</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Binding Context</em>'.
 	 * @generated
@@ -58,7 +59,8 @@ public interface IUIBindingsFactory extends EFactory {
 	IBindingContext createBindingContext(Composite top);
 
 	/**
-	 * Returns a new object of class '<em>Binding Context</em>' for the specified {@link WizardPage}.
+	 * Returns a new object of class '<em>Binding Context</em>' for the specified {@link WizardPage}
+	 * .
 	 * 
 	 * @param top the top {@link WizardPage}
 	 * @return a new object of class '<em>Binding Context</em>'.
@@ -66,7 +68,8 @@ public interface IUIBindingsFactory extends EFactory {
 	IBindingContext createBindingContext(WizardPage top);
 
 	/**
-	 * Returns a new object of class '<em>Binding Context</em>' for the specified {@link ScrolledForm}.
+	 * Returns a new object of class '<em>Binding Context</em>' for the specified
+	 * {@link ScrolledForm}.
 	 * 
 	 * @param top the top {@link ScrolledForm}
 	 * @return a new object of class '<em>Binding Context</em>'.
@@ -74,7 +77,8 @@ public interface IUIBindingsFactory extends EFactory {
 	IBindingContext createBindingContext(ScrolledForm top);
 
 	/**
-	 * Returns a new object of class '<em>Value Binding</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Value Binding</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Value Binding</em>'.
 	 * @generated
@@ -82,7 +86,8 @@ public interface IUIBindingsFactory extends EFactory {
 	IValueBinding createValueBinding();
 
 	/**
-	 * Returns a new object of class '<em>Column Binding</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Column Binding</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Column Binding</em>'.
 	 * @generated
@@ -90,8 +95,8 @@ public interface IUIBindingsFactory extends EFactory {
 	IColumnBinding createColumnBinding();
 
 	/**
-	 * Returns a new object of class '<em>Column Binding Cell Information</em>'. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Returns a new object of class '<em>Column Binding Cell Information</em>'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Column Binding Cell Information</em>'.
 	 * @generated
@@ -99,7 +104,8 @@ public interface IUIBindingsFactory extends EFactory {
 	IColumnBindingCellInformation createColumnBindingCellInformation();
 
 	/**
-	 * Constructs and returns a new cell information object for the specified column binding and row element.
+	 * Constructs and returns a new cell information object for the specified column binding and row
+	 * element.
 	 * 
 	 * @param column the column
 	 * @param element the row element
@@ -108,7 +114,8 @@ public interface IUIBindingsFactory extends EFactory {
 	IColumnBindingCellInformation createColumnBindingCellInformation(IColumnBinding column, Object element);
 
 	/**
-	 * Returns a new object of class '<em>Viewer Binding</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Viewer Binding</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Viewer Binding</em>'.
 	 * @generated
@@ -116,7 +123,8 @@ public interface IUIBindingsFactory extends EFactory {
 	IViewerBinding createViewerBinding();
 
 	/**
-	 * Returns a new object of class '<em>Java Decorator Provider</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Java Decorator Provider</em>'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Java Decorator Provider</em>'.
 	 * @generated
@@ -124,7 +132,8 @@ public interface IUIBindingsFactory extends EFactory {
 	IJavaDecoratorProvider createJavaDecoratorProvider();
 
 	/**
-	 * Returns a new object of class '<em>Enum Decorator Provider</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Enum Decorator Provider</em>'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Enum Decorator Provider</em>'.
 	 * @generated
@@ -132,8 +141,8 @@ public interface IUIBindingsFactory extends EFactory {
 	IEnumDecoratorProvider createEnumDecoratorProvider();
 
 	/**
-	 * Returns a new object of class '<em>Enum Decorator Provider Entry</em>'. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * Returns a new object of class '<em>Enum Decorator Provider Entry</em>'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Enum Decorator Provider Entry</em>'.
 	 * @generated
@@ -141,7 +150,8 @@ public interface IUIBindingsFactory extends EFactory {
 	IEnumDecoratorProviderEntry createEnumDecoratorProviderEntry();
 
 	/**
-	 * Returns a new object of class '<em>Number Decorator Provider</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Number Decorator Provider</em>'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Number Decorator Provider</em>'.
 	 * @generated
@@ -149,7 +159,8 @@ public interface IUIBindingsFactory extends EFactory {
 	INumberDecoratorProvider createNumberDecoratorProvider();
 
 	/**
-	 * Returns a new object of class '<em>Model Info</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Model Info</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Model Info</em>'.
 	 * @generated
@@ -157,7 +168,8 @@ public interface IUIBindingsFactory extends EFactory {
 	IModelInfo createModelInfo();
 
 	/**
-	 * Returns a new object of class '<em>Model Class Info</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Model Class Info</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Model Class Info</em>'.
 	 * @generated
@@ -165,7 +177,8 @@ public interface IUIBindingsFactory extends EFactory {
 	IModelClassInfo createModelClassInfo();
 
 	/**
-	 * Returns a new object of class '<em>Model Feature Info</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Model Feature Info</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Model Feature Info</em>'.
 	 * @generated
@@ -173,8 +186,8 @@ public interface IUIBindingsFactory extends EFactory {
 	IModelFeatureInfo createModelFeatureInfo();
 
 	/**
-	 * Returns a new object of class '<em>UI Binding Decorator Extender Descriptor</em>'. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Returns a new object of class '<em>UI Binding Decorator Extender Descriptor</em>'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>UI Binding Decorator Extender Descriptor</em>'.
 	 * @generated
@@ -182,8 +195,8 @@ public interface IUIBindingsFactory extends EFactory {
 	IUIBindingDecoratorExtenderDescriptor createUIBindingDecoratorExtenderDescriptor();
 
 	/**
-	 * Returns a new object of class '<em>Quickfix Proposal Processor Descriptor</em>'. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Returns a new object of class '<em>Quickfix Proposal Processor Descriptor</em>'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Quickfix Proposal Processor Descriptor</em>'.
 	 * @generated
@@ -191,7 +204,8 @@ public interface IUIBindingsFactory extends EFactory {
 	IQuickfixProposalProcessorDescriptor createQuickfixProposalProcessorDescriptor();
 
 	/**
-	 * Returns a new object of class '<em>Tree Item Relation</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Tree Item Relation</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Tree Item Relation</em>'.
 	 * @generated
@@ -199,7 +213,8 @@ public interface IUIBindingsFactory extends EFactory {
 	ITreeItemRelation createTreeItemRelation();
 
 	/**
-	 * Returns a new object of class '<em>Tree Item Descriptor</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Tree Item Descriptor</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Tree Item Descriptor</em>'.
 	 * @generated
@@ -207,7 +222,8 @@ public interface IUIBindingsFactory extends EFactory {
 	ITreeItemDescriptor createTreeItemDescriptor();
 
 	/**
-	 * Returns a new object of class '<em>Constant Tree Item</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Constant Tree Item</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Constant Tree Item</em>'.
 	 * @generated
@@ -215,7 +231,8 @@ public interface IUIBindingsFactory extends EFactory {
 	IConstantTreeItem createConstantTreeItem();
 
 	/**
-	 * Returns a new object of class '<em>Binding Message Target</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Binding Message Target</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Binding Message Target</em>'.
 	 * @generated
@@ -223,8 +240,8 @@ public interface IUIBindingsFactory extends EFactory {
 	IBindingMessageTarget createBindingMessageTarget();
 
 	/**
-	 * Returns a new object of class '<em>UI Attribute Image Decoration</em>'. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * Returns a new object of class '<em>UI Attribute Image Decoration</em>'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>UI Attribute Image Decoration</em>'.
 	 * @generated
@@ -232,8 +249,8 @@ public interface IUIBindingsFactory extends EFactory {
 	IUIAttributeImageDecoration createUIAttributeImageDecoration();
 
 	/**
-	 * Returns a new object of class '<em>UI Attribute Factory Descriptor</em>'. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Returns a new object of class '<em>UI Attribute Factory Descriptor</em>'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>UI Attribute Factory Descriptor</em>'.
 	 * @generated
@@ -241,8 +258,8 @@ public interface IUIBindingsFactory extends EFactory {
 	IUIAttributeFactoryDescriptor createUIAttributeFactoryDescriptor();
 
 	/**
-	 * Returns a new object of class '<em>EMF Observable Factory Descriptor</em>'. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Returns a new object of class '<em>EMF Observable Factory Descriptor</em>'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>EMF Observable Factory Descriptor</em>'.
 	 * @generated

@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings;
@@ -10,8 +9,8 @@ import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.swt.widgets.Control;
 
 /**
- * The interface is used by bindings to access information and functionality that is available only when the binding is
- * used in a cell.
+ * The interface is used by bindings to access information and functionality that is available only
+ * when the binding is used in a cell.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -33,7 +32,8 @@ public interface IValueBindingCell {
 	/**
 	 * Returns the {@link IObservableValue} for the object value of the cell.
 	 * <p>
-	 * If the observable value is changed - see {@link IObservableValue#setValue(Object)} - then the model is changed
+	 * If the observable value is changed - see {@link IObservableValue#setValue(Object)} - then the
+	 * model is changed
 	 * 
 	 * @return the observable value
 	 */

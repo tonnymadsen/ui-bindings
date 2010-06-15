@@ -40,18 +40,23 @@ import com.rcpcompany.uibindings.IUIBindingDecoratorExtenderContext;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.decorators.extenders.AbstractUIBindingDecoratorExtender;
 import com.rcpcompany.uibindings.internal.Activator;
+import com.rcpcompany.uibindings.internal.decorators.extenders.OpenCommandSupport.ContextData;
+import com.rcpcompany.uibindings.internal.decorators.extenders.OpenCommandSupport.Extender;
+import com.rcpcompany.uibindings.internal.decorators.extenders.OpenCommandSupport.ManagerData;
+import com.rcpcompany.uibindings.internal.decorators.extenders.OpenCommandSupport.OpenHandler;
 import com.rcpcompany.uibindings.internal.sourceProviders.BindingSourceProvider;
 import com.rcpcompany.utils.basic.ToStringUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * This support class provides the open command functionality. It is divided into a number of static sub-classes:
+ * This support class provides the open command functionality. It is divided into a number of static
+ * sub-classes:
  * <ul>
- * <li>{@link ManagerData} have the singleton functionality. E.g. it routes the events to the appropriate
- * <code>ContextData</code>.</li>
- * <li>{@link ContextData} deserializes the commands into {@link ParameterizedCommand}. The <code>ContextData</code>
- * part is kept aside from the <code>ManagerData</code> to allow for separate {@link ICommandService} and
- * {@link IHandlerService}.</li>
+ * <li>{@link ManagerData} have the singleton functionality. E.g. it routes the events to the
+ * appropriate <code>ContextData</code>.</li>
+ * <li>{@link ContextData} deserializes the commands into {@link ParameterizedCommand}. The
+ * <code>ContextData</code> part is kept aside from the <code>ManagerData</code> to allow for
+ * separate {@link ICommandService} and {@link IHandlerService}.</li>
  * <li>{@link Extender} handles the specific extender functionality.</li>
  * <li>{@link OpenHandler} provides the handler implementation for the Open Command.</li>
  * </ul>
@@ -150,9 +155,7 @@ public class OpenCommandSupport {
 					break;
 				}
 			}
-			if (hoverWanted == isHoverListenerInstalled) {
-				return;
-			}
+			if (hoverWanted == isHoverListenerInstalled) return;
 			isHoverListenerInstalled = hoverWanted;
 			if (Activator.getDefault().TRACE_OPEN_COMMAND && Activator.getDefault().TRACE_EVENTS_SWT) {
 				LogUtils.debug(this, ToStringUtils.toString(event));
@@ -166,7 +169,8 @@ public class OpenCommandSupport {
 				display.addFilter(SWT.MouseExit, theHoverListener);
 
 				/*
-				 * To start the hovering immediately, we have to create a new event with the correct widget
+				 * To start the hovering immediately, we have to create a new event with the correct
+				 * widget
 				 */
 				final Control cursorControl = display.getCursorControl();
 				if (cursorControl != null) {
@@ -244,7 +248,8 @@ public class OpenCommandSupport {
 		 * The returned command is in handled stated.
 		 * 
 		 * @param event the event
-		 * @param currentState the current state or <code>null</code> if the source provider should be consulted
+		 * @param currentState the current state or <code>null</code> if the source provider should
+		 *            be consulted
 		 * @return the corresponding parameterized command or <code>null</code>
 		 */
 		protected ParameterizedCommand getCommand(Event event, Map<String, Object> currentState) {
@@ -257,24 +262,18 @@ public class OpenCommandSupport {
 			 * First see if there are an open command associated with the specific column
 			 */
 			final Object object = currentState.get(Constants.SOURCES_ACTIVE_BINDING);
-			if (!(object instanceof IValueBinding)) {
-				return null;
-			}
+			if (!(object instanceof IValueBinding)) return null;
 			final IValueBinding binding = (IValueBinding) object;
 			final Object value = currentState.get(Constants.SOURCES_ACTIVE_BINDING_VALUE);
 
-			if (value == null) {
-				return null;
-			}
+			if (value == null) return null;
 
 			final ContextData cd = ContextData.getData(binding);
 
 			final String c = binding.getArgument(Constants.ARG_OPEN_COMMAND, String.class, null);
 			if (c != null) {
 				pc = cd.getCommand(c);
-				if (pc != null && pc.getCommand().isHandled()) {
-					return pc;
-				}
+				if (pc != null && pc.getCommand().isHandled()) return pc;
 			}
 
 			/*
@@ -282,16 +281,15 @@ public class OpenCommandSupport {
 			 */
 			if (pc == null) {
 				pc = cd.getCommand(Constants.DEFAULT_OPEN_COMMAND);
-				if (pc != null && pc.getCommand().isHandled()) {
-					return pc;
-				}
+				if (pc != null && pc.getCommand().isHandled()) return pc;
 			}
 
 			return null;
 		}
 
 		/**
-		 * @see IUIBindingDecoratorExtender#updateSourceProviderState(IValueBinding, ISourceProviderStateContext)
+		 * @see IUIBindingDecoratorExtender#updateSourceProviderState(IValueBinding,
+		 *      ISourceProviderStateContext)
 		 */
 		protected void updateSourceProviderState(IValueBinding binding, ISourceProviderStateContext context) {
 			if (Activator.getDefault().TRACE_OPEN_COMMAND) {
@@ -299,14 +297,10 @@ public class OpenCommandSupport {
 			}
 
 			final Event event = context.getEvent();
-			if (event == null) {
-				return;
-			}
+			if (event == null) return;
 
 			final ParameterizedCommand pc = getCommand(event, context.getState());
-			if (pc == null) {
-				return;
-			}
+			if (pc == null) return;
 			context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_OPEN_COMMAND, pc);
 		}
 
@@ -321,7 +315,8 @@ public class OpenCommandSupport {
 		IValueBinding myOpenBinding = null;
 
 		/**
-		 * Whether the open command associated with the {@link #myOpenBinding} should be "displayed".
+		 * Whether the open command associated with the {@link #myOpenBinding} should be
+		 * "displayed".
 		 */
 		boolean myShowOpenCommand = false;
 
@@ -334,9 +329,7 @@ public class OpenCommandSupport {
 		 * @see IUIBindingDecoratorExtender#extend(IUIBindingDecoratorExtenderContext)
 		 */
 		protected void extend(IUIBindingDecoratorExtenderContext context) {
-			if (context.getBinding() != myOpenBinding || !myShowOpenCommand) {
-				return;
-			}
+			if (context.getBinding() != myOpenBinding || !myShowOpenCommand) return;
 			final Color color = JFaceColors.getActiveHyperlinkText(Display.getCurrent());
 			context.setForegound(color);
 			context.setCursor(myHandCursor);
@@ -362,9 +355,7 @@ public class OpenCommandSupport {
 			/*
 			 * No change ==> just ignore...
 			 */
-			if (myOpenBinding == binding && myShowOpenCommand == show) {
-				return;
-			}
+			if (myOpenBinding == binding && myShowOpenCommand == show) return;
 			if (Activator.getDefault().TRACE_OPEN_COMMAND) {
 				LogUtils.debug(this, "changed from\n(" + myOpenBinding + ") ->\n(" + binding + ")");
 			}
@@ -438,21 +429,22 @@ public class OpenCommandSupport {
 		/**
 		 * The handler service.
 		 * <p>
-		 * Note that all context does not necessarily have the same service as they often are in different views and
-		 * thus different service providers.
+		 * Note that all context does not necessarily have the same service as they often are in
+		 * different views and thus different service providers.
 		 */
 		final IHandlerService myHandlerService;
 
 		/**
 		 * The command service
 		 * <p>
-		 * Note that all context does not necessarily have the same service as they often are in different views and
-		 * thus different service providers.
+		 * Note that all context does not necessarily have the same service as they often are in
+		 * different views and thus different service providers.
 		 */
 		final ICommandService myCommandServices;
 
 		/**
-		 * A map with all the known commands. Used to avoid de-serialization of the commands repeatably.
+		 * A map with all the known commands. Used to avoid de-serialization of the commands
+		 * repeatably.
 		 */
 		Map<String, ParameterizedCommand> myCommands = new HashMap<String, ParameterizedCommand>();
 
@@ -527,9 +519,7 @@ public class OpenCommandSupport {
 			// }
 
 			final Object variable = HandlerUtil.getVariable(event, Constants.SOURCES_ACTIVE_BINDING_OPEN_COMMAND);
-			if (!(variable instanceof ParameterizedCommand)) {
-				return null;
-			}
+			if (!(variable instanceof ParameterizedCommand)) return null;
 
 			final ParameterizedCommand pc = (ParameterizedCommand) variable;
 			try {

@@ -57,6 +57,7 @@ public abstract class MySWTObservableList extends AbstractObservableList {
 		return getItem(index);
 	}
 
+	@Override
 	public Object getElementType() {
 		return String.class;
 	}
@@ -85,9 +86,8 @@ public abstract class MySWTObservableList extends AbstractObservableList {
 	public Object remove(int index) {
 		getterCalled();
 		final int size = doGetSize();
-		if (index < 0 || index > size - 1) {
+		if (index < 0 || index > size - 1)
 			throw new BindingException("Request to remove an element out of the collection bounds"); //$NON-NLS-1$
-		}
 
 		final String[] newItems = new String[size - 1];
 		final String oldElement = getItem(index);
@@ -106,24 +106,20 @@ public abstract class MySWTObservableList extends AbstractObservableList {
 	public Object set(int index, Object element) {
 		final String oldElement = getItem(index);
 		setItem(index, (String) element);
-		fireListChange(Diffs.createListDiff(Diffs.createListDiffEntry(index, false, oldElement), Diffs
-				.createListDiffEntry(index, true, element)));
+		fireListChange(Diffs.createListDiff(Diffs.createListDiffEntry(index, false, oldElement),
+				Diffs.createListDiffEntry(index, true, element)));
 		return oldElement;
 	}
 
 	@Override
 	public Object move(int oldIndex, int newIndex) {
 		checkRealm();
-		if (oldIndex == newIndex) {
-			return get(oldIndex);
-		}
+		if (oldIndex == newIndex) return get(oldIndex);
 		final int size = doGetSize();
-		if (oldIndex < 0 || oldIndex >= size) {
+		if (oldIndex < 0 || oldIndex >= size)
 			throw new IndexOutOfBoundsException("oldIndex: " + oldIndex + ", size:" + size); //$NON-NLS-1$ //$NON-NLS-2$
-		}
-		if (newIndex < 0 || newIndex >= size) {
+		if (newIndex < 0 || newIndex >= size)
 			throw new IndexOutOfBoundsException("newIndex: " + newIndex + ", size:" + size); //$NON-NLS-1$ //$NON-NLS-2$
-		}
 
 		final String[] items = getItems();
 		final String[] newItems = new String[size];
@@ -138,8 +134,8 @@ public abstract class MySWTObservableList extends AbstractObservableList {
 			newItems[newIndex] = element;
 		}
 		setItems(newItems);
-		fireListChange(Diffs.createListDiff(Diffs.createListDiffEntry(oldIndex, false, element), Diffs
-				.createListDiffEntry(newIndex, true, element)));
+		fireListChange(Diffs.createListDiff(Diffs.createListDiffEntry(oldIndex, false, element),
+				Diffs.createListDiffEntry(newIndex, true, element)));
 		return element;
 	}
 

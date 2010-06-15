@@ -69,9 +69,7 @@ public class ScrolledFormContextMessageDecoratorAdapter implements IContextMessa
 	@Override
 	public void update(List<IBindingMessage> messages, boolean inError, int maxType) {
 		// LogUtils.debug(this, "\n" + messages + "\nerror: " + inError + " type: " + maxType);
-		if (myForm.getForm().getHead().isDisposed()) {
-			return;
-		}
+		if (myForm.getForm().getHead().isDisposed()) return;
 		if (myForm.getForm().getHead().getBounds().height == 0 || messages.isEmpty()) {
 			myForm.setMessage(null, IMessageProvider.NONE);
 			return;

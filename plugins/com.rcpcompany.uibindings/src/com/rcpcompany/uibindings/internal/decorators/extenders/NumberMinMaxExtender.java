@@ -22,9 +22,7 @@ public class NumberMinMaxExtender extends AbstractUIBindingDecoratorExtender {
 	@Override
 	public void extend(IUIBindingDecoratorExtenderContext context) {
 		final IValueBinding binding = context.getBinding();
-		if (!(binding.getDecorator() instanceof NumberBindingDecorator)) {
-			return;
-		}
+		if (!(binding.getDecorator() instanceof NumberBindingDecorator)) return;
 		final NumberBindingDecorator d = (NumberBindingDecorator) binding.getDecorator();
 
 		try {

@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -18,13 +17,15 @@ import com.rcpcompany.uibindings.IModelClassInfo;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>String To Model Class Info Map Entry</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>String To Model Class Info Map Entry</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.StringToModelClassInfoMapEntryImpl#getTypedKey <em>Key</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.StringToModelClassInfoMapEntryImpl#getTypedValue <em>Value</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.StringToModelClassInfoMapEntryImpl#getTypedKey <em>
+ * Key</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.StringToModelClassInfoMapEntryImpl#getTypedValue
+ * <em>Value</em>}</li>
  * </ul>
  * </p>
  * 
@@ -32,8 +33,8 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
  */
 public class StringToModelClassInfoMapEntryImpl extends EObjectImpl implements BasicEMap.Entry<String, IModelClassInfo> {
 	/**
-	 * The default value of the '{@link #getTypedKey() <em>Key</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getTypedKey() <em>Key</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTypedKey()
 	 * @generated
@@ -42,8 +43,8 @@ public class StringToModelClassInfoMapEntryImpl extends EObjectImpl implements B
 	protected static final String KEY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTypedKey() <em>Key</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getTypedKey() <em>Key</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTypedKey()
 	 * @generated
@@ -52,8 +53,8 @@ public class StringToModelClassInfoMapEntryImpl extends EObjectImpl implements B
 	protected String key = KEY_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getTypedValue() <em>Value</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getTypedValue() <em>Value</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTypedValue()
 	 * @generated
@@ -201,9 +202,7 @@ public class StringToModelClassInfoMapEntryImpl extends EObjectImpl implements B
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (key: "); //$NON-NLS-1$
@@ -224,6 +223,7 @@ public class StringToModelClassInfoMapEntryImpl extends EObjectImpl implements B
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getHash() {
 		if (hash == -1) {
 			final Object theKey = getKey();
@@ -237,6 +237,7 @@ public class StringToModelClassInfoMapEntryImpl extends EObjectImpl implements B
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setHash(int hash) {
 		this.hash = hash;
 	}
@@ -246,6 +247,7 @@ public class StringToModelClassInfoMapEntryImpl extends EObjectImpl implements B
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getKey() {
 		return getTypedKey();
 	}
@@ -255,6 +257,7 @@ public class StringToModelClassInfoMapEntryImpl extends EObjectImpl implements B
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setKey(String key) {
 		setTypedKey(key);
 	}
@@ -264,6 +267,7 @@ public class StringToModelClassInfoMapEntryImpl extends EObjectImpl implements B
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IModelClassInfo getValue() {
 		return getTypedValue();
 	}
@@ -273,6 +277,7 @@ public class StringToModelClassInfoMapEntryImpl extends EObjectImpl implements B
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IModelClassInfo setValue(IModelClassInfo value) {
 		final IModelClassInfo oldValue = getValue();
 		setTypedValue(value);

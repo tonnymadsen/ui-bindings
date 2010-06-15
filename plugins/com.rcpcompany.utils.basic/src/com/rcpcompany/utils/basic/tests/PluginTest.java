@@ -16,5 +16,5 @@ public class PluginTest {
 	public void testThatPluginIsAlive() {
 		assertTrue(true);
 	}
-	
+
 }

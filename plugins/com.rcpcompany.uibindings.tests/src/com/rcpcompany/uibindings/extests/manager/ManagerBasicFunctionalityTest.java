@@ -154,8 +154,8 @@ public class ManagerBasicFunctionalityTest {
 
 	@Test
 	public void testGetModelFeatureInfo() {
-		IModelFeatureInfo ci = m.getModelFeatureInfo(Contact.class.getName(), ShopPackage.Literals.CONTACT__CITY
-				.getName(), null, false);
+		IModelFeatureInfo ci = m.getModelFeatureInfo(Contact.class.getName(),
+				ShopPackage.Literals.CONTACT__CITY.getName(), null, false);
 		assertNotNull(ci);
 		final Object object = ci.getDeclaredArguments().get("foo");
 		assertTrue(object instanceof IConfigurationElement);
@@ -168,8 +168,8 @@ public class ManagerBasicFunctionalityTest {
 
 	@Test
 	public void testGetModelFeatureInfoWithType() {
-		IModelFeatureInfo ci = m.getModelFeatureInfo(Contact.class.getName(), ShopPackage.Literals.CONTACT__CITY
-				.getName(), "subtype", false);
+		IModelFeatureInfo ci = m.getModelFeatureInfo(Contact.class.getName(),
+				ShopPackage.Literals.CONTACT__CITY.getName(), "subtype", false);
 		assertNotNull(ci);
 		final Object object = ci.getDeclaredArguments().get("foo");
 		assertTrue(object instanceof IConfigurationElement);

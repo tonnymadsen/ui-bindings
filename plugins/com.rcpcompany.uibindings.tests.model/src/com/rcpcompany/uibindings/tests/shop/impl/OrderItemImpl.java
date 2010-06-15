@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.tests.shop.impl;
@@ -20,7 +19,8 @@ import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Order Item</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Order Item</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -36,7 +36,8 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  */
 public class OrderItemImpl extends EObjectImpl implements OrderItem {
 	/**
-	 * The default value of the '{@link #getNo() <em>No</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getNo() <em>No</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getNo()
 	 * @generated
@@ -45,7 +46,8 @@ public class OrderItemImpl extends EObjectImpl implements OrderItem {
 	protected static final int NO_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getNo() <em>No</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getNo() <em>No</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getNo()
 	 * @generated
@@ -54,8 +56,8 @@ public class OrderItemImpl extends EObjectImpl implements OrderItem {
 	protected int no = NO_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getItem() <em>Item</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getItem() <em>Item</em>}' reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getItem()
 	 * @generated
@@ -64,8 +66,8 @@ public class OrderItemImpl extends EObjectImpl implements OrderItem {
 	protected ShopItem item;
 
 	/**
-	 * The default value of the '{@link #getCount() <em>Count</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getCount() <em>Count</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getCount()
 	 * @generated
@@ -74,8 +76,8 @@ public class OrderItemImpl extends EObjectImpl implements OrderItem {
 	protected static final int COUNT_EDEFAULT = 1;
 
 	/**
-	 * The cached value of the '{@link #getCount() <em>Count</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getCount() <em>Count</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getCount()
 	 * @generated
@@ -84,7 +86,8 @@ public class OrderItemImpl extends EObjectImpl implements OrderItem {
 	protected int count = COUNT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getId()
 	 * @generated
@@ -116,6 +119,7 @@ public class OrderItemImpl extends EObjectImpl implements OrderItem {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getNo() {
 		return no;
 	}
@@ -125,10 +129,9 @@ public class OrderItemImpl extends EObjectImpl implements OrderItem {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Order getOrder() {
-		if (eContainerFeatureID() != ShopPackage.ORDER_ITEM__ORDER) {
-			return null;
-		}
+		if (eContainerFeatureID() != ShopPackage.ORDER_ITEM__ORDER) return null;
 		return (Order) eContainer();
 	}
 
@@ -180,12 +183,12 @@ public class OrderItemImpl extends EObjectImpl implements OrderItem {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setOrder(Order newOrder) {
 		if (newOrder != eInternalContainer()
 				|| (eContainerFeatureID() != ShopPackage.ORDER_ITEM__ORDER && newOrder != null)) {
-			if (EcoreUtil.isAncestor(this, newOrder)) {
+			if (EcoreUtil.isAncestor(this, newOrder))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			}
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null) {
 				msgs = eBasicRemoveFromContainer(msgs);
@@ -207,6 +210,7 @@ public class OrderItemImpl extends EObjectImpl implements OrderItem {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public ShopItem getItem() {
 		return item;
 	}
@@ -236,6 +240,7 @@ public class OrderItemImpl extends EObjectImpl implements OrderItem {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setItem(ShopItem newItem) {
 		if (newItem != item) {
 			NotificationChain msgs = null;
@@ -261,6 +266,7 @@ public class OrderItemImpl extends EObjectImpl implements OrderItem {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getCount() {
 		return count;
 	}
@@ -270,6 +276,7 @@ public class OrderItemImpl extends EObjectImpl implements OrderItem {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setCount(int newCount) {
 		final int oldCount = count;
 		count = newCount;
@@ -283,6 +290,7 @@ public class OrderItemImpl extends EObjectImpl implements OrderItem {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public String getId() {
 		return getOrder().getNo() + "-" + getNo();
 	}
@@ -433,9 +441,7 @@ public class OrderItemImpl extends EObjectImpl implements OrderItem {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (no: ");

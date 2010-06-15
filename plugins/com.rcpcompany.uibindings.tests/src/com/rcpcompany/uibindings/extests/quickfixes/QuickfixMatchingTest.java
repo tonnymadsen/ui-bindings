@@ -128,6 +128,7 @@ public class QuickfixMatchingTest {
 		final List<IQuickfixProposal> proposals = new ArrayList<IQuickfixProposal>();
 		if (expectedQuickfixes >= 0) {
 			assertNoLog(new Runnable() {
+				@Override
 				public void run() {
 					mng.getQuickfixes(m, proposals);
 				}
@@ -136,6 +137,7 @@ public class QuickfixMatchingTest {
 			assertEquals(expectedQuickfixes, proposals.size());
 		} else {
 			assertOneLog(new Runnable() {
+				@Override
 				public void run() {
 					mng.getQuickfixes(m, proposals);
 				}

@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -23,9 +22,12 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.StringToIConfigurationElementMapEntryImpl#getTypedKey <em>Key</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.StringToIConfigurationElementMapEntryImpl#getTypedValue <em>Value</em>}
- * </li>
+ * <li>
+ * {@link com.rcpcompany.uibindings.internal.StringToIConfigurationElementMapEntryImpl#getTypedKey
+ * <em>Key</em>}</li>
+ * <li>
+ * {@link com.rcpcompany.uibindings.internal.StringToIConfigurationElementMapEntryImpl#getTypedValue
+ * <em>Value</em>}</li>
  * </ul>
  * </p>
  * 
@@ -34,8 +36,8 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
 public class StringToIConfigurationElementMapEntryImpl extends EObjectImpl implements
 		BasicEMap.Entry<String, IConfigurationElement> {
 	/**
-	 * The default value of the '{@link #getTypedKey() <em>Key</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getTypedKey() <em>Key</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTypedKey()
 	 * @generated
@@ -44,8 +46,8 @@ public class StringToIConfigurationElementMapEntryImpl extends EObjectImpl imple
 	protected static final String KEY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTypedKey() <em>Key</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getTypedKey() <em>Key</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTypedKey()
 	 * @generated
@@ -54,8 +56,8 @@ public class StringToIConfigurationElementMapEntryImpl extends EObjectImpl imple
 	protected String key = KEY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTypedValue() <em>Value</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getTypedValue() <em>Value</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTypedValue()
 	 * @generated
@@ -64,8 +66,8 @@ public class StringToIConfigurationElementMapEntryImpl extends EObjectImpl imple
 	protected static final IConfigurationElement VALUE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTypedValue() <em>Value</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getTypedValue() <em>Value</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTypedValue()
 	 * @generated
@@ -213,9 +215,7 @@ public class StringToIConfigurationElementMapEntryImpl extends EObjectImpl imple
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (key: "); //$NON-NLS-1$
@@ -238,6 +238,7 @@ public class StringToIConfigurationElementMapEntryImpl extends EObjectImpl imple
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getHash() {
 		if (hash == -1) {
 			final Object theKey = getKey();
@@ -251,6 +252,7 @@ public class StringToIConfigurationElementMapEntryImpl extends EObjectImpl imple
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setHash(int hash) {
 		this.hash = hash;
 	}
@@ -260,6 +262,7 @@ public class StringToIConfigurationElementMapEntryImpl extends EObjectImpl imple
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getKey() {
 		return getTypedKey();
 	}
@@ -269,6 +272,7 @@ public class StringToIConfigurationElementMapEntryImpl extends EObjectImpl imple
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setKey(String key) {
 		setTypedKey(key);
 	}
@@ -278,6 +282,7 @@ public class StringToIConfigurationElementMapEntryImpl extends EObjectImpl imple
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IConfigurationElement getValue() {
 		return getTypedValue();
 	}
@@ -287,6 +292,7 @@ public class StringToIConfigurationElementMapEntryImpl extends EObjectImpl imple
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IConfigurationElement setValue(IConfigurationElement value) {
 		final IConfigurationElement oldValue = getValue();
 		setTypedValue(value);

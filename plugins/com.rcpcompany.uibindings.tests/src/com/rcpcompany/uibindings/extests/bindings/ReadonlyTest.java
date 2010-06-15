@@ -36,7 +36,8 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 /**
  * Test that {@link IBinding#ARG_READONLY} is handled correctly.
  * <p>
- * It does not test whether the different ways of setting arguments works - that is done in {@link ArgumentsScopeTest}.
+ * It does not test whether the different ways of setting arguments works - that is done in
+ * {@link ArgumentsScopeTest}.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -135,6 +136,7 @@ public class ReadonlyTest {
 	 */
 	public void bindUI() {
 		assertOneLog(new Runnable() {
+			@Override
 			public void run() {
 				final IBindingContext context = IBindingContext.Factory.createContext(myView.getScrolledForm());
 
@@ -158,6 +160,7 @@ public class ReadonlyTest {
 
 	private void testText(final Text text, final String expected) {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				postKeyStroke(text, "a");
 				yield();
@@ -204,6 +207,7 @@ public class ReadonlyTest {
 	private void testColumn(final TableViewer viewer, final int colNo, final boolean editExpected) {
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final Table table = viewer.getTable();
 				postMouse(table, colNo + myViewer.getFirstTableColumnOffset(), 0, 2);

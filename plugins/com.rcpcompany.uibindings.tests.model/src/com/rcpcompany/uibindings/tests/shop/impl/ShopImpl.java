@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.tests.shop.impl;
@@ -35,20 +34,24 @@ import com.rcpcompany.uibindings.tests.shop.util.ShopValidator;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Shop</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Shop</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getName <em>Name</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getNextOrderNo <em>Next Order No</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getNextCustomerNo <em>Next Customer No</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getNextOrderNo <em>Next Order No
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getNextCustomerNo <em>Next Customer
+ * No</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getTmpDir <em>Tmp Dir</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getCountries <em>Countries</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getContacts <em>Contacts</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getShopItems <em>Shop Items</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getOrders <em>Orders</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getCustomers <em>Customers</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getShopGroups <em>Shop Groups</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getShopGroups <em>Shop Groups</em>}
+ * </li>
  * </ul>
  * </p>
  * 
@@ -56,8 +59,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  */
 public class ShopImpl extends EObjectImpl implements Shop {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getName()
 	 * @generated
@@ -66,8 +69,8 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getName()
 	 * @generated
@@ -76,8 +79,8 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getNextOrderNo() <em>Next Order No</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getNextOrderNo() <em>Next Order No</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getNextOrderNo()
 	 * @generated
@@ -86,8 +89,8 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	protected static final int NEXT_ORDER_NO_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getNextOrderNo() <em>Next Order No</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getNextOrderNo() <em>Next Order No</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getNextOrderNo()
 	 * @generated
@@ -96,8 +99,8 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	protected int nextOrderNo = NEXT_ORDER_NO_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getNextCustomerNo() <em>Next Customer No</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getNextCustomerNo() <em>Next Customer No</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getNextCustomerNo()
 	 * @generated
@@ -106,8 +109,8 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	protected static final int NEXT_CUSTOMER_NO_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getNextCustomerNo() <em>Next Customer No</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getNextCustomerNo() <em>Next Customer No</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getNextCustomerNo()
 	 * @generated
@@ -116,8 +119,8 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	protected int nextCustomerNo = NEXT_CUSTOMER_NO_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTmpDir() <em>Tmp Dir</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getTmpDir() <em>Tmp Dir</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTmpDir()
 	 * @generated
@@ -126,8 +129,8 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	protected static final String TMP_DIR_EDEFAULT = "C:\\Windows\\Temp";
 
 	/**
-	 * The cached value of the '{@link #getTmpDir() <em>Tmp Dir</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getTmpDir() <em>Tmp Dir</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTmpDir()
 	 * @generated
@@ -136,8 +139,8 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	protected String tmpDir = TMP_DIR_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCountries() <em>Countries</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getCountries() <em>Countries</em>}' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getCountries()
 	 * @generated
@@ -146,8 +149,8 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	protected EList<Country> countries;
 
 	/**
-	 * The cached value of the '{@link #getContacts() <em>Contacts</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getContacts() <em>Contacts</em>}' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getContacts()
 	 * @generated
@@ -156,8 +159,8 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	protected EList<Contact> contacts;
 
 	/**
-	 * The cached value of the '{@link #getShopItems() <em>Shop Items</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getShopItems() <em>Shop Items</em>}' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getShopItems()
 	 * @generated
@@ -166,8 +169,8 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	protected EList<ShopItem> shopItems;
 
 	/**
-	 * The cached value of the '{@link #getOrders() <em>Orders</em>}' containment reference list. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getOrders() <em>Orders</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getOrders()
 	 * @generated
@@ -176,8 +179,8 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	protected EList<Order> orders;
 
 	/**
-	 * The cached value of the '{@link #getCustomers() <em>Customers</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getCustomers() <em>Customers</em>}' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getCustomers()
 	 * @generated
@@ -186,8 +189,8 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	protected EList<Customer> customers;
 
 	/**
-	 * The cached value of the '{@link #getShopGroups() <em>Shop Groups</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getShopGroups() <em>Shop Groups</em>}' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getShopGroups()
 	 * @generated
@@ -219,6 +222,7 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -228,6 +232,7 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		final String oldName = name;
 		name = newName;
@@ -241,6 +246,7 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getNextOrderNo() {
 		return nextOrderNo;
 	}
@@ -250,6 +256,7 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setNextOrderNo(int newNextOrderNo) {
 		final int oldNextOrderNo = nextOrderNo;
 		nextOrderNo = newNextOrderNo;
@@ -264,6 +271,7 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getNextCustomerNo() {
 		return nextCustomerNo;
 	}
@@ -273,6 +281,7 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setNextCustomerNo(int newNextCustomerNo) {
 		final int oldNextCustomerNo = nextCustomerNo;
 		nextCustomerNo = newNextCustomerNo;
@@ -287,6 +296,7 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getTmpDir() {
 		return tmpDir;
 	}
@@ -296,6 +306,7 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setTmpDir(String newTmpDir) {
 		final String oldTmpDir = tmpDir;
 		tmpDir = newTmpDir;
@@ -309,6 +320,7 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<Country> getCountries() {
 		if (countries == null) {
 			countries = new EObjectContainmentWithInverseEList<Country>(Country.class, this,
@@ -322,6 +334,7 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<Contact> getContacts() {
 		if (contacts == null) {
 			contacts = new EObjectContainmentWithInverseEList<Contact>(Contact.class, this, ShopPackage.SHOP__CONTACTS,
@@ -335,6 +348,7 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<ShopItem> getShopItems() {
 		if (shopItems == null) {
 			shopItems = new EObjectContainmentWithInverseEList<ShopItem>(ShopItem.class, this,
@@ -348,6 +362,7 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<Order> getOrders() {
 		if (orders == null) {
 			orders = new EObjectContainmentWithInverseEList<Order>(Order.class, this, ShopPackage.SHOP__ORDERS,
@@ -361,6 +376,7 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<Customer> getCustomers() {
 		if (customers == null) {
 			customers = new EObjectContainmentWithInverseEList<Customer>(Customer.class, this,
@@ -374,6 +390,7 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<ShopItemGroup> getShopGroups() {
 		if (shopGroups == null) {
 			shopGroups = new EObjectContainmentWithInverseEList<ShopItemGroup>(ShopItemGroup.class, this,
@@ -387,6 +404,7 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public void save() {
 		try {
 			eResource().save(null);
@@ -400,6 +418,7 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public boolean nameLengthOK(DiagnosticChain diagnostics, Map<Object, Object> context) {
 		final String a = getName();
 		if (a != null && a.length() < 2) {
@@ -624,9 +643,7 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");

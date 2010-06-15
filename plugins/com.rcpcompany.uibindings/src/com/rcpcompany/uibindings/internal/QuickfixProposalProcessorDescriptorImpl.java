@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -19,20 +18,26 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Quickfix Proposal Processor Descriptor</b></em>
- * '. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Quickfix Proposal Processor Descriptor</b></em> '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorDescriptorImpl#getModelType <em>Model Type
- * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorDescriptorImpl#getFeature <em>Feature</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorDescriptorImpl#getSource <em>Source</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorDescriptorImpl#getCode <em>Code</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorDescriptorImpl#getMessagePattern <em>Message
- * Pattern</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorDescriptorImpl#getProcessor <em>Processor
- * </em>}</li>
+ * <li>
+ * {@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorDescriptorImpl#getModelType
+ * <em>Model Type </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorDescriptorImpl#getFeature
+ * <em>Feature</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorDescriptorImpl#getSource
+ * <em>Source</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorDescriptorImpl#getCode
+ * <em>Code</em>}</li>
+ * <li>
+ * {@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorDescriptorImpl#getMessagePattern
+ * <em>Message Pattern</em>}</li>
+ * <li>
+ * {@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorDescriptorImpl#getProcessor
+ * <em>Processor </em>}</li>
  * </ul>
  * </p>
  * 
@@ -41,8 +46,8 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 public class QuickfixProposalProcessorDescriptorImpl extends EObjectImpl implements
 		IQuickfixProposalProcessorDescriptor {
 	/**
-	 * The default value of the '{@link #getModelType() <em>Model Type</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getModelType() <em>Model Type</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getModelType()
 	 * @generated
@@ -51,8 +56,8 @@ public class QuickfixProposalProcessorDescriptorImpl extends EObjectImpl impleme
 	protected static final String MODEL_TYPE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getModelType() <em>Model Type</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getModelType() <em>Model Type</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getModelType()
 	 * @generated
@@ -61,8 +66,8 @@ public class QuickfixProposalProcessorDescriptorImpl extends EObjectImpl impleme
 	protected String modelType = MODEL_TYPE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getFeature() <em>Feature</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getFeature() <em>Feature</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getFeature()
 	 * @generated
@@ -71,8 +76,8 @@ public class QuickfixProposalProcessorDescriptorImpl extends EObjectImpl impleme
 	protected static final String FEATURE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getFeature() <em>Feature</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getFeature() <em>Feature</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getFeature()
 	 * @generated
@@ -81,8 +86,8 @@ public class QuickfixProposalProcessorDescriptorImpl extends EObjectImpl impleme
 	protected String feature = FEATURE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSource() <em>Source</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getSource() <em>Source</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getSource()
 	 * @generated
@@ -91,8 +96,8 @@ public class QuickfixProposalProcessorDescriptorImpl extends EObjectImpl impleme
 	protected static final String SOURCE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getSource() <em>Source</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getSource() <em>Source</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getSource()
 	 * @generated
@@ -101,8 +106,8 @@ public class QuickfixProposalProcessorDescriptorImpl extends EObjectImpl impleme
 	protected String source = SOURCE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getCode() <em>Code</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getCode() <em>Code</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getCode()
 	 * @generated
@@ -111,8 +116,8 @@ public class QuickfixProposalProcessorDescriptorImpl extends EObjectImpl impleme
 	protected static final int CODE_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getCode() <em>Code</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getCode() <em>Code</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getCode()
 	 * @generated
@@ -121,8 +126,8 @@ public class QuickfixProposalProcessorDescriptorImpl extends EObjectImpl impleme
 	protected int code = CODE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getMessagePattern() <em>Message Pattern</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getMessagePattern() <em>Message Pattern</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getMessagePattern()
 	 * @generated
@@ -131,8 +136,8 @@ public class QuickfixProposalProcessorDescriptorImpl extends EObjectImpl impleme
 	protected static final Pattern MESSAGE_PATTERN_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getMessagePattern() <em>Message Pattern</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getMessagePattern() <em>Message Pattern</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getMessagePattern()
 	 * @generated
@@ -141,8 +146,8 @@ public class QuickfixProposalProcessorDescriptorImpl extends EObjectImpl impleme
 	protected Pattern messagePattern = MESSAGE_PATTERN_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getProcessor() <em>Processor</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getProcessor() <em>Processor</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getProcessor()
 	 * @generated
@@ -174,6 +179,7 @@ public class QuickfixProposalProcessorDescriptorImpl extends EObjectImpl impleme
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getModelType() {
 		return modelType;
 	}
@@ -183,6 +189,7 @@ public class QuickfixProposalProcessorDescriptorImpl extends EObjectImpl impleme
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setModelType(String newModelType) {
 		final String oldModelType = modelType;
 		modelType = newModelType;
@@ -197,6 +204,7 @@ public class QuickfixProposalProcessorDescriptorImpl extends EObjectImpl impleme
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getFeature() {
 		return feature;
 	}
@@ -206,6 +214,7 @@ public class QuickfixProposalProcessorDescriptorImpl extends EObjectImpl impleme
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setFeature(String newFeature) {
 		final String oldFeature = feature;
 		feature = newFeature;
@@ -220,6 +229,7 @@ public class QuickfixProposalProcessorDescriptorImpl extends EObjectImpl impleme
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getSource() {
 		return source;
 	}
@@ -229,6 +239,7 @@ public class QuickfixProposalProcessorDescriptorImpl extends EObjectImpl impleme
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setSource(String newSource) {
 		final String oldSource = source;
 		source = newSource;
@@ -243,6 +254,7 @@ public class QuickfixProposalProcessorDescriptorImpl extends EObjectImpl impleme
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getCode() {
 		return code;
 	}
@@ -252,6 +264,7 @@ public class QuickfixProposalProcessorDescriptorImpl extends EObjectImpl impleme
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setCode(int newCode) {
 		final int oldCode = code;
 		code = newCode;
@@ -266,6 +279,7 @@ public class QuickfixProposalProcessorDescriptorImpl extends EObjectImpl impleme
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Pattern getMessagePattern() {
 		return messagePattern;
 	}
@@ -275,6 +289,7 @@ public class QuickfixProposalProcessorDescriptorImpl extends EObjectImpl impleme
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setMessagePattern(Pattern newMessagePattern) {
 		final Pattern oldMessagePattern = messagePattern;
 		messagePattern = newMessagePattern;
@@ -290,6 +305,7 @@ public class QuickfixProposalProcessorDescriptorImpl extends EObjectImpl impleme
 	 * 
 	 * @generated
 	 */
+	@Override
 	public CEObjectHolder<IQuickfixProposalProcessor> getProcessor() {
 		return processor;
 	}
@@ -299,6 +315,7 @@ public class QuickfixProposalProcessorDescriptorImpl extends EObjectImpl impleme
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setProcessor(CEObjectHolder<IQuickfixProposalProcessor> newProcessor) {
 		final CEObjectHolder<IQuickfixProposalProcessor> oldProcessor = processor;
 		processor = newProcessor;
@@ -425,9 +442,7 @@ public class QuickfixProposalProcessorDescriptorImpl extends EObjectImpl impleme
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (modelType: "); //$NON-NLS-1$

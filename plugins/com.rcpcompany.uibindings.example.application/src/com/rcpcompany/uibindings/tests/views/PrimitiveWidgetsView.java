@@ -20,6 +20,7 @@ import org.eclipse.swt.widgets.Scale;
 import org.eclipse.swt.widgets.Slider;
 import org.eclipse.swt.widgets.Spinner;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.forms.widgets.ExpandableComposite;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
@@ -28,7 +29,7 @@ import org.eclipse.ui.part.ViewPart;
 import com.rcpcompany.uibinding.tests.model.TestContainer;
 import com.rcpcompany.uibinding.tests.model.TestModelFactory;
 import com.rcpcompany.uibinding.tests.model.TestModelPackage;
-import com.rcpcompany.uibindings.IBinding;
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
@@ -121,8 +122,8 @@ public class PrimitiveWidgetsView extends ViewPart {
 	}
 
 	private void createEnumerationsSection(final Composite body) {
-		final Section enumerationsSection = myToolkit.createSection(body, Section.TITLE_BAR | Section.EXPANDED
-				| Section.TWISTIE);
+		final Section enumerationsSection = myToolkit.createSection(body, ExpandableComposite.TITLE_BAR
+				| ExpandableComposite.EXPANDED | ExpandableComposite.TWISTIE);
 		enumerationsSection.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
 		enumerationsSection.setText("Enumerations");
 
@@ -172,7 +173,8 @@ public class PrimitiveWidgetsView extends ViewPart {
 	}
 
 	private void createReferencesSection(final Composite body) {
-		final Section mySection = myToolkit.createSection(body, Section.TITLE_BAR | Section.EXPANDED | Section.TWISTIE);
+		final Section mySection = myToolkit.createSection(body, ExpandableComposite.TITLE_BAR
+				| ExpandableComposite.EXPANDED | ExpandableComposite.TWISTIE);
 		mySection.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
 		mySection.setText("References");
 
@@ -222,8 +224,8 @@ public class PrimitiveWidgetsView extends ViewPart {
 	}
 
 	private void createDatesSection(final Composite body) {
-		final Section datesSection = myToolkit.createSection(body, Section.TITLE_BAR | Section.EXPANDED
-				| Section.TWISTIE);
+		final Section datesSection = myToolkit.createSection(body, ExpandableComposite.TITLE_BAR
+				| ExpandableComposite.EXPANDED | ExpandableComposite.TWISTIE);
 		datesSection.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
 		datesSection.setText("Dates");
 
@@ -252,8 +254,8 @@ public class PrimitiveWidgetsView extends ViewPart {
 	}
 
 	private void createBooleansSection(final Composite body) {
-		final Section booleansSection = myToolkit.createSection(body, Section.TITLE_BAR | Section.EXPANDED
-				| Section.TWISTIE);
+		final Section booleansSection = myToolkit.createSection(body, ExpandableComposite.TITLE_BAR
+				| ExpandableComposite.EXPANDED | ExpandableComposite.TWISTIE);
 		booleansSection.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
 		booleansSection.setText("Booleans");
 
@@ -284,8 +286,8 @@ public class PrimitiveWidgetsView extends ViewPart {
 	}
 
 	private void createBytesSection(final Composite body) {
-		final Section byteSection = myToolkit.createSection(body, Section.TITLE_BAR | Section.EXPANDED
-				| Section.TWISTIE);
+		final Section byteSection = myToolkit.createSection(body, ExpandableComposite.TITLE_BAR
+				| ExpandableComposite.EXPANDED | ExpandableComposite.TWISTIE);
 		byteSection.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		byteSection.setText("Byte");
 
@@ -331,8 +333,8 @@ public class PrimitiveWidgetsView extends ViewPart {
 	}
 
 	private void createIntegersSection(final Composite body) {
-		final Section integersSection = myToolkit.createSection(body, Section.TITLE_BAR | Section.EXPANDED
-				| Section.TWISTIE);
+		final Section integersSection = myToolkit.createSection(body, ExpandableComposite.TITLE_BAR
+				| ExpandableComposite.EXPANDED | ExpandableComposite.TWISTIE);
 		integersSection.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		integersSection.setText("Integers");
 
@@ -382,8 +384,8 @@ public class PrimitiveWidgetsView extends ViewPart {
 	}
 
 	private void createStringsSection(final Composite body) {
-		final Section stringsSection = myToolkit.createSection(body, Section.TITLE_BAR | Section.EXPANDED
-				| Section.TWISTIE);
+		final Section stringsSection = myToolkit.createSection(body, ExpandableComposite.TITLE_BAR
+				| ExpandableComposite.EXPANDED | ExpandableComposite.TWISTIE);
 		stringsSection.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
 		stringsSection.setText("Strings");
 
@@ -430,11 +432,11 @@ public class PrimitiveWidgetsView extends ViewPart {
 				TestModelPackage.Literals.TEST_CONTAINER__CHILDREN);
 
 		feature = TestModelPackage.Literals.TEST_CONTAINER__CURRENT;
-		ctx.addBinding(myReferenceLabel, myTestContainer, feature).arg(IBinding.ARG_VALID_VALUES, list);
-		ctx.addBinding(myReferenceText, myTestContainer, feature).arg(IBinding.ARG_VALID_VALUES, list);
-		ctx.addBinding(myReferenceCombo, myTestContainer, feature).arg(IBinding.ARG_VALID_VALUES, list);
-		ctx.addBinding(myReferenceCCombo, myTestContainer, feature).arg(IBinding.ARG_VALID_VALUES, list);
-		ctx.addBinding(myReferenceList, myTestContainer, feature).arg(IBinding.ARG_VALID_VALUES, list);
+		ctx.addBinding(myReferenceLabel, myTestContainer, feature).arg(Constants.ARG_VALID_VALUES, list);
+		ctx.addBinding(myReferenceText, myTestContainer, feature).arg(Constants.ARG_VALID_VALUES, list);
+		ctx.addBinding(myReferenceCombo, myTestContainer, feature).arg(Constants.ARG_VALID_VALUES, list);
+		ctx.addBinding(myReferenceCCombo, myTestContainer, feature).arg(Constants.ARG_VALID_VALUES, list);
+		ctx.addBinding(myReferenceList, myTestContainer, feature).arg(Constants.ARG_VALID_VALUES, list);
 
 		feature = TestModelPackage.Literals.TEST_OBJECT__TEXT;
 		ctx.addBinding(myStringLabel, myTestObject, feature);
@@ -480,7 +482,7 @@ public class PrimitiveWidgetsView extends ViewPart {
 		final IBindingContext ctx = IBindingContext.Factory.createContext(myForm);
 
 		ctx.addBinding(myNameSingleText, myTestObject, TestModelPackage.Literals.TEST_OBJECT__TEXT).arg(
-				IBinding.ARG_TOOL_TIP_TEXT, "The full name of the contact");
+				Constants.ARG_TOOL_TIP_TEXT, "The full name of the contact");
 		ctx.finish();
 	}
 

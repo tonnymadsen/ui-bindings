@@ -1,21 +1,23 @@
 /*******************************************************************************
  * Copyright (c) 2008, 2009 The RCP Company and Others
  * 
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
+ * All rights reserved. This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License v1.0 which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     The RCP Company - initial API and implementation
+ * 
+ * Contributors: The RCP Company - initial API and implementation
  *******************************************************************************/
 package com.rcpcompany.utils.logging;
 
+import java.util.ArrayList;
 import java.util.Dictionary;
 
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.ILog;
+import org.eclipse.core.runtime.ILogListener;
+import org.eclipse.core.runtime.ISafeRunnable;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.SafeRunner;
 import org.eclipse.core.runtime.Status;
 import org.osgi.framework.Constants;
 import org.osgi.service.packageadmin.RequiredBundle;
@@ -26,8 +28,9 @@ import com.rcpcompany.utils.logging.internal.Activator;
 /**
  * This utility class provides a number of static functions that can ease logging of information.
  * <p>
- * Almost all of the log utility methods have an object as the first object. This object is used to determine the
- * plug-in that is responsible for a specific message. The object is handled as follows depending on the type/Class:
+ * Almost all of the log utility methods have an object as the first object. This object is used to
+ * determine the plug-in that is responsible for a specific message. The object is handled as
+ * follows depending on the type/Class:
  * <dl>
  * <dt>{@link IConfigurationElement}</dt>
  * <dd>The contributor is used as the plug-in name</dd>
@@ -40,22 +43,25 @@ import com.rcpcompany.utils.logging.internal.Activator;
  * </dl>
  * <h2>Some Possible Enhancements</h2>
  * <ul>
- * <li>Could get the log to use from bundle in question and only use the current log of this plug-in for the unknown
- * cases...</li>
+ * <li>Could get the log to use from bundle in question and only use the current log of this plug-in
+ * for the unknown cases...</li>
  * <li>Change the format of the time stamp</li>
  * </ul>
  */
 
 public final class LogUtils {
+	private LogUtils() {
+	}
 
 	/**
 	 * The string used for the plug-in if it cannot be deduced.
 	 */
 	public static final String UNKNOWN_PLUGIN = "<unknown>";
+
 	/**
 	 * The log used for all messages.
 	 */
-	final static private ILog LOG = Activator.getDefault().getLog();
+	private static final ILog LOG = Activator.getPlatformLog();
 
 	/**
 	 * Logs the specified debug message.
@@ -65,6 +71,29 @@ public final class LogUtils {
 	 */
 	public static void debug(Object context, String message) {
 		LogUtils.log(context, IStatus.INFO, message, null);
+	}
+
+	/**
+	 * List of log listeners
+	 */
+	private static ArrayList<ILogListener> listeners = new ArrayList<ILogListener>();
+
+	/**
+	 * Adds a new log listener to this utility class
+	 * 
+	 * @param listener the listener to add
+	 */
+	public static void addListener(ILogListener listener) {
+		listeners.add(listener);
+	}
+
+	/**
+	 * Removes an existing log listener from this utility class
+	 * 
+	 * @param listener the listener to remove
+	 */
+	public static void removeListener(ILogListener listener) {
+		listeners.remove(listener);
 	}
 
 	/**
@@ -102,11 +131,9 @@ public final class LogUtils {
 	 * Logs and <em>throws</em> the specified error message as an {@link IllegalArgumentException}.
 	 * 
 	 * @param context the context related to the message
-	 * @param message
 	 * @param exception any exception associated with the log message or <code>null</code>
-	 * @throws RuntimeException
 	 */
-	public static void throwException(Object context, String message, Throwable exception) throws RuntimeException {
+	public static void throwException(Object context, String message, Throwable exception) {
 		final RuntimeException ex = new RuntimeException(message);
 		ex.fillInStackTrace();
 		ex.initCause(exception);
@@ -134,9 +161,7 @@ public final class LogUtils {
 		/*
 		 * Special case: if the excpetion is the same as last time!! So don't report it again...
 		 */
-		if (exception != null && exception == lastException) {
-			return;
-		}
+		if (exception != null && exception == lastException) return;
 		lastException = exception;
 		String pluginID = UNKNOWN_PLUGIN;
 		String messagePrefix = null;
@@ -165,7 +190,9 @@ public final class LogUtils {
 		} else if (context instanceof String) {
 			pluginID = (String) context;
 		} else if (context != null) {
-			pluginID = Activator.getDefault().getBundleId(context);
+			if (Activator.getDefault() != null) {
+				pluginID = Activator.getDefault().getBundleId(context);
+			}
 		}
 		if (pluginID == null || pluginID.length() == 0) {
 			pluginID = UNKNOWN_PLUGIN;
@@ -182,7 +209,22 @@ public final class LogUtils {
 		}
 		message = logMessage(message);
 
-		LOG.log(new Status(severity, pluginID, message, exception));
+		final Status status = new Status(severity, pluginID, message, exception);
+		LOG.log(status);
+		for (final ILogListener listener : listeners) {
+			final ISafeRunnable code = new ISafeRunnable() {
+				@Override
+				public void run() throws Exception {
+					listener.logging(status, status.getPlugin());
+				}
+
+				@Override
+				public void handleException(Throwable e) {
+					// Ignore
+				}
+			};
+			SafeRunner.run(code);
+		}
 	}
 
 	/* ======================================================================== */

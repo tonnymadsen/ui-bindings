@@ -171,11 +171,13 @@ public class NumberDecoratorProviderRangeTest {
 			final String what = "(" + range + ": " + s + ")";
 
 			assertNoLog(new Runnable() {
+				@Override
 				public void run() {
 					myText.setText(s);
 				}
 			});
 			assertNoLog(new Runnable() {
+				@Override
 				public void run() {
 					yield();
 				}
@@ -194,11 +196,13 @@ public class NumberDecoratorProviderRangeTest {
 			final String what = "(" + range + ": " + s + ")";
 
 			assertNoLog(new Runnable() {
+				@Override
 				public void run() {
 					myText.setText(s);
 				}
 			});
 			assertNoLog(new Runnable() {
+				@Override
 				public void run() {
 					yield();
 				}
@@ -208,7 +212,8 @@ public class NumberDecoratorProviderRangeTest {
 			// System.out.println(what + "=" + decorator.getMessages());
 			assertEquals(what, 1, decorator.getMessages().size());
 			final IBindingMessage message = (IBindingMessage) decorator.getMessages().get(0);
-			// System.out.println("  \"" + message.getMessage() + "\".matches(\"" + expectedError + "\")");
+			// System.out.println("  \"" + message.getMessage() + "\".matches(\"" + expectedError +
+			// "\")");
 			assertTrue(what, message.getMessage().matches(expectedError));
 		}
 	}

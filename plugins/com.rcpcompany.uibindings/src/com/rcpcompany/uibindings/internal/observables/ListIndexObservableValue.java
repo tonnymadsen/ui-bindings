@@ -18,7 +18,8 @@ public class ListIndexObservableValue extends AbstractObservableValue {
 	private final int myOffset;
 
 	/**
-	 * Constructs and returns a new observable value that will return and monitor the index of an element in a list.
+	 * Constructs and returns a new observable value that will return and monitor the index of an
+	 * element in a list.
 	 * 
 	 * @param list the list
 	 * @param element the element
@@ -28,7 +29,8 @@ public class ListIndexObservableValue extends AbstractObservableValue {
 	}
 
 	/**
-	 * Constructs and returns a new observable value that will return and monitor the index of an element in a list.
+	 * Constructs and returns a new observable value that will return and monitor the index of an
+	 * element in a list.
 	 * 
 	 * @param list the list
 	 * @param element the element
@@ -54,23 +56,21 @@ public class ListIndexObservableValue extends AbstractObservableValue {
 		@Override
 		public void handleListChange(ListChangeEvent event) {
 			/*
-			 * Real ugly, but... the problem is that ChangeManager.fireEvent() holds on to the "old" list of listeners
-			 * while firing events. So when changes are made to the list - especially some that invalidate the objects
-			 * that are referenced - this leads to problem later...
+			 * Real ugly, but... the problem is that ChangeManager.fireEvent() holds on to the "old"
+			 * list of listeners while firing events. So when changes are made to the list -
+			 * especially some that invalidate the objects that are referenced - this leads to
+			 * problem later...
 			 */
-			if (getRealm() == null) {
-				return;
-			}
+			if (getRealm() == null) return;
 
 			final int newIndex = calculateIndex();
-			if (myIndex == newIndex) {
-				return;
-			}
+			if (myIndex == newIndex) return;
 
 			final ValueDiff diff = Diffs.createValueDiff(myIndex, newIndex);
 
 			myIndex = newIndex;
 			getRealm().exec(new Runnable() {
+				@Override
 				public void run() {
 					fireValueChange(diff);
 				}

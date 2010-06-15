@@ -26,8 +26,8 @@ import com.rcpcompany.uibindings.internal.observables.ControlCursorObservableVal
 import com.rcpcompany.uibindings.internal.observables.StyledTextRangesObservableList;
 
 /**
- * Simple {@link IUIAttribute} implementations used when control, attribute and observable value is known at construct
- * time.
+ * Simple {@link IUIAttribute} implementations used when control, attribute and observable value is
+ * known at construct time.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -82,9 +82,7 @@ public class SimpleUIAttribute extends AbstractUIAttribute {
 	}
 
 	private void updateImageDecorations() {
-		if (!(getWidget() instanceof Control)) {
-			return;
-		}
+		if (!(getWidget() instanceof Control)) return;
 		final Control c = (Control) getWidget();
 
 		final Point size = c.getSize();

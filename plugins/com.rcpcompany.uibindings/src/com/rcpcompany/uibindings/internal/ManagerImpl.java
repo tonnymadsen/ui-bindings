@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -89,51 +88,62 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Manager</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Manager</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getEditingDomain <em>Editing Domain</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getEditingDomain <em>Editing Domain
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getFormToolkit <em>Form Toolkit</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getProviders <em>Providers</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getUiAttributeFactories <em>Ui Attribute Factories</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getDecoratorExtenders <em>Decorator Extenders</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getModelArgumentMediators <em>Model Argument Mediators
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getUiAttributeFactories <em>Ui
+ * Attribute Factories</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getDecoratorExtenders <em>Decorator
+ * Extenders</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getModelArgumentMediators <em>Model
+ * Argument Mediators </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getModelArgumentMediatorClasses <em>
+ * Model Argument Mediator Classes</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getTextCommitStrategy <em>Text Commit
+ * Strategy</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getTextCommitStrategyDelay <em>Text
+ * Commit Strategy Delay </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isEditCellAnyKey <em>Edit Cell Any Key
  * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getModelArgumentMediatorClasses <em>Model Argument Mediator
- * Classes</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getTextCommitStrategy <em>Text Commit Strategy</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getTextCommitStrategyDelay <em>Text Commit Strategy Delay
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isEditCellSingleClick <em>Edit Cell
+ * Single Click</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getMessageDecorationPosition <em>
+ * Message Decoration Position</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getMessageDecorationMinimumSeverity
+ * <em>Message Decoration Minimum Severity</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getAlternativeDecorationPosition <em>
+ * Alternative Decoration Position</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isAutoApplySingleQuickfix <em>Auto
+ * Apply Single Quickfix </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isAlternateRowColors <em>Alternate Row
+ * Colors</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isValidationErrorsAreFatal <em>
+ * Validation Errors Are Fatal </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getValidationDelay <em>Validation Delay
  * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isEditCellAnyKey <em>Edit Cell Any Key</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isEditCellSingleClick <em>Edit Cell Single Click</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getMessageDecorationPosition <em>Message Decoration
- * Position</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getMessageDecorationMinimumSeverity <em>Message Decoration
- * Minimum Severity</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getAlternativeDecorationPosition <em>Alternative Decoration
- * Position</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isAutoApplySingleQuickfix <em>Auto Apply Single Quickfix
- * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isAlternateRowColors <em>Alternate Row Colors</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isValidationErrorsAreFatal <em>Validation Errors Are Fatal
- * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getValidationDelay <em>Validation Delay</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getValidationDelayWindow <em>Validation Delay Window</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isRequiredVBImageDecorationShown <em>Required VB Image
- * Decoration Shown</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isAssistVBImageDecorationShown <em>Assist VB Image
- * Decoration Shown</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isQuickfixVBImageDecorationShown <em>Quickfix VB Image
- * Decoration Shown</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isViewNavigationRecorded <em>View Navigation Recorded</em>}
- * </li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getValidationDelayWindow <em>Validation
+ * Delay Window</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isRequiredVBImageDecorationShown <em>
+ * Required VB Image Decoration Shown</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isAssistVBImageDecorationShown <em>
+ * Assist VB Image Decoration Shown</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isQuickfixVBImageDecorationShown <em>
+ * Quickfix VB Image Decoration Shown</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isViewNavigationRecorded <em>View
+ * Navigation Recorded</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getModelInfo <em>Model Info</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getTreeItems <em>Tree Items</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getClipboard <em>Clipboard</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getObservableFactories <em>Observable Factories</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getQuickfixProposalProcessors <em>Quickfix Proposal
- * Processors</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getObservableFactories <em>Observable
+ * Factories</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getQuickfixProposalProcessors <em>
+ * Quickfix Proposal Processors</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getContexts <em>Contexts</em>}</li>
  * </ul>
  * </p>
@@ -179,37 +189,19 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 
 		@Override
 		public boolean equals(Object obj) {
-			if (this == obj) {
-				return true;
-			}
-			if (obj == null) {
-				return false;
-			}
-			if (getClass() != obj.getClass()) {
-				return false;
-			}
+			if (this == obj) return true;
+			if (obj == null) return false;
+			if (getClass() != obj.getClass()) return false;
 			final BindingProviderKey other = (BindingProviderKey) obj;
 			if (modelType == null) {
-				if (other.modelType != null) {
-					return false;
-				}
-			} else if (!modelType.equals(other.modelType)) {
-				return false;
-			}
+				if (other.modelType != null) return false;
+			} else if (!modelType.equals(other.modelType)) return false;
 			if (type == null) {
-				if (other.type != null) {
-					return false;
-				}
-			} else if (!type.equals(other.type)) {
-				return false;
-			}
+				if (other.type != null) return false;
+			} else if (!type.equals(other.type)) return false;
 			if (uiType == null) {
-				if (other.uiType != null) {
-					return false;
-				}
-			} else if (!uiType.equals(other.uiType)) {
-				return false;
-			}
+				if (other.uiType != null) return false;
+			} else if (!uiType.equals(other.uiType)) return false;
 			return true;
 		}
 	}
@@ -224,9 +216,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		}
 		final BindingProviderKey key = new BindingProviderKey(modelType, uiType, type);
 		IDecoratorProvider provider = myBindingCache.get(key);
-		if (provider != null) {
-			return provider;
-		}
+		if (provider != null) return provider;
 
 		/*
 		 * Need to find a provider :-)
@@ -249,7 +239,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			for (final String t : p.getModelTypes()) {
 				prio = 0;
 				/*
-				 * If exact model type matching is wanted when just test again the model type itself.
+				 * If exact model type matching is wanted when just test again the model type
+				 * itself.
 				 * 
 				 * Otherwise test against model type order as found above.
 				 */
@@ -341,8 +332,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected final Map<BindingProviderKey, IDecoratorProvider> myBindingCache = new HashMap<BindingProviderKey, IDecoratorProvider>();
 
 	/**
-	 * The default value of the '{@link #getEditingDomain() <em>Editing Domain</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getEditingDomain() <em>Editing Domain</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getEditingDomain()
 	 * @generated
@@ -351,8 +342,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected static final EditingDomain EDITING_DOMAIN_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getEditingDomain() <em>Editing Domain</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getEditingDomain() <em>Editing Domain</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getEditingDomain()
 	 * @generated
@@ -361,8 +352,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected EditingDomain editingDomain = EDITING_DOMAIN_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getFormToolkit() <em>Form Toolkit</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getFormToolkit() <em>Form Toolkit</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getFormToolkit()
 	 * @generated
@@ -371,8 +362,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected static final FormToolkit FORM_TOOLKIT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getFormToolkit() <em>Form Toolkit</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getFormToolkit() <em>Form Toolkit</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getFormToolkit()
 	 * @generated
@@ -381,8 +372,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected FormToolkit formToolkit = FORM_TOOLKIT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getProviders() <em>Providers</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getProviders() <em>Providers</em>}' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getProviders()
 	 * @generated
@@ -391,8 +382,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected EList<IDecoratorProvider> providers;
 
 	/**
-	 * The cached value of the '{@link #getUiAttributeFactories() <em>Ui Attribute Factories</em>}' reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getUiAttributeFactories() <em>Ui Attribute Factories</em>}'
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getUiAttributeFactories()
 	 * @generated
@@ -401,8 +392,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected EList<IUIAttributeFactoryDescriptor> uiAttributeFactories;
 
 	/**
-	 * The cached value of the '{@link #getDecoratorExtenders() <em>Decorator Extenders</em>}' reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getDecoratorExtenders() <em>Decorator Extenders</em>}'
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDecoratorExtenders()
 	 * @generated
@@ -411,8 +402,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected EList<IUIBindingDecoratorExtenderDescriptor> decoratorExtenders;
 
 	/**
-	 * The cached value of the '{@link #getModelArgumentMediators() <em>Model Argument Mediators</em>}' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getModelArgumentMediators()
+	 * <em>Model Argument Mediators</em>}' attribute list. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @see #getModelArgumentMediators()
 	 * @generated
@@ -421,8 +413,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected EList<CEObjectHolder<IModelArgumentMediator>> modelArgumentMediators;
 
 	/**
-	 * The cached value of the '{@link #getModelArgumentMediatorClasses() <em>Model Argument Mediator Classes</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getModelArgumentMediatorClasses()
+	 * <em>Model Argument Mediator Classes</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getModelArgumentMediatorClasses()
 	 * @generated NOT
@@ -431,8 +424,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected Map<EClassifier, Object> modelArgumentMediatorClasses = new HashMap<EClassifier, Object>();
 
 	/**
-	 * The default value of the '{@link #getTextCommitStrategy() <em>Text Commit Strategy</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getTextCommitStrategy() <em>Text Commit Strategy</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTextCommitStrategy()
 	 * @generated
@@ -441,8 +434,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected static final TextCommitStrategy TEXT_COMMIT_STRATEGY_EDEFAULT = TextCommitStrategy.ON_MODIFY_DELAY;
 
 	/**
-	 * The cached value of the '{@link #getTextCommitStrategy() <em>Text Commit Strategy</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getTextCommitStrategy() <em>Text Commit Strategy</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTextCommitStrategy()
 	 * @generated
@@ -451,8 +444,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected TextCommitStrategy textCommitStrategy = TEXT_COMMIT_STRATEGY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTextCommitStrategyDelay() <em>Text Commit Strategy Delay</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getTextCommitStrategyDelay()
+	 * <em>Text Commit Strategy Delay</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @see #getTextCommitStrategyDelay()
 	 * @generated
@@ -461,8 +455,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected static final int TEXT_COMMIT_STRATEGY_DELAY_EDEFAULT = 400;
 
 	/**
-	 * The cached value of the '{@link #getTextCommitStrategyDelay() <em>Text Commit Strategy Delay</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getTextCommitStrategyDelay()
+	 * <em>Text Commit Strategy Delay</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @see #getTextCommitStrategyDelay()
 	 * @generated
@@ -471,8 +466,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected int textCommitStrategyDelay = TEXT_COMMIT_STRATEGY_DELAY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isEditCellAnyKey() <em>Edit Cell Any Key</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The default value of the '{@link #isEditCellAnyKey() <em>Edit Cell Any Key</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isEditCellAnyKey()
 	 * @generated
@@ -481,8 +476,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected static final boolean EDIT_CELL_ANY_KEY_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #isEditCellAnyKey() <em>Edit Cell Any Key</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #isEditCellAnyKey() <em>Edit Cell Any Key</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isEditCellAnyKey()
 	 * @generated
@@ -491,8 +486,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected boolean editCellAnyKey = EDIT_CELL_ANY_KEY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isEditCellSingleClick() <em>Edit Cell Single Click</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #isEditCellSingleClick() <em>Edit Cell Single Click</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isEditCellSingleClick()
 	 * @generated
@@ -501,8 +496,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected static final boolean EDIT_CELL_SINGLE_CLICK_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #isEditCellSingleClick() <em>Edit Cell Single Click</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #isEditCellSingleClick() <em>Edit Cell Single Click</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isEditCellSingleClick()
 	 * @generated
@@ -511,8 +506,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected boolean editCellSingleClick = EDIT_CELL_SINGLE_CLICK_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getMessageDecorationPosition() <em>Message Decoration Position</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getMessageDecorationPosition()
+	 * <em>Message Decoration Position</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @see #getMessageDecorationPosition()
 	 * @generated
@@ -521,8 +517,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected static final DecorationPosition MESSAGE_DECORATION_POSITION_EDEFAULT = DecorationPosition.BOTTOM_LEFT;
 
 	/**
-	 * The cached value of the '{@link #getMessageDecorationPosition() <em>Message Decoration Position</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getMessageDecorationPosition()
+	 * <em>Message Decoration Position</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @see #getMessageDecorationPosition()
 	 * @generated
@@ -532,7 +529,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 
 	/**
 	 * The default value of the '{@link #getMessageDecorationMinimumSeverity()
-	 * <em>Message Decoration Minimum Severity</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <em>Message Decoration Minimum Severity</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getMessageDecorationMinimumSeverity()
 	 * @generated
@@ -542,7 +540,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 
 	/**
 	 * The cached value of the '{@link #getMessageDecorationMinimumSeverity()
-	 * <em>Message Decoration Minimum Severity</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <em>Message Decoration Minimum Severity</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getMessageDecorationMinimumSeverity()
 	 * @generated
@@ -551,8 +550,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected BindingMessageSeverity messageDecorationMinimumSeverity = MESSAGE_DECORATION_MINIMUM_SEVERITY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getAlternativeDecorationPosition() <em>Alternative Decoration Position</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getAlternativeDecorationPosition()
+	 * <em>Alternative Decoration Position</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getAlternativeDecorationPosition()
 	 * @generated
@@ -561,8 +561,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected static final DecorationPosition ALTERNATIVE_DECORATION_POSITION_EDEFAULT = DecorationPosition.TOP_LEFT;
 
 	/**
-	 * The cached value of the '{@link #getAlternativeDecorationPosition() <em>Alternative Decoration Position</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getAlternativeDecorationPosition()
+	 * <em>Alternative Decoration Position</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getAlternativeDecorationPosition()
 	 * @generated
@@ -571,8 +572,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected DecorationPosition alternativeDecorationPosition = ALTERNATIVE_DECORATION_POSITION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isAutoApplySingleQuickfix() <em>Auto Apply Single Quickfix</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #isAutoApplySingleQuickfix()
+	 * <em>Auto Apply Single Quickfix</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @see #isAutoApplySingleQuickfix()
 	 * @generated
@@ -581,8 +583,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected static final boolean AUTO_APPLY_SINGLE_QUICKFIX_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isAutoApplySingleQuickfix() <em>Auto Apply Single Quickfix</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #isAutoApplySingleQuickfix()
+	 * <em>Auto Apply Single Quickfix</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @see #isAutoApplySingleQuickfix()
 	 * @generated
@@ -591,8 +594,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected boolean autoApplySingleQuickfix = AUTO_APPLY_SINGLE_QUICKFIX_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isAlternateRowColors() <em>Alternate Row Colors</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #isAlternateRowColors() <em>Alternate Row Colors</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isAlternateRowColors()
 	 * @generated
@@ -601,8 +604,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected static final boolean ALTERNATE_ROW_COLORS_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #isAlternateRowColors() <em>Alternate Row Colors</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #isAlternateRowColors() <em>Alternate Row Colors</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isAlternateRowColors()
 	 * @generated
@@ -611,8 +614,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected boolean alternateRowColors = ALTERNATE_ROW_COLORS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isValidationErrorsAreFatal() <em>Validation Errors Are Fatal</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #isValidationErrorsAreFatal()
+	 * <em>Validation Errors Are Fatal</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @see #isValidationErrorsAreFatal()
 	 * @generated
@@ -621,8 +625,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected static final boolean VALIDATION_ERRORS_ARE_FATAL_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isValidationErrorsAreFatal() <em>Validation Errors Are Fatal</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #isValidationErrorsAreFatal()
+	 * <em>Validation Errors Are Fatal</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @see #isValidationErrorsAreFatal()
 	 * @generated
@@ -631,8 +636,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected boolean validationErrorsAreFatal = VALIDATION_ERRORS_ARE_FATAL_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getValidationDelay() <em>Validation Delay</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getValidationDelay() <em>Validation Delay</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getValidationDelay()
 	 * @generated
@@ -641,8 +646,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected static final int VALIDATION_DELAY_EDEFAULT = 200;
 
 	/**
-	 * The cached value of the '{@link #getValidationDelay() <em>Validation Delay</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getValidationDelay() <em>Validation Delay</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getValidationDelay()
 	 * @generated
@@ -651,8 +656,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected int validationDelay = VALIDATION_DELAY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getValidationDelayWindow() <em>Validation Delay Window</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getValidationDelayWindow()
+	 * <em>Validation Delay Window</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getValidationDelayWindow()
 	 * @generated
@@ -661,8 +666,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected static final int VALIDATION_DELAY_WINDOW_EDEFAULT = 25;
 
 	/**
-	 * The cached value of the '{@link #getValidationDelayWindow() <em>Validation Delay Window</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getValidationDelayWindow() <em>Validation Delay Window</em>}
+	 * ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getValidationDelayWindow()
 	 * @generated
@@ -671,8 +676,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected int validationDelayWindow = VALIDATION_DELAY_WINDOW_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isRequiredVBImageDecorationShown() <em>Required VB Image Decoration Shown</em>}
-	 * ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #isRequiredVBImageDecorationShown()
+	 * <em>Required VB Image Decoration Shown</em>} ' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #isRequiredVBImageDecorationShown()
 	 * @generated
@@ -681,8 +687,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected static final boolean REQUIRED_VB_IMAGE_DECORATION_SHOWN_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #isRequiredVBImageDecorationShown() <em>Required VB Image Decoration Shown</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #isRequiredVBImageDecorationShown()
+	 * <em>Required VB Image Decoration Shown</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #isRequiredVBImageDecorationShown()
 	 * @generated
@@ -691,8 +698,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected boolean requiredVBImageDecorationShown = REQUIRED_VB_IMAGE_DECORATION_SHOWN_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isAssistVBImageDecorationShown() <em>Assist VB Image Decoration Shown</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #isAssistVBImageDecorationShown()
+	 * <em>Assist VB Image Decoration Shown</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #isAssistVBImageDecorationShown()
 	 * @generated
@@ -701,8 +709,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected static final boolean ASSIST_VB_IMAGE_DECORATION_SHOWN_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #isAssistVBImageDecorationShown() <em>Assist VB Image Decoration Shown</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #isAssistVBImageDecorationShown()
+	 * <em>Assist VB Image Decoration Shown</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #isAssistVBImageDecorationShown()
 	 * @generated
@@ -711,8 +720,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected boolean assistVBImageDecorationShown = ASSIST_VB_IMAGE_DECORATION_SHOWN_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isQuickfixVBImageDecorationShown() <em>Quickfix VB Image Decoration Shown</em>}
-	 * ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #isQuickfixVBImageDecorationShown()
+	 * <em>Quickfix VB Image Decoration Shown</em>} ' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #isQuickfixVBImageDecorationShown()
 	 * @generated
@@ -721,8 +731,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected static final boolean QUICKFIX_VB_IMAGE_DECORATION_SHOWN_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #isQuickfixVBImageDecorationShown() <em>Quickfix VB Image Decoration Shown</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #isQuickfixVBImageDecorationShown()
+	 * <em>Quickfix VB Image Decoration Shown</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #isQuickfixVBImageDecorationShown()
 	 * @generated
@@ -731,8 +742,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected boolean quickfixVBImageDecorationShown = QUICKFIX_VB_IMAGE_DECORATION_SHOWN_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isViewNavigationRecorded() <em>View Navigation Recorded</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #isViewNavigationRecorded()
+	 * <em>View Navigation Recorded</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isViewNavigationRecorded()
 	 * @generated
@@ -741,8 +752,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected static final boolean VIEW_NAVIGATION_RECORDED_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #isViewNavigationRecorded() <em>View Navigation Recorded</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #isViewNavigationRecorded()
+	 * <em>View Navigation Recorded</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isViewNavigationRecorded()
 	 * @generated
@@ -751,8 +762,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected boolean viewNavigationRecorded = VIEW_NAVIGATION_RECORDED_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getModelInfo() <em>Model Info</em>}' map. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getModelInfo() <em>Model Info</em>}' map. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getModelInfo()
 	 * @generated
@@ -761,8 +772,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected EMap<String, IModelClassInfo> modelInfo;
 
 	/**
-	 * The cached value of the '{@link #getTreeItems() <em>Tree Items</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getTreeItems() <em>Tree Items</em>}' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTreeItems()
 	 * @generated
@@ -771,8 +782,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected EList<ITreeItemDescriptor> treeItems;
 
 	/**
-	 * The default value of the '{@link #getClipboard() <em>Clipboard</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getClipboard() <em>Clipboard</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getClipboard()
 	 * @generated
@@ -781,8 +792,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected static final Clipboard CLIPBOARD_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getClipboard() <em>Clipboard</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getClipboard() <em>Clipboard</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getClipboard()
 	 * @generated
@@ -791,8 +802,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected Clipboard clipboard = CLIPBOARD_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getObservableFactories() <em>Observable Factories</em>}' containment reference
-	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getObservableFactories() <em>Observable Factories</em>}'
+	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getObservableFactories()
 	 * @generated
@@ -801,8 +812,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected EList<IEMFObservableFactoryDescriptor> observableFactories;
 
 	/**
-	 * The cached value of the '{@link #getQuickfixProposalProcessors() <em>Quickfix Proposal Processors</em>}'
-	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getQuickfixProposalProcessors()
+	 * <em>Quickfix Proposal Processors</em>}' containment reference list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getQuickfixProposalProcessors()
 	 * @generated
@@ -811,8 +823,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected EList<IQuickfixProposalProcessorDescriptor> quickfixProposalProcessors;
 
 	/**
-	 * The cached value of the '{@link #getContexts() <em>Contexts</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getContexts() <em>Contexts</em>}' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getContexts()
 	 * @generated
@@ -1164,6 +1176,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<IDecoratorProvider> getProviders() {
 		if (providers == null) {
 			providers = new EObjectContainmentWithInverseEList<IDecoratorProvider>(IDecoratorProvider.class, this,
@@ -1177,6 +1190,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<IUIAttributeFactoryDescriptor> getUiAttributeFactories() {
 		if (uiAttributeFactories == null) {
 			uiAttributeFactories = new EObjectResolvingEList<IUIAttributeFactoryDescriptor>(
@@ -1190,6 +1204,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<IUIBindingDecoratorExtenderDescriptor> getDecoratorExtenders() {
 		if (decoratorExtenders == null) {
 			decoratorExtenders = new EObjectResolvingEList<IUIBindingDecoratorExtenderDescriptor>(
@@ -1203,6 +1218,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<CEObjectHolder<IModelArgumentMediator>> getModelArgumentMediators() {
 		if (modelArgumentMediators == null) {
 			modelArgumentMediators = new EDataTypeUniqueEList<CEObjectHolder<IModelArgumentMediator>>(
@@ -1213,9 +1229,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 
 	@Override
 	public void runModelArgumentMediators(EClassifier classifier) {
-		if (getModelArgumentMediatorClasses().containsKey(classifier)) {
-			return;
-		}
+		if (getModelArgumentMediatorClasses().containsKey(classifier)) return;
 		getModelArgumentMediatorClasses().put(classifier, null);
 
 		for (final CEObjectHolder<IModelArgumentMediator> holder : getModelArgumentMediators()) {
@@ -1231,6 +1245,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Map<EClassifier, Object> getModelArgumentMediatorClasses() {
 		return modelArgumentMediatorClasses;
 	}
@@ -1240,6 +1255,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setModelArgumentMediatorClasses(Map<EClassifier, Object> newModelArgumentMediatorClasses) {
 		final Map<EClassifier, Object> oldModelArgumentMediatorClasses = modelArgumentMediatorClasses;
 		modelArgumentMediatorClasses = newModelArgumentMediatorClasses;
@@ -1255,6 +1271,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public TextCommitStrategy getTextCommitStrategy() {
 		return textCommitStrategy;
 	}
@@ -1264,6 +1281,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public void setTextCommitStrategy(TextCommitStrategy newTextCommitStrategy) {
 		setTextCommitStrategyGen(newTextCommitStrategy);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
@@ -1289,6 +1307,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getTextCommitStrategyDelay() {
 		return textCommitStrategyDelay;
 	}
@@ -1298,10 +1317,10 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public void setTextCommitStrategyDelay(int newTextCommitStrategyDelay) {
-		if (newTextCommitStrategyDelay < 1 || 1000000 < newTextCommitStrategyDelay) {
+		if (newTextCommitStrategyDelay < 1 || 1000000 < newTextCommitStrategyDelay)
 			throw new IllegalArgumentException("delay " + newTextCommitStrategyDelay + " must be in range [1;1000000["); //$NON-NLS-1$ //$NON-NLS-2$
-		}
 		setTextCommitStrategyDelayGen(newTextCommitStrategyDelay);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
 		ps.setValue(UIBindingPreferences.PREF_TEXT_COMMIT_STRATEGY_DELAY, newTextCommitStrategyDelay);
@@ -1327,6 +1346,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public boolean isEditCellAnyKey() {
 		return editCellAnyKey;
 	}
@@ -1336,6 +1356,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public void setEditCellAnyKey(boolean newEditCellAnyKey) {
 		setEditCellAnyKeyGen(newEditCellAnyKey);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
@@ -1361,6 +1382,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public boolean isEditCellSingleClick() {
 		return editCellSingleClick;
 	}
@@ -1370,6 +1392,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public void setEditCellSingleClick(boolean newEditCellSingleClick) {
 		setEditCellSingleClickGen(newEditCellSingleClick);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
@@ -1396,6 +1419,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public DecorationPosition getMessageDecorationPosition() {
 		return messageDecorationPosition;
 	}
@@ -1405,6 +1429,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public void setMessageDecorationPosition(DecorationPosition newMessageDecorationPosition) {
 		setMessageDecorationPositionGen(newMessageDecorationPosition);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
@@ -1432,6 +1457,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public BindingMessageSeverity getMessageDecorationMinimumSeverity() {
 		return messageDecorationMinimumSeverity;
 	}
@@ -1441,6 +1467,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public void setMessageDecorationMinimumSeverity(BindingMessageSeverity newMessageDecorationMinimumSeverity) {
 		setMessageDecorationMinimumSeverityGen(newMessageDecorationMinimumSeverity);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
@@ -1469,6 +1496,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public DecorationPosition getAlternativeDecorationPosition() {
 		return alternativeDecorationPosition;
 	}
@@ -1478,6 +1506,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public void setAlternativeDecorationPosition(DecorationPosition newAlternativeDecorationPosition) {
 		setAlternativeDecorationPositionGen(newAlternativeDecorationPosition);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
@@ -1505,6 +1534,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public boolean isAutoApplySingleQuickfix() {
 		return autoApplySingleQuickfix;
 	}
@@ -1514,6 +1544,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public void setAutoApplySingleQuickfix(boolean newAutoApplySingleQuickfix) {
 		setAutoApplySingleQuickfixGen(newAutoApplySingleQuickfix);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
@@ -1540,6 +1571,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public boolean isAlternateRowColors() {
 		return alternateRowColors;
 	}
@@ -1549,6 +1581,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public void setAlternateRowColors(boolean newAlternateRowColors) {
 		setAlternateRowColorsGen(newAlternateRowColors);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
@@ -1574,6 +1607,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public boolean isValidationErrorsAreFatal() {
 		return validationErrorsAreFatal;
 	}
@@ -1583,6 +1617,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public void setValidationErrorsAreFatal(boolean newValidationErrorsAreFatal) {
 		setValidationErrorsAreFatalGen(newValidationErrorsAreFatal);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
@@ -1609,6 +1644,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getValidationDelay() {
 		return validationDelay;
 	}
@@ -1618,10 +1654,10 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public void setValidationDelay(int newValidationDelay) {
-		if (newValidationDelay < 1 || 1000000 < newValidationDelay) {
+		if (newValidationDelay < 1 || 1000000 < newValidationDelay)
 			throw new IllegalArgumentException("delay must be in range [1;1000000["); //$NON-NLS-1$
-		}
 		setValidationDelayGen(newValidationDelay);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
 		ps.setValue(UIBindingPreferences.PREF_VALIDATION_DELAY, newValidationDelay);
@@ -1646,6 +1682,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getValidationDelayWindow() {
 		return validationDelayWindow;
 	}
@@ -1655,10 +1692,10 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public void setValidationDelayWindow(int newValidationDelayWindow) {
-		if (newValidationDelayWindow < 1 || 1000000 < newValidationDelayWindow) {
+		if (newValidationDelayWindow < 1 || 1000000 < newValidationDelayWindow)
 			throw new IllegalArgumentException("delay must be in range [1;1000000["); //$NON-NLS-1$
-		}
 		setValidationDelayWindowGen(newValidationDelayWindow);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
 		ps.setValue(UIBindingPreferences.PREF_VALIDATION_DELAY_WINDOW, newValidationDelayWindow);
@@ -1683,6 +1720,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public boolean isRequiredVBImageDecorationShown() {
 		return requiredVBImageDecorationShown;
 	}
@@ -1692,6 +1730,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public void setRequiredVBImageDecorationShown(boolean newRequiredVBImageDecorationShown) {
 		setRequiredVBImageDecorationShownGen(newRequiredVBImageDecorationShown);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
@@ -1718,6 +1757,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public boolean isAssistVBImageDecorationShown() {
 		return assistVBImageDecorationShown;
 	}
@@ -1727,6 +1767,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public void setAssistVBImageDecorationShown(boolean newAssistVBImageDecorationShown) {
 		setAssistVBImageDecorationShownGen(newAssistVBImageDecorationShown);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
@@ -1753,6 +1794,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public boolean isQuickfixVBImageDecorationShown() {
 		return quickfixVBImageDecorationShown;
 	}
@@ -1762,6 +1804,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public void setQuickfixVBImageDecorationShown(boolean newQuickfixVBImageDecorationShown) {
 		setQuickfixVBImageDecorationShownGen(newQuickfixVBImageDecorationShown);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
@@ -1788,6 +1831,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public boolean isViewNavigationRecorded() {
 		return viewNavigationRecorded;
 	}
@@ -1797,6 +1841,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public void setViewNavigationRecorded(boolean newViewNavigationRecorded) {
 		setViewNavigationRecordedGen(newViewNavigationRecorded);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
@@ -1822,6 +1867,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EMap<String, IModelClassInfo> getModelInfo() {
 		if (modelInfo == null) {
 			modelInfo = new EcoreEMap<String, IModelClassInfo>(
@@ -1858,9 +1904,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	@Override
 	public IModelFeatureInfo getModelFeatureInfo(String className, String featureName, String type, boolean create) {
 		final IModelClassInfo cInfo = getModelClassInfo(className, type, true);
-		if (cInfo == null) {
-			return null;
-		}
+		if (cInfo == null) return null;
 
 		IModelFeatureInfo fInfo = cInfo.getFeatures().get(featureName);
 		if (fInfo == null && create) {
@@ -1877,6 +1921,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<ITreeItemDescriptor> getTreeItems() {
 		if (treeItems == null) {
 			treeItems = new EObjectContainmentEList<ITreeItemDescriptor>(ITreeItemDescriptor.class, this,
@@ -1890,6 +1935,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public Clipboard getClipboard() {
 		if (clipboard == null) {
 			clipboard = new Clipboard(PlatformUI.getWorkbench().getDisplay());
@@ -1902,6 +1948,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<IEMFObservableFactoryDescriptor> getObservableFactories() {
 		if (observableFactories == null) {
 			observableFactories = new EObjectContainmentEList<IEMFObservableFactoryDescriptor>(
@@ -1915,6 +1962,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<IQuickfixProposalProcessorDescriptor> getQuickfixProposalProcessors() {
 		if (quickfixProposalProcessors == null) {
 			quickfixProposalProcessors = new EObjectContainmentEList<IQuickfixProposalProcessorDescriptor>(
@@ -1929,6 +1977,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<IBindingContext> getContexts() {
 		if (contexts == null) {
 			contexts = new EObjectContainmentEList<IBindingContext>(IBindingContext.class, this,
@@ -1942,6 +1991,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public EditingDomain getEditingDomain() {
 		if (editingDomain == null) {
 			setEditingDomain(UIBindingsUtils.createEditingDomain());
@@ -1954,6 +2004,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setEditingDomain(EditingDomain newEditingDomain) {
 		final EditingDomain oldEditingDomain = editingDomain;
 		editingDomain = newEditingDomain;
@@ -1968,6 +2019,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public FormToolkit getFormToolkit() {
 		if (formToolkit == null) {
 			formToolkit = new FormToolkit(Display.getCurrent());
@@ -1980,6 +2032,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setFormToolkit(FormToolkit newFormToolkit) {
 		final FormToolkit oldFormToolkit = formToolkit;
 		formToolkit = newFormToolkit;
@@ -2024,8 +2077,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			}
 		};
 		/*
-		 * For each quick fix test against the current message. Reject the quick fix if any of the conditions do not
-		 * match.
+		 * For each quick fix test against the current message. Reject the quick fix if any of the
+		 * conditions do not match.
 		 */
 		for (final IQuickfixProposalProcessorDescriptor qi : getQuickfixProposalProcessors()) {
 			if (qi.getSource() != null && !qi.getSource().equals(source)) {
@@ -2184,11 +2237,10 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		case IUIBindingsPackage.MANAGER__VIEW_NAVIGATION_RECORDED:
 			return isViewNavigationRecorded();
 		case IUIBindingsPackage.MANAGER__MODEL_INFO:
-			if (coreType) {
+			if (coreType)
 				return getModelInfo();
-			} else {
+			else
 				return getModelInfo().map();
-			}
 		case IUIBindingsPackage.MANAGER__TREE_ITEMS:
 			return getTreeItems();
 		case IUIBindingsPackage.MANAGER__CLIPBOARD:
@@ -2483,9 +2535,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (editingDomain: "); //$NON-NLS-1$
@@ -2537,9 +2587,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	@Override
 	public <T> T getService(Class<T> serviceClass) {
 		for (final Object service : getServices()) {
-			if (serviceClass.isInstance(service)) {
-				return (T) service;
-			}
+			if (serviceClass.isInstance(service)) return (T) service;
 		}
 		return null;
 	}
@@ -2557,7 +2605,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		/*
 		 * The tree column of a tree is special: mouse clicks does not work!
 		 * 
-		 * Otherwise, it will not be possible to click or double click on a item in the column to open and editor...
+		 * Otherwise, it will not be possible to click or double click on a item in the column to
+		 * open and editor...
 		 */
 		boolean treeColumn = false;
 		if (cell != null) {
@@ -2575,39 +2624,26 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		case ColumnViewerEditorActivationEvent.TRAVERSAL:
 			return true;
 		case ColumnViewerEditorActivationEvent.MOUSE_CLICK_SELECTION:
-			if (treeColumn) {
-				return false;
-			}
+			if (treeColumn) return false;
 			/*
 			 * Filter out the cases where a modifier - e.g. CTRL - has been pressed.
 			 */
 			final MouseEvent e = (MouseEvent) event.sourceEvent;
-			if ((isEditCellSingleClick() || isBoolean) && (e.button == 1) && (e.stateMask == 0)) {
-				return true;
-			}
+			if ((isEditCellSingleClick() || isBoolean) && (e.button == 1) && (e.stateMask == 0)) return true;
 			return false;
 		case ColumnViewerEditorActivationEvent.MOUSE_DOUBLE_CLICK_SELECTION:
-			if (treeColumn) {
-				return false;
-			}
+			if (treeColumn) return false;
 			return true;
 		case ColumnViewerEditorActivationEvent.KEY_PRESSED:
-			if ((event.keyCode == SWT.CR || event.keyCode == SWT.F2) && (event.stateMask == 0)) {
-				return true;
-			}
-			if (treeColumn) {
-				return false;
-			}
-			if (isBoolean && (event.character == ' ')) {
-				return true;
-			}
+			if ((event.keyCode == SWT.CR || event.keyCode == SWT.F2) && (event.stateMask == 0)) return true;
+			if (treeColumn) return false;
+			if (isBoolean && (event.character == ' ')) return true;
 			if (isEditCellAnyKey() && !isBoolean) {
 				/*
-				 * If auto-editing is enabled, every character - expect control characters - will start editing
+				 * If auto-editing is enabled, every character - expect control characters - will
+				 * start editing
 				 */
-				if (event.character != 0 && !Character.isISOControl(event.character)) {
-					return true;
-				}
+				if (event.character != 0 && !Character.isISOControl(event.character)) return true;
 			}
 			return false;
 		}
@@ -2622,9 +2658,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	@Override
 	public ITreeItemDescriptor getTreeItem(EObject modelObject) {
 		ITreeItemDescriptor descriptor = myTreeItemDescriptorCache.get(modelObject);
-		if (descriptor != null) {
-			return descriptor;
-		}
+		if (descriptor != null) return descriptor;
 
 		final Class<?>[] classes = Platform.getAdapterManager().computeClassOrder(modelObject.getClass());
 		final Set<ITreeItemDescriptor> descriptors = new HashSet<ITreeItemDescriptor>();
@@ -2662,9 +2696,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	@Override
 	public ITreeItemDescriptor getTreeItem(String id) {
 		for (final ITreeItemDescriptor d : getTreeItems()) {
-			if (d.getId().equals(id)) {
-				return d;
-			}
+			if (d.getId().equals(id)) return d;
 		}
 		return null;
 	}

@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings;
@@ -11,8 +10,8 @@ import org.eclipse.emf.ecore.EObject;
 import com.rcpcompany.uibindings.internal.sourceProviders.BindingSourceProvider;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>UI Binding Decorator Extender</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '
+ * <em><b>UI Binding Decorator Extender</b></em>'. <!-- end-user-doc -->
  * 
  * 
  * @see com.rcpcompany.uibindings.IUIBindingsPackage#getUIBindingDecoratorExtender()
@@ -41,7 +40,8 @@ public interface IUIBindingDecoratorExtender extends EObject, IDisposable {
 	/**
 	 * Updates the specified state for this binding. Used in {@link BindingSourceProvider}.
 	 * <p>
-	 * All available state variables are found in {@link Constants} - {@link Constants#SOURCES_ACTIVE_BINDING}.
+	 * All available state variables are found in {@link Constants} -
+	 * {@link Constants#SOURCES_ACTIVE_BINDING}.
 	 * 
 	 * @param binding the binding in question
 	 * @param context TODO

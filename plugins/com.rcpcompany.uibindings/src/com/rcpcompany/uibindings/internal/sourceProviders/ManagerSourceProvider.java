@@ -24,8 +24,8 @@ import com.rcpcompany.utils.logging.LogUtils;
 /**
  * Source Provider for property testers in the framework.
  * <p>
- * If a property change is fired - using {@link #fireSourceChanged(int, Map)} - for any of full property names, then all
- * the expressions that uses this property will be re-evaluated.
+ * If a property change is fired - using {@link #fireSourceChanged(int, Map)} - for any of full
+ * property names, then all the expressions that uses this property will be re-evaluated.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -61,9 +61,7 @@ public class ManagerSourceProvider extends AbstractSourceProvider {
 	protected final Adapter myManagerListener = new AdapterImpl() {
 		@Override
 		public void notifyChanged(Notification msg) {
-			if (msg.isTouch()) {
-				return;
-			}
+			if (msg.isTouch()) return;
 			if (msg.getFeature() == IUIBindingsPackage.Literals.MANAGER__EDITING_DOMAIN) {
 				if (msg.getOldValue() != null) {
 					((EditingDomain) msg.getOldValue()).getCommandStack().removeCommandStackListener(

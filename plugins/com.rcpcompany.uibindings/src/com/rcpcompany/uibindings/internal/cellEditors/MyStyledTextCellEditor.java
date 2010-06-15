@@ -65,8 +65,8 @@ public class MyStyledTextCellEditor extends StyledTextCellEditor {
 		myText = (StyledText) getControl();
 
 		/*
-		 * If the editor was activated using a key - see Manager.isEditCellAnyKey() - then replace the content and
-		 * consume the event
+		 * If the editor was activated using a key - see Manager.isEditCellAnyKey() - then replace
+		 * the content and consume the event
 		 */
 		if (activationEvent.eventType == ColumnViewerEditorActivationEvent.KEY_PRESSED
 				&& !Character.isISOControl(activationEvent.character)) {

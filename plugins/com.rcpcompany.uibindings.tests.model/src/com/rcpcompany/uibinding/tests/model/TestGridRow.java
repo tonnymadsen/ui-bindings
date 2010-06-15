@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibinding.tests.model;
@@ -9,7 +8,8 @@ package com.rcpcompany.uibinding.tests.model;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Test Grid Row</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Test Grid Row</b></em>'.
+ * <!-- end-user-doc -->
  * 
  * <p>
  * The following features are supported:
@@ -25,10 +25,12 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface TestGridRow extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Grid</b></em>' reference. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibinding.tests.model.TestGrid#getRows <em>Rows</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Grid</b></em>' reference. It is bidirectional and its
+	 * opposite is ' {@link com.rcpcompany.uibinding.tests.model.TestGrid#getRows <em>Rows</em>}'.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Grid</em>' reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Grid</em>' reference isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -42,8 +44,8 @@ public interface TestGridRow extends EObject {
 	TestGrid getGrid();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestGridRow#getGrid <em>Grid</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestGridRow#getGrid
+	 * <em>Grid</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Grid</em>' reference.
 	 * @see #getGrid()
@@ -54,8 +56,8 @@ public interface TestGridRow extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Number</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Number</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Number</em>' attribute isn't clear, there really should be more of
+	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -68,8 +70,8 @@ public interface TestGridRow extends EObject {
 	int getNumber();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestGridRow#getNumber <em>Number</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestGridRow#getNumber
+	 * <em>Number</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Number</em>' attribute.
 	 * @see #getNumber()

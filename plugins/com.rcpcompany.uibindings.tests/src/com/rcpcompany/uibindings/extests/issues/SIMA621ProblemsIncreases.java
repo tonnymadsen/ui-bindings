@@ -31,8 +31,8 @@ import com.rcpcompany.uibindings.validators.ConstraintValidatorAdapter;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 
 /**
- * Tests of <a href="http://jira.marintek.sintef.no/jira/browse/SIMA-621">SIMA-621</a>: Reported issues seems to
- * increase when navigating in table
+ * Tests of <a href="http://jira.marintek.sintef.no/jira/browse/SIMA-621">SIMA-621</a>: Reported
+ * issues seems to increase when navigating in table
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -78,7 +78,8 @@ public class SIMA621ProblemsIncreases {
 		// myTable.getDisplay().addFilter(i, listener);
 		// }
 		//
-		// myTableViewer.getColumnViewerEditor().addEditorActivationListener(new ColumnViewerEditorActivationListener()
+		// myTableViewer.getColumnViewerEditor().addEditorActivationListener(new
+		// ColumnViewerEditorActivationListener()
 		// {
 		//
 		// @Override

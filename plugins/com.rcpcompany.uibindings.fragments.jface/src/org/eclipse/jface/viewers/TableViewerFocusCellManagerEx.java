@@ -25,20 +25,14 @@ public class TableViewerFocusCellManagerEx extends TableViewerFocusCellManager {
 
 	public void setFocusCell(Object element, int column) {
 		final ViewerCell oldCell = getFocusCell();
-		if (oldCell != null && (column == oldCell.getColumnIndex()) && (element == oldCell.getElement())) {
-			return;
-		}
+		if (oldCell != null && (column == oldCell.getColumnIndex()) && (element == oldCell.getElement())) return;
 		final ColumnViewer viewer = getViewer();
 		final TableItem item = (TableItem) viewer.findItem(element);
-		if (item == null) {
-			return;
-		}
+		if (item == null) return;
 		final ViewerRow row = viewer.getViewerRowFromItem(item);
 
 		final ViewerCell cell = row.getCell(column);
-		if (cell == null) {
-			return;
-		}
+		if (cell == null) return;
 		setFocusCell(cell);
 	}
 
@@ -63,9 +57,7 @@ public class TableViewerFocusCellManagerEx extends TableViewerFocusCellManager {
 	 */
 	public void updateFocusCell() {
 		final ViewerCell cell = getFocusCell();
-		if (cell == null || cell.getViewerRow() == null) {
-			return;
-		}
+		if (cell == null || cell.getViewerRow() == null) return;
 		cell.update(cell.getViewerRow(), cell.getColumnIndex(), ((TableItem) cell.getViewerRow().getItem()).getData());
 	}
 }

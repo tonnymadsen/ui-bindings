@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibinding.tests.model.internal;
@@ -24,14 +23,17 @@ import com.rcpcompany.uibinding.tests.model.TestGridColumn;
 import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Test Grid Column</b></em>'. <!-- end-user-doc
- * -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Test Grid Column</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridColumnImpl#getGrid <em>Grid</em>}</li>
- * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridColumnImpl#getName <em>Name</em>}</li>
- * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridColumnImpl#getRows <em>Rows</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridColumnImpl#getGrid <em>Grid
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridColumnImpl#getName <em>Name
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridColumnImpl#getRows <em>Rows
+ * </em>}</li>
  * </ul>
  * </p>
  * 
@@ -39,8 +41,8 @@ import com.rcpcompany.uibinding.tests.model.TestModelPackage;
  */
 public class TestGridColumnImpl extends EObjectImpl implements TestGridColumn {
 	/**
-	 * The cached value of the '{@link #getGrid() <em>Grid</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getGrid() <em>Grid</em>}' reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getGrid()
 	 * @generated
@@ -49,8 +51,8 @@ public class TestGridColumnImpl extends EObjectImpl implements TestGridColumn {
 	protected TestGrid grid;
 
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getName()
 	 * @generated
@@ -59,8 +61,8 @@ public class TestGridColumnImpl extends EObjectImpl implements TestGridColumn {
 	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getName()
 	 * @generated
@@ -69,8 +71,8 @@ public class TestGridColumnImpl extends EObjectImpl implements TestGridColumn {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCells() <em>Cells</em>}' reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getCells() <em>Cells</em>}' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getCells()
 	 * @generated
@@ -102,6 +104,7 @@ public class TestGridColumnImpl extends EObjectImpl implements TestGridColumn {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public TestGrid getGrid() {
 		return grid;
 	}
@@ -131,6 +134,7 @@ public class TestGridColumnImpl extends EObjectImpl implements TestGridColumn {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setGrid(TestGrid newGrid) {
 		if (newGrid != grid) {
 			NotificationChain msgs = null;
@@ -157,6 +161,7 @@ public class TestGridColumnImpl extends EObjectImpl implements TestGridColumn {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -166,6 +171,7 @@ public class TestGridColumnImpl extends EObjectImpl implements TestGridColumn {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		final String oldName = name;
 		name = newName;
@@ -180,6 +186,7 @@ public class TestGridColumnImpl extends EObjectImpl implements TestGridColumn {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<TestGridCell> getCells() {
 		if (cells == null) {
 			cells = new EObjectWithInverseEList<TestGridCell>(TestGridCell.class, this,
@@ -312,9 +319,7 @@ public class TestGridColumnImpl extends EObjectImpl implements TestGridColumn {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");

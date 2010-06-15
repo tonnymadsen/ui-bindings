@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.tests.shop.impl;
@@ -132,12 +131,13 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	private EDataType diagnosticChainEDataType = null;
 
 	/**
-	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry
-	 * EPackage.Registry} by the package package URI value.
+	 * Creates an instance of the model <b>Package</b>, registered with
+	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package package URI
+	 * value.
 	 * <p>
-	 * Note: the correct way to create the package is via the static factory method {@link #init init()}, which also
-	 * performs initialization of the package, or returns the registered package, if one already exists. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Note: the correct way to create the package is via the static factory method {@link #init
+	 * init()}, which also performs initialization of the package, or returns the registered
+	 * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#eNS_URI
@@ -156,12 +156,13 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others
+	 * upon which it depends.
 	 * 
 	 * <p>
-	 * This method is used to initialize {@link ShopPackage#eINSTANCE} when that field is accessed. Clients should not
-	 * invoke it directly. Instead, they should simply access that field to obtain the package. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This method is used to initialize {@link ShopPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to
+	 * obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
@@ -169,14 +170,11 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	public static ShopPackage init() {
-		if (isInited) {
-			return (ShopPackage) EPackage.Registry.INSTANCE.getEPackage(ShopPackage.eNS_URI);
-		}
+		if (isInited) return (ShopPackage) EPackage.Registry.INSTANCE.getEPackage(ShopPackage.eNS_URI);
 
 		// Obtain or create and register package
 		final ShopPackageImpl theShopPackage = (ShopPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ShopPackageImpl ? EPackage.Registry.INSTANCE
-				.get(eNS_URI)
-				: new ShopPackageImpl());
+				.get(eNS_URI) : new ShopPackageImpl());
 
 		isInited = true;
 
@@ -188,6 +186,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put(theShopPackage, new EValidator.Descriptor() {
+			@Override
 			public EValidator getEValidator() {
 				return ShopValidator.INSTANCE;
 			}
@@ -206,6 +205,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getShop() {
 		return shopEClass;
 	}
@@ -215,6 +215,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getShop_Name() {
 		return (EAttribute) shopEClass.getEStructuralFeatures().get(0);
 	}
@@ -224,6 +225,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getShop_NextOrderNo() {
 		return (EAttribute) shopEClass.getEStructuralFeatures().get(1);
 	}
@@ -233,6 +235,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getShop_NextCustomerNo() {
 		return (EAttribute) shopEClass.getEStructuralFeatures().get(2);
 	}
@@ -242,6 +245,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getShop_TmpDir() {
 		return (EAttribute) shopEClass.getEStructuralFeatures().get(3);
 	}
@@ -251,6 +255,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShop_Countries() {
 		return (EReference) shopEClass.getEStructuralFeatures().get(4);
 	}
@@ -260,6 +265,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShop_Contacts() {
 		return (EReference) shopEClass.getEStructuralFeatures().get(5);
 	}
@@ -269,6 +275,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShop_ShopItems() {
 		return (EReference) shopEClass.getEStructuralFeatures().get(6);
 	}
@@ -278,6 +285,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShop_Orders() {
 		return (EReference) shopEClass.getEStructuralFeatures().get(7);
 	}
@@ -287,6 +295,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShop_Customers() {
 		return (EReference) shopEClass.getEStructuralFeatures().get(8);
 	}
@@ -296,6 +305,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShop_ShopGroups() {
 		return (EReference) shopEClass.getEStructuralFeatures().get(9);
 	}
@@ -305,6 +315,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getCustomer() {
 		return customerEClass;
 	}
@@ -314,6 +325,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getCustomer_Shop() {
 		return (EReference) customerEClass.getEStructuralFeatures().get(0);
 	}
@@ -323,6 +335,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getCustomer_Contact() {
 		return (EReference) customerEClass.getEStructuralFeatures().get(1);
 	}
@@ -332,6 +345,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getCustomer_Orders() {
 		return (EReference) customerEClass.getEStructuralFeatures().get(2);
 	}
@@ -776,15 +790,13 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	private boolean isCreated = false;
 
 	/**
-	 * Creates the meta-model objects for the package. This method is guarded to have no affect on any invocation but
-	 * its first. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Creates the meta-model objects for the package. This method is guarded to have no affect on
+	 * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated) {
-			return;
-		}
+		if (isCreated) return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -874,15 +886,13 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	private boolean isInitialized = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model. This method is guarded to have no affect on any
-	 * invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Complete the initialization of the package and its meta-model. This method is guarded to have
+	 * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized) {
-			return;
-		}
+		if (isInitialized) return;
 		isInitialized = true;
 
 		// Initialize package
@@ -1118,8 +1128,8 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	}
 
 	/**
-	 * Initializes the annotations for <b>http://rcp-company.com/schemas/uibindings</b>. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Initializes the annotations for <b>http://rcp-company.com/schemas/uibindings</b>. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */

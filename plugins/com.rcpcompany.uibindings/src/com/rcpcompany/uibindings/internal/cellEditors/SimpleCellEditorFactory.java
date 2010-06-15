@@ -29,8 +29,11 @@ public class SimpleCellEditorFactory implements ICellEditorFactory {
 	 * Factory methods.
 	 */
 	public static class Factory {
+		private Factory() {
+		}
+
 		/**
-		 * Returns the singleton factory
+		 * Returns the singleton factory.
 		 * 
 		 * @return the factory
 		 */
@@ -40,13 +43,16 @@ public class SimpleCellEditorFactory implements ICellEditorFactory {
 			}
 			return theFactory;
 		}
+
+		/**
+		 * The factory singleton.
+		 */
+		private static ICellEditorFactory theFactory = null;
 	};
 
 	/**
-	 * The factory singleton.
+	 * Constructs a new factory.
 	 */
-	protected static ICellEditorFactory theFactory = null;
-
 	protected SimpleCellEditorFactory() {
 	}
 
@@ -77,15 +83,13 @@ public class SimpleCellEditorFactory implements ICellEditorFactory {
 		 */
 		if (InternalConstants.CELL_EDITOR_TYPE_BUTTON.equals(preferredCellEditor)) {
 			final Class<?> valueType = labelBinding.getDataType().getDataType();
-			if (valueType == Boolean.class || valueType == Boolean.TYPE) {
-				return new ImmediateCellEditor(new Runnable() {
-					@Override
-					public void run() {
-						final Boolean v = (Boolean) originalValue;
-						value.setValue(v ? false : true);
-					}
-				});
-			}
+			if (valueType == Boolean.class || valueType == Boolean.TYPE) return new ImmediateCellEditor(new Runnable() {
+				@Override
+				public void run() {
+					final Boolean v = (Boolean) originalValue;
+					value.setValue(v ? false : true);
+				}
+			});
 			LogUtils.error(labelBinding, "modelType '" + value.getValueType()
 					+ "' specifies illegal cell editor type: '" + preferredCellEditor + "'. ignored");
 			return null;
@@ -112,8 +116,8 @@ public class SimpleCellEditorFactory implements ICellEditorFactory {
 		/*
 		 * The binding for the text while editing
 		 */
-		final IValueBinding editorBinding = context.addBinding().ui(ce.getControl()).model(value).args(
-				labelBinding.getArguments());
+		final IValueBinding editorBinding = context.addBinding().ui(ce.getControl()).model(value)
+				.args(labelBinding.getArguments());
 
 		editorBinding.setCell(cell);
 

@@ -161,12 +161,8 @@ public class LabelDecoratorTest {
 		final IPropagationAdapter myAdapter = new IPropagationAdapter() {
 			@Override
 			public Object getParent(Object object) {
-				if (object == c0 || object == c1) {
-					return folder;
-				}
-				if (object == folder) {
-					return myShop;
-				}
+				if (object == c0 || object == c1) return folder;
+				if (object == folder) return myShop;
 				return null;
 			}
 		};
@@ -259,8 +255,8 @@ public class LabelDecoratorTest {
 	boolean eventSeen;
 
 	/**
-	 * Sleeps for a specified time and will then test if the specified label decorator fired an event with the specified
-	 * objects as the changed elements
+	 * Sleeps for a specified time and will then test if the specified label decorator fired an
+	 * event with the specified objects as the changed elements
 	 * 
 	 * @param labelDecorator the decorator
 	 * @param period the period to sleep
@@ -303,8 +299,8 @@ public class LabelDecoratorTest {
 	protected ImageDescriptor myCurrentOverlay;
 
 	/**
-	 * Tests whether the element - if it is an {@link EObject} - has the specified message type and whether the
-	 * specified decorator has the specified decoration.
+	 * Tests whether the element - if it is an {@link EObject} - has the specified message type and
+	 * whether the specified decorator has the specified decoration.
 	 * 
 	 * @param labelDecorator the decorator
 	 * @param element the element in question

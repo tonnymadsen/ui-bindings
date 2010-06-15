@@ -32,10 +32,13 @@ import org.eclipse.swt.widgets.TreeColumn;
  * <li>{@link com.rcpcompany.uibindings.IViewerBinding#getColumns <em>Columns</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IViewerBinding#getList <em>List</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IViewerBinding#getElements <em>Elements</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IViewerBinding#getSingleSelection <em>Single Selection</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IViewerBinding#getMultipleSelection <em>Multiple Selection</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IViewerBinding#getSingleSelection <em>Single Selection</em>}
+ * </li>
+ * <li>{@link com.rcpcompany.uibindings.IViewerBinding#getMultipleSelection <em>Multiple Selection
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IViewerBinding#getViewer <em>Viewer</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IViewerBinding#getFirstTableColumnOffset <em>First Table Column Offset</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IViewerBinding#getFirstTableColumnOffset <em>First Table
+ * Column Offset</em>}</li>
  * </ul>
  * </p>
  * 
@@ -106,6 +109,7 @@ public interface IViewerBinding extends IBinding {
 	 * 
 	 * @return <code>this</code>
 	 */
+	@Override
 	public IViewerBinding type(String type);
 
 	/**
@@ -116,6 +120,7 @@ public interface IViewerBinding extends IBinding {
 	 * 
 	 * @return <code>this</code>
 	 */
+	@Override
 	public IViewerBinding arg(String name, Object value);
 
 	/**
@@ -124,6 +129,7 @@ public interface IViewerBinding extends IBinding {
 	 * @param arguments the arguments to set
 	 * @return <code>this</code>
 	 */
+	@Override
 	public IViewerBinding args(Map<String, Object> arguments);
 
 	/**
@@ -132,6 +138,7 @@ public interface IViewerBinding extends IBinding {
 	 * @param arguments the arguments to set
 	 * @return <code>this</code>
 	 */
+	@Override
 	public IViewerBinding args(EMap<String, Object> arguments);
 
 	/**
@@ -139,6 +146,7 @@ public interface IViewerBinding extends IBinding {
 	 * 
 	 * @return <code>this</code>
 	 */
+	@Override
 	public IViewerBinding readonly();
 
 	/**
@@ -147,6 +155,7 @@ public interface IViewerBinding extends IBinding {
 	 * @param id the new id
 	 * @return <code>this</code>
 	 */
+	@Override
 	public IViewerBinding id(String id);
 
 	/**
@@ -193,13 +202,13 @@ public interface IViewerBinding extends IBinding {
 	public IColumnBinding addColumn(TreeColumn column, EStructuralFeature feature);
 
 	/**
-	 * Returns the value of the '<em><b>Columns</b></em>' reference list. The list contents are of type
-	 * {@link com.rcpcompany.uibindings.IColumnBinding}. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.IColumnBinding#getViewerBinding <em>Viewer Binding</em>}'. <!-- begin-user-doc
-	 * -->
+	 * Returns the value of the '<em><b>Columns</b></em>' reference list. The list contents are of
+	 * type {@link com.rcpcompany.uibindings.IColumnBinding}. It is bidirectional and its opposite
+	 * is ' {@link com.rcpcompany.uibindings.IColumnBinding#getViewerBinding
+	 * <em>Viewer Binding</em>}'. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Columns</em>' reference list isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Columns</em>' reference list isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -213,7 +222,8 @@ public interface IViewerBinding extends IBinding {
 	/**
 	 * Returns the value of the '<em><b>List</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>List</em>' attribute isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>List</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -226,8 +236,8 @@ public interface IViewerBinding extends IBinding {
 	/**
 	 * Returns the value of the '<em><b>Elements</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Elements</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Elements</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -238,10 +248,11 @@ public interface IViewerBinding extends IBinding {
 	IObservableSet getElements();
 
 	/**
-	 * Returns the value of the '<em><b>Single Selection</b></em>' attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Single Selection</b></em>' attribute. <!-- begin-user-doc
+	 * -->
 	 * <p>
-	 * If the meaning of the '<em>Single Selection</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Single Selection</em>' attribute isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -252,10 +263,11 @@ public interface IViewerBinding extends IBinding {
 	IObservableValue getSingleSelection();
 
 	/**
-	 * Returns the value of the '<em><b>Multiple Selection</b></em>' attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Multiple Selection</b></em>' attribute. <!-- begin-user-doc
+	 * -->
 	 * <p>
-	 * If the meaning of the '<em>Multiple Selection</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Multiple Selection</em>' attribute isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -268,8 +280,8 @@ public interface IViewerBinding extends IBinding {
 	/**
 	 * Returns the value of the '<em><b>Viewer</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Viewer</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Viewer</em>' attribute isn't clear, there really should be more of
+	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -280,12 +292,13 @@ public interface IViewerBinding extends IBinding {
 	ColumnViewer getViewer();
 
 	/**
-	 * Returns the value of the '<em><b>First Table Column Offset</b></em>' attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>First Table Column Offset</b></em>' attribute. <!--
+	 * begin-user-doc -->
 	 * <p>
 	 * The offset of the first binding column of the columns of the table or tree.
 	 * <p>
-	 * In tables, this is 1 to allow for an artificial first column. Used to be able to control the align of the first
-	 * column.
+	 * In tables, this is 1 to allow for an artificial first column. Used to be able to control the
+	 * align of the first column.
 	 * <p>
 	 * In trees, this is 0 as the first column must be the tree column.
 	 * 

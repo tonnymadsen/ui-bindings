@@ -35,14 +35,14 @@ public class MyDetailObservableList extends ObservableList implements IObserving
 	private final boolean updating = false;
 
 	private IListChangeListener innerChangeListener = new IListChangeListener() {
+		@Override
 		public void handleListChange(ListChangeEvent event) {
 			/*
 			 * Solves SIMA-694: Unhandled exception: java.lang.Double cannot be cast to
-			 * org.eclipse.emf.common.util.EList - http://jira.marintek.sintef.no/jira/browse/SIMA-694
+			 * org.eclipse.emf.common.util.EList -
+			 * http://jira.marintek.sintef.no/jira/browse/SIMA-694
 			 */
-			if (isDisposed()) {
-				return;
-			}
+			if (isDisposed()) return;
 			if (!updating) {
 				fireListChange(event.diff);
 			}
@@ -73,12 +73,14 @@ public class MyDetailObservableList extends ObservableList implements IObserving
 		this.detailType = detailType;
 
 		outerObservableValue.addDisposeListener(new IDisposeListener() {
+			@Override
 			public void handleDispose(DisposeEvent staleEvent) {
 				dispose();
 			}
 		});
 
 		ObservableTracker.runAndIgnore(new Runnable() {
+			@Override
 			public void run() {
 				updateInnerObservableList();
 			}
@@ -87,15 +89,16 @@ public class MyDetailObservableList extends ObservableList implements IObserving
 	}
 
 	IValueChangeListener outerChangeListener = new IValueChangeListener() {
+		@Override
 		public void handleValueChange(ValueChangeEvent event) {
 			/*
 			 * Solves SIMA-694: Unhandled exception: java.lang.Double cannot be cast to
-			 * org.eclipse.emf.common.util.EList - http://jira.marintek.sintef.no/jira/browse/SIMA-694
+			 * org.eclipse.emf.common.util.EList -
+			 * http://jira.marintek.sintef.no/jira/browse/SIMA-694
 			 */
-			if (isDisposed()) {
-				return;
-			}
+			if (isDisposed()) return;
 			ObservableTracker.runAndIgnore(new Runnable() {
+				@Override
 				public void run() {
 					final List oldList = new ArrayList(wrappedList);
 					updateInnerObservableList();
@@ -116,6 +119,7 @@ public class MyDetailObservableList extends ObservableList implements IObserving
 			wrappedList = Collections.EMPTY_LIST;
 		} else {
 			ObservableTracker.runAndIgnore(new Runnable() {
+				@Override
 				public void run() {
 					innerObservableList = (IObservableList) factory.createObservable(currentOuterValue);
 				}
@@ -136,6 +140,7 @@ public class MyDetailObservableList extends ObservableList implements IObserving
 	public boolean add(final Object o) {
 		final boolean[] result = new boolean[1];
 		ObservableTracker.runAndIgnore(new Runnable() {
+			@Override
 			public void run() {
 				result[0] = wrappedList.add(o);
 			}
@@ -146,6 +151,7 @@ public class MyDetailObservableList extends ObservableList implements IObserving
 	@Override
 	public void add(final int index, final Object element) {
 		ObservableTracker.runAndIgnore(new Runnable() {
+			@Override
 			public void run() {
 				wrappedList.add(index, element);
 			}
@@ -156,6 +162,7 @@ public class MyDetailObservableList extends ObservableList implements IObserving
 	public boolean remove(final Object o) {
 		final boolean[] result = new boolean[1];
 		ObservableTracker.runAndIgnore(new Runnable() {
+			@Override
 			public void run() {
 				result[0] = wrappedList.remove(o);
 			}
@@ -167,6 +174,7 @@ public class MyDetailObservableList extends ObservableList implements IObserving
 	public Object set(final int index, final Object element) {
 		final Object[] result = new Object[1];
 		ObservableTracker.runAndIgnore(new Runnable() {
+			@Override
 			public void run() {
 				result[0] = wrappedList.set(index, element);
 			}
@@ -179,6 +187,7 @@ public class MyDetailObservableList extends ObservableList implements IObserving
 		if (innerObservableList != null) {
 			final Object[] result = new Object[1];
 			ObservableTracker.runAndIgnore(new Runnable() {
+				@Override
 				public void run() {
 					result[0] = innerObservableList.move(oldIndex, newIndex);
 				}
@@ -192,6 +201,7 @@ public class MyDetailObservableList extends ObservableList implements IObserving
 	public Object remove(final int index) {
 		final Object[] result = new Object[1];
 		ObservableTracker.runAndIgnore(new Runnable() {
+			@Override
 			public void run() {
 				result[0] = wrappedList.remove(index);
 			}
@@ -203,6 +213,7 @@ public class MyDetailObservableList extends ObservableList implements IObserving
 	public boolean addAll(final Collection c) {
 		final boolean[] result = new boolean[1];
 		ObservableTracker.runAndIgnore(new Runnable() {
+			@Override
 			public void run() {
 				result[0] = wrappedList.addAll(c);
 			}
@@ -214,6 +225,7 @@ public class MyDetailObservableList extends ObservableList implements IObserving
 	public boolean addAll(final int index, final Collection c) {
 		final boolean[] result = new boolean[1];
 		ObservableTracker.runAndIgnore(new Runnable() {
+			@Override
 			public void run() {
 				result[0] = wrappedList.addAll(index, c);
 			}
@@ -225,6 +237,7 @@ public class MyDetailObservableList extends ObservableList implements IObserving
 	public boolean removeAll(final Collection c) {
 		final boolean[] result = new boolean[1];
 		ObservableTracker.runAndIgnore(new Runnable() {
+			@Override
 			public void run() {
 				result[0] = wrappedList.removeAll(c);
 			}
@@ -236,6 +249,7 @@ public class MyDetailObservableList extends ObservableList implements IObserving
 	public boolean retainAll(final Collection c) {
 		final boolean[] result = new boolean[1];
 		ObservableTracker.runAndIgnore(new Runnable() {
+			@Override
 			public void run() {
 				result[0] = wrappedList.retainAll(c);
 			}
@@ -246,6 +260,7 @@ public class MyDetailObservableList extends ObservableList implements IObserving
 	@Override
 	public void clear() {
 		ObservableTracker.runAndIgnore(new Runnable() {
+			@Override
 			public void run() {
 				wrappedList.clear();
 			}
@@ -271,10 +286,9 @@ public class MyDetailObservableList extends ObservableList implements IObserving
 		innerChangeListener = null;
 	}
 
+	@Override
 	public Object getObserved() {
-		if (innerObservableList instanceof IObserving) {
-			return ((IObserving) innerObservableList).getObserved();
-		}
+		if (innerObservableList instanceof IObserving) return ((IObserving) innerObservableList).getObserved();
 		return null;
 	}
 

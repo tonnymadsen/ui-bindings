@@ -15,29 +15,26 @@ import org.eclipse.jface.viewers.IStructuredSelection;
  * @author Tonny Madsen, The RCP Company
  */
 public class SelectionUtils {
+	private SelectionUtils() {
+	}
 
-	private static List EMPTY_LIST = new ArrayList();
+	private static final List EMPTY_LIST = new ArrayList();
 
 	/**
-	 * Computes and returns a list with the objects of the selection that are -
-	 * or can adapt to - the specified base class.
+	 * Computes and returns a list with the objects of the selection that are - or can adapt to -
+	 * the specified base class.
 	 * 
-	 * @param <T>
-	 *            the type of the baseClass
-	 * @param selection
-	 *            the selection to handle
-	 * @param baseClass
-	 *            the wanted base class
+	 * @param <T> the type of the baseClass
+	 * @param selection the selection to handle
+	 * @param baseClass the wanted base class
 	 * @return a list with the found objects
 	 */
 	public static <T> List<T> computeSelection(ISelection selection, Class<T> baseClass) {
-		if (!(selection instanceof IStructuredSelection)) {
-			return EMPTY_LIST;
-		}
+		if (!(selection instanceof IStructuredSelection)) return EMPTY_LIST;
 		final IStructuredSelection ss = (IStructuredSelection) selection;
 		List<T> list = null;
-		for (Iterator e = ss.iterator(); e.hasNext();) {
-			Object next = e.next();
+		for (final Iterator e = ss.iterator(); e.hasNext();) {
+			final Object next = e.next();
 			T c = (T) Platform.getAdapterManager().getAdapter(next, baseClass);
 			if (c != null) {
 				// OK
@@ -47,13 +44,13 @@ public class SelectionUtils {
 				c = (T) ((IAdaptable) next).getAdapter(baseClass);
 			}
 			if (c != null) {
-				if (list == null)
+				if (list == null) {
 					list = new ArrayList<T>(ss.size());
+				}
 				list.add(c);
 			}
 		}
-		if (list == null)
-			return EMPTY_LIST;
+		if (list == null) return EMPTY_LIST;
 		return list;
 	}
 }

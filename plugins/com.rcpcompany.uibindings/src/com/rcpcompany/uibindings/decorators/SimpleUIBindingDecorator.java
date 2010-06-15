@@ -6,14 +6,15 @@ import org.eclipse.core.databinding.observable.list.IObservableList;
 import com.rcpcompany.uibindings.IUIBindingDecorator;
 
 /**
- * Simple abstract class used to make simple decorators. To use this class you must implement the followed methods:
+ * Simple abstract class used to make simple decorators. To use this class you must implement the
+ * followed methods:
  * <ul>
- * <li>{@link #convertModelToUI(Object)} which must convert the specified object from the model representation to the UI
- * representation</li>
- * <li>{@link #convertUIToModel(Object)} which must convert the specified object from the UI representation to the model
- * representation</li>
- * <li>{@link #getValidUIList()} which must return a {@link IObservableList} with all the valid {@code String} values of
- * the UI control</li>
+ * <li>{@link #convertModelToUI(Object)} which must convert the specified object from the model
+ * representation to the UI representation</li>
+ * <li>{@link #convertUIToModel(Object)} which must convert the specified object from the UI
+ * representation to the model representation</li>
+ * <li>{@link #getValidUIList()} which must return a {@link IObservableList} with all the valid
+ * {@code String} values of the UI control</li>
  * </ul>
  * 
  * @author Tonny Madsen, The RCP Company
@@ -26,11 +27,10 @@ public abstract class SimpleUIBindingDecorator extends BaseUIBindingDecorator im
 			@Override
 			public Object convert(Object fromObject) {
 				/*
-				 * The decorator can be disposed already, if this listener is further "down the listener list"...
+				 * The decorator can be disposed already, if this listener is further
+				 * "down the listener list"...
 				 */
-				if (getBinding() == null) {
-					return null;
-				}
+				if (getBinding() == null) return null;
 				return convertModelToUI(fromObject);
 			}
 		};

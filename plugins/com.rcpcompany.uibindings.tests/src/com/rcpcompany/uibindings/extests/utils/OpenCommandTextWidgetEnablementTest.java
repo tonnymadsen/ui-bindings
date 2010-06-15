@@ -115,12 +115,12 @@ public class OpenCommandTextWidgetEnablementTest {
 				.getEditingDomain(), myShop, ShopPackage.Literals.SHOP__COUNTRIES);
 
 		myNameField = myForm.addField(myContact1, ShopPackage.Literals.CONTACT__NAME, SWT.NONE);
-		myCountryOKField = myForm.addField(myContact1, ShopPackage.Literals.CONTACT__COUNTRY, SWT.NONE).arg(
-				Constants.ARG_OPEN_COMMAND, SHOW_VIEW_COMMAND).validValues(countries);
-		myCountryNOKField = myForm.addField(myContact1, ShopPackage.Literals.CONTACT__COUNTRY, SWT.NONE).arg(
-				Constants.ARG_OPEN_COMMAND, null).validValues(countries);
-		myCountryEmptyField = myForm.addField(myContact2, ShopPackage.Literals.CONTACT__COUNTRY, SWT.NONE).arg(
-				Constants.ARG_OPEN_COMMAND, SHOW_VIEW_COMMAND).validValues(countries);
+		myCountryOKField = myForm.addField(myContact1, ShopPackage.Literals.CONTACT__COUNTRY, SWT.NONE)
+				.arg(Constants.ARG_OPEN_COMMAND, SHOW_VIEW_COMMAND).validValues(countries);
+		myCountryNOKField = myForm.addField(myContact1, ShopPackage.Literals.CONTACT__COUNTRY, SWT.NONE)
+				.arg(Constants.ARG_OPEN_COMMAND, null).validValues(countries);
+		myCountryEmptyField = myForm.addField(myContact2, ShopPackage.Literals.CONTACT__COUNTRY, SWT.NONE)
+				.arg(Constants.ARG_OPEN_COMMAND, SHOW_VIEW_COMMAND).validValues(countries);
 
 		myForm.finish();
 	}

@@ -6,7 +6,8 @@ import org.eclipse.emf.ecore.EObject;
 import com.rcpcompany.uibindings.internal.sourceProviders.BindingSourceProvider;
 
 /**
- * This interface specifies the context used in {@link IViewerItemDeletor#deleteItem(IViewerItemDeletorContext)}.
+ * This interface specifies the context used in
+ * {@link IViewerItemDeletor#deleteItem(IViewerItemDeletorContext)}.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -42,7 +43,8 @@ public interface IViewerItemDeletorContext {
 	/**
 	 * Returns whether the delete is just a test or if it is for real.
 	 * <p>
-	 * Used in the {@link BindingSourceProvider} to determine whether the delete operation is enabled or not.
+	 * Used in the {@link BindingSourceProvider} to determine whether the delete operation is
+	 * enabled or not.
 	 * 
 	 * @return <code>true</code> if only testing
 	 */

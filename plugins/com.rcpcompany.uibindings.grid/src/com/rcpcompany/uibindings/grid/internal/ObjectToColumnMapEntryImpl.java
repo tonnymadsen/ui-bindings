@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.grid.internal;
@@ -18,13 +17,15 @@ import com.rcpcompany.uibindings.grid.IGridBindingColumnInformation;
 import com.rcpcompany.uibindings.grid.IGridPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Object To Column Map Entry</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Object To Column Map Entry</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.ObjectToColumnMapEntryImpl#getTypedKey <em>Key</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.ObjectToColumnMapEntryImpl#getTypedValue <em>Value</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.ObjectToColumnMapEntryImpl#getTypedKey <em>Key
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.ObjectToColumnMapEntryImpl#getTypedValue <em>
+ * Value</em>}</li>
  * </ul>
  * </p>
  * 
@@ -33,8 +34,8 @@ import com.rcpcompany.uibindings.grid.IGridPackage;
 public class ObjectToColumnMapEntryImpl extends EObjectImpl implements
 		BasicEMap.Entry<Object, IGridBindingColumnInformation> {
 	/**
-	 * The default value of the '{@link #getTypedKey() <em>Key</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getTypedKey() <em>Key</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTypedKey()
 	 * @generated
@@ -43,8 +44,8 @@ public class ObjectToColumnMapEntryImpl extends EObjectImpl implements
 	protected static final Object KEY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTypedKey() <em>Key</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getTypedKey() <em>Key</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTypedKey()
 	 * @generated
@@ -53,8 +54,8 @@ public class ObjectToColumnMapEntryImpl extends EObjectImpl implements
 	protected Object key = KEY_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getTypedValue() <em>Value</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getTypedValue() <em>Value</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTypedValue()
 	 * @generated
@@ -202,9 +203,7 @@ public class ObjectToColumnMapEntryImpl extends EObjectImpl implements
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (key: ");
@@ -225,6 +224,7 @@ public class ObjectToColumnMapEntryImpl extends EObjectImpl implements
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getHash() {
 		if (hash == -1) {
 			final Object theKey = getKey();
@@ -238,6 +238,7 @@ public class ObjectToColumnMapEntryImpl extends EObjectImpl implements
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setHash(int hash) {
 		this.hash = hash;
 	}
@@ -247,6 +248,7 @@ public class ObjectToColumnMapEntryImpl extends EObjectImpl implements
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Object getKey() {
 		return getTypedKey();
 	}
@@ -256,6 +258,7 @@ public class ObjectToColumnMapEntryImpl extends EObjectImpl implements
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setKey(Object key) {
 		setTypedKey(key);
 	}
@@ -265,6 +268,7 @@ public class ObjectToColumnMapEntryImpl extends EObjectImpl implements
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IGridBindingColumnInformation getValue() {
 		return getTypedValue();
 	}
@@ -274,6 +278,7 @@ public class ObjectToColumnMapEntryImpl extends EObjectImpl implements
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IGridBindingColumnInformation setValue(IGridBindingColumnInformation value) {
 		final IGridBindingColumnInformation oldValue = getValue();
 		setTypedValue(value);

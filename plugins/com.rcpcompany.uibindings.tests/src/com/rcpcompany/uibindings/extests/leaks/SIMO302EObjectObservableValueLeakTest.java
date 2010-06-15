@@ -25,7 +25,8 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.utils.ITableCreator;
 
 /**
- * Test of the Marintek Issue "SIMO-302: Missing dispose of org.eclipse.emf.databinding.EObjectObservableValue objects".
+ * Test of the Marintek Issue
+ * "SIMO-302: Missing dispose of org.eclipse.emf.databinding.EObjectObservableValue objects".
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -91,6 +92,7 @@ public class SIMO302EObjectObservableValueLeakTest {
 		 * Open the view
 		 */
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				createView();
 			}

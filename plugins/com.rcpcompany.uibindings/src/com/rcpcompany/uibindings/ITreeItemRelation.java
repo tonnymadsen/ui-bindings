@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings;
@@ -14,7 +13,8 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 /**
  * <!-- begin-user-doc -->
  * 
- * This interface describes the relationship between {@link ITreeItemDescriptor tree item descriptors}.
+ * This interface describes the relationship between {@link ITreeItemDescriptor tree item
+ * descriptors}.
  * 
  * <!-- end-user-doc -->
  * 
@@ -34,11 +34,12 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  */
 public interface ITreeItemRelation extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Parent</b></em>' reference. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.ITreeItemDescriptor#getChildren <em>Children</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Parent</b></em>' reference. It is bidirectional and its
+	 * opposite is ' {@link com.rcpcompany.uibindings.ITreeItemDescriptor#getChildren
+	 * <em>Children</em>}'. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Parent</em>' reference list isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Parent</em>' reference list isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -51,8 +52,8 @@ public interface ITreeItemRelation extends EObject {
 	ITreeItemDescriptor getParent();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.ITreeItemRelation#getParent <em>Parent</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.ITreeItemRelation#getParent
+	 * <em>Parent</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Parent</em>' reference.
 	 * @see #getParent()
@@ -63,8 +64,8 @@ public interface ITreeItemRelation extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Descriptor</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Descriptor</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Descriptor</em>' reference isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -76,8 +77,8 @@ public interface ITreeItemRelation extends EObject {
 	ITreeItemDescriptor getDescriptor();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.ITreeItemRelation#getDescriptor <em>Descriptor</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.ITreeItemRelation#getDescriptor
+	 * <em>Descriptor</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Descriptor</em>' reference.
 	 * @see #getDescriptor()
@@ -88,8 +89,8 @@ public interface ITreeItemRelation extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Processor</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Processor</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Processor</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -101,8 +102,8 @@ public interface ITreeItemRelation extends EObject {
 	CEObjectHolder<IObservableFactory> getProcessor();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.ITreeItemRelation#getProcessor <em>Processor</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.ITreeItemRelation#getProcessor
+	 * <em>Processor</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Processor</em>' attribute.
 	 * @see #getProcessor()
@@ -113,8 +114,8 @@ public interface ITreeItemRelation extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Feature Name</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature Name</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Feature Name</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -126,8 +127,8 @@ public interface ITreeItemRelation extends EObject {
 	String getFeatureName();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.ITreeItemRelation#getFeatureName <em>Feature Name</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.ITreeItemRelation#getFeatureName
+	 * <em>Feature Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Feature Name</em>' attribute.
 	 * @see #getFeatureName()
@@ -138,8 +139,8 @@ public interface ITreeItemRelation extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Priority</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Priority</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Priority</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -151,8 +152,8 @@ public interface ITreeItemRelation extends EObject {
 	int getPriority();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.ITreeItemRelation#getPriority <em>Priority</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.ITreeItemRelation#getPriority
+	 * <em>Priority</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Priority</em>' attribute.
 	 * @see #getPriority()

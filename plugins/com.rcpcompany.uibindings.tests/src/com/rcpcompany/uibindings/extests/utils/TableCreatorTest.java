@@ -140,7 +140,8 @@ public class TableCreatorTest {
 		}
 		assertEquals(width, column.getWidth());
 
-		// The column itself is always centered. It is the label provider that does the alignment now.
+		// The column itself is always centered. It is the label provider that does the alignment
+		// now.
 		// assertEquals(alignment, column.getAlignment());
 	}
 
@@ -186,8 +187,8 @@ public class TableCreatorTest {
 	}
 
 	/**
-	 * Test that the extra FILTER style of {@link ITableCreator} does not overlap with any other styles for
-	 * {@link Table}.
+	 * Test that the extra FILTER style of {@link ITableCreator} does not overlap with any other
+	 * styles for {@link Table}.
 	 */
 	@Test
 	public void testStylesFILTER() {
@@ -195,8 +196,8 @@ public class TableCreatorTest {
 	}
 
 	/**
-	 * Test that the extra RESIZE style of {@link ITableCreator} does not overlap with any other styles for
-	 * {@link Table}.
+	 * Test that the extra RESIZE style of {@link ITableCreator} does not overlap with any other
+	 * styles for {@link Table}.
 	 */
 	@Test
 	public void testStylesRESIZE() {
@@ -204,7 +205,7 @@ public class TableCreatorTest {
 	}
 
 	public void testStyle(int style) {
-		final int tableStyles[] = { SWT.SINGLE, SWT.MULTI, SWT.CHECK, SWT.FULL_SELECTION, SWT.HIDE_SELECTION,
+		final int[] tableStyles = { SWT.SINGLE, SWT.MULTI, SWT.CHECK, SWT.FULL_SELECTION, SWT.HIDE_SELECTION,
 				SWT.VIRTUAL, SWT.NO_SCROLL, SWT.H_SCROLL, SWT.V_SCROLL };
 
 		for (final int s : tableStyles) {

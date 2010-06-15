@@ -11,14 +11,16 @@ import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.internal.validators.ValidatorAdapterManager;
 
 /**
- * This manager handles all registered validation adapters as well as distribution of messages on all value bindings.
+ * This manager handles all registered validation adapters as well as distribution of messages on
+ * all value bindings.
  * <p>
- * All matching between {@link IBindingMessage messages} and {@link IValueBinding value binding} is performed in this
- * class. As a special case, the class also tracks changes in the base object of value binding - e.g. this happens in
- * master-detail forms - and updates the value binding with new messages.
+ * All matching between {@link IBindingMessage messages} and {@link IValueBinding value binding} is
+ * performed in this class. As a special case, the class also tracks changes in the base object of
+ * value binding - e.g. this happens in master-detail forms - and updates the value binding with new
+ * messages.
  * <p>
- * The implementation is made under the assumption that there are relatively few messages compared with the number of
- * active bindings.
+ * The implementation is made under the assumption that there are relatively few messages compared
+ * with the number of active bindings.
  * <p>
  * Also the manager must be created before any binding that wants to use the service.
  * 
@@ -30,8 +32,11 @@ public interface IValidatorAdapterManager {
 	 * The factory methods for {@link IValidatorAdapterManager}.
 	 */
 	public static final class Factory {
+		private Factory() {
+		}
+
 		/**
-		 * Returns the singleton manager
+		 * Returns the singleton manager.
 		 * 
 		 * @return the manager
 		 */
@@ -41,7 +46,7 @@ public interface IValidatorAdapterManager {
 	}
 
 	/**
-	 * Adds a listener to this manager
+	 * Adds a listener to this manager.
 	 * 
 	 * @param listener the new listener
 	 */
@@ -78,7 +83,8 @@ public interface IValidatorAdapterManager {
 	public List<IBindingMessage> getUnboundMessages();
 
 	/**
-	 * Observable list version of {@link #getUnboundMessages()} with element type {@link IBindingMessage} Eclass.
+	 * Observable list version of {@link #getUnboundMessages()} with element type
+	 * {@link IBindingMessage} Eclass.
 	 * 
 	 * @return the observable list
 	 */
@@ -102,16 +108,16 @@ public interface IValidatorAdapterManager {
 	public void addDecorator(IValidatorAdapterMessageDecorator decorator);
 
 	/**
-	 * Removes the specified decorator from this manager and all messages from this manager that are shown in the
-	 * decorator.
+	 * Removes the specified decorator from this manager and all messages from this manager that are
+	 * shown in the decorator.
 	 * 
 	 * @param decorator the decorator to remove
 	 */
 	public void removeDecorator(IValidatorAdapterMessageDecorator decorator);
 
 	/**
-	 * Resets the specified decoration, which basically means all the current messages are removed and new messages are
-	 * created - if any...
+	 * Resets the specified decoration, which basically means all the current messages are removed
+	 * and new messages are created - if any...
 	 * <p>
 	 * For now, we just remove and re-add the decorator...
 	 * 
@@ -120,8 +126,8 @@ public interface IValidatorAdapterManager {
 	public void resetDecorator(IValidatorAdapterMessageDecorator decorator);
 
 	/**
-	 * Checks and returns the max severity of the object in the form of one of the severity values of
-	 * {@link IBindingMessage}.
+	 * Checks and returns the max severity of the object in the form of one of the severity values
+	 * of {@link IBindingMessage}.
 	 * 
 	 * @param object the object to check
 	 * @return one of {@link IMessageProvider#NONE}, {@link IMessageProvider#INFORMATION},

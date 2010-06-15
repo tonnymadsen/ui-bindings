@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings;
@@ -12,17 +11,20 @@ import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Control;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>UI Attribute Image Decoration</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '
+ * <em><b>UI Attribute Image Decoration</b></em>'. <!-- end-user-doc -->
  * 
  * <p>
  * The following features are supported:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.IUIAttributeImageDecoration#isOutside <em>Outside</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IUIAttributeImageDecoration#getImageValue <em>Image Value</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IUIAttributeImageDecoration#getTooltipValue <em>Tooltip Value</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IUIAttributeImageDecoration#getImageValue <em>Image Value
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IUIAttributeImageDecoration#getTooltipValue <em>Tooltip
+ * Value</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IUIAttributeImageDecoration#getPosition <em>Position</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IUIAttributeImageDecoration#getAttribute <em>Attribute</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IUIAttributeImageDecoration#getAttribute <em>Attribute</em>}
+ * </li>
  * </ul>
  * </p>
  * 
@@ -31,11 +33,11 @@ import org.eclipse.swt.widgets.Control;
  */
 public interface IUIAttributeImageDecoration extends EObject, IDisposable {
 	/**
-	 * Returns the value of the '<em><b>Outside</b></em>' attribute. The default value is <code>"false"</code>. <!--
-	 * begin-user-doc -->
+	 * Returns the value of the '<em><b>Outside</b></em>' attribute. The default value is
+	 * <code>"false"</code>. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Outside</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Outside</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -47,7 +49,8 @@ public interface IUIAttributeImageDecoration extends EObject, IDisposable {
 	boolean isOutside();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IUIAttributeImageDecoration#isOutside <em>Outside</em>}'
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.IUIAttributeImageDecoration#isOutside <em>Outside</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Outside</em>' attribute.
@@ -59,8 +62,8 @@ public interface IUIAttributeImageDecoration extends EObject, IDisposable {
 	/**
 	 * Returns the value of the '<em><b>Image Value</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Image Value</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Image Value</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -73,8 +76,8 @@ public interface IUIAttributeImageDecoration extends EObject, IDisposable {
 	/**
 	 * Returns the value of the '<em><b>Tooltip Value</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Tooltip Value</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Tooltip Value</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -85,11 +88,11 @@ public interface IUIAttributeImageDecoration extends EObject, IDisposable {
 	IObservableValue getTooltipValue();
 
 	/**
-	 * Returns the value of the '<em><b>Position</b></em>' attribute. The literals are from the enumeration
-	 * {@link com.rcpcompany.uibindings.DecorationPosition}. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Position</b></em>' attribute. The literals are from the
+	 * enumeration {@link com.rcpcompany.uibindings.DecorationPosition}. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Position</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Position</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -102,8 +105,9 @@ public interface IUIAttributeImageDecoration extends EObject, IDisposable {
 	DecorationPosition getPosition();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IUIAttributeImageDecoration#getPosition
-	 * <em>Position</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.IUIAttributeImageDecoration#getPosition <em>Position</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Position</em>' attribute.
 	 * @see com.rcpcompany.uibindings.DecorationPosition
@@ -113,12 +117,12 @@ public interface IUIAttributeImageDecoration extends EObject, IDisposable {
 	void setPosition(DecorationPosition value);
 
 	/**
-	 * Returns the value of the '<em><b>Attribute</b></em>' container reference. It is bidirectional and its opposite is
-	 * '{@link com.rcpcompany.uibindings.IUIAttribute#getImageDecorations <em>Image Decorations</em>}'. <!--
-	 * begin-user-doc -->
+	 * Returns the value of the '<em><b>Attribute</b></em>' container reference. It is bidirectional
+	 * and its opposite is '{@link com.rcpcompany.uibindings.IUIAttribute#getImageDecorations
+	 * <em>Image Decorations</em>}'. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Attribute</em>' container reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Attribute</em>' container reference isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

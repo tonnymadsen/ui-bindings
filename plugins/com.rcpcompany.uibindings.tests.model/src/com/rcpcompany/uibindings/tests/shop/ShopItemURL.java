@@ -1,13 +1,13 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.tests.shop;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Item URL</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Item URL</b></em>'. <!--
+ * end-user-doc -->
  * 
  * <p>
  * The following features are supported:
@@ -24,7 +24,8 @@ public interface ShopItemURL extends ShopItemInformation {
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Url</em>' attribute isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Url</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -37,8 +38,8 @@ public interface ShopItemURL extends ShopItemInformation {
 	String getUrl();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.ShopItemURL#getUrl <em>Url</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.ShopItemURL#getUrl
+	 * <em>Url</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Url</em>' attribute.
 	 * @see #getUrl()

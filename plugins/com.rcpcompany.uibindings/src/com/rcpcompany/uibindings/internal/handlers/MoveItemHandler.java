@@ -31,17 +31,13 @@ public class MoveItemHandler extends AbstractHandler implements IHandler, IExecu
 		}
 		// The binding
 		final IBinding bb = (IBinding) HandlerUtil.getVariableChecked(ee, Constants.SOURCES_ACTIVE_CONTAINER_BINDING);
-		if (!(bb instanceof IViewerBinding)) {
-			throw new ExecutionException("Not in container");
-		}
+		if (!(bb instanceof IViewerBinding)) throw new ExecutionException("Not in container");
 		// The viewer
 		final IViewerBinding vb = (IViewerBinding) bb;
 		// Then find the current object
 		final EObject element = (EObject) HandlerUtil.getVariableChecked(ee, Constants.SOURCES_ACTIVE_VIEWER_ELEMENT);
 
-		if (!UIHandlerUtils.moveElement(vb, element, delta, false)) {
-			return null;
-		}
+		if (!UIHandlerUtils.moveElement(vb, element, delta, false)) return null;
 
 		return null;
 	}

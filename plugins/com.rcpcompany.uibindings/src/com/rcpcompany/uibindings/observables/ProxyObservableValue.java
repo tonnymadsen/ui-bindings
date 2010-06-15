@@ -13,11 +13,13 @@ import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
 public class ProxyObservableValue extends AbstractObservableValue {
 	private final IObservableValue wrappedValue;
 	private final IValueChangeListener valueChangeListener = new IValueChangeListener() {
+		@Override
 		public void handleValueChange(ValueChangeEvent event) {
 			fireValueChange(event.diff);
 		}
 	};
 	IStaleListener staleListener = new IStaleListener() {
+		@Override
 		public void handleStale(StaleEvent staleEvent) {
 			fireStale();
 		}
@@ -66,6 +68,7 @@ public class ProxyObservableValue extends AbstractObservableValue {
 		wrappedValue.setValue(value);
 	}
 
+	@Override
 	public Object getValueType() {
 		return wrappedValue.getValueType();
 	}

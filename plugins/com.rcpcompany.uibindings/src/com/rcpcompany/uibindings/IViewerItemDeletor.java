@@ -3,10 +3,11 @@ package com.rcpcompany.uibindings;
 /**
  * This interface is used to delete items in a viewer or grid.
  * <p>
- * A deletor is requested to delete an object from a containment relation, the deletor should <em>also</em> remove the
- * the object from all other relations.
+ * A deletor is requested to delete an object from a containment relation, the deletor should
+ * <em>also</em> remove the the object from all other relations.
  * <p>
- * All operations on domain objects should happen within the {@link IManager#getEditingDomain() editing domain}.
+ * All operations on domain objects should happen within the {@link IManager#getEditingDomain()
+ * editing domain}.
  * 
  * @author Tonny Madsen, The RCP Company
  */

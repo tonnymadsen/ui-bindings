@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.tests.shop;
@@ -13,14 +12,16 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Shop</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Shop</b></em>'. <!--
+ * end-user-doc -->
  * 
  * <p>
  * The following features are supported:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getName <em>Name</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getNextOrderNo <em>Next Order No</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getNextCustomerNo <em>Next Customer No</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getNextCustomerNo <em>Next Customer No</em>}
+ * </li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getTmpDir <em>Tmp Dir</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getCountries <em>Countries</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getContacts <em>Contacts</em>}</li>
@@ -39,7 +40,8 @@ public interface Shop extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -52,8 +54,8 @@ public interface Shop extends EObject {
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Shop#getName <em>Name</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Shop#getName
+	 * <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
@@ -64,8 +66,8 @@ public interface Shop extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Next Order No</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Next Order No</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Next Order No</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -78,8 +80,8 @@ public interface Shop extends EObject {
 	int getNextOrderNo();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Shop#getNextOrderNo <em>Next Order No</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Shop#getNextOrderNo
+	 * <em>Next Order No</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Next Order No</em>' attribute.
 	 * @see #getNextOrderNo()
@@ -88,10 +90,11 @@ public interface Shop extends EObject {
 	void setNextOrderNo(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Next Customer No</b></em>' attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Next Customer No</b></em>' attribute. <!-- begin-user-doc
+	 * -->
 	 * <p>
-	 * If the meaning of the '<em>Next Customer No</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Next Customer No</em>' attribute isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -117,8 +120,8 @@ public interface Shop extends EObject {
 	 * Returns the value of the '<em><b>Tmp Dir</b></em>' attribute. The default value is
 	 * <code>"C:\\Windows\\Temp"</code>. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Tmp Dir</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Tmp Dir</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -131,8 +134,8 @@ public interface Shop extends EObject {
 	String getTmpDir();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Shop#getTmpDir <em>Tmp Dir</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Shop#getTmpDir
+	 * <em>Tmp Dir</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Tmp Dir</em>' attribute.
 	 * @see #getTmpDir()
@@ -141,12 +144,14 @@ public interface Shop extends EObject {
 	void setTmpDir(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Countries</b></em>' containment reference list. The list contents are of type
-	 * {@link com.rcpcompany.uibindings.tests.shop.Country}. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.tests.shop.Country#getShop <em>Shop</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Countries</b></em>' containment reference list. The list
+	 * contents are of type {@link com.rcpcompany.uibindings.tests.shop.Country}. It is
+	 * bidirectional and its opposite is '
+	 * {@link com.rcpcompany.uibindings.tests.shop.Country#getShop <em>Shop</em>}'. <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Countries</em>' containment reference list isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Countries</em>' containment reference list isn't clear, there
+	 * really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -159,12 +164,14 @@ public interface Shop extends EObject {
 	EList<Country> getCountries();
 
 	/**
-	 * Returns the value of the '<em><b>Contacts</b></em>' containment reference list. The list contents are of type
-	 * {@link com.rcpcompany.uibindings.tests.shop.Contact}. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.tests.shop.Contact#getShop <em>Shop</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Contacts</b></em>' containment reference list. The list
+	 * contents are of type {@link com.rcpcompany.uibindings.tests.shop.Contact}. It is
+	 * bidirectional and its opposite is '
+	 * {@link com.rcpcompany.uibindings.tests.shop.Contact#getShop <em>Shop</em>}'. <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Contacts</em>' containment reference list isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Contacts</em>' containment reference list isn't clear, there
+	 * really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -177,12 +184,14 @@ public interface Shop extends EObject {
 	EList<Contact> getContacts();
 
 	/**
-	 * Returns the value of the '<em><b>Shop Items</b></em>' containment reference list. The list contents are of type
-	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItem}. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItem#getShop <em>Shop</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Shop Items</b></em>' containment reference list. The list
+	 * contents are of type {@link com.rcpcompany.uibindings.tests.shop.ShopItem}. It is
+	 * bidirectional and its opposite is '
+	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItem#getShop <em>Shop</em>}'. <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Shop Items</em>' containment reference list isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Shop Items</em>' containment reference list isn't clear, there
+	 * really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -195,12 +204,13 @@ public interface Shop extends EObject {
 	EList<ShopItem> getShopItems();
 
 	/**
-	 * Returns the value of the '<em><b>Orders</b></em>' containment reference list. The list contents are of type
-	 * {@link com.rcpcompany.uibindings.tests.shop.Order}. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.tests.shop.Order#getShop <em>Shop</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Orders</b></em>' containment reference list. The list
+	 * contents are of type {@link com.rcpcompany.uibindings.tests.shop.Order}. It is bidirectional
+	 * and its opposite is ' {@link com.rcpcompany.uibindings.tests.shop.Order#getShop
+	 * <em>Shop</em>}'. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Orders</em>' containment reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Orders</em>' containment reference list isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -213,12 +223,14 @@ public interface Shop extends EObject {
 	EList<Order> getOrders();
 
 	/**
-	 * Returns the value of the '<em><b>Customers</b></em>' containment reference list. The list contents are of type
-	 * {@link com.rcpcompany.uibindings.tests.shop.Customer}. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.tests.shop.Customer#getShop <em>Shop</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Customers</b></em>' containment reference list. The list
+	 * contents are of type {@link com.rcpcompany.uibindings.tests.shop.Customer}. It is
+	 * bidirectional and its opposite is '
+	 * {@link com.rcpcompany.uibindings.tests.shop.Customer#getShop <em>Shop</em>}'. <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Customers</em>' containment reference list isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Customers</em>' containment reference list isn't clear, there
+	 * really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -231,12 +243,14 @@ public interface Shop extends EObject {
 	EList<Customer> getCustomers();
 
 	/**
-	 * Returns the value of the '<em><b>Shop Groups</b></em>' containment reference list. The list contents are of type
-	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItemGroup}. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItemGroup#getShop <em>Shop</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Shop Groups</b></em>' containment reference list. The list
+	 * contents are of type {@link com.rcpcompany.uibindings.tests.shop.ShopItemGroup}. It is
+	 * bidirectional and its opposite is '
+	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItemGroup#getShop <em>Shop</em>}'. <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Shop Groups</em>' containment reference list isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Shop Groups</em>' containment reference list isn't clear, there
+	 * really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -259,7 +273,8 @@ public interface Shop extends EObject {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @model diagnosticsDataType="com.rcpcompany.uibindings.tests.shop.DiagnosticChain" diagnosticsRequired="true"
+	 * @model diagnosticsDataType="com.rcpcompany.uibindings.tests.shop.DiagnosticChain"
+	 *        diagnosticsRequired="true"
 	 * @generated
 	 */
 	boolean nameLengthOK(DiagnosticChain diagnostics, Map<Object, Object> context);

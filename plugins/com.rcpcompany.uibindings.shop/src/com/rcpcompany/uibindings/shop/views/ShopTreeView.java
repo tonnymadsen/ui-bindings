@@ -66,8 +66,8 @@ public class ShopTreeView extends ViewPart {
 				return Observables.constantObservableValue("", EcorePackage.Literals.ESTRING);
 			}
 		};
-		myNameColumnBinding = myTreeBinding.addColumn().column(myNameColumn).dynamic().model(factory,
-				EcorePackage.Literals.EJAVA_OBJECT);
+		myNameColumnBinding = myTreeBinding.addColumn().column(myNameColumn).dynamic()
+				.model(factory, EcorePackage.Literals.EJAVA_OBJECT);
 
 		myContext.finish();
 		IBindingContextSelectionProvider.Factory.adapt(myContext, getSite());

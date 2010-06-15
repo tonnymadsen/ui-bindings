@@ -4,10 +4,11 @@ import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.IValueBinding;
 
 /**
- * This interface is used by a message decorator for the {@link IValidatorAdapterManager validator manager}.
+ * This interface is used by a message decorator for the {@link IValidatorAdapterManager validator
+ * manager}.
  * <p>
- * a message decorator is associated with a specific binding and will decorate a binding with a specific set of messages
- * from the vailator manager.
+ * a message decorator is associated with a specific binding and will decorate a binding with a
+ * specific set of messages from the vailator manager.
  * <p>
  * The messages are added and removed via the methods {@link #addMessage(IBindingMessage)} and
  * {@link #removeMessage(IBindingMessage)}.

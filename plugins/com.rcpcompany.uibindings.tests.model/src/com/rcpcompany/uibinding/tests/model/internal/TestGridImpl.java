@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibinding.tests.model.internal;
@@ -22,11 +21,13 @@ import com.rcpcompany.uibinding.tests.model.TestGridRow;
 import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Test Grid</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Test Grid</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridImpl#getColumns <em>Columns</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridImpl#getColumns <em>Columns
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridImpl#getRows <em>Rows</em>}</li>
  * </ul>
  * </p>
@@ -35,8 +36,8 @@ import com.rcpcompany.uibinding.tests.model.TestModelPackage;
  */
 public class TestGridImpl extends EObjectImpl implements TestGrid {
 	/**
-	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getColumns()
 	 * @generated
@@ -45,8 +46,8 @@ public class TestGridImpl extends EObjectImpl implements TestGrid {
 	protected EList<TestGridColumn> columns;
 
 	/**
-	 * The cached value of the '{@link #getRows() <em>Rows</em>}' reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getRows() <em>Rows</em>}' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getRows()
 	 * @generated
@@ -78,6 +79,7 @@ public class TestGridImpl extends EObjectImpl implements TestGrid {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<TestGridColumn> getColumns() {
 		if (columns == null) {
 			columns = new EObjectWithInverseEList<TestGridColumn>(TestGridColumn.class, this,
@@ -91,6 +93,7 @@ public class TestGridImpl extends EObjectImpl implements TestGrid {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<TestGridRow> getRows() {
 		if (rows == null) {
 			rows = new EObjectWithInverseEList<TestGridRow>(TestGridRow.class, this, TestModelPackage.TEST_GRID__ROWS,

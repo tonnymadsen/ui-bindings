@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -16,12 +15,13 @@ import com.rcpcompany.uibindings.IModelFeatureInfo;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Model Feature Info</b></em>'. <!-- end-user-doc
- * -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Model Feature Info</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.ModelFeatureInfoImpl#getFeatureName <em>Feature Name</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ModelFeatureInfoImpl#getFeatureName <em>Feature
+ * Name</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ModelFeatureInfoImpl#getClass_ <em>Class</em>}</li>
  * </ul>
  * </p>
@@ -30,8 +30,8 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
  */
 public class ModelFeatureInfoImpl extends ModelInfoImpl implements IModelFeatureInfo {
 	/**
-	 * The default value of the '{@link #getFeatureName() <em>Feature Name</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getFeatureName() <em>Feature Name</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getFeatureName()
 	 * @generated
@@ -40,8 +40,8 @@ public class ModelFeatureInfoImpl extends ModelInfoImpl implements IModelFeature
 	protected static final String FEATURE_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getFeatureName() <em>Feature Name</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getFeatureName() <em>Feature Name</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getFeatureName()
 	 * @generated
@@ -50,8 +50,8 @@ public class ModelFeatureInfoImpl extends ModelInfoImpl implements IModelFeature
 	protected String featureName = FEATURE_NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getClass_() <em>Class</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getClass_() <em>Class</em>}' reference. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getClass_()
 	 * @generated
@@ -83,6 +83,7 @@ public class ModelFeatureInfoImpl extends ModelInfoImpl implements IModelFeature
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getFeatureName() {
 		return featureName;
 	}
@@ -92,6 +93,7 @@ public class ModelFeatureInfoImpl extends ModelInfoImpl implements IModelFeature
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setFeatureName(String newFeatureName) {
 		final String oldFeatureName = featureName;
 		featureName = newFeatureName;
@@ -106,6 +108,7 @@ public class ModelFeatureInfoImpl extends ModelInfoImpl implements IModelFeature
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IModelClassInfo getClass_() {
 		if (class_ != null && class_.eIsProxy()) {
 			final InternalEObject oldClass = (InternalEObject) class_;
@@ -134,6 +137,7 @@ public class ModelFeatureInfoImpl extends ModelInfoImpl implements IModelFeature
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setClass(IModelClassInfo newClass) {
 		final IModelClassInfo oldClass = class_;
 		class_ = newClass;
@@ -154,9 +158,7 @@ public class ModelFeatureInfoImpl extends ModelInfoImpl implements IModelFeature
 		case IUIBindingsPackage.MODEL_FEATURE_INFO__FEATURE_NAME:
 			return getFeatureName();
 		case IUIBindingsPackage.MODEL_FEATURE_INFO__CLASS:
-			if (resolve) {
-				return getClass_();
-			}
+			if (resolve) return getClass_();
 			return basicGetClass();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -221,9 +223,7 @@ public class ModelFeatureInfoImpl extends ModelInfoImpl implements IModelFeature
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (featureName: "); //$NON-NLS-1$

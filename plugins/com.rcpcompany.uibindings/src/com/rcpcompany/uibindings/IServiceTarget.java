@@ -25,8 +25,8 @@ public interface IServiceTarget {
 	/**
 	 * Returns whether a specific service policy is enabled for this target.
 	 * <p>
-	 * Result is on both the local settings - see {@link #setServicePolicyEnablement(String, boolean)} and any global
-	 * settings.
+	 * Result is on both the local settings - see
+	 * {@link #setServicePolicyEnablement(String, boolean)} and any global settings.
 	 * 
 	 * @param id the ID of the service policy
 	 * @return whether the service is enabled

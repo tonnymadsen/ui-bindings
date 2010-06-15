@@ -77,9 +77,7 @@ public class MessageFormatObservableValue extends AbstractObservableValue {
 	 * @param format the new format
 	 */
 	public void setMessageFormat(String format) {
-		if (format == null ? myFormat == null : format.equals(myFormat)) {
-			return;
-		}
+		if (format == null ? myFormat == null : format.equals(myFormat)) return;
 		myFormat = format;
 
 		updateValue();
@@ -97,9 +95,7 @@ public class MessageFormatObservableValue extends AbstractObservableValue {
 
 	@Override
 	protected void doSetValue(Object value) {
-		if (myFormat != null) {
-			throw new IllegalStateException();
-		}
+		if (myFormat != null) throw new IllegalStateException();
 		myDecorated.setValue(value);
 	}
 
@@ -121,9 +117,7 @@ public class MessageFormatObservableValue extends AbstractObservableValue {
 			decoratedValue = MessageFormat.format(myFormat, origValue);
 		}
 
-		if (decoratedValue == null ? myCurrectValue == null : decoratedValue.equals(myCurrectValue)) {
-			return;
-		}
+		if (decoratedValue == null ? myCurrectValue == null : decoratedValue.equals(myCurrectValue)) return;
 
 		fireValueChange(Diffs.createValueDiff(myCurrectValue, myCurrectValue = decoratedValue));
 	}

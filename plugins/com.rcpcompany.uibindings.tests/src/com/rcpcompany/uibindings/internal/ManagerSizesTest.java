@@ -32,6 +32,7 @@ public class ManagerSizesTest {
 	@Test
 	public void testAttributeProviders() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final List<IConfigurationElement> elements = getElements(InternalConstants.BINDING_DECORATOR_TAG);
 
@@ -48,6 +49,7 @@ public class ManagerSizesTest {
 	@Test
 	public void testAttributeQuickfixes() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final List<IConfigurationElement> elements = getElements(InternalConstants.QUICKFIX_PROCESSOR_TAG);
 
@@ -63,6 +65,7 @@ public class ManagerSizesTest {
 	@Test
 	public void testAttributeUIAttributeFactoryRepository() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final List<IConfigurationElement> elements = getElements(InternalConstants.UI_ATTRIBUTE_FACTORY_TAG);
 
@@ -78,11 +81,13 @@ public class ManagerSizesTest {
 	@Test
 	public void testAttributeModelClassInfo() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final List<IConfigurationElement> elements = getElements(InternalConstants.MODEL_TAG);
 
 				assertTrue(m.getModelInfo().size() > 1);
-				// Some elements can refer to the same model class and thus collapse the number of model class records.
+				// Some elements can refer to the same model class and thus collapse the number of
+				// model class records.
 				assertTrue(elements.size() - 10 < m.getModelInfo().size());
 			}
 		});
@@ -94,6 +99,7 @@ public class ManagerSizesTest {
 	@Test
 	public void testAttributeObservableFactories() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final List<IConfigurationElement> elements = getElements(InternalConstants.OBSERVABLES_FACTORY_TAG);
 

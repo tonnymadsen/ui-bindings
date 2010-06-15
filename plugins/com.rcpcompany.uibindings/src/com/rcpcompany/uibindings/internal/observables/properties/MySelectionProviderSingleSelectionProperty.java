@@ -13,6 +13,7 @@ import org.eclipse.jface.viewers.Viewer;
  * 
  */
 public class MySelectionProviderSingleSelectionProperty extends ViewerValueProperty {
+	@Override
 	public Object getValueType() {
 		return null;
 	}
@@ -20,9 +21,7 @@ public class MySelectionProviderSingleSelectionProperty extends ViewerValuePrope
 	@Override
 	protected Object doGetValue(Object source) {
 		final ISelection selection = ((ISelectionProvider) source).getSelection();
-		if (selection instanceof IStructuredSelection) {
-			return ((IStructuredSelection) selection).getFirstElement();
-		}
+		if (selection instanceof IStructuredSelection) return ((IStructuredSelection) selection).getFirstElement();
 		return null;
 	}
 

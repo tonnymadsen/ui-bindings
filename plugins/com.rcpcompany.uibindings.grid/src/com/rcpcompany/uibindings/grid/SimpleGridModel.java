@@ -5,7 +5,8 @@ import org.eclipse.core.databinding.observable.list.IObservableList;
 /**
  * Simple implementation of {@link IGridModel} that will cover 99% of all needs.
  * <p>
- * Sub classes must implement the abstract {@link IGridModel#getCell(Object, Object)}. The typical implementation is:
+ * Sub classes must implement the abstract {@link IGridModel#getCell(Object, Object)}. The typical
+ * implementation is:
  * 
  * <pre>
  * protected class Model extends SimpleGridModel {

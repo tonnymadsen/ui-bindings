@@ -33,14 +33,12 @@ public class RadioGroupValueObservableValue extends AbstractSWTObservableValue {
 				@Override
 				public void widgetSelected(SelectionEvent e) {
 					/*
-					 * A RadioGroup issues two selection events when a new item is selected: old->null and then
-					 * null->new.
+					 * A RadioGroup issues two selection events when a new item is selected:
+					 * old->null and then null->new.
 					 * 
 					 * We silently ignore events that switch to "null"...
 					 */
-					if (e.item == null) {
-						return;
-					}
+					if (e.item == null) return;
 					handleSelectionChanged();
 				}
 
@@ -70,9 +68,7 @@ public class RadioGroupValueObservableValue extends AbstractSWTObservableValue {
 	@Override
 	protected Object doGetValue() {
 		final RadioItem selection = myRadioGroup.getSelection();
-		if (selection == null) {
-			return null;
-		}
+		if (selection == null) return null;
 		return selection.getText();
 	}
 
@@ -96,9 +92,7 @@ public class RadioGroupValueObservableValue extends AbstractSWTObservableValue {
 	 */
 	protected void handleSelectionChanged() {
 		final Object newValue = doGetValue();
-		if (Util.equals(myCurrentValue, newValue)) {
-			return;
-		}
+		if (Util.equals(myCurrentValue, newValue)) return;
 		fireValueChange(Diffs.createValueDiff(myCurrentValue, myCurrentValue = newValue));
 	}
 }

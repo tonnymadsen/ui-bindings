@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings;
@@ -14,7 +13,8 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 /**
- * <!-- begin-user-doc --> The <b>Package</b> for the model. It contains accessors for the meta objects to represent
+ * <!-- begin-user-doc --> The <b>Package</b> for the model. It contains accessors for the meta
+ * objects to represent
  * <ul>
  * <li>each class,</li>
  * <li>each feature of each class,</li>
@@ -56,8 +56,8 @@ public interface IUIBindingsPackage extends EPackage {
 	IUIBindingsPackage eINSTANCE = com.rcpcompany.uibindings.internal.UIBindingsPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.IServiceRegistry <em>Service Registry</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.IServiceRegistry
+	 * <em>Service Registry</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.IServiceRegistry
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getServiceRegistry()
@@ -66,7 +66,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int SERVICE_REGISTRY = 35;
 
 	/**
-	 * The feature id for the '<em><b>Services</b></em>' attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Services</b></em>' attribute list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -74,8 +75,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int SERVICE_REGISTRY__SERVICES = 0;
 
 	/**
-	 * The number of structural features of the '<em>Service Registry</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>Service Registry</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -83,8 +84,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int SERVICE_REGISTRY_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.BaseObjectImpl <em>Base Object</em>}'
-	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.BaseObjectImpl
+	 * <em>Base Object</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.BaseObjectImpl
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getBaseObject()
@@ -93,7 +94,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BASE_OBJECT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Services</b></em>' attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Services</b></em>' attribute list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -101,8 +103,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BASE_OBJECT__SERVICES = SERVICE_REGISTRY__SERVICES;
 
 	/**
-	 * The number of structural features of the '<em>Base Object</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The number of structural features of the '<em>Base Object</em>' class. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -110,8 +112,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BASE_OBJECT_FEATURE_COUNT = SERVICE_REGISTRY_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.ManagerImpl <em>Manager</em>}' class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.ManagerImpl
+	 * <em>Manager</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.ManagerImpl
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getManager()
@@ -120,7 +122,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER = 1;
 
 	/**
-	 * The feature id for the '<em><b>Services</b></em>' attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Services</b></em>' attribute list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -128,7 +131,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__SERVICES = BASE_OBJECT__SERVICES;
 
 	/**
-	 * The feature id for the '<em><b>Editing Domain</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Editing Domain</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -136,7 +140,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__EDITING_DOMAIN = BASE_OBJECT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Form Toolkit</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Form Toolkit</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -144,8 +149,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__FORM_TOOLKIT = BASE_OBJECT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Providers</b></em>' containment reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Providers</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -153,8 +158,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__PROVIDERS = BASE_OBJECT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Ui Attribute Factories</b></em>' reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Ui Attribute Factories</b></em>' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -162,8 +167,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__UI_ATTRIBUTE_FACTORIES = BASE_OBJECT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Decorator Extenders</b></em>' reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Decorator Extenders</b></em>' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -171,8 +176,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__DECORATOR_EXTENDERS = BASE_OBJECT_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Model Argument Mediators</b></em>' attribute list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Model Argument Mediators</b></em>' attribute list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -180,8 +185,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__MODEL_ARGUMENT_MEDIATORS = BASE_OBJECT_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Model Argument Mediator Classes</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Model Argument Mediator Classes</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -189,8 +194,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__MODEL_ARGUMENT_MEDIATOR_CLASSES = BASE_OBJECT_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Text Commit Strategy</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Text Commit Strategy</b></em>' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -198,8 +203,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__TEXT_COMMIT_STRATEGY = BASE_OBJECT_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Text Commit Strategy Delay</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Text Commit Strategy Delay</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -207,8 +212,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__TEXT_COMMIT_STRATEGY_DELAY = BASE_OBJECT_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Edit Cell Any Key</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Edit Cell Any Key</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -216,8 +221,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__EDIT_CELL_ANY_KEY = BASE_OBJECT_FEATURE_COUNT + 9;
 
 	/**
-	 * The feature id for the '<em><b>Edit Cell Single Click</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Edit Cell Single Click</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -225,8 +230,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__EDIT_CELL_SINGLE_CLICK = BASE_OBJECT_FEATURE_COUNT + 10;
 
 	/**
-	 * The feature id for the '<em><b>Message Decoration Position</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Message Decoration Position</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -234,8 +239,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__MESSAGE_DECORATION_POSITION = BASE_OBJECT_FEATURE_COUNT + 11;
 
 	/**
-	 * The feature id for the '<em><b>Message Decoration Minimum Severity</b></em>' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Message Decoration Minimum Severity</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -243,8 +248,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__MESSAGE_DECORATION_MINIMUM_SEVERITY = BASE_OBJECT_FEATURE_COUNT + 12;
 
 	/**
-	 * The feature id for the '<em><b>Alternative Decoration Position</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Alternative Decoration Position</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -252,8 +257,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__ALTERNATIVE_DECORATION_POSITION = BASE_OBJECT_FEATURE_COUNT + 13;
 
 	/**
-	 * The feature id for the '<em><b>Auto Apply Single Quickfix</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Auto Apply Single Quickfix</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -261,8 +266,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__AUTO_APPLY_SINGLE_QUICKFIX = BASE_OBJECT_FEATURE_COUNT + 14;
 
 	/**
-	 * The feature id for the '<em><b>Alternate Row Colors</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Alternate Row Colors</b></em>' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -270,8 +275,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__ALTERNATE_ROW_COLORS = BASE_OBJECT_FEATURE_COUNT + 15;
 
 	/**
-	 * The feature id for the '<em><b>Validation Errors Are Fatal</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Validation Errors Are Fatal</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -279,8 +284,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__VALIDATION_ERRORS_ARE_FATAL = BASE_OBJECT_FEATURE_COUNT + 16;
 
 	/**
-	 * The feature id for the '<em><b>Validation Delay</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Validation Delay</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -288,8 +293,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__VALIDATION_DELAY = BASE_OBJECT_FEATURE_COUNT + 17;
 
 	/**
-	 * The feature id for the '<em><b>Validation Delay Window</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Validation Delay Window</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -297,8 +302,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__VALIDATION_DELAY_WINDOW = BASE_OBJECT_FEATURE_COUNT + 18;
 
 	/**
-	 * The feature id for the '<em><b>Required VB Image Decoration Shown</b></em>' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Required VB Image Decoration Shown</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -306,8 +311,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__REQUIRED_VB_IMAGE_DECORATION_SHOWN = BASE_OBJECT_FEATURE_COUNT + 19;
 
 	/**
-	 * The feature id for the '<em><b>Assist VB Image Decoration Shown</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Assist VB Image Decoration Shown</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -315,8 +320,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__ASSIST_VB_IMAGE_DECORATION_SHOWN = BASE_OBJECT_FEATURE_COUNT + 20;
 
 	/**
-	 * The feature id for the '<em><b>Quickfix VB Image Decoration Shown</b></em>' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Quickfix VB Image Decoration Shown</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -324,8 +329,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__QUICKFIX_VB_IMAGE_DECORATION_SHOWN = BASE_OBJECT_FEATURE_COUNT + 21;
 
 	/**
-	 * The feature id for the '<em><b>View Navigation Recorded</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>View Navigation Recorded</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -333,7 +338,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__VIEW_NAVIGATION_RECORDED = BASE_OBJECT_FEATURE_COUNT + 22;
 
 	/**
-	 * The feature id for the '<em><b>Model Info</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Model Info</b></em>' map. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -341,8 +347,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__MODEL_INFO = BASE_OBJECT_FEATURE_COUNT + 23;
 
 	/**
-	 * The feature id for the '<em><b>Tree Items</b></em>' containment reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Tree Items</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -350,7 +356,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__TREE_ITEMS = BASE_OBJECT_FEATURE_COUNT + 24;
 
 	/**
-	 * The feature id for the '<em><b>Clipboard</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Clipboard</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -358,8 +365,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__CLIPBOARD = BASE_OBJECT_FEATURE_COUNT + 25;
 
 	/**
-	 * The feature id for the '<em><b>Observable Factories</b></em>' containment reference list. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Observable Factories</b></em>' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -367,8 +374,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__OBSERVABLE_FACTORIES = BASE_OBJECT_FEATURE_COUNT + 26;
 
 	/**
-	 * The feature id for the '<em><b>Quickfix Proposal Processors</b></em>' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Quickfix Proposal Processors</b></em>' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -376,8 +383,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__QUICKFIX_PROPOSAL_PROCESSORS = BASE_OBJECT_FEATURE_COUNT + 27;
 
 	/**
-	 * The feature id for the '<em><b>Contexts</b></em>' containment reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Contexts</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -385,7 +392,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__CONTEXTS = BASE_OBJECT_FEATURE_COUNT + 28;
 
 	/**
-	 * The number of structural features of the '<em>Manager</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Manager</em>' class. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -403,7 +411,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_CONTEXT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Services</b></em>' attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Services</b></em>' attribute list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -411,8 +420,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_CONTEXT__SERVICES = BASE_OBJECT__SERVICES;
 
 	/**
-	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -420,8 +429,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_CONTEXT__BINDINGS = BASE_OBJECT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Ok Bindings</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Ok Bindings</b></em>' reference list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -429,7 +438,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_CONTEXT__OK_BINDINGS = BASE_OBJECT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Top</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Top</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -437,7 +447,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_CONTEXT__TOP = BASE_OBJECT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Db Context</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Db Context</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -445,7 +456,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_CONTEXT__DB_CONTEXT = BASE_OBJECT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Service Locator</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Service Locator</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -453,7 +465,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_CONTEXT__SERVICE_LOCATOR = BASE_OBJECT_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>State</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>State</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -461,8 +474,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_CONTEXT__STATE = BASE_OBJECT_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Text Commit Strategy</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Text Commit Strategy</b></em>' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -470,8 +483,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_CONTEXT__TEXT_COMMIT_STRATEGY = BASE_OBJECT_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Text Commit Strategy Calculated</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Text Commit Strategy Calculated</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -479,7 +492,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_CONTEXT__TEXT_COMMIT_STRATEGY_CALCULATED = BASE_OBJECT_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Editing Domain</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Editing Domain</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -487,8 +501,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_CONTEXT__EDITING_DOMAIN = BASE_OBJECT_FEATURE_COUNT + 8;
 
 	/**
-	 * The number of structural features of the '<em>Binding Context</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>Binding Context</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -496,8 +510,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_CONTEXT_FEATURE_COUNT = BASE_OBJECT_FEATURE_COUNT + 9;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.BindingImpl <em>Binding</em>}' class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.BindingImpl
+	 * <em>Binding</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.BindingImpl
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getBinding()
@@ -506,7 +520,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING = 3;
 
 	/**
-	 * The feature id for the '<em><b>Services</b></em>' attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Services</b></em>' attribute list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -514,7 +529,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING__SERVICES = BASE_OBJECT__SERVICES;
 
 	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -522,8 +538,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING__DECLARED_ARGUMENTS = BASE_OBJECT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Context</b></em>' container reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Context</b></em>' container reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -531,7 +547,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING__CONTEXT = BASE_OBJECT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>State</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>State</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -539,7 +556,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING__STATE = BASE_OBJECT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -547,7 +565,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING__CHANGEABLE = BASE_OBJECT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Creation Point</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Creation Point</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -555,7 +574,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING__CREATION_POINT = BASE_OBJECT_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Arguments</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Arguments</b></em>' map. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -563,7 +583,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING__ARGUMENTS = BASE_OBJECT_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -571,7 +592,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING__ID = BASE_OBJECT_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Type</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -579,7 +601,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING__TYPE = BASE_OBJECT_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Label</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -587,8 +610,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING__LABEL = BASE_OBJECT_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Static Data Type</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Static Data Type</b></em>' reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -596,7 +619,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING__STATIC_DATA_TYPE = BASE_OBJECT_FEATURE_COUNT + 9;
 
 	/**
-	 * The feature id for the '<em><b>Data Type</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Data Type</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -604,7 +628,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING__DATA_TYPE = BASE_OBJECT_FEATURE_COUNT + 10;
 
 	/**
-	 * The feature id for the '<em><b>Model EType</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Model EType</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -612,7 +637,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING__MODEL_ETYPE = BASE_OBJECT_FEATURE_COUNT + 11;
 
 	/**
-	 * The feature id for the '<em><b>Model Type</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Model Type</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -620,7 +646,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING__MODEL_TYPE = BASE_OBJECT_FEATURE_COUNT + 12;
 
 	/**
-	 * The feature id for the '<em><b>UI Type</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>UI Type</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -628,8 +655,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING__UI_TYPE = BASE_OBJECT_FEATURE_COUNT + 13;
 
 	/**
-	 * The feature id for the '<em><b>DB Bindings</b></em>' attribute list. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>DB Bindings</b></em>' attribute list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -637,8 +664,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING__DB_BINDINGS = BASE_OBJECT_FEATURE_COUNT + 14;
 
 	/**
-	 * The feature id for the '<em><b>Monitored DB Bindings</b></em>' attribute list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Monitored DB Bindings</b></em>' attribute list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -646,8 +673,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING__MONITORED_DB_BINDINGS = BASE_OBJECT_FEATURE_COUNT + 15;
 
 	/**
-	 * The feature id for the '<em><b>Error Conditions</b></em>' attribute list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Error Conditions</b></em>' attribute list. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -655,7 +682,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING__ERROR_CONDITIONS = BASE_OBJECT_FEATURE_COUNT + 16;
 
 	/**
-	 * The feature id for the '<em><b>Widget</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Widget</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -663,7 +691,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING__WIDGET = BASE_OBJECT_FEATURE_COUNT + 17;
 
 	/**
-	 * The feature id for the '<em><b>Control</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Control</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -671,8 +700,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING__CONTROL = BASE_OBJECT_FEATURE_COUNT + 18;
 
 	/**
-	 * The feature id for the '<em><b>Extra Argument Providers</b></em>' reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Extra Argument Providers</b></em>' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -680,7 +709,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING__EXTRA_ARGUMENT_PROVIDERS = BASE_OBJECT_FEATURE_COUNT + 19;
 
 	/**
-	 * The number of structural features of the '<em>Binding</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Binding</em>' class. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -688,8 +718,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_FEATURE_COUNT = BASE_OBJECT_FEATURE_COUNT + 20;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.ValueBindingImpl <em>Value Binding</em>}'
-	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.ValueBindingImpl
+	 * <em>Value Binding</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.ValueBindingImpl
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getValueBinding()
@@ -698,7 +728,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING = 4;
 
 	/**
-	 * The feature id for the '<em><b>Services</b></em>' attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Services</b></em>' attribute list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -706,7 +737,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__SERVICES = BINDING__SERVICES;
 
 	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -714,8 +746,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__DECLARED_ARGUMENTS = BINDING__DECLARED_ARGUMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Context</b></em>' container reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Context</b></em>' container reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -723,7 +755,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__CONTEXT = BINDING__CONTEXT;
 
 	/**
-	 * The feature id for the '<em><b>State</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>State</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -731,7 +764,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__STATE = BINDING__STATE;
 
 	/**
-	 * The feature id for the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -739,7 +773,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__CHANGEABLE = BINDING__CHANGEABLE;
 
 	/**
-	 * The feature id for the '<em><b>Creation Point</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Creation Point</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -747,7 +782,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__CREATION_POINT = BINDING__CREATION_POINT;
 
 	/**
-	 * The feature id for the '<em><b>Arguments</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Arguments</b></em>' map. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -755,7 +791,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__ARGUMENTS = BINDING__ARGUMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -763,7 +800,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__ID = BINDING__ID;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Type</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -771,7 +809,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__TYPE = BINDING__TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Label</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -779,8 +818,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__LABEL = BINDING__LABEL;
 
 	/**
-	 * The feature id for the '<em><b>Static Data Type</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Static Data Type</b></em>' reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -788,7 +827,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__STATIC_DATA_TYPE = BINDING__STATIC_DATA_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Data Type</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Data Type</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -796,7 +836,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__DATA_TYPE = BINDING__DATA_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Model EType</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Model EType</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -804,7 +845,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__MODEL_ETYPE = BINDING__MODEL_ETYPE;
 
 	/**
-	 * The feature id for the '<em><b>Model Type</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Model Type</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -812,7 +854,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__MODEL_TYPE = BINDING__MODEL_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>UI Type</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>UI Type</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -820,8 +863,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__UI_TYPE = BINDING__UI_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>DB Bindings</b></em>' attribute list. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>DB Bindings</b></em>' attribute list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -829,8 +872,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__DB_BINDINGS = BINDING__DB_BINDINGS;
 
 	/**
-	 * The feature id for the '<em><b>Monitored DB Bindings</b></em>' attribute list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Monitored DB Bindings</b></em>' attribute list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -838,8 +881,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__MONITORED_DB_BINDINGS = BINDING__MONITORED_DB_BINDINGS;
 
 	/**
-	 * The feature id for the '<em><b>Error Conditions</b></em>' attribute list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Error Conditions</b></em>' attribute list. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -847,7 +890,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__ERROR_CONDITIONS = BINDING__ERROR_CONDITIONS;
 
 	/**
-	 * The feature id for the '<em><b>Widget</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Widget</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -855,7 +899,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__WIDGET = BINDING__WIDGET;
 
 	/**
-	 * The feature id for the '<em><b>Control</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Control</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -863,8 +908,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__CONTROL = BINDING__CONTROL;
 
 	/**
-	 * The feature id for the '<em><b>Extra Argument Providers</b></em>' reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Extra Argument Providers</b></em>' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -872,8 +917,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__EXTRA_ARGUMENT_PROVIDERS = BINDING__EXTRA_ARGUMENT_PROVIDERS;
 
 	/**
-	 * The feature id for the '<em><b>Model Observable</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Model Observable</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -881,8 +926,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__MODEL_OBSERVABLE = BINDING_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Model Observable Value</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Model Observable Value</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -890,7 +935,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__MODEL_OBSERVABLE_VALUE = BINDING_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Model Object</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Model Object</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -898,7 +944,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__MODEL_OBJECT = BINDING_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Model Feature</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Model Feature</b></em>' reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -906,7 +953,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__MODEL_FEATURE = BINDING_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Message Prefix</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Message Prefix</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -914,8 +962,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__MESSAGE_PREFIX = BINDING_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Decorator Provider</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Decorator Provider</b></em>' reference. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -923,7 +971,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__DECORATOR_PROVIDER = BINDING_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Decorator</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Decorator</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -931,7 +980,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__DECORATOR = BINDING_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>UI Attribute</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>UI Attribute</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -939,7 +989,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__UI_ATTRIBUTE = BINDING_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>UI Observable</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>UI Observable</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -947,7 +998,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__UI_OBSERVABLE = BINDING_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Cell</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Cell</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -955,8 +1007,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__CELL = BINDING_FEATURE_COUNT + 9;
 
 	/**
-	 * The number of structural features of the '<em>Value Binding</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>Value Binding</em>' class. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -964,8 +1016,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING_FEATURE_COUNT = BINDING_FEATURE_COUNT + 10;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.IValueBindingCell <em>Value Binding Cell</em>}'
-	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.IValueBindingCell
+	 * <em>Value Binding Cell</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.IValueBindingCell
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getValueBindingCell()
@@ -974,8 +1026,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING_CELL = 5;
 
 	/**
-	 * The number of structural features of the '<em>Value Binding Cell</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>Value Binding Cell</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -983,8 +1035,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING_CELL_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.ColumnBindingImpl <em>Column Binding</em>}'
-	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.ColumnBindingImpl
+	 * <em>Column Binding</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.ColumnBindingImpl
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getColumnBinding()
@@ -993,7 +1045,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING = 6;
 
 	/**
-	 * The feature id for the '<em><b>Services</b></em>' attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Services</b></em>' attribute list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1001,7 +1054,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__SERVICES = BINDING__SERVICES;
 
 	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1009,8 +1063,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__DECLARED_ARGUMENTS = BINDING__DECLARED_ARGUMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Context</b></em>' container reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Context</b></em>' container reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1018,7 +1072,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__CONTEXT = BINDING__CONTEXT;
 
 	/**
-	 * The feature id for the '<em><b>State</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>State</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1026,7 +1081,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__STATE = BINDING__STATE;
 
 	/**
-	 * The feature id for the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1034,7 +1090,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__CHANGEABLE = BINDING__CHANGEABLE;
 
 	/**
-	 * The feature id for the '<em><b>Creation Point</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Creation Point</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1042,7 +1099,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__CREATION_POINT = BINDING__CREATION_POINT;
 
 	/**
-	 * The feature id for the '<em><b>Arguments</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Arguments</b></em>' map. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1050,7 +1108,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__ARGUMENTS = BINDING__ARGUMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1058,7 +1117,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__ID = BINDING__ID;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Type</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1066,7 +1126,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__TYPE = BINDING__TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Label</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1074,8 +1135,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__LABEL = BINDING__LABEL;
 
 	/**
-	 * The feature id for the '<em><b>Static Data Type</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Static Data Type</b></em>' reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1083,7 +1144,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__STATIC_DATA_TYPE = BINDING__STATIC_DATA_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Data Type</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Data Type</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1091,7 +1153,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__DATA_TYPE = BINDING__DATA_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Model EType</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Model EType</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1099,7 +1162,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__MODEL_ETYPE = BINDING__MODEL_ETYPE;
 
 	/**
-	 * The feature id for the '<em><b>Model Type</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Model Type</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1107,7 +1171,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__MODEL_TYPE = BINDING__MODEL_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>UI Type</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>UI Type</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1115,8 +1180,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__UI_TYPE = BINDING__UI_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>DB Bindings</b></em>' attribute list. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>DB Bindings</b></em>' attribute list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1124,8 +1189,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__DB_BINDINGS = BINDING__DB_BINDINGS;
 
 	/**
-	 * The feature id for the '<em><b>Monitored DB Bindings</b></em>' attribute list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Monitored DB Bindings</b></em>' attribute list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1133,8 +1198,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__MONITORED_DB_BINDINGS = BINDING__MONITORED_DB_BINDINGS;
 
 	/**
-	 * The feature id for the '<em><b>Error Conditions</b></em>' attribute list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Error Conditions</b></em>' attribute list. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1142,7 +1207,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__ERROR_CONDITIONS = BINDING__ERROR_CONDITIONS;
 
 	/**
-	 * The feature id for the '<em><b>Widget</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Widget</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1150,7 +1216,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__WIDGET = BINDING__WIDGET;
 
 	/**
-	 * The feature id for the '<em><b>Control</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Control</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1158,8 +1225,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__CONTROL = BINDING__CONTROL;
 
 	/**
-	 * The feature id for the '<em><b>Extra Argument Providers</b></em>' reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Extra Argument Providers</b></em>' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1167,7 +1234,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__EXTRA_ARGUMENT_PROVIDERS = BINDING__EXTRA_ARGUMENT_PROVIDERS;
 
 	/**
-	 * The feature id for the '<em><b>Viewer Binding</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Viewer Binding</b></em>' reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1175,7 +1243,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__VIEWER_BINDING = BINDING_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Viewer Column</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Viewer Column</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1183,7 +1252,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__VIEWER_COLUMN = BINDING_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Column Adapter</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Column Adapter</b></em>' reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1191,7 +1261,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__COLUMN_ADAPTER = BINDING_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Base Column</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Base Column</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1199,8 +1270,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__BASE_COLUMN = BINDING_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Sub Columns</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Sub Columns</b></em>' reference list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1208,7 +1279,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__SUB_COLUMNS = BINDING_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Cells</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Cells</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1216,8 +1288,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__CELLS = BINDING_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Special Binding Type</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Special Binding Type</b></em>' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1225,7 +1297,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__SPECIAL_BINDING_TYPE = BINDING_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Factory</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Factory</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1233,7 +1306,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__FACTORY = BINDING_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Cursor</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Cursor</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1241,8 +1315,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__CURSOR = BINDING_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Column Visibility</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Column Visibility</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1250,8 +1324,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__COLUMN_VISIBILITY = BINDING_FEATURE_COUNT + 9;
 
 	/**
-	 * The number of structural features of the '<em>Column Binding</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>Column Binding</em>' class. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1259,8 +1333,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING_FEATURE_COUNT = BINDING_FEATURE_COUNT + 10;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.ViewerBindingImpl <em>Viewer Binding</em>}'
-	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.ViewerBindingImpl
+	 * <em>Viewer Binding</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.ViewerBindingImpl
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getViewerBinding()
@@ -1269,8 +1343,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING = 8;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.IArgumentProvider <em>Argument Provider</em>}'
-	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.IArgumentProvider
+	 * <em>Argument Provider</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.IArgumentProvider
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getArgumentProvider()
@@ -1289,7 +1363,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int DECORATOR_PROVIDER = 9;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.JavaDecoratorProviderImpl
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.internal.JavaDecoratorProviderImpl
 	 * <em>Java Decorator Provider</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.JavaDecoratorProviderImpl
@@ -1299,7 +1374,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int JAVA_DECORATOR_PROVIDER = 10;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.EnumDecoratorProviderImpl
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.internal.EnumDecoratorProviderImpl
 	 * <em>Enum Decorator Provider</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.EnumDecoratorProviderImpl
@@ -1309,7 +1385,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ENUM_DECORATOR_PROVIDER = 11;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.NumberDecoratorProviderImpl
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.internal.NumberDecoratorProviderImpl
 	 * <em>Number Decorator Provider</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.NumberDecoratorProviderImpl
@@ -1329,8 +1406,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_DATA_TYPE = 14;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.ColumnAdapterImpl <em>Column Adapter</em>}'
-	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.ColumnAdapterImpl
+	 * <em>Column Adapter</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.ColumnAdapterImpl
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getColumnAdapter()
@@ -1339,8 +1416,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_ADAPTER = 15;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.ModelInfoImpl <em>Model Info</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.ModelInfoImpl
+	 * <em>Model Info</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.ModelInfoImpl
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getModelInfo()
@@ -1379,8 +1456,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_BINDING_DECORATOR = 19;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.IDisposable <em>IDisposable</em>}' class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.IDisposable
+	 * <em>IDisposable</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.IDisposable
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIDisposable()
@@ -1389,8 +1466,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int IDISPOSABLE = 23;
 
 	/**
-	 * The number of structural features of the '<em>IDisposable</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The number of structural features of the '<em>IDisposable</em>' class. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1398,8 +1475,10 @@ public interface IUIBindingsPackage extends EPackage {
 	int IDISPOSABLE_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl
-	 * <em>Column Binding Cell Information</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl
+	 * <em>Column Binding Cell Information</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getColumnBindingCellInformation()
@@ -1408,7 +1487,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING_CELL_INFORMATION = 7;
 
 	/**
-	 * The feature id for the '<em><b>Column</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Column</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1416,7 +1496,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING_CELL_INFORMATION__COLUMN = IDISPOSABLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Element</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Element</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1424,7 +1505,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING_CELL_INFORMATION__ELEMENT = IDISPOSABLE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Label Binding</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Label Binding</b></em>' reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1432,8 +1514,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING_CELL_INFORMATION__LABEL_BINDING = IDISPOSABLE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Label UI Attribute</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Label UI Attribute</b></em>' reference. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1441,7 +1523,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING_CELL_INFORMATION__LABEL_UI_ATTRIBUTE = IDISPOSABLE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Label Painter</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Label Painter</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1449,7 +1532,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING_CELL_INFORMATION__LABEL_PAINTER = IDISPOSABLE_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Object Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Object Value</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1457,7 +1541,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING_CELL_INFORMATION__OBJECT_VALUE = IDISPOSABLE_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Source Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Source Value</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1465,7 +1550,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING_CELL_INFORMATION__SOURCE_VALUE = IDISPOSABLE_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1473,7 +1559,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING_CELL_INFORMATION__CHANGEABLE = IDISPOSABLE_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Display Text</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Display Text</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1481,7 +1568,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING_CELL_INFORMATION__DISPLAY_TEXT = IDISPOSABLE_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Value Type</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Value Type</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1489,7 +1577,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING_CELL_INFORMATION__VALUE_TYPE = IDISPOSABLE_FEATURE_COUNT + 9;
 
 	/**
-	 * The feature id for the '<em><b>Tool Tip Text</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Tool Tip Text</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1497,7 +1586,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING_CELL_INFORMATION__TOOL_TIP_TEXT = IDISPOSABLE_FEATURE_COUNT + 10;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1505,8 +1595,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING_CELL_INFORMATION__ENABLED = IDISPOSABLE_FEATURE_COUNT + 11;
 
 	/**
-	 * The number of structural features of the '<em>Column Binding Cell Information</em>' class. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Column Binding Cell Information</em>' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1514,7 +1604,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING_CELL_INFORMATION_FEATURE_COUNT = IDISPOSABLE_FEATURE_COUNT + 12;
 
 	/**
-	 * The feature id for the '<em><b>Services</b></em>' attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Services</b></em>' attribute list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1522,7 +1613,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__SERVICES = BINDING__SERVICES;
 
 	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1530,8 +1622,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__DECLARED_ARGUMENTS = BINDING__DECLARED_ARGUMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Context</b></em>' container reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Context</b></em>' container reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1539,7 +1631,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__CONTEXT = BINDING__CONTEXT;
 
 	/**
-	 * The feature id for the '<em><b>State</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>State</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1547,7 +1640,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__STATE = BINDING__STATE;
 
 	/**
-	 * The feature id for the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1555,7 +1649,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__CHANGEABLE = BINDING__CHANGEABLE;
 
 	/**
-	 * The feature id for the '<em><b>Creation Point</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Creation Point</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1563,7 +1658,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__CREATION_POINT = BINDING__CREATION_POINT;
 
 	/**
-	 * The feature id for the '<em><b>Arguments</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Arguments</b></em>' map. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1571,7 +1667,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__ARGUMENTS = BINDING__ARGUMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1579,7 +1676,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__ID = BINDING__ID;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Type</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1587,7 +1685,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__TYPE = BINDING__TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Label</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1595,8 +1694,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__LABEL = BINDING__LABEL;
 
 	/**
-	 * The feature id for the '<em><b>Static Data Type</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Static Data Type</b></em>' reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1604,7 +1703,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__STATIC_DATA_TYPE = BINDING__STATIC_DATA_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Data Type</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Data Type</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1612,7 +1712,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__DATA_TYPE = BINDING__DATA_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Model EType</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Model EType</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1620,7 +1721,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__MODEL_ETYPE = BINDING__MODEL_ETYPE;
 
 	/**
-	 * The feature id for the '<em><b>Model Type</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Model Type</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1628,7 +1730,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__MODEL_TYPE = BINDING__MODEL_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>UI Type</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>UI Type</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1636,8 +1739,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__UI_TYPE = BINDING__UI_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>DB Bindings</b></em>' attribute list. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>DB Bindings</b></em>' attribute list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1645,8 +1748,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__DB_BINDINGS = BINDING__DB_BINDINGS;
 
 	/**
-	 * The feature id for the '<em><b>Monitored DB Bindings</b></em>' attribute list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Monitored DB Bindings</b></em>' attribute list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1654,8 +1757,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__MONITORED_DB_BINDINGS = BINDING__MONITORED_DB_BINDINGS;
 
 	/**
-	 * The feature id for the '<em><b>Error Conditions</b></em>' attribute list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Error Conditions</b></em>' attribute list. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1663,7 +1766,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__ERROR_CONDITIONS = BINDING__ERROR_CONDITIONS;
 
 	/**
-	 * The feature id for the '<em><b>Widget</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Widget</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1671,7 +1775,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__WIDGET = BINDING__WIDGET;
 
 	/**
-	 * The feature id for the '<em><b>Control</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Control</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1679,8 +1784,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__CONTROL = BINDING__CONTROL;
 
 	/**
-	 * The feature id for the '<em><b>Extra Argument Providers</b></em>' reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Extra Argument Providers</b></em>' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1688,7 +1793,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__EXTRA_ARGUMENT_PROVIDERS = BINDING__EXTRA_ARGUMENT_PROVIDERS;
 
 	/**
-	 * The feature id for the '<em><b>Columns</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Columns</b></em>' reference list. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1696,7 +1802,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__COLUMNS = BINDING_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>List</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>List</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1704,7 +1811,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__LIST = BINDING_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Elements</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1712,8 +1820,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__ELEMENTS = BINDING_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Single Selection</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Single Selection</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1721,8 +1829,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__SINGLE_SELECTION = BINDING_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Multiple Selection</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Multiple Selection</b></em>' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1730,7 +1838,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__MULTIPLE_SELECTION = BINDING_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Viewer</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Viewer</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1738,8 +1847,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__VIEWER = BINDING_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>First Table Column Offset</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>First Table Column Offset</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1747,8 +1856,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__FIRST_TABLE_COLUMN_OFFSET = BINDING_FEATURE_COUNT + 6;
 
 	/**
-	 * The number of structural features of the '<em>Viewer Binding</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>Viewer Binding</em>' class. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1756,7 +1865,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING_FEATURE_COUNT = BINDING_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1764,8 +1874,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ARGUMENT_PROVIDER__DECLARED_ARGUMENTS = 0;
 
 	/**
-	 * The number of structural features of the '<em>Argument Provider</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>Argument Provider</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1773,7 +1883,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ARGUMENT_PROVIDER_FEATURE_COUNT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1781,8 +1892,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int DECORATOR_PROVIDER__DECLARED_ARGUMENTS = ARGUMENT_PROVIDER__DECLARED_ARGUMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Manager</b></em>' container reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Manager</b></em>' container reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1790,7 +1901,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int DECORATOR_PROVIDER__MANAGER = ARGUMENT_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1798,7 +1910,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int DECORATOR_PROVIDER__ID = ARGUMENT_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Type</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1806,8 +1919,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int DECORATOR_PROVIDER__TYPE = ARGUMENT_PROVIDER_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Model Types</b></em>' attribute list. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Model Types</b></em>' attribute list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1815,7 +1928,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int DECORATOR_PROVIDER__MODEL_TYPES = ARGUMENT_PROVIDER_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Ui Types</b></em>' attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Ui Types</b></em>' attribute list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1823,7 +1937,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int DECORATOR_PROVIDER__UI_TYPES = ARGUMENT_PROVIDER_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Provider CE</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Provider CE</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1831,7 +1946,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int DECORATOR_PROVIDER__PROVIDER_CE = ARGUMENT_PROVIDER_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Child CE</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Child CE</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1839,7 +1955,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int DECORATOR_PROVIDER__CHILD_CE = ARGUMENT_PROVIDER_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Decorator</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Decorator</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1847,8 +1964,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int DECORATOR_PROVIDER__DECORATOR = ARGUMENT_PROVIDER_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Exact Model Type Match</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Exact Model Type Match</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1856,8 +1973,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int DECORATOR_PROVIDER__EXACT_MODEL_TYPE_MATCH = ARGUMENT_PROVIDER_FEATURE_COUNT + 8;
 
 	/**
-	 * The number of structural features of the '<em>Decorator Provider</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>Decorator Provider</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1865,7 +1982,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int DECORATOR_PROVIDER_FEATURE_COUNT = ARGUMENT_PROVIDER_FEATURE_COUNT + 9;
 
 	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1873,8 +1991,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int JAVA_DECORATOR_PROVIDER__DECLARED_ARGUMENTS = DECORATOR_PROVIDER__DECLARED_ARGUMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Manager</b></em>' container reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Manager</b></em>' container reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1882,7 +2000,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int JAVA_DECORATOR_PROVIDER__MANAGER = DECORATOR_PROVIDER__MANAGER;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1890,7 +2009,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int JAVA_DECORATOR_PROVIDER__ID = DECORATOR_PROVIDER__ID;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Type</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1898,8 +2018,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int JAVA_DECORATOR_PROVIDER__TYPE = DECORATOR_PROVIDER__TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Model Types</b></em>' attribute list. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Model Types</b></em>' attribute list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1907,7 +2027,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int JAVA_DECORATOR_PROVIDER__MODEL_TYPES = DECORATOR_PROVIDER__MODEL_TYPES;
 
 	/**
-	 * The feature id for the '<em><b>Ui Types</b></em>' attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Ui Types</b></em>' attribute list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1915,7 +2036,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int JAVA_DECORATOR_PROVIDER__UI_TYPES = DECORATOR_PROVIDER__UI_TYPES;
 
 	/**
-	 * The feature id for the '<em><b>Provider CE</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Provider CE</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1923,7 +2045,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int JAVA_DECORATOR_PROVIDER__PROVIDER_CE = DECORATOR_PROVIDER__PROVIDER_CE;
 
 	/**
-	 * The feature id for the '<em><b>Child CE</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Child CE</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1931,7 +2054,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int JAVA_DECORATOR_PROVIDER__CHILD_CE = DECORATOR_PROVIDER__CHILD_CE;
 
 	/**
-	 * The feature id for the '<em><b>Decorator</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Decorator</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1939,8 +2063,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int JAVA_DECORATOR_PROVIDER__DECORATOR = DECORATOR_PROVIDER__DECORATOR;
 
 	/**
-	 * The feature id for the '<em><b>Exact Model Type Match</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Exact Model Type Match</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1948,8 +2072,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int JAVA_DECORATOR_PROVIDER__EXACT_MODEL_TYPE_MATCH = DECORATOR_PROVIDER__EXACT_MODEL_TYPE_MATCH;
 
 	/**
-	 * The number of structural features of the '<em>Java Decorator Provider</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>Java Decorator Provider</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1957,7 +2081,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int JAVA_DECORATOR_PROVIDER_FEATURE_COUNT = DECORATOR_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1965,8 +2090,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ENUM_DECORATOR_PROVIDER__DECLARED_ARGUMENTS = DECORATOR_PROVIDER__DECLARED_ARGUMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Manager</b></em>' container reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Manager</b></em>' container reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1974,7 +2099,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ENUM_DECORATOR_PROVIDER__MANAGER = DECORATOR_PROVIDER__MANAGER;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1982,7 +2108,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ENUM_DECORATOR_PROVIDER__ID = DECORATOR_PROVIDER__ID;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Type</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1990,8 +2117,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ENUM_DECORATOR_PROVIDER__TYPE = DECORATOR_PROVIDER__TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Model Types</b></em>' attribute list. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Model Types</b></em>' attribute list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1999,7 +2126,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ENUM_DECORATOR_PROVIDER__MODEL_TYPES = DECORATOR_PROVIDER__MODEL_TYPES;
 
 	/**
-	 * The feature id for the '<em><b>Ui Types</b></em>' attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Ui Types</b></em>' attribute list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2007,7 +2135,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ENUM_DECORATOR_PROVIDER__UI_TYPES = DECORATOR_PROVIDER__UI_TYPES;
 
 	/**
-	 * The feature id for the '<em><b>Provider CE</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Provider CE</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2015,7 +2144,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ENUM_DECORATOR_PROVIDER__PROVIDER_CE = DECORATOR_PROVIDER__PROVIDER_CE;
 
 	/**
-	 * The feature id for the '<em><b>Child CE</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Child CE</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2023,7 +2153,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ENUM_DECORATOR_PROVIDER__CHILD_CE = DECORATOR_PROVIDER__CHILD_CE;
 
 	/**
-	 * The feature id for the '<em><b>Decorator</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Decorator</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2031,8 +2162,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ENUM_DECORATOR_PROVIDER__DECORATOR = DECORATOR_PROVIDER__DECORATOR;
 
 	/**
-	 * The feature id for the '<em><b>Exact Model Type Match</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Exact Model Type Match</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2040,8 +2171,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ENUM_DECORATOR_PROVIDER__EXACT_MODEL_TYPE_MATCH = DECORATOR_PROVIDER__EXACT_MODEL_TYPE_MATCH;
 
 	/**
-	 * The feature id for the '<em><b>Adding Default Mappings</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Adding Default Mappings</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2049,8 +2180,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ENUM_DECORATOR_PROVIDER__ADDING_DEFAULT_MAPPINGS = DECORATOR_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Base Mappings</b></em>' containment reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Base Mappings</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2058,8 +2189,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ENUM_DECORATOR_PROVIDER__BASE_MAPPINGS = DECORATOR_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Enum Decorator Provider</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>Enum Decorator Provider</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2067,7 +2198,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ENUM_DECORATOR_PROVIDER_FEATURE_COUNT = DECORATOR_PROVIDER_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.EnumDecoratorProviderEntryImpl
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.internal.EnumDecoratorProviderEntryImpl
 	 * <em>Enum Decorator Provider Entry</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.EnumDecoratorProviderEntryImpl
@@ -2077,7 +2209,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ENUM_DECORATOR_PROVIDER_ENTRY = 12;
 
 	/**
-	 * The feature id for the '<em><b>Model</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Model</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2085,7 +2218,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ENUM_DECORATOR_PROVIDER_ENTRY__MODEL = 0;
 
 	/**
-	 * The feature id for the '<em><b>Ui</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Ui</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2093,8 +2227,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ENUM_DECORATOR_PROVIDER_ENTRY__UI = 1;
 
 	/**
-	 * The number of structural features of the '<em>Enum Decorator Provider Entry</em>' class. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Enum Decorator Provider Entry</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2102,7 +2236,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ENUM_DECORATOR_PROVIDER_ENTRY_FEATURE_COUNT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2110,8 +2245,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int NUMBER_DECORATOR_PROVIDER__DECLARED_ARGUMENTS = DECORATOR_PROVIDER__DECLARED_ARGUMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Manager</b></em>' container reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Manager</b></em>' container reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2119,7 +2254,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int NUMBER_DECORATOR_PROVIDER__MANAGER = DECORATOR_PROVIDER__MANAGER;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2127,7 +2263,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int NUMBER_DECORATOR_PROVIDER__ID = DECORATOR_PROVIDER__ID;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Type</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2135,8 +2272,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int NUMBER_DECORATOR_PROVIDER__TYPE = DECORATOR_PROVIDER__TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Model Types</b></em>' attribute list. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Model Types</b></em>' attribute list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2144,7 +2281,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int NUMBER_DECORATOR_PROVIDER__MODEL_TYPES = DECORATOR_PROVIDER__MODEL_TYPES;
 
 	/**
-	 * The feature id for the '<em><b>Ui Types</b></em>' attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Ui Types</b></em>' attribute list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2152,7 +2290,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int NUMBER_DECORATOR_PROVIDER__UI_TYPES = DECORATOR_PROVIDER__UI_TYPES;
 
 	/**
-	 * The feature id for the '<em><b>Provider CE</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Provider CE</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2160,7 +2299,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int NUMBER_DECORATOR_PROVIDER__PROVIDER_CE = DECORATOR_PROVIDER__PROVIDER_CE;
 
 	/**
-	 * The feature id for the '<em><b>Child CE</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Child CE</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2168,7 +2308,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int NUMBER_DECORATOR_PROVIDER__CHILD_CE = DECORATOR_PROVIDER__CHILD_CE;
 
 	/**
-	 * The feature id for the '<em><b>Decorator</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Decorator</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2176,8 +2317,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int NUMBER_DECORATOR_PROVIDER__DECORATOR = DECORATOR_PROVIDER__DECORATOR;
 
 	/**
-	 * The feature id for the '<em><b>Exact Model Type Match</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Exact Model Type Match</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2185,7 +2326,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int NUMBER_DECORATOR_PROVIDER__EXACT_MODEL_TYPE_MATCH = DECORATOR_PROVIDER__EXACT_MODEL_TYPE_MATCH;
 
 	/**
-	 * The feature id for the '<em><b>Format</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Format</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2193,8 +2335,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int NUMBER_DECORATOR_PROVIDER__FORMAT = DECORATOR_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Number Decorator Provider</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>Number Decorator Provider</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2202,7 +2344,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int NUMBER_DECORATOR_PROVIDER_FEATURE_COUNT = DECORATOR_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2210,7 +2353,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_DATA_TYPE__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Value Type</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Value Type</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2218,7 +2362,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_DATA_TYPE__VALUE_TYPE = 1;
 
 	/**
-	 * The feature id for the '<em><b>EType</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>EType</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2226,7 +2371,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_DATA_TYPE__ETYPE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Data Type</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Data Type</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2234,7 +2380,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_DATA_TYPE__DATA_TYPE = 3;
 
 	/**
-	 * The feature id for the '<em><b>EAnnotation</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>EAnnotation</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2242,8 +2389,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_DATA_TYPE__EANNOTATION = 4;
 
 	/**
-	 * The feature id for the '<em><b>Parent Data Type</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Parent Data Type</b></em>' reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2251,7 +2398,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_DATA_TYPE__PARENT_DATA_TYPE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Required</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2259,7 +2407,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_DATA_TYPE__REQUIRED = 6;
 
 	/**
-	 * The feature id for the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2267,7 +2416,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_DATA_TYPE__CHANGEABLE = 7;
 
 	/**
-	 * The feature id for the '<em><b>Unsettable</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Unsettable</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2275,8 +2425,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_DATA_TYPE__UNSETTABLE = 8;
 
 	/**
-	 * The number of structural features of the '<em>Binding Data Type</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>Binding Data Type</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2284,7 +2434,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_DATA_TYPE_FEATURE_COUNT = 9;
 
 	/**
-	 * The feature id for the '<em><b>Widget</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Widget</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2292,7 +2443,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_ADAPTER__WIDGET = 0;
 
 	/**
-	 * The feature id for the '<em><b>Text</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Text</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2300,7 +2452,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_ADAPTER__TEXT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Alignment</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Alignment</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2308,7 +2461,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_ADAPTER__ALIGNMENT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Image</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Image</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2316,7 +2470,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_ADAPTER__IMAGE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Moveable</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Moveable</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2324,7 +2479,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_ADAPTER__MOVEABLE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Resizable</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Resizable</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2332,7 +2488,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_ADAPTER__RESIZABLE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Width</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Width</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2340,7 +2497,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_ADAPTER__WIDTH = 6;
 
 	/**
-	 * The feature id for the '<em><b>Tool Tip Text</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Tool Tip Text</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2348,8 +2506,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_ADAPTER__TOOL_TIP_TEXT = 7;
 
 	/**
-	 * The number of structural features of the '<em>Column Adapter</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>Column Adapter</em>' class. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2357,7 +2515,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_ADAPTER_FEATURE_COUNT = 8;
 
 	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2365,8 +2524,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MODEL_INFO__DECLARED_ARGUMENTS = ARGUMENT_PROVIDER__DECLARED_ARGUMENTS;
 
 	/**
-	 * The number of structural features of the '<em>Model Info</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The number of structural features of the '<em>Model Info</em>' class. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2374,7 +2533,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MODEL_INFO_FEATURE_COUNT = ARGUMENT_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2382,7 +2542,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MODEL_CLASS_INFO__DECLARED_ARGUMENTS = MODEL_INFO__DECLARED_ARGUMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Class Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Class Name</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2390,7 +2551,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MODEL_CLASS_INFO__CLASS_NAME = MODEL_INFO_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Features</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Features</b></em>' map. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2398,7 +2560,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MODEL_CLASS_INFO__FEATURES = MODEL_INFO_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Types</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Types</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2406,8 +2569,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MODEL_CLASS_INFO__TYPES = MODEL_INFO_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Model Class Info</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>Model Class Info</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2415,7 +2578,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MODEL_CLASS_INFO_FEATURE_COUNT = MODEL_INFO_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2423,7 +2587,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MODEL_FEATURE_INFO__DECLARED_ARGUMENTS = MODEL_INFO__DECLARED_ARGUMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Feature Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Feature Name</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2431,7 +2596,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MODEL_FEATURE_INFO__FEATURE_NAME = MODEL_INFO_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Class</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Class</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2439,8 +2605,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MODEL_FEATURE_INFO__CLASS = MODEL_INFO_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Model Feature Info</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>Model Feature Info</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2448,7 +2614,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int MODEL_FEATURE_INFO_FEATURE_COUNT = MODEL_INFO_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Binding</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Binding</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2456,7 +2623,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_BINDING_DECORATOR__BINDING = IDISPOSABLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2464,8 +2632,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_BINDING_DECORATOR__CHANGEABLE = IDISPOSABLE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Model To UI Converter</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Model To UI Converter</b></em>' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2473,8 +2641,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_BINDING_DECORATOR__MODEL_TO_UI_CONVERTER = IDISPOSABLE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>UI To Model Converter</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>UI To Model Converter</b></em>' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2482,8 +2650,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_BINDING_DECORATOR__UI_TO_MODEL_CONVERTER = IDISPOSABLE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>UI To Model After Convert Validator</b></em>' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>UI To Model After Convert Validator</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2491,7 +2659,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_BINDING_DECORATOR__UI_TO_MODEL_AFTER_CONVERT_VALIDATOR = IDISPOSABLE_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Valid UI List</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Valid UI List</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2499,8 +2668,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_BINDING_DECORATOR__VALID_UI_LIST = IDISPOSABLE_FEATURE_COUNT + 5;
 
 	/**
-	 * The number of structural features of the '<em>UI Binding Decorator</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>UI Binding Decorator</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2508,7 +2677,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_BINDING_DECORATOR_FEATURE_COUNT = IDISPOSABLE_FEATURE_COUNT + 6;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.UIBindingDecoratorExtenderImpl
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.internal.UIBindingDecoratorExtenderImpl
 	 * <em>UI Binding Decorator Extender</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.UIBindingDecoratorExtenderImpl
@@ -2518,8 +2688,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_BINDING_DECORATOR_EXTENDER = 20;
 
 	/**
-	 * The number of structural features of the '<em>UI Binding Decorator Extender</em>' class. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>UI Binding Decorator Extender</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2527,8 +2697,10 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_BINDING_DECORATOR_EXTENDER_FEATURE_COUNT = IDISPOSABLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.UIBindingDecoratorExtenderDescriptorImpl
-	 * <em>UI Binding Decorator Extender Descriptor</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.internal.UIBindingDecoratorExtenderDescriptorImpl
+	 * <em>UI Binding Decorator Extender Descriptor</em>}' class. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.UIBindingDecoratorExtenderDescriptorImpl
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUIBindingDecoratorExtenderDescriptor()
@@ -2537,7 +2709,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_BINDING_DECORATOR_EXTENDER_DESCRIPTOR = 21;
 
 	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2545,7 +2718,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_BINDING_DECORATOR_EXTENDER_DESCRIPTOR__DECLARED_ARGUMENTS = ARGUMENT_PROVIDER__DECLARED_ARGUMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Priority</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Priority</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2553,7 +2727,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_BINDING_DECORATOR_EXTENDER_DESCRIPTOR__PRIORITY = ARGUMENT_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Factory</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Factory</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2561,8 +2736,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_BINDING_DECORATOR_EXTENDER_DESCRIPTOR__FACTORY = ARGUMENT_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>UI Binding Decorator Extender Descriptor</em>' class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>UI Binding Decorator Extender Descriptor</em>'
+	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2580,8 +2755,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int IMODEL_ARGUMENT_MEDIATOR = 24;
 
 	/**
-	 * The number of structural features of the '<em>IModel Argument Mediator</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>IModel Argument Mediator</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2599,8 +2774,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int IPERSISTENT_PARTY = 25;
 
 	/**
-	 * The number of structural features of the '<em>IPersistent Party</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>IPersistent Party</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2608,8 +2783,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int IPERSISTENT_PARTY_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.Constants <em>Constants</em>}' class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.Constants <em>Constants</em>}'
+	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.Constants
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getConstants()
@@ -2618,8 +2793,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int CONSTANTS = 26;
 
 	/**
-	 * The number of structural features of the '<em>Constants</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The number of structural features of the '<em>Constants</em>' class. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2627,8 +2802,10 @@ public interface IUIBindingsPackage extends EPackage {
 	int CONSTANTS_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.StringToModelClassInfoMapEntryImpl
-	 * <em>String To Model Class Info Map Entry</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.internal.StringToModelClassInfoMapEntryImpl
+	 * <em>String To Model Class Info Map Entry</em>}' class. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.StringToModelClassInfoMapEntryImpl
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getStringToModelClassInfoMapEntry()
@@ -2637,7 +2814,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_MODEL_CLASS_INFO_MAP_ENTRY = 27;
 
 	/**
-	 * The feature id for the '<em><b>Key</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Key</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2645,7 +2823,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_MODEL_CLASS_INFO_MAP_ENTRY__KEY = 0;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Value</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2653,8 +2832,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_MODEL_CLASS_INFO_MAP_ENTRY__VALUE = 1;
 
 	/**
-	 * The number of structural features of the '<em>String To Model Class Info Map Entry</em>' class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>String To Model Class Info Map Entry</em>'
+	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2662,8 +2841,10 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_MODEL_CLASS_INFO_MAP_ENTRY_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.StringToModelFeatureInfoMapEntryImpl
-	 * <em>String To Model Feature Info Map Entry</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.internal.StringToModelFeatureInfoMapEntryImpl
+	 * <em>String To Model Feature Info Map Entry</em>}' class. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.StringToModelFeatureInfoMapEntryImpl
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getStringToModelFeatureInfoMapEntry()
@@ -2672,7 +2853,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_MODEL_FEATURE_INFO_MAP_ENTRY = 28;
 
 	/**
-	 * The feature id for the '<em><b>Key</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Key</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2680,7 +2862,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_MODEL_FEATURE_INFO_MAP_ENTRY__KEY = 0;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Value</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2688,8 +2871,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_MODEL_FEATURE_INFO_MAP_ENTRY__VALUE = 1;
 
 	/**
-	 * The number of structural features of the '<em>String To Model Feature Info Map Entry</em>' class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>String To Model Feature Info Map Entry</em>'
+	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2697,7 +2880,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_MODEL_FEATURE_INFO_MAP_ENTRY_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.StringToStringMapEntryImpl
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.internal.StringToStringMapEntryImpl
 	 * <em>String To String Map Entry</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.StringToStringMapEntryImpl
@@ -2707,7 +2891,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_STRING_MAP_ENTRY = 29;
 
 	/**
-	 * The feature id for the '<em><b>Key</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Key</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2715,7 +2900,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_STRING_MAP_ENTRY__KEY = 0;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Value</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2723,7 +2909,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_STRING_MAP_ENTRY__VALUE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Arguments</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Arguments</b></em>' map. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2731,8 +2918,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_STRING_MAP_ENTRY__ARGUMENTS = 2;
 
 	/**
-	 * The number of structural features of the '<em>String To String Map Entry</em>' class. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>String To String Map Entry</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2740,7 +2927,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_STRING_MAP_ENTRY_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.StringToObjectMapEntryImpl
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.internal.StringToObjectMapEntryImpl
 	 * <em>String To Object Map Entry</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.StringToObjectMapEntryImpl
@@ -2750,7 +2938,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_OBJECT_MAP_ENTRY = 30;
 
 	/**
-	 * The feature id for the '<em><b>Key</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Key</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2758,7 +2947,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_OBJECT_MAP_ENTRY__KEY = 0;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Value</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2766,8 +2956,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_OBJECT_MAP_ENTRY__VALUE = 1;
 
 	/**
-	 * The number of structural features of the '<em>String To Object Map Entry</em>' class. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>String To Object Map Entry</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2775,8 +2965,10 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_OBJECT_MAP_ENTRY_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.StringToImageDescriptorMapEntryImpl
-	 * <em>String To Image Descriptor Map Entry</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.internal.StringToImageDescriptorMapEntryImpl
+	 * <em>String To Image Descriptor Map Entry</em>}' class. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.StringToImageDescriptorMapEntryImpl
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getStringToImageDescriptorMapEntry()
@@ -2785,7 +2977,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_IMAGE_DESCRIPTOR_MAP_ENTRY = 31;
 
 	/**
-	 * The feature id for the '<em><b>Key</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Key</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2793,7 +2986,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_IMAGE_DESCRIPTOR_MAP_ENTRY__KEY = 0;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Value</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2801,8 +2995,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_IMAGE_DESCRIPTOR_MAP_ENTRY__VALUE = 1;
 
 	/**
-	 * The number of structural features of the '<em>String To Image Descriptor Map Entry</em>' class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>String To Image Descriptor Map Entry</em>'
+	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2810,8 +3004,10 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_IMAGE_DESCRIPTOR_MAP_ENTRY_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.StringToIConfigurationElementMapEntryImpl
-	 * <em>String To IConfiguration Element Map Entry</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.internal.StringToIConfigurationElementMapEntryImpl
+	 * <em>String To IConfiguration Element Map Entry</em>}' class. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.StringToIConfigurationElementMapEntryImpl
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getStringToIConfigurationElementMapEntry()
@@ -2820,7 +3016,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_ICONFIGURATION_ELEMENT_MAP_ENTRY = 32;
 
 	/**
-	 * The feature id for the '<em><b>Key</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Key</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2828,7 +3025,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_ICONFIGURATION_ELEMENT_MAP_ENTRY__KEY = 0;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Value</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2836,8 +3034,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_ICONFIGURATION_ELEMENT_MAP_ENTRY__VALUE = 1;
 
 	/**
-	 * The number of structural features of the '<em>String To IConfiguration Element Map Entry</em>' class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>String To IConfiguration Element Map Entry</em>
+	 * ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2845,7 +3043,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_ICONFIGURATION_ELEMENT_MAP_ENTRY_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.StringToBooleanMapEntryImpl
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.internal.StringToBooleanMapEntryImpl
 	 * <em>String To Boolean Map Entry</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.StringToBooleanMapEntryImpl
@@ -2855,7 +3054,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_BOOLEAN_MAP_ENTRY = 33;
 
 	/**
-	 * The feature id for the '<em><b>Key</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Key</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2863,7 +3063,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_BOOLEAN_MAP_ENTRY__KEY = 0;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Value</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2871,8 +3072,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int STRING_TO_BOOLEAN_MAP_ENTRY__VALUE = 1;
 
 	/**
-	 * The number of structural features of the '<em>String To Boolean Map Entry</em>' class. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>String To Boolean Map Entry</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2890,7 +3091,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int OBJECT_TO_CI_MAP_ENTRY = 34;
 
 	/**
-	 * The feature id for the '<em><b>Key</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Key</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2898,7 +3100,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int OBJECT_TO_CI_MAP_ENTRY__KEY = 0;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Value</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2906,8 +3109,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int OBJECT_TO_CI_MAP_ENTRY__VALUE = 1;
 
 	/**
-	 * The number of structural features of the '<em>Object To CI Map Entry</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>Object To CI Map Entry</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2915,8 +3118,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int OBJECT_TO_CI_MAP_ENTRY_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.jface.fieldassist.IContentProposal <em>IContent Proposal</em>}'
-	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link org.eclipse.jface.fieldassist.IContentProposal
+	 * <em>IContent Proposal</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.jface.fieldassist.IContentProposal
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIContentProposal()
@@ -2925,8 +3128,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ICONTENT_PROPOSAL = 51;
 
 	/**
-	 * The number of structural features of the '<em>IContent Proposal</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>IContent Proposal</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2944,7 +3147,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int QUICKFIX_PROPOSAL = 36;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Label</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2952,7 +3156,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int QUICKFIX_PROPOSAL__LABEL = ICONTENT_PROPOSAL_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2960,7 +3165,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int QUICKFIX_PROPOSAL__DESCRIPTION = ICONTENT_PROPOSAL_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Image</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Image</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2968,7 +3174,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int QUICKFIX_PROPOSAL__IMAGE = ICONTENT_PROPOSAL_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Relevance</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Relevance</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2976,8 +3183,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int QUICKFIX_PROPOSAL__RELEVANCE = ICONTENT_PROPOSAL_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of structural features of the '<em>Quickfix Proposal</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>Quickfix Proposal</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -2985,7 +3192,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int QUICKFIX_PROPOSAL_FEATURE_COUNT = ICONTENT_PROPOSAL_FEATURE_COUNT + 4;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorImpl
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorImpl
 	 * <em>Quickfix Proposal Processor</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.QuickfixProposalProcessorImpl
@@ -2995,8 +3203,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int QUICKFIX_PROPOSAL_PROCESSOR = 37;
 
 	/**
-	 * The number of structural features of the '<em>Quickfix Proposal Processor</em>' class. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Quickfix Proposal Processor</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3004,8 +3212,10 @@ public interface IUIBindingsPackage extends EPackage {
 	int QUICKFIX_PROPOSAL_PROCESSOR_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorContextImpl
-	 * <em>Quickfix Proposal Processor Context</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorContextImpl
+	 * <em>Quickfix Proposal Processor Context</em>}' class. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.QuickfixProposalProcessorContextImpl
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getQuickfixProposalProcessorContext()
@@ -3014,8 +3224,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int QUICKFIX_PROPOSAL_PROCESSOR_CONTEXT = 38;
 
 	/**
-	 * The number of structural features of the '<em>Quickfix Proposal Processor Context</em>' class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Quickfix Proposal Processor Context</em>'
+	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3023,8 +3233,10 @@ public interface IUIBindingsPackage extends EPackage {
 	int QUICKFIX_PROPOSAL_PROCESSOR_CONTEXT_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorDescriptorImpl
-	 * <em>Quickfix Proposal Processor Descriptor</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorDescriptorImpl
+	 * <em>Quickfix Proposal Processor Descriptor</em>}' class. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.QuickfixProposalProcessorDescriptorImpl
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getQuickfixProposalProcessorDescriptor()
@@ -3033,7 +3245,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int QUICKFIX_PROPOSAL_PROCESSOR_DESCRIPTOR = 39;
 
 	/**
-	 * The feature id for the '<em><b>Model Type</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Model Type</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3041,7 +3254,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int QUICKFIX_PROPOSAL_PROCESSOR_DESCRIPTOR__MODEL_TYPE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Feature</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Feature</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3049,7 +3263,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int QUICKFIX_PROPOSAL_PROCESSOR_DESCRIPTOR__FEATURE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Source</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Source</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3057,7 +3272,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int QUICKFIX_PROPOSAL_PROCESSOR_DESCRIPTOR__SOURCE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Code</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3065,7 +3281,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int QUICKFIX_PROPOSAL_PROCESSOR_DESCRIPTOR__CODE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Message Pattern</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Message Pattern</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3073,7 +3290,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int QUICKFIX_PROPOSAL_PROCESSOR_DESCRIPTOR__MESSAGE_PATTERN = 4;
 
 	/**
-	 * The feature id for the '<em><b>Processor</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Processor</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3081,8 +3299,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int QUICKFIX_PROPOSAL_PROCESSOR_DESCRIPTOR__PROCESSOR = 5;
 
 	/**
-	 * The number of structural features of the '<em>Quickfix Proposal Processor Descriptor</em>' class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Quickfix Proposal Processor Descriptor</em>'
+	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3100,7 +3318,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int TREE_ITEM_RELATION = 40;
 
 	/**
-	 * The feature id for the '<em><b>Parent</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Parent</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3108,7 +3327,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int TREE_ITEM_RELATION__PARENT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Descriptor</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Descriptor</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3116,7 +3336,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int TREE_ITEM_RELATION__DESCRIPTOR = 1;
 
 	/**
-	 * The feature id for the '<em><b>Processor</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Processor</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3124,7 +3345,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int TREE_ITEM_RELATION__PROCESSOR = 2;
 
 	/**
-	 * The feature id for the '<em><b>Feature Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Feature Name</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3132,7 +3354,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int TREE_ITEM_RELATION__FEATURE_NAME = 3;
 
 	/**
-	 * The feature id for the '<em><b>Priority</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Priority</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3140,8 +3363,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int TREE_ITEM_RELATION__PRIORITY = 4;
 
 	/**
-	 * The number of structural features of the '<em>Tree Item Relation</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>Tree Item Relation</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3159,7 +3382,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int TREE_ITEM_DESCRIPTOR = 41;
 
 	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3167,7 +3391,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int TREE_ITEM_DESCRIPTOR__DECLARED_ARGUMENTS = ARGUMENT_PROVIDER__DECLARED_ARGUMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3175,7 +3400,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int TREE_ITEM_DESCRIPTOR__ID = ARGUMENT_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Children</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Children</b></em>' reference list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3183,7 +3409,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int TREE_ITEM_DESCRIPTOR__CHILDREN = ARGUMENT_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Ce</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Ce</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3191,8 +3418,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int TREE_ITEM_DESCRIPTOR__CE = ARGUMENT_PROVIDER_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Model Types</b></em>' attribute list. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Model Types</b></em>' attribute list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3200,7 +3427,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int TREE_ITEM_DESCRIPTOR__MODEL_TYPES = ARGUMENT_PROVIDER_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>New Wizard ID</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>New Wizard ID</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3208,8 +3436,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int TREE_ITEM_DESCRIPTOR__NEW_WIZARD_ID = ARGUMENT_PROVIDER_FEATURE_COUNT + 4;
 
 	/**
-	 * The number of structural features of the '<em>Tree Item Descriptor</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>Tree Item Descriptor</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3227,7 +3455,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int CONSTANT_TREE_ITEM = 42;
 
 	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3235,7 +3464,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int CONSTANT_TREE_ITEM__DECLARED_ARGUMENTS = ARGUMENT_PROVIDER__DECLARED_ARGUMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Descriptor</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Descriptor</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3243,7 +3473,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int CONSTANT_TREE_ITEM__DESCRIPTOR = ARGUMENT_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Target</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Target</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3251,8 +3482,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int CONSTANT_TREE_ITEM__TARGET = ARGUMENT_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Constant Tree Item</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>Constant Tree Item</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3260,8 +3491,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int CONSTANT_TREE_ITEM_FEATURE_COUNT = ARGUMENT_PROVIDER_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.ui.forms.IMessage <em>IMessage</em>}' class. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link org.eclipse.ui.forms.IMessage <em>IMessage</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.ui.forms.IMessage
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIMessage()
@@ -3270,7 +3501,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int IMESSAGE = 50;
 
 	/**
-	 * The number of structural features of the '<em>IMessage</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>IMessage</em>' class. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3288,7 +3520,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_MESSAGE = 43;
 
 	/**
-	 * The feature id for the '<em><b>Binding</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Binding</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3296,7 +3529,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_MESSAGE__BINDING = IMESSAGE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Message</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Message</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3304,7 +3538,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_MESSAGE__MESSAGE = IMESSAGE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Severity</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Severity</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3312,7 +3547,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_MESSAGE__SEVERITY = IMESSAGE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Message Type</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Message Type</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3320,7 +3556,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_MESSAGE__MESSAGE_TYPE = IMESSAGE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Prefix</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Prefix</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3328,7 +3565,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_MESSAGE__PREFIX = IMESSAGE_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Targets</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Targets</b></em>' reference list. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3336,7 +3574,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_MESSAGE__TARGETS = IMESSAGE_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Data</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Data</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3344,7 +3583,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_MESSAGE__DATA = IMESSAGE_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Source</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Source</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3352,7 +3592,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_MESSAGE__SOURCE = IMESSAGE_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Code</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3360,7 +3601,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_MESSAGE__CODE = IMESSAGE_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Details</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Details</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3368,8 +3610,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_MESSAGE__DETAILS = IMESSAGE_FEATURE_COUNT + 9;
 
 	/**
-	 * The number of structural features of the '<em>Binding Message</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>Binding Message</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3377,7 +3619,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_MESSAGE_FEATURE_COUNT = IMESSAGE_FEATURE_COUNT + 10;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.BindingMessageTargetImpl
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.internal.BindingMessageTargetImpl
 	 * <em>Binding Message Target</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.BindingMessageTargetImpl
@@ -3387,7 +3630,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_MESSAGE_TARGET = 44;
 
 	/**
-	 * The feature id for the '<em><b>Model Object</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Model Object</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3395,7 +3639,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_MESSAGE_TARGET__MODEL_OBJECT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Model Feature</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Model Feature</b></em>' reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3403,7 +3648,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_MESSAGE_TARGET__MODEL_FEATURE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Model Key</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Model Key</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3411,8 +3657,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_MESSAGE_TARGET__MODEL_KEY = 2;
 
 	/**
-	 * The number of structural features of the '<em>Binding Message Target</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>Binding Message Target</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3420,8 +3666,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_MESSAGE_TARGET_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.UIAttributeImpl <em>UI Attribute</em>}'
-	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.UIAttributeImpl
+	 * <em>UI Attribute</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.UIAttributeImpl
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUIAttribute()
@@ -3430,7 +3676,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE = 45;
 
 	/**
-	 * The feature id for the '<em><b>Widget</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Widget</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3438,7 +3685,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE__WIDGET = IDISPOSABLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Attribute</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Attribute</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3446,7 +3694,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE__ATTRIBUTE = IDISPOSABLE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Current Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Current Value</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3454,8 +3703,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE__CURRENT_VALUE = IDISPOSABLE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Possible Values List</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Possible Values List</b></em>' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3463,7 +3712,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE__POSSIBLE_VALUES_LIST = IDISPOSABLE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Min Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Min Value</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3471,7 +3721,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE__MIN_VALUE = IDISPOSABLE_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Max Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Max Value</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3479,7 +3730,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE__MAX_VALUE = IDISPOSABLE_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Tooltip Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Tooltip Value</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3487,7 +3739,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE__TOOLTIP_VALUE = IDISPOSABLE_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Font Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Font Value</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3495,7 +3748,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE__FONT_VALUE = IDISPOSABLE_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Image Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Image Value</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3503,8 +3757,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE__IMAGE_VALUE = IDISPOSABLE_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Foreground Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Foreground Value</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3512,8 +3766,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE__FOREGROUND_VALUE = IDISPOSABLE_FEATURE_COUNT + 9;
 
 	/**
-	 * The feature id for the '<em><b>Background Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Background Value</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3521,7 +3775,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE__BACKGROUND_VALUE = IDISPOSABLE_FEATURE_COUNT + 10;
 
 	/**
-	 * The feature id for the '<em><b>Enabled Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Enabled Value</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3529,7 +3784,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE__ENABLED_VALUE = IDISPOSABLE_FEATURE_COUNT + 11;
 
 	/**
-	 * The feature id for the '<em><b>Cursor Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Cursor Value</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3537,8 +3793,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE__CURSOR_VALUE = IDISPOSABLE_FEATURE_COUNT + 12;
 
 	/**
-	 * The feature id for the '<em><b>Style Range List</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Style Range List</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3546,7 +3802,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE__STYLE_RANGE_LIST = IDISPOSABLE_FEATURE_COUNT + 13;
 
 	/**
-	 * The feature id for the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3554,8 +3811,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE__CHANGEABLE = IDISPOSABLE_FEATURE_COUNT + 14;
 
 	/**
-	 * The feature id for the '<em><b>Field Assist Adapter</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Field Assist Adapter</b></em>' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3563,8 +3820,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE__FIELD_ASSIST_ADAPTER = IDISPOSABLE_FEATURE_COUNT + 15;
 
 	/**
-	 * The feature id for the '<em><b>Image Decorations</b></em>' containment reference list. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Image Decorations</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3572,8 +3829,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE__IMAGE_DECORATIONS = IDISPOSABLE_FEATURE_COUNT + 16;
 
 	/**
-	 * The number of structural features of the '<em>UI Attribute</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The number of structural features of the '<em>UI Attribute</em>' class. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3581,7 +3838,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE_FEATURE_COUNT = IDISPOSABLE_FEATURE_COUNT + 17;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.UIAttributeImageDecorationImpl
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.internal.UIAttributeImageDecorationImpl
 	 * <em>UI Attribute Image Decoration</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.UIAttributeImageDecorationImpl
@@ -3591,7 +3849,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE_IMAGE_DECORATION = 46;
 
 	/**
-	 * The feature id for the '<em><b>Outside</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Outside</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3599,7 +3858,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE_IMAGE_DECORATION__OUTSIDE = IDISPOSABLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Image Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Image Value</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3607,7 +3867,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE_IMAGE_DECORATION__IMAGE_VALUE = IDISPOSABLE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Tooltip Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Tooltip Value</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3615,7 +3876,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE_IMAGE_DECORATION__TOOLTIP_VALUE = IDISPOSABLE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Position</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Position</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3623,8 +3885,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE_IMAGE_DECORATION__POSITION = IDISPOSABLE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Attribute</b></em>' container reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Attribute</b></em>' container reference. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3632,8 +3894,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE_IMAGE_DECORATION__ATTRIBUTE = IDISPOSABLE_FEATURE_COUNT + 4;
 
 	/**
-	 * The number of structural features of the '<em>UI Attribute Image Decoration</em>' class. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>UI Attribute Image Decoration</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3641,8 +3903,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE_IMAGE_DECORATION_FEATURE_COUNT = IDISPOSABLE_FEATURE_COUNT + 5;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.IUIAttributeFactory <em>UI Attribute Factory</em>}'
-	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.IUIAttributeFactory
+	 * <em>UI Attribute Factory</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.IUIAttributeFactory
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUIAttributeFactory()
@@ -3651,8 +3913,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE_FACTORY = 47;
 
 	/**
-	 * The number of structural features of the '<em>UI Attribute Factory</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '<em>UI Attribute Factory</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3660,8 +3922,10 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE_FACTORY_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.UIAttributeFactoryDescriptorImpl
-	 * <em>UI Attribute Factory Descriptor</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.internal.UIAttributeFactoryDescriptorImpl
+	 * <em>UI Attribute Factory Descriptor</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.UIAttributeFactoryDescriptorImpl
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUIAttributeFactoryDescriptor()
@@ -3670,7 +3934,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE_FACTORY_DESCRIPTOR = 48;
 
 	/**
-	 * The feature id for the '<em><b>Type Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Type Name</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3678,7 +3943,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE_FACTORY_DESCRIPTOR__TYPE_NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Attribute</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Attribute</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3686,7 +3952,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE_FACTORY_DESCRIPTOR__ATTRIBUTE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Factory</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Factory</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3694,8 +3961,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE_FACTORY_DESCRIPTOR__FACTORY = 2;
 
 	/**
-	 * The number of structural features of the '<em>UI Attribute Factory Descriptor</em>' class. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>UI Attribute Factory Descriptor</em>' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3703,8 +3970,10 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE_FACTORY_DESCRIPTOR_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.EMFObservableFactoryDescriptorImpl
-	 * <em>EMF Observable Factory Descriptor</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.internal.EMFObservableFactoryDescriptorImpl
+	 * <em>EMF Observable Factory Descriptor</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @see com.rcpcompany.uibindings.internal.EMFObservableFactoryDescriptorImpl
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getEMFObservableFactoryDescriptor()
@@ -3713,7 +3982,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int EMF_OBSERVABLE_FACTORY_DESCRIPTOR = 49;
 
 	/**
-	 * The feature id for the '<em><b>Package Prefix</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Package Prefix</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3721,7 +3991,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int EMF_OBSERVABLE_FACTORY_DESCRIPTOR__PACKAGE_PREFIX = 0;
 
 	/**
-	 * The feature id for the '<em><b>Factory</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Factory</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3729,8 +4000,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int EMF_OBSERVABLE_FACTORY_DESCRIPTOR__FACTORY = 1;
 
 	/**
-	 * The number of structural features of the '<em>EMF Observable Factory Descriptor</em>' class. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>EMF Observable Factory Descriptor</em>' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -3738,8 +4009,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int EMF_OBSERVABLE_FACTORY_DESCRIPTOR_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.BindingState <em>Binding State</em>}' enum. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.BindingState
+	 * <em>Binding State</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.BindingState
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getBindingState()
@@ -3748,8 +4019,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_STATE = 52;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.DecorationPosition <em>Decoration Position</em>}'
-	 * enum. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.DecorationPosition
+	 * <em>Decoration Position</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.DecorationPosition
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getDecorationPosition()
@@ -3758,8 +4029,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int DECORATION_POSITION = 53;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.TextCommitStrategy <em>Text Commit Strategy</em>}'
-	 * enum. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.TextCommitStrategy
+	 * <em>Text Commit Strategy</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.TextCommitStrategy
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getTextCommitStrategy()
@@ -3768,8 +4039,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int TEXT_COMMIT_STRATEGY = 54;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.SpecialBinding <em>Special Binding</em>}' enum. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.SpecialBinding
+	 * <em>Special Binding</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.SpecialBinding
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getSpecialBinding()
@@ -3788,8 +4059,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_MESSAGE_SEVERITY = 56;
 
 	/**
-	 * The meta object id for the '<em>UI Attribute Painter</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The meta object id for the '<em>UI Attribute Painter</em>' data type. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.uiAttributes.UIAttributePainter
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUIAttributePainter()
@@ -3798,8 +4069,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE_PAINTER = 57;
 
 	/**
-	 * The meta object id for the '<em>IEMF Observable Factory</em>' data type. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The meta object id for the '<em>IEMF Observable Factory</em>' data type. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibindings.IEMFObservableFactory
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIEMFObservableFactory()
@@ -3808,7 +4079,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int IEMF_OBSERVABLE_FACTORY = 58;
 
 	/**
-	 * The meta object id for the '<em>CE Object Holder</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>CE Object Holder</em>' data type. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.utils.extensionpoints.CEObjectHolder
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getCEObjectHolder()
@@ -3817,7 +4089,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int CE_OBJECT_HOLDER = 59;
 
 	/**
-	 * The meta object id for the '<em>CE Resource Holder</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>CE Resource Holder</em>' data type. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.utils.extensionpoints.CEResourceHolder
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getCEResourceHolder()
@@ -3826,7 +4099,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int CE_RESOURCE_HOLDER = 60;
 
 	/**
-	 * The meta object id for the '<em>DB Context</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>DB Context</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see org.eclipse.core.databinding.DataBindingContext
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getDBContext()
@@ -3835,7 +4109,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int DB_CONTEXT = 61;
 
 	/**
-	 * The meta object id for the '<em>DB Binding</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>DB Binding</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see org.eclipse.core.databinding.Binding
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getDBBinding()
@@ -3844,7 +4119,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int DB_BINDING = 62;
 
 	/**
-	 * The meta object id for the '<em>Column Viewer</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>Column Viewer</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see org.eclipse.jface.viewers.ColumnViewer
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getColumnViewer()
@@ -3853,7 +4129,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_VIEWER = 63;
 
 	/**
-	 * The meta object id for the '<em>Viewer Column</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>Viewer Column</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see org.eclipse.jface.viewers.ViewerColumn
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getViewerColumn()
@@ -3862,7 +4139,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_COLUMN = 64;
 
 	/**
-	 * The meta object id for the '<em>Image Descriptor</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>Image Descriptor</em>' data type. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.jface.resource.ImageDescriptor
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getImageDescriptor()
@@ -3871,8 +4149,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int IMAGE_DESCRIPTOR = 65;
 
 	/**
-	 * The meta object id for the '<em>IControl Content Adapter</em>' data type. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The meta object id for the '<em>IControl Content Adapter</em>' data type. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.jface.fieldassist.IControlContentAdapter
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIControlContentAdapter()
@@ -3881,7 +4159,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ICONTROL_CONTENT_ADAPTER = 66;
 
 	/**
-	 * The meta object id for the '<em>IService Locator</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>IService Locator</em>' data type. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.ui.services.IServiceLocator
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIServiceLocator()
@@ -3890,8 +4169,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ISERVICE_LOCATOR = 67;
 
 	/**
-	 * The meta object id for the '<em>IConfiguration Element</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The meta object id for the '<em>IConfiguration Element</em>' data type. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.core.runtime.IConfigurationElement
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIConfigurationElement()
@@ -3900,7 +4179,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ICONFIGURATION_ELEMENT = 68;
 
 	/**
-	 * The meta object id for the '<em>Pattern</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>Pattern</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see java.util.regex.Pattern
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getPattern()
@@ -3909,7 +4189,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int PATTERN = 69;
 
 	/**
-	 * The meta object id for the '<em>Throwable</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>Throwable</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see java.lang.Throwable
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getThrowable()
@@ -3918,7 +4199,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int THROWABLE = 70;
 
 	/**
-	 * The meta object id for the '<em>IObservable</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>IObservable</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see org.eclipse.core.databinding.observable.IObservable
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIObservable()
@@ -3927,7 +4209,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int IOBSERVABLE = 71;
 
 	/**
-	 * The meta object id for the '<em>IObservable Value</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>IObservable Value</em>' data type. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.core.databinding.observable.value.IObservableValue
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIObservableValue()
@@ -3936,7 +4219,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int IOBSERVABLE_VALUE = 72;
 
 	/**
-	 * The meta object id for the '<em>IObservable List</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>IObservable List</em>' data type. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.core.databinding.observable.list.IObservableList
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIObservableList()
@@ -3945,7 +4229,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int IOBSERVABLE_LIST = 73;
 
 	/**
-	 * The meta object id for the '<em>IObservable Set</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>IObservable Set</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see org.eclipse.core.databinding.observable.set.IObservableSet
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIObservableSet()
@@ -3954,8 +4239,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int IOBSERVABLE_SET = 74;
 
 	/**
-	 * The meta object id for the '<em>IObservable Factory</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The meta object id for the '<em>IObservable Factory</em>' data type. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.core.databinding.observable.masterdetail.IObservableFactory
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIObservableFactory()
@@ -3964,8 +4249,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int IOBSERVABLE_FACTORY = 75;
 
 	/**
-	 * The meta object id for the '<em>ISWT Observable Value</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The meta object id for the '<em>ISWT Observable Value</em>' data type. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.jface.databinding.swt.ISWTObservableValue
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getISWTObservableValue()
@@ -3974,7 +4259,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ISWT_OBSERVABLE_VALUE = 76;
 
 	/**
-	 * The meta object id for the '<em>IConverter</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>IConverter</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see org.eclipse.core.databinding.conversion.IConverter
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIConverter()
@@ -3983,7 +4269,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int ICONVERTER = 77;
 
 	/**
-	 * The meta object id for the '<em>IValidator</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>IValidator</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see org.eclipse.core.databinding.validation.IValidator
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIValidator()
@@ -3992,7 +4279,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int IVALIDATOR = 78;
 
 	/**
-	 * The meta object id for the '<em>Editing Domain</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>Editing Domain</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see org.eclipse.emf.edit.domain.EditingDomain
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getEditingDomain()
@@ -4001,7 +4289,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int EDITING_DOMAIN = 79;
 
 	/**
-	 * The meta object id for the '<em>Widget</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>Widget</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see org.eclipse.swt.widgets.Widget
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getWidget()
@@ -4010,7 +4299,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int WIDGET = 80;
 
 	/**
-	 * The meta object id for the '<em>Form Toolkit</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>Form Toolkit</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see org.eclipse.ui.forms.widgets.FormToolkit
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getFormToolkit()
@@ -4019,7 +4309,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int FORM_TOOLKIT = 81;
 
 	/**
-	 * The meta object id for the '<em>Control</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>Control</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see org.eclipse.swt.widgets.Control
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getControl()
@@ -4028,7 +4319,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int CONTROL = 82;
 
 	/**
-	 * The meta object id for the '<em>Composite</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>Composite</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see org.eclipse.swt.widgets.Composite
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getComposite()
@@ -4037,7 +4329,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COMPOSITE = 83;
 
 	/**
-	 * The meta object id for the '<em>Table</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>Table</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see org.eclipse.swt.widgets.Table
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getTable()
@@ -4046,7 +4339,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int TABLE = 84;
 
 	/**
-	 * The meta object id for the '<em>Table Column</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>Table Column</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see org.eclipse.swt.widgets.TableColumn
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getTableColumn()
@@ -4055,7 +4349,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int TABLE_COLUMN = 85;
 
 	/**
-	 * The meta object id for the '<em>Tree</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>Tree</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see org.eclipse.swt.widgets.Tree
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getTree()
@@ -4064,7 +4359,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int TREE = 86;
 
 	/**
-	 * The meta object id for the '<em>Tree Column</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>Tree Column</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see org.eclipse.swt.widgets.TreeColumn
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getTreeColumn()
@@ -4073,7 +4369,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int TREE_COLUMN = 87;
 
 	/**
-	 * The meta object id for the '<em>Clipboard</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>Clipboard</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see org.eclipse.swt.dnd.Clipboard
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getClipboard()
@@ -4082,7 +4379,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int CLIPBOARD = 88;
 
 	/**
-	 * The meta object id for the '<em>Image</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>Image</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see org.eclipse.swt.graphics.Image
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getImage()
@@ -4091,7 +4389,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int IMAGE = 89;
 
 	/**
-	 * The meta object id for the '<em>Color</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>Color</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see org.eclipse.swt.graphics.Color
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getColor()
@@ -4100,7 +4399,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLOR = 90;
 
 	/**
-	 * The meta object id for the '<em>Cursor</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>Cursor</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see org.eclipse.swt.graphics.Cursor
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getCursor()
@@ -4109,7 +4409,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int CURSOR = 91;
 
 	/**
-	 * The meta object id for the '<em>Selection Listener</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>Selection Listener</em>' data type. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.swt.events.SelectionListener
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getSelectionListener()
@@ -4118,8 +4419,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int SELECTION_LISTENER = 92;
 
 	/**
-	 * The meta object id for the '<em>Update Value Strategy</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The meta object id for the '<em>Update Value Strategy</em>' data type. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.core.databinding.UpdateValueStrategy
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUpdateValueStrategy()
@@ -4128,8 +4429,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UPDATE_VALUE_STRATEGY = 93;
 
 	/**
-	 * The meta object id for the '<em>Update List Strategy</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The meta object id for the '<em>Update List Strategy</em>' data type. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.core.databinding.UpdateListStrategy
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUpdateListStrategy()
@@ -4138,8 +4439,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UPDATE_LIST_STRATEGY = 94;
 
 	/**
-	 * The meta object id for the '<em>Update Set Strategy</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The meta object id for the '<em>Update Set Strategy</em>' data type. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.core.databinding.UpdateSetStrategy
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUpdateSetStrategy()
@@ -4148,7 +4449,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int UPDATE_SET_STRATEGY = 95;
 
 	/**
-	 * The meta object id for the '<em>Number Format</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '<em>Number Format</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see com.ibm.icu.text.NumberFormat
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getNumberFormat()
@@ -4157,8 +4459,8 @@ public interface IUIBindingsPackage extends EPackage {
 	int NUMBER_FORMAT = 96;
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IBaseObject <em>Base Object</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IBaseObject
+	 * <em>Base Object</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Base Object</em>'.
 	 * @see com.rcpcompany.uibindings.IBaseObject
@@ -4167,8 +4469,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getBaseObject();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IManager <em>Manager</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IManager
+	 * <em>Manager</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Manager</em>'.
 	 * @see com.rcpcompany.uibindings.IManager
@@ -4178,8 +4480,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the containment reference list '
-	 * {@link com.rcpcompany.uibindings.IManager#getProviders <em>Providers</em>}'. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IManager#getProviders <em>Providers</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Providers</em>'.
 	 * @see com.rcpcompany.uibindings.IManager#getProviders()
@@ -4190,8 +4492,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the reference list '
-	 * {@link com.rcpcompany.uibindings.IManager#getUiAttributeFactories <em>Ui Attribute Factories</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IManager#getUiAttributeFactories
+	 * <em>Ui Attribute Factories</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference list '<em>Ui Attribute Factories</em>'.
 	 * @see com.rcpcompany.uibindings.IManager#getUiAttributeFactories()
@@ -4201,8 +4503,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getManager_UiAttributeFactories();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.rcpcompany.uibindings.IManager#getDecoratorExtenders
-	 * <em>Decorator Extenders</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference list '
+	 * {@link com.rcpcompany.uibindings.IManager#getDecoratorExtenders <em>Decorator Extenders</em>}
+	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference list '<em>Decorator Extenders</em>'.
 	 * @see com.rcpcompany.uibindings.IManager#getDecoratorExtenders()
@@ -4213,8 +4516,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute list '
-	 * {@link com.rcpcompany.uibindings.IManager#getModelArgumentMediators <em>Model Argument Mediators</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IManager#getModelArgumentMediators
+	 * <em>Model Argument Mediators</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute list '<em>Model Argument Mediators</em>'.
 	 * @see com.rcpcompany.uibindings.IManager#getModelArgumentMediators()
@@ -4236,7 +4539,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getManager_ModelArgumentMediatorClasses();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IManager#getTextCommitStrategy
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IManager#getTextCommitStrategy
 	 * <em>Text Commit Strategy</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Text Commit Strategy</em>'.
@@ -4247,7 +4551,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getManager_TextCommitStrategy();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IManager#getTextCommitStrategyDelay
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IManager#getTextCommitStrategyDelay
 	 * <em>Text Commit Strategy Delay</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Text Commit Strategy Delay</em>'.
@@ -4258,8 +4563,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getManager_TextCommitStrategyDelay();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IManager#isEditCellAnyKey
-	 * <em>Edit Cell Any Key</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IManager#isEditCellAnyKey <em>Edit Cell Any Key</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Edit Cell Any Key</em>'.
 	 * @see com.rcpcompany.uibindings.IManager#isEditCellAnyKey()
@@ -4269,7 +4575,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getManager_EditCellAnyKey();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IManager#isEditCellSingleClick
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IManager#isEditCellSingleClick
 	 * <em>Edit Cell Single Click</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Edit Cell Single Click</em>'.
@@ -4281,8 +4588,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IManager#getMessageDecorationPosition <em>Message Decoration Position</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IManager#getMessageDecorationPosition
+	 * <em>Message Decoration Position</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Message Decoration Position</em>'.
 	 * @see com.rcpcompany.uibindings.IManager#getMessageDecorationPosition()
@@ -4316,7 +4623,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getManager_AlternativeDecorationPosition();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IManager#isAutoApplySingleQuickfix
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IManager#isAutoApplySingleQuickfix
 	 * <em>Auto Apply Single Quickfix</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Auto Apply Single Quickfix</em>'.
@@ -4327,8 +4635,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getManager_AutoApplySingleQuickfix();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IManager#isAlternateRowColors
-	 * <em>Alternate Row Colors</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IManager#isAlternateRowColors <em>Alternate Row Colors</em>}
+	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Alternate Row Colors</em>'.
 	 * @see com.rcpcompany.uibindings.IManager#isAlternateRowColors()
@@ -4338,7 +4647,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getManager_AlternateRowColors();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IManager#isValidationErrorsAreFatal
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IManager#isValidationErrorsAreFatal
 	 * <em>Validation Errors Are Fatal</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Validation Errors Are Fatal</em>'.
@@ -4349,8 +4659,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getManager_ValidationErrorsAreFatal();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IManager#getValidationDelay
-	 * <em>Validation Delay</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IManager#getValidationDelay <em>Validation Delay</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Validation Delay</em>'.
 	 * @see com.rcpcompany.uibindings.IManager#getValidationDelay()
@@ -4360,7 +4671,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getManager_ValidationDelay();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IManager#getValidationDelayWindow
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IManager#getValidationDelayWindow
 	 * <em>Validation Delay Window</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Validation Delay Window</em>'.
@@ -4407,7 +4719,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getManager_QuickfixVBImageDecorationShown();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IManager#isViewNavigationRecorded
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IManager#isViewNavigationRecorded
 	 * <em>View Navigation Recorded</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>View Navigation Recorded</em>'.
@@ -4418,8 +4731,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getManager_ViewNavigationRecorded();
 
 	/**
-	 * Returns the meta object for the map '{@link com.rcpcompany.uibindings.IManager#getModelInfo <em>Model Info</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the map '{@link com.rcpcompany.uibindings.IManager#getModelInfo
+	 * <em>Model Info</em>} '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the map '<em>Model Info</em>'.
 	 * @see com.rcpcompany.uibindings.IManager#getModelInfo()
@@ -4430,8 +4743,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the containment reference list '
-	 * {@link com.rcpcompany.uibindings.IManager#getTreeItems <em>Tree Items</em>}'. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IManager#getTreeItems <em>Tree Items</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Tree Items</em>'.
 	 * @see com.rcpcompany.uibindings.IManager#getTreeItems()
@@ -4441,8 +4754,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getManager_TreeItems();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IManager#getClipboard
-	 * <em>Clipboard</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IManager#getClipboard <em>Clipboard</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Clipboard</em>'.
 	 * @see com.rcpcompany.uibindings.IManager#getClipboard()
@@ -4453,8 +4767,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the containment reference list '
-	 * {@link com.rcpcompany.uibindings.IManager#getObservableFactories <em>Observable Factories</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IManager#getObservableFactories
+	 * <em>Observable Factories</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Observable Factories</em>'.
 	 * @see com.rcpcompany.uibindings.IManager#getObservableFactories()
@@ -4465,10 +4779,11 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the containment reference list '
-	 * {@link com.rcpcompany.uibindings.IManager#getQuickfixProposalProcessors <em>Quickfix Proposal Processors</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IManager#getQuickfixProposalProcessors
+	 * <em>Quickfix Proposal Processors</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the containment reference list '<em>Quickfix Proposal Processors</em>'.
+	 * @return the meta object for the containment reference list '
+	 *         <em>Quickfix Proposal Processors</em>'.
 	 * @see com.rcpcompany.uibindings.IManager#getQuickfixProposalProcessors()
 	 * @see #getManager()
 	 * @generated
@@ -4477,8 +4792,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the containment reference list '
-	 * {@link com.rcpcompany.uibindings.IManager#getContexts <em>Contexts</em>}'. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IManager#getContexts <em>Contexts</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Contexts</em>'.
 	 * @see com.rcpcompany.uibindings.IManager#getContexts()
@@ -4488,8 +4803,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getManager_Contexts();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IManager#getEditingDomain
-	 * <em>Editing Domain</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IManager#getEditingDomain <em>Editing Domain</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Editing Domain</em>'.
 	 * @see com.rcpcompany.uibindings.IManager#getEditingDomain()
@@ -4499,8 +4815,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getManager_EditingDomain();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IManager#getFormToolkit
-	 * <em>Form Toolkit</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IManager#getFormToolkit <em>Form Toolkit</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Form Toolkit</em>'.
 	 * @see com.rcpcompany.uibindings.IManager#getFormToolkit()
@@ -4510,8 +4827,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getManager_FormToolkit();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IBindingContext <em>Binding Context</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IBindingContext
+	 * <em>Binding Context</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Binding Context</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingContext
@@ -4521,8 +4838,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the containment reference list '
-	 * {@link com.rcpcompany.uibindings.IBindingContext#getBindings <em>Bindings</em>}'. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IBindingContext#getBindings <em>Bindings</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Bindings</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingContext#getBindings()
@@ -4532,8 +4849,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getBindingContext_Bindings();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.rcpcompany.uibindings.IBindingContext#getOkBindings
-	 * <em>Ok Bindings</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference list '
+	 * {@link com.rcpcompany.uibindings.IBindingContext#getOkBindings <em>Ok Bindings</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference list '<em>Ok Bindings</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingContext#getOkBindings()
@@ -4543,8 +4861,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getBindingContext_OkBindings();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBindingContext#getTop <em>Top</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBindingContext#getTop <em>Top</em>} '. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Top</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingContext#getTop()
@@ -4554,8 +4873,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBindingContext_Top();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBindingContext#getDbContext
-	 * <em>Db Context</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBindingContext#getDbContext <em>Db Context</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Db Context</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingContext#getDbContext()
@@ -4565,8 +4885,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBindingContext_DbContext();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBindingContext#getServiceLocator
-	 * <em>Service Locator</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBindingContext#getServiceLocator <em>Service Locator</em>}
+	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Service Locator</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingContext#getServiceLocator()
@@ -4576,8 +4897,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBindingContext_ServiceLocator();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBindingContext#getState
-	 * <em>State</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBindingContext#getState <em>State</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>State</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingContext#getState()
@@ -4588,8 +4910,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IBindingContext#getTextCommitStrategy <em>Text Commit Strategy</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IBindingContext#getTextCommitStrategy
+	 * <em>Text Commit Strategy</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Text Commit Strategy</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingContext#getTextCommitStrategy()
@@ -4611,8 +4933,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBindingContext_TextCommitStrategyCalculated();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBindingContext#getEditingDomain
-	 * <em>Editing Domain</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBindingContext#getEditingDomain <em>Editing Domain</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Editing Domain</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingContext#getEditingDomain()
@@ -4622,8 +4945,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBindingContext_EditingDomain();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IBinding <em>Binding</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IBinding
+	 * <em>Binding</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Binding</em>'.
 	 * @see com.rcpcompany.uibindings.IBinding
@@ -4632,8 +4955,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getBinding();
 
 	/**
-	 * Returns the meta object for the container reference '{@link com.rcpcompany.uibindings.IBinding#getContext
-	 * <em>Context</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the container reference '
+	 * {@link com.rcpcompany.uibindings.IBinding#getContext <em>Context</em>}'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the container reference '<em>Context</em>'.
 	 * @see com.rcpcompany.uibindings.IBinding#getContext()
@@ -4643,8 +4967,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getBinding_Context();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBinding#getState <em>State</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBinding#getState <em>State</em>}'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>State</em>'.
 	 * @see com.rcpcompany.uibindings.IBinding#getState()
@@ -4654,8 +4979,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBinding_State();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBinding#isChangeable
-	 * <em>Changeable</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBinding#isChangeable <em>Changeable</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Changeable</em>'.
 	 * @see com.rcpcompany.uibindings.IBinding#isChangeable()
@@ -4665,8 +4991,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBinding_Changeable();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBinding#getCreationPoint
-	 * <em>Creation Point</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBinding#getCreationPoint <em>Creation Point</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Creation Point</em>'.
 	 * @see com.rcpcompany.uibindings.IBinding#getCreationPoint()
@@ -4676,8 +5003,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBinding_CreationPoint();
 
 	/**
-	 * Returns the meta object for the map '{@link com.rcpcompany.uibindings.IBinding#getArguments <em>Arguments</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the map '{@link com.rcpcompany.uibindings.IBinding#getArguments
+	 * <em>Arguments</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the map '<em>Arguments</em>'.
 	 * @see com.rcpcompany.uibindings.IBinding#getArguments()
@@ -4687,8 +5014,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getBinding_Arguments();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBinding#getId <em>Id</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBinding#getId
+	 * <em>Id</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Id</em>'.
 	 * @see com.rcpcompany.uibindings.IBinding#getId()
@@ -4698,8 +5025,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBinding_Id();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBinding#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBinding#getType
+	 * <em>Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Type</em>'.
 	 * @see com.rcpcompany.uibindings.IBinding#getType()
@@ -4709,8 +5036,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBinding_Type();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBinding#getLabel <em>Label</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBinding#getLabel <em>Label</em>}'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Label</em>'.
 	 * @see com.rcpcompany.uibindings.IBinding#getLabel()
@@ -4720,8 +5048,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBinding_Label();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.IBinding#getStaticDataType
-	 * <em>Static Data Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IBinding#getStaticDataType <em>Static Data Type</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Static Data Type</em>'.
 	 * @see com.rcpcompany.uibindings.IBinding#getStaticDataType()
@@ -4731,8 +5060,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getBinding_StaticDataType();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.IBinding#getDataType
-	 * <em>Data Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IBinding#getDataType <em>Data Type</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Data Type</em>'.
 	 * @see com.rcpcompany.uibindings.IBinding#getDataType()
@@ -4742,8 +5072,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getBinding_DataType();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.IBinding#getModelEType
-	 * <em>Model EType</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IBinding#getModelEType <em>Model EType</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Model EType</em>'.
 	 * @see com.rcpcompany.uibindings.IBinding#getModelEType()
@@ -4753,8 +5084,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getBinding_ModelEType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBinding#getModelType
-	 * <em>Model Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBinding#getModelType <em>Model Type</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Model Type</em>'.
 	 * @see com.rcpcompany.uibindings.IBinding#getModelType()
@@ -4764,8 +5096,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBinding_ModelType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBinding#getUIType <em>UI Type</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBinding#getUIType <em>UI Type</em>} '. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>UI Type</em>'.
 	 * @see com.rcpcompany.uibindings.IBinding#getUIType()
@@ -4775,8 +5108,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBinding_UIType();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link com.rcpcompany.uibindings.IBinding#getDBBindings
-	 * <em>DB Bindings</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute list '
+	 * {@link com.rcpcompany.uibindings.IBinding#getDBBindings <em>DB Bindings</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute list '<em>DB Bindings</em>'.
 	 * @see com.rcpcompany.uibindings.IBinding#getDBBindings()
@@ -4786,7 +5120,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBinding_DBBindings();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link com.rcpcompany.uibindings.IBinding#getMonitoredDBBindings
+	 * Returns the meta object for the attribute list '
+	 * {@link com.rcpcompany.uibindings.IBinding#getMonitoredDBBindings
 	 * <em>Monitored DB Bindings</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute list '<em>Monitored DB Bindings</em>'.
@@ -4797,8 +5132,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBinding_MonitoredDBBindings();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link com.rcpcompany.uibindings.IBinding#getErrorConditions
-	 * <em>Error Conditions</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute list '
+	 * {@link com.rcpcompany.uibindings.IBinding#getErrorConditions <em>Error Conditions</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute list '<em>Error Conditions</em>'.
 	 * @see com.rcpcompany.uibindings.IBinding#getErrorConditions()
@@ -4808,8 +5144,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBinding_ErrorConditions();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBinding#getWidget <em>Widget</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBinding#getWidget <em>Widget</em>}'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Widget</em>'.
 	 * @see com.rcpcompany.uibindings.IBinding#getWidget()
@@ -4819,8 +5156,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBinding_Widget();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBinding#getControl <em>Control</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBinding#getControl <em>Control</em>} '. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Control</em>'.
 	 * @see com.rcpcompany.uibindings.IBinding#getControl()
@@ -4831,8 +5169,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the reference list '
-	 * {@link com.rcpcompany.uibindings.IBinding#getExtraArgumentProviders <em>Extra Argument Providers</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IBinding#getExtraArgumentProviders
+	 * <em>Extra Argument Providers</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference list '<em>Extra Argument Providers</em>'.
 	 * @see com.rcpcompany.uibindings.IBinding#getExtraArgumentProviders()
@@ -4842,8 +5180,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getBinding_ExtraArgumentProviders();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IValueBinding <em>Value Binding</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IValueBinding
+	 * <em>Value Binding</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Value Binding</em>'.
 	 * @see com.rcpcompany.uibindings.IValueBinding
@@ -4852,8 +5190,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getValueBinding();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IValueBinding#getModelObservable
-	 * <em>Model Observable</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IValueBinding#getModelObservable <em>Model Observable</em>}
+	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Model Observable</em>'.
 	 * @see com.rcpcompany.uibindings.IValueBinding#getModelObservable()
@@ -4864,8 +5203,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IValueBinding#getModelObservableValue <em>Model Observable Value</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IValueBinding#getModelObservableValue
+	 * <em>Model Observable Value</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Model Observable Value</em>'.
 	 * @see com.rcpcompany.uibindings.IValueBinding#getModelObservableValue()
@@ -4875,8 +5214,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getValueBinding_ModelObservableValue();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.IValueBinding#getModelObject
-	 * <em>Model Object</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IValueBinding#getModelObject <em>Model Object</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Model Object</em>'.
 	 * @see com.rcpcompany.uibindings.IValueBinding#getModelObject()
@@ -4886,8 +5226,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getValueBinding_ModelObject();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.IValueBinding#getModelFeature
-	 * <em>Model Feature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IValueBinding#getModelFeature <em>Model Feature</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Model Feature</em>'.
 	 * @see com.rcpcompany.uibindings.IValueBinding#getModelFeature()
@@ -4897,8 +5238,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getValueBinding_ModelFeature();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IValueBinding#getMessagePrefix
-	 * <em>Message Prefix</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IValueBinding#getMessagePrefix <em>Message Prefix</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Message Prefix</em>'.
 	 * @see com.rcpcompany.uibindings.IValueBinding#getMessagePrefix()
@@ -4908,7 +5250,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getValueBinding_MessagePrefix();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.IValueBinding#getDecoratorProvider
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IValueBinding#getDecoratorProvider
 	 * <em>Decorator Provider</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Decorator Provider</em>'.
@@ -4919,8 +5262,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getValueBinding_DecoratorProvider();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.IValueBinding#getDecorator
-	 * <em>Decorator</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IValueBinding#getDecorator <em>Decorator</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Decorator</em>'.
 	 * @see com.rcpcompany.uibindings.IValueBinding#getDecorator()
@@ -4930,8 +5274,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getValueBinding_Decorator();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.IValueBinding#getUIAttribute
-	 * <em>UI Attribute</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IValueBinding#getUIAttribute <em>UI Attribute</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>UI Attribute</em>'.
 	 * @see com.rcpcompany.uibindings.IValueBinding#getUIAttribute()
@@ -4941,8 +5286,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getValueBinding_UIAttribute();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IValueBinding#getUIObservable
-	 * <em>UI Observable</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IValueBinding#getUIObservable <em>UI Observable</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>UI Observable</em>'.
 	 * @see com.rcpcompany.uibindings.IValueBinding#getUIObservable()
@@ -4952,8 +5298,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getValueBinding_UIObservable();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.IValueBinding#getCell <em>Cell</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IValueBinding#getCell <em>Cell</em>} '. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Cell</em>'.
 	 * @see com.rcpcompany.uibindings.IValueBinding#getCell()
@@ -4973,8 +5320,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getValueBindingCell();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IColumnBinding <em>Column Binding</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IColumnBinding
+	 * <em>Column Binding</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Column Binding</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnBinding
@@ -4983,8 +5330,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getColumnBinding();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.IColumnBinding#getViewerBinding
-	 * <em>Viewer Binding</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IColumnBinding#getViewerBinding <em>Viewer Binding</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Viewer Binding</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnBinding#getViewerBinding()
@@ -4994,8 +5342,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getColumnBinding_ViewerBinding();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IColumnBinding#getViewerColumn
-	 * <em>Viewer Column</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IColumnBinding#getViewerColumn <em>Viewer Column</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Viewer Column</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnBinding#getViewerColumn()
@@ -5005,8 +5354,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getColumnBinding_ViewerColumn();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.IColumnBinding#getColumnAdapter
-	 * <em>Column Adapter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IColumnBinding#getColumnAdapter <em>Column Adapter</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Column Adapter</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnBinding#getColumnAdapter()
@@ -5016,8 +5366,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getColumnBinding_ColumnAdapter();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.IColumnBinding#getBaseColumn
-	 * <em>Base Column</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IColumnBinding#getBaseColumn <em>Base Column</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Base Column</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnBinding#getBaseColumn()
@@ -5027,8 +5378,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getColumnBinding_BaseColumn();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.rcpcompany.uibindings.IColumnBinding#getSubColumns
-	 * <em>Sub Columns</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference list '
+	 * {@link com.rcpcompany.uibindings.IColumnBinding#getSubColumns <em>Sub Columns</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference list '<em>Sub Columns</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnBinding#getSubColumns()
@@ -5038,8 +5390,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getColumnBinding_SubColumns();
 
 	/**
-	 * Returns the meta object for the map '{@link com.rcpcompany.uibindings.IColumnBinding#getCells <em>Cells</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the map '
+	 * {@link com.rcpcompany.uibindings.IColumnBinding#getCells <em>Cells</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the map '<em>Cells</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnBinding#getCells()
@@ -5049,7 +5402,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getColumnBinding_Cells();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IColumnBinding#getSpecialBindingType
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IColumnBinding#getSpecialBindingType
 	 * <em>Special Binding Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Special Binding Type</em>'.
@@ -5060,8 +5414,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getColumnBinding_SpecialBindingType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IColumnBinding#getFactory
-	 * <em>Factory</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IColumnBinding#getFactory <em>Factory</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Factory</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnBinding#getFactory()
@@ -5071,8 +5426,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getColumnBinding_Factory();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IColumnBinding#getCursor
-	 * <em>Cursor</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IColumnBinding#getCursor <em>Cursor</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Cursor</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnBinding#getCursor()
@@ -5082,7 +5438,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getColumnBinding_Cursor();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IColumnBinding#getColumnVisibility
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IColumnBinding#getColumnVisibility
 	 * <em>Column Visibility</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Column Visibility</em>'.
@@ -5093,7 +5450,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getColumnBinding_ColumnVisibility();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IColumnBindingCellInformation
+	 * Returns the meta object for class '
+	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation
 	 * <em>Column Binding Cell Information</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Column Binding Cell Information</em>'.
@@ -5104,8 +5462,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the reference '
-	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#getColumn <em>Column</em>}'. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#getColumn <em>Column</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Column</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnBindingCellInformation#getColumn()
@@ -5116,8 +5474,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the reference '
-	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#getElement <em>Element</em>}'. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#getElement <em>Element</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Element</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnBindingCellInformation#getElement()
@@ -5128,8 +5486,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the reference '
-	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#getLabelBinding <em>Label Binding</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#getLabelBinding
+	 * <em>Label Binding</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Label Binding</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnBindingCellInformation#getLabelBinding()
@@ -5140,8 +5498,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the reference '
-	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#getLabelUIAttribute <em>Label UI Attribute</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#getLabelUIAttribute
+	 * <em>Label UI Attribute</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Label UI Attribute</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnBindingCellInformation#getLabelUIAttribute()
@@ -5152,8 +5510,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#getLabelPainter <em>Label Painter</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#getLabelPainter
+	 * <em>Label Painter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Label Painter</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnBindingCellInformation#getLabelPainter()
@@ -5164,8 +5522,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#getObjectValue <em>Object Value</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#getObjectValue
+	 * <em>Object Value</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Object Value</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnBindingCellInformation#getObjectValue()
@@ -5176,8 +5534,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#getSourceValue <em>Source Value</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#getSourceValue
+	 * <em>Source Value</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Source Value</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnBindingCellInformation#getSourceValue()
@@ -5188,8 +5546,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#isChangeable <em>Changeable</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#isChangeable
+	 * <em>Changeable</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Changeable</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnBindingCellInformation#isChangeable()
@@ -5200,8 +5558,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#getDisplayText <em>Display Text</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#getDisplayText
+	 * <em>Display Text</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Display Text</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnBindingCellInformation#getDisplayText()
@@ -5212,8 +5570,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#getValueType <em>Value Type</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#getValueType
+	 * <em>Value Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Value Type</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnBindingCellInformation#getValueType()
@@ -5224,8 +5582,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#getToolTipText <em>Tool Tip Text</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#getToolTipText
+	 * <em>Tool Tip Text</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Tool Tip Text</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnBindingCellInformation#getToolTipText()
@@ -5236,8 +5594,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#isEnabled <em>Enabled</em>}'. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#isEnabled <em>Enabled</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Enabled</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnBindingCellInformation#isEnabled()
@@ -5247,8 +5605,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getColumnBindingCellInformation_Enabled();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IViewerBinding <em>Viewer Binding</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IViewerBinding
+	 * <em>Viewer Binding</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Viewer Binding</em>'.
 	 * @see com.rcpcompany.uibindings.IViewerBinding
@@ -5257,8 +5615,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getViewerBinding();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.rcpcompany.uibindings.IViewerBinding#getColumns
-	 * <em>Columns</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference list '
+	 * {@link com.rcpcompany.uibindings.IViewerBinding#getColumns <em>Columns</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference list '<em>Columns</em>'.
 	 * @see com.rcpcompany.uibindings.IViewerBinding#getColumns()
@@ -5268,8 +5627,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getViewerBinding_Columns();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IViewerBinding#getList <em>List</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IViewerBinding#getList <em>List</em>} '. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>List</em>'.
 	 * @see com.rcpcompany.uibindings.IViewerBinding#getList()
@@ -5279,8 +5639,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getViewerBinding_List();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IViewerBinding#getElements
-	 * <em>Elements</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IViewerBinding#getElements <em>Elements</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Elements</em>'.
 	 * @see com.rcpcompany.uibindings.IViewerBinding#getElements()
@@ -5290,8 +5651,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getViewerBinding_Elements();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IViewerBinding#getSingleSelection
-	 * <em>Single Selection</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IViewerBinding#getSingleSelection <em>Single Selection</em>}
+	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Single Selection</em>'.
 	 * @see com.rcpcompany.uibindings.IViewerBinding#getSingleSelection()
@@ -5301,7 +5663,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getViewerBinding_SingleSelection();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IViewerBinding#getMultipleSelection
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IViewerBinding#getMultipleSelection
 	 * <em>Multiple Selection</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Multiple Selection</em>'.
@@ -5312,8 +5675,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getViewerBinding_MultipleSelection();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IViewerBinding#getViewer
-	 * <em>Viewer</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IViewerBinding#getViewer <em>Viewer</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Viewer</em>'.
 	 * @see com.rcpcompany.uibindings.IViewerBinding#getViewer()
@@ -5324,8 +5688,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IViewerBinding#getFirstTableColumnOffset <em>First Table Column Offset</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IViewerBinding#getFirstTableColumnOffset
+	 * <em>First Table Column Offset</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>First Table Column Offset</em>'.
 	 * @see com.rcpcompany.uibindings.IViewerBinding#getFirstTableColumnOffset()
@@ -5346,8 +5710,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the container reference '
-	 * {@link com.rcpcompany.uibindings.IDecoratorProvider#getManager <em>Manager</em>}'. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IDecoratorProvider#getManager <em>Manager</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the container reference '<em>Manager</em>'.
 	 * @see com.rcpcompany.uibindings.IDecoratorProvider#getManager()
@@ -5357,8 +5721,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getDecoratorProvider_Manager();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IDecoratorProvider#getId <em>Id</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IDecoratorProvider#getId <em>Id</em>} '. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Id</em>'.
 	 * @see com.rcpcompany.uibindings.IDecoratorProvider#getId()
@@ -5368,8 +5733,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getDecoratorProvider_Id();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IDecoratorProvider#getType
-	 * <em>Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IDecoratorProvider#getType <em>Type</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Type</em>'.
 	 * @see com.rcpcompany.uibindings.IDecoratorProvider#getType()
@@ -5380,8 +5746,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute list '
-	 * {@link com.rcpcompany.uibindings.IDecoratorProvider#getModelTypes <em>Model Types</em>}'. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IDecoratorProvider#getModelTypes <em>Model Types</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute list '<em>Model Types</em>'.
 	 * @see com.rcpcompany.uibindings.IDecoratorProvider#getModelTypes()
@@ -5391,8 +5757,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getDecoratorProvider_ModelTypes();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link com.rcpcompany.uibindings.IDecoratorProvider#getUiTypes
-	 * <em>Ui Types</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute list '
+	 * {@link com.rcpcompany.uibindings.IDecoratorProvider#getUiTypes <em>Ui Types</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute list '<em>Ui Types</em>'.
 	 * @see com.rcpcompany.uibindings.IDecoratorProvider#getUiTypes()
@@ -5402,8 +5769,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getDecoratorProvider_UiTypes();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IDecoratorProvider#getProviderCE
-	 * <em>Provider CE</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IDecoratorProvider#getProviderCE <em>Provider CE</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Provider CE</em>'.
 	 * @see com.rcpcompany.uibindings.IDecoratorProvider#getProviderCE()
@@ -5413,8 +5781,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getDecoratorProvider_ProviderCE();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IDecoratorProvider#getChildCE
-	 * <em>Child CE</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IDecoratorProvider#getChildCE <em>Child CE</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Child CE</em>'.
 	 * @see com.rcpcompany.uibindings.IDecoratorProvider#getChildCE()
@@ -5424,8 +5793,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getDecoratorProvider_ChildCE();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.IDecoratorProvider#getDecorator
-	 * <em>Decorator</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IDecoratorProvider#getDecorator <em>Decorator</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Decorator</em>'.
 	 * @see com.rcpcompany.uibindings.IDecoratorProvider#getDecorator()
@@ -5436,8 +5806,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IDecoratorProvider#isExactModelTypeMatch <em>Exact Model Type Match</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IDecoratorProvider#isExactModelTypeMatch
+	 * <em>Exact Model Type Match</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Exact Model Type Match</em>'.
 	 * @see com.rcpcompany.uibindings.IDecoratorProvider#isExactModelTypeMatch()
@@ -5468,8 +5838,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IEnumDecoratorProvider#isAddingDefaultMappings <em>Adding Default Mappings</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IEnumDecoratorProvider#isAddingDefaultMappings
+	 * <em>Adding Default Mappings</em>} '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Adding Default Mappings</em>'.
 	 * @see com.rcpcompany.uibindings.IEnumDecoratorProvider#isAddingDefaultMappings()
@@ -5480,8 +5850,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the containment reference list '
-	 * {@link com.rcpcompany.uibindings.IEnumDecoratorProvider#getBaseMappings <em>Base Mappings</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IEnumDecoratorProvider#getBaseMappings
+	 * <em>Base Mappings</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Base Mappings</em>'.
 	 * @see com.rcpcompany.uibindings.IEnumDecoratorProvider#getBaseMappings()
@@ -5491,7 +5861,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getEnumDecoratorProvider_BaseMappings();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IEnumDecoratorProviderEntry
+	 * Returns the meta object for class '
+	 * {@link com.rcpcompany.uibindings.IEnumDecoratorProviderEntry
 	 * <em>Enum Decorator Provider Entry</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Enum Decorator Provider Entry</em>'.
@@ -5501,8 +5872,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getEnumDecoratorProviderEntry();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IEnumDecoratorProviderEntry#getModel
-	 * <em>Model</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IEnumDecoratorProviderEntry#getModel <em>Model</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Model</em>'.
 	 * @see com.rcpcompany.uibindings.IEnumDecoratorProviderEntry#getModel()
@@ -5512,8 +5884,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getEnumDecoratorProviderEntry_Model();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IEnumDecoratorProviderEntry#getUi
-	 * <em>Ui</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IEnumDecoratorProviderEntry#getUi <em>Ui</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Ui</em>'.
 	 * @see com.rcpcompany.uibindings.IEnumDecoratorProviderEntry#getUi()
@@ -5533,8 +5906,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getNumberDecoratorProvider();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.INumberDecoratorProvider#getFormat
-	 * <em>Format</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.INumberDecoratorProvider#getFormat <em>Format</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Format</em>'.
 	 * @see com.rcpcompany.uibindings.INumberDecoratorProvider#getFormat()
@@ -5544,8 +5918,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getNumberDecoratorProvider_Format();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IBindingDataType <em>Binding Data Type</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IBindingDataType
+	 * <em>Binding Data Type</em>} '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Binding Data Type</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingDataType
@@ -5554,8 +5928,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getBindingDataType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBindingDataType#getName
-	 * <em>Name</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBindingDataType#getName <em>Name</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Name</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingDataType#getName()
@@ -5565,8 +5940,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBindingDataType_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBindingDataType#getValueType
-	 * <em>Value Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBindingDataType#getValueType <em>Value Type</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Value Type</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingDataType#getValueType()
@@ -5576,8 +5952,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBindingDataType_ValueType();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.IBindingDataType#getEType
-	 * <em>EType</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IBindingDataType#getEType <em>EType</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>EType</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingDataType#getEType()
@@ -5587,8 +5964,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getBindingDataType_EType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBindingDataType#getDataType
-	 * <em>Data Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBindingDataType#getDataType <em>Data Type</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Data Type</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingDataType#getDataType()
@@ -5598,8 +5976,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBindingDataType_DataType();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.IBindingDataType#getEAnnotation
-	 * <em>EAnnotation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IBindingDataType#getEAnnotation <em>EAnnotation</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>EAnnotation</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingDataType#getEAnnotation()
@@ -5609,7 +5988,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getBindingDataType_EAnnotation();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.IBindingDataType#getParentDataType
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IBindingDataType#getParentDataType
 	 * <em>Parent Data Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Parent Data Type</em>'.
@@ -5620,8 +6000,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getBindingDataType_ParentDataType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBindingDataType#isRequired
-	 * <em>Required</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBindingDataType#isRequired <em>Required</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Required</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingDataType#isRequired()
@@ -5631,8 +6012,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBindingDataType_Required();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBindingDataType#isChangeable
-	 * <em>Changeable</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBindingDataType#isChangeable <em>Changeable</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Changeable</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingDataType#isChangeable()
@@ -5642,8 +6024,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBindingDataType_Changeable();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBindingDataType#isUnsettable
-	 * <em>Unsettable</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBindingDataType#isUnsettable <em>Unsettable</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Unsettable</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingDataType#isUnsettable()
@@ -5653,8 +6036,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBindingDataType_Unsettable();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IColumnAdapter <em>Column Adapter</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IColumnAdapter
+	 * <em>Column Adapter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Column Adapter</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnAdapter
@@ -5663,8 +6046,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getColumnAdapter();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IColumnAdapter#getWidget
-	 * <em>Widget</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IColumnAdapter#getWidget <em>Widget</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Widget</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnAdapter#getWidget()
@@ -5674,8 +6058,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getColumnAdapter_Widget();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IColumnAdapter#getText <em>Text</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IColumnAdapter#getText <em>Text</em>} '. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Text</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnAdapter#getText()
@@ -5685,8 +6070,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getColumnAdapter_Text();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IColumnAdapter#getAlignment
-	 * <em>Alignment</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IColumnAdapter#getAlignment <em>Alignment</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Alignment</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnAdapter#getAlignment()
@@ -5696,8 +6082,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getColumnAdapter_Alignment();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IColumnAdapter#getImage
-	 * <em>Image</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IColumnAdapter#getImage <em>Image</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Image</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnAdapter#getImage()
@@ -5707,8 +6094,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getColumnAdapter_Image();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IColumnAdapter#isMoveable
-	 * <em>Moveable</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IColumnAdapter#isMoveable <em>Moveable</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Moveable</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnAdapter#isMoveable()
@@ -5718,8 +6106,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getColumnAdapter_Moveable();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IColumnAdapter#isResizable
-	 * <em>Resizable</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IColumnAdapter#isResizable <em>Resizable</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Resizable</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnAdapter#isResizable()
@@ -5729,8 +6118,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getColumnAdapter_Resizable();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IColumnAdapter#getWidth
-	 * <em>Width</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IColumnAdapter#getWidth <em>Width</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Width</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnAdapter#getWidth()
@@ -5740,8 +6130,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getColumnAdapter_Width();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IColumnAdapter#getToolTipText
-	 * <em>Tool Tip Text</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IColumnAdapter#getToolTipText <em>Tool Tip Text</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Tool Tip Text</em>'.
 	 * @see com.rcpcompany.uibindings.IColumnAdapter#getToolTipText()
@@ -5751,8 +6142,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getColumnAdapter_ToolTipText();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IModelInfo <em>Model Info</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IModelInfo
+	 * <em>Model Info</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Model Info</em>'.
 	 * @see com.rcpcompany.uibindings.IModelInfo
@@ -5761,8 +6152,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getModelInfo();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IModelClassInfo <em>Model Class Info</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IModelClassInfo
+	 * <em>Model Class Info</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Model Class Info</em>'.
 	 * @see com.rcpcompany.uibindings.IModelClassInfo
@@ -5771,8 +6162,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getModelClassInfo();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IModelClassInfo#getClassName
-	 * <em>Class Name</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IModelClassInfo#getClassName <em>Class Name</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Class Name</em>'.
 	 * @see com.rcpcompany.uibindings.IModelClassInfo#getClassName()
@@ -5782,8 +6174,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getModelClassInfo_ClassName();
 
 	/**
-	 * Returns the meta object for the map '{@link com.rcpcompany.uibindings.IModelClassInfo#getFeatures
-	 * <em>Features</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the map '
+	 * {@link com.rcpcompany.uibindings.IModelClassInfo#getFeatures <em>Features</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the map '<em>Features</em>'.
 	 * @see com.rcpcompany.uibindings.IModelClassInfo#getFeatures()
@@ -5793,8 +6186,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getModelClassInfo_Features();
 
 	/**
-	 * Returns the meta object for the map '{@link com.rcpcompany.uibindings.IModelClassInfo#getTypes <em>Types</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the map '
+	 * {@link com.rcpcompany.uibindings.IModelClassInfo#getTypes <em>Types</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the map '<em>Types</em>'.
 	 * @see com.rcpcompany.uibindings.IModelClassInfo#getTypes()
@@ -5814,8 +6208,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getModelFeatureInfo();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IModelFeatureInfo#getFeatureName
-	 * <em>Feature Name</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IModelFeatureInfo#getFeatureName <em>Feature Name</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Feature Name</em>'.
 	 * @see com.rcpcompany.uibindings.IModelFeatureInfo#getFeatureName()
@@ -5825,8 +6220,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getModelFeatureInfo_FeatureName();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.IModelFeatureInfo#getClass_
-	 * <em>Class</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IModelFeatureInfo#getClass_ <em>Class</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Class</em>'.
 	 * @see com.rcpcompany.uibindings.IModelFeatureInfo#getClass_()
@@ -5846,8 +6242,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getUIBindingDecorator();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.IUIBindingDecorator#getBinding
-	 * <em>Binding</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IUIBindingDecorator#getBinding <em>Binding</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Binding</em>'.
 	 * @see com.rcpcompany.uibindings.IUIBindingDecorator#getBinding()
@@ -5857,8 +6254,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getUIBindingDecorator_Binding();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IUIBindingDecorator#isChangeable
-	 * <em>Changeable</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IUIBindingDecorator#isChangeable <em>Changeable</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Changeable</em>'.
 	 * @see com.rcpcompany.uibindings.IUIBindingDecorator#isChangeable()
@@ -5869,8 +6267,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IUIBindingDecorator#getModelToUIConverter <em>Model To UI Converter</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IUIBindingDecorator#getModelToUIConverter
+	 * <em>Model To UI Converter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Model To UI Converter</em>'.
 	 * @see com.rcpcompany.uibindings.IUIBindingDecorator#getModelToUIConverter()
@@ -5881,8 +6279,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IUIBindingDecorator#getUIToModelConverter <em>UI To Model Converter</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IUIBindingDecorator#getUIToModelConverter
+	 * <em>UI To Model Converter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>UI To Model Converter</em>'.
 	 * @see com.rcpcompany.uibindings.IUIBindingDecorator#getUIToModelConverter()
@@ -5904,8 +6302,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getUIBindingDecorator_UIToModelAfterConvertValidator();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IUIBindingDecorator#getValidUIList
-	 * <em>Valid UI List</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IUIBindingDecorator#getValidUIList <em>Valid UI List</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Valid UI List</em>'.
 	 * @see com.rcpcompany.uibindings.IUIBindingDecorator#getValidUIList()
@@ -5915,7 +6314,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getUIBindingDecorator_ValidUIList();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IUIBindingDecoratorExtender
+	 * Returns the meta object for class '
+	 * {@link com.rcpcompany.uibindings.IUIBindingDecoratorExtender
 	 * <em>UI Binding Decorator Extender</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>UI Binding Decorator Extender</em>'.
@@ -5925,8 +6325,10 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getUIBindingDecoratorExtender();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor
-	 * <em>UI Binding Decorator Extender Descriptor</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '
+	 * {@link com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor
+	 * <em>UI Binding Decorator Extender Descriptor</em>}'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>UI Binding Decorator Extender Descriptor</em>'.
 	 * @see com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor
@@ -5936,8 +6338,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor#getPriority <em>Priority</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor#getPriority
+	 * <em>Priority</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Priority</em>'.
 	 * @see com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor#getPriority()
@@ -5948,8 +6350,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor#getFactory <em>Factory</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor#getFactory
+	 * <em>Factory</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Factory</em>'.
 	 * @see com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor#getFactory()
@@ -5959,8 +6361,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getUIBindingDecoratorExtenderDescriptor_Factory();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IArgumentProvider <em>Argument Provider</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IArgumentProvider
+	 * <em>Argument Provider</em>} '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Argument Provider</em>'.
 	 * @see com.rcpcompany.uibindings.IArgumentProvider
@@ -5969,7 +6371,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getArgumentProvider();
 
 	/**
-	 * Returns the meta object for the map '{@link com.rcpcompany.uibindings.IArgumentProvider#getDeclaredArguments
+	 * Returns the meta object for the map '
+	 * {@link com.rcpcompany.uibindings.IArgumentProvider#getDeclaredArguments
 	 * <em>Declared Arguments</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the map '<em>Declared Arguments</em>'.
@@ -5980,8 +6383,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getArgumentProvider_DeclaredArguments();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IDisposable <em>IDisposable</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IDisposable
+	 * <em>IDisposable</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>IDisposable</em>'.
 	 * @see com.rcpcompany.uibindings.IDisposable
@@ -6011,8 +6414,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getIPersistentParty();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.Constants <em>Constants</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.Constants
+	 * <em>Constants</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Constants</em>'.
 	 * @see com.rcpcompany.uibindings.Constants
@@ -6022,8 +6425,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getConstants();
 
 	/**
-	 * Returns the meta object for class '{@link java.util.Map.Entry <em>String To Model Class Info Map Entry</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link java.util.Map.Entry
+	 * <em>String To Model Class Info Map Entry</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @return the meta object for class '<em>String To Model Class Info Map Entry</em>'.
 	 * @see java.util.Map.Entry
@@ -6032,8 +6436,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getStringToModelClassInfoMapEntry();
 
 	/**
-	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Key</em>'.
 	 * @see java.util.Map.Entry
@@ -6043,8 +6447,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getStringToModelClassInfoMapEntry_Key();
 
 	/**
-	 * Returns the meta object for the reference '{@link java.util.Map.Entry <em>Value</em>}'. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for the reference '{@link java.util.Map.Entry <em>Value</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Value</em>'.
 	 * @see java.util.Map.Entry
@@ -6054,8 +6458,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getStringToModelClassInfoMapEntry_Value();
 
 	/**
-	 * Returns the meta object for class '{@link java.util.Map.Entry <em>String To Model Feature Info Map Entry</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link java.util.Map.Entry
+	 * <em>String To Model Feature Info Map Entry</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @return the meta object for class '<em>String To Model Feature Info Map Entry</em>'.
 	 * @see java.util.Map.Entry
@@ -6064,8 +6469,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getStringToModelFeatureInfoMapEntry();
 
 	/**
-	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Key</em>'.
 	 * @see java.util.Map.Entry
@@ -6075,8 +6480,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getStringToModelFeatureInfoMapEntry_Key();
 
 	/**
-	 * Returns the meta object for the reference '{@link java.util.Map.Entry <em>Value</em>}'. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for the reference '{@link java.util.Map.Entry <em>Value</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Value</em>'.
 	 * @see java.util.Map.Entry
@@ -6086,19 +6491,20 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getStringToModelFeatureInfoMapEntry_Value();
 
 	/**
-	 * Returns the meta object for class '{@link java.util.Map.Entry <em>String To String Map Entry</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link java.util.Map.Entry
+	 * <em>String To String Map Entry</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>String To String Map Entry</em>'.
 	 * @see java.util.Map.Entry
-	 * @model keyDataType="org.eclipse.emf.ecore.EString" valueDataType="org.eclipse.emf.ecore.EString"
+	 * @model keyDataType="org.eclipse.emf.ecore.EString"
+	 *        valueDataType="org.eclipse.emf.ecore.EString"
 	 * @generated
 	 */
 	EClass getStringToStringMapEntry();
 
 	/**
-	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Key</em>'.
 	 * @see java.util.Map.Entry
@@ -6108,8 +6514,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getStringToStringMapEntry_Key();
 
 	/**
-	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Value</em>}'. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Value</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Value</em>'.
 	 * @see java.util.Map.Entry
@@ -6119,8 +6525,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getStringToStringMapEntry_Value();
 
 	/**
-	 * Returns the meta object for the map '{@link java.util.Map.Entry <em>Arguments</em>}'. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for the map '{@link java.util.Map.Entry <em>Arguments</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the map '<em>Arguments</em>'.
 	 * @see java.util.Map.Entry
@@ -6130,19 +6536,20 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getStringToStringMapEntry_Arguments();
 
 	/**
-	 * Returns the meta object for class '{@link java.util.Map.Entry <em>String To Object Map Entry</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link java.util.Map.Entry
+	 * <em>String To Object Map Entry</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>String To Object Map Entry</em>'.
 	 * @see java.util.Map.Entry
-	 * @model keyDataType="org.eclipse.emf.ecore.EString" valueDataType="org.eclipse.emf.ecore.EJavaObject"
+	 * @model keyDataType="org.eclipse.emf.ecore.EString"
+	 *        valueDataType="org.eclipse.emf.ecore.EJavaObject"
 	 * @generated
 	 */
 	EClass getStringToObjectMapEntry();
 
 	/**
-	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Key</em>'.
 	 * @see java.util.Map.Entry
@@ -6152,8 +6559,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getStringToObjectMapEntry_Key();
 
 	/**
-	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Value</em>}'. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Value</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Value</em>'.
 	 * @see java.util.Map.Entry
@@ -6163,8 +6570,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getStringToObjectMapEntry_Value();
 
 	/**
-	 * Returns the meta object for class '{@link java.util.Map.Entry <em>String To Image Descriptor Map Entry</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link java.util.Map.Entry
+	 * <em>String To Image Descriptor Map Entry</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @return the meta object for class '<em>String To Image Descriptor Map Entry</em>'.
 	 * @see java.util.Map.Entry
@@ -6173,8 +6581,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getStringToImageDescriptorMapEntry();
 
 	/**
-	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Key</em>'.
 	 * @see java.util.Map.Entry
@@ -6184,8 +6592,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getStringToImageDescriptorMapEntry_Key();
 
 	/**
-	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Value</em>}'. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Value</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Value</em>'.
 	 * @see java.util.Map.Entry
@@ -6196,7 +6604,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for class '{@link java.util.Map.Entry
-	 * <em>String To IConfiguration Element Map Entry</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <em>String To IConfiguration Element Map Entry</em>}'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>String To IConfiguration Element Map Entry</em>'.
 	 * @see java.util.Map.Entry
@@ -6205,8 +6614,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getStringToIConfigurationElementMapEntry();
 
 	/**
-	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Key</em>'.
 	 * @see java.util.Map.Entry
@@ -6216,8 +6625,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getStringToIConfigurationElementMapEntry_Key();
 
 	/**
-	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Value</em>}'. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Value</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Value</em>'.
 	 * @see java.util.Map.Entry
@@ -6227,19 +6636,20 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getStringToIConfigurationElementMapEntry_Value();
 
 	/**
-	 * Returns the meta object for class '{@link java.util.Map.Entry <em>String To Boolean Map Entry</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link java.util.Map.Entry
+	 * <em>String To Boolean Map Entry</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>String To Boolean Map Entry</em>'.
 	 * @see java.util.Map.Entry
-	 * @model keyDataType="org.eclipse.emf.ecore.EString" valueDataType="org.eclipse.emf.ecore.EBoolean"
+	 * @model keyDataType="org.eclipse.emf.ecore.EString"
+	 *        valueDataType="org.eclipse.emf.ecore.EBoolean"
 	 * @generated
 	 */
 	EClass getStringToBooleanMapEntry();
 
 	/**
-	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Key</em>'.
 	 * @see java.util.Map.Entry
@@ -6249,8 +6659,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getStringToBooleanMapEntry_Key();
 
 	/**
-	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Value</em>}'. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Value</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Value</em>'.
 	 * @see java.util.Map.Entry
@@ -6260,20 +6670,21 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getStringToBooleanMapEntry_Value();
 
 	/**
-	 * Returns the meta object for class '{@link java.util.Map.Entry <em>Object To CI Map Entry</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link java.util.Map.Entry
+	 * <em>Object To CI Map Entry</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Object To CI Map Entry</em>'.
 	 * @see java.util.Map.Entry
 	 * @model keyType="org.eclipse.emf.ecore.EObject" keyResolveProxies="false" keyTransient="true"
-	 *        valueType="com.rcpcompany.uibindings.ColumnBindingCellInformation" valueResolveProxies="false"
+	 *        valueType="com.rcpcompany.uibindings.ColumnBindingCellInformation"
+	 *        valueResolveProxies="false"
 	 * @generated
 	 */
 	EClass getObjectToCIMapEntry();
 
 	/**
-	 * Returns the meta object for the reference '{@link java.util.Map.Entry <em>Key</em>}'. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for the reference '{@link java.util.Map.Entry <em>Key</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Key</em>'.
 	 * @see java.util.Map.Entry
@@ -6283,8 +6694,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getObjectToCIMapEntry_Key();
 
 	/**
-	 * Returns the meta object for the reference '{@link java.util.Map.Entry <em>Value</em>}'. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for the reference '{@link java.util.Map.Entry <em>Value</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Value</em>'.
 	 * @see java.util.Map.Entry
@@ -6294,8 +6705,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getObjectToCIMapEntry_Value();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IServiceRegistry <em>Service Registry</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IServiceRegistry
+	 * <em>Service Registry</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Service Registry</em>'.
 	 * @see com.rcpcompany.uibindings.IServiceRegistry
@@ -6304,8 +6715,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getServiceRegistry();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link com.rcpcompany.uibindings.IServiceRegistry#getServices
-	 * <em>Services</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute list '
+	 * {@link com.rcpcompany.uibindings.IServiceRegistry#getServices <em>Services</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute list '<em>Services</em>'.
 	 * @see com.rcpcompany.uibindings.IServiceRegistry#getServices()
@@ -6315,8 +6727,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getServiceRegistry_Services();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IQuickfixProposal <em>Quickfix Proposal</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IQuickfixProposal
+	 * <em>Quickfix Proposal</em>} '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Quickfix Proposal</em>'.
 	 * @see com.rcpcompany.uibindings.IQuickfixProposal
@@ -6325,8 +6737,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getQuickfixProposal();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IQuickfixProposal#getLabel
-	 * <em>Label</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IQuickfixProposal#getLabel <em>Label</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Label</em>'.
 	 * @see com.rcpcompany.uibindings.IQuickfixProposal#getLabel()
@@ -6336,8 +6749,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getQuickfixProposal_Label();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IQuickfixProposal#getDescription
-	 * <em>Description</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IQuickfixProposal#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Description</em>'.
 	 * @see com.rcpcompany.uibindings.IQuickfixProposal#getDescription()
@@ -6347,8 +6761,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getQuickfixProposal_Description();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IQuickfixProposal#getImage
-	 * <em>Image</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IQuickfixProposal#getImage <em>Image</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Image</em>'.
 	 * @see com.rcpcompany.uibindings.IQuickfixProposal#getImage()
@@ -6358,8 +6773,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getQuickfixProposal_Image();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IQuickfixProposal#getRelevance
-	 * <em>Relevance</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IQuickfixProposal#getRelevance <em>Relevance</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Relevance</em>'.
 	 * @see com.rcpcompany.uibindings.IQuickfixProposal#getRelevance()
@@ -6369,7 +6785,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getQuickfixProposal_Relevance();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IQuickfixProposalProcessor
+	 * Returns the meta object for class '
+	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessor
 	 * <em>Quickfix Proposal Processor</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Quickfix Proposal Processor</em>'.
@@ -6379,7 +6796,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getQuickfixProposalProcessor();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IQuickfixProposalProcessorContext
+	 * Returns the meta object for class '
+	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorContext
 	 * <em>Quickfix Proposal Processor Context</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Quickfix Proposal Processor Context</em>'.
@@ -6389,8 +6807,10 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getQuickfixProposalProcessorContext();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor
-	 * <em>Quickfix Proposal Processor Descriptor</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '
+	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor
+	 * <em>Quickfix Proposal Processor Descriptor</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @return the meta object for class '<em>Quickfix Proposal Processor Descriptor</em>'.
 	 * @see com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor
@@ -6400,8 +6820,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getModelType <em>Model Type</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getModelType
+	 * <em>Model Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Model Type</em>'.
 	 * @see com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getModelType()
@@ -6412,8 +6832,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getFeature <em>Feature</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getFeature
+	 * <em>Feature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Feature</em>'.
 	 * @see com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getFeature()
@@ -6424,8 +6844,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getSource <em>Source</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getSource
+	 * <em>Source</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Source</em>'.
 	 * @see com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getSource()
@@ -6436,8 +6856,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getCode <em>Code</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getCode <em>Code</em>}
+	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Code</em>'.
 	 * @see com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getCode()
@@ -6448,8 +6868,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getMessagePattern <em>Message Pattern</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getMessagePattern
+	 * <em>Message Pattern</em>} '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Message Pattern</em>'.
 	 * @see com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getMessagePattern()
@@ -6460,8 +6880,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getProcessor <em>Processor</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getProcessor
+	 * <em>Processor</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Processor</em>'.
 	 * @see com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getProcessor()
@@ -6481,8 +6901,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getTreeItemRelation();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.ITreeItemRelation#getParent
-	 * <em>Parent</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.ITreeItemRelation#getParent <em>Parent</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Parent</em>'.
 	 * @see com.rcpcompany.uibindings.ITreeItemRelation#getParent()
@@ -6492,8 +6913,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getTreeItemRelation_Parent();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.ITreeItemRelation#getDescriptor
-	 * <em>Descriptor</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.ITreeItemRelation#getDescriptor <em>Descriptor</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Descriptor</em>'.
 	 * @see com.rcpcompany.uibindings.ITreeItemRelation#getDescriptor()
@@ -6503,8 +6925,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getTreeItemRelation_Descriptor();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.ITreeItemRelation#getProcessor
-	 * <em>Processor</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.ITreeItemRelation#getProcessor <em>Processor</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Processor</em>'.
 	 * @see com.rcpcompany.uibindings.ITreeItemRelation#getProcessor()
@@ -6514,8 +6937,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getTreeItemRelation_Processor();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.ITreeItemRelation#getFeatureName
-	 * <em>Feature Name</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.ITreeItemRelation#getFeatureName <em>Feature Name</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Feature Name</em>'.
 	 * @see com.rcpcompany.uibindings.ITreeItemRelation#getFeatureName()
@@ -6525,8 +6949,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getTreeItemRelation_FeatureName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.ITreeItemRelation#getPriority
-	 * <em>Priority</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.ITreeItemRelation#getPriority <em>Priority</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Priority</em>'.
 	 * @see com.rcpcompany.uibindings.ITreeItemRelation#getPriority()
@@ -6546,8 +6971,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getTreeItemDescriptor();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getId
-	 * <em>Id</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.ITreeItemDescriptor#getId <em>Id</em>}'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Id</em>'.
 	 * @see com.rcpcompany.uibindings.ITreeItemDescriptor#getId()
@@ -6557,8 +6983,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getTreeItemDescriptor_Id();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getChildren
-	 * <em>Children</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference list '
+	 * {@link com.rcpcompany.uibindings.ITreeItemDescriptor#getChildren <em>Children</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference list '<em>Children</em>'.
 	 * @see com.rcpcompany.uibindings.ITreeItemDescriptor#getChildren()
@@ -6568,8 +6995,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getTreeItemDescriptor_Children();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getCe
-	 * <em>Ce</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.ITreeItemDescriptor#getCe <em>Ce</em>}'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Ce</em>'.
 	 * @see com.rcpcompany.uibindings.ITreeItemDescriptor#getCe()
@@ -6580,8 +7008,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute list '
-	 * {@link com.rcpcompany.uibindings.ITreeItemDescriptor#getModelTypes <em>Model Types</em>}'. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.ITreeItemDescriptor#getModelTypes <em>Model Types</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute list '<em>Model Types</em>'.
 	 * @see com.rcpcompany.uibindings.ITreeItemDescriptor#getModelTypes()
@@ -6591,8 +7019,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getTreeItemDescriptor_ModelTypes();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getNewWizardID
-	 * <em>New Wizard ID</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.ITreeItemDescriptor#getNewWizardID <em>New Wizard ID</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>New Wizard ID</em>'.
 	 * @see com.rcpcompany.uibindings.ITreeItemDescriptor#getNewWizardID()
@@ -6612,8 +7041,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getConstantTreeItem();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.IConstantTreeItem#getDescriptor
-	 * <em>Descriptor</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IConstantTreeItem#getDescriptor <em>Descriptor</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Descriptor</em>'.
 	 * @see com.rcpcompany.uibindings.IConstantTreeItem#getDescriptor()
@@ -6623,8 +7053,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getConstantTreeItem_Descriptor();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.IConstantTreeItem#getTarget
-	 * <em>Target</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IConstantTreeItem#getTarget <em>Target</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Target</em>'.
 	 * @see com.rcpcompany.uibindings.IConstantTreeItem#getTarget()
@@ -6634,8 +7065,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getConstantTreeItem_Target();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IBindingMessage <em>Binding Message</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IBindingMessage
+	 * <em>Binding Message</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Binding Message</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingMessage
@@ -6644,8 +7075,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getBindingMessage();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.IBindingMessage#getBinding
-	 * <em>Binding</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IBindingMessage#getBinding <em>Binding</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Binding</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingMessage#getBinding()
@@ -6655,8 +7087,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getBindingMessage_Binding();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBindingMessage#getMessage
-	 * <em>Message</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBindingMessage#getMessage <em>Message</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Message</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingMessage#getMessage()
@@ -6666,8 +7099,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBindingMessage_Message();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBindingMessage#getMessageType
-	 * <em>Message Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBindingMessage#getMessageType <em>Message Type</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Message Type</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingMessage#getMessageType()
@@ -6677,8 +7111,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBindingMessage_MessageType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBindingMessage#getSeverity
-	 * <em>Severity</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBindingMessage#getSeverity <em>Severity</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Severity</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingMessage#getSeverity()
@@ -6688,8 +7123,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBindingMessage_Severity();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBindingMessage#getPrefix
-	 * <em>Prefix</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBindingMessage#getPrefix <em>Prefix</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Prefix</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingMessage#getPrefix()
@@ -6699,8 +7135,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBindingMessage_Prefix();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.rcpcompany.uibindings.IBindingMessage#getTargets
-	 * <em>Targets</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference list '
+	 * {@link com.rcpcompany.uibindings.IBindingMessage#getTargets <em>Targets</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference list '<em>Targets</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingMessage#getTargets()
@@ -6710,8 +7147,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getBindingMessage_Targets();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBindingMessage#getData
-	 * <em>Data</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBindingMessage#getData <em>Data</em>}'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Data</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingMessage#getData()
@@ -6721,8 +7159,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBindingMessage_Data();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBindingMessage#getSource
-	 * <em>Source</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBindingMessage#getSource <em>Source</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Source</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingMessage#getSource()
@@ -6732,8 +7171,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBindingMessage_Source();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBindingMessage#getCode
-	 * <em>Code</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBindingMessage#getCode <em>Code</em>}'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Code</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingMessage#getCode()
@@ -6743,8 +7183,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBindingMessage_Code();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBindingMessage#getDetails
-	 * <em>Details</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBindingMessage#getDetails <em>Details</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Details</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingMessage#getDetails()
@@ -6764,8 +7205,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getBindingMessageTarget();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.IBindingMessageTarget#getModelObject
-	 * <em>Model Object</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IBindingMessageTarget#getModelObject <em>Model Object</em>}
+	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Model Object</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingMessageTarget#getModelObject()
@@ -6776,8 +7218,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the reference '
-	 * {@link com.rcpcompany.uibindings.IBindingMessageTarget#getModelFeature <em>Model Feature</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IBindingMessageTarget#getModelFeature
+	 * <em>Model Feature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Model Feature</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingMessageTarget#getModelFeature()
@@ -6787,8 +7229,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getBindingMessageTarget_ModelFeature();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBindingMessageTarget#getModelKey
-	 * <em>Model Key</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBindingMessageTarget#getModelKey <em>Model Key</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Model Key</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingMessageTarget#getModelKey()
@@ -6798,8 +7241,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBindingMessageTarget_ModelKey();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IUIAttribute <em>UI Attribute</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IUIAttribute
+	 * <em>UI Attribute</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>UI Attribute</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttribute
@@ -6808,8 +7251,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getUIAttribute();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IUIAttribute#getWidget
-	 * <em>Widget</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IUIAttribute#getWidget <em>Widget</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Widget</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttribute#getWidget()
@@ -6819,8 +7263,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getUIAttribute_Widget();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IUIAttribute#getAttribute
-	 * <em>Attribute</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IUIAttribute#getAttribute <em>Attribute</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Attribute</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttribute#getAttribute()
@@ -6830,8 +7275,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getUIAttribute_Attribute();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IUIAttribute#getCurrentValue
-	 * <em>Current Value</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IUIAttribute#getCurrentValue <em>Current Value</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Current Value</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttribute#getCurrentValue()
@@ -6841,7 +7287,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getUIAttribute_CurrentValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IUIAttribute#getPossibleValuesList
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IUIAttribute#getPossibleValuesList
 	 * <em>Possible Values List</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Possible Values List</em>'.
@@ -6852,8 +7299,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getUIAttribute_PossibleValuesList();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IUIAttribute#getMinValue
-	 * <em>Min Value</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IUIAttribute#getMinValue <em>Min Value</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Min Value</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttribute#getMinValue()
@@ -6863,8 +7311,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getUIAttribute_MinValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IUIAttribute#getMaxValue
-	 * <em>Max Value</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IUIAttribute#getMaxValue <em>Max Value</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Max Value</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttribute#getMaxValue()
@@ -6874,8 +7323,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getUIAttribute_MaxValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IUIAttribute#getTooltipValue
-	 * <em>Tooltip Value</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IUIAttribute#getTooltipValue <em>Tooltip Value</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Tooltip Value</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttribute#getTooltipValue()
@@ -6885,8 +7335,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getUIAttribute_TooltipValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IUIAttribute#getFontValue
-	 * <em>Font Value</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IUIAttribute#getFontValue <em>Font Value</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Font Value</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttribute#getFontValue()
@@ -6896,8 +7347,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getUIAttribute_FontValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IUIAttribute#getImageValue
-	 * <em>Image Value</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IUIAttribute#getImageValue <em>Image Value</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Image Value</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttribute#getImageValue()
@@ -6907,8 +7359,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getUIAttribute_ImageValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IUIAttribute#getForegroundValue
-	 * <em>Foreground Value</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IUIAttribute#getForegroundValue <em>Foreground Value</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Foreground Value</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttribute#getForegroundValue()
@@ -6918,8 +7371,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getUIAttribute_ForegroundValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IUIAttribute#getBackgroundValue
-	 * <em>Background Value</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IUIAttribute#getBackgroundValue <em>Background Value</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Background Value</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttribute#getBackgroundValue()
@@ -6929,8 +7383,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getUIAttribute_BackgroundValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IUIAttribute#getEnabledValue
-	 * <em>Enabled Value</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IUIAttribute#getEnabledValue <em>Enabled Value</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Enabled Value</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttribute#getEnabledValue()
@@ -6940,8 +7395,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getUIAttribute_EnabledValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IUIAttribute#getCursorValue
-	 * <em>Cursor Value</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IUIAttribute#getCursorValue <em>Cursor Value</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Cursor Value</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttribute#getCursorValue()
@@ -6951,8 +7407,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getUIAttribute_CursorValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IUIAttribute#getStyleRangeList
-	 * <em>Style Range List</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IUIAttribute#getStyleRangeList <em>Style Range List</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Style Range List</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttribute#getStyleRangeList()
@@ -6962,8 +7419,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getUIAttribute_StyleRangeList();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IUIAttribute#isChangeable
-	 * <em>Changeable</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IUIAttribute#isChangeable <em>Changeable</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Changeable</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttribute#isChangeable()
@@ -6973,7 +7431,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getUIAttribute_Changeable();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IUIAttribute#getFieldAssistAdapter
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IUIAttribute#getFieldAssistAdapter
 	 * <em>Field Assist Adapter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Field Assist Adapter</em>'.
@@ -6985,8 +7444,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the reference list '
-	 * {@link com.rcpcompany.uibindings.IUIAttribute#getImageDecorations <em>Image Decorations</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IUIAttribute#getImageDecorations <em>Image Decorations</em>}
+	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference list '<em>Image Decorations</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttribute#getImageDecorations()
@@ -6996,7 +7455,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getUIAttribute_ImageDecorations();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IUIAttributeImageDecoration
+	 * Returns the meta object for class '
+	 * {@link com.rcpcompany.uibindings.IUIAttributeImageDecoration
 	 * <em>UI Attribute Image Decoration</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>UI Attribute Image Decoration</em>'.
@@ -7007,8 +7467,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IUIAttributeImageDecoration#isOutside <em>Outside</em>}'. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IUIAttributeImageDecoration#isOutside <em>Outside</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Outside</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttributeImageDecoration#isOutside()
@@ -7019,8 +7479,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IUIAttributeImageDecoration#getImageValue <em>Image Value</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IUIAttributeImageDecoration#getImageValue
+	 * <em>Image Value</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Image Value</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttributeImageDecoration#getImageValue()
@@ -7031,8 +7491,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IUIAttributeImageDecoration#getTooltipValue <em>Tooltip Value</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IUIAttributeImageDecoration#getTooltipValue
+	 * <em>Tooltip Value</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Tooltip Value</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttributeImageDecoration#getTooltipValue()
@@ -7043,8 +7503,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IUIAttributeImageDecoration#getPosition <em>Position</em>}'. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IUIAttributeImageDecoration#getPosition <em>Position</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Position</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttributeImageDecoration#getPosition()
@@ -7055,8 +7515,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the container reference '
-	 * {@link com.rcpcompany.uibindings.IUIAttributeImageDecoration#getAttribute <em>Attribute</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IUIAttributeImageDecoration#getAttribute <em>Attribute</em>}
+	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the container reference '<em>Attribute</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttributeImageDecoration#getAttribute()
@@ -7076,7 +7536,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getUIAttributeFactory();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IUIAttributeFactoryDescriptor
+	 * Returns the meta object for class '
+	 * {@link com.rcpcompany.uibindings.IUIAttributeFactoryDescriptor
 	 * <em>UI Attribute Factory Descriptor</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>UI Attribute Factory Descriptor</em>'.
@@ -7087,8 +7548,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IUIAttributeFactoryDescriptor#getTypeName <em>Type Name</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IUIAttributeFactoryDescriptor#getTypeName
+	 * <em>Type Name</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Type Name</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttributeFactoryDescriptor#getTypeName()
@@ -7099,8 +7560,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IUIAttributeFactoryDescriptor#getAttribute <em>Attribute</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IUIAttributeFactoryDescriptor#getAttribute
+	 * <em>Attribute</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Attribute</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttributeFactoryDescriptor#getAttribute()
@@ -7111,8 +7572,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IUIAttributeFactoryDescriptor#getFactory <em>Factory</em>}'. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IUIAttributeFactoryDescriptor#getFactory <em>Factory</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Factory</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttributeFactoryDescriptor#getFactory()
@@ -7122,7 +7583,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getUIAttributeFactoryDescriptor_Factory();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IEMFObservableFactoryDescriptor
+	 * Returns the meta object for class '
+	 * {@link com.rcpcompany.uibindings.IEMFObservableFactoryDescriptor
 	 * <em>EMF Observable Factory Descriptor</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>EMF Observable Factory Descriptor</em>'.
@@ -7133,8 +7595,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IEMFObservableFactoryDescriptor#getPackagePrefix <em>Package Prefix</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IEMFObservableFactoryDescriptor#getPackagePrefix
+	 * <em>Package Prefix</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Package Prefix</em>'.
 	 * @see com.rcpcompany.uibindings.IEMFObservableFactoryDescriptor#getPackagePrefix()
@@ -7145,8 +7607,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IEMFObservableFactoryDescriptor#getFactory <em>Factory</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IEMFObservableFactoryDescriptor#getFactory <em>Factory</em>}
+	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Factory</em>'.
 	 * @see com.rcpcompany.uibindings.IEMFObservableFactoryDescriptor#getFactory()
@@ -7156,8 +7618,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getEMFObservableFactoryDescriptor_Factory();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.ui.forms.IMessage <em>IMessage</em>}'. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link org.eclipse.ui.forms.IMessage <em>IMessage</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>IMessage</em>'.
 	 * @see org.eclipse.ui.forms.IMessage
@@ -7176,8 +7638,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getIContentProposal();
 
 	/**
-	 * Returns the meta object for enum '{@link com.rcpcompany.uibindings.BindingState <em>Binding State</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for enum '{@link com.rcpcompany.uibindings.BindingState
+	 * <em>Binding State</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for enum '<em>Binding State</em>'.
 	 * @see com.rcpcompany.uibindings.BindingState
@@ -7206,8 +7668,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EEnum getTextCommitStrategy();
 
 	/**
-	 * Returns the meta object for enum '{@link com.rcpcompany.uibindings.SpecialBinding <em>Special Binding</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for enum '{@link com.rcpcompany.uibindings.SpecialBinding
+	 * <em>Special Binding</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for enum '<em>Special Binding</em>'.
 	 * @see com.rcpcompany.uibindings.SpecialBinding
@@ -7226,7 +7688,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EEnum getBindingMessageSeverity();
 
 	/**
-	 * Returns the meta object for data type '{@link com.rcpcompany.uibindings.uiAttributes.UIAttributePainter
+	 * Returns the meta object for data type '
+	 * {@link com.rcpcompany.uibindings.uiAttributes.UIAttributePainter
 	 * <em>UI Attribute Painter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>UI Attribute Painter</em>'.
@@ -7236,8 +7699,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getUIAttributePainter();
 
 	/**
-	 * Returns the meta object for data type '{@link com.rcpcompany.uibindings.IEMFObservableFactory
-	 * <em>IEMF Observable Factory</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '
+	 * {@link com.rcpcompany.uibindings.IEMFObservableFactory <em>IEMF Observable Factory</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>IEMF Observable Factory</em>'.
 	 * @see com.rcpcompany.uibindings.IEMFObservableFactory
@@ -7246,8 +7710,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getIEMFObservableFactory();
 
 	/**
-	 * Returns the meta object for data type '{@link com.rcpcompany.utils.extensionpoints.CEObjectHolder
-	 * <em>CE Object Holder</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '
+	 * {@link com.rcpcompany.utils.extensionpoints.CEObjectHolder <em>CE Object Holder</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>CE Object Holder</em>'.
 	 * @see com.rcpcompany.utils.extensionpoints.CEObjectHolder
@@ -7256,8 +7721,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getCEObjectHolder();
 
 	/**
-	 * Returns the meta object for data type '{@link com.rcpcompany.utils.extensionpoints.CEResourceHolder
-	 * <em>CE Resource Holder</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '
+	 * {@link com.rcpcompany.utils.extensionpoints.CEResourceHolder <em>CE Resource Holder</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>CE Resource Holder</em>'.
 	 * @see com.rcpcompany.utils.extensionpoints.CEResourceHolder
@@ -7266,8 +7732,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getCEResourceHolder();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.core.databinding.DataBindingContext
-	 * <em>DB Context</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '
+	 * {@link org.eclipse.core.databinding.DataBindingContext <em>DB Context</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>DB Context</em>'.
 	 * @see org.eclipse.core.databinding.DataBindingContext
@@ -7276,8 +7743,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getDBContext();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.core.databinding.Binding <em>DB Binding</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '{@link org.eclipse.core.databinding.Binding
+	 * <em>DB Binding</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>DB Binding</em>'.
 	 * @see org.eclipse.core.databinding.Binding
@@ -7287,8 +7754,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getDBBinding();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.jface.viewers.ColumnViewer <em>Column Viewer</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '{@link org.eclipse.jface.viewers.ColumnViewer
+	 * <em>Column Viewer</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Column Viewer</em>'.
 	 * @see org.eclipse.jface.viewers.ColumnViewer
@@ -7297,8 +7764,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getColumnViewer();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.jface.viewers.ViewerColumn <em>Viewer Column</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '{@link org.eclipse.jface.viewers.ViewerColumn
+	 * <em>Viewer Column</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Viewer Column</em>'.
 	 * @see org.eclipse.jface.viewers.ViewerColumn
@@ -7317,7 +7784,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getImageDescriptor();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.jface.fieldassist.IControlContentAdapter
+	 * Returns the meta object for data type '
+	 * {@link org.eclipse.jface.fieldassist.IControlContentAdapter
 	 * <em>IControl Content Adapter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>IControl Content Adapter</em>'.
@@ -7327,8 +7795,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getIControlContentAdapter();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.ui.services.IServiceLocator <em>IService Locator</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '{@link org.eclipse.ui.services.IServiceLocator
+	 * <em>IService Locator</em>} '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>IService Locator</em>'.
 	 * @see org.eclipse.ui.services.IServiceLocator
@@ -7347,8 +7815,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getIConfigurationElement();
 
 	/**
-	 * Returns the meta object for data type '{@link java.util.regex.Pattern <em>Pattern</em>}'. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for data type '{@link java.util.regex.Pattern <em>Pattern</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Pattern</em>'.
 	 * @see java.util.regex.Pattern
@@ -7357,8 +7825,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getPattern();
 
 	/**
-	 * Returns the meta object for data type '{@link java.lang.Throwable <em>Throwable</em>}'. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for data type '{@link java.lang.Throwable <em>Throwable</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Throwable</em>'.
 	 * @see java.lang.Throwable
@@ -7367,8 +7835,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getThrowable();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.core.databinding.observable.IObservable
-	 * <em>IObservable</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '
+	 * {@link org.eclipse.core.databinding.observable.IObservable <em>IObservable</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>IObservable</em>'.
 	 * @see org.eclipse.core.databinding.observable.IObservable
@@ -7377,7 +7846,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getIObservable();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.core.databinding.observable.value.IObservableValue
+	 * Returns the meta object for data type '
+	 * {@link org.eclipse.core.databinding.observable.value.IObservableValue
 	 * <em>IObservable Value</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>IObservable Value</em>'.
@@ -7387,7 +7857,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getIObservableValue();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.core.databinding.observable.list.IObservableList
+	 * Returns the meta object for data type '
+	 * {@link org.eclipse.core.databinding.observable.list.IObservableList
 	 * <em>IObservable List</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>IObservable List</em>'.
@@ -7397,8 +7868,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getIObservableList();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.core.databinding.observable.set.IObservableSet
-	 * <em>IObservable Set</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '
+	 * {@link org.eclipse.core.databinding.observable.set.IObservableSet <em>IObservable Set</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>IObservable Set</em>'.
 	 * @see org.eclipse.core.databinding.observable.set.IObservableSet
@@ -7408,8 +7880,8 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for data type '
-	 * {@link org.eclipse.core.databinding.observable.masterdetail.IObservableFactory <em>IObservable Factory</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * {@link org.eclipse.core.databinding.observable.masterdetail.IObservableFactory
+	 * <em>IObservable Factory</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>IObservable Factory</em>'.
 	 * @see org.eclipse.core.databinding.observable.masterdetail.IObservableFactory
@@ -7418,8 +7890,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getIObservableFactory();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.jface.databinding.swt.ISWTObservableValue
-	 * <em>ISWT Observable Value</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '
+	 * {@link org.eclipse.jface.databinding.swt.ISWTObservableValue <em>ISWT Observable Value</em>}
+	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>ISWT Observable Value</em>'.
 	 * @see org.eclipse.jface.databinding.swt.ISWTObservableValue
@@ -7428,8 +7901,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getISWTObservableValue();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.core.databinding.conversion.IConverter
-	 * <em>IConverter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '
+	 * {@link org.eclipse.core.databinding.conversion.IConverter <em>IConverter</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>IConverter</em>'.
 	 * @see org.eclipse.core.databinding.conversion.IConverter
@@ -7438,8 +7912,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getIConverter();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.core.databinding.validation.IValidator
-	 * <em>IValidator</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '
+	 * {@link org.eclipse.core.databinding.validation.IValidator <em>IValidator</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>IValidator</em>'.
 	 * @see org.eclipse.core.databinding.validation.IValidator
@@ -7448,8 +7923,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getIValidator();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.emf.edit.domain.EditingDomain <em>Editing Domain</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '{@link org.eclipse.emf.edit.domain.EditingDomain
+	 * <em>Editing Domain</em>} '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Editing Domain</em>'.
 	 * @see org.eclipse.emf.edit.domain.EditingDomain
@@ -7458,8 +7933,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getEditingDomain();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.swt.widgets.Widget <em>Widget</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '{@link org.eclipse.swt.widgets.Widget <em>Widget</em>}
+	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Widget</em>'.
 	 * @see org.eclipse.swt.widgets.Widget
@@ -7469,8 +7944,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getWidget();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.ui.forms.widgets.FormToolkit <em>Form Toolkit</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '{@link org.eclipse.ui.forms.widgets.FormToolkit
+	 * <em>Form Toolkit</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Form Toolkit</em>'.
 	 * @see org.eclipse.ui.forms.widgets.FormToolkit
@@ -7479,8 +7954,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getFormToolkit();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.swt.widgets.Control <em>Control</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '{@link org.eclipse.swt.widgets.Control
+	 * <em>Control</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Control</em>'.
 	 * @see org.eclipse.swt.widgets.Control
@@ -7490,8 +7965,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getControl();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.swt.widgets.Composite <em>Composite</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '{@link org.eclipse.swt.widgets.Composite
+	 * <em>Composite</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Composite</em>'.
 	 * @see org.eclipse.swt.widgets.Composite
@@ -7501,8 +7976,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getComposite();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.swt.widgets.Table <em>Table</em>}'. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '{@link org.eclipse.swt.widgets.Table <em>Table</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Table</em>'.
 	 * @see org.eclipse.swt.widgets.Table
@@ -7511,8 +7986,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getTable();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.swt.widgets.TableColumn <em>Table Column</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '{@link org.eclipse.swt.widgets.TableColumn
+	 * <em>Table Column</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Table Column</em>'.
 	 * @see org.eclipse.swt.widgets.TableColumn
@@ -7522,8 +7997,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getTableColumn();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.swt.widgets.Tree <em>Tree</em>}'. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '{@link org.eclipse.swt.widgets.Tree <em>Tree</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Tree</em>'.
 	 * @see org.eclipse.swt.widgets.Tree
@@ -7532,8 +8007,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getTree();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.swt.widgets.TreeColumn <em>Tree Column</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '{@link org.eclipse.swt.widgets.TreeColumn
+	 * <em>Tree Column</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Tree Column</em>'.
 	 * @see org.eclipse.swt.widgets.TreeColumn
@@ -7543,8 +8018,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getTreeColumn();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.swt.dnd.Clipboard <em>Clipboard</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '{@link org.eclipse.swt.dnd.Clipboard
+	 * <em>Clipboard</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Clipboard</em>'.
 	 * @see org.eclipse.swt.dnd.Clipboard
@@ -7554,8 +8029,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getClipboard();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.swt.graphics.Image <em>Image</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '{@link org.eclipse.swt.graphics.Image <em>Image</em>}
+	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Image</em>'.
 	 * @see org.eclipse.swt.graphics.Image
@@ -7565,8 +8040,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getImage();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.swt.graphics.Color <em>Color</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '{@link org.eclipse.swt.graphics.Color <em>Color</em>}
+	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Color</em>'.
 	 * @see org.eclipse.swt.graphics.Color
@@ -7575,8 +8050,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getColor();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.swt.graphics.Cursor <em>Cursor</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '{@link org.eclipse.swt.graphics.Cursor
+	 * <em>Cursor</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Cursor</em>'.
 	 * @see org.eclipse.swt.graphics.Cursor
@@ -7595,8 +8070,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getSelectionListener();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.core.databinding.UpdateValueStrategy
-	 * <em>Update Value Strategy</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '
+	 * {@link org.eclipse.core.databinding.UpdateValueStrategy <em>Update Value Strategy</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Update Value Strategy</em>'.
 	 * @see org.eclipse.core.databinding.UpdateValueStrategy
@@ -7605,8 +8081,9 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getUpdateValueStrategy();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.core.databinding.UpdateListStrategy
-	 * <em>Update List Strategy</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '
+	 * {@link org.eclipse.core.databinding.UpdateListStrategy <em>Update List Strategy</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Update List Strategy</em>'.
 	 * @see org.eclipse.core.databinding.UpdateListStrategy
@@ -7625,8 +8102,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getUpdateSetStrategy();
 
 	/**
-	 * Returns the meta object for data type '{@link com.ibm.icu.text.NumberFormat <em>Number Format</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '{@link com.ibm.icu.text.NumberFormat
+	 * <em>Number Format</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Number Format</em>'.
 	 * @see com.ibm.icu.text.NumberFormat
@@ -7636,7 +8113,8 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getNumberFormat();
 
 	/**
-	 * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return the factory that creates the instances of the model.
 	 * @generated
@@ -7657,8 +8135,9 @@ public interface IUIBindingsPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.BaseObjectImpl
-		 * <em>Base Object</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.BaseObjectImpl <em>Base Object</em>}' class.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.BaseObjectImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getBaseObject()
@@ -7667,8 +8146,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass BASE_OBJECT = eINSTANCE.getBaseObject();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.ManagerImpl <em>Manager</em>}'
-		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.ManagerImpl
+		 * <em>Manager</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.ManagerImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getManager()
@@ -7677,88 +8156,88 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass MANAGER = eINSTANCE.getManager();
 
 		/**
-		 * The meta object literal for the '<em><b>Providers</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Providers</b></em>' containment reference list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference MANAGER__PROVIDERS = eINSTANCE.getManager_Providers();
 
 		/**
-		 * The meta object literal for the '<em><b>Ui Attribute Factories</b></em>' reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Ui Attribute Factories</b></em>' reference list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference MANAGER__UI_ATTRIBUTE_FACTORIES = eINSTANCE.getManager_UiAttributeFactories();
 
 		/**
-		 * The meta object literal for the '<em><b>Decorator Extenders</b></em>' reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Decorator Extenders</b></em>' reference list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference MANAGER__DECORATOR_EXTENDERS = eINSTANCE.getManager_DecoratorExtenders();
 
 		/**
-		 * The meta object literal for the '<em><b>Model Argument Mediators</b></em>' attribute list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Model Argument Mediators</b></em>' attribute list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute MANAGER__MODEL_ARGUMENT_MEDIATORS = eINSTANCE.getManager_ModelArgumentMediators();
 
 		/**
-		 * The meta object literal for the '<em><b>Model Argument Mediator Classes</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Model Argument Mediator Classes</b></em>'
+		 * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute MANAGER__MODEL_ARGUMENT_MEDIATOR_CLASSES = eINSTANCE.getManager_ModelArgumentMediatorClasses();
 
 		/**
-		 * The meta object literal for the '<em><b>Text Commit Strategy</b></em>' attribute feature. <!-- begin-user-doc
-		 * --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Text Commit Strategy</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute MANAGER__TEXT_COMMIT_STRATEGY = eINSTANCE.getManager_TextCommitStrategy();
 
 		/**
-		 * The meta object literal for the '<em><b>Text Commit Strategy Delay</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Text Commit Strategy Delay</b></em>' attribute
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute MANAGER__TEXT_COMMIT_STRATEGY_DELAY = eINSTANCE.getManager_TextCommitStrategyDelay();
 
 		/**
-		 * The meta object literal for the '<em><b>Edit Cell Any Key</b></em>' attribute feature. <!-- begin-user-doc
-		 * --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Edit Cell Any Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute MANAGER__EDIT_CELL_ANY_KEY = eINSTANCE.getManager_EditCellAnyKey();
 
 		/**
-		 * The meta object literal for the '<em><b>Edit Cell Single Click</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Edit Cell Single Click</b></em>' attribute
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute MANAGER__EDIT_CELL_SINGLE_CLICK = eINSTANCE.getManager_EditCellSingleClick();
 
 		/**
-		 * The meta object literal for the '<em><b>Message Decoration Position</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Message Decoration Position</b></em>' attribute
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute MANAGER__MESSAGE_DECORATION_POSITION = eINSTANCE.getManager_MessageDecorationPosition();
 
 		/**
-		 * The meta object literal for the '<em><b>Message Decoration Minimum Severity</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Message Decoration Minimum Severity</b></em>'
+		 * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -7766,152 +8245,153 @@ public interface IUIBindingsPackage extends EPackage {
 				.getManager_MessageDecorationMinimumSeverity();
 
 		/**
-		 * The meta object literal for the '<em><b>Alternative Decoration Position</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Alternative Decoration Position</b></em>'
+		 * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute MANAGER__ALTERNATIVE_DECORATION_POSITION = eINSTANCE.getManager_AlternativeDecorationPosition();
 
 		/**
-		 * The meta object literal for the '<em><b>Auto Apply Single Quickfix</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Auto Apply Single Quickfix</b></em>' attribute
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute MANAGER__AUTO_APPLY_SINGLE_QUICKFIX = eINSTANCE.getManager_AutoApplySingleQuickfix();
 
 		/**
-		 * The meta object literal for the '<em><b>Alternate Row Colors</b></em>' attribute feature. <!-- begin-user-doc
-		 * --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Alternate Row Colors</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute MANAGER__ALTERNATE_ROW_COLORS = eINSTANCE.getManager_AlternateRowColors();
 
 		/**
-		 * The meta object literal for the '<em><b>Validation Error Is Warning</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Validation Error Is Warning</b></em>' attribute
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute MANAGER__VALIDATION_ERRORS_ARE_FATAL = eINSTANCE.getManager_ValidationErrorsAreFatal();
 
 		/**
-		 * The meta object literal for the '<em><b>Validation Delay</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Validation Delay</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute MANAGER__VALIDATION_DELAY = eINSTANCE.getManager_ValidationDelay();
 
 		/**
-		 * The meta object literal for the '<em><b>Validation Delay Window</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Validation Delay Window</b></em>' attribute
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute MANAGER__VALIDATION_DELAY_WINDOW = eINSTANCE.getManager_ValidationDelayWindow();
 
 		/**
-		 * The meta object literal for the '<em><b>Required VB Image Decoration Shown</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Required VB Image Decoration Shown</b></em>'
+		 * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute MANAGER__REQUIRED_VB_IMAGE_DECORATION_SHOWN = eINSTANCE.getManager_RequiredVBImageDecorationShown();
 
 		/**
-		 * The meta object literal for the '<em><b>Assist VB Image Decoration Shown</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Assist VB Image Decoration Shown</b></em>'
+		 * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute MANAGER__ASSIST_VB_IMAGE_DECORATION_SHOWN = eINSTANCE.getManager_AssistVBImageDecorationShown();
 
 		/**
-		 * The meta object literal for the '<em><b>Quickfix VB Image Decoration Shown</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Quickfix VB Image Decoration Shown</b></em>'
+		 * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute MANAGER__QUICKFIX_VB_IMAGE_DECORATION_SHOWN = eINSTANCE.getManager_QuickfixVBImageDecorationShown();
 
 		/**
-		 * The meta object literal for the '<em><b>View Navigation Recorded</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>View Navigation Recorded</b></em>' attribute
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute MANAGER__VIEW_NAVIGATION_RECORDED = eINSTANCE.getManager_ViewNavigationRecorded();
 
 		/**
-		 * The meta object literal for the '<em><b>Model Info</b></em>' map feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Model Info</b></em>' map feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference MANAGER__MODEL_INFO = eINSTANCE.getManager_ModelInfo();
 
 		/**
-		 * The meta object literal for the '<em><b>Tree Items</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Tree Items</b></em>' containment reference list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference MANAGER__TREE_ITEMS = eINSTANCE.getManager_TreeItems();
 
 		/**
-		 * The meta object literal for the '<em><b>Clipboard</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Clipboard</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute MANAGER__CLIPBOARD = eINSTANCE.getManager_Clipboard();
 
 		/**
-		 * The meta object literal for the '<em><b>Observable Factories</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Observable Factories</b></em>' containment
+		 * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference MANAGER__OBSERVABLE_FACTORIES = eINSTANCE.getManager_ObservableFactories();
 
 		/**
-		 * The meta object literal for the '<em><b>Quickfix Proposal Processors</b></em>' reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Quickfix Proposal Processors</b></em>' reference
+		 * list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference MANAGER__QUICKFIX_PROPOSAL_PROCESSORS = eINSTANCE.getManager_QuickfixProposalProcessors();
 
 		/**
-		 * The meta object literal for the '<em><b>Contexts</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Contexts</b></em>' containment reference list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference MANAGER__CONTEXTS = eINSTANCE.getManager_Contexts();
 
 		/**
-		 * The meta object literal for the '<em><b>Editing Domain</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Editing Domain</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute MANAGER__EDITING_DOMAIN = eINSTANCE.getManager_EditingDomain();
 
 		/**
-		 * The meta object literal for the '<em><b>Form Toolkit</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Form Toolkit</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute MANAGER__FORM_TOOLKIT = eINSTANCE.getManager_FormToolkit();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.BindingContextImpl
-		 * <em>Binding Context</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.BindingContextImpl <em>Binding Context</em>}'
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.BindingContextImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getBindingContext()
@@ -7920,64 +8400,64 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass BINDING_CONTEXT = eINSTANCE.getBindingContext();
 
 		/**
-		 * The meta object literal for the '<em><b>Bindings</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Bindings</b></em>' containment reference list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference BINDING_CONTEXT__BINDINGS = eINSTANCE.getBindingContext_Bindings();
 
 		/**
-		 * The meta object literal for the '<em><b>Ok Bindings</b></em>' reference list feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Ok Bindings</b></em>' reference list feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference BINDING_CONTEXT__OK_BINDINGS = eINSTANCE.getBindingContext_OkBindings();
 
 		/**
-		 * The meta object literal for the '<em><b>Top</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Top</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING_CONTEXT__TOP = eINSTANCE.getBindingContext_Top();
 
 		/**
-		 * The meta object literal for the '<em><b>Db Context</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Db Context</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING_CONTEXT__DB_CONTEXT = eINSTANCE.getBindingContext_DbContext();
 
 		/**
-		 * The meta object literal for the '<em><b>Service Locator</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Service Locator</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING_CONTEXT__SERVICE_LOCATOR = eINSTANCE.getBindingContext_ServiceLocator();
 
 		/**
-		 * The meta object literal for the '<em><b>State</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>State</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING_CONTEXT__STATE = eINSTANCE.getBindingContext_State();
 
 		/**
-		 * The meta object literal for the '<em><b>Text Commit Strategy</b></em>' attribute feature. <!-- begin-user-doc
-		 * --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Text Commit Strategy</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING_CONTEXT__TEXT_COMMIT_STRATEGY = eINSTANCE.getBindingContext_TextCommitStrategy();
 
 		/**
-		 * The meta object literal for the '<em><b>Text Commit Strategy Calculated</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Text Commit Strategy Calculated</b></em>'
+		 * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -7985,16 +8465,16 @@ public interface IUIBindingsPackage extends EPackage {
 				.getBindingContext_TextCommitStrategyCalculated();
 
 		/**
-		 * The meta object literal for the '<em><b>Editing Domain</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Editing Domain</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING_CONTEXT__EDITING_DOMAIN = eINSTANCE.getBindingContext_EditingDomain();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.BindingImpl <em>Binding</em>}'
-		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.BindingImpl
+		 * <em>Binding</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.BindingImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getBinding()
@@ -8003,160 +8483,161 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass BINDING = eINSTANCE.getBinding();
 
 		/**
-		 * The meta object literal for the '<em><b>Context</b></em>' container reference feature. <!-- begin-user-doc
-		 * --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Context</b></em>' container reference feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference BINDING__CONTEXT = eINSTANCE.getBinding_Context();
 
 		/**
-		 * The meta object literal for the '<em><b>State</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>State</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING__STATE = eINSTANCE.getBinding_State();
 
 		/**
-		 * The meta object literal for the '<em><b>Changeable</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Changeable</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING__CHANGEABLE = eINSTANCE.getBinding_Changeable();
 
 		/**
-		 * The meta object literal for the '<em><b>Creation Point</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Creation Point</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING__CREATION_POINT = eINSTANCE.getBinding_CreationPoint();
 
 		/**
-		 * The meta object literal for the '<em><b>Arguments</b></em>' map feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Arguments</b></em>' map feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference BINDING__ARGUMENTS = eINSTANCE.getBinding_Arguments();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING__ID = eINSTANCE.getBinding_Id();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING__TYPE = eINSTANCE.getBinding_Type();
 
 		/**
-		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING__LABEL = eINSTANCE.getBinding_Label();
 
 		/**
-		 * The meta object literal for the '<em><b>Static Data Type</b></em>' reference feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Static Data Type</b></em>' reference feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference BINDING__STATIC_DATA_TYPE = eINSTANCE.getBinding_StaticDataType();
 
 		/**
-		 * The meta object literal for the '<em><b>Data Type</b></em>' reference feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Data Type</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference BINDING__DATA_TYPE = eINSTANCE.getBinding_DataType();
 
 		/**
-		 * The meta object literal for the '<em><b>Model EType</b></em>' reference feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Model EType</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference BINDING__MODEL_ETYPE = eINSTANCE.getBinding_ModelEType();
 
 		/**
-		 * The meta object literal for the '<em><b>Model Type</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Model Type</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING__MODEL_TYPE = eINSTANCE.getBinding_ModelType();
 
 		/**
-		 * The meta object literal for the '<em><b>UI Type</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>UI Type</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING__UI_TYPE = eINSTANCE.getBinding_UIType();
 
 		/**
-		 * The meta object literal for the '<em><b>DB Bindings</b></em>' attribute list feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>DB Bindings</b></em>' attribute list feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING__DB_BINDINGS = eINSTANCE.getBinding_DBBindings();
 
 		/**
-		 * The meta object literal for the '<em><b>Monitored DB Bindings</b></em>' attribute list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Monitored DB Bindings</b></em>' attribute list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING__MONITORED_DB_BINDINGS = eINSTANCE.getBinding_MonitoredDBBindings();
 
 		/**
-		 * The meta object literal for the '<em><b>Error Conditions</b></em>' attribute list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Error Conditions</b></em>' attribute list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING__ERROR_CONDITIONS = eINSTANCE.getBinding_ErrorConditions();
 
 		/**
-		 * The meta object literal for the '<em><b>Widget</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Widget</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING__WIDGET = eINSTANCE.getBinding_Widget();
 
 		/**
-		 * The meta object literal for the '<em><b>Control</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Control</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING__CONTROL = eINSTANCE.getBinding_Control();
 
 		/**
-		 * The meta object literal for the '<em><b>Extra Argument Providers</b></em>' reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Extra Argument Providers</b></em>' reference list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference BINDING__EXTRA_ARGUMENT_PROVIDERS = eINSTANCE.getBinding_ExtraArgumentProviders();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.ValueBindingImpl
-		 * <em>Value Binding</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.ValueBindingImpl <em>Value Binding</em>}'
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.ValueBindingImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getValueBinding()
@@ -8165,80 +8646,80 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass VALUE_BINDING = eINSTANCE.getValueBinding();
 
 		/**
-		 * The meta object literal for the '<em><b>Model Observable</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Model Observable</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute VALUE_BINDING__MODEL_OBSERVABLE = eINSTANCE.getValueBinding_ModelObservable();
 
 		/**
-		 * The meta object literal for the '<em><b>Model Observable Value</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Model Observable Value</b></em>' attribute
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute VALUE_BINDING__MODEL_OBSERVABLE_VALUE = eINSTANCE.getValueBinding_ModelObservableValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Model Object</b></em>' reference feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Model Object</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference VALUE_BINDING__MODEL_OBJECT = eINSTANCE.getValueBinding_ModelObject();
 
 		/**
-		 * The meta object literal for the '<em><b>Model Feature</b></em>' reference feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Model Feature</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference VALUE_BINDING__MODEL_FEATURE = eINSTANCE.getValueBinding_ModelFeature();
 
 		/**
-		 * The meta object literal for the '<em><b>Message Prefix</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Message Prefix</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute VALUE_BINDING__MESSAGE_PREFIX = eINSTANCE.getValueBinding_MessagePrefix();
 
 		/**
-		 * The meta object literal for the '<em><b>Decorator Provider</b></em>' reference feature. <!-- begin-user-doc
-		 * --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Decorator Provider</b></em>' reference feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference VALUE_BINDING__DECORATOR_PROVIDER = eINSTANCE.getValueBinding_DecoratorProvider();
 
 		/**
-		 * The meta object literal for the '<em><b>Decorator</b></em>' reference feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Decorator</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference VALUE_BINDING__DECORATOR = eINSTANCE.getValueBinding_Decorator();
 
 		/**
-		 * The meta object literal for the '<em><b>UI Attribute</b></em>' reference feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>UI Attribute</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference VALUE_BINDING__UI_ATTRIBUTE = eINSTANCE.getValueBinding_UIAttribute();
 
 		/**
-		 * The meta object literal for the '<em><b>UI Observable</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>UI Observable</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute VALUE_BINDING__UI_OBSERVABLE = eINSTANCE.getValueBinding_UIObservable();
 
 		/**
-		 * The meta object literal for the '<em><b>Cell</b></em>' reference feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Cell</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -8255,8 +8736,9 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass VALUE_BINDING_CELL = eINSTANCE.getValueBindingCell();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.ColumnBindingImpl
-		 * <em>Column Binding</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.ColumnBindingImpl <em>Column Binding</em>}'
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.ColumnBindingImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getColumnBinding()
@@ -8265,88 +8747,90 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass COLUMN_BINDING = eINSTANCE.getColumnBinding();
 
 		/**
-		 * The meta object literal for the '<em><b>Viewer Binding</b></em>' reference feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Viewer Binding</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference COLUMN_BINDING__VIEWER_BINDING = eINSTANCE.getColumnBinding_ViewerBinding();
 
 		/**
-		 * The meta object literal for the '<em><b>Viewer Column</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Viewer Column</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute COLUMN_BINDING__VIEWER_COLUMN = eINSTANCE.getColumnBinding_ViewerColumn();
 
 		/**
-		 * The meta object literal for the '<em><b>Column Adapter</b></em>' reference feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Column Adapter</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference COLUMN_BINDING__COLUMN_ADAPTER = eINSTANCE.getColumnBinding_ColumnAdapter();
 
 		/**
-		 * The meta object literal for the '<em><b>Base Column</b></em>' reference feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Base Column</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference COLUMN_BINDING__BASE_COLUMN = eINSTANCE.getColumnBinding_BaseColumn();
 
 		/**
-		 * The meta object literal for the '<em><b>Sub Columns</b></em>' reference list feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Sub Columns</b></em>' reference list feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference COLUMN_BINDING__SUB_COLUMNS = eINSTANCE.getColumnBinding_SubColumns();
 
 		/**
-		 * The meta object literal for the '<em><b>Cells</b></em>' map feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Cells</b></em>' map feature. <!-- begin-user-doc
+		 * --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference COLUMN_BINDING__CELLS = eINSTANCE.getColumnBinding_Cells();
 
 		/**
-		 * The meta object literal for the '<em><b>Special Binding Type</b></em>' attribute feature. <!-- begin-user-doc
-		 * --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Special Binding Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute COLUMN_BINDING__SPECIAL_BINDING_TYPE = eINSTANCE.getColumnBinding_SpecialBindingType();
 
 		/**
-		 * The meta object literal for the '<em><b>Factory</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Factory</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute COLUMN_BINDING__FACTORY = eINSTANCE.getColumnBinding_Factory();
 
 		/**
-		 * The meta object literal for the '<em><b>Cursor</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Cursor</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute COLUMN_BINDING__CURSOR = eINSTANCE.getColumnBinding_Cursor();
 
 		/**
-		 * The meta object literal for the '<em><b>Column Visibility</b></em>' attribute feature. <!-- begin-user-doc
-		 * --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Column Visibility</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute COLUMN_BINDING__COLUMN_VISIBILITY = eINSTANCE.getColumnBinding_ColumnVisibility();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl
-		 * <em>Column Binding Cell Information</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl
+		 * <em>Column Binding Cell Information</em>}' class. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getColumnBindingCellInformation()
@@ -8355,24 +8839,24 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass COLUMN_BINDING_CELL_INFORMATION = eINSTANCE.getColumnBindingCellInformation();
 
 		/**
-		 * The meta object literal for the '<em><b>Column</b></em>' reference feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Column</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference COLUMN_BINDING_CELL_INFORMATION__COLUMN = eINSTANCE.getColumnBindingCellInformation_Column();
 
 		/**
-		 * The meta object literal for the '<em><b>Element</b></em>' reference feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Element</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference COLUMN_BINDING_CELL_INFORMATION__ELEMENT = eINSTANCE.getColumnBindingCellInformation_Element();
 
 		/**
-		 * The meta object literal for the '<em><b>Label Binding</b></em>' reference feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Label Binding</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -8380,8 +8864,8 @@ public interface IUIBindingsPackage extends EPackage {
 				.getColumnBindingCellInformation_LabelBinding();
 
 		/**
-		 * The meta object literal for the '<em><b>Label UI Attribute</b></em>' reference feature. <!-- begin-user-doc
-		 * --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Label UI Attribute</b></em>' reference feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -8389,8 +8873,8 @@ public interface IUIBindingsPackage extends EPackage {
 				.getColumnBindingCellInformation_LabelUIAttribute();
 
 		/**
-		 * The meta object literal for the '<em><b>Label Painter</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Label Painter</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -8398,8 +8882,8 @@ public interface IUIBindingsPackage extends EPackage {
 				.getColumnBindingCellInformation_LabelPainter();
 
 		/**
-		 * The meta object literal for the '<em><b>Object Value</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Object Value</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -8407,8 +8891,8 @@ public interface IUIBindingsPackage extends EPackage {
 				.getColumnBindingCellInformation_ObjectValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Source Value</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Source Value</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -8416,16 +8900,16 @@ public interface IUIBindingsPackage extends EPackage {
 				.getColumnBindingCellInformation_SourceValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Changeable</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Changeable</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute COLUMN_BINDING_CELL_INFORMATION__CHANGEABLE = eINSTANCE.getColumnBindingCellInformation_Changeable();
 
 		/**
-		 * The meta object literal for the '<em><b>Display Text</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Display Text</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -8433,16 +8917,16 @@ public interface IUIBindingsPackage extends EPackage {
 				.getColumnBindingCellInformation_DisplayText();
 
 		/**
-		 * The meta object literal for the '<em><b>Value Type</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Value Type</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute COLUMN_BINDING_CELL_INFORMATION__VALUE_TYPE = eINSTANCE.getColumnBindingCellInformation_ValueType();
 
 		/**
-		 * The meta object literal for the '<em><b>Tool Tip Text</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Tool Tip Text</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -8450,16 +8934,17 @@ public interface IUIBindingsPackage extends EPackage {
 				.getColumnBindingCellInformation_ToolTipText();
 
 		/**
-		 * The meta object literal for the '<em><b>Enabled</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Enabled</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute COLUMN_BINDING_CELL_INFORMATION__ENABLED = eINSTANCE.getColumnBindingCellInformation_Enabled();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.ViewerBindingImpl
-		 * <em>Viewer Binding</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.ViewerBindingImpl <em>Viewer Binding</em>}'
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.ViewerBindingImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getViewerBinding()
@@ -8468,63 +8953,64 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass VIEWER_BINDING = eINSTANCE.getViewerBinding();
 
 		/**
-		 * The meta object literal for the '<em><b>Columns</b></em>' reference list feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Columns</b></em>' reference list feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference VIEWER_BINDING__COLUMNS = eINSTANCE.getViewerBinding_Columns();
 
 		/**
-		 * The meta object literal for the '<em><b>List</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>List</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute VIEWER_BINDING__LIST = eINSTANCE.getViewerBinding_List();
 
 		/**
-		 * The meta object literal for the '<em><b>Elements</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Elements</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute VIEWER_BINDING__ELEMENTS = eINSTANCE.getViewerBinding_Elements();
 
 		/**
-		 * The meta object literal for the '<em><b>Single Selection</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Single Selection</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute VIEWER_BINDING__SINGLE_SELECTION = eINSTANCE.getViewerBinding_SingleSelection();
 
 		/**
-		 * The meta object literal for the '<em><b>Multiple Selection</b></em>' attribute feature. <!-- begin-user-doc
-		 * --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Multiple Selection</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute VIEWER_BINDING__MULTIPLE_SELECTION = eINSTANCE.getViewerBinding_MultipleSelection();
 
 		/**
-		 * The meta object literal for the '<em><b>Viewer</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Viewer</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute VIEWER_BINDING__VIEWER = eINSTANCE.getViewerBinding_Viewer();
 
 		/**
-		 * The meta object literal for the '<em><b>First Table Column Offset</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>First Table Column Offset</b></em>' attribute
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute VIEWER_BINDING__FIRST_TABLE_COLUMN_OFFSET = eINSTANCE.getViewerBinding_FirstTableColumnOffset();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl
 		 * <em>Decorator Provider</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.DecoratorProviderImpl
@@ -8534,79 +9020,80 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass DECORATOR_PROVIDER = eINSTANCE.getDecoratorProvider();
 
 		/**
-		 * The meta object literal for the '<em><b>Manager</b></em>' container reference feature. <!-- begin-user-doc
-		 * --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Manager</b></em>' container reference feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference DECORATOR_PROVIDER__MANAGER = eINSTANCE.getDecoratorProvider_Manager();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute DECORATOR_PROVIDER__ID = eINSTANCE.getDecoratorProvider_Id();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute DECORATOR_PROVIDER__TYPE = eINSTANCE.getDecoratorProvider_Type();
 
 		/**
-		 * The meta object literal for the '<em><b>Model Types</b></em>' attribute list feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Model Types</b></em>' attribute list feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute DECORATOR_PROVIDER__MODEL_TYPES = eINSTANCE.getDecoratorProvider_ModelTypes();
 
 		/**
-		 * The meta object literal for the '<em><b>Ui Types</b></em>' attribute list feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Ui Types</b></em>' attribute list feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute DECORATOR_PROVIDER__UI_TYPES = eINSTANCE.getDecoratorProvider_UiTypes();
 
 		/**
-		 * The meta object literal for the '<em><b>Provider CE</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Provider CE</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute DECORATOR_PROVIDER__PROVIDER_CE = eINSTANCE.getDecoratorProvider_ProviderCE();
 
 		/**
-		 * The meta object literal for the '<em><b>Child CE</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Child CE</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute DECORATOR_PROVIDER__CHILD_CE = eINSTANCE.getDecoratorProvider_ChildCE();
 
 		/**
-		 * The meta object literal for the '<em><b>Decorator</b></em>' reference feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Decorator</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference DECORATOR_PROVIDER__DECORATOR = eINSTANCE.getDecoratorProvider_Decorator();
 
 		/**
-		 * The meta object literal for the '<em><b>Exact Model Type Match</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Exact Model Type Match</b></em>' attribute
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute DECORATOR_PROVIDER__EXACT_MODEL_TYPE_MATCH = eINSTANCE.getDecoratorProvider_ExactModelTypeMatch();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.JavaDecoratorProviderImpl
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.JavaDecoratorProviderImpl
 		 * <em>Java Decorator Provider</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.JavaDecoratorProviderImpl
@@ -8616,7 +9103,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass JAVA_DECORATOR_PROVIDER = eINSTANCE.getJavaDecoratorProvider();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.EnumDecoratorProviderImpl
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.EnumDecoratorProviderImpl
 		 * <em>Enum Decorator Provider</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.EnumDecoratorProviderImpl
@@ -8626,8 +9114,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass ENUM_DECORATOR_PROVIDER = eINSTANCE.getEnumDecoratorProvider();
 
 		/**
-		 * The meta object literal for the '<em><b>Adding Default Mappings</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Adding Default Mappings</b></em>' attribute
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -8635,16 +9123,18 @@ public interface IUIBindingsPackage extends EPackage {
 				.getEnumDecoratorProvider_AddingDefaultMappings();
 
 		/**
-		 * The meta object literal for the '<em><b>Base Mappings</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Base Mappings</b></em>' containment reference
+		 * list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference ENUM_DECORATOR_PROVIDER__BASE_MAPPINGS = eINSTANCE.getEnumDecoratorProvider_BaseMappings();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.EnumDecoratorProviderEntryImpl
-		 * <em>Enum Decorator Provider Entry</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.EnumDecoratorProviderEntryImpl
+		 * <em>Enum Decorator Provider Entry</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
+		 * -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.EnumDecoratorProviderEntryImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getEnumDecoratorProviderEntry()
@@ -8653,23 +9143,24 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass ENUM_DECORATOR_PROVIDER_ENTRY = eINSTANCE.getEnumDecoratorProviderEntry();
 
 		/**
-		 * The meta object literal for the '<em><b>Model</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Model</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute ENUM_DECORATOR_PROVIDER_ENTRY__MODEL = eINSTANCE.getEnumDecoratorProviderEntry_Model();
 
 		/**
-		 * The meta object literal for the '<em><b>Ui</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Ui</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute ENUM_DECORATOR_PROVIDER_ENTRY__UI = eINSTANCE.getEnumDecoratorProviderEntry_Ui();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.NumberDecoratorProviderImpl
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.NumberDecoratorProviderImpl
 		 * <em>Number Decorator Provider</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.NumberDecoratorProviderImpl
@@ -8679,16 +9170,17 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass NUMBER_DECORATOR_PROVIDER = eINSTANCE.getNumberDecoratorProvider();
 
 		/**
-		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute NUMBER_DECORATOR_PROVIDER__FORMAT = eINSTANCE.getNumberDecoratorProvider_Format();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl
-		 * <em>Binding Data Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl <em>Binding Data Type</em>}
+		 * ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.BindingDataTypeImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getBindingDataType()
@@ -8697,80 +9189,81 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass BINDING_DATA_TYPE = eINSTANCE.getBindingDataType();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING_DATA_TYPE__NAME = eINSTANCE.getBindingDataType_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Value Type</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Value Type</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING_DATA_TYPE__VALUE_TYPE = eINSTANCE.getBindingDataType_ValueType();
 
 		/**
-		 * The meta object literal for the '<em><b>EType</b></em>' reference feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>EType</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference BINDING_DATA_TYPE__ETYPE = eINSTANCE.getBindingDataType_EType();
 
 		/**
-		 * The meta object literal for the '<em><b>Data Type</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Data Type</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING_DATA_TYPE__DATA_TYPE = eINSTANCE.getBindingDataType_DataType();
 
 		/**
-		 * The meta object literal for the '<em><b>EAnnotation</b></em>' reference feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>EAnnotation</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference BINDING_DATA_TYPE__EANNOTATION = eINSTANCE.getBindingDataType_EAnnotation();
 
 		/**
-		 * The meta object literal for the '<em><b>Parent Data Type</b></em>' reference feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Parent Data Type</b></em>' reference feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference BINDING_DATA_TYPE__PARENT_DATA_TYPE = eINSTANCE.getBindingDataType_ParentDataType();
 
 		/**
-		 * The meta object literal for the '<em><b>Required</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Required</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING_DATA_TYPE__REQUIRED = eINSTANCE.getBindingDataType_Required();
 
 		/**
-		 * The meta object literal for the '<em><b>Changeable</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Changeable</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING_DATA_TYPE__CHANGEABLE = eINSTANCE.getBindingDataType_Changeable();
 
 		/**
-		 * The meta object literal for the '<em><b>Unsettable</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Unsettable</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING_DATA_TYPE__UNSETTABLE = eINSTANCE.getBindingDataType_Unsettable();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.ColumnAdapterImpl
-		 * <em>Column Adapter</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.ColumnAdapterImpl <em>Column Adapter</em>}'
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.ColumnAdapterImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getColumnAdapter()
@@ -8779,72 +9272,72 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass COLUMN_ADAPTER = eINSTANCE.getColumnAdapter();
 
 		/**
-		 * The meta object literal for the '<em><b>Widget</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Widget</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute COLUMN_ADAPTER__WIDGET = eINSTANCE.getColumnAdapter_Widget();
 
 		/**
-		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute COLUMN_ADAPTER__TEXT = eINSTANCE.getColumnAdapter_Text();
 
 		/**
-		 * The meta object literal for the '<em><b>Alignment</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Alignment</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute COLUMN_ADAPTER__ALIGNMENT = eINSTANCE.getColumnAdapter_Alignment();
 
 		/**
-		 * The meta object literal for the '<em><b>Image</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Image</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute COLUMN_ADAPTER__IMAGE = eINSTANCE.getColumnAdapter_Image();
 
 		/**
-		 * The meta object literal for the '<em><b>Moveable</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Moveable</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute COLUMN_ADAPTER__MOVEABLE = eINSTANCE.getColumnAdapter_Moveable();
 
 		/**
-		 * The meta object literal for the '<em><b>Resizable</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Resizable</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute COLUMN_ADAPTER__RESIZABLE = eINSTANCE.getColumnAdapter_Resizable();
 
 		/**
-		 * The meta object literal for the '<em><b>Width</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Width</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute COLUMN_ADAPTER__WIDTH = eINSTANCE.getColumnAdapter_Width();
 
 		/**
-		 * The meta object literal for the '<em><b>Tool Tip Text</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Tool Tip Text</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute COLUMN_ADAPTER__TOOL_TIP_TEXT = eINSTANCE.getColumnAdapter_ToolTipText();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.ModelInfoImpl <em>Model Info</em>}
-		 * ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.ModelInfoImpl
+		 * <em>Model Info</em>} ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.ModelInfoImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getModelInfo()
@@ -8853,8 +9346,9 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass MODEL_INFO = eINSTANCE.getModelInfo();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.ModelClassInfoImpl
-		 * <em>Model Class Info</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.ModelClassInfoImpl <em>Model Class Info</em>}'
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.ModelClassInfoImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getModelClassInfo()
@@ -8863,31 +9357,32 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass MODEL_CLASS_INFO = eINSTANCE.getModelClassInfo();
 
 		/**
-		 * The meta object literal for the '<em><b>Class Name</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Class Name</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute MODEL_CLASS_INFO__CLASS_NAME = eINSTANCE.getModelClassInfo_ClassName();
 
 		/**
-		 * The meta object literal for the '<em><b>Features</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Features</b></em>' containment reference list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference MODEL_CLASS_INFO__FEATURES = eINSTANCE.getModelClassInfo_Features();
 
 		/**
-		 * The meta object literal for the '<em><b>Types</b></em>' map feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Types</b></em>' map feature. <!-- begin-user-doc
+		 * --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference MODEL_CLASS_INFO__TYPES = eINSTANCE.getModelClassInfo_Types();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.ModelFeatureInfoImpl
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.ModelFeatureInfoImpl
 		 * <em>Model Feature Info</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.ModelFeatureInfoImpl
@@ -8897,23 +9392,24 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass MODEL_FEATURE_INFO = eINSTANCE.getModelFeatureInfo();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature Name</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Feature Name</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute MODEL_FEATURE_INFO__FEATURE_NAME = eINSTANCE.getModelFeatureInfo_FeatureName();
 
 		/**
-		 * The meta object literal for the '<em><b>Class</b></em>' reference feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Class</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference MODEL_FEATURE_INFO__CLASS = eINSTANCE.getModelFeatureInfo_Class();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.UIBindingDecoratorImpl
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.UIBindingDecoratorImpl
 		 * <em>UI Binding Decorator</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.UIBindingDecoratorImpl
@@ -8923,40 +9419,40 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass UI_BINDING_DECORATOR = eINSTANCE.getUIBindingDecorator();
 
 		/**
-		 * The meta object literal for the '<em><b>Binding</b></em>' reference feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Binding</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference UI_BINDING_DECORATOR__BINDING = eINSTANCE.getUIBindingDecorator_Binding();
 
 		/**
-		 * The meta object literal for the '<em><b>Changeable</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Changeable</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_BINDING_DECORATOR__CHANGEABLE = eINSTANCE.getUIBindingDecorator_Changeable();
 
 		/**
-		 * The meta object literal for the '<em><b>Model To UI Converter</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Model To UI Converter</b></em>' attribute
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_BINDING_DECORATOR__MODEL_TO_UI_CONVERTER = eINSTANCE.getUIBindingDecorator_ModelToUIConverter();
 
 		/**
-		 * The meta object literal for the '<em><b>UI To Model Converter</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>UI To Model Converter</b></em>' attribute
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_BINDING_DECORATOR__UI_TO_MODEL_CONVERTER = eINSTANCE.getUIBindingDecorator_UIToModelConverter();
 
 		/**
-		 * The meta object literal for the '<em><b>UI To Model After Convert Validator</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>UI To Model After Convert Validator</b></em>'
+		 * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -8964,16 +9460,18 @@ public interface IUIBindingsPackage extends EPackage {
 				.getUIBindingDecorator_UIToModelAfterConvertValidator();
 
 		/**
-		 * The meta object literal for the '<em><b>Valid UI List</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Valid UI List</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_BINDING_DECORATOR__VALID_UI_LIST = eINSTANCE.getUIBindingDecorator_ValidUIList();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.UIBindingDecoratorExtenderImpl
-		 * <em>UI Binding Decorator Extender</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.UIBindingDecoratorExtenderImpl
+		 * <em>UI Binding Decorator Extender</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
+		 * -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.UIBindingDecoratorExtenderImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUIBindingDecoratorExtender()
@@ -8984,7 +9482,8 @@ public interface IUIBindingsPackage extends EPackage {
 		/**
 		 * The meta object literal for the '
 		 * {@link com.rcpcompany.uibindings.internal.UIBindingDecoratorExtenderDescriptorImpl
-		 * <em>UI Binding Decorator Extender Descriptor</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <em>UI Binding Decorator Extender Descriptor</em>}' class. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.UIBindingDecoratorExtenderDescriptorImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUIBindingDecoratorExtenderDescriptor()
@@ -8993,8 +9492,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass UI_BINDING_DECORATOR_EXTENDER_DESCRIPTOR = eINSTANCE.getUIBindingDecoratorExtenderDescriptor();
 
 		/**
-		 * The meta object literal for the '<em><b>Priority</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Priority</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -9002,8 +9501,8 @@ public interface IUIBindingsPackage extends EPackage {
 				.getUIBindingDecoratorExtenderDescriptor_Priority();
 
 		/**
-		 * The meta object literal for the '<em><b>Factory</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Factory</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -9021,16 +9520,16 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass ARGUMENT_PROVIDER = eINSTANCE.getArgumentProvider();
 
 		/**
-		 * The meta object literal for the '<em><b>Declared Arguments</b></em>' map feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Declared Arguments</b></em>' map feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference ARGUMENT_PROVIDER__DECLARED_ARGUMENTS = eINSTANCE.getArgumentProvider_DeclaredArguments();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.IDisposable <em>IDisposable</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '{@link com.rcpcompany.uibindings.IDisposable
+		 * <em>IDisposable</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.IDisposable
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIDisposable()
@@ -9049,7 +9548,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass IMODEL_ARGUMENT_MEDIATOR = eINSTANCE.getIModelArgumentMediator();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.IPersistentPartyImpl
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.IPersistentPartyImpl
 		 * <em>IPersistent Party</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.IPersistentPartyImpl
@@ -9059,8 +9559,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass IPERSISTENT_PARTY = eINSTANCE.getIPersistentParty();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.Constants <em>Constants</em>}' class. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '{@link com.rcpcompany.uibindings.Constants
+		 * <em>Constants</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.Constants
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getConstants()
@@ -9071,7 +9571,8 @@ public interface IUIBindingsPackage extends EPackage {
 		/**
 		 * The meta object literal for the '
 		 * {@link com.rcpcompany.uibindings.internal.StringToModelClassInfoMapEntryImpl
-		 * <em>String To Model Class Info Map Entry</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <em>String To Model Class Info Map Entry</em>}' class. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.StringToModelClassInfoMapEntryImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getStringToModelClassInfoMapEntry()
@@ -9080,16 +9581,16 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass STRING_TO_MODEL_CLASS_INFO_MAP_ENTRY = eINSTANCE.getStringToModelClassInfoMapEntry();
 
 		/**
-		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute STRING_TO_MODEL_CLASS_INFO_MAP_ENTRY__KEY = eINSTANCE.getStringToModelClassInfoMapEntry_Key();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' reference feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Value</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -9098,7 +9599,8 @@ public interface IUIBindingsPackage extends EPackage {
 		/**
 		 * The meta object literal for the '
 		 * {@link com.rcpcompany.uibindings.internal.StringToModelFeatureInfoMapEntryImpl
-		 * <em>String To Model Feature Info Map Entry</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <em>String To Model Feature Info Map Entry</em>}' class. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.StringToModelFeatureInfoMapEntryImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getStringToModelFeatureInfoMapEntry()
@@ -9107,16 +9609,16 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass STRING_TO_MODEL_FEATURE_INFO_MAP_ENTRY = eINSTANCE.getStringToModelFeatureInfoMapEntry();
 
 		/**
-		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute STRING_TO_MODEL_FEATURE_INFO_MAP_ENTRY__KEY = eINSTANCE.getStringToModelFeatureInfoMapEntry_Key();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' reference feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Value</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -9124,8 +9626,10 @@ public interface IUIBindingsPackage extends EPackage {
 				.getStringToModelFeatureInfoMapEntry_Value();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.StringToStringMapEntryImpl
-		 * <em>String To String Map Entry</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.StringToStringMapEntryImpl
+		 * <em>String To String Map Entry</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
+		 * -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.StringToStringMapEntryImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getStringToStringMapEntry()
@@ -9134,32 +9638,34 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass STRING_TO_STRING_MAP_ENTRY = eINSTANCE.getStringToStringMapEntry();
 
 		/**
-		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute STRING_TO_STRING_MAP_ENTRY__KEY = eINSTANCE.getStringToStringMapEntry_Key();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute STRING_TO_STRING_MAP_ENTRY__VALUE = eINSTANCE.getStringToStringMapEntry_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Arguments</b></em>' map feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Arguments</b></em>' map feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference STRING_TO_STRING_MAP_ENTRY__ARGUMENTS = eINSTANCE.getStringToStringMapEntry_Arguments();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.StringToObjectMapEntryImpl
-		 * <em>String To Object Map Entry</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.StringToObjectMapEntryImpl
+		 * <em>String To Object Map Entry</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
+		 * -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.StringToObjectMapEntryImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getStringToObjectMapEntry()
@@ -9168,16 +9674,16 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass STRING_TO_OBJECT_MAP_ENTRY = eINSTANCE.getStringToObjectMapEntry();
 
 		/**
-		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute STRING_TO_OBJECT_MAP_ENTRY__KEY = eINSTANCE.getStringToObjectMapEntry_Key();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -9186,7 +9692,8 @@ public interface IUIBindingsPackage extends EPackage {
 		/**
 		 * The meta object literal for the '
 		 * {@link com.rcpcompany.uibindings.internal.StringToImageDescriptorMapEntryImpl
-		 * <em>String To Image Descriptor Map Entry</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <em>String To Image Descriptor Map Entry</em>}' class. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.StringToImageDescriptorMapEntryImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getStringToImageDescriptorMapEntry()
@@ -9195,16 +9702,16 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass STRING_TO_IMAGE_DESCRIPTOR_MAP_ENTRY = eINSTANCE.getStringToImageDescriptorMapEntry();
 
 		/**
-		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute STRING_TO_IMAGE_DESCRIPTOR_MAP_ENTRY__KEY = eINSTANCE.getStringToImageDescriptorMapEntry_Key();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -9213,7 +9720,8 @@ public interface IUIBindingsPackage extends EPackage {
 		/**
 		 * The meta object literal for the '
 		 * {@link com.rcpcompany.uibindings.internal.StringToIConfigurationElementMapEntryImpl
-		 * <em>String To IConfiguration Element Map Entry</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <em>String To IConfiguration Element Map Entry</em>}' class. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.StringToIConfigurationElementMapEntryImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getStringToIConfigurationElementMapEntry()
@@ -9222,8 +9730,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass STRING_TO_ICONFIGURATION_ELEMENT_MAP_ENTRY = eINSTANCE.getStringToIConfigurationElementMapEntry();
 
 		/**
-		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -9231,8 +9739,8 @@ public interface IUIBindingsPackage extends EPackage {
 				.getStringToIConfigurationElementMapEntry_Key();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -9240,8 +9748,10 @@ public interface IUIBindingsPackage extends EPackage {
 				.getStringToIConfigurationElementMapEntry_Value();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.StringToBooleanMapEntryImpl
-		 * <em>String To Boolean Map Entry</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.StringToBooleanMapEntryImpl
+		 * <em>String To Boolean Map Entry</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
+		 * -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.StringToBooleanMapEntryImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getStringToBooleanMapEntry()
@@ -9250,23 +9760,24 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass STRING_TO_BOOLEAN_MAP_ENTRY = eINSTANCE.getStringToBooleanMapEntry();
 
 		/**
-		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute STRING_TO_BOOLEAN_MAP_ENTRY__KEY = eINSTANCE.getStringToBooleanMapEntry_Key();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute STRING_TO_BOOLEAN_MAP_ENTRY__VALUE = eINSTANCE.getStringToBooleanMapEntry_Value();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.ObjectToCIMapEntryImpl
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.ObjectToCIMapEntryImpl
 		 * <em>Object To CI Map Entry</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.ObjectToCIMapEntryImpl
@@ -9276,24 +9787,24 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass OBJECT_TO_CI_MAP_ENTRY = eINSTANCE.getObjectToCIMapEntry();
 
 		/**
-		 * The meta object literal for the '<em><b>Key</b></em>' reference feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Key</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference OBJECT_TO_CI_MAP_ENTRY__KEY = eINSTANCE.getObjectToCIMapEntry_Key();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' reference feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Value</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference OBJECT_TO_CI_MAP_ENTRY__VALUE = eINSTANCE.getObjectToCIMapEntry_Value();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.IServiceRegistry <em>Service Registry</em>}
-		 * ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '{@link com.rcpcompany.uibindings.IServiceRegistry
+		 * <em>Service Registry</em>} ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.IServiceRegistry
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getServiceRegistry()
@@ -9302,15 +9813,16 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass SERVICE_REGISTRY = eINSTANCE.getServiceRegistry();
 
 		/**
-		 * The meta object literal for the '<em><b>Services</b></em>' attribute list feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Services</b></em>' attribute list feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute SERVICE_REGISTRY__SERVICES = eINSTANCE.getServiceRegistry_Services();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.QuickfixProposalImpl
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.QuickfixProposalImpl
 		 * <em>Quickfix Proposal</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.QuickfixProposalImpl
@@ -9320,40 +9832,42 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass QUICKFIX_PROPOSAL = eINSTANCE.getQuickfixProposal();
 
 		/**
-		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute QUICKFIX_PROPOSAL__LABEL = eINSTANCE.getQuickfixProposal_Label();
 
 		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute QUICKFIX_PROPOSAL__DESCRIPTION = eINSTANCE.getQuickfixProposal_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Image</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Image</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute QUICKFIX_PROPOSAL__IMAGE = eINSTANCE.getQuickfixProposal_Image();
 
 		/**
-		 * The meta object literal for the '<em><b>Relevance</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Relevance</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute QUICKFIX_PROPOSAL__RELEVANCE = eINSTANCE.getQuickfixProposal_Relevance();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorImpl
-		 * <em>Quickfix Proposal Processor</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorImpl
+		 * <em>Quickfix Proposal Processor</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
+		 * -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.QuickfixProposalProcessorImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getQuickfixProposalProcessor()
@@ -9364,7 +9878,8 @@ public interface IUIBindingsPackage extends EPackage {
 		/**
 		 * The meta object literal for the '
 		 * {@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorContextImpl
-		 * <em>Quickfix Proposal Processor Context</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <em>Quickfix Proposal Processor Context</em>}' class. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.QuickfixProposalProcessorContextImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getQuickfixProposalProcessorContext()
@@ -9375,7 +9890,8 @@ public interface IUIBindingsPackage extends EPackage {
 		/**
 		 * The meta object literal for the '
 		 * {@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorDescriptorImpl
-		 * <em>Quickfix Proposal Processor Descriptor</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <em>Quickfix Proposal Processor Descriptor</em>}' class. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.QuickfixProposalProcessorDescriptorImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getQuickfixProposalProcessorDescriptor()
@@ -9384,8 +9900,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass QUICKFIX_PROPOSAL_PROCESSOR_DESCRIPTOR = eINSTANCE.getQuickfixProposalProcessorDescriptor();
 
 		/**
-		 * The meta object literal for the '<em><b>Model Type</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Model Type</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -9393,8 +9909,8 @@ public interface IUIBindingsPackage extends EPackage {
 				.getQuickfixProposalProcessorDescriptor_ModelType();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Feature</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -9402,8 +9918,8 @@ public interface IUIBindingsPackage extends EPackage {
 				.getQuickfixProposalProcessorDescriptor_Feature();
 
 		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Source</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -9411,8 +9927,8 @@ public interface IUIBindingsPackage extends EPackage {
 				.getQuickfixProposalProcessorDescriptor_Source();
 
 		/**
-		 * The meta object literal for the '<em><b>Code</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Code</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -9420,8 +9936,8 @@ public interface IUIBindingsPackage extends EPackage {
 				.getQuickfixProposalProcessorDescriptor_Code();
 
 		/**
-		 * The meta object literal for the '<em><b>Message Pattern</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Message Pattern</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -9429,8 +9945,8 @@ public interface IUIBindingsPackage extends EPackage {
 				.getQuickfixProposalProcessorDescriptor_MessagePattern();
 
 		/**
-		 * The meta object literal for the '<em><b>Processor</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Processor</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -9438,7 +9954,8 @@ public interface IUIBindingsPackage extends EPackage {
 				.getQuickfixProposalProcessorDescriptor_Processor();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.TreeItemRelationImpl
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.TreeItemRelationImpl
 		 * <em>Tree Item Relation</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.TreeItemRelationImpl
@@ -9448,47 +9965,48 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass TREE_ITEM_RELATION = eINSTANCE.getTreeItemRelation();
 
 		/**
-		 * The meta object literal for the '<em><b>Parent</b></em>' reference feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Parent</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference TREE_ITEM_RELATION__PARENT = eINSTANCE.getTreeItemRelation_Parent();
 
 		/**
-		 * The meta object literal for the '<em><b>Descriptor</b></em>' reference feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Descriptor</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference TREE_ITEM_RELATION__DESCRIPTOR = eINSTANCE.getTreeItemRelation_Descriptor();
 
 		/**
-		 * The meta object literal for the '<em><b>Processor</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Processor</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute TREE_ITEM_RELATION__PROCESSOR = eINSTANCE.getTreeItemRelation_Processor();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature Name</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Feature Name</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute TREE_ITEM_RELATION__FEATURE_NAME = eINSTANCE.getTreeItemRelation_FeatureName();
 
 		/**
-		 * The meta object literal for the '<em><b>Priority</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Priority</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute TREE_ITEM_RELATION__PRIORITY = eINSTANCE.getTreeItemRelation_Priority();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl
 		 * <em>Tree Item Descriptor</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl
@@ -9498,47 +10016,48 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass TREE_ITEM_DESCRIPTOR = eINSTANCE.getTreeItemDescriptor();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute TREE_ITEM_DESCRIPTOR__ID = eINSTANCE.getTreeItemDescriptor_Id();
 
 		/**
-		 * The meta object literal for the '<em><b>Children</b></em>' reference list feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Children</b></em>' reference list feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference TREE_ITEM_DESCRIPTOR__CHILDREN = eINSTANCE.getTreeItemDescriptor_Children();
 
 		/**
-		 * The meta object literal for the '<em><b>Ce</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Ce</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute TREE_ITEM_DESCRIPTOR__CE = eINSTANCE.getTreeItemDescriptor_Ce();
 
 		/**
-		 * The meta object literal for the '<em><b>Model Types</b></em>' attribute list feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Model Types</b></em>' attribute list feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute TREE_ITEM_DESCRIPTOR__MODEL_TYPES = eINSTANCE.getTreeItemDescriptor_ModelTypes();
 
 		/**
-		 * The meta object literal for the '<em><b>New Wizard ID</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>New Wizard ID</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute TREE_ITEM_DESCRIPTOR__NEW_WIZARD_ID = eINSTANCE.getTreeItemDescriptor_NewWizardID();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.ConstantTreeItemImpl
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.ConstantTreeItemImpl
 		 * <em>Constant Tree Item</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.ConstantTreeItemImpl
@@ -9548,24 +10067,25 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass CONSTANT_TREE_ITEM = eINSTANCE.getConstantTreeItem();
 
 		/**
-		 * The meta object literal for the '<em><b>Descriptor</b></em>' reference feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Descriptor</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference CONSTANT_TREE_ITEM__DESCRIPTOR = eINSTANCE.getConstantTreeItem_Descriptor();
 
 		/**
-		 * The meta object literal for the '<em><b>Target</b></em>' reference feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference CONSTANT_TREE_ITEM__TARGET = eINSTANCE.getConstantTreeItem_Target();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.BindingMessageImpl
-		 * <em>Binding Message</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.BindingMessageImpl <em>Binding Message</em>}'
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.BindingMessageImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getBindingMessage()
@@ -9574,87 +10094,88 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass BINDING_MESSAGE = eINSTANCE.getBindingMessage();
 
 		/**
-		 * The meta object literal for the '<em><b>Binding</b></em>' reference feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Binding</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference BINDING_MESSAGE__BINDING = eINSTANCE.getBindingMessage_Binding();
 
 		/**
-		 * The meta object literal for the '<em><b>Message</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Message</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING_MESSAGE__MESSAGE = eINSTANCE.getBindingMessage_Message();
 
 		/**
-		 * The meta object literal for the '<em><b>Message Type</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Message Type</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING_MESSAGE__MESSAGE_TYPE = eINSTANCE.getBindingMessage_MessageType();
 
 		/**
-		 * The meta object literal for the '<em><b>Severity</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Severity</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING_MESSAGE__SEVERITY = eINSTANCE.getBindingMessage_Severity();
 
 		/**
-		 * The meta object literal for the '<em><b>Prefix</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Prefix</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING_MESSAGE__PREFIX = eINSTANCE.getBindingMessage_Prefix();
 
 		/**
-		 * The meta object literal for the '<em><b>Targets</b></em>' reference list feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Targets</b></em>' reference list feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference BINDING_MESSAGE__TARGETS = eINSTANCE.getBindingMessage_Targets();
 
 		/**
-		 * The meta object literal for the '<em><b>Data</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Data</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING_MESSAGE__DATA = eINSTANCE.getBindingMessage_Data();
 
 		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Source</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING_MESSAGE__SOURCE = eINSTANCE.getBindingMessage_Source();
 
 		/**
-		 * The meta object literal for the '<em><b>Code</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Code</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING_MESSAGE__CODE = eINSTANCE.getBindingMessage_Code();
 
 		/**
-		 * The meta object literal for the '<em><b>Details</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Details</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING_MESSAGE__DETAILS = eINSTANCE.getBindingMessage_Details();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.BindingMessageTargetImpl
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.BindingMessageTargetImpl
 		 * <em>Binding Message Target</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.BindingMessageTargetImpl
@@ -9664,32 +10185,33 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass BINDING_MESSAGE_TARGET = eINSTANCE.getBindingMessageTarget();
 
 		/**
-		 * The meta object literal for the '<em><b>Model Object</b></em>' reference feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Model Object</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference BINDING_MESSAGE_TARGET__MODEL_OBJECT = eINSTANCE.getBindingMessageTarget_ModelObject();
 
 		/**
-		 * The meta object literal for the '<em><b>Model Feature</b></em>' reference feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Model Feature</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference BINDING_MESSAGE_TARGET__MODEL_FEATURE = eINSTANCE.getBindingMessageTarget_ModelFeature();
 
 		/**
-		 * The meta object literal for the '<em><b>Model Key</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Model Key</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute BINDING_MESSAGE_TARGET__MODEL_KEY = eINSTANCE.getBindingMessageTarget_ModelKey();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.UIAttributeImpl
-		 * <em>UI Attribute</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.UIAttributeImpl <em>UI Attribute</em>}' class.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.UIAttributeImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUIAttribute()
@@ -9698,144 +10220,146 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass UI_ATTRIBUTE = eINSTANCE.getUIAttribute();
 
 		/**
-		 * The meta object literal for the '<em><b>Widget</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Widget</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_ATTRIBUTE__WIDGET = eINSTANCE.getUIAttribute_Widget();
 
 		/**
-		 * The meta object literal for the '<em><b>Attribute</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Attribute</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_ATTRIBUTE__ATTRIBUTE = eINSTANCE.getUIAttribute_Attribute();
 
 		/**
-		 * The meta object literal for the '<em><b>Current Value</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Current Value</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_ATTRIBUTE__CURRENT_VALUE = eINSTANCE.getUIAttribute_CurrentValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Possible Values List</b></em>' attribute feature. <!-- begin-user-doc
-		 * --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Possible Values List</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_ATTRIBUTE__POSSIBLE_VALUES_LIST = eINSTANCE.getUIAttribute_PossibleValuesList();
 
 		/**
-		 * The meta object literal for the '<em><b>Min Value</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Min Value</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_ATTRIBUTE__MIN_VALUE = eINSTANCE.getUIAttribute_MinValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Max Value</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Max Value</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_ATTRIBUTE__MAX_VALUE = eINSTANCE.getUIAttribute_MaxValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Tooltip Value</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Tooltip Value</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_ATTRIBUTE__TOOLTIP_VALUE = eINSTANCE.getUIAttribute_TooltipValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Font Value</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Font Value</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_ATTRIBUTE__FONT_VALUE = eINSTANCE.getUIAttribute_FontValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Image Value</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Image Value</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_ATTRIBUTE__IMAGE_VALUE = eINSTANCE.getUIAttribute_ImageValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Foreground Value</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Foreground Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_ATTRIBUTE__FOREGROUND_VALUE = eINSTANCE.getUIAttribute_ForegroundValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Background Value</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Background Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_ATTRIBUTE__BACKGROUND_VALUE = eINSTANCE.getUIAttribute_BackgroundValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Enabled Value</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Enabled Value</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_ATTRIBUTE__ENABLED_VALUE = eINSTANCE.getUIAttribute_EnabledValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Cursor Value</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Cursor Value</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_ATTRIBUTE__CURSOR_VALUE = eINSTANCE.getUIAttribute_CursorValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Style Range List</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Style Range List</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_ATTRIBUTE__STYLE_RANGE_LIST = eINSTANCE.getUIAttribute_StyleRangeList();
 
 		/**
-		 * The meta object literal for the '<em><b>Changeable</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Changeable</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_ATTRIBUTE__CHANGEABLE = eINSTANCE.getUIAttribute_Changeable();
 
 		/**
-		 * The meta object literal for the '<em><b>Field Assist Adapter</b></em>' attribute feature. <!-- begin-user-doc
-		 * --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Field Assist Adapter</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_ATTRIBUTE__FIELD_ASSIST_ADAPTER = eINSTANCE.getUIAttribute_FieldAssistAdapter();
 
 		/**
-		 * The meta object literal for the '<em><b>Image Decorations</b></em>' reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Image Decorations</b></em>' reference list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EReference UI_ATTRIBUTE__IMAGE_DECORATIONS = eINSTANCE.getUIAttribute_ImageDecorations();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.UIAttributeImageDecorationImpl
-		 * <em>UI Attribute Image Decoration</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.UIAttributeImageDecorationImpl
+		 * <em>UI Attribute Image Decoration</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
+		 * -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.UIAttributeImageDecorationImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUIAttributeImageDecoration()
@@ -9844,24 +10368,24 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass UI_ATTRIBUTE_IMAGE_DECORATION = eINSTANCE.getUIAttributeImageDecoration();
 
 		/**
-		 * The meta object literal for the '<em><b>Outside</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Outside</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_ATTRIBUTE_IMAGE_DECORATION__OUTSIDE = eINSTANCE.getUIAttributeImageDecoration_Outside();
 
 		/**
-		 * The meta object literal for the '<em><b>Image Value</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Image Value</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_ATTRIBUTE_IMAGE_DECORATION__IMAGE_VALUE = eINSTANCE.getUIAttributeImageDecoration_ImageValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Tooltip Value</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Tooltip Value</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -9869,16 +10393,16 @@ public interface IUIBindingsPackage extends EPackage {
 				.getUIAttributeImageDecoration_TooltipValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Position</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Position</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_ATTRIBUTE_IMAGE_DECORATION__POSITION = eINSTANCE.getUIAttributeImageDecoration_Position();
 
 		/**
-		 * The meta object literal for the '<em><b>Attribute</b></em>' container reference feature. <!-- begin-user-doc
-		 * --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Attribute</b></em>' container reference feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -9895,8 +10419,10 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass UI_ATTRIBUTE_FACTORY = eINSTANCE.getUIAttributeFactory();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.UIAttributeFactoryDescriptorImpl
-		 * <em>UI Attribute Factory Descriptor</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.UIAttributeFactoryDescriptorImpl
+		 * <em>UI Attribute Factory Descriptor</em>}' class. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.UIAttributeFactoryDescriptorImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUIAttributeFactoryDescriptor()
@@ -9905,24 +10431,24 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass UI_ATTRIBUTE_FACTORY_DESCRIPTOR = eINSTANCE.getUIAttributeFactoryDescriptor();
 
 		/**
-		 * The meta object literal for the '<em><b>Type Name</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Type Name</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_ATTRIBUTE_FACTORY_DESCRIPTOR__TYPE_NAME = eINSTANCE.getUIAttributeFactoryDescriptor_TypeName();
 
 		/**
-		 * The meta object literal for the '<em><b>Attribute</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Attribute</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute UI_ATTRIBUTE_FACTORY_DESCRIPTOR__ATTRIBUTE = eINSTANCE.getUIAttributeFactoryDescriptor_Attribute();
 
 		/**
-		 * The meta object literal for the '<em><b>Factory</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Factory</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -9931,7 +10457,8 @@ public interface IUIBindingsPackage extends EPackage {
 		/**
 		 * The meta object literal for the '
 		 * {@link com.rcpcompany.uibindings.internal.EMFObservableFactoryDescriptorImpl
-		 * <em>EMF Observable Factory Descriptor</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <em>EMF Observable Factory Descriptor</em>}' class. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.EMFObservableFactoryDescriptorImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getEMFObservableFactoryDescriptor()
@@ -9940,8 +10467,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass EMF_OBSERVABLE_FACTORY_DESCRIPTOR = eINSTANCE.getEMFObservableFactoryDescriptor();
 
 		/**
-		 * The meta object literal for the '<em><b>Package Prefix</b></em>' attribute feature. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Package Prefix</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -9949,16 +10476,16 @@ public interface IUIBindingsPackage extends EPackage {
 				.getEMFObservableFactoryDescriptor_PackagePrefix();
 
 		/**
-		 * The meta object literal for the '<em><b>Factory</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Factory</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute EMF_OBSERVABLE_FACTORY_DESCRIPTOR__FACTORY = eINSTANCE.getEMFObservableFactoryDescriptor_Factory();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.ui.forms.IMessage <em>IMessage</em>}' class. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '{@link org.eclipse.ui.forms.IMessage <em>IMessage</em>}'
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.ui.forms.IMessage
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIMessage()
@@ -9977,8 +10504,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass ICONTENT_PROPOSAL = eINSTANCE.getIContentProposal();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.BindingState <em>Binding State</em>}' enum.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '{@link com.rcpcompany.uibindings.BindingState
+		 * <em>Binding State</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.BindingState
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getBindingState()
@@ -10007,8 +10534,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EEnum TEXT_COMMIT_STRATEGY = eINSTANCE.getTextCommitStrategy();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.SpecialBinding <em>Special Binding</em>}'
-		 * enum. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '{@link com.rcpcompany.uibindings.SpecialBinding
+		 * <em>Special Binding</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.SpecialBinding
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getSpecialBinding()
@@ -10027,8 +10554,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EEnum BINDING_MESSAGE_SEVERITY = eINSTANCE.getBindingMessageSeverity();
 
 		/**
-		 * The meta object literal for the '<em>UI Attribute Painter</em>' data type. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em>UI Attribute Painter</em>' data type. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.uiAttributes.UIAttributePainter
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUIAttributePainter()
@@ -10037,8 +10564,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType UI_ATTRIBUTE_PAINTER = eINSTANCE.getUIAttributePainter();
 
 		/**
-		 * The meta object literal for the '<em>IEMF Observable Factory</em>' data type. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em>IEMF Observable Factory</em>' data type. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.IEMFObservableFactory
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIEMFObservableFactory()
@@ -10047,8 +10574,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType IEMF_OBSERVABLE_FACTORY = eINSTANCE.getIEMFObservableFactory();
 
 		/**
-		 * The meta object literal for the '<em>CE Object Holder</em>' data type. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em>CE Object Holder</em>' data type. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.utils.extensionpoints.CEObjectHolder
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getCEObjectHolder()
@@ -10057,8 +10584,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType CE_OBJECT_HOLDER = eINSTANCE.getCEObjectHolder();
 
 		/**
-		 * The meta object literal for the '<em>CE Resource Holder</em>' data type. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em>CE Resource Holder</em>' data type. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.utils.extensionpoints.CEResourceHolder
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getCEResourceHolder()
@@ -10067,8 +10594,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType CE_RESOURCE_HOLDER = eINSTANCE.getCEResourceHolder();
 
 		/**
-		 * The meta object literal for the '<em>DB Context</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc
-		 * -->
+		 * The meta object literal for the '<em>DB Context</em>' data type. <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.core.databinding.DataBindingContext
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getDBContext()
@@ -10077,8 +10604,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType DB_CONTEXT = eINSTANCE.getDBContext();
 
 		/**
-		 * The meta object literal for the '<em>DB Binding</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc
-		 * -->
+		 * The meta object literal for the '<em>DB Binding</em>' data type. <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.core.databinding.Binding
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getDBBinding()
@@ -10087,8 +10614,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType DB_BINDING = eINSTANCE.getDBBinding();
 
 		/**
-		 * The meta object literal for the '<em>Column Viewer</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc
-		 * -->
+		 * The meta object literal for the '<em>Column Viewer</em>' data type. <!-- begin-user-doc
+		 * --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.jface.viewers.ColumnViewer
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getColumnViewer()
@@ -10097,8 +10624,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType COLUMN_VIEWER = eINSTANCE.getColumnViewer();
 
 		/**
-		 * The meta object literal for the '<em>Viewer Column</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc
-		 * -->
+		 * The meta object literal for the '<em>Viewer Column</em>' data type. <!-- begin-user-doc
+		 * --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.jface.viewers.ViewerColumn
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getViewerColumn()
@@ -10107,8 +10634,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType VIEWER_COLUMN = eINSTANCE.getViewerColumn();
 
 		/**
-		 * The meta object literal for the '<em>Image Descriptor</em>' data type. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em>Image Descriptor</em>' data type. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.jface.resource.ImageDescriptor
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getImageDescriptor()
@@ -10117,8 +10644,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType IMAGE_DESCRIPTOR = eINSTANCE.getImageDescriptor();
 
 		/**
-		 * The meta object literal for the '<em>IControl Content Adapter</em>' data type. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em>IControl Content Adapter</em>' data type. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.jface.fieldassist.IControlContentAdapter
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIControlContentAdapter()
@@ -10127,8 +10654,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType ICONTROL_CONTENT_ADAPTER = eINSTANCE.getIControlContentAdapter();
 
 		/**
-		 * The meta object literal for the '<em>IService Locator</em>' data type. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em>IService Locator</em>' data type. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.ui.services.IServiceLocator
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIServiceLocator()
@@ -10137,8 +10664,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType ISERVICE_LOCATOR = eINSTANCE.getIServiceLocator();
 
 		/**
-		 * The meta object literal for the '<em>IConfiguration Element</em>' data type. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em>IConfiguration Element</em>' data type. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.core.runtime.IConfigurationElement
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIConfigurationElement()
@@ -10147,7 +10674,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType ICONFIGURATION_ELEMENT = eINSTANCE.getIConfigurationElement();
 
 		/**
-		 * The meta object literal for the '<em>Pattern</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em>Pattern</em>' data type. <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * 
 		 * @see java.util.regex.Pattern
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getPattern()
@@ -10156,7 +10684,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType PATTERN = eINSTANCE.getPattern();
 
 		/**
-		 * The meta object literal for the '<em>Throwable</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em>Throwable</em>' data type. <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * 
 		 * @see java.lang.Throwable
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getThrowable()
@@ -10165,8 +10694,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType THROWABLE = eINSTANCE.getThrowable();
 
 		/**
-		 * The meta object literal for the '<em>IObservable</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc
-		 * -->
+		 * The meta object literal for the '<em>IObservable</em>' data type. <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.core.databinding.observable.IObservable
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIObservable()
@@ -10175,8 +10704,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType IOBSERVABLE = eINSTANCE.getIObservable();
 
 		/**
-		 * The meta object literal for the '<em>IObservable Value</em>' data type. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em>IObservable Value</em>' data type. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.core.databinding.observable.value.IObservableValue
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIObservableValue()
@@ -10185,8 +10714,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType IOBSERVABLE_VALUE = eINSTANCE.getIObservableValue();
 
 		/**
-		 * The meta object literal for the '<em>IObservable List</em>' data type. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em>IObservable List</em>' data type. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.core.databinding.observable.list.IObservableList
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIObservableList()
@@ -10195,8 +10724,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType IOBSERVABLE_LIST = eINSTANCE.getIObservableList();
 
 		/**
-		 * The meta object literal for the '<em>IObservable Set</em>' data type. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em>IObservable Set</em>' data type. <!-- begin-user-doc
+		 * --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.core.databinding.observable.set.IObservableSet
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIObservableSet()
@@ -10205,8 +10734,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType IOBSERVABLE_SET = eINSTANCE.getIObservableSet();
 
 		/**
-		 * The meta object literal for the '<em>IObservable Factory</em>' data type. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em>IObservable Factory</em>' data type. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.core.databinding.observable.masterdetail.IObservableFactory
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIObservableFactory()
@@ -10215,8 +10744,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType IOBSERVABLE_FACTORY = eINSTANCE.getIObservableFactory();
 
 		/**
-		 * The meta object literal for the '<em>ISWT Observable Value</em>' data type. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em>ISWT Observable Value</em>' data type. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.jface.databinding.swt.ISWTObservableValue
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getISWTObservableValue()
@@ -10225,8 +10754,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType ISWT_OBSERVABLE_VALUE = eINSTANCE.getISWTObservableValue();
 
 		/**
-		 * The meta object literal for the '<em>IConverter</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc
-		 * -->
+		 * The meta object literal for the '<em>IConverter</em>' data type. <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.core.databinding.conversion.IConverter
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIConverter()
@@ -10235,8 +10764,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType ICONVERTER = eINSTANCE.getIConverter();
 
 		/**
-		 * The meta object literal for the '<em>IValidator</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc
-		 * -->
+		 * The meta object literal for the '<em>IValidator</em>' data type. <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.core.databinding.validation.IValidator
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIValidator()
@@ -10245,8 +10774,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType IVALIDATOR = eINSTANCE.getIValidator();
 
 		/**
-		 * The meta object literal for the '<em>Editing Domain</em>' data type. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em>Editing Domain</em>' data type. <!-- begin-user-doc
+		 * --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.emf.edit.domain.EditingDomain
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getEditingDomain()
@@ -10255,7 +10784,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType EDITING_DOMAIN = eINSTANCE.getEditingDomain();
 
 		/**
-		 * The meta object literal for the '<em>Widget</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em>Widget</em>' data type. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
 		 * 
 		 * @see org.eclipse.swt.widgets.Widget
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getWidget()
@@ -10264,8 +10794,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType WIDGET = eINSTANCE.getWidget();
 
 		/**
-		 * The meta object literal for the '<em>Form Toolkit</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc
-		 * -->
+		 * The meta object literal for the '<em>Form Toolkit</em>' data type. <!-- begin-user-doc
+		 * --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.ui.forms.widgets.FormToolkit
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getFormToolkit()
@@ -10274,7 +10804,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType FORM_TOOLKIT = eINSTANCE.getFormToolkit();
 
 		/**
-		 * The meta object literal for the '<em>Control</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em>Control</em>' data type. <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.swt.widgets.Control
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getControl()
@@ -10283,7 +10814,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType CONTROL = eINSTANCE.getControl();
 
 		/**
-		 * The meta object literal for the '<em>Composite</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em>Composite</em>' data type. <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.swt.widgets.Composite
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getComposite()
@@ -10292,7 +10824,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType COMPOSITE = eINSTANCE.getComposite();
 
 		/**
-		 * The meta object literal for the '<em>Table</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em>Table</em>' data type. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
 		 * 
 		 * @see org.eclipse.swt.widgets.Table
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getTable()
@@ -10301,8 +10834,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType TABLE = eINSTANCE.getTable();
 
 		/**
-		 * The meta object literal for the '<em>Table Column</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc
-		 * -->
+		 * The meta object literal for the '<em>Table Column</em>' data type. <!-- begin-user-doc
+		 * --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.swt.widgets.TableColumn
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getTableColumn()
@@ -10311,7 +10844,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType TABLE_COLUMN = eINSTANCE.getTableColumn();
 
 		/**
-		 * The meta object literal for the '<em>Tree</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em>Tree</em>' data type. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
 		 * 
 		 * @see org.eclipse.swt.widgets.Tree
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getTree()
@@ -10320,8 +10854,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType TREE = eINSTANCE.getTree();
 
 		/**
-		 * The meta object literal for the '<em>Tree Column</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc
-		 * -->
+		 * The meta object literal for the '<em>Tree Column</em>' data type. <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.swt.widgets.TreeColumn
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getTreeColumn()
@@ -10330,7 +10864,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType TREE_COLUMN = eINSTANCE.getTreeColumn();
 
 		/**
-		 * The meta object literal for the '<em>Clipboard</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em>Clipboard</em>' data type. <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.swt.dnd.Clipboard
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getClipboard()
@@ -10339,7 +10874,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType CLIPBOARD = eINSTANCE.getClipboard();
 
 		/**
-		 * The meta object literal for the '<em>Image</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em>Image</em>' data type. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
 		 * 
 		 * @see org.eclipse.swt.graphics.Image
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getImage()
@@ -10348,7 +10884,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType IMAGE = eINSTANCE.getImage();
 
 		/**
-		 * The meta object literal for the '<em>Color</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em>Color</em>' data type. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
 		 * 
 		 * @see org.eclipse.swt.graphics.Color
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getColor()
@@ -10357,7 +10894,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType COLOR = eINSTANCE.getColor();
 
 		/**
-		 * The meta object literal for the '<em>Cursor</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em>Cursor</em>' data type. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
 		 * 
 		 * @see org.eclipse.swt.graphics.Cursor
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getCursor()
@@ -10366,8 +10904,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType CURSOR = eINSTANCE.getCursor();
 
 		/**
-		 * The meta object literal for the '<em>Selection Listener</em>' data type. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em>Selection Listener</em>' data type. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.swt.events.SelectionListener
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getSelectionListener()
@@ -10376,8 +10914,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType SELECTION_LISTENER = eINSTANCE.getSelectionListener();
 
 		/**
-		 * The meta object literal for the '<em>Update Value Strategy</em>' data type. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em>Update Value Strategy</em>' data type. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.core.databinding.UpdateValueStrategy
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUpdateValueStrategy()
@@ -10386,8 +10924,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType UPDATE_VALUE_STRATEGY = eINSTANCE.getUpdateValueStrategy();
 
 		/**
-		 * The meta object literal for the '<em>Update List Strategy</em>' data type. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em>Update List Strategy</em>' data type. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.core.databinding.UpdateListStrategy
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUpdateListStrategy()
@@ -10396,8 +10934,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType UPDATE_LIST_STRATEGY = eINSTANCE.getUpdateListStrategy();
 
 		/**
-		 * The meta object literal for the '<em>Update Set Strategy</em>' data type. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em>Update Set Strategy</em>' data type. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.core.databinding.UpdateSetStrategy
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUpdateSetStrategy()
@@ -10406,8 +10944,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EDataType UPDATE_SET_STRATEGY = eINSTANCE.getUpdateSetStrategy();
 
 		/**
-		 * The meta object literal for the '<em>Number Format</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc
-		 * -->
+		 * The meta object literal for the '<em>Number Format</em>' data type. <!-- begin-user-doc
+		 * --> <!-- end-user-doc -->
 		 * 
 		 * @see com.ibm.icu.text.NumberFormat
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getNumberFormat()

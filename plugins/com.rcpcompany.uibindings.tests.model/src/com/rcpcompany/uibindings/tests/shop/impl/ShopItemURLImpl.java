@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.tests.shop.impl;
@@ -14,7 +13,8 @@ import com.rcpcompany.uibindings.tests.shop.ShopItemURL;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Item URL</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Item URL</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -26,8 +26,8 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  */
 public class ShopItemURLImpl extends ShopItemInformationImpl implements ShopItemURL {
 	/**
-	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getUrl()
 	 * @generated
@@ -36,7 +36,8 @@ public class ShopItemURLImpl extends ShopItemInformationImpl implements ShopItem
 	protected static final String URL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getUrl()
 	 * @generated
@@ -68,6 +69,7 @@ public class ShopItemURLImpl extends ShopItemInformationImpl implements ShopItem
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getUrl() {
 		return url;
 	}
@@ -77,6 +79,7 @@ public class ShopItemURLImpl extends ShopItemInformationImpl implements ShopItem
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setUrl(String newUrl) {
 		final String oldUrl = url;
 		url = newUrl;
@@ -150,9 +153,7 @@ public class ShopItemURLImpl extends ShopItemInformationImpl implements ShopItem
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (url: ");

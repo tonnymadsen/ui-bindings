@@ -52,7 +52,8 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  * <p>
  * The code below mimics the catenary editor very closely.
  * <p>
- * <strong>NOTE</strong>: Do not <em>click on anything</em> while this test is running - otherwise it will fail
+ * <strong>NOTE</strong>: Do not <em>click on anything</em> while this test is running - otherwise
+ * it will fail
  * 
  * @author Tonny Madsen, The RCP Company
  */

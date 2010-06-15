@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -22,14 +21,17 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>String To String Map Entry</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>String To String Map Entry</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.StringToStringMapEntryImpl#getTypedKey <em>Key</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.StringToStringMapEntryImpl#getTypedValue <em>Value</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.StringToStringMapEntryImpl#getArguments <em>Arguments</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.StringToStringMapEntryImpl#getTypedKey <em>Key
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.StringToStringMapEntryImpl#getTypedValue <em>Value
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.StringToStringMapEntryImpl#getArguments <em>
+ * Arguments</em>}</li>
  * </ul>
  * </p>
  * 
@@ -37,8 +39,8 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
  */
 public class StringToStringMapEntryImpl extends EObjectImpl implements BasicEMap.Entry<String, String> {
 	/**
-	 * The default value of the '{@link #getTypedKey() <em>Key</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getTypedKey() <em>Key</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTypedKey()
 	 * @generated
@@ -47,8 +49,8 @@ public class StringToStringMapEntryImpl extends EObjectImpl implements BasicEMap
 	protected static final String KEY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTypedKey() <em>Key</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getTypedKey() <em>Key</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTypedKey()
 	 * @generated
@@ -57,8 +59,8 @@ public class StringToStringMapEntryImpl extends EObjectImpl implements BasicEMap
 	protected String key = KEY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTypedValue() <em>Value</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getTypedValue() <em>Value</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTypedValue()
 	 * @generated
@@ -67,8 +69,8 @@ public class StringToStringMapEntryImpl extends EObjectImpl implements BasicEMap
 	protected static final String VALUE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTypedValue() <em>Value</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getTypedValue() <em>Value</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTypedValue()
 	 * @generated
@@ -77,8 +79,8 @@ public class StringToStringMapEntryImpl extends EObjectImpl implements BasicEMap
 	protected String value = VALUE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getArguments() <em>Arguments</em>}' map. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getArguments() <em>Arguments</em>}' map. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getArguments()
 	 * @generated
@@ -191,11 +193,10 @@ public class StringToStringMapEntryImpl extends EObjectImpl implements BasicEMap
 		case IUIBindingsPackage.STRING_TO_STRING_MAP_ENTRY__VALUE:
 			return getTypedValue();
 		case IUIBindingsPackage.STRING_TO_STRING_MAP_ENTRY__ARGUMENTS:
-			if (coreType) {
+			if (coreType)
 				return getArguments();
-			} else {
+			else
 				return getArguments().map();
-			}
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -267,9 +268,7 @@ public class StringToStringMapEntryImpl extends EObjectImpl implements BasicEMap
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (key: "); //$NON-NLS-1$
@@ -292,6 +291,7 @@ public class StringToStringMapEntryImpl extends EObjectImpl implements BasicEMap
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getHash() {
 		if (hash == -1) {
 			final Object theKey = getKey();
@@ -305,6 +305,7 @@ public class StringToStringMapEntryImpl extends EObjectImpl implements BasicEMap
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setHash(int hash) {
 		this.hash = hash;
 	}
@@ -314,6 +315,7 @@ public class StringToStringMapEntryImpl extends EObjectImpl implements BasicEMap
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getKey() {
 		return getTypedKey();
 	}
@@ -323,6 +325,7 @@ public class StringToStringMapEntryImpl extends EObjectImpl implements BasicEMap
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setKey(String key) {
 		setTypedKey(key);
 	}
@@ -332,6 +335,7 @@ public class StringToStringMapEntryImpl extends EObjectImpl implements BasicEMap
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getValue() {
 		return getTypedValue();
 	}
@@ -341,6 +345,7 @@ public class StringToStringMapEntryImpl extends EObjectImpl implements BasicEMap
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String setValue(String value) {
 		final String oldValue = getValue();
 		setTypedValue(value);

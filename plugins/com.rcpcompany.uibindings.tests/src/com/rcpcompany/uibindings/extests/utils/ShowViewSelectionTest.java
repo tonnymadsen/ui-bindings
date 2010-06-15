@@ -160,7 +160,8 @@ public class ShowViewSelectionTest {
 		// LogUtils.debug(this, "" + event.getSelection());
 		// }
 		// });
-		// myView.getSite().getWorkbenchWindow().getSelectionService().addSelectionListener(new ISelectionListener() {
+		// myView.getSite().getWorkbenchWindow().getSelectionService().addSelectionListener(new
+		// ISelectionListener() {
 		//
 		// @Override
 		// public void selectionChanged(IWorkbenchPart part, ISelection selection) {
@@ -186,8 +187,8 @@ public class ShowViewSelectionTest {
 		final IObservableList countries = UIBindingsEMFObservables.observeList(myContext.getEditingDomain(), myShop,
 				ShopPackage.Literals.SHOP__COUNTRIES);
 		myViewerBinding = myContext.addViewer(myTableViewer1, myShop, ShopPackage.Literals.SHOP__COUNTRIES);
-		myViewerBinding.addColumn(myNameColumn1, ShopPackage.Literals.COUNTRY__NAME).arg(Constants.ARG_OPEN_COMMAND,
-				SHOW_VIEW_COMMAND).validValues(countries);
+		myViewerBinding.addColumn(myNameColumn1, ShopPackage.Literals.COUNTRY__NAME)
+				.arg(Constants.ARG_OPEN_COMMAND, SHOW_VIEW_COMMAND).validValues(countries);
 
 		myContext.finish();
 		yield();

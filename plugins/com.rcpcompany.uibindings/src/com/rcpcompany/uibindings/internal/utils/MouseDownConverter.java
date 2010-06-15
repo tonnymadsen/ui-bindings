@@ -16,8 +16,8 @@ import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * A simple converter class that will convert an unhandled {@link SWT#MouseDown} event to be handled globally and
- * converted into a specific command.
+ * A simple converter class that will convert an unhandled {@link SWT#MouseDown} event to be handled
+ * globally and converted into a specific command.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -28,8 +28,8 @@ public class MouseDownConverter implements IDisposable, Listener {
 	private final int myButton;
 
 	/**
-	 * The modifier state when the mouse button is pressed - zero, one or more of the following or'ed together
-	 * {@link SWT#SHIFT},{@link SWT#ALT}, {@link SWT#CTRL}, and {@link SWT#SHIFT}.
+	 * The modifier state when the mouse button is pressed - zero, one or more of the following
+	 * or'ed together {@link SWT#SHIFT},{@link SWT#ALT}, {@link SWT#CTRL}, and {@link SWT#SHIFT}.
 	 */
 	private final int myState;
 
@@ -44,11 +44,12 @@ public class MouseDownConverter implements IDisposable, Listener {
 	private final IHandlerService myHandlerService;
 
 	/**
-	 * Constructs and returns a new converter for the specified mouse button to the specified command
+	 * Constructs and returns a new converter for the specified mouse button to the specified
+	 * command
 	 * 
 	 * @param button the SWT button to convert - 1..5
-	 * @param state the modifier state - zero, one or more of the following or'ed together {@link SWT#SHIFT},
-	 *            {@link SWT#ALT}, {@link SWT#CTRL}, and {@link SWT#SHIFT}
+	 * @param state the modifier state - zero, one or more of the following or'ed together
+	 *            {@link SWT#SHIFT}, {@link SWT#ALT}, {@link SWT#CTRL}, and {@link SWT#SHIFT}
 	 * @param serializedCommand the command to execute for the command in serialized form
 	 * @throws SerializationException
 	 * @throws NotDefinedException

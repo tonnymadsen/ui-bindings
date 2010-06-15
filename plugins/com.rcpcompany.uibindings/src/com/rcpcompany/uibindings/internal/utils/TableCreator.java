@@ -32,10 +32,10 @@ import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.SpecialBinding;
 import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.utils.IBindingSpec;
+import com.rcpcompany.uibindings.utils.IBindingSpec.BaseType;
 import com.rcpcompany.uibindings.utils.IFilteringTableAdapter;
 import com.rcpcompany.uibindings.utils.ISortableTableAdapter;
 import com.rcpcompany.uibindings.utils.ITableCreator;
-import com.rcpcompany.uibindings.utils.IBindingSpec.BaseType;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -133,6 +133,7 @@ public class TableCreator implements ITableCreator {
 	public void dispose() {
 	}
 
+	@Override
 	public IViewerBinding setContent(IObservableList list) {
 		// TODO check type
 		// if (list.getElementType() instanceof EClass)
@@ -149,26 +150,31 @@ public class TableCreator implements ITableCreator {
 		return myViewerBinding.model(object, reference);
 	}
 
+	@Override
 	public Table getTable() {
 		return myTable;
 	}
 
+	@Override
 	public IViewerBinding getBinding() {
 		return myViewerBinding;
 	}
 
+	@Override
 	public IColumnBinding addColumn(EStructuralFeature feature, int width) {
 		Assert.isNotNull(myViewerBinding);
 		final TableColumn column = createColumn(width, SWT.NONE);
 		return myViewerBinding.addColumn(column, feature);
 	}
 
+	@Override
 	public IColumnBinding addColumn(SpecialBinding columnType, int width) {
 		Assert.isNotNull(myViewerBinding);
 		final TableColumn column = createColumn(width, SWT.RIGHT);
 		return myViewerBinding.addColumn().column(column).model(columnType);
 	}
 
+	@Override
 	public IColumnBinding addColumn(IColumnBinding baseColumn, EStructuralFeature feature, int width) {
 		Assert.isNotNull(myViewerBinding);
 		final TableColumn column = createColumn(width, SWT.NONE);
@@ -256,8 +262,7 @@ public class TableCreator implements ITableCreator {
 					} else if ("r".equals(a)) {
 						adapter.setAlignment(SWT.TRAIL);
 					} else {
-						LogUtils
-								.throwException(this, "Alignment must be one of 'l', 'c' or 'r', got '" + a + "'", null);
+						LogUtils.throwException(this, "Alignment must be one of 'l', 'c' or 'r', got '" + a + "'", null);
 					}
 				} else {
 					foundColumn.arg(entry.getKey(), entry.getValue());

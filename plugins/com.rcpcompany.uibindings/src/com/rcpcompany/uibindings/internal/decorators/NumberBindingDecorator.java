@@ -36,8 +36,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  * This number decorator can be used even after it has been disposed!!! This is used in
  * {@link ConstraintValidatorAdapter}.
  * <p>
- * Currently with a hack to solve SIMA-457: Editors in the MassData form does not recognise scientific notation on input
- * http://jira.marintek.sintef.no/jira/browse/SIMA-457
+ * Currently with a hack to solve SIMA-457: Editors in the MassData form does not recognise
+ * scientific notation on input http://jira.marintek.sintef.no/jira/browse/SIMA-457
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -86,8 +86,8 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		}
 
 		/**
-		 * Parses and applies the limits from the range string. See {@link Constants#ARG_RANGE} for details on the
-		 * syntax.
+		 * Parses and applies the limits from the range string. See {@link Constants#ARG_RANGE} for
+		 * details on the syntax.
 		 * <p>
 		 * A manual parser to ensure the correct conversion of numbers is used
 		 * 
@@ -185,46 +185,40 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			final boolean minViolated = number.compareTo(myMin) < (myMinInclusive ? 0 : 1);
 			final boolean maxViolated = number.compareTo(myMax) > (myMaxInclusive ? 0 : -1);
 
-			if (!minViolated && !maxViolated) {
-				return null;
-			}
+			if (!minViolated && !maxViolated) return null;
 
 			if (minViolated && !myMaxSet) {
 				if (BigDecimal.ZERO.equals(myMin)) {
-					if (myMinInclusive) {
+					if (myMinInclusive)
 						return MessageFormat.format("{0}: ''{1}'' must be positive or zero", myLabel, fromObject,
 								typeOfCheck, myMin, myMax);
-					} else {
+					else
 						return MessageFormat.format("{0}: ''{1}'' must be positive", myLabel, fromObject, typeOfCheck,
 								myMin, myMax);
-					}
 				} else {
-					if (myMinInclusive) {
+					if (myMinInclusive)
 						return MessageFormat.format("{0}: ''{1}'' outside {2} range (min {3})", myLabel, fromObject,
 								typeOfCheck, myMin, myMax);
-					} else {
+					else
 						return MessageFormat.format("{0}: ''{1}'' outside {2} range (greater than {3})", myLabel,
 								fromObject, typeOfCheck, myMin, myMax);
-					}
 				}
 			}
 			if (maxViolated && !myMinSet) {
 				if (BigDecimal.ZERO.equals(myMax)) {
-					if (myMaxInclusive) {
+					if (myMaxInclusive)
 						return MessageFormat.format("{0}: ''{1}'' must be negative or zero", myLabel, fromObject,
 								typeOfCheck, myMin, myMax);
-					} else {
+					else
 						return MessageFormat.format("{0}: ''{1}'' must be negative", myLabel, fromObject, typeOfCheck,
 								myMin, myMax);
-					}
 				} else {
-					if (myMaxInclusive) {
+					if (myMaxInclusive)
 						return MessageFormat.format("{0}: ''{1}'' outside {2} range (max {4})", myLabel, fromObject,
 								typeOfCheck, myMin, myMax);
-					} else {
+					else
 						return MessageFormat.format("{0}: ''{1}'' outside {2} range (less than {4})", myLabel,
 								fromObject, typeOfCheck, myMin, myMax);
-					}
 				}
 			}
 			return MessageFormat.format("{0}: ''{1}'' outside {2} range {3}{4}; {5}{6}", myLabel, fromObject,
@@ -376,15 +370,14 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 
 	@Override
 	protected Object convertModelToUI(Object fromObject) {
-		if (myUIType == Integer.class || myUIType == Integer.TYPE) {
+		if (myUIType == Integer.class || myUIType == Integer.TYPE)
 			return fromObject;
-		} else if (myUIType == String.class) {
+		else if (myUIType == String.class) {
 			myBuffer.setLength(0);
 			myFormatter.format(myProvider.getFormat(), fromObject);
 			return myBuffer.toString();
-		} else {
+		} else
 			return null;
-		}
 	}
 
 	@Override
@@ -405,9 +398,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		 * - Check the limits
 		 */
 		final String m = myNativeInterval.checkRange(fromObject, myLastConvertedValue, "native");
-		if (m != null) {
-			throw new IllegalArgumentException(m);
-		}
+		if (m != null) throw new IllegalArgumentException(m);
 
 		/*
 		 * - Convert to the wanted model type
@@ -424,10 +415,9 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 				 * - Check the limits
 				 */
 				final String m = checkRange(myLastFromObject, myLastConvertedValue);
-				if (m != null) {
+				if (m != null)
 					return UIBindingsUtils.error(IManager.Factory.getManager().isValidationErrorsAreFatal(),
 							NUMBER_ERROR_CODE, m);
-				}
 				return Status.OK_STATUS;
 			}
 		};
@@ -442,9 +432,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 	 * @throws IllegalArgumentException if the object is <code>null</code>
 	 */
 	private BigDecimal convertToBigDecimal(Object fromObject) {
-		if (myAdapter == null) {
-			return null;
-		}
+		if (myAdapter == null) return null;
 
 		BigDecimal d = null;
 		if (myUIType == Integer.class || myUIType == Integer.TYPE) {
@@ -456,9 +444,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			/*
 			 * - Parse the string
 			 */
-			if (s == null || s.length() == 0) {
-				throw new IllegalArgumentException(myLabel + ": number missing");
-			}
+			if (s == null || s.length() == 0) throw new IllegalArgumentException(myLabel + ": number missing");
 			final ParsePosition parsePosition = new ParsePosition(0);
 			final boolean formatUsesGroupings = myProvider.getFormat().indexOf(',') >= 0;
 			final NumberFormat format = formatUsesGroupings ? myAdapter.getGroupingParseFormat() : myAdapter
@@ -468,8 +454,8 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			/*
 			 * - Check the result
 			 * 
-			 * If we have an error AND the wanted type is float, double or BigDecimal, then give it a second try with
-			 * Double.parseDouble().
+			 * If we have an error AND the wanted type is float, double or BigDecimal, then give it
+			 * a second try with Double.parseDouble().
 			 */
 			if (parsePosition.getErrorIndex() != -1 || parsePosition.getIndex() != s.length()) {
 				boolean ok = false;
@@ -485,8 +471,8 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 					final int errorPos = (parsePosition.getErrorIndex() != -1) ? parsePosition.getErrorIndex()
 							: parsePosition.getIndex();
 					throw new IllegalArgumentException(MessageFormat.format(
-							"Illegal {0}: ''{1}'' at position {2}: ''{3}''", myLabel, fromObject, errorPos + 1, s
-									.charAt(errorPos)));
+							"Illegal {0}: ''{1}'' at position {2}: ''{3}''", myLabel, fromObject, errorPos + 1,
+							s.charAt(errorPos)));
 				}
 			}
 
@@ -494,9 +480,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			 * - Handle the special values
 			 */
 			if (number instanceof Double) {
-				if (Double.isNaN(number.doubleValue())) {
-					return null;
-				}
+				if (Double.isNaN(number.doubleValue())) return null;
 				if (number.doubleValue() == Double.NEGATIVE_INFINITY) {
 					d = getMin();
 				} else if (number.doubleValue() == Double.POSITIVE_INFINITY) {
@@ -600,8 +584,8 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		 * Returns the format used to parse this type.
 		 * <p>
 		 * The parser must return a {@link BigDecimal} or {@link Double} as described in
-		 * {@link DecimalFormat#parse(String, ParsePosition)} with {@link DecimalFormat#setParseBigDecimal(boolean)
-		 * setParseBigDecimal(true)}.
+		 * {@link DecimalFormat#parse(String, ParsePosition)} with
+		 * {@link DecimalFormat#setParseBigDecimal(boolean) setParseBigDecimal(true)}.
 		 * 
 		 * @return the format
 		 */
@@ -631,8 +615,9 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		public BigDecimal getMaximum();
 
 		/**
-		 * Returns a new number with the same value, but of the correct type. When this method is called, it is already
-		 * checked that {@code source} is within the bounds of {@link #getMinimum()} and {@link #getMaximum()}.
+		 * Returns a new number with the same value, but of the correct type. When this method is
+		 * called, it is already checked that {@code source} is within the bounds of
+		 * {@link #getMinimum()} and {@link #getMaximum()}.
 		 * 
 		 * @param source the source number to be converted
 		 * @return the resulting number
@@ -652,6 +637,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			return myPlainFormat;
 		}
 
+		@Override
 		public NumberFormat getGroupingParseFormat() {
 			return myGroupingFormat;
 		};
@@ -692,6 +678,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			return myPlainFormat;
 		}
 
+		@Override
 		public NumberFormat getGroupingParseFormat() {
 			return myGroupingFormat;
 		};
@@ -732,6 +719,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			return myPlainFormat;
 		}
 
+		@Override
 		public NumberFormat getGroupingParseFormat() {
 			return myGroupingFormat;
 		};
@@ -772,6 +760,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			return myPlainFormat;
 		}
 
+		@Override
 		public NumberFormat getGroupingParseFormat() {
 			return myGroupingFormat;
 		};
@@ -812,6 +801,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			return myPlainFormat;
 		}
 
+		@Override
 		public NumberFormat getGroupingParseFormat() {
 			return myGroupingFormat;
 		};
@@ -848,6 +838,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			return myPlainFormat;
 		}
 
+		@Override
 		public NumberFormat getGroupingParseFormat() {
 			return myGroupingFormat;
 		};
@@ -884,6 +875,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			return myPlainFormat;
 		}
 
+		@Override
 		public NumberFormat getGroupingParseFormat() {
 			return myGroupingFormat;
 		};
@@ -920,6 +912,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			return myPlainFormat;
 		}
 
+		@Override
 		public NumberFormat getGroupingParseFormat() {
 			return myGroupingFormat;
 		};

@@ -38,8 +38,8 @@ public interface ISourceProviderStateContext {
 	public Event getEvent();
 
 	/**
-	 * Adds a new {@link IObservableValue} which value must be observed. If the observed value changes value, then the
-	 * state must be re-evaluated.
+	 * Adds a new {@link IObservableValue} which value must be observed. If the observed value
+	 * changes value, then the state must be re-evaluated.
 	 * 
 	 * @param value the new observed value
 	 */

@@ -36,8 +36,8 @@ import com.rcpcompany.uibindings.utils.ISortableTableAdapter;
 /**
  * Test of {@link FilteringTableAdapter}.
  * <p>
- * This test contains a number of "sleep(nnn)", which seems to be necessary to get it right. It has to do with the
- * viewer code, but...
+ * This test contains a number of "sleep(nnn)", which seems to be necessary to get it right. It has
+ * to do with the viewer code, but...
  * 
  * @author Tonny Madsen, The RCP Company
  */

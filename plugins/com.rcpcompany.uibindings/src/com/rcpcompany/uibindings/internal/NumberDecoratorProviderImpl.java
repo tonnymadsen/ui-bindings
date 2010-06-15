@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -17,12 +16,13 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.internal.decorators.NumberBindingDecorator;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Number Decorator Provider</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Number Decorator Provider</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.NumberDecoratorProviderImpl#getFormat <em>Format</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.NumberDecoratorProviderImpl#getFormat <em>Format
+ * </em>}</li>
  * </ul>
  * </p>
  * 
@@ -30,8 +30,8 @@ import com.rcpcompany.uibindings.internal.decorators.NumberBindingDecorator;
  */
 public class NumberDecoratorProviderImpl extends DecoratorProviderImpl implements INumberDecoratorProvider {
 	/**
-	 * The default value of the '{@link #getFormat() <em>Format</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getFormat() <em>Format</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getFormat()
 	 * @generated
@@ -40,8 +40,8 @@ public class NumberDecoratorProviderImpl extends DecoratorProviderImpl implement
 	protected static final String FORMAT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getFormat() <em>Format</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getFormat() <em>Format</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getFormat()
 	 * @generated
@@ -73,6 +73,7 @@ public class NumberDecoratorProviderImpl extends DecoratorProviderImpl implement
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getFormat() {
 		return format;
 	}
@@ -82,6 +83,7 @@ public class NumberDecoratorProviderImpl extends DecoratorProviderImpl implement
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setFormat(String newFormat) {
 		final String oldFormat = format;
 		format = newFormat;
@@ -157,9 +159,7 @@ public class NumberDecoratorProviderImpl extends DecoratorProviderImpl implement
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (format: "); //$NON-NLS-1$

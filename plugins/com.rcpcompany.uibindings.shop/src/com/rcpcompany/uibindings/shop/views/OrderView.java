@@ -32,7 +32,8 @@ public class OrderView extends ViewPart {
 		final ITableCreator detailsTable = ITableCreator.Factory.create(detailsSection.getContext(), detailsSection
 				.addComposite(true, true), ITableCreator.FILTER, orderTable.getBinding().getSingleSelection(),
 				ShopPackage.Literals.ORDER__ITEMS);
-		// final ITableCreator detailsTable = detailsSection.addTableCreator(ShopPackage.Literals.ORDER__ITEMS, true,
+		// final ITableCreator detailsTable =
+		// detailsSection.addTableCreator(ShopPackage.Literals.ORDER__ITEMS, true,
 		// SWT.SEARCH);
 
 		detailsTable.addColumn("no(w=40)");

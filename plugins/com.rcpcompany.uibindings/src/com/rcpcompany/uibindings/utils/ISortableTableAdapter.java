@@ -22,9 +22,7 @@ public interface ISortableTableAdapter extends IDisposable {
 		 */
 		public static ISortableTableAdapter adapt(final IViewerBinding viewer) {
 			final ISortableTableAdapter adapter = viewer.getService(ISortableTableAdapter.class);
-			if (adapter != null) {
-				return adapter;
-			}
+			if (adapter != null) return adapter;
 			return new SortableTableAdapter(viewer);
 		}
 	};

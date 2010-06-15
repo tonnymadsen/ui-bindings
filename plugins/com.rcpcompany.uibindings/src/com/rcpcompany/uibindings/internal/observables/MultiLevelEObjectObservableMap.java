@@ -16,8 +16,8 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 /**
- * Virtual observable map that maps from a set of {@link EObject EObjects} to an attribute value specified as a chain of
- * structural features.
+ * Virtual observable map that maps from a set of {@link EObject EObjects} to an attribute value
+ * specified as a chain of structural features.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -87,27 +87,28 @@ public class MultiLevelEObjectObservableMap extends ComputedObservableMap {
 	/**
 	 * Private class that represents the a single key value in the map.
 	 * <p>
-	 * Keeps an array with all the intermediate {@link EObject EObjects} that matches the myChainReferences array.
+	 * Keeps an array with all the intermediate {@link EObject EObjects} that matches the
+	 * myChainReferences array.
 	 * <p>
-	 * An adapter (<code>this</code>) is added to all of these objects. Changes are perceived to be seldom, so the
-	 * complete set of adpters are unhooked with all changes in the surveyed objects.
+	 * An adapter (<code>this</code>) is added to all of these objects. Changes are perceived to be
+	 * seldom, so the complete set of adpters are unhooked with all changes in the surveyed objects.
 	 */
 	protected class ChainAdapter extends AdapterImpl {
 		protected EObject[] chain = new EObject[myChainReferences.length];
 
 		@Override
 		public void notifyChanged(Notification msg) {
-			if (msg.isTouch()) {
-				return;
-			}
+			if (msg.isTouch()) return;
 			for (int i = 0; i < myChainReferences.length; i++) {
 				if (chain[i] == msg.getNotifier() && myChainReferences[i] == msg.getFeature()) {
 					/*
-					 * TODO: This assumes we only get a SET notification, which isn't a good assumption.
+					 * TODO: This assumes we only get a SET notification, which isn't a good
+					 * assumption.
 					 */
 					final MapDiff diff = Diffs
 							.createMapDiffSingleChange(chain[0], msg.getOldValue(), msg.getNewValue());
 					getRealm().exec(new Runnable() {
+						@Override
 						public void run() {
 							fireMapChange(diff);
 						}
@@ -173,18 +174,14 @@ public class MultiLevelEObjectObservableMap extends ComputedObservableMap {
 	@Override
 	protected Object doGet(Object key) {
 		final ChainAdapter vi = listeners.get(key);
-		if (vi == null) {
-			return null;
-		}
+		if (vi == null) return null;
 		return vi.getValue();
 	}
 
 	@Override
 	protected Object doPut(Object key, Object value) {
 		final ChainAdapter vi = listeners.get(key);
-		if (vi == null) {
-			return null;
-		}
+		if (vi == null) return null;
 		return vi.setValue(value);
 	}
 }

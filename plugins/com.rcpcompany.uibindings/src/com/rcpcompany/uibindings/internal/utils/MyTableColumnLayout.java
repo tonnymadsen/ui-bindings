@@ -10,11 +10,13 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Widget;
 
 /**
- * The TableColumnLayout is the {@link Layout} used to maintain {@link TableColumn} sizes in a {@link Table}.
+ * The TableColumnLayout is the {@link Layout} used to maintain {@link TableColumn} sizes in a
+ * {@link Table}.
  * 
  * <p>
- * <b>You can only add the {@link Layout} to a container whose <i>only</i> child is the {@link Table} control you want
- * the {@link Layout} applied to. Don't assign the layout directly the {@link Table}</b>
+ * <b>You can only add the {@link Layout} to a container whose <i>only</i> child is the
+ * {@link Table} control you want the {@link Layout} applied to. Don't assign the layout directly
+ * the {@link Table}</b>
  * </p>
  */
 public class MyTableColumnLayout extends UITableLayout {

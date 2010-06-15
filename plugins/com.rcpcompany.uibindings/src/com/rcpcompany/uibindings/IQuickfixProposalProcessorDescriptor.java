@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings;
@@ -13,19 +12,23 @@ import org.eclipse.emf.ecore.EObject;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Quickfix Proposal Processor Descriptor</b></em>
- * '. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '
+ * <em><b>Quickfix Proposal Processor Descriptor</b></em> '. <!-- end-user-doc -->
  * 
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getModelType <em>Model Type</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getFeature <em>Feature</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getSource <em>Source</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getModelType <em>Model
+ * Type</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getFeature <em>Feature
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getSource <em>Source
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getCode <em>Code</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getMessagePattern <em>Message Pattern</em>}
- * </li>
- * <li>{@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getProcessor <em>Processor</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getMessagePattern <em>
+ * Message Pattern</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getProcessor <em>
+ * Processor</em>}</li>
  * </ul>
  * </p>
  * 
@@ -36,8 +39,8 @@ public interface IQuickfixProposalProcessorDescriptor extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Model Type</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Model Type</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Model Type</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -49,7 +52,8 @@ public interface IQuickfixProposalProcessorDescriptor extends EObject {
 	String getModelType();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getModelType
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getModelType
 	 * <em>Model Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Model Type</em>' attribute.
@@ -61,8 +65,8 @@ public interface IQuickfixProposalProcessorDescriptor extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Feature</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Feature</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -74,7 +78,8 @@ public interface IQuickfixProposalProcessorDescriptor extends EObject {
 	String getFeature();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getFeature
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getFeature
 	 * <em>Feature</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Feature</em>' attribute.
@@ -86,8 +91,8 @@ public interface IQuickfixProposalProcessorDescriptor extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Source</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Source</em>' attribute isn't clear, there really should be more of
+	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -99,7 +104,8 @@ public interface IQuickfixProposalProcessorDescriptor extends EObject {
 	String getSource();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getSource
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getSource
 	 * <em>Source</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Source</em>' attribute.
@@ -111,7 +117,8 @@ public interface IQuickfixProposalProcessorDescriptor extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Code</em>' attribute isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Code</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -123,8 +130,9 @@ public interface IQuickfixProposalProcessorDescriptor extends EObject {
 	int getCode();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getCode
-	 * <em>Code</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getCode <em>Code</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Code</em>' attribute.
 	 * @see #getCode()
@@ -135,8 +143,8 @@ public interface IQuickfixProposalProcessorDescriptor extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Message Pattern</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Message Pattern</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Message Pattern</em>' attribute isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -148,7 +156,8 @@ public interface IQuickfixProposalProcessorDescriptor extends EObject {
 	Pattern getMessagePattern();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getMessagePattern
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getMessagePattern
 	 * <em>Message Pattern</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Message Pattern</em>' attribute.
@@ -160,8 +169,8 @@ public interface IQuickfixProposalProcessorDescriptor extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Processor</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Processor</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Processor</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -173,7 +182,8 @@ public interface IQuickfixProposalProcessorDescriptor extends EObject {
 	CEObjectHolder<IQuickfixProposalProcessor> getProcessor();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getProcessor
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getProcessor
 	 * <em>Processor</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Processor</em>' attribute.

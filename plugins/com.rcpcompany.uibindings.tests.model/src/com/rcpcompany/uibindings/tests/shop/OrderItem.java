@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.tests.shop;
@@ -9,7 +8,8 @@ package com.rcpcompany.uibindings.tests.shop;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Order Item</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Order Item</b></em>'. <!--
+ * end-user-doc -->
  * 
  * <p>
  * The following features are supported:
@@ -30,7 +30,8 @@ public interface OrderItem extends EObject {
 	/**
 	 * Returns the value of the '<em><b>No</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>No</em>' attribute isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>No</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -42,11 +43,12 @@ public interface OrderItem extends EObject {
 	int getNo();
 
 	/**
-	 * Returns the value of the '<em><b>Order</b></em>' container reference. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.tests.shop.Order#getItems <em>Items</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Order</b></em>' container reference. It is bidirectional and
+	 * its opposite is ' {@link com.rcpcompany.uibindings.tests.shop.Order#getItems <em>Items</em>}
+	 * '. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Order</em>' container reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Order</em>' container reference isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -60,8 +62,8 @@ public interface OrderItem extends EObject {
 	Order getOrder();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.OrderItem#getOrder <em>Order</em>}' container
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.OrderItem#getOrder
+	 * <em>Order</em>}' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Order</em>' container reference.
 	 * @see #getOrder()
@@ -70,11 +72,12 @@ public interface OrderItem extends EObject {
 	void setOrder(Order value);
 
 	/**
-	 * Returns the value of the '<em><b>Item</b></em>' reference. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItem#getOrderItems <em>Order Items</em>}'. <!-- begin-user-doc
-	 * -->
+	 * Returns the value of the '<em><b>Item</b></em>' reference. It is bidirectional and its
+	 * opposite is ' {@link com.rcpcompany.uibindings.tests.shop.ShopItem#getOrderItems
+	 * <em>Order Items</em>}'. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Item</em>' reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Item</em>' reference isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -88,8 +91,8 @@ public interface OrderItem extends EObject {
 	ShopItem getItem();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.OrderItem#getItem <em>Item</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.OrderItem#getItem
+	 * <em>Item</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Item</em>' reference.
 	 * @see #getItem()
@@ -98,11 +101,11 @@ public interface OrderItem extends EObject {
 	void setItem(ShopItem value);
 
 	/**
-	 * Returns the value of the '<em><b>Count</b></em>' attribute. The default value is <code>"1"</code>. <!--
-	 * begin-user-doc -->
+	 * Returns the value of the '<em><b>Count</b></em>' attribute. The default value is
+	 * <code>"1"</code>. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Count</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Count</em>' attribute isn't clear, there really should be more of
+	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -115,8 +118,8 @@ public interface OrderItem extends EObject {
 	int getCount();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.OrderItem#getCount <em>Count</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.OrderItem#getCount
+	 * <em>Count</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Count</em>' attribute.
 	 * @see #getCount()
@@ -127,7 +130,8 @@ public interface OrderItem extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Id</em>' attribute isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Id</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

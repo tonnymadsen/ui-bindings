@@ -45,9 +45,8 @@ public class ItemObservableValue extends AbstractSWTObservableValue {
 		this.attribute = attribute;
 		if (SUPPORTED_ATTRIBUTES.containsKey(attribute)) {
 			this.valueType = SUPPORTED_ATTRIBUTES.get(attribute);
-		} else {
+		} else
 			throw new IllegalArgumentException("Attribute '" + attribute + "' not supported");
-		}
 	}
 
 	@Override
@@ -97,54 +96,31 @@ public class ItemObservableValue extends AbstractSWTObservableValue {
 
 	@Override
 	public Object doGetValue() {
-		if (attribute.equals(Constants.ATTR_TEXT)) {
-			return item.getText();
-		}
-		if (attribute.equals(Constants.ATTR_IMAGE)) {
-			return item.getImage();
-		}
+		if (attribute.equals(Constants.ATTR_TEXT)) return item.getText();
+		if (attribute.equals(Constants.ATTR_IMAGE)) return item.getImage();
 		if (attribute.equals(Constants.ATTR_TOOLTIP)) {
-			if (item instanceof TableColumn) {
-				return ((TableColumn) item).getToolTipText();
-			}
-			if (item instanceof TreeColumn) {
-				return ((TreeColumn) item).getToolTipText();
-			}
-			if (item instanceof ToolItem) {
-				return ((ToolItem) item).getToolTipText();
-			}
-			if (item instanceof TabItem) {
-				return ((TabItem) item).getToolTipText();
-			}
+			if (item instanceof TableColumn) return ((TableColumn) item).getToolTipText();
+			if (item instanceof TreeColumn) return ((TreeColumn) item).getToolTipText();
+			if (item instanceof ToolItem) return ((ToolItem) item).getToolTipText();
+			if (item instanceof TabItem) return ((TabItem) item).getToolTipText();
 		}
 		if (attribute.equals(Constants.ATTR_ALIGNMENT)) {
-			if (item instanceof TableColumn) {
-				return ((TableColumn) item).getAlignment();
-			}
-			if (item instanceof TreeColumn) {
-				return ((TreeColumn) item).getAlignment();
-			}
+			if (item instanceof TableColumn) return ((TableColumn) item).getAlignment();
+			if (item instanceof TreeColumn) return ((TreeColumn) item).getAlignment();
 		}
 		if (attribute.equals(Constants.ATTR_WIDTH)) {
-			if (item instanceof TableColumn) {
-				return ((TableColumn) item).getWidth();
-			}
-			if (item instanceof TreeColumn) {
-				return ((TreeColumn) item).getWidth();
-			}
-			if (item instanceof ToolItem) {
-				return ((ToolItem) item).getWidth();
-			}
+			if (item instanceof TableColumn) return ((TableColumn) item).getWidth();
+			if (item instanceof TreeColumn) return ((TreeColumn) item).getWidth();
+			if (item instanceof ToolItem) return ((ToolItem) item).getWidth();
 		}
 		if (attribute.equals(Constants.ATTR_ENABLED)) {
-			if (item instanceof ToolItem) {
-				return ((ToolItem) item).getEnabled();
-			}
+			if (item instanceof ToolItem) return ((ToolItem) item).getEnabled();
 		}
 
 		return null;
 	}
 
+	@Override
 	public Object getValueType() {
 		return valueType;
 	}

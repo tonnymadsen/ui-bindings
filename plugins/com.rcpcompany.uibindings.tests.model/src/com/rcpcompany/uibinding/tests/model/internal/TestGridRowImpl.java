@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibinding.tests.model.internal;
@@ -18,12 +17,14 @@ import com.rcpcompany.uibinding.tests.model.TestGridRow;
 import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Test Grid Row</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Test Grid Row</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
  * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridRowImpl#getGrid <em>Grid</em>}</li>
- * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridRowImpl#getNumber <em>Number</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridRowImpl#getNumber <em>Number
+ * </em>}</li>
  * </ul>
  * </p>
  * 
@@ -31,8 +32,8 @@ import com.rcpcompany.uibinding.tests.model.TestModelPackage;
  */
 public class TestGridRowImpl extends EObjectImpl implements TestGridRow {
 	/**
-	 * The cached value of the '{@link #getGrid() <em>Grid</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getGrid() <em>Grid</em>}' reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getGrid()
 	 * @generated
@@ -41,8 +42,8 @@ public class TestGridRowImpl extends EObjectImpl implements TestGridRow {
 	protected TestGrid grid;
 
 	/**
-	 * The default value of the '{@link #getNumber() <em>Number</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getNumber() <em>Number</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getNumber()
 	 * @generated
@@ -51,8 +52,8 @@ public class TestGridRowImpl extends EObjectImpl implements TestGridRow {
 	protected static final int NUMBER_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getNumber() <em>Number</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getNumber() <em>Number</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getNumber()
 	 * @generated
@@ -84,6 +85,7 @@ public class TestGridRowImpl extends EObjectImpl implements TestGridRow {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public TestGrid getGrid() {
 		return grid;
 	}
@@ -113,6 +115,7 @@ public class TestGridRowImpl extends EObjectImpl implements TestGridRow {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setGrid(TestGrid newGrid) {
 		if (newGrid != grid) {
 			NotificationChain msgs = null;
@@ -139,6 +142,7 @@ public class TestGridRowImpl extends EObjectImpl implements TestGridRow {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getNumber() {
 		return number;
 	}
@@ -148,6 +152,7 @@ public class TestGridRowImpl extends EObjectImpl implements TestGridRow {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setNumber(int newNumber) {
 		final int oldNumber = number;
 		number = newNumber;
@@ -265,9 +270,7 @@ public class TestGridRowImpl extends EObjectImpl implements TestGridRow {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (number: ");

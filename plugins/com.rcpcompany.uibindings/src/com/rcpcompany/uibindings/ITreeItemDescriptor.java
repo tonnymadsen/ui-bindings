@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings;
@@ -12,7 +11,8 @@ import org.eclipse.emf.common.util.EList;
 /**
  * <!-- begin-user-doc -->
  * 
- * This interface describes one possible item in a viewer tree. The information can come from a number of sources:
+ * This interface describes one possible item in a viewer tree. The information can come from a
+ * number of sources:
  * <ul>
  * <li>It can be declared via the <code>uibindings</code> extension point</li>
  * <li>It can be added directly to {@link IManager#getTreeItems()}</li>
@@ -39,7 +39,8 @@ public interface ITreeItemDescriptor extends IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Id</em>' attribute isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Id</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -51,8 +52,8 @@ public interface ITreeItemDescriptor extends IArgumentProvider {
 	String getId();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getId <em>Id</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getId
+	 * <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
@@ -61,12 +62,13 @@ public interface ITreeItemDescriptor extends IArgumentProvider {
 	void setId(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Children</b></em>' reference list. The list contents are of type
-	 * {@link com.rcpcompany.uibindings.ITreeItemRelation}. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.ITreeItemRelation#getParent <em>Parent</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Children</b></em>' reference list. The list contents are of
+	 * type {@link com.rcpcompany.uibindings.ITreeItemRelation}. It is bidirectional and its
+	 * opposite is ' {@link com.rcpcompany.uibindings.ITreeItemRelation#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Children</em>' reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Children</em>' reference list isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -80,7 +82,8 @@ public interface ITreeItemDescriptor extends IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>Ce</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Ce</em>' attribute isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Ce</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -92,8 +95,8 @@ public interface ITreeItemDescriptor extends IArgumentProvider {
 	IConfigurationElement getCe();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getCe <em>Ce</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getCe
+	 * <em>Ce</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Ce</em>' attribute.
 	 * @see #getCe()
@@ -102,11 +105,11 @@ public interface ITreeItemDescriptor extends IArgumentProvider {
 	void setCe(IConfigurationElement value);
 
 	/**
-	 * Returns the value of the '<em><b>Model Types</b></em>' attribute list. The list contents are of type
-	 * {@link java.lang.String}. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Model Types</b></em>' attribute list. The list contents are
+	 * of type {@link java.lang.String}. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Model Types</em>' attribute list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Model Types</em>' attribute list isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -119,8 +122,8 @@ public interface ITreeItemDescriptor extends IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>New Wizard ID</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>New Wizard ID</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>New Wizard ID</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

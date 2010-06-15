@@ -22,10 +22,11 @@ import org.eclipse.ui.forms.IMessageManager;
 /**
  * This class is a parallel to {@link WizardPageSupport} but for {@link IMessageManager}.
  * <p>
- * The class monitors the {@link ValidationStatusProvider validation status providers} of the specified context, and
- * adds/removes messages from these to the message manager.
+ * The class monitors the {@link ValidationStatusProvider validation status providers} of the
+ * specified context, and adds/removes messages from these to the message manager.
  * <p>
- * This class lives off the fact that all the changes for the observables are performed in the UI thread....
+ * This class lives off the fact that all the changes for the observables are performed in the UI
+ * thread....
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -34,7 +35,8 @@ public class MessageManagerSupport {
 	protected final DataBindingContext myContext;
 
 	/**
-	 * Constructs and returns a new support object for the specified message manager and data binding context.
+	 * Constructs and returns a new support object for the specified message manager and data
+	 * binding context.
 	 * 
 	 * @param mm the message manager
 	 * @param context the data binding context
@@ -44,6 +46,7 @@ public class MessageManagerSupport {
 		myContext = context;
 
 		myContext.getValidationStatusProviders().addListChangeListener(new IListChangeListener() {
+			@Override
 			public void handleListChange(ListChangeEvent event) {
 				event.diff.accept(myVisitor);
 			}
@@ -63,7 +66,8 @@ public class MessageManagerSupport {
 	}
 
 	/**
-	 * Constructs and returns a new support object for the specified message manager and data binding context.
+	 * Constructs and returns a new support object for the specified message manager and data
+	 * binding context.
 	 * 
 	 * @param mm the message manager
 	 * @param context the data binding context
@@ -83,6 +87,7 @@ public class MessageManagerSupport {
 		public void handleAdd(int index, Object element) {
 			final ValidationStatusProvider p = (ValidationStatusProvider) element;
 			p.getValidationStatus().addValueChangeListener(new IValueChangeListener() {
+				@Override
 				public void handleValueChange(ValueChangeEvent event) {
 					if (myMessageManager.isAutoUpdate()) {
 						myMessageManager.setAutoUpdate(false);

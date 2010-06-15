@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import com.rcpcompany.uibindings.IDisposable;
+import com.rcpcompany.uibindings.internal.utils.LabelProviderEventSupport.ISupportListener;
 
 /**
  * Support class for {@link ISupportListener label providers} used to handle updates of the labels.
@@ -51,8 +52,8 @@ public class LabelProviderEventSupport implements IDisposable {
 	}
 
 	/**
-	 * Adds a new object to this event support object that monitors changes to the specified {@link EObject} with the
-	 * specified chain of features.
+	 * Adds a new object to this event support object that monitors changes to the specified
+	 * {@link EObject} with the specified chain of features.
 	 * 
 	 * @param object the object
 	 * @param features the chain of features
@@ -84,10 +85,12 @@ public class LabelProviderEventSupport implements IDisposable {
 	/**
 	 * Private class that represents the a single key value in the map.
 	 * <p>
-	 * Keeps an array with all the intermediate {@link EObject EObjects} that matches the myChainReferences array.
+	 * Keeps an array with all the intermediate {@link EObject EObjects} that matches the
+	 * myChainReferences array.
 	 * <p>
-	 * An adapter (<code>this</code>) is added to all of these objects. Changes are perceived to be seldom, so the
-	 * complete set of adapters are re-hooked with all changes in the surveyed objects.
+	 * An adapter (<code>this</code>) is added to all of these objects. Changes are perceived to be
+	 * seldom, so the complete set of adapters are re-hooked with all changes in the surveyed
+	 * objects.
 	 */
 	private class MonitoredObject extends AdapterImpl implements IDisposable {
 		/**
@@ -153,9 +156,7 @@ public class LabelProviderEventSupport implements IDisposable {
 
 		@Override
 		public void notifyChanged(Notification msg) {
-			if (msg.isTouch()) {
-				return;
-			}
+			if (msg.isTouch()) return;
 			for (int i = 0; i < myReferencesChain.length; i++) {
 				if (myObjectChain[i] == msg.getNotifier() && myReferencesChain[i] == msg.getFeature()) {
 					myProvider.objectsChanged(new Object[] { myObject });

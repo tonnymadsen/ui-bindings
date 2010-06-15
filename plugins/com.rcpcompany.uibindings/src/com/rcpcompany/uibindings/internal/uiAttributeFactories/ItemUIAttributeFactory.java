@@ -17,19 +17,17 @@ public class ItemUIAttributeFactory implements IUIAttributeFactory {
 	}
 
 	protected static IObservableValue createValue(Item c, String attribute) {
-		if (Constants.ATTR_TEXT.equals(attribute) || attribute.length() == 0) {
+		if (Constants.ATTR_TEXT.equals(attribute) || attribute.length() == 0)
 			return new ItemObservableValue(c, attribute);
-		} else if (Constants.ATTR_IMAGE.equals(attribute)) {
+		else if (Constants.ATTR_IMAGE.equals(attribute))
 			return new ItemObservableValue(c, attribute);
-		} else if (Constants.ATTR_ALIGNMENT.equals(attribute)) {
+		else if (Constants.ATTR_ALIGNMENT.equals(attribute))
 			return new ItemObservableValue(c, attribute);
-		} else if (Constants.ATTR_TOOLTIP.equals(attribute)) {
+		else if (Constants.ATTR_TOOLTIP.equals(attribute))
 			return new ItemObservableValue(c, attribute);
-		} else if (Constants.ATTR_WIDTH.equals(attribute)) {
+		else if (Constants.ATTR_WIDTH.equals(attribute))
 			return new ItemObservableValue(c, attribute);
-		} else if (Constants.ATTR_ENABLED.equals(attribute)) {
-			return new ItemObservableValue(c, attribute);
-		}
+		else if (Constants.ATTR_ENABLED.equals(attribute)) return new ItemObservableValue(c, attribute);
 		return null;
 	}
 

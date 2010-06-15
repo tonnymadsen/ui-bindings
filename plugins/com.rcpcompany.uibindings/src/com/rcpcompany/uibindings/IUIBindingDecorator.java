@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings;
@@ -13,18 +12,20 @@ import org.eclipse.core.databinding.validation.IValidator;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>UI Binding Decorator</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '
+ * <em><b>UI Binding Decorator</b></em>'. <!-- end-user-doc -->
  * 
  * <p>
  * The following features are supported:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.IUIBindingDecorator#getBinding <em>Binding</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IUIBindingDecorator#isChangeable <em>Changeable</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IUIBindingDecorator#getModelToUIConverter <em>Model To UI Converter</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IUIBindingDecorator#getUIToModelConverter <em>UI To Model Converter</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IUIBindingDecorator#getUIToModelAfterConvertValidator <em>UI To Model After
- * Convert Validator</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IUIBindingDecorator#getModelToUIConverter <em>Model To UI
+ * Converter</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IUIBindingDecorator#getUIToModelConverter <em>UI To Model
+ * Converter</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IUIBindingDecorator#getUIToModelAfterConvertValidator <em>UI
+ * To Model After Convert Validator</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IUIBindingDecorator#getValidUIList <em>Valid UI List</em>}</li>
  * </ul>
  * </p>
@@ -51,12 +52,12 @@ public interface IUIBindingDecorator extends EObject, IDisposable {
 	public void decorate();
 
 	/**
-	 * Returns an {@link IObservableValue observable value} that can be used to monitor changes to the data that is used
-	 * to show the binding in the UI attribute.
+	 * Returns an {@link IObservableValue observable value} that can be used to monitor changes to
+	 * the data that is used to show the binding in the UI attribute.
 	 * <p>
-	 * E.g. a decorator that can show a specific {@link EObject}, will probably use one or more specific features of the
-	 * object to identify the object. The returned observable value can then be used to monitor changes to these
-	 * features.
+	 * E.g. a decorator that can show a specific {@link EObject}, will probably use one or more
+	 * specific features of the object to identify the object. The returned observable value can
+	 * then be used to monitor changes to these features.
 	 * <p>
 	 * The value itself of the returned observable value is <em>not</em> used.
 	 * 
@@ -69,8 +70,8 @@ public interface IUIBindingDecorator extends EObject, IDisposable {
 	/**
 	 * Returns the value of the '<em><b>Binding</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Binding</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Binding</em>' reference isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -82,8 +83,8 @@ public interface IUIBindingDecorator extends EObject, IDisposable {
 	IValueBinding getBinding();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IUIBindingDecorator#getBinding <em>Binding</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IUIBindingDecorator#getBinding
+	 * <em>Binding</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Binding</em>' reference.
 	 * @see #getBinding()
@@ -94,8 +95,8 @@ public interface IUIBindingDecorator extends EObject, IDisposable {
 	/**
 	 * Returns the value of the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Changeable</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Changeable</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -106,10 +107,11 @@ public interface IUIBindingDecorator extends EObject, IDisposable {
 	boolean isChangeable();
 
 	/**
-	 * Returns the value of the '<em><b>Model To UI Converter</b></em>' attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Model To UI Converter</b></em>' attribute. <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Model To UI Converter</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Model To UI Converter</em>' attribute isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -120,10 +122,11 @@ public interface IUIBindingDecorator extends EObject, IDisposable {
 	IConverter getModelToUIConverter();
 
 	/**
-	 * Returns the value of the '<em><b>UI To Model Converter</b></em>' attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>UI To Model Converter</b></em>' attribute. <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>UI To Model Converter</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>UI To Model Converter</em>' attribute isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -134,10 +137,11 @@ public interface IUIBindingDecorator extends EObject, IDisposable {
 	IConverter getUIToModelConverter();
 
 	/**
-	 * Returns the value of the '<em><b>UI To Model After Convert Validator</b></em>' attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>UI To Model After Convert Validator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>UI To Model After Convert Validator</em>' attribute isn't clear, there really should
-	 * be more of a description here...
+	 * If the meaning of the '<em>UI To Model After Convert Validator</em>' attribute isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -150,8 +154,8 @@ public interface IUIBindingDecorator extends EObject, IDisposable {
 	/**
 	 * Returns the value of the '<em><b>Valid UI List</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If non-<code>null</code>, this list contains all the valid string values in the UI for use in context assist and
-	 * combo boxes.
+	 * If non-<code>null</code>, this list contains all the valid string values in the UI for use in
+	 * context assist and combo boxes.
 	 * <p>
 	 * The method can be called multiple times, and must return the same object every time.
 	 * </p>

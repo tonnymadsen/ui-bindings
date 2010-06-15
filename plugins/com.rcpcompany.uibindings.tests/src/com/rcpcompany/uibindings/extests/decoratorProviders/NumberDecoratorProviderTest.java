@@ -156,8 +156,8 @@ public class NumberDecoratorProviderTest {
 										{ "-340282346638528859811704183484516925440.00", new Float(-Float.MAX_VALUE) },
 
 								/*
-								 * { "?" , Float . POSITIVE_INFINITY } , { "-?" , Float . NEGATIVE_INFINITY } , { "nan"
-								 * , Float . NaN }
+								 * { "?" , Float . POSITIVE_INFINITY } , { "-?" , Float .
+								 * NEGATIVE_INFINITY } , { "nan" , Float . NaN }
 								 */
 
 								},
@@ -406,7 +406,8 @@ public class NumberDecoratorProviderTest {
 		// System.out.println(what + "=" + decorator.getMessages());
 		assertEquals(what, 1, decorator.getMessages().size());
 		final IBindingMessage message = (IBindingMessage) decorator.getMessages().get(0);
-		// System.out.println("  \"" + message.getMessage() + "\".matches(\"" + expectedError + "\")");
+		// System.out.println("  \"" + message.getMessage() + "\".matches(\"" + expectedError +
+		// "\")");
 		assertTrue(what + " had '" + message.getMessage() + "' - no match for '" + expectedError + "'", message
 				.getMessage().matches(expectedError));
 	}

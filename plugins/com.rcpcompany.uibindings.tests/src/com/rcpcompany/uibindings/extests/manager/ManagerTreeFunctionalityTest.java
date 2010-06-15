@@ -72,8 +72,8 @@ public class ManagerTreeFunctionalityTest {
 
 	@Test
 	public void testGetTreeItemClassOfQ() {
-		assertEquals(myManager.getTreeItem("com.rcpcompany.uibindings.shop.treeItems.shop"), myManager
-				.getTreeItem(ShopFactory.eINSTANCE.createShop()));
+		assertEquals(myManager.getTreeItem("com.rcpcompany.uibindings.shop.treeItems.shop"),
+				myManager.getTreeItem(ShopFactory.eINSTANCE.createShop()));
 		assertEquals(null, myManager.getTreeItem(ShopFactory.eINSTANCE.createShopItemDescription()));
 	}
 }

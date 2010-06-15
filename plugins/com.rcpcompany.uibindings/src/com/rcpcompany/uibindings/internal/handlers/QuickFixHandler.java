@@ -56,9 +56,7 @@ public class QuickFixHandler extends AbstractHandler implements IHandler {
 
 		final List<IQuickfixProposal> quickfixes = decorator.getQuickfixes();
 
-		if (quickfixes == null || quickfixes.size() == 0) {
-			return null;
-		}
+		if (quickfixes == null || quickfixes.size() == 0) return null;
 
 		if (quickfixes.size() == 1 && IManager.Factory.getManager().isAutoApplySingleQuickfix()) {
 			quickfixes.get(0).apply();
@@ -120,9 +118,7 @@ public class QuickFixHandler extends AbstractHandler implements IHandler {
 			Assert.isNotNull(proposal);
 			final IQuickfixProposal quickfix = (IQuickfixProposal) proposal;
 			final ImageDescriptor image = quickfix.getImage();
-			if (image == null) {
-				return null;
-			}
+			if (image == null) return null;
 			return image.createImage(true);
 		}
 	}

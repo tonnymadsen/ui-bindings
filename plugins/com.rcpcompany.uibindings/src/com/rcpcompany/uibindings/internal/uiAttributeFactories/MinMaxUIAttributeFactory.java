@@ -19,13 +19,11 @@ public class MinMaxUIAttributeFactory implements IUIAttributeFactory {
 	}
 
 	protected static IObservableValue createObservable(Widget widget, String attribute) {
-		if (widget instanceof Slider) {
+		if (widget instanceof Slider)
 			return new SliderObservableValue(((Slider) widget), attribute);
-		} else if (Constants.ATTR_MIN.equals(attribute)) {
+		else if (Constants.ATTR_MIN.equals(attribute))
 			return SWTObservables.observeMin((Control) widget);
-		} else if (Constants.ATTR_MAX.equals(attribute)) {
-			return SWTObservables.observeMax((Control) widget);
-		}
+		else if (Constants.ATTR_MAX.equals(attribute)) return SWTObservables.observeMax((Control) widget);
 		return null;
 	}
 

@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -21,12 +20,13 @@ import com.rcpcompany.uibindings.IModelFeatureInfo;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Model Class Info</b></em>'. <!-- end-user-doc
- * -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Model Class Info</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.ModelClassInfoImpl#getClassName <em>Class Name</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ModelClassInfoImpl#getClassName <em>Class Name
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ModelClassInfoImpl#getFeatures <em>Features</em>}</li>
  * </ul>
  * </p>
@@ -35,8 +35,8 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
  */
 public class ModelClassInfoImpl extends ModelInfoImpl implements IModelClassInfo {
 	/**
-	 * The default value of the '{@link #getClassName() <em>Class Name</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getClassName() <em>Class Name</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getClassName()
 	 * @generated
@@ -45,8 +45,8 @@ public class ModelClassInfoImpl extends ModelInfoImpl implements IModelClassInfo
 	protected static final String CLASS_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getClassName() <em>Class Name</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getClassName() <em>Class Name</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getClassName()
 	 * @generated
@@ -55,8 +55,8 @@ public class ModelClassInfoImpl extends ModelInfoImpl implements IModelClassInfo
 	protected String className = CLASS_NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getFeatures()
 	 * @generated
@@ -65,7 +65,8 @@ public class ModelClassInfoImpl extends ModelInfoImpl implements IModelClassInfo
 	protected EMap<String, IModelFeatureInfo> features;
 
 	/**
-	 * The cached value of the '{@link #getTypes() <em>Types</em>}' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getTypes() <em>Types</em>}' map. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getTypes()
 	 * @generated
@@ -97,6 +98,7 @@ public class ModelClassInfoImpl extends ModelInfoImpl implements IModelClassInfo
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getClassName() {
 		return className;
 	}
@@ -106,6 +108,7 @@ public class ModelClassInfoImpl extends ModelInfoImpl implements IModelClassInfo
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setClassName(String newClassName) {
 		final String oldClassName = className;
 		className = newClassName;
@@ -120,6 +123,7 @@ public class ModelClassInfoImpl extends ModelInfoImpl implements IModelClassInfo
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EMap<String, IModelFeatureInfo> getFeatures() {
 		if (features == null) {
 			features = new EcoreEMap<String, IModelFeatureInfo>(
@@ -134,6 +138,7 @@ public class ModelClassInfoImpl extends ModelInfoImpl implements IModelClassInfo
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EMap<String, IModelClassInfo> getTypes() {
 		if (types == null) {
 			types = new EcoreEMap<String, IModelClassInfo>(
@@ -170,17 +175,15 @@ public class ModelClassInfoImpl extends ModelInfoImpl implements IModelClassInfo
 		case IUIBindingsPackage.MODEL_CLASS_INFO__CLASS_NAME:
 			return getClassName();
 		case IUIBindingsPackage.MODEL_CLASS_INFO__FEATURES:
-			if (coreType) {
+			if (coreType)
 				return getFeatures();
-			} else {
+			else
 				return getFeatures().map();
-			}
 		case IUIBindingsPackage.MODEL_CLASS_INFO__TYPES:
-			if (coreType) {
+			if (coreType)
 				return getTypes();
-			} else {
+			else
 				return getTypes().map();
-			}
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -253,9 +256,7 @@ public class ModelClassInfoImpl extends ModelInfoImpl implements IModelClassInfo
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (className: "); //$NON-NLS-1$

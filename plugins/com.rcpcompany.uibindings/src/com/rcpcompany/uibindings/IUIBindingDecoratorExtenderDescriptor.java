@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings;
@@ -15,8 +14,10 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor#getPriority <em>Priority</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor#getFactory <em>Factory</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor#getPriority <em>
+ * Priority</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor#getFactory <em>Factory
+ * </em>}</li>
  * </ul>
  * </p>
  * 
@@ -39,7 +40,8 @@ public interface IUIBindingDecoratorExtenderDescriptor extends IArgumentProvider
 	int getPriority();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor#getPriority
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor#getPriority
 	 * <em>Priority</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Priority</em>' attribute.
@@ -51,8 +53,8 @@ public interface IUIBindingDecoratorExtenderDescriptor extends IArgumentProvider
 	/**
 	 * Returns the value of the '<em><b>Factory</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Factory</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Factory</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -64,7 +66,8 @@ public interface IUIBindingDecoratorExtenderDescriptor extends IArgumentProvider
 	CEObjectHolder<IUIBindingDecoratorExtender> getFactory();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor#getFactory
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor#getFactory
 	 * <em>Factory</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Factory</em>' attribute.

@@ -26,14 +26,14 @@ public class MyDetailObservableValue extends AbstractObservableValue implements 
 	private final boolean updating = false;
 
 	private IValueChangeListener innerChangeListener = new IValueChangeListener() {
+		@Override
 		public void handleValueChange(ValueChangeEvent event) {
 			/*
 			 * Solves SIMA-694: Unhandled exception: java.lang.Double cannot be cast to
-			 * org.eclipse.emf.common.util.EList - http://jira.marintek.sintef.no/jira/browse/SIMA-694
+			 * org.eclipse.emf.common.util.EList -
+			 * http://jira.marintek.sintef.no/jira/browse/SIMA-694
 			 */
-			if (isDisposed()) {
-				return;
-			}
+			if (isDisposed()) return;
 			if (!updating) {
 				fireValueChange(event.diff);
 			}
@@ -64,12 +64,14 @@ public class MyDetailObservableValue extends AbstractObservableValue implements 
 		this.outerObservableValue = outerObservableValue;
 
 		outerObservableValue.addDisposeListener(new IDisposeListener() {
+			@Override
 			public void handleDispose(DisposeEvent staleEvent) {
 				dispose();
 			}
 		});
 
 		ObservableTracker.runAndIgnore(new Runnable() {
+			@Override
 			public void run() {
 				updateInnerObservableValue();
 			}
@@ -78,15 +80,16 @@ public class MyDetailObservableValue extends AbstractObservableValue implements 
 	}
 
 	IValueChangeListener outerChangeListener = new IValueChangeListener() {
+		@Override
 		public void handleValueChange(ValueChangeEvent event) {
 			/*
 			 * Solves SIMA-694: Unhandled exception: java.lang.Double cannot be cast to
-			 * org.eclipse.emf.common.util.EList - http://jira.marintek.sintef.no/jira/browse/SIMA-694
+			 * org.eclipse.emf.common.util.EList -
+			 * http://jira.marintek.sintef.no/jira/browse/SIMA-694
 			 */
-			if (isDisposed()) {
-				return;
-			}
+			if (isDisposed()) return;
 			ObservableTracker.runAndIgnore(new Runnable() {
+				@Override
 				public void run() {
 					final Object oldValue = doGetValue();
 					updateInnerObservableValue();
@@ -106,6 +109,7 @@ public class MyDetailObservableValue extends AbstractObservableValue implements 
 			innerObservableValue = null;
 		} else {
 			ObservableTracker.runAndIgnore(new Runnable() {
+				@Override
 				public void run() {
 					innerObservableValue = (IObservableValue) factory.createObservable(currentOuterValue);
 				}
@@ -114,10 +118,9 @@ public class MyDetailObservableValue extends AbstractObservableValue implements 
 
 			if (detailType != null) {
 				final Object innerValueType = innerObservableValue.getValueType();
-				Assert
-						.isTrue(
-								detailType.equals(innerValueType),
-								"Cannot change value type in a nested observable value, from " + innerValueType + " to " + detailType); //$NON-NLS-1$ //$NON-NLS-2$
+				Assert.isTrue(
+						detailType.equals(innerValueType),
+						"Cannot change value type in a nested observable value, from " + innerValueType + " to " + detailType); //$NON-NLS-1$ //$NON-NLS-2$
 			}
 			innerObservableValue.addValueChangeListener(innerChangeListener);
 		}
@@ -127,6 +130,7 @@ public class MyDetailObservableValue extends AbstractObservableValue implements 
 	public void doSetValue(final Object value) {
 		if (innerObservableValue != null) {
 			ObservableTracker.runAndIgnore(new Runnable() {
+				@Override
 				public void run() {
 					innerObservableValue.setValue(value);
 				}
@@ -136,11 +140,10 @@ public class MyDetailObservableValue extends AbstractObservableValue implements 
 
 	@Override
 	public Object doGetValue() {
-		if (innerObservableValue == null) {
-			return null;
-		}
+		if (innerObservableValue == null) return null;
 		final Object[] result = new Object[1];
 		ObservableTracker.runAndIgnore(new Runnable() {
+			@Override
 			public void run() {
 				result[0] = innerObservableValue.getValue();
 			}
@@ -148,10 +151,9 @@ public class MyDetailObservableValue extends AbstractObservableValue implements 
 		return result[0];
 	}
 
+	@Override
 	public Object getValueType() {
-		if (detailType == null && innerObservableValue != null) {
-			return innerObservableValue.getValueType();
-		}
+		if (detailType == null && innerObservableValue != null) return innerObservableValue.getValueType();
 		return detailType;
 	}
 
@@ -174,10 +176,9 @@ public class MyDetailObservableValue extends AbstractObservableValue implements 
 		innerChangeListener = null;
 	}
 
+	@Override
 	public Object getObserved() {
-		if (innerObservableValue instanceof IObserving) {
-			return ((IObserving) innerObservableValue).getObserved();
-		}
+		if (innerObservableValue instanceof IObserving) return ((IObserving) innerObservableValue).getObserved();
 		return null;
 	}
 

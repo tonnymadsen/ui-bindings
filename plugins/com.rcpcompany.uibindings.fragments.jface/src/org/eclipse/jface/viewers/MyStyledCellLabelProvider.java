@@ -1,13 +1,11 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2009 IBM Corporation and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * Copyright (c) 2007, 2009 IBM Corporation and others. All rights reserved. This program and the
+ * accompanying materials are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     IBM Corporation - initial API and implementation
- *     Michael Krkoska - initial API and implementation (bug 188333)
+ * 
+ * Contributors: IBM Corporation - initial API and implementation Michael Krkoska - initial API and
+ * implementation (bug 188333)
  *******************************************************************************/
 package org.eclipse.jface.viewers;
 
@@ -25,16 +23,16 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Widget;
 
 /**
- * A {@link StyledCellLabelProvider} supports styled labels by using owner draw. Besides the styles in labels, the label
- * provider preserves native viewer behavior:
+ * A {@link StyledCellLabelProvider} supports styled labels by using owner draw. Besides the styles
+ * in labels, the label provider preserves native viewer behavior:
  * <ul>
  * <li>similar image and label positioning</li>
  * <li>native drawing of focus and selection</li>
  * </ul>
  * <p>
- * For providing the label's styles, create a subclass and overwrite {@link StyledCellLabelProvider#update(ViewerCell)}
- * to return set all information needed to render a element. Use {@link ViewerCell#setStyleRanges(StyleRange[])} to set
- * style ranges on the label.
+ * For providing the label's styles, create a subclass and overwrite
+ * {@link StyledCellLabelProvider#update(ViewerCell)} to return set all information needed to render
+ * a element. Use {@link ViewerCell#setStyleRanges(StyleRange[])} to set style ranges on the label.
  * </p>
  * 
  * @since 3.4
@@ -42,14 +40,14 @@ import org.eclipse.swt.widgets.Widget;
 public abstract class MyStyledCellLabelProvider extends OwnerDrawLabelProvider {
 
 	/**
-	 * Style constant for indicating that the styled colors are to be applied even it the viewer's item is selected.
-	 * Default is not to apply colors.
+	 * Style constant for indicating that the styled colors are to be applied even it the viewer's
+	 * item is selected. Default is not to apply colors.
 	 */
 	public static final int COLORS_ON_SELECTION = 1 << 0;
 
 	/**
-	 * Style constant for indicating to draw the focus if requested by the owner draw event. Default is to draw the
-	 * focus.
+	 * Style constant for indicating to draw the focus if requested by the owner draw event. Default
+	 * is to draw the focus.
 	 */
 	public static final int NO_FOCUS = 1 << 1;
 
@@ -76,8 +74,8 @@ public abstract class MyStyledCellLabelProvider extends OwnerDrawLabelProvider {
 	private int deltaOfLastMeasure;
 
 	/**
-	 * Creates a new StyledCellLabelProvider. By default, owner draw is enabled, focus is drawn and no colors are
-	 * painted on selected elements.
+	 * Creates a new StyledCellLabelProvider. By default, owner draw is enabled, focus is drawn and
+	 * no colors are painted on selected elements.
 	 */
 	public MyStyledCellLabelProvider() {
 		this(0);
@@ -98,9 +96,9 @@ public abstract class MyStyledCellLabelProvider extends OwnerDrawLabelProvider {
 	}
 
 	/**
-	 * Returns <code>true</code> is the owner draw rendering is enabled for this label provider. By default owner draw
-	 * rendering is enabled. If owner draw rendering is disabled, rending is done by the viewer and no styled ranges
-	 * (see {@link ViewerCell#getStyleRanges()}) are drawn.
+	 * Returns <code>true</code> is the owner draw rendering is enabled for this label provider. By
+	 * default owner draw rendering is enabled. If owner draw rendering is disabled, rending is done
+	 * by the viewer and no styled ranges (see {@link ViewerCell#getStyleRanges()}) are drawn.
 	 * 
 	 * @return <code>true</code> is the rendering of styles is enabled.
 	 */
@@ -109,10 +107,11 @@ public abstract class MyStyledCellLabelProvider extends OwnerDrawLabelProvider {
 	}
 
 	/**
-	 * Specifies whether owner draw rendering is enabled for this label provider. By default owner draw rendering is
-	 * enabled. If owner draw rendering is disabled, rendering is done by the viewer and no styled ranges (see
-	 * {@link ViewerCell#getStyleRanges()}) are drawn. It is the caller's responsibility to also call
-	 * {@link StructuredViewer#refresh()} or similar methods to update the underlying widget.
+	 * Specifies whether owner draw rendering is enabled for this label provider. By default owner
+	 * draw rendering is enabled. If owner draw rendering is disabled, rendering is done by the
+	 * viewer and no styled ranges (see {@link ViewerCell#getStyleRanges()}) are drawn. It is the
+	 * caller's responsibility to also call {@link StructuredViewer#refresh()} or similar methods to
+	 * update the underlying widget.
 	 * 
 	 * @param enabled specifies if owner draw rendering is enabled
 	 */
@@ -131,22 +130,22 @@ public abstract class MyStyledCellLabelProvider extends OwnerDrawLabelProvider {
 	}
 
 	/**
-	 * Returns the viewer on which this label provider is installed on or <code>null</code> if the label provider is not
-	 * installed.
+	 * Returns the viewer on which this label provider is installed on or <code>null</code> if the
+	 * label provider is not installed.
 	 * 
-	 * @return the viewer on which this label provider is installed on or <code>null</code> if the label provider is not
-	 *         installed.
+	 * @return the viewer on which this label provider is installed on or <code>null</code> if the
+	 *         label provider is not installed.
 	 */
 	protected final ColumnViewer getViewer() {
 		return this.viewer;
 	}
 
 	/**
-	 * Returns the column on which this label provider is installed on or <code>null</code> if the label provider is not
-	 * installed.
+	 * Returns the column on which this label provider is installed on or <code>null</code> if the
+	 * label provider is not installed.
 	 * 
-	 * @return the column on which this label provider is installed on or <code>null</code> if the label provider is not
-	 *         installed.
+	 * @return the column on which this label provider is installed on or <code>null</code> if the
+	 *         label provider is not installed.
 	 */
 	protected final ViewerColumn getColumn() {
 		return this.column;
@@ -155,8 +154,8 @@ public abstract class MyStyledCellLabelProvider extends OwnerDrawLabelProvider {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.eclipse.jface.viewers.OwnerDrawLabelProvider#initialize(org.eclipse.jface.viewers.ColumnViewer,
-	 * org.eclipse.jface.viewers.ViewerColumn)
+	 * @see org.eclipse.jface.viewers.OwnerDrawLabelProvider#initialize(org.eclipse.jface.viewers.
+	 * ColumnViewer, org.eclipse.jface.viewers.ViewerColumn)
 	 */
 	@Override
 	public void initialize(ColumnViewer viewer, ViewerColumn column) {
@@ -222,7 +221,8 @@ public abstract class MyStyledCellLabelProvider extends OwnerDrawLabelProvider {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.eclipse.jface.viewers.OwnerDrawLabelProvider#update(org.eclipse.jface.viewers.ViewerCell)
+	 * @see
+	 * org.eclipse.jface.viewers.OwnerDrawLabelProvider#update(org.eclipse.jface.viewers.ViewerCell)
 	 */
 	@Override
 	public void update(ViewerCell cell) {
@@ -248,9 +248,10 @@ public abstract class MyStyledCellLabelProvider extends OwnerDrawLabelProvider {
 	}
 
 	/**
-	 * Prepares the given style range before it is applied to the label. This method makes sure that no colors are drawn
-	 * when the element is selected. The current version of the {@link StyledCellLabelProvider} will also ignore all
-	 * font settings on the style range. Clients can override.
+	 * Prepares the given style range before it is applied to the label. This method makes sure that
+	 * no colors are drawn when the element is selected. The current version of the
+	 * {@link StyledCellLabelProvider} will also ignore all font settings on the style range.
+	 * Clients can override.
 	 * 
 	 * @param styleRange the style range to prepare. the style range element must not be modified
 	 * @param applyColors specifies if colors should be applied.
@@ -275,8 +276,8 @@ public abstract class MyStyledCellLabelProvider extends OwnerDrawLabelProvider {
 	}
 
 	/**
-	 * Handle the erase event. The default implementation does nothing to ensure keep native selection highlighting
-	 * working.
+	 * Handle the erase event. The default implementation does nothing to ensure keep native
+	 * selection highlighting working.
 	 * 
 	 * @param event the erase event
 	 * @param element the model object
@@ -294,13 +295,12 @@ public abstract class MyStyledCellLabelProvider extends OwnerDrawLabelProvider {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.eclipse.jface.viewers.OwnerDrawLabelProvider#measure(org.eclipse.swt.widgets.Event, java.lang.Object)
+	 * @see org.eclipse.jface.viewers.OwnerDrawLabelProvider#measure(org.eclipse.swt.widgets.Event,
+	 * java.lang.Object)
 	 */
 	@Override
 	protected void measure(Event event, Object element) {
-		if (!isOwnerDrawEnabled()) {
-			return;
-		}
+		if (!isOwnerDrawEnabled()) return;
 
 		final ViewerCell cell = getViewerCell(event, element);
 		final boolean applyColors = useColors(event); // returns false because of bug 228376
@@ -351,13 +351,12 @@ public abstract class MyStyledCellLabelProvider extends OwnerDrawLabelProvider {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.eclipse.jface.viewers.OwnerDrawLabelProvider#paint(org.eclipse.swt.widgets.Event, java.lang.Object)
+	 * @see org.eclipse.jface.viewers.OwnerDrawLabelProvider#paint(org.eclipse.swt.widgets.Event,
+	 * java.lang.Object)
 	 */
 	@Override
 	protected void paint(Event event, Object element) {
-		if (!isOwnerDrawEnabled()) {
-			return;
-		}
+		if (!isOwnerDrawEnabled()) return;
 
 		final ViewerCell cell = getViewerCell(event, element);
 
@@ -407,7 +406,8 @@ public abstract class MyStyledCellLabelProvider extends OwnerDrawLabelProvider {
 
 			/* remove-begin if bug 228376 fixed */
 			if (!applyColors) {
-				// need to remove colors for selected elements: measure doesn't provide that information, see bug 228376
+				// need to remove colors for selected elements: measure doesn't provide that
+				// information, see bug 228376
 				final StyleRange[] styleRanges = cell.getStyleRanges();
 				if (styleRanges != null) {
 					for (final StyleRange styleRange : styleRanges) {
@@ -455,14 +455,17 @@ public abstract class MyStyledCellLabelProvider extends OwnerDrawLabelProvider {
 	}
 
 	/**
-	 * Applies decoration styles to the decorated string and adds the styles of the previously undecorated string.
+	 * Applies decoration styles to the decorated string and adds the styles of the previously
+	 * undecorated string.
 	 * <p>
-	 * If the <code>decoratedString</code> contains the <code>styledString</code>, then the result keeps the styles of
-	 * the <code>styledString</code> and styles the decorations with the <code>decorationStyler</code>. Otherwise, the
-	 * decorated string is returned without any styles.
+	 * If the <code>decoratedString</code> contains the <code>styledString</code>, then the result
+	 * keeps the styles of the <code>styledString</code> and styles the decorations with the
+	 * <code>decorationStyler</code>. Otherwise, the decorated string is returned without any
+	 * styles.
 	 * 
 	 * @param decoratedString the decorated string
-	 * @param decorationStyler the styler to use for the decoration or <code>null</code> for no styles
+	 * @param decorationStyler the styler to use for the decoration or <code>null</code> for no
+	 *            styles
 	 * @param styledString the original styled string
 	 * 
 	 * @return the styled decorated string (can be the given <code>styledString</code>)
@@ -472,13 +475,10 @@ public abstract class MyStyledCellLabelProvider extends OwnerDrawLabelProvider {
 			StyledString styledString) {
 		final String label = styledString.getString();
 		final int originalStart = decoratedString.indexOf(label);
-		if (originalStart == -1) {
-			return new StyledString(decoratedString); // the decorator did something wild
-		}
+		if (originalStart == -1) return new StyledString(decoratedString); // the decorator did
+																			// something wild
 
-		if (decoratedString.length() == label.length()) {
-			return styledString;
-		}
+		if (decoratedString.length() == label.length()) return styledString;
 
 		if (originalStart > 0) {
 			final StyledString newString = new StyledString(decoratedString.substring(0, originalStart),
@@ -486,9 +486,8 @@ public abstract class MyStyledCellLabelProvider extends OwnerDrawLabelProvider {
 			newString.append(styledString);
 			styledString = newString;
 		}
-		if (decoratedString.length() > originalStart + label.length()) { // decorator appended something
+		if (decoratedString.length() > originalStart + label.length())
 			return styledString.append(decoratedString.substring(originalStart + label.length()), decorationStyler);
-		}
 		return styledString; // no change
 	}
 }

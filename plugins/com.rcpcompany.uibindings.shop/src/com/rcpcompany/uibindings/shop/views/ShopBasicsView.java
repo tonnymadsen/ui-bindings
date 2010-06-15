@@ -93,8 +93,8 @@ public class ShopBasicsView extends ViewPart {
 
 		context.addBinding(myShopName, shop, ShopPackage.Literals.SHOP__NAME);
 
-		final IViewerBinding viewer = context.addViewer().viewer(myTableViewer).model(shop,
-				ShopPackage.Literals.SHOP__COUNTRIES);
+		final IViewerBinding viewer = context.addViewer().viewer(myTableViewer)
+				.model(shop, ShopPackage.Literals.SHOP__COUNTRIES);
 		myNameColumn = viewer.addColumn(myCountryName, ShopPackage.Literals.COUNTRY__NAME);
 		viewer.addColumn(myCountryAbbrev, ShopPackage.Literals.COUNTRY__ABBREVIATION);
 

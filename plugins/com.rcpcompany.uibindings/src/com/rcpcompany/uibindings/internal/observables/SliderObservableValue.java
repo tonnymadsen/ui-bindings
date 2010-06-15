@@ -51,6 +51,7 @@ public class SliderObservableValue extends AbstractSWTObservableValue {
 		if (attribute.equals(Constants.ATTR_SELECTION)) {
 			currentSelection = slider.getSelection();
 			selectionListener = new SelectionListener() {
+				@Override
 				public void widgetSelected(SelectionEvent e) {
 					if (!updating) {
 						final int newSelection = SliderObservableValue.this.slider.getSelection();
@@ -64,9 +65,8 @@ public class SliderObservableValue extends AbstractSWTObservableValue {
 				}
 			};
 			slider.addSelectionListener(selectionListener);
-		} else if (!attribute.equals(Constants.ATTR_MIN) && !attribute.equals(Constants.ATTR_MAX)) {
+		} else if (!attribute.equals(Constants.ATTR_MIN) && !attribute.equals(Constants.ATTR_MAX))
 			throw new IllegalArgumentException("Attribute name not valid: " + attribute); //$NON-NLS-1$
-		}
 	}
 
 	@Override
@@ -109,6 +109,7 @@ public class SliderObservableValue extends AbstractSWTObservableValue {
 		return Integer.valueOf(value);
 	}
 
+	@Override
 	public Object getValueType() {
 		return Integer.TYPE;
 	}

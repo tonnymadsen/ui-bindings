@@ -21,35 +21,40 @@ import org.eclipse.swt.widgets.Widget;
 /**
  * <!-- begin-user-doc -->
  * <p>
- * This interface describes how a specific attribute of an SWT widget - e.g. a {@link Text} or a {@link Combo} - can be
- * handled.
+ * This interface describes how a specific attribute of an SWT widget - e.g. a {@link Text} or a
+ * {@link Combo} - can be handled.
  * <p>
  * The interface describes the following aspects of a specific attribute:
  * <ul>
  * <li>The {@link Widget} itself</li>
- * <li>The attribute of the widget. Can be the empty string for the default attribute and <code>null</code> if no
- * attribute is known</li>
+ * <li>The attribute of the widget. Can be the empty string for the default attribute and
+ * <code>null</code> if no attribute is known</li>
  * <li>{@link IObservableValue} used to access the attribute.</li>
- * <li>whether the value can be changed in the widget. E.g. the text attribute of a {@link Text} widget can be changed,
- * whereas the same attribute of the {@link Label} cannot.</li>
- * <li>an optional {@link IObservableList} that can be used to set the possible values of the widget - e.g. a
- * {@link Combo} or {@link List}. If the possible values cannot be set - e.g. for a {@link Text} or {@link Button} -
- * <code>null</code> is returned.</li>
- * <li>optional min and max {@link IObservableValue} that designate the min and max value of the widget if set</li>
+ * <li>whether the value can be changed in the widget. E.g. the text attribute of a {@link Text}
+ * widget can be changed, whereas the same attribute of the {@link Label} cannot.</li>
+ * <li>an optional {@link IObservableList} that can be used to set the possible values of the widget
+ * - e.g. a {@link Combo} or {@link List}. If the possible values cannot be set - e.g. for a
+ * {@link Text} or {@link Button} - <code>null</code> is returned.</li>
+ * <li>optional min and max {@link IObservableValue} that designate the min and max value of the
+ * widget if set</li>
  * <li>optional tool-tip {@link IObservableValue} that designate the tool tip of the widget if set</li>
- * <li>optional foreground and background color {@link IObservableValue} that designate these colors of the widget if
- * set</li>
+ * <li>optional foreground and background color {@link IObservableValue} that designate these colors
+ * of the widget if set</li>
  * <li>optional font {@link IObservableValue} that designate the font of the widget if set</li>
  * <li>optional image {@link IObservableValue} that designate the image of the widget if set</li>
- * <li>optional enabled {@link IObservableValue} that designate the enabled state of the widget if set</li>
+ * <li>optional enabled {@link IObservableValue} that designate the enabled state of the widget if
+ * set</li>
  * <li>optional tool-tip {@link IObservableValue} that designate the tool tip of the widget if set</li>
- * <li>an optional {@link IControlContentAdapter} that is used to install field assist in the widget.</li>
+ * <li>an optional {@link IControlContentAdapter} that is used to install field assist in the
+ * widget.</li>
  * </ul>
  * <p>
- * A new <code>IUIAttribute</code> object is created for each widget that is accessed in an {@link IBindingContext}.
+ * A new <code>IUIAttribute</code> object is created for each widget that is accessed in an
+ * {@link IBindingContext}.
  * <p>
  * Implementations of <code>IUIAttribute</code> is normally specified via the
- * <code>com.rcpcompany.uibindings.uiBindings</code> extension point with the element <code>uiAttribute</code>.
+ * <code>com.rcpcompany.uibindings.uiBindings</code> extension point with the element
+ * <code>uiAttribute</code>.
  * <p>
  * Private implementations are also possible.
  * </p>
@@ -61,7 +66,8 @@ import org.eclipse.swt.widgets.Widget;
  * <li>{@link com.rcpcompany.uibindings.IUIAttribute#getWidget <em>Widget</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IUIAttribute#getAttribute <em>Attribute</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IUIAttribute#getCurrentValue <em>Current Value</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IUIAttribute#getPossibleValuesList <em>Possible Values List</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IUIAttribute#getPossibleValuesList <em>Possible Values List
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IUIAttribute#getMinValue <em>Min Value</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IUIAttribute#getMaxValue <em>Max Value</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IUIAttribute#getTooltipValue <em>Tooltip Value</em>}</li>
@@ -73,8 +79,10 @@ import org.eclipse.swt.widgets.Widget;
  * <li>{@link com.rcpcompany.uibindings.IUIAttribute#getCursorValue <em>Cursor Value</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IUIAttribute#getStyleRangeList <em>Style Range List</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IUIAttribute#isChangeable <em>Changeable</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IUIAttribute#getFieldAssistAdapter <em>Field Assist Adapter</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IUIAttribute#getImageDecorations <em>Image Decorations</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IUIAttribute#getFieldAssistAdapter <em>Field Assist Adapter
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IUIAttribute#getImageDecorations <em>Image Decorations</em>}
+ * </li>
  * </ul>
  * </p>
  * 
@@ -85,8 +93,8 @@ public interface IUIAttribute extends EObject, IDisposable {
 	/**
 	 * Returns the value of the '<em><b>Widget</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Widget</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Widget</em>' attribute isn't clear, there really should be more of
+	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -97,10 +105,11 @@ public interface IUIAttribute extends EObject, IDisposable {
 	Widget getWidget();
 
 	/**
-	 * Returns the value of the '<em><b>Attribute</b></em>' attribute. The default value is <code>""</code>. <!--
-	 * begin-user-doc -->
+	 * Returns the value of the '<em><b>Attribute</b></em>' attribute. The default value is
+	 * <code>""</code>. <!-- begin-user-doc -->
 	 * <p>
-	 * Can be the empty string for the default attribute and <code>null</code> if no attribute is known.
+	 * Can be the empty string for the default attribute and <code>null</code> if no attribute is
+	 * known.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -113,9 +122,11 @@ public interface IUIAttribute extends EObject, IDisposable {
 	/**
 	 * Returns the value of the '<em><b>Current Value</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * Returns the observable value that is used to access the current value as designed by the attribute
+	 * Returns the observable value that is used to access the current value as designed by the
+	 * attribute
 	 * <p>
-	 * This method is only called once in the life time this attribute, so the return value need not be cached.
+	 * This method is only called once in the life time this attribute, so the return value need not
+	 * be cached.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -126,14 +137,18 @@ public interface IUIAttribute extends EObject, IDisposable {
 	IObservableValue getCurrentValue();
 
 	/**
-	 * Returns the value of the '<em><b>Possible Values List</b></em>' attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Possible Values List</b></em>' attribute. <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * Returns an optional {@link IObservableList} that designates the possible values of the widget if set.
+	 * Returns an optional {@link IObservableList} that designates the possible values of the widget
+	 * if set.
 	 * <p>
-	 * It can be used to set the possible values of the widget - e.g. a {@link Combo} or {@link List}. If the possible
-	 * values cannot be set - e.g. for a {@link Text} or {@link Button} - <code>null</code> is returned.
+	 * It can be used to set the possible values of the widget - e.g. a {@link Combo} or
+	 * {@link List}. If the possible values cannot be set - e.g. for a {@link Text} or
+	 * {@link Button} - <code>null</code> is returned.
 	 * <p>
-	 * This method is only called once in the life time this attribute, so the return value need not be cached.
+	 * This method is only called once in the life time this attribute, so the return value need not
+	 * be cached.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -148,7 +163,8 @@ public interface IUIAttribute extends EObject, IDisposable {
 	 * <p>
 	 * Returns an optional observable value that designates the minimum value of the widget if set.
 	 * <p>
-	 * This method is only called once in the life time this attribute, so the return value need not be cached.
+	 * This method is only called once in the life time this attribute, so the return value need not
+	 * be cached.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -163,7 +179,8 @@ public interface IUIAttribute extends EObject, IDisposable {
 	 * <p>
 	 * Returns an optional observable value that designates the minimum value of the widget if set.
 	 * <p>
-	 * This method is only called once in the life time this attribute, so the return value need not be cached.
+	 * This method is only called once in the life time this attribute, so the return value need not
+	 * be cached.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -178,7 +195,8 @@ public interface IUIAttribute extends EObject, IDisposable {
 	 * <p>
 	 * Returns an optional observable value that designates the tool tip of the widget if set.
 	 * <p>
-	 * This method is only called once in the life time this attribute, so the return value need not be cached.
+	 * This method is only called once in the life time this attribute, so the return value need not
+	 * be cached.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -193,7 +211,8 @@ public interface IUIAttribute extends EObject, IDisposable {
 	 * <p>
 	 * Returns an optional observable value that designates the font of the widget if set.
 	 * <p>
-	 * This method is only called once in the life time this attribute, so the return value need not be cached.
+	 * This method is only called once in the life time this attribute, so the return value need not
+	 * be cached.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -217,11 +236,14 @@ public interface IUIAttribute extends EObject, IDisposable {
 	IObservableValue getImageValue();
 
 	/**
-	 * Returns the value of the '<em><b>Foreground Value</b></em>' attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Foreground Value</b></em>' attribute. <!-- begin-user-doc
+	 * -->
 	 * <p>
-	 * Returns an optional observable value that designates the foreground color of the widget if set.
+	 * Returns an optional observable value that designates the foreground color of the widget if
+	 * set.
 	 * <p>
-	 * This method is only called once in the life time this attribute, so the return value need not be cached.
+	 * This method is only called once in the life time this attribute, so the return value need not
+	 * be cached.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -232,11 +254,14 @@ public interface IUIAttribute extends EObject, IDisposable {
 	IObservableValue getForegroundValue();
 
 	/**
-	 * Returns the value of the '<em><b>Background Value</b></em>' attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Background Value</b></em>' attribute. <!-- begin-user-doc
+	 * -->
 	 * <p>
-	 * Returns an optional observable value that designates the background color of the widget if set.
+	 * Returns an optional observable value that designates the background color of the widget if
+	 * set.
 	 * <p>
-	 * This method is only called once in the life time this attribute, so the return value need not be cached.
+	 * This method is only called once in the life time this attribute, so the return value need not
+	 * be cached.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -251,7 +276,8 @@ public interface IUIAttribute extends EObject, IDisposable {
 	 * <p>
 	 * Returns an optional observable value that designates the enabled of the widget if set.
 	 * <p>
-	 * This method is only called once in the life time this attribute, so the return value need not be cached.
+	 * This method is only called once in the life time this attribute, so the return value need not
+	 * be cached.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -266,7 +292,8 @@ public interface IUIAttribute extends EObject, IDisposable {
 	 * <p>
 	 * Returns an optional observable value that designates the cursor of the widget if set.
 	 * <p>
-	 * This method is only called once in the life time this attribute, so the return value need not be cached.
+	 * This method is only called once in the life time this attribute, so the return value need not
+	 * be cached.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -277,12 +304,14 @@ public interface IUIAttribute extends EObject, IDisposable {
 	IObservableValue getCursorValue();
 
 	/**
-	 * Returns the value of the '<em><b>Style Range List</b></em>' attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Style Range List</b></em>' attribute. <!-- begin-user-doc
+	 * -->
 	 * <p>
-	 * Returns an optional observable list that designates the style ranges of the widget if set and supported by the
-	 * widget.
+	 * Returns an optional observable list that designates the style ranges of the widget if set and
+	 * supported by the widget.
 	 * <p>
-	 * This method is only called once in the life time this attribute, so the return value need not be cached.
+	 * This method is only called once in the life time this attribute, so the return value need not
+	 * be cached.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -295,10 +324,11 @@ public interface IUIAttribute extends EObject, IDisposable {
 	/**
 	 * Returns the value of the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * Returns whether the value can be changed in the widget. E.g. the text attribute of a {@link Text} widget can be
-	 * changed, whereas the same attribute of the {@link Label} cannot.
+	 * Returns whether the value can be changed in the widget. E.g. the text attribute of a
+	 * {@link Text} widget can be changed, whereas the same attribute of the {@link Label} cannot.
 	 * <p>
-	 * This method is only called once in the life time this attribute, so the return value need not be cached.
+	 * This method is only called once in the life time this attribute, so the return value need not
+	 * be cached.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -309,11 +339,13 @@ public interface IUIAttribute extends EObject, IDisposable {
 	boolean isChangeable();
 
 	/**
-	 * Returns the value of the '<em><b>Field Assist Adapter</b></em>' attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Field Assist Adapter</b></em>' attribute. <!--
+	 * begin-user-doc -->
 	 * <p>
 	 * Returns an optional adapter that is used to install field assist in the widget.
 	 * <p>
-	 * This method is only called once in the life time this attribute, so the return value need not be cached.
+	 * This method is only called once in the life time this attribute, so the return value need not
+	 * be cached.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -324,13 +356,14 @@ public interface IUIAttribute extends EObject, IDisposable {
 	IControlContentAdapter getFieldAssistAdapter();
 
 	/**
-	 * Returns the value of the '<em><b>Image Decorations</b></em>' containment reference list. The list contents are of
-	 * type {@link com.rcpcompany.uibindings.IUIAttributeImageDecoration}. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.IUIAttributeImageDecoration#getAttribute <em>Attribute</em>}'. <!--
-	 * begin-user-doc -->
+	 * Returns the value of the '<em><b>Image Decorations</b></em>' containment reference list. The
+	 * list contents are of type {@link com.rcpcompany.uibindings.IUIAttributeImageDecoration}. It
+	 * is bidirectional and its opposite is '
+	 * {@link com.rcpcompany.uibindings.IUIAttributeImageDecoration#getAttribute <em>Attribute</em>}
+	 * '. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Image Decorations</em>' reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Image Decorations</em>' reference list isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -346,22 +379,24 @@ public interface IUIAttribute extends EObject, IDisposable {
 	 * 
 	 * @param position the position
 	 * @param outside if the decoration is outside the bounds of the control
-	 * @return the recoration or <code>null</code> if the widget of the attribute is not a {@link Control}.
+	 * @return the recoration or <code>null</code> if the widget of the attribute is not a
+	 *         {@link Control}.
 	 */
 	public IUIAttributeImageDecoration getImageDecoration(DecorationPosition position, boolean outside);
 
 	/**
 	 * Updates all current image decorations with the specified control and inner and outer bounds.
 	 * <p>
-	 * The control is the owner of the attribute and the bounds the area inside the control that are used for the
-	 * attribute. The bounds are relative to the location of the control.
+	 * The control is the owner of the attribute and the bounds the area inside the control that are
+	 * used for the attribute. The bounds are relative to the location of the control.
 	 * <p>
-	 * Both inner and outer bounds are provided: the inner bounds specify the area in the control that house the content
-	 * of the control - it excludes the borders, combo box arrows, etc. The outer bounds are the area outside the
-	 * control.
+	 * Both inner and outer bounds are provided: the inner bounds specify the area in the control
+	 * that house the content of the control - it excludes the borders, combo box arrows, etc. The
+	 * outer bounds are the area outside the control.
 	 * <p>
-	 * For an ordinary control like a {@link Text} or {@link Combo}, the bounds are the inside bounds of the control;
-	 * for {@link Table}, {@link Tree} or Grid, it is the area of the specific cell in the control.
+	 * For an ordinary control like a {@link Text} or {@link Combo}, the bounds are the inside
+	 * bounds of the control; for {@link Table}, {@link Tree} or Grid, it is the area of the
+	 * specific cell in the control.
 	 * 
 	 * @param control the control of the attribute
 	 * @param innerBounds the inner bounds of the control

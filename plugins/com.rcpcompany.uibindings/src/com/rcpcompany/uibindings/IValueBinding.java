@@ -24,8 +24,8 @@ import org.eclipse.swt.widgets.Widget;
  * <p>
  * The binding of a single UI value in the context.
  * <p>
- * Here a "single UI value" is a widget that holds a single value, such as a {@link Label}, a {@link Text}, a
- * {@link Combo} or similar.
+ * Here a "single UI value" is a widget that holds a single value, such as a {@link Label}, a
+ * {@link Text}, a {@link Combo} or similar.
  * <p>
  * A binding connects a model attribute or reference with a widget in the UI.
  * <p>
@@ -37,11 +37,13 @@ import org.eclipse.swt.widgets.Widget;
  * The following features are supported:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.IValueBinding#getModelObservable <em>Model Observable</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IValueBinding#getModelObservableValue <em>Model Observable Value</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IValueBinding#getModelObservableValue <em>Model Observable
+ * Value</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IValueBinding#getModelObject <em>Model Object</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IValueBinding#getModelFeature <em>Model Feature</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IValueBinding#getMessagePrefix <em>Message Prefix</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IValueBinding#getDecoratorProvider <em>Decorator Provider</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IValueBinding#getDecoratorProvider <em>Decorator Provider
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IValueBinding#getDecorator <em>Decorator</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IValueBinding#getUIAttribute <em>UI Attribute</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IValueBinding#getUIObservable <em>UI Observable</em>}</li>
@@ -54,7 +56,8 @@ import org.eclipse.swt.widgets.Widget;
  */
 public interface IValueBinding extends IBinding, IArgumentProvider {
 	/**
-	 * Binds the target (UI) side of this binding to the specific attribute of the specified SWT widget.
+	 * Binds the target (UI) side of this binding to the specific attribute of the specified SWT
+	 * widget.
 	 * <p>
 	 * The exact set of attributes supported by a specific widget is controlled via the
 	 * <code>com.rcpcompany.uiBindings.uiBindings/uiAttribute</code> extension point.
@@ -66,7 +69,8 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	public IValueBinding ui(Widget widget, String attribute);
 
 	/**
-	 * Binds the target (UI) side of this binding to the principle attribute of the specified SWT widget.
+	 * Binds the target (UI) side of this binding to the principle attribute of the specified SWT
+	 * widget.
 	 * <p>
 	 * Short for <code>widget(widget, "")</code>.
 	 * 
@@ -76,7 +80,8 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	public IValueBinding ui(Widget widget);
 
 	/**
-	 * Binds the target (UI) side of this binding to the specified {@link ISWTObservable SWT Observable}.
+	 * Binds the target (UI) side of this binding to the specified {@link ISWTObservable SWT
+	 * Observable}.
 	 * 
 	 * @param observable the observable to bind to
 	 * @return <code>this</code>
@@ -84,10 +89,11 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	public IValueBinding ui(ISWTObservableValue observable);
 
 	/**
-	 * Binds the target (UI) side of this binding to the specified {@link IUIAttribute UI attribute}.
+	 * Binds the target (UI) side of this binding to the specified {@link IUIAttribute UI attribute}
+	 * .
 	 * <p>
-	 * Please note that the ownership of the UI attribute is passed to the binding and it will be disposed with the
-	 * binding.
+	 * Please note that the ownership of the UI attribute is passed to the binding and it will be
+	 * disposed with the binding.
 	 * 
 	 * @param attribute the attribute
 	 * @return <code>this</code>
@@ -99,6 +105,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * 
 	 * @return the control or <code>null</code>
 	 */
+	@Override
 	public Control getControl();
 
 	/**
@@ -136,6 +143,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * 
 	 * @return <code>this</code>
 	 */
+	@Override
 	public IValueBinding type(String type);
 
 	/**
@@ -146,6 +154,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * 
 	 * @return <code>this</code>
 	 */
+	@Override
 	public IValueBinding arg(String name, Object value);
 
 	/**
@@ -154,6 +163,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * @param arguments the arguments to set
 	 * @return <code>this</code>
 	 */
+	@Override
 	public IValueBinding args(Map<String, Object> arguments);
 
 	/**
@@ -162,6 +172,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * @param arguments the arguments to set
 	 * @return <code>this</code>
 	 */
+	@Override
 	public IValueBinding args(EMap<String, Object> arguments);
 
 	/**
@@ -169,6 +180,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * 
 	 * @return <code>this</code>
 	 */
+	@Override
 	public IValueBinding readonly();
 
 	/**
@@ -176,6 +188,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * 
 	 * @return <code>this</code>
 	 */
+	@Override
 	public IValueBinding dynamic();
 
 	/**
@@ -184,6 +197,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * @param label the label to add
 	 * @return <code>this</code>
 	 */
+	@Override
 	public IValueBinding label(String label);
 
 	/**
@@ -192,6 +206,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * @param id the new id
 	 * @return <code>this</code>
 	 */
+	@Override
 	public IValueBinding id(String id);
 
 	/**
@@ -201,6 +216,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * 
 	 * @return <code>this</code>
 	 */
+	@Override
 	public IValueBinding validValues(IObservableList list);
 
 	/**
@@ -226,8 +242,8 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	/**
 	 * Sets the focus on the control or cell of this binding if possible.
 	 * <p>
-	 * Also all TabFolder, CTabFolder, Section, and ExpandableComposite between the widget and the Composite of the
-	 * {@link IBindingContext} is configured to show the correct child.
+	 * Also all TabFolder, CTabFolder, Section, and ExpandableComposite between the widget and the
+	 * Composite of the {@link IBindingContext} is configured to show the correct child.
 	 */
 	public void setFocus();
 
@@ -248,10 +264,11 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	public Control createPreferredControl(Composite parent, int style);
 
 	/**
-	 * Returns the value of the '<em><b>Model Observable</b></em>' attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Model Observable</b></em>' attribute. <!-- begin-user-doc
+	 * -->
 	 * <p>
-	 * If the meaning of the '<em>Model Observable</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Model Observable</em>' attribute isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -273,10 +290,11 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	void setModelObservable(IObservable value);
 
 	/**
-	 * Returns the value of the '<em><b>Model Observable Value</b></em>' attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Model Observable Value</b></em>' attribute. <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Model Observable Value</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Model Observable Value</em>' attribute isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -288,7 +306,8 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	IObservableValue getModelObservableValue();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IValueBinding#getModelObservableValue
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.IValueBinding#getModelObservableValue
 	 * <em>Model Observable Value</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Model Observable Value</em>' attribute.
@@ -313,8 +332,8 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>Model Feature</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Model Feature</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Model Feature</em>' reference isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -327,8 +346,8 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>Message Prefix</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * The message prefix is used for messages that are bound to this binding. See {@link IBindingMessage#getPrefix()}
-	 * for the constraints.
+	 * The message prefix is used for messages that are bound to this binding. See
+	 * {@link IBindingMessage#getPrefix()} for the constraints.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -339,10 +358,11 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	String getMessagePrefix();
 
 	/**
-	 * Returns the value of the '<em><b>Decorator Provider</b></em>' reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Decorator Provider</b></em>' reference. <!-- begin-user-doc
+	 * -->
 	 * <p>
-	 * If the meaning of the '<em>Decorator Provider</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Decorator Provider</em>' reference isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -366,8 +386,8 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>Decorator</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Decorator</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Decorator</em>' reference isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -379,8 +399,8 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	IUIBindingDecorator getDecorator();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IValueBinding#getDecorator <em>Decorator</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IValueBinding#getDecorator
+	 * <em>Decorator</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Decorator</em>' reference.
 	 * @see #getDecorator()
@@ -391,8 +411,8 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>UI Attribute</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>UI Attribute</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>UI Attribute</em>' reference isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -404,8 +424,8 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	IUIAttribute getUIAttribute();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IValueBinding#getUIAttribute <em>UI Attribute</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IValueBinding#getUIAttribute
+	 * <em>UI Attribute</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>UI Attribute</em>' reference.
 	 * @see #getUIAttribute()
@@ -429,7 +449,8 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>Cell</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Cell</em>' reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Cell</em>' reference isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -441,8 +462,8 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	IValueBindingCell getCell();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IValueBinding#getCell <em>Cell</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IValueBinding#getCell <em>Cell</em>}'
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Cell</em>' reference.
 	 * @see #getCell()
@@ -451,11 +472,13 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	void setCell(IValueBindingCell value);
 
 	/**
-	 * Returns whether the current model object of this binding is for the specified class and feature.
+	 * Returns whether the current model object of this binding is for the specified class and
+	 * feature.
 	 * 
 	 * @param objClass the expected class of the model object - can be <code>null</code>
 	 * @param sf the expected structural feature
-	 * @return <code>true</code> if the model object is for the specified object (if non-<code>null</code>) and feature
+	 * @return <code>true</code> if the model object is for the specified object (if non-
+	 *         <code>null</code>) and feature
 	 */
 	boolean isEClassFeature(Class<? extends EObject> objClass, EStructuralFeature sf);
 } // IValueBinding

@@ -48,26 +48,31 @@ public class ManagerDecoratorProvidersTest {
 		assertNotNull(myProvider.getId());
 		assertNotNull(myProvider.getType());
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				assertNotNull(myProvider.getProviderCE());
 			}
 		});
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				assertNotNull(myProvider.getChildCE());
 			}
 		});
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				assertNotNull(myProvider.getDecorator());
 			}
 		});
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				assertTrue(myProvider.getModelTypes().size() >= 0);
 			}
 		});
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				assertTrue(myProvider.getUiTypes().size() > 0);
 			}

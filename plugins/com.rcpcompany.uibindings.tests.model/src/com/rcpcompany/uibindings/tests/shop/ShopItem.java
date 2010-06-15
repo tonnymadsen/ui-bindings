@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.tests.shop;
@@ -13,7 +12,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Item</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Item</b></em>'. <!--
+ * end-user-doc -->
  * 
  * <p>
  * The following features are supported:
@@ -36,7 +36,8 @@ public interface ShopItem extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -49,8 +50,8 @@ public interface ShopItem extends EObject {
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getName
+	 * <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
@@ -61,8 +62,8 @@ public interface ShopItem extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Price</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Price</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Price</em>' attribute isn't clear, there really should be more of
+	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -75,8 +76,8 @@ public interface ShopItem extends EObject {
 	float getPrice();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getPrice <em>Price</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getPrice
+	 * <em>Price</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Price</em>' attribute.
 	 * @see #getPrice()
@@ -85,11 +86,12 @@ public interface ShopItem extends EObject {
 	void setPrice(float value);
 
 	/**
-	 * Returns the value of the '<em><b>Shop</b></em>' container reference. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.tests.shop.Shop#getShopItems <em>Shop Items</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Shop</b></em>' container reference. It is bidirectional and
+	 * its opposite is ' {@link com.rcpcompany.uibindings.tests.shop.Shop#getShopItems
+	 * <em>Shop Items</em>}'. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Shop</em>' container reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Shop</em>' container reference isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -103,8 +105,8 @@ public interface ShopItem extends EObject {
 	Shop getShop();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getShop <em>Shop</em>}' container
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getShop
+	 * <em>Shop</em>}' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Shop</em>' container reference.
 	 * @see #getShop()
@@ -113,12 +115,13 @@ public interface ShopItem extends EObject {
 	void setShop(Shop value);
 
 	/**
-	 * Returns the value of the '<em><b>Order Items</b></em>' reference list. The list contents are of type
-	 * {@link com.rcpcompany.uibindings.tests.shop.OrderItem}. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.tests.shop.OrderItem#getItem <em>Item</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Order Items</b></em>' reference list. The list contents are
+	 * of type {@link com.rcpcompany.uibindings.tests.shop.OrderItem}. It is bidirectional and its
+	 * opposite is ' {@link com.rcpcompany.uibindings.tests.shop.OrderItem#getItem <em>Item</em>}'.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Order Items</em>' reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Order Items</em>' reference list isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -133,8 +136,8 @@ public interface ShopItem extends EObject {
 	/**
 	 * Returns the value of the '<em><b>For Sale</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>For Sale</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>For Sale</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -147,8 +150,8 @@ public interface ShopItem extends EObject {
 	boolean isForSale();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#isForSale <em>For Sale</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#isForSale
+	 * <em>For Sale</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>For Sale</em>' attribute.
 	 * @see #isForSale()
@@ -157,10 +160,11 @@ public interface ShopItem extends EObject {
 	void setForSale(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Information</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Information</b></em>' containment reference. <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Information</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Information</em>' reference isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -173,8 +177,8 @@ public interface ShopItem extends EObject {
 	ShopItemInformation getInformation();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getInformation <em>Information</em>}'
-	 * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getInformation
+	 * <em>Information</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Information</em>' containment reference.
 	 * @see #getInformation()
@@ -183,11 +187,12 @@ public interface ShopItem extends EObject {
 	void setInformation(ShopItemInformation value);
 
 	/**
-	 * Returns the value of the '<em><b>Group</b></em>' reference. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItemGroup#getItems <em>Items</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Group</b></em>' reference. It is bidirectional and its
+	 * opposite is ' {@link com.rcpcompany.uibindings.tests.shop.ShopItemGroup#getItems
+	 * <em>Items</em>}'. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Group</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Group</em>' reference isn't clear, there really should be more of
+	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -201,8 +206,8 @@ public interface ShopItem extends EObject {
 	ShopItemGroup getGroup();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getGroup <em>Group</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getGroup
+	 * <em>Group</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Group</em>' reference.
 	 * @see #getGroup()
@@ -213,7 +218,8 @@ public interface ShopItem extends EObject {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @model diagnosticsDataType="com.rcpcompany.uibindings.tests.shop.DiagnosticChain" diagnosticsRequired="true"
+	 * @model diagnosticsDataType="com.rcpcompany.uibindings.tests.shop.DiagnosticChain"
+	 *        diagnosticsRequired="true"
 	 * @generated
 	 */
 	boolean namePriceOK(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -221,7 +227,8 @@ public interface ShopItem extends EObject {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @model diagnosticsDataType="com.rcpcompany.uibindings.tests.shop.DiagnosticChain" diagnosticsRequired="true"
+	 * @model diagnosticsDataType="com.rcpcompany.uibindings.tests.shop.DiagnosticChain"
+	 *        diagnosticsRequired="true"
 	 * @generated
 	 */
 	boolean nameOK(DiagnosticChain diagnostics, Map<Object, Object> context);

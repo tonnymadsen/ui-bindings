@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.tests.shop.impl;
@@ -53,9 +52,7 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 		try {
 			final ShopFactory theShopFactory = (ShopFactory) EPackage.Registry.INSTANCE
 					.getEFactory("http://rcp-company.com/schemas/shop.ecore");
-			if (theShopFactory != null) {
-				return theShopFactory;
-			}
+			if (theShopFactory != null) return theShopFactory;
 		} catch (final Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
@@ -71,13 +68,15 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 		super();
 	}
 
+	@Override
 	public Shop getShop() {
 		if (theShop == null) {
 			final ResourceSetImpl rs = new ResourceSetImpl();
 			final ShopPackage shopPackage = ShopPackage.eINSTANCE;
 
 			/*
-			 * Need to convert the platform: URI into a file: URI as we otherwise cannot save the data
+			 * Need to convert the platform: URI into a file: URI as we otherwise cannot save the
+			 * data
 			 */
 			URL resolve = null;
 			try {
@@ -86,7 +85,9 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 			} catch (final Exception ex) {
 				LogUtils.error(this, ex);
 			}
-			// URI uri = URI.createPlatformPluginURI("/com.rcpcompany.uibindings.tests.model/data/TEST.shop", true);
+			// URI uri =
+			// URI.createPlatformPluginURI("/com.rcpcompany.uibindings.tests.model/data/TEST.shop",
+			// true);
 			final URI uri = URI.createURI(resolve.toString());
 			final Resource resource = rs.getResource(uri, true);
 
@@ -171,6 +172,7 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Shop createShop() {
 		final ShopImpl shop = new ShopImpl();
 		return shop;
@@ -181,6 +183,7 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Customer createCustomer() {
 		final CustomerImpl customer = new CustomerImpl();
 		return customer;
@@ -191,6 +194,7 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public ShopItem createShopItem() {
 		final ShopItemImpl shopItem = new ShopItemImpl();
 		return shopItem;
@@ -201,6 +205,7 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public ShopItemGroup createShopItemGroup() {
 		final ShopItemGroupImpl shopItemGroup = new ShopItemGroupImpl();
 		return shopItemGroup;
@@ -211,6 +216,7 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Order createOrder() {
 		final OrderImpl order = new OrderImpl();
 		return order;
@@ -221,6 +227,7 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public OrderItem createOrderItem() {
 		final OrderItemImpl orderItem = new OrderItemImpl();
 		return orderItem;
@@ -231,6 +238,7 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Contact createContact() {
 		final ContactImpl contact = new ContactImpl();
 		return contact;
@@ -241,6 +249,7 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Country createCountry() {
 		final CountryImpl country = new CountryImpl();
 		return country;
@@ -251,6 +260,7 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public ShopItemInformation createShopItemInformation() {
 		final ShopItemInformationImpl shopItemInformation = new ShopItemInformationImpl();
 		return shopItemInformation;
@@ -261,6 +271,7 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public ShopItemDescription createShopItemDescription() {
 		final ShopItemDescriptionImpl shopItemDescription = new ShopItemDescriptionImpl();
 		return shopItemDescription;
@@ -271,6 +282,7 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public ShopItemURL createShopItemURL() {
 		final ShopItemURLImpl shopItemURL = new ShopItemURLImpl();
 		return shopItemURL;
@@ -283,10 +295,9 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	 */
 	public CustomerType createCustomerTypeFromString(EDataType eDataType, String initialValue) {
 		final CustomerType result = CustomerType.get(initialValue);
-		if (result == null) {
+		if (result == null)
 			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '"
 					+ eDataType.getName() + "'");
-		}
 		return result;
 	}
 
@@ -322,6 +333,7 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public ShopPackage getShopPackage() {
 		return (ShopPackage) getEPackage();
 	}
