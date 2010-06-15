@@ -75,6 +75,7 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 
 		if (getBinding().getControl() instanceof FileNameControl) {
 			final FileNameControl fnw = (FileNameControl) getBinding().getControl();
+			fnw.setDirectoryMode(myDirectoryMode);
 			fnw.setExtensions(myExtensions);
 			fnw.setDialogTitle(getBinding().getLabel());
 			fnw.setExistingOnly(myExistingOnly);

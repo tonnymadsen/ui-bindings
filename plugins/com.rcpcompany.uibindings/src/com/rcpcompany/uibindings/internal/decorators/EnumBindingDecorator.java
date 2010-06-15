@@ -109,32 +109,26 @@ public class EnumBindingDecorator extends SimpleUIBindingDecorator implements IU
 	@Override
 	protected Object convertModelToUI(Object fromObject) {
 		final String key;
-		if (fromObject == null) {
+		if (fromObject == null)
 			return "";
-		} else if (fromObject instanceof Enumerator) {
+		else if (fromObject instanceof Enumerator) {
 			key = ((Enumerator) fromObject).getName();
 		} else {
 			key = fromObject.toString();
 		}
-		if (!modelToUIMappings.containsKey(key)) {
+		if (!modelToUIMappings.containsKey(key))
 			throw new IllegalArgumentException("Cannot map enumeration value '" + fromObject + "'");
-		}
 		return modelToUIMappings.get(key);
 	}
 
 	@Override
 	protected Object convertUIToModel(Object fromObject) {
-		if (fromObject == null || fromObject.equals("")) {
-			return null;
-		}
+		if (fromObject == null || fromObject.equals("")) return null;
 		final String key = fromObject.toString();
-		if (!uiToModelMappings.containsKey(key)) {
+		if (!uiToModelMappings.containsKey(key))
 			throw new IllegalArgumentException(MessageFormat.format("Illegal value ''{0}''", fromObject));
-		}
 		final String name = uiToModelMappings.get(key);
-		if (name == null) {
-			return null;
-		}
+		if (name == null) return null;
 		final EEnumLiteral literal = myEnumeration.getEEnumLiteral(name);
 		if (literal == null) {
 			LogUtils.error(EnumBindingDecorator.this.myProvider.getProviderCE(),

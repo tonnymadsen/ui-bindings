@@ -93,9 +93,10 @@ public class FileNameControlTest {
 	public void testValueBindingWidgetCreation() {
 		assertNoLog(new Runnable() {
 
+			@Override
 			public void run() {
-				b = myForm.addField("name").type(myType).arg(Constants.ARG_NEW_ALLOWED, myNewAllowed).arg(
-						Constants.ARG_EXTENSIONS, myExtensions);
+				b = myForm.addField("name").type(myType).arg(Constants.ARG_NEW_ALLOWED, myNewAllowed)
+						.arg(Constants.ARG_EXTENSIONS, myExtensions);
 				myForm.finish();
 			}
 		});
@@ -111,12 +112,13 @@ public class FileNameControlTest {
 	@Test
 	public void testValueBindingText() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final Text w = new Text(myForm.addComposite(), SWT.SINGLE | SWT.LEAD | SWT.BORDER);
 				w.setText("");
 
-				b = myForm.getContext().addBinding(w, myShop, ShopPackage.Literals.SHOP__NAME).type(myType).arg(
-						Constants.ARG_NEW_ALLOWED, myNewAllowed).arg(Constants.ARG_EXTENSIONS, myExtensions);
+				b = myForm.getContext().addBinding(w, myShop, ShopPackage.Literals.SHOP__NAME).type(myType)
+						.arg(Constants.ARG_NEW_ALLOWED, myNewAllowed).arg(Constants.ARG_EXTENSIONS, myExtensions);
 				myForm.finish();
 			}
 		});
@@ -130,12 +132,13 @@ public class FileNameControlTest {
 	@Test
 	public void testValueBindingFNW() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final FileNameControl w = new FileNameControl(myForm.addComposite(), SWT.SINGLE | SWT.LEAD | SWT.BORDER);
 				w.setText("");
 
-				b = myForm.getContext().addBinding(w, myShop, ShopPackage.Literals.SHOP__NAME).type(myType).arg(
-						Constants.ARG_NEW_ALLOWED, myNewAllowed).arg(Constants.ARG_EXTENSIONS, myExtensions);
+				b = myForm.getContext().addBinding(w, myShop, ShopPackage.Literals.SHOP__NAME).type(myType)
+						.arg(Constants.ARG_NEW_ALLOWED, myNewAllowed).arg(Constants.ARG_EXTENSIONS, myExtensions);
 				myForm.finish();
 			}
 		});

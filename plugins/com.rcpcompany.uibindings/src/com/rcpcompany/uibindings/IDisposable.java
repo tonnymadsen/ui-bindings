@@ -11,8 +11,8 @@ public interface IDisposable {
 	/**
 	 * Disposes of this object.
 	 * <p>
-	 * All resources must be freed. All listeners must be detached. Dispose will only be called once during the life
-	 * cycle of an object.
+	 * All resources must be freed. All listeners must be detached. Dispose will only be called once
+	 * during the life cycle of an object.
 	 */
 	public void dispose();
 

@@ -24,9 +24,8 @@ public class ImageUIAttributeFactory implements IUIAttributeFactory {
 			ov = new LabelImageObservableValue((Label) widget);
 		} else if (widget instanceof CLabel) {
 			ov = new CLabelImageObservableValue((CLabel) widget);
-		} else {
+		} else
 			throw new IllegalArgumentException("Widget " + widget + " not supported");
-		}
 
 		return new SimpleUIAttribute(widget, attribute, ov, false);
 	}

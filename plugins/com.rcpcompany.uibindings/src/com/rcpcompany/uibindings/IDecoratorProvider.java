@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings;
@@ -10,8 +9,8 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.emf.common.util.EList;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Decorator Provider</b></em>'. <!-- end-user-doc
- * -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Decorator Provider</b></em>
+ * '. <!-- end-user-doc -->
  * 
  * <p>
  * The following features are supported:
@@ -27,16 +26,16 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * 
  * @see com.rcpcompany.uibindings.IUIBindingsPackage#getDecoratorProvider()
- * @model abstract="true"
  * @generated
  */
 public interface IDecoratorProvider extends IArgumentProvider {
 	/**
-	 * Returns the value of the '<em><b>Manager</b></em>' container reference. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.IManager#getProviders <em>Providers</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Manager</b></em>' container reference. It is bidirectional
+	 * and its opposite is ' {@link com.rcpcompany.uibindings.IManager#getProviders
+	 * <em>Providers</em>}'. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Manager</em>' container reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Manager</em>' container reference isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -50,7 +49,8 @@ public interface IDecoratorProvider extends IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Id</em>' attribute isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Id</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -62,8 +62,8 @@ public interface IDecoratorProvider extends IArgumentProvider {
 	String getId();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IDecoratorProvider#getId <em>Id</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IDecoratorProvider#getId <em>Id</em>}
+	 * ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
@@ -74,7 +74,8 @@ public interface IDecoratorProvider extends IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Type</em>' attribute isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Type</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -86,8 +87,8 @@ public interface IDecoratorProvider extends IArgumentProvider {
 	String getType();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IDecoratorProvider#getType <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IDecoratorProvider#getType
+	 * <em>Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Type</em>' attribute.
 	 * @see #getType()
@@ -96,11 +97,11 @@ public interface IDecoratorProvider extends IArgumentProvider {
 	void setType(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Model Types</b></em>' attribute list. The list contents are of type
-	 * {@link java.lang.String}. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Model Types</b></em>' attribute list. The list contents are
+	 * of type {@link java.lang.String}. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Model Types</em>' attribute list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Model Types</em>' attribute list isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -111,11 +112,11 @@ public interface IDecoratorProvider extends IArgumentProvider {
 	EList<String> getModelTypes();
 
 	/**
-	 * Returns the value of the '<em><b>Ui Types</b></em>' attribute list. The list contents are of type
-	 * {@link java.lang.String}. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Ui Types</b></em>' attribute list. The list contents are of
+	 * type {@link java.lang.String}. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Ui Types</em>' attribute list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Ui Types</em>' attribute list isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -128,8 +129,8 @@ public interface IDecoratorProvider extends IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>Provider CE</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Provider CE</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Provider CE</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -141,8 +142,8 @@ public interface IDecoratorProvider extends IArgumentProvider {
 	IConfigurationElement getProviderCE();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IDecoratorProvider#getProviderCE <em>Provider CE</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IDecoratorProvider#getProviderCE
+	 * <em>Provider CE</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Provider CE</em>' attribute.
 	 * @see #getProviderCE()
@@ -153,8 +154,8 @@ public interface IDecoratorProvider extends IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>Child CE</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Child CE</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Child CE</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -166,8 +167,8 @@ public interface IDecoratorProvider extends IArgumentProvider {
 	IConfigurationElement getChildCE();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IDecoratorProvider#getChildCE <em>Child CE</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IDecoratorProvider#getChildCE
+	 * <em>Child CE</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Child CE</em>' attribute.
 	 * @see #getChildCE()
@@ -178,8 +179,8 @@ public interface IDecoratorProvider extends IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>Decorator</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Decorator</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Decorator</em>' reference isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -190,10 +191,11 @@ public interface IDecoratorProvider extends IArgumentProvider {
 	IUIBindingDecorator getDecorator();
 
 	/**
-	 * Returns the value of the '<em><b>Exact Model Type Match</b></em>' attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Exact Model Type Match</b></em>' attribute. <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Exact Model Type Match</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Exact Model Type Match</em>' attribute isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -205,7 +207,8 @@ public interface IDecoratorProvider extends IArgumentProvider {
 	boolean isExactModelTypeMatch();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IDecoratorProvider#isExactModelTypeMatch
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.IDecoratorProvider#isExactModelTypeMatch
 	 * <em>Exact Model Type Match</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Exact Model Type Match</em>' attribute.

@@ -18,9 +18,11 @@ import com.rcpcompany.uibindings.bindingMessages.AbstractBindingMessage;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * This class provides an adapter interface between the {@link EValidator} interface of Ecore and XXX
+ * This class provides an adapter interface between the {@link EValidator} interface of Ecore and
+ * XXX
  * <p>
- * The validator is based on {@link Diagnostician} and will only run after a certain time of inactivity.
+ * The validator is based on {@link Diagnostician} and will only run after a certain time of
+ * inactivity.
  * 
  * @author Tonny Madsen, The RCP Company
  * @since 1.3
@@ -30,12 +32,15 @@ public class EValidatorAdapter extends AbstractValidatorAdapter {
 	 * Factory method for {@link EValidatorAdapter}.
 	 */
 	public static class Factory {
+		private Factory() {
+		}
+
 		/**
 		 * Adds a new diagnostic for the specified object and feature.
 		 * 
 		 * @param diagnostics the dianostics chain
-		 * @param severity the severity - one of {@link Diagnostic#INFO}, {@link Diagnostic#WARNING} or
-		 *            {@link Diagnostic#ERROR}
+		 * @param severity the severity - one of {@link Diagnostic#INFO}, {@link Diagnostic#WARNING}
+		 *            or {@link Diagnostic#ERROR}
 		 * @param message the message for the diagnostics
 		 * @param obj the object
 		 * @param feature the feature possible <code>null</code>
@@ -48,11 +53,12 @@ public class EValidatorAdapter extends AbstractValidatorAdapter {
 		/**
 		 * Adds a new diagnostic for the specified object and feature.
 		 * <p>
-		 * The data associated with the the diagnostic describes a set of objects, features and possibly keys of objects
-		 * that are associated with the diagnostic. The data object is an array where each element is either an
-		 * {@link EObject} - if the diagnostic is associated with the object - or an array with an {@link EObject}, a
-		 * {@link EStructuralFeature} and optionally a key - if the diagnostic is associated with the specific feature
-		 * of the object.
+		 * The data associated with the the diagnostic describes a set of objects, features and
+		 * possibly keys of objects that are associated with the diagnostic. The data object is an
+		 * array where each element is either an {@link EObject} - if the diagnostic is associated
+		 * with the object - or an array with an {@link EObject}, a {@link EStructuralFeature} and
+		 * optionally a key - if the diagnostic is associated with the specific feature of the
+		 * object.
 		 * <p>
 		 * Thus, if data is
 		 * 
@@ -69,7 +75,8 @@ public class EValidatorAdapter extends AbstractValidatorAdapter {
 		 * <li>the object <code>obj1</code></li>
 		 * <li>the object <code>obj2</code></li>
 		 * <li>the structural feature <code>sf3</code> of the object <code>obj3</code></li>
-		 * <li>the key <code>key4</code> of the structural feature <code>sf4</code> of the object <code>obj4</code></li>
+		 * <li>the key <code>key4</code> of the structural feature <code>sf4</code> of the object
+		 * <code>obj4</code></li>
 		 * </ul>
 		 * <p>
 		 * The meaning of the key is opaque to the code.
@@ -77,8 +84,8 @@ public class EValidatorAdapter extends AbstractValidatorAdapter {
 		 * @param diagnostics the diagnostics chain
 		 * @param source the source name space
 		 * @param code the code in the name space
-		 * @param severity the severity - one of {@link Diagnostic#INFO}, {@link Diagnostic#WARNING} or
-		 *            {@link Diagnostic#ERROR}
+		 * @param severity the severity - one of {@link Diagnostic#INFO}, {@link Diagnostic#WARNING}
+		 *            or {@link Diagnostic#ERROR}
 		 * @param message the message for the diagnostics
 		 * @param data the data associated with the diagnostic
 		 */
@@ -133,8 +140,8 @@ public class EValidatorAdapter extends AbstractValidatorAdapter {
 		 * @param diagnostics the diagnostics chain
 		 * @param source the source name space
 		 * @param code the code in the name space
-		 * @param severity the severity - one of {@link Diagnostic#INFO}, {@link Diagnostic#WARNING} or
-		 *            {@link Diagnostic#ERROR}
+		 * @param severity the severity - one of {@link Diagnostic#INFO}, {@link Diagnostic#WARNING}
+		 *            or {@link Diagnostic#ERROR}
 		 * @param message the message for the diagnostics
 		 * @param obj the object
 		 * @param feature the feature possible <code>null</code>
@@ -306,9 +313,7 @@ public class EValidatorAdapter extends AbstractValidatorAdapter {
 		public boolean supersedes(IBindingMessage otherMessage) {
 			if (otherMessage instanceof Message) {
 				final Message m = (Message) otherMessage;
-				if (m.getDiagnostic() == getDiagnostic()) {
-					return true;
-				}
+				if (m.getDiagnostic() == getDiagnostic()) return true;
 			}
 			return super.supersedes(otherMessage);
 		}

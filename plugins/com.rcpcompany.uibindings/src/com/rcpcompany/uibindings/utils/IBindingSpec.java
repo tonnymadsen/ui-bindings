@@ -10,8 +10,8 @@ import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.internal.utils.BindingSpecFactory;
 
 /**
- * This interface is used to parse a text string that describes a binding target in terms of a starting type and a
- * string..
+ * This interface is used to parse a text string that describes a binding target in terms of a
+ * starting type and a string..
  * <p>
  * Format is described in the wiki.
  * 
@@ -114,16 +114,16 @@ public interface IBindingSpec {
 	static final String WIDTH_WEIGHT = "ww";
 
 	/**
-	 * The argument name for the alignment of the binding. The value has type {@link String} with the possible values
-	 * "l", "c" and "r".
+	 * The argument name for the alignment of the binding. The value has type {@link String} with
+	 * the possible values "l", "c" and "r".
 	 * <p>
 	 * Alias for {@link Constants#ARG_ALIGNMENT}.
 	 */
 	final static String ALIGNMENT = "a";
 
 	/**
-	 * The argument name for the scrollbars of the binding. The value has type {@link String} with the possible values
-	 * "h" (horizontal), "v" (vertical) and "b" (both).
+	 * The argument name for the scrollbars of the binding. The value has type {@link String} with
+	 * the possible values "h" (horizontal), "v" (vertical) and "b" (both).
 	 */
 	final static String SCROLLBARS = "sb";
 
@@ -148,20 +148,20 @@ public interface IBindingSpec {
 	final static String MESSAGE_FORMAT = Constants.ARG_MESSAGE_FORMAT;
 
 	/**
-	 * The argument name for read-only of the binding. The value has type {@link String} with the possible values
-	 * "false", and "true".
+	 * The argument name for read-only of the binding. The value has type {@link String} with the
+	 * possible values "false", and "true".
 	 */
 	final static String READONLY = Constants.ARG_READONLY;
 
 	/**
-	 * The argument name for multi-line binding. The value has type {@link String} with the possible values "false", and
-	 * "true".
+	 * The argument name for multi-line binding. The value has type {@link String} with the possible
+	 * values "false", and "true".
 	 */
 	final static String MULTI = "multi";
 
 	/**
-	 * The argument name for message collecting binding. The value has type {@link String} with the possible values
-	 * "false", and "true".
+	 * The argument name for message collecting binding. The value has type {@link String} with the
+	 * possible values "false", and "true".
 	 */
 	final static String COLLECT_MESSAGES = Constants.ARG_MODEL_OBJECT_MESSAGES;
 }

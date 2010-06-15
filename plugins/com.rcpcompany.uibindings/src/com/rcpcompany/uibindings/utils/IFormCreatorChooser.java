@@ -11,11 +11,12 @@ import com.rcpcompany.uibindings.utils.IFormChooser.IFormChooserTester;
 /**
  * This interface is used to ease the creating of forms based on the value of a field.
  * <p>
- * The field is named the discriminant in the chooser and a number of forms is added that will test the current value of
- * the discriminant and based on the result create a new form in the specified top {@link Composite}.
+ * The field is named the discriminant in the chooser and a number of forms is added that will test
+ * the current value of the discriminant and based on the result create a new form in the specified
+ * top {@link Composite}.
  * <p>
- * Please note that the top {@link Composite} will be cleaned completely of all children every time a new form is
- * created.
+ * Please note that the top {@link Composite} will be cleaned completely of all children every time
+ * a new form is created.
  * 
  * @author Tonny Madsen, The RCP Company
  * @noimplement
@@ -31,7 +32,8 @@ public interface IFormCreatorChooser extends IDisposable {
 		 * 
 		 * @param context the context
 		 * @param discriminant the discriminant used to decide on the chosen form
-		 * @param top the top level {@link Composite} that will parent all forms created by the chooser
+		 * @param top the top level {@link Composite} that will parent all forms created by the
+		 *            chooser
 		 * @return the returned form
 		 */
 		public static IFormCreatorChooser create(IFormCreator form, IObservableValue discriminant) {
@@ -44,7 +46,8 @@ public interface IFormCreatorChooser extends IDisposable {
 		 * @param context the context
 		 * @param object the object with the feature used to choose the form
 		 * @param feature the feature for the form
-		 * @param top the top level {@link Composite} that will parent all forms created by the chooser
+		 * @param top the top level {@link Composite} that will parent all forms created by the
+		 *            chooser
 		 * @return the returned form
 		 */
 		public static IFormCreatorChooser create(IFormCreator form, IObservableValue discriminant, Composite top) {
@@ -53,8 +56,8 @@ public interface IFormCreatorChooser extends IDisposable {
 	}
 
 	/**
-	 * Adds a new form to this chooser, that will be choosen if the tester evaluates <code>true</code> for the current
-	 * discriminant value.
+	 * Adds a new form to this chooser, that will be choosen if the tester evaluates
+	 * <code>true</code> for the current discriminant value.
 	 * 
 	 * @param tester the test object
 	 * @param creator the forms creator
@@ -62,7 +65,8 @@ public interface IFormCreatorChooser extends IDisposable {
 	public void addForm(IFormChooserTester tester, IFormCreatorChooserCreator creator);
 
 	/**
-	 * Adds a new form to this chooser, that will be chosen if the value of the discriminant equals the specified value.
+	 * Adds a new form to this chooser, that will be chosen if the value of the discriminant equals
+	 * the specified value.
 	 * 
 	 * @param value the value
 	 * @param creator the forms creator
@@ -70,8 +74,8 @@ public interface IFormCreatorChooser extends IDisposable {
 	public void addFormValue(Object value, IFormCreatorChooserCreator creator);
 
 	/**
-	 * Adds a new form to this chooser, that will be chosen if the value of the discriminant is an instance of the
-	 * specified class.
+	 * Adds a new form to this chooser, that will be chosen if the value of the discriminant is an
+	 * instance of the specified class.
 	 * 
 	 * @param clz the class
 	 * @param creator the forms creator
@@ -79,7 +83,8 @@ public interface IFormCreatorChooser extends IDisposable {
 	public void addFormInstanceof(Class<?> clz, IFormCreatorChooserCreator creator);
 
 	/**
-	 * Adds a new form to this chooser, that will be chosen if the value of the discriminant has the specified EClass.
+	 * Adds a new form to this chooser, that will be chosen if the value of the discriminant has the
+	 * specified EClass.
 	 * 
 	 * @param clz the class
 	 * @param creator the forms creator
@@ -87,8 +92,8 @@ public interface IFormCreatorChooser extends IDisposable {
 	public void addFormExactEClass(EClass clz, IFormCreatorChooserCreator creator);
 
 	/**
-	 * Adds a new form to this chooser, that will be chosen if the value of the discriminant is an instance of the
-	 * specified EClass.
+	 * Adds a new form to this chooser, that will be chosen if the value of the discriminant is an
+	 * instance of the specified EClass.
 	 * 
 	 * @param clz the class
 	 * @param creator the forms creator

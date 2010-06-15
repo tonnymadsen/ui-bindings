@@ -156,11 +156,13 @@ public class EnumDecoratorProviderTest {
 
 	private void testM2UI(final CustomerType type, final Text text, final String string) {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myCustomer.setLoyalty(type);
 			}
 		});
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				yield();
 			}
@@ -170,11 +172,13 @@ public class EnumDecoratorProviderTest {
 
 	private void testUI2M(final Text text, final String string, final CustomerType type, final IValueBinding binding) {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				text.setText(string);
 			}
 		});
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				yield();
 			}
@@ -186,11 +190,13 @@ public class EnumDecoratorProviderTest {
 
 	private void testUI2MError(final Text text, final String string, final IValueBinding binding) {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				text.setText(string);
 			}
 		});
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				yield();
 			}

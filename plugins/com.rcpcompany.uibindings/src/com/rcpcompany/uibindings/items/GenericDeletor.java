@@ -20,9 +20,9 @@ import com.rcpcompany.uibindings.IViewerItemDeletorContext;
 /**
  * Generic deletor for items in viewers.
  * <p>
- * The fnction of the deletor depends on the data type of the viewer binding. If the binding is based on a structural
- * feature and this feature is a containment EMF reference the deletor will remove the deleted object from all
- * non-containment relation as well as from the parent relation.
+ * The fnction of the deletor depends on the data type of the viewer binding. If the binding is
+ * based on a structural feature and this feature is a containment EMF reference the deletor will
+ * remove the deleted object from all non-containment relation as well as from the parent relation.
  * 
  * @author Tonny Madsen, The RCP Company
  */

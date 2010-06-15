@@ -18,12 +18,10 @@ public class IllegalNumberQuickfixProposalProcessor extends AbstractQuickfixProp
 	@Override
 	public void getProposals(IQuickfixProposalProcessorContext context, IBindingMessage message) {
 		final IObservableValue observable = message.getBinding().getUIObservable();
-		if (observable.getValueType() != String.class) {
-			return;
-		}
+		if (observable.getValueType() != String.class) return;
 
-		addReplacementProposal(context, message, "Remove illegal characters", findReplacementText((String) observable
-				.getValue()));
+		addReplacementProposal(context, message, "Remove illegal characters",
+				findReplacementText((String) observable.getValue()));
 	}
 
 	private String findReplacementText(String text) {

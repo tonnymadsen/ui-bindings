@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.grid;
@@ -18,27 +17,36 @@ import com.rcpcompany.uibindings.IValueBindingCell;
 import com.rcpcompany.uibindings.uiAttributes.UIAttributePainter;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Binding Cell Information</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '
+ * <em><b>Binding Cell Information</b></em>'. <!-- end-user-doc -->
  * 
  * <p>
  * The following features are supported:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getColumn <em>Column</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getRow <em>Row</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getDataType <em>Data Type</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getLabelBinding <em>Label Binding</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getLabelUIAttribute <em>Label UI Attribute
+ * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getDataType <em>Data Type
  * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getObjectValue <em>Object Value</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#isChangeable <em>Changeable</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getDisplayText <em>Display Text</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getValueType <em>Value Type</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getPasteUIAttribute <em>Paste UI Attribute
+ * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getLabelBinding <em>Label
+ * Binding</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getLabelUIAttribute <em>
+ * Label UI Attribute </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getObjectValue <em>Object
+ * Value</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#isChangeable <em>Changeable
  * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getToolTipText <em>Tool Tip Text</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#isEnabled <em>Enabled</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getPainter <em>Painter</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getDisplayText <em>Display
+ * Text</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getValueType <em>Value Type
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getPasteUIAttribute <em>
+ * Paste UI Attribute </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getToolTipText <em>Tool Tip
+ * Text</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#isEnabled <em>Enabled</em>}
+ * </li>
+ * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getPainter <em>Painter
+ * </em>}</li>
  * </ul>
  * </p>
  * 
@@ -47,29 +55,33 @@ import com.rcpcompany.uibindings.uiAttributes.UIAttributePainter;
  */
 public interface IGridBindingCellInformation extends EObject, IDisposable, IValueBindingCell {
 	/**
-	 * Returns the value of the '<em><b>Column</b></em>' reference. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.grid.IGridBindingColumnInformation#getRowCells <em>Row Cells</em>}'. <!--
-	 * begin-user-doc -->
+	 * Returns the value of the '<em><b>Column</b></em>' reference. It is bidirectional and its
+	 * opposite is '
+	 * {@link com.rcpcompany.uibindings.grid.IGridBindingColumnInformation#getRowCells
+	 * <em>Row Cells</em>}'. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Column</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Column</em>' reference isn't clear, there really should be more of
+	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the value of the '<em>Column</em>' reference.
 	 * @see com.rcpcompany.uibindings.grid.IGridPackage#getGridBindingCellInformation_Column()
 	 * @see com.rcpcompany.uibindings.grid.IGridBindingColumnInformation#getRowCells
-	 * @model opposite="rowCells" resolveProxies="false" required="true" transient="true" suppressedSetVisibility="true"
+	 * @model opposite="rowCells" resolveProxies="false" required="true" transient="true"
+	 *        suppressedSetVisibility="true"
 	 * @generated
 	 */
 	IGridBindingColumnInformation getColumn();
 
 	/**
-	 * Returns the value of the '<em><b>Row</b></em>' reference. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.grid.IGridBindingRowInformation#getColumnCells <em>Column Cells</em>}'. <!--
-	 * begin-user-doc -->
+	 * Returns the value of the '<em><b>Row</b></em>' reference. It is bidirectional and its
+	 * opposite is '
+	 * {@link com.rcpcompany.uibindings.grid.IGridBindingRowInformation#getColumnCells
+	 * <em>Column Cells</em>}'. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Row</em>' reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Row</em>' reference isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -85,8 +97,8 @@ public interface IGridBindingCellInformation extends EObject, IDisposable, IValu
 	/**
 	 * Returns the value of the '<em><b>Data Type</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Data Type</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Data Type</em>' reference isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -99,8 +111,8 @@ public interface IGridBindingCellInformation extends EObject, IDisposable, IValu
 	/**
 	 * Returns the value of the '<em><b>Label Binding</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Label Binding</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Label Binding</em>' reference isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -108,13 +120,15 @@ public interface IGridBindingCellInformation extends EObject, IDisposable, IValu
 	 * @see com.rcpcompany.uibindings.grid.IGridPackage#getGridBindingCellInformation_LabelBinding()
 	 * @generated
 	 */
+	@Override
 	IValueBinding getLabelBinding();
 
 	/**
-	 * Returns the value of the '<em><b>Label UI Attribute</b></em>' reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Label UI Attribute</b></em>' reference. <!-- begin-user-doc
+	 * -->
 	 * <p>
-	 * If the meaning of the '<em>Label UI Attribute</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Label UI Attribute</em>' reference isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -127,8 +141,8 @@ public interface IGridBindingCellInformation extends EObject, IDisposable, IValu
 	/**
 	 * Returns the value of the '<em><b>Object Value</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Object Value</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Object Value</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -136,13 +150,14 @@ public interface IGridBindingCellInformation extends EObject, IDisposable, IValu
 	 * @see com.rcpcompany.uibindings.grid.IGridPackage#getGridBindingCellInformation_ObjectValue()
 	 * @generated
 	 */
+	@Override
 	IObservableValue getObjectValue();
 
 	/**
 	 * Returns the value of the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Changeable</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Changeable</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -155,8 +170,8 @@ public interface IGridBindingCellInformation extends EObject, IDisposable, IValu
 	/**
 	 * Returns the value of the '<em><b>Display Text</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Display Text</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Display Text</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -169,8 +184,8 @@ public interface IGridBindingCellInformation extends EObject, IDisposable, IValu
 	/**
 	 * Returns the value of the '<em><b>Value Type</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Value Type</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Value Type</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -181,10 +196,11 @@ public interface IGridBindingCellInformation extends EObject, IDisposable, IValu
 	Class<?> getValueType();
 
 	/**
-	 * Returns the value of the '<em><b>Paste UI Attribute</b></em>' reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Paste UI Attribute</b></em>' reference. <!-- begin-user-doc
+	 * -->
 	 * <p>
-	 * If the meaning of the '<em>Paste UI Attribute</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Paste UI Attribute</em>' reference isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -197,8 +213,8 @@ public interface IGridBindingCellInformation extends EObject, IDisposable, IValu
 	/**
 	 * Returns the value of the '<em><b>Tool Tip Text</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Tool Tip Text</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Tool Tip Text</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -210,7 +226,8 @@ public interface IGridBindingCellInformation extends EObject, IDisposable, IValu
 	String getToolTipText();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getToolTipText
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getToolTipText
 	 * <em>Tool Tip Text</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Tool Tip Text</em>' attribute.
@@ -220,11 +237,11 @@ public interface IGridBindingCellInformation extends EObject, IDisposable, IValu
 	void setToolTipText(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Enabled</b></em>' attribute. The default value is <code>"true"</code>. <!--
-	 * begin-user-doc -->
+	 * Returns the value of the '<em><b>Enabled</b></em>' attribute. The default value is
+	 * <code>"true"</code>. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Enabled</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Enabled</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -237,8 +254,9 @@ public interface IGridBindingCellInformation extends EObject, IDisposable, IValu
 	boolean isEnabled();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#isEnabled
-	 * <em>Enabled</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#isEnabled <em>Enabled</em>}
+	 * ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Enabled</em>' attribute.
 	 * @see #isEnabled()
@@ -249,8 +267,8 @@ public interface IGridBindingCellInformation extends EObject, IDisposable, IValu
 	/**
 	 * Returns the value of the '<em><b>Painter</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Painter</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Painter</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

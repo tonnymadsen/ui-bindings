@@ -5,6 +5,7 @@ import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.IUIBindingDecoratorExtenderContext;
@@ -50,19 +51,16 @@ public class FinancialUpDownExtender extends AbstractUIBindingDecoratorExtender 
 
 	public FinancialUpDownExtender() {
 		final ImageRegistry colorRegistry = JFaceResources.getImageRegistry();
-		colorRegistry.put(UP_ARROW, Activator.imageDescriptorFromPlugin(Activator.ID, "/images/up-arrow.png"));
-		colorRegistry.put(DOWN_ARROW, Activator.imageDescriptorFromPlugin(Activator.ID, "/images/down-arrow.png"));
+		colorRegistry.put(UP_ARROW, AbstractUIPlugin.imageDescriptorFromPlugin(Activator.ID, "/images/up-arrow.png"));
+		colorRegistry.put(DOWN_ARROW,
+				AbstractUIPlugin.imageDescriptorFromPlugin(Activator.ID, "/images/down-arrow.png"));
 	}
 
 	@Override
 	public boolean isEnabled(IValueBinding binding) {
-		if (!binding.getArgument(ARG_FINANCIAL_UP_DOWN, Boolean.class, false)) {
-			return false;
-		}
+		if (!binding.getArgument(ARG_FINANCIAL_UP_DOWN, Boolean.class, false)) return false;
 
-		if (binding.getModelObservableValue() == null) {
-			return false;
-		}
+		if (binding.getModelObservableValue() == null) return false;
 
 		return true;
 	}
@@ -143,10 +141,9 @@ public class FinancialUpDownExtender extends AbstractUIBindingDecoratorExtender 
 				if (System.currentTimeMillis() < myCurrentTimeout) {
 					// Old trend
 					trend = myCurrentTrend;
-				} else {
+				} else
 					// No old or new trends
 					return;
-				}
 			} else {
 				// New trend
 				if (myDisplayTimeout != null) {
@@ -179,9 +176,7 @@ public class FinancialUpDownExtender extends AbstractUIBindingDecoratorExtender 
 
 			@Override
 			public void run() {
-				if (cancelled) {
-					return;
-				}
+				if (cancelled) return;
 				/*
 				 * Repaint the field!
 				 */
@@ -208,22 +203,12 @@ public class FinancialUpDownExtender extends AbstractUIBindingDecoratorExtender 
 			final Object newValue = myObservableValue.getValue();
 
 			try {
-				if (newValue == null) {
-					return 0;
-				}
-				if (myValue == null) {
-					return 0;
-				}
-				if (myValue == newValue) {
-					return 0;
-				}
-				if (newValue.equals(myValue)) {
-					return 0;
-				}
+				if (newValue == null) return 0;
+				if (myValue == null) return 0;
+				if (myValue == newValue) return 0;
+				if (newValue.equals(myValue)) return 0;
 
-				if (myValue instanceof Comparable) {
-					return ((Comparable) myValue).compareTo(newValue);
-				}
+				if (myValue instanceof Comparable) return ((Comparable) myValue).compareTo(newValue);
 
 				final Object valueType = myObservableValue.getValueType();
 				LogUtils.debug(valueType, "Cannot compare type " + valueType);

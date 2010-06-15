@@ -84,6 +84,7 @@ public class FormChooserTest {
 	 */
 	public void bindUI() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myContext = IBindingContext.Factory.createContext(myView.getScrolledForm());
 
@@ -105,6 +106,7 @@ public class FormChooserTest {
 	public void testDisposeItems() {
 		myDisposeText = null;
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myChooser = IFormChooser.Factory.create(myContext, myDiscriminant, myComposite);
 				myChooser.addFormEClass(ShopPackage.Literals.SHOP_ITEM_DESCRIPTION, new IFormChooserCreator() {
@@ -114,9 +116,10 @@ public class FormChooserTest {
 						myDisposeText = new Text(parent, SWT.SINGLE | SWT.LEAD | SWT.BORDER);
 
 						assertNoLog(new Runnable() {
+							@Override
 							public void run() {
-								context.addBinding().ui(myDisposeText).model(discriminant,
-										ShopPackage.Literals.SHOP_ITEM_DESCRIPTION__DESCRIPTION);
+								context.addBinding().ui(myDisposeText)
+										.model(discriminant, ShopPackage.Literals.SHOP_ITEM_DESCRIPTION__DESCRIPTION);
 								context.finish();
 								yield();
 							}
@@ -144,6 +147,7 @@ public class FormChooserTest {
 		 * - description
 		 */
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myShopItem.setInformation(ShopFactory.eINSTANCE.createShopItemDescription());
 				yield();
@@ -158,6 +162,7 @@ public class FormChooserTest {
 		 * - url
 		 */
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myShopItem.setInformation(ShopFactory.eINSTANCE.createShopItemURL());
 				yield();
@@ -171,6 +176,7 @@ public class FormChooserTest {
 		 * - description
 		 */
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myShopItem.setInformation(ShopFactory.eINSTANCE.createShopItemDescription());
 				yield();
@@ -184,6 +190,7 @@ public class FormChooserTest {
 		 * - null
 		 */
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myShopItem.setInformation(null);
 				yield();
@@ -202,6 +209,7 @@ public class FormChooserTest {
 	public void testDisposeComposite() {
 		myDisposeText = null;
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myChooser = IFormChooser.Factory.create(myContext, myDiscriminant, myComposite);
 				myChooser.addFormEClass(ShopPackage.Literals.SHOP_ITEM_DESCRIPTION, new IFormChooserCreator() {
@@ -211,9 +219,10 @@ public class FormChooserTest {
 						myDisposeText = new Text(parent, SWT.SINGLE | SWT.LEAD | SWT.BORDER);
 
 						assertNoLog(new Runnable() {
+							@Override
 							public void run() {
-								context.addBinding().ui(myDisposeText).model(discriminant,
-										ShopPackage.Literals.SHOP_ITEM_DESCRIPTION__DESCRIPTION);
+								context.addBinding().ui(myDisposeText)
+										.model(discriminant, ShopPackage.Literals.SHOP_ITEM_DESCRIPTION__DESCRIPTION);
 								context.finish();
 								yield();
 							}
@@ -232,6 +241,7 @@ public class FormChooserTest {
 		 * - description
 		 */
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myShopItem.setInformation(ShopFactory.eINSTANCE.createShopItemDescription());
 				yield();
@@ -245,6 +255,7 @@ public class FormChooserTest {
 		 * Disposed
 		 */
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myComposite.dispose();
 				yield();
@@ -268,6 +279,7 @@ public class FormChooserTest {
 		final int noBindings = bindings.size();
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myChooser = IFormChooser.Factory.create(myContext, myDiscriminant, myComposite);
 				myChooser.addFormEClass(ShopPackage.Literals.SHOP_ITEM_DESCRIPTION, new IFormChooserCreator() {
@@ -277,9 +289,10 @@ public class FormChooserTest {
 						myDisposeText = new Text(parent, SWT.SINGLE | SWT.LEAD | SWT.BORDER);
 
 						assertNoLog(new Runnable() {
+							@Override
 							public void run() {
-								context.addBinding().ui(myDisposeText).model(discriminant,
-										ShopPackage.Literals.SHOP_ITEM_DESCRIPTION__DESCRIPTION);
+								context.addBinding().ui(myDisposeText)
+										.model(discriminant, ShopPackage.Literals.SHOP_ITEM_DESCRIPTION__DESCRIPTION);
 								context.finish();
 								yield();
 							}
@@ -290,6 +303,7 @@ public class FormChooserTest {
 		});
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				yield();
 				assertNotSame(null, myDisposeText);
@@ -312,6 +326,7 @@ public class FormChooserTest {
 		yield();
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myChooser = IFormChooser.Factory.create(myContext, myDiscriminant, myComposite);
 				myChooser.addFormExactEClass(ShopPackage.Literals.SHOP_ITEM_DESCRIPTION, new IFormChooserCreator() {
@@ -325,6 +340,7 @@ public class FormChooserTest {
 		});
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myShopItem.setInformation(ShopFactory.eINSTANCE.createShopItemInformation());
 				yield();

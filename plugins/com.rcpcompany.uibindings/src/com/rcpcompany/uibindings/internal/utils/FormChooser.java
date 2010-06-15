@@ -118,9 +118,7 @@ public class FormChooser implements IFormChooser {
 	protected IFormChooserCreator findCreator() {
 		final Object value = myDiscriminant.getValue();
 		for (final Map.Entry<IFormChooserTester, IFormChooserCreator> t : myMap.entrySet()) {
-			if (t.getKey().isSelected(value)) {
-				return t.getValue();
-			}
+			if (t.getKey().isSelected(value)) return t.getValue();
 		}
 		return null;
 	}
@@ -241,12 +239,8 @@ public class FormChooser implements IFormChooser {
 		addForm(new IFormChooserTester() {
 			@Override
 			public boolean isSelected(Object value) {
-				if (value == null) {
-					return false;
-				}
-				if (!(value instanceof EObject)) {
-					return false;
-				}
+				if (value == null) return false;
+				if (!(value instanceof EObject)) return false;
 				return clz == ((EObject) value).eClass();
 			}
 		}, creator);

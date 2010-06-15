@@ -94,9 +94,7 @@ public class EObjectCreatorDecorator extends SimpleUIBindingDecorator implements
 
 	@Override
 	protected Object convertModelToUI(Object fromObject) {
-		if (fromObject == null) {
-			return myNullLabel;
-		}
+		if (fromObject == null) return myNullLabel;
 		if (!(fromObject instanceof EObject)) {
 			LogUtils.error(this, "Object not an EObject: " + fromObject, getBinding().getCreationPoint());
 			return "";
@@ -116,18 +114,14 @@ public class EObjectCreatorDecorator extends SimpleUIBindingDecorator implements
 
 	@Override
 	protected Object convertUIToModel(Object fromObject) {
-		if (fromObject == null || fromObject.equals("") || fromObject.equals(myNullLabel)) {
-			return null;
-		}
+		if (fromObject == null || fromObject.equals("") || fromObject.equals(myNullLabel)) return null;
 		if (!(fromObject instanceof String)) {
 			LogUtils.error(this, "Object not an String: " + fromObject, getBinding().getCreationPoint());
 			return null;
 		}
 		final String name = (String) fromObject;
 		// Look for an existing object
-		if (uiToModelObjectMappings.get(name) != null) {
-			return uiToModelObjectMappings.get(name);
-		}
+		if (uiToModelObjectMappings.get(name) != null) return uiToModelObjectMappings.get(name);
 		// Create a new object
 		final EClass ec = uiToModelClassMappings.get(name);
 		if (ec == null) {

@@ -24,7 +24,8 @@ import org.eclipse.swt.widgets.TreeColumn;
  * <p>
  * The column will be "decorated" as follows:
  * <ul>
- * <li>If not already set, the heading for the column will be set to a capitalized version of the feature name.</li>
+ * <li>If not already set, the heading for the column will be set to a capitalized version of the
+ * feature name.</li>
  * <li>A column in a {@link StructuredViewer}</li>
  * <li>A {@link List} with a single value - TODO: decide!!</li>
  * </ul>
@@ -44,10 +45,12 @@ import org.eclipse.swt.widgets.TreeColumn;
  * <li>{@link com.rcpcompany.uibindings.IColumnBinding#getBaseColumn <em>Base Column</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IColumnBinding#getSubColumns <em>Sub Columns</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IColumnBinding#getCells <em>Cells</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IColumnBinding#getSpecialBindingType <em>Special Binding Type</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IColumnBinding#getSpecialBindingType <em>Special Binding
+ * Type</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IColumnBinding#getFactory <em>Factory</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IColumnBinding#getCursor <em>Cursor</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IColumnBinding#getColumnVisibility <em>Column Visibility</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IColumnBinding#getColumnVisibility <em>Column Visibility
+ * </em>}</li>
  * </ul>
  * </p>
  * 
@@ -137,7 +140,8 @@ public interface IColumnBinding extends IBinding {
 	 * Binds this binding via a observable value factory.
 	 * 
 	 * @param factory the factory
-	 * @param type the result type of the factory - e.g. <code>factory.createObservable(...).getValueType()</code>
+	 * @param type the result type of the factory - e.g.
+	 *            <code>factory.createObservable(...).getValueType()</code>
 	 * 
 	 * @return <code>this</code>
 	 */
@@ -147,7 +151,8 @@ public interface IColumnBinding extends IBinding {
 	 * Binds this binding via a observable value factory.
 	 * 
 	 * @param factory the factory
-	 * @param type the result type of the factory - e.g. <code>factory.createObservable(...).getValueType()</code>
+	 * @param type the result type of the factory - e.g.
+	 *            <code>factory.createObservable(...).getValueType()</code>
 	 * 
 	 * @return <code>this</code>
 	 */
@@ -156,7 +161,8 @@ public interface IColumnBinding extends IBinding {
 	/**
 	 * Binds this binding to the specified EMF features based on the result of another column.
 	 * <p>
-	 * The first column must of cause map to an {@link EObject object} that allows for the extra feature.
+	 * The first column must of cause map to an {@link EObject object} that allows for the extra
+	 * feature.
 	 * 
 	 * @param baseColumn base column
 	 * @param feature the second structural feature
@@ -172,6 +178,7 @@ public interface IColumnBinding extends IBinding {
 	 * 
 	 * @return <code>this</code>
 	 */
+	@Override
 	public IColumnBinding type(String type);
 
 	/**
@@ -182,6 +189,7 @@ public interface IColumnBinding extends IBinding {
 	 * 
 	 * @return <code>this</code>
 	 */
+	@Override
 	public IColumnBinding arg(String name, Object value);
 
 	/**
@@ -190,6 +198,7 @@ public interface IColumnBinding extends IBinding {
 	 * @param arguments the arguments to set
 	 * @return <code>this</code>
 	 */
+	@Override
 	public IColumnBinding args(Map<String, Object> arguments);
 
 	/**
@@ -198,6 +207,7 @@ public interface IColumnBinding extends IBinding {
 	 * @param arguments the arguments to set
 	 * @return <code>this</code>
 	 */
+	@Override
 	public IColumnBinding args(EMap<String, Object> arguments);
 
 	/**
@@ -205,6 +215,7 @@ public interface IColumnBinding extends IBinding {
 	 * 
 	 * @return <code>this</code>
 	 */
+	@Override
 	public IColumnBinding readonly();
 
 	/**
@@ -212,6 +223,7 @@ public interface IColumnBinding extends IBinding {
 	 * 
 	 * @return <code>this</code>
 	 */
+	@Override
 	public IColumnBinding dynamic();
 
 	/**
@@ -220,6 +232,7 @@ public interface IColumnBinding extends IBinding {
 	 * @param id the new id
 	 * @return <code>this</code>
 	 */
+	@Override
 	public IColumnBinding id(String id);
 
 	/**
@@ -228,6 +241,7 @@ public interface IColumnBinding extends IBinding {
 	 * @param label the label to add
 	 * @return <code>this</code>
 	 */
+	@Override
 	public IColumnBinding label(String label);
 
 	/**
@@ -237,14 +251,16 @@ public interface IColumnBinding extends IBinding {
 	 * 
 	 * @return <code>this</code>
 	 */
+	@Override
 	public IColumnBinding validValues(IObservableList list);
 
 	/**
-	 * Returns the value of the '<em><b>Viewer Binding</b></em>' reference. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.IViewerBinding#getColumns <em>Columns</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Viewer Binding</b></em>' reference. It is bidirectional and
+	 * its opposite is ' {@link com.rcpcompany.uibindings.IViewerBinding#getColumns
+	 * <em>Columns</em>}'. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Viewer Binding</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Viewer Binding</em>' reference isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -257,8 +273,8 @@ public interface IColumnBinding extends IBinding {
 	IViewerBinding getViewerBinding();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IColumnBinding#getViewerBinding <em>Viewer Binding</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IColumnBinding#getViewerBinding
+	 * <em>Viewer Binding</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Viewer Binding</em>' reference.
 	 * @see #getViewerBinding()
@@ -269,8 +285,8 @@ public interface IColumnBinding extends IBinding {
 	/**
 	 * Returns the value of the '<em><b>Viewer Column</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Viewer Column</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Viewer Column</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -283,8 +299,8 @@ public interface IColumnBinding extends IBinding {
 	/**
 	 * Returns the value of the '<em><b>Column Adapter</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Column Adapter</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Column Adapter</em>' reference isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -295,11 +311,12 @@ public interface IColumnBinding extends IBinding {
 	IColumnAdapter getColumnAdapter();
 
 	/**
-	 * Returns the value of the '<em><b>Base Column</b></em>' reference. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.IColumnBinding#getSubColumns <em>Sub Columns</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Base Column</b></em>' reference. It is bidirectional and its
+	 * opposite is ' {@link com.rcpcompany.uibindings.IColumnBinding#getSubColumns
+	 * <em>Sub Columns</em>}'. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Base Column</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Base Column</em>' reference isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -312,8 +329,8 @@ public interface IColumnBinding extends IBinding {
 	IColumnBinding getBaseColumn();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IColumnBinding#getBaseColumn <em>Base Column</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IColumnBinding#getBaseColumn
+	 * <em>Base Column</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Base Column</em>' reference.
 	 * @see #getBaseColumn()
@@ -322,12 +339,13 @@ public interface IColumnBinding extends IBinding {
 	void setBaseColumn(IColumnBinding value);
 
 	/**
-	 * Returns the value of the '<em><b>Sub Columns</b></em>' reference list. The list contents are of type
-	 * {@link com.rcpcompany.uibindings.IColumnBinding}. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.IColumnBinding#getBaseColumn <em>Base Column</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Sub Columns</b></em>' reference list. The list contents are
+	 * of type {@link com.rcpcompany.uibindings.IColumnBinding}. It is bidirectional and its
+	 * opposite is ' {@link com.rcpcompany.uibindings.IColumnBinding#getBaseColumn
+	 * <em>Base Column</em>}'. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Sub Columns</em>' reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Sub Columns</em>' reference list isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -339,10 +357,12 @@ public interface IColumnBinding extends IBinding {
 	EList<IColumnBinding> getSubColumns();
 
 	/**
-	 * Returns the value of the '<em><b>Cells</b></em>' map. The key is of type {@link org.eclipse.emf.ecore.EObject},
-	 * and the value is of type {@link com.rcpcompany.uibindings.IColumnBindingCellInformation}, <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Cells</b></em>' map. The key is of type
+	 * {@link org.eclipse.emf.ecore.EObject}, and the value is of type
+	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation}, <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Cells</em>' map isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Cells</em>' map isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -353,11 +373,12 @@ public interface IColumnBinding extends IBinding {
 	EMap<EObject, IColumnBindingCellInformation> getCells();
 
 	/**
-	 * Returns the value of the '<em><b>Special Binding Type</b></em>' attribute. The literals are from the enumeration
-	 * {@link com.rcpcompany.uibindings.SpecialBinding}. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Special Binding Type</b></em>' attribute. The literals are
+	 * from the enumeration {@link com.rcpcompany.uibindings.SpecialBinding}. <!-- begin-user-doc
+	 * -->
 	 * <p>
-	 * If the meaning of the '<em>Special Binding Type</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Special Binding Type</em>' attribute isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -383,8 +404,8 @@ public interface IColumnBinding extends IBinding {
 	/**
 	 * Returns the value of the '<em><b>Factory</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Factory</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Factory</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -397,8 +418,8 @@ public interface IColumnBinding extends IBinding {
 	/**
 	 * Returns the value of the '<em><b>Cursor</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Cursor</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Cursor</em>' attribute isn't clear, there really should be more of
+	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -410,8 +431,8 @@ public interface IColumnBinding extends IBinding {
 	Cursor getCursor();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IColumnBinding#getCursor <em>Cursor</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IColumnBinding#getCursor
+	 * <em>Cursor</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Cursor</em>' attribute.
 	 * @see #getCursor()
@@ -420,12 +441,14 @@ public interface IColumnBinding extends IBinding {
 	void setCursor(Cursor value);
 
 	/**
-	 * Returns the value of the '<em><b>Column Visibility</b></em>' attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Column Visibility</b></em>' attribute. <!-- begin-user-doc
+	 * -->
 	 * <p>
-	 * Return a observable value (value type {@link Boolean}) that controls the visibility of the column in the viewer.
+	 * Return a observable value (value type {@link Boolean}) that controls the visibility of the
+	 * column in the viewer.
 	 * <p>
-	 * It is important that the {@link TableColumn} or {@link TreeColumn} is not modified directly after this observable
-	 * has been created.
+	 * It is important that the {@link TableColumn} or {@link TreeColumn} is not modified directly
+	 * after this observable has been created.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

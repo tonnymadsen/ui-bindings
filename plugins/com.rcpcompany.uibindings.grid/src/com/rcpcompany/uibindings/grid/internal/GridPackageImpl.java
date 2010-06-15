@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.grid.internal;
@@ -121,12 +120,13 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	private EDataType iGridModelEDataType = null;
 
 	/**
-	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry
-	 * EPackage.Registry} by the package package URI value.
+	 * Creates an instance of the model <b>Package</b>, registered with
+	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package package URI
+	 * value.
 	 * <p>
-	 * Note: the correct way to create the package is via the static factory method {@link #init init()}, which also
-	 * performs initialization of the package, or returns the registered package, if one already exists. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Note: the correct way to create the package is via the static factory method {@link #init
+	 * init()}, which also performs initialization of the package, or returns the registered
+	 * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see com.rcpcompany.uibindings.grid.IGridPackage#eNS_URI
@@ -145,12 +145,13 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others
+	 * upon which it depends.
 	 * 
 	 * <p>
-	 * This method is used to initialize {@link IGridPackage#eINSTANCE} when that field is accessed. Clients should not
-	 * invoke it directly. Instead, they should simply access that field to obtain the package. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This method is used to initialize {@link IGridPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to
+	 * obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
@@ -158,14 +159,11 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * @generated
 	 */
 	public static IGridPackage init() {
-		if (isInited) {
-			return (IGridPackage) EPackage.Registry.INSTANCE.getEPackage(IGridPackage.eNS_URI);
-		}
+		if (isInited) return (IGridPackage) EPackage.Registry.INSTANCE.getEPackage(IGridPackage.eNS_URI);
 
 		// Obtain or create and register package
 		final GridPackageImpl theGridPackage = (GridPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof GridPackageImpl ? EPackage.Registry.INSTANCE
-				.get(eNS_URI)
-				: new GridPackageImpl());
+				.get(eNS_URI) : new GridPackageImpl());
 
 		isInited = true;
 
@@ -191,6 +189,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getGridBinding() {
 		return gridBindingEClass;
 	}
@@ -200,6 +199,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGridBinding_NoColumnHeaders() {
 		return (EAttribute) gridBindingEClass.getEStructuralFeatures().get(0);
 	}
@@ -209,6 +209,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getGridBinding_CellEditor() {
 		return (EReference) gridBindingEClass.getEStructuralFeatures().get(7);
 	}
@@ -218,6 +219,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getGridBinding_Rows() {
 		return (EReference) gridBindingEClass.getEStructuralFeatures().get(3);
 	}
@@ -227,6 +229,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGridBinding_Grid() {
 		return (EAttribute) gridBindingEClass.getEStructuralFeatures().get(4);
 	}
@@ -236,6 +239,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGridBinding_Model() {
 		return (EAttribute) gridBindingEClass.getEStructuralFeatures().get(5);
 	}
@@ -245,6 +249,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getGridBinding_FocusCell() {
 		return (EReference) gridBindingEClass.getEStructuralFeatures().get(6);
 	}
@@ -254,6 +259,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getGridBinding_Columns() {
 		return (EReference) gridBindingEClass.getEStructuralFeatures().get(1);
 	}
@@ -263,6 +269,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGridBinding_NoRowHeaders() {
 		return (EAttribute) gridBindingEClass.getEStructuralFeatures().get(2);
 	}
@@ -272,6 +279,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getGridBindingCellInformation() {
 		return gridBindingCellInformationEClass;
 	}
@@ -281,6 +289,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getGridBindingCellInformation_Column() {
 		return (EReference) gridBindingCellInformationEClass.getEStructuralFeatures().get(0);
 	}
@@ -290,6 +299,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getGridBindingCellInformation_Row() {
 		return (EReference) gridBindingCellInformationEClass.getEStructuralFeatures().get(1);
 	}
@@ -299,6 +309,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getGridBindingCellInformation_DataType() {
 		return (EReference) gridBindingCellInformationEClass.getEStructuralFeatures().get(2);
 	}
@@ -308,6 +319,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getGridBindingCellInformation_LabelBinding() {
 		return (EReference) gridBindingCellInformationEClass.getEStructuralFeatures().get(3);
 	}
@@ -317,6 +329,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getGridBindingCellInformation_LabelUIAttribute() {
 		return (EReference) gridBindingCellInformationEClass.getEStructuralFeatures().get(4);
 	}
@@ -326,6 +339,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGridBindingCellInformation_ObjectValue() {
 		return (EAttribute) gridBindingCellInformationEClass.getEStructuralFeatures().get(5);
 	}
@@ -335,6 +349,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGridBindingCellInformation_Changeable() {
 		return (EAttribute) gridBindingCellInformationEClass.getEStructuralFeatures().get(6);
 	}
@@ -344,6 +359,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGridBindingCellInformation_DisplayText() {
 		return (EAttribute) gridBindingCellInformationEClass.getEStructuralFeatures().get(7);
 	}
@@ -353,6 +369,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGridBindingCellInformation_ValueType() {
 		return (EAttribute) gridBindingCellInformationEClass.getEStructuralFeatures().get(8);
 	}
@@ -362,6 +379,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getGridBindingCellInformation_PasteUIAttribute() {
 		return (EReference) gridBindingCellInformationEClass.getEStructuralFeatures().get(9);
 	}
@@ -371,6 +389,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGridBindingCellInformation_ToolTipText() {
 		return (EAttribute) gridBindingCellInformationEClass.getEStructuralFeatures().get(10);
 	}
@@ -380,6 +399,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGridBindingCellInformation_Enabled() {
 		return (EAttribute) gridBindingCellInformationEClass.getEStructuralFeatures().get(11);
 	}
@@ -389,6 +409,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGridBindingCellInformation_Painter() {
 		return (EAttribute) gridBindingCellInformationEClass.getEStructuralFeatures().get(12);
 	}
@@ -398,6 +419,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getGridBindingCellEditor() {
 		return gridBindingCellEditorEClass;
 	}
@@ -407,6 +429,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getGridBindingCellEditor_Grid() {
 		return (EReference) gridBindingCellEditorEClass.getEStructuralFeatures().get(0);
 	}
@@ -416,6 +439,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGridBindingCellEditor_GridEditor() {
 		return (EAttribute) gridBindingCellEditorEClass.getEStructuralFeatures().get(1);
 	}
@@ -425,6 +449,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getGridBindingCellEditor_ActiveEditCell() {
 		return (EReference) gridBindingCellEditorEClass.getEStructuralFeatures().get(2);
 	}
@@ -434,6 +459,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getGridBindingColumnInformation() {
 		return gridBindingColumnInformationEClass;
 	}
@@ -443,6 +469,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getGridBindingColumnInformation_Grid() {
 		return (EReference) gridBindingColumnInformationEClass.getEStructuralFeatures().get(0);
 	}
@@ -452,6 +479,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGridBindingColumnInformation_Id() {
 		return (EAttribute) gridBindingColumnInformationEClass.getEStructuralFeatures().get(1);
 	}
@@ -461,6 +489,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getGridBindingColumnInformation_RowCells() {
 		return (EReference) gridBindingColumnInformationEClass.getEStructuralFeatures().get(2);
 	}
@@ -470,6 +499,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGridBindingColumnInformation_GridColumn() {
 		return (EAttribute) gridBindingColumnInformationEClass.getEStructuralFeatures().get(3);
 	}
@@ -479,6 +509,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getGridBindingRowInformation() {
 		return gridBindingRowInformationEClass;
 	}
@@ -488,6 +519,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getGridBindingRowInformation_Grid() {
 		return (EReference) gridBindingRowInformationEClass.getEStructuralFeatures().get(0);
 	}
@@ -497,6 +529,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGridBindingRowInformation_Id() {
 		return (EAttribute) gridBindingRowInformationEClass.getEStructuralFeatures().get(1);
 	}
@@ -506,6 +539,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getGridBindingRowInformation_ColumnCells() {
 		return (EReference) gridBindingRowInformationEClass.getEStructuralFeatures().get(2);
 	}
@@ -515,6 +549,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGridBindingRowInformation_GridItem() {
 		return (EAttribute) gridBindingRowInformationEClass.getEStructuralFeatures().get(3);
 	}
@@ -524,6 +559,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getObjectToColumnMapEntry() {
 		return objectToColumnMapEntryEClass;
 	}
@@ -533,6 +569,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getObjectToColumnMapEntry_Key() {
 		return (EAttribute) objectToColumnMapEntryEClass.getEStructuralFeatures().get(0);
 	}
@@ -542,6 +579,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getObjectToColumnMapEntry_Value() {
 		return (EReference) objectToColumnMapEntryEClass.getEStructuralFeatures().get(1);
 	}
@@ -551,6 +589,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getObjectToRowMapEntry() {
 		return objectToRowMapEntryEClass;
 	}
@@ -560,6 +599,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getObjectToRowMapEntry_Key() {
 		return (EAttribute) objectToRowMapEntryEClass.getEStructuralFeatures().get(0);
 	}
@@ -569,6 +609,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getObjectToRowMapEntry_Value() {
 		return (EReference) objectToRowMapEntryEClass.getEStructuralFeatures().get(1);
 	}
@@ -578,6 +619,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getGrid() {
 		return gridEDataType;
 	}
@@ -587,6 +629,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getGridColumn() {
 		return gridColumnEDataType;
 	}
@@ -596,6 +639,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getGridEditor() {
 		return gridEditorEDataType;
 	}
@@ -605,6 +649,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getGridItem() {
 		return gridItemEDataType;
 	}
@@ -614,6 +659,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getIGridModel() {
 		return iGridModelEDataType;
 	}
@@ -623,6 +669,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IGridFactory getGridFactory() {
 		return (IGridFactory) getEFactoryInstance();
 	}
@@ -635,15 +682,13 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	private boolean isCreated = false;
 
 	/**
-	 * Creates the meta-model objects for the package. This method is guarded to have no affect on any invocation but
-	 * its first. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Creates the meta-model objects for the package. This method is guarded to have no affect on
+	 * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated) {
-			return;
-		}
+		if (isCreated) return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -713,15 +758,13 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	private boolean isInitialized = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model. This method is guarded to have no affect on any
-	 * invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Complete the initialization of the package and its meta-model. This method is guarded to have
+	 * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized) {
-			return;
-		}
+		if (isInitialized) return;
 		isInitialized = true;
 
 		// Initialize package
@@ -767,19 +810,19 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 		initEReference(getGridBinding_FocusCell(), this.getGridBindingCellInformation(), null, "focusCell", null, 0, 1,
 				IGridBinding.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGridBinding_CellEditor(), this.getGridBindingCellEditor(), this
-				.getGridBindingCellEditor_Grid(), "cellEditor", null, 0, 1, IGridBinding.class, IS_TRANSIENT,
+		initEReference(getGridBinding_CellEditor(), this.getGridBindingCellEditor(),
+				this.getGridBindingCellEditor_Grid(), "cellEditor", null, 0, 1, IGridBinding.class, IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
 		initEClass(gridBindingCellInformationEClass, IGridBindingCellInformation.class, "GridBindingCellInformation",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGridBindingCellInformation_Column(), this.getGridBindingColumnInformation(), this
-				.getGridBindingColumnInformation_RowCells(), "column", null, 1, 1, IGridBindingCellInformation.class,
-				IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGridBindingCellInformation_Row(), this.getGridBindingRowInformation(), this
-				.getGridBindingRowInformation_ColumnCells(), "row", null, 1, 1, IGridBindingCellInformation.class,
+		initEReference(getGridBindingCellInformation_Column(), this.getGridBindingColumnInformation(),
+				this.getGridBindingColumnInformation_RowCells(), "column", null, 1, 1,
+				IGridBindingCellInformation.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGridBindingCellInformation_Row(), this.getGridBindingRowInformation(),
+				this.getGridBindingRowInformation_ColumnCells(), "row", null, 1, 1, IGridBindingCellInformation.class,
 				IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGridBindingCellInformation_DataType(), theUIBindingsPackage.getBindingDataType(), null,
@@ -839,10 +882,10 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 		initEAttribute(getGridBindingColumnInformation_Id(), ecorePackage.getEJavaObject(), "id", null, 0, 1,
 				IGridBindingColumnInformation.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE,
 				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGridBindingColumnInformation_RowCells(), this.getGridBindingCellInformation(), this
-				.getGridBindingCellInformation_Column(), "rowCells", null, 0, -1, IGridBindingColumnInformation.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGridBindingColumnInformation_RowCells(), this.getGridBindingCellInformation(),
+				this.getGridBindingCellInformation_Column(), "rowCells", null, 0, -1,
+				IGridBindingColumnInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGridBindingColumnInformation_GridColumn(), this.getGridColumn(), "gridColumn", null, 1, 1,
 				IGridBindingColumnInformation.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -855,8 +898,8 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 		initEAttribute(getGridBindingRowInformation_Id(), ecorePackage.getEJavaObject(), "id", null, 0, 1,
 				IGridBindingRowInformation.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGridBindingRowInformation_ColumnCells(), this.getGridBindingCellInformation(), this
-				.getGridBindingCellInformation_Row(), "columnCells", null, 0, -1, IGridBindingRowInformation.class,
+		initEReference(getGridBindingRowInformation_ColumnCells(), this.getGridBindingCellInformation(),
+				this.getGridBindingCellInformation_Row(), "columnCells", null, 0, -1, IGridBindingRowInformation.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGridBindingRowInformation_GridItem(), this.getGridItem(), "gridItem", null, 0, 1,

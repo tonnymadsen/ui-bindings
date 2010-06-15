@@ -7,11 +7,11 @@ import org.eclipse.swt.widgets.Composite;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.utils.IFormChooser;
+import com.rcpcompany.uibindings.utils.IFormChooser.IFormChooserTester;
 import com.rcpcompany.uibindings.utils.IFormChooserCreator;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.utils.IFormCreatorChooser;
 import com.rcpcompany.uibindings.utils.IFormCreatorChooserCreator;
-import com.rcpcompany.uibindings.utils.IFormChooser.IFormChooserTester;
 
 /**
  * The implementation of {@link IFormChooser}.

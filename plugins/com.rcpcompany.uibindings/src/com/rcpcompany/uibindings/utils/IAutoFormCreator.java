@@ -17,6 +17,9 @@ public interface IAutoFormCreator extends IDisposable {
 	 * The factory methods for {@link IAutoFormCreator}.
 	 */
 	public static final class Factory {
+		private Factory() {
+		}
+
 		/**
 		 * Creates a new super form with the specified parent.
 		 * 
@@ -26,7 +29,8 @@ public interface IAutoFormCreator extends IDisposable {
 		 * @param parent the parent composite of the new form
 		 * @return the created form creator
 		 */
-		// public static IAutoFormCreator createForm(IBindingContext context, EObject obj, FormToolkit toolkit,
+		// public static IAutoFormCreator createForm(IBindingContext context, EObject obj,
+		// FormToolkit toolkit,
 		// Composite parent) {
 		// return new AutoFormCreator(context, obj, toolkit, parent, null);
 		// }

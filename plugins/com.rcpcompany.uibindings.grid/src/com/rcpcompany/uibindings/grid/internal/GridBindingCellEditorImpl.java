@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.grid.internal;
@@ -13,9 +12,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.jface.viewers.CellEditor;
+import org.eclipse.jface.viewers.CellEditor.LayoutData;
 import org.eclipse.jface.viewers.ColumnViewerEditorActivationEvent;
 import org.eclipse.jface.viewers.ICellEditorListener;
-import org.eclipse.jface.viewers.CellEditor.LayoutData;
 import org.eclipse.nebula.widgets.grid.GridEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
@@ -42,15 +41,17 @@ import com.rcpcompany.uibindings.internal.cellEditors.SimpleCellEditorFactory;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Binding Cell Editor</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Binding Cell Editor</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellEditorImpl#getGrid <em>Grid</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellEditorImpl#getGridEditor <em>Grid Editor</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellEditorImpl#getActiveEditCell <em>Active Edit Cell
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellEditorImpl#getGrid <em>Grid
  * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellEditorImpl#getGridEditor <em>
+ * Grid Editor</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellEditorImpl#getActiveEditCell
+ * <em>Active Edit Cell </em>}</li>
  * </ul>
  * </p>
  * 
@@ -58,8 +59,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  */
 public class GridBindingCellEditorImpl extends EObjectImpl implements IGridBindingCellEditor {
 	/**
-	 * The cached value of the '{@link #getGrid() <em>Grid</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getGrid() <em>Grid</em>}' reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getGrid()
 	 * @generated
@@ -68,8 +69,8 @@ public class GridBindingCellEditorImpl extends EObjectImpl implements IGridBindi
 	protected IGridBinding grid;
 
 	/**
-	 * The default value of the '{@link #getGridEditor() <em>Grid Editor</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getGridEditor() <em>Grid Editor</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getGridEditor()
 	 * @generated
@@ -78,8 +79,8 @@ public class GridBindingCellEditorImpl extends EObjectImpl implements IGridBindi
 	protected static final GridEditor GRID_EDITOR_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getGridEditor() <em>Grid Editor</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getGridEditor() <em>Grid Editor</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getGridEditor()
 	 * @generated
@@ -88,8 +89,8 @@ public class GridBindingCellEditorImpl extends EObjectImpl implements IGridBindi
 	protected GridEditor gridEditor = GRID_EDITOR_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getActiveEditCell() <em>Active Edit Cell</em>}' reference. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getActiveEditCell() <em>Active Edit Cell</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getActiveEditCell()
 	 * @generated
@@ -121,6 +122,7 @@ public class GridBindingCellEditorImpl extends EObjectImpl implements IGridBindi
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IGridBinding getGrid() {
 		return grid;
 	}
@@ -176,6 +178,7 @@ public class GridBindingCellEditorImpl extends EObjectImpl implements IGridBindi
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setGrid(IGridBinding newGrid) {
 		if (newGrid != grid) {
 			NotificationChain msgs = null;
@@ -202,6 +205,7 @@ public class GridBindingCellEditorImpl extends EObjectImpl implements IGridBindi
 	 * 
 	 * @generated
 	 */
+	@Override
 	public GridEditor getGridEditor() {
 		return gridEditor;
 	}
@@ -211,6 +215,7 @@ public class GridBindingCellEditorImpl extends EObjectImpl implements IGridBindi
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IGridBindingCellInformation getActiveEditCell() {
 		return activeEditCell;
 	}
@@ -220,6 +225,7 @@ public class GridBindingCellEditorImpl extends EObjectImpl implements IGridBindi
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setActiveEditCell(IGridBindingCellInformation newActiveEditCell) {
 		final IGridBindingCellInformation oldActiveEditCell = activeEditCell;
 		activeEditCell = newActiveEditCell;
@@ -340,9 +346,7 @@ public class GridBindingCellEditorImpl extends EObjectImpl implements IGridBindi
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (gridEditor: ");
@@ -356,10 +360,9 @@ public class GridBindingCellEditorImpl extends EObjectImpl implements IGridBindi
 	 */
 	private CellEditor myCE;
 
+	@Override
 	public void editCell(final IGridBindingCellInformation cell, final ColumnViewerEditorActivationEvent event) {
-		if (getActiveEditCell() == cell) {
-			return;
-		}
+		if (getActiveEditCell() == cell) return;
 		if (getActiveEditCell() != null) {
 			cancelEdit();
 		}
@@ -382,8 +385,8 @@ public class GridBindingCellEditorImpl extends EObjectImpl implements IGridBindi
 		gridEditor.minimumHeight = layoutData.minimumHeight;
 
 		// Set the grid editor
-		editorControl.setEditor(control, cell.getRow().getGridItem(), getGrid().getGrid().indexOf(
-				cell.getColumn().getGridColumn()));
+		editorControl.setEditor(control, cell.getRow().getGridItem(),
+				getGrid().getGrid().indexOf(cell.getColumn().getGridColumn()));
 
 		/*
 		 * Set focus - after the binding
@@ -400,9 +403,7 @@ public class GridBindingCellEditorImpl extends EObjectImpl implements IGridBindi
 
 			@Override
 			public void mouseDown(MouseEvent e) {
-				if (control.isDisposed()) {
-					return;
-				}
+				if (control.isDisposed()) return;
 				// time wrap?
 				// check for expiration of doubleClickTime
 				if (shouldFireDoubleClick(activationTime, e.time, event) && e.button == 1) {
@@ -464,13 +465,9 @@ public class GridBindingCellEditorImpl extends EObjectImpl implements IGridBindi
 	protected void endEditing() {
 		// LogUtils.debug(this, "commit=" + commitChanges);
 		final IGridBindingCellInformation cell = getActiveEditCell();
-		if (cell == null) {
-			return;
-		}
+		if (cell == null) return;
 		setActiveEditCell(null);
-		if (myCE == null) {
-			return;
-		}
+		if (myCE == null) return;
 		final Control control = myCE.getControl();
 
 		// Deactivate

@@ -24,8 +24,9 @@ import com.rcpcompany.uibindings.internal.utils.FormCreator;
 /**
  * This utility class is used to create complete forms based on the structure of data.
  * <p>
- * A new child {@link Composite} is created in the specified parent composite. The creation of the new child understands
- * the following layouts in the parent: {@link FillLayout}, {@link GridLayout} and {@link TableWrapLayout}.
+ * A new child {@link Composite} is created in the specified parent composite. The creation of the
+ * new child understands the following layouts in the parent: {@link FillLayout}, {@link GridLayout}
+ * and {@link TableWrapLayout}.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -34,6 +35,9 @@ public interface IFormCreator extends IDisposable {
 	 * The factory methods for {@link IFormCreator}.
 	 */
 	public static final class Factory {
+		private Factory() {
+		}
+
 		/**
 		 * Creates a new form with the specified parent.
 		 * 
@@ -230,7 +234,8 @@ public interface IFormCreator extends IDisposable {
 	public boolean isReadOnly();
 
 	/**
-	 * Sets the heading of the scrolled form or section that forms the base of this form creator, if any.
+	 * Sets the heading of the scrolled form or section that forms the base of this form creator, if
+	 * any.
 	 * 
 	 * @param heading the new heading
 	 */
@@ -271,7 +276,8 @@ public interface IFormCreator extends IDisposable {
 	public ITableCreator addTableCreator(boolean grabHorizontal, int style);
 
 	/**
-	 * Creates and returns a new table based on a table creator for the current object and the specified reference.
+	 * Creates and returns a new table based on a table creator for the current object and the
+	 * specified reference.
 	 * 
 	 * @param ref the reference for the table
 	 * @param grabHorizontal TODO
@@ -292,7 +298,8 @@ public interface IFormCreator extends IDisposable {
 	 * Adds a new section to the form with the specified label.
 	 * 
 	 * @param label the label for the section
-	 * @param grabVertical <code>true</code> if the new section should grab as space as possible vertically
+	 * @param grabVertical <code>true</code> if the new section should grab as space as possible
+	 *            vertically
 	 * @return a new independent {@link IFormCreator}
 	 */
 	public IFormCreator addSection(String label, boolean grabVertical);
@@ -365,7 +372,8 @@ public interface IFormCreator extends IDisposable {
 	public IObservableValue getObservableValue(String spec);
 
 	/**
-	 * Adds a new observable value for the specified specification based on the specified base value.
+	 * Adds a new observable value for the specified specification based on the specified base
+	 * value.
 	 * <p>
 	 * See {@link IBindingSpec} for a description of the format and use of the specification.
 	 * 
@@ -493,7 +501,8 @@ public interface IFormCreator extends IDisposable {
 	public void addObjectMessages();
 
 	/**
-	 * Adds all objects messages for the specified {@link #getObservableValue(String) getObservableValue(spec)}.
+	 * Adds all objects messages for the specified {@link #getObservableValue(String)
+	 * getObservableValue(spec)}.
 	 * 
 	 * @param spec the specification for the object
 	 */
@@ -518,8 +527,9 @@ public interface IFormCreator extends IDisposable {
 	/**
 	 * Splits the current form into a number of parallel forms.
 	 * <p>
-	 * A boolean argument is specified for each column to be added. The boolean specifies whether the column should grab
-	 * space or not. Thus to add three columns, where only the middle column should grab space use the call
+	 * A boolean argument is specified for each column to be added. The boolean specifies whether
+	 * the column should grab space or not. Thus to add three columns, where only the middle column
+	 * should grab space use the call
 	 * 
 	 * <pre>
 	 *  IFormCreator[] columns = ...addColumns(false, true, false);
@@ -531,7 +541,8 @@ public interface IFormCreator extends IDisposable {
 	public IFormCreator[] addColumns(boolean... grab);
 
 	/**
-	 * Splits the current form into a number of parallel forms each formatted according to the {@link GridData} object.
+	 * Splits the current form into a number of parallel forms each formatted according to the
+	 * {@link GridData} object.
 	 * <p>
 	 * A {@link GridData} object is specified for each column to be added.
 	 * 
@@ -557,14 +568,16 @@ public interface IFormCreator extends IDisposable {
 	public IFormChooser addFormChooser(IObservableValue discriminant);
 
 	/**
-	 * Returns whether the created fields in this form creator and all child form are aligned on the left edge.
+	 * Returns whether the created fields in this form creator and all child form are aligned on the
+	 * left edge.
 	 * 
 	 * @return <code>true</code> if they are aligned
 	 */
 	public boolean areFieldsAligned();
 
 	/**
-	 * Set whether the created fields in this form creator and all child form are aligned on the left edge.
+	 * Set whether the created fields in this form creator and all child form are aligned on the
+	 * left edge.
 	 * 
 	 * @param align <code>true</code> if they are aligned
 	 */

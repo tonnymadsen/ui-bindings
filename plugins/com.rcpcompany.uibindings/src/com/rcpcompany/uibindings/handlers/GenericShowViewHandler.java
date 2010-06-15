@@ -24,8 +24,8 @@ import com.rcpcompany.utils.logging.LogUtils;
 /**
  * This handler shows a specific view that is specified as the extension data for the handler class.
  * <p>
- * If the created view supports the {@link ISetSelectionTarget} interface, then the current cell element is set as the
- * new selection.
+ * If the created view supports the {@link ISetSelectionTarget} interface, then the current cell
+ * element is set as the new selection.
  * <p>
  * E.g.
  * 
@@ -61,17 +61,13 @@ public class GenericShowViewHandler extends AbstractHandler implements IHandler,
 			selection = HandlerUtil.getCurrentSelection(ee);
 		}
 
-		if (selection == null || selection.isEmpty()) {
-			throw new ExecutionException("No selection found"); //$NON-NLS-1$
-		}
+		if (selection == null || selection.isEmpty()) throw new ExecutionException("No selection found"); //$NON-NLS-1$
 
 		String viewID = myViewID;
 		if (viewID == null) {
 			viewID = ee.getParameter("viewId"); //$NON-NLS-1$
 		}
-		if (viewID == null || viewID.length() == 0) {
-			throw new ExecutionException("No view ID specified"); //$NON-NLS-1$
-		}
+		if (viewID == null || viewID.length() == 0) throw new ExecutionException("No view ID specified"); //$NON-NLS-1$
 
 		IGlobalNavigationManager.Factory.addLocation();
 		if (Activator.getDefault().TRACE_HANDLERS) {

@@ -39,9 +39,11 @@ import com.rcpcompany.uibindings.grid.IGridBinding;
 import com.rcpcompany.uibindings.grid.extests.models.TestGridGridModel;
 
 /**
- * Tests of the different way editing of a cell can start and end as well as traversal out of the cell.
+ * Tests of the different way editing of a cell can start and end as well as traversal out of the
+ * cell.
  * <p>
- * Tests the functionality of {@link IManager#isEditCellAnyKey()} and {@link IManager#isAutoApplySingleQuickfix()}.
+ * Tests the functionality of {@link IManager#isEditCellAnyKey()} and
+ * {@link IManager#isAutoApplySingleQuickfix()}.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -251,6 +253,7 @@ public class GridEditCellStrategiesTest {
 	private void testEditStrategy(final boolean editExpected, final String expectedValue, final Runnable runnable) {
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				runnable.run();
 				yield();
@@ -258,6 +261,7 @@ public class GridEditCellStrategiesTest {
 		});
 		assertNoLog(new Runnable() {
 
+			@Override
 			public void run() {
 				assertEquals(what, editExpected, myGridBinding.isEditing());
 
@@ -286,12 +290,14 @@ public class GridEditCellStrategiesTest {
 	private void testUndoAsCancel(final Runnable runnable) {
 		final String oldName = myCellA1.getDetails();
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				runnable.run();
 				yield();
 			}
 		});
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				assertEquals(what, true, myGridBinding.isEditing());
 
@@ -316,6 +322,7 @@ public class GridEditCellStrategiesTest {
 	private void testTABTraversal(final String expectedValue, final String afterTabExpectedValue,
 			final String afterTabTabExpectedValue, final String afterTabTabTabExpectedValue, final Runnable runnable) {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				runnable.run();
 				yield();
@@ -323,6 +330,7 @@ public class GridEditCellStrategiesTest {
 			}
 		});
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				postKeyStroke(myGrid, "TAB");
 				yield();
@@ -337,6 +345,7 @@ public class GridEditCellStrategiesTest {
 		// }
 		// });
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				postKeyStroke(myGrid, "TAB");
 				yield();
@@ -351,6 +360,7 @@ public class GridEditCellStrategiesTest {
 		// }
 		// });
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				postKeyStroke(myGrid, "Shift+TAB");
 				yield();
@@ -358,6 +368,7 @@ public class GridEditCellStrategiesTest {
 			}
 		});
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				postKeyStroke(myGrid, "Shift+TAB");
 				yield();

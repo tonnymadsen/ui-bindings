@@ -3,7 +3,8 @@ package com.rcpcompany.uibindings;
 import org.eclipse.swt.widgets.Control;
 
 /**
- * This factory interface is used to create preferred {@link Control Controls} for {@link IValueBinding}.
+ * This factory interface is used to create preferred {@link Control Controls} for
+ * {@link IValueBinding}.
  * 
  * @author Tonny Madsen, The RCP Company
  */

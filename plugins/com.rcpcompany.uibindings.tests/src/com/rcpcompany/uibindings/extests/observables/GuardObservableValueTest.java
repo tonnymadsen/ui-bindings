@@ -32,7 +32,7 @@ public class GuardObservableValueTest {
 	public static Collection<Object[]> data() {
 		return Arrays.asList(new Object[][] {
 
-		// negate
+				// negate
 
 				{ false },
 

@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.grid.internal;
@@ -29,16 +28,19 @@ import com.rcpcompany.uibindings.grid.IGridFactory;
 import com.rcpcompany.uibindings.grid.IGridPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Binding Row Information</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Binding Row Information</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingRowInformationImpl#getGrid <em>Grid</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingRowInformationImpl#getId <em>Id</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingRowInformationImpl#getColumnCells <em>Column Cells
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingRowInformationImpl#getGrid <em>Grid
  * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingRowInformationImpl#getGridItem <em>Grid Item</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingRowInformationImpl#getId <em>Id
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingRowInformationImpl#getColumnCells
+ * <em>Column Cells </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingRowInformationImpl#getGridItem <em>
+ * Grid Item</em>}</li>
  * </ul>
  * </p>
  * 
@@ -46,8 +48,8 @@ import com.rcpcompany.uibindings.grid.IGridPackage;
  */
 public class GridBindingRowInformationImpl extends EObjectImpl implements IGridBindingRowInformation {
 	/**
-	 * The cached value of the '{@link #getGrid() <em>Grid</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getGrid() <em>Grid</em>}' reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getGrid()
 	 * @generated
@@ -56,7 +58,8 @@ public class GridBindingRowInformationImpl extends EObjectImpl implements IGridB
 	protected IGridBinding grid;
 
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getId()
 	 * @generated
@@ -65,7 +68,8 @@ public class GridBindingRowInformationImpl extends EObjectImpl implements IGridB
 	protected static final Object ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getId()
 	 * @generated
@@ -74,8 +78,8 @@ public class GridBindingRowInformationImpl extends EObjectImpl implements IGridB
 	protected Object id = ID_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getColumnCells() <em>Column Cells</em>}' reference list. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getColumnCells() <em>Column Cells</em>}' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getColumnCells()
 	 * @generated
@@ -84,8 +88,8 @@ public class GridBindingRowInformationImpl extends EObjectImpl implements IGridB
 	protected EList<IGridBindingCellInformation> columnCells;
 
 	/**
-	 * The default value of the '{@link #getGridItem() <em>Grid Item</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getGridItem() <em>Grid Item</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getGridItem()
 	 * @generated
@@ -94,8 +98,8 @@ public class GridBindingRowInformationImpl extends EObjectImpl implements IGridB
 	protected static final GridItem GRID_ITEM_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getGridItem() <em>Grid Item</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getGridItem() <em>Grid Item</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getGridItem()
 	 * @generated
@@ -149,6 +153,7 @@ public class GridBindingRowInformationImpl extends EObjectImpl implements IGridB
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IGridBinding getGrid() {
 		return grid;
 	}
@@ -172,6 +177,7 @@ public class GridBindingRowInformationImpl extends EObjectImpl implements IGridB
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Object getId() {
 		return id;
 	}
@@ -181,6 +187,7 @@ public class GridBindingRowInformationImpl extends EObjectImpl implements IGridB
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<IGridBindingCellInformation> getColumnCells() {
 		if (columnCells == null) {
 			columnCells = new EObjectWithInverseEList<IGridBindingCellInformation>(IGridBindingCellInformation.class,
@@ -195,6 +202,7 @@ public class GridBindingRowInformationImpl extends EObjectImpl implements IGridB
 	 * 
 	 * @generated
 	 */
+	@Override
 	public GridItem getGridItem() {
 		return gridItem;
 	}
@@ -357,9 +365,7 @@ public class GridBindingRowInformationImpl extends EObjectImpl implements IGridB
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: ");

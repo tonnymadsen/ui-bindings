@@ -156,9 +156,7 @@ public class FilteringTableAdapter implements IFilteringTableAdapter, DisposeLis
 		public boolean select(Viewer viewer, Object parentElement, Object element) {
 			for (final IColumnBinding cb : myViewerBinding.getColumns()) {
 				final String value = cb.getDisplayText(element);
-				if (mySearchPattern.matches(value)) {
-					return true;
-				}
+				if (mySearchPattern.matches(value)) return true;
 			}
 			return false;
 		}
@@ -171,8 +169,8 @@ public class FilteringTableAdapter implements IFilteringTableAdapter, DisposeLis
 		@Override
 		public void focusGained(FocusEvent e) {
 			/*
-			 * Running in an asyncExec because the selectAll() does not appear to work when using mouse to give focus to
-			 * text.
+			 * Running in an asyncExec because the selectAll() does not appear to work when using
+			 * mouse to give focus to text.
 			 */
 			final Display display = myText.getDisplay();
 			display.asyncExec(new Runnable() {
@@ -282,10 +280,12 @@ public class FilteringTableAdapter implements IFilteringTableAdapter, DisposeLis
 		filterText.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false));
 		filterText.setMessage(TYPE_FILTER_TEXT);
 
-		// final Image inactiveImage = JFaceResources.getImageRegistry().get(ISharedImages.IMG_ETOOL_CLEAR_DISABLED);
-		// final Image activeImage = JFaceResources.getImageRegistry().get(ISharedImages.IMG_ETOOL_CLEAR);
-		final Image inactiveImage = PlatformUI.getWorkbench().getSharedImages().getImage(
-				ISharedImages.IMG_ETOOL_CLEAR_DISABLED);
+		// final Image inactiveImage =
+		// JFaceResources.getImageRegistry().get(ISharedImages.IMG_ETOOL_CLEAR_DISABLED);
+		// final Image activeImage =
+		// JFaceResources.getImageRegistry().get(ISharedImages.IMG_ETOOL_CLEAR);
+		final Image inactiveImage = PlatformUI.getWorkbench().getSharedImages()
+				.getImage(ISharedImages.IMG_ETOOL_CLEAR_DISABLED);
 		final Image activeImage = PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_ETOOL_CLEAR);
 		final Image pressedImage = new Image(parent.getDisplay(), activeImage, SWT.IMAGE_GRAY);
 
@@ -303,6 +303,7 @@ public class FilteringTableAdapter implements IFilteringTableAdapter, DisposeLis
 				fMoveListener = new MouseMoveListener() {
 					private boolean fMouseInButton = true;
 
+					@Override
 					public void mouseMove(MouseEvent e) {
 						final boolean mouseInButton = isMouseInButton(e);
 						if (mouseInButton != fMouseInButton) {

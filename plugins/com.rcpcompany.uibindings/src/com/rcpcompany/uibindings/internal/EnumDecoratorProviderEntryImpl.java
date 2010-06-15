@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -15,12 +14,13 @@ import com.rcpcompany.uibindings.IEnumDecoratorProviderEntry;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Enum Decorator Provider Entry</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Enum Decorator Provider Entry</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.EnumDecoratorProviderEntryImpl#getModel <em>Model</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.EnumDecoratorProviderEntryImpl#getModel <em>Model
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.EnumDecoratorProviderEntryImpl#getUi <em>Ui</em>}</li>
  * </ul>
  * </p>
@@ -29,8 +29,8 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
  */
 public class EnumDecoratorProviderEntryImpl extends EObjectImpl implements IEnumDecoratorProviderEntry {
 	/**
-	 * The default value of the '{@link #getModel() <em>Model</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getModel() <em>Model</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getModel()
 	 * @generated
@@ -39,8 +39,8 @@ public class EnumDecoratorProviderEntryImpl extends EObjectImpl implements IEnum
 	protected static final String MODEL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getModel() <em>Model</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getModel() <em>Model</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getModel()
 	 * @generated
@@ -49,7 +49,8 @@ public class EnumDecoratorProviderEntryImpl extends EObjectImpl implements IEnum
 	protected String model = MODEL_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getUi() <em>Ui</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getUi() <em>Ui</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getUi()
 	 * @generated
@@ -58,7 +59,8 @@ public class EnumDecoratorProviderEntryImpl extends EObjectImpl implements IEnum
 	protected static final String UI_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getUi() <em>Ui</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getUi() <em>Ui</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getUi()
 	 * @generated
@@ -90,6 +92,7 @@ public class EnumDecoratorProviderEntryImpl extends EObjectImpl implements IEnum
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getModel() {
 		return model;
 	}
@@ -99,6 +102,7 @@ public class EnumDecoratorProviderEntryImpl extends EObjectImpl implements IEnum
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setModel(String newModel) {
 		final String oldModel = model;
 		model = newModel;
@@ -113,6 +117,7 @@ public class EnumDecoratorProviderEntryImpl extends EObjectImpl implements IEnum
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getUi() {
 		return ui;
 	}
@@ -122,6 +127,7 @@ public class EnumDecoratorProviderEntryImpl extends EObjectImpl implements IEnum
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setUi(String newUi) {
 		final String oldUi = ui;
 		ui = newUi;
@@ -206,9 +212,7 @@ public class EnumDecoratorProviderEntryImpl extends EObjectImpl implements IEnum
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (model: "); //$NON-NLS-1$

@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.grid.internal;
@@ -35,6 +34,7 @@ import org.eclipse.swt.widgets.Event;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
+import com.rcpcompany.uibindings.IBindingContext.FinishOption;
 import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IUIAttribute;
@@ -42,7 +42,6 @@ import com.rcpcompany.uibindings.IUIBindingDecorator;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IValueBindingCell;
-import com.rcpcompany.uibindings.IBindingContext.FinishOption;
 import com.rcpcompany.uibindings.grid.IGridBinding;
 import com.rcpcompany.uibindings.grid.IGridBindingCellInformation;
 import com.rcpcompany.uibindings.grid.IGridBindingColumnInformation;
@@ -55,30 +54,40 @@ import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Binding Cell Information</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Binding Cell Information</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getColumn <em>Column</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getRow <em>Row</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getDataType <em>Data Type</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getLabelBinding <em>Label Binding
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getColumn <em>
+ * Column</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getRow <em>Row
  * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getLabelUIAttribute <em>Label UI
- * Attribute</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getObjectValue <em>Object Value
- * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#isChangeable <em>Changeable</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getDisplayText <em>Display Text
- * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getValueType <em>Value Type</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getPasteUIAttribute <em>Paste UI
- * Attribute</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getToolTipText <em>Tool Tip Text
- * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#isEnabled <em>Enabled</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getPainter <em>Painter</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getDataType
+ * <em>Data Type</em>}</li>
+ * <li>
+ * {@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getLabelBinding
+ * <em>Label Binding </em>}</li>
+ * <li>
+ * {@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getLabelUIAttribute
+ * <em>Label UI Attribute</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getObjectValue
+ * <em>Object Value </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#isChangeable
+ * <em>Changeable</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getDisplayText
+ * <em>Display Text </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getValueType
+ * <em>Value Type</em>}</li>
+ * <li>
+ * {@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getPasteUIAttribute
+ * <em>Paste UI Attribute</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getToolTipText
+ * <em>Tool Tip Text </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#isEnabled <em>
+ * Enabled</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getPainter <em>
+ * Painter</em>}</li>
  * </ul>
  * </p>
  * 
@@ -96,8 +105,8 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	}
 
 	/**
-	 * The cached value of the '{@link #getColumn() <em>Column</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getColumn() <em>Column</em>}' reference. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getColumn()
 	 * @generated
@@ -106,7 +115,8 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	protected IGridBindingColumnInformation column;
 
 	/**
-	 * The cached value of the '{@link #getRow() <em>Row</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getRow() <em>Row</em>}' reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getRow()
 	 * @generated
@@ -115,8 +125,8 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	protected IGridBindingRowInformation row;
 
 	/**
-	 * The cached value of the '{@link #getDataType() <em>Data Type</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getDataType() <em>Data Type</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDataType()
 	 * @generated
@@ -125,8 +135,8 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	protected IBindingDataType dataType;
 
 	/**
-	 * The cached value of the '{@link #getLabelBinding() <em>Label Binding</em>}' reference. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getLabelBinding() <em>Label Binding</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getLabelBinding()
 	 * @generated
@@ -135,8 +145,8 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	protected IValueBinding labelBinding;
 
 	/**
-	 * The cached value of the '{@link #getLabelUIAttribute() <em>Label UI Attribute</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getLabelUIAttribute() <em>Label UI Attribute</em>}'
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getLabelUIAttribute()
 	 * @generated
@@ -145,8 +155,8 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	protected IUIAttribute labelUIAttribute;
 
 	/**
-	 * The default value of the '{@link #getObjectValue() <em>Object Value</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getObjectValue() <em>Object Value</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getObjectValue()
 	 * @generated
@@ -155,8 +165,8 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	protected static final IObservableValue OBJECT_VALUE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getObjectValue() <em>Object Value</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getObjectValue() <em>Object Value</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getObjectValue()
 	 * @generated
@@ -165,8 +175,8 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	protected IObservableValue objectValue = OBJECT_VALUE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isChangeable() <em>Changeable</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #isChangeable() <em>Changeable</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isChangeable()
 	 * @generated
@@ -175,8 +185,8 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	protected static final boolean CHANGEABLE_EDEFAULT = false;
 
 	/**
-	 * The default value of the '{@link #getDisplayText() <em>Display Text</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getDisplayText() <em>Display Text</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDisplayText()
 	 * @generated
@@ -185,8 +195,8 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	protected static final String DISPLAY_TEXT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getPasteUIAttribute() <em>Paste UI Attribute</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getPasteUIAttribute() <em>Paste UI Attribute</em>}'
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getPasteUIAttribute()
 	 * @generated
@@ -195,8 +205,8 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	protected IUIAttribute pasteUIAttribute;
 
 	/**
-	 * The default value of the '{@link #getToolTipText() <em>Tool Tip Text</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getToolTipText() <em>Tool Tip Text</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getToolTipText()
 	 * @generated
@@ -205,8 +215,8 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	protected static final String TOOL_TIP_TEXT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getToolTipText() <em>Tool Tip Text</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getToolTipText() <em>Tool Tip Text</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getToolTipText()
 	 * @generated
@@ -215,8 +225,8 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	protected String toolTipText = TOOL_TIP_TEXT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isEnabled()
 	 * @generated
@@ -225,8 +235,8 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	protected static final boolean ENABLED_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #isEnabled() <em>Enabled</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #isEnabled() <em>Enabled</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isEnabled()
 	 * @generated
@@ -235,8 +245,8 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	protected boolean enabled = ENABLED_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getPainter() <em>Painter</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getPainter() <em>Painter</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getPainter()
 	 * @generated
@@ -245,8 +255,8 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	protected static final UIAttributePainter PAINTER_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getPainter() <em>Painter</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getPainter() <em>Painter</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getPainter()
 	 * @generated
@@ -319,6 +329,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IGridBindingColumnInformation getColumn() {
 		return column;
 	}
@@ -376,6 +387,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IGridBindingRowInformation getRow() {
 		return row;
 	}
@@ -433,6 +445,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IBindingDataType getDataType() {
 		return dataType;
 	}
@@ -456,6 +469,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IValueBinding getLabelBinding() {
 		return labelBinding;
 	}
@@ -480,6 +494,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IUIAttribute getLabelUIAttribute() {
 		return labelUIAttribute;
 	}
@@ -504,6 +519,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IObservableValue getObjectValue() {
 		return objectValue;
 	}
@@ -528,27 +544,17 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public boolean isChangeable() {
-		if (!isEnabled()) {
-			return false;
-		}
+		if (!isEnabled()) return false;
 		final IValueBinding b = getLabelBinding();
-		if (b == null) {
+		if (b == null) return false;
+		if (b.eIsSet(IUIBindingsPackage.Literals.BINDING__ERROR_CONDITIONS) && b.getErrorConditions().size() > 0)
 			return false;
-		}
-		if (b.eIsSet(IUIBindingsPackage.Literals.BINDING__ERROR_CONDITIONS) && b.getErrorConditions().size() > 0) {
-			return false;
-		}
-		if (b.getArgument(Constants.ARG_READONLY, Boolean.class, Boolean.FALSE) == Boolean.TRUE) {
-			return false;
-		}
-		if (!getGrid().isChangeable()) {
-			return false;
-		}
+		if (b.getArgument(Constants.ARG_READONLY, Boolean.class, Boolean.FALSE) == Boolean.TRUE) return false;
+		if (!getGrid().isChangeable()) return false;
 		final IUIBindingDecorator decorator = b.getDecorator();
-		if (decorator == null) {
-			return false;
-		}
+		if (decorator == null) return false;
 		return decorator.isChangeable();
 	}
 
@@ -557,6 +563,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public String getDisplayText() {
 		Object value = null;
 		final IObservableValue displayValue = getLabelUIAttribute().getCurrentValue();
@@ -575,6 +582,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Class<?> getValueType() {
 		// TODO: implement this method to return the 'Value Type' attribute
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -586,6 +594,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IUIAttribute getPasteUIAttribute() {
 		return pasteUIAttribute;
 	}
@@ -610,6 +619,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getToolTipText() {
 		return toolTipText;
 	}
@@ -619,6 +629,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setToolTipText(String newToolTipText) {
 		final String oldToolTipText = toolTipText;
 		toolTipText = newToolTipText;
@@ -634,6 +645,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	 * 
 	 * @generated
 	 */
+	@Override
 	public boolean isEnabled() {
 		return enabled;
 	}
@@ -643,6 +655,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setEnabled(boolean newEnabled) {
 		final boolean oldEnabled = enabled;
 		enabled = newEnabled;
@@ -657,6 +670,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	 * 
 	 * @generated
 	 */
+	@Override
 	public UIAttributePainter getPainter() {
 		return painter;
 	}
@@ -933,9 +947,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (objectValue: ");
@@ -1017,9 +1029,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 			/*
 			 * If we didn't get a IOV, then just ignore it...
 			 */
-			if (value == null) {
-				return;
-			}
+			if (value == null) return;
 
 			// TODO: set the renderer: final item.s
 
@@ -1083,9 +1093,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 			LogUtils.debug(this, "cell disposed! @" + hashCode());
 			return;
 		}
-		if (updateCellScheduled) {
-			return;
-		}
+		if (updateCellScheduled) return;
 		updateCellScheduled = true;
 		Display.getDefault().asyncExec(new Runnable() {
 			@Override
@@ -1102,9 +1110,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 		/*
 		 * Check if the cell has been disposed
 		 */
-		if (getColumn() == null) {
-			return;
-		}
+		if (getColumn() == null) return;
 		updateCellScheduled = false;
 		// LogUtils.debug(GridBindingCellInformationImpl.this, "");
 		final IGridBinding grid = getGrid();
@@ -1115,9 +1121,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 		 * Update the cell
 		 */
 		final IUIAttribute attr = getLabelUIAttribute();
-		if (attr.getCurrentValue().isDisposed()) {
-			return;
-		}
+		if (attr.getCurrentValue().isDisposed()) return;
 		final IObservableValue v = getObjectValue();
 		final Object modelType = v.getValueType();
 
@@ -1172,9 +1176,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	public void handleEvent(Event event) {
 		// LogUtils.debug(this, "event=" + ToStringUtils.toString(event));
 
-		if (!isChangeable()) {
-			return;
-		}
+		if (!isChangeable()) return;
 
 		final IObservableValue v = getObjectValue();
 		final Object modelType = v.getValueType();

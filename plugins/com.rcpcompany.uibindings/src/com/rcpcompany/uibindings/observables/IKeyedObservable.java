@@ -10,10 +10,12 @@ import com.rcpcompany.uibindings.IBindingMessageTarget;
 import com.rcpcompany.uibindings.IValueBinding;
 
 /**
- * This interface is used for {@link IObservable observables} that that have a key for the current value.
+ * This interface is used for {@link IObservable observables} that that have a key for the current
+ * value.
  * <p>
- * The key is primary used to correlate {@link IBindingMessage binding messages} via their {@link IBindingMessageTarget
- * targets} with specific bindings via their {@link IValueBinding#getModelObservable() model observable}.
+ * The key is primary used to correlate {@link IBindingMessage binding messages} via their
+ * {@link IBindingMessageTarget targets} with specific bindings via their
+ * {@link IValueBinding#getModelObservable() model observable}.
  * <p>
  * No specific interpretation is put into the key.
  * <p>

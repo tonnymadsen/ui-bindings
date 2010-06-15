@@ -58,8 +58,8 @@ public class InventoryView extends ViewPart {
 						ShopPackage.Literals.SHOP_ITEM__ORDER_ITEMS));
 			}
 		};
-		final IColumnBinding orders = table.addColumn("__NONE__(w=10em,a=r,label='Orders')").model(usesFactory,
-				EcorePackage.Literals.EINT).readonly();
+		final IColumnBinding orders = table.addColumn("__NONE__(w=10em,a=r,label='Orders')")
+				.model(usesFactory, EcorePackage.Literals.EINT).readonly();
 		table.addColumn("information(w=16em,ww=200)").dynamic();
 
 		myForm.addField(orders.getColumnVisibility(), SWT.NONE).label("Show Orders");
@@ -75,8 +75,8 @@ public class InventoryView extends ViewPart {
 		final IObservableList list = WritableList.withElementType(EClass.class);
 		list.add(ShopPackage.Literals.SHOP_ITEM_DESCRIPTION);
 		list.add(ShopPackage.Literals.SHOP_ITEM_URL);
-		final IValueBinding discriminant = details.addField("information").arg(Constants.ARG_PREFERRED_CONTROL,
-				CCombo.class.getName()).type("eobjectCreator").validValues(list);
+		final IValueBinding discriminant = details.addField("information")
+				.arg(Constants.ARG_PREFERRED_CONTROL, CCombo.class.getName()).type("eobjectCreator").validValues(list);
 
 		final IFormChooser chooser = myForm.addFormChooser(discriminant);
 		chooser.addFormEClass(ShopPackage.Literals.SHOP_ITEM_DESCRIPTION, new IFormChooserCreator() {

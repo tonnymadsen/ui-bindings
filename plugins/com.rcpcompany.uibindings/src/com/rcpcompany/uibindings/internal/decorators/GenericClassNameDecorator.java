@@ -16,9 +16,7 @@ public class GenericClassNameDecorator extends SimpleUIBindingDecorator implemen
 
 	@Override
 	protected Object convertModelToUI(Object fromObject) {
-		if (fromObject == null) {
-			return "<null>";
-		}
+		if (fromObject == null) return "<null>";
 		Class<?> cls;
 		if (fromObject instanceof Class<?>) {
 			cls = (Class<?>) fromObject;

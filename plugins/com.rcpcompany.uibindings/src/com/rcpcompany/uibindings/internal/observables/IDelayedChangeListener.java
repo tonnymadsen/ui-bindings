@@ -8,12 +8,13 @@ import org.eclipse.core.databinding.observable.StaleEvent;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 
 /**
- * Listener for delayed change events. A listener will receive delayed change events if a change is pending according to
- * the current {@link TextCommitStrategy}, but the change has not been committed yet.
+ * Listener for delayed change events. A listener will receive delayed change events if a change is
+ * pending according to the current {@link TextCommitStrategy}, but the change has not been
+ * committed yet.
  * <p>
- * As such, this is very similar to {@link IStaleListener}, but {@link StaleEvent} are only fired once for each an
- * observable becomes stale, whereas {@link DelayedChangeEvent} is fired for each change of the observable until a
- * {@link ChangeEvent}.
+ * As such, this is very similar to {@link IStaleListener}, but {@link StaleEvent} are only fired
+ * once for each an observable becomes stale, whereas {@link DelayedChangeEvent} is fired for each
+ * change of the observable until a {@link ChangeEvent}.
  * 
  * @author Tonny Madsen, The RCP Company
  */

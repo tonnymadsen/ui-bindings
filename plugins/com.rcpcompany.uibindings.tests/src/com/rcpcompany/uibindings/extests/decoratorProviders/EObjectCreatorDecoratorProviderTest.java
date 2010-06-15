@@ -100,16 +100,19 @@ public class EObjectCreatorDecoratorProviderTest {
 
 	protected void bindUI() {
 		assertOneLog(new Runnable() {
+			@Override
 			public void run() {
 				final IObservableList list = WritableList.withElementType(EClass.class);
 				list.add(ShopPackage.Literals.SHOP_ITEM_DESCRIPTION);
 				list.add(ShopPackage.Literals.SHOP_ITEM_URL);
 
 				myContext = IBindingContext.Factory.createContext(myView.getScrolledForm());
-				myTest1Binding = myContext.addBinding(myCombo1, myShopItem1,
-						ShopPackage.Literals.SHOP_ITEM__INFORMATION).type("eobjectCreator").validValues(list);
-				myTest2Binding = myContext.addBinding(myCombo2, myShopItem2,
-						ShopPackage.Literals.SHOP_ITEM__INFORMATION).type("eobjectCreator").validValues(list);
+				myTest1Binding = myContext
+						.addBinding(myCombo1, myShopItem1, ShopPackage.Literals.SHOP_ITEM__INFORMATION)
+						.type("eobjectCreator").validValues(list);
+				myTest2Binding = myContext
+						.addBinding(myCombo2, myShopItem2, ShopPackage.Literals.SHOP_ITEM__INFORMATION)
+						.type("eobjectCreator").validValues(list);
 				myTest3Binding = myContext.addBinding(myCombo3, myShopItem3,
 						ShopPackage.Literals.SHOP_ITEM__INFORMATION).type("eobjectCreator");
 
@@ -124,6 +127,7 @@ public class EObjectCreatorDecoratorProviderTest {
 	@Test
 	public void test1() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				assertEquals(false, myTest1Binding.getStaticDataType().isRequired());
 				assertEquals(false, myTest1Binding.getModelFeature().isRequired());
@@ -158,6 +162,7 @@ public class EObjectCreatorDecoratorProviderTest {
 	@Test
 	public void test2() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				assertEquals(false, myTest2Binding.getStaticDataType().isRequired());
 				assertEquals(false, myTest2Binding.getModelFeature().isRequired());
@@ -190,6 +195,7 @@ public class EObjectCreatorDecoratorProviderTest {
 	@Test
 	public void test3() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				yield();
 				// widget should be red as there are no valid list

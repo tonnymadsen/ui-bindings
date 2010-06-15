@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings;
@@ -19,7 +18,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.IArgumentProvider#getDeclaredArguments <em>Declared Arguments</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IArgumentProvider#getDeclaredArguments <em>Declared
+ * Arguments</em>}</li>
  * </ul>
  * </p>
  * 
@@ -28,11 +28,12 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface IArgumentProvider extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Declared Arguments</b></em>' map. The key is of type {@link java.lang.String},
-	 * and the value is of type {@link java.lang.Object}, <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Declared Arguments</b></em>' map. The key is of type
+	 * {@link java.lang.String}, and the value is of type {@link java.lang.Object}, <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * The map contains all the defined arguments in the <code>plugin.xml</code> - the exact declarations used depends
-	 * on the object with the arguments.
+	 * The map contains all the defined arguments in the <code>plugin.xml</code> - the exact
+	 * declarations used depends on the object with the arguments.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

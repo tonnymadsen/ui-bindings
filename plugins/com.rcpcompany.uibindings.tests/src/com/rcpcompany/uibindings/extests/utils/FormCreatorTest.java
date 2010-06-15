@@ -121,6 +121,7 @@ public class FormCreatorTest {
 	public void testBasicSubformGetSet() {
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final IFormCreator form = IFormCreator.Factory.createForm(myContext, myShopItem, myToolkit, myBody);
 				final IFormCreator subform = form.addSection("Basics");
@@ -140,6 +141,7 @@ public class FormCreatorTest {
 	public void testBasicSubformObjGetSet() {
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final IFormCreator form = IFormCreator.Factory.createForm(myContext, myShopItem, myToolkit, myBody);
 				final IFormCreator subform = form.addSection("Basics", myContact);
@@ -162,6 +164,7 @@ public class FormCreatorTest {
 	public void testAddComposite() {
 		assertNoLog(new Runnable() {
 
+			@Override
 			public void run() {
 				myForm = IFormCreator.Factory.createForm(myContext, myShopItem, myToolkit, myBody);
 
@@ -189,6 +192,7 @@ public class FormCreatorTest {
 	public void testAddSeparator() {
 		assertNoLog(new Runnable() {
 
+			@Override
 			public void run() {
 				myForm = IFormCreator.Factory.createForm(myContext, myShopItem, myToolkit, myBody);
 
@@ -219,6 +223,7 @@ public class FormCreatorTest {
 	public void testAddConstantField() {
 		assertNoLog(new Runnable() {
 
+			@Override
 			public void run() {
 				myForm = IFormCreator.Factory.createForm(myContext, myShopItem, myToolkit, myBody);
 
@@ -258,6 +263,7 @@ public class FormCreatorTest {
 	@Test
 	public void testBasicField() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myContext = IBindingContext.Factory.createContext(myBody);
 				myForm = IFormCreator.Factory.createForm(myContext, myShopItem, myToolkit, myBody);
@@ -290,11 +296,13 @@ public class FormCreatorTest {
 	}
 
 	/**
-	 * Tests that the creation of a basic field uses the {@link IValueBinding#arg(String, Object)} information properly
+	 * Tests that the creation of a basic field uses the {@link IValueBinding#arg(String, Object)}
+	 * information properly
 	 */
 	@Test
 	public void testBasicFieldArgLabel() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myContext = IBindingContext.Factory.createContext(myBody);
 				myForm = IFormCreator.Factory.createForm(myContext, myShopItem, myToolkit, myBody);
@@ -309,12 +317,13 @@ public class FormCreatorTest {
 	}
 
 	/**
-	 * Tests that the creation of a basic field uses the {@link IValueBinding#arg(String, Object)} information properly.
-	 * With focus on {@link Constants#ARG_PREFERRED_CONTROL}.
+	 * Tests that the creation of a basic field uses the {@link IValueBinding#arg(String, Object)}
+	 * information properly. With focus on {@link Constants#ARG_PREFERRED_CONTROL}.
 	 */
 	@Test
 	public void testBasicFieldArgPreferredControl() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myContext = IBindingContext.Factory.createContext(myBody);
 				myForm = IFormCreator.Factory.createForm(myContext, myShopItem, myToolkit, myBody);
@@ -326,7 +335,8 @@ public class FormCreatorTest {
 			}
 		});
 
-		// Assumes Text widget testFieldLayout(myForm.getTop(), 0, myField1, "Name:", myShopItem.getName());
+		// Assumes Text widget testFieldLayout(myForm.getTop(), 0, myField1, "Name:",
+		// myShopItem.getName());
 		final Composite top = (Composite) myForm.getTop().getChildren()[0];
 		final Control control = top.getChildren()[1];
 		assertTrue(control instanceof StyledText);
@@ -338,6 +348,7 @@ public class FormCreatorTest {
 	@Test
 	public void testBasicFieldSpec() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myContext = IBindingContext.Factory.createContext(myBody);
 				myForm = IFormCreator.Factory.createForm(myContext, myContact, myToolkit, myBody);
@@ -359,6 +370,7 @@ public class FormCreatorTest {
 	@Test
 	public void testSpecRO() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myContext = IBindingContext.Factory.createContext(myBody);
 				myForm = IFormCreator.Factory.createForm(myContext, myContact, myToolkit, myBody);
@@ -379,6 +391,7 @@ public class FormCreatorTest {
 	@Test
 	public void testSpecAlignment() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myContext = IBindingContext.Factory.createContext(myBody);
 				myForm = IFormCreator.Factory.createForm(myContext, myContact, myToolkit, myBody);
@@ -402,6 +415,7 @@ public class FormCreatorTest {
 	public void testFocusManagement() {
 		assertNoLog(new Runnable() {
 
+			@Override
 			public void run() {
 				myContext = IBindingContext.Factory.createContext(myBody);
 				myFocusText = new Text(myBody, SWT.SINGLE | SWT.LEAD | SWT.BORDER);
@@ -418,6 +432,7 @@ public class FormCreatorTest {
 		});
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myForm.setFocus();
 
@@ -428,6 +443,7 @@ public class FormCreatorTest {
 		});
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				assertTrue(myFocusText.setFocus());
 				assertTrue(!myField1.getControl().isFocusControl());
@@ -436,6 +452,7 @@ public class FormCreatorTest {
 		});
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myForm.setFocus();
 
@@ -471,12 +488,14 @@ public class FormCreatorTest {
 	}
 
 	/**
-	 * Tests the style argument of {@link IFormCreator#addField(String, org.eclipse.emf.ecore.EStructuralFeature, int)}.
+	 * Tests the style argument of
+	 * {@link IFormCreator#addField(String, org.eclipse.emf.ecore.EStructuralFeature, int)}.
 	 */
 	@Test
 	public void testBasicFieldStyle() {
 		assertNoLog(new Runnable() {
 
+			@Override
 			public void run() {
 				myContext = IBindingContext.Factory.createContext(myBody);
 				myForm = IFormCreator.Factory.createForm(myContext, myShopItem, myToolkit, myBody);

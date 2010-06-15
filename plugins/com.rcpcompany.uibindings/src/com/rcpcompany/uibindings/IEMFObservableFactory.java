@@ -11,8 +11,8 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 /**
  * This interface is used to create EMF based observables.
  * <p>
- * The interface is used to allow observables to respect an editing domain for an EMF based model. Implementations of
- * this interface is defined via the com.rcpcompany.uibindings.uibindings/
+ * The interface is used to allow observables to respect an editing domain for an EMF based model.
+ * Implementations of this interface is defined via the com.rcpcompany.uibindings.uibindings/
  * <p>
  * The default implementation just delegates the creation to {@link EMFObservables}.
  * 
@@ -27,7 +27,8 @@ public interface IEMFObservableFactory {
 	 * <code>eStructuralFeature.getEType().getInstanceClass()</code>.
 	 * 
 	 * @param realm the realm in which to observe.
-	 * @param editingDomain the editing domain to use or <code>null</code> to use the default from {@link IManager}
+	 * @param editingDomain the editing domain to use or <code>null</code> to use the default from
+	 *            {@link IManager}
 	 * @param eObject the object to observe.
 	 * @param eStructuralFeature the feature of the object to observe.
 	 * 
@@ -43,7 +44,8 @@ public interface IEMFObservableFactory {
 	 * <code>eStructuralFeature.getEType().getInstanceClass()</code>.
 	 * 
 	 * @param realm the realm in which to observe.
-	 * @param editingDomain the editing domain to use or <code>null</code> to use the default from {@link IManager}
+	 * @param editingDomain the editing domain to use or <code>null</code> to use the default from
+	 *            {@link IManager}
 	 * @param eObject the object to observe.
 	 * @param eStructuralFeature the feature of the object to observe.
 	 * @return an observable list for the given multi-valued feature of the object.

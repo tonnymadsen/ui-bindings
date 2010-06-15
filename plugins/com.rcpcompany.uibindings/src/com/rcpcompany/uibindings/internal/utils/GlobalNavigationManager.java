@@ -79,7 +79,8 @@ public class GlobalNavigationManager implements IGlobalNavigationManager {
 	private final IWorkbenchWindow myWindow;
 
 	/**
-	 * <code>true</code> while doing forward or backward. Ignores selection changes while this is <code>true</code>.
+	 * <code>true</code> while doing forward or backward. Ignores selection changes while this is
+	 * <code>true</code>.
 	 */
 	protected boolean inMovement = false;
 
@@ -98,7 +99,8 @@ public class GlobalNavigationManager implements IGlobalNavigationManager {
 	}
 
 	/**
-	 * The current location - a pointer into {@link #myLocationStack} to the location that was last shown or added.
+	 * The current location - a pointer into {@link #myLocationStack} to the location that was last
+	 * shown or added.
 	 * <p>
 	 * So it is typically {@link #myLocationStack}<code>.size()-1</code>
 	 */
@@ -159,6 +161,7 @@ public class GlobalNavigationManager implements IGlobalNavigationManager {
 	/**
 	 * Disposes this manager
 	 */
+	@Override
 	public void dispose() {
 		myBindingSourceProviderListener.dispose();
 
@@ -188,9 +191,7 @@ public class GlobalNavigationManager implements IGlobalNavigationManager {
 
 	@Override
 	public void addLocation() {
-		if (inMovement) {
-			return;
-		}
+		if (inMovement) return;
 
 		/*
 		 * Find the new previous location
@@ -231,9 +232,7 @@ public class GlobalNavigationManager implements IGlobalNavigationManager {
 
 	@Override
 	public void updateLocation() {
-		if (inMovement) {
-			return;
-		}
+		if (inMovement) return;
 		if (updateLocationRunnable == null) {
 			updateLocationRunnable = new Runnable() {
 				@Override
@@ -260,10 +259,9 @@ public class GlobalNavigationManager implements IGlobalNavigationManager {
 	/**
 	 * Goes back in history
 	 */
+	@Override
 	public void backwardHistory() {
-		if (!isBackwardHistoryEnabled()) {
-			return;
-		}
+		if (!isBackwardHistoryEnabled()) return;
 		gotoLocation(getCurrentLocationIndex() - 1);
 	}
 
@@ -279,10 +277,9 @@ public class GlobalNavigationManager implements IGlobalNavigationManager {
 	/**
 	 * Goes forward in history
 	 */
+	@Override
 	public void forwardHistory() {
-		if (!isForwardHistoryEnabled()) {
-			return;
-		}
+		if (!isForwardHistoryEnabled()) return;
 		gotoLocation(getCurrentLocationIndex() + 1);
 	}
 
@@ -312,8 +309,8 @@ public class GlobalNavigationManager implements IGlobalNavigationManager {
 	 * @return the location
 	 */
 	Location getLocation(int i) {
-		Assert.isTrue(0 <= i && i < myLocationStack.size(), "Location index " + i + " must [0; "
-				+ myLocationStack.size() + "[");
+		Assert.isTrue(0 <= i && i < myLocationStack.size(),
+				"Location index " + i + " must [0; " + myLocationStack.size() + "[");
 		return myLocationStack.get(i);
 	}
 
@@ -375,9 +372,10 @@ public class GlobalNavigationManager implements IGlobalNavigationManager {
 			if (value instanceof IValueBinding) {
 				myBinding = (IValueBinding) value;
 				/*
-				 * If the binding is associated with a specific cell, then use the label binding for the cell. This is
-				 * useful when the cell is being edited and we get the editor binding as this have gone away when we get
-				 * back to the location later using show().
+				 * If the binding is associated with a specific cell, then use the label binding for
+				 * the cell. This is useful when the cell is being edited and we get the editor
+				 * binding as this have gone away when we get back to the location later using
+				 * show().
 				 */
 				final IValueBindingCell cell = myBinding.getCell();
 				if (cell != null) {
@@ -475,11 +473,25 @@ public class GlobalNavigationManager implements IGlobalNavigationManager {
 			return "Location[" + getId() + "]=" + getSelection() + "/" + getBinding();
 		}
 
+		private GlobalNavigationManager getOuterType() {
+			return GlobalNavigationManager.this;
+		}
+
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + getOuterType().hashCode();
+			result = prime * result + ((myBinding == null) ? 0 : myBinding.hashCode());
+			result = prime * result + ((myId == null) ? 0 : myId.hashCode());
+			result = prime * result + ((mySecondaryId == null) ? 0 : mySecondaryId.hashCode());
+			result = prime * result + ((mySelection == null) ? 0 : mySelection.hashCode());
+			return result;
+		}
+
 		@Override
 		public boolean equals(Object obj) {
-			if (!(obj instanceof Location)) {
-				return false;
-			}
+			if (!(obj instanceof Location)) return false;
 			final Location other = (Location) obj;
 			return UIBindingsUtils.equals(this.getId(), other.getId())
 					&& UIBindingsUtils.equals(this.getSecondaryId(), other.getSecondaryId())

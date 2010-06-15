@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings;
@@ -12,13 +11,13 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.ui.forms.IMessage;
 
 /**
- * <!-- begin-user-doc --> This interface encapsulates a single message that can be shown for a binding and/or in a
- * form/wizard/whatever.
+ * <!-- begin-user-doc --> This interface encapsulates a single message that can be shown for a
+ * binding and/or in a form/wizard/whatever.
  * <p>
  * Messages exists in one or two states:
  * <p>
- * A message is said to be <em>bound</em> if {@link #getBinding()} returns non-<code>null</code>, and <em>unbound</em>
- * otherwise. <!-- end-user-doc -->
+ * A message is said to be <em>bound</em> if {@link #getBinding()} returns non-<code>null</code>,
+ * and <em>unbound</em> otherwise. <!-- end-user-doc -->
  * 
  * <p>
  * The following features are supported:
@@ -43,8 +42,8 @@ public interface IBindingMessage extends EObject, IMessage {
 	/**
 	 * Returns whether this message supersedes the specified "other" message.
 	 * <p>
-	 * This is used to let some messages - e.g. those that comes from the data binding - overrule other messages - e.g.
-	 * those that comes from the validation.
+	 * This is used to let some messages - e.g. those that comes from the data binding - overrule
+	 * other messages - e.g. those that comes from the validation.
 	 * 
 	 * @param otherMessage the other messages
 	 * @return <code>true</code> if this message supersedes the other message, false otherwise
@@ -57,8 +56,8 @@ public interface IBindingMessage extends EObject, IMessage {
 	 */
 	public enum FeatureMatchingAlgorithm {
 		/**
-		 * Any message for the object is matches irrespectively of whether it has a feature or not - e.g. the feature is
-		 * ignored.
+		 * Any message for the object is matches irrespectively of whether it has a feature or not -
+		 * e.g. the feature is ignored.
 		 */
 		IGNORE,
 		/**
@@ -66,13 +65,15 @@ public interface IBindingMessage extends EObject, IMessage {
 		 */
 		EXACT,
 		/**
-		 * A message matches if the feature match or it is an object message - e.g. the feature is <code>null</code>.
+		 * A message matches if the feature match or it is an object message - e.g. the feature is
+		 * <code>null</code>.
 		 */
 		EXACT_OR_NULL
 	}
 
 	/**
-	 * Matches this message against the specified object and feature returns whether a match is found.
+	 * Matches this message against the specified object and feature returns whether a match is
+	 * found.
 	 * <p>
 	 * The algorithm depends on the matching mode
 	 * 
@@ -99,8 +100,8 @@ public interface IBindingMessage extends EObject, IMessage {
 	IValueBinding getBinding();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IBindingMessage#getBinding <em>Binding</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IBindingMessage#getBinding
+	 * <em>Binding</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Binding</em>' reference.
 	 * @see #getBinding()
@@ -119,6 +120,7 @@ public interface IBindingMessage extends EObject, IMessage {
 	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getBindingMessage_Message()
 	 * @generated
 	 */
+	@Override
 	String getMessage();
 
 	/**
@@ -134,11 +136,13 @@ public interface IBindingMessage extends EObject, IMessage {
 	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getBindingMessage_MessageType()
 	 * @generated
 	 */
+	@Override
 	int getMessageType();
 
 	/**
-	 * Returns the value of the '<em><b>Severity</b></em>' attribute. The literals are from the enumeration
-	 * {@link com.rcpcompany.uibindings.BindingMessageSeverity}. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the value of the '<em><b>Severity</b></em>' attribute. The literals are from the
+	 * enumeration {@link com.rcpcompany.uibindings.BindingMessageSeverity}. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @return the value of the '<em>Severity</em>' attribute.
 	 * @see com.rcpcompany.uibindings.BindingMessageSeverity
@@ -160,14 +164,15 @@ public interface IBindingMessage extends EObject, IMessage {
 	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getBindingMessage_Prefix()
 	 * @generated
 	 */
+	@Override
 	String getPrefix();
 
 	/**
-	 * Returns the value of the '<em><b>Targets</b></em>' reference list. The list contents are of type
-	 * {@link com.rcpcompany.uibindings.IBindingMessageTarget}. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Targets</b></em>' reference list. The list contents are of
+	 * type {@link com.rcpcompany.uibindings.IBindingMessageTarget}. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Targets</em>' reference list isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Targets</em>' reference list isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -188,6 +193,7 @@ public interface IBindingMessage extends EObject, IMessage {
 	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getBindingMessage_Data()
 	 * @generated
 	 */
+	@Override
 	Object getData();
 
 	/**
@@ -221,8 +227,8 @@ public interface IBindingMessage extends EObject, IMessage {
 	/**
 	 * Returns the value of the '<em><b>Details</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Details</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Details</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

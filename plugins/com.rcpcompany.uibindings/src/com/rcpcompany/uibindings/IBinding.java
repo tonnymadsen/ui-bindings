@@ -46,11 +46,13 @@ import com.rcpcompany.uibindings.utils.IBindingContextPersistence;
  * <li>{@link com.rcpcompany.uibindings.IBinding#getModelType <em>Model Type</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IBinding#getUIType <em>UI Type</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IBinding#getDBBindings <em>DB Bindings</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IBinding#getMonitoredDBBindings <em>Monitored DB Bindings</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IBinding#getMonitoredDBBindings <em>Monitored DB Bindings
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IBinding#getErrorConditions <em>Error Conditions</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IBinding#getWidget <em>Widget</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IBinding#getControl <em>Control</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IBinding#getExtraArgumentProviders <em>Extra Argument Providers</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IBinding#getExtraArgumentProviders <em>Extra Argument
+ * Providers</em>}</li>
  * </ul>
  * </p>
  * 
@@ -174,7 +176,8 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	public void addDBBinding(Binding dataBinding, boolean monitorStatus);
 
 	/**
-	 * See {@link DataBindingContext#bindList(IObservableList, IObservableList, UpdateListStrategy, UpdateListStrategy)}
+	 * See
+	 * {@link DataBindingContext#bindList(IObservableList, IObservableList, UpdateListStrategy, UpdateListStrategy)}
 	 * for a description.
 	 * 
 	 * @param monitorStatus monitor the binding status
@@ -183,8 +186,9 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 			UpdateListStrategy targetToModel, UpdateListStrategy modelToTarget, boolean monitorStatus);
 
 	/**
-	 * See {@link DataBindingContext#bindSet(IObservableSet, IObservableSet, UpdateSetStrategy, UpdateSetStrategy)} for
-	 * a description.
+	 * See
+	 * {@link DataBindingContext#bindSet(IObservableSet, IObservableSet, UpdateSetStrategy, UpdateSetStrategy)}
+	 * for a description.
 	 */
 	public void bindSet(IObservableSet targetObservableSet, IObservableSet modelObservableSet,
 			UpdateSetStrategy targetToModel, UpdateSetStrategy modelToTarget);
@@ -202,8 +206,9 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 			UpdateValueStrategy targetToModel, UpdateValueStrategy modelToTarget, boolean monitorStatus);
 
 	/**
-	 * Returns the value of the '<em><b>Context</b></em>' container reference. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.IBindingContext#getBindings <em>Bindings</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Context</b></em>' container reference. It is bidirectional
+	 * and its opposite is ' {@link com.rcpcompany.uibindings.IBindingContext#getBindings
+	 * <em>Bindings</em>}'. <!-- begin-user-doc -->
 	 * 
 	 * <!-- end-user-doc -->
 	 * 
@@ -223,8 +228,8 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	public EditingDomain getEditingDomain();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IBinding#getContext <em>Context</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IBinding#getContext <em>Context</em>}
+	 * ' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Context</em>' reference.
 	 * @see #getContext()
@@ -233,11 +238,12 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	void setContext(IBindingContext value);
 
 	/**
-	 * Returns the value of the '<em><b>State</b></em>' attribute. The default value is <code>"INIT"</code>. The
-	 * literals are from the enumeration {@link com.rcpcompany.uibindings.BindingState}. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>State</b></em>' attribute. The default value is
+	 * <code>"INIT"</code>. The literals are from the enumeration
+	 * {@link com.rcpcompany.uibindings.BindingState}. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>State</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>State</em>' attribute isn't clear, there really should be more of
+	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -250,8 +256,8 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	BindingState getState();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IBinding#getState <em>State</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IBinding#getState <em>State</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>State</em>' attribute.
 	 * @see com.rcpcompany.uibindings.BindingState
@@ -263,8 +269,8 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	/**
 	 * Returns the value of the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Changeable</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Changeable</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -277,8 +283,8 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	/**
 	 * Returns the value of the '<em><b>Creation Point</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * The creation point specifies exactly where the specified binding has been created in terms of a {@link Throwable}
-	 * with top stack entries.
+	 * The creation point specifies exactly where the specified binding has been created in terms of
+	 * a {@link Throwable} with top stack entries.
 	 * </p>
 	 * <p>
 	 * The number of entries in the stack trace is configurable. TODO
@@ -292,8 +298,9 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	Throwable getCreationPoint();
 
 	/**
-	 * Returns the value of the '<em><b>Arguments</b></em>' map. The key is of type {@link java.lang.String}, and the
-	 * value is of type {@link java.lang.Object}, <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Arguments</b></em>' map. The key is of type
+	 * {@link java.lang.String}, and the value is of type {@link java.lang.Object}, <!--
+	 * begin-user-doc -->
 	 * <p>
 	 * The returned map contains all the defined arguments for the binding.
 	 * </p>
@@ -321,8 +328,8 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	String getId();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IBinding#getId <em>Id</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IBinding#getId <em>Id</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
@@ -348,14 +355,15 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	/**
 	 * Returns the named argument or <code>null</code> if not set.
 	 * <p>
-	 * Will look for the argument among the arguments of the binding first and then among the annotations (declared
-	 * arguments) of the data type.
+	 * Will look for the argument among the arguments of the binding first and then among the
+	 * annotations (declared arguments) of the data type.
 	 * 
-	 * @param <ArgumentType> the wanted argument type. Currently {@link String}, {@link Boolean} and {@link Integer} is
-	 *            supported.
+	 * @param <ArgumentType> the wanted argument type. Currently {@link String}, {@link Boolean} and
+	 *            {@link Integer} is supported.
 	 * 
 	 * @param name the name of the argument
-	 * @param argumentType the argument type of the wanted argument. Class value of &lt;ArgumentType&gt;
+	 * @param argumentType the argument type of the wanted argument. Class value of
+	 *            &lt;ArgumentType&gt;
 	 * @param defaultValue the default value
 	 * @return the value or <code>null</code> if not set.
 	 */
@@ -365,14 +373,16 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	/**
 	 * Returns the named argument or <code>null</code> if not set.
 	 * <p>
-	 * Will look for the argument among the arguments of the binding first and then among the annotations (declared
-	 * arguments) of the data type.
+	 * Will look for the argument among the arguments of the binding first and then among the
+	 * annotations (declared arguments) of the data type.
 	 * 
 	 * @param <ArgumentType> the wanted argument type
 	 * 
 	 * @param name the name of the argument
-	 * @param argumentType the argument type of the wanted argument. Class value of &lt;ArgumentType&gt;
-	 * @param firstOnly if <code>true</code> only return the first found value, otherwise return all found values
+	 * @param argumentType the argument type of the wanted argument. Class value of
+	 *            &lt;ArgumentType&gt;
+	 * @param firstOnly if <code>true</code> only return the first found value, otherwise return all
+	 *            found values
 	 * @return the value or <code>null</code> if not set.
 	 */
 	public <ArgumentType> List<IArgumentValue<ArgumentType>> getArguments(String name,
@@ -381,8 +391,8 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	/**
 	 * Returns the named argument or <code>null</code> if not set.
 	 * <p>
-	 * Will look for the argument among the arguments of the binding first and then among the annotations (declared
-	 * arguments) of the data type.
+	 * Will look for the argument among the arguments of the binding first and then among the
+	 * annotations (declared arguments) of the data type.
 	 * 
 	 * @param <ArgumentType> the wanted argument type
 	 * 
@@ -390,7 +400,8 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * @param ce the source configuration element or <code>null</code>
 	 * @param attributeName the name of the attribute in ce
 	 * @param value the value
-	 * @param argumentType the argument type of the wanted argument. Class value of &lt;ArgumentType&gt;
+	 * @param argumentType the argument type of the wanted argument. Class value of
+	 *            &lt;ArgumentType&gt;
 	 * @return the value or <code>null</code> if not set.
 	 */
 	public <ArgumentType> ArgumentType convertArgumentValue(String name, IConfigurationElement ce,
@@ -436,7 +447,8 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Type</em>' attribute isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Type</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -460,10 +472,11 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	String getLabel();
 
 	/**
-	 * Returns the value of the '<em><b>Static Data Type</b></em>' reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Static Data Type</b></em>' reference. <!-- begin-user-doc
+	 * -->
 	 * <p>
-	 * If the meaning of the '<em>Data Type</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Data Type</em>' reference isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -478,8 +491,9 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * <p>
 	 * Returns the data type that forms the basis for the type data types of this binding.
 	 * <p>
-	 * For dynamic value bindings, this is based on the actual type of the current value. For all bindings it is based
-	 * on the type of the static value - such as the feature or {@link IObservableValue}.
+	 * For dynamic value bindings, this is based on the actual type of the current value. For all
+	 * bindings it is based on the type of the static value - such as the feature or
+	 * {@link IObservableValue}.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -492,8 +506,8 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	/**
 	 * Returns the value of the '<em><b>Model EType</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Model EType</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Model EType</em>' reference isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -506,8 +520,8 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	/**
 	 * Returns the value of the '<em><b>Model Type</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Model Type</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Model Type</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -520,8 +534,8 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	/**
 	 * Returns the value of the '<em><b>UI Type</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>UI Type</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>UI Type</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -532,11 +546,11 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	Class<?> getUIType();
 
 	/**
-	 * Returns the value of the '<em><b>DB Bindings</b></em>' attribute list. The list contents are of type
-	 * {@link org.eclipse.core.databinding.Binding}. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>DB Bindings</b></em>' attribute list. The list contents are
+	 * of type {@link org.eclipse.core.databinding.Binding}. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>DB Bindings</em>' attribute list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>DB Bindings</em>' attribute list isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -547,11 +561,11 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	EList<Binding> getDBBindings();
 
 	/**
-	 * Returns the value of the '<em><b>Monitored DB Bindings</b></em>' attribute list. The list contents are of type
-	 * {@link org.eclipse.core.databinding.Binding}. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Monitored DB Bindings</b></em>' attribute list. The list
+	 * contents are of type {@link org.eclipse.core.databinding.Binding}. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Monitored DB Bindings</em>' attribute list isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Monitored DB Bindings</em>' attribute list isn't clear, there
+	 * really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -562,11 +576,11 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	EList<Binding> getMonitoredDBBindings();
 
 	/**
-	 * Returns the value of the '<em><b>Error Conditions</b></em>' attribute list. The list contents are of type
-	 * {@link java.lang.String}. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Error Conditions</b></em>' attribute list. The list contents
+	 * are of type {@link java.lang.String}. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Error Conditions</em>' attribute list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Error Conditions</em>' attribute list isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -579,8 +593,8 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	/**
 	 * Returns the value of the '<em><b>Widget</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Widget</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Widget</em>' attribute isn't clear, there really should be more of
+	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -593,8 +607,8 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	/**
 	 * Returns the value of the '<em><b>Control</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Control</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Control</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -605,11 +619,12 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	Control getControl();
 
 	/**
-	 * Returns the value of the '<em><b>Extra Argument Providers</b></em>' reference list. The list contents are of type
-	 * {@link com.rcpcompany.uibindings.IArgumentProvider}. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Extra Argument Providers</b></em>' reference list. The list
+	 * contents are of type {@link com.rcpcompany.uibindings.IArgumentProvider}. <!-- begin-user-doc
+	 * -->
 	 * <p>
-	 * If the meaning of the '<em>Extra Argument Providers</em>' reference list isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Extra Argument Providers</em>' reference list isn't clear, there
+	 * really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -620,8 +635,8 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	EList<IArgumentProvider> getExtraArgumentProviders();
 
 	/**
-	 * Test an assertion and throws an exception if the assertion fails. The exception will include the
-	 * {@link #getCreationPoint() creation point}.
+	 * Test an assertion and throws an exception if the assertion fails. The exception will include
+	 * the {@link #getCreationPoint() creation point}.
 	 * 
 	 * @param b the test
 	 * @param message the message of the exception
@@ -629,12 +644,15 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	void assertTrue(boolean b, String message);
 
 	/**
-	 * Updates the specified source provider state for this binding. Used in {@link BindingSourceProvider}.
+	 * Updates the specified source provider state for this binding. Used in
+	 * {@link BindingSourceProvider}.
 	 * <p>
-	 * All available state variables are found in {@link Constants} - e.g. {@link Constants#SOURCES_ACTIVE_BINDING}.
+	 * All available state variables are found in {@link Constants} - e.g.
+	 * {@link Constants#SOURCES_ACTIVE_BINDING}.
 	 * <p>
-	 * The method may return an {@link IObservableValue observable value} that must be monitored for changes. Whenever
-	 * the value of the monitored observable value changes, the state is re-evaluated.
+	 * The method may return an {@link IObservableValue observable value} that must be monitored for
+	 * changes. Whenever the value of the monitored observable value changes, the state is
+	 * re-evaluated.
 	 * 
 	 * @param context TODO
 	 */

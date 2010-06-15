@@ -20,13 +20,14 @@ import com.rcpcompany.utils.logging.LogUtils;
 /**
  * The global navigation manager.
  * <p>
- * Keeps track of a global stack of navigation locations on a per workbench window basis. Methods exists to add new
- * locations to the stack and to navigate backward and forward in the stack.
+ * Keeps track of a global stack of navigation locations on a per workbench window basis. Methods
+ * exists to add new locations to the stack and to navigate backward and forward in the stack.
  * <p>
  * The navigation history is only kept if {@link Factory#createManager(IWorkbenchWindow)} is called.
  * <p>
- * To navigate in the stack use either the {@link #backwardHistory()} and {@link #forwardHistory()} methods or the
- * corresponding handlers {@link BackwardHistoryHandler} and {@link ForwardHistoryHandler}.
+ * To navigate in the stack use either the {@link #backwardHistory()} and {@link #forwardHistory()}
+ * methods or the corresponding handlers {@link BackwardHistoryHandler} and
+ * {@link ForwardHistoryHandler}.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -35,6 +36,9 @@ public interface IGlobalNavigationManager extends IDisposable {
 	 * The factory methods for {@link IFormCreator}.
 	 */
 	public static final class Factory {
+		private Factory() {
+		}
+
 		/**
 		 * Creates and installs a new navigation manager.
 		 * 
@@ -65,9 +69,7 @@ public interface IGlobalNavigationManager extends IDisposable {
 		public static void addLocation() {
 			final IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 			final IGlobalNavigationManager manager = getManager(window);
-			if (manager == null) {
-				return;
-			}
+			if (manager == null) return;
 			manager.addLocation();
 		}
 
@@ -86,7 +88,8 @@ public interface IGlobalNavigationManager extends IDisposable {
 		}
 
 		/**
-		 * Installs a SWT listener that will convert Mouse 4 and 5 to the usual backward and forward history commands
+		 * Installs a SWT listener that will convert Mouse 4 and 5 to the usual backward and forward
+		 * history commands
 		 */
 		public static void installMouseHandling() {
 			try {
@@ -99,11 +102,12 @@ public interface IGlobalNavigationManager extends IDisposable {
 	}
 
 	/**
-	 * Interface used by views that want to notified on history changes using {@link ISetSelectionTarget}.
+	 * Interface used by views that want to notified on history changes using
+	 * {@link ISetSelectionTarget}.
 	 * <p>
-	 * If a view implements this interface, the navigator will query the view for its current view selection and save
-	 * the location in the location record. When the location record is later shown the save selection is reset using
-	 * {@link ISetSelectionTarget#selectReveal(ISelection)}.
+	 * If a view implements this interface, the navigator will query the view for its current view
+	 * selection and save the location in the location record. When the location record is later
+	 * shown the save selection is reset using {@link ISetSelectionTarget#selectReveal(ISelection)}.
 	 */
 	public interface IGetSelectionTarget {
 		/**

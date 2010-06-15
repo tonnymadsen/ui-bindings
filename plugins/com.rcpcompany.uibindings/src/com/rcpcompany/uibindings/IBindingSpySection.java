@@ -7,8 +7,9 @@ import com.rcpcompany.uibindings.utils.IFormCreator;
 /**
  * A section in the "Binding Spy Dialog".
  * <p>
- * For each section {@link #build(IFormCreator, ExecutionEvent)} is called once and can add the specified
- * {@link IFormCreator form}. The current binding is found as <code>form.getObject()</code>.
+ * For each section {@link #build(IFormCreator, ExecutionEvent)} is called once and can add the
+ * specified {@link IFormCreator form}. The current binding is found as
+ * <code>form.getObject()</code>.
  * <p>
  * The {@link #build(IFormCreator, ExecutionEvent)} can add to the form conditionally...
  * 

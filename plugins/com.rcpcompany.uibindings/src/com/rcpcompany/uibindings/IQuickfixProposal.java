@@ -27,8 +27,8 @@ public interface IQuickfixProposal extends EObject, IContentProposal {
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * The label is used to name this quickfix in the proposal lists. The label should be short - no more than 30
-	 * characters.
+	 * The label is used to name this quickfix in the proposal lists. The label should be short - no
+	 * more than 30 characters.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -36,12 +36,14 @@ public interface IQuickfixProposal extends EObject, IContentProposal {
 	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getQuickfixProposal_Label()
 	 * @generated
 	 */
+	@Override
 	String getLabel();
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * The description is the extended description of the function of the quickfix and can include multiple lines.
+	 * The description is the extended description of the function of the quickfix and can include
+	 * multiple lines.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -49,13 +51,14 @@ public interface IQuickfixProposal extends EObject, IContentProposal {
 	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getQuickfixProposal_Description()
 	 * @generated
 	 */
+	@Override
 	String getDescription();
 
 	/**
 	 * Returns the value of the '<em><b>Image</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * The image is shown with the label in quickfix lists. Also see {@link #ADD_IMAGE}, {@link #CHANGE_IMAGE} and
-	 * {@link #REMOVE_IMAGE} for some default images.
+	 * The image is shown with the label in quickfix lists. Also see {@link #ADD_IMAGE},
+	 * {@link #CHANGE_IMAGE} and {@link #REMOVE_IMAGE} for some default images.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -68,8 +71,8 @@ public interface IQuickfixProposal extends EObject, IContentProposal {
 	/**
 	 * Returns the value of the '<em><b>Relevance</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * The relevance is a number in the range [1; 100] is used to sort quickfixes when shown in lists. The more relevant
-	 * a quickfix is, the higher the number.
+	 * The relevance is a number in the range [1; 100] is used to sort quickfixes when shown in
+	 * lists. The more relevant a quickfix is, the higher the number.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -90,7 +93,8 @@ public interface IQuickfixProposal extends EObject, IContentProposal {
 	public static final int LIKELY_PROPOSAL = 90;
 
 	/**
-	 * Relevance used for alternative proposals where there are other proposals that are more likely to be correct.
+	 * Relevance used for alternative proposals where there are other proposals that are more likely
+	 * to be correct.
 	 */
 	public static final int ALTERNATIVE_PROPOSAL = 80;
 

@@ -15,8 +15,8 @@ import com.rcpcompany.uibindings.internal.bindingDataTypes.BindingDataTypeFactor
 /**
  * <!-- begin-user-doc -->
  * <p>
- * This interface is used to adapt between the actual EMF data type of a binding and the needed information in the UI
- * Bindings framework.
+ * This interface is used to adapt between the actual EMF data type of a binding and the needed
+ * information in the UI Bindings framework.
  * <p>
  * Adapters exists for
  * <ul>
@@ -35,7 +35,8 @@ import com.rcpcompany.uibindings.internal.bindingDataTypes.BindingDataTypeFactor
  * <li>{@link com.rcpcompany.uibindings.IBindingDataType#getEType <em>EType</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IBindingDataType#getDataType <em>Data Type</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IBindingDataType#getEAnnotation <em>EAnnotation</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IBindingDataType#getParentDataType <em>Parent Data Type</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IBindingDataType#getParentDataType <em>Parent Data Type
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IBindingDataType#isRequired <em>Required</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IBindingDataType#isChangeable <em>Changeable</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IBindingDataType#isUnsettable <em>Unsettable</em>}</li>
@@ -50,8 +51,12 @@ public interface IBindingDataType extends EObject {
 	 * The factory methods for {@link IBindingDataType}.
 	 */
 	public static final class Factory {
+		private Factory() {
+		}
+
 		/**
-		 * Creates and returns a new {@link IBindingDataType binding data type} appropriate for the specified element.
+		 * Creates and returns a new {@link IBindingDataType binding data type} appropriate for the
+		 * specified element.
 		 * <p>
 		 * The result is cached and reused.
 		 * 
@@ -63,8 +68,8 @@ public interface IBindingDataType extends EObject {
 		}
 
 		/**
-		 * Creates and returns a new {@link IBindingDataType binding data type} appropriate for the specified observable
-		 * list.
+		 * Creates and returns a new {@link IBindingDataType binding data type} appropriate for the
+		 * specified observable list.
 		 * 
 		 * @param list the list
 		 * @return the data type object or <code>null</code>
@@ -74,8 +79,8 @@ public interface IBindingDataType extends EObject {
 		}
 
 		/**
-		 * Creates and returns a new {@link IBindingDataType binding data type} appropriate for the specified observable
-		 * value.
+		 * Creates and returns a new {@link IBindingDataType binding data type} appropriate for the
+		 * specified observable value.
 		 * 
 		 * @param value the value
 		 * @return the data type object or <code>null</code>
@@ -85,13 +90,14 @@ public interface IBindingDataType extends EObject {
 		}
 
 		/**
-		 * Returns a list of the {@link IBindingDataType} objects that defines all the super types of the specified data
-		 * type.
+		 * Returns a list of the {@link IBindingDataType} objects that defines all the super types
+		 * of the specified data type.
 		 * <p>
 		 * If not already calculated, then do that by creating an array with
 		 * <ul>
 		 * <li>IBDTs for all super types (ECore classes)</li>
-		 * <li>IBDTs for all super classes (Java classes) not already added from their Ecore counterparts</li>
+		 * <li>IBDTs for all super classes (Java classes) not already added from their Ecore
+		 * counterparts</li>
 		 * </ul>
 		 * 
 		 * @param dt the data type to test
@@ -119,8 +125,8 @@ public interface IBindingDataType extends EObject {
 	 * <p>
 	 * Returns the logical name for a binding based on this data type.
 	 * <p>
-	 * For a feature-based data type this is the name of the feature, for classifiers this is the name of the
-	 * classifier.
+	 * For a feature-based data type this is the name of the feature, for classifiers this is the
+	 * name of the classifier.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -183,7 +189,8 @@ public interface IBindingDataType extends EObject {
 	EAnnotation getEAnnotation();
 
 	/**
-	 * Returns the value of the '<em><b>Parent Data Type</b></em>' reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Parent Data Type</b></em>' reference. <!-- begin-user-doc
+	 * -->
 	 * <p>
 	 * Returns the parent data type of this data type if applicable.
 	 * <p>
@@ -201,8 +208,8 @@ public interface IBindingDataType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Required</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * <code>true</code> if a value is required for a variable with this data type. Note important for structural
-	 * features.
+	 * <code>true</code> if a value is required for a variable with this data type. Note important
+	 * for structural features.
 	 * <p>
 	 * The EMF <code>required</code> property.
 	 * </p>
@@ -246,8 +253,8 @@ public interface IBindingDataType extends EObject {
 	boolean isUnsettable();
 
 	/**
-	 * Returns an {@link IArgumentProvider argument provider} with all arguments for this data type and the specified
-	 * binding type.
+	 * Returns an {@link IArgumentProvider argument provider} with all arguments for this data type
+	 * and the specified binding type.
 	 * 
 	 * @param type the type of the binding
 	 * @return the argument provider

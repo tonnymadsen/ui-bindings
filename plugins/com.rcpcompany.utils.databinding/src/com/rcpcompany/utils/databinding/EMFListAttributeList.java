@@ -15,8 +15,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 /**
- * A observable list that given an observed EMF based list and a {@link EStructuralFeature structural feature} will
- * provide a new list with the values of the object of the original list with the specific feature.
+ * A observable list that given an observed EMF based list and a {@link EStructuralFeature
+ * structural feature} will provide a new list with the values of the object of the original list
+ * with the specific feature.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -45,22 +46,14 @@ public class EMFListAttributeList extends WritableList implements IObservableLis
 	private final Adapter myFeatureMonitor = new AdapterImpl() {
 		@Override
 		public void notifyChanged(Notification msg) {
-			if (msg.isTouch()) {
-				return;
-			}
-			if (msg.getEventType() != Notification.SET) {
-				return;
-			}
+			if (msg.isTouch()) return;
+			if (msg.getEventType() != Notification.SET) return;
 
 			final int index = myObjectList.indexOf(msg.getNotifier());
-			if (index == -1) {
-				return;
-			}
+			if (index == -1) return;
 			final Object oldValue = get(index);
 			final Object newValue = myMapper.map(msg.getNotifier());
-			if (newValue == null ? oldValue == null : newValue.equals(oldValue)) {
-				return;
-			}
+			if (newValue == null ? oldValue == null : newValue.equals(oldValue)) return;
 			set(index, newValue);
 		};
 	};

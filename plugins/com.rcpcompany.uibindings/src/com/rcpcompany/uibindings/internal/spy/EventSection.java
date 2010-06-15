@@ -18,9 +18,7 @@ import com.rcpcompany.uibindings.utils.IFormCreator;
 public class EventSection implements IBindingSpySection {
 	@Override
 	public void build(IFormCreator creator, ExecutionEvent event) {
-		if (event == null) {
-			return;
-		}
+		if (event == null) return;
 
 		final IFormCreator subform = creator.addSection("Event");
 

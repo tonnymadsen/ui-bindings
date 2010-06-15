@@ -16,6 +16,8 @@ import com.rcpcompany.uibindings.widgets.FileNameControl;
  * @author Tonny Madsen, The RCP Company
  */
 public class InternalConstants {
+	private InternalConstants() {
+	}
 
 	/**
 	 * The widget data key used for all widgets to mark their association with a specific binding.
@@ -99,7 +101,8 @@ public class InternalConstants {
 	public static final String CELL_EDITOR_TYPE_CCOMBO = CCombo.class.getName();
 
 	/**
-	 * The resource name for the image in {@link FileNameControl} to designate the open dialog button.
+	 * The resource name for the image in {@link FileNameControl} to designate the open dialog
+	 * button.
 	 */
 	public static final String IMG_OPEN_DIALOG = "open-dialog";
 }

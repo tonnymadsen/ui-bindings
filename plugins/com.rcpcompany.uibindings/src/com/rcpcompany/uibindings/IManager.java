@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings;
@@ -23,7 +22,8 @@ import com.rcpcompany.uibindings.internal.observableFactories.DefaultEMFObservab
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Manager</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Manager</b></em>'. <!--
+ * end-user-doc -->
  * 
  * <p>
  * The following features are supported:
@@ -31,37 +31,51 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * <li>{@link com.rcpcompany.uibindings.IManager#getEditingDomain <em>Editing Domain</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#getFormToolkit <em>Form Toolkit</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#getProviders <em>Providers</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IManager#getUiAttributeFactories <em>Ui Attribute Factories</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IManager#getDecoratorExtenders <em>Decorator Extenders</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IManager#getModelArgumentMediators <em>Model Argument Mediators</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IManager#getModelArgumentMediatorClasses <em>Model Argument Mediator Classes
+ * <li>{@link com.rcpcompany.uibindings.IManager#getUiAttributeFactories <em>Ui Attribute Factories
  * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IManager#getTextCommitStrategy <em>Text Commit Strategy</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IManager#getTextCommitStrategyDelay <em>Text Commit Strategy Delay</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IManager#getDecoratorExtenders <em>Decorator Extenders</em>}
+ * </li>
+ * <li>{@link com.rcpcompany.uibindings.IManager#getModelArgumentMediators <em>Model Argument
+ * Mediators</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IManager#getModelArgumentMediatorClasses <em>Model Argument
+ * Mediator Classes </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IManager#getTextCommitStrategy <em>Text Commit Strategy
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IManager#getTextCommitStrategyDelay <em>Text Commit Strategy
+ * Delay</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#isEditCellAnyKey <em>Edit Cell Any Key</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IManager#isEditCellSingleClick <em>Edit Cell Single Click</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IManager#getMessageDecorationPosition <em>Message Decoration Position</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IManager#getMessageDecorationMinimumSeverity <em>Message Decoration Minimum
- * Severity</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IManager#getAlternativeDecorationPosition <em>Alternative Decoration Position
+ * <li>{@link com.rcpcompany.uibindings.IManager#isEditCellSingleClick <em>Edit Cell Single Click
  * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IManager#isAutoApplySingleQuickfix <em>Auto Apply Single Quickfix</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IManager#isAlternateRowColors <em>Alternate Row Colors</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IManager#isValidationErrorsAreFatal <em>Validation Errors Are Fatal</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IManager#getMessageDecorationPosition <em>Message Decoration
+ * Position</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IManager#getMessageDecorationMinimumSeverity <em>Message
+ * Decoration Minimum Severity</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IManager#getAlternativeDecorationPosition <em>Alternative
+ * Decoration Position </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IManager#isAutoApplySingleQuickfix <em>Auto Apply Single
+ * Quickfix</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IManager#isAlternateRowColors <em>Alternate Row Colors</em>}
+ * </li>
+ * <li>{@link com.rcpcompany.uibindings.IManager#isValidationErrorsAreFatal <em>Validation Errors
+ * Are Fatal</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#getValidationDelay <em>Validation Delay</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IManager#getValidationDelayWindow <em>Validation Delay Window</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IManager#isRequiredVBImageDecorationShown <em>Required VB Image Decoration Shown
- * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IManager#isAssistVBImageDecorationShown <em>Assist VB Image Decoration Shown
- * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IManager#isQuickfixVBImageDecorationShown <em>Quickfix VB Image Decoration Shown
- * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IManager#isViewNavigationRecorded <em>View Navigation Recorded</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IManager#getValidationDelayWindow <em>Validation Delay
+ * Window</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IManager#isRequiredVBImageDecorationShown <em>Required VB
+ * Image Decoration Shown </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IManager#isAssistVBImageDecorationShown <em>Assist VB Image
+ * Decoration Shown </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IManager#isQuickfixVBImageDecorationShown <em>Quickfix VB
+ * Image Decoration Shown </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IManager#isViewNavigationRecorded <em>View Navigation
+ * Recorded</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#getModelInfo <em>Model Info</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#getTreeItems <em>Tree Items</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#getClipboard <em>Clipboard</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IManager#getObservableFactories <em>Observable Factories</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IManager#getQuickfixProposalProcessors <em>Quickfix Proposal Processors</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IManager#getObservableFactories <em>Observable Factories
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IManager#getQuickfixProposalProcessors <em>Quickfix Proposal
+ * Processors</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#getContexts <em>Contexts</em>}</li>
  * </ul>
  * </p>
@@ -74,6 +88,9 @@ public interface IManager extends IBaseObject {
 	 * Factory for a number of objects including the manager itself.
 	 */
 	public static final class Factory {
+		private Factory() {
+		}
+
 		/**
 		 * Returns the manager singleton.
 		 * 
@@ -92,12 +109,14 @@ public interface IManager extends IBaseObject {
 	public void updateBindings(Object[] objects);
 
 	/**
-	 * Returns the value of the '<em><b>Providers</b></em>' containment reference list. The list contents are of type
-	 * {@link com.rcpcompany.uibindings.IDecoratorProvider}. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.IDecoratorProvider#getManager <em>Manager</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Providers</b></em>' containment reference list. The list
+	 * contents are of type {@link com.rcpcompany.uibindings.IDecoratorProvider}. It is
+	 * bidirectional and its opposite is '
+	 * {@link com.rcpcompany.uibindings.IDecoratorProvider#getManager <em>Manager</em>}'. <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Providers</em>' containment reference list isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Providers</em>' containment reference list isn't clear, there
+	 * really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -109,11 +128,12 @@ public interface IManager extends IBaseObject {
 	EList<IDecoratorProvider> getProviders();
 
 	/**
-	 * Returns the value of the '<em><b>Ui Attribute Factories</b></em>' reference list. The list contents are of type
-	 * {@link com.rcpcompany.uibindings.IUIAttributeFactoryDescriptor}. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Ui Attribute Factories</b></em>' reference list. The list
+	 * contents are of type {@link com.rcpcompany.uibindings.IUIAttributeFactoryDescriptor}. <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Ui Attribute Factories</em>' reference list isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Ui Attribute Factories</em>' reference list isn't clear, there
+	 * really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -124,11 +144,12 @@ public interface IManager extends IBaseObject {
 	EList<IUIAttributeFactoryDescriptor> getUiAttributeFactories();
 
 	/**
-	 * Returns the value of the '<em><b>Decorator Extenders</b></em>' reference list. The list contents are of type
-	 * {@link com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor}. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Decorator Extenders</b></em>' reference list. The list
+	 * contents are of type {@link com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor}.
+	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Decorator Extenders</em>' reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Decorator Extenders</em>' reference list isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -139,12 +160,12 @@ public interface IManager extends IBaseObject {
 	EList<IUIBindingDecoratorExtenderDescriptor> getDecoratorExtenders();
 
 	/**
-	 * Returns the value of the '<em><b>Model Argument Mediators</b></em>' attribute list. The list contents are of type
-	 * {@link com.rcpcompany.utils.extensionpoints.CEObjectHolder}&lt;com.rcpcompany.uibindings.IModelArgumentMediator>.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Model Argument Mediators</b></em>' attribute list. The list
+	 * contents are of type {@link com.rcpcompany.utils.extensionpoints.CEObjectHolder}
+	 * &lt;com.rcpcompany.uibindings.IModelArgumentMediator>. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Model Argument Mediators</em>' attribute list isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Model Argument Mediators</em>' attribute list isn't clear, there
+	 * really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -162,10 +183,11 @@ public interface IManager extends IBaseObject {
 	public void runModelArgumentMediators(EClassifier classifier);
 
 	/**
-	 * Returns the value of the '<em><b>Model Argument Mediator Classes</b></em>' attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Model Argument Mediator Classes</b></em>' attribute. <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Model Argument Mediator Classes</em>' attribute isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Model Argument Mediator Classes</em>' attribute isn't clear, there
+	 * really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -177,8 +199,10 @@ public interface IManager extends IBaseObject {
 	Map<EClassifier, Object> getModelArgumentMediatorClasses();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IManager#getModelArgumentMediatorClasses
-	 * <em>Model Argument Mediator Classes</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.IManager#getModelArgumentMediatorClasses
+	 * <em>Model Argument Mediator Classes</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Model Argument Mediator Classes</em>' attribute.
 	 * @see #getModelArgumentMediatorClasses()
@@ -187,8 +211,8 @@ public interface IManager extends IBaseObject {
 	void setModelArgumentMediatorClasses(Map<EClassifier, Object> value);
 
 	/**
-	 * Returns the value of the '<em><b>Text Commit Strategy</b></em>' attribute. The default value is
-	 * <code>"ON_MODIFY_DELAY"</code>. The literals are from the enumeration
+	 * Returns the value of the '<em><b>Text Commit Strategy</b></em>' attribute. The default value
+	 * is <code>"ON_MODIFY_DELAY"</code>. The literals are from the enumeration
 	 * {@link com.rcpcompany.uibindings.TextCommitStrategy}. <!-- begin-user-doc -->
 	 * <p>
 	 * The strategy specifies when changes are performed in cells.
@@ -215,11 +239,11 @@ public interface IManager extends IBaseObject {
 	void setTextCommitStrategy(TextCommitStrategy value);
 
 	/**
-	 * Returns the value of the '<em><b>Text Commit Strategy Delay</b></em>' attribute. The default value is
-	 * <code>"400"</code>. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Text Commit Strategy Delay</b></em>' attribute. The default
+	 * value is <code>"400"</code>. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Text Commit Strategy Delay</em>' attribute isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Text Commit Strategy Delay</em>' attribute isn't clear, there
+	 * really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -232,7 +256,8 @@ public interface IManager extends IBaseObject {
 
 	/**
 	 * Sets the value of the '{@link com.rcpcompany.uibindings.IManager#getTextCommitStrategyDelay
-	 * <em>Text Commit Strategy Delay</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <em>Text Commit Strategy Delay</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @param value the new value of the '<em>Text Commit Strategy Delay</em>' attribute.
 	 * @see #getTextCommitStrategyDelay()
@@ -241,11 +266,11 @@ public interface IManager extends IBaseObject {
 	void setTextCommitStrategyDelay(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Edit Cell Any Key</b></em>' attribute. The default value is <code>"true"</code>.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Edit Cell Any Key</b></em>' attribute. The default value is
+	 * <code>"true"</code>. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Edit Cell Any Key</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Edit Cell Any Key</em>' attribute isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -257,8 +282,8 @@ public interface IManager extends IBaseObject {
 	boolean isEditCellAnyKey();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IManager#isEditCellAnyKey <em>Edit Cell Any Key</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IManager#isEditCellAnyKey
+	 * <em>Edit Cell Any Key</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Edit Cell Any Key</em>' attribute.
 	 * @see #isEditCellAnyKey()
@@ -267,11 +292,11 @@ public interface IManager extends IBaseObject {
 	void setEditCellAnyKey(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Edit Cell Single Click</b></em>' attribute. The default value is
-	 * <code>"true"</code>. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Edit Cell Single Click</b></em>' attribute. The default
+	 * value is <code>"true"</code>. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Edit Cell Single Click</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Edit Cell Single Click</em>' attribute isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -293,12 +318,12 @@ public interface IManager extends IBaseObject {
 	void setEditCellSingleClick(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Message Decoration Position</b></em>' attribute. The default value is
-	 * <code>"BottomLeft"</code>. The literals are from the enumeration
+	 * Returns the value of the '<em><b>Message Decoration Position</b></em>' attribute. The default
+	 * value is <code>"BottomLeft"</code>. The literals are from the enumeration
 	 * {@link com.rcpcompany.uibindings.DecorationPosition}. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Message Decoration Position</em>' attribute isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Message Decoration Position</em>' attribute isn't clear, there
+	 * really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -311,8 +336,10 @@ public interface IManager extends IBaseObject {
 	DecorationPosition getMessageDecorationPosition();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IManager#getMessageDecorationPosition
-	 * <em>Message Decoration Position</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.IManager#getMessageDecorationPosition
+	 * <em>Message Decoration Position</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @param value the new value of the '<em>Message Decoration Position</em>' attribute.
 	 * @see com.rcpcompany.uibindings.DecorationPosition
@@ -322,12 +349,12 @@ public interface IManager extends IBaseObject {
 	void setMessageDecorationPosition(DecorationPosition value);
 
 	/**
-	 * Returns the value of the '<em><b>Message Decoration Minimum Severity</b></em>' attribute. The default value is
-	 * <code>"Warning"</code>. The literals are from the enumeration
+	 * Returns the value of the '<em><b>Message Decoration Minimum Severity</b></em>' attribute. The
+	 * default value is <code>"Warning"</code>. The literals are from the enumeration
 	 * {@link com.rcpcompany.uibindings.BindingMessageSeverity}. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Message Decoration Minimum Severity</em>' attribute isn't clear, there really should
-	 * be more of a description here...
+	 * If the meaning of the '<em>Message Decoration Minimum Severity</em>' attribute isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -340,8 +367,10 @@ public interface IManager extends IBaseObject {
 	BindingMessageSeverity getMessageDecorationMinimumSeverity();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IManager#getMessageDecorationMinimumSeverity
-	 * <em>Message Decoration Minimum Severity</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.IManager#getMessageDecorationMinimumSeverity
+	 * <em>Message Decoration Minimum Severity</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Message Decoration Minimum Severity</em>' attribute.
 	 * @see com.rcpcompany.uibindings.BindingMessageSeverity
@@ -351,12 +380,12 @@ public interface IManager extends IBaseObject {
 	void setMessageDecorationMinimumSeverity(BindingMessageSeverity value);
 
 	/**
-	 * Returns the value of the '<em><b>Alternative Decoration Position</b></em>' attribute. The default value is
-	 * <code>"TopLeft"</code>. The literals are from the enumeration
+	 * Returns the value of the '<em><b>Alternative Decoration Position</b></em>' attribute. The
+	 * default value is <code>"TopLeft"</code>. The literals are from the enumeration
 	 * {@link com.rcpcompany.uibindings.DecorationPosition}. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Alternative Decoration Position</em>' attribute isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Alternative Decoration Position</em>' attribute isn't clear, there
+	 * really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -369,8 +398,10 @@ public interface IManager extends IBaseObject {
 	DecorationPosition getAlternativeDecorationPosition();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IManager#getAlternativeDecorationPosition
-	 * <em>Alternative Decoration Position</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.IManager#getAlternativeDecorationPosition
+	 * <em>Alternative Decoration Position</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Alternative Decoration Position</em>' attribute.
 	 * @see com.rcpcompany.uibindings.DecorationPosition
@@ -380,11 +411,11 @@ public interface IManager extends IBaseObject {
 	void setAlternativeDecorationPosition(DecorationPosition value);
 
 	/**
-	 * Returns the value of the '<em><b>Auto Apply Single Quickfix</b></em>' attribute. The default value is
-	 * <code>"false"</code>. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Auto Apply Single Quickfix</b></em>' attribute. The default
+	 * value is <code>"false"</code>. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Auto Apply Single Quickfix</em>' attribute isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Auto Apply Single Quickfix</em>' attribute isn't clear, there
+	 * really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -397,7 +428,8 @@ public interface IManager extends IBaseObject {
 
 	/**
 	 * Sets the value of the '{@link com.rcpcompany.uibindings.IManager#isAutoApplySingleQuickfix
-	 * <em>Auto Apply Single Quickfix</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <em>Auto Apply Single Quickfix</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @param value the new value of the '<em>Auto Apply Single Quickfix</em>' attribute.
 	 * @see #isAutoApplySingleQuickfix()
@@ -406,11 +438,11 @@ public interface IManager extends IBaseObject {
 	void setAutoApplySingleQuickfix(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Alternate Row Colors</b></em>' attribute. The default value is
-	 * <code>"true"</code>. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Alternate Row Colors</b></em>' attribute. The default value
+	 * is <code>"true"</code>. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Alternate Row Colors</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Alternate Row Colors</em>' attribute isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -432,11 +464,11 @@ public interface IManager extends IBaseObject {
 	void setAlternateRowColors(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Validation Errors Are Fatal</b></em>' attribute. The default value is
-	 * <code>"false"</code>. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Validation Errors Are Fatal</b></em>' attribute. The default
+	 * value is <code>"false"</code>. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Validation Error Is Warning</em>' attribute isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Validation Error Is Warning</em>' attribute isn't clear, there
+	 * really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -449,7 +481,8 @@ public interface IManager extends IBaseObject {
 
 	/**
 	 * Sets the value of the '{@link com.rcpcompany.uibindings.IManager#isValidationErrorsAreFatal
-	 * <em>Validation Errors Are Fatal</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <em>Validation Errors Are Fatal</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @param value the new value of the '<em>Validation Errors Are Fatal</em>' attribute.
 	 * @see #isValidationErrorsAreFatal()
@@ -458,11 +491,11 @@ public interface IManager extends IBaseObject {
 	void setValidationErrorsAreFatal(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Validation Delay</b></em>' attribute. The default value is <code>"200"</code>.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Validation Delay</b></em>' attribute. The default value is
+	 * <code>"200"</code>. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Validation Delay</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Validation Delay</em>' attribute isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -474,8 +507,8 @@ public interface IManager extends IBaseObject {
 	int getValidationDelay();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IManager#getValidationDelay <em>Validation Delay</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IManager#getValidationDelay
+	 * <em>Validation Delay</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Validation Delay</em>' attribute.
 	 * @see #getValidationDelay()
@@ -484,11 +517,11 @@ public interface IManager extends IBaseObject {
 	void setValidationDelay(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Validation Delay Window</b></em>' attribute. The default value is
-	 * <code>"25"</code>. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Validation Delay Window</b></em>' attribute. The default
+	 * value is <code>"25"</code>. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Validation Delay Window</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Validation Delay Window</em>' attribute isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -510,11 +543,11 @@ public interface IManager extends IBaseObject {
 	void setValidationDelayWindow(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Required VB Image Decoration Shown</b></em>' attribute. The default value is
-	 * <code>"true"</code>. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Required VB Image Decoration Shown</b></em>' attribute. The
+	 * default value is <code>"true"</code>. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Required VB Image Decoration Shown</em>' attribute isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Required VB Image Decoration Shown</em>' attribute isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -526,8 +559,10 @@ public interface IManager extends IBaseObject {
 	boolean isRequiredVBImageDecorationShown();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IManager#isRequiredVBImageDecorationShown
-	 * <em>Required VB Image Decoration Shown</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.IManager#isRequiredVBImageDecorationShown
+	 * <em>Required VB Image Decoration Shown</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Required VB Image Decoration Shown</em>' attribute.
 	 * @see #isRequiredVBImageDecorationShown()
@@ -536,11 +571,11 @@ public interface IManager extends IBaseObject {
 	void setRequiredVBImageDecorationShown(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Assist VB Image Decoration Shown</b></em>' attribute. The default value is
-	 * <code>"true"</code>. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Assist VB Image Decoration Shown</b></em>' attribute. The
+	 * default value is <code>"true"</code>. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Assist VB Image Decoration Shown</em>' attribute isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Assist VB Image Decoration Shown</em>' attribute isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -552,8 +587,10 @@ public interface IManager extends IBaseObject {
 	boolean isAssistVBImageDecorationShown();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IManager#isAssistVBImageDecorationShown
-	 * <em>Assist VB Image Decoration Shown</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.IManager#isAssistVBImageDecorationShown
+	 * <em>Assist VB Image Decoration Shown</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Assist VB Image Decoration Shown</em>' attribute.
 	 * @see #isAssistVBImageDecorationShown()
@@ -562,11 +599,11 @@ public interface IManager extends IBaseObject {
 	void setAssistVBImageDecorationShown(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Quickfix VB Image Decoration Shown</b></em>' attribute. The default value is
-	 * <code>"true"</code>. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Quickfix VB Image Decoration Shown</b></em>' attribute. The
+	 * default value is <code>"true"</code>. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Quickfix VB Image Decoration Shown</em>' attribute isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Quickfix VB Image Decoration Shown</em>' attribute isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -578,8 +615,10 @@ public interface IManager extends IBaseObject {
 	boolean isQuickfixVBImageDecorationShown();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IManager#isQuickfixVBImageDecorationShown
-	 * <em>Quickfix VB Image Decoration Shown</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.IManager#isQuickfixVBImageDecorationShown
+	 * <em>Quickfix VB Image Decoration Shown</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Quickfix VB Image Decoration Shown</em>' attribute.
 	 * @see #isQuickfixVBImageDecorationShown()
@@ -588,11 +627,11 @@ public interface IManager extends IBaseObject {
 	void setQuickfixVBImageDecorationShown(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>View Navigation Recorded</b></em>' attribute. The default value is
-	 * <code>"true"</code>. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>View Navigation Recorded</b></em>' attribute. The default
+	 * value is <code>"true"</code>. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>View Navigation Recorded</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>View Navigation Recorded</em>' attribute isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -614,11 +653,12 @@ public interface IManager extends IBaseObject {
 	void setViewNavigationRecorded(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Model Info</b></em>' map. The key is of type {@link java.lang.String}, and the
-	 * value is of type {@link com.rcpcompany.uibindings.IModelClassInfo}, <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Model Info</b></em>' map. The key is of type
+	 * {@link java.lang.String}, and the value is of type
+	 * {@link com.rcpcompany.uibindings.IModelClassInfo}, <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Model Info</em>' reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Model Info</em>' reference list isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -629,11 +669,12 @@ public interface IManager extends IBaseObject {
 	EMap<String, IModelClassInfo> getModelInfo();
 
 	/**
-	 * Returns the value of the '<em><b>Tree Items</b></em>' containment reference list. The list contents are of type
-	 * {@link com.rcpcompany.uibindings.ITreeItemDescriptor}. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Tree Items</b></em>' containment reference list. The list
+	 * contents are of type {@link com.rcpcompany.uibindings.ITreeItemDescriptor}. <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Tree Items</em>' reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Tree Items</em>' reference list isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -644,7 +685,8 @@ public interface IManager extends IBaseObject {
 	EList<ITreeItemDescriptor> getTreeItems();
 
 	/**
-	 * Finds and returns the {@link ITreeItemDescriptor} that best matches the specified model object.
+	 * Finds and returns the {@link ITreeItemDescriptor} that best matches the specified model
+	 * object.
 	 * <p>
 	 * If no descriptor can be found a new is invented in place.
 	 * 
@@ -664,8 +706,8 @@ public interface IManager extends IBaseObject {
 	/**
 	 * Returns the value of the '<em><b>Clipboard</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Clipboard</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Clipboard</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -676,11 +718,12 @@ public interface IManager extends IBaseObject {
 	Clipboard getClipboard();
 
 	/**
-	 * Returns the value of the '<em><b>Observable Factories</b></em>' containment reference list. The list contents are
-	 * of type {@link com.rcpcompany.uibindings.IEMFObservableFactoryDescriptor}. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Observable Factories</b></em>' containment reference list.
+	 * The list contents are of type
+	 * {@link com.rcpcompany.uibindings.IEMFObservableFactoryDescriptor}. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Observable Factories</em>' containment reference list isn't clear, there really should
-	 * be more of a description here...
+	 * If the meaning of the '<em>Observable Factories</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -691,12 +734,13 @@ public interface IManager extends IBaseObject {
 	EList<IEMFObservableFactoryDescriptor> getObservableFactories();
 
 	/**
-	 * Returns the value of the '<em><b>Quickfix Proposal Processors</b></em>' containment reference list. The list
-	 * contents are of type {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor}. <!-- begin-user-doc
+	 * Returns the value of the '<em><b>Quickfix Proposal Processors</b></em>' containment reference
+	 * list. The list contents are of type
+	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor}. <!-- begin-user-doc
 	 * -->
 	 * <p>
-	 * If the meaning of the '<em>Quickfix Proposal Processors</em>' reference list isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Quickfix Proposal Processors</em>' reference list isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -707,11 +751,12 @@ public interface IManager extends IBaseObject {
 	EList<IQuickfixProposalProcessorDescriptor> getQuickfixProposalProcessors();
 
 	/**
-	 * Returns the value of the '<em><b>Contexts</b></em>' containment reference list. The list contents are of type
-	 * {@link com.rcpcompany.uibindings.IBindingContext}. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Contexts</b></em>' containment reference list. The list
+	 * contents are of type {@link com.rcpcompany.uibindings.IBindingContext}. <!-- begin-user-doc
+	 * -->
 	 * <p>
-	 * If the meaning of the '<em>Contexts</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Contexts</em>' reference isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -736,8 +781,8 @@ public interface IManager extends IBaseObject {
 	EditingDomain getEditingDomain();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IManager#getEditingDomain <em>Editing Domain</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IManager#getEditingDomain
+	 * <em>Editing Domain</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Editing Domain</em>' attribute.
 	 * @see #getEditingDomain()
@@ -760,8 +805,8 @@ public interface IManager extends IBaseObject {
 	FormToolkit getFormToolkit();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IManager#getFormToolkit <em>Form Toolkit</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IManager#getFormToolkit
+	 * <em>Form Toolkit</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Form Toolkit</em>' attribute.
 	 * @see #getFormToolkit()
@@ -770,7 +815,8 @@ public interface IManager extends IBaseObject {
 	void setFormToolkit(FormToolkit value);
 
 	/**
-	 * Returns the {@link IEMFObservableFactory observable factory} to used for the specified {@link EObject}.
+	 * Returns the {@link IEMFObservableFactory observable factory} to used for the specified
+	 * {@link EObject}.
 	 * 
 	 * @param object the object to test
 	 * @return the used factory - defaults to {@link DefaultEMFObservableFactory}

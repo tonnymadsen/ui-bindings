@@ -9,13 +9,15 @@ import org.eclipse.ui.IWorkbenchPartSite;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.internal.utils.BindingContextSelectionProvider;
+import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider.Factory;
 
 /**
  * Selection provider for a binding context.
  * <p>
  * Added to the context with {@link Factory#adapt(IBindingContext, IWorkbenchPartSite)
- * IBindingContextSelectionProvider.Factory.adapt(IBindingContext, IWorkbenchPartSite)}. Additional controls and viewers
- * can be added with the different <code>add...(...)</code> methods in this interface.
+ * IBindingContextSelectionProvider.Factory.adapt(IBindingContext, IWorkbenchPartSite)}. Additional
+ * controls and viewers can be added with the different <code>add...(...)</code> methods in this
+ * interface.
  * 
  * @author Tonny Madsen, The RCP Company
  * 
@@ -26,6 +28,9 @@ public interface IBindingContextSelectionProvider extends IDisposable {
 	 * Factory...
 	 */
 	public static class Factory {
+		private Factory() {
+		}
+
 		/**
 		 * Adds menu along with the corresponding selection provider for the specified context.
 		 * 
@@ -39,7 +44,7 @@ public interface IBindingContextSelectionProvider extends IDisposable {
 	}
 
 	/**
-	 * Adds the specified control with the specified selection provider
+	 * Adds the specified control with the specified selection provider.
 	 * 
 	 * @param control the control to add
 	 * @param provider the selection provider used when the control has focus

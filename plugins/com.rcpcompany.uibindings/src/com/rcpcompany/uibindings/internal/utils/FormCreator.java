@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.WritableValue;
@@ -44,13 +44,13 @@ import org.eclipse.ui.forms.widgets.TableWrapLayout;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
+import com.rcpcompany.uibindings.IBindingContext.FinishOption;
 import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.UIBindingsUtils;
-import com.rcpcompany.uibindings.IBindingContext.FinishOption;
 import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
 import com.rcpcompany.uibindings.utils.IBindingSpec;
 import com.rcpcompany.uibindings.utils.IFormChooser;
@@ -72,7 +72,8 @@ public class FormCreator implements IFormCreator {
 	private final IBindingContext myContext;
 
 	/**
-	 * The top level {@link Composite}. Has a {@link TableWrapLayout} with 1 column and contains a number of sections.
+	 * The top level {@link Composite}. Has a {@link TableWrapLayout} with 1 column and contains a
+	 * number of sections.
 	 */
 	private final Composite myTop;
 
@@ -176,7 +177,8 @@ public class FormCreator implements IFormCreator {
 	/**
 	 * Constructs and returns a new form creator
 	 * 
-	 * @param topForm the top-level creator for this form creator - <code>null</code> for a top-level creator
+	 * @param topForm the top-level creator for this form creator - <code>null</code> for a
+	 *            top-level creator
 	 * @param context the context
 	 * @param value the observable value
 	 * @param toolkit the used Forms UI Toolkit
@@ -243,7 +245,8 @@ public class FormCreator implements IFormCreator {
 		/*
 		 * Make sure the validation adapter is removed again when the page is disposed...
 		 * 
-		 * Page is disposed ==> top composite is disposed => context is disposed ==> dispose is called on all services
+		 * Page is disposed ==> top composite is disposed => context is disposed ==> dispose is
+		 * called on all services
 		 */
 		final IDisposable adapterDisposer = new IDisposable() {
 			@Override
@@ -426,12 +429,8 @@ public class FormCreator implements IFormCreator {
 				myContextListener = new AdapterImpl() {
 					@Override
 					public void notifyChanged(Notification msg) {
-						if (msg.isTouch()) {
-							return;
-						}
-						if (msg.getFeature() != IUIBindingsPackage.Literals.BINDING_CONTEXT__STATE) {
-							return;
-						}
+						if (msg.isTouch()) return;
+						if (msg.getFeature() != IUIBindingsPackage.Literals.BINDING_CONTEXT__STATE) return;
 
 						finish();
 					}
@@ -442,25 +441,19 @@ public class FormCreator implements IFormCreator {
 	}
 
 	/**
-	 * Check if the last control of {@link #myTop} is a {@link Composite} with the data {@link #FIELDS_COMPOSITE_MARKER}
-	 * .
+	 * Check if the last control of {@link #myTop} is a {@link Composite} with the data
+	 * {@link #FIELDS_COMPOSITE_MARKER} .
 	 * 
 	 * @return a suitable Composite for the fields
 	 */
 	private Composite getFieldsComposite() {
 		final Control[] children = myTop.getChildren();
-		if (children.length == 0) {
-			return createFieldsComposite();
-		}
+		if (children.length == 0) return createFieldsComposite();
 		final Control last = children[children.length - 1];
-		if (!(last instanceof Composite)) {
-			return createFieldsComposite();
-		}
+		if (!(last instanceof Composite)) return createFieldsComposite();
 		final Composite fc = (Composite) last;
 
-		if (fc.getData() != FIELDS_COMPOSITE_MARKER) {
-			return createFieldsComposite();
-		}
+		if (fc.getData() != FIELDS_COMPOSITE_MARKER) return createFieldsComposite();
 
 		return fc;
 	}
@@ -592,6 +585,9 @@ public class FormCreator implements IFormCreator {
 		return c;
 	}
 
+	/**
+	 * @deprecated use {@link #addTableCreator(EReference, boolean, int)}
+	 */
 	@Override
 	@Deprecated
 	public ITableCreator addTableCreator(boolean grabHorizontal, int style) {
@@ -770,9 +766,7 @@ public class FormCreator implements IFormCreator {
 			myTopForm.finish();
 			return;
 		}
-		if (myContext == null) {
-			return;
-		}
+		if (myContext == null) return;
 
 		if (myContextListener != null) {
 			myContext.eAdapters().remove(myContextListener);
@@ -1106,6 +1100,7 @@ public class FormCreator implements IFormCreator {
 
 	private Set<IObservableValue> myObjectMessageObjects = null;
 
+	@Override
 	public void addObjectMessages(final IObservableValue value) {
 		if (!isTopForm()) {
 			myTopForm.addObjectMessages(value);
@@ -1114,11 +1109,9 @@ public class FormCreator implements IFormCreator {
 		if (myObjectMessageObjects == null) {
 			myObjectMessageObjects = new HashSet<IObservableValue>();
 		}
-		if (myObjectMessageObjects.contains(value)) {
-			return;
-		}
-		myContext.addBinding().model(value).ui(new VirtualUIAttribute(String.class)).arg(
-				Constants.ARG_VALUE_OBJECT_MESSAGES, true);
+		if (myObjectMessageObjects.contains(value)) return;
+		myContext.addBinding().model(value).ui(new VirtualUIAttribute(String.class))
+				.arg(Constants.ARG_VALUE_OBJECT_MESSAGES, true);
 		myObjectMessageObjects.add(value);
 	}
 }

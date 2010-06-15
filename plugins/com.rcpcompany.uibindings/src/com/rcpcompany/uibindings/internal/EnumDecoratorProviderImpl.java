@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -27,14 +26,15 @@ import com.rcpcompany.uibindings.internal.decorators.EnumBindingDecorator;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Enum Decorator Provider</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Enum Decorator Provider</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.EnumDecoratorProviderImpl#isAddingDefaultMappings <em>Adding Default
+ * <li>{@link com.rcpcompany.uibindings.internal.EnumDecoratorProviderImpl#isAddingDefaultMappings
+ * <em>Adding Default Mappings</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.EnumDecoratorProviderImpl#getBaseMappings <em>Base
  * Mappings</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.EnumDecoratorProviderImpl#getBaseMappings <em>Base Mappings</em>}</li>
  * </ul>
  * </p>
  * 
@@ -42,8 +42,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  */
 public class EnumDecoratorProviderImpl extends DecoratorProviderImpl implements IEnumDecoratorProvider {
 	/**
-	 * The default value of the '{@link #isAddingDefaultMappings() <em>Adding Default Mappings</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #isAddingDefaultMappings() <em>Adding Default Mappings</em>}
+	 * ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isAddingDefaultMappings()
 	 * @generated
@@ -52,8 +52,8 @@ public class EnumDecoratorProviderImpl extends DecoratorProviderImpl implements 
 	protected static final boolean ADDING_DEFAULT_MAPPINGS_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isAddingDefaultMappings() <em>Adding Default Mappings</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #isAddingDefaultMappings() <em>Adding Default Mappings</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isAddingDefaultMappings()
 	 * @generated
@@ -62,8 +62,8 @@ public class EnumDecoratorProviderImpl extends DecoratorProviderImpl implements 
 	protected boolean addingDefaultMappings = ADDING_DEFAULT_MAPPINGS_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getBaseMappings() <em>Base Mappings</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getBaseMappings() <em>Base Mappings</em>}' containment
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getBaseMappings()
 	 * @generated
@@ -95,6 +95,7 @@ public class EnumDecoratorProviderImpl extends DecoratorProviderImpl implements 
 	 * 
 	 * @generated
 	 */
+	@Override
 	public boolean isAddingDefaultMappings() {
 		return addingDefaultMappings;
 	}
@@ -104,6 +105,7 @@ public class EnumDecoratorProviderImpl extends DecoratorProviderImpl implements 
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setAddingDefaultMappings(boolean newAddingDefaultMappings) {
 		final boolean oldAddingDefaultMappings = addingDefaultMappings;
 		addingDefaultMappings = newAddingDefaultMappings;
@@ -119,6 +121,7 @@ public class EnumDecoratorProviderImpl extends DecoratorProviderImpl implements 
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<IEnumDecoratorProviderEntry> getBaseMappings() {
 		if (baseMappings == null) {
 			baseMappings = new EObjectContainmentEList<IEnumDecoratorProviderEntry>(IEnumDecoratorProviderEntry.class,
@@ -218,9 +221,7 @@ public class EnumDecoratorProviderImpl extends DecoratorProviderImpl implements 
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (addingDefaultMappings: "); //$NON-NLS-1$

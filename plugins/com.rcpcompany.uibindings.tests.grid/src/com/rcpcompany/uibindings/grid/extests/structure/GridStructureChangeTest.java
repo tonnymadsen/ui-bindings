@@ -88,6 +88,7 @@ public class GridStructureChangeTest {
 		testCurrentSize();
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myTestGrid.getColumns().remove(1);
 				yield();
@@ -97,6 +98,7 @@ public class GridStructureChangeTest {
 		testCurrentSize();
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final TestGridColumn column = TestModelFactory.eINSTANCE.createTestGridColumn();
 				column.setName("new");
@@ -121,6 +123,7 @@ public class GridStructureChangeTest {
 		testCurrentSize();
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myTestGrid.getRows().remove(1);
 				for (final TestGridColumn c : myTestGrid.getColumns()) {
@@ -133,6 +136,7 @@ public class GridStructureChangeTest {
 		testCurrentSize();
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final TestGridRow row = TestModelFactory.eINSTANCE.createTestGridRow();
 				row.setNumber(10);

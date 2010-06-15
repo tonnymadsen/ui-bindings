@@ -39,18 +39,12 @@ public class EnumImageExtender extends AbstractUIBindingDecoratorExtender {
 	@Override
 	public void extend(IUIBindingDecoratorExtenderContext context) {
 		final IValueBinding binding = context.getBinding();
-		if (!(binding.getDecoratorProvider() instanceof IEnumDecoratorProvider)) {
-			return;
-		}
+		if (!(binding.getDecoratorProvider() instanceof IEnumDecoratorProvider)) return;
 		final IObservableValue modelObservable = binding.getModelObservableValue();
-		if (modelObservable == null) {
-			return;
-		}
+		if (modelObservable == null) return;
 
 		final Object value = modelObservable.getValue();
-		if (!(value instanceof Enumerator)) {
-			return;
-		}
+		if (!(value instanceof Enumerator)) return;
 
 		final Enumerator enumValue = (Enumerator) value;
 

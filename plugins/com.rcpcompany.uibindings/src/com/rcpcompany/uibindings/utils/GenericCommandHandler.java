@@ -21,7 +21,8 @@ import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * This handler executes a generic command that is specified as the extension data for the handler class.
+ * This handler executes a generic command that is specified as the extension data for the handler
+ * class.
  * <p>
  * E.g.
  * 

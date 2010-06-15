@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings;
@@ -66,9 +65,10 @@ import com.rcpcompany.uibindings.internal.InternalConstants;
  * <li>{@link com.rcpcompany.uibindings.IBindingContext#getDbContext <em>Db Context</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IBindingContext#getServiceLocator <em>Service Locator</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IBindingContext#getState <em>State</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IBindingContext#getTextCommitStrategy <em>Text Commit Strategy</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IBindingContext#getTextCommitStrategyCalculated <em>Text Commit Strategy
- * Calculated</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IBindingContext#getTextCommitStrategy <em>Text Commit
+ * Strategy</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IBindingContext#getTextCommitStrategyCalculated <em>Text
+ * Commit Strategy Calculated</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IBindingContext#getEditingDomain <em>Editing Domain</em>}</li>
  * </ul>
  * </p>
@@ -81,6 +81,9 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	 * The factory used to create and manage binding contexts.
 	 */
 	public static final class Factory {
+		private Factory() {
+		}
+
 		/**
 		 * Constructs and returns a new binding context.
 		 * <p>
@@ -159,9 +162,7 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 		 * @return the associated binding or <code>null</code>
 		 */
 		public static IBinding getBindingForWidget(Widget widget) {
-			if (widget == null) {
-				return null;
-			}
+			if (widget == null) return null;
 			return (IBinding) widget.getData(InternalConstants.WIDGET_KEY);
 		}
 	}
@@ -178,7 +179,8 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	 * <p>
 	 * At this point all added bindings will be {@link IBinding#finish1() finished} as well.
 	 * <p>
-	 * Short for <code>{@link #finish(FinishOption) finish}({@link FinishOption#LAZY FinishOption.LAZY})</code>.
+	 * Short for
+	 * <code>{@link #finish(FinishOption) finish}({@link FinishOption#LAZY FinishOption.LAZY})</code>.
 	 */
 	public void finish();
 
@@ -203,7 +205,8 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	}
 
 	/**
-	 * Signals that this context should be {@link #finish() finished} if finish has previously been called.
+	 * Signals that this context should be {@link #finish() finished} if finish has previously been
+	 * called.
 	 * <p>
 	 * Otherwise, this method is ignored.
 	 * 
@@ -341,11 +344,13 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	public IViewerBinding addViewer(ColumnViewer viewer, IObservableList list);
 
 	/**
-	 * Returns the value of the '<em><b>Bindings</b></em>' containment reference list. The list contents are of type
-	 * {@link com.rcpcompany.uibindings.IBinding}. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.IBinding#getContext <em>Context</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Bindings</b></em>' containment reference list. The list
+	 * contents are of type {@link com.rcpcompany.uibindings.IBinding}. It is bidirectional and its
+	 * opposite is ' {@link com.rcpcompany.uibindings.IBinding#getContext <em>Context</em>}'. <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * This all registered bindings for this context. They can be in all states, not just{@link BindingState#OK}.
+	 * This all registered bindings for this context. They can be in all states, not just
+	 * {@link BindingState#OK}.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -357,8 +362,8 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	EList<IBinding> getBindings();
 
 	/**
-	 * Returns the value of the '<em><b>Ok Bindings</b></em>' reference list. The list contents are of type
-	 * {@link com.rcpcompany.uibindings.IBinding}. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Ok Bindings</b></em>' reference list. The list contents are
+	 * of type {@link com.rcpcompany.uibindings.IBinding}. <!-- begin-user-doc -->
 	 * <p>
 	 * All bindings on this list are in {@link BindingState#OK} state.
 	 * </p>
@@ -373,7 +378,8 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	/**
 	 * Returns the value of the '<em><b>Top</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Top</em>' attribute isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Top</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -384,8 +390,9 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	Composite getTop();
 
 	/**
-	 * Returns the value of the '<em><b>Db Context</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * <!-- begin-model-doc --> The Data binding context used by this UI Binding context <!-- end-model-doc -->
+	 * Returns the value of the '<em><b>Db Context</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc --> <!-- begin-model-doc --> The Data binding context used by this UI Binding
+	 * context <!-- end-model-doc -->
 	 * 
 	 * @return the value of the '<em>Db Context</em>' attribute.
 	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getBindingContext_DbContext()
@@ -396,8 +403,8 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	/**
 	 * Returns the value of the '<em><b>Service Locator</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Service Locator</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Service Locator</em>' attribute isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -419,9 +426,10 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	void setServiceLocator(IServiceLocator value);
 
 	/**
-	 * Returns the value of the '<em><b>State</b></em>' attribute. The default value is <code>"INIT"</code>. The
-	 * literals are from the enumeration {@link com.rcpcompany.uibindings.BindingState}. <!-- begin-user-doc --> <!--
-	 * end-user-doc --> <!-- begin-model-doc --> The current state of this context. <!-- end-model-doc -->
+	 * Returns the value of the '<em><b>State</b></em>' attribute. The default value is
+	 * <code>"INIT"</code>. The literals are from the enumeration
+	 * {@link com.rcpcompany.uibindings.BindingState}. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-model-doc --> The current state of this context. <!-- end-model-doc -->
 	 * 
 	 * @return the value of the '<em>State</em>' attribute.
 	 * @see com.rcpcompany.uibindings.BindingState
@@ -432,12 +440,12 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	BindingState getState();
 
 	/**
-	 * Returns the value of the '<em><b>Text Commit Strategy</b></em>' attribute. The default value is <code>""</code>.
-	 * The literals are from the enumeration {@link com.rcpcompany.uibindings.TextCommitStrategy}. <!-- begin-user-doc
-	 * -->
+	 * Returns the value of the '<em><b>Text Commit Strategy</b></em>' attribute. The default value
+	 * is <code>""</code>. The literals are from the enumeration
+	 * {@link com.rcpcompany.uibindings.TextCommitStrategy}. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Text Commit Strategy</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Text Commit Strategy</em>' attribute isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -450,7 +458,8 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	TextCommitStrategy getTextCommitStrategy();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IBindingContext#getTextCommitStrategy
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.IBindingContext#getTextCommitStrategy
 	 * <em>Text Commit Strategy</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Text Commit Strategy</em>' attribute.
@@ -461,11 +470,12 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	void setTextCommitStrategy(TextCommitStrategy value);
 
 	/**
-	 * Returns the value of the '<em><b>Text Commit Strategy Calculated</b></em>' attribute. The literals are from the
-	 * enumeration {@link com.rcpcompany.uibindings.TextCommitStrategy}. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Text Commit Strategy Calculated</b></em>' attribute. The
+	 * literals are from the enumeration {@link com.rcpcompany.uibindings.TextCommitStrategy}. <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Text Commit Strategy Calculated</em>' attribute isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Text Commit Strategy Calculated</em>' attribute isn't clear, there
+	 * really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -493,8 +503,8 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	EditingDomain getEditingDomain();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IBindingContext#getEditingDomain <em>Editing Domain</em>}
-	 * ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IBindingContext#getEditingDomain
+	 * <em>Editing Domain</em>} ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Editing Domain</em>' attribute.
 	 * @see #getEditingDomain()

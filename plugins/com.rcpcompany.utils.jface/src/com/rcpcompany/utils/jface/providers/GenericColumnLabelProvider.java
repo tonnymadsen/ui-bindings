@@ -16,8 +16,7 @@ import org.eclipse.swt.widgets.Text;
  * It provides two sets of extra functionality:
  * <ul>
  * <li>A set of public methods to decorate a control in a dialog or view.</li>
- * <li>A set of methods to adapt a generic {@link Object} to any of the core
- * model objects.</li>
+ * <li>A set of methods to adapt a generic {@link Object} to any of the core model objects.</li>
  * </ul>
  * 
  * @author Tonny Madsen, The RCP Company
@@ -30,8 +29,8 @@ public class GenericColumnLabelProvider extends ColumnLabelProvider {
 	private final EStructuralFeature myFeature;
 
 	/**
-	 * Returns <code>true</code> if the changed property is the name of the
-	 * feature that backs this label provider.
+	 * Returns <code>true</code> if the changed property is the name of the feature that backs this
+	 * label provider.
 	 */
 	@Override
 	public boolean isLabelProperty(Object element, String property) {
@@ -41,8 +40,7 @@ public class GenericColumnLabelProvider extends ColumnLabelProvider {
 	/**
 	 * Constructs and returns a new column label provider
 	 * 
-	 * @param feature
-	 *            the feature of the column
+	 * @param feature the feature of the column
 	 */
 	public GenericColumnLabelProvider(EStructuralFeature feature) {
 		myFeature = feature;
@@ -50,24 +48,20 @@ public class GenericColumnLabelProvider extends ColumnLabelProvider {
 
 	@Override
 	public String getText(Object element) {
-		if (!(element instanceof EObject))
-			return null;
-		EObject obj = (EObject) element;
+		if (!(element instanceof EObject)) return null;
+		final EObject obj = (EObject) element;
 
 		Assert.isTrue(obj.eClass() == myFeature.getEContainingClass());
 
-		Object o = obj.eGet(myFeature);
+		final Object o = obj.eGet(myFeature);
 		return o == null ? "" : o.toString(); //$NON-NLS-1$
 	}
 
 	/**
-	 * Updates the SWT properties of a general SWT control based on the
-	 * specified element.
+	 * Updates the SWT properties of a general SWT control based on the specified element.
 	 * 
-	 * @param control
-	 *            the SWT control
-	 * @param element
-	 *            the element
+	 * @param control the SWT control
+	 * @param element the element
 	 */
 	public void update(Control control, Object element) {
 		control.setBackground(getBackground(element));
@@ -78,10 +72,8 @@ public class GenericColumnLabelProvider extends ColumnLabelProvider {
 	/**
 	 * Updates the SWT properties of a SWT text based on the specified element.
 	 * 
-	 * @param control
-	 *            the SWT text
-	 * @param element
-	 *            the element
+	 * @param control the SWT text
+	 * @param element the element
 	 */
 	public void update(Text control, Object element) {
 		control.setText(getText(element));
@@ -93,16 +85,15 @@ public class GenericColumnLabelProvider extends ColumnLabelProvider {
 	/**
 	 * Updates the SWT properties of a SWT label based on the specified element.
 	 * 
-	 * @param control
-	 *            the SWT label
-	 * @param element
-	 *            the element
+	 * @param control the SWT label
+	 * @param element the element
 	 */
 	public void update(Label control, Object element) {
 		control.setText(getText(element));
-		Image image = getImage(element);
-		if (image != null)
+		final Image image = getImage(element);
+		if (image != null) {
 			control.setImage(image);
+		}
 		control.setBackground(getBackground(element));
 		control.setForeground(getForeground(element));
 		control.setFont(getFont(element));
@@ -111,14 +102,12 @@ public class GenericColumnLabelProvider extends ColumnLabelProvider {
 	/**
 	 * Updates the SWT properties of a SWT label based on the specified element.
 	 * 
-	 * @param control
-	 *            the SWT label
-	 * @param element
-	 *            the element
+	 * @param control the SWT label
+	 * @param element the element
 	 */
 	public void update(CLabel control, Object element) {
 		control.setText(getText(element));
-		Image image = getImage(element);
+		final Image image = getImage(element);
 		control.setImage(image);
 		control.setBackground(getBackground(element));
 		control.setForeground(getForeground(element));

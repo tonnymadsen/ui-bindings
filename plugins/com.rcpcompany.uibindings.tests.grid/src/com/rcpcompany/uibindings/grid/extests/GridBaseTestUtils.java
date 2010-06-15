@@ -18,14 +18,16 @@ import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * A number of test utilities used to test grids
+ * A number of test utilities used to test grids.
  * 
  * @author Tonny Madsen, The RCP Company
  */
 public class GridBaseTestUtils {
+	private GridBaseTestUtils() {
+	}
 
 	/**
-	 * Creates and returns a shop
+	 * Creates and returns a shop.
 	 * 
 	 * @return the new shop
 	 */
@@ -55,7 +57,7 @@ public class GridBaseTestUtils {
 		final Integer[] rowNames = { 1, 2, 4, 8 };
 		final Object[][][] cellData = new Object[][][] {
 
-		// Column First
+				// Column First
 				{ { "F1", 1.0f }, { "F2", 1.2f }, { "F4", 1.4f }, { "F8", 1.8f } },
 
 				// Column "Second"

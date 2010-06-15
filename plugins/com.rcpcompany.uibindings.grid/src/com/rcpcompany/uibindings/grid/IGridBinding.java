@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.grid;
@@ -18,12 +17,14 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.grid.internal.GridBindingImpl;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Binding</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Binding</b></em>'. <!--
+ * end-user-doc -->
  * 
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.grid.IGridBinding#getNoColumnHeaders <em>No Column Headers</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.IGridBinding#getNoColumnHeaders <em>No Column Headers
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBinding#getColumns <em>Columns</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBinding#getNoRowHeaders <em>No Row Headers</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBinding#getRows <em>Rows</em>}</li>
@@ -39,10 +40,11 @@ import com.rcpcompany.uibindings.grid.internal.GridBindingImpl;
  */
 public interface IGridBinding extends IBinding, IArgumentProvider {
 	/**
-	 * Returns the value of the '<em><b>No Column Headers</b></em>' attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>No Column Headers</b></em>' attribute. <!-- begin-user-doc
+	 * -->
 	 * <p>
-	 * If the meaning of the '<em>No Column Headers</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>No Column Headers</em>' attribute isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -53,12 +55,13 @@ public interface IGridBinding extends IBinding, IArgumentProvider {
 	int getNoColumnHeaders();
 
 	/**
-	 * Returns the value of the '<em><b>Cell Editor</b></em>' containment reference. It is bidirectional and its
-	 * opposite is '{@link com.rcpcompany.uibindings.grid.IGridBindingCellEditor#getGrid <em>Grid</em>}'. <!--
+	 * Returns the value of the '<em><b>Cell Editor</b></em>' containment reference. It is
+	 * bidirectional and its opposite is '
+	 * {@link com.rcpcompany.uibindings.grid.IGridBindingCellEditor#getGrid <em>Grid</em>}'. <!--
 	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Cell Editor</em>' containment reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Cell Editor</em>' containment reference isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -87,11 +90,12 @@ public interface IGridBinding extends IBinding, IArgumentProvider {
 	public void editCell(IGridBindingCellInformation cell, ColumnViewerEditorActivationEvent event);
 
 	/**
-	 * Returns the value of the '<em><b>Rows</b></em>' map. The key is of type {@link java.lang.Object}, and the value
-	 * is of type {@link com.rcpcompany.uibindings.grid.IGridBindingRowInformation}, <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Rows</b></em>' map. The key is of type
+	 * {@link java.lang.Object}, and the value is of type
+	 * {@link com.rcpcompany.uibindings.grid.IGridBindingRowInformation}, <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Rows</em>' reference list isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Rows</em>' reference list isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -104,7 +108,8 @@ public interface IGridBinding extends IBinding, IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>Grid</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Grid</em>' attribute isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Grid</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -117,8 +122,8 @@ public interface IGridBinding extends IBinding, IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>Model</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Model</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Model</em>' attribute isn't clear, there really should be more of
+	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -131,8 +136,8 @@ public interface IGridBinding extends IBinding, IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>Focus Cell</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Focus Cell</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Focus Cell</em>' reference isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -144,8 +149,8 @@ public interface IGridBinding extends IBinding, IArgumentProvider {
 	IGridBindingCellInformation getFocusCell();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.grid.IGridBinding#getFocusCell <em>Focus Cell</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.grid.IGridBinding#getFocusCell
+	 * <em>Focus Cell</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Focus Cell</em>' reference.
 	 * @see #getFocusCell()
@@ -163,10 +168,11 @@ public interface IGridBinding extends IBinding, IArgumentProvider {
 	/**
 	 * Sets the focus cell to the cell at the specified column and row.
 	 * <p>
-	 * The operation is delayed via {@link Display#asyncExec(Runnable)} to allow all changes to the grid to be made
-	 * first.
+	 * The operation is delayed via {@link Display#asyncExec(Runnable)} to allow all changes to the
+	 * grid to be made first.
 	 * <p>
-	 * If the column or row is after the current set of columns or rows, the last column or row is selected.
+	 * If the column or row is after the current set of columns or rows, the last column or row is
+	 * selected.
 	 * 
 	 * @param column the wanted column
 	 * @param row the wanted row
@@ -176,18 +182,20 @@ public interface IGridBinding extends IBinding, IArgumentProvider {
 	/**
 	 * Updates the focus cell of the grid.
 	 * <p>
-	 * The cell is updated to the same position as the current focus cell - ignoring any removed columns or row.
+	 * The cell is updated to the same position as the current focus cell - ignoring any removed
+	 * columns or row.
 	 * <p>
 	 * The operation is delayed.
 	 */
 	public void updateFocusCellDelayed();
 
 	/**
-	 * Returns the value of the '<em><b>Columns</b></em>' map. The key is of type {@link java.lang.Object}, and the
-	 * value is of type {@link com.rcpcompany.uibindings.grid.IGridBindingColumnInformation}, <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Columns</b></em>' map. The key is of type
+	 * {@link java.lang.Object}, and the value is of type
+	 * {@link com.rcpcompany.uibindings.grid.IGridBindingColumnInformation}, <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Columns</em>' reference list isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Columns</em>' reference list isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -200,8 +208,8 @@ public interface IGridBinding extends IBinding, IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>No Row Headers</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>No Row Headers</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>No Row Headers</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -215,6 +223,9 @@ public interface IGridBinding extends IBinding, IArgumentProvider {
 	 * The factory methods for {@link IGridBinding}.
 	 */
 	public static final class Factory {
+		private Factory() {
+		}
+
 		/**
 		 * Creates a new grid.
 		 * 

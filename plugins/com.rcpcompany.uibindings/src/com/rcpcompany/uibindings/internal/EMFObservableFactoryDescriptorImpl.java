@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -17,14 +16,16 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>EMF Observable Factory Descriptor</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>EMF Observable Factory Descriptor</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.EMFObservableFactoryDescriptorImpl#getPackagePrefix <em>Package Prefix
- * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.EMFObservableFactoryDescriptorImpl#getFactory <em>Factory</em>}</li>
+ * <li>
+ * {@link com.rcpcompany.uibindings.internal.EMFObservableFactoryDescriptorImpl#getPackagePrefix
+ * <em>Package Prefix </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.EMFObservableFactoryDescriptorImpl#getFactory <em>
+ * Factory</em>}</li>
  * </ul>
  * </p>
  * 
@@ -32,8 +33,8 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  */
 public class EMFObservableFactoryDescriptorImpl extends EObjectImpl implements IEMFObservableFactoryDescriptor {
 	/**
-	 * The default value of the '{@link #getPackagePrefix() <em>Package Prefix</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getPackagePrefix() <em>Package Prefix</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getPackagePrefix()
 	 * @generated
@@ -42,8 +43,8 @@ public class EMFObservableFactoryDescriptorImpl extends EObjectImpl implements I
 	protected static final String PACKAGE_PREFIX_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getPackagePrefix() <em>Package Prefix</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getPackagePrefix() <em>Package Prefix</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getPackagePrefix()
 	 * @generated
@@ -52,8 +53,8 @@ public class EMFObservableFactoryDescriptorImpl extends EObjectImpl implements I
 	protected String packagePrefix = PACKAGE_PREFIX_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getFactory() <em>Factory</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getFactory() <em>Factory</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getFactory()
 	 * @generated
@@ -85,6 +86,7 @@ public class EMFObservableFactoryDescriptorImpl extends EObjectImpl implements I
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getPackagePrefix() {
 		return packagePrefix;
 	}
@@ -94,6 +96,7 @@ public class EMFObservableFactoryDescriptorImpl extends EObjectImpl implements I
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setPackagePrefix(String newPackagePrefix) {
 		final String oldPackagePrefix = packagePrefix;
 		packagePrefix = newPackagePrefix;
@@ -109,6 +112,7 @@ public class EMFObservableFactoryDescriptorImpl extends EObjectImpl implements I
 	 * 
 	 * @generated
 	 */
+	@Override
 	public CEObjectHolder<IEMFObservableFactory> getFactory() {
 		return factory;
 	}
@@ -118,6 +122,7 @@ public class EMFObservableFactoryDescriptorImpl extends EObjectImpl implements I
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setFactory(CEObjectHolder<IEMFObservableFactory> newFactory) {
 		final CEObjectHolder<IEMFObservableFactory> oldFactory = factory;
 		factory = newFactory;
@@ -204,9 +209,7 @@ public class EMFObservableFactoryDescriptorImpl extends EObjectImpl implements I
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (packagePrefix: "); //$NON-NLS-1$

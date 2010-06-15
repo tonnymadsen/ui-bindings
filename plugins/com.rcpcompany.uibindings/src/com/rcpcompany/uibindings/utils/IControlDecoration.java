@@ -25,14 +25,17 @@ public interface IControlDecoration {
 	 * Factory for {@link IControlDecoration}.
 	 */
 	public static class Factory {
+		private Factory() {
+		}
+
 		/**
 		 * Adds a new decoration.
 		 * <p>
 		 * The decoration is only added if the control of the decoration is non-<code>null</code>.
 		 * <p>
-		 * If the decoration supports the {@link IDisposable} interface, it will be notified when the decoration is no
-		 * longer in use - e.g. when the decoration is removed with {@link #removeDecoration(IControlDecoration)} or if
-		 * the control is disposed.
+		 * If the decoration supports the {@link IDisposable} interface, it will be notified when
+		 * the decoration is no longer in use - e.g. when the decoration is removed with
+		 * {@link #removeDecoration(IControlDecoration)} or if the control is disposed.
 		 * 
 		 * @param decoration the new decoration
 		 */

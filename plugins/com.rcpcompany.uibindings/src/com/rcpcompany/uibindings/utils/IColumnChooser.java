@@ -9,9 +9,11 @@ import com.rcpcompany.uibindings.internal.utils.ColumnChooser;
 /**
  * This interface is used make columns in a viewer "choosable".
  * <p>
- * When columns in a viewer is choosable, they can be made visible and invisible via a popup on the column header.
+ * When columns in a viewer is choosable, they can be made visible and invisible via a popup on the
+ * column header.
  * <p>
- * Only columns that are added using {@link #addColumn(IColumnBinding)} can be made visible/invisible.
+ * Only columns that are added using {@link #addColumn(IColumnBinding)} can be made
+ * visible/invisible.
  * 
  * @author Tonny Madsen, The RCP Company
  * @noimplement
@@ -61,8 +63,8 @@ public interface IColumnChooser extends IDisposable {
 	/**
 	 * Adds all default columns to this chooser.
 	 * <p>
-	 * All columns are added to the chooser, except for columns with a {@link SpecialBinding} and columns with zero
-	 * width.
+	 * All columns are added to the chooser, except for columns with a {@link SpecialBinding} and
+	 * columns with zero width.
 	 */
 	public void addDefaultColumns();
 }

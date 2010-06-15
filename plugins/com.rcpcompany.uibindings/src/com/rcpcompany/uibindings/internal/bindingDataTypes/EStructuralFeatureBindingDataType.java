@@ -43,8 +43,8 @@ public class EStructuralFeatureBindingDataType extends BindingDataTypeImpl {
 	public IArgumentProvider getArgumentProvider(String type) {
 		final IManager manager = IManager.Factory.getManager();
 		manager.runModelArgumentMediators(myStructuralFeature.getEContainingClass());
-		return manager.getModelFeatureInfo(myStructuralFeature.getContainerClass().getName(), myStructuralFeature
-				.getName(), type, false);
+		return manager.getModelFeatureInfo(myStructuralFeature.getContainerClass().getName(),
+				myStructuralFeature.getName(), type, false);
 	}
 
 	@Override

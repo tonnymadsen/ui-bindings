@@ -16,15 +16,15 @@ import com.rcpcompany.uibindings.internal.InternalConstants;
  * @author Tonny Madsen, The RCP Company
  */
 public class FileNameControl extends BaseTextButtonWidget {
-	protected static Image myButtonImage = Activator.getDefault().getImageRegistry().get(
-			InternalConstants.IMG_OPEN_DIALOG);
+	private static Image myButtonImage = Activator.getDefault().getImageRegistry()
+			.get(InternalConstants.IMG_OPEN_DIALOG);
 	private boolean myExistingOnly = true;
 	private String[] myExtensions = null;
 	private String myDialogTitle = null;
 	private boolean myDirectoryMode = false;
 
 	/**
-	 * Constructs and returns a new file and directory name widget
+	 * Constructs and returns a new file and directory name widget.
 	 * 
 	 * @param parent the parent composite
 	 * @param style the style
@@ -52,9 +52,7 @@ public class FileNameControl extends BaseTextButtonWidget {
 			}
 			path = dialog.open();
 		}
-		if (path == null) {
-			return;
-		}
+		if (path == null) return;
 		setText(path);
 	}
 
@@ -71,7 +69,7 @@ public class FileNameControl extends BaseTextButtonWidget {
 	}
 
 	/**
-	 * Set whether the file or directory must already exist
+	 * Set whether the file or directory must already exist.
 	 * 
 	 * @param existingOnly <code>true</code> if the file or directory must exist
 	 */
@@ -82,7 +80,7 @@ public class FileNameControl extends BaseTextButtonWidget {
 	}
 
 	/**
-	 * Returns whether the file or directory must exist
+	 * Returns whether the file or directory must exist.
 	 * 
 	 * @return <code>true</code> if the file or directory must exist
 	 */
@@ -91,7 +89,7 @@ public class FileNameControl extends BaseTextButtonWidget {
 	}
 
 	/**
-	 * Sets the valid extensions for the files
+	 * Sets the valid extensions for the files.
 	 * <p>
 	 * See {@link FileDialog#setFilterExtensions(String[])} for a description of the format
 	 * 
@@ -104,7 +102,7 @@ public class FileNameControl extends BaseTextButtonWidget {
 	}
 
 	/**
-	 * Returns the extensions for the files
+	 * Returns the extensions for the files.
 	 * 
 	 * @return the extensions
 	 */
@@ -113,7 +111,7 @@ public class FileNameControl extends BaseTextButtonWidget {
 	}
 
 	/**
-	 * Sets the title of the open dialog if needed
+	 * Sets the title of the open dialog if needed.
 	 * 
 	 * @param dialogTitle the dialog title
 	 */
@@ -122,7 +120,7 @@ public class FileNameControl extends BaseTextButtonWidget {
 	}
 
 	/**
-	 * Retrusn the title of the open dialog
+	 * Retrusn the title of the open dialog.
 	 * 
 	 * @return the dialog title
 	 */
@@ -137,9 +135,7 @@ public class FileNameControl extends BaseTextButtonWidget {
 	 * @return the corresponding array or <code>null</code>
 	 */
 	public static String[] parseExtensions(String spec) {
-		if (spec == null) {
-			return null;
-		}
+		if (spec == null) return null;
 		return spec.split("\n");
 	}
 

@@ -42,14 +42,13 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 	private String myNullLabel;
 
 	/**
-	 * If the mapper has used any specific attribute from the EObject, then this must be added so we can track the value
-	 * properly.
+	 * If the mapper has used any specific attribute from the EObject, then this must be added so we
+	 * can track the value properly.
 	 */
 	@Override
 	public IObservableValue getDisplayObservableValue(IObservableValue value) {
-		if (myClassIdentiferMapper != null) {
+		if (myClassIdentiferMapper != null)
 			return myClassIdentiferMapper.getObservableValue(value, getBinding().getContext().getEditingDomain());
-		}
 		return super.getDisplayObservableValue(value);
 	}
 
@@ -78,20 +77,14 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 		/*
 		 * If the decoration is read-only, then there are no reason to find the valid values
 		 */
-		if (!super.isChangeable()) {
-			return;
-		}
+		if (!super.isChangeable()) return;
 
 		final IBindingDataType dynDataType = getBinding().getDataType();
-		if (dynDataType == null) {
-			return;
-		}
+		if (dynDataType == null) return;
 
 		final IObservableList argument = getBinding().getArgument(Constants.ARG_VALID_VALUES, IObservableList.class,
 				null);
-		if (argument == null) {
-			return;
-		}
+		if (argument == null) return;
 
 		final Object elementType = argument.getElementType();
 
@@ -124,9 +117,7 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 
 	@Override
 	protected Object convertModelToUI(Object fromObject) {
-		if (myClassIdentiferMapper == null) {
-			return myNullLabel;
-		}
+		if (myClassIdentiferMapper == null) return myNullLabel;
 		final Object o = myClassIdentiferMapper.map(fromObject);
 		return o != null ? o.toString() : null;
 	}
@@ -134,9 +125,7 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 	@Override
 	public IObservableList getValidUIList() {
 		if (!calculatedValidUIList) {
-			if (!isChangeable()) {
-				return null;
-			}
+			if (!isChangeable()) return null;
 			myValidUIList = new EMFListAttributeList(myValidValues, myClassIdentiferMapper, String.class);
 			if (!getBinding().getDataType().isRequired()) {
 				myValidUIList.add(myNullLabel);
@@ -148,20 +137,12 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 
 	@Override
 	protected Object convertUIToModel(Object fromObject) {
-		if (fromObject == null) {
-			return null;
-		}
-		if (!isChangeable()) {
-			throw new IllegalArgumentException("Value cannot be changed");
-		}
-		if (myNullLabel.equals(fromObject)) {
-			return null;
-		}
+		if (fromObject == null) return null;
+		if (!isChangeable()) throw new IllegalArgumentException("Value cannot be changed");
+		if (myNullLabel.equals(fromObject)) return null;
 
 		for (final Object to : myValidValues) {
-			if (fromObject.equals(convertModelToUI(to))) {
-				return to;
-			}
+			if (fromObject.equals(convertModelToUI(to))) return to;
 		}
 		// LogUtils.debug(this, "Unknown value: '" + fromObject + "'");
 		throw new IllegalArgumentException("Unknown value");

@@ -3,7 +3,8 @@ package com.rcpcompany.uibindings;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 
 /**
- * This factory interface is used when a {@link IObservableList} is needed based on an annotation argument argument.
+ * This factory interface is used when a {@link IObservableList} is needed based on an annotation
+ * argument argument.
  * 
  * @author Tonny Madsen, The RCP Company
  * @since 1.3

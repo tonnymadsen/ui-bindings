@@ -27,11 +27,11 @@ public interface IGridModel extends IDisposable {
 	public IObservableList getRowIDs();
 
 	/**
-	 * Returns the cell of the specified column and row, The column and row are specified by their respective IDs as
-	 * returns by {@link #getColumnIDs()} and {@link #getRowIDs()}.
+	 * Returns the cell of the specified column and row, The column and row are specified by their
+	 * respective IDs as returns by {@link #getColumnIDs()} and {@link #getRowIDs()}.
 	 * <p>
-	 * The cells for column and row headers are accessed via the special constants {@link #HEADER1}, {@link #HEADER2},
-	 * {@link #HEADER3}, {@link #HEADER4}, and {@link #HEADER5}.
+	 * The cells for column and row headers are accessed via the special constants {@link #HEADER1},
+	 * {@link #HEADER2}, {@link #HEADER3}, {@link #HEADER4}, and {@link #HEADER5}.
 	 * 
 	 * @param columnID the column
 	 * @param rowID the row

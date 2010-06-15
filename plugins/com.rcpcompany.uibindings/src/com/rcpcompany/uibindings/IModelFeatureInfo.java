@@ -1,14 +1,13 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Model Feature Info</b></em>'. <!-- end-user-doc
- * -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Model Feature Info</b></em>
+ * '. <!-- end-user-doc -->
  * 
  * <p>
  * The following features are supported:
@@ -26,8 +25,8 @@ public interface IModelFeatureInfo extends IModelInfo {
 	/**
 	 * Returns the value of the '<em><b>Feature Name</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature Name</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Feature Name</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -39,8 +38,8 @@ public interface IModelFeatureInfo extends IModelInfo {
 	String getFeatureName();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IModelFeatureInfo#getFeatureName <em>Feature Name</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IModelFeatureInfo#getFeatureName
+	 * <em>Feature Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Feature Name</em>' attribute.
 	 * @see #getFeatureName()
@@ -51,8 +50,8 @@ public interface IModelFeatureInfo extends IModelInfo {
 	/**
 	 * Returns the value of the '<em><b>Class</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Class</em>' container reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Class</em>' container reference isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -64,8 +63,8 @@ public interface IModelFeatureInfo extends IModelInfo {
 	IModelClassInfo getClass_();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IModelFeatureInfo#getClass_ <em>Class</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IModelFeatureInfo#getClass_
+	 * <em>Class</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Class</em>' reference.
 	 * @see #getClass_()

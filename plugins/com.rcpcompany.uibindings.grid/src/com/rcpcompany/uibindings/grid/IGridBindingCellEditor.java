@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.grid;
@@ -11,14 +10,15 @@ import org.eclipse.jface.viewers.ColumnViewerEditorActivationEvent;
 import org.eclipse.nebula.widgets.grid.GridEditor;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Binding Cell Editor</b></em>'. <!-- end-user-doc
- * -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Binding Cell Editor</b></em>
+ * '. <!-- end-user-doc -->
  * 
  * <p>
  * The following features are supported:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellEditor#getGrid <em>Grid</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellEditor#getGridEditor <em>Grid Editor</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellEditor#getGridEditor <em>Grid Editor
+ * </em>}</li>
  * </ul>
  * </p>
  * 
@@ -28,11 +28,12 @@ import org.eclipse.nebula.widgets.grid.GridEditor;
  */
 public interface IGridBindingCellEditor extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Grid</b></em>' reference. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.grid.IGridBinding#getCellEditor <em>Cell Editor</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Grid</b></em>' reference. It is bidirectional and its
+	 * opposite is ' {@link com.rcpcompany.uibindings.grid.IGridBinding#getCellEditor
+	 * <em>Cell Editor</em>}'. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Grid</em>' container reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Grid</em>' container reference isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -45,8 +46,8 @@ public interface IGridBindingCellEditor extends EObject {
 	IGridBinding getGrid();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.grid.IGridBindingCellEditor#getGrid <em>Grid</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.grid.IGridBindingCellEditor#getGrid
+	 * <em>Grid</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Grid</em>' reference.
 	 * @see #getGrid()
@@ -57,8 +58,8 @@ public interface IGridBindingCellEditor extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Grid Editor</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Grid Editor</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Grid Editor</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -69,10 +70,11 @@ public interface IGridBindingCellEditor extends EObject {
 	GridEditor getGridEditor();
 
 	/**
-	 * Returns the value of the '<em><b>Active Edit Cell</b></em>' reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Active Edit Cell</b></em>' reference. <!-- begin-user-doc
+	 * -->
 	 * <p>
-	 * If the meaning of the '<em>Active Edit Cell</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Active Edit Cell</em>' reference isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -84,7 +86,8 @@ public interface IGridBindingCellEditor extends EObject {
 	IGridBindingCellInformation getActiveEditCell();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.grid.IGridBindingCellEditor#getActiveEditCell
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.grid.IGridBindingCellEditor#getActiveEditCell
 	 * <em>Active Edit Cell</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Active Edit Cell</em>' reference.
@@ -94,12 +97,12 @@ public interface IGridBindingCellEditor extends EObject {
 	void setActiveEditCell(IGridBindingCellInformation value);
 
 	/**
-	 * Starts editing of the specified cell based on the specified SWT event. <
+	 * Starts editing of the specified cell based on the specified SWT event.
 	 * 
 	 * @param cell the cell to edit
 	 * @param event the SWT event that triggered the editing session
 	 */
-	public void editCell(IGridBindingCellInformation cell, ColumnViewerEditorActivationEvent event);
+	void editCell(IGridBindingCellInformation cell, ColumnViewerEditorActivationEvent event);
 
 	/**
 	 * Accepts the current value of the current edit session.

@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.grid;
@@ -13,16 +12,18 @@ import org.eclipse.nebula.widgets.grid.GridItem;
 import com.rcpcompany.uibindings.IDisposable;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Binding Row Information</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '
+ * <em><b>Binding Row Information</b></em>'. <!-- end-user-doc -->
  * 
  * <p>
  * The following features are supported:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingRowInformation#getGrid <em>Grid</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingRowInformation#getId <em>Id</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingRowInformation#getColumnCells <em>Column Cells</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingRowInformation#getGridItem <em>Grid Item</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingRowInformation#getColumnCells <em>Column
+ * Cells</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingRowInformation#getGridItem <em>Grid Item
+ * </em>}</li>
  * </ul>
  * </p>
  * 
@@ -33,7 +34,8 @@ public interface IGridBindingRowInformation extends EObject, IDisposable {
 	/**
 	 * Returns the value of the '<em><b>Grid</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Grid</em>' reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Grid</em>' reference isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -46,7 +48,8 @@ public interface IGridBindingRowInformation extends EObject, IDisposable {
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Id</em>' attribute isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Id</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -57,12 +60,14 @@ public interface IGridBindingRowInformation extends EObject, IDisposable {
 	Object getId();
 
 	/**
-	 * Returns the value of the '<em><b>Column Cells</b></em>' reference list. The list contents are of type
-	 * {@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation}. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getRow <em>Row</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Column Cells</b></em>' reference list. The list contents are
+	 * of type {@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation}. It is
+	 * bidirectional and its opposite is '
+	 * {@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getRow <em>Row</em>}'. <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Column Cells</em>' reference list isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Column Cells</em>' reference list isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -76,8 +81,8 @@ public interface IGridBindingRowInformation extends EObject, IDisposable {
 	/**
 	 * Returns the value of the '<em><b>Grid Item</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Grid Item</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Grid Item</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

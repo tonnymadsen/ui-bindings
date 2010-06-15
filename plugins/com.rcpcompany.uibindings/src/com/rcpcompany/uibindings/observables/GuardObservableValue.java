@@ -10,11 +10,11 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EcorePackage;
 
 /**
- * Observable value that will return <code>true</code> or <code>false</code> if an observed value has a specific guard
- * value.
+ * Observable value that will return <code>true</code> or <code>false</code> if an observed value
+ * has a specific guard value.
  * <p>
- * Note that although it is possible to set this observable value to <code>true</code> - which sets the observed value
- * to the guard value - it is not possible to set it to <code>false</code>.
+ * Note that although it is possible to set this observable value to <code>true</code> - which sets
+ * the observed value to the guard value - it is not possible to set it to <code>false</code>.
  * <p>
  * The primary use of this observable value is as the observable for radio button groups.
  * 
@@ -85,9 +85,8 @@ public class GuardObservableValue extends AbstractObservableValue implements IOb
 
 	@Override
 	protected void doSetValue(Object value) {
-		if (!(value instanceof Boolean)) {
+		if (!(value instanceof Boolean))
 			throw new IllegalStateException("Value of " + this.getClass().getSimpleName() + " must be boolean");
-		}
 		if ((Boolean) value != myNegate) {
 			myObserved.setValue(myGuardValue);
 		}

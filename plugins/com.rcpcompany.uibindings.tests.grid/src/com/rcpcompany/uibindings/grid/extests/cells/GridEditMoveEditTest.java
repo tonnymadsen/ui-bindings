@@ -25,8 +25,8 @@ import com.rcpcompany.uibindings.grid.IGridBinding;
 import com.rcpcompany.uibindings.grid.extests.models.TestGridGridModel;
 
 /**
- * Tests of <a href="http://jira.marintek.sintef.no/jira/browse/SIMA-1049">SIMA-1049: Moving and Editing Cell, Edits
- * Wrong Cell</a>.
+ * Tests of <a href="http://jira.marintek.sintef.no/jira/browse/SIMA-1049">SIMA-1049: Moving and
+ * Editing Cell, Edits Wrong Cell</a>.
  * 
  * @author Tonny Madsen, The RCP Company
  */

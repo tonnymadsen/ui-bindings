@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.grid;
@@ -9,8 +8,8 @@ package com.rcpcompany.uibindings.grid;
 import org.eclipse.emf.ecore.EFactory;
 
 /**
- * <!-- begin-user-doc --> The <b>Factory</b> for the model. It provides a create method for each non-abstract class of
- * the model. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> The <b>Factory</b> for the model. It provides a create method for each
+ * non-abstract class of the model. <!-- end-user-doc -->
  * 
  * @see com.rcpcompany.uibindings.grid.IGridPackage
  * @generated
@@ -24,7 +23,8 @@ public interface IGridFactory extends EFactory {
 	IGridFactory eINSTANCE = com.rcpcompany.uibindings.grid.internal.GridFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Binding</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Binding</em>'. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @return a new object of class '<em>Binding</em>'.
 	 * @generated
@@ -32,7 +32,8 @@ public interface IGridFactory extends EFactory {
 	IGridBinding createGridBinding();
 
 	/**
-	 * Returns a new object of class '<em>Binding Cell Information</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Binding Cell Information</em>'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Binding Cell Information</em>'.
 	 * @generated
@@ -40,7 +41,8 @@ public interface IGridFactory extends EFactory {
 	IGridBindingCellInformation createGridBindingCellInformation();
 
 	/**
-	 * Returns a new object of class '<em>Binding Cell Editor</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Binding Cell Editor</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Binding Cell Editor</em>'.
 	 * @generated
@@ -48,8 +50,8 @@ public interface IGridFactory extends EFactory {
 	IGridBindingCellEditor createGridBindingCellEditor();
 
 	/**
-	 * Returns a new object of class '<em>Binding Column Information</em>'. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * Returns a new object of class '<em>Binding Column Information</em>'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Binding Column Information</em>'.
 	 * @generated
@@ -57,7 +59,8 @@ public interface IGridFactory extends EFactory {
 	IGridBindingColumnInformation createGridBindingColumnInformation();
 
 	/**
-	 * Returns a new object of class '<em>Binding Row Information</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Binding Row Information</em>'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Binding Row Information</em>'.
 	 * @generated

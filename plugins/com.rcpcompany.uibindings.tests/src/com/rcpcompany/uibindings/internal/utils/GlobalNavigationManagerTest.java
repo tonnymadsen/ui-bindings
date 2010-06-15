@@ -140,6 +140,7 @@ public class GlobalNavigationManagerTest {
 		assertNull(IGlobalNavigationManager.Factory.getManager(window));
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				IGlobalNavigationManager.Factory.addLocation();
 				assertNull(IGlobalNavigationManager.Factory.getManager(window));
@@ -147,6 +148,7 @@ public class GlobalNavigationManagerTest {
 		});
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final BackwardHistoryHandler handler = new IGlobalNavigationManager.BackwardHistoryHandler();
 				assertNotNull(handler);
@@ -155,6 +157,7 @@ public class GlobalNavigationManagerTest {
 		});
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final ForwardHistoryHandler handler = new IGlobalNavigationManager.ForwardHistoryHandler();
 				assertNotNull(handler);

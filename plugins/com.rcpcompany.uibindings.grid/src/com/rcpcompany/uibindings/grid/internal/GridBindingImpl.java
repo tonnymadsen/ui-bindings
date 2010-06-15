@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.grid.internal;
@@ -57,18 +56,23 @@ import com.rcpcompany.uibindings.internal.BindingImpl;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Binding</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Binding</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingImpl#getNoColumnHeaders <em>No Column Headers</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingImpl#getNoColumnHeaders <em>No
+ * Column Headers</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingImpl#getColumns <em>Columns</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingImpl#getNoRowHeaders <em>No Row Headers</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingImpl#getNoRowHeaders <em>No Row
+ * Headers</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingImpl#getRows <em>Rows</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingImpl#getGrid <em>Grid</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingImpl#getModel <em>Model</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingImpl#getFocusCell <em>Focus Cell</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingImpl#getCellEditor <em>Cell Editor</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingImpl#getFocusCell <em>Focus Cell
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingImpl#getCellEditor <em>Cell Editor
+ * </em>}</li>
  * </ul>
  * </p>
  * 
@@ -76,8 +80,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  */
 public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	/**
-	 * The default value of the '{@link #getNoColumnHeaders() <em>No Column Headers</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getNoColumnHeaders() <em>No Column Headers</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getNoColumnHeaders()
 	 * @generated
@@ -86,8 +90,8 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	protected static final int NO_COLUMN_HEADERS_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getNoColumnHeaders() <em>No Column Headers</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getNoColumnHeaders() <em>No Column Headers</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getNoColumnHeaders()
 	 * @generated
@@ -96,8 +100,8 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	protected int noColumnHeaders = NO_COLUMN_HEADERS_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' map. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' map. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getColumns()
 	 * @generated
@@ -106,8 +110,8 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	protected EMap<Object, IGridBindingColumnInformation> columns;
 
 	/**
-	 * The default value of the '{@link #getNoRowHeaders() <em>No Row Headers</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getNoRowHeaders() <em>No Row Headers</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getNoRowHeaders()
 	 * @generated
@@ -116,8 +120,8 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	protected static final int NO_ROW_HEADERS_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getNoRowHeaders() <em>No Row Headers</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getNoRowHeaders() <em>No Row Headers</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getNoRowHeaders()
 	 * @generated
@@ -126,7 +130,8 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	protected int noRowHeaders = NO_ROW_HEADERS_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getRows() <em>Rows</em>}' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getRows() <em>Rows</em>}' map. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getRows()
 	 * @generated
@@ -135,8 +140,8 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	protected EMap<Object, IGridBindingRowInformation> rows;
 
 	/**
-	 * The default value of the '{@link #getGrid() <em>Grid</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getGrid() <em>Grid</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getGrid()
 	 * @generated
@@ -145,8 +150,8 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	protected static final Grid GRID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getGrid() <em>Grid</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getGrid() <em>Grid</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getGrid()
 	 * @generated
@@ -155,8 +160,8 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	protected Grid grid = GRID_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getModel() <em>Model</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getModel() <em>Model</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getModel()
 	 * @generated
@@ -165,8 +170,8 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	protected static final IGridModel MODEL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getModel() <em>Model</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getModel() <em>Model</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getModel()
 	 * @generated
@@ -175,8 +180,8 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	protected IGridModel model = MODEL_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getFocusCell() <em>Focus Cell</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getFocusCell() <em>Focus Cell</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getFocusCell()
 	 * @generated
@@ -185,8 +190,8 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	protected IGridBindingCellInformation focusCell;
 
 	/**
-	 * The cached value of the '{@link #getCellEditor() <em>Cell Editor</em>}' containment reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getCellEditor() <em>Cell Editor</em>}' containment
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getCellEditor()
 	 * @generated
@@ -266,17 +271,11 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	 */
 	protected void updateFocusCellFromGrid() {
 		final Point p = getGrid().getFocusCell();
-		if (p == null) {
-			return;
-		}
-		if (p.x < 0 || p.y < 0) {
-			return;
-		}
+		if (p == null) return;
+		if (p.x < 0 || p.y < 0) return;
 
 		final IGridBindingCellInformation cell = getCell(p.x, p.y);
-		if (cell == null) {
-			return;
-		}
+		if (cell == null) return;
 		setFocusCell(cell);
 	}
 
@@ -345,9 +344,7 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 
 	@Override
 	public boolean isChangeable() {
-		if (getArgument(Constants.ARG_READONLY, Boolean.class, Boolean.FALSE) == Boolean.TRUE) {
-			return false;
-		}
+		if (getArgument(Constants.ARG_READONLY, Boolean.class, Boolean.FALSE) == Boolean.TRUE) return false;
 
 		return true;
 	}
@@ -405,6 +402,7 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getNoColumnHeaders() {
 		return noColumnHeaders;
 	}
@@ -414,6 +412,7 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public IGridBindingCellEditor getCellEditor() {
 		if (cellEditor == null) {
 			setCellEditor(IGridFactory.eINSTANCE.createGridBindingCellEditor());
@@ -432,12 +431,8 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 
 	@Override
 	public void editCell(IGridBindingCellInformation cell, ColumnViewerEditorActivationEvent event) {
-		if (!cell.isChangeable()) {
-			return;
-		}
-		if (!IManager.Factory.getManager().isEditorActivationEvent(event, cell)) {
-			return;
-		}
+		if (!cell.isChangeable()) return;
+		if (!IManager.Factory.getManager().isEditorActivationEvent(event, cell)) return;
 		setFocusCell(cell);
 		getCellEditor().editCell(cell, event);
 	}
@@ -498,6 +493,7 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EMap<Object, IGridBindingRowInformation> getRows() {
 		if (rows == null) {
 			rows = new EcoreEMap<Object, IGridBindingRowInformation>(IGridPackage.Literals.OBJECT_TO_ROW_MAP_ENTRY,
@@ -511,6 +507,7 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Grid getGrid() {
 		return grid;
 	}
@@ -534,6 +531,7 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IGridModel getModel() {
 		return model;
 	}
@@ -557,6 +555,7 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IGridBindingCellInformation getFocusCell() {
 		return focusCell;
 	}
@@ -603,6 +602,7 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public void setFocusCell(IGridBindingCellInformation newFocusCell) {
 		if (newFocusCell == null) {
 			if (getColumns().size() > 0 && getRows().size() > 0) {
@@ -653,6 +653,7 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EMap<Object, IGridBindingColumnInformation> getColumns() {
 		if (columns == null) {
 			columns = new EcoreEMap<Object, IGridBindingColumnInformation>(
@@ -667,6 +668,7 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getNoRowHeaders() {
 		return noRowHeaders;
 	}
@@ -700,19 +702,17 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 		case IGridPackage.GRID_BINDING__NO_COLUMN_HEADERS:
 			return getNoColumnHeaders();
 		case IGridPackage.GRID_BINDING__COLUMNS:
-			if (coreType) {
+			if (coreType)
 				return getColumns();
-			} else {
+			else
 				return getColumns().map();
-			}
 		case IGridPackage.GRID_BINDING__NO_ROW_HEADERS:
 			return getNoRowHeaders();
 		case IGridPackage.GRID_BINDING__ROWS:
-			if (coreType) {
+			if (coreType)
 				return getRows();
-			} else {
+			else
 				return getRows().map();
-			}
 		case IGridPackage.GRID_BINDING__GRID:
 			return getGrid();
 		case IGridPackage.GRID_BINDING__MODEL:
@@ -720,9 +720,7 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 		case IGridPackage.GRID_BINDING__FOCUS_CELL:
 			return getFocusCell();
 		case IGridPackage.GRID_BINDING__CELL_EDITOR:
-			if (resolve) {
-				return getCellEditor();
-			}
+			if (resolve) return getCellEditor();
 			return basicGetCellEditor();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -856,9 +854,7 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (noColumnHeaders: ");
@@ -926,6 +922,7 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 			 * Create the column and row headers
 			 */
 			grid.getDisplay().asyncExec(new Runnable() {
+				@Override
 				public void run() {
 					addColumn(IGridModel.HEADER1, 0);
 					addRow(IGridModel.HEADER1, 0);
@@ -994,6 +991,7 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 		protected List<Object> myOldColumns = Collections.emptyList();
 		protected List<Object> myOldRows = Collections.emptyList();
 
+		@Override
 		public void run() {
 			/*
 			 * Strategy:
@@ -1022,9 +1020,7 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	 * Asynchronously updates the structure of the grid
 	 */
 	protected void asyncUpdateGridStructure() {
-		if (asyncUpdateGridStructure) {
-			return;
-		}
+		if (asyncUpdateGridStructure) return;
 		asyncUpdateGridStructure = true;
 		if (getGrid().isDisposed()) {
 			LogUtils.debug(this, "Grid is disposed");
@@ -1175,22 +1171,16 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 				ci = c;
 			}
 		}
-		if (ci == null) {
-			return null;
-		}
+		if (ci == null) return null;
 		for (final IGridBindingRowInformation r : getRows().values()) {
 			if (r.getId() == rowID) {
 				ri = r;
 			}
 		}
-		if (ri == null) {
-			return null;
-		}
+		if (ri == null) return null;
 
 		for (final IGridBindingCellInformation cell : ci.getRowCells()) {
-			if (cell.getRow() == ri) {
-				return cell;
-			}
+			if (cell.getRow() == ri) return cell;
 		}
 		LogUtils.throwException(this, "Cell not found - inconsistency", getCreationPoint());
 		return null;
@@ -1200,12 +1190,8 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	public IGridBindingCellInformation getCell(int column, int row) {
 		final GridColumn gridColumn;
 		final GridItem gridRow;
-		if (column < 0 || getGrid().getColumnCount() <= column) {
-			return null;
-		}
-		if (row < 0 || getGrid().getItemCount() <= row) {
-			return null;
-		}
+		if (column < 0 || getGrid().getColumnCount() <= column) return null;
+		if (row < 0 || getGrid().getItemCount() <= row) return null;
 
 		try {
 			gridColumn = getGrid().getColumn(column);
@@ -1223,22 +1209,16 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 				ci = c;
 			}
 		}
-		if (ci == null) {
-			return null;
-		}
+		if (ci == null) return null;
 		for (final IGridBindingRowInformation r : getRows().values()) {
 			if (r.getGridItem() == gridRow) {
 				ri = r;
 			}
 		}
-		if (ri == null) {
-			return null;
-		}
+		if (ri == null) return null;
 
 		for (final IGridBindingCellInformation cell : ci.getRowCells()) {
-			if (cell.getRow() == ri) {
-				return cell;
-			}
+			if (cell.getRow() == ri) return cell;
 		}
 		LogUtils.throwException(this, "Cell not found - inconsistency", getCreationPoint());
 		return null;

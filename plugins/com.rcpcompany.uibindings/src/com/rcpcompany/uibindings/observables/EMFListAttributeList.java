@@ -15,11 +15,12 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 /**
- * An {@link IObservableList observable list} that given an observed list and a mapper object, will return a new list
- * with the elements from the list mapped with the mapper.
+ * An {@link IObservableList observable list} that given an observed list and a mapper object, will
+ * return a new list with the elements from the list mapped with the mapper.
  * <p>
- * Alternatively, the list can also take an EMF based observed list and an a {@link EStructuralFeature structural
- * feature} will provide a new list with the values of the objects of the original list with the specific feature.
+ * Alternatively, the list can also take an EMF based observed list and an a
+ * {@link EStructuralFeature structural feature} will provide a new list with the values of the
+ * objects of the original list with the specific feature.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -61,22 +62,14 @@ public class EMFListAttributeList extends WritableList implements IObservableLis
 	private final Adapter myFeatureMonitor = new AdapterImpl() {
 		@Override
 		public void notifyChanged(Notification msg) {
-			if (msg.isTouch()) {
-				return;
-			}
-			if (msg.getEventType() != Notification.SET) {
-				return;
-			}
+			if (msg.isTouch()) return;
+			if (msg.getEventType() != Notification.SET) return;
 
 			final int index = myObjectList.indexOf(msg.getNotifier());
-			if (index == -1) {
-				return;
-			}
+			if (index == -1) return;
 			final Object oldValue = get(index);
 			final Object newValue = myMapper.map(msg.getNotifier());
-			if (newValue == null ? oldValue == null : newValue.equals(oldValue)) {
-				return;
-			}
+			if (newValue == null ? oldValue == null : newValue.equals(oldValue)) return;
 			set(index, newValue);
 		};
 	};

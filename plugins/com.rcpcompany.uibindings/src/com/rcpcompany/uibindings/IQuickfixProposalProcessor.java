@@ -3,8 +3,8 @@ package com.rcpcompany.uibindings;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A quick fix proposal processor is used to create quick fixes in a specific context. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> A quick fix proposal processor is used to create quick fixes in a
+ * specific context. <!-- end-user-doc -->
  * 
  * 
  * @see com.rcpcompany.uibindings.IUIBindingsPackage#getQuickfixProposalProcessor()

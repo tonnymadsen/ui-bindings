@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings;
@@ -9,7 +8,8 @@ package com.rcpcompany.uibindings;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Anon Cell Item</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Anon Cell Item</b></em>'.
+ * <!-- end-user-doc -->
  * 
  * <p>
  * The following features are supported:
@@ -27,8 +27,8 @@ public interface IConstantTreeItem extends IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>Descriptor</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Descriptor</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Descriptor</em>' reference isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -40,8 +40,8 @@ public interface IConstantTreeItem extends IArgumentProvider {
 	ITreeItemDescriptor getDescriptor();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IConstantTreeItem#getDescriptor <em>Descriptor</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IConstantTreeItem#getDescriptor
+	 * <em>Descriptor</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Descriptor</em>' reference.
 	 * @see #getDescriptor()
@@ -52,8 +52,8 @@ public interface IConstantTreeItem extends IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Target</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Target</em>' reference isn't clear, there really should be more of
+	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -65,8 +65,8 @@ public interface IConstantTreeItem extends IArgumentProvider {
 	EObject getTarget();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IConstantTreeItem#getTarget <em>Target</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IConstantTreeItem#getTarget
+	 * <em>Target</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Target</em>' reference.
 	 * @see #getTarget()

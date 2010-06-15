@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.grid.internal;
@@ -38,9 +37,7 @@ public class GridFactoryImpl extends EFactoryImpl implements IGridFactory {
 		try {
 			final IGridFactory theGridFactory = (IGridFactory) EPackage.Registry.INSTANCE
 					.getEFactory("http://rcp-company.com/schemas/uibindings/grid");
-			if (theGridFactory != null) {
-				return theGridFactory;
-			}
+			if (theGridFactory != null) return theGridFactory;
 		} catch (final Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
@@ -114,6 +111,7 @@ public class GridFactoryImpl extends EFactoryImpl implements IGridFactory {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public IGridBinding createGridBinding() {
 		return null;
 	}
@@ -123,6 +121,7 @@ public class GridFactoryImpl extends EFactoryImpl implements IGridFactory {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public IGridBindingCellInformation createGridBindingCellInformation() {
 		return null;
 	}
@@ -132,6 +131,7 @@ public class GridFactoryImpl extends EFactoryImpl implements IGridFactory {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IGridBindingCellEditor createGridBindingCellEditor() {
 		final GridBindingCellEditorImpl gridBindingCellEditor = new GridBindingCellEditorImpl();
 		return gridBindingCellEditor;
@@ -150,6 +150,7 @@ public class GridFactoryImpl extends EFactoryImpl implements IGridFactory {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public IGridBindingColumnInformation createGridBindingColumnInformation() {
 		return null;
 	}
@@ -167,6 +168,7 @@ public class GridFactoryImpl extends EFactoryImpl implements IGridFactory {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public IGridBindingRowInformation createGridBindingRowInformation() {
 		return null;
 	}
@@ -203,6 +205,7 @@ public class GridFactoryImpl extends EFactoryImpl implements IGridFactory {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IGridPackage getGridPackage() {
 		return (IGridPackage) getEPackage();
 	}

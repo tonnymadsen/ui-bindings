@@ -6,7 +6,8 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Widget;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Column Adapter</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Column Adapter</b></em>'.
+ * <!-- end-user-doc -->
  * 
  * <p>
  * The following features are supported:
@@ -29,8 +30,8 @@ public interface IColumnAdapter extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Widget</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Widget</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Widget</em>' attribute isn't clear, there really should be more of
+	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -43,7 +44,8 @@ public interface IColumnAdapter extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Text</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Text</em>' attribute isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Text</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -55,8 +57,8 @@ public interface IColumnAdapter extends EObject {
 	String getText();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IColumnAdapter#getText <em>Text</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IColumnAdapter#getText <em>Text</em>}
+	 * ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Text</em>' attribute.
 	 * @see #getText()
@@ -67,8 +69,8 @@ public interface IColumnAdapter extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Alignment</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Alignment</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Alignment</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -80,8 +82,8 @@ public interface IColumnAdapter extends EObject {
 	int getAlignment();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IColumnAdapter#getAlignment <em>Alignment</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IColumnAdapter#getAlignment
+	 * <em>Alignment</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Alignment</em>' attribute.
 	 * @see #getAlignment()
@@ -92,8 +94,8 @@ public interface IColumnAdapter extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Image</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Image</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Image</em>' attribute isn't clear, there really should be more of
+	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -105,8 +107,8 @@ public interface IColumnAdapter extends EObject {
 	Image getImage();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IColumnAdapter#getImage <em>Image</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IColumnAdapter#getImage
+	 * <em>Image</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Image</em>' attribute.
 	 * @see #getImage()
@@ -117,8 +119,8 @@ public interface IColumnAdapter extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Moveable</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Moveable</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Moveable</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -130,8 +132,8 @@ public interface IColumnAdapter extends EObject {
 	boolean isMoveable();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IColumnAdapter#isMoveable <em>Moveable</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IColumnAdapter#isMoveable
+	 * <em>Moveable</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Moveable</em>' attribute.
 	 * @see #isMoveable()
@@ -142,8 +144,8 @@ public interface IColumnAdapter extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Resizable</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Resizable</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Resizable</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -155,8 +157,8 @@ public interface IColumnAdapter extends EObject {
 	boolean isResizable();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IColumnAdapter#isResizable <em>Resizable</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IColumnAdapter#isResizable
+	 * <em>Resizable</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Resizable</em>' attribute.
 	 * @see #isResizable()
@@ -167,8 +169,8 @@ public interface IColumnAdapter extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Width</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Width</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Width</em>' attribute isn't clear, there really should be more of
+	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -180,8 +182,8 @@ public interface IColumnAdapter extends EObject {
 	int getWidth();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IColumnAdapter#getWidth <em>Width</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IColumnAdapter#getWidth
+	 * <em>Width</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Width</em>' attribute.
 	 * @see #getWidth()
@@ -192,8 +194,8 @@ public interface IColumnAdapter extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Tool Tip Text</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Tool Tip Text</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Tool Tip Text</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -205,8 +207,8 @@ public interface IColumnAdapter extends EObject {
 	String getToolTipText();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IColumnAdapter#getToolTipText <em>Tool Tip Text</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IColumnAdapter#getToolTipText
+	 * <em>Tool Tip Text</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Tool Tip Text</em>' attribute.
 	 * @see #getToolTipText()

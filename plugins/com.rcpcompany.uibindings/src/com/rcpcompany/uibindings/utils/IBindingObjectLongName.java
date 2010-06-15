@@ -48,17 +48,17 @@ public interface IBindingObjectLongName extends IDisposable {
 		/**
 		 * Returns the long name for the objects in the specified selection concatenated together.
 		 * <p>
-		 * If the selection is not a structured selection or it is empty, an empty string is returned.
+		 * If the selection is not a structured selection or it is empty, an empty string is
+		 * returned.
 		 * <p>
-		 * Any objects in the selection that is not an {@link EObject EMF object} is silently ignored.
+		 * Any objects in the selection that is not an {@link EObject EMF object} is silently
+		 * ignored.
 		 * 
 		 * @param selection the selection
 		 * @return the name
 		 */
 		public static String getLongName(ISelection selection) {
-			if (!(selection instanceof IStructuredSelection)) {
-				return "";
-			}
+			if (!(selection instanceof IStructuredSelection)) return "";
 			final IStructuredSelection s = (IStructuredSelection) selection;
 			final StringBuilder sb = new StringBuilder();
 			for (final Object o : s.toArray()) {
