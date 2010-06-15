@@ -39,8 +39,8 @@ public class ViewerCopyHandler extends AbstractHandler implements IHandler {
 		if (cellDisplayText == null || cellDisplayText.length() == 0) {
 			clipboard.setContents(new Object[] { cellObject }, new Transfer[] { BindingTransfer.getInstance() });
 		} else {
-			clipboard.setContents(new Object[] { cellDisplayText, cellObject }, new Transfer[] {
-					TextTransfer.getInstance(), BindingTransfer.getInstance() });
+			clipboard.setContents(new Object[] { cellDisplayText, cellObject },
+					new Transfer[] { TextTransfer.getInstance(), BindingTransfer.getInstance() });
 		}
 
 		return null;

@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -71,20 +70,28 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Value Binding</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Value Binding</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getModelObservable <em>Model Observable</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getModelObservableValue <em>Model Observable Value
+ * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getModelObservable <em>Model
+ * Observable</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getModelObservableValue <em>Model
+ * Observable Value </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getModelObject <em>Model Object
  * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getModelObject <em>Model Object</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getModelFeature <em>Model Feature</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getMessagePrefix <em>Message Prefix</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getDecoratorProvider <em>Decorator Provider</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getModelFeature <em>Model Feature
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getMessagePrefix <em>Message
+ * Prefix</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getDecoratorProvider <em>Decorator
+ * Provider</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getDecorator <em>Decorator</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getUIAttribute <em>UI Attribute</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getUIObservable <em>UI Observable</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getUIAttribute <em>UI Attribute
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getUIObservable <em>UI Observable
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getCell <em>Cell</em>}</li>
  * </ul>
  * </p>
@@ -108,9 +115,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 	@Override
 	public IBindingDataType getDataType() {
-		if (!isDynamic()) {
-			return super.getDataType();
-		}
+		if (!isDynamic()) return super.getDataType();
 		final IObservableValue ov = getModelObservableValue();
 		if (ov != null) {
 			/*
@@ -120,17 +125,13 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			 */
 			if (ov instanceof MyDetailObservableValue) {
 				final Object valueType = ((MyDetailObservableValue) ov).getValueType();
-				if (valueType != null) {
-					return BindingDataTypeFactory.create(valueType);
-				}
+				if (valueType != null) return BindingDataTypeFactory.create(valueType);
 			}
 			final Object v = ov.getValue();
-			if (v == null) {
-				/*
-				 * No value? We fall back on the static type
-				 */
-				return super.getDataType();
-			}
+			if (v == null) /*
+							 * No value? We fall back on the static type
+							 */
+			return super.getDataType();
 			return BindingDataTypeFactory.create(v.getClass());
 		}
 
@@ -150,7 +151,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	@Override
 	public void updateUI() {
 		/*
-		 * We have to update the values backward to handle the chains set up in BaseUIBindingDecorator.decorate()
+		 * We have to update the values backward to handle the chains set up in
+		 * BaseUIBindingDecorator.decorate()
 		 */
 		final EList<Binding> list = getDBBindings();
 		for (int i = list.size() - 1; i > 0; i--) {
@@ -167,9 +169,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 				con = ci.setFocus();
 			}
 		}
-		if (con == null) {
-			return;
-		}
+		if (con == null) return;
 
 		/*
 		 * Make sure all Sections and ExpandableComposite are expanded
@@ -214,9 +214,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		super.addErrorCondition(error);
 
 		final Control c = getControl();
-		if (c == null) {
-			return;
-		}
+		if (c == null) return;
 
 		final List<String> ecs = getErrorConditions();
 		final StringBuilder sb = new StringBuilder();
@@ -316,12 +314,14 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		setStaticDataType(IBindingDataType.Factory.create(observable));
 		assertTrue(getStaticDataType() != null, "Observable not supported, got value type: " //$NON-NLS-1$
 				+ observable.getValueType());
-		// assertTrue(getDataType().getEType() != null, "Observable not supported, need EType, got value type: "
+		// assertTrue(getDataType().getEType() != null,
+		// "Observable not supported, need EType, got value type: "
 		// + observable.getValueType());
 		myModelObservableDispose = false;
 		return this;
 	}
 
+	@Override
 	public IValueBinding model(EObject object, EStructuralFeature feature) {
 		setStaticDataType(BindingDataTypeFactory.create(feature));
 		if (!feature.isMany()) {
@@ -340,7 +340,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			setModelObservable(UIBindingsEMFObservables.observeDetailValue(modelObject.getRealm(), getEditingDomain(),
 					modelObject, feature));
 		} else {
-			// TODO setModelObservable( UIBindingsEMFObservables.observeDetailList(modelObject, feature));
+			// TODO setModelObservable( UIBindingsEMFObservables.observeDetailList(modelObject,
+			// feature));
 			LogUtils.throwException(this, "Many valued feature not supported yet", getCreationPoint()); //$NON-NLS-1$
 		}
 		return this;
@@ -429,9 +430,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 	@Override
 	public Class<?> getUIType() {
-		if (getUIAttribute() == null) {
-			return null;
-		}
+		if (getUIAttribute() == null) return null;
 		return (Class<?>) getUIAttribute().getCurrentValue().getValueType();
 	}
 
@@ -471,9 +470,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 */
 	protected void decorateIfNeeded() {
 		final IBindingDataType newDynamicDataType = getDataType();
-		if (myPreviousDynamicDataType == newDynamicDataType) {
-			return;
-		}
+		if (myPreviousDynamicDataType == newDynamicDataType) return;
 
 		myPreviousDynamicDataType = newDynamicDataType;
 
@@ -569,8 +566,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	}
 
 	/**
-	 * The default value of the '{@link #getModelObservable() <em>Model Observable</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getModelObservable() <em>Model Observable</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getModelObservable()
 	 * @generated
@@ -579,8 +576,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	protected static final IObservable MODEL_OBSERVABLE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getModelObservable() <em>Model Observable</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getModelObservable() <em>Model Observable</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getModelObservable()
 	 * @generated
@@ -589,8 +586,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	protected IObservable modelObservable = MODEL_OBSERVABLE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getModelObservableValue() <em>Model Observable Value</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getModelObservableValue() <em>Model Observable Value</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getModelObservableValue()
 	 * @generated
@@ -614,8 +611,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	};
 
 	/**
-	 * The default value of the '{@link #getMessagePrefix() <em>Message Prefix</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getMessagePrefix() <em>Message Prefix</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getMessagePrefix()
 	 * @generated
@@ -624,8 +621,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	protected static final String MESSAGE_PREFIX_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getMessagePrefix() <em>Message Prefix</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getMessagePrefix() <em>Message Prefix</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getMessagePrefix()
 	 * @generated
@@ -634,8 +631,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	protected String messagePrefix = MESSAGE_PREFIX_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getDecoratorProvider() <em>Decorator Provider</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getDecoratorProvider() <em>Decorator Provider</em>}'
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDecoratorProvider()
 	 * @generated
@@ -644,8 +641,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	protected IDecoratorProvider decoratorProvider;
 
 	/**
-	 * The cached value of the '{@link #getDecorator() <em>Decorator</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getDecorator() <em>Decorator</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDecorator()
 	 * @generated
@@ -654,8 +651,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	protected IUIBindingDecorator decorator;
 
 	/**
-	 * The cached value of the '{@link #getUIAttribute() <em>UI Attribute</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getUIAttribute() <em>UI Attribute</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getUIAttribute()
 	 * @generated
@@ -664,8 +661,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	protected IUIAttribute uiAttribute;
 
 	/**
-	 * The default value of the '{@link #getUIObservable() <em>UI Observable</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getUIObservable() <em>UI Observable</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getUIObservable()
 	 * @generated
@@ -674,8 +671,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	protected static final IObservableValue UI_OBSERVABLE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getCell() <em>Cell</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getCell() <em>Cell</em>}' reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getCell()
 	 * @generated
@@ -707,6 +704,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IObservable getModelObservable() {
 		return modelObservable;
 	}
@@ -716,6 +714,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setModelObservable(IObservable newModelObservable) {
 		final IObservable oldModelObservable = modelObservable;
 		modelObservable = newModelObservable;
@@ -730,11 +729,10 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public IObservableValue getModelObservableValue() {
 		final IObservable observable = getModelObservable();
-		if (!(observable instanceof IObservableValue)) {
-			return null;
-		}
+		if (!(observable instanceof IObservableValue)) return null;
 		return (IObservableValue) observable;
 	}
 
@@ -743,6 +741,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public void setModelObservableValue(IObservableValue newModelObservableValue) {
 		setModelObservable(newModelObservableValue);
 	}
@@ -752,21 +751,16 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public EObject getModelObject() {
 		if (getModelObservable() instanceof IObserving) {
 			final Object observed = ((IObserving) getModelObservable()).getObserved();
-			if (observed instanceof EObject) {
-				return (EObject) observed;
-			}
+			if (observed instanceof EObject) return (EObject) observed;
 		}
 		final IObservableValue ov = getModelObservableValue();
-		if (ov == null) {
-			return null;
-		}
+		if (ov == null) return null;
 		final Object observed = ov.getValue();
-		if (!(observed instanceof EObject)) {
-			return null;
-		}
+		if (!(observed instanceof EObject)) return null;
 		return (EObject) observed;
 	}
 
@@ -775,11 +769,10 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public EStructuralFeature getModelFeature() {
 		final Object valueType = getDataType().getValueType();
-		if (valueType instanceof EStructuralFeature) {
-			return (EStructuralFeature) valueType;
-		}
+		if (valueType instanceof EStructuralFeature) return (EStructuralFeature) valueType;
 		return null;
 	}
 
@@ -788,13 +781,13 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public String getMessagePrefix() {
-		if (messagePrefix != null) {
-			return messagePrefix;
-		}
+		if (messagePrefix != null) return messagePrefix;
 
 		/*
-		 * If this binding has a control, then look for the previous label widget and use the text of that
+		 * If this binding has a control, then look for the previous label widget and use the text
+		 * of that
 		 */
 		final Control c = getControl();
 		if (c != null) {
@@ -830,9 +823,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		final IValueBindingCell ci = getCell();
 		if (ci != null) {
 			messagePrefix = ci.getMessagePrefix();
-			if (messagePrefix != null) {
-				return messagePrefix;
-			}
+			if (messagePrefix != null) return messagePrefix;
 		}
 
 		/*
@@ -847,6 +838,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IDecoratorProvider getDecoratorProvider() {
 		return decoratorProvider;
 	}
@@ -856,6 +848,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setDecoratorProvider(IDecoratorProvider newDecoratorProvider) {
 		final IDecoratorProvider oldDecoratorProvider = decoratorProvider;
 		decoratorProvider = newDecoratorProvider;
@@ -888,9 +881,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 				continue;
 			}
 			got |= getArgumentProviderArguments(results, name, d, argumentType, firstOnly);
-			if (got && firstOnly) {
-				return true;
-			}
+			if (got && firstOnly) return true;
 		}
 
 		return got;
@@ -907,6 +898,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IUIBindingDecorator getDecorator() {
 		return decorator;
 	}
@@ -916,6 +908,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setDecorator(IUIBindingDecorator newDecorator) {
 		final IUIBindingDecorator oldDecorator = decorator;
 		decorator = newDecorator;
@@ -930,6 +923,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IUIAttribute getUIAttribute() {
 		return uiAttribute;
 	}
@@ -939,6 +933,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setUIAttribute(IUIAttribute newUIAttribute) {
 		final IUIAttribute oldUIAttribute = uiAttribute;
 		uiAttribute = newUIAttribute;
@@ -953,6 +948,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public IObservableValue getUIObservable() {
 		return getUIAttribute().getCurrentValue();
 	}
@@ -962,6 +958,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IValueBindingCell getCell() {
 		return cell;
 	}
@@ -971,6 +968,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setCell(IValueBindingCell newCell) {
 		final IValueBindingCell oldCell = cell;
 		cell = newCell;
@@ -1131,13 +1129,9 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 	private String getBaseType() {
 		final EStructuralFeature feature = getModelFeature();
-		if (feature != null) {
-			return feature.getEContainingClass().getName() + "." + feature.getName(); //$NON-NLS-1$
-		}
+		if (feature != null) return feature.getEContainingClass().getName() + "." + feature.getName(); //$NON-NLS-1$
 		final EClassifier modelEType = getModelEType();
-		if (modelEType != null) {
-			return modelEType.getName();
-		}
+		if (modelEType != null) return modelEType.getName();
 
 		return super.toString();
 	}
@@ -1145,18 +1139,14 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	@Override
 	public Widget getWidget() {
 		final IUIAttribute attribute = getUIAttribute();
-		if (attribute == null) {
-			return null;
-		}
+		if (attribute == null) return null;
 		return attribute.getWidget();
 	}
 
 	@Override
 	public Control getControl() {
 		final Widget widget = getWidget();
-		if (widget instanceof Control) {
-			return (Control) widget;
-		}
+		if (widget instanceof Control) return (Control) widget;
 		return null;
 	}
 
@@ -1179,9 +1169,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 					break;
 				}
 			}
-			if (!found) {
-				return;
-			}
+			if (!found) return;
 		}
 		updateBinding();
 	}
@@ -1207,12 +1195,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 	@Override
 	public boolean isEClassFeature(Class<? extends EObject> objClass, EStructuralFeature sf) {
-		if (sf != getModelFeature()) {
-			return false;
-		}
-		if (objClass != null && !objClass.isInstance(getModelObject())) {
-			return false;
-		}
+		if (sf != getModelFeature()) return false;
+		if (objClass != null && !objClass.isInstance(getModelObject())) return false;
 		return true;
 	}
 

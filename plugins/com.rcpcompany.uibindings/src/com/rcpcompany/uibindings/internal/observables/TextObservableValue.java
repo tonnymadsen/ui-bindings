@@ -24,10 +24,11 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 
 /**
- * {@link IObservableValue} for a number of widgets: {@link Text}, {@link StyledText}, {@link Combo} and {@link CCombo}.
+ * {@link IObservableValue} for a number of widgets: {@link Text}, {@link StyledText}, {@link Combo}
+ * and {@link CCombo}.
  * <p>
- * It handles all the possible change strategies as defined in {@link IBindingContext#getTextCommitStrategyCalculated()}
- * .
+ * It handles all the possible change strategies as defined in
+ * {@link IBindingContext#getTextCommitStrategyCalculated()} .
  * <p>
  * Loosely based on classes from the data binding framework.
  */
@@ -45,8 +46,8 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 	protected final ControlAdapter myAdapter;
 
 	/**
-	 * <code>true</code> while the widget is updated via {@link #setValue(Object)}. Used to prevent reporting the
-	 * changes.
+	 * <code>true</code> while the widget is updated via {@link #setValue(Object)}. Used to prevent
+	 * reporting the changes.
 	 */
 	protected boolean updating = false;
 
@@ -69,19 +70,20 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 	 * <li>select text</li>
 	 * <li>enter "b"</li>
 	 * </ul>
-	 * This results in two modify events: "a" to "" and "" to "b". Though only in one verify event...
+	 * This results in two modify events: "a" to "" and "" to "b". Though only in one verify
+	 * event...
 	 * <p>
-	 * Also see <a href="http://jira.marintek.sintef.no/jira/browse/SIMA-623">SIMA-623: Text widget with Focus out
-	 * commit strategy, seems to commit early.</a>
+	 * Also see <a href="http://jira.marintek.sintef.no/jira/browse/SIMA-623">SIMA-623: Text widget
+	 * with Focus out commit strategy, seems to commit early.</a>
 	 */
 	protected String myNextModifyValue = null;
 
 	private final Listener myControlListener = new Listener() {
+		@Override
 		public void handleEvent(Event event) {
-			// LogUtils.debug(this, "Text='" + myAccess.getText(myControl) + "'\n" + ToStringUtils.toString(event));
-			if (updating) {
-				return;
-			}
+			// LogUtils.debug(this, "Text='" + myAccess.getText(myControl) + "'\n" +
+			// ToStringUtils.toString(event));
+			if (updating) return;
 
 			/*
 			 * Special handling for some of the event types
@@ -96,8 +98,8 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 					if (myHandleENTER) {
 						forceUpdateValue();
 						/*
-						 * Cannot eat the keydown as it is also used when the binding is put into a cell of a viewer //
-						 * event.doit = false;
+						 * Cannot eat the keydown as it is also used when the binding is put into a
+						 * cell of a viewer // event.doit = false;
 						 */
 					}
 					break;
@@ -117,9 +119,7 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 				/*
 				 * See comment for myNextModifyValue.
 				 */
-				if (myNextModifyValue != null && !myAdapter.getText(myControl).equals(myNextModifyValue)) {
-					return;
-				}
+				if (myNextModifyValue != null && !myAdapter.getText(myControl).equals(myNextModifyValue)) return;
 				myNextModifyValue = null;
 				break;
 			case SWT.FocusOut:
@@ -135,18 +135,14 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 			 */
 			switch (myStrategy) {
 			case ON_MODIFY:
-				if (event.type != SWT.Modify) {
-					return;
-				}
+				if (event.type != SWT.Modify) return;
 				break;
 			case ON_FOCUS_OUT:
 				// if (event.type != SWT.FocusOut)
 				// return;
 				break;
 			case ON_MODIFY_DELAY:
-				if (event.type != SWT.Modify) {
-					return;
-				}
+				if (event.type != SWT.Modify) return;
 				break;
 			}
 
@@ -366,6 +362,7 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 		return myAdapter.getText(myControl);
 	}
 
+	@Override
 	public Object getValueType() {
 		return String.class;
 	}
@@ -424,6 +421,7 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 		}
 	}
 
+	@Override
 	public void forceUpdateValue() {
 		updateValue(false, true);
 	}
@@ -432,9 +430,7 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 	 * Schedules a delayed update of this observable.
 	 */
 	protected void scheduleUpdate() {
-		if (myStrategy != TextCommitStrategy.ON_MODIFY_DELAY) {
-			return;
-		}
+		if (myStrategy != TextCommitStrategy.ON_MODIFY_DELAY) return;
 		myUpdater = new ValueUpdater();
 		myControl.getDisplay().timerExec(IManager.Factory.getManager().getTextCommitStrategyDelay(), myUpdater);
 	}
@@ -459,10 +455,9 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 			cancel = true;
 		}
 
+		@Override
 		public void run() {
-			if (isDisposed()) {
-				return;
-			}
+			if (isDisposed()) return;
 			if (!cancel) {
 				updateValue(false, true);
 			}
@@ -475,9 +470,7 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 	private final Adapter myStrategyListener = new AdapterImpl() {
 		@Override
 		public void notifyChanged(Notification msg) {
-			if (msg.isTouch()) {
-				return;
-			}
+			if (msg.isTouch()) return;
 			if (msg.getFeature() == IUIBindingsPackage.Literals.BINDING_CONTEXT__TEXT_COMMIT_STRATEGY_CALCULATED) {
 				setStrategy(myContext.getTextCommitStrategyCalculated());
 			}

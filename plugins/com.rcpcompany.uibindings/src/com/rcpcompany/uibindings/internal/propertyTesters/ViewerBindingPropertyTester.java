@@ -21,9 +21,7 @@ import com.rcpcompany.utils.logging.LogUtils;
 public class ViewerBindingPropertyTester extends PropertyTester {
 	@Override
 	public boolean test(Object receiver, String property, Object[] args, Object expectedValue) {
-		if (!(receiver instanceof IViewerBinding)) {
-			return false;
-		}
+		if (!(receiver instanceof IViewerBinding)) return false;
 		final IViewerBinding binding = (IViewerBinding) receiver;
 
 		if ("state".equals(property)) {

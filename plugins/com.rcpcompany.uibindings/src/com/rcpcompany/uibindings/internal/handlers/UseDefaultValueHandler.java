@@ -43,8 +43,9 @@ public class UseDefaultValueHandler extends AbstractHandler implements IHandler,
 	protected boolean myUnset = false;
 
 	/**
-	 * Listener that tracks the {@link EObject#eIsSet(org.eclipse.emf.ecore.EStructuralFeature)} state of the current
-	 * binding when {@link Constants#SOURCES_ACTIVE_BINDING_UNSETTABLE} is <code>true</code>.
+	 * Listener that tracks the {@link EObject#eIsSet(org.eclipse.emf.ecore.EStructuralFeature)}
+	 * state of the current binding when {@link Constants#SOURCES_ACTIVE_BINDING_UNSETTABLE} is
+	 * <code>true</code>.
 	 */
 	protected ISourceProviderListener myProviderListener = new ISourceProviderListener() {
 
@@ -116,9 +117,7 @@ public class UseDefaultValueHandler extends AbstractHandler implements IHandler,
 	 * @param newState the new state
 	 */
 	protected void setUnset(boolean newState) {
-		if (myUnset == newState) {
-			return;
-		}
+		if (myUnset == newState) return;
 		myUnset = newState;
 		myCommandService.refreshElements(Constants.USE_DEFAULT_TOGGLE_COMMAND, null);
 	}
@@ -139,15 +138,11 @@ public class UseDefaultValueHandler extends AbstractHandler implements IHandler,
 				Constants.SOURCES_ACTIVE_BINDING);
 		final Boolean unsettable = (Boolean) HandlerUtil.getVariableChecked(event,
 				Constants.SOURCES_ACTIVE_BINDING_UNSETTABLE);
-		if (binding == null || !unsettable) {
-			return null;
-		}
+		if (binding == null || !unsettable) return null;
 
 		final EObject obj = binding.getModelObject();
 		final EStructuralFeature feature = binding.getModelFeature();
-		if (obj == null || feature == null) {
-			return null;
-		}
+		if (obj == null || feature == null) return null;
 
 		if (obj.eIsSet(feature)) {
 			obj.eUnset(feature);

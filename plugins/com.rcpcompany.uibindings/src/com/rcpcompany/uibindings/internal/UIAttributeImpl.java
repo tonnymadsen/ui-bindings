@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -38,27 +37,39 @@ import com.rcpcompany.utils.basic.ClassUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>UI Attribute</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>UI Attribute</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getWidget <em>Widget</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getAttribute <em>Attribute</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getCurrentValue <em>Current Value</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getPossibleValuesList <em>Possible Values List</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getCurrentValue <em>Current Value
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getPossibleValuesList <em>Possible
+ * Values List</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getMinValue <em>Min Value</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getMaxValue <em>Max Value</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getTooltipValue <em>Tooltip Value</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getTooltipValue <em>Tooltip Value
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getFontValue <em>Font Value</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getImageValue <em>Image Value</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getForegroundValue <em>Foreground Value</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getBackgroundValue <em>Background Value</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getEnabledValue <em>Enabled Value</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getCursorValue <em>Cursor Value</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getStyleRangeList <em>Style Range List</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getImageValue <em>Image Value</em>}
+ * </li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getForegroundValue <em>Foreground
+ * Value</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getBackgroundValue <em>Background
+ * Value</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getEnabledValue <em>Enabled Value
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getCursorValue <em>Cursor Value
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getStyleRangeList <em>Style Range
+ * List</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#isChangeable <em>Changeable</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getFieldAssistAdapter <em>Field Assist Adapter</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getImageDecorations <em>Image Decorations</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getFieldAssistAdapter <em>Field
+ * Assist Adapter</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getImageDecorations <em>Image
+ * Decorations</em>}</li>
  * </ul>
  * </p>
  * 
@@ -66,8 +77,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  */
 public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribute {
 	/**
-	 * The default value of the '{@link #getWidget() <em>Widget</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getWidget() <em>Widget</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getWidget()
 	 * @generated
@@ -76,8 +87,8 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	protected static final Widget WIDGET_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getAttribute() <em>Attribute</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getAttribute() <em>Attribute</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getAttribute()
 	 * @generated
@@ -86,8 +97,8 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	protected static final String ATTRIBUTE_EDEFAULT = ""; //$NON-NLS-1$
 
 	/**
-	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getAttribute()
 	 * @generated
@@ -96,8 +107,8 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	protected String attribute = ATTRIBUTE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getCurrentValue() <em>Current Value</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getCurrentValue() <em>Current Value</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getCurrentValue()
 	 * @generated
@@ -106,8 +117,8 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	protected static final IObservableValue CURRENT_VALUE_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getPossibleValuesList() <em>Possible Values List</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getPossibleValuesList() <em>Possible Values List</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getPossibleValuesList()
 	 * @generated
@@ -116,8 +127,8 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	protected static final IObservableList POSSIBLE_VALUES_LIST_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getMinValue() <em>Min Value</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getMinValue() <em>Min Value</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getMinValue()
 	 * @generated
@@ -126,8 +137,8 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	protected static final IObservableValue MIN_VALUE_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getMaxValue() <em>Max Value</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getMaxValue() <em>Max Value</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getMaxValue()
 	 * @generated
@@ -136,8 +147,8 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	protected static final IObservableValue MAX_VALUE_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getTooltipValue() <em>Tooltip Value</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getTooltipValue() <em>Tooltip Value</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTooltipValue()
 	 * @generated
@@ -146,8 +157,8 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	protected static final IObservableValue TOOLTIP_VALUE_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getFontValue() <em>Font Value</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getFontValue() <em>Font Value</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getFontValue()
 	 * @generated
@@ -156,8 +167,8 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	protected static final IObservableValue FONT_VALUE_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getImageValue() <em>Image Value</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getImageValue() <em>Image Value</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getImageValue()
 	 * @generated
@@ -166,8 +177,8 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	protected static final IObservableValue IMAGE_VALUE_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getForegroundValue() <em>Foreground Value</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getForegroundValue() <em>Foreground Value</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getForegroundValue()
 	 * @generated
@@ -176,8 +187,8 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	protected static final IObservableValue FOREGROUND_VALUE_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getBackgroundValue() <em>Background Value</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getBackgroundValue() <em>Background Value</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getBackgroundValue()
 	 * @generated
@@ -186,8 +197,8 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	protected static final IObservableValue BACKGROUND_VALUE_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getEnabledValue() <em>Enabled Value</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getEnabledValue() <em>Enabled Value</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getEnabledValue()
 	 * @generated
@@ -196,8 +207,8 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	protected static final IObservableValue ENABLED_VALUE_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getCursorValue() <em>Cursor Value</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getCursorValue() <em>Cursor Value</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getCursorValue()
 	 * @generated
@@ -206,8 +217,8 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	protected static final IObservableValue CURSOR_VALUE_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getStyleRangeList() <em>Style Range List</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getStyleRangeList() <em>Style Range List</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getStyleRangeList()
 	 * @generated
@@ -216,8 +227,8 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	protected static final IObservableList STYLE_RANGE_LIST_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #isChangeable() <em>Changeable</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #isChangeable() <em>Changeable</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isChangeable()
 	 * @generated
@@ -226,8 +237,8 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	protected static final boolean CHANGEABLE_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isChangeable() <em>Changeable</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #isChangeable() <em>Changeable</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isChangeable()
 	 * @generated
@@ -236,8 +247,8 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	protected boolean changeable = CHANGEABLE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getFieldAssistAdapter() <em>Field Assist Adapter</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getFieldAssistAdapter() <em>Field Assist Adapter</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getFieldAssistAdapter()
 	 * @generated
@@ -246,8 +257,8 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	protected static final IControlContentAdapter FIELD_ASSIST_ADAPTER_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getImageDecorations() <em>Image Decorations</em>}' reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getImageDecorations() <em>Image Decorations</em>}' reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getImageDecorations()
 	 * @generated
@@ -286,6 +297,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract Widget getWidget();
 
 	/**
@@ -293,6 +305,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getAttribute() {
 		return attribute;
 	}
@@ -316,6 +329,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract IObservableValue getCurrentValue();
 
 	/**
@@ -323,6 +337,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract IObservableList getPossibleValuesList();
 
 	/**
@@ -330,6 +345,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract IObservableValue getMinValue();
 
 	/**
@@ -337,6 +353,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract IObservableValue getMaxValue();
 
 	/**
@@ -344,6 +361,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract IObservableValue getTooltipValue();
 
 	/**
@@ -351,6 +369,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract IObservableValue getFontValue();
 
 	/**
@@ -358,6 +377,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract IObservableValue getImageValue();
 
 	/**
@@ -365,6 +385,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract IObservableValue getForegroundValue();
 
 	/**
@@ -372,6 +393,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract IObservableValue getBackgroundValue();
 
 	/**
@@ -379,6 +401,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract IObservableValue getEnabledValue();
 
 	/**
@@ -386,6 +409,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract IObservableValue getCursorValue();
 
 	/**
@@ -393,6 +417,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract IObservableList getStyleRangeList();
 
 	/**
@@ -400,6 +425,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	 * 
 	 * @generated
 	 */
+	@Override
 	public boolean isChangeable() {
 		return changeable;
 	}
@@ -423,6 +449,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract IControlContentAdapter getFieldAssistAdapter();
 
 	/**
@@ -469,9 +496,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 			myImageDecorationsAdapter = new AdapterImpl() {
 				@Override
 				public void notifyChanged(Notification msg) {
-					if (msg.isTouch()) {
-						return;
-					}
+					if (msg.isTouch()) return;
 					if (myImageDecorationChangeListener == null) {
 						myImageDecorationChangeListener = new IValueChangeListener() {
 							@Override
@@ -539,9 +564,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	@Override
 	public IUIAttributeImageDecoration getImageDecoration(DecorationPosition position, boolean outside) {
 		for (final IUIAttributeImageDecoration d : getImageDecorations()) {
-			if (d.getPosition() == position && d.isOutside() == outside) {
-				return d;
-			}
+			if (d.getPosition() == position && d.isOutside() == outside) return d;
 		}
 		final IUIAttributeImageDecoration d = IUIBindingsFactory.eINSTANCE.createUIAttributeImageDecoration();
 		d.setPosition(position);
@@ -553,9 +576,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	@Override
 	public void updateImageDecorations(Control control, Rectangle innerBounds, Rectangle outerBounds) {
 		if (control.equals(myLastImageDecorationsControl) && innerBounds.equals(myLastImageDecorationsInnerBounds)
-				&& outerBounds.equals(myLastImageDecorationsOuterBounds)) {
-			return;
-		}
+				&& outerBounds.equals(myLastImageDecorationsOuterBounds)) return;
 		if (Activator.getDefault().TRACE_ATTRIBUTE_IMAGE_DECORATORS) {
 			LogUtils.debug(this, toString() + ": c=" + control + ", bounds=" + innerBounds + "/" + outerBounds); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		}
@@ -573,9 +594,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 		/*
 		 * No decorations? Use reflection to avoid creating the list ;-)
 		 */
-		if (!eIsSet(IUIBindingsPackage.Literals.UI_ATTRIBUTE__IMAGE_DECORATIONS)) {
-			return;
-		}
+		if (!eIsSet(IUIBindingsPackage.Literals.UI_ATTRIBUTE__IMAGE_DECORATIONS)) return;
 		if (Activator.getDefault().TRACE_ATTRIBUTE_IMAGE_DECORATORS) {
 			LogUtils.debug(this, toString());
 		}
@@ -583,9 +602,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 		 * No parent control or bounds?
 		 */
 		if (myLastImageDecorationsControl == null || myLastImageDecorationsInnerBounds == null
-				|| myLastImageDecorationsOuterBounds == null) {
-			return;
-		}
+				|| myLastImageDecorationsOuterBounds == null) return;
 
 		for (final IUIAttributeImageDecoration id : getImageDecorations()) {
 			id.updateImageDecorations(myLastImageDecorationsControl, myLastImageDecorationsInnerBounds,
@@ -605,7 +622,8 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 		getTooltipValue().addChangeListener(listener);
 		getStyleRangeList().addChangeListener(listener);
 		/*
-		 * No need to monitor the decorations, as these are handled via the IControlDecoration interface
+		 * No need to monitor the decorations, as these are handled via the IControlDecoration
+		 * interface
 		 */
 	}
 

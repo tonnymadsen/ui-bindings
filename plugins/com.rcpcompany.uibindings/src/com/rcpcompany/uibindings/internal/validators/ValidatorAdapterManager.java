@@ -29,12 +29,12 @@ import org.eclipse.swt.widgets.Display;
 
 import com.rcpcompany.uibindings.BindingMessageSeverity;
 import com.rcpcompany.uibindings.IBindingMessage;
+import com.rcpcompany.uibindings.IBindingMessage.FeatureMatchingAlgorithm;
 import com.rcpcompany.uibindings.IBindingMessageTarget;
 import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
-import com.rcpcompany.uibindings.IBindingMessage.FeatureMatchingAlgorithm;
 import com.rcpcompany.uibindings.bindingMessages.AbstractBindingMessage;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.validators.IValidationAdapterManagerChangeEvent;
@@ -145,9 +145,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	private final Adapter myChangeAdapter = new EContentAdapter() {
 		@Override
 		public void notifyChanged(Notification notification) {
-			if (notification.isTouch()) {
-				return;
-			}
+			if (notification.isTouch()) return;
 			super.notifyChanged(notification);
 			delayValidation();
 		}
@@ -160,18 +158,15 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 
 	@Override
 	public void delayValidation() {
-		if (validationPaused) {
-			return;
-		}
+		if (validationPaused) return;
 		/*
 		 * If a new validation has just been scheduled, then ignore this change
 		 */
 		if (System.currentTimeMillis() < myNextValidation - theManager.getValidationDelay()
-				+ theManager.getValidationDelayWindow()) {
-			return;
-		}
+				+ theManager.getValidationDelayWindow()) return;
 		myNextValidation = System.currentTimeMillis() + theManager.getValidationDelay();
 		Display.getDefault().asyncExec(new Runnable() {
+			@Override
 			public void run() {
 				Display.getDefault().timerExec(theManager.getValidationDelay(), myDelayRunnable);
 			}
@@ -181,9 +176,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	protected Runnable myDelayRunnable = new Runnable() {
 		@Override
 		public void run() {
-			if (myNextValidation > System.currentTimeMillis() + 50) {
-				return;
-			}
+			if (myNextValidation > System.currentTimeMillis() + 50) return;
 			validate();
 		}
 	};
@@ -196,9 +189,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	@Override
 	public void validate() {
 		myNextValidation = System.currentTimeMillis();
-		if (validationPaused) {
-			return;
-		}
+		if (validationPaused) return;
 		myChangedObjects.clear();
 		myUnboundMessages.clear();
 		for (final ValidationRoot r : myValidationRoots) {
@@ -276,7 +267,8 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	}
 
 	/**
-	 * Removes an unbound existing message from the manager, and removes all messages from the relevant decorators.
+	 * Removes an unbound existing message from the manager, and removes all messages from the
+	 * relevant decorators.
 	 * 
 	 * @param unboundMessage the message to remove
 	 */
@@ -286,9 +278,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 		}
 
 		final List<IBindingMessage> messageList = myBoundMessages.get(unboundMessage);
-		if (messageList == null) {
-			return;
-		}
+		if (messageList == null) return;
 
 		for (final IBindingMessage m : messageList) {
 			final IValueBinding binding = m.getBinding();
@@ -338,8 +328,8 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	}
 
 	/**
-	 * Matches the specified unbound message against the specified binding and creates a bound message in case of a
-	 * match.
+	 * Matches the specified unbound message against the specified binding and creates a bound
+	 * message in case of a match.
 	 * <p>
 	 * The new bound message is added to the decorator of the binding.
 	 * 
@@ -347,9 +337,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	 * @param decorator the binding
 	 */
 	private void createMessageIfNeeded(final IBindingMessage unboundMessage, IValidatorAdapterMessageDecorator decorator) {
-		if (!decorator.accept(unboundMessage)) {
-			return;
-		}
+		if (!decorator.accept(unboundMessage)) return;
 		final IValueBinding binding = decorator.getBinding();
 
 		List<IBindingMessage> messageList = myBoundMessages.get(unboundMessage);
@@ -452,7 +440,8 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	};
 
 	/**
-	 * The record of one root added via {@link ValidatorAdapterManager#addRoot(EObject, IValidatorAdapter)}.
+	 * The record of one root added via
+	 * {@link ValidatorAdapterManager#addRoot(EObject, IValidatorAdapter)}.
 	 */
 	protected class ValidationRoot implements IDisposable {
 		public final EObject myRoot;
@@ -488,9 +477,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 					severity = s;
 				}
 			}
-			if (severity == IMessageProvider.ERROR) {
-				return severity;
-			}
+			if (severity == IMessageProvider.ERROR) return severity;
 		}
 		return severity;
 	}
@@ -511,12 +498,8 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 
 		@Override
 		public String getPrefix() {
-			if (getTargets().size() != 1) {
-				return null;
-			}
-			if (getTargets().get(0).getModelFeature() == null) {
-				return null;
-			}
+			if (getTargets().size() != 1) return null;
+			if (getTargets().get(0).getModelFeature() == null) return null;
 			return super.getPrefix();
 		}
 
@@ -539,9 +522,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 		public boolean supersedes(IBindingMessage otherMessage) {
 			if (otherMessage instanceof BoundMessage) {
 				final BoundMessage m = (BoundMessage) otherMessage;
-				if (myParentMessage.supersedes(m.myParentMessage)) {
-					return true;
-				}
+				if (myParentMessage.supersedes(m.myParentMessage)) return true;
 
 			}
 			return myParentMessage.supersedes(otherMessage);

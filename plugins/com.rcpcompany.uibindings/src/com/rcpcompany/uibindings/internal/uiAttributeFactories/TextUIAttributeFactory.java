@@ -16,10 +16,9 @@ public class TextUIAttributeFactory implements IUIAttributeFactory {
 	@Override
 	public IUIAttribute create(Widget widget, String attribute) {
 		final boolean changeable = (widget instanceof Combo) || (widget instanceof CCombo);
-		if (widget instanceof Button) {
+		if (widget instanceof Button)
 			return new SimpleUIAttribute(widget, attribute, new ButtonTextObservableValue((Button) widget), changeable);
-		} else {
+		else
 			return new SimpleUIAttribute(widget, attribute, SWTObservables.observeText((Control) widget), changeable);
-		}
 	}
 }

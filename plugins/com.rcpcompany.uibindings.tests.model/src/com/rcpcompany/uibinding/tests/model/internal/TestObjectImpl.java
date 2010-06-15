@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibinding.tests.model.internal;
@@ -26,25 +25,31 @@ import com.rcpcompany.uibinding.tests.model.TimeUnit;
 import com.rcpcompany.uibinding.tests.model.WeightUnit;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Test Object</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Test Object</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getNumber <em>Number</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getNumber <em>Number
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getD <em>D</em>}</li>
  * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getF <em>F</em>}</li>
  * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getDate <em>Date</em>}</li>
  * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getText <em>Text</em>}</li>
- * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getParent <em>Parent</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getParent <em>Parent
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#isB <em>B</em>}</li>
  * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getAc <em>Ac</em>}</li>
  * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getUnit <em>Unit</em>}</li>
- * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getTimeUnit <em>Time Unit</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getTimeUnit <em>Time Unit
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getByte <em>Byte</em>}</li>
  * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getShort <em>Short</em>}</li>
  * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getLong <em>Long</em>}</li>
- * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getBigDecimal <em>Big Decimal</em>}</li>
- * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getBigInteger <em>Big Integer</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getBigDecimal <em>Big
+ * Decimal</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getBigInteger <em>Big
+ * Integer</em>}</li>
  * </ul>
  * </p>
  * 
@@ -52,8 +57,8 @@ import com.rcpcompany.uibinding.tests.model.WeightUnit;
  */
 public class TestObjectImpl extends EObjectImpl implements TestObject {
 	/**
-	 * The default value of the '{@link #getNumber() <em>Number</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getNumber() <em>Number</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getNumber()
 	 * @generated
@@ -62,8 +67,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected static final int NUMBER_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getNumber() <em>Number</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getNumber() <em>Number</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getNumber()
 	 * @generated
@@ -72,7 +77,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected int number = NUMBER_EDEFAULT;
 
 	/**
-	 * This is true if the Number attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This is true if the Number attribute has been set. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -80,7 +86,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected boolean numberESet;
 
 	/**
-	 * The default value of the '{@link #getD() <em>D</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getD() <em>D</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getD()
 	 * @generated
@@ -89,7 +96,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected static final double D_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getD() <em>D</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getD() <em>D</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getD()
 	 * @generated
@@ -98,7 +106,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected double d = D_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getF() <em>F</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getF() <em>F</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getF()
 	 * @generated
@@ -107,7 +116,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected static final float F_EDEFAULT = 0.0F;
 
 	/**
-	 * The cached value of the '{@link #getF() <em>F</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getF() <em>F</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getF()
 	 * @generated
@@ -116,8 +126,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected float f = F_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getDate() <em>Date</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getDate() <em>Date</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDate()
 	 * @generated
@@ -126,8 +136,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected static final Date DATE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDate() <em>Date</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getDate() <em>Date</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getDate()
 	 * @generated
@@ -136,8 +146,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected Date date = DATE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getText() <em>Text</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getText() <em>Text</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getText()
 	 * @generated
@@ -146,8 +156,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected static final String TEXT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getText() <em>Text</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getText() <em>Text</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getText()
 	 * @generated
@@ -156,7 +166,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected String text = TEXT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isB() <em>B</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #isB() <em>B</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #isB()
 	 * @generated
@@ -165,7 +176,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected static final boolean B_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isB() <em>B</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #isB() <em>B</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #isB()
 	 * @generated
@@ -174,7 +186,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected boolean b = B_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getAc() <em>Ac</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getAc() <em>Ac</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getAc()
 	 * @generated
@@ -183,7 +196,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected static final AmountAndCurrency AC_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getAc() <em>Ac</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getAc() <em>Ac</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getAc()
 	 * @generated
@@ -192,8 +206,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected AmountAndCurrency ac = AC_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getUnit() <em>Unit</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getUnit() <em>Unit</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getUnit()
 	 * @generated
@@ -202,8 +216,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected static final WeightUnit UNIT_EDEFAULT = WeightUnit.G;
 
 	/**
-	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getUnit()
 	 * @generated
@@ -212,8 +226,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected WeightUnit unit = UNIT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTimeUnit() <em>Time Unit</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getTimeUnit() <em>Time Unit</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTimeUnit()
 	 * @generated
@@ -222,8 +236,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected static final TimeUnit TIME_UNIT_EDEFAULT = TimeUnit.SEC;
 
 	/**
-	 * The cached value of the '{@link #getTimeUnit() <em>Time Unit</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getTimeUnit() <em>Time Unit</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTimeUnit()
 	 * @generated
@@ -232,8 +246,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected TimeUnit timeUnit = TIME_UNIT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isByte() <em>Byte</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #isByte() <em>Byte</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #isByte()
 	 * @generated
@@ -242,8 +256,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected static final byte BYTE_EDEFAULT = 0x00;
 
 	/**
-	 * The cached value of the '{@link #isByte() <em>Byte</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #isByte() <em>Byte</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #isByte()
 	 * @generated
@@ -252,8 +266,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected byte byte_ = BYTE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getShort() <em>Short</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getShort() <em>Short</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getShort()
 	 * @generated
@@ -262,8 +276,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected static final short SHORT_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getShort() <em>Short</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getShort() <em>Short</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getShort()
 	 * @generated
@@ -272,8 +286,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected short short_ = SHORT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getLong() <em>Long</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getLong() <em>Long</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getLong()
 	 * @generated
@@ -282,8 +296,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected static final long LONG_EDEFAULT = 0L;
 
 	/**
-	 * The cached value of the '{@link #getLong() <em>Long</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getLong() <em>Long</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getLong()
 	 * @generated
@@ -292,8 +306,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected long long_ = LONG_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getBigDecimal() <em>Big Decimal</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getBigDecimal() <em>Big Decimal</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getBigDecimal()
 	 * @generated
@@ -302,8 +316,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected static final BigDecimal BIG_DECIMAL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getBigDecimal() <em>Big Decimal</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getBigDecimal() <em>Big Decimal</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getBigDecimal()
 	 * @generated
@@ -312,8 +326,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected BigDecimal bigDecimal = BIG_DECIMAL_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getBigInteger() <em>Big Integer</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getBigInteger() <em>Big Integer</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getBigInteger()
 	 * @generated
@@ -322,8 +336,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected static final BigInteger BIG_INTEGER_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getBigInteger() <em>Big Integer</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getBigInteger() <em>Big Integer</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getBigInteger()
 	 * @generated
@@ -355,6 +369,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getNumber() {
 		return number;
 	}
@@ -364,6 +379,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setNumber(int newNumber) {
 		final int oldNumber = number;
 		number = newNumber;
@@ -380,6 +396,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void unsetNumber() {
 		final int oldNumber = number;
 		final boolean oldNumberESet = numberESet;
@@ -396,6 +413,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public boolean isSetNumber() {
 		return numberESet;
 	}
@@ -405,6 +423,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public double getD() {
 		return d;
 	}
@@ -414,6 +433,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setD(double newD) {
 		final double oldD = d;
 		d = newD;
@@ -427,6 +447,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public float getF() {
 		return f;
 	}
@@ -436,6 +457,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setF(float newF) {
 		final float oldF = f;
 		f = newF;
@@ -449,6 +471,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Date getDate() {
 		return date;
 	}
@@ -458,6 +481,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setDate(Date newDate) {
 		final Date oldDate = date;
 		date = newDate;
@@ -471,6 +495,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getText() {
 		return text;
 	}
@@ -480,6 +505,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setText(String newText) {
 		final String oldText = text;
 		text = newText;
@@ -493,10 +519,9 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public TestContainer getParent() {
-		if (eContainerFeatureID() != TestModelPackage.TEST_OBJECT__PARENT) {
-			return null;
-		}
+		if (eContainerFeatureID() != TestModelPackage.TEST_OBJECT__PARENT) return null;
 		return (TestContainer) eContainer();
 	}
 
@@ -515,12 +540,12 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setParent(TestContainer newParent) {
 		if (newParent != eInternalContainer()
 				|| (eContainerFeatureID() != TestModelPackage.TEST_OBJECT__PARENT && newParent != null)) {
-			if (EcoreUtil.isAncestor(this, newParent)) {
+			if (EcoreUtil.isAncestor(this, newParent))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			}
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null) {
 				msgs = eBasicRemoveFromContainer(msgs);
@@ -544,6 +569,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public boolean isB() {
 		return b;
 	}
@@ -553,6 +579,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setB(boolean newB) {
 		final boolean oldB = b;
 		b = newB;
@@ -566,6 +593,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public AmountAndCurrency getAc() {
 		return ac;
 	}
@@ -575,6 +603,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setAc(AmountAndCurrency newAc) {
 		final AmountAndCurrency oldAc = ac;
 		ac = newAc;
@@ -588,6 +617,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public WeightUnit getUnit() {
 		return unit;
 	}
@@ -597,6 +627,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setUnit(WeightUnit newUnit) {
 		final WeightUnit oldUnit = unit;
 		unit = newUnit == null ? UNIT_EDEFAULT : newUnit;
@@ -610,6 +641,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public TimeUnit getTimeUnit() {
 		return timeUnit;
 	}
@@ -619,6 +651,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setTimeUnit(TimeUnit newTimeUnit) {
 		final TimeUnit oldTimeUnit = timeUnit;
 		timeUnit = newTimeUnit == null ? TIME_UNIT_EDEFAULT : newTimeUnit;
@@ -633,6 +666,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public byte getByte() {
 		return byte_;
 	}
@@ -642,6 +676,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setByte(byte newByte) {
 		final byte oldByte = byte_;
 		byte_ = newByte;
@@ -655,6 +690,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public short getShort() {
 		return short_;
 	}
@@ -664,6 +700,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setShort(short newShort) {
 		final short oldShort = short_;
 		short_ = newShort;
@@ -677,6 +714,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public long getLong() {
 		return long_;
 	}
@@ -686,6 +724,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setLong(long newLong) {
 		final long oldLong = long_;
 		long_ = newLong;
@@ -699,6 +738,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public BigDecimal getBigDecimal() {
 		return bigDecimal;
 	}
@@ -708,6 +748,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setBigDecimal(BigDecimal newBigDecimal) {
 		final BigDecimal oldBigDecimal = bigDecimal;
 		bigDecimal = newBigDecimal;
@@ -722,6 +763,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public BigInteger getBigInteger() {
 		return bigInteger;
 	}
@@ -731,6 +773,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setBigInteger(BigInteger newBigInteger) {
 		final BigInteger oldBigInteger = bigInteger;
 		bigInteger = newBigInteger;
@@ -991,9 +1034,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (number: ");

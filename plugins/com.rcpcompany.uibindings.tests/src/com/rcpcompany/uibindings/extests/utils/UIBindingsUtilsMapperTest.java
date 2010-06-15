@@ -52,7 +52,7 @@ public class UIBindingsUtilsMapperTest {
 	public static Collection<Object[]> data() {
 		return Arrays.asList(new Object[][] {
 
-		// String fn, String result
+				// String fn, String result
 
 				{ null, "contact.name" }, { "address", "contact.address" }, { "shop.name", "shop.name" },
 
@@ -84,8 +84,8 @@ public class UIBindingsUtilsMapperTest {
 
 		final IBindingContext context = IBindingContext.Factory.createContext(myView.getScrolledForm());
 
-		myBinding = context.addBinding().ui(text).model(
-				Observables.constantObservableValue(myContact, ShopPackage.Literals.CONTACT));
+		myBinding = context.addBinding().ui(text)
+				.model(Observables.constantObservableValue(myContact, ShopPackage.Literals.CONTACT));
 	}
 
 	private void createModel() {
@@ -105,6 +105,7 @@ public class UIBindingsUtilsMapperTest {
 
 		assertNoLog(new Runnable() {
 
+			@Override
 			public void run() {
 				myBinding.arg(Constants.ARG_FEATURE_NAME, myFN);
 				final IClassIdentiferMapper mapper = UIBindingsUtils.createClassIdentiferMapper(myBinding,

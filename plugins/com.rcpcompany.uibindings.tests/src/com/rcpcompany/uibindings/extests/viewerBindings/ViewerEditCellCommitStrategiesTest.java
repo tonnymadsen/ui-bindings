@@ -43,8 +43,8 @@ import com.rcpcompany.utils.logging.LogUtils;
 /**
  * Tests that the cell editor leaves the value current after an edit.
  * <p>
- * Also see <a href="http://jira.marintek.sintef.no/jira/browse/SIMA-857">SIMA-857</a>: Esc commits values in table
- * cells and combos
+ * Also see <a href="http://jira.marintek.sintef.no/jira/browse/SIMA-857">SIMA-857</a>: Esc commits
+ * values in table cells and combos
  * <p>
  * Tests the functionality of {@link IManager#setTextCommitStrategy(TextCommitStrategy)}.
  * 
@@ -184,7 +184,8 @@ public class ViewerEditCellCommitStrategiesTest {
 	 * @param b1 expected value after setting the value
 	 * @param stroke the key to press
 	 * @param b2 expected value after 2*DELAY
-	 * @param expectDelayChangeEvents <code>true</code> if a {@link DelayedChangeEvent} event is expected
+	 * @param expectDelayChangeEvents <code>true</code> if a {@link DelayedChangeEvent} event is
+	 *            expected
 	 * @param getValue TODO
 	 */
 	public void testKeyStrategy(TextCommitStrategy strategy, String b1, final String stroke, String b2) {
@@ -202,6 +203,7 @@ public class ViewerEditCellCommitStrategiesTest {
 		});
 
 		performChange(initial, initial, new Runnable() {
+			@Override
 			public void run() {
 				postMouse(myTable, 0 + myViewerBinding.getFirstTableColumnOffset(), 0);
 				postKeyStroke(myTable, "ENTER");
@@ -210,18 +212,21 @@ public class ViewerEditCellCommitStrategiesTest {
 		});
 
 		performChange(initial, b1, new Runnable() {
+			@Override
 			public void run() {
 				postKeyStroke(myTable, "b"); // <<<<
 			}
 		});
 
 		performChange(b1, b1, new Runnable() {
+			@Override
 			public void run() {
 				sleep(DELAY / 2); // <<<<
 			}
 		});
 
 		performChange(b1, b2, new Runnable() {
+			@Override
 			public void run() {
 				postKeyStroke(myTable, stroke); // <<<<
 			}
@@ -229,11 +234,12 @@ public class ViewerEditCellCommitStrategiesTest {
 	}
 
 	/**
-	 * Executes the specified runnable and monitors whether the specified value change occurs and whether the value
-	 * changes.
+	 * Executes the specified runnable and monitors whether the specified value change occurs and
+	 * whether the value changes.
 	 * <p>
-	 * <em>NOTE:</em> There are a special case with multi-line Text widgets: when the complete selected text is changed,
-	 * it happens in two parts: First the text of the widget is changed to "" and then it is changed to the new text.
+	 * <em>NOTE:</em> There are a special case with multi-line Text widgets: when the complete
+	 * selected text is changed, it happens in two parts: First the text of the widget is changed to
+	 * "" and then it is changed to the new text.
 	 * 
 	 * @param changeFromValue the from value expect in a change event
 	 * @param changeToValue the to value expect in a change event
@@ -241,7 +247,7 @@ public class ViewerEditCellCommitStrategiesTest {
 	 */
 	public void performChange(final String changeFromValue, final String changeToValue, Runnable change) {
 
-		final boolean changeExpected[] = new boolean[] { !(changeToValue.equals(changeFromValue)) };
+		final boolean[] changeExpected = new boolean[] { !(changeToValue.equals(changeFromValue)) };
 
 		final Adapter changeListener = new AdapterImpl() {
 			String fromValue = changeFromValue;
@@ -249,10 +255,9 @@ public class ViewerEditCellCommitStrategiesTest {
 
 			@Override
 			public void notifyChanged(Notification msg) {
-				if (msg.isTouch()) {
-					return;
-				}
-				// LogUtils.debug(this, "'" + event.diff.getOldValue() + "' -> '" + event.diff.getNewValue() + "'");
+				if (msg.isTouch()) return;
+				// LogUtils.debug(this, "'" + event.diff.getOldValue() + "' -> '" +
+				// event.diff.getNewValue() + "'");
 				assertTrue("No value change expected", changeExpected[0]);
 				assertEquals(fromValue, msg.getOldValue());
 				if (msg.getNewValue().equals("")) {

@@ -48,22 +48,25 @@ import com.rcpcompany.utils.logging.LogUtils;
  * @author Tonny Madsen, The RCP Company
  */
 public class UIBindingsUtils {
+	private UIBindingsUtils() {
+	}
+
 	/**
 	 * Creates a new validation error status with the given message.
 	 * <p>
 	 * This error message does <em>not</em> prevent the data binding to set the value
 	 * 
-	 * @param isFatal <code>true</code> if this is a fatal error - value should not set in data binding
+	 * @param isFatal <code>true</code> if this is a fatal error - value should not set in data
+	 *            binding
 	 * @param code the code used for the message
 	 * @param m the message for the error
 	 * @return a new error status with the given message
 	 */
 	public static IStatus error(boolean isFatal, int code, String m) {
-		if (isFatal) {
+		if (isFatal)
 			return new Status(IStatus.ERROR, Activator.ID, code, m, null);
-		} else {
+		else
 			return new MyNonFatalStatus(IStatus.ERROR, Activator.ID, code, m, null);
-		}
 	}
 
 	/**
@@ -82,7 +85,8 @@ public class UIBindingsUtils {
 	/**
 	 * Returns whether the specified status is a fatal error or not.
 	 * <p>
-	 * A fatal error will not result in the value being set in a data binding, but wil still show as an error.
+	 * A fatal error will not result in the value being set in a data binding, but wil still show as
+	 * an error.
 	 * 
 	 * @param status the status to check
 	 * @return <code>true</code> if it is a fatal error, and <code>false</code> otherwise
@@ -91,23 +95,15 @@ public class UIBindingsUtils {
 		/*
 		 * Assuming multi-status have the correct severity...
 		 */
-		if (status.getSeverity() != IStatus.ERROR) {
-			return false;
-		}
+		if (status.getSeverity() != IStatus.ERROR) return false;
 		final IStatus[] children = status.getChildren();
 		if (children != null) {
 			for (final IStatus c : children) {
-				if (isFatalError(c)) {
-					return true;
-				}
+				if (isFatalError(c)) return true;
 			}
 		}
-		if (status instanceof MultiStatus) {
-			return false;
-		}
-		if (status instanceof MyNonFatalStatus) {
-			return false;
-		}
+		if (status instanceof MultiStatus) return false;
+		if (status instanceof MyNonFatalStatus) return false;
 		return true;
 
 	}
@@ -145,9 +141,7 @@ public class UIBindingsUtils {
 			valueType = sf.getEType();
 		}
 		final Integer alignment = DEFAULT_ALIGNMENT.get(valueType);
-		if (alignment != null) {
-			return alignment;
-		}
+		if (alignment != null) return alignment;
 		return SWT.NONE;
 	}
 
@@ -164,9 +158,7 @@ public class UIBindingsUtils {
 		final String key = "CORNER_IMAGE:" + position + ":" + rgb; //$NON-NLS-1$ //$NON-NLS-2$
 		final ImageRegistry ir = JFaceResources.getImageRegistry();
 		Image image = ir.get(key);
-		if (image != null) {
-			return image;
-		}
+		if (image != null) return image;
 
 		final Display device = Display.getDefault();
 		final Color color = new Color(device, rgb);
@@ -224,9 +216,7 @@ public class UIBindingsUtils {
 		final String key = "SQUARE_IMAGE:" + rgb; //$NON-NLS-1$
 		final ImageRegistry ir = JFaceResources.getImageRegistry();
 		Image image = ir.get(key);
-		if (image != null) {
-			return image;
-		}
+		if (image != null) return image;
 
 		final Display device = Display.getDefault();
 		final Color color = new Color(device, rgb);
@@ -261,12 +251,8 @@ public class UIBindingsUtils {
 	 * @return true if a and b are equal or both <code>null</code>
 	 */
 	public static boolean equals(Object a, Object b) {
-		if (a == b) {
-			return true;
-		}
-		if (a == null) {
-			return false;
-		}
+		if (a == b) return true;
+		if (a == null) return false;
 		return a.equals(b);
 	}
 
@@ -354,8 +340,8 @@ public class UIBindingsUtils {
 
 			switch (sfs.size()) {
 			case 0:
-				LogUtils.error(binding, "Feature names '" + featureNames + "' does not exist. Ignored.", binding
-						.getCreationPoint());
+				LogUtils.error(binding, "Feature names '" + featureNames + "' does not exist. Ignored.",
+						binding.getCreationPoint());
 				break;
 			case 1:
 				return new SingleFeatureMapper(sfs.get(0));
@@ -366,23 +352,15 @@ public class UIBindingsUtils {
 
 		// By Field Name
 		feature = ec.getEStructuralFeature("label");
-		if (feature != null) {
-			return new SingleFeatureMapper(feature);
-		}
+		if (feature != null) return new SingleFeatureMapper(feature);
 		feature = ec.getEStructuralFeature("name");
-		if (feature != null) {
-			return new SingleFeatureMapper(feature);
-		}
+		if (feature != null) return new SingleFeatureMapper(feature);
 		feature = ec.getEStructuralFeature("fullName");
-		if (feature != null) {
-			return new SingleFeatureMapper(feature);
-		}
+		if (feature != null) return new SingleFeatureMapper(feature);
 
 		// By Field Type
 		for (final EAttribute a : ec.getEAllAttributes()) {
-			if (a.getEType() == EcorePackage.Literals.ESTRING) {
-				return new SingleFeatureMapper(a);
-			}
+			if (a.getEType() == EcorePackage.Literals.ESTRING) return new SingleFeatureMapper(a);
 		}
 
 		// Fall back on toString()....
@@ -436,23 +414,17 @@ public class UIBindingsUtils {
 		@Override
 		public Object map(Object value) {
 			for (final EStructuralFeature sf : myFeatures) {
-				if (value == null) {
-					return "";
-				}
+				if (value == null) return "";
 				value = ((EObject) value).eGet(sf);
 			}
-			if (value == null) {
-				return "";
-			}
+			if (value == null) return "";
 			return value;
 		}
 
 		@Override
 		public IObservableValue getObservableValue(IObservableValue value, EditingDomain editingDomain) {
 			for (final EStructuralFeature sf : myFeatures) {
-				if (value == null) {
-					return null;
-				}
+				if (value == null) return null;
 				value = UIBindingsEMFObservables.observeDetailValue(value.getRealm(), editingDomain, value, sf);
 			}
 			return value;
@@ -460,16 +432,16 @@ public class UIBindingsUtils {
 	}
 
 	/**
-	 * Version of {@link Collections#sort(List, Comparator)} that can be used with {@link EList} with the unique
-	 * property.
+	 * Version of {@link Collections#sort(List, Comparator)} that can be used with {@link EList}
+	 * with the unique property.
 	 * 
 	 * @param list the list to be sorted.
-	 * @param c the comparator to determine the order of the list. A <tt>null</tt> value indicates that the elements'
-	 *            <i>natural ordering</i> should be used.
-	 * @throws ClassCastException if the list contains elements that are not <i>mutually comparable</i> using the
-	 *             specified comparator.
-	 * @throws UnsupportedOperationException if the specified list's list-iterator does not support the <tt>set</tt>
-	 *             operation.
+	 * @param c the comparator to determine the order of the list. A <tt>null</tt> value indicates
+	 *            that the elements' <i>natural ordering</i> should be used.
+	 * @throws ClassCastException if the list contains elements that are not <i>mutually
+	 *             comparable</i> using the specified comparator.
+	 * @throws UnsupportedOperationException if the specified list's list-iterator does not support
+	 *             the <tt>set</tt> operation.
 	 * @see Comparator
 	 */
 	public static <T> void sort(EList<T> list, Comparator<? super T> c) {

@@ -16,8 +16,8 @@ import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.widgets.FileNameControl;
 
 /**
- * This test checks the properties of the default UI attributes for a {@link FileNameControl} widget - those with
- * attribute = "".
+ * This test checks the properties of the default UI attributes for a {@link FileNameControl} widget
+ * - those with attribute = "".
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -29,6 +29,7 @@ public class UIAttributeFileNameControlFactoryPropertiesTest extends BaseUIAttri
 		final FileNameControl widget = createWidget(FileNameControl.class, SWT.NONE);
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				attribute = IManager.Factory.getManager().createUIAttribute(widget, "");
 			}

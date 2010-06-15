@@ -38,18 +38,15 @@ public class ViewEntryBindingMessageHandler extends AbstractHandler implements I
 		final Shell shell = HandlerUtil.getActiveShellChecked(event);
 		final ISelection selection = HandlerUtil.getCurrentSelectionChecked(event);
 
-		// final List<IBindingMessage> selectedList = SelectionUtils.computeSelection(selection, IBindingMessage.class);
+		// final List<IBindingMessage> selectedList = SelectionUtils.computeSelection(selection,
+		// IBindingMessage.class);
 		// if (selectedList.size() == 0)
 		// return null;
 
-		if (!(selection instanceof IStructuredSelection)) {
-			return null;
-		}
+		if (!(selection instanceof IStructuredSelection)) return null;
 		final IStructuredSelection ss = (IStructuredSelection) selection;
 		final Object element = ss.getFirstElement();
-		if (!(element instanceof IBindingMessage)) {
-			return null;
-		}
+		if (!(element instanceof IBindingMessage)) return null;
 		final IBindingMessage message = (IBindingMessage) element;
 
 		final MyDialog dialog = new MyDialog(shell, message);
@@ -115,8 +112,8 @@ public class ViewEntryBindingMessageHandler extends AbstractHandler implements I
 						.withValueType(IUIBindingsPackage.Literals.BINDING_MESSAGE_TARGET);
 				firstTarget.setValue(targets.get(0));
 				final IFormCreator subForm = myForm.subForm(myForm.addComposite(), firstTarget);
-				subForm.addField("modelObject(label='Object')").dynamic().type(Constants.TYPE_LONG_NAME).arg(
-						Constants.ARG_PREFERRED_CONTROL, CLabel.class.getName());
+				subForm.addField("modelObject(label='Object')").dynamic().type(Constants.TYPE_LONG_NAME)
+						.arg(Constants.ARG_PREFERRED_CONTROL, CLabel.class.getName());
 				subForm.addField("modelFeature(label='Feature')");
 				break;
 			default:

@@ -111,6 +111,7 @@ public class ValueBindingPreferredControlTest {
 	public void testValue() {
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final IBindingContext context = IBindingContext.Factory.createContext(myView.getScrolledForm());
 

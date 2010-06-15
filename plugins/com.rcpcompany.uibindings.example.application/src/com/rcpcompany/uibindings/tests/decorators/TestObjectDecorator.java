@@ -57,13 +57,9 @@ public class TestObjectDecorator extends SimpleUIBindingDecorator implements IUI
 
 	@Override
 	protected Object convertUIToModel(Object fromObject) {
-		if (fromObject == null) {
-			return null;
-		}
+		if (fromObject == null) return null;
 		for (final TestObject to : myTestContainer.getChildren()) {
-			if (fromObject.equals(to.getText())) {
-				return to;
-			}
+			if (fromObject.equals(to.getText())) return to;
 		}
 		throw new IllegalArgumentException("Unknown name");
 	}

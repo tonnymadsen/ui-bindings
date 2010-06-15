@@ -41,9 +41,11 @@ import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
 /**
- * Tests of the different way editing of a cell can start and end as well as traversal out of the cell.
+ * Tests of the different way editing of a cell can start and end as well as traversal out of the
+ * cell.
  * <p>
- * Tests the functionality of {@link IManager#isEditCellAnyKey()} and {@link IManager#isAutoApplySingleQuickfix()}.
+ * Tests the functionality of {@link IManager#isEditCellAnyKey()} and
+ * {@link IManager#isAutoApplySingleQuickfix()}.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -53,7 +55,7 @@ public class ViewerEditCellStrategiesTest {
 	public static Collection<Object[]> data() {
 		return Arrays.asList(new Object[][] {
 
-		// boolean anyKey, boolean singleClick
+				// boolean anyKey, boolean singleClick
 
 				{ false, false },
 
@@ -114,7 +116,8 @@ public class ViewerEditCellStrategiesTest {
 		// myTable.getDisplay().addFilter(i, listener);
 		// }
 		//
-		// myTableViewer.getColumnViewerEditor().addEditorActivationListener(new ColumnViewerEditorActivationListener()
+		// myTableViewer.getColumnViewerEditor().addEditorActivationListener(new
+		// ColumnViewerEditorActivationListener()
 		// {
 		//
 		// @Override
@@ -255,13 +258,13 @@ public class ViewerEditCellStrategiesTest {
 	@Test
 	public void testDoubleClickTraversal() {
 		if (!myEditCellSingleClick) {
-			testTABTraversal(myShopItem1.getName(), String.format("%,.2f", myShopItem1.getPrice()), myShopItem1
-					.isForSale(), myShopItem2.getName(), new Runnable() {
-				@Override
-				public void run() {
-					postMouse(myTable, 0 + myViewerBinding.getFirstTableColumnOffset(), 0, 2);
-				}
-			});
+			testTABTraversal(myShopItem1.getName(), String.format("%,.2f", myShopItem1.getPrice()),
+					myShopItem1.isForSale(), myShopItem2.getName(), new Runnable() {
+						@Override
+						public void run() {
+							postMouse(myTable, 0 + myViewerBinding.getFirstTableColumnOffset(), 0, 2);
+						}
+					});
 		}
 	}
 
@@ -271,13 +274,13 @@ public class ViewerEditCellStrategiesTest {
 	@Test
 	public void testSingleClickTraversal() {
 		if (myEditCellSingleClick) {
-			testTABTraversal(myShopItem1.getName(), String.format("%,.2f", myShopItem1.getPrice()), myShopItem1
-					.isForSale(), myShopItem2.getName(), new Runnable() {
-				@Override
-				public void run() {
-					postMouse(myTable, 0 + myViewerBinding.getFirstTableColumnOffset(), 0);
-				}
-			});
+			testTABTraversal(myShopItem1.getName(), String.format("%,.2f", myShopItem1.getPrice()),
+					myShopItem1.isForSale(), myShopItem2.getName(), new Runnable() {
+						@Override
+						public void run() {
+							postMouse(myTable, 0 + myViewerBinding.getFirstTableColumnOffset(), 0);
+						}
+					});
 		}
 	}
 
@@ -287,13 +290,13 @@ public class ViewerEditCellStrategiesTest {
 	@Test
 	public void testAnyKeyTraversal() {
 		if (myEditCellAnyKey) {
-			testTABTraversal("a", String.format("%,.2f", myShopItem1.getPrice()), myShopItem1.isForSale(), myShopItem2
-					.getName(), new Runnable() {
-				@Override
-				public void run() {
-					postKeyStroke(myTable, "a");
-				}
-			});
+			testTABTraversal("a", String.format("%,.2f", myShopItem1.getPrice()), myShopItem1.isForSale(),
+					myShopItem2.getName(), new Runnable() {
+						@Override
+						public void run() {
+							postKeyStroke(myTable, "a");
+						}
+					});
 		}
 	}
 
@@ -343,6 +346,7 @@ public class ViewerEditCellStrategiesTest {
 	private void testEditStrategy(final boolean editExpected, final String expectedValue, final Runnable runnable) {
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				runnable.run();
 				yield();
@@ -350,6 +354,7 @@ public class ViewerEditCellStrategiesTest {
 		});
 		assertNoLog(new Runnable() {
 
+			@Override
 			public void run() {
 				assertEquals(editExpected, myTableViewer.isCellEditorActive());
 
@@ -378,12 +383,14 @@ public class ViewerEditCellStrategiesTest {
 	private void testUndoAsCancel(final Runnable runnable) {
 		final String oldName = myShopItem1.getName();
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				runnable.run();
 				yield();
 			}
 		});
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				assertEquals(what, true, myTableViewer.isCellEditorActive());
 
@@ -408,6 +415,7 @@ public class ViewerEditCellStrategiesTest {
 	private void testTABTraversal(final String expectedValue, final String afterTabExpectedValue,
 			final boolean afterTabTabExpectedValue, final String afterTabTabTabExpectedValue, final Runnable runnable) {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				runnable.run();
 				yield();
@@ -415,6 +423,7 @@ public class ViewerEditCellStrategiesTest {
 			}
 		});
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				postKeyStroke(myTable, "TAB");
 				yield();
@@ -422,6 +431,7 @@ public class ViewerEditCellStrategiesTest {
 			}
 		});
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				postKeyStroke(myTable, "TAB");
 				yield();

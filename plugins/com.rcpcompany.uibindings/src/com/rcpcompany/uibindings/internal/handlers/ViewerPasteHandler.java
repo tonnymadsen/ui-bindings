@@ -18,12 +18,12 @@ import org.eclipse.ui.handlers.HandlerUtil;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
+import com.rcpcompany.uibindings.IBindingContext.FinishOption;
 import com.rcpcompany.uibindings.IColumnBindingCellInformation;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
-import com.rcpcompany.uibindings.IBindingContext.FinishOption;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.utils.BindingTransfer;
 import com.rcpcompany.uibindings.uiAttributes.SimpleUIAttribute;
@@ -56,8 +56,8 @@ public class ViewerPasteHandler extends AbstractHandler implements IHandler {
 		final Class<?> dataType = binding.getDataType().getDataType();
 
 		/*
-		 * - if a binding based transfer is attempted, then check that the data type of the cell can be assigned to from
-		 * the type of the content
+		 * - if a binding based transfer is attempted, then check that the data type of the cell can
+		 * be assigned to from the type of the content
 		 */
 		Object content = clipboard.getContents(BindingTransfer.getInstance());
 		if (content != null) {
@@ -83,8 +83,8 @@ public class ViewerPasteHandler extends AbstractHandler implements IHandler {
 
 			final WritableValue ov = new WritableValue("", String.class);
 			final IUIAttribute attribute = new SimpleUIAttribute(null, null, ov, true);
-			final IValueBinding pasteBinding = context.addBinding().model(binding.getModelObservableValue()).ui(
-					attribute).args(binding.getArguments());
+			final IValueBinding pasteBinding = context.addBinding().model(binding.getModelObservableValue())
+					.ui(attribute).args(binding.getArguments());
 			context.finish(FinishOption.FORCE);
 
 			ov.setValue(content);
@@ -114,14 +114,10 @@ public class ViewerPasteHandler extends AbstractHandler implements IHandler {
 	}
 
 	private boolean isAssignableFrom(Class<?> destination, Class<?> source) {
-		if (destination.isAssignableFrom(source)) {
-			return true;
-		}
+		if (destination.isAssignableFrom(source)) return true;
 		if (destination.isPrimitive()) {
 			final Class<?> s = primitiveMap.get(source);
-			if (s != null && destination.isAssignableFrom(s)) {
-				return true;
-			}
+			if (s != null && destination.isAssignableFrom(s)) return true;
 		}
 
 		return false;

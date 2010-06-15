@@ -18,9 +18,7 @@ public class ViewerBindingBasicSection implements IBindingSpySection {
 	@Override
 	public void build(IFormCreator creator, ExecutionEvent event) {
 		final Object container = HandlerUtil.getVariable(event, Constants.SOURCES_ACTIVE_CONTAINER_BINDING);
-		if (!(container instanceof IViewerBinding)) {
-			return;
-		}
+		if (!(container instanceof IViewerBinding)) return;
 		final IViewerBinding v = (IViewerBinding) container;
 
 		final IFormCreator subform = creator.addSection("Viewer Information", v);

@@ -16,8 +16,8 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIAttribute;
 
 /**
- * This test checks the properties of the default UI attributes for a {@link ScrolledForm} widget - those with attribute
- * = "".
+ * This test checks the properties of the default UI attributes for a {@link ScrolledForm} widget -
+ * those with attribute = "".
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -29,6 +29,7 @@ public class UIAttributeScrolledFormFactoryPropertiesTest extends BaseUIAttribut
 		final ScrolledForm widget = createWidget(ScrolledForm.class, SWT.NONE);
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				attribute = IManager.Factory.getManager().createUIAttribute(widget, "");
 			}

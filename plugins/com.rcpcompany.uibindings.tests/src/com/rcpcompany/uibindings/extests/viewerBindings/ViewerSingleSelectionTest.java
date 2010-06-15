@@ -163,6 +163,7 @@ public class ViewerSingleSelectionTest {
 	@Test
 	public void testChangeOfTableSelection() {
 		checkSelection(myCountry3, new Runnable() {
+			@Override
 			public void run() {
 				myTable.setSelection(2);
 
@@ -176,6 +177,7 @@ public class ViewerSingleSelectionTest {
 	@Test
 	public void testChangeOfTableViewerSelection() {
 		checkSelection(myCountry4, new Runnable() {
+			@Override
 			public void run() {
 				myTableViewer.setSelection(new StructuredSelection(myCountry4));
 
@@ -189,6 +191,7 @@ public class ViewerSingleSelectionTest {
 	@Test
 	public void testChangeOfTableViewerRevealSelection() {
 		checkSelection(myCountry4, new Runnable() {
+			@Override
 			public void run() {
 				myTableViewer.setSelection(new StructuredSelection(myCountry4), true);
 

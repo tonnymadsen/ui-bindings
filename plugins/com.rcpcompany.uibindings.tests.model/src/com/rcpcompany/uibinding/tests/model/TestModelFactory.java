@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibinding.tests.model;
@@ -9,8 +8,8 @@ package com.rcpcompany.uibinding.tests.model;
 import org.eclipse.emf.ecore.EFactory;
 
 /**
- * <!-- begin-user-doc --> The <b>Factory</b> for the model. It provides a create method for each non-abstract class of
- * the model. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> The <b>Factory</b> for the model. It provides a create method for each
+ * non-abstract class of the model. <!-- end-user-doc -->
  * 
  * @see com.rcpcompany.uibinding.tests.model.TestModelPackage
  * @generated
@@ -24,7 +23,8 @@ public interface TestModelFactory extends EFactory {
 	TestModelFactory eINSTANCE = com.rcpcompany.uibinding.tests.model.internal.TestModelFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Test Object</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Test Object</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Test Object</em>'.
 	 * @generated
@@ -32,7 +32,8 @@ public interface TestModelFactory extends EFactory {
 	TestObject createTestObject();
 
 	/**
-	 * Returns a new object of class '<em>Sub Test Object</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Sub Test Object</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Sub Test Object</em>'.
 	 * @generated
@@ -40,7 +41,8 @@ public interface TestModelFactory extends EFactory {
 	SubTestObject createSubTestObject();
 
 	/**
-	 * Returns a new object of class '<em>Test Container</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Test Container</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Test Container</em>'.
 	 * @generated
@@ -48,7 +50,8 @@ public interface TestModelFactory extends EFactory {
 	TestContainer createTestContainer();
 
 	/**
-	 * Returns a new object of class '<em>Amount And Currency</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Amount And Currency</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Amount And Currency</em>'.
 	 * @generated
@@ -56,7 +59,8 @@ public interface TestModelFactory extends EFactory {
 	AmountAndCurrency createAmountAndCurrency();
 
 	/**
-	 * Returns a new object of class '<em>Test Grid</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Test Grid</em>'. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @return a new object of class '<em>Test Grid</em>'.
 	 * @generated
@@ -64,7 +68,8 @@ public interface TestModelFactory extends EFactory {
 	TestGrid createTestGrid();
 
 	/**
-	 * Returns a new object of class '<em>Test Grid Column</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Test Grid Column</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Test Grid Column</em>'.
 	 * @generated
@@ -72,7 +77,8 @@ public interface TestModelFactory extends EFactory {
 	TestGridColumn createTestGridColumn();
 
 	/**
-	 * Returns a new object of class '<em>Test Grid Row</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Test Grid Row</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Test Grid Row</em>'.
 	 * @generated
@@ -80,7 +86,8 @@ public interface TestModelFactory extends EFactory {
 	TestGridRow createTestGridRow();
 
 	/**
-	 * Returns a new object of class '<em>Test Grid Cell</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Test Grid Cell</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Test Grid Cell</em>'.
 	 * @generated

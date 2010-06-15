@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -29,16 +28,21 @@ import com.rcpcompany.uibindings.utils.IControlDecoration;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>UI Attribute Image Decoration</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>UI Attribute Image Decoration</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImageDecorationImpl#isOutside <em>Outside</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImageDecorationImpl#getImageValue <em>Image Value</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImageDecorationImpl#getTooltipValue <em>Tooltip Value</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImageDecorationImpl#getPosition <em>Position</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImageDecorationImpl#getAttribute <em>Attribute</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImageDecorationImpl#isOutside <em>
+ * Outside</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImageDecorationImpl#getImageValue <em>
+ * Image Value</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImageDecorationImpl#getTooltipValue <em>
+ * Tooltip Value</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImageDecorationImpl#getPosition <em>
+ * Position</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImageDecorationImpl#getAttribute <em>
+ * Attribute</em>}</li>
  * </ul>
  * </p>
  * 
@@ -46,8 +50,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  */
 public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAttributeImageDecoration {
 	/**
-	 * The default value of the '{@link #isOutside() <em>Outside</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #isOutside() <em>Outside</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isOutside()
 	 * @generated
@@ -56,8 +60,8 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 	protected static final boolean OUTSIDE_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isOutside() <em>Outside</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #isOutside() <em>Outside</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isOutside()
 	 * @generated
@@ -66,8 +70,8 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 	protected boolean outside = OUTSIDE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getImageValue() <em>Image Value</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getImageValue() <em>Image Value</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getImageValue()
 	 * @generated
@@ -76,8 +80,8 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 	protected static final IObservableValue IMAGE_VALUE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getImageValue() <em>Image Value</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getImageValue() <em>Image Value</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getImageValue()
 	 * @generated
@@ -86,8 +90,8 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 	protected IObservableValue imageValue = IMAGE_VALUE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTooltipValue() <em>Tooltip Value</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getTooltipValue() <em>Tooltip Value</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTooltipValue()
 	 * @generated
@@ -96,8 +100,8 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 	protected static final IObservableValue TOOLTIP_VALUE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTooltipValue() <em>Tooltip Value</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getTooltipValue() <em>Tooltip Value</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTooltipValue()
 	 * @generated
@@ -106,8 +110,8 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 	protected IObservableValue tooltipValue = TOOLTIP_VALUE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getPosition() <em>Position</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getPosition() <em>Position</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getPosition()
 	 * @generated
@@ -116,8 +120,8 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 	protected static final DecorationPosition POSITION_EDEFAULT = DecorationPosition.TOP_LEFT;
 
 	/**
-	 * The cached value of the '{@link #getPosition() <em>Position</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getPosition() <em>Position</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getPosition()
 	 * @generated
@@ -254,12 +258,8 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 		@Override
 		public Image getImage() {
 			final Object v = getImageValue().getValue();
-			if (v == null) {
-				return null;
-			}
-			if (!(v instanceof Image)) {
-				return null;
-			}
+			if (v == null) return null;
+			if (!(v instanceof Image)) return null;
 
 			return (Image) v;
 		}
@@ -272,12 +272,8 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 		@Override
 		public String getTooltip() {
 			final Object v = getTooltipValue().getValue();
-			if (v == null) {
-				return null;
-			}
-			if (!(v instanceof String)) {
-				return null;
-			}
+			if (v == null) return null;
+			if (!(v instanceof String)) return null;
 
 			return (String) v;
 		}
@@ -299,6 +295,7 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 	 * 
 	 * @generated
 	 */
+	@Override
 	public boolean isOutside() {
 		return outside;
 	}
@@ -308,6 +305,7 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setOutside(boolean newOutside) {
 		final boolean oldOutside = outside;
 		outside = newOutside;
@@ -322,6 +320,7 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public IObservableValue getImageValue() {
 		if (imageValue == null) {
 			imageValue = WritableValue.withValueType(Image.class);
@@ -334,6 +333,7 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public IObservableValue getTooltipValue() {
 		if (tooltipValue == null) {
 			tooltipValue = WritableValue.withValueType(String.class);
@@ -346,6 +346,7 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 	 * 
 	 * @generated
 	 */
+	@Override
 	public DecorationPosition getPosition() {
 		return position;
 	}
@@ -355,6 +356,7 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setPosition(DecorationPosition newPosition) {
 		final DecorationPosition oldPosition = position;
 		position = newPosition == null ? POSITION_EDEFAULT : newPosition;
@@ -369,10 +371,9 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IUIAttribute getAttribute() {
-		if (eContainerFeatureID() != IUIBindingsPackage.UI_ATTRIBUTE_IMAGE_DECORATION__ATTRIBUTE) {
-			return null;
-		}
+		if (eContainerFeatureID() != IUIBindingsPackage.UI_ATTRIBUTE_IMAGE_DECORATION__ATTRIBUTE) return null;
 		return (IUIAttribute) eContainer();
 	}
 
@@ -395,9 +396,8 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 	public void setAttribute(IUIAttribute newAttribute) {
 		if (newAttribute != eInternalContainer()
 				|| (eContainerFeatureID() != IUIBindingsPackage.UI_ATTRIBUTE_IMAGE_DECORATION__ATTRIBUTE && newAttribute != null)) {
-			if (EcoreUtil.isAncestor(this, newAttribute)) {
+			if (EcoreUtil.isAncestor(this, newAttribute))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
-			}
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null) {
 				msgs = eBasicRemoveFromContainer(msgs);

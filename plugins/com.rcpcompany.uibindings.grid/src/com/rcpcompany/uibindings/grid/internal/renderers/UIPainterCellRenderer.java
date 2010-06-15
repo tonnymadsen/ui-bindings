@@ -19,8 +19,8 @@ import com.rcpcompany.uibindings.uiAttributes.UIAttributePainter;
 /**
  * The renderer used for cells in the grid.
  * <p>
- * It delegates to either an {@link DefaultCellRenderer} or an {@link CheckBoxRenderer} depending on the current value
- * of .
+ * It delegates to either an {@link DefaultCellRenderer} or an {@link CheckBoxRenderer} depending on
+ * the current value of .
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -44,13 +44,9 @@ public class UIPainterCellRenderer extends GridCellRenderer implements IRenderer
 
 	private UIAttributePainter getPainter(Object value) {
 		final IGridBindingCellInformation ci = myColumn.getCell((GridItem) value);
-		if (ci == null) {
-			return null;
-		}
+		if (ci == null) return null;
 		final UIAttributePainter painter = ci.getPainter();
-		if (painter == null) {
-			return null;
-		}
+		if (painter == null) return null;
 		painter.setFocus(isCellFocus());
 		painter.setSelected(isCellSelected());
 		final IValueBinding b = ci.getLabelBinding();
@@ -59,8 +55,8 @@ public class UIPainterCellRenderer extends GridCellRenderer implements IRenderer
 			painter.setHorizontalAlignment(SWT.CENTER);
 		} else {
 			painter.setCheckbox(null);
-			final Integer align = b.getArgument(Constants.ARG_ALIGNMENT, Integer.class, UIBindingsUtils
-					.defaultAlignment(b.getModelEType()));
+			final Integer align = b.getArgument(Constants.ARG_ALIGNMENT, Integer.class,
+					UIBindingsUtils.defaultAlignment(b.getModelEType()));
 			if (align != null) {
 				painter.setHorizontalAlignment(align);
 			}
@@ -71,18 +67,14 @@ public class UIPainterCellRenderer extends GridCellRenderer implements IRenderer
 	@Override
 	public Point computeSize(GC gc, int wHint, int hHint, Object value) {
 		final UIAttributePainter painter = getPainter(value);
-		if (painter == null) {
-			return new Point(15, 15);
-		}
+		if (painter == null) return new Point(15, 15);
 		return painter.getSize(gc);
 	}
 
 	@Override
 	public void paint(GC gc, Object value) {
 		final UIAttributePainter painter = getPainter(value);
-		if (painter == null) {
-			return;
-		}
+		if (painter == null) return;
 		painter.paint(gc, getBounds());
 	}
 }

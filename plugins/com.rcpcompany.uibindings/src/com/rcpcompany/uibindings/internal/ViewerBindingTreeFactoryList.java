@@ -149,7 +149,8 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 			myElements.add(this);
 
 			/*
-			 * List of observables - both IOV and IOL - that will be the children of this item. Ironed out later
+			 * List of observables - both IOV and IOL - that will be the children of this item.
+			 * Ironed out later
 			 */
 			for (final ITreeItemRelation rel : descriptor.getChildren()) {
 				if (rel.getProcessor() != null) {

@@ -53,9 +53,7 @@ public class ViewerBindingMessageDecorator implements IDisposable {
 		public void handleEvent(Event event) {
 			final IColumnBindingCellInformation cell = getViewerBinding().getCell(
 					event.index - getViewerBinding().getFirstTableColumnOffset(), event.item.getData());
-			if (cell == null) {
-				return;
-			}
+			if (cell == null) return;
 			decorate(cell, event);
 		}
 	};
@@ -332,12 +330,10 @@ public class ViewerBindingMessageDecorator implements IDisposable {
 					final Table t = (Table) viewer.getControl();
 					final int rowNo = viewer.getList().indexOf(getCell().getElement());
 					/*
-					 * Timing! We can request an element that does not exist any more or has not been created in the
-					 * table yet...
+					 * Timing! We can request an element that does not exist any more or has not
+					 * been created in the table yet...
 					 */
-					if (rowNo == -1 || rowNo >= t.getItemCount()) {
-						return;
-					}
+					if (rowNo == -1 || rowNo >= t.getItemCount()) return;
 					final TableItem item = t.getItem(rowNo);
 					area = item.getBounds(viewer.getColumns().indexOf(column) + viewer.getFirstTableColumnOffset());
 				}
@@ -375,16 +371,10 @@ public class ViewerBindingMessageDecorator implements IDisposable {
 		 * Return true if the decoration should be shown, false if it should not.
 		 */
 		private boolean shouldShowDecoration() {
-			if (!myVisible) {
-				return false;
-			}
-			if (getControl() == null || getControl().isDisposed() || getImage() == null) {
-				return false;
-			}
+			if (!myVisible) return false;
+			if (getControl() == null || getControl().isDisposed() || getImage() == null) return false;
 
-			if (!getControl().isVisible()) {
-				return false;
-			}
+			if (!getControl().isVisible()) return false;
 			// if (showOnlyOnFocus) {
 			// return hasFocus;
 			// }

@@ -18,9 +18,7 @@ public class ValueBindingBasicSection implements IBindingSpySection {
 	@Override
 	public void build(IFormCreator creator, ExecutionEvent event) {
 		final IBinding b = (IBinding) creator.getObject();
-		if (!(b instanceof IValueBinding)) {
-			return;
-		}
+		if (!(b instanceof IValueBinding)) return;
 
 		final IValueBinding vb = (IValueBinding) b;
 

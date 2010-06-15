@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -20,14 +19,16 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Tree Item Relation</b></em>'. <!-- end-user-doc
- * -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Tree Item Relation</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.internal.TreeItemRelationImpl#getId <em>Id</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.TreeItemRelationImpl#getProcessor <em>Processor</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.TreeItemRelationImpl#getFeatureName <em>Feature Name</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.TreeItemRelationImpl#getProcessor <em>Processor
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.TreeItemRelationImpl#getFeatureName <em>Feature
+ * Name</em>}</li>
  * </ul>
  * </p>
  * 
@@ -35,8 +36,8 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  */
 public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelation {
 	/**
-	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getParent()
 	 * @generated
@@ -45,8 +46,8 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 	protected ITreeItemDescriptor parent;
 
 	/**
-	 * The cached value of the '{@link #getDescriptor() <em>Descriptor</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getDescriptor() <em>Descriptor</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDescriptor()
 	 * @generated
@@ -55,8 +56,8 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 	protected ITreeItemDescriptor descriptor;
 
 	/**
-	 * The cached value of the '{@link #getProcessor() <em>Processor</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getProcessor() <em>Processor</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getProcessor()
 	 * @generated
@@ -65,8 +66,8 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 	protected CEObjectHolder<IObservableFactory> processor;
 
 	/**
-	 * The default value of the '{@link #getFeatureName() <em>Feature Name</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getFeatureName() <em>Feature Name</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getFeatureName()
 	 * @generated
@@ -75,8 +76,8 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 	protected static final String FEATURE_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getFeatureName() <em>Feature Name</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getFeatureName() <em>Feature Name</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getFeatureName()
 	 * @generated
@@ -85,8 +86,8 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 	protected String featureName = FEATURE_NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getPriority() <em>Priority</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getPriority() <em>Priority</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getPriority()
 	 * @generated
@@ -95,8 +96,8 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 	protected static final int PRIORITY_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getPriority()
 	 * @generated
@@ -128,6 +129,7 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 	 * 
 	 * @generated
 	 */
+	@Override
 	public ITreeItemDescriptor getParent() {
 		return parent;
 	}
@@ -157,6 +159,7 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setParent(ITreeItemDescriptor newParent) {
 		if (newParent != parent) {
 			NotificationChain msgs = null;
@@ -183,6 +186,7 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 	 * 
 	 * @generated
 	 */
+	@Override
 	public ITreeItemDescriptor getDescriptor() {
 		return descriptor;
 	}
@@ -192,6 +196,7 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setDescriptor(ITreeItemDescriptor newDescriptor) {
 		final ITreeItemDescriptor oldDescriptor = descriptor;
 		descriptor = newDescriptor;
@@ -206,6 +211,7 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 	 * 
 	 * @generated
 	 */
+	@Override
 	public CEObjectHolder<IObservableFactory> getProcessor() {
 		return processor;
 	}
@@ -215,6 +221,7 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setProcessor(CEObjectHolder<IObservableFactory> newProcessor) {
 		final CEObjectHolder<IObservableFactory> oldProcessor = processor;
 		processor = newProcessor;
@@ -229,6 +236,7 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getFeatureName() {
 		return featureName;
 	}
@@ -238,6 +246,7 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setFeatureName(String newFeatureName) {
 		final String oldFeatureName = featureName;
 		featureName = newFeatureName;
@@ -252,6 +261,7 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getPriority() {
 		return priority;
 	}
@@ -261,6 +271,7 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setPriority(int newPriority) {
 		final int oldPriority = priority;
 		priority = newPriority;
@@ -409,9 +420,7 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (processor: "); //$NON-NLS-1$

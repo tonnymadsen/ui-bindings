@@ -25,19 +25,13 @@ public class UnsettableExtender extends AbstractUIBindingDecoratorExtender {
 	public void extend(IUIBindingDecoratorExtenderContext context) {
 		final IValueBinding binding = context.getBinding();
 		final IBindingDataType dataType = binding.getDataType();
-		if (!dataType.isUnsettable()) {
-			return;
-		}
+		if (!dataType.isUnsettable()) return;
 
-		if (!dataType.getDataType().isPrimitive()) {
-			return;
-		}
+		if (!dataType.getDataType().isPrimitive()) return;
 
 		final EObject obj = binding.getModelObject();
 		final EStructuralFeature feature = binding.getModelFeature();
-		if (obj == null || feature == null) {
-			return;
-		}
+		if (obj == null || feature == null) return;
 
 		if (!obj.eIsSet(feature)) {
 			context.setEnabled(false);

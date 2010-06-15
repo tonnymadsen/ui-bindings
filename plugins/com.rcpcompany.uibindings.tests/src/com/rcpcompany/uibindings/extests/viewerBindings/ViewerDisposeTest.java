@@ -153,6 +153,7 @@ public class ViewerDisposeTest {
 	 */
 	public void bindUI() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myContext = IBindingContext.Factory.createContext(myContextTop);
 
@@ -241,6 +242,7 @@ public class ViewerDisposeTest {
 		monitorObject(myViewerBinding, IUIBindingsPackage.Literals.BINDING__STATE, no, 4);
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				runnable.run();
 			}
@@ -255,16 +257,10 @@ public class ViewerDisposeTest {
 			@Override
 			public void notifyChanged(Notification msg) {
 				synchronized (no) {
-					if (msg.isTouch()) {
-						return;
-					}
-					if (msg.getFeature() != stateAttribute) {
-						return;
-					}
+					if (msg.isTouch()) return;
+					if (msg.getFeature() != stateAttribute) return;
 					// We ignore the pending dispose for now...
-					if (BindingState.DISPOSE_PENDING == ((EObject) msg.getNotifier()).eGet(stateAttribute)) {
-						return;
-					}
+					if (BindingState.DISPOSE_PENDING == ((EObject) msg.getNotifier()).eGet(stateAttribute)) return;
 					assertEquals(BindingState.DISPOSED, ((EObject) msg.getNotifier()).eGet(stateAttribute));
 					assertEquals(expectedNo, no[0]);
 					no[0]++;

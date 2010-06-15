@@ -28,6 +28,7 @@ import com.rcpcompany.uibindings.BindingMessageSeverity;
 import com.rcpcompany.uibindings.BindingState;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingMessage;
+import com.rcpcompany.uibindings.IBindingMessage.FeatureMatchingAlgorithm;
 import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IQuickfixProposal;
@@ -36,7 +37,6 @@ import com.rcpcompany.uibindings.IUIBindingDecoratorExtenderContext;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.UIBindingsUtils;
-import com.rcpcompany.uibindings.IBindingMessage.FeatureMatchingAlgorithm;
 import com.rcpcompany.uibindings.decorators.extenders.AbstractUIBindingDecoratorExtender;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.Messages;
@@ -89,7 +89,8 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	private final FeatureMatchingAlgorithm myMessagesMatchingAlgorithm;
 
 	/**
-	 * <code>true</code> if object messages for the current value object of the binding should be accepted as well.
+	 * <code>true</code> if object messages for the current value object of the binding should be
+	 * accepted as well.
 	 */
 	private final boolean myAcceptValueObjectMessages;
 
@@ -115,7 +116,8 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	}
 
 	/**
-	 * Completes the initialization of this message decorator. Only invoked when the state of the binding is OK.
+	 * Completes the initialization of this message decorator. Only invoked when the state of the
+	 * binding is OK.
 	 */
 	protected void init() {
 		if (getBinding().getState() != BindingState.OK) {
@@ -125,12 +127,8 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 			final AdapterImpl l = new AdapterImpl() {
 				@Override
 				public void notifyChanged(Notification msg) {
-					if (msg.isTouch()) {
-						return;
-					}
-					if (msg.getFeature() != IUIBindingsPackage.Literals.BINDING__STATE) {
-						return;
-					}
+					if (msg.isTouch()) return;
+					if (msg.getFeature() != IUIBindingsPackage.Literals.BINDING__STATE) return;
 					switch (getBinding().getState()) {
 					case OK:
 						init();
@@ -165,7 +163,8 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 		}
 
 		/*
-		 * The list change listener will ensure that the change listener is added to all the message providers
+		 * The list change listener will ensure that the change listener is added to all the message
+		 * providers
 		 */
 		myMessageProviders.addListChangeListener(myListChangeListener);
 		for (final Binding b : getBinding().getMonitoredDBBindings()) {
@@ -236,9 +235,7 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 
 	@Override
 	public void notifyChanged(Notification msg) {
-		if (msg.isTouch()) {
-			return;
-		}
+		if (msg.isTouch()) return;
 		if ((msg.getFeature() == IUIBindingsPackage.Literals.MANAGER__MESSAGE_DECORATION_POSITION)
 				|| (msg.getFeature() == IUIBindingsPackage.Literals.MANAGER__ALTERNATIVE_DECORATION_POSITION)
 				|| (msg.getFeature() == IUIBindingsPackage.Literals.MANAGER__MESSAGE_DECORATION_MINIMUM_SEVERITY)
@@ -250,7 +247,8 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	}
 
 	/**
-	 * Change listener used to add/remove change listener to the individual elements of {@link #myMessageProviders}.
+	 * Change listener used to add/remove change listener to the individual elements of
+	 * {@link #myMessageProviders}.
 	 */
 	private final IListChangeListener myListChangeListener = new IListChangeListener() {
 		@Override
@@ -284,7 +282,8 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	};
 
 	/**
-	 * Delayed Change listener used to update the decoration whenever changes are initiated for the UI Observable.
+	 * Delayed Change listener used to update the decoration whenever changes are initiated for the
+	 * UI Observable.
 	 * 
 	 * See {@link TextObservableValue} for more information
 	 */
@@ -305,7 +304,8 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	/**
 	 * The current list of outstanding messages for this decorator.
 	 * <p>
-	 * These messages comes from the outside. The party that adds a message must also remove it again.
+	 * These messages comes from the outside. The party that adds a message must also remove it
+	 * again.
 	 * 
 	 * @see #addMessage(IBindingMessage)
 	 * @see #removeMessage(IBindingMessage)
@@ -380,9 +380,7 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	 * Updates the message decoration of this decorator.
 	 */
 	protected void updateDecoration() {
-		if (getBinding().getState() != BindingState.OK) {
-			return;
-		}
+		if (getBinding().getState() != BindingState.OK) return;
 		if (!updateDecorationScheduled) {
 			updateDecorationScheduled = true;
 			PlatformUI.getWorkbench().getDisplay().asyncExec(myUpdateDecorationRunnable);
@@ -448,16 +446,12 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	 * @see #updateDecoration()
 	 */
 	protected void updateDecorationDelayed() {
-		if (!updateDecorationScheduled) {
-			return;
-		}
+		if (!updateDecorationScheduled) return;
 		updateDecorationScheduled = false;
 		/*
 		 * As this operation is delayed, the widget might be disposed in the mean time...
 		 */
-		if (getBinding().getUIObservable().isDisposed()) {
-			return;
-		}
+		if (getBinding().getUIObservable().isDisposed()) return;
 
 		if (Activator.getDefault().TRACE_LIFECYCLE_VALUE_BINDING_MESSAGE_DECORATOR) {
 			LogUtils.debug(this, "update delayed " + hashCode() + ": " + getBinding()); //$NON-NLS-1$ //$NON-NLS-2$
@@ -468,8 +462,9 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 				return;
 			}
 			/*
-			 * Check if the observed object of the binding has changed. If so, then reset the decoration for the
-			 * validation manager - this will remove all current messages and set up a new set...
+			 * Check if the observed object of the binding has changed. If so, then reset the
+			 * decoration for the validation manager - this will remove all current messages and set
+			 * up a new set...
 			 */
 			final EObject newObservedObject = getBinding().getModelObject();
 			if (myObservedObject != newObservedObject) {
@@ -619,9 +614,7 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 		if (UIBindingsUtils.equals(myOldMessageDecorationImage, myMessageDecorationImage)
 				&& UIBindingsUtils.equals(myOldMessageDecorationMessage, myMessageDecorationMessage)
 				&& UIBindingsUtils.equals(myOldAlternativeDecorationImage, myAlternativeDecorationImage)
-				&& UIBindingsUtils.equals(myOldAlternativeDecorationMessage, myAlternativeDecorationMessage)) {
-			return;
-		}
+				&& UIBindingsUtils.equals(myOldAlternativeDecorationMessage, myAlternativeDecorationMessage)) return;
 		getBinding().updateBinding();
 	}
 
@@ -645,9 +638,7 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 
 	@Override
 	public boolean accept(IBindingMessage unboundMessage) {
-		if (myObservedObject == null) {
-			return false;
-		}
+		if (myObservedObject == null) return false;
 
 		final IValueBinding binding = getBinding();
 		final IObservable modelObservable = binding.getModelObservable();
@@ -655,15 +646,13 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 		if (modelObservable instanceof IKeyedObservable) {
 			key = ((IKeyedObservable) modelObservable).getObservableKey();
 		}
-		if (unboundMessage.matches(myObservedObject, binding.getModelFeature(), key, myMessagesMatchingAlgorithm)) {
+		if (unboundMessage.matches(myObservedObject, binding.getModelFeature(), key, myMessagesMatchingAlgorithm))
 			return true;
-		}
 		if (myAcceptValueObjectMessages) {
 			final Object value = binding.getModelObservableValue().getValue();
 			if (value instanceof EObject
-					&& unboundMessage.matches((EObject) value, null, null, FeatureMatchingAlgorithm.EXACT)) {
+					&& unboundMessage.matches((EObject) value, null, null, FeatureMatchingAlgorithm.EXACT))
 				return true;
-			}
 		}
 
 		return false;

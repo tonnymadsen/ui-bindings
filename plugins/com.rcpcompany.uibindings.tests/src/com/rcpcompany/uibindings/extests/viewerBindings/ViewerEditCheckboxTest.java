@@ -41,9 +41,11 @@ import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
 /**
- * Tests of the different way editing of a cell can start and end as well as traversal out of the cell.
+ * Tests of the different way editing of a cell can start and end as well as traversal out of the
+ * cell.
  * <p>
- * Tests the functionality of {@link IManager#isEditCellAnyKey()} and {@link IManager#isAutoApplySingleQuickfix()}.
+ * Tests the functionality of {@link IManager#isEditCellAnyKey()} and
+ * {@link IManager#isAutoApplySingleQuickfix()}.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -53,7 +55,7 @@ public class ViewerEditCheckboxTest {
 	public static Collection<Object[]> data() {
 		return Arrays.asList(new Object[][] {
 
-		// boolean anyKey, boolean singleClick
+				// boolean anyKey, boolean singleClick
 
 				{ false, false },
 
@@ -111,7 +113,8 @@ public class ViewerEditCheckboxTest {
 		// myTable.getDisplay().addFilter(i, listener);
 		// }
 		//
-		// myTableViewer.getColumnViewerEditor().addEditorActivationListener(new ColumnViewerEditorActivationListener()
+		// myTableViewer.getColumnViewerEditor().addEditorActivationListener(new
+		// ColumnViewerEditorActivationListener()
 		// {
 		//
 		// @Override
@@ -267,6 +270,7 @@ public class ViewerEditCheckboxTest {
 	 */
 	private void testEditStrategy(final boolean start, final boolean expected, final Runnable runnable) {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myShopItem1.setForSale(start);
 				runnable.run();
@@ -274,6 +278,7 @@ public class ViewerEditCheckboxTest {
 			}
 		});
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				assertEquals(what, false, myTableViewer.isCellEditorActive());
 

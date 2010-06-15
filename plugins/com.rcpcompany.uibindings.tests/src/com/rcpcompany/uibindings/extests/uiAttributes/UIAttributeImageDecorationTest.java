@@ -96,14 +96,19 @@ public class UIAttributeImageDecorationTest<T extends Control> {
 						// Combo - inner
 
 						// { Combo.class, DecorationPosition.TOP_LEFT, false, 0, 0, 0.0f, 0.0f },
-						// { Combo.class, DecorationPosition.TOP_RIGHT, false, -SQUARE_SIZE, 0, 1.0f, 0.0f },
+						// { Combo.class, DecorationPosition.TOP_RIGHT, false, -SQUARE_SIZE, 0,
+						// 1.0f, 0.0f },
 						//
-						// { Combo.class, DecorationPosition.CENTER_LEFT, false, 0, -SQUARE_SIZE / 2, 0.0f, 0.5f },
-						// { Combo.class, DecorationPosition.CENTER_RIGHT, false, -SQUARE_SIZE, -SQUARE_SIZE / 2, 1.0f,
+						// { Combo.class, DecorationPosition.CENTER_LEFT, false, 0, -SQUARE_SIZE /
+						// 2, 0.0f, 0.5f },
+						// { Combo.class, DecorationPosition.CENTER_RIGHT, false, -SQUARE_SIZE,
+						// -SQUARE_SIZE / 2, 1.0f,
 						// 0.5f },
 						//
-						// { Combo.class, DecorationPosition.BOTTOM_LEFT, false, 0, -SQUARE_SIZE, 0.0f, 1.0f },
-						// { Combo.class, DecorationPosition.BOTTOM_RIGHT, false, -SQUARE_SIZE, -SQUARE_SIZE, 1.0f, 1.0f
+						// { Combo.class, DecorationPosition.BOTTOM_LEFT, false, 0, -SQUARE_SIZE,
+						// 0.0f, 1.0f },
+						// { Combo.class, DecorationPosition.BOTTOM_RIGHT, false, -SQUARE_SIZE,
+						// -SQUARE_SIZE, 1.0f, 1.0f
 						// },
 
 						// Combo - outer
@@ -127,14 +132,19 @@ public class UIAttributeImageDecorationTest<T extends Control> {
 						// CCombo - inner
 
 						// { CCombo.class, DecorationPosition.TOP_LEFT, false, 0, 0, 0.0f, 0.0f },
-						// { CCombo.class, DecorationPosition.TOP_RIGHT, false, -SQUARE_SIZE, 0, 1.0f, 0.0f },
+						// { CCombo.class, DecorationPosition.TOP_RIGHT, false, -SQUARE_SIZE, 0,
+						// 1.0f, 0.0f },
 						//
-						// { CCombo.class, DecorationPosition.CENTER_LEFT, false, 0, -SQUARE_SIZE / 2, 0.0f, 0.5f },
-						// { CCombo.class, DecorationPosition.CENTER_RIGHT, false, -SQUARE_SIZE, -SQUARE_SIZE / 2, 1.0f,
+						// { CCombo.class, DecorationPosition.CENTER_LEFT, false, 0, -SQUARE_SIZE /
+						// 2, 0.0f, 0.5f },
+						// { CCombo.class, DecorationPosition.CENTER_RIGHT, false, -SQUARE_SIZE,
+						// -SQUARE_SIZE / 2, 1.0f,
 						// 0.5f },
 						//
-						// { CCombo.class, DecorationPosition.BOTTOM_LEFT, false, 0, -SQUARE_SIZE, 0.0f, 1.0f },
-						// { CCombo.class, DecorationPosition.BOTTOM_RIGHT, false, -SQUARE_SIZE, -SQUARE_SIZE, 1.0f,
+						// { CCombo.class, DecorationPosition.BOTTOM_LEFT, false, 0, -SQUARE_SIZE,
+						// 0.0f, 1.0f },
+						// { CCombo.class, DecorationPosition.BOTTOM_RIGHT, false, -SQUARE_SIZE,
+						// -SQUARE_SIZE, 1.0f,
 						// 1.0f },
 
 						// CCombo - outer

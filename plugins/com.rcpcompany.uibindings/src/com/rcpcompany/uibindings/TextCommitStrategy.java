@@ -7,8 +7,9 @@ import java.util.List;
 import org.eclipse.emf.common.util.Enumerator;
 
 /**
- * <!-- begin-user-doc --> A representation of the literals of the enumeration '<em><b>Text Commit Strategy</b></em>',
- * and utility methods for working with them. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the literals of the enumeration '
+ * <em><b>Text Commit Strategy</b></em>', and utility methods for working with them. <!--
+ * end-user-doc -->
  * 
  * @see com.rcpcompany.uibindings.IUIBindingsPackage#getTextCommitStrategy()
  * @generated
@@ -24,7 +25,8 @@ public enum TextCommitStrategy implements Enumerator {
 	ON_MODIFY(0, "ON_MODIFY", "ON_MODIFY"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
-	 * The '<em><b>ON FOCUS OUT</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The '<em><b>ON FOCUS OUT</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @see #ON_FOCUS_OUT_VALUE
 	 * @generated
@@ -33,7 +35,8 @@ public enum TextCommitStrategy implements Enumerator {
 	ON_FOCUS_OUT(1, "ON_FOCUS_OUT", "ON_FOCUS_OUT"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
-	 * The '<em><b>ON MODIFY DELAY</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The '<em><b>ON MODIFY DELAY</b></em>' literal object. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #ON_MODIFY_DELAY_VALUE
 	 * @generated
@@ -44,8 +47,8 @@ public enum TextCommitStrategy implements Enumerator {
 	/**
 	 * The '<em><b>ON MODIFY</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>ON MODIFY</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>ON MODIFY</b></em>' literal object isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -58,8 +61,8 @@ public enum TextCommitStrategy implements Enumerator {
 	/**
 	 * The '<em><b>ON FOCUS OUT</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>ON FOCUS OUT</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>ON FOCUS OUT</b></em>' literal object isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -72,8 +75,8 @@ public enum TextCommitStrategy implements Enumerator {
 	/**
 	 * The '<em><b>ON MODIFY DELAY</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>ON MODIFY DELAY</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>ON MODIFY DELAY</b></em>' literal object isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -84,8 +87,8 @@ public enum TextCommitStrategy implements Enumerator {
 	public static final int ON_MODIFY_DELAY_VALUE = 2;
 
 	/**
-	 * An array of all the '<em><b>Text Commit Strategy</b></em>' enumerators. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * An array of all the '<em><b>Text Commit Strategy</b></em>' enumerators. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -93,48 +96,44 @@ public enum TextCommitStrategy implements Enumerator {
 			ON_MODIFY_DELAY, };
 
 	/**
-	 * A public read-only list of all the '<em><b>Text Commit Strategy</b></em>' enumerators. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * A public read-only list of all the '<em><b>Text Commit Strategy</b></em>' enumerators. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static final List<TextCommitStrategy> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Text Commit Strategy</b></em>' literal with the specified literal value. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * Returns the '<em><b>Text Commit Strategy</b></em>' literal with the specified literal value.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static TextCommitStrategy get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			final TextCommitStrategy result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
-				return result;
-			}
+			if (result.toString().equals(literal)) return result;
 		}
 		return null;
 	}
 
 	/**
-	 * Returns the '<em><b>Text Commit Strategy</b></em>' literal with the specified name. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Returns the '<em><b>Text Commit Strategy</b></em>' literal with the specified name. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static TextCommitStrategy getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			final TextCommitStrategy result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
-				return result;
-			}
+			if (result.getName().equals(name)) return result;
 		}
 		return null;
 	}
 
 	/**
-	 * Returns the '<em><b>Text Commit Strategy</b></em>' literal with the specified integer value. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * Returns the '<em><b>Text Commit Strategy</b></em>' literal with the specified integer value.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -187,6 +186,7 @@ public enum TextCommitStrategy implements Enumerator {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 		return value;
 	}
@@ -196,6 +196,7 @@ public enum TextCommitStrategy implements Enumerator {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -205,13 +206,14 @@ public enum TextCommitStrategy implements Enumerator {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 		return literal;
 	}
 
 	/**
-	 * Returns the literal value of the enumerator, which is its string representation. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Returns the literal value of the enumerator, which is its string representation. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */

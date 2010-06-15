@@ -41,9 +41,7 @@ public class ViewerBindingTreeFactory implements IObservableFactory {
 		/*
 		 * The root items
 		 */
-		if (target == myViewer.getList()) {
-			return myViewer.getList();
-		}
+		if (target == myViewer.getList()) return myViewer.getList();
 
 		final EObject etarget;
 		final ITreeItemDescriptor descriptor;

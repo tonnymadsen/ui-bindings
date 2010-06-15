@@ -16,7 +16,8 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIAttribute;
 
 /**
- * This test checks the properties of the default UI attributes for a {@link List} widget - those with attribute = "".
+ * This test checks the properties of the default UI attributes for a {@link List} widget - those
+ * with attribute = "".
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -28,6 +29,7 @@ public class UIAttributeListFactoryPropertiesTest extends BaseUIAttributeFactory
 		final List widget = createWidget(List.class, SWT.SINGLE);
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				attribute = IManager.Factory.getManager().createUIAttribute(widget, "");
 			}
@@ -42,7 +44,9 @@ public class UIAttributeListFactoryPropertiesTest extends BaseUIAttributeFactory
 		testObservableValue(widget, "", attribute.getForegroundValue(), Color.class, "foreground");
 		testObservableValue(widget, "", attribute.getFontValue(), Font.class, "font");
 		testObservableValue(widget, "", attribute.getCursorValue(), Cursor.class, "cursor");
-		testObservableValue(widget, "", attribute.getCurrentValue(), String.class, null); // not a direct property
+		testObservableValue(widget, "", attribute.getCurrentValue(), String.class, null); // not a
+																							// direct
+																							// property
 		testObservableValue(widget, "", attribute.getEnabledValue(), Boolean.TYPE, "enabled");
 		testObservableValue(widget, "", attribute.getTooltipValue(), String.class, "toolTipText");
 		assertEquals(null, attribute.getMinValue());

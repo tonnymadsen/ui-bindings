@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibinding.tests.model.internal;
@@ -41,9 +40,7 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 		try {
 			final TestModelFactory theTestModelFactory = (TestModelFactory) EPackage.Registry.INSTANCE
 					.getEFactory("http://rcp-company.com/schemas/uibindings/testModel");
-			if (theTestModelFactory != null) {
-				return theTestModelFactory;
-			}
+			if (theTestModelFactory != null) return theTestModelFactory;
 		} catch (final Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
@@ -131,6 +128,7 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	 * 
 	 * @generated
 	 */
+	@Override
 	public TestObject createTestObject() {
 		final TestObjectImpl testObject = new TestObjectImpl();
 		return testObject;
@@ -141,6 +139,7 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	 * 
 	 * @generated
 	 */
+	@Override
 	public SubTestObject createSubTestObject() {
 		final SubTestObjectImpl subTestObject = new SubTestObjectImpl();
 		return subTestObject;
@@ -151,6 +150,7 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	 * 
 	 * @generated
 	 */
+	@Override
 	public TestContainer createTestContainer() {
 		final TestContainerImpl testContainer = new TestContainerImpl();
 		return testContainer;
@@ -161,6 +161,7 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	 * 
 	 * @generated
 	 */
+	@Override
 	public AmountAndCurrency createAmountAndCurrency() {
 		final AmountAndCurrencyImpl amountAndCurrency = new AmountAndCurrencyImpl();
 		return amountAndCurrency;
@@ -171,6 +172,7 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	 * 
 	 * @generated
 	 */
+	@Override
 	public TestGrid createTestGrid() {
 		final TestGridImpl testGrid = new TestGridImpl();
 		return testGrid;
@@ -181,6 +183,7 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	 * 
 	 * @generated
 	 */
+	@Override
 	public TestGridColumn createTestGridColumn() {
 		final TestGridColumnImpl testGridColumn = new TestGridColumnImpl();
 		return testGridColumn;
@@ -191,6 +194,7 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	 * 
 	 * @generated
 	 */
+	@Override
 	public TestGridRow createTestGridRow() {
 		final TestGridRowImpl testGridRow = new TestGridRowImpl();
 		return testGridRow;
@@ -201,6 +205,7 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	 * 
 	 * @generated
 	 */
+	@Override
 	public TestGridCell createTestGridCell() {
 		final TestGridCellImpl testGridCell = new TestGridCellImpl();
 		return testGridCell;
@@ -213,10 +218,9 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	 */
 	public WeightUnit createWeightUnitFromString(EDataType eDataType, String initialValue) {
 		final WeightUnit result = WeightUnit.get(initialValue);
-		if (result == null) {
+		if (result == null)
 			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '"
 					+ eDataType.getName() + "'");
-		}
 		return result;
 	}
 
@@ -236,10 +240,9 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	 */
 	public TimeUnit createTimeUnitFromString(EDataType eDataType, String initialValue) {
 		final TimeUnit result = TimeUnit.get(initialValue);
-		if (result == null) {
+		if (result == null)
 			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '"
 					+ eDataType.getName() + "'");
-		}
 		return result;
 	}
 
@@ -275,6 +278,7 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	 * 
 	 * @generated
 	 */
+	@Override
 	public TestModelPackage getTestModelPackage() {
 		return (TestModelPackage) getEPackage();
 	}

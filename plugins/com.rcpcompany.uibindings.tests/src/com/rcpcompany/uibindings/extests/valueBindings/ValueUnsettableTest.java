@@ -121,7 +121,7 @@ public class ValueUnsettableTest {
 	 */
 	@Test
 	public void testNormal() {
-		// 
+		//
 		myNormalText.setFocus();
 		yield();
 
@@ -134,7 +134,7 @@ public class ValueUnsettableTest {
 	 */
 	@Test
 	public void testUnsettable() {
-		// 
+		//
 		myUnsettableText.setFocus();
 		yield();
 

@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -17,14 +16,17 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>UI Attribute Factory Descriptor</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>UI Attribute Factory Descriptor</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeFactoryDescriptorImpl#getTypeName <em>Type Name</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeFactoryDescriptorImpl#getAttribute <em>Attribute</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeFactoryDescriptorImpl#getFactory <em>Factory</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeFactoryDescriptorImpl#getTypeName <em>
+ * Type Name</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeFactoryDescriptorImpl#getAttribute <em>
+ * Attribute</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeFactoryDescriptorImpl#getFactory <em>
+ * Factory</em>}</li>
  * </ul>
  * </p>
  * 
@@ -32,8 +34,8 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  */
 public class UIAttributeFactoryDescriptorImpl extends EObjectImpl implements IUIAttributeFactoryDescriptor {
 	/**
-	 * The default value of the '{@link #getTypeName() <em>Type Name</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getTypeName() <em>Type Name</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTypeName()
 	 * @generated
@@ -42,8 +44,8 @@ public class UIAttributeFactoryDescriptorImpl extends EObjectImpl implements IUI
 	protected static final String TYPE_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTypeName() <em>Type Name</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getTypeName() <em>Type Name</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTypeName()
 	 * @generated
@@ -52,8 +54,8 @@ public class UIAttributeFactoryDescriptorImpl extends EObjectImpl implements IUI
 	protected String typeName = TYPE_NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getAttribute() <em>Attribute</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getAttribute() <em>Attribute</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getAttribute()
 	 * @generated
@@ -62,8 +64,8 @@ public class UIAttributeFactoryDescriptorImpl extends EObjectImpl implements IUI
 	protected static final String ATTRIBUTE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getAttribute()
 	 * @generated
@@ -72,8 +74,8 @@ public class UIAttributeFactoryDescriptorImpl extends EObjectImpl implements IUI
 	protected String attribute = ATTRIBUTE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getFactory() <em>Factory</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getFactory() <em>Factory</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getFactory()
 	 * @generated
@@ -105,6 +107,7 @@ public class UIAttributeFactoryDescriptorImpl extends EObjectImpl implements IUI
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getTypeName() {
 		return typeName;
 	}
@@ -114,6 +117,7 @@ public class UIAttributeFactoryDescriptorImpl extends EObjectImpl implements IUI
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setTypeName(String newTypeName) {
 		final String oldTypeName = typeName;
 		typeName = newTypeName;
@@ -128,6 +132,7 @@ public class UIAttributeFactoryDescriptorImpl extends EObjectImpl implements IUI
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getAttribute() {
 		return attribute;
 	}
@@ -137,6 +142,7 @@ public class UIAttributeFactoryDescriptorImpl extends EObjectImpl implements IUI
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setAttribute(String newAttribute) {
 		final String oldAttribute = attribute;
 		attribute = newAttribute;
@@ -151,6 +157,7 @@ public class UIAttributeFactoryDescriptorImpl extends EObjectImpl implements IUI
 	 * 
 	 * @generated
 	 */
+	@Override
 	public CEObjectHolder<IUIAttributeFactory> getFactory() {
 		return factory;
 	}
@@ -160,6 +167,7 @@ public class UIAttributeFactoryDescriptorImpl extends EObjectImpl implements IUI
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setFactory(CEObjectHolder<IUIAttributeFactory> newFactory) {
 		final CEObjectHolder<IUIAttributeFactory> oldFactory = factory;
 		factory = newFactory;
@@ -255,9 +263,7 @@ public class UIAttributeFactoryDescriptorImpl extends EObjectImpl implements IUI
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (typeName: "); //$NON-NLS-1$

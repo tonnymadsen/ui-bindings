@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibinding.tests.model;
@@ -13,8 +12,8 @@ import java.util.List;
 import org.eclipse.emf.common.util.Enumerator;
 
 /**
- * <!-- begin-user-doc --> A representation of the literals of the enumeration '<em><b>Time Unit</b></em>', and utility
- * methods for working with them. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the literals of the enumeration '
+ * <em><b>Time Unit</b></em>', and utility methods for working with them. <!-- end-user-doc -->
  * 
  * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTimeUnit()
  * @model
@@ -42,8 +41,8 @@ public enum TimeUnit implements Enumerator {
 	/**
 	 * The '<em><b>SEC</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>SEC</b></em>' literal object isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of '<em><b>SEC</b></em>' literal object isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -57,8 +56,8 @@ public enum TimeUnit implements Enumerator {
 	/**
 	 * The '<em><b>MIN</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>MIN</b></em>' literal object isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of '<em><b>MIN</b></em>' literal object isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -70,55 +69,52 @@ public enum TimeUnit implements Enumerator {
 	public static final int MIN_VALUE = 1;
 
 	/**
-	 * An array of all the '<em><b>Time Unit</b></em>' enumerators. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * An array of all the '<em><b>Time Unit</b></em>' enumerators. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	private static final TimeUnit[] VALUES_ARRAY = new TimeUnit[] { SEC, MIN, };
 
 	/**
-	 * A public read-only list of all the '<em><b>Time Unit</b></em>' enumerators. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * A public read-only list of all the '<em><b>Time Unit</b></em>' enumerators. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static final List<TimeUnit> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Time Unit</b></em>' literal with the specified literal value. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Returns the '<em><b>Time Unit</b></em>' literal with the specified literal value. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static TimeUnit get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			final TimeUnit result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
-				return result;
-			}
+			if (result.toString().equals(literal)) return result;
 		}
 		return null;
 	}
 
 	/**
-	 * Returns the '<em><b>Time Unit</b></em>' literal with the specified name. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Returns the '<em><b>Time Unit</b></em>' literal with the specified name. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static TimeUnit getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			final TimeUnit result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
-				return result;
-			}
+			if (result.getName().equals(name)) return result;
 		}
 		return null;
 	}
 
 	/**
-	 * Returns the '<em><b>Time Unit</b></em>' literal with the specified integer value. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Returns the '<em><b>Time Unit</b></em>' literal with the specified integer value. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -169,6 +165,7 @@ public enum TimeUnit implements Enumerator {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 		return value;
 	}
@@ -178,6 +175,7 @@ public enum TimeUnit implements Enumerator {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -187,13 +185,14 @@ public enum TimeUnit implements Enumerator {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 		return literal;
 	}
 
 	/**
-	 * Returns the literal value of the enumerator, which is its string representation. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Returns the literal value of the enumerator, which is its string representation. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */

@@ -16,7 +16,8 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIAttribute;
 
 /**
- * This test checks the properties of the default UI attributes for a {@link Button} widget - those with attribute = "".
+ * This test checks the properties of the default UI attributes for a {@link Button} widget - those
+ * with attribute = "".
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -28,6 +29,7 @@ public class UIAttributePushButtonFactoryPropertiesTest extends BaseUIAttributeF
 		final Button widget = createWidget(Button.class, SWT.PUSH);
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				attribute = IManager.Factory.getManager().createUIAttribute(widget, "");
 			}

@@ -20,14 +20,10 @@ public class ValueBindingAttributeSection implements IBindingSpySection {
 	@Override
 	public void build(IFormCreator form, ExecutionEvent event) {
 		final IBinding b = (IBinding) form.getObject();
-		if (!(b instanceof IValueBinding)) {
-			return;
-		}
+		if (!(b instanceof IValueBinding)) return;
 		final IValueBinding vb = (IValueBinding) b;
 		final IUIAttribute attribute = vb.getUIAttribute();
-		if (attribute == null) {
-			return;
-		}
+		if (attribute == null) return;
 
 		final IFormCreator subform = form.addSection("UI Attribute Information", attribute);
 

@@ -63,7 +63,8 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 		// final Class<?> dataType = binding.getDataType().getDataType();
 		//
 		// /*
-		// * - if a binding based transfer is attempted, then check that the data type of the cell can be assigned to
+		// * - if a binding based transfer is attempted, then check that the data type of the cell
+		// can be assigned to
 		// from
 		// * the type of the content
 		// */
@@ -91,7 +92,8 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 		//
 		// final WritableValue ov = new WritableValue("", String.class);
 		// final IUIAttribute attribute = new SimpleUIAttribute(null, null, ov, true);
-		// final IValueBinding pasteBinding = context.addBinding().model(binding.getModelObservableValue()).ui(
+		// final IValueBinding pasteBinding =
+		// context.addBinding().model(binding.getModelObservableValue()).ui(
 		// attribute).args(binding.getArguments());
 		// context.finish(FinishOption.FORCE);
 		//
@@ -112,9 +114,7 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 	 * @return the result or <code>null</code>
 	 */
 	private String[][] convertTSV(String contents) {
-		if (contents == null) {
-			return null;
-		}
+		if (contents == null) return null;
 		while (contents.endsWith("\n")) {
 			contents = contents.substring(0, contents.length() - 1);
 		}
@@ -136,9 +136,7 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 	 * @return the result or <code>null</code>
 	 */
 	private String[][] convertHTML(String contents) {
-		if (contents == null) {
-			return null;
-		}
+		if (contents == null) return null;
 		LogUtils.debug(this, "s='" + contents + "'");
 		return null;
 	}

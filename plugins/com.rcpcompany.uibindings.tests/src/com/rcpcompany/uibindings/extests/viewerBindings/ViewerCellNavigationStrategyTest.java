@@ -24,8 +24,8 @@ import com.rcpcompany.uibindings.utils.ITableCreator;
 /**
  * Tests that we cannot go to the first column of a viewer.
  * <p>
- * Also see <a href="http://jira.marintek.sintef.no/jira/browse/SIMA-1053">SIMA-1053</a>: Status view: IndexOutOfBounds
- * and missing horizontal scrollbar.
+ * Also see <a href="http://jira.marintek.sintef.no/jira/browse/SIMA-1053">SIMA-1053</a>: Status
+ * view: IndexOutOfBounds and missing horizontal scrollbar.
  * 
  * @author Tonny Madsen, The RCP Company
  */

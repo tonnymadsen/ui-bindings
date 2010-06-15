@@ -42,7 +42,8 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 /**
  * Tests of when text is accepted in .
  * <p>
- * Tests the functionality of {@link IManager#isEditCellAnyKey()} and {@link IManager#isAutoApplySingleQuickfix()}.
+ * Tests the functionality of {@link IManager#isEditCellAnyKey()} and
+ * {@link IManager#isAutoApplySingleQuickfix()}.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -99,7 +100,8 @@ public class ValueEditCellStrategiesTest {
 		// myTable.getDisplay().addFilter(i, listener);
 		// }
 		//
-		// myTableViewer.getColumnViewerEditor().addEditorActivationListener(new ColumnViewerEditorActivationListener()
+		// myTableViewer.getColumnViewerEditor().addEditorActivationListener(new
+		// ColumnViewerEditorActivationListener()
 		// {
 		//
 		// @Override
@@ -240,13 +242,13 @@ public class ValueEditCellStrategiesTest {
 	@Test
 	public void testDoubleClickTraversal() {
 		if (!myEditCellSingleClick) {
-			testTABTraversal(myShopItem1.getName(), String.format("%,.2f", myShopItem1.getPrice()), ""
-					+ myShopItem1.isForSale(), myShopItem2.getName(), new Runnable() {
-				@Override
-				public void run() {
-					postMouse(myTable, 0 + myViewerBinding.getFirstTableColumnOffset(), 0, 2);
-				}
-			});
+			testTABTraversal(myShopItem1.getName(), String.format("%,.2f", myShopItem1.getPrice()),
+					"" + myShopItem1.isForSale(), myShopItem2.getName(), new Runnable() {
+						@Override
+						public void run() {
+							postMouse(myTable, 0 + myViewerBinding.getFirstTableColumnOffset(), 0, 2);
+						}
+					});
 		}
 	}
 
@@ -256,13 +258,13 @@ public class ValueEditCellStrategiesTest {
 	@Test
 	public void testSingleClickTraversal() {
 		if (myEditCellSingleClick) {
-			testTABTraversal(myShopItem1.getName(), String.format("%,.2f", myShopItem1.getPrice()), ""
-					+ myShopItem1.isForSale(), myShopItem2.getName(), new Runnable() {
-				@Override
-				public void run() {
-					postMouse(myTable, 0 + myViewerBinding.getFirstTableColumnOffset(), 0);
-				}
-			});
+			testTABTraversal(myShopItem1.getName(), String.format("%,.2f", myShopItem1.getPrice()),
+					"" + myShopItem1.isForSale(), myShopItem2.getName(), new Runnable() {
+						@Override
+						public void run() {
+							postMouse(myTable, 0 + myViewerBinding.getFirstTableColumnOffset(), 0);
+						}
+					});
 		}
 	}
 
@@ -328,12 +330,14 @@ public class ValueEditCellStrategiesTest {
 	private void testEditStrategy(final boolean editExpected, final String expectedValue, final Runnable runnable) {
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				runnable.run();
 				yield();
 			}
 		});
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				assertEquals(editExpected, myTableViewer.isCellEditorActive());
 
@@ -356,12 +360,14 @@ public class ValueEditCellStrategiesTest {
 	private void testUndoAsCancel(final Runnable runnable) {
 		final String oldName = myShopItem1.getName();
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				runnable.run();
 				yield();
 			}
 		});
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				assertEquals(true, myTableViewer.isCellEditorActive());
 
@@ -386,6 +392,7 @@ public class ValueEditCellStrategiesTest {
 	private void testTABTraversal(final String expectedValue, final String afterTabExpectedValue,
 			final String afterTabTabExpectedValue, final String afterTabTabTabExpectedValue, final Runnable runnable) {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				runnable.run();
 				yield();
@@ -393,6 +400,7 @@ public class ValueEditCellStrategiesTest {
 			}
 		});
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				postKeyStroke(myTable, "TAB");
 				yield();
@@ -428,6 +436,7 @@ public class ValueEditCellStrategiesTest {
 		// }
 		// });
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				postKeyStroke(myTable, "Shift+TAB");
 				yield();
@@ -438,6 +447,7 @@ public class ValueEditCellStrategiesTest {
 
 	protected void testBindingValue(final String expectedValue) {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				assertEquals(true, myTableViewer.isCellEditorActive());
 				final EList<IBinding> bindings = myContext.getBindings();

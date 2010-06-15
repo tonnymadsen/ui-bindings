@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -28,11 +27,15 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.UIBindingDecoratorExtenderDescriptorImpl#getDeclaredArguments <em>
- * Declared Arguments</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.UIBindingDecoratorExtenderDescriptorImpl#getPriority <em>Priority</em>}
- * </li>
- * <li>{@link com.rcpcompany.uibindings.internal.UIBindingDecoratorExtenderDescriptorImpl#getFactory <em>Factory</em>}</li>
+ * <li>
+ * {@link com.rcpcompany.uibindings.internal.UIBindingDecoratorExtenderDescriptorImpl#getDeclaredArguments
+ * <em> Declared Arguments</em>}</li>
+ * <li>
+ * {@link com.rcpcompany.uibindings.internal.UIBindingDecoratorExtenderDescriptorImpl#getPriority
+ * <em>Priority</em>}</li>
+ * <li>
+ * {@link com.rcpcompany.uibindings.internal.UIBindingDecoratorExtenderDescriptorImpl#getFactory
+ * <em>Factory</em>}</li>
  * </ul>
  * </p>
  * 
@@ -41,8 +44,8 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 public class UIBindingDecoratorExtenderDescriptorImpl extends EObjectImpl implements
 		IUIBindingDecoratorExtenderDescriptor {
 	/**
-	 * The cached value of the '{@link #getDeclaredArguments() <em>Declared Arguments</em>}' map. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getDeclaredArguments() <em>Declared Arguments</em>}' map.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDeclaredArguments()
 	 * @generated
@@ -51,8 +54,8 @@ public class UIBindingDecoratorExtenderDescriptorImpl extends EObjectImpl implem
 	protected EMap<String, Object> declaredArguments;
 
 	/**
-	 * The default value of the '{@link #getPriority() <em>Priority</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getPriority() <em>Priority</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getPriority()
 	 * @generated
@@ -61,8 +64,8 @@ public class UIBindingDecoratorExtenderDescriptorImpl extends EObjectImpl implem
 	protected static final int PRIORITY_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getPriority()
 	 * @generated
@@ -71,8 +74,8 @@ public class UIBindingDecoratorExtenderDescriptorImpl extends EObjectImpl implem
 	protected int priority = PRIORITY_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getFactory() <em>Factory</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getFactory() <em>Factory</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getFactory()
 	 * @generated
@@ -104,6 +107,7 @@ public class UIBindingDecoratorExtenderDescriptorImpl extends EObjectImpl implem
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EMap<String, Object> getDeclaredArguments() {
 		if (declaredArguments == null) {
 			declaredArguments = new EcoreEMap<String, Object>(IUIBindingsPackage.Literals.STRING_TO_OBJECT_MAP_ENTRY,
@@ -118,6 +122,7 @@ public class UIBindingDecoratorExtenderDescriptorImpl extends EObjectImpl implem
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getPriority() {
 		return priority;
 	}
@@ -127,6 +132,7 @@ public class UIBindingDecoratorExtenderDescriptorImpl extends EObjectImpl implem
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setPriority(int newPriority) {
 		final int oldPriority = priority;
 		priority = newPriority;
@@ -141,6 +147,7 @@ public class UIBindingDecoratorExtenderDescriptorImpl extends EObjectImpl implem
 	 * 
 	 * @generated
 	 */
+	@Override
 	public CEObjectHolder<IUIBindingDecoratorExtender> getFactory() {
 		return factory;
 	}
@@ -150,6 +157,7 @@ public class UIBindingDecoratorExtenderDescriptorImpl extends EObjectImpl implem
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setFactory(CEObjectHolder<IUIBindingDecoratorExtender> newFactory) {
 		final CEObjectHolder<IUIBindingDecoratorExtender> oldFactory = factory;
 		factory = newFactory;
@@ -182,11 +190,10 @@ public class UIBindingDecoratorExtenderDescriptorImpl extends EObjectImpl implem
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case IUIBindingsPackage.UI_BINDING_DECORATOR_EXTENDER_DESCRIPTOR__DECLARED_ARGUMENTS:
-			if (coreType) {
+			if (coreType)
 				return getDeclaredArguments();
-			} else {
+			else
 				return getDeclaredArguments().map();
-			}
 		case IUIBindingsPackage.UI_BINDING_DECORATOR_EXTENDER_DESCRIPTOR__PRIORITY:
 			return getPriority();
 		case IUIBindingsPackage.UI_BINDING_DECORATOR_EXTENDER_DESCRIPTOR__FACTORY:
@@ -263,9 +270,7 @@ public class UIBindingDecoratorExtenderDescriptorImpl extends EObjectImpl implem
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (priority: "); //$NON-NLS-1$

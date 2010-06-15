@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -16,8 +15,8 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>UI Binding Decorator Extender</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>UI Binding Decorator Extender</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
  * 

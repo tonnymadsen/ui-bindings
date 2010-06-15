@@ -41,11 +41,11 @@ public class TestView extends ViewPart {
 
 	@Override
 	public void createPartControl(Composite parent) {
-		Composite body = new Composite(parent, SWT.NONE);
+		final Composite body = new Composite(parent, SWT.NONE);
 		body.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 		body.setLayout(new GridLayout(2, false));
 
-		Label label = new Label(body, SWT.NONE);
+		final Label label = new Label(body, SWT.NONE);
 		label.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
 		label.setText("Field:");
 
@@ -66,6 +66,7 @@ public class TestView extends ViewPart {
 		text.setText(myTestObject.getText());
 
 		text.addModifyListener(new ModifyListener() {
+			@Override
 			public void modifyText(ModifyEvent e) {
 				myTestObject.setText(text.getText());
 			}
@@ -75,13 +76,14 @@ public class TestView extends ViewPart {
 	public void createPartControl2(Composite parent) {
 		myBody = new Composite(parent, SWT.NONE);
 
-		IWorkbenchSiteProgressService service = (IWorkbenchSiteProgressService) getSite().getService(
+		final IWorkbenchSiteProgressService service = (IWorkbenchSiteProgressService) getSite().getService(
 				IWorkbenchSiteProgressService.class);
 		service.schedule(new Job("Fetch data for " + getTitle()) {
 			@Override
 			protected IStatus run(IProgressMonitor monitor) {
 				fetchData();
 				myBody.getDisplay().asyncExec(new Runnable() {
+					@Override
 					public void run() {
 						bindUI();
 					}
@@ -92,7 +94,7 @@ public class TestView extends ViewPart {
 		myBody.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 		myBody.setLayout(new GridLayout(2, false));
 
-		Label label = new Label(myBody, SWT.NONE);
+		final Label label = new Label(myBody, SWT.NONE);
 		label.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
 		label.setText("Field:");
 
@@ -107,13 +109,14 @@ public class TestView extends ViewPart {
 	}
 
 	protected void bindUI() {
-		DataBindingContext c = new DataBindingContext();
+		final DataBindingContext c = new DataBindingContext();
 
-		UpdateValueStrategy modelToTarget = new EMFUpdateValueStrategy();
-		UpdateValueStrategy targetToModel = new EMFUpdateValueStrategy();
+		final UpdateValueStrategy modelToTarget = new EMFUpdateValueStrategy();
+		final UpdateValueStrategy targetToModel = new EMFUpdateValueStrategy();
 
-		c.bindValue(SWTObservables.observeText(myText, SWT.Modify), EMFObservables.observeValue(myObject,
-				TestModelPackage.Literals.TEST_OBJECT__TEXT), targetToModel, modelToTarget);
+		c.bindValue(SWTObservables.observeText(myText, SWT.Modify),
+				EMFObservables.observeValue(myObject, TestModelPackage.Literals.TEST_OBJECT__TEXT), targetToModel,
+				modelToTarget);
 	}
 
 	@Override
@@ -129,6 +132,6 @@ public class TestView extends ViewPart {
 	}
 
 	private void initializeToolBar() {
-		IToolBarManager toolBarManager = getViewSite().getActionBars().getToolBarManager();
+		final IToolBarManager toolBarManager = getViewSite().getActionBars().getToolBarManager();
 	}
 }

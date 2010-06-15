@@ -11,27 +11,28 @@ import com.rcpcompany.uibindings.utils.IGlobalNavigationManager;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * Preferences supported by the UI Bindings framework that are not related directly to the bindings themselves.
+ * Preferences supported by the UI Bindings framework that are not related directly to the bindings
+ * themselves.
  * 
  * @author Tonny Madsen, The RCP Company
  * @since 1.3
  */
 public class UIBindingPreferences implements IExecutableExtension, IExecutableExtensionFactory {
 	/**
-	 * The preference name to specify whether cell editing is automatically started when any character is typed in a
-	 * cell.
+	 * The preference name to specify whether cell editing is automatically started when any
+	 * character is typed in a cell.
 	 * <p>
-	 * <code>true</code> means any character will start cell editing; <code>false</code> means only <code>F2</code> and
-	 * <code>Return</code> will start cell editing.
+	 * <code>true</code> means any character will start cell editing; <code>false</code> means only
+	 * <code>F2</code> and <code>Return</code> will start cell editing.
 	 */
 	public static final String PREF_EDIT_CELL_ANY_KEY = "EditCellAnyKey"; //$NON-NLS-1$
 
 	/**
-	 * The preference name to specify whether cell editing is automatically started when any character is typed in a
-	 * cell.
+	 * The preference name to specify whether cell editing is automatically started when any
+	 * character is typed in a cell.
 	 * <p>
-	 * <code>true</code> means any character will start cell editing; <code>false</code> means only <code>F2</code> and
-	 * <code>Return</code> will start cell editing.
+	 * <code>true</code> means any character will start cell editing; <code>false</code> means only
+	 * <code>F2</code> and <code>Return</code> will start cell editing.
 	 */
 	public static final String PREF_EDIT_CELL_SINGLE_CLICK = "EditCellSingleClick"; //$NON-NLS-1$
 
@@ -52,24 +53,25 @@ public class UIBindingPreferences implements IExecutableExtension, IExecutableEx
 	/**
 	 * The preference name to specify whether a single quick fix is applied automatically.
 	 * <p>
-	 * <code>true</code> means a single quick fix should be applied automatically; <code>false</code> means even a
-	 * single quick fix should be presented in a popup menu.
+	 * <code>true</code> means a single quick fix should be applied automatically;
+	 * <code>false</code> means even a single quick fix should be presented in a popup menu.
 	 */
 	public static final String PREF_AUTO_APPLY_QUICKFIX = "AutoApplyQuickfix"; //$NON-NLS-1$
 
 	/**
-	 * The preference name to specify whether rows in tables should have alternating row background colors.
+	 * The preference name to specify whether rows in tables should have alternating row background
+	 * colors.
 	 * <p>
-	 * <code>true</code> means every other row have another background color; <code>false</code> means all rows have the
-	 * same background color.
+	 * <code>true</code> means every other row have another background color; <code>false</code>
+	 * means all rows have the same background color.
 	 */
 	public static final String PREF_ALTERNATE_ROW_COLORS = "AlternateRowColors"; //$NON-NLS-1$
 
 	/**
 	 * The preference name to specify whether basic validation errors are fatal in the bindings.
 	 * <p>
-	 * When validation errors are <em>not</em> fatal, it means that numeric values outside their ranges can be committed
-	 * anyway.
+	 * When validation errors are <em>not</em> fatal, it means that numeric values outside their
+	 * ranges can be committed anyway.
 	 * <p>
 	 * <code>true</code> means every validation errors are fatal.
 	 */
@@ -97,7 +99,8 @@ public class UIBindingPreferences implements IExecutableExtension, IExecutableEx
 	public static final String PREF_ASSIST_VBID_SHOWN = "AssistVBIDShown"; //$NON-NLS-1$
 
 	/**
-	 * The preference name to specify that changes in the view are recorded by {@link IGlobalNavigationManager}.
+	 * The preference name to specify that changes in the view are recorded by
+	 * {@link IGlobalNavigationManager}.
 	 * <p>
 	 * <code>true</code> means the changes are recorded.
 	 */
@@ -125,15 +128,16 @@ public class UIBindingPreferences implements IExecutableExtension, IExecutableEx
 	public static final String PREF_ALTERNATIVE_DECORATION_POSITION = "AlternativeDecorationPosition"; //$NON-NLS-1$
 
 	/**
-	 * The preference name for the delay used between a change is detected in the model and a validator is kicked off.
+	 * The preference name for the delay used between a change is detected in the model and a
+	 * validator is kicked off.
 	 * <p>
 	 * In milliseconds.
 	 */
 	public static final String PREF_VALIDATION_DELAY = "ValidationDelay"; //$NON-NLS-1$
 
 	/**
-	 * The preference name for the the size of the window after a validator is kicked off where no new validation will
-	 * be started.
+	 * The preference name for the the size of the window after a validator is kicked off where no
+	 * new validation will be started.
 	 * <p>
 	 * In milliseconds.
 	 */
@@ -142,14 +146,16 @@ public class UIBindingPreferences implements IExecutableExtension, IExecutableEx
 	/**
 	 * The data string to use to create the basic top-level preference page.
 	 * <p>
-	 * Use by setting class to <code>com.rcpcompany.uibindings.UIBindingPreferences:basicPreferencePage</code>.
+	 * Use by setting class to
+	 * <code>com.rcpcompany.uibindings.UIBindingPreferences:basicPreferencePage</code>.
 	 */
 	public static final String TOP_PREF_PAGE = "basicPreferencePage"; //$NON-NLS-1$
 
 	/**
 	 * The data string to use to create the basic validation preference page.
 	 * <p>
-	 * Use by setting class to <code>com.rcpcompany.uibindings.UIBindingPreferences:validationPreferencePage</code>.
+	 * Use by setting class to
+	 * <code>com.rcpcompany.uibindings.UIBindingPreferences:validationPreferencePage</code>.
 	 */
 	public static final String VALIDATION_PREF_PAGE = "validationPreferencePage"; //$NON-NLS-1$
 
@@ -163,12 +169,8 @@ public class UIBindingPreferences implements IExecutableExtension, IExecutableEx
 
 	@Override
 	public Object create() throws CoreException {
-		if (TOP_PREF_PAGE.equals(myType)) {
-			return new DefaultUIBindingsTopPreferencePage();
-		}
-		if (VALIDATION_PREF_PAGE.equals(myType)) {
-			return new DefaultUIBindingsValidationPreferencePage();
-		}
+		if (TOP_PREF_PAGE.equals(myType)) return new DefaultUIBindingsTopPreferencePage();
+		if (VALIDATION_PREF_PAGE.equals(myType)) return new DefaultUIBindingsValidationPreferencePage();
 		LogUtils.error(this, "Unknown type name specified: " + myType); //$NON-NLS-1$
 		return null;
 	}

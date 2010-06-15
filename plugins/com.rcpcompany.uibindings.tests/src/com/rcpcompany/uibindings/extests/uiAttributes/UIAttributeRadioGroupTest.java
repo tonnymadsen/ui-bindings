@@ -48,8 +48,8 @@ public class UIAttributeRadioGroupTest {
 		myView = createTestView(this);
 		myForm = myView.createFormCreator(myItem);
 
-		myBinding = myForm.addField("name").validValues(myValidValues).arg(Constants.ARG_PREFERRED_CONTROL,
-				RadioGroup.class.getName());
+		myBinding = myForm.addField("name").validValues(myValidValues)
+				.arg(Constants.ARG_PREFERRED_CONTROL, RadioGroup.class.getName());
 
 		myForm.finish();
 		myForm.getTop().layout();

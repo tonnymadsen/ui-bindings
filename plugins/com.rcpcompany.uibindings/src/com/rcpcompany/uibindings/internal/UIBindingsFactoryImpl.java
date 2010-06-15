@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -66,9 +65,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 		try {
 			final IUIBindingsFactory theUIBindingsFactory = (IUIBindingsFactory) EPackage.Registry.INSTANCE
 					.getEFactory("http://rcp-company.com/schemas/uibindings/model.ecore"); //$NON-NLS-1$ 
-			if (theUIBindingsFactory != null) {
-				return theUIBindingsFactory;
-			}
+			if (theUIBindingsFactory != null) return theUIBindingsFactory;
 		} catch (final Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
@@ -212,6 +209,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IManager createManager() {
 		final ManagerImpl manager = new ManagerImpl();
 		return manager;
@@ -232,6 +230,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IBindingContext createBindingContext() {
 		final BindingContextImpl bindingContext = new BindingContextImpl();
 		return bindingContext;
@@ -263,6 +262,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IValueBinding createValueBinding() {
 		final ValueBindingImpl valueBinding = new ValueBindingImpl();
 		return valueBinding;
@@ -273,6 +273,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IColumnBinding createColumnBinding() {
 		final ColumnBindingImpl columnBinding = new ColumnBindingImpl();
 		return columnBinding;
@@ -283,6 +284,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IColumnBindingCellInformation createColumnBindingCellInformation() {
 		final ColumnBindingCellInformationImpl columnBindingCellInformation = new ColumnBindingCellInformationImpl();
 		return columnBindingCellInformation;
@@ -300,6 +302,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IViewerBinding createViewerBinding() {
 		final ViewerBindingImpl viewerBinding = new ViewerBindingImpl();
 		return viewerBinding;
@@ -310,6 +313,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IJavaDecoratorProvider createJavaDecoratorProvider() {
 		final JavaDecoratorProviderImpl javaDecoratorProvider = new JavaDecoratorProviderImpl();
 		return javaDecoratorProvider;
@@ -320,6 +324,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IEnumDecoratorProvider createEnumDecoratorProvider() {
 		final EnumDecoratorProviderImpl enumDecoratorProvider = new EnumDecoratorProviderImpl();
 		return enumDecoratorProvider;
@@ -330,6 +335,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IEnumDecoratorProviderEntry createEnumDecoratorProviderEntry() {
 		final EnumDecoratorProviderEntryImpl enumDecoratorProviderEntry = new EnumDecoratorProviderEntryImpl();
 		return enumDecoratorProviderEntry;
@@ -340,6 +346,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public INumberDecoratorProvider createNumberDecoratorProvider() {
 		final NumberDecoratorProviderImpl numberDecoratorProvider = new NumberDecoratorProviderImpl();
 		return numberDecoratorProvider;
@@ -350,6 +357,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IModelInfo createModelInfo() {
 		final ModelInfoImpl modelInfo = new ModelInfoImpl();
 		return modelInfo;
@@ -360,6 +368,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IModelClassInfo createModelClassInfo() {
 		final ModelClassInfoImpl modelClassInfo = new ModelClassInfoImpl();
 		return modelClassInfo;
@@ -370,6 +379,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IModelFeatureInfo createModelFeatureInfo() {
 		final ModelFeatureInfoImpl modelFeatureInfo = new ModelFeatureInfoImpl();
 		return modelFeatureInfo;
@@ -380,6 +390,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IUIBindingDecoratorExtenderDescriptor createUIBindingDecoratorExtenderDescriptor() {
 		final UIBindingDecoratorExtenderDescriptorImpl uiBindingDecoratorExtenderDescriptor = new UIBindingDecoratorExtenderDescriptorImpl();
 		return uiBindingDecoratorExtenderDescriptor;
@@ -470,6 +481,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IQuickfixProposalProcessorDescriptor createQuickfixProposalProcessorDescriptor() {
 		final QuickfixProposalProcessorDescriptorImpl quickfixProposalProcessorDescriptor = new QuickfixProposalProcessorDescriptorImpl();
 		return quickfixProposalProcessorDescriptor;
@@ -480,6 +492,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public ITreeItemRelation createTreeItemRelation() {
 		final TreeItemRelationImpl treeItemRelation = new TreeItemRelationImpl();
 		return treeItemRelation;
@@ -490,6 +503,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public ITreeItemDescriptor createTreeItemDescriptor() {
 		final TreeItemDescriptorImpl treeItemDescriptor = new TreeItemDescriptorImpl();
 		return treeItemDescriptor;
@@ -500,6 +514,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IConstantTreeItem createConstantTreeItem() {
 		final ConstantTreeItemImpl constantTreeItem = new ConstantTreeItemImpl();
 		return constantTreeItem;
@@ -510,6 +525,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IBindingMessageTarget createBindingMessageTarget() {
 		final BindingMessageTargetImpl bindingMessageTarget = new BindingMessageTargetImpl();
 		return bindingMessageTarget;
@@ -520,6 +536,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IUIAttributeImageDecoration createUIAttributeImageDecoration() {
 		final UIAttributeImageDecorationImpl uiAttributeImageDecoration = new UIAttributeImageDecorationImpl();
 		return uiAttributeImageDecoration;
@@ -530,6 +547,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IUIAttributeFactoryDescriptor createUIAttributeFactoryDescriptor() {
 		final UIAttributeFactoryDescriptorImpl uiAttributeFactoryDescriptor = new UIAttributeFactoryDescriptorImpl();
 		return uiAttributeFactoryDescriptor;
@@ -540,6 +558,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IEMFObservableFactoryDescriptor createEMFObservableFactoryDescriptor() {
 		final EMFObservableFactoryDescriptorImpl emfObservableFactoryDescriptor = new EMFObservableFactoryDescriptorImpl();
 		return emfObservableFactoryDescriptor;
@@ -552,10 +571,9 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 */
 	public BindingState createBindingStateFromString(EDataType eDataType, String initialValue) {
 		final BindingState result = BindingState.get(initialValue);
-		if (result == null) {
+		if (result == null)
 			throw new IllegalArgumentException(
 					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-		}
 		return result;
 	}
 
@@ -575,10 +593,9 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 */
 	public DecorationPosition createDecorationPositionFromString(EDataType eDataType, String initialValue) {
 		final DecorationPosition result = DecorationPosition.get(initialValue);
-		if (result == null) {
+		if (result == null)
 			throw new IllegalArgumentException(
 					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-		}
 		return result;
 	}
 
@@ -598,10 +615,9 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 */
 	public TextCommitStrategy createTextCommitStrategyFromString(EDataType eDataType, String initialValue) {
 		final TextCommitStrategy result = TextCommitStrategy.get(initialValue);
-		if (result == null) {
+		if (result == null)
 			throw new IllegalArgumentException(
 					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-		}
 		return result;
 	}
 
@@ -621,10 +637,9 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 */
 	public SpecialBinding createSpecialBindingFromString(EDataType eDataType, String initialValue) {
 		final SpecialBinding result = SpecialBinding.get(initialValue);
-		if (result == null) {
+		if (result == null)
 			throw new IllegalArgumentException(
 					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-		}
 		return result;
 	}
 
@@ -644,10 +659,9 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 */
 	public BindingMessageSeverity createBindingMessageSeverityFromString(EDataType eDataType, String initialValue) {
 		final BindingMessageSeverity result = BindingMessageSeverity.get(initialValue);
-		if (result == null) {
+		if (result == null)
 			throw new IllegalArgumentException(
 					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-		}
 		return result;
 	}
 
@@ -683,6 +697,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IUIBindingsPackage getUIBindingsPackage() {
 		return (IUIBindingsPackage) getEPackage();
 	}

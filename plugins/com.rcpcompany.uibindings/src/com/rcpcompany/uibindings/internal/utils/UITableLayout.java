@@ -46,6 +46,7 @@ public abstract class UITableLayout extends Layout {
 
 	private final Listener resizeListener = new Listener() {
 
+		@Override
 		public void handleEvent(Event event) {
 			if (!inupdateMode) {
 				updateColumnData(event.widget);
@@ -73,7 +74,8 @@ public abstract class UITableLayout extends Layout {
 	}
 
 	/**
-	 * Compute the size of the table or tree based on the ColumnLayoutData and the width and height hint.
+	 * Compute the size of the table or tree based on the ColumnLayoutData and the width and height
+	 * hint.
 	 * 
 	 * @param scrollable the widget to compute
 	 * @param wHint the width hint
@@ -108,8 +110,8 @@ public abstract class UITableLayout extends Layout {
 	}
 
 	/**
-	 * Layout the scrollable based on the supplied width and area. Only increase the size of the scrollable if increase
-	 * is <code>true</code>.
+	 * Layout the scrollable based on the supplied width and area. Only increase the size of the
+	 * scrollable if increase is <code>true</code>.
 	 * 
 	 * @param scrollable
 	 * @param width
@@ -158,8 +160,9 @@ public abstract class UITableLayout extends Layout {
 				final int allowedWidth = totalWeight == 0 ? 0 : (width - fixedWidth) * cw.weight / totalWeight;
 				if (allowedWidth < minWidth) {
 					/*
-					 * if the width assigned by weight is less than the minimum, then treat this column as fixed, remove
-					 * it from weight calculations, and recalculate other weights.
+					 * if the width assigned by weight is less than the minimum, then treat this
+					 * column as fixed, remove it from weight calculations, and recalculate other
+					 * weights.
 					 */
 					numberOfWeightColumns--;
 					totalWeight -= cw.weight;
@@ -195,7 +198,8 @@ public abstract class UITableLayout extends Layout {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.eclipse.swt.widgets.Layout#computeSize(org.eclipse.swt.widgets.Composite , int, int, boolean)
+	 * @see org.eclipse.swt.widgets.Layout#computeSize(org.eclipse.swt.widgets.Composite , int, int,
+	 * boolean)
 	 */
 	@Override
 	protected Point computeSize(Composite composite, int wHint, int hHint, boolean flushCache) {
@@ -229,12 +233,8 @@ public abstract class UITableLayout extends Layout {
 
 		@Override
 		public void run() {
-			if (cancelled) {
-				return;
-			}
-			if (myComposite.isDisposed()) {
-				return;
-			}
+			if (cancelled) return;
+			if (myComposite.isDisposed()) return;
 			doLayout(myComposite, myFlushCache);
 		}
 	}
@@ -329,8 +329,8 @@ public abstract class UITableLayout extends Layout {
 	protected abstract void updateColumnData(Widget column);
 
 	/**
-	 * The number of extra pixels taken as horizontal trim by the table column. To ensure there are N pixels available
-	 * for the content of the column, assign N+COLUMN_TRIM for the column width.
+	 * The number of extra pixels taken as horizontal trim by the table column. To ensure there are
+	 * N pixels available for the content of the column, assign N+COLUMN_TRIM for the column width.
 	 * 
 	 * @return the trim used by the columns
 	 */

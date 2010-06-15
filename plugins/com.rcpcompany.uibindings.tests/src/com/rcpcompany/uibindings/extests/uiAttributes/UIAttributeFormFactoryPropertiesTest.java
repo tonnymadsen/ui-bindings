@@ -16,7 +16,8 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIAttribute;
 
 /**
- * This test checks the properties of the default UI attributes for a {@link Form} widget - those with attribute = "".
+ * This test checks the properties of the default UI attributes for a {@link Form} widget - those
+ * with attribute = "".
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -28,6 +29,7 @@ public class UIAttributeFormFactoryPropertiesTest extends BaseUIAttributeFactory
 		final Form widget = createWidget(Form.class, SWT.NONE);
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				attribute = IManager.Factory.getManager().createUIAttribute(widget, "");
 			}

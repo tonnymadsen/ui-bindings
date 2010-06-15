@@ -101,7 +101,8 @@ public class ViewerReflowTest {
 	}
 
 	/**
-	 * Create a form with a viewer and test that the form get bigger as elements are added to the viewer.
+	 * Create a form with a viewer and test that the form get bigger as elements are added to the
+	 * viewer.
 	 */
 	@Test
 	public void testSize() {

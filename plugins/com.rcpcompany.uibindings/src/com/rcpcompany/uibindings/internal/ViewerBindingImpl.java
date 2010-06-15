@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -84,18 +83,21 @@ import com.rcpcompany.uibindings.internal.utils.UIHandlerUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Viewer Binding</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Viewer Binding</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.internal.ViewerBindingImpl#getColumns <em>Columns</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ViewerBindingImpl#getList <em>List</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ViewerBindingImpl#getElements <em>Elements</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ViewerBindingImpl#getSingleSelection <em>Single Selection</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ViewerBindingImpl#getMultipleSelection <em>Multiple Selection</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ViewerBindingImpl#getSingleSelection <em>Single
+ * Selection</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ViewerBindingImpl#getMultipleSelection <em>Multiple
+ * Selection</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ViewerBindingImpl#getViewer <em>Viewer</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ViewerBindingImpl#getFirstTableColumnOffset <em>First Table Column
- * Offset</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ViewerBindingImpl#getFirstTableColumnOffset <em>
+ * First Table Column Offset</em>}</li>
  * </ul>
  * </p>
  * 
@@ -159,8 +161,8 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 
 	@Override
 	public IViewerBinding model(IObservableValue object, EReference reference) {
-		return model(UIBindingsEMFObservables.observeDetailList(object, reference), BindingDataTypeFactory
-				.create(reference));
+		return model(UIBindingsEMFObservables.observeDetailList(object, reference),
+				BindingDataTypeFactory.create(reference));
 	}
 
 	@Override
@@ -223,9 +225,7 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 
 	@Override
 	public boolean isChangeable() {
-		if (getArgument(Constants.ARG_READONLY, Boolean.class, Boolean.FALSE) == Boolean.TRUE) {
-			return false;
-		}
+		if (getArgument(Constants.ARG_READONLY, Boolean.class, Boolean.FALSE) == Boolean.TRUE) return false;
 
 		return true;
 	}
@@ -243,9 +243,7 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	private final Adapter myManagerAdapter = new AdapterImpl() {
 		@Override
 		public void notifyChanged(Notification msg) {
-			if (msg.isTouch()) {
-				return;
-			}
+			if (msg.isTouch()) return;
 			if (msg.getFeature() == IUIBindingsPackage.Literals.MANAGER__ALTERNATE_ROW_COLORS) {
 				getViewer().getControl().getDisplay().asyncExec(new Runnable() {
 					@Override
@@ -266,9 +264,8 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 		public ViewerCell findSelectedCell(ColumnViewer viewer, ViewerCell currentSelectedCell, Event event) {
 			switch (event.keyCode) {
 			case SWT.ARROW_LEFT:
-				if (currentSelectedCell != null && currentSelectedCell.getColumnIndex() <= getFirstTableColumnOffset()) {
+				if (currentSelectedCell != null && currentSelectedCell.getColumnIndex() <= getFirstTableColumnOffset())
 					return currentSelectedCell;
-				}
 				break;
 			}
 
@@ -346,7 +343,8 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	}
 
 	/**
-	 * Listener that will request a reflow of the context if/when the elements of the viewer changes.
+	 * Listener that will request a reflow of the context if/when the elements of the viewer
+	 * changes.
 	 * 
 	 * TODO TEST
 	 */
@@ -354,10 +352,11 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 		@Override
 		public void handleSetChange(SetChangeEvent event) {
 			/*
-			 * SIMA-182: Bug in UIBinding for table cell editor? (http://jira.marintek.sintef.no/jira/browse/SIMA-182)
+			 * SIMA-182: Bug in UIBinding for table cell editor?
+			 * (http://jira.marintek.sintef.no/jira/browse/SIMA-182)
 			 * 
-			 * If a row is updated with a new row element, then item.data is properly updated, but ViewerCell.element is
-			 * not! This is a fix for that. Note it is only possible if the
+			 * If a row is updated with a new row element, then item.data is properly updated, but
+			 * ViewerCell.element is not! This is a fix for that. Note it is only possible if the
 			 */
 			final ViewerCell focusCell = getViewer().getColumnViewerEditor().getFocusCell();
 			if (focusCell != null) {
@@ -396,23 +395,23 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	protected ISelectionChangedListener mySelectionChangedListener = null;
 
 	/**
-	 * The {@link SWT#PaintItem} listener is used to synchronize the current focus cell based on the cell that is
-	 * painted using the detail {@link SWT#SELECTED}.
+	 * The {@link SWT#PaintItem} listener is used to synchronize the current focus cell based on the
+	 * cell that is painted using the detail {@link SWT#SELECTED}.
 	 * <p>
-	 * See <a href="http://jira.marintek.sintef.no/jira/browse/SIMA-582">SIMA-582</a>: Selection is not displayed
-	 * properly in tables
+	 * See <a href="http://jira.marintek.sintef.no/jira/browse/SIMA-582">SIMA-582</a>: Selection is
+	 * not displayed properly in tables
 	 */
 	private final Listener myPaintItemListener = new Listener() {
 		@Override
 		public void handleEvent(Event event) {
-			if ((event.detail & SWT.SELECTED) != SWT.SELECTED) {
-				return;
-			}
+			if ((event.detail & SWT.SELECTED) != SWT.SELECTED) return;
 			final Object element = event.item.getData();
 			/*
-			 * If the viewer is based on a single selection, then check if the selection is in fact the current element
+			 * If the viewer is based on a single selection, then check if the selection is in fact
+			 * the current element
 			 * 
-			 * This happens when the selection is set directly on the control rather than via the viewer.
+			 * This happens when the selection is set directly on the control rather than via the
+			 * viewer.
 			 */
 			if (mySelectionChangedListener != null && myLastReportedSelectedElement != element) {
 				getViewer().setSelection(new StructuredSelection(element), false);
@@ -422,9 +421,7 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 
 	@Override
 	public void setFocus(EObject element, int column) {
-		if (getControl().isDisposed()) {
-			return;
-		}
+		if (getControl().isDisposed()) return;
 		if (myTableViewerFocusCellManagerEx != null) {
 			myTableViewerFocusCellManagerEx.setFocusCell(element, column);
 			return;
@@ -439,9 +436,7 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	 * Updates the current focus cell of the viewer.
 	 */
 	public void updateFocusCell() {
-		if (getControl().isDisposed()) {
-			return;
-		}
+		if (getControl().isDisposed()) return;
 		if (myTableViewerFocusCellManagerEx != null) {
 			myTableViewerFocusCellManagerEx.updateFocusCell();
 			return;
@@ -501,23 +496,17 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	@Override
 	public IColumnBindingCellInformation getCell(int columnNo, Object element) {
 		final EList<IColumnBinding> cols = getColumns();
-		if (columnNo < 0) {
-			return null;
-		}
-		if (columnNo > cols.size()) {
-			return null;
-		}
-		if (element == null) {
-			return null;
-		}
+		if (columnNo < 0) return null;
+		if (columnNo > cols.size()) return null;
+		if (element == null) return null;
 		final IColumnBinding column = cols.get(columnNo);
 		final IColumnBindingCellInformation ci = column.getCellInformation(element);
 		return ci;
 	}
 
 	/**
-	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getColumns()
 	 * @generated
@@ -526,8 +515,8 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	protected EList<IColumnBinding> columns;
 
 	/**
-	 * The default value of the '{@link #getList() <em>List</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getList() <em>List</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getList()
 	 * @generated
@@ -536,8 +525,8 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	protected static final IObservableList LIST_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getList() <em>List</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getList() <em>List</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getList()
 	 * @generated
@@ -546,8 +535,8 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	protected IObservableList list = LIST_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getElements() <em>Elements</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getElements() <em>Elements</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getElements()
 	 * @generated
@@ -556,8 +545,8 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	protected static final IObservableSet ELEMENTS_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getElements() <em>Elements</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getElements() <em>Elements</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getElements()
 	 * @generated
@@ -566,8 +555,8 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	protected IObservableSet elements = ELEMENTS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSingleSelection() <em>Single Selection</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getSingleSelection() <em>Single Selection</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getSingleSelection()
 	 * @generated
@@ -576,8 +565,8 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	protected static final IObservableValue SINGLE_SELECTION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getSingleSelection() <em>Single Selection</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getSingleSelection() <em>Single Selection</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getSingleSelection()
 	 * @generated
@@ -586,8 +575,8 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	protected IObservableValue singleSelection = SINGLE_SELECTION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getMultipleSelection() <em>Multiple Selection</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getMultipleSelection() <em>Multiple Selection</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getMultipleSelection()
 	 * @generated
@@ -596,8 +585,8 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	protected static final IObservableList MULTIPLE_SELECTION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getMultipleSelection() <em>Multiple Selection</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getMultipleSelection() <em>Multiple Selection</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getMultipleSelection()
 	 * @generated
@@ -606,8 +595,8 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	protected IObservableList multipleSelection = MULTIPLE_SELECTION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getViewer() <em>Viewer</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getViewer() <em>Viewer</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getViewer()
 	 * @generated
@@ -616,8 +605,8 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	protected static final ColumnViewer VIEWER_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getViewer() <em>Viewer</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getViewer() <em>Viewer</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getViewer()
 	 * @generated
@@ -626,8 +615,8 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	protected ColumnViewer viewer = VIEWER_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getFirstTableColumnOffset() <em>First Table Column Offset</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getFirstTableColumnOffset()
+	 * <em>First Table Column Offset</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getFirstTableColumnOffset()
 	 * @generated
@@ -636,8 +625,8 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	protected static final int FIRST_TABLE_COLUMN_OFFSET_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getFirstTableColumnOffset() <em>First Table Column Offset</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getFirstTableColumnOffset()
+	 * <em>First Table Column Offset</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getFirstTableColumnOffset()
 	 * @generated
@@ -651,9 +640,7 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	private final Adapter myCursorAdapter = new AdapterImpl() {
 		@Override
 		public void notifyChanged(Notification msg) {
-			if (msg.isTouch()) {
-				return;
-			}
+			if (msg.isTouch()) return;
 
 			if (msg.getFeature() == IUIBindingsPackage.Literals.VIEWER_BINDING__COLUMNS) {
 				switch (msg.getEventType()) {
@@ -718,6 +705,7 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<IColumnBinding> getColumns() {
 		if (columns == null) {
 			columns = new EObjectWithInverseEList<IColumnBinding>(IColumnBinding.class, this,
@@ -731,6 +719,7 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IObservableList getList() {
 		return list;
 	}
@@ -754,6 +743,7 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IObservableSet getElements() {
 		return elements;
 	}
@@ -777,6 +767,7 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public IObservableValue getSingleSelection() {
 		if (singleSelection == null) {
 			final IViewerValueProperty property = new MySelectionProviderSingleSelectionProperty() {
@@ -795,6 +786,7 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public IObservableList getMultipleSelection() {
 		if (multipleSelection == null) {
 			multipleSelection = ViewersObservables.observeMultiSelection(getViewer());
@@ -807,6 +799,7 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public ColumnViewer getViewer() {
 		return viewer;
 	}
@@ -830,6 +823,7 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getFirstTableColumnOffset() {
 		return firstTableColumnOffset;
 	}
@@ -995,9 +989,7 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(", viewer: "); //$NON-NLS-1$
@@ -1038,8 +1030,8 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 
 		ViewerCell cell;
 		/*
-		 * If no specific position is specified in the event (x,y) = (0,0), then try using the current focus cell. This
-		 * is needed when navigating in the table
+		 * If no specific position is specified in the event (x,y) = (0,0), then try using the
+		 * current focus cell. This is needed when navigating in the table
 		 */
 		final Event event = context.getEvent();
 		if (event.x == 0 && event.y == 0) {
@@ -1051,12 +1043,12 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 			final EObject element = (EObject) cell.getElement();
 			if (element != null) {
 				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT, element);
-				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_UP, UIHandlerUtils.moveElement(
-						this, element, -1, true));
-				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_DOWN, UIHandlerUtils.moveElement(
-						this, element, 1, true));
-				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_DELETE, UIHandlerUtils.deleteElement(
-						this, element, true));
+				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_UP,
+						UIHandlerUtils.moveElement(this, element, -1, true));
+				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_DOWN,
+						UIHandlerUtils.moveElement(this, element, 1, true));
+				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_DELETE,
+						UIHandlerUtils.deleteElement(this, element, true));
 			}
 
 			final int i = cell.getColumnIndex();
@@ -1071,9 +1063,7 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 				context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_VALUE, value);
 				context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_TYPE, ""); //$NON-NLS-1$
 				if (labelBinding != null) {
-					context
-							.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_MODEL_OBJECT, labelBinding
-									.getModelObject());
+					context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_MODEL_OBJECT, labelBinding.getModelObject());
 					context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_FEATURE, labelBinding.getModelFeature());
 					context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_UNSETTABLE, labelBinding.getDataType()
 							.isUnsettable());

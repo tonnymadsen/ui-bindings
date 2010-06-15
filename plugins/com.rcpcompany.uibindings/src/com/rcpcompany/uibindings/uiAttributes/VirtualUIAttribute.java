@@ -20,8 +20,8 @@ import com.rcpcompany.uibindings.IUIAttribute;
 /**
  * Virtual {@link IUIAttribute} implementations used when no control exists.
  * <p>
- * This implementation cache the returned values and return the same values again, contrary to the decoration in
- * {@link IUIAttribute}.
+ * This implementation cache the returned values and return the same values again, contrary to the
+ * decoration in {@link IUIAttribute}.
  * 
  * @author Tonny Madsen, The RCP Company
  */

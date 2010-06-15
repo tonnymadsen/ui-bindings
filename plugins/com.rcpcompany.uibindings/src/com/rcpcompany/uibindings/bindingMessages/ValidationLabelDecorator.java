@@ -31,8 +31,8 @@ import com.rcpcompany.utils.logging.LogUtils;
 /**
  * Label decotator that adds an error or warning overlay to objects with outstanding errors.
  * <p>
- * The decorator can also propagate the state of child objects to the parents (recursively). This is done either by
- * specifying the string "propagate" as a argument to the class as shown below.
+ * The decorator can also propagate the state of child objects to the parents (recursively). This is
+ * done either by specifying the string "propagate" as a argument to the class as shown below.
  * <p>
  * To use this decorator, specify the following extension:
  * 
@@ -58,7 +58,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  */
 public class ValidationLabelDecorator implements ILightweightLabelDecorator, IExecutableExtension {
 	/**
-	 * This interface is used when the validation status must be propagated to parent objects in a tree.
+	 * This interface is used when the validation status must be propagated to parent objects in a
+	 * tree.
 	 * 
 	 * @author Tonny Madsen, The RCP Company
 	 */
@@ -67,8 +68,8 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 	}
 
 	/**
-	 * The keyword used to specify whether the label decorator will propagate the state of child objects are propagated
-	 * to the parents (recursively).
+	 * The keyword used to specify whether the label decorator will propagate the state of child
+	 * objects are propagated to the parents (recursively).
 	 */
 	public static final String PROPAGATE = "propagate"; //$NON-NLS-1$
 	/**
@@ -123,9 +124,7 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 	 */
 	public int getElementSeverity(Object element) {
 		final Integer severity = myObjectSeverities.get(element);
-		if (severity == null) {
-			return IMessageProvider.NONE;
-		}
+		if (severity == null) return IMessageProvider.NONE;
 
 		return severity;
 	}
@@ -133,9 +132,7 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 	@Override
 	public void decorate(Object element, IDecoration decoration) {
 		final Integer severity = myObjectSeverities.get(element);
-		if (severity == null) {
-			return;
-		}
+		if (severity == null) return;
 		if (Activator.getDefault() != null && Activator.getDefault().TRACE_LABEL_DECORATOR) {
 			LogUtils.debug(this, hashCode() + ": " + element + ": severity: " + severity); //$NON-NLS-1$ //$NON-NLS-2$
 		}
@@ -233,9 +230,7 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 		for (final Object o : deletedObjects) {
 			myObjectSeverities.remove(o);
 		}
-		if (changedObjects.size() == 0) {
-			return;
-		}
+		if (changedObjects.size() == 0) return;
 		final Object[] array = changedObjects.toArray();
 		final LabelProviderChangedEvent event = new LabelProviderChangedEvent(ValidationLabelDecorator.this, array);
 		if (Activator.getDefault().TRACE_LABEL_DECORATOR) {
@@ -259,10 +254,11 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 			IMessageProvider.WARNING, IMessageProvider.ERROR };
 
 	/**
-	 * Updates the specified map with the specified severity for the specified object if the new severity is more grave
-	 * than any old severity stored for the same object.
+	 * Updates the specified map with the specified severity for the specified object if the new
+	 * severity is more grave than any old severity stored for the same object.
 	 * <p>
-	 * If the map is updated and a propagation adapter is defined, the parent object is also updated.
+	 * If the map is updated and a propagation adapter is defined, the parent object is also
+	 * updated.
 	 * 
 	 * @param map the map with severities
 	 * @param o the object to update
@@ -270,9 +266,7 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 	 */
 	private void updateSeverity(Map<Object, Integer> map, Object o, int severity) {
 		final Integer oldSeverity = map.get(o);
-		if (oldSeverity != null && oldSeverity >= severity) {
-			return;
-		}
+		if (oldSeverity != null && oldSeverity >= severity) return;
 		if (oldSeverity == null) {
 			int oSeverity;
 			if (o instanceof EObject) {
@@ -290,9 +284,7 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 		}
 		map.put(o, severityObjects[severity]);
 
-		if (myPropagationAdapter == null) {
-			return;
-		}
+		if (myPropagationAdapter == null) return;
 		final Object parent = myPropagationAdapter.getParent(o);
 		if (parent != null) {
 			updateSeverity(map, parent, severity);
@@ -321,9 +313,7 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 			if (adapter == null) {
 				adapter = (IWorkbenchAdapter) Platform.getAdapterManager().getAdapter(object, IWorkbenchAdapter.class);
 			}
-			if (adapter == null) {
-				return object;
-			}
+			if (adapter == null) return object;
 
 			return adapter.getParent(object);
 		}

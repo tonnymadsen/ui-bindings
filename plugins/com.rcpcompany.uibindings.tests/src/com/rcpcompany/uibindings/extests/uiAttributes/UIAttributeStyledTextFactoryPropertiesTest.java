@@ -17,8 +17,8 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIAttribute;
 
 /**
- * This test checks the properties of the default UI attributes for a {@link StyledText} widget - those with attribute =
- * "".
+ * This test checks the properties of the default UI attributes for a {@link StyledText} widget -
+ * those with attribute = "".
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -30,6 +30,7 @@ public class UIAttributeStyledTextFactoryPropertiesTest extends BaseUIAttributeF
 		final StyledText widget = createWidget(StyledText.class, SWT.NONE);
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				attribute = IManager.Factory.getManager().createUIAttribute(widget, "");
 			}

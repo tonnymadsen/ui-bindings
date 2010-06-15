@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibinding.tests.model.internal;
@@ -111,12 +110,13 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	private EDataType amountAndCurrencyStructEDataType = null;
 
 	/**
-	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry
-	 * EPackage.Registry} by the package package URI value.
+	 * Creates an instance of the model <b>Package</b>, registered with
+	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package package URI
+	 * value.
 	 * <p>
-	 * Note: the correct way to create the package is via the static factory method {@link #init init()}, which also
-	 * performs initialization of the package, or returns the registered package, if one already exists. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Note: the correct way to create the package is via the static factory method {@link #init
+	 * init()}, which also performs initialization of the package, or returns the registered
+	 * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#eNS_URI
@@ -135,12 +135,13 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others
+	 * upon which it depends.
 	 * 
 	 * <p>
-	 * This method is used to initialize {@link TestModelPackage#eINSTANCE} when that field is accessed. Clients should
-	 * not invoke it directly. Instead, they should simply access that field to obtain the package. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * This method is used to initialize {@link TestModelPackage#eINSTANCE} when that field is
+	 * accessed. Clients should not invoke it directly. Instead, they should simply access that
+	 * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
@@ -148,9 +149,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * @generated
 	 */
 	public static TestModelPackage init() {
-		if (isInited) {
-			return (TestModelPackage) EPackage.Registry.INSTANCE.getEPackage(TestModelPackage.eNS_URI);
-		}
+		if (isInited) return (TestModelPackage) EPackage.Registry.INSTANCE.getEPackage(TestModelPackage.eNS_URI);
 
 		// Obtain or create and register package
 		final TestModelPackageImpl theTestModelPackage = (TestModelPackageImpl) (EPackage.Registry.INSTANCE
@@ -178,6 +177,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getTestObject() {
 		return testObjectEClass;
 	}
@@ -187,6 +187,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_Number() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(0);
 	}
@@ -196,6 +197,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_D() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(1);
 	}
@@ -205,6 +207,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_F() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(2);
 	}
@@ -214,6 +217,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_Date() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(3);
 	}
@@ -223,6 +227,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_Text() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(4);
 	}
@@ -232,6 +237,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getTestObject_Parent() {
 		return (EReference) testObjectEClass.getEStructuralFeatures().get(5);
 	}
@@ -241,6 +247,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_B() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(6);
 	}
@@ -250,6 +257,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_Ac() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(7);
 	}
@@ -259,6 +267,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_Unit() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(8);
 	}
@@ -268,6 +277,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_TimeUnit() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(9);
 	}
@@ -277,6 +287,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_Byte() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(10);
 	}
@@ -286,6 +297,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_Short() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(11);
 	}
@@ -295,6 +307,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_Long() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(12);
 	}
@@ -304,6 +317,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_BigDecimal() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(13);
 	}
@@ -313,6 +327,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_BigInteger() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(14);
 	}
@@ -322,6 +337,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getSubTestObject() {
 		return subTestObjectEClass;
 	}
@@ -331,6 +347,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getTestContainer() {
 		return testContainerEClass;
 	}
@@ -340,6 +357,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getTestContainer_Children() {
 		return (EReference) testContainerEClass.getEStructuralFeatures().get(0);
 	}
@@ -349,6 +367,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getTestContainer_Current() {
 		return (EReference) testContainerEClass.getEStructuralFeatures().get(1);
 	}
@@ -358,6 +377,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getAmountAndCurrency() {
 		return amountAndCurrencyEClass;
 	}
@@ -367,6 +387,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAmountAndCurrency_Amount() {
 		return (EAttribute) amountAndCurrencyEClass.getEStructuralFeatures().get(0);
 	}
@@ -376,6 +397,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAmountAndCurrency_Currency() {
 		return (EAttribute) amountAndCurrencyEClass.getEStructuralFeatures().get(1);
 	}
@@ -385,6 +407,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getTestGrid() {
 		return testGridEClass;
 	}
@@ -394,6 +417,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getTestGrid_Columns() {
 		return (EReference) testGridEClass.getEStructuralFeatures().get(0);
 	}
@@ -403,6 +427,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getTestGrid_Rows() {
 		return (EReference) testGridEClass.getEStructuralFeatures().get(1);
 	}
@@ -412,6 +437,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getTestGridColumn() {
 		return testGridColumnEClass;
 	}
@@ -421,6 +447,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getTestGridColumn_Grid() {
 		return (EReference) testGridColumnEClass.getEStructuralFeatures().get(0);
 	}
@@ -430,6 +457,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestGridColumn_Name() {
 		return (EAttribute) testGridColumnEClass.getEStructuralFeatures().get(1);
 	}
@@ -439,6 +467,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getTestGridColumn_Cells() {
 		return (EReference) testGridColumnEClass.getEStructuralFeatures().get(2);
 	}
@@ -448,6 +477,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getTestGridRow() {
 		return testGridRowEClass;
 	}
@@ -457,6 +487,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getTestGridRow_Grid() {
 		return (EReference) testGridRowEClass.getEStructuralFeatures().get(0);
 	}
@@ -466,6 +497,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestGridRow_Number() {
 		return (EAttribute) testGridRowEClass.getEStructuralFeatures().get(1);
 	}
@@ -475,6 +507,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getTestGridCell() {
 		return testGridCellEClass;
 	}
@@ -484,6 +517,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestGridCell_Details() {
 		return (EAttribute) testGridCellEClass.getEStructuralFeatures().get(0);
 	}
@@ -493,6 +527,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestGridCell_Price() {
 		return (EAttribute) testGridCellEClass.getEStructuralFeatures().get(1);
 	}
@@ -502,6 +537,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getTestGridCell_Column() {
 		return (EReference) testGridCellEClass.getEStructuralFeatures().get(2);
 	}
@@ -511,6 +547,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getTestGridCell_Row() {
 		return (EReference) testGridCellEClass.getEStructuralFeatures().get(3);
 	}
@@ -520,6 +557,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EEnum getWeightUnit() {
 		return weightUnitEEnum;
 	}
@@ -529,6 +567,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EEnum getTimeUnit() {
 		return timeUnitEEnum;
 	}
@@ -538,6 +577,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getAmountAndCurrencyStruct() {
 		return amountAndCurrencyStructEDataType;
 	}
@@ -547,6 +587,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * 
 	 * @generated
 	 */
+	@Override
 	public TestModelFactory getTestModelFactory() {
 		return (TestModelFactory) getEFactoryInstance();
 	}
@@ -559,15 +600,13 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	private boolean isCreated = false;
 
 	/**
-	 * Creates the meta-model objects for the package. This method is guarded to have no affect on any invocation but
-	 * its first. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Creates the meta-model objects for the package. This method is guarded to have no affect on
+	 * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated) {
-			return;
-		}
+		if (isCreated) return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -633,15 +672,13 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	private boolean isInitialized = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model. This method is guarded to have no affect on any
-	 * invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Complete the initialization of the package and its meta-model. This method is guarded to have
+	 * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized) {
-			return;
-		}
+		if (isInitialized) return;
 		isInitialized = true;
 
 		// Initialize package
@@ -777,8 +814,8 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	}
 
 	/**
-	 * Initializes the annotations for <b>http://rcp-company.com/schemas/uibindings</b>. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Initializes the annotations for <b>http://rcp-company.com/schemas/uibindings</b>. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */

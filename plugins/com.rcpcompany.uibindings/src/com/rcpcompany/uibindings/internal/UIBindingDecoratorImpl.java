@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -19,20 +18,24 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>UI Binding Decorator</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>UI Binding Decorator</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.UIBindingDecoratorImpl#getBinding <em>Binding</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.UIBindingDecoratorImpl#isChangeable <em>Changeable</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.UIBindingDecoratorImpl#getModelToUIConverter <em>Model To UI Converter
+ * <li>{@link com.rcpcompany.uibindings.internal.UIBindingDecoratorImpl#getBinding <em>Binding</em>}
+ * </li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIBindingDecoratorImpl#isChangeable <em>Changeable
  * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.UIBindingDecoratorImpl#getUIToModelConverter <em>UI To Model Converter
- * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.UIBindingDecoratorImpl#getUIToModelAfterConvertValidator <em>UI To
- * Model After Convert Validator</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.UIBindingDecoratorImpl#getValidUIList <em>Valid UI List</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIBindingDecoratorImpl#getModelToUIConverter <em>
+ * Model To UI Converter </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIBindingDecoratorImpl#getUIToModelConverter <em>UI
+ * To Model Converter </em>}</li>
+ * <li>
+ * {@link com.rcpcompany.uibindings.internal.UIBindingDecoratorImpl#getUIToModelAfterConvertValidator
+ * <em>UI To Model After Convert Validator</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIBindingDecoratorImpl#getValidUIList <em>Valid UI
+ * List</em>}</li>
  * </ul>
  * </p>
  * 
@@ -40,8 +43,8 @@ import com.rcpcompany.uibindings.IValueBinding;
  */
 public abstract class UIBindingDecoratorImpl extends EObjectImpl implements IUIBindingDecorator {
 	/**
-	 * The cached value of the '{@link #getBinding() <em>Binding</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getBinding() <em>Binding</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getBinding()
 	 * @generated
@@ -50,8 +53,8 @@ public abstract class UIBindingDecoratorImpl extends EObjectImpl implements IUIB
 	protected IValueBinding binding;
 
 	/**
-	 * The default value of the '{@link #isChangeable() <em>Changeable</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #isChangeable() <em>Changeable</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isChangeable()
 	 * @generated
@@ -60,8 +63,8 @@ public abstract class UIBindingDecoratorImpl extends EObjectImpl implements IUIB
 	protected static final boolean CHANGEABLE_EDEFAULT = false;
 
 	/**
-	 * The default value of the '{@link #getModelToUIConverter() <em>Model To UI Converter</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getModelToUIConverter() <em>Model To UI Converter</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getModelToUIConverter()
 	 * @generated
@@ -70,8 +73,8 @@ public abstract class UIBindingDecoratorImpl extends EObjectImpl implements IUIB
 	protected static final IConverter MODEL_TO_UI_CONVERTER_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getModelToUIConverter() <em>Model To UI Converter</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getModelToUIConverter() <em>Model To UI Converter</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getModelToUIConverter()
 	 * @generated
@@ -80,8 +83,8 @@ public abstract class UIBindingDecoratorImpl extends EObjectImpl implements IUIB
 	protected IConverter modelToUIConverter = MODEL_TO_UI_CONVERTER_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getUIToModelConverter() <em>UI To Model Converter</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getUIToModelConverter() <em>UI To Model Converter</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getUIToModelConverter()
 	 * @generated
@@ -90,8 +93,8 @@ public abstract class UIBindingDecoratorImpl extends EObjectImpl implements IUIB
 	protected static final IConverter UI_TO_MODEL_CONVERTER_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getUIToModelConverter() <em>UI To Model Converter</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getUIToModelConverter() <em>UI To Model Converter</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getUIToModelConverter()
 	 * @generated
@@ -101,7 +104,8 @@ public abstract class UIBindingDecoratorImpl extends EObjectImpl implements IUIB
 
 	/**
 	 * The default value of the '{@link #getUIToModelAfterConvertValidator()
-	 * <em>UI To Model After Convert Validator</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <em>UI To Model After Convert Validator</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getUIToModelAfterConvertValidator()
 	 * @generated
@@ -111,7 +115,8 @@ public abstract class UIBindingDecoratorImpl extends EObjectImpl implements IUIB
 
 	/**
 	 * The cached value of the '{@link #getUIToModelAfterConvertValidator()
-	 * <em>UI To Model After Convert Validator</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <em>UI To Model After Convert Validator</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getUIToModelAfterConvertValidator()
 	 * @generated
@@ -120,8 +125,8 @@ public abstract class UIBindingDecoratorImpl extends EObjectImpl implements IUIB
 	protected IValidator uiToModelAfterConvertValidator = UI_TO_MODEL_AFTER_CONVERT_VALIDATOR_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getValidUIList() <em>Valid UI List</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getValidUIList() <em>Valid UI List</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getValidUIList()
 	 * @generated
@@ -153,6 +158,7 @@ public abstract class UIBindingDecoratorImpl extends EObjectImpl implements IUIB
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IValueBinding getBinding() {
 		return binding;
 	}
@@ -162,6 +168,7 @@ public abstract class UIBindingDecoratorImpl extends EObjectImpl implements IUIB
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setBinding(IValueBinding newBinding) {
 		final IValueBinding oldBinding = binding;
 		binding = newBinding;
@@ -176,6 +183,7 @@ public abstract class UIBindingDecoratorImpl extends EObjectImpl implements IUIB
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public boolean isChangeable() {
 		return getBinding().getDataType().isChangeable();
 	}
@@ -185,6 +193,7 @@ public abstract class UIBindingDecoratorImpl extends EObjectImpl implements IUIB
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IConverter getModelToUIConverter() {
 		return modelToUIConverter;
 	}
@@ -194,6 +203,7 @@ public abstract class UIBindingDecoratorImpl extends EObjectImpl implements IUIB
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IConverter getUIToModelConverter() {
 		return uiToModelConverter;
 	}
@@ -203,6 +213,7 @@ public abstract class UIBindingDecoratorImpl extends EObjectImpl implements IUIB
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IValidator getUIToModelAfterConvertValidator() {
 		return uiToModelAfterConvertValidator;
 	}
@@ -212,6 +223,7 @@ public abstract class UIBindingDecoratorImpl extends EObjectImpl implements IUIB
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract IObservableList getValidUIList();
 
 	/**
@@ -303,9 +315,7 @@ public abstract class UIBindingDecoratorImpl extends EObjectImpl implements IUIB
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (modelToUIConverter: "); //$NON-NLS-1$

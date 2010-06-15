@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -28,18 +27,21 @@ import com.rcpcompany.uibindings.ITreeItemRelation;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Tree Item Descriptor</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Tree Item Descriptor</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getDeclaredArguments <em>Declared Arguments
- * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getDeclaredArguments <em>
+ * Declared Arguments </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getId <em>Id</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getChildren <em>Children</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getChildren <em>Children
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getCe <em>Ce</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getModelTypes <em>Model Types</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getNewWizardID <em>New Wizard ID</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getModelTypes <em>Model
+ * Types</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getNewWizardID <em>New
+ * Wizard ID</em>}</li>
  * </ul>
  * </p>
  * 
@@ -47,8 +49,8 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
  */
 public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDescriptor {
 	/**
-	 * The cached value of the '{@link #getDeclaredArguments() <em>Declared Arguments</em>}' map. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getDeclaredArguments() <em>Declared Arguments</em>}' map.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDeclaredArguments()
 	 * @generated
@@ -57,7 +59,8 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	protected EMap<String, Object> declaredArguments;
 
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getId()
 	 * @generated
@@ -66,7 +69,8 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getId()
 	 * @generated
@@ -75,8 +79,8 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	protected String id = ID_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getChildren() <em>Children</em>}' reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getChildren() <em>Children</em>}' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getChildren()
 	 * @generated
@@ -85,7 +89,8 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	protected EList<ITreeItemRelation> children;
 
 	/**
-	 * The default value of the '{@link #getCe() <em>Ce</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getCe() <em>Ce</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getCe()
 	 * @generated
@@ -94,7 +99,8 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	protected static final IConfigurationElement CE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getCe() <em>Ce</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getCe() <em>Ce</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getCe()
 	 * @generated
@@ -103,8 +109,8 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	protected IConfigurationElement ce = CE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getModelTypes() <em>Model Types</em>}' attribute list. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getModelTypes() <em>Model Types</em>}' attribute list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getModelTypes()
 	 * @generated
@@ -113,8 +119,8 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	protected EList<String> modelTypes;
 
 	/**
-	 * The default value of the '{@link #getNewWizardID() <em>New Wizard ID</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getNewWizardID() <em>New Wizard ID</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getNewWizardID()
 	 * @generated
@@ -123,8 +129,8 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	protected static final String NEW_WIZARD_ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getNewWizardID() <em>New Wizard ID</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getNewWizardID() <em>New Wizard ID</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getNewWizardID()
 	 * @generated
@@ -156,6 +162,7 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EMap<String, Object> getDeclaredArguments() {
 		if (declaredArguments == null) {
 			declaredArguments = new EcoreEMap<String, Object>(IUIBindingsPackage.Literals.STRING_TO_OBJECT_MAP_ENTRY,
@@ -169,6 +176,7 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getId() {
 		return id;
 	}
@@ -178,6 +186,7 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setId(String newId) {
 		final String oldId = id;
 		id = newId;
@@ -192,6 +201,7 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<ITreeItemRelation> getChildren() {
 		if (children == null) {
 			children = new EObjectWithInverseEList<ITreeItemRelation>(ITreeItemRelation.class, this,
@@ -205,6 +215,7 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IConfigurationElement getCe() {
 		return ce;
 	}
@@ -214,6 +225,7 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setCe(IConfigurationElement newCe) {
 		final IConfigurationElement oldCe = ce;
 		ce = newCe;
@@ -228,6 +240,7 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<String> getModelTypes() {
 		if (modelTypes == null) {
 			modelTypes = new EDataTypeUniqueEList<String>(String.class, this,
@@ -241,6 +254,7 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getNewWizardID() {
 		return newWizardID;
 	}
@@ -250,6 +264,7 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setNewWizardID(String newNewWizardID) {
 		final String oldNewWizardID = newWizardID;
 		newWizardID = newNewWizardID;
@@ -299,11 +314,10 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__DECLARED_ARGUMENTS:
-			if (coreType) {
+			if (coreType)
 				return getDeclaredArguments();
-			} else {
+			else
 				return getDeclaredArguments().map();
-			}
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__ID:
 			return getId();
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CHILDREN:

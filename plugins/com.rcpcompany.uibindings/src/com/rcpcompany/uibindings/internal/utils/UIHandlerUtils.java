@@ -20,6 +20,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  * @author Tonny Madsen, The RCP Company
  */
 public class UIHandlerUtils {
+	private UIHandlerUtils() {
+	}
 
 	/**
 	 * Moves the specified element in the viewer of the binding.
@@ -36,24 +38,19 @@ public class UIHandlerUtils {
 		}
 
 		Assert.isNotNull(vb);
-		if (element == null) {
-			return false;
-		}
+		if (element == null) return false;
 
 		final ColumnViewer viewer = vb.getViewer();
-		// Don't move if there are any sorter or filters installed as these negates the visual effect
-		if (viewer.getComparator() != null || viewer.getFilters().length > 0) {
-			return false;
-		}
+		// Don't move if there are any sorter or filters installed as these negates the visual
+		// effect
+		if (viewer.getComparator() != null || viewer.getFilters().length > 0) return false;
 
 		// The list of objects
 		final IObservableList list = vb.getList();
 
 		// Old position
 		final int oldPosition = list.indexOf(element);
-		if (oldPosition == -1) {
-			return false;
-		}
+		if (oldPosition == -1) return false;
 
 		// New position
 		int newPosition = oldPosition + delta;
@@ -65,9 +62,7 @@ public class UIHandlerUtils {
 		}
 
 		// Can not be moved?
-		if (oldPosition == newPosition) {
-			return false;
-		}
+		if (oldPosition == newPosition) return false;
 
 		// Move it
 		if (!testOnly) {
@@ -96,19 +91,13 @@ public class UIHandlerUtils {
 		// }
 
 		Assert.isNotNull(vb);
-		if (element == null) {
-			return false;
-		}
+		if (element == null) return false;
 
 		final IViewerItemDeletor deletor = vb.getArgument(Constants.ARG_ITEM_DELETOR, IViewerItemDeletor.class, null);
-		if (deletor == null) {
-			return false;
-		}
+		if (deletor == null) return false;
 
 		final int oldPosition = vb.getList().indexOf(element);
-		if (oldPosition == -1) {
-			return false;
-		}
+		if (oldPosition == -1) return false;
 
 		// Do it
 		final IViewerItemDeletorContext context = new IViewerItemDeletorContext() {
