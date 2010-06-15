@@ -73,6 +73,7 @@ public class BasicSetTestValue {
 	 */
 	public void bindUI() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myContext = IBindingContext.Factory.createContext(myView.getScrolledForm());
 

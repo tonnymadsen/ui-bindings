@@ -36,8 +36,8 @@ import com.rcpcompany.uibindings.internal.controlFactories.CheckBoxControlFactor
 /**
  * This test is about the different data types for arguments.
  * <p>
- * Please notice that there are a lot of annotations for "foobar-dt-<datatype>" both in the test EMF model and in the
- * uibindings extension point of this fragment.
+ * Please notice that there are a lot of annotations for "foobar-dt-<datatype>" both in the test EMF
+ * model and in the uibindings extension point of this fragment.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -152,6 +152,7 @@ public class ArgumentsTypeTest {
 	private <T> void checkDataTypeEmpty(final Class<T> cls, String subName) {
 		final String name = ARG + cls.getSimpleName() + subName;
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final T val = myAttributeBinding.getArgument(name, cls, null);
 				assertEquals(null, val);
@@ -163,6 +164,7 @@ public class ArgumentsTypeTest {
 		final String name = ARG + cls.getSimpleName() + subName;
 		final String what = "name: '" + name + "'";
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final T val = (cls == IObservableList.class ? myReferenceBinding : myAttributeBinding).getArgument(
 						name, cls, null);

@@ -22,9 +22,7 @@ public class BindingErrorsSection implements IBindingSpySection {
 	public void build(IFormCreator creator, ExecutionEvent event) {
 		final IBinding b = (IBinding) creator.getObject();
 
-		if (!b.eIsSet(IUIBindingsPackage.Literals.BINDING__ERROR_CONDITIONS)) {
-			return;
-		}
+		if (!b.eIsSet(IUIBindingsPackage.Literals.BINDING__ERROR_CONDITIONS)) return;
 
 		final IFormCreator subform = creator.addSection("Error Conditions");
 

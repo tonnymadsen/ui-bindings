@@ -9,15 +9,16 @@ import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.widgets.Widget;
 
 /**
- * Copied strait out of {@link org.eclipse.jface.internal.databinding.provisional.swt.AbstractSWTVetoableValue}.
+ * Copied strait out of
+ * {@link org.eclipse.jface.internal.databinding.provisional.swt.AbstractSWTVetoableValue}.
  */
 public abstract class AbstractSWTVetoableValue extends AbstractVetoableValue implements ISWTObservableValue {
 
 	private final Widget widget;
 
 	/**
-	 * Standard constructor for an SWT VetoableValue. Makes sure that the observable gets disposed when the SWT widget
-	 * is disposed.
+	 * Standard constructor for an SWT VetoableValue. Makes sure that the observable gets disposed
+	 * when the SWT widget is disposed.
 	 * 
 	 * @param widget
 	 */
@@ -34,13 +35,12 @@ public abstract class AbstractSWTVetoableValue extends AbstractVetoableValue imp
 	protected AbstractSWTVetoableValue(Realm realm, Widget widget) {
 		super(realm);
 		this.widget = widget;
-		if (widget == null) {
-			throw new IllegalArgumentException("The widget parameter is null."); //$NON-NLS-1$
-		}
+		if (widget == null) throw new IllegalArgumentException("The widget parameter is null."); //$NON-NLS-1$
 		widget.addDisposeListener(disposeListener);
 	}
 
 	private final DisposeListener disposeListener = new DisposeListener() {
+		@Override
 		public void widgetDisposed(DisposeEvent e) {
 			AbstractSWTVetoableValue.this.dispose();
 		}
@@ -49,6 +49,7 @@ public abstract class AbstractSWTVetoableValue extends AbstractVetoableValue imp
 	/**
 	 * @return Returns the widget.
 	 */
+	@Override
 	public Widget getWidget() {
 		return widget;
 	}

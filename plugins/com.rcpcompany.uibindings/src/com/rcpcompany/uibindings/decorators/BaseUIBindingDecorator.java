@@ -64,8 +64,8 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * This is an abstract implementation of {@link IUIBindingDecorator} used to isolate implementations of the interface
- * from backward extensions of the interface.
+ * This is an abstract implementation of {@link IUIBindingDecorator} used to isolate implementations
+ * of the interface from backward extensions of the interface.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -77,8 +77,8 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 	private IObservableValue myDisplayValue = null;
 
 	/**
-	 * The observable value for the display value if not the same as the model value. Disposed when the decorator is
-	 * disposed.
+	 * The observable value for the display value if not the same as the model value. Disposed when
+	 * the decorator is disposed.
 	 */
 	private IObservableValue myDisposeDisplayValue = null;
 
@@ -88,7 +88,8 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 	private IChangeListener myDisposeDisplayChangeListener = null;
 
 	/**
-	 * Listener used to trigger an update of the UIToModel strategy, in case, the valid UI List changes
+	 * Listener used to trigger an update of the UIToModel strategy, in case, the valid UI List
+	 * changes
 	 */
 	private IChangeListener myUIListChangeListener = null;
 
@@ -116,6 +117,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 	protected static final UpdateValueStrategy theIdentityNeverUpdateStrategy = new UpdateValueStrategy(false,
 			UpdateValueStrategy.POLICY_NEVER);
 
+	@Override
 	public void init(IValueBinding binding) {
 		setBinding(binding);
 	}
@@ -173,9 +175,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 
 	@Override
 	public IObservableList getValidUIList() {
-		if (getBinding() == null) {
-			return null;
-		}
+		if (getBinding() == null) return null;
 		if (!calculatedValidUIList) {
 			myValidUIList = getBinding().getArgument(Constants.ARG_VALID_VALUES, IObservableList.class, null);
 			calculatedValidUIList = true;
@@ -212,7 +212,8 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		modelToUIUpdateStrategy.setConverter(getModelToUIConverter());
 
 		/*
-		 * Must be called before the binding to insure the internals of the decorator is properly setup...
+		 * Must be called before the binding to insure the internals of the decorator is properly
+		 * setup...
 		 */
 		final IObservableList decoratorUIList = getValidUIList();
 
@@ -225,6 +226,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 			final IConverter converter = getUIToModelConverter();
 			if (converter != null) {
 				uiToModelUpdateStrategy.setAfterGetValidator(new IValidator() {
+					@Override
 					public IStatus validate(Object value) {
 						try {
 							converter.convert(value);
@@ -240,10 +242,9 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 
 			if (binding.getDataType().isRequired() || binding.getArgument(Constants.ARG_REQUIRED, Boolean.class, false)) {
 				uiToModelUpdateStrategy.setBeforeSetValidator(new IValidator() {
+					@Override
 					public IStatus validate(Object value) {
-						if (value == null || "".equals(value)) { //$NON-NLS-1$
-							return ValidationStatus.error("Value is required"); //$NON-NLS-1$
-						}
+						if (value == null || "".equals(value)) return ValidationStatus.error("Value is required"); //$NON-NLS-1$
 						return Status.OK_STATUS;
 					}
 				});
@@ -279,8 +280,8 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		/*
 		 * Then bind the value
 		 * 
-		 * Note that if we have to do two bindings, then we need to bind the model side first as the ui side will
-		 * otherwise always be null the first time, which may not be a valid value
+		 * Note that if we have to do two bindings, then we need to bind the model side first as the
+		 * ui side will otherwise always be null the first time, which may not be a valid value
 		 */
 		final IObservableValue uiAttributeValue = attribute.getCurrentValue();
 		myDecoratedValue = null;
@@ -309,12 +310,8 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 				public void handleValueChange(ValueChangeEvent event) {
 					final Object oldValue = event.diff.getOldValue();
 					final Object newValue = event.diff.getNewValue();
-					if (oldValue == newValue) {
-						return;
-					}
-					if (oldValue != null && oldValue.equals(newValue)) {
-						return;
-					}
+					if (oldValue == newValue) return;
+					if (oldValue != null && oldValue.equals(newValue)) return;
 					if (uiToDecoratedDB != null) {
 						uiToDecoratedDB.updateTargetToModel();
 					}
@@ -330,9 +327,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 						control.getDisplay().asyncExec(new Runnable() {
 							@Override
 							public void run() {
-								if (control.isDisposed()) {
-									return;
-								}
+								if (control.isDisposed()) return;
 								binding.updateUI();
 							}
 						});
@@ -348,7 +343,8 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		}
 
 		/*
-		 * If the UI observable supports delayed changes, then validate the value. Used by TextObservableValue.
+		 * If the UI observable supports delayed changes, then validate the value. Used by
+		 * TextObservableValue.
 		 */
 		if (changeable && (uiAttributeValue instanceof IDelayedChangeObservable)) {
 			myDelayedChangeListener = new IDelayedChangeListener() {
@@ -364,8 +360,8 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		}
 
 		/*
-		 * If the decoration is changeable AND a valid UI List exists for the decoration, then make sure the databinding
-		 * is updated when changes are made to list
+		 * If the decoration is changeable AND a valid UI List exists for the decoration, then make
+		 * sure the databinding is updated when changes are made to list
 		 * 
 		 * TODO TEST and separate method
 		 */
@@ -453,18 +449,14 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		 * The following is only relevant if an control exists!
 		 */
 		final Control control = binding.getControl();
-		if (control == null) {
-			return;
-		}
+		if (control == null) return;
 
 		/*
 		 * Bind field assist
 		 */
 		final IUIAttribute attribute = binding.getUIAttribute();
 		final IControlContentAdapter fieldAssistAdapter = attribute.getFieldAssistAdapter();
-		if (fieldAssistAdapter == null) {
-			return;
-		}
+		if (fieldAssistAdapter == null) return;
 
 		final ContentProposalAdapter adapter = new ContentAssistCommandAdapter(control, fieldAssistAdapter,
 				proposalProvider, null, null);
@@ -477,12 +469,11 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 	 */
 	public void decorateAssist() {
 		/*
-		 * Must be called before the binding to insure the internals of the decorator is properly setup...
+		 * Must be called before the binding to insure the internals of the decorator is properly
+		 * setup...
 		 */
 		final IObservableList decoratorUIList = getValidUIList();
-		if (decoratorUIList == null) {
-			return;
-		}
+		if (decoratorUIList == null) return;
 
 		/*
 		 * Bind field assist
@@ -506,15 +497,14 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		/*
 		 * The decorator can have been disposed...
 		 */
-		if (getBinding() == null) {
-			return;
-		}
+		if (getBinding() == null) return;
 		// LogUtils.debug(this, getClass().getSimpleName()
 		// + "["
 		// + hashCode()
 		// + "]: binding="
 		// + getBinding()
-		// + (getBinding() != null ? "\n" + getBinding().getModelFeature().getEContainingClass().getName() + "."
+		// + (getBinding() != null ? "\n" +
+		// getBinding().getModelFeature().getEContainingClass().getName() + "."
 		// + getBinding().getModelFeature().getName() : ""));
 		// Assert.isNotNull(getBinding());
 		// if (getBinding() == null)
@@ -772,15 +762,11 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 
 		@Override
 		public Image getImage() {
-			if (myImageSet) {
-				return myImage;
-			}
+			if (myImageSet) return myImage;
 			if (myImageValue == null) {
 				myImageValue = getAttribute().getImageValue();
 			}
-			if (myImageValue != null) {
-				return (Image) myImageValue.getValue();
-			}
+			if (myImageValue != null) return (Image) myImageValue.getValue();
 			return null;
 		}
 
@@ -943,6 +929,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		protected boolean updatingTarget;
 		protected boolean updatingModel;
 		private IValueChangeListener targetChangeListener = new IValueChangeListener() {
+			@Override
 			public void handleValueChange(ValueChangeEvent event) {
 				if (!updatingTarget && !UIBindingsUtils.equals(event.diff.getOldValue(), event.diff.getNewValue())) {
 					doUpdate(target, model, targetToModel, false, false);
@@ -950,6 +937,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 			}
 		};
 		private IValueChangeListener modelChangeListener = new IValueChangeListener() {
+			@Override
 			public void handleValueChange(ValueChangeEvent event) {
 				if (!updatingModel && !UIBindingsUtils.equals(event.diff.getOldValue(), event.diff.getNewValue())) {
 					doUpdate(model, target, modelToTarget, false, false);
@@ -985,6 +973,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		@Override
 		protected void preInit() {
 			ObservableTracker.runAndIgnore(new Runnable() {
+				@Override
 				public void run() {
 					validationStatusObservable = new WritableValue(context.getValidationRealm(), Status.OK_STATUS,
 							IStatus.class);
@@ -1013,8 +1002,8 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		@Override
 		public void updateTargetToModel() {
 			/*
-			 * If we are already updating the target (=model-to-UI), then don't allow an update of the model (=
-			 * UI-to-model), but we still want to validate.
+			 * If we are already updating the target (=model-to-UI), then don't allow an update of
+			 * the model (= UI-to-model), but we still want to validate.
 			 */
 			doUpdate(target, model, targetToModel, true, updatingTarget);
 		}
@@ -1040,21 +1029,18 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		}
 
 		/*
-		 * This method may be moved to UpdateValueStrategy in the future if clients need more control over how the
-		 * source value is copied to the destination observable.
+		 * This method may be moved to UpdateValueStrategy in the future if clients need more
+		 * control over how the source value is copied to the destination observable.
 		 */
 		protected void doUpdate(final IObservableValue source, final IObservableValue destination,
 				final UpdateValueStrategy updateValueStrategy, final boolean explicit, final boolean validateOnly) {
 
 			final int policy = updateValueStrategy.getUpdatePolicy();
-			if (policy == UpdateValueStrategy.POLICY_NEVER) {
-				return;
-			}
-			if (policy == UpdateValueStrategy.POLICY_ON_REQUEST && !explicit) {
-				return;
-			}
+			if (policy == UpdateValueStrategy.POLICY_NEVER) return;
+			if (policy == UpdateValueStrategy.POLICY_ON_REQUEST && !explicit) return;
 
 			source.getRealm().exec(new Runnable() {
+				@Override
 				public void run() {
 					boolean destinationRealmReached = false;
 					final MultiStatus multiStatus = BindingStatus.ok();
@@ -1064,34 +1050,25 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 
 						// Validate after get
 						IStatus status = updateValueStrategy.validateAfterGet(value);
-						if (!mergeStatus(multiStatus, status)) {
-							return;
-						}
+						if (!mergeStatus(multiStatus, status)) return;
 
 						// Convert value
 						final Object convertedValue = updateValueStrategy.convert(value);
 
 						// Validate after convert
 						status = updateValueStrategy.validateAfterConvert(convertedValue);
-						if (!mergeStatus(multiStatus, status)) {
-							return;
-						}
-						if (policy == UpdateValueStrategy.POLICY_CONVERT && !explicit) {
-							return;
-						}
+						if (!mergeStatus(multiStatus, status)) return;
+						if (policy == UpdateValueStrategy.POLICY_CONVERT && !explicit) return;
 
 						// Validate before set
 						status = updateValueStrategy.validateBeforeSet(convertedValue);
-						if (!mergeStatus(multiStatus, status)) {
-							return;
-						}
-						if (validateOnly) {
-							return;
-						}
+						if (!mergeStatus(multiStatus, status)) return;
+						if (validateOnly) return;
 
 						// Set value
 						destinationRealmReached = true;
 						destination.getRealm().exec(new Runnable() {
+							@Override
 							public void run() {
 								if (destination == target) {
 									updatingTarget = true;
@@ -1115,7 +1092,8 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 									} else {
 										updatingModel = false;
 									}
-									// LogUtils.debug(this, "dest=" + destination + "\nstatus=" + multiStatus);
+									// LogUtils.debug(this, "dest=" + destination + "\nstatus=" +
+									// multiStatus);
 									if (destination == model || !multiStatus.isOK()) {
 										setValidationStatus(multiStatus);
 									}
@@ -1151,6 +1129,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 
 		protected void setValidationStatus(final IStatus status) {
 			validationStatusObservable.getRealm().exec(new Runnable() {
+				@Override
 				public void run() {
 					validationStatusObservable.setValue(status);
 				}

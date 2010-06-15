@@ -25,12 +25,12 @@ import com.rcpcompany.uibinding.tests.model.TestModelFactory;
 import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 import com.rcpcompany.uibinding.tests.model.TestObject;
 import com.rcpcompany.uibindings.IBinding;
+import com.rcpcompany.uibindings.IBinding.IArgumentValue;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IDecoratorProvider;
 import com.rcpcompany.uibindings.IModelArgumentMediator;
 import com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor;
 import com.rcpcompany.uibindings.IValueBinding;
-import com.rcpcompany.uibindings.IBinding.IArgumentValue;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.ModelClassInfoImpl;
 import com.rcpcompany.uibindings.internal.ModelFeatureInfoImpl;
@@ -43,8 +43,8 @@ import com.rcpcompany.uibindings.internal.bindingDataTypes.EStructuralFeatureBin
  * This covers {@link IBinding#getArgument(String, Class, Object)} and
  * {@link IBinding#getArguments(String, Class, boolean)}.
  * <p>
- * Please notice that there are a lot of annotations for "foobar" both in the test EMF model and in the uibindings
- * extension point of this fragment.
+ * Please notice that there are a lot of annotations for "foobar" both in the test EMF model and in
+ * the uibindings extension point of this fragment.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -89,10 +89,12 @@ public class ArgumentsScopeTest {
 	 */
 	@Test
 	public void testDecoratorExtender() {
-		final IValueBinding binding = myContext.addBinding(myText, myObject,
-				TestModelPackage.Literals.TEST_OBJECT__TEXT).arg("extender", "foobar").arg(ARG, "not used: a");
+		final IValueBinding binding = myContext
+				.addBinding(myText, myObject, TestModelPackage.Literals.TEST_OBJECT__TEXT).arg("extender", "foobar")
+				.arg(ARG, "not used: a");
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myContext.finish();
 				yield();
@@ -106,7 +108,8 @@ public class ArgumentsScopeTest {
 	 * Test the {@code IBinding.arg(name, value)} version.
 	 * <p>
 	 * Test data: Below+EMF
-	 * annotation(EX.ecore)/EClass(TestObject)/EStructualFeature(text)/EAnnotation(uibindings)/detail(foobar)
+	 * annotation(EX.ecore)/EClass(TestObject)/EStructualFeature(text)/EAnnotation
+	 * (uibindings)/detail(foobar)
 	 */
 	@Test
 	public void testIBindingArg() {
@@ -114,6 +117,7 @@ public class ArgumentsScopeTest {
 				TestModelPackage.Literals.TEST_OBJECT__TEXT).arg(ARG, "a");
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myContext.finish();
 				yield();
@@ -131,7 +135,8 @@ public class ArgumentsScopeTest {
 	 * Test the EMF Model annotation on feature version.
 	 * <p>
 	 * Test data: EMF
-	 * annotation(EX.ecore)/EClass(TestObject)/EStructualFeature(number)/EAnnotation(uibindings)/detail(foobar)
+	 * annotation(EX.ecore)/EClass(TestObject)/EStructualFeature(number)/EAnnotation(uibindings
+	 * )/detail(foobar)
 	 */
 	@Test
 	public void testEMFAnnotationFeature() {
@@ -139,6 +144,7 @@ public class ArgumentsScopeTest {
 				TestModelPackage.Literals.TEST_OBJECT__NUMBER);
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myContext.finish();
 				yield();
@@ -152,7 +158,8 @@ public class ArgumentsScopeTest {
 	 * Test the EMF Model annotation on feature version for a subclass.
 	 * <p>
 	 * Test data: EMF
-	 * annotation(EX.ecore)/EClass(TestObject)/EStructualFeature(short)/EAnnotation(uibindings)/detail(foobar)
+	 * annotation(EX.ecore)/EClass(TestObject)/EStructualFeature(short)/EAnnotation(uibindings
+	 * )/detail(foobar)
 	 */
 	@Test
 	public void testEMFAnnotationFeatureSub1() {
@@ -160,6 +167,7 @@ public class ArgumentsScopeTest {
 				TestModelPackage.Literals.TEST_OBJECT__SHORT);
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myContext.finish();
 				yield();
@@ -174,7 +182,8 @@ public class ArgumentsScopeTest {
 	 * <p>
 	 * Also tests {@link IModelArgumentMediator}.
 	 * <p>
-	 * Test data: EMF annotation(EX.ecore)/EClass(SubTestObject)/EAnnotation(uibindings)/detail(number.foobar)
+	 * Test data: EMF
+	 * annotation(EX.ecore)/EClass(SubTestObject)/EAnnotation(uibindings)/detail(number.foobar)
 	 */
 	@Test
 	@Ignore
@@ -183,6 +192,7 @@ public class ArgumentsScopeTest {
 				TestModelPackage.Literals.TEST_OBJECT__NUMBER);
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myContext.finish();
 				yield();
@@ -203,6 +213,7 @@ public class ArgumentsScopeTest {
 				TestModelPackage.Literals.TEST_OBJECT__DATE);
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myContext.finish();
 				yield();
@@ -215,13 +226,15 @@ public class ArgumentsScopeTest {
 	/**
 	 * Test the EMF Model annotation on result type version.
 	 * <p>
-	 * Test data: EMF annotation(EX.ecore)/EClass(AmountAndCurrencyStruct)/EAnnotation(uibindings)/detail(foobar)
+	 * Test data: EMF
+	 * annotation(EX.ecore)/EClass(AmountAndCurrencyStruct)/EAnnotation(uibindings)/detail(foobar)
 	 */
 	@Test
 	public void testEMFAnnotationResultType() {
 		final IValueBinding binding = myContext.addBinding(myText, myObject, TestModelPackage.Literals.TEST_OBJECT__AC);
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myContext.finish();
 				yield();
@@ -242,6 +255,7 @@ public class ArgumentsScopeTest {
 				TestModelPackage.Literals.TEST_CONTAINER__CURRENT);
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myContext.finish();
 				yield();
@@ -262,6 +276,7 @@ public class ArgumentsScopeTest {
 				TestModelPackage.Literals.TEST_OBJECT__TIME_UNIT);
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myContext.finish();
 				yield();
@@ -281,6 +296,7 @@ public class ArgumentsScopeTest {
 		final IValueBinding binding = myContext.addBinding(myText, myObject, TestModelPackage.Literals.TEST_OBJECT__B);
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myContext.finish();
 				yield();
@@ -301,6 +317,7 @@ public class ArgumentsScopeTest {
 				.type("foobar");
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myContext.finish();
 				yield();

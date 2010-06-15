@@ -67,7 +67,8 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 	/**
 	 * The names of the sources supported by this source provider.
 	 * <p>
-	 * <b>NOTE:</b> If you update this list, remember to update the services extension as well! This is tested!!!
+	 * <b>NOTE:</b> If you update this list, remember to update the services extension as well! This
+	 * is tested!!!
 	 */
 	public static final String[] PROVIDED_SOURCE_NAMES = new String[] {
 
@@ -175,9 +176,7 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 	 */
 	protected void observe(Event event, List<IObservableValue> newValues) {
 		myPreviousValueEvent = event;
-		if (newValues.equals(myPreviousValues)) {
-			return;
-		}
+		if (newValues.equals(myPreviousValues)) return;
 
 		for (final IObservableValue v : myPreviousValues) {
 			v.removeChangeListener(myObservedChangeListener);
@@ -201,12 +200,11 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 		}
 
 		/*
-		 * If the event is FocusIn for the very same widget as last time, but with x,y=0,0, then... ignore it... It is
-		 * seen whenever the current shell is send to front.
+		 * If the event is FocusIn for the very same widget as last time, but with x,y=0,0, then...
+		 * ignore it... It is seen whenever the current shell is send to front.
 		 */
-		if (event.type == SWT.FocusIn && event.widget == myLastWidget && event.x == 0 && event.y == 0) {
+		if (event.type == SWT.FocusIn && event.widget == myLastWidget && event.x == 0 && event.y == 0)
 			return myOldState;
-		}
 
 		/*
 		 * Ignore all key up events, except those that navigate...
@@ -242,8 +240,8 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 					} else if (v == IEvaluationContext.UNDEFINED_VARIABLE) {
 						sb.append("<undef>");
 					} else {
-						sb.append("'").append(v.toString()).append("'").append(" [").append(
-								ClassUtils.getLastClassName(v)).append("]");
+						sb.append("'").append(v.toString()).append("'").append(" [")
+								.append(ClassUtils.getLastClassName(v)).append("]");
 					}
 				}
 				LogUtils.debug(this, sb.toString());
@@ -321,9 +319,7 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 		resetMap(map);
 		try {
 			final IBinding b = IBindingContext.Factory.getBindingForWidget(event.widget);
-			if (b == null) {
-				return map;
-			}
+			if (b == null) return map;
 
 			map.put(Constants.SOURCES_ACTIVE_CONTEXT, b.getContext());
 

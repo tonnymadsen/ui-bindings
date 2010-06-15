@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -18,7 +17,8 @@ import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Base Object</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Base Object</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -30,8 +30,8 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
  */
 public abstract class BaseObjectImpl extends EObjectImpl implements IBaseObject {
 	/**
-	 * The cached value of the '{@link #getServices() <em>Services</em>}' attribute list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getServices() <em>Services</em>}' attribute list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getServices()
 	 * @generated
@@ -63,6 +63,7 @@ public abstract class BaseObjectImpl extends EObjectImpl implements IBaseObject 
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<Object> getServices() {
 		if (services == null) {
 			services = new EDataTypeUniqueEList<Object>(Object.class, this, IUIBindingsPackage.BASE_OBJECT__SERVICES);
@@ -137,9 +138,7 @@ public abstract class BaseObjectImpl extends EObjectImpl implements IBaseObject 
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (services: "); //$NON-NLS-1$
@@ -161,9 +160,7 @@ public abstract class BaseObjectImpl extends EObjectImpl implements IBaseObject 
 	@Override
 	public <T> T getService(Class<T> serviceClass) {
 		for (final Object service : getServices()) {
-			if (serviceClass.isInstance(service)) {
-				return (T) service;
-			}
+			if (serviceClass.isInstance(service)) return (T) service;
 		}
 		return null;
 	}

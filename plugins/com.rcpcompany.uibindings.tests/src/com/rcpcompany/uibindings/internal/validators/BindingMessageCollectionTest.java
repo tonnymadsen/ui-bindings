@@ -30,11 +30,11 @@ import org.junit.runners.Parameterized.Parameters;
 import com.rcpcompany.uibindings.BindingMessageSeverity;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingMessage;
+import com.rcpcompany.uibindings.IBindingMessage.FeatureMatchingAlgorithm;
 import com.rcpcompany.uibindings.IBindingMessageTarget;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
-import com.rcpcompany.uibindings.IBindingMessage.FeatureMatchingAlgorithm;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator;
 import com.rcpcompany.uibindings.tests.shop.Shop;
@@ -46,7 +46,8 @@ import com.rcpcompany.uibindings.validators.IValidatorAdapter;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 
 /**
- * Tests that messages are added to the {@link ValueBindingMessageImageDecorator} at the right time..
+ * Tests that messages are added to the {@link ValueBindingMessageImageDecorator} at the right
+ * time..
  * <p>
  * Depends on:
  * <ul>
@@ -65,7 +66,7 @@ public class BindingMessageCollectionTest {
 	public static Collection<Object[]> data() {
 		return Arrays.asList(new Object[][] {
 
-		// ValidationErrorsAreFatal
+				// ValidationErrorsAreFatal
 
 				{ true },
 

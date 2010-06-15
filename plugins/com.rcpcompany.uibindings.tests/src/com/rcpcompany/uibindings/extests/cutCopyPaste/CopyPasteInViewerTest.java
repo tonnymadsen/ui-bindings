@@ -120,8 +120,10 @@ public class CopyPasteInViewerTest {
 		myGroupColumn = new TableViewerColumn(myTableViewer, SWT.NONE);
 		myGroupColumn.getColumn().setWidth(100);
 
-		// final IHandlerService hs = (IHandlerService) myView.getSite().getService(IHandlerService.class);
-		// final ICommandService cs = (ICommandService) myView.getSite().getService(ICommandService.class);
+		// final IHandlerService hs = (IHandlerService)
+		// myView.getSite().getService(IHandlerService.class);
+		// final ICommandService cs = (ICommandService)
+		// myView.getSite().getService(ICommandService.class);
 		// final ParameterizedCommand command = cs.deserialize("org.eclipse.ui.edit.paste");
 		// command.getCommand().addCommandListener(new ICommandListener() {
 		// @Override
@@ -173,14 +175,14 @@ public class CopyPasteInViewerTest {
 		assertEquals("" + myItem1.getName(), myTable.getItem(0)
 				.getText(0 + myViewerBinding.getFirstTableColumnOffset()));
 		// TODO: does not work any more!
-		assertEquals(String.format("%,.2f", myItem1.getPrice()), myTable.getItem(0).getText(
-				1 + myViewerBinding.getFirstTableColumnOffset()));
+		assertEquals(String.format("%,.2f", myItem1.getPrice()),
+				myTable.getItem(0).getText(1 + myViewerBinding.getFirstTableColumnOffset()));
 		// TODO: does not work any more!
 		assertEquals("" + myItem2.getName(), myTable.getItem(1)
 				.getText(0 + myViewerBinding.getFirstTableColumnOffset()));
 		// TODO: does not work any more!
-		assertEquals(String.format("%,.2f", myItem2.getPrice()), myTable.getItem(1).getText(
-				1 + myViewerBinding.getFirstTableColumnOffset()));
+		assertEquals(String.format("%,.2f", myItem2.getPrice()),
+				myTable.getItem(1).getText(1 + myViewerBinding.getFirstTableColumnOffset()));
 
 		/*
 		 * - focus on the table
@@ -202,7 +204,8 @@ public class CopyPasteInViewerTest {
 		assertNotNull(columnViewerEditor.getFocusCell());
 		assertEquals(1 + myViewerBinding.getFirstTableColumnOffset(), columnViewerEditor.getFocusCell()
 				.getColumnIndex());
-		// assertEquals("" + myShopItem1.getPrice(), clipboard.getContents(TextTransfer.getInstance()));
+		// assertEquals("" + myShopItem1.getPrice(),
+		// clipboard.getContents(TextTransfer.getInstance()));
 		postKeyStroke(myTable, "ARROW_DOWN");
 		yield();
 		assertEquals(1, myTable.getSelectionIndex());
@@ -220,12 +223,12 @@ public class CopyPasteInViewerTest {
 
 		assertEquals("" + myItem1.getName(), myTable.getItem(0)
 				.getText(0 + myViewerBinding.getFirstTableColumnOffset()));
-		assertEquals(String.format("%,.2f", myItem1.getPrice()), myTable.getItem(0).getText(
-				1 + myViewerBinding.getFirstTableColumnOffset()));
+		assertEquals(String.format("%,.2f", myItem1.getPrice()),
+				myTable.getItem(0).getText(1 + myViewerBinding.getFirstTableColumnOffset()));
 		assertEquals("" + myItem2.getName(), myTable.getItem(1)
 				.getText(0 + myViewerBinding.getFirstTableColumnOffset()));
-		assertEquals(String.format("%,.2f", myItem2.getPrice()), myTable.getItem(1).getText(
-				1 + myViewerBinding.getFirstTableColumnOffset()));
+		assertEquals(String.format("%,.2f", myItem2.getPrice()),
+				myTable.getItem(1).getText(1 + myViewerBinding.getFirstTableColumnOffset()));
 
 		/*
 		 * Copy the the price from item 2 to the name of item 2
@@ -246,12 +249,12 @@ public class CopyPasteInViewerTest {
 
 		assertEquals("" + myItem1.getName(), myTable.getItem(0)
 				.getText(0 + myViewerBinding.getFirstTableColumnOffset()));
-		assertEquals(String.format("%,.2f", myItem1.getPrice()), myTable.getItem(0).getText(
-				1 + myViewerBinding.getFirstTableColumnOffset()));
+		assertEquals(String.format("%,.2f", myItem1.getPrice()),
+				myTable.getItem(0).getText(1 + myViewerBinding.getFirstTableColumnOffset()));
 		assertEquals("" + myItem2.getName(), myTable.getItem(1)
 				.getText(0 + myViewerBinding.getFirstTableColumnOffset()));
-		assertEquals(String.format("%,.2f", myItem1.getPrice()), myTable.getItem(1).getText(
-				1 + myViewerBinding.getFirstTableColumnOffset()));
+		assertEquals(String.format("%,.2f", myItem1.getPrice()),
+				myTable.getItem(1).getText(1 + myViewerBinding.getFirstTableColumnOffset()));
 	}
 
 	/**

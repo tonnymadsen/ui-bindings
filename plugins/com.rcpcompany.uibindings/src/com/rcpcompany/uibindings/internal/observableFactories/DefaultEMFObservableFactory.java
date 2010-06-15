@@ -14,7 +14,8 @@ import com.rcpcompany.uibindings.IEMFObservableFactory;
 import com.rcpcompany.uibindings.IManager;
 
 /**
- * Default implementation of {@link IEMFObservableFactory} that uses the editing domain of the manager.
+ * Default implementation of {@link IEMFObservableFactory} that uses the editing domain of the
+ * manager.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -38,8 +39,8 @@ public class DefaultEMFObservableFactory extends AbstractEMFObservableFactory im
 	}
 
 	/**
-	 * Version of {@link EditingDomainEObjectObservableValue} that will shortcut {@link #setValue(Object)} if the new
-	 * value is equal to the current value
+	 * Version of {@link EditingDomainEObjectObservableValue} that will shortcut
+	 * {@link #setValue(Object)} if the new value is equal to the current value
 	 * 
 	 * @author Tonny Madsen, The RCP Company
 	 */
@@ -60,9 +61,7 @@ public class DefaultEMFObservableFactory extends AbstractEMFObservableFactory im
 		@Override
 		protected void doSetValue(Object value) {
 			final Object oldValue = eObject.eGet(eStructuralFeature);
-			if (oldValue == null ? value == null : oldValue.equals(value)) {
-				return;
-			}
+			if (oldValue == null ? value == null : oldValue.equals(value)) return;
 			super.doSetValue(value);
 		}
 	}

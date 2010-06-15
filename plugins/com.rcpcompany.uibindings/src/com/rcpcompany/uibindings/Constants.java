@@ -28,23 +28,26 @@ import com.rcpcompany.uibindings.internal.propertyTesters.ManagerPropertyTester;
 public interface Constants {
 
 	/**
-	 * The EMF annotation source name for annotations on EMF objects that are used by the UI Bindings framework.
+	 * The EMF annotation source name for annotations on EMF objects that are used by the UI
+	 * Bindings framework.
 	 */
 	public static final String EMF_ANNOTATION_SOURCE = "http://rcp-company.com/schemas/uibindings"; //$NON-NLS-1$
 
 	/**
 	 * Argument name for the message format of a value.
 	 * <p>
-	 * The argument value is {@link String}. In most cases, this effectively makes the binding read-only. Not all
-	 * decorators supports this argument. The format is described in {@link MessageFormat}.
+	 * The argument value is {@link String}. In most cases, this effectively makes the binding
+	 * read-only. Not all decorators supports this argument. The format is described in
+	 * {@link MessageFormat}.
 	 */
 	public static final String ARG_MESSAGE_FORMAT = "format"; //$NON-NLS-1$
 
 	/**
-	 * Argument name for the label of a structural feature or a class when it cannot be deduced correctly automatically.
+	 * Argument name for the label of a structural feature or a class when it cannot be deduced
+	 * correctly automatically.
 	 * <p>
-	 * The argument value is {@link String}. The default is found automatically based on the name of the structural
-	 * feature or class.
+	 * The argument value is {@link String}. The default is found automatically based on the name of
+	 * the structural feature or class.
 	 */
 	public static final String ARG_LABEL = "label"; //$NON-NLS-1$
 
@@ -86,7 +89,8 @@ public interface Constants {
 	public static final String ARG_DYNAMIC = "dynamic"; //$NON-NLS-1$
 
 	/**
-	 * Argument name for columns that should have "label decoration". Only relevant for {@link IColumnBinding}.
+	 * Argument name for columns that should have "label decoration". Only relevant for
+	 * {@link IColumnBinding}.
 	 * <p>
 	 * The argument value is {@link Boolean}. The default is <code>false</code>.
 	 */
@@ -97,7 +101,8 @@ public interface Constants {
 	 * <p>
 	 * The argument value is {@link ImageDescriptor}. The default is no image.
 	 * <p>
-	 * When used with the <code>uiBindings</code> extension point, this is expected to be a plug-in local image.
+	 * When used with the <code>uiBindings</code> extension point, this is expected to be a plug-in
+	 * local image.
 	 */
 	public static final String ARG_IMAGE = "image"; //$NON-NLS-1$
 
@@ -107,57 +112,65 @@ public interface Constants {
 	 * <li>for a reference, whether new values are allowed apart from the current set</li>
 	 * <li>for file and directory names, whether a file may not exist</li>
 	 * </ul>
-	 * The argument value is either {@link Boolean#TRUE} or {@link Boolean#FALSE}. The default is <code>false</code> .
+	 * The argument value is either {@link Boolean#TRUE} or {@link Boolean#FALSE}. The default is
+	 * <code>false</code> .
 	 */
 	public static final String ARG_NEW_ALLOWED = "newAllowed"; //$NON-NLS-1$
 
 	/**
-	 * Argument name for when all (error and warning) messages for the model object or objects of the binding should be
-	 * added to the context automatically.
+	 * Argument name for when all (error and warning) messages for the model object or objects of
+	 * the binding should be added to the context automatically.
 	 * <p>
 	 * The meaning of the argument differs slightly for different bindings:
 	 * <ul>
-	 * <li>For a {@link IValueBinding value binding}, this means all messages associated with the model object will be
-	 * decorated in the binding.</li>
-	 * <li>For a {@link IViewerBinding viewer binding}, this means all messages associated with any of the row elements
-	 * will be associated with the viewer. The messages will not be decorated in the viewer and thus it is normally
-	 * better to use the argument for a specific column in the viewer.</li>
-	 * <li>For a {@link IColumnBinding column binding}, this means all messages associated with the model object of the
-	 * specific column and row will be decorated in the column.</li>
+	 * <li>For a {@link IValueBinding value binding}, this means all messages associated with the
+	 * model object will be decorated in the binding.</li>
+	 * <li>For a {@link IViewerBinding viewer binding}, this means all messages associated with any
+	 * of the row elements will be associated with the viewer. The messages will not be decorated in
+	 * the viewer and thus it is normally better to use the argument for a specific column in the
+	 * viewer.</li>
+	 * <li>For a {@link IColumnBinding column binding}, this means all messages associated with the
+	 * model object of the specific column and row will be decorated in the column.</li>
 	 * </ul>
 	 * <p>
-	 * The argument value is either {@link Boolean#TRUE} or {@link Boolean#FALSE}. The default is <code>false</code>.
+	 * The argument value is either {@link Boolean#TRUE} or {@link Boolean#FALSE}. The default is
+	 * <code>false</code>.
 	 */
 	public static final String ARG_MODEL_OBJECT_MESSAGES = "modelObjectMessages"; //$NON-NLS-1$
 
 	/**
-	 * Argument name for when all (error and warning) messages for the value object or objects of the binding should be
-	 * added to the context automatically.
+	 * Argument name for when all (error and warning) messages for the value object or objects of
+	 * the binding should be added to the context automatically.
 	 * <p>
 	 * This is of particular interest when a binding is for a reference and not an attribute.
 	 * <p>
-	 * The argument value is either {@link Boolean#TRUE} or {@link Boolean#FALSE}. The default is <code>false</code>.
+	 * The argument value is either {@link Boolean#TRUE} or {@link Boolean#FALSE}. The default is
+	 * <code>false</code>.
 	 */
 	public static final String ARG_VALUE_OBJECT_MESSAGES = "valueObjectMessages"; //$NON-NLS-1$
 
 	/**
 	 * Argument name for when one field is filtered by another field.
 	 * <p>
-	 * The argument value is an {@link IObservableValue observable value}, but the exact meaning depends on the context.
+	 * The argument value is an {@link IObservableValue observable value}, but the exact meaning
+	 * depends on the context.
 	 */
 	public static final String ARG_FILTER = "filter"; //$NON-NLS-1$
 
 	/**
-	 * Argument name for when an {@link IObservableList observable list} is used to supply all valid values.
+	 * Argument name for when an {@link IObservableList observable list} is used to supply all valid
+	 * values.
 	 * <p>
-	 * The argument value is an {@link IObservableList observable list}, but the exact meaning depends on the context.
+	 * The argument value is an {@link IObservableList observable list}, but the exact meaning
+	 * depends on the context.
 	 */
 	public static final String ARG_VALID_VALUES = "validValues"; //$NON-NLS-1$
 
 	/**
 	 * Argument name for a binding should be read/only.
 	 * <p>
-	 * The argument value is either {@link Boolean#TRUE} or {@link Boolean#FALSE}. The default is <code>false</code>.
+	 * The argument value is either {@link Boolean#TRUE} or {@link Boolean#FALSE}. The default is
+	 * <code>false</code>.
 	 */
 	public static final String ARG_READONLY = "readonly"; //$NON-NLS-1$
 
@@ -192,8 +205,9 @@ public interface Constants {
 	/**
 	 * Argument name for the legal range of a {@link NumberBindingDecorator}.
 	 * <p>
-	 * The argument value is an interval on the form "[&lt;start&gt;;&lt;end&gt;]". "&lt;start&gt;" and "&lt;end&gt;"
-	 * can each be missing meaning the natural limit for the basic decorator type - e.g. -128 for a byte.
+	 * The argument value is an interval on the form "[&lt;start&gt;;&lt;end&gt;]". "&lt;start&gt;"
+	 * and "&lt;end&gt;" can each be missing meaning the natural limit for the basic decorator type
+	 * - e.g. -128 for a byte.
 	 * <p>
 	 * The intervals are started and ended with a combination of "[" and "]":
 	 * <ul>
@@ -234,14 +248,17 @@ public interface Constants {
 	/**
 	 * Argument name for whether a value for this binding is required.
 	 * <p>
-	 * The argument value is either {@link Boolean#TRUE} or {@link Boolean#FALSE}. The default is false.
+	 * The argument value is either {@link Boolean#TRUE} or {@link Boolean#FALSE}. The default is
+	 * false.
 	 */
 	public static final String ARG_REQUIRED = "required"; //$NON-NLS-1$
 
 	/**
-	 * Argument name for the command to execute to open an item - either via CTRL-click or via a menu item.
+	 * Argument name for the command to execute to open an item - either via CTRL-click or via a
+	 * menu item.
 	 * <p>
-	 * The argument value is a {@link String} formatted as specified in {@link ParameterizedCommand#serialize()}.
+	 * The argument value is a {@link String} formatted as specified in
+	 * {@link ParameterizedCommand#serialize()}.
 	 */
 	public static final String ARG_OPEN_COMMAND = "openCommand"; //$NON-NLS-1$
 
@@ -255,7 +272,8 @@ public interface Constants {
 	/**
 	 * Argument name for the command to execute to double-click an item.
 	 * <p>
-	 * The argument value is a {@link String} formatted as specified in {@link ParameterizedCommand#serialize()}.
+	 * The argument value is a {@link String} formatted as specified in
+	 * {@link ParameterizedCommand#serialize()}.
 	 */
 	public static final String ARG_DOUBLE_CLICK_COMMAND = "doubleClickCommand"; //$NON-NLS-1$
 
@@ -301,8 +319,9 @@ public interface Constants {
 	/**
 	 * Argument name for the preferred Control for cell editing for the binding.
 	 * <p>
-	 * The argument value is one of {@code org.eclipse.swt.widgets.Text}, {@code org.eclipse.swt.widgets.Button},
-	 * {@code org.eclipse.swt.widgets.Combo}, or {@code org.eclipse.swt.custom.CCombo}.
+	 * The argument value is one of {@code org.eclipse.swt.widgets.Text},
+	 * {@code org.eclipse.swt.widgets.Button}, {@code org.eclipse.swt.widgets.Combo}, or
+	 * {@code org.eclipse.swt.custom.CCombo}.
 	 */
 	public static final String ARG_PREFERRED_CELL_EDITOR = "preferredCellEditor"; //$NON-NLS-1$
 
@@ -314,7 +333,8 @@ public interface Constants {
 	public static final String ARG_PREFERRED_CELL_EDITOR_FACTORY = "preferredCellEditorFactory"; //$NON-NLS-1$
 
 	/**
-	 * Argument name for the type of a binding if not specified directly with <code>type(...)</code>.
+	 * Argument name for the type of a binding if not specified directly with <code>type(...)</code>
+	 * .
 	 */
 	public static final String ARG_TYPE = "type"; //$NON-NLS-1$
 
@@ -331,8 +351,8 @@ public interface Constants {
 	public static final String ARG_UNIT = "unit"; //$NON-NLS-1$
 
 	/**
-	 * The arguments that can be used directly as attribute names in the uibindings extension point for
-	 * {@link IArgumentProvider argument providers}.
+	 * The arguments that can be used directly as attribute names in the uibindings extension point
+	 * for {@link IArgumentProvider argument providers}.
 	 */
 	public static final String[] EXT_POINT_ATTRIBUTE_NAMES = { ARG_ALIGNMENT, ARG_CELL_EDITOR_TYPE, ARG_DYNAMIC,
 			ARG_EXTENSIONS, ARG_FEATURE_NAME, ARG_HEIGHT, ARG_HELP_ID, ARG_IMAGE, ARG_LABEL, ARG_LABEL_DECORATOR,
@@ -430,8 +450,8 @@ public interface Constants {
 	public static final String SOURCES_ACTIVE_BINDING_RO = SOURCES_ACTIVE_BINDING + "#ro"; //$NON-NLS-1$
 
 	/**
-	 * Source provider name for the active binding value. This is defined if {@link #SOURCES_ACTIVE_BINDING} is non-
-	 * <code>null</code>.
+	 * Source provider name for the active binding value. This is defined if
+	 * {@link #SOURCES_ACTIVE_BINDING} is non- <code>null</code>.
 	 */
 	public static final String SOURCES_ACTIVE_BINDING_VALUE = SOURCES_ACTIVE_BINDING + "Value"; //$NON-NLS-1$
 
@@ -445,8 +465,8 @@ public interface Constants {
 	/**
 	 * Source provider name for the active container binding if any.
 	 * <p>
-	 * A container binding is a binding that contains the current {@link #SOURCES_ACTIVE_BINDING active binding} - e.g.
-	 * a viewer binding or a grid binding
+	 * A container binding is a binding that contains the current {@link #SOURCES_ACTIVE_BINDING
+	 * active binding} - e.g. a viewer binding or a grid binding
 	 * <p>
 	 * The type of the value is the container binding.
 	 */
@@ -455,8 +475,8 @@ public interface Constants {
 	/**
 	 * Source provider name for the active container binding property "noComparatorOrFilter".
 	 * <p>
-	 * The type of the value is <code>true</code> if the active container doesn't have a comparator or filter otherwise
-	 * <code>false</code>.
+	 * The type of the value is <code>true</code> if the active container doesn't have a comparator
+	 * or filter otherwise <code>false</code>.
 	 */
 	public static final String SOURCES_ACTIVE_CONTAINER_BINDING_NO_CAF = SOURCES_ACTIVE_CONTAINER_BINDING
 			+ "#noComparatorOrFilter"; //$NON-NLS-1$
@@ -487,8 +507,8 @@ public interface Constants {
 	public static final String SOURCES_ACTIVE_VIEWER_ELEMENT_DELETE = SOURCES_ACTIVE_VIEWER_ELEMENT + "#delete"; //$NON-NLS-1$
 
 	/**
-	 * The ID of the default "Open" command used when no specific open command is associated with the specific
-	 * classifier or feature.
+	 * The ID of the default "Open" command used when no specific open command is associated with
+	 * the specific classifier or feature.
 	 */
 	public static final String DEFAULT_OPEN_COMMAND = PREFIX + "commands.openBinding"; //$NON-NLS-1$
 
@@ -553,7 +573,8 @@ public interface Constants {
 	/**
 	 * This expression evaluates to <code>true</code> and has a very high source priority.
 	 * <p>
-	 * This expression is used to provoke that a local undo handler takes priority over global handlers.
+	 * This expression is used to provoke that a local undo handler takes priority over global
+	 * handlers.
 	 */
 	public final static Expression TRUE_EXPRESSION = new Expression() {
 		@Override

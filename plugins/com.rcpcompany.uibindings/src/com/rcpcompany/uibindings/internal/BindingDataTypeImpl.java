@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -17,27 +16,33 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IArgumentProvider;
 import com.rcpcompany.uibindings.IBinding;
+import com.rcpcompany.uibindings.IBinding.IArgumentValue;
 import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
-import com.rcpcompany.uibindings.IBinding.IArgumentValue;
 import com.rcpcompany.uibindings.internal.BindingImpl.ArgumentValue;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Binding Data Type</b></em>'. <!-- end-user-doc
- * -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Binding Data Type</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl#getDeclaredArguments <em>Declared Arguments</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl#getDeclaredArguments <em>
+ * Declared Arguments</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl#getName <em>Name</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl#getValueType <em>Value Type</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl#getValueType <em>Value Type
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl#getEType <em>EType</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl#getDataType <em>Data Type</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl#getEAnnotation <em>EAnnotation</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl#getParentDataType <em>Parent Data Type</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl#getDataType <em>Data Type</em>}
+ * </li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl#getEAnnotation <em>EAnnotation
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl#getParentDataType <em>Parent
+ * Data Type</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl#isRequired <em>Required</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl#isChangeable <em>Changeable</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl#isChangeable <em>Changeable
+ * </em>}</li>
  * </ul>
  * </p>
  * 
@@ -53,9 +58,7 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 		boolean got = false;
 
 		got |= getEAnnotationArguments(results, binding, name, argumentType, firstOnly);
-		if (got && firstOnly) {
-			return true;
-		}
+		if (got && firstOnly) return true;
 
 		/*
 		 * Avoid recursion when resolving the "type" argument!!!
@@ -65,9 +68,7 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 			if (type != null && type.length() > 0) {
 				got |= binding.getArgumentProviderArguments(results, name, this.getArgumentProvider(type),
 						argumentType, firstOnly);
-				if (got && firstOnly) {
-					return true;
-				}
+				if (got && firstOnly) return true;
 			}
 		}
 		got |= binding.getArgumentProviderArguments(results, name, this.getArgumentProvider(null), argumentType,
@@ -80,13 +81,9 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 		String value = null;
 
 		final EAnnotation annotation = getEAnnotation();
-		if (annotation == null) {
-			return false;
-		}
+		if (annotation == null) return false;
 		value = annotation.getDetails().get(name);
-		if (value == null) {
-			return false;
-		}
+		if (value == null) return false;
 
 		final ArgumentType v = binding.convertArgumentValue(name, null, null, value, argumentType);
 		results.add(new ArgumentValue<ArgumentType>(this, v));
@@ -98,15 +95,13 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	public <ArgumentType> ArgumentType getArgument(IValueBinding binding, String name,
 			Class<? extends ArgumentType> argumentType) {
 		final List<IArgumentValue<ArgumentType>> results = new ArrayList<IArgumentValue<ArgumentType>>();
-		if (!addArguments(results, binding, name, argumentType, true)) {
-			return null;
-		}
+		if (!addArguments(results, binding, name, argumentType, true)) return null;
 		return results.get(0).getValue();
 	}
 
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getName()
 	 * @generated
@@ -115,8 +110,8 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getValueType() <em>Value Type</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getValueType() <em>Value Type</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getValueType()
 	 * @generated
@@ -125,8 +120,8 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	protected static final Object VALUE_TYPE_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #isRequired() <em>Required</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #isRequired() <em>Required</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isRequired()
 	 * @generated
@@ -135,8 +130,8 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	protected static final boolean REQUIRED_EDEFAULT = false;
 
 	/**
-	 * The default value of the '{@link #isChangeable() <em>Changeable</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #isChangeable() <em>Changeable</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isChangeable()
 	 * @generated
@@ -145,8 +140,8 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	protected static final boolean CHANGEABLE_EDEFAULT = false;
 
 	/**
-	 * The default value of the '{@link #isUnsettable() <em>Unsettable</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #isUnsettable() <em>Unsettable</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isUnsettable()
 	 * @generated
@@ -178,6 +173,7 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract String getName();
 
 	/**
@@ -185,6 +181,7 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract Object getValueType();
 
 	/**
@@ -192,6 +189,7 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract EClassifier getEType();
 
 	/**
@@ -199,6 +197,7 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract Class<?> getDataType();
 
 	/**
@@ -206,6 +205,7 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract EAnnotation getEAnnotation();
 
 	/**
@@ -213,6 +213,7 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract IBindingDataType getParentDataType();
 
 	/**
@@ -220,6 +221,7 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract boolean isRequired();
 
 	/**
@@ -227,6 +229,7 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract boolean isChangeable();
 
 	/**
@@ -234,6 +237,7 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract boolean isUnsettable();
 
 	/**

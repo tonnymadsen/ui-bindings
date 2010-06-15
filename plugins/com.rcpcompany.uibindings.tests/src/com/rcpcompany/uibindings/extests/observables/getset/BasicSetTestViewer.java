@@ -34,8 +34,8 @@ import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
 /**
- * Test of get and set value in a viewer. E.g. when the value in the model or a cell is changed, the other part is
- * changed too.
+ * Test of get and set value in a viewer. E.g. when the value in the model or a cell is changed, the
+ * other part is changed too.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -118,8 +118,8 @@ public class BasicSetTestViewer {
 
 		yield();
 		// TODO: does not work any more!
-		assertEquals(String.format("%,.2f", myShopItem.getPrice()), myTable.getItem(0).getText(
-				0 + myViewerBinding.getFirstTableColumnOffset()));
+		assertEquals(String.format("%,.2f", myShopItem.getPrice()),
+				myTable.getItem(0).getText(0 + myViewerBinding.getFirstTableColumnOffset()));
 
 		/*
 		 * Change the price and check that the cell is also changed
@@ -127,8 +127,8 @@ public class BasicSetTestViewer {
 		myShopItem.setPrice(20f);
 		yield();
 		// TODO: does not work any more!
-		assertEquals(String.format("%,.2f", myShopItem.getPrice()), myTable.getItem(0).getText(
-				0 + myViewerBinding.getFirstTableColumnOffset()));
+		assertEquals(String.format("%,.2f", myShopItem.getPrice()),
+				myTable.getItem(0).getText(0 + myViewerBinding.getFirstTableColumnOffset()));
 
 		/*
 		 * - focus on the table
@@ -161,8 +161,8 @@ public class BasicSetTestViewer {
 		yield();
 		assertEquals(30f, myShopItem.getPrice(), 0.001);
 		// TODO: does not work any more!
-		assertEquals(String.format("%,.2f", myShopItem.getPrice()), myTable.getItem(0).getText(
-				0 + myViewerBinding.getFirstTableColumnOffset()));
+		assertEquals(String.format("%,.2f", myShopItem.getPrice()),
+				myTable.getItem(0).getText(0 + myViewerBinding.getFirstTableColumnOffset()));
 
 		/*
 		 * - cancel edit
@@ -172,8 +172,8 @@ public class BasicSetTestViewer {
 		assertEquals(false, myTableViewer.isCellEditorActive());
 		assertEquals(20f, myShopItem.getPrice(), 0.001);
 		// TODO: does not work any more!
-		assertEquals(String.format("%,.2f", myShopItem.getPrice()), myTable.getItem(0).getText(
-				0 + myViewerBinding.getFirstTableColumnOffset()));
+		assertEquals(String.format("%,.2f", myShopItem.getPrice()),
+				myTable.getItem(0).getText(0 + myViewerBinding.getFirstTableColumnOffset()));
 
 		/*
 		 * - press return AGAIN to edit
@@ -200,8 +200,8 @@ public class BasicSetTestViewer {
 		yield();
 		assertEquals(40f, myShopItem.getPrice(), 0.001);
 		// TODO: does not work any more!
-		assertEquals(String.format("%,.2f", myShopItem.getPrice()), myTable.getItem(0).getText(
-				0 + myViewerBinding.getFirstTableColumnOffset()));
+		assertEquals(String.format("%,.2f", myShopItem.getPrice()),
+				myTable.getItem(0).getText(0 + myViewerBinding.getFirstTableColumnOffset()));
 
 		/*
 		 * - commit edit
@@ -211,7 +211,7 @@ public class BasicSetTestViewer {
 		assertEquals(false, myTableViewer.isCellEditorActive());
 		assertEquals(40f, myShopItem.getPrice(), 0.001);
 		// TODO: does not work any more!
-		assertEquals(String.format("%,.2f", myShopItem.getPrice()), myTable.getItem(0).getText(
-				0 + myViewerBinding.getFirstTableColumnOffset()));
+		assertEquals(String.format("%,.2f", myShopItem.getPrice()),
+				myTable.getItem(0).getText(0 + myViewerBinding.getFirstTableColumnOffset()));
 	}
 }

@@ -16,8 +16,8 @@ import com.rcpcompany.uibindings.internal.utils.AbstractContextMonitor;
 /**
  * Message decorator support for a single {@link IBindingContext}.
  * <p>
- * This class controls the message decorator of all bindings of the context as well as the form/wizard/whatever that
- * hosts the binding context.
+ * This class controls the message decorator of all bindings of the context as well as the
+ * form/wizard/whatever that hosts the binding context.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -82,13 +82,16 @@ public class ContextMessageDecorator extends AbstractContextMonitor {
 	// /*
 	// * The following is a little complex, but...
 	// *
-	// * For each viewer binding a ViewerBindingMessageDecorator is created and associated with the binding as a
+	// * For each viewer binding a ViewerBindingMessageDecorator is created and associated with the
+	// binding as a
 	// * service.
 	// *
-	// * For each value binding, it is checked whether it has an ARG_CELL_KEY argument. This, if present, is the cell
+	// * For each value binding, it is checked whether it has an ARG_CELL_KEY argument. This, if
+	// present, is the cell
 	// * that constructed the binding - it is handled in ColumnBindingCellInformationImpl.init(...).
 	// *
-	// * If the cell is found, one widget decoration creation factory is used that will create a sub-cell decoration
+	// * If the cell is found, one widget decoration creation factory is used that will create a
+	// sub-cell decoration
 	// * of the ViewerBindingMessageDecorator.
 	// *
 	// * If it is not found an ordinary ControlDecoration is used.
@@ -103,7 +106,8 @@ public class ContextMessageDecorator extends AbstractContextMonitor {
 	// final Control control = vb.getControl();
 	// if (cell != null) {
 	// final IViewerBinding viewer = cell.getColumn().getViewerBinding();
-	// final ViewerBindingMessageDecorator decorator = viewer.getService(ViewerBindingMessageDecorator.class);
+	// final ViewerBindingMessageDecorator decorator =
+	// viewer.getService(ViewerBindingMessageDecorator.class);
 	// final IWidgetDecorationFactory factory = new IWidgetDecorationFactory() {
 	// @Override
 	// public IWidgetDecoration create(int position) {
@@ -235,9 +239,7 @@ public class ContextMessageDecorator extends AbstractContextMonitor {
 	 * Updates the messages for the context.
 	 */
 	protected void updateMessages() {
-		if (updateMessagesDelayed) {
-			return;
-		}
+		if (updateMessagesDelayed) return;
 		updateMessagesDelayed = true;
 		Display.getCurrent().asyncExec(myUpdateMessagesRunnable);
 	}

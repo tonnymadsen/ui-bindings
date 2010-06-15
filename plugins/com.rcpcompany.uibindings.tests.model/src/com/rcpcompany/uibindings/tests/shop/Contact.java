@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.tests.shop;
@@ -11,7 +10,8 @@ import java.util.Date;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Contact</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Contact</b></em>'. <!--
+ * end-user-doc -->
  * 
  * <p>
  * The following features are supported:
@@ -36,7 +36,8 @@ public interface Contact extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -49,8 +50,8 @@ public interface Contact extends EObject {
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Contact#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Contact#getName
+	 * <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
@@ -61,8 +62,8 @@ public interface Contact extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Address</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Address</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Address</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -75,8 +76,8 @@ public interface Contact extends EObject {
 	String getAddress();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Contact#getAddress <em>Address</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Contact#getAddress
+	 * <em>Address</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Address</em>' attribute.
 	 * @see #getAddress()
@@ -87,7 +88,8 @@ public interface Contact extends EObject {
 	/**
 	 * Returns the value of the '<em><b>City</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>City</em>' attribute isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>City</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -100,8 +102,8 @@ public interface Contact extends EObject {
 	String getCity();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Contact#getCity <em>City</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Contact#getCity
+	 * <em>City</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>City</em>' attribute.
 	 * @see #getCity()
@@ -112,7 +114,8 @@ public interface Contact extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Zip</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Zip</em>' attribute isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Zip</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -125,8 +128,8 @@ public interface Contact extends EObject {
 	String getZip();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Contact#getZip <em>Zip</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Contact#getZip
+	 * <em>Zip</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Zip</em>' attribute.
 	 * @see #getZip()
@@ -137,8 +140,8 @@ public interface Contact extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Country</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Country</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Country</em>' reference isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -151,8 +154,8 @@ public interface Contact extends EObject {
 	Country getCountry();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Contact#getCountry <em>Country</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Contact#getCountry
+	 * <em>Country</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Country</em>' reference.
 	 * @see #getCountry()
@@ -161,11 +164,12 @@ public interface Contact extends EObject {
 	void setCountry(Country value);
 
 	/**
-	 * Returns the value of the '<em><b>Shop</b></em>' container reference. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.tests.shop.Shop#getContacts <em>Contacts</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Shop</b></em>' container reference. It is bidirectional and
+	 * its opposite is ' {@link com.rcpcompany.uibindings.tests.shop.Shop#getContacts
+	 * <em>Contacts</em>}'. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Shop</em>' container reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Shop</em>' container reference isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -179,8 +183,8 @@ public interface Contact extends EObject {
 	Shop getShop();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Contact#getShop <em>Shop</em>}' container
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Contact#getShop
+	 * <em>Shop</em>}' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Shop</em>' container reference.
 	 * @see #getShop()
@@ -189,11 +193,12 @@ public interface Contact extends EObject {
 	void setShop(Shop value);
 
 	/**
-	 * Returns the value of the '<em><b>Customer</b></em>' reference. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.tests.shop.Customer#getContact <em>Contact</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Customer</b></em>' reference. It is bidirectional and its
+	 * opposite is ' {@link com.rcpcompany.uibindings.tests.shop.Customer#getContact
+	 * <em>Contact</em>}'. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Customer</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Customer</em>' reference isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -207,8 +212,8 @@ public interface Contact extends EObject {
 	Customer getCustomer();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Contact#getCustomer <em>Customer</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Contact#getCustomer
+	 * <em>Customer</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Customer</em>' reference.
 	 * @see #getCustomer()
@@ -219,8 +224,8 @@ public interface Contact extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Newsletter</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Newsletter</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Newsletter</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -233,8 +238,8 @@ public interface Contact extends EObject {
 	boolean isNewsletter();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Contact#isNewsletter <em>Newsletter</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Contact#isNewsletter
+	 * <em>Newsletter</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Newsletter</em>' attribute.
 	 * @see #isNewsletter()
@@ -245,8 +250,8 @@ public interface Contact extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Birthday</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Birthday</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Birthday</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -259,8 +264,8 @@ public interface Contact extends EObject {
 	Date getBirthday();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Contact#getBirthday <em>Birthday</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Contact#getBirthday
+	 * <em>Birthday</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Birthday</em>' attribute.
 	 * @see #getBirthday()

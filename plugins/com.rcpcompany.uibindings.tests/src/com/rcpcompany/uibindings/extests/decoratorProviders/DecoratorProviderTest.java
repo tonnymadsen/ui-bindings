@@ -118,6 +118,7 @@ public class DecoratorProviderTest<T, U> {
 				+ "')";
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				provider = manager.getProvider(myModelClass, myUIClass, myType);
 				assertNotNull(what + " provider is null", provider);
@@ -126,6 +127,7 @@ public class DecoratorProviderTest<T, U> {
 		});
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myDecorator = provider.getDecorator();
 				assertNotNull(what + " decorator null", myDecorator);
@@ -133,6 +135,7 @@ public class DecoratorProviderTest<T, U> {
 		});
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final IObservableList list = myDecorator.getValidUIList();
 				assertEquals(what + " validList not identical", list, myDecorator.getValidUIList());

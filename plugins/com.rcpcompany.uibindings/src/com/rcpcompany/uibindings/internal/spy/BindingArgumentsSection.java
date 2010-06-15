@@ -20,9 +20,7 @@ public class BindingArgumentsSection implements IBindingSpySection {
 	public void build(IFormCreator creator, ExecutionEvent event) {
 		final IBinding b = (IBinding) creator.getObject();
 
-		if (!b.eIsSet(IUIBindingsPackage.Literals.BINDING__ARGUMENTS)) {
-			return;
-		}
+		if (!b.eIsSet(IUIBindingsPackage.Literals.BINDING__ARGUMENTS)) return;
 
 		final IFormCreator subform = creator.addSection("Arguments");
 

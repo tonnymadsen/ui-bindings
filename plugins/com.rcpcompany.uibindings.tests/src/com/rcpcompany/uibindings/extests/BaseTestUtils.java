@@ -75,9 +75,11 @@ import com.rcpcompany.utils.logging.LogUtils;
  * @author Tonny Madsen, The RCP Company
  */
 public class BaseTestUtils {
+	private BaseTestUtils() {
+	}
 
 	/**
-	 * Resets the complete test environment
+	 * Resets the complete test environment.
 	 */
 	public static void resetAll() {
 		final IManager mng = IManager.Factory.getManager();
@@ -258,8 +260,8 @@ public class BaseTestUtils {
 	}
 
 	/**
-	 * Asserts that the specified runnable can be executed without any log messages or exceptions expect those that
-	 * match any of the ignorePatterns.
+	 * Asserts that the specified runnable can be executed without any log messages or exceptions
+	 * expect those that match any of the ignorePatterns.
 	 * 
 	 * @param run the runnable
 	 * @param ignorePatterns a list of {@link Pattern} for messages that are ignored
@@ -277,6 +279,9 @@ public class BaseTestUtils {
 		assertTrue("Log message: " + ll.lastMessage, ll.called == 0);
 	}
 
+	/**
+	 * Listener for log messages - used in {@link BaseTestUtils#assertNoLog(Runnable)}.
+	 */
 	private static class NoLogListener implements ILogListener {
 		public int called = 0;
 		public String lastMessage;
@@ -316,21 +321,22 @@ public class BaseTestUtils {
 	 */
 	public static void sleep(int msec) {
 		cont = false;
-		display.timerExec(msec, new Runnable() {
+		DISPLAY.timerExec(msec, new Runnable() {
 			@Override
 			public void run() {
 				cont = true;
 			}
 		});
 		while (!cont) {
-			if (!display.readAndDispatch()) {
-				display.sleep();
+			if (!DISPLAY.readAndDispatch()) {
+				DISPLAY.sleep();
 			}
 		}
 	}
 
 	public static void yield() {
-		while (display.readAndDispatch()) {
+		while (DISPLAY.readAndDispatch()) {
+			// Do nothing
 		}
 	}
 
@@ -428,7 +434,7 @@ public class BaseTestUtils {
 	public static void postKeyStroke(Control c, final String stroke, IServiceLocator locator,
 			final Class<? extends IHandler> handlerClass) {
 		final ICommandService cs = (ICommandService) locator.getService(ICommandService.class);
-		final boolean executed[] = new boolean[] { false };
+		final boolean[] executed = new boolean[] { false };
 		final IExecutionListener listener = new IExecutionListener() {
 			@Override
 			public void preExecute(String commandId, ExecutionEvent event) {
@@ -468,7 +474,7 @@ public class BaseTestUtils {
 	}
 
 	/**
-	 * Posts a mouse event for the specified control and point
+	 * Posts a mouse event for the specified control and point.
 	 * 
 	 * @param c the control
 	 * @param p the point
@@ -478,18 +484,19 @@ public class BaseTestUtils {
 	}
 
 	/**
-	 * Posts a mouse event for the specified control and point
+	 * Posts a mouse event for the specified control and point.
 	 * 
 	 * @param c the control
 	 */
 	public static void postMouse(Control c) {
 		final Rectangle bounds = c.getBounds();
-		bounds.x = bounds.y = 0;
+		bounds.x = 0;
+		bounds.y = 0;
 		postMouse(c, bounds, 1);
 	}
 
 	/**
-	 * Posts a mouse event for the specified control and point
+	 * Posts a mouse event for the specified control and point.
 	 * 
 	 * @param c the control
 	 * @param p the point
@@ -500,7 +507,7 @@ public class BaseTestUtils {
 	}
 
 	/**
-	 * Posts a mouse move event for the specified control and point
+	 * Posts a mouse move event for the specified control and point.
 	 * 
 	 * @param c the control
 	 * @param p the point in the control
@@ -517,7 +524,7 @@ public class BaseTestUtils {
 	}
 
 	/**
-	 * Posts a mouse event for the specified control and point
+	 * Posts a mouse event for the specified control and point.
 	 * 
 	 * @param modifiers a key stroke specification - only the modifier part is used
 	 * @param button TODO
@@ -566,7 +573,7 @@ public class BaseTestUtils {
 	}
 
 	/**
-	 * Posts a mouse event for the specified control and point
+	 * Posts a mouse event for the specified control and point.
 	 * 
 	 * @param modifiers TODO
 	 * @param c the control
@@ -579,7 +586,7 @@ public class BaseTestUtils {
 	}
 
 	/**
-	 * Posts a mouse event for the specified control and point
+	 * Posts a mouse event for the specified control and point.
 	 * 
 	 * @param c the control
 	 * @param bounds the bound of the area to click
@@ -599,7 +606,7 @@ public class BaseTestUtils {
 	}
 
 	/**
-	 * Posts a mouse event for the specified table cell
+	 * Posts a mouse event for the specified table cell.
 	 * 
 	 * @param t the table
 	 * @param column the column number
@@ -610,7 +617,7 @@ public class BaseTestUtils {
 	}
 
 	/**
-	 * Posts a mouse event for the specified control and point
+	 * Posts a mouse event for the specified control and point.
 	 * 
 	 * @param t the table
 	 * @param column the column number
@@ -633,7 +640,7 @@ public class BaseTestUtils {
 	}
 
 	/**
-	 * Posts a mouse event for the specified control and point
+	 * Posts a mouse event for the specified control and point.
 	 * 
 	 * @param t the table
 	 * @param column the column number
@@ -645,7 +652,7 @@ public class BaseTestUtils {
 	}
 
 	/**
-	 * Posts a mouse event for the specified control and point
+	 * Posts a mouse event for the specified control and point.
 	 * 
 	 * @param c the control
 	 * @param bounds the bound of the area to click
@@ -656,7 +663,7 @@ public class BaseTestUtils {
 	}
 
 	/**
-	 * Posts a mouse event for the specified control and point
+	 * Posts a mouse event for the specified control and point.
 	 * 
 	 * @param c the control
 	 * @param bounds the bound of the area to click
@@ -667,7 +674,7 @@ public class BaseTestUtils {
 	}
 
 	protected static boolean cont = false;
-	private static final Display display = Display.getDefault();
+	private static final Display DISPLAY = Display.getDefault();
 
 	/**
 	 * Asserts that the specified runnable can be executed without any log messages or exceptions.
@@ -689,6 +696,10 @@ public class BaseTestUtils {
 		return ll.lastStatus;
 	}
 
+	/**
+	 * Listener used to assert that exactly one log message is seen - used in
+	 * {@link BaseTestUtils#assertOneLog(Runnable)}.
+	 */
 	private static class OneLogLogListener implements ILogListener {
 		public IStatus lastStatus;
 

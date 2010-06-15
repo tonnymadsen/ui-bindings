@@ -78,9 +78,7 @@ public abstract class AbstractQuickfixProposalProcessor extends QuickfixProposal
 		@Override
 		public void apply() {
 			final IObservableValue observable = myMessage.getBinding().getUIObservable();
-			if (observable.getValueType() != String.class) {
-				return;
-			}
+			if (observable.getValueType() != String.class) return;
 			observable.setValue(myReplacementString);
 
 			final Control control = myMessage.getBinding().getControl();

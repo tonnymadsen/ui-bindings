@@ -13,23 +13,22 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
  * @author Tonny Madsen, The RCP Company
  */
 public class ActivatorUtils {
+	private ActivatorUtils() {
+	}
+
 	/**
 	 * Adds a single image to JFaceResources.
 	 * 
-	 * @param name
-	 *            the name of the image
-	 * @param id
-	 *            the id of the plug-in
-	 * @param image
-	 *            the image name including the extension
+	 * @param name the name of the image
+	 * @param id the id of the plug-in
+	 * @param image the image name including the extension
 	 */
-	public static void addImage(final String name, final String id,
-			final String image) {
+	public static void addImage(final String name, final String id, final String image) {
 		asyncExec(new Runnable() {
+			@Override
 			public void run() {
-				ImageRegistry ir = JFaceResources.getImageRegistry();
-				ir.put(name, AbstractUIPlugin.imageDescriptorFromPlugin(id,
-						image));
+				final ImageRegistry ir = JFaceResources.getImageRegistry();
+				ir.put(name, AbstractUIPlugin.imageDescriptorFromPlugin(id, image));
 			}
 		});
 	}
@@ -37,13 +36,13 @@ public class ActivatorUtils {
 	/**
 	 * Removes a single image from JFaceResources.
 	 * 
-	 * @param name
-	 *            the name of the image
+	 * @param name the name of the image
 	 */
 	public static void removeImage(final String name) {
 		asyncExec(new Runnable() {
+			@Override
 			public void run() {
-				ImageRegistry ir = JFaceResources.getImageRegistry();
+				final ImageRegistry ir = JFaceResources.getImageRegistry();
 				ir.remove(name);
 			}
 		});
@@ -53,17 +52,15 @@ public class ActivatorUtils {
 	 * The same as {@link Display#asyncExec(Runnable)}, only that
 	 * <ul>
 	 * <li>it is intelligent about how to get a Display,</li>
-	 * <li>and if the current thread is the event thread, the runnable is
-	 * executed immediately.</li>
+	 * <li>and if the current thread is the event thread, the runnable is executed immediately.</li>
 	 * </ul>
 	 * <p>
 	 * This method is safe to use even in activators.
 	 * 
-	 * @param runnable
-	 *            the runnable
+	 * @param runnable the runnable
 	 */
 	public static void asyncExec(Runnable runnable) {
-		Display current = getDisplay();
+		final Display current = getDisplay();
 
 		if (current.getThread() == Thread.currentThread()) {
 			runnable.run();
@@ -73,8 +70,8 @@ public class ActivatorUtils {
 	}
 
 	/**
-	 * Returns the current display. Creates a new display using
-	 * {@link PlatformUI}, if no current display exist.
+	 * Returns the current display. Creates a new display using {@link PlatformUI}, if no current
+	 * display exist.
 	 * 
 	 * @return the display
 	 */
@@ -91,8 +88,7 @@ public class ActivatorUtils {
 	 * <p>
 	 * Assumes that the activator is either in...
 	 * 
-	 * @param clazz
-	 *            the activator class
+	 * @param clazz the activator class
 	 * @return the ID
 	 */
 	public static String getID(Class<? extends Plugin> clazz) {

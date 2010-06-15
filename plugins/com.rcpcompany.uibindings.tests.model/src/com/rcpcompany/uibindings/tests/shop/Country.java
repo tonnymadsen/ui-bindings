@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.tests.shop;
@@ -12,7 +11,8 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Country</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Country</b></em>'. <!--
+ * end-user-doc -->
  * 
  * <p>
  * The following features are supported:
@@ -24,14 +24,14 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * 
  * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getCountry()
- * @model annotation="http://rcp-company.com/schemas/uibindings featureName='abbreviation'"
  * @generated
  */
 public interface Country extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -44,8 +44,8 @@ public interface Country extends EObject {
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Country#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Country#getName
+	 * <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
@@ -56,8 +56,8 @@ public interface Country extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Abbreviation</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Abbreviation</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Abbreviation</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -70,8 +70,8 @@ public interface Country extends EObject {
 	String getAbbreviation();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Country#getAbbreviation <em>Abbreviation</em>}
-	 * ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Country#getAbbreviation
+	 * <em>Abbreviation</em>} ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Abbreviation</em>' attribute.
 	 * @see #getAbbreviation()
@@ -80,11 +80,12 @@ public interface Country extends EObject {
 	void setAbbreviation(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Shop</b></em>' container reference. It is bidirectional and its opposite is '
-	 * {@link com.rcpcompany.uibindings.tests.shop.Shop#getCountries <em>Countries</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Shop</b></em>' container reference. It is bidirectional and
+	 * its opposite is ' {@link com.rcpcompany.uibindings.tests.shop.Shop#getCountries
+	 * <em>Countries</em>}'. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Shop</em>' container reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Shop</em>' container reference isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -98,8 +99,8 @@ public interface Country extends EObject {
 	Shop getShop();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Country#getShop <em>Shop</em>}' container
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Country#getShop
+	 * <em>Shop</em>}' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Shop</em>' container reference.
 	 * @see #getShop()
@@ -110,7 +111,8 @@ public interface Country extends EObject {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @model diagnosticsDataType="com.rcpcompany.uibindings.tests.shop.DiagnosticChain" diagnosticsRequired="true"
+	 * @model diagnosticsDataType="com.rcpcompany.uibindings.tests.shop.DiagnosticChain"
+	 *        diagnosticsRequired="true"
 	 * @generated
 	 */
 	boolean abbreviationLengthOK(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -118,7 +120,8 @@ public interface Country extends EObject {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @model diagnosticsDataType="com.rcpcompany.uibindings.tests.shop.DiagnosticChain" diagnosticsRequired="true"
+	 * @model diagnosticsDataType="com.rcpcompany.uibindings.tests.shop.DiagnosticChain"
+	 *        diagnosticsRequired="true"
 	 * @generated
 	 */
 	boolean abbreviationCaseOK(DiagnosticChain diagnostics, Map<Object, Object> context);

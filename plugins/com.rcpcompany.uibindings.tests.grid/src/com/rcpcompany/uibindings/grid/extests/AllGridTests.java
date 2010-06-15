@@ -15,7 +15,7 @@ import com.rcpcompany.uibindings.grid.extests.structure.GridStructureChangeTest;
 import com.rcpcompany.uibindings.grid.extests.structure.GridStructureTest;
 
 @RunWith(Suite.class)
-@Suite.SuiteClasses( {
+@Suite.SuiteClasses({
 
 		/*
 		 * All the basic UI Bindings tests

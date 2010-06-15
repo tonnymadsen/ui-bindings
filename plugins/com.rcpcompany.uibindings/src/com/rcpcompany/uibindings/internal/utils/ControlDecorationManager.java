@@ -25,13 +25,15 @@ import org.eclipse.swt.widgets.Shell;
 
 import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.internal.Activator;
+import com.rcpcompany.uibindings.internal.utils.ControlDecorationManager.DecorationData;
 import com.rcpcompany.uibindings.utils.IControlDecoration;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Manager for {@link IControlDecoration}.
  * <p>
- * A manager exists for each {@link Shell} of the application and is automatically disposed with the shell.
+ * A manager exists for each {@link Shell} of the application and is automatically disposed with the
+ * shell.
  * <p>
  * Each decoration of the manager is handled internally via an {@link DecorationData} object.
  * 
@@ -51,7 +53,8 @@ public class ControlDecorationManager implements IDisposable, Listener {
 
 	/**
 	 * Cached platform flag for dealing with platform-specific issue:
-	 * https://bugs.eclipse.org/bugs/show_bug.cgi?id=219326 : Shell with custom region and SWT.NO_TRIM still has border
+	 * https://bugs.eclipse.org/bugs/show_bug.cgi?id=219326 : Shell with custom region and
+	 * SWT.NO_TRIM still has border
 	 */
 	private static boolean MAC = Util.isMac();
 
@@ -115,9 +118,7 @@ public class ControlDecorationManager implements IDisposable, Listener {
 					+ decoration.getLocation());
 		}
 		final DecorationData dd = myDecorations.get(decoration);
-		if (dd == null) {
-			return;
-		}
+		if (dd == null) return;
 		dd.dispose();
 	}
 
@@ -145,9 +146,7 @@ public class ControlDecorationManager implements IDisposable, Listener {
 	 */
 	private static ControlDecorationManager getManager(IControlDecoration decoration) {
 		final Control c = decoration.getControl();
-		if (c == null) {
-			return null;
-		}
+		if (c == null) return null;
 		final Shell shell = c.getShell();
 		ControlDecorationManager mng = theManagers.get(shell);
 		if (mng == null) {
@@ -174,9 +173,7 @@ public class ControlDecorationManager implements IDisposable, Listener {
 	 * @param control the control
 	 */
 	public void hookControl(Control control) {
-		if (myHookedControls.contains(control)) {
-			return;
-		}
+		if (myHookedControls.contains(control)) return;
 
 		myHookedControls.add(control);
 		control.addListener(SWT.Dispose, this);
@@ -195,9 +192,7 @@ public class ControlDecorationManager implements IDisposable, Listener {
 	 * @param control the control
 	 */
 	public void unhookControl(Control control) {
-		if (!myHookedControls.contains(control)) {
-			return;
-		}
+		if (!myHookedControls.contains(control)) return;
 		myHookedControls.remove(control);
 		if (!control.isDisposed()) {
 			control.removeListener(SWT.Dispose, this);
@@ -296,9 +291,7 @@ public class ControlDecorationManager implements IDisposable, Listener {
 	 * @param event the SWT event that resulted in the hover
 	 */
 	protected void setHoverDecoration(DecorationData dd, Event event) {
-		if (dd == getHoverDecoration()) {
-			return;
-		}
+		if (dd == getHoverDecoration()) return;
 		/*
 		 * Remove the exiting hover if present
 		 */
@@ -459,9 +452,7 @@ public class ControlDecorationManager implements IDisposable, Listener {
 		private Rectangle getDecorationRectangle(Control c) {
 			final Image image = getDecoration().getImage();
 			final Control control = getDecoration().getControl();
-			if (image == null) {
-				return null;
-			}
+			if (image == null) return null;
 
 			final Rectangle bounds = image.getBounds();
 			final Point location = getDecoration().getLocation();
@@ -486,13 +477,12 @@ public class ControlDecorationManager implements IDisposable, Listener {
 			// return;
 			// }
 			final Image image = getDecoration().getImage();
-			if (image == null) {
-				return;
-			}
+			if (image == null) return;
 
 			final Rectangle rect = getDecorationRectangle((Control) event.widget);
 			// final Color oldForeground = event.gc.getForeground();
-			// event.gc.setForeground(((Control) event.widget).getDisplay().getSystemColor(SWT.COLOR_RED));
+			// event.gc.setForeground(((Control)
+			// event.widget).getDisplay().getSystemColor(SWT.COLOR_RED));
 			// event.gc.drawRectangle(rect);
 			// event.gc.setForeground(oldForeground);
 			if (Activator.getDefault().TRACE_CONTROL_DECORATIONS_VERBOSE) {
@@ -509,16 +499,10 @@ public class ControlDecorationManager implements IDisposable, Listener {
 		 * @return <code>true</code> if the decoration is visible and the area intersects
 		 */
 		public boolean intersects(Rectangle eventArea, boolean fuzzy) {
-			if (isDisposed) {
-				return false;
-			}
-			if (!getControl().isVisible()) {
-				return false;
-			}
+			if (isDisposed) return false;
+			if (!getControl().isVisible()) return false;
 			final Rectangle area = getDecorationRectangle(null);
-			if (area == null) {
-				return false;
-			}
+			if (area == null) return false;
 			if (fuzzy) {
 				if (area.width < FUZZY_SIZE) {
 					final int d = FUZZY_SIZE - area.width;
@@ -531,9 +515,7 @@ public class ControlDecorationManager implements IDisposable, Listener {
 					area.height += d / 2;
 				}
 			}
-			if (!area.intersects(eventArea)) {
-				return false;
-			}
+			if (!area.intersects(eventArea)) return false;
 
 			return true;
 		}
@@ -597,8 +579,8 @@ public class ControlDecorationManager implements IDisposable, Listener {
 		Region region;
 
 		/**
-		 * Boolean indicating whether the last computed polygon location had an arrow on left. (true if left, false if
-		 * right).
+		 * Boolean indicating whether the last computed polygon location had an arrow on left. (true
+		 * if left, false if right).
 		 */
 		boolean arrowOnLeft = true;
 
@@ -612,6 +594,7 @@ public class ControlDecorationManager implements IDisposable, Listener {
 			myHoverShell.setBackground(display.getSystemColor(SWT.COLOR_INFO_BACKGROUND));
 			myHoverShell.setForeground(display.getSystemColor(SWT.COLOR_INFO_FOREGROUND));
 			myHoverShell.addPaintListener(new PaintListener() {
+				@Override
 				public void paintControl(PaintEvent pe) {
 					pe.gc.drawText(myLastText, hm, hm);
 					if (!MAC) {
@@ -628,16 +611,16 @@ public class ControlDecorationManager implements IDisposable, Listener {
 		}
 
 		/*
-		 * Compute a polygon that represents a hover with an arrow pointer. If border is true, compute the polygon inset
-		 * by 1-pixel border. Consult the arrowOnLeft flag to determine which side the arrow is on.
+		 * Compute a polygon that represents a hover with an arrow pointer. If border is true,
+		 * compute the polygon inset by 1-pixel border. Consult the arrowOnLeft flag to determine
+		 * which side the arrow is on.
 		 */
 		int[] getPolygon(boolean border) {
 			final Point e = getHoverSize();
 			final int b = border ? 1 : 0;
-			if (arrowOnLeft) {
+			if (arrowOnLeft)
 				return new int[] { 0, 0, e.x - b, 0, e.x - b, e.y - b, hao + haw, e.y - b, hao + haw / 2,
 						e.y + hah - b, hao, e.y - b, 0, e.y - b, 0, 0 };
-			}
 			return new int[] { 0, 0, e.x - b, 0, e.x - b, e.y - b, e.x - hao - b, e.y - b, e.x - hao - haw / 2,
 					e.y + hah - b, e.x - hao - haw, e.y - b, 0, e.y - b, 0, 0 };
 		}

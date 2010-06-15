@@ -23,9 +23,7 @@ public class ArgumentMessageFormatExtender extends AbstractUIBindingDecoratorExt
 	public void extend(IUIBindingDecoratorExtenderContext context) {
 		final IValueBinding binding = context.getBinding();
 		final String format = binding.getArgument(Constants.ARG_MESSAGE_FORMAT, String.class, null);
-		if (format == null) {
-			return;
-		}
+		if (format == null) return;
 
 		context.setMessageFormat(format);
 	}

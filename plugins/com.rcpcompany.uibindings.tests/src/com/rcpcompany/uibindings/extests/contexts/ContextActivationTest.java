@@ -121,6 +121,7 @@ public class ContextActivationTest {
 	@Test
 	public void testExistence() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final Collection ids = myCS.getDefinedContextIds();
 				assertTrue(ids.contains(Constants.COMMON_CONTEXT_ID));
@@ -148,6 +149,7 @@ public class ContextActivationTest {
 	@Test
 	public void testNotContext() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myText.setFocus();
 				final Collection ids = myCS.getActiveContextIds();
@@ -161,6 +163,7 @@ public class ContextActivationTest {
 	@Test
 	public void testValueContext() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myText.setFocus();
 				myNameText.setFocus();
@@ -175,6 +178,7 @@ public class ContextActivationTest {
 	@Test
 	public void testViewerContext() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myText.setFocus();
 				myTable.setFocus();

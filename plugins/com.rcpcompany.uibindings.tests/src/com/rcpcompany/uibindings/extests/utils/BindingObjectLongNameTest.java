@@ -52,11 +52,13 @@ public class BindingObjectLongNameTest {
 
 	@Test
 	public void testLongNameSelection() {
-		assertEquals("hello, 42", IBindingObjectLongName.Factory.getLongName(new StructuredSelection(new Object[] {
-				myShop, myTO })));
+		assertEquals("hello, 42",
+				IBindingObjectLongName.Factory.getLongName(new StructuredSelection(new Object[] { myShop, myTO })));
 		// Ignore non-eobjs
-		assertEquals("hello, 42", IBindingObjectLongName.Factory.getLongName(new StructuredSelection(new Object[] {
-				myShop, myTO, "no way" })));
+		assertEquals(
+				"hello, 42",
+				IBindingObjectLongName.Factory.getLongName(new StructuredSelection(new Object[] { myShop, myTO,
+						"no way" })));
 		assertEquals("42", IBindingObjectLongName.Factory.getLongName(new StructuredSelection(myTO)));
 	}
 }

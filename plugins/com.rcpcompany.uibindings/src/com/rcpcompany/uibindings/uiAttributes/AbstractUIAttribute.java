@@ -9,8 +9,8 @@ import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.internal.UIAttributeImpl;
 
 /**
- * Abstract base class for all {@link IUIAttribute} implementations. Used to isolate the concreate implementations from
- * trivial changes in the interface.
+ * Abstract base class for all {@link IUIAttribute} implementations. Used to isolate the concreate
+ * implementations from trivial changes in the interface.
  * 
  * @author Tonny Madsen, The RCP Company
  * @since 1.3

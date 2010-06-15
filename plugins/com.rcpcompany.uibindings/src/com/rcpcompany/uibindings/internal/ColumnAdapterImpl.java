@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -15,7 +14,8 @@ import com.rcpcompany.uibindings.IColumnAdapter;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Column Adapter</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Column Adapter</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -26,7 +26,8 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
  * <li>{@link com.rcpcompany.uibindings.internal.ColumnAdapterImpl#isMoveable <em>Moveable</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ColumnAdapterImpl#isResizable <em>Resizable</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ColumnAdapterImpl#getWidth <em>Width</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ColumnAdapterImpl#getToolTipText <em>Tool Tip Text</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ColumnAdapterImpl#getToolTipText <em>Tool Tip Text
+ * </em>}</li>
  * </ul>
  * </p>
  * 
@@ -34,8 +35,8 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
  */
 public abstract class ColumnAdapterImpl extends EObjectImpl implements IColumnAdapter {
 	/**
-	 * The default value of the '{@link #getWidget() <em>Widget</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getWidget() <em>Widget</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getWidget()
 	 * @generated
@@ -44,8 +45,8 @@ public abstract class ColumnAdapterImpl extends EObjectImpl implements IColumnAd
 	protected static final Widget WIDGET_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getText() <em>Text</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getText() <em>Text</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getText()
 	 * @generated
@@ -54,8 +55,8 @@ public abstract class ColumnAdapterImpl extends EObjectImpl implements IColumnAd
 	protected static final String TEXT_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getAlignment() <em>Alignment</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getAlignment() <em>Alignment</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getAlignment()
 	 * @generated
@@ -64,8 +65,8 @@ public abstract class ColumnAdapterImpl extends EObjectImpl implements IColumnAd
 	protected static final int ALIGNMENT_EDEFAULT = 0;
 
 	/**
-	 * The default value of the '{@link #getImage() <em>Image</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getImage() <em>Image</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getImage()
 	 * @generated
@@ -74,8 +75,8 @@ public abstract class ColumnAdapterImpl extends EObjectImpl implements IColumnAd
 	protected static final Image IMAGE_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #isMoveable() <em>Moveable</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #isMoveable() <em>Moveable</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isMoveable()
 	 * @generated
@@ -84,8 +85,8 @@ public abstract class ColumnAdapterImpl extends EObjectImpl implements IColumnAd
 	protected static final boolean MOVEABLE_EDEFAULT = false;
 
 	/**
-	 * The default value of the '{@link #isResizable() <em>Resizable</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #isResizable() <em>Resizable</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isResizable()
 	 * @generated
@@ -94,8 +95,8 @@ public abstract class ColumnAdapterImpl extends EObjectImpl implements IColumnAd
 	protected static final boolean RESIZABLE_EDEFAULT = false;
 
 	/**
-	 * The default value of the '{@link #getWidth() <em>Width</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getWidth() <em>Width</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getWidth()
 	 * @generated
@@ -104,8 +105,8 @@ public abstract class ColumnAdapterImpl extends EObjectImpl implements IColumnAd
 	protected static final int WIDTH_EDEFAULT = 0;
 
 	/**
-	 * The default value of the '{@link #getToolTipText() <em>Tool Tip Text</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getToolTipText() <em>Tool Tip Text</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getToolTipText()
 	 * @generated
@@ -137,6 +138,7 @@ public abstract class ColumnAdapterImpl extends EObjectImpl implements IColumnAd
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract Widget getWidget();
 
 	/**
@@ -144,6 +146,7 @@ public abstract class ColumnAdapterImpl extends EObjectImpl implements IColumnAd
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract String getText();
 
 	/**
@@ -151,6 +154,7 @@ public abstract class ColumnAdapterImpl extends EObjectImpl implements IColumnAd
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract void setText(String newText);
 
 	/**
@@ -158,6 +162,7 @@ public abstract class ColumnAdapterImpl extends EObjectImpl implements IColumnAd
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract int getAlignment();
 
 	/**
@@ -165,6 +170,7 @@ public abstract class ColumnAdapterImpl extends EObjectImpl implements IColumnAd
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract void setAlignment(int newAlignment);
 
 	/**
@@ -172,6 +178,7 @@ public abstract class ColumnAdapterImpl extends EObjectImpl implements IColumnAd
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract Image getImage();
 
 	/**
@@ -179,6 +186,7 @@ public abstract class ColumnAdapterImpl extends EObjectImpl implements IColumnAd
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract void setImage(Image newImage);
 
 	/**
@@ -186,6 +194,7 @@ public abstract class ColumnAdapterImpl extends EObjectImpl implements IColumnAd
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract boolean isMoveable();
 
 	/**
@@ -193,6 +202,7 @@ public abstract class ColumnAdapterImpl extends EObjectImpl implements IColumnAd
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract void setMoveable(boolean newMoveable);
 
 	/**
@@ -200,6 +210,7 @@ public abstract class ColumnAdapterImpl extends EObjectImpl implements IColumnAd
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract boolean isResizable();
 
 	/**
@@ -207,6 +218,7 @@ public abstract class ColumnAdapterImpl extends EObjectImpl implements IColumnAd
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract void setResizable(boolean newResizable);
 
 	/**
@@ -214,6 +226,7 @@ public abstract class ColumnAdapterImpl extends EObjectImpl implements IColumnAd
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract int getWidth();
 
 	/**
@@ -221,6 +234,7 @@ public abstract class ColumnAdapterImpl extends EObjectImpl implements IColumnAd
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract void setWidth(int newWidth);
 
 	/**
@@ -228,6 +242,7 @@ public abstract class ColumnAdapterImpl extends EObjectImpl implements IColumnAd
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract String getToolTipText();
 
 	/**
@@ -235,6 +250,7 @@ public abstract class ColumnAdapterImpl extends EObjectImpl implements IColumnAd
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract void setToolTipText(String newToolTipText);
 
 	/**

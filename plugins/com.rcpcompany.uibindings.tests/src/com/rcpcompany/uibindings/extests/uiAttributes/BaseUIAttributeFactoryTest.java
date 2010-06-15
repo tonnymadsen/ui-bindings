@@ -24,9 +24,7 @@ public class BaseUIAttributeFactoryTest<T> {
 	protected void testObservableValue(final T widget, String attribute, final IObservableValue value,
 			Class<?> expectedValueType, String propertyName) {
 		assertEquals(expectedValueType, value.getValueType());
-		if (propertyName == null) {
-			return;
-		}
+		if (propertyName == null) return;
 		final PropertyDescriptor descriptor = getPropertyDescriptor(widget.getClass(), propertyName);
 		assertNotNull(descriptor);
 		assertEquals(expectedValueType, descriptor.getPropertyType());
@@ -88,9 +86,7 @@ public class BaseUIAttributeFactoryTest<T> {
 	protected void testObservableList(T widget, String attribute, IObservableList list, Class<?> expectedElementType,
 			String propertyName) {
 		assertEquals(expectedElementType, list.getElementType());
-		if (propertyName == null) {
-			return;
-		}
+		if (propertyName == null) return;
 		final PropertyDescriptor descriptor = getPropertyDescriptor(widget.getClass(), propertyName);
 		assertNotNull(descriptor);
 
@@ -124,7 +120,8 @@ public class BaseUIAttributeFactoryTest<T> {
 		for (final Object o : a) {
 			list.add(o);
 		}
-		// assertEquals(widget.getClass().getName() + " attribute '" + attribute + "': expected <" + v + "> but was <"
+		// assertEquals(widget.getClass().getName() + " attribute '" + attribute + "': expected <" +
+		// v + "> but was <"
 		// + valueV + ">", v, valueV);
 
 		final Method readMethod = descriptor.getReadMethod();
@@ -162,9 +159,7 @@ public class BaseUIAttributeFactoryTest<T> {
 		}
 		final PropertyDescriptor[] propertyDescriptors = beanInfo.getPropertyDescriptors();
 		for (final PropertyDescriptor descriptor : propertyDescriptors) {
-			if (descriptor.getName().equals(propertyName)) {
-				return descriptor;
-			}
+			if (descriptor.getName().equals(propertyName)) return descriptor;
 		}
 		fail("Cannot find " + beanClass.getName() + " property '" + propertyName + "'");
 		return null;

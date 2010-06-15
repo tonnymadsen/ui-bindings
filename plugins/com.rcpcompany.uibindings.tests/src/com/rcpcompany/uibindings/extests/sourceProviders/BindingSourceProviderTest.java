@@ -192,8 +192,8 @@ public class BindingSourceProviderTest {
 
 		myViewerBinding = myContext.addViewer(myTableViewer, myShop, ShopPackage.Literals.SHOP__CONTACTS);
 		myNameColumnBinding = myViewerBinding.addColumn(myNameColumn, ShopPackage.Literals.CONTACT__NAME);
-		myCountryColumnBinding = myViewerBinding.addColumn(myCountryColumn, ShopPackage.Literals.CONTACT__COUNTRY).arg(
-				Constants.ARG_FEATURE_NAME, "abbreviation").validValues(countries);
+		myCountryColumnBinding = myViewerBinding.addColumn(myCountryColumn, ShopPackage.Literals.CONTACT__COUNTRY)
+				.arg(Constants.ARG_FEATURE_NAME, "abbreviation").validValues(countries);
 		myCountryNameColumnBinding = myCountryColumnBinding.addColumn(myCountryNameColumn,
 				ShopPackage.Literals.COUNTRY__NAME).readonly();
 
@@ -284,7 +284,8 @@ public class BindingSourceProviderTest {
 	}
 
 	/**
-	 * Tests that the names in the current state are exactly the same as the ones in the reported sources.
+	 * Tests that the names in the current state are exactly the same as the ones in the reported
+	 * sources.
 	 */
 	@Test
 	public void testNames() {

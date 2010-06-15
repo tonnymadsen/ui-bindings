@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings;
@@ -13,8 +12,9 @@ import java.util.List;
 import org.eclipse.emf.common.util.Enumerator;
 
 /**
- * <!-- begin-user-doc --> A representation of the literals of the enumeration '<em><b>Binding Message Severity</b></em>
- * ', and utility methods for working with them. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the literals of the enumeration '
+ * <em><b>Binding Message Severity</b></em> ', and utility methods for working with them. <!--
+ * end-user-doc -->
  * 
  * @see com.rcpcompany.uibindings.IUIBindingsPackage#getBindingMessageSeverity()
  * @generated
@@ -30,7 +30,8 @@ public enum BindingMessageSeverity implements Enumerator {
 	NONE(0, "None", "NONE"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
-	 * The '<em><b>Information</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The '<em><b>Information</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @see #INFORMATION_VALUE
 	 * @generated
@@ -59,8 +60,8 @@ public enum BindingMessageSeverity implements Enumerator {
 	/**
 	 * The '<em><b>None</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>NONE</b></em>' literal object isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of '<em><b>NONE</b></em>' literal object isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -73,8 +74,8 @@ public enum BindingMessageSeverity implements Enumerator {
 	/**
 	 * The '<em><b>Information</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>INFORMATION</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>INFORMATION</b></em>' literal object isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -87,8 +88,8 @@ public enum BindingMessageSeverity implements Enumerator {
 	/**
 	 * The '<em><b>Warning</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>WARNING</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>WARNING</b></em>' literal object isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -101,8 +102,8 @@ public enum BindingMessageSeverity implements Enumerator {
 	/**
 	 * The '<em><b>Error</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>ERROR</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>ERROR</b></em>' literal object isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -113,8 +114,8 @@ public enum BindingMessageSeverity implements Enumerator {
 	public static final int ERROR_VALUE = 3;
 
 	/**
-	 * An array of all the '<em><b>Binding Message Severity</b></em>' enumerators. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * An array of all the '<em><b>Binding Message Severity</b></em>' enumerators. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -122,48 +123,44 @@ public enum BindingMessageSeverity implements Enumerator {
 			WARNING, ERROR, };
 
 	/**
-	 * A public read-only list of all the '<em><b>Binding Message Severity</b></em>' enumerators. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * A public read-only list of all the '<em><b>Binding Message Severity</b></em>' enumerators.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static final List<BindingMessageSeverity> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Binding Message Severity</b></em>' literal with the specified literal value. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the '<em><b>Binding Message Severity</b></em>' literal with the specified literal
+	 * value. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static BindingMessageSeverity get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			final BindingMessageSeverity result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
-				return result;
-			}
+			if (result.toString().equals(literal)) return result;
 		}
 		return null;
 	}
 
 	/**
-	 * Returns the '<em><b>Binding Message Severity</b></em>' literal with the specified name. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the '<em><b>Binding Message Severity</b></em>' literal with the specified name. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static BindingMessageSeverity getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			final BindingMessageSeverity result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
-				return result;
-			}
+			if (result.getName().equals(name)) return result;
 		}
 		return null;
 	}
 
 	/**
-	 * Returns the '<em><b>Binding Message Severity</b></em>' literal with the specified integer value. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the '<em><b>Binding Message Severity</b></em>' literal with the specified integer
+	 * value. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -218,6 +215,7 @@ public enum BindingMessageSeverity implements Enumerator {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 		return value;
 	}
@@ -227,6 +225,7 @@ public enum BindingMessageSeverity implements Enumerator {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -236,13 +235,14 @@ public enum BindingMessageSeverity implements Enumerator {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 		return literal;
 	}
 
 	/**
-	 * Returns the literal value of the enumerator, which is its string representation. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Returns the literal value of the enumerator, which is its string representation. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */

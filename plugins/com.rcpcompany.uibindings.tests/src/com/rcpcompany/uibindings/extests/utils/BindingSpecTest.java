@@ -156,6 +156,7 @@ public class BindingSpecTest {
 
 	public void testSimpleSpecSyntaxError(final String spec) {
 		assertOneLog(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					IBindingSpec.Factory.parseSingleSpec(ShopPackage.Literals.CONTACT, spec);

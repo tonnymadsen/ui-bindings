@@ -89,6 +89,7 @@ public class CreationPointTest {
 	@Test
 	public void testValue() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				context = IBindingContext.Factory.createContext(myView.getScrolledForm());
 
@@ -107,9 +108,11 @@ public class CreationPointTest {
 		});
 
 		/*
-		 * When we finish below, the model side of the binding has not been made, so it will result in an exception
+		 * When we finish below, the model side of the binding has not been made, so it will result
+		 * in an exception
 		 */
 		final IStatus status = assertOneLog(new Runnable() {
+			@Override
 			public void run() {
 				context.finish();
 				yield();

@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.tests.shop;
@@ -13,8 +12,8 @@ import java.util.List;
 import org.eclipse.emf.common.util.Enumerator;
 
 /**
- * <!-- begin-user-doc --> A representation of the literals of the enumeration '<em><b>Customer Type</b></em>', and
- * utility methods for working with them. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the literals of the enumeration '
+ * <em><b>Customer Type</b></em>', and utility methods for working with them. <!-- end-user-doc -->
  * 
  * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getCustomerType()
  * @model
@@ -51,8 +50,8 @@ public enum CustomerType implements Enumerator {
 	/**
 	 * The '<em><b>BRONCE</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Bronce</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>Bronce</b></em>' literal object isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -66,8 +65,8 @@ public enum CustomerType implements Enumerator {
 	/**
 	 * The '<em><b>SILVER</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Silver</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>Silver</b></em>' literal object isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -81,8 +80,8 @@ public enum CustomerType implements Enumerator {
 	/**
 	 * The '<em><b>GOLD</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Gold</b></em>' literal object isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of '<em><b>Gold</b></em>' literal object isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -94,55 +93,52 @@ public enum CustomerType implements Enumerator {
 	public static final int GOLD_VALUE = 2;
 
 	/**
-	 * An array of all the '<em><b>Customer Type</b></em>' enumerators. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * An array of all the '<em><b>Customer Type</b></em>' enumerators. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	private static final CustomerType[] VALUES_ARRAY = new CustomerType[] { BRONCE, SILVER, GOLD, };
 
 	/**
-	 * A public read-only list of all the '<em><b>Customer Type</b></em>' enumerators. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * A public read-only list of all the '<em><b>Customer Type</b></em>' enumerators. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static final List<CustomerType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Customer Type</b></em>' literal with the specified literal value. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the '<em><b>Customer Type</b></em>' literal with the specified literal value. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static CustomerType get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			final CustomerType result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
-				return result;
-			}
+			if (result.toString().equals(literal)) return result;
 		}
 		return null;
 	}
 
 	/**
-	 * Returns the '<em><b>Customer Type</b></em>' literal with the specified name. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Returns the '<em><b>Customer Type</b></em>' literal with the specified name. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static CustomerType getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			final CustomerType result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
-				return result;
-			}
+			if (result.getName().equals(name)) return result;
 		}
 		return null;
 	}
 
 	/**
-	 * Returns the '<em><b>Customer Type</b></em>' literal with the specified integer value. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the '<em><b>Customer Type</b></em>' literal with the specified integer value. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -195,6 +191,7 @@ public enum CustomerType implements Enumerator {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 		return value;
 	}
@@ -204,6 +201,7 @@ public enum CustomerType implements Enumerator {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -213,13 +211,14 @@ public enum CustomerType implements Enumerator {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 		return literal;
 	}
 
 	/**
-	 * Returns the literal value of the enumerator, which is its string representation. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Returns the literal value of the enumerator, which is its string representation. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */

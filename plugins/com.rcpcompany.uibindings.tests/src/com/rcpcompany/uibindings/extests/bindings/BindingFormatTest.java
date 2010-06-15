@@ -102,8 +102,8 @@ public class BindingFormatTest {
 		final IObservableList countries = UIBindingsEMFObservables.observeList(myContext.getEditingDomain(), myShop,
 				ShopPackage.Literals.SHOP__COUNTRIES);
 
-		myBinding = myContext.addBinding(myText, myContact, ShopPackage.Literals.CONTACT__COUNTRY).arg(
-				Constants.ARG_MESSAGE_FORMAT, "{0} is it").readonly().validValues(countries);
+		myBinding = myContext.addBinding(myText, myContact, ShopPackage.Literals.CONTACT__COUNTRY)
+				.arg(Constants.ARG_MESSAGE_FORMAT, "{0} is it").readonly().validValues(countries);
 
 		myContext.finish();
 		yield();

@@ -130,7 +130,8 @@ public class DoubleClickAdapterTest {
 	}
 
 	/**
-	 * Tests the executed command as defined on the viewer, as the column does not have an associated command
+	 * Tests the executed command as defined on the viewer, as the column does not have an
+	 * associated command
 	 */
 	@Test
 	public void viewerValueTest() {

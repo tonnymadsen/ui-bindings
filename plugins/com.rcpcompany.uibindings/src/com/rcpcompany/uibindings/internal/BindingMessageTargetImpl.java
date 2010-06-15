@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -17,14 +16,17 @@ import com.rcpcompany.uibindings.IBindingMessageTarget;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Binding Message Target</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Binding Message Target</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageTargetImpl#getModelObject <em>Model Object</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageTargetImpl#getModelFeature <em>Model Feature</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageTargetImpl#getModelKey <em>Model Key</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageTargetImpl#getModelObject <em>Model
+ * Object</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageTargetImpl#getModelFeature <em>Model
+ * Feature</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageTargetImpl#getModelKey <em>Model Key
+ * </em>}</li>
  * </ul>
  * </p>
  * 
@@ -32,8 +34,8 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
  */
 public class BindingMessageTargetImpl extends EObjectImpl implements IBindingMessageTarget {
 	/**
-	 * The cached value of the '{@link #getModelObject() <em>Model Object</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getModelObject() <em>Model Object</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getModelObject()
 	 * @generated
@@ -42,8 +44,8 @@ public class BindingMessageTargetImpl extends EObjectImpl implements IBindingMes
 	protected EObject modelObject;
 
 	/**
-	 * The cached value of the '{@link #getModelFeature() <em>Model Feature</em>}' reference. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getModelFeature() <em>Model Feature</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getModelFeature()
 	 * @generated
@@ -52,8 +54,8 @@ public class BindingMessageTargetImpl extends EObjectImpl implements IBindingMes
 	protected EStructuralFeature modelFeature;
 
 	/**
-	 * The default value of the '{@link #getModelKey() <em>Model Key</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getModelKey() <em>Model Key</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getModelKey()
 	 * @generated
@@ -62,8 +64,8 @@ public class BindingMessageTargetImpl extends EObjectImpl implements IBindingMes
 	protected static final Object MODEL_KEY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getModelKey() <em>Model Key</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getModelKey() <em>Model Key</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getModelKey()
 	 * @generated
@@ -95,6 +97,7 @@ public class BindingMessageTargetImpl extends EObjectImpl implements IBindingMes
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EObject getModelObject() {
 		return modelObject;
 	}
@@ -118,6 +121,7 @@ public class BindingMessageTargetImpl extends EObjectImpl implements IBindingMes
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EStructuralFeature getModelFeature() {
 		return modelFeature;
 	}
@@ -141,6 +145,7 @@ public class BindingMessageTargetImpl extends EObjectImpl implements IBindingMes
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Object getModelKey() {
 		return modelKey;
 	}
@@ -244,9 +249,7 @@ public class BindingMessageTargetImpl extends EObjectImpl implements IBindingMes
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (modelKey: "); //$NON-NLS-1$

@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibinding.tests.model;
@@ -9,8 +8,8 @@ package com.rcpcompany.uibinding.tests.model;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Amount And Currency</b></em>'. <!-- end-user-doc
- * -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Amount And Currency</b></em>
+ * '. <!-- end-user-doc -->
  * 
  * <p>
  * The following features are supported:
@@ -28,8 +27,8 @@ public interface AmountAndCurrency extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Amount</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Amount</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Amount</em>' attribute isn't clear, there really should be more of
+	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -42,7 +41,8 @@ public interface AmountAndCurrency extends EObject {
 	float getAmount();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.AmountAndCurrency#getAmount <em>Amount</em>}'
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibinding.tests.model.AmountAndCurrency#getAmount <em>Amount</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Amount</em>' attribute.
@@ -54,8 +54,8 @@ public interface AmountAndCurrency extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Currency</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Currency</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Currency</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -68,8 +68,9 @@ public interface AmountAndCurrency extends EObject {
 	String getCurrency();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.AmountAndCurrency#getCurrency
-	 * <em>Currency</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibinding.tests.model.AmountAndCurrency#getCurrency <em>Currency</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Currency</em>' attribute.
 	 * @see #getCurrency()

@@ -49,9 +49,7 @@ public abstract class AbstractPreferenceStoreBooleanTest {
 
 		@Override
 		public void notifyChanged(Notification msg) {
-			if (msg.getEventType() == Notification.REMOVING_ADAPTER) {
-				return;
-			}
+			if (msg.getEventType() == Notification.REMOVING_ADAPTER) return;
 			assertEquals(Notification.SET, msg.getEventType());
 			assertEquals(getFeature(), msg.getFeature());
 			assertEquals(myOldValue, msg.getOldValue());
@@ -75,6 +73,7 @@ public abstract class AbstractPreferenceStoreBooleanTest {
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				m.eAdapters().add(adapter);
 				ps.setValue(getPreferenceName(), newValue);
@@ -111,6 +110,7 @@ public abstract class AbstractPreferenceStoreBooleanTest {
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				m.eAdapters().add(adapter);
 				m.eSet(getFeature(), newValue);

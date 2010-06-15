@@ -85,8 +85,8 @@ public class BindingSpyDialog extends PopupDialog {
 
 		final IFormCreator form = IFormCreator.Factory.createScrolledForm(myBinding, myTop, "Binding Spy");
 		form.setReadOnly(true);
-		final Image image = PlatformUI.getWorkbench().getSharedImages().getImageDescriptor(
-				ISharedImages.IMG_OBJ_ELEMENT).createImage();
+		final Image image = PlatformUI.getWorkbench().getSharedImages()
+				.getImageDescriptor(ISharedImages.IMG_OBJ_ELEMENT).createImage();
 		final ScrolledForm scrolledForm = form.getScrolledForm();
 		scrolledForm.setImage(image);
 
@@ -117,9 +117,7 @@ public class BindingSpyDialog extends PopupDialog {
 	@Override
 	protected Point getInitialLocation(Point size) {
 		final Point anchor = getShell().getDisplay().getCursorLocation();
-		if (anchor == null) {
-			return super.getInitialLocation(size);
-		}
+		if (anchor == null) return super.getInitialLocation(size);
 		final Point point = anchor;
 		final Rectangle monitor = getShell().getMonitor().getClientArea();
 		if (monitor.width < point.x + size.x) {

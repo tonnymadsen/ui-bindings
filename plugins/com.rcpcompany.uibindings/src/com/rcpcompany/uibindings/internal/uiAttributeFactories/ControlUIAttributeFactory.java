@@ -23,21 +23,19 @@ public class ControlUIAttributeFactory implements IUIAttributeFactory {
 		}
 
 		private static IObservableValue createValue(Control c, String attribute) {
-			if (Constants.ATTR_BACKGROUND.equals(attribute)) {
+			if (Constants.ATTR_BACKGROUND.equals(attribute))
 				return SWTObservables.observeBackground(c);
-			} else if (Constants.ATTR_FOREGROUND.equals(attribute)) {
+			else if (Constants.ATTR_FOREGROUND.equals(attribute))
 				return SWTObservables.observeForeground(c);
-			} else if (Constants.ATTR_FONT.equals(attribute)) {
+			else if (Constants.ATTR_FONT.equals(attribute))
 				return SWTObservables.observeFont(c);
-			} else if (Constants.ATTR_ENABLED.equals(attribute)) {
+			else if (Constants.ATTR_ENABLED.equals(attribute))
 				return SWTObservables.observeEnabled(c);
-			} else if (Constants.ATTR_VISIBLE.equals(attribute)) {
+			else if (Constants.ATTR_VISIBLE.equals(attribute))
 				return SWTObservables.observeVisible(c);
-			} else if (Constants.ATTR_TOOLTIP.equals(attribute)) {
+			else if (Constants.ATTR_TOOLTIP.equals(attribute))
 				return SWTObservables.observeTooltipText(c);
-			} else if (Constants.ATTR_CURSOR.equals(attribute)) {
-				return new ControlCursorObservableValue(c);
-			}
+			else if (Constants.ATTR_CURSOR.equals(attribute)) return new ControlCursorObservableValue(c);
 			return null;
 		}
 	}

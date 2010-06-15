@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.tests.shop.impl;
@@ -23,7 +22,8 @@ import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Contact</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Contact</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -34,7 +34,8 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ContactImpl#getZip <em>Zip</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ContactImpl#getCountry <em>Country</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ContactImpl#getCustomer <em>Customer</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ContactImpl#isNewsletter <em>Newsletter</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ContactImpl#isNewsletter <em>Newsletter
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ContactImpl#getBirthday <em>Birthday</em>}</li>
  * </ul>
  * </p>
@@ -43,8 +44,8 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  */
 public class ContactImpl extends EObjectImpl implements Contact {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getName()
 	 * @generated
@@ -53,8 +54,8 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getName()
 	 * @generated
@@ -63,8 +64,8 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getAddress() <em>Address</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getAddress() <em>Address</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getAddress()
 	 * @generated
@@ -73,8 +74,8 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	protected static final String ADDRESS_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getAddress() <em>Address</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getAddress() <em>Address</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getAddress()
 	 * @generated
@@ -83,8 +84,8 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	protected String address = ADDRESS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getCity() <em>City</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getCity() <em>City</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getCity()
 	 * @generated
@@ -93,8 +94,8 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	protected static final String CITY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getCity() <em>City</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getCity() <em>City</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getCity()
 	 * @generated
@@ -103,8 +104,8 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	protected String city = CITY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getZip() <em>Zip</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getZip() <em>Zip</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getZip()
 	 * @generated
@@ -113,7 +114,8 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	protected static final String ZIP_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getZip() <em>Zip</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getZip() <em>Zip</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getZip()
 	 * @generated
@@ -122,8 +124,8 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	protected String zip = ZIP_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCountry() <em>Country</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getCountry() <em>Country</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getCountry()
 	 * @generated
@@ -132,8 +134,8 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	protected Country country;
 
 	/**
-	 * The cached value of the '{@link #getCustomer() <em>Customer</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getCustomer() <em>Customer</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getCustomer()
 	 * @generated
@@ -142,8 +144,8 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	protected Customer customer;
 
 	/**
-	 * The default value of the '{@link #isNewsletter() <em>Newsletter</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #isNewsletter() <em>Newsletter</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isNewsletter()
 	 * @generated
@@ -152,8 +154,8 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	protected static final boolean NEWSLETTER_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isNewsletter() <em>Newsletter</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #isNewsletter() <em>Newsletter</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isNewsletter()
 	 * @generated
@@ -162,8 +164,8 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	protected boolean newsletter = NEWSLETTER_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getBirthday() <em>Birthday</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getBirthday() <em>Birthday</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getBirthday()
 	 * @generated
@@ -172,8 +174,8 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	protected static final Date BIRTHDAY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getBirthday() <em>Birthday</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getBirthday() <em>Birthday</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getBirthday()
 	 * @generated
@@ -205,6 +207,7 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -214,6 +217,7 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		final String oldName = name;
 		name = newName;
@@ -227,6 +231,7 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getAddress() {
 		return address;
 	}
@@ -236,6 +241,7 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setAddress(String newAddress) {
 		final String oldAddress = address;
 		address = newAddress;
@@ -249,6 +255,7 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getCity() {
 		return city;
 	}
@@ -258,6 +265,7 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setCity(String newCity) {
 		final String oldCity = city;
 		city = newCity;
@@ -271,6 +279,7 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getZip() {
 		return zip;
 	}
@@ -280,6 +289,7 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setZip(String newZip) {
 		final String oldZip = zip;
 		zip = newZip;
@@ -293,6 +303,7 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Country getCountry() {
 		return country;
 	}
@@ -302,6 +313,7 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setCountry(Country newCountry) {
 		final Country oldCountry = country;
 		country = newCountry;
@@ -315,10 +327,9 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Shop getShop() {
-		if (eContainerFeatureID() != ShopPackage.CONTACT__SHOP) {
-			return null;
-		}
+		if (eContainerFeatureID() != ShopPackage.CONTACT__SHOP) return null;
 		return (Shop) eContainer();
 	}
 
@@ -337,11 +348,11 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setShop(Shop newShop) {
 		if (newShop != eInternalContainer() || (eContainerFeatureID() != ShopPackage.CONTACT__SHOP && newShop != null)) {
-			if (EcoreUtil.isAncestor(this, newShop)) {
+			if (EcoreUtil.isAncestor(this, newShop))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			}
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null) {
 				msgs = eBasicRemoveFromContainer(msgs);
@@ -363,6 +374,7 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Customer getCustomer() {
 		return customer;
 	}
@@ -392,6 +404,7 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setCustomer(Customer newCustomer) {
 		if (newCustomer != customer) {
 			NotificationChain msgs = null;
@@ -418,6 +431,7 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public boolean isNewsletter() {
 		return newsletter;
 	}
@@ -427,6 +441,7 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setNewsletter(boolean newNewsletter) {
 		final boolean oldNewsletter = newsletter;
 		newsletter = newNewsletter;
@@ -441,6 +456,7 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Date getBirthday() {
 		return birthday;
 	}
@@ -450,6 +466,7 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setBirthday(Date newBirthday) {
 		final Date oldBirthday = birthday;
 		birthday = newBirthday;
@@ -656,9 +673,7 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");

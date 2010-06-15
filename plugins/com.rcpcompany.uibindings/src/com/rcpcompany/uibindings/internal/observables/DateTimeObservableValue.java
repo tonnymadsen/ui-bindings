@@ -44,6 +44,7 @@ public class DateTimeObservableValue extends AbstractSWTObservableValue {
 	private void init() {
 		currentDate = (Date) doGetValue();
 		selectionListener = new SelectionListener() {
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				if (!updating) {
 					final Date d = (Date) doGetValue();
@@ -89,6 +90,7 @@ public class DateTimeObservableValue extends AbstractSWTObservableValue {
 		return c.getTime();
 	}
 
+	@Override
 	public Object getValueType() {
 		return Date.class;
 	}

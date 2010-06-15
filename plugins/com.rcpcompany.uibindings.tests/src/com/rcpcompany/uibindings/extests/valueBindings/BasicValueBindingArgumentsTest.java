@@ -98,8 +98,9 @@ public class BasicValueBindingArgumentsTest {
 		final IObservableList countries = UIBindingsEMFObservables.observeList(context.getEditingDomain(), myShop,
 				ShopPackage.Literals.SHOP__COUNTRIES);
 
-		myCountryVB = context.addBinding(myCountryText, myContact, ShopPackage.Literals.CONTACT__COUNTRY).validValues(
-				countries).arg(Constants.ARG_HELP_ID, MY_HELP_ID).arg(Constants.ARG_TOOL_TIP_TEXT, MY_TOOL_TIP);
+		myCountryVB = context.addBinding(myCountryText, myContact, ShopPackage.Literals.CONTACT__COUNTRY)
+				.validValues(countries).arg(Constants.ARG_HELP_ID, MY_HELP_ID)
+				.arg(Constants.ARG_TOOL_TIP_TEXT, MY_TOOL_TIP);
 
 		context.finish();
 		yield();

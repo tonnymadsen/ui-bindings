@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -24,14 +23,16 @@ import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.utils.basic.ClassUtils;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Binding Message</b></em>'. <!-- end-user-doc
- * -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Binding Message</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageImpl#getBinding <em>Binding</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageImpl#getModelObject <em>Model Object</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageImpl#getModelFeature <em>Model Feature</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageImpl#getModelObject <em>Model Object
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageImpl#getModelFeature <em>Model
+ * Feature</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageImpl#getPrefix <em>Prefix</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageImpl#getData <em>Data</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageImpl#getSource <em>Source</em>}</li>
@@ -43,8 +44,8 @@ import com.rcpcompany.utils.basic.ClassUtils;
  */
 public abstract class BindingMessageImpl extends EObjectImpl implements IBindingMessage {
 	/**
-	 * The cached value of the '{@link #getBinding() <em>Binding</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getBinding() <em>Binding</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getBinding()
 	 * @generated
@@ -53,8 +54,8 @@ public abstract class BindingMessageImpl extends EObjectImpl implements IBinding
 	protected IValueBinding binding;
 
 	/**
-	 * The default value of the '{@link #getMessage() <em>Message</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getMessage() <em>Message</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getMessage()
 	 * @generated
@@ -63,8 +64,8 @@ public abstract class BindingMessageImpl extends EObjectImpl implements IBinding
 	protected static final String MESSAGE_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getSeverity() <em>Severity</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getSeverity() <em>Severity</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getSeverity()
 	 * @generated
@@ -73,8 +74,8 @@ public abstract class BindingMessageImpl extends EObjectImpl implements IBinding
 	protected static final BindingMessageSeverity SEVERITY_EDEFAULT = BindingMessageSeverity.NONE;
 
 	/**
-	 * The default value of the '{@link #getMessageType() <em>Message Type</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getMessageType() <em>Message Type</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getMessageType()
 	 * @generated
@@ -83,8 +84,8 @@ public abstract class BindingMessageImpl extends EObjectImpl implements IBinding
 	protected static final int MESSAGE_TYPE_EDEFAULT = 0;
 
 	/**
-	 * The default value of the '{@link #getPrefix() <em>Prefix</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getPrefix() <em>Prefix</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getPrefix()
 	 * @generated
@@ -93,8 +94,8 @@ public abstract class BindingMessageImpl extends EObjectImpl implements IBinding
 	protected static final String PREFIX_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTargets() <em>Targets</em>}' reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getTargets() <em>Targets</em>}' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTargets()
 	 * @generated
@@ -103,8 +104,8 @@ public abstract class BindingMessageImpl extends EObjectImpl implements IBinding
 	protected EList<IBindingMessageTarget> targets;
 
 	/**
-	 * The default value of the '{@link #getData() <em>Data</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getData() <em>Data</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getData()
 	 * @generated
@@ -113,8 +114,8 @@ public abstract class BindingMessageImpl extends EObjectImpl implements IBinding
 	protected static final Object DATA_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getSource() <em>Source</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getSource() <em>Source</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getSource()
 	 * @generated
@@ -123,8 +124,8 @@ public abstract class BindingMessageImpl extends EObjectImpl implements IBinding
 	protected static final String SOURCE_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getCode() <em>Code</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getCode() <em>Code</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getCode()
 	 * @generated
@@ -133,8 +134,8 @@ public abstract class BindingMessageImpl extends EObjectImpl implements IBinding
 	protected static final int CODE_EDEFAULT = 0;
 
 	/**
-	 * The default value of the '{@link #getDetails() <em>Details</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getDetails() <em>Details</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDetails()
 	 * @generated
@@ -166,6 +167,7 @@ public abstract class BindingMessageImpl extends EObjectImpl implements IBinding
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IValueBinding getBinding() {
 		return binding;
 	}
@@ -175,6 +177,7 @@ public abstract class BindingMessageImpl extends EObjectImpl implements IBinding
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setBinding(IValueBinding newBinding) {
 		final IValueBinding oldBinding = binding;
 		binding = newBinding;
@@ -189,6 +192,7 @@ public abstract class BindingMessageImpl extends EObjectImpl implements IBinding
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public String getPrefix() {
 		return ""; //$NON-NLS-1$
 	}
@@ -198,6 +202,7 @@ public abstract class BindingMessageImpl extends EObjectImpl implements IBinding
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<IBindingMessageTarget> getTargets() {
 		if (targets == null) {
 			targets = new EObjectEList<IBindingMessageTarget>(IBindingMessageTarget.class, this,
@@ -211,6 +216,7 @@ public abstract class BindingMessageImpl extends EObjectImpl implements IBinding
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public Object getData() {
 		return null;
 	}
@@ -220,6 +226,7 @@ public abstract class BindingMessageImpl extends EObjectImpl implements IBinding
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public String getSource() {
 		return null;
 	}
@@ -229,6 +236,7 @@ public abstract class BindingMessageImpl extends EObjectImpl implements IBinding
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public int getCode() {
 		return 0;
 	}
@@ -238,6 +246,7 @@ public abstract class BindingMessageImpl extends EObjectImpl implements IBinding
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public String getDetails() {
 		return null;
 	}
@@ -343,9 +352,7 @@ public abstract class BindingMessageImpl extends EObjectImpl implements IBinding
 
 	@Override
 	public boolean matches(EObject obj, EStructuralFeature feature, Object key, FeatureMatchingAlgorithm algorithm) {
-		if (!eIsSet(IUIBindingsPackage.Literals.BINDING_MESSAGE__TARGETS)) {
-			return false;
-		}
+		if (!eIsSet(IUIBindingsPackage.Literals.BINDING_MESSAGE__TARGETS)) return false;
 		for (final IBindingMessageTarget target : getTargets()) {
 			if (target.getModelObject() != obj) {
 				continue;
@@ -354,20 +361,17 @@ public abstract class BindingMessageImpl extends EObjectImpl implements IBinding
 			case IGNORE:
 				return true;
 			case EXACT_OR_NULL:
-				if (target.getModelFeature() == null) {
-					return true;
-				}
+				if (target.getModelFeature() == null) return true;
 				//$FALL-THROUGH$
 			case EXACT:
 				/*
-				 * If we match against a specific key, then test for at match in the targets; otherwise ignore the key
+				 * If we match against a specific key, then test for at match in the targets;
+				 * otherwise ignore the key
 				 */
 				if (key != null && target.getModelKey() != key) {
 					continue;
 				}
-				if (target.getModelFeature() == feature) {
-					return true;
-				}
+				if (target.getModelFeature() == feature) return true;
 			}
 		}
 		return false;
@@ -398,6 +402,7 @@ public abstract class BindingMessageImpl extends EObjectImpl implements IBinding
 	 * 
 	 * @generated NONE
 	 */
+	@Override
 	public BindingMessageSeverity getSeverity() {
 		return BindingMessageSeverity.NONE;
 	}

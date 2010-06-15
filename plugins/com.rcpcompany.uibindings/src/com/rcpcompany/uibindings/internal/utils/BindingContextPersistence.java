@@ -41,15 +41,16 @@ public class BindingContextPersistence implements IBindingContextPersistence, ID
 	protected final IBindingContext myContext;
 
 	/**
-	 * Saves the current state of the binding in the specified {@link IMemento} under the name of the viewer.
+	 * Saves the current state of the binding in the specified {@link IMemento} under the name of
+	 * the viewer.
 	 * 
 	 * @param memento the memento
-	 * @param name the name used for the configuration information - defaults to the name of the viewer
+	 * @param name the name used for the configuration information - defaults to the name of the
+	 *            viewer
 	 */
+	@Override
 	public void saveState(IMemento memento) {
-		if (memento == null) {
-			return;
-		}
+		if (memento == null) return;
 
 		for (final IBinding b : myContext.getBindings()) {
 			final String id = b.getId();
@@ -64,15 +65,16 @@ public class BindingContextPersistence implements IBindingContextPersistence, ID
 	}
 
 	/**
-	 * Restores the state of the binding from the specified {@link IMemento} using the name of the viewer.
+	 * Restores the state of the binding from the specified {@link IMemento} using the name of the
+	 * viewer.
 	 * 
 	 * @param memento the memento
-	 * @param name the name used for the configuration information - defaults to the name of the viewer
+	 * @param name the name used for the configuration information - defaults to the name of the
+	 *            viewer
 	 */
+	@Override
 	public void restoreState(IMemento memento) {
-		if (memento == null) {
-			return;
-		}
+		if (memento == null) return;
 
 		// TODO see issue 58
 

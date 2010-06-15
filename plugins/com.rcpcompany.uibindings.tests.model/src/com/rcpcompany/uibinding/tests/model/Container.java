@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibinding.tests.model;
@@ -9,7 +8,8 @@ package com.rcpcompany.uibinding.tests.model;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Container</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Container</b></em>'. <!--
+ * end-user-doc -->
  * 
  * <p>
  * The following features are supported:
@@ -24,11 +24,13 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Container extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Children</b></em>' containment reference. It is bidirectional and its opposite
-	 * is '{@link com.rcpcompany.uibinding.tests.model.TestObject#getParent <em>Parent</em>}'. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Children</b></em>' containment reference. It is
+	 * bidirectional and its opposite is '
+	 * {@link com.rcpcompany.uibinding.tests.model.TestObject#getParent <em>Parent</em>}'. <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Children</em>' containment reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Children</em>' containment reference isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -42,8 +44,8 @@ public interface Container extends EObject {
 	TestObject getChildren();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.Container#getChildren <em>Children</em>}'
-	 * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.Container#getChildren
+	 * <em>Children</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Children</em>' containment reference.
 	 * @see #getChildren()

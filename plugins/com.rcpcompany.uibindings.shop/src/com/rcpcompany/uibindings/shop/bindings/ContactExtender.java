@@ -25,9 +25,7 @@ public class ContactExtender extends AbstractUIBindingDecoratorExtender implemen
 	@Override
 	public void extend(IUIBindingDecoratorExtenderContext context) {
 		final EObject value = context.getBinding().getModelObject();
-		if (!(value instanceof Contact)) {
-			return;
-		}
+		if (!(value instanceof Contact)) return;
 
 		final Contact c = (Contact) value;
 		if (c.getCustomer() != null) {

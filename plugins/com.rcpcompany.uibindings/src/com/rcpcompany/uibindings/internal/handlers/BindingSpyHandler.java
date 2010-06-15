@@ -21,9 +21,7 @@ public class BindingSpyHandler extends AbstractHandler implements IHandler {
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		final Shell shell = HandlerUtil.getActiveShellChecked(event);
 		final IBinding b = (IBinding) HandlerUtil.getVariable(event, Constants.SOURCES_ACTIVE_BINDING);
-		if (b == null) {
-			return null;
-		}
+		if (b == null) return null;
 		final BindingSpyDialog d = new BindingSpyDialog(shell, b, event);
 		d.create();
 		d.open();

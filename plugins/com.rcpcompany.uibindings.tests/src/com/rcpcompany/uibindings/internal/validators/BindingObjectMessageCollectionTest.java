@@ -24,9 +24,9 @@ import org.junit.runners.Parameterized.Parameters;
 import com.rcpcompany.uibindings.BindingMessageSeverity;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingMessage;
+import com.rcpcompany.uibindings.IBindingMessage.FeatureMatchingAlgorithm;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
-import com.rcpcompany.uibindings.IBindingMessage.FeatureMatchingAlgorithm;
 import com.rcpcompany.uibindings.extests.TestObjectValidatorAdapter;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator;
@@ -34,7 +34,8 @@ import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 
 /**
- * Tests that <em>object</em> messages are added to the {@link ValueBindingMessageImageDecorator} at the right time..
+ * Tests that <em>object</em> messages are added to the {@link ValueBindingMessageImageDecorator} at
+ * the right time..
  * <p>
  * Note that the basic function of {@link ValueBindingMessageImageDecorator} is tested in
  * {@link BindingMessageCollectionTest}.
@@ -89,6 +90,7 @@ public class BindingObjectMessageCollectionTest {
 	 */
 	private void createView() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myView = createTestView(this);
 				final IFormCreator form = myView.createFormCreator(myValidationAdapter.getItem());

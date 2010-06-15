@@ -42,8 +42,8 @@ public abstract class AbstractGridCell<COLUMN extends EObject, ROW extends EObje
 	/**
 	 * The row ID.
 	 * <p>
-	 * A row object or one of {@link IGridModel#HEADER1 HEADER1}, {@link IGridModel#HEADER2 HEADER2},
-	 * {@link IGridModel#HEADER3 HEADER3}, {@link IGridModel#HEADER4 HEADER4}, or {@link IGridModel#HEADER5 HEADER5}.
+	 * A row object or one of {@link IGridModel#HEADER1 HEADER1}, {@link IGridModel#HEADER2 HEADER2}, {@link IGridModel#HEADER3 HEADER3}, {@link IGridModel#HEADER4 HEADER4}, or
+	 * {@link IGridModel#HEADER5 HEADER5}.
 	 */
 	private final Object myRowID;
 
@@ -55,8 +55,9 @@ public abstract class AbstractGridCell<COLUMN extends EObject, ROW extends EObje
 	/**
 	 * The column ID.
 	 * <p>
-	 * A column object or one of {@link IGridModel#HEADER1 HEADER1}, {@link IGridModel#HEADER2 HEADER2},
-	 * {@link IGridModel#HEADER3 HEADER3}, {@link IGridModel#HEADER4 HEADER4}, or {@link IGridModel#HEADER5 HEADER5}.
+	 * A column object or one of {@link IGridModel#HEADER1 HEADER1}, {@link IGridModel#HEADER2
+	 * HEADER2}, {@link IGridModel#HEADER3 HEADER3}, {@link IGridModel#HEADER4 HEADER4}, or
+	 * {@link IGridModel#HEADER5 HEADER5}.
 	 */
 	private final Object myColumnID;
 
@@ -73,8 +74,8 @@ public abstract class AbstractGridCell<COLUMN extends EObject, ROW extends EObje
 	/**
 	 * Returns the row ID.
 	 * <p>
-	 * A row object or one of {@link IGridModel#HEADER1 HEADER1}, {@link IGridModel#HEADER2 HEADER2},
-	 * {@link IGridModel#HEADER3 HEADER3}, {@link IGridModel#HEADER4 HEADER4}, or {@link IGridModel#HEADER5 HEADER5}.
+	 * A row object or one of {@link IGridModel#HEADER1 HEADER1}, {@link IGridModel#HEADER2 HEADER2}, {@link IGridModel#HEADER3 HEADER3}, {@link IGridModel#HEADER4 HEADER4}, or
+	 * {@link IGridModel#HEADER5 HEADER5}.
 	 * 
 	 * @return the row ID
 	 */
@@ -94,8 +95,9 @@ public abstract class AbstractGridCell<COLUMN extends EObject, ROW extends EObje
 	/**
 	 * Returns the column ID.
 	 * <p>
-	 * A column object or one of {@link IGridModel#HEADER1 HEADER1}, {@link IGridModel#HEADER2 HEADER2},
-	 * {@link IGridModel#HEADER3 HEADER3}, {@link IGridModel#HEADER4 HEADER4}, or {@link IGridModel#HEADER5 HEADER5}.
+	 * A column object or one of {@link IGridModel#HEADER1 HEADER1}, {@link IGridModel#HEADER2
+	 * HEADER2}, {@link IGridModel#HEADER3 HEADER3}, {@link IGridModel#HEADER4 HEADER4}, or
+	 * {@link IGridModel#HEADER5 HEADER5}.
 	 * 
 	 * @return the column ID
 	 */

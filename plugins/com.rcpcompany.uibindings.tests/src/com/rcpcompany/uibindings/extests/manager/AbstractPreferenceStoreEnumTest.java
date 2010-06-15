@@ -61,9 +61,7 @@ public abstract class AbstractPreferenceStoreEnumTest<E extends Enum<E>> {
 
 		@Override
 		public void notifyChanged(Notification msg) {
-			if (msg.getEventType() == Notification.REMOVING_ADAPTER) {
-				return;
-			}
+			if (msg.getEventType() == Notification.REMOVING_ADAPTER) return;
 			assertEquals(Notification.SET, msg.getEventType());
 			assertEquals(getFeature(), msg.getFeature());
 			assertEquals(myOldValue, msg.getOldValue());
@@ -81,6 +79,7 @@ public abstract class AbstractPreferenceStoreEnumTest<E extends Enum<E>> {
 
 		m.eAdapters().add(adapter);
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				ps.setValue(getPreferenceName(), newValue.name());
 			}
@@ -98,6 +97,7 @@ public abstract class AbstractPreferenceStoreEnumTest<E extends Enum<E>> {
 
 		m.eAdapters().add(adapter);
 		assertOneLog(new Runnable() {
+			@Override
 			public void run() {
 				ps.setValue(getPreferenceName(), newValue);
 			}
@@ -113,6 +113,7 @@ public abstract class AbstractPreferenceStoreEnumTest<E extends Enum<E>> {
 	public void testGet() {
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				assertNotNull(ps);
 
@@ -138,6 +139,7 @@ public abstract class AbstractPreferenceStoreEnumTest<E extends Enum<E>> {
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				m.eAdapters().add(adapter);
 				m.eSet(getFeature(), newValue);
@@ -157,6 +159,7 @@ public abstract class AbstractPreferenceStoreEnumTest<E extends Enum<E>> {
 	@Test
 	public void testSet() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				for (final E s : getValues()) {
 					testM2PS(s);

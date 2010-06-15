@@ -46,6 +46,7 @@ public class BasicServiceTest {
 	@Test
 	public void testContextValue() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final Composite body = myTestView.getBody();
 
@@ -59,6 +60,7 @@ public class BasicServiceTest {
 	@Test
 	public void testManager() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				testServiceInterface(IManager.Factory.getManager());
 			}
@@ -68,6 +70,7 @@ public class BasicServiceTest {
 	@Test
 	public void testBaseBindingValue() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final Composite body = myTestView.getBody();
 

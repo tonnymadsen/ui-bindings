@@ -12,9 +12,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EEnumLiteral;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EPackage.Registry;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.emf.ecore.EPackage.Registry;
 
 import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -26,10 +26,15 @@ import com.rcpcompany.utils.logging.LogUtils;
  */
 
 public class BindingDataTypeFactory {
-	private final static Map<Object, IBindingDataType> dataTypeMapping = new HashMap<Object, IBindingDataType>();
+	private BindingDataTypeFactory() {
+		// TODO Auto-generated constructor stub
+	}
+
+	private static final Map<Object, IBindingDataType> DATA_TYPE_MAPPING = new HashMap<Object, IBindingDataType>();
 
 	/**
-	 * Creates and returns a new {@link IBindingDataType binding data type} appropriate for the specified element.
+	 * Creates and returns a new {@link IBindingDataType binding data type} appropriate for the
+	 * specified element.
 	 * <p>
 	 * The result is cached and reused.
 	 * 
@@ -37,9 +42,7 @@ public class BindingDataTypeFactory {
 	 * @return the data type object or <code>null</code>
 	 */
 	public static IBindingDataType create(Object element) {
-		if (dataTypeMapping.containsKey(element)) {
-			return dataTypeMapping.get(element);
-		}
+		if (DATA_TYPE_MAPPING.containsKey(element)) return DATA_TYPE_MAPPING.get(element);
 
 		IBindingDataType dt = null;
 		if (element instanceof EClassifier) {
@@ -64,7 +67,7 @@ public class BindingDataTypeFactory {
 			LogUtils.error(element, "No IBindingDataType for " + element); //$NON-NLS-1$
 			dt = null;
 		}
-		dataTypeMapping.put(element, dt);
+		DATA_TYPE_MAPPING.put(element, dt);
 		return dt;
 	}
 
@@ -89,16 +92,12 @@ public class BindingDataTypeFactory {
 		}
 
 		/*
-		 * To check the ecore package first! Otherwise the XML Type package [http://www.eclipse.org/emf/2003/XMLType]
-		 * will overshadow the basic Java types.
+		 * To check the ecore package first! Otherwise the XML Type package
+		 * [http://www.eclipse.org/emf/2003/XMLType] will overshadow the basic Java types.
 		 */
 		for (final EClassifier c : EcorePackage.eINSTANCE.getEClassifiers()) {
-			if (c.getInstanceClass() == cls) {
-				return c;
-			}
-			if (ifCls != null && c.getInstanceClass() == ifCls) {
-				return c;
-			}
+			if (c.getInstanceClass() == cls) return c;
+			if (ifCls != null && c.getInstanceClass() == ifCls) return c;
 		}
 
 		/*
@@ -115,12 +114,8 @@ public class BindingDataTypeFactory {
 			final EPackage ep = (EPackage) v;
 
 			for (final EClassifier c : ep.getEClassifiers()) {
-				if (c.getInstanceClass() == cls) {
-					return c;
-				}
-				if (ifCls != null && c.getInstanceClass() == ifCls) {
-					return c;
-				}
+				if (c.getInstanceClass() == cls) return c;
+				if (ifCls != null && c.getInstanceClass() == ifCls) return c;
 			}
 		}
 
@@ -128,18 +123,20 @@ public class BindingDataTypeFactory {
 	}
 
 	/**
-	 * Mapping from class to the set of super classes as defined by {@link IAdapterManager#computeClassOrder(Class)}.
+	 * Mapping from class to the set of super classes as defined by
+	 * {@link IAdapterManager#computeClassOrder(Class)}.
 	 */
 	private final static Map<IBindingDataType, IBindingDataType[]> superTypeMapping = new HashMap<IBindingDataType, IBindingDataType[]>();
 
 	/**
-	 * Returns a list of the {@link IBindingDataType} objects that defines all the super types of the specified data
-	 * type.
+	 * Returns a list of the {@link IBindingDataType} objects that defines all the super types of
+	 * the specified data type.
 	 * <p>
 	 * If not already calculated, then do that by creating an array with
 	 * <ul>
 	 * <li>IBDTs for all super types (ECore classes)</li>
-	 * <li>IBDTs for all super classes (Java classes) not already added from their Ecore counterparts</li>
+	 * <li>IBDTs for all super classes (Java classes) not already added from their Ecore
+	 * counterparts</li>
 	 * </ul>
 	 * 
 	 * @param dt the data type to test

@@ -17,10 +17,9 @@ public class ButtonDefaultUIAttributeFactory implements IUIAttributeFactory {
 	public IUIAttribute create(Widget widget, String attribute) {
 		final int style = widget.getStyle();
 		if (((style & SWT.CHECK) == SWT.CHECK) || ((style & SWT.RADIO) == SWT.RADIO)
-				|| ((style & SWT.TOGGLE) == SWT.TOGGLE)) {
+				|| ((style & SWT.TOGGLE) == SWT.TOGGLE))
 			return new SimpleUIAttribute(widget, attribute, SWTObservables.observeSelection((Control) widget), true);
-		} else {
+		else
 			return new SimpleUIAttribute(widget, attribute, new ButtonTextObservableValue((Button) widget), true);
-		}
 	}
 }

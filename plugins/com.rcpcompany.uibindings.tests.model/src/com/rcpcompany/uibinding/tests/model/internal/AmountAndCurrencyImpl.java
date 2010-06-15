@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibinding.tests.model.internal;
@@ -15,13 +14,15 @@ import com.rcpcompany.uibinding.tests.model.AmountAndCurrency;
 import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Amount And Currency</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Amount And Currency</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibinding.tests.model.internal.AmountAndCurrencyImpl#getAmount <em>Amount</em>}</li>
- * <li>{@link com.rcpcompany.uibinding.tests.model.internal.AmountAndCurrencyImpl#getCurrency <em>Currency</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.AmountAndCurrencyImpl#getAmount <em>
+ * Amount</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.AmountAndCurrencyImpl#getCurrency <em>
+ * Currency</em>}</li>
  * </ul>
  * </p>
  * 
@@ -29,8 +30,8 @@ import com.rcpcompany.uibinding.tests.model.TestModelPackage;
  */
 public class AmountAndCurrencyImpl extends EObjectImpl implements AmountAndCurrency {
 	/**
-	 * The default value of the '{@link #getAmount() <em>Amount</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getAmount() <em>Amount</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getAmount()
 	 * @generated
@@ -39,8 +40,8 @@ public class AmountAndCurrencyImpl extends EObjectImpl implements AmountAndCurre
 	protected static final float AMOUNT_EDEFAULT = 0.0F;
 
 	/**
-	 * The cached value of the '{@link #getAmount() <em>Amount</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getAmount() <em>Amount</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getAmount()
 	 * @generated
@@ -49,8 +50,8 @@ public class AmountAndCurrencyImpl extends EObjectImpl implements AmountAndCurre
 	protected float amount = AMOUNT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getCurrency() <em>Currency</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getCurrency() <em>Currency</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getCurrency()
 	 * @generated
@@ -59,8 +60,8 @@ public class AmountAndCurrencyImpl extends EObjectImpl implements AmountAndCurre
 	protected static final String CURRENCY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getCurrency() <em>Currency</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getCurrency() <em>Currency</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getCurrency()
 	 * @generated
@@ -92,6 +93,7 @@ public class AmountAndCurrencyImpl extends EObjectImpl implements AmountAndCurre
 	 * 
 	 * @generated
 	 */
+	@Override
 	public float getAmount() {
 		return amount;
 	}
@@ -101,6 +103,7 @@ public class AmountAndCurrencyImpl extends EObjectImpl implements AmountAndCurre
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setAmount(float newAmount) {
 		final float oldAmount = amount;
 		amount = newAmount;
@@ -115,6 +118,7 @@ public class AmountAndCurrencyImpl extends EObjectImpl implements AmountAndCurre
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getCurrency() {
 		return currency;
 	}
@@ -124,6 +128,7 @@ public class AmountAndCurrencyImpl extends EObjectImpl implements AmountAndCurre
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setCurrency(String newCurrency) {
 		final String oldCurrency = currency;
 		currency = newCurrency;
@@ -208,9 +213,7 @@ public class AmountAndCurrencyImpl extends EObjectImpl implements AmountAndCurre
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (amount: ");

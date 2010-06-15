@@ -38,9 +38,7 @@ public class DoubleClickAdapter implements Listener, IDisposable {
 	 * @param viewer the viewer
 	 */
 	public static void adapt(IViewerBinding viewer) {
-		if (viewer.getService(DoubleClickAdapter.class) != null) {
-			return;
-		}
+		if (viewer.getService(DoubleClickAdapter.class) != null) return;
 		new DoubleClickAdapter(viewer);
 	}
 
@@ -75,9 +73,7 @@ public class DoubleClickAdapter implements Listener, IDisposable {
 		final Map<String, Object> currentState = theBindingSourceProvider.reportSourceChanges(event);
 
 		final Object b = currentState.get(Constants.SOURCES_ACTIVE_BINDING);
-		if (!(b instanceof IValueBinding)) {
-			return;
-		}
+		if (!(b instanceof IValueBinding)) return;
 
 		final IValueBinding binding = (IValueBinding) b;
 
@@ -89,9 +85,7 @@ public class DoubleClickAdapter implements Listener, IDisposable {
 			if (cmd == null) {
 				cmd = myViewer.getArgument(Constants.ARG_DOUBLE_CLICK_COMMAND, String.class, null);
 			}
-			if (cmd == null) {
-				return;
-			}
+			if (cmd == null) return;
 
 			/*
 			 * Construct the pc...
@@ -107,9 +101,7 @@ public class DoubleClickAdapter implements Listener, IDisposable {
 				LogUtils.error(this, ex);
 			}
 
-			if (pc == null) {
-				return;
-			}
+			if (pc == null) return;
 
 			/*
 			 * Execute it... If sucessful, then mark the event.

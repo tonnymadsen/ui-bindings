@@ -122,13 +122,11 @@ public class CustomerShopItemsGridView extends ViewPart {
 
 		@Override
 		public IObservableValue getValue() {
-			if (myItem == null && myCustomer == null) {
+			if (myItem == null && myCustomer == null)
 				return null;
-			} else if (myItem == null) {
+			else if (myItem == null)
 				return Observables.constantObservableValue(myCustomer, myCustomer.eClass());
-			} else if (myCustomer == null) {
-				return Observables.constantObservableValue(myItem, myItem.eClass());
-			}
+			else if (myCustomer == null) return Observables.constantObservableValue(myItem, myItem.eClass());
 			// Both myItem and myCustomer non-null!!!
 			return new CountCustomerShopItemOV(myCustomer, myItem);
 		}
@@ -158,9 +156,7 @@ public class CustomerShopItemsGridView extends ViewPart {
 				final Order o = (Order) oo;
 				for (final Object oio : myItemOrderList) {
 					final OrderItem oi = (OrderItem) oio;
-					if (oi.getOrder() == o) {
-						return true;
-					}
+					if (oi.getOrder() == o) return true;
 				}
 			}
 			return false;

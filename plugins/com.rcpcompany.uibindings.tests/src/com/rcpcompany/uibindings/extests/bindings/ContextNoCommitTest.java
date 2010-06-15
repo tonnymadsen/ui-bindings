@@ -48,7 +48,7 @@ public class ContextNoCommitTest<C extends Control> implements CommandStackListe
 	@Parameters
 	public static Collection<Object[]> data() {
 		final List<Object[]> l = new ArrayList<Object[]>();
-		final Class<?> controls[] = new Class<?>[] { Text.class, StyledText.class, Combo.class, CCombo.class };
+		final Class<?>[] controls = new Class<?>[] { Text.class, StyledText.class, Combo.class, CCombo.class };
 		final TextCommitStrategy[] strategies = TextCommitStrategy.values();
 
 		for (final Class<?> c : controls) {

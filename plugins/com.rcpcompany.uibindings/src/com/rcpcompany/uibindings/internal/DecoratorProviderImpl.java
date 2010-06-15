@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -32,26 +31,31 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Decorator Provider</b></em>'. <!-- end-user-doc
- * -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Decorator Provider</b></em>
+ * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getDeclaredArguments <em>Declared Arguments</em>}
- * </li>
+ * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getDeclaredArguments <em>
+ * Declared Arguments</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getManager <em>Manager</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getId <em>Id</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getName <em>Name</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getModelTypes <em>Model Types</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getUiTypes <em>Ui Types</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getProviderCE <em>Provider CE</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getChildCE <em>Child CE</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getModelTypes <em>Model Types
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getUiTypes <em>Ui Types</em>}
+ * </li>
+ * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getProviderCE <em>Provider CE
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getChildCE <em>Child CE</em>}
+ * </li>
  * </ul>
  * </p>
  * 
  * @generated
  */
 public abstract class DecoratorProviderImpl extends EObjectImpl implements IDecoratorProvider {
+	@Override
 	public abstract IUIBindingDecorator getDecorator();
 
 	/**
@@ -59,6 +63,7 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	 * 
 	 * @generated
 	 */
+	@Override
 	public boolean isExactModelTypeMatch() {
 		return exactModelTypeMatch;
 	}
@@ -68,6 +73,7 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setExactModelTypeMatch(boolean newExactModelTypeMatch) {
 		final boolean oldExactModelTypeMatch = exactModelTypeMatch;
 		exactModelTypeMatch = newExactModelTypeMatch;
@@ -156,8 +162,8 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	}
 
 	/**
-	 * The cached value of the '{@link #getDeclaredArguments() <em>Declared Arguments</em>}' map. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getDeclaredArguments() <em>Declared Arguments</em>}' map.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDeclaredArguments()
 	 * @generated
@@ -166,7 +172,8 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	protected EMap<String, Object> declaredArguments;
 
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getId()
 	 * @generated
@@ -175,7 +182,8 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getId()
 	 * @generated
@@ -184,8 +192,8 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	protected String id = ID_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getType()
 	 * @generated
@@ -194,8 +202,8 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	protected static final String TYPE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getType()
 	 * @generated
@@ -204,8 +212,8 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	protected String type = TYPE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getModelTypes() <em>Model Types</em>}' attribute list. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getModelTypes() <em>Model Types</em>}' attribute list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getModelTypes()
 	 * @generated
@@ -214,8 +222,8 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	protected EList<String> modelTypes;
 
 	/**
-	 * The cached value of the '{@link #getUiTypes() <em>Ui Types</em>}' attribute list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getUiTypes() <em>Ui Types</em>}' attribute list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getUiTypes()
 	 * @generated
@@ -224,8 +232,8 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	protected EList<String> uiTypes;
 
 	/**
-	 * The default value of the '{@link #getProviderCE() <em>Provider CE</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getProviderCE() <em>Provider CE</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getProviderCE()
 	 * @generated
@@ -234,8 +242,8 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	protected static final IConfigurationElement PROVIDER_CE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getProviderCE() <em>Provider CE</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getProviderCE() <em>Provider CE</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getProviderCE()
 	 * @generated
@@ -244,8 +252,8 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	protected IConfigurationElement providerCE = PROVIDER_CE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getChildCE() <em>Child CE</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getChildCE() <em>Child CE</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getChildCE()
 	 * @generated
@@ -254,8 +262,8 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	protected static final IConfigurationElement CHILD_CE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getChildCE() <em>Child CE</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getChildCE() <em>Child CE</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getChildCE()
 	 * @generated
@@ -264,8 +272,8 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	protected IConfigurationElement childCE = CHILD_CE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isExactModelTypeMatch() <em>Exact Model Type Match</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #isExactModelTypeMatch() <em>Exact Model Type Match</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isExactModelTypeMatch()
 	 * @generated
@@ -274,8 +282,8 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	protected static final boolean EXACT_MODEL_TYPE_MATCH_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isExactModelTypeMatch() <em>Exact Model Type Match</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #isExactModelTypeMatch() <em>Exact Model Type Match</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isExactModelTypeMatch()
 	 * @generated
@@ -307,6 +315,7 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EMap<String, Object> getDeclaredArguments() {
 		if (declaredArguments == null) {
 			declaredArguments = new EcoreEMap<String, Object>(IUIBindingsPackage.Literals.STRING_TO_OBJECT_MAP_ENTRY,
@@ -320,10 +329,9 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IManager getManager() {
-		if (eContainerFeatureID() != IUIBindingsPackage.DECORATOR_PROVIDER__MANAGER) {
-			return null;
-		}
+		if (eContainerFeatureID() != IUIBindingsPackage.DECORATOR_PROVIDER__MANAGER) return null;
 		return (IManager) eContainer();
 	}
 
@@ -345,9 +353,8 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	public void setManager(IManager newManager) {
 		if (newManager != eInternalContainer()
 				|| (eContainerFeatureID() != IUIBindingsPackage.DECORATOR_PROVIDER__MANAGER && newManager != null)) {
-			if (EcoreUtil.isAncestor(this, newManager)) {
+			if (EcoreUtil.isAncestor(this, newManager))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
-			}
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null) {
 				msgs = eBasicRemoveFromContainer(msgs);
@@ -371,6 +378,7 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getId() {
 		return id;
 	}
@@ -380,6 +388,7 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setId(String newId) {
 		final String oldId = id;
 		id = newId;
@@ -393,6 +402,7 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getType() {
 		return type;
 	}
@@ -402,6 +412,7 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setType(String newType) {
 		final String oldType = type;
 		type = newType;
@@ -416,6 +427,7 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<String> getModelTypes() {
 		if (modelTypes == null) {
 			modelTypes = new EDataTypeUniqueEList<String>(String.class, this,
@@ -429,6 +441,7 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<String> getUiTypes() {
 		if (uiTypes == null) {
 			uiTypes = new EDataTypeUniqueEList<String>(String.class, this,
@@ -442,6 +455,7 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IConfigurationElement getProviderCE() {
 		return providerCE;
 	}
@@ -451,6 +465,7 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setProviderCE(IConfigurationElement newProviderCE) {
 		final IConfigurationElement oldProviderCE = providerCE;
 		providerCE = newProviderCE;
@@ -465,6 +480,7 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IConfigurationElement getChildCE() {
 		return childCE;
 	}
@@ -474,6 +490,7 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setChildCE(IConfigurationElement newChildCE) {
 		final IConfigurationElement oldChildCE = childCE;
 		childCE = newChildCE;
@@ -540,11 +557,10 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case IUIBindingsPackage.DECORATOR_PROVIDER__DECLARED_ARGUMENTS:
-			if (coreType) {
+			if (coreType)
 				return getDeclaredArguments();
-			} else {
+			else
 				return getDeclaredArguments().map();
-			}
 		case IUIBindingsPackage.DECORATOR_PROVIDER__MANAGER:
 			return getManager();
 		case IUIBindingsPackage.DECORATOR_PROVIDER__ID:
@@ -687,9 +703,7 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: "); //$NON-NLS-1$

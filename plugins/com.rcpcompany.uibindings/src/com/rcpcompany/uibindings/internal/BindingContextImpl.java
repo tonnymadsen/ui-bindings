@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -55,20 +54,22 @@ import com.rcpcompany.uibindings.internal.bindingMessages.contextAdapters.Wizard
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Binding Context</b></em>'. <!-- end-user-doc
- * -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Binding Context</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingContextImpl#getBindings <em>Bindings</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingContextImpl#getTop <em>Top</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingContextImpl#getDbContext <em>Db Context</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingContextImpl#getServiceLocator <em>Service Locator</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingContextImpl#getDbContext <em>Db Context
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingContextImpl#getServiceLocator <em>Service
+ * Locator</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingContextImpl#getState <em>State</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingContextImpl#getTextCommitStrategy <em>Text Commit Strategy</em>}
- * </li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingContextImpl#getTextCommitStrategyCalculated <em>Text Commit
- * Strategy Calculated</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingContextImpl#getTextCommitStrategy <em>Text
+ * Commit Strategy</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingContextImpl#getTextCommitStrategyCalculated
+ * <em>Text Commit Strategy Calculated</em>}</li>
  * </ul>
  * </p>
  * 
@@ -76,8 +77,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  */
 public class BindingContextImpl extends BaseObjectImpl implements IBindingContext {
 	/**
-	 * The cached value of the '{@link #getBindings() <em>Bindings</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getBindings() <em>Bindings</em>}' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getBindings()
 	 * @generated
@@ -86,8 +87,8 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	protected EList<IBinding> bindings;
 
 	/**
-	 * The cached value of the '{@link #getOkBindings() <em>Ok Bindings</em>}' reference list. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getOkBindings() <em>Ok Bindings</em>}' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getOkBindings()
 	 * @generated
@@ -96,8 +97,8 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	protected EList<IBinding> okBindings;
 
 	/**
-	 * The default value of the '{@link #getTop() <em>Top</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getTop() <em>Top</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getTop()
 	 * @generated
@@ -106,7 +107,8 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	protected static final Composite TOP_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTop() <em>Top</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getTop() <em>Top</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getTop()
 	 * @generated
@@ -115,8 +117,8 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	protected Composite top = TOP_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getDbContext() <em>Db Context</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getDbContext() <em>Db Context</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDbContext()
 	 * @generated
@@ -125,8 +127,8 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	protected static final DataBindingContext DB_CONTEXT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDbContext() <em>Db Context</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getDbContext() <em>Db Context</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDbContext()
 	 * @generated
@@ -135,8 +137,8 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	protected DataBindingContext dbContext = DB_CONTEXT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getServiceLocator() <em>Service Locator</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getServiceLocator() <em>Service Locator</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getServiceLocator()
 	 * @generated
@@ -145,8 +147,8 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	protected static final IServiceLocator SERVICE_LOCATOR_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getServiceLocator() <em>Service Locator</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getServiceLocator() <em>Service Locator</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getServiceLocator()
 	 * @generated
@@ -155,8 +157,8 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	protected IServiceLocator serviceLocator = SERVICE_LOCATOR_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getState() <em>State</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getState() <em>State</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getState()
 	 * @generated
@@ -165,8 +167,8 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	protected static final BindingState STATE_EDEFAULT = BindingState.INIT;
 
 	/**
-	 * The cached value of the '{@link #getState() <em>State</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getState() <em>State</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getState()
 	 * @generated
@@ -175,8 +177,8 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	protected BindingState state = STATE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTextCommitStrategy() <em>Text Commit Strategy</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getTextCommitStrategy() <em>Text Commit Strategy</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTextCommitStrategy()
 	 * @generated NOT
@@ -185,8 +187,8 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	protected static final TextCommitStrategy TEXT_COMMIT_STRATEGY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTextCommitStrategy() <em>Text Commit Strategy</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getTextCommitStrategy() <em>Text Commit Strategy</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTextCommitStrategy()
 	 * @generated
@@ -195,8 +197,9 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	protected TextCommitStrategy textCommitStrategy = TEXT_COMMIT_STRATEGY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTextCommitStrategyCalculated() <em>Text Commit Strategy Calculated</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getTextCommitStrategyCalculated()
+	 * <em>Text Commit Strategy Calculated</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getTextCommitStrategyCalculated()
 	 * @generated
@@ -205,8 +208,9 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	protected static final TextCommitStrategy TEXT_COMMIT_STRATEGY_CALCULATED_EDEFAULT = TextCommitStrategy.ON_MODIFY;
 
 	/**
-	 * The cached value of the '{@link #getTextCommitStrategyCalculated() <em>Text Commit Strategy Calculated</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getTextCommitStrategyCalculated()
+	 * <em>Text Commit Strategy Calculated</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getTextCommitStrategyCalculated()
 	 * @generated
@@ -215,8 +219,8 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	protected TextCommitStrategy textCommitStrategyCalculated = TEXT_COMMIT_STRATEGY_CALCULATED_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getEditingDomain() <em>Editing Domain</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getEditingDomain() <em>Editing Domain</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getEditingDomain()
 	 * @generated
@@ -225,8 +229,8 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	protected static final EditingDomain EDITING_DOMAIN_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getEditingDomain() <em>Editing Domain</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getEditingDomain() <em>Editing Domain</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getEditingDomain()
 	 * @generated
@@ -276,6 +280,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<IBinding> getBindings() {
 		if (bindings == null) {
 			bindings = new EObjectContainmentWithInverseEList<IBinding>(IBinding.class, this,
@@ -289,6 +294,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<IBinding> getOkBindings() {
 		if (okBindings == null) {
 			okBindings = new EObjectEList<IBinding>(IBinding.class, this,
@@ -302,6 +308,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Composite getTop() {
 		return top;
 	}
@@ -370,6 +377,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	 * 
 	 * @generated
 	 */
+	@Override
 	public DataBindingContext getDbContext() {
 		return dbContext;
 	}
@@ -379,6 +387,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public IServiceLocator getServiceLocator() {
 		IServiceLocator sl = getServiceLocatorGen();
 		if (sl == null) {
@@ -402,6 +411,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setServiceLocator(IServiceLocator newServiceLocator) {
 		final IServiceLocator oldServiceLocator = serviceLocator;
 		serviceLocator = newServiceLocator;
@@ -416,6 +426,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	 * 
 	 * @generated
 	 */
+	@Override
 	public BindingState getState() {
 		return state;
 	}
@@ -439,18 +450,20 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	 * 
 	 * @generated
 	 */
+	@Override
 	public TextCommitStrategy getTextCommitStrategy() {
 		return textCommitStrategy;
 	}
 
 	/**
-	 * Sets the value of the '{@link IBindingContext#getTextCommitStrategy <em>Text Commit Strategy</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link IBindingContext#getTextCommitStrategy
+	 * <em>Text Commit Strategy</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Text Commit Strategy</em>' attribute.
 	 * @see #getTextCommitStrategy()
 	 * @generated NOT
 	 */
+	@Override
 	public void setTextCommitStrategy(TextCommitStrategy newTextCommitStrategy) {
 		setTextCommitStrategyGen(newTextCommitStrategy);
 		getTextCommitStrategyCalculated();
@@ -473,9 +486,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	private final Adapter myTextCommitStrategyAdapter = new AdapterImpl() {
 		@Override
 		public void notifyChanged(Notification msg) {
-			if (msg.isTouch()) {
-				return;
-			}
+			if (msg.isTouch()) return;
 			if (msg.getFeature() == IUIBindingsPackage.Literals.MANAGER__TEXT_COMMIT_STRATEGY) {
 				getTextCommitStrategyCalculated();
 			}
@@ -487,6 +498,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public TextCommitStrategy getTextCommitStrategyCalculated() {
 		TextCommitStrategy strategy = getTextCommitStrategy();
 		if (strategy == null) {
@@ -509,10 +521,9 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public EditingDomain getEditingDomain() {
-		if (editingDomain == null) {
-			return IManager.Factory.getManager().getEditingDomain();
-		}
+		if (editingDomain == null) return IManager.Factory.getManager().getEditingDomain();
 		return editingDomain;
 	}
 
@@ -521,6 +532,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setEditingDomain(EditingDomain newEditingDomain) {
 		final EditingDomain oldEditingDomain = editingDomain;
 		editingDomain = newEditingDomain;
@@ -697,9 +709,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (top: "); //$NON-NLS-1$
@@ -720,24 +730,29 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 		return result.toString();
 	}
 
+	@Override
 	public IValueBinding addBinding() {
 		final IValueBinding binding = IUIBindingsFactory.eINSTANCE.createValueBinding();
 		binding.setContext(this);
 		return binding;
 	}
 
+	@Override
 	public IValueBinding addBinding(Widget widget, EObject object, EStructuralFeature feature) {
 		return addBinding().ui(widget).model(object, feature);
 	}
 
+	@Override
 	public IValueBinding addBinding(Widget widget, String attribute, EObject object, EStructuralFeature feature) {
 		return addBinding().ui(widget, attribute).model(object, feature);
 	}
 
+	@Override
 	public IValueBinding addBinding(Widget widget, IObservableValue object, EStructuralFeature feature) {
 		return addBinding().ui(widget).model(object, feature);
 	}
 
+	@Override
 	public IValueBinding addBinding(Widget widget, String attribute, IObservableValue object, EStructuralFeature feature) {
 		return addBinding().ui(widget, attribute).model(object, feature);
 	}
@@ -781,7 +796,8 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	private boolean isInFinish = false;
 
 	/**
-	 * Set to <code>true</code> when all needed support has been hooked into the context in {@link #finish()}.
+	 * Set to <code>true</code> when all needed support has been hooked into the context in
+	 * {@link #finish()}.
 	 */
 	private boolean hasSupportBeenAdded = false;
 

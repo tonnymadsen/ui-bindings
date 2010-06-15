@@ -86,9 +86,7 @@ public class DataBindingDecoratorMessageObservableValue extends AbstractObservab
 			final IStatus oldValue = (IStatus) event.diff.getOldValue();
 			final IStatus newValue = (IStatus) event.diff.getNewValue();
 			if ((oldValue.getSeverity() == newValue.getSeverity())
-					&& (oldValue.getMessage().equals(newValue.getMessage()))) {
-				return;
-			}
+					&& (oldValue.getMessage().equals(newValue.getMessage()))) return;
 
 			if (Activator.getDefault().TRACE_MESSAGE_DECORATION_VALIDATION_STATUS) {
 				LogUtils.debug(DataBindingDecoratorMessageObservableValue.this, "Change: " + myValueBinding + "\n"

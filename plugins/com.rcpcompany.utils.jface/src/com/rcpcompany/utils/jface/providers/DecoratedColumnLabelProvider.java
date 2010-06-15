@@ -6,8 +6,7 @@ import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.ui.PlatformUI;
 
 /**
- * A label decorator for the name field of any of the base interfaces of the
- * core model.
+ * A label decorator for the name field of any of the base interfaces of the core model.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -19,6 +18,7 @@ public class DecoratedColumnLabelProvider extends GenericColumnLabelProvider {
 
 	/**
 	 * Constructs and returns a new provider.
+	 * 
 	 * @param feature the feature for the column of this
 	 */
 	public DecoratedColumnLabelProvider(EStructuralFeature feature) {
@@ -51,7 +51,7 @@ public class DecoratedColumnLabelProvider extends GenericColumnLabelProvider {
 	public boolean isLabelProperty(Object element, String property) {
 		if (super.isLabelProperty(element, property)) return true;
 		if (myLabelDecorator.isLabelProperty(element, property)) return true;
-		
+
 		return false;
 	}
 }

@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.tests.shop.impl;
@@ -27,7 +26,8 @@ import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Customer</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Customer</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -42,8 +42,8 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  */
 public class CustomerImpl extends EObjectImpl implements Customer {
 	/**
-	 * The cached value of the '{@link #getContact() <em>Contact</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getContact() <em>Contact</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getContact()
 	 * @generated
@@ -52,8 +52,8 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 	protected Contact contact;
 
 	/**
-	 * The cached value of the '{@link #getOrders() <em>Orders</em>}' reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getOrders() <em>Orders</em>}' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getOrders()
 	 * @generated
@@ -62,8 +62,8 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 	protected EList<Order> orders;
 
 	/**
-	 * The default value of the '{@link #getLoyalty() <em>Loyalty</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getLoyalty() <em>Loyalty</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getLoyalty()
 	 * @generated
@@ -72,8 +72,8 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 	protected static final CustomerType LOYALTY_EDEFAULT = CustomerType.BRONCE;
 
 	/**
-	 * The cached value of the '{@link #getLoyalty() <em>Loyalty</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getLoyalty() <em>Loyalty</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getLoyalty()
 	 * @generated
@@ -105,10 +105,9 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Shop getShop() {
-		if (eContainerFeatureID() != ShopPackage.CUSTOMER__SHOP) {
-			return null;
-		}
+		if (eContainerFeatureID() != ShopPackage.CUSTOMER__SHOP) return null;
 		return (Shop) eContainer();
 	}
 
@@ -127,11 +126,11 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setShop(Shop newShop) {
 		if (newShop != eInternalContainer() || (eContainerFeatureID() != ShopPackage.CUSTOMER__SHOP && newShop != null)) {
-			if (EcoreUtil.isAncestor(this, newShop)) {
+			if (EcoreUtil.isAncestor(this, newShop))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			}
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null) {
 				msgs = eBasicRemoveFromContainer(msgs);
@@ -153,6 +152,7 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Contact getContact() {
 		return contact;
 	}
@@ -182,6 +182,7 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setContact(Contact newContact) {
 		if (newContact != contact) {
 			NotificationChain msgs = null;
@@ -207,6 +208,7 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<Order> getOrders() {
 		if (orders == null) {
 			orders = new EObjectWithInverseEList<Order>(Order.class, this, ShopPackage.CUSTOMER__ORDERS,
@@ -220,6 +222,7 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public CustomerType getLoyalty() {
 		return loyalty;
 	}
@@ -229,6 +232,7 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setLoyalty(CustomerType newLoyalty) {
 		final CustomerType oldLoyalty = loyalty;
 		loyalty = newLoyalty == null ? LOYALTY_EDEFAULT : newLoyalty;
@@ -392,9 +396,7 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (loyalty: ");

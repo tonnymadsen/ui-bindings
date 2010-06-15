@@ -60,9 +60,7 @@ public abstract class AbstractPreferenceStoreIntTest {
 
 		@Override
 		public void notifyChanged(Notification msg) {
-			if (msg.getEventType() == Notification.REMOVING_ADAPTER) {
-				return;
-			}
+			if (msg.getEventType() == Notification.REMOVING_ADAPTER) return;
 			assertEquals(Notification.SET, msg.getEventType());
 			assertEquals(getFeature(), msg.getFeature());
 			assertEquals(myOldValue, msg.getOldValue());
@@ -79,6 +77,7 @@ public abstract class AbstractPreferenceStoreIntTest {
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				m.eAdapters().add(adapter);
 				ps.setValue(getPreferenceName(), newValue);
@@ -96,6 +95,7 @@ public abstract class AbstractPreferenceStoreIntTest {
 	@Test
 	public void testGet() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
 				assertNotNull(ps);
@@ -121,6 +121,7 @@ public abstract class AbstractPreferenceStoreIntTest {
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				m.eAdapters().add(adapter);
 				m.eSet(getFeature(), newValue);
@@ -140,6 +141,7 @@ public abstract class AbstractPreferenceStoreIntTest {
 	@Test
 	public void testSet() {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				for (final int s : getValues()) {
 					testM2PS(s);

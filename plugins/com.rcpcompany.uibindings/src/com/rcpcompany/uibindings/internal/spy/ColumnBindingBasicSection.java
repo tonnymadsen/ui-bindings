@@ -18,9 +18,7 @@ public class ColumnBindingBasicSection implements IBindingSpySection {
 	@Override
 	public void build(IFormCreator creator, ExecutionEvent event) {
 		final IBinding b = (IBinding) creator.getObject();
-		if (!(b instanceof IColumnBinding)) {
-			return;
-		}
+		if (!(b instanceof IColumnBinding)) return;
 		final IColumnBinding cb = (IColumnBinding) b;
 
 		final IFormCreator subform = creator.addSection("Column Information");
@@ -29,6 +27,7 @@ public class ColumnBindingBasicSection implements IBindingSpySection {
 			subform.addField(cb.getBaseColumn(), IUIBindingsPackage.Literals.BINDING__LABEL, SWT.NONE).readonly();
 		}
 		// subform.addSeparator();
-		// subform.addField(null, IUIBindingsPackage.Literals.COLUMN_BINDING__SUB_COLUMNS).readonly();
+		// subform.addField(null,
+		// IUIBindingsPackage.Literals.COLUMN_BINDING__SUB_COLUMNS).readonly();
 	}
 }

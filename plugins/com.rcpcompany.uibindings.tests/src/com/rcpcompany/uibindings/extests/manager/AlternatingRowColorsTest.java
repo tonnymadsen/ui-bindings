@@ -58,7 +58,7 @@ public class AlternatingRowColorsTest {
 	public static Collection<Object[]> data() {
 		return Arrays.asList(new Object[][] {
 
-		// enabled, focus
+				// enabled, focus
 
 				{ true, true },
 

@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings;
@@ -13,8 +12,8 @@ import java.util.List;
 import org.eclipse.emf.common.util.Enumerator;
 
 /**
- * <!-- begin-user-doc --> A representation of the literals of the enumeration '<em><b>Binding State</b></em>', and
- * utility methods for working with them. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the literals of the enumeration '
+ * <em><b>Binding State</b></em>', and utility methods for working with them. <!-- end-user-doc -->
  * 
  * @see com.rcpcompany.uibindings.IUIBindingsPackage#getBindingState()
  * @generated
@@ -75,8 +74,9 @@ public enum BindingState implements Enumerator {
 	DISPOSED(5, "DISPOSED", "DISPOSED"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
-	 * The '<em><b>DISPOSE PENDING</b></em>' literal object. <!-- begin-user-doc -->A binding can get this state if an
-	 * error occurs during {@link IBindingContext#finish()}.<!-- end-user-doc -->
+	 * The '<em><b>DISPOSE PENDING</b></em>' literal object. <!-- begin-user-doc -->A binding can
+	 * get this state if an error occurs during {@link IBindingContext#finish()}.<!-- end-user-doc
+	 * -->
 	 * 
 	 * @see #DISPOSE_PENDING_VALUE
 	 * @generated
@@ -87,8 +87,8 @@ public enum BindingState implements Enumerator {
 	/**
 	 * The '<em><b>INIT</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>INIT</b></em>' literal object isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of '<em><b>INIT</b></em>' literal object isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -101,8 +101,8 @@ public enum BindingState implements Enumerator {
 	/**
 	 * The '<em><b>PHASE1</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>PHASE1</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>PHASE1</b></em>' literal object isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -115,8 +115,8 @@ public enum BindingState implements Enumerator {
 	/**
 	 * The '<em><b>PHASE2</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>PHASE2</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>PHASE2</b></em>' literal object isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -129,8 +129,8 @@ public enum BindingState implements Enumerator {
 	/**
 	 * The '<em><b>PHASE3</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>PHASE3</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>PHASE3</b></em>' literal object isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -143,8 +143,8 @@ public enum BindingState implements Enumerator {
 	/**
 	 * The '<em><b>OK</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>OK</b></em>' literal object isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of '<em><b>OK</b></em>' literal object isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -157,8 +157,8 @@ public enum BindingState implements Enumerator {
 	/**
 	 * The '<em><b>DISPOSED</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>DISPOSED</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>DISPOSED</b></em>' literal object isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -171,8 +171,8 @@ public enum BindingState implements Enumerator {
 	/**
 	 * The '<em><b>DISPOSE PENDING</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>DISPOSE PENDING</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>DISPOSE PENDING</b></em>' literal object isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -183,7 +183,8 @@ public enum BindingState implements Enumerator {
 	public static final int DISPOSE_PENDING_VALUE = 6;
 
 	/**
-	 * An array of all the '<em><b>Binding State</b></em>' enumerators. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * An array of all the '<em><b>Binding State</b></em>' enumerators. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -191,48 +192,44 @@ public enum BindingState implements Enumerator {
 			DISPOSE_PENDING, };
 
 	/**
-	 * A public read-only list of all the '<em><b>Binding State</b></em>' enumerators. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * A public read-only list of all the '<em><b>Binding State</b></em>' enumerators. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static final List<BindingState> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Binding State</b></em>' literal with the specified literal value. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the '<em><b>Binding State</b></em>' literal with the specified literal value. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static BindingState get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			final BindingState result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
-				return result;
-			}
+			if (result.toString().equals(literal)) return result;
 		}
 		return null;
 	}
 
 	/**
-	 * Returns the '<em><b>Binding State</b></em>' literal with the specified name. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Returns the '<em><b>Binding State</b></em>' literal with the specified name. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static BindingState getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			final BindingState result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
-				return result;
-			}
+			if (result.getName().equals(name)) return result;
 		}
 		return null;
 	}
 
 	/**
-	 * Returns the '<em><b>Binding State</b></em>' literal with the specified integer value. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the '<em><b>Binding State</b></em>' literal with the specified integer value. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -293,6 +290,7 @@ public enum BindingState implements Enumerator {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 		return value;
 	}
@@ -302,6 +300,7 @@ public enum BindingState implements Enumerator {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -311,13 +310,14 @@ public enum BindingState implements Enumerator {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 		return literal;
 	}
 
 	/**
-	 * Returns the literal value of the enumerator, which is its string representation. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Returns the literal value of the enumerator, which is its string representation. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */

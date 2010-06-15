@@ -66,6 +66,7 @@ public class CountObservableValue extends AbstractObservableValue {
 
 			myCount = newCount;
 			getRealm().exec(new Runnable() {
+				@Override
 				public void run() {
 					fireValueChange(diff);
 				}

@@ -9,15 +9,16 @@ import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.widgets.Widget;
 
 /**
- * Copied strait out of {@link org.eclipse.jface.internal.databinding.provisional.swt.AbstractSWTObservableValue}.
+ * Copied strait out of
+ * {@link org.eclipse.jface.internal.databinding.provisional.swt.AbstractSWTObservableValue}.
  */
 public abstract class AbstractSWTObservableValue extends AbstractObservableValue implements ISWTObservableValue {
 
 	private final Widget widget;
 
 	/**
-	 * Standard constructor for an SWT ObservableValue. Makes sure that the observable gets disposed when the SWT widget
-	 * is disposed.
+	 * Standard constructor for an SWT ObservableValue. Makes sure that the observable gets disposed
+	 * when the SWT widget is disposed.
 	 * 
 	 * @param widget
 	 */
@@ -26,8 +27,8 @@ public abstract class AbstractSWTObservableValue extends AbstractObservableValue
 	}
 
 	/**
-	 * Constructor that allows for the setting of the realm. Makes sure that the observable gets disposed when the SWT
-	 * widget is disposed.
+	 * Constructor that allows for the setting of the realm. Makes sure that the observable gets
+	 * disposed when the SWT widget is disposed.
 	 * 
 	 * @param realm
 	 * @param widget
@@ -47,6 +48,7 @@ public abstract class AbstractSWTObservableValue extends AbstractObservableValue
 	}
 
 	private final DisposeListener disposeListener = new DisposeListener() {
+		@Override
 		public void widgetDisposed(DisposeEvent e) {
 			AbstractSWTObservableValue.this.dispose();
 		}
@@ -55,6 +57,7 @@ public abstract class AbstractSWTObservableValue extends AbstractObservableValue
 	/**
 	 * @return Returns the widget.
 	 */
+	@Override
 	public Widget getWidget() {
 		return widget;
 	}

@@ -21,9 +21,7 @@ import com.rcpcompany.utils.logging.LogUtils;
 public class ContextPropertyTester extends PropertyTester {
 	@Override
 	public boolean test(Object receiver, String property, Object[] args, Object expectedValue) {
-		if (!(receiver instanceof IBindingContext)) {
-			return false;
-		}
+		if (!(receiver instanceof IBindingContext)) return false;
 		final IBindingContext context = (IBindingContext) receiver;
 
 		if ("state".equals(property)) {

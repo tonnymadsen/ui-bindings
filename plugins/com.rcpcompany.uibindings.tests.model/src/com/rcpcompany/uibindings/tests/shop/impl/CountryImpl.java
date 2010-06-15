@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.tests.shop.impl;
@@ -24,13 +23,15 @@ import com.rcpcompany.uibindings.tests.shop.util.ShopValidator;
 import com.rcpcompany.uibindings.validators.EValidatorAdapter;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Country</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Country</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.CountryImpl#getShop <em>Shop</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.CountryImpl#getName <em>Name</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.CountryImpl#getAbbreviation <em>Abbreviation</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.CountryImpl#getAbbreviation <em>Abbreviation
+ * </em>}</li>
  * </ul>
  * </p>
  * 
@@ -38,8 +39,8 @@ import com.rcpcompany.uibindings.validators.EValidatorAdapter;
  */
 public class CountryImpl extends EObjectImpl implements Country {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getName()
 	 * @generated
@@ -48,8 +49,8 @@ public class CountryImpl extends EObjectImpl implements Country {
 	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getName()
 	 * @generated
@@ -58,8 +59,8 @@ public class CountryImpl extends EObjectImpl implements Country {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getAbbreviation() <em>Abbreviation</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getAbbreviation() <em>Abbreviation</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getAbbreviation()
 	 * @generated
@@ -68,8 +69,8 @@ public class CountryImpl extends EObjectImpl implements Country {
 	protected static final String ABBREVIATION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getAbbreviation() <em>Abbreviation</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getAbbreviation() <em>Abbreviation</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getAbbreviation()
 	 * @generated
@@ -101,6 +102,7 @@ public class CountryImpl extends EObjectImpl implements Country {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -110,6 +112,7 @@ public class CountryImpl extends EObjectImpl implements Country {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		final String oldName = name;
 		name = newName;
@@ -123,6 +126,7 @@ public class CountryImpl extends EObjectImpl implements Country {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getAbbreviation() {
 		return abbreviation;
 	}
@@ -132,6 +136,7 @@ public class CountryImpl extends EObjectImpl implements Country {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setAbbreviation(String newAbbreviation) {
 		final String oldAbbreviation = abbreviation;
 		abbreviation = newAbbreviation;
@@ -146,10 +151,9 @@ public class CountryImpl extends EObjectImpl implements Country {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Shop getShop() {
-		if (eContainerFeatureID() != ShopPackage.COUNTRY__SHOP) {
-			return null;
-		}
+		if (eContainerFeatureID() != ShopPackage.COUNTRY__SHOP) return null;
 		return (Shop) eContainer();
 	}
 
@@ -168,11 +172,11 @@ public class CountryImpl extends EObjectImpl implements Country {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setShop(Shop newShop) {
 		if (newShop != eInternalContainer() || (eContainerFeatureID() != ShopPackage.COUNTRY__SHOP && newShop != null)) {
-			if (EcoreUtil.isAncestor(this, newShop)) {
+			if (EcoreUtil.isAncestor(this, newShop))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			}
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null) {
 				msgs = eBasicRemoveFromContainer(msgs);
@@ -194,6 +198,7 @@ public class CountryImpl extends EObjectImpl implements Country {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public boolean abbreviationLengthOK(DiagnosticChain diagnostics, Map<Object, Object> context) {
 		final String a = getAbbreviation();
 		if (a != null && a.length() != 2) {
@@ -210,6 +215,7 @@ public class CountryImpl extends EObjectImpl implements Country {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public boolean abbreviationCaseOK(DiagnosticChain diagnostics, Map<Object, Object> context) {
 		final String a = getAbbreviation();
 		if (a != null) {
@@ -356,9 +362,7 @@ public class CountryImpl extends EObjectImpl implements Country {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");

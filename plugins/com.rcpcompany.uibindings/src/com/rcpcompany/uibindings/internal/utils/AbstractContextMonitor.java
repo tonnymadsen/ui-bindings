@@ -12,8 +12,8 @@ import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 
 /**
- * This class is used as the base class for context adapter and other classes that needs to monitor the coming and going
- * of bindings in a context
+ * This class is used as the base class for context adapter and other classes that needs to monitor
+ * the coming and going of bindings in a context
  * 
  * TODO TEST
  * 
@@ -66,12 +66,8 @@ public abstract class AbstractContextMonitor implements IDisposable {
 	private final Adapter myContextAdapter = new AdapterImpl() {
 		@Override
 		public void notifyChanged(Notification msg) {
-			if (msg.isTouch()) {
-				return;
-			}
-			if (msg.getFeature() != IUIBindingsPackage.Literals.BINDING_CONTEXT__OK_BINDINGS) {
-				return;
-			}
+			if (msg.isTouch()) return;
+			if (msg.getFeature() != IUIBindingsPackage.Literals.BINDING_CONTEXT__OK_BINDINGS) return;
 			switch (msg.getEventType()) {
 			case Notification.ADD:
 				final IBinding newBinding = (IBinding) msg.getNewValue();
@@ -91,12 +87,8 @@ public abstract class AbstractContextMonitor implements IDisposable {
 	private final Adapter myOKAdapter = new AdapterImpl() {
 		@Override
 		public void notifyChanged(Notification msg) {
-			if (msg.isTouch()) {
-				return;
-			}
-			if (msg.getFeature() != IUIBindingsPackage.Literals.BINDING_STATE) {
-				return;
-			}
+			if (msg.isTouch()) return;
+			if (msg.getFeature() != IUIBindingsPackage.Literals.BINDING_STATE) return;
 			final IBinding newBinding = (IBinding) msg.getNotifier();
 			switch (newBinding.getState()) {
 			case OK:

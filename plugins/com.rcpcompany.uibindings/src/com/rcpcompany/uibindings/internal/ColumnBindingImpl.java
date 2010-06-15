@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -98,20 +97,28 @@ import com.rcpcompany.uibindings.utils.IColumnChooser;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Column Binding</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Column Binding</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingImpl#getViewerBinding <em>Viewer Binding</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingImpl#getViewerColumn <em>Viewer Column</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingImpl#getColumnAdapter <em>Column Adapter</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingImpl#getBaseColumn <em>Base Column</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingImpl#getSubColumns <em>Sub Columns</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingImpl#getViewerBinding <em>Viewer
+ * Binding</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingImpl#getViewerColumn <em>Viewer Column
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingImpl#getColumnAdapter <em>Column
+ * Adapter</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingImpl#getBaseColumn <em>Base Column
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingImpl#getSubColumns <em>Sub Columns
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingImpl#getCells <em>Cells</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingImpl#getSpecialBindingType <em>Special Binding Type</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingImpl#getSpecialBindingType <em>Special
+ * Binding Type</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingImpl#getFactory <em>Factory</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingImpl#getCursor <em>Cursor</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingImpl#getColumnVisibility <em>Column Visibility</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingImpl#getColumnVisibility <em>Column
+ * Visibility</em>}</li>
  * </ul>
  * </p>
  * 
@@ -179,9 +186,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 
 				@Override
 				public IObservable createObservable(Object target) {
-					if (!(target instanceof EObject)) {
-						return null;
-					}
+					if (!(target instanceof EObject)) return null;
 					final EObject eobj = (EObject) target;
 					final EClass ec = eobj.eClass();
 					final IObservableValue ov = Observables.constantObservableValue(eobj, ec);
@@ -189,12 +194,12 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 					/*
 					 * This is not pretty - or efficient!
 					 * 
-					 * The problem: to know the value of the argument ARG_FEATURE_NAME, we need a binding with a
-					 * observable value with the correct value - but in the observable factory we don't yet have the
-					 * correct value...
+					 * The problem: to know the value of the argument ARG_FEATURE_NAME, we need a
+					 * binding with a observable value with the correct value - but in the
+					 * observable factory we don't yet have the correct value...
 					 * 
-					 * The solution - for now: to have an extra dynamic binding which gets the correct value and is then
-					 * asked for the argument :-/
+					 * The solution - for now: to have an extra dynamic binding which gets the
+					 * correct value and is then asked for the argument :-/
 					 */
 					dummyOV.setValue(target);
 					final IClassIdentiferMapper mapper = UIBindingsUtils.createClassIdentiferMapper(dummyBinding, ec);
@@ -205,8 +210,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 					return new MapperObservableValue(ov, getContext().getEditingDomain(), mapper);
 				}
 			};
-			return model(treeItemFactory, EcorePackage.Literals.EJAVA_OBJECT).label(
-					Messages.ColumnBindingImpl_TreeItem_ColumnHeader).dynamic()
+			return model(treeItemFactory, EcorePackage.Literals.EJAVA_OBJECT)
+					.label(Messages.ColumnBindingImpl_TreeItem_ColumnHeader).dynamic()
 					.arg(IColumnChooser.ARG_CHOOSABLE, false);
 		default:
 			assertTrue(false, "Special value " + specialValue + " not supported for this type of binding"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -349,7 +354,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	/**
 	 * This will finish the binding and make it effective.
 	 * <p>
-	 * The idea is to use a proper UI binding to do the conversion of values exactly as for {@link Text} widgets.
+	 * The idea is to use a proper UI binding to do the conversion of values exactly as for
+	 * {@link Text} widgets.
 	 * <p>
 	 * This entails the following steps:
 	 * <ul>
@@ -357,7 +363,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	 * <li>finding the {@link #getModelType() model value type}</li>
 	 * <li>creating a new {@link IUIAttribute} for this binding</li>
 	 * <li>setting up a binding between the two</li>
-	 * <li>setting up a column map to track changes in the column and report these via the label provider
+	 * <li>setting up a column map to track changes in the column and report these via the label
+	 * provider
 	 * </ul>
 	 */
 	@Override
@@ -382,7 +389,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		// specify a base EC as well.
 		// if (sourceEClass != null && myFactory == null) {
 		// Assert.isTrue(getFeature().getEContainingClass().isSuperTypeOf(sourceEClass), "Feature "
-		// + getFeature().getEContainingClass().getName() + "." + getFeature().getName() + " is not of type "
+		// + getFeature().getEContainingClass().getName() + "." + getFeature().getName() +
+		// " is not of type "
 		// + sourceEClass.getName());
 		// }
 
@@ -417,7 +425,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		}
 
 		/*
-		 * Remove items from the cell information map when they are not shown in the table anymore...
+		 * Remove items from the cell information map when they are not shown in the table
+		 * anymore...
 		 */
 		getViewerBinding().getElements().addSetChangeListener(new ISetChangeListener() {
 			@Override
@@ -444,9 +453,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 
 	@Override
 	public void dispose() {
-		if (getState() == BindingState.DISPOSED) {
-			return;
-		}
+		if (getState() == BindingState.DISPOSED) return;
 		setState(BindingState.DISPOSE_PENDING);
 		disposeServices();
 		/*
@@ -476,7 +483,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 
 	/**
 	 * Taken directly from
-	 * http://dev.eclipse.org/viewcvs/index.cgi/org.eclipse.jface.snippets/Eclipse%20JFace%20Snippets
+	 * http://dev.eclipse.org/viewcvs/index.cgi/org.eclipse.jface.snippets/Eclipse
+	 * %20JFace%20Snippets
 	 * /org/eclipse/jface/snippets/viewers/Snippet041TableViewerAlternatingColors.java?view=markup
 	 */
 	protected static class OptimizedIndexSearcher {
@@ -538,15 +546,11 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			/*
 			 * No need to do anything more if we already have an outstanding request...
 			 */
-			if (myHasOutstandingFireLabelProviderChangedSet.contains(ci)) {
-				return;
-			}
+			if (myHasOutstandingFireLabelProviderChangedSet.contains(ci)) return;
 			final Control control = getViewerColumn().getViewer().getControl();
-			if (control.isDisposed()) {
-				return;
-			}
-			final LabelProviderChangedEvent event = new LabelProviderChangedEvent(GeneralLabelProvider.this, ci
-					.getElement());
+			if (control.isDisposed()) return;
+			final LabelProviderChangedEvent event = new LabelProviderChangedEvent(GeneralLabelProvider.this,
+					ci.getElement());
 			if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS) {
 				LogUtils.debug(ci.getLabelBinding(), ci.getLabelBinding() + " label changed"); //$NON-NLS-1$
 			}
@@ -554,9 +558,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			control.getDisplay().asyncExec(new Runnable() {
 				@Override
 				public void run() {
-					if (control.isDisposed()) {
-						return;
-					}
+					if (control.isDisposed()) return;
 					if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS) {
 						LogUtils.debug(ci.getLabelBinding(), ci.getLabelBinding() + " label changed (fired)"); //$NON-NLS-1$
 					}
@@ -578,9 +580,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		public void update(ViewerCell cell) {
 			final Object element = cell.getElement();
 			final IColumnBindingCellInformation ci = getCellInformation(element);
-			if (ci == null) {
-				return;
-			}
+			if (ci == null) return;
 			final IValueBinding labelBinding = ci.getLabelBinding();
 			if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS) {
 				LogUtils.debug(labelBinding, labelBinding + " update: " //$NON-NLS-1$
@@ -652,9 +652,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		 */
 		private void setupPainter(final IColumnBindingCellInformation ci, Event event) {
 			final UIAttributePainter painter = ci.getLabelPainter();
-			if (painter == null) {
-				return;
-			}
+			if (painter == null) return;
 
 			/*
 			 * Figure out whether the cell has focus
@@ -668,8 +666,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		}
 
 		/**
-		 * Handle the erase event. The default implementation does nothing to ensure keep native selection highlighting
-		 * working.
+		 * Handle the erase event. The default implementation does nothing to ensure keep native
+		 * selection highlighting working.
 		 * 
 		 * @param event the erase event
 		 * @param element the model object
@@ -686,9 +684,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		@Override
 		protected void measure(Event event, Object element) {
 			final IColumnBindingCellInformation ci = getCellInformation(element);
-			if (ci == null) {
-				return;
-			}
+			if (ci == null) return;
 			setupPainter(ci, event);
 
 			final UIAttributePainter painter = ci.getLabelPainter();
@@ -703,18 +699,14 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		@Override
 		protected void paint(Event event, Object element) {
 			final IColumnBindingCellInformation ci = getCellInformation(element);
-			if (ci == null) {
-				return;
-			}
+			if (ci == null) return;
 			final IValueBinding labelBinding = ci.getLabelBinding();
 			if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS) {
 				final Object v = ci.getLabelUIAttribute().getCurrentValue().getValue();
 				LogUtils.debug(labelBinding, labelBinding + " paint: " + v); //$NON-NLS-1$
 			}
 
-			if (labelBinding.eIsSet(IUIBindingsPackage.Literals.BINDING__ERROR_CONDITIONS)) {
-				return;
-			}
+			if (labelBinding.eIsSet(IUIBindingsPackage.Literals.BINDING__ERROR_CONDITIONS)) return;
 			setupPainter(ci, event);
 			final UIAttributePainter painter = ci.getLabelPainter();
 			painter.setDefaultBackground(null);
@@ -759,9 +751,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		@Override
 		protected boolean canEdit(Object element) {
 			final ViewerCell focusCell = getViewer().getColumnViewerEditor().getFocusCell();
-			if (focusCell == null) {
-				return false;
-			}
+			if (focusCell == null) return false;
 			if (focusCell.getElement() != focusCell.getViewerRow().getElement()) {
 				LogUtils.debug(ColumnBindingImpl.this, "\ncell.element=" + focusCell.getElement() + "\nitem.data=" //$NON-NLS-1$ //$NON-NLS-2$
 						+ focusCell.getViewerRow().getElement());
@@ -784,9 +774,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		@Override
 		protected CellEditor getCellEditor(Object element) {
 			final ViewerCell focusCell = getViewer().getColumnViewerEditor().getFocusCell();
-			if (focusCell == null) {
-				return null;
-			}
+			if (focusCell == null) return null;
 			if (focusCell.getElement() != focusCell.getViewerRow().getElement()) {
 				LogUtils.debug(ColumnBindingImpl.this, "\ncell.element=" + focusCell.getElement() + "\nitem.data=" //$NON-NLS-1$ //$NON-NLS-2$
 						+ focusCell.getViewerRow().getElement());
@@ -815,7 +803,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 				@Override
 				public Composite getParent() {
 					/*
-					 * We know the control of the viewer is either a Table or a Tree - in both cases a Composite
+					 * We know the control of the viewer is either a Table or a Tree - in both cases
+					 * a Composite
 					 */
 					return (Composite) getViewer().getControl();
 				}
@@ -849,9 +838,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 
 	@Override
 	public IColumnBindingCellInformation getCellInformation(Object element, boolean create) {
-		if (getState() == BindingState.DISPOSED) {
-			return null;
-		}
+		if (getState() == BindingState.DISPOSED) return null;
 		final Object baseElement = element;
 		if (element instanceof IConstantTreeItem) {
 			final IConstantTreeItem ti = (IConstantTreeItem) element;
@@ -1058,8 +1045,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	}
 
 	/**
-	 * The cached value of the '{@link #getViewerBinding() <em>Viewer Binding</em>}' reference. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getViewerBinding() <em>Viewer Binding</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getViewerBinding()
 	 * @generated
@@ -1068,8 +1055,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	protected IViewerBinding viewerBinding;
 
 	/**
-	 * The default value of the '{@link #getViewerColumn() <em>Viewer Column</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getViewerColumn() <em>Viewer Column</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getViewerColumn()
 	 * @generated
@@ -1078,8 +1065,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	protected static final ViewerColumn VIEWER_COLUMN_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getViewerColumn() <em>Viewer Column</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getViewerColumn() <em>Viewer Column</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getViewerColumn()
 	 * @generated
@@ -1088,8 +1075,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	protected ViewerColumn viewerColumn = VIEWER_COLUMN_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getColumnAdapter() <em>Column Adapter</em>}' reference. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getColumnAdapter() <em>Column Adapter</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getColumnAdapter()
 	 * @generated
@@ -1098,8 +1085,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	protected IColumnAdapter columnAdapter;
 
 	/**
-	 * The cached value of the '{@link #getBaseColumn() <em>Base Column</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getBaseColumn() <em>Base Column</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getBaseColumn()
 	 * @generated
@@ -1108,8 +1095,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	protected IColumnBinding baseColumn;
 
 	/**
-	 * The cached value of the '{@link #getSubColumns() <em>Sub Columns</em>}' reference list. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getSubColumns() <em>Sub Columns</em>}' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getSubColumns()
 	 * @generated
@@ -1118,7 +1105,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	protected EList<IColumnBinding> subColumns;
 
 	/**
-	 * The cached value of the '{@link #getCells() <em>Cells</em>}' map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getCells() <em>Cells</em>}' map. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getCells()
 	 * @generated
@@ -1127,8 +1115,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	protected EMap<EObject, IColumnBindingCellInformation> cells;
 
 	/**
-	 * The default value of the '{@link #getSpecialBindingType() <em>Special Binding Type</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getSpecialBindingType() <em>Special Binding Type</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getSpecialBindingType()
 	 * @generated
@@ -1137,8 +1125,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	protected static final SpecialBinding SPECIAL_BINDING_TYPE_EDEFAULT = SpecialBinding.ROW_NO;
 
 	/**
-	 * The cached value of the '{@link #getSpecialBindingType() <em>Special Binding Type</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getSpecialBindingType() <em>Special Binding Type</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getSpecialBindingType()
 	 * @generated
@@ -1147,8 +1135,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	protected SpecialBinding specialBindingType = SPECIAL_BINDING_TYPE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getFactory() <em>Factory</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getFactory() <em>Factory</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getFactory()
 	 * @generated
@@ -1157,8 +1145,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	protected static final IObservableFactory FACTORY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getFactory() <em>Factory</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getFactory() <em>Factory</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getFactory()
 	 * @generated
@@ -1167,8 +1155,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	protected IObservableFactory factory = FACTORY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getCursor() <em>Cursor</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getCursor() <em>Cursor</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getCursor()
 	 * @generated
@@ -1177,8 +1165,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	protected static final Cursor CURSOR_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getCursor() <em>Cursor</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getCursor() <em>Cursor</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getCursor()
 	 * @generated
@@ -1187,8 +1175,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	protected Cursor cursor = CURSOR_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getColumnVisibility() <em>Column Visibility</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getColumnVisibility() <em>Column Visibility</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getColumnVisibility()
 	 * @generated
@@ -1197,8 +1185,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	protected static final IObservableValue COLUMN_VISIBILITY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getColumnVisibility() <em>Column Visibility</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getColumnVisibility() <em>Column Visibility</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getColumnVisibility()
 	 * @generated
@@ -1230,6 +1218,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IViewerBinding getViewerBinding() {
 		return viewerBinding;
 	}
@@ -1259,6 +1248,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setViewerBinding(IViewerBinding newViewerBinding) {
 		if (newViewerBinding != viewerBinding) {
 			NotificationChain msgs = null;
@@ -1285,6 +1275,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public ViewerColumn getViewerColumn() {
 		assertTrue(viewerColumn != null, "Column has not been set"); //$NON-NLS-1$
 		return viewerColumn;
@@ -1309,6 +1300,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IColumnAdapter getColumnAdapter() {
 		return columnAdapter;
 	}
@@ -1332,6 +1324,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IColumnBinding getBaseColumn() {
 		return baseColumn;
 	}
@@ -1361,6 +1354,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setBaseColumn(IColumnBinding newBaseColumn) {
 		if (newBaseColumn != baseColumn) {
 			NotificationChain msgs = null;
@@ -1387,6 +1381,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<IColumnBinding> getSubColumns() {
 		if (subColumns == null) {
 			subColumns = new EObjectWithInverseEList<IColumnBinding>(IColumnBinding.class, this,
@@ -1400,6 +1395,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EMap<EObject, IColumnBindingCellInformation> getCells() {
 		if (cells == null) {
 			cells = new EcoreEMap<EObject, IColumnBindingCellInformation>(
@@ -1414,6 +1410,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public SpecialBinding getSpecialBindingType() {
 		return specialBindingType;
 	}
@@ -1423,6 +1420,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setSpecialBindingType(SpecialBinding newSpecialBindingType) {
 		final SpecialBinding oldSpecialBindingType = specialBindingType;
 		specialBindingType = newSpecialBindingType == null ? SPECIAL_BINDING_TYPE_EDEFAULT : newSpecialBindingType;
@@ -1437,6 +1435,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IObservableFactory getFactory() {
 		return factory;
 	}
@@ -1446,6 +1445,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Cursor getCursor() {
 		return cursor;
 	}
@@ -1455,6 +1455,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setCursor(Cursor newCursor) {
 		final Cursor oldCursor = cursor;
 		cursor = newCursor;
@@ -1471,21 +1472,18 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public IObservableValue getColumnVisibility() {
 		if (columnVisibility == null) {
 			columnVisibility = new WritableValue(true, Boolean.class);
 			columnVisibility.addValueChangeListener(new IValueChangeListener() {
 				@Override
 				public void handleValueChange(ValueChangeEvent event) {
-					if (getState() != BindingState.OK) {
-						return;
-					}
+					if (getState() != BindingState.OK) return;
 					final boolean o = event.diff.getOldValue() == Boolean.TRUE;
 					final boolean n = event.diff.getNewValue() == Boolean.TRUE;
 
-					if (o == n) {
-						return;
-					}
+					if (o == n) return;
 					final IColumnAdapter adapter = getColumnAdapter();
 					if (n) {
 						adapter.setWidth(myOldWidth > 0 ? myOldWidth : 10);
@@ -1573,11 +1571,10 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		case IUIBindingsPackage.COLUMN_BINDING__SUB_COLUMNS:
 			return getSubColumns();
 		case IUIBindingsPackage.COLUMN_BINDING__CELLS:
-			if (coreType) {
+			if (coreType)
 				return getCells();
-			} else {
+			else
 				return getCells().map();
-			}
 		case IUIBindingsPackage.COLUMN_BINDING__SPECIAL_BINDING_TYPE:
 			return getSpecialBindingType();
 		case IUIBindingsPackage.COLUMN_BINDING__FACTORY:
@@ -1704,9 +1701,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (viewerColumn: "); //$NON-NLS-1$

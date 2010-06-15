@@ -27,9 +27,7 @@ public class ArgumentImageExtender extends AbstractUIBindingDecoratorExtender {
 	public void extend(IUIBindingDecoratorExtenderContext context) {
 		final IValueBinding binding = context.getBinding();
 		final ImageDescriptor id = binding.getArgument(Constants.ARG_IMAGE, ImageDescriptor.class, null);
-		if (id == null) {
-			return;
-		}
+		if (id == null) return;
 
 		final Image image = Activator.getDefault().getResourceManager().createImage(id);
 		if (image == null) {

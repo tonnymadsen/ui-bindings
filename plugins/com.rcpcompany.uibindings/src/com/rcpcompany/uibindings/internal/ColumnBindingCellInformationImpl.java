@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -21,6 +20,7 @@ import org.eclipse.swt.widgets.Control;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IArgumentProvider;
 import com.rcpcompany.uibindings.IBindingContext;
+import com.rcpcompany.uibindings.IBindingContext.FinishOption;
 import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IColumnBindingCellInformation;
@@ -31,7 +31,6 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.SpecialBinding;
-import com.rcpcompany.uibindings.IBindingContext.FinishOption;
 import com.rcpcompany.uibindings.internal.observables.MyDetailObservableValue;
 import com.rcpcompany.uibindings.observables.ProxyObservableValue;
 import com.rcpcompany.uibindings.uiAttributes.UIAttributePainter;
@@ -39,27 +38,36 @@ import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Column Binding Cell Information</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Column Binding Cell Information</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getColumn <em>Column</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getElement <em>Element</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getLabelBinding <em>Label Binding
- * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getLabelUIAttribute <em>Label UI
- * Attribute</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getLabelPainter <em>Label Painter
- * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getObjectValue <em>Object Value</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getSourceValue <em>Source Value</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#isChangeable <em>Changeable</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getDisplayText <em>Display Text</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getValueType <em>Value Type</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getToolTipText <em>Tool Tip Text</em>}
- * </li>
- * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#isEnabled <em>Enabled</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getColumn <em>
+ * Column</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getElement <em>
+ * Element</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getLabelBinding
+ * <em>Label Binding </em>}</li>
+ * <li>
+ * {@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getLabelUIAttribute
+ * <em>Label UI Attribute</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getLabelPainter
+ * <em>Label Painter </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getObjectValue
+ * <em>Object Value</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getSourceValue
+ * <em>Source Value</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#isChangeable <em>
+ * Changeable</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getDisplayText
+ * <em>Display Text</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getValueType <em>
+ * Value Type</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getToolTipText
+ * <em>Tool Tip Text</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#isEnabled <em>
+ * Enabled</em>}</li>
  * </ul>
  * </p>
  * 
@@ -91,8 +99,8 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 		 * 
 		 * Note that the source value can change(!) so a master-detail is needed!
 		 * 
-		 * Another note: the valueTypes EJAVE_OBJECT and Object.class are passed to the observable as null, as this
-		 * means the result will not be checked.
+		 * Another note: the valueTypes EJAVE_OBJECT and Object.class are passed to the observable
+		 * as null, as this means the result will not be checked.
 		 */
 		Object valueType = column.getDataType().getValueType();
 		if (valueType == EcorePackage.Literals.EJAVA_OBJECT) {
@@ -100,8 +108,8 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 		} else if (valueType == Object.class) {
 			valueType = null;
 		}
-		final MyDetailObservableValue newObjectValue = new MyDetailObservableValue(getSourceValue(), column
-				.getFactory(), valueType);
+		final MyDetailObservableValue newObjectValue = new MyDetailObservableValue(getSourceValue(),
+				column.getFactory(), valueType);
 		setObjectValue(newObjectValue);
 
 		/*
@@ -127,7 +135,8 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 			lb.getExtraArgumentProviders().add(((IConstantTreeItem) element).getDescriptor());
 		}
 		/*
-		 * For the tree columns, we also add the model type of the row element as an extra argument provider...
+		 * For the tree columns, we also add the model type of the row element as an extra argument
+		 * provider...
 		 * 
 		 * This is primary used for the image...
 		 */
@@ -171,8 +180,8 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	};
 
 	/**
-	 * The cached value of the '{@link #getColumn() <em>Column</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getColumn() <em>Column</em>}' reference. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getColumn()
 	 * @generated
@@ -181,8 +190,8 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	protected IColumnBinding column;
 
 	/**
-	 * The cached value of the '{@link #getElement() <em>Element</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getElement() <em>Element</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getElement()
 	 * @generated
@@ -191,8 +200,8 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	protected EObject element;
 
 	/**
-	 * The cached value of the '{@link #getLabelBinding() <em>Label Binding</em>}' reference. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getLabelBinding() <em>Label Binding</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getLabelBinding()
 	 * @generated
@@ -201,8 +210,8 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	protected IValueBinding labelBinding;
 
 	/**
-	 * The cached value of the '{@link #getLabelUIAttribute() <em>Label UI Attribute</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getLabelUIAttribute() <em>Label UI Attribute</em>}'
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getLabelUIAttribute()
 	 * @generated
@@ -211,8 +220,8 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	protected IUIAttribute labelUIAttribute;
 
 	/**
-	 * The default value of the '{@link #getLabelPainter() <em>Label Painter</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getLabelPainter() <em>Label Painter</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getLabelPainter()
 	 * @generated
@@ -221,8 +230,8 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	protected static final UIAttributePainter LABEL_PAINTER_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getLabelPainter() <em>Label Painter</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getLabelPainter() <em>Label Painter</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getLabelPainter()
 	 * @generated
@@ -231,8 +240,8 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	protected UIAttributePainter labelPainter = LABEL_PAINTER_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getObjectValue() <em>Object Value</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getObjectValue() <em>Object Value</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getObjectValue()
 	 * @generated
@@ -241,8 +250,8 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	protected static final IObservableValue OBJECT_VALUE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getObjectValue() <em>Object Value</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getObjectValue() <em>Object Value</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getObjectValue()
 	 * @generated
@@ -251,8 +260,8 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	protected IObservableValue objectValue = OBJECT_VALUE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSourceValue() <em>Source Value</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getSourceValue() <em>Source Value</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getSourceValue()
 	 * @generated
@@ -261,8 +270,8 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	protected static final IObservableValue SOURCE_VALUE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getSourceValue() <em>Source Value</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getSourceValue() <em>Source Value</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getSourceValue()
 	 * @generated
@@ -271,8 +280,8 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	protected IObservableValue sourceValue = SOURCE_VALUE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isChangeable() <em>Changeable</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #isChangeable() <em>Changeable</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isChangeable()
 	 * @generated
@@ -281,8 +290,8 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	protected static final boolean CHANGEABLE_EDEFAULT = false;
 
 	/**
-	 * The default value of the '{@link #getDisplayText() <em>Display Text</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getDisplayText() <em>Display Text</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDisplayText()
 	 * @generated
@@ -291,8 +300,8 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	protected static final String DISPLAY_TEXT_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getToolTipText() <em>Tool Tip Text</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getToolTipText() <em>Tool Tip Text</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getToolTipText()
 	 * @generated
@@ -301,8 +310,8 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	protected static final String TOOL_TIP_TEXT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getToolTipText() <em>Tool Tip Text</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getToolTipText() <em>Tool Tip Text</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getToolTipText()
 	 * @generated
@@ -311,8 +320,8 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	protected String toolTipText = TOOL_TIP_TEXT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isEnabled()
 	 * @generated
@@ -321,8 +330,8 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	protected static final boolean ENABLED_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #isEnabled() <em>Enabled</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #isEnabled() <em>Enabled</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isEnabled()
 	 * @generated
@@ -354,6 +363,7 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IColumnBinding getColumn() {
 		return column;
 	}
@@ -363,6 +373,7 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setColumn(IColumnBinding newColumn) {
 		final IColumnBinding oldColumn = column;
 		column = newColumn;
@@ -377,6 +388,7 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EObject getElement() {
 		return element;
 	}
@@ -400,6 +412,7 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IValueBinding getLabelBinding() {
 		return labelBinding;
 	}
@@ -423,6 +436,7 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IUIAttribute getLabelUIAttribute() {
 		return labelUIAttribute;
 	}
@@ -447,6 +461,7 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	 * 
 	 * @generated
 	 */
+	@Override
 	public UIAttributePainter getLabelPainter() {
 		return labelPainter;
 	}
@@ -470,6 +485,7 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IObservableValue getObjectValue() {
 		return objectValue;
 	}
@@ -493,6 +509,7 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IObservableValue getSourceValue() {
 		return sourceValue;
 	}
@@ -516,27 +533,18 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public boolean isChangeable() {
-		if (!isEnabled()) {
-			return false;
-		}
+		if (!isEnabled()) return false;
 		final IValueBinding b = getLabelBinding();
-		if (b == null) {
+		if (b == null) return false;
+		if (b.eIsSet(IUIBindingsPackage.Literals.BINDING__ERROR_CONDITIONS) && b.getErrorConditions().size() > 0)
 			return false;
-		}
-		if (b.eIsSet(IUIBindingsPackage.Literals.BINDING__ERROR_CONDITIONS) && b.getErrorConditions().size() > 0) {
+		if (getColumn().getArgument(Constants.ARG_READONLY, Boolean.class, Boolean.FALSE) == Boolean.TRUE)
 			return false;
-		}
-		if (getColumn().getArgument(Constants.ARG_READONLY, Boolean.class, Boolean.FALSE) == Boolean.TRUE) {
-			return false;
-		}
-		if (!getColumn().getViewerBinding().isChangeable()) {
-			return false;
-		}
+		if (!getColumn().getViewerBinding().isChangeable()) return false;
 		final IUIBindingDecorator decorator = b.getDecorator();
-		if (decorator == null) {
-			return false;
-		}
+		if (decorator == null) return false;
 		return decorator.isChangeable();
 	}
 
@@ -545,6 +553,7 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public String getDisplayText() {
 		Object value = null;
 		final IObservableValue displayValue = getLabelUIAttribute().getCurrentValue();
@@ -563,6 +572,7 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public Class<?> getValueType() {
 		return getLabelBinding().getDataType().getDataType();
 	}
@@ -572,6 +582,7 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getToolTipText() {
 		return toolTipText;
 	}
@@ -581,6 +592,7 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setToolTipText(String newToolTipText) {
 		final String oldToolTipText = toolTipText;
 		toolTipText = newToolTipText;
@@ -595,6 +607,7 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	 * 
 	 * @generated
 	 */
+	@Override
 	public boolean isEnabled() {
 		return enabled;
 	}
@@ -604,6 +617,7 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setEnabled(boolean newEnabled) {
 		final boolean oldEnabled = enabled;
 		enabled = newEnabled;

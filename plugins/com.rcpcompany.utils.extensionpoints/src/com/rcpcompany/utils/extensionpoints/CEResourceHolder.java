@@ -3,7 +3,7 @@ package com.rcpcompany.utils.extensionpoints;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.ui.internal.UIPlugin;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 /**
  * Simple holder pattern for images in the extension registry.
@@ -46,8 +46,8 @@ public class CEResourceHolder {
 	 */
 	public Image getImage() {
 		if (myImage == null) {
-			ImageDescriptor descriptor = UIPlugin.imageDescriptorFromPlugin(myCE.getContributor().getName(), myCE
-					.getAttribute(myAttrName));
+			final ImageDescriptor descriptor = AbstractUIPlugin.imageDescriptorFromPlugin(myCE.getContributor()
+					.getName(), myCE.getAttribute(myAttrName));
 			myImage = descriptor.createImage();
 		}
 		return myImage;

@@ -32,7 +32,8 @@ public class EListObservableValue extends AbstractObservableValue implements IKe
 	protected Object myValue;
 
 	/**
-	 * Constructs and returns a new {@link IObservableValue} for the specified element in the list of the object.
+	 * Constructs and returns a new {@link IObservableValue} for the specified element in the list
+	 * of the object.
 	 * <p>
 	 * The default editing domain of the {@link IManager} if used.
 	 * 
@@ -45,7 +46,8 @@ public class EListObservableValue extends AbstractObservableValue implements IKe
 	}
 
 	/**
-	 * Constructs and returns a new {@link IObservableValue} for the specified element in the list of the object
+	 * Constructs and returns a new {@link IObservableValue} for the specified element in the list
+	 * of the object
 	 * 
 	 * @param editingDomain the editing domain to use
 	 * @param ov observable value with the {@link EObject}
@@ -94,16 +96,10 @@ public class EListObservableValue extends AbstractObservableValue implements IKe
 
 	@Override
 	protected final Object doGetValue() {
-		if (myObject == null) {
-			return null;
-		}
+		if (myObject == null) return null;
 		final EList<?> list = (EList<?>) myObject.eGet(mySF);
-		if (list == null) {
-			return null;
-		}
-		if (list.size() <= myIndex) {
-			return null;
-		}
+		if (list == null) return null;
+		if (list.size() <= myIndex) return null;
 
 		return list.get(myIndex);
 	}

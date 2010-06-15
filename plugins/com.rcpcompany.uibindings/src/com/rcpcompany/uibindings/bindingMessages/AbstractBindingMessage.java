@@ -89,19 +89,16 @@ public abstract class AbstractBindingMessage extends BindingMessageImpl {
 	/**
 	 * Returns the full message text for this message.
 	 * <p>
-	 * The prefix prepended to the message text - unless the message text already starts with the prefix.
+	 * The prefix prepended to the message text - unless the message text already starts with the
+	 * prefix.
 	 * 
 	 * @return the full message text
 	 */
 	public static String getFullMessage(IBindingMessage message) {
 		final String prefix = message.getPrefix();
 		final String text = message.getMessage();
-		if (prefix == null) {
-			return text;
-		}
-		if (text.startsWith(prefix)) {
-			return text;
-		}
+		if (prefix == null) return text;
+		if (text.startsWith(prefix)) return text;
 		return prefix + text;
 	}
 

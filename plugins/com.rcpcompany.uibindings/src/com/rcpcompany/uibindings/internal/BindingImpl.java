@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -65,31 +64,37 @@ import com.rcpcompany.utils.basic.ToStringUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Binding</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Binding</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getDeclaredArguments <em>Declared Arguments</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getDeclaredArguments <em>Declared
+ * Arguments</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getContext <em>Context</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getState <em>State</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#isChangeable <em>Changeable</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getCreationPoint <em>Creation Point</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getCreationPoint <em>Creation Point
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getArguments <em>Arguments</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getId <em>Id</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getType <em>Type</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getLabel <em>Label</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getStaticDataType <em>Static Data Type</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getStaticDataType <em>Static Data Type
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getDataType <em>Data Type</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getModelEType <em>Model EType</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getModelType <em>Model Type</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getUIType <em>UI Type</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getDBBindings <em>DB Bindings</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getMonitoredDBBindings <em>Monitored DB Bindings</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getErrorConditions <em>Error Conditions</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getMonitoredDBBindings <em>Monitored DB
+ * Bindings</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getErrorConditions <em>Error Conditions
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getWidget <em>Widget</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getControl <em>Control</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getExtraArgumentProviders <em>Extra Argument Providers
- * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getExtraArgumentProviders <em>Extra
+ * Argument Providers </em>}</li>
  * </ul>
  * </p>
  * 
@@ -136,8 +141,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 			LogUtils.debug(this, this + " disposed"); //$NON-NLS-1$
 		}
 		/*
-		 * The context can be null if the binding was never properly created... which of cause should only happen if
-		 * something doesn't work properly :-)
+		 * The context can be null if the binding was never properly created... which of cause
+		 * should only happen if something doesn't work properly :-)
 		 */
 		if (getContext() != null) {
 			getContext().getOkBindings().remove(this);
@@ -148,9 +153,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	@Override
 	public void setArguments(Map<String, Object> arguments) {
-		if (arguments == null) {
-			return;
-		}
+		if (arguments == null) return;
 		for (final Map.Entry<String, Object> n : arguments.entrySet()) {
 			getArguments().put(n.getKey(), n.getValue());
 		}
@@ -171,6 +174,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		}
 	}
 
+	@Override
 	public void bindList(IObservableList targetObservableList, IObservableList modelObservableList,
 			UpdateListStrategy targetToModel, UpdateListStrategy modelToTarget, boolean monitorStatus) {
 		final Binding b = getContext().getDbContext().bindList(targetObservableList, modelObservableList,
@@ -178,6 +182,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		addDBBinding(b, monitorStatus);
 	}
 
+	@Override
 	public void bindSet(IObservableSet targetObservableSet, IObservableSet modelObservableSet,
 			UpdateSetStrategy targetToModel, UpdateSetStrategy modelToTarget) {
 		final Binding b = getContext().getDbContext().bindSet(targetObservableSet, modelObservableSet, targetToModel,
@@ -185,6 +190,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		addDBBinding(b, false);
 	}
 
+	@Override
 	public Binding bindValue(IObservableValue targetObservableValue, IObservableValue modelObservableValue,
 			UpdateValueStrategy targetToModel, UpdateValueStrategy modelToTarget, boolean monitorStatus) {
 		final Binding b = getContext().getDbContext().bindValue(targetObservableValue, modelObservableValue,
@@ -194,8 +200,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	}
 
 	/**
-	 * The cached value of the '{@link #getDeclaredArguments() <em>Declared Arguments</em>}' map. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getDeclaredArguments() <em>Declared Arguments</em>}' map.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDeclaredArguments()
 	 * @generated
@@ -204,8 +210,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	protected EMap<String, Object> declaredArguments;
 
 	/**
-	 * The default value of the '{@link #getState() <em>State</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getState() <em>State</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getState()
 	 * @generated
@@ -214,8 +220,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	protected static final BindingState STATE_EDEFAULT = BindingState.INIT;
 
 	/**
-	 * The cached value of the '{@link #getState() <em>State</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getState() <em>State</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getState()
 	 * @generated
@@ -224,8 +230,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	protected BindingState state = STATE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isChangeable() <em>Changeable</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #isChangeable() <em>Changeable</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isChangeable()
 	 * @generated
@@ -234,8 +240,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	protected static final boolean CHANGEABLE_EDEFAULT = false;
 
 	/**
-	 * The default value of the '{@link #getCreationPoint() <em>Creation Point</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getCreationPoint() <em>Creation Point</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getCreationPoint()
 	 * @generated
@@ -244,8 +250,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	protected static final Throwable CREATION_POINT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getCreationPoint() <em>Creation Point</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getCreationPoint() <em>Creation Point</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getCreationPoint()
 	 * @generated
@@ -254,8 +260,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	protected Throwable creationPoint = CREATION_POINT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getArguments() <em>Arguments</em>}' map. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getArguments() <em>Arguments</em>}' map. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getArguments()
 	 * @generated
@@ -264,7 +270,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	protected EMap<String, Object> arguments;
 
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getId()
 	 * @generated
@@ -273,7 +280,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getId()
 	 * @generated
@@ -282,8 +290,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	protected String id = ID_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getType()
 	 * @generated
@@ -292,8 +300,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	protected static final String TYPE_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getLabel()
 	 * @generated
@@ -302,8 +310,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	protected static final String LABEL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getStaticDataType() <em>Static Data Type</em>}' reference. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getStaticDataType() <em>Static Data Type</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getStaticDataType()
 	 * @generated
@@ -312,8 +320,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	protected IBindingDataType staticDataType;
 
 	/**
-	 * The cached value of the '{@link #getDBBindings() <em>DB Bindings</em>}' attribute list. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getDBBindings() <em>DB Bindings</em>}' attribute list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDBBindings()
 	 * @generated
@@ -322,8 +330,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	protected EList<Binding> dbBindings;
 
 	/**
-	 * The cached value of the '{@link #getMonitoredDBBindings() <em>Monitored DB Bindings</em>}' attribute list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getMonitoredDBBindings() <em>Monitored DB Bindings</em>}'
+	 * attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getMonitoredDBBindings()
 	 * @generated
@@ -332,8 +340,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	protected EList<Binding> monitoredDBBindings;
 
 	/**
-	 * The cached value of the '{@link #getErrorConditions() <em>Error Conditions</em>}' attribute list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getErrorConditions() <em>Error Conditions</em>}' attribute
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getErrorConditions()
 	 * @generated
@@ -342,8 +350,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	protected EList<String> errorConditions;
 
 	/**
-	 * The default value of the '{@link #getWidget() <em>Widget</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getWidget() <em>Widget</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getWidget()
 	 * @generated
@@ -352,8 +360,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	protected static final Widget WIDGET_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getControl() <em>Control</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getControl() <em>Control</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getControl()
 	 * @generated
@@ -362,8 +370,9 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	protected static final Control CONTROL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getExtraArgumentProviders() <em>Extra Argument Providers</em>}' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getExtraArgumentProviders()
+	 * <em>Extra Argument Providers</em>}' reference list. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @see #getExtraArgumentProviders()
 	 * @generated
@@ -386,6 +395,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EMap<String, Object> getDeclaredArguments() {
 		if (declaredArguments == null) {
 			declaredArguments = new EcoreEMap<String, Object>(IUIBindingsPackage.Literals.STRING_TO_OBJECT_MAP_ENTRY,
@@ -399,19 +409,16 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IBindingContext getContext() {
-		if (eContainerFeatureID() != IUIBindingsPackage.BINDING__CONTEXT) {
-			return null;
-		}
+		if (eContainerFeatureID() != IUIBindingsPackage.BINDING__CONTEXT) return null;
 		return (IBindingContext) eContainer();
 	}
 
 	@Override
 	public EditingDomain getEditingDomain() {
 		final IBindingContext context = getContext();
-		if (context == null) {
-			return IManager.Factory.getManager().getEditingDomain();
-		}
+		if (context == null) return IManager.Factory.getManager().getEditingDomain();
 		return context.getEditingDomain();
 	}
 
@@ -430,12 +437,12 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setContext(IBindingContext newContext) {
 		if (newContext != eInternalContainer()
 				|| (eContainerFeatureID() != IUIBindingsPackage.BINDING__CONTEXT && newContext != null)) {
-			if (EcoreUtil.isAncestor(this, newContext)) {
+			if (EcoreUtil.isAncestor(this, newContext))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
-			}
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null) {
 				msgs = eBasicRemoveFromContainer(msgs);
@@ -459,6 +466,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public BindingState getState() {
 		return state;
 	}
@@ -468,6 +476,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setState(BindingState newState) {
 		final BindingState oldState = state;
 		state = newState == null ? STATE_EDEFAULT : newState;
@@ -494,6 +503,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public boolean isChangeable() {
 		return false;
 	}
@@ -503,6 +513,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public Throwable getCreationPoint() {
 		return creationPoint;
 	}
@@ -526,6 +537,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EMap<String, Object> getArguments() {
 		if (arguments == null) {
 			arguments = new EcoreEMap<String, Object>(IUIBindingsPackage.Literals.STRING_TO_OBJECT_MAP_ENTRY,
@@ -539,6 +551,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getId() {
 		return id;
 	}
@@ -548,6 +561,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setId(String newId) {
 		final String oldId = id;
 		id = newId;
@@ -556,10 +570,9 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		}
 	}
 
+	@Override
 	public Object getArgument(String name) {
-		if (!eIsSet(IUIBindingsPackage.Literals.BINDING__ARGUMENTS)) {
-			return null;
-		}
+		if (!eIsSet(IUIBindingsPackage.Literals.BINDING__ARGUMENTS)) return null;
 		return getArguments().get(name);
 	}
 
@@ -618,6 +631,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	}
 
+	@Override
 	public <ArgumentType> List<IArgumentValue<ArgumentType>> getArguments(String name,
 			Class<? extends ArgumentType> argumentType, boolean firstOnly) {
 		final List<IArgumentValue<ArgumentType>> results = new ArrayList<IArgumentValue<ArgumentType>>();
@@ -625,24 +639,19 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		/*
 		 * Try all enabled extenders
 		 */
-		if (addDecoratorExtenderArguments(results, name, argumentType, firstOnly) && firstOnly) {
-			return results;
-		}
+		if (addDecoratorExtenderArguments(results, name, argumentType, firstOnly) && firstOnly) return results;
 
 		/*
 		 * Check direct arguments
 		 */
-		if (addDirectArguments(results, name, argumentType, firstOnly) && firstOnly) {
-			return results;
-		}
+		if (addDirectArguments(results, name, argumentType, firstOnly) && firstOnly) return results;
 
 		/*
 		 * Try the model data type...
 		 */
 		if (getStaticDataType() != null
-				&& getStaticDataType().addArguments(results, this, name, argumentType, firstOnly) && firstOnly) {
+				&& getStaticDataType().addArguments(results, this, name, argumentType, firstOnly) && firstOnly)
 			return results;
-		}
 
 		/*
 		 * Now use the list of IBDT object to look for annotations.
@@ -653,27 +662,22 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 				if (dt == getStaticDataType()) {
 					continue;
 				}
-				if (dt.addArguments(results, this, name, argumentType, firstOnly) && firstOnly) {
-					return results;
-				}
+				if (dt.addArguments(results, this, name, argumentType, firstOnly) && firstOnly) return results;
 			}
 		}
 
 		/*
 		 * Add decorator provider arguments
 		 */
-		if (addDecoratorProviderArguments(results, name, argumentType, firstOnly) && firstOnly) {
-			return results;
-		}
+		if (addDecoratorProviderArguments(results, name, argumentType, firstOnly) && firstOnly) return results;
 
 		/**
 		 * And then any extra argument providers added to the binding
 		 */
 		if (eIsSet(IUIBindingsPackage.Literals.BINDING__EXTRA_ARGUMENT_PROVIDERS)) {
 			for (final IArgumentProvider ap : getExtraArgumentProviders()) {
-				if (getArgumentProviderArguments(results, name, ap, argumentType, firstOnly) && firstOnly) {
+				if (getArgumentProviderArguments(results, name, ap, argumentType, firstOnly) && firstOnly)
 					return results;
-				}
 			}
 		}
 
@@ -722,12 +726,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 */
 	public <ArgumentType> boolean addDirectArguments(List<IArgumentValue<ArgumentType>> results, String name,
 			Class<? extends ArgumentType> argumentType, boolean firstOnly) {
-		if (!eIsSet(IUIBindingsPackage.Literals.BINDING__ARGUMENTS)) {
-			return false;
-		}
-		if (!getArguments().containsKey(name)) {
-			return false;
-		}
+		if (!eIsSet(IUIBindingsPackage.Literals.BINDING__ARGUMENTS)) return false;
+		if (!getArguments().containsKey(name)) return false;
 		final Object value = getArguments().get(name);
 
 		if (value != null && !argumentType.isInstance(value)) {
@@ -742,16 +742,10 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	@Override
 	public <ArgumentType> boolean getArgumentProviderArguments(List<IArgumentValue<ArgumentType>> results, String name,
 			IArgumentProvider provider, Class<? extends ArgumentType> argumentType, boolean firstOnly) {
-		if (provider == null) {
-			return false;
-		}
-		if (!provider.eIsSet(IUIBindingsPackage.Literals.ARGUMENT_PROVIDER__DECLARED_ARGUMENTS)) {
-			return false;
-		}
+		if (provider == null) return false;
+		if (!provider.eIsSet(IUIBindingsPackage.Literals.ARGUMENT_PROVIDER__DECLARED_ARGUMENTS)) return false;
 		final Object val = provider.getDeclaredArguments().get(name);
-		if (val == null) {
-			return false;
-		}
+		if (val == null) return false;
 
 		final ArgumentType s;
 		if (val instanceof IConfigurationElement) {
@@ -791,12 +785,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		 */
 		if (myCachedArguments.containsKey(name)) {
 			final Object value = myCachedArguments.get(name);
-			if (value == null) {
-				return null;
-			}
-			if (argumentType.isInstance(value)) {
-				return (ArgumentType) value;
-			}
+			if (value == null) return null;
+			if (argumentType.isInstance(value)) return (ArgumentType) value;
 			LogUtils.error(this, "Cached argument '" + name + "' value '" + value + "' not of right type (expected " //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 					+ argumentType + ", got " + value.getClass() + "). Ignored.", getCreationPoint()); //$NON-NLS-1$ //$NON-NLS-2$
 			myCachedArguments.remove(name);
@@ -807,9 +797,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		/*
 		 * If no results was found, then use the default value
 		 */
-		if (list == null || list.size() == 0) {
-			return defaultValue;
-		}
+		if (list == null || list.size() == 0) return defaultValue;
 
 		final ArgumentType value = list.get(0).getValue();
 		myCachedArguments.put(name, value);
@@ -820,25 +808,23 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	@Override
 	public <ArgumentType> ArgumentType convertArgumentValue(String name, IConfigurationElement ce,
 			String attributeName, String value, Class<? extends ArgumentType> argumentType) {
-		if (value == null) {
-			return null;
-		}
-		if (argumentType == String.class) {
+		if (value == null) return null;
+		if (argumentType == String.class)
 			return (ArgumentType) value;
-		} else if (argumentType == Boolean.class) {
+		else if (argumentType == Boolean.class)
 			return (ArgumentType) Boolean.valueOf(value);
-		} else if (argumentType == Integer.class) {
+		else if (argumentType == Integer.class) {
 			/*
 			 * Special case handling:
 			 */
 			if (name.equals(ARG_ALIGNMENT)) {
-				if ("l".equals(value) || "left".equals(value)) { //$NON-NLS-1$
+				if ("l".equals(value) || "left".equals(value))
 					return (ArgumentType) (Integer) SWT.LEAD;
-				} else if ("c".equals(value) || "center".equals(value)) { //$NON-NLS-1$
+				else if ("c".equals(value) || "center".equals(value))
 					return (ArgumentType) (Integer) SWT.CENTER;
-				} else if ("r".equals(value) || "right".equals(value)) { //$NON-NLS-1$
+				else if ("r".equals(value) || "right".equals(value))
 					return (ArgumentType) (Integer) SWT.TRAIL;
-				} else {
+				else {
 					LogUtils.error(this, ARG_ALIGNMENT + " must be one of 'l', 'c' or 'r', got '" + value + "'", null); //$NON-NLS-1$ //$NON-NLS-2$
 				}
 			} else {
@@ -955,6 +941,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public String getLabel() {
 		String name;
 		name = getArgument(Constants.ARG_LABEL, String.class, null);
@@ -969,6 +956,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IBindingDataType getStaticDataType() {
 		return staticDataType;
 	}
@@ -992,6 +980,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public IBindingDataType getDataType() {
 		return getStaticDataType();
 	}
@@ -1001,6 +990,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public EClassifier getModelEType() {
 		return getDataType().getEType();
 	}
@@ -1010,6 +1000,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public Class<?> getModelType() {
 		return getDataType().getDataType();
 	}
@@ -1019,6 +1010,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract Class<?> getUIType();
 
 	/**
@@ -1026,6 +1018,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<Binding> getDBBindings() {
 		if (dbBindings == null) {
 			dbBindings = new EDataTypeUniqueEList<Binding>(Binding.class, this, IUIBindingsPackage.BINDING__DB_BINDINGS);
@@ -1038,6 +1031,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<Binding> getMonitoredDBBindings() {
 		if (monitoredDBBindings == null) {
 			monitoredDBBindings = new EDataTypeUniqueEList<Binding>(Binding.class, this,
@@ -1051,6 +1045,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<String> getErrorConditions() {
 		if (errorConditions == null) {
 			errorConditions = new EDataTypeUniqueEList<String>(String.class, this,
@@ -1070,6 +1065,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract Widget getWidget();
 
 	/**
@@ -1077,6 +1073,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public abstract Control getControl();
 
 	/**
@@ -1084,6 +1081,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<IArgumentProvider> getExtraArgumentProviders() {
 		if (extraArgumentProviders == null) {
 			extraArgumentProviders = new EObjectEList<IArgumentProvider>(IArgumentProvider.class, this,
@@ -1151,11 +1149,10 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case IUIBindingsPackage.BINDING__DECLARED_ARGUMENTS:
-			if (coreType) {
+			if (coreType)
 				return getDeclaredArguments();
-			} else {
+			else
 				return getDeclaredArguments().map();
-			}
 		case IUIBindingsPackage.BINDING__CONTEXT:
 			return getContext();
 		case IUIBindingsPackage.BINDING__STATE:
@@ -1165,11 +1162,10 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		case IUIBindingsPackage.BINDING__CREATION_POINT:
 			return getCreationPoint();
 		case IUIBindingsPackage.BINDING__ARGUMENTS:
-			if (coreType) {
+			if (coreType)
 				return getArguments();
-			} else {
+			else
 				return getArguments().map();
-			}
 		case IUIBindingsPackage.BINDING__ID:
 			return getId();
 		case IUIBindingsPackage.BINDING__TYPE:
@@ -1417,9 +1413,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (state: "); //$NON-NLS-1$

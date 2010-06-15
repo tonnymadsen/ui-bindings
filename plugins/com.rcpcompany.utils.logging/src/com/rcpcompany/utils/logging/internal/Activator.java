@@ -1,13 +1,11 @@
 /*******************************************************************************
  * Copyright (c) 2008, 2009 The RCP Company and Others
  * 
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
+ * All rights reserved. This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License v1.0 which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     The RCP Company - initial API and implementation
+ * 
+ * Contributors: The RCP Company - initial API and implementation
  *******************************************************************************/
 package com.rcpcompany.utils.logging.internal;
 
@@ -102,45 +100,35 @@ public class Activator extends Plugin {
 	private ServiceTracker bundleTracker;
 
 	/**
-	 * Returns the bundle id of the bundle that contains the provided object, or <code>null</code> if the bundle could
-	 * not be determined.
+	 * Returns the bundle id of the bundle that contains the provided object, or <code>null</code>
+	 * if the bundle could not be determined.
 	 * 
 	 * @param object the object to test
 	 * @return the build ID or <code>null</code>
 	 */
 	public String getBundleId(Object object) {
-		if (object == null) {
-			return null;
-		}
+		if (object == null) return null;
 
-		if (object instanceof String) {
-			return (String) object;
-		}
+		if (object instanceof String) return (String) object;
 
 		return getBundleId(object.getClass());
 	}
 
 	/**
-	 * Returns the bundle id of the bundle that contains the provided object, or <code>null</code> if the bundle could
-	 * not be determined.
+	 * Returns the bundle id of the bundle that contains the provided object, or <code>null</code>
+	 * if the bundle could not be determined.
 	 * 
 	 * @param clazz the object to test
 	 * @return the build ID or <code>null</code>
 	 */
 	public String getBundleId(Class<? extends Object> clazz) {
-		if (clazz == null) {
-			return null;
-		}
+		if (clazz == null) return null;
 
 		final PackageAdmin packageAdmin = getBundleAdmin();
-		if (packageAdmin == null) {
-			return null;
-		}
+		if (packageAdmin == null) return null;
 
 		final Bundle source = packageAdmin.getBundle(clazz);
-		if (source == null || source.getSymbolicName() == null) {
-			return null;
-		}
+		if (source == null || source.getSymbolicName() == null) return null;
 
 		return source.getSymbolicName();
 	}
@@ -157,14 +145,11 @@ public class Activator extends Plugin {
 	}
 
 	public static ILog getPlatformLog() {
-		if (ErrorDialog.AUTOMATED_MODE) {
-			return getConsoleLog();
-		}
-		if (getDefault() != null) {
+		if (ErrorDialog.AUTOMATED_MODE) return getConsoleLog();
+		if (getDefault() != null)
 			return getDefault().getLog();
-		} else {
+		else
 			return getConsoleLog();
-		}
 	}
 
 	private static ILog getConsoleLog() {

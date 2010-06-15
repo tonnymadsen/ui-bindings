@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings.internal;
@@ -23,12 +22,15 @@ import com.rcpcompany.uibindings.ITreeItemDescriptor;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Anon Cell Item</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Anon Cell Item</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.ConstantTreeItemImpl#getDeclaredArguments <em>Declared Arguments</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ConstantTreeItemImpl#getDescriptor <em>Descriptor</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ConstantTreeItemImpl#getDeclaredArguments <em>
+ * Declared Arguments</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ConstantTreeItemImpl#getDescriptor <em>Descriptor
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ConstantTreeItemImpl#getTarget <em>Target</em>}</li>
  * </ul>
  * </p>
@@ -37,8 +39,8 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
  */
 public class ConstantTreeItemImpl extends EObjectImpl implements IConstantTreeItem {
 	/**
-	 * The cached value of the '{@link #getDeclaredArguments() <em>Declared Arguments</em>}' map. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getDeclaredArguments() <em>Declared Arguments</em>}' map.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDeclaredArguments()
 	 * @generated
@@ -47,8 +49,8 @@ public class ConstantTreeItemImpl extends EObjectImpl implements IConstantTreeIt
 	protected EMap<String, Object> declaredArguments;
 
 	/**
-	 * The cached value of the '{@link #getDescriptor() <em>Descriptor</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getDescriptor() <em>Descriptor</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDescriptor()
 	 * @generated
@@ -56,8 +58,8 @@ public class ConstantTreeItemImpl extends EObjectImpl implements IConstantTreeIt
 	 */
 	protected ITreeItemDescriptor descriptor;
 	/**
-	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getTarget()
 	 * @generated
@@ -89,6 +91,7 @@ public class ConstantTreeItemImpl extends EObjectImpl implements IConstantTreeIt
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EMap<String, Object> getDeclaredArguments() {
 		if (declaredArguments == null) {
 			declaredArguments = new EcoreEMap<String, Object>(IUIBindingsPackage.Literals.STRING_TO_OBJECT_MAP_ENTRY,
@@ -102,6 +105,7 @@ public class ConstantTreeItemImpl extends EObjectImpl implements IConstantTreeIt
 	 * 
 	 * @generated
 	 */
+	@Override
 	public ITreeItemDescriptor getDescriptor() {
 		return descriptor;
 	}
@@ -111,6 +115,7 @@ public class ConstantTreeItemImpl extends EObjectImpl implements IConstantTreeIt
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setDescriptor(ITreeItemDescriptor newDescriptor) {
 		final ITreeItemDescriptor oldDescriptor = descriptor;
 		descriptor = newDescriptor;
@@ -125,6 +130,7 @@ public class ConstantTreeItemImpl extends EObjectImpl implements IConstantTreeIt
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EObject getTarget() {
 		return target;
 	}
@@ -134,6 +140,7 @@ public class ConstantTreeItemImpl extends EObjectImpl implements IConstantTreeIt
 	 * 
 	 * @generated
 	 */
+	@Override
 	public void setTarget(EObject newTarget) {
 		final EObject oldTarget = target;
 		target = newTarget;
@@ -166,11 +173,10 @@ public class ConstantTreeItemImpl extends EObjectImpl implements IConstantTreeIt
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case IUIBindingsPackage.CONSTANT_TREE_ITEM__DECLARED_ARGUMENTS:
-			if (coreType) {
+			if (coreType)
 				return getDeclaredArguments();
-			} else {
+			else
 				return getDeclaredArguments().map();
-			}
 		case IUIBindingsPackage.CONSTANT_TREE_ITEM__DESCRIPTOR:
 			return getDescriptor();
 		case IUIBindingsPackage.CONSTANT_TREE_ITEM__TARGET:

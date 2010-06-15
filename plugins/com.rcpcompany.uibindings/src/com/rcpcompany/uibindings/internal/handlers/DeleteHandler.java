@@ -28,17 +28,13 @@ public class DeleteHandler extends AbstractHandler implements IHandler {
 		}
 		// The binding
 		final IBinding bb = (IBinding) HandlerUtil.getVariableChecked(ee, Constants.SOURCES_ACTIVE_BINDING);
-		if (!(bb instanceof IViewerBinding)) {
-			return null;
-		}
+		if (!(bb instanceof IViewerBinding)) return null;
 		// The viewer
 		final IViewerBinding vb = (IViewerBinding) bb;
 		// Then find the current object
 		final EObject element = (EObject) HandlerUtil.getVariableChecked(ee, Constants.SOURCES_ACTIVE_VIEWER_ELEMENT);
 
-		if (!UIHandlerUtils.deleteElement(vb, element, false)) {
-			return null;
-		}
+		if (!UIHandlerUtils.deleteElement(vb, element, false)) return null;
 
 		return null;
 	}

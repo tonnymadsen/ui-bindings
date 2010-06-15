@@ -9,8 +9,8 @@ import com.rcpcompany.uibindings.IQuickfixProposal;
 import com.rcpcompany.uibindings.IQuickfixProposalProcessor;
 import com.rcpcompany.uibindings.IQuickfixProposalProcessorContext;
 import com.rcpcompany.uibindings.quixkfixes.AbstractQuickfixProposal;
-import com.rcpcompany.uibindings.quixkfixes.AbstractQuickfixProposalProcessor;
 import com.rcpcompany.uibindings.quixkfixes.AbstractQuickfixProposal.Type;
+import com.rcpcompany.uibindings.quixkfixes.AbstractQuickfixProposalProcessor;
 
 public class DummyProcessor extends AbstractQuickfixProposalProcessor implements IQuickfixProposalProcessor,
 		IExecutableExtension {

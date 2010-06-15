@@ -24,15 +24,15 @@ import com.rcpcompany.utils.logging.LogUtils;
 /**
  * Factory for {@link IBindingSpec}.
  * <p>
- * For unit conversions, it supports the following from <a href="http://www.w3schools.com/css/css_units.asp">the CSS2
- * standard</a>:
+ * For unit conversions, it supports the following from <a
+ * href="http://www.w3schools.com/css/css_units.asp">the CSS2 standard</a>:
  * <dl>
  * <dt>px</dt>
  * <dd>pixels (a dot on the computer screen)</dd>
  * <dt>em</dt>
- * <dd>1em is equal to the current font size. 2em means 2 times the size of the current font. E.g., if an element is
- * displayed with a font of 12 pt, then '2em' is 24 pt. The 'em' is a very useful unit in CSS, since it can adapt
- * automatically to the font that the reader uses</dd>
+ * <dd>1em is equal to the current font size. 2em means 2 times the size of the current font. E.g.,
+ * if an element is displayed with a font of 12 pt, then '2em' is 24 pt. The 'em' is a very useful
+ * unit in CSS, since it can adapt automatically to the font that the reader uses</dd>
  * <dt>mm</dt>
  * <dd>millimeter</dd>
  * </dl>
@@ -40,6 +40,9 @@ import com.rcpcompany.utils.logging.LogUtils;
  * @author Tonny Madsen, The RCP Company
  */
 public class BindingSpecFactory {
+	private BindingSpecFactory() {
+
+	}
 
 	/**
 	 * The aliases: alias -&gt; canonical version.
@@ -110,7 +113,8 @@ public class BindingSpecFactory {
 	protected static final Map<EClass, Map<String, List<IBindingSpec>>> specLists = new HashMap<EClass, Map<String, List<IBindingSpec>>>();
 
 	/**
-	 * Parses the specified spec based on the specified startType and returns the calculated spec list.
+	 * Parses the specified spec based on the specified startType and returns the calculated spec
+	 * list.
 	 * 
 	 * @param startType the start type
 	 * @param spec the specification
@@ -123,9 +127,7 @@ public class BindingSpecFactory {
 			specLists.put(startType, typeSpecs);
 		}
 		List<IBindingSpec> sl = typeSpecs.get(spec);
-		if (sl != null) {
-			return sl;
-		}
+		if (sl != null) return sl;
 
 		sl = new ArrayList<IBindingSpec>();
 
@@ -203,13 +205,9 @@ public class BindingSpecFactory {
 								st.nextToken();
 								break;
 							default:
-								LogUtils
-										.throwException(
-												startType,
-												"In spec: '"
-														+ spec
-														+ "': In arguments:='('<name>{=}: expected one of integer, string or word, got '"
-														+ st.toString() + "'", null);
+								LogUtils.throwException(startType, "In spec: '" + spec
+										+ "': In arguments:='('<name>{=}: "
+										+ "expected one of integer, string or word, got '" + st.toString() + "'", null);
 							}
 							if (st.ttype == StreamTokenizer.TT_WORD) {
 								argUnit = st.sval;
@@ -218,9 +216,10 @@ public class BindingSpecFactory {
 						} else if ((st.ttype == ',') || (st.ttype == ')')) {
 							argValue = "true";
 						} else {
-							LogUtils.throwException(startType, "In spec: '" + spec
-									+ "': In arguments:='('<name>{'='<value>}','++')': expected '=', got '"
-									+ st.toString() + "'", null);
+							LogUtils.throwException(startType,
+									"In spec: '" + spec
+											+ "': In arguments:='('<name>{'='<value>}','++')': expected '=', got '"
+											+ st.toString() + "'", null);
 						}
 						// Check the argument names and values
 						if (!ARGUMENT_TYPES.containsKey(argName)) {
@@ -239,7 +238,8 @@ public class BindingSpecFactory {
 						if (argClass == Boolean.class) {
 							argValue = Boolean.parseBoolean("" + argValue);
 						} else if (!(argClass.isInstance(argValue))) {
-							LogUtils.throwException(startType,
+							LogUtils.throwException(
+									startType,
 									"In spec: '" + spec + "': Argument '" + argName + "' takes an "
 											+ argClass.getSimpleName() + " as argument, got '" + argValue + "'", null);
 						}
@@ -279,22 +279,24 @@ public class BindingSpecFactory {
 						} else if (st.ttype == ')') {
 							break;
 						} else {
-							LogUtils
-									.throwException(
-											startType,
-											"In spec: '"
-													+ spec
-													+ "': In arguments:='('<name>{'='<value>}','++')': expected one of ',' or ')', got '"
-													+ st.toString() + "'", null);
+							LogUtils.throwException(
+									startType,
+									"In spec: '"
+											+ spec
+											+ "': In arguments:='('<name>{'='<value>}','++')': expected one of ',' or ')', got '"
+											+ st.toString() + "'", null);
 						}
 					}
 					// End of arguments
 					if (st.ttype == ')') {
 						st.nextToken();
 					} else {
-						LogUtils.throwException(startType, "In spec: '" + spec
-								+ "': In arguments:='('<name>{'='<value>}','++')': expected <name> or ')', got '"
-								+ st.toString() + "'", null);
+						LogUtils.throwException(
+								startType,
+								"In spec: '"
+										+ spec
+										+ "': In arguments:='('<name>{'='<value>}','++')': expected <name> or ')', got '"
+										+ st.toString() + "'", null);
 					}
 				}
 				if (st.ttype == '.') {

@@ -21,9 +21,7 @@ public class BindingServicesSection implements IBindingSpySection {
 	public void build(IFormCreator creator, ExecutionEvent event) {
 		final IBinding b = (IBinding) creator.getObject();
 
-		if (!b.eIsSet(IUIBindingsPackage.Literals.SERVICE_REGISTRY__SERVICES)) {
-			return;
-		}
+		if (!b.eIsSet(IUIBindingsPackage.Literals.SERVICE_REGISTRY__SERVICES)) return;
 
 		final IFormCreator subform = creator.addSection("Services");
 
@@ -31,7 +29,8 @@ public class BindingServicesSection implements IBindingSpySection {
 				SWT.FULL_SELECTION | SWT.V_SCROLL | SWT.H_SCROLL | SWT.SINGLE);
 		final TableColumn column = new TableColumn(table, SWT.None);
 
-		// subform.getContext().addViewer(table, b, IUIBindingsPackage.Literals.SERVICE_REGISTRY__SERVICES);
+		// subform.getContext().addViewer(table, b,
+		// IUIBindingsPackage.Literals.SERVICE_REGISTRY__SERVICES);
 
 		for (final Object e : b.getServices()) {
 			final TableItem item = new TableItem(table, SWT.NONE);

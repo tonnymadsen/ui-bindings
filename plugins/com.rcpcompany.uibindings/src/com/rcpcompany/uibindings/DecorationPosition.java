@@ -1,7 +1,6 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * <copyright> </copyright>
+ * 
  * $Id$
  */
 package com.rcpcompany.uibindings;
@@ -13,7 +12,8 @@ import java.util.List;
 import org.eclipse.emf.common.util.Enumerator;
 
 /**
- * <!-- begin-user-doc --> Possible decoration positions in relation to a Control. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> Possible decoration positions in relation to a Control. <!-- end-user-doc
+ * -->
  * 
  * @see com.rcpcompany.uibindings.IUIBindingsPackage#getDecorationPosition()
  * @generated
@@ -29,7 +29,8 @@ public enum DecorationPosition implements Enumerator {
 	TOP_LEFT(16512, "TopLeft", "TOP_LEFT"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
-	 * The '<em><b>Center Left</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The '<em><b>Center Left</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @see #CENTER_LEFT_VALUE
 	 * @generated
@@ -38,7 +39,8 @@ public enum DecorationPosition implements Enumerator {
 	CENTER_LEFT(16793600, "CenterLeft", "CENTER_LEFT"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
-	 * The '<em><b>Bottom Left</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The '<em><b>Bottom Left</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @see #BOTTOM_LEFT_VALUE
 	 * @generated
@@ -56,7 +58,8 @@ public enum DecorationPosition implements Enumerator {
 	TOP_RIGHT(131200, "TopRight", "TOP_RIGHT"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
-	 * The '<em><b>Center Right</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The '<em><b>Center Right</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @see #CENTER_RIGHT_VALUE
 	 * @generated
@@ -65,7 +68,8 @@ public enum DecorationPosition implements Enumerator {
 	CENTER_RIGHT(16908288, "CenterRight", "CENTER_RIGHT"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
-	 * The '<em><b>Bottom Right</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The '<em><b>Bottom Right</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @see #BOTTOM_RIGHT_VALUE
 	 * @generated
@@ -76,8 +80,8 @@ public enum DecorationPosition implements Enumerator {
 	/**
 	 * The '<em><b>Top Left</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Top Left</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>Top Left</b></em>' literal object isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -90,8 +94,8 @@ public enum DecorationPosition implements Enumerator {
 	/**
 	 * The '<em><b>Center Left</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Center Left</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>Center Left</b></em>' literal object isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -104,8 +108,8 @@ public enum DecorationPosition implements Enumerator {
 	/**
 	 * The '<em><b>Bottom Left</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Bottom Left</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>Bottom Left</b></em>' literal object isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -118,8 +122,8 @@ public enum DecorationPosition implements Enumerator {
 	/**
 	 * The '<em><b>Top Right</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Top Right</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>Top Right</b></em>' literal object isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -132,8 +136,8 @@ public enum DecorationPosition implements Enumerator {
 	/**
 	 * The '<em><b>Center Right</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Center Right</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>Center Right</b></em>' literal object isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -146,8 +150,8 @@ public enum DecorationPosition implements Enumerator {
 	/**
 	 * The '<em><b>Bottom Right</b></em>' literal value. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Bottom Right</b></em>' literal object isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of '<em><b>Bottom Right</b></em>' literal object isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -158,8 +162,8 @@ public enum DecorationPosition implements Enumerator {
 	public static final int BOTTOM_RIGHT_VALUE = 132096;
 
 	/**
-	 * An array of all the '<em><b>Decoration Position</b></em>' enumerators. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * An array of all the '<em><b>Decoration Position</b></em>' enumerators. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -167,48 +171,44 @@ public enum DecorationPosition implements Enumerator {
 			BOTTOM_LEFT, TOP_RIGHT, CENTER_RIGHT, BOTTOM_RIGHT, };
 
 	/**
-	 * A public read-only list of all the '<em><b>Decoration Position</b></em>' enumerators. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * A public read-only list of all the '<em><b>Decoration Position</b></em>' enumerators. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static final List<DecorationPosition> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Message Decoration Position</b></em>' literal with the specified literal value. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the '<em><b>Message Decoration Position</b></em>' literal with the specified literal
+	 * value. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static DecorationPosition get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			final DecorationPosition result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
-				return result;
-			}
+			if (result.toString().equals(literal)) return result;
 		}
 		return null;
 	}
 
 	/**
-	 * Returns the '<em><b>Decoration Position</b></em>' literal with the specified name. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Returns the '<em><b>Decoration Position</b></em>' literal with the specified name. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public static DecorationPosition getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			final DecorationPosition result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
-				return result;
-			}
+			if (result.getName().equals(name)) return result;
 		}
 		return null;
 	}
 
 	/**
-	 * Returns the '<em><b>Message Decoration Position</b></em>' literal with the specified integer value. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the '<em><b>Message Decoration Position</b></em>' literal with the specified integer
+	 * value. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -267,6 +267,7 @@ public enum DecorationPosition implements Enumerator {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 		return value;
 	}
@@ -276,6 +277,7 @@ public enum DecorationPosition implements Enumerator {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -285,13 +287,14 @@ public enum DecorationPosition implements Enumerator {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 		return literal;
 	}
 
 	/**
-	 * Returns the literal value of the enumerator, which is its string representation. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * Returns the literal value of the enumerator, which is its string representation. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */

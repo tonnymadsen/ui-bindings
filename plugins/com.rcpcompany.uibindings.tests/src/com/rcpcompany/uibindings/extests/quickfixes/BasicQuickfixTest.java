@@ -38,8 +38,8 @@ import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
 /**
- * Tests the basic quickfix functionality with focus on the handler: apply quick fix, no quick fix and quick fixes not
- * supported.
+ * Tests the basic quickfix functionality with focus on the handler: apply quick fix, no quick fix
+ * and quick fixes not supported.
  * 
  * @author Tonny Madsen, The RCP Company
  */

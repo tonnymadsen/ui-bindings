@@ -24,8 +24,8 @@ public class BindingCreationSection implements IBindingSpySection {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("Creation point (copy to Eclipse Console View)");
 		for (final StackTraceElement e : b.getCreationPoint().getStackTrace()) {
-			sb.append("\n\tat ").append(e.getClassName()).append('.').append(e.getMethodName()).append(" (").append(
-					e.getFileName()).append(':').append(e.getLineNumber()).append(')');
+			sb.append("\n\tat ").append(e.getClassName()).append('.').append(e.getMethodName()).append(" (")
+					.append(e.getFileName()).append(':').append(e.getLineNumber()).append(')');
 		}
 		sb.append("\n...");
 

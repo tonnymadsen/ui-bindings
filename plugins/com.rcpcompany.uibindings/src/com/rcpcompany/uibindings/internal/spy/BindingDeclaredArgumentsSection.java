@@ -20,9 +20,7 @@ public class BindingDeclaredArgumentsSection implements IBindingSpySection {
 	public void build(IFormCreator creator, ExecutionEvent event) {
 		final IBinding b = (IBinding) creator.getObject();
 
-		if (!b.eIsSet(IUIBindingsPackage.Literals.ARGUMENT_PROVIDER__DECLARED_ARGUMENTS)) {
-			return;
-		}
+		if (!b.eIsSet(IUIBindingsPackage.Literals.ARGUMENT_PROVIDER__DECLARED_ARGUMENTS)) return;
 
 		final IFormCreator subform = creator.addSection("Declared Arguments");
 

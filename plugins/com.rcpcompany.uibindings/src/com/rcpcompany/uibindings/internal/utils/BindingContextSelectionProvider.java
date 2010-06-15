@@ -42,7 +42,8 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		IBindingContextSelectionProvider, ISelectionProvider, IDisposable {
 
 	/**
-	 * Factory method for {@link IBindingContextSelectionProvider} that checks a provider does not already exist.
+	 * Factory method for {@link IBindingContextSelectionProvider} that checks a provider does not
+	 * already exist.
 	 * 
 	 * @param context the context
 	 * @param site the site
@@ -50,9 +51,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	 */
 	public static IBindingContextSelectionProvider adapt(IBindingContext context, IWorkbenchPartSite site) {
 		final BindingContextSelectionProvider provider = context.getService(BindingContextSelectionProvider.class);
-		if (provider != null) {
-			return provider;
-		}
+		if (provider != null) return provider;
 		return new BindingContextSelectionProvider(context, site);
 	}
 
@@ -108,22 +107,26 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		}
 	};
 
+	@Override
 	public void addControl(Control control, ISelectionProvider provider) {
 		myProviders.put(control, provider);
 		control.setMenu(myMenuManager.getMenu());
 		checkFocus();
 	}
 
+	@Override
 	public void removeControl(Control control) {
 		myProviders.remove(control);
 		control.setMenu(null);
 		checkFocus();
 	}
 
+	@Override
 	public void addControl(Control control, IObservableValue selection) {
 		addControl(control, new ObservableValueSelectionProvider(selection));
 	}
 
+	@Override
 	public void addViewer(Viewer viewer) {
 		addControl(viewer.getControl(), viewer);
 	}
@@ -137,9 +140,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	 */
 	protected void checkFocus() {
 		final ISelectionProvider provider = myProviders.get(myFocusControl);
-		if (provider == myCurrentProvider) {
-			return;
-		}
+		if (provider == myCurrentProvider) return;
 
 		if (myCurrentProvider != null) {
 			myCurrentProvider.removeSelectionChangedListener(mySelectionChangedListener);
@@ -157,9 +158,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		if (selection == null) {
 			selection = myEmptySelection;
 		}
-		if (selection == myCurrentSelection) {
-			return;
-		}
+		if (selection == myCurrentSelection) return;
 		myCurrentSelection = selection;
 		fireSelectionChanged(new SelectionChangedEvent(myCurrentProvider, myCurrentSelection));
 	}
@@ -239,9 +238,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		if (binding instanceof IValueBinding) {
 			final IValueBinding vb = (IValueBinding) binding;
 			final Control control = vb.getControl();
-			if (control == null) {
-				return;
-			}
+			if (control == null) return;
 			if (vb.getModelObservableValue() != null) {
 				addControl(control, vb.getModelObservableValue());
 				return;
@@ -262,9 +259,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		if (binding instanceof IValueBinding) {
 			final IValueBinding vb = (IValueBinding) binding;
 			final Control control = vb.getControl();
-			if (control == null) {
-				return;
-			}
+			if (control == null) return;
 			removeControl(control);
 			return;
 		} else if (binding instanceof IViewerBinding) {
@@ -297,8 +292,8 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	}
 
 	/**
-	 * Notifies any selection changed listeners that the viewer's selection has changed. Only listeners registered at
-	 * the time this method is called are notified.
+	 * Notifies any selection changed listeners that the viewer's selection has changed. Only
+	 * listeners registered at the time this method is called are notified.
 	 * 
 	 * @param event a selection changed event
 	 * 
@@ -309,6 +304,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		for (int i = 0; i < listeners.length; ++i) {
 			final ISelectionChangedListener l = (ISelectionChangedListener) listeners[i];
 			SafeRunnable.run(new SafeRunnable() {
+				@Override
 				public void run() {
 					l.selectionChanged(event);
 				}

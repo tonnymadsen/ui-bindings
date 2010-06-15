@@ -30,8 +30,8 @@ import com.rcpcompany.uibindings.internal.decorators.NumberBindingDecorator;
 import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
 
 /**
- * This class provides an adapter interface between the constraint specified in the uibindings extension point and
- * {@link IValidatorAdapterManager}
+ * This class provides an adapter interface between the constraint specified in the uibindings
+ * extension point and {@link IValidatorAdapterManager}
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -45,8 +45,8 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 		/**
 		 * Validates the specified object against this constraint.
 		 * <p>
-		 * If the validation fails a new message is added to the messages list - if not already present - and (whether
-		 * it existed already or not) returned.
+		 * If the validation fails a new message is added to the messages list - if not already
+		 * present - and (whether it existed already or not) returned.
 		 * 
 		 * @param obj the object to validate
 		 * @param messages the list of current messages
@@ -56,7 +56,8 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 	}
 
 	/**
-	 * Map with all found constraints indexed by class. Extended ALAP in {@link #getConstraints(EObject)}.
+	 * Map with all found constraints indexed by class. Extended ALAP in
+	 * {@link #getConstraints(EObject)}.
 	 */
 	protected Map<EClass, List<IConstraint>> myConstraints = new HashMap<EClass, List<IConstraint>>();
 
@@ -88,16 +89,15 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 	/**
 	 * Returns the list of constraints for the specified object or <code>null</code>.
 	 * <p>
-	 * If the class of the object has not been tested before, new constraints are constructed as needed.
+	 * If the class of the object has not been tested before, new constraints are constructed as
+	 * needed.
 	 * 
 	 * @param obj the object to test
 	 * @return the found constraints or <code>null</code>
 	 */
 	public List<IConstraint> getConstraints(EObject obj) {
 		final EClass eClass = obj.eClass();
-		if (myConstraints.containsKey(eClass)) {
-			return myConstraints.get(eClass);
-		}
+		if (myConstraints.containsKey(eClass)) return myConstraints.get(eClass);
 
 		List<IConstraint> cs = new ArrayList<IConstraint>();
 
@@ -168,9 +168,7 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 		@Override
 		public Message validate(EObject obj, IObservableList messages) {
 			final Object value = obj.eGet(myFeature);
-			if (value == null) {
-				return null;
-			}
+			if (value == null) return null;
 
 			final Class<?> c = value.getClass();
 			BigDecimal d = null;
@@ -194,18 +192,14 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 			}
 
 			final String m = myDecorator.checkRange(value, d);
-			if (m == null) {
-				return null;
-			}
+			if (m == null) return null;
 
 			/*
 			 * Error found!! Check if the message is already present in the list
 			 */
 			for (final Object o : messages) {
 				final Message f = (Message) o;
-				if (f.getObject() == obj && f.getFeature() == myFeature && f.getMessage().equals(m)) {
-					return f;
-				}
+				if (f.getObject() == obj && f.getFeature() == myFeature && f.getMessage().equals(m)) return f;
 			}
 
 			/*
@@ -240,23 +234,17 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 		@Override
 		public Message validate(EObject obj, IObservableList messages) {
 			final Object value = obj.eGet(myFeature);
-			if (value == null) {
-				return null;
-			}
+			if (value == null) return null;
 
 			final String m = myDecorator.checkValue(value);
-			if (m == null) {
-				return null;
-			}
+			if (m == null) return null;
 
 			/*
 			 * Error found!! Check if the message is already present in the list
 			 */
 			for (final Object o : messages) {
 				final Message f = (Message) o;
-				if (f.getObject() == obj && f.getFeature() == myFeature && f.getMessage().equals(m)) {
-					return f;
-				}
+				if (f.getObject() == obj && f.getFeature() == myFeature && f.getMessage().equals(m)) return f;
 			}
 
 			/*
@@ -311,18 +299,10 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 
 		@Override
 		public boolean supersedes(IBindingMessage otherMessage) {
-			if (!matches(getObject(), getFeature(), null, FeatureMatchingAlgorithm.EXACT)) {
-				return false;
-			}
-			if (otherMessage.getSeverity() != getSeverity()) {
-				return false;
-			}
-			if (getSource() == null || getSource().equals(otherMessage.getSource())) {
-				return false;
-			}
-			if (otherMessage.getCode() != getCode()) {
-				return false;
-			}
+			if (!matches(getObject(), getFeature(), null, FeatureMatchingAlgorithm.EXACT)) return false;
+			if (otherMessage.getSeverity() != getSeverity()) return false;
+			if (getSource() == null || getSource().equals(otherMessage.getSource())) return false;
+			if (otherMessage.getCode() != getCode()) return false;
 
 			return true;
 		}

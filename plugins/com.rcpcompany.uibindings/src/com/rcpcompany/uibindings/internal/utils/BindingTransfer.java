@@ -7,7 +7,8 @@ import org.eclipse.swt.dnd.TransferData;
 /**
  * This {@link Transfer} is used to copy/paste and drag'n'drop of binding objects.
  * <p>
- * Really a copy of {@link org.eclipse.emf.edit.ui.dnd.LocalTransfer} because we don't want to have this dependency.
+ * Really a copy of {@link org.eclipse.emf.edit.ui.dnd.LocalTransfer} because we don't want to have
+ * this dependency.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -74,7 +75,8 @@ public class BindingTransfer extends ByteArrayTransfer {
 	}
 
 	/**
-	 * This records the object and current time and encodes only the current time into the transfer data.
+	 * This records the object and current time and encodes only the current time into the transfer
+	 * data.
 	 */
 	@Override
 	public void javaToNative(Object object, TransferData transferData) {
@@ -86,15 +88,13 @@ public class BindingTransfer extends ByteArrayTransfer {
 	}
 
 	/**
-	 * This decodes the time of the transfer and returns the recorded the object if the recorded time and the decoded
-	 * time match.
+	 * This decodes the time of the transfer and returns the recorded the object if the recorded
+	 * time and the decoded time match.
 	 */
 	@Override
 	public Object nativeToJava(TransferData transferData) {
 		final byte[] bytes = (byte[]) super.nativeToJava(transferData);
-		if (bytes == null) {
-			return null;
-		}
+		if (bytes == null) return null;
 
 		try {
 			final long startTime = Long.valueOf(new String(bytes)).longValue();

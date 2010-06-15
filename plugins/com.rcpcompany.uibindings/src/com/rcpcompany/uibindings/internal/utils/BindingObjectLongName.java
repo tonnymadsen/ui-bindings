@@ -43,9 +43,7 @@ public class BindingObjectLongName implements IBindingObjectLongName {
 
 	@Override
 	public String getName() {
-		if (myContext == null) {
-			return "<null>";
-		}
+		if (myContext == null) return "<null>";
 		return (String) myAttribute.getCurrentValue().getValue();
 	}
 
