@@ -29,9 +29,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.viewers.ColumnViewer;
 import org.eclipse.jface.wizard.WizardPage;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Widget;
 import org.eclipse.ui.PlatformUI;
@@ -808,14 +815,27 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	private boolean hasSupportBeenAdded = false;
 
 	/**
-	 * List of all new the bindings
+	 * List of all new the bindings.
 	 */
-	final protected List<IBinding> myNewBindings = new ArrayList<IBinding>();
+	protected final List<IBinding> myNewBindings = new ArrayList<IBinding>();
 
 	/**
 	 * Shows whether {@link #finish()} has been deferred.
 	 */
 	protected boolean myFinishDeferred = false;
+
+	/**
+	 * List of {@link TabFolder TabFolders} that hosts UI Bindings widgets.
+	 * <p>
+	 * Each of these have an extra listener used to ensure a tab item is {@link #reflow() reflowed}
+	 * when made visible.
+	 */
+	private List<Control> myTabFolders = null;
+
+	/**
+	 * Listener used to reflow tab items - see {@link #myTabFolders}.
+	 */
+	private Listener myTabFolderListener = null;
 
 	@Override
 	public void finish() {
@@ -935,6 +955,33 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 			for (final IBinding b : bindingsToProcess) {
 				if (b.getState() == BindingState.DISPOSE_PENDING) {
 					b.dispose();
+					continue;
+				}
+
+				/*
+				 * Check for TabFolder
+				 */
+				for (Composite c = b.getControl().getParent(); !(c instanceof Shell); c = c.getParent()) {
+					if (c instanceof TabFolder || c instanceof CTabFolder) {
+						if (myTabFolders != null && myTabFolders.contains(c)) {
+							/*
+							 * If this TabFolder is already seen, the all parent TabFolders have
+							 * been seen too.
+							 */
+							break;
+						}
+						myTabFolders = new ArrayList<Control>();
+						myTabFolderListener = new Listener() {
+							@Override
+							public void handleEvent(Event event) {
+								if (event.type == SWT.Selection) {
+									reflow();
+								}
+							}
+						};
+						c.addListener(SWT.Selection, myTabFolderListener);
+						myTabFolders.add(c);
+					}
 				}
 			}
 
