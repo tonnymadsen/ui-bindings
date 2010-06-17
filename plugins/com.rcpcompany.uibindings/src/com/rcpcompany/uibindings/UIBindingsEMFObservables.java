@@ -26,7 +26,7 @@ import com.rcpcompany.uibindings.internal.observables.MyDetailObservableValue;
  * 
  * @since 1.3
  */
-public class UIBindingsEMFObservables {
+public final class UIBindingsEMFObservables {
 	private UIBindingsEMFObservables() {
 	}
 

@@ -27,9 +27,9 @@ import com.rcpcompany.utils.logging.LogUtils;
  */
 public class EnumImageExtender extends AbstractUIBindingDecoratorExtender {
 	/**
-	 * Map with all found mappings
+	 * Map with all found mappings.
 	 */
-	final static protected Map<Object, Image> theImageMap = new HashMap<Object, Image>();
+	protected static final Map<Object, Image> theImageMap = new HashMap<Object, Image>();
 
 	@Override
 	public boolean isEnabled(IValueBinding binding) {

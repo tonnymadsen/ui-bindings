@@ -71,7 +71,7 @@ public interface Country extends EObject {
 
 	/**
 	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Country#getAbbreviation
-	 * <em>Abbreviation</em>} ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <em>Abbreviation</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Abbreviation</em>' attribute.
 	 * @see #getAbbreviation()
@@ -81,7 +81,7 @@ public interface Country extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Shop</b></em>' container reference. It is bidirectional and
-	 * its opposite is ' {@link com.rcpcompany.uibindings.tests.shop.Shop#getCountries
+	 * its opposite is '{@link com.rcpcompany.uibindings.tests.shop.Shop#getCountries
 	 * <em>Countries</em>}'. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Shop</em>' container reference isn't clear, there really should be

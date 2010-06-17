@@ -102,7 +102,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 				switch (st.ttype) {
 				case ']':
 					myMinInclusive = false;
-					//$FALL-THROUGH$
+					//$FALL-THROUGH$ fallthrough
 				case '[':
 					st.nextToken();
 					break;
@@ -130,7 +130,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 				switch (st.ttype) {
 				case '[':
 					myMaxInclusive = false;
-					//$FALL-THROUGH$
+					//$FALL-THROUGH$ fallthrough
 				case ']':
 					st.nextToken();
 					break;

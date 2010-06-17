@@ -355,6 +355,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCustomer_Loyalty() {
 		return (EAttribute) customerEClass.getEStructuralFeatures().get(3);
 	}
@@ -364,6 +365,17 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
+	public EAttribute getCustomer_LogoFileName() {
+		return (EAttribute) customerEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getShopItem() {
 		return shopItemEClass;
 	}
@@ -373,6 +385,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getShopItem_Name() {
 		return (EAttribute) shopItemEClass.getEStructuralFeatures().get(1);
 	}
@@ -382,6 +395,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getShopItem_Price() {
 		return (EAttribute) shopItemEClass.getEStructuralFeatures().get(2);
 	}
@@ -391,6 +405,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShopItem_Shop() {
 		return (EReference) shopItemEClass.getEStructuralFeatures().get(0);
 	}
@@ -400,6 +415,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShopItem_OrderItems() {
 		return (EReference) shopItemEClass.getEStructuralFeatures().get(3);
 	}
@@ -409,6 +425,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getShopItem_ForSale() {
 		return (EAttribute) shopItemEClass.getEStructuralFeatures().get(4);
 	}
@@ -418,6 +435,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShopItem_Information() {
 		return (EReference) shopItemEClass.getEStructuralFeatures().get(5);
 	}
@@ -427,6 +445,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShopItem_Group() {
 		return (EReference) shopItemEClass.getEStructuralFeatures().get(6);
 	}
@@ -436,6 +455,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getShopItemGroup() {
 		return shopItemGroupEClass;
 	}
@@ -445,6 +465,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getShopItemGroup_Name() {
 		return (EAttribute) shopItemGroupEClass.getEStructuralFeatures().get(0);
 	}
@@ -454,6 +475,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShopItemGroup_Items() {
 		return (EReference) shopItemGroupEClass.getEStructuralFeatures().get(1);
 	}
@@ -463,6 +485,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShopItemGroup_Shop() {
 		return (EReference) shopItemGroupEClass.getEStructuralFeatures().get(2);
 	}
@@ -472,6 +495,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getShopItemGroup_Description() {
 		return (EAttribute) shopItemGroupEClass.getEStructuralFeatures().get(3);
 	}
@@ -481,6 +505,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getOrder() {
 		return orderEClass;
 	}
@@ -490,6 +515,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOrder_No() {
 		return (EAttribute) orderEClass.getEStructuralFeatures().get(0);
 	}
@@ -499,6 +525,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getOrder_Shop() {
 		return (EReference) orderEClass.getEStructuralFeatures().get(1);
 	}
@@ -508,6 +535,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getOrder_Customer() {
 		return (EReference) orderEClass.getEStructuralFeatures().get(2);
 	}
@@ -517,6 +545,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOrder_Price() {
 		return (EAttribute) orderEClass.getEStructuralFeatures().get(3);
 	}
@@ -526,6 +555,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getOrder_Items() {
 		return (EReference) orderEClass.getEStructuralFeatures().get(4);
 	}
@@ -535,6 +565,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getOrderItem() {
 		return orderItemEClass;
 	}
@@ -544,6 +575,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOrderItem_No() {
 		return (EAttribute) orderItemEClass.getEStructuralFeatures().get(0);
 	}
@@ -553,6 +585,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getOrderItem_Order() {
 		return (EReference) orderItemEClass.getEStructuralFeatures().get(1);
 	}
@@ -562,6 +595,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getOrderItem_Item() {
 		return (EReference) orderItemEClass.getEStructuralFeatures().get(2);
 	}
@@ -571,6 +605,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOrderItem_Count() {
 		return (EAttribute) orderItemEClass.getEStructuralFeatures().get(3);
 	}
@@ -580,6 +615,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOrderItem_Id() {
 		return (EAttribute) orderItemEClass.getEStructuralFeatures().get(4);
 	}
@@ -589,6 +625,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getContact() {
 		return contactEClass;
 	}
@@ -598,6 +635,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getContact_Name() {
 		return (EAttribute) contactEClass.getEStructuralFeatures().get(1);
 	}
@@ -817,6 +855,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		createEReference(customerEClass, CUSTOMER__CONTACT);
 		createEReference(customerEClass, CUSTOMER__ORDERS);
 		createEAttribute(customerEClass, CUSTOMER__LOYALTY);
+		createEAttribute(customerEClass, CUSTOMER__LOGO_FILE_NAME);
 
 		shopItemEClass = createEClass(SHOP_ITEM);
 		createEReference(shopItemEClass, SHOP_ITEM__SHOP);
@@ -961,6 +1000,9 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCustomer_Loyalty(), this.getCustomerType(), "loyalty", "BRONCE", 0, 1, Customer.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCustomer_LogoFileName(), ecorePackage.getEString(), "logoFileName", null, 0, 1,
+				Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(shopItemEClass, ShopItem.class, "ShopItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getShopItem_Shop(), this.getShop(), this.getShop_ShopItems(), "shop", null, 1, 1,

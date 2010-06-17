@@ -2,7 +2,7 @@ package com.rcpcompany.uibindings.internal;
 
 import org.eclipse.osgi.util.NLS;
 
-public class Messages extends NLS {
+public final class Messages extends NLS {
 	private static final String BUNDLE_NAME = "com.rcpcompany.uibindings.internal.Messages"; //$NON-NLS-1$
 
 	private Messages() {

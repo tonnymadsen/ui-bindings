@@ -22,12 +22,12 @@ public class BooleanBindingDecorator extends SimpleUIBindingDecorator implements
 	/**
 	 * The mapping of model values to UI values.
 	 */
-	static final protected Map<Boolean, String> theModelToUIMap = new HashMap<Boolean, String>();
+	protected static final Map<Boolean, String> theModelToUIMap = new HashMap<Boolean, String>();
 	/**
 	 * The mapping of UI values to model values.
 	 */
-	static final protected Map<String, Boolean> theUIToModelMap = new HashMap<String, Boolean>();
-	static final protected IObservableList theValidUIList;
+	protected static final Map<String, Boolean> theUIToModelMap = new HashMap<String, Boolean>();
+	protected static final IObservableList theValidUIList;
 
 	static {
 		theModelToUIMap.put(Boolean.TRUE, "true");

@@ -32,7 +32,7 @@ public class ControlSelectionProvider implements IPostSelectionProvider {
 	public static boolean DEBUG = false;
 
 	/**
-	 * All round listener
+	 * All round listener.
 	 */
 	private class MyListener implements ISelectionChangedListener, FocusListener, Listener {
 		private final Control myControl;
@@ -162,7 +162,7 @@ public class ControlSelectionProvider implements IPostSelectionProvider {
 	}
 
 	/**
-	 * Adds a new control with a specific provider
+	 * Adds a new control with a specific provider.
 	 * 
 	 * @param control the control
 	 * @param provider the provider

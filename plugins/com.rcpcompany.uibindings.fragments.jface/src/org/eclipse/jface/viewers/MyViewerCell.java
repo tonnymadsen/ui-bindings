@@ -9,7 +9,7 @@ public class MyViewerCell extends ViewerCell {
 	/**
 	 * Public constant viewer cell.
 	 */
-	public final static ViewerCell INSTANCE = new MyViewerCell();
+	public static final ViewerCell INSTANCE = new MyViewerCell();
 
 	public MyViewerCell() {
 		super(null, 0, 0);

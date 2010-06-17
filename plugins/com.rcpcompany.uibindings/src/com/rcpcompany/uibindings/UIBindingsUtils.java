@@ -47,7 +47,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class UIBindingsUtils {
+public final class UIBindingsUtils {
 	private UIBindingsUtils() {
 	}
 

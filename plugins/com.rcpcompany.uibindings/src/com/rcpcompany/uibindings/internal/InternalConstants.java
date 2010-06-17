@@ -15,7 +15,7 @@ import com.rcpcompany.uibindings.widgets.FileNameControl;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class InternalConstants {
+public final class InternalConstants {
 	private InternalConstants() {
 	}
 

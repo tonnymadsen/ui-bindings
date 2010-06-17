@@ -19,6 +19,8 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Customer#getContact <em>Contact</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Customer#getOrders <em>Orders</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Customer#getLoyalty <em>Loyalty</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.Customer#getLogoFileName <em>Logo File Name</em>}
+ * </li>
  * </ul>
  * </p>
  * 
@@ -29,7 +31,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface Customer extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Shop</b></em>' container reference. It is bidirectional and
-	 * its opposite is ' {@link com.rcpcompany.uibindings.tests.shop.Shop#getCustomers
+	 * its opposite is '{@link com.rcpcompany.uibindings.tests.shop.Shop#getCustomers
 	 * <em>Customers</em>}'. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Shop</em>' container reference isn't clear, there really should be
@@ -58,7 +60,7 @@ public interface Customer extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Contact</b></em>' reference. It is bidirectional and its
-	 * opposite is ' {@link com.rcpcompany.uibindings.tests.shop.Contact#getCustomer
+	 * opposite is '{@link com.rcpcompany.uibindings.tests.shop.Contact#getCustomer
 	 * <em>Customer</em>}'. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Contact</em>' reference isn't clear, there really should be more
@@ -133,5 +135,31 @@ public interface Customer extends EObject {
 	 * @generated
 	 */
 	void setLoyalty(CustomerType value);
+
+	/**
+	 * Returns the value of the '<em><b>Logo File Name</b></em>' attribute. <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Logo File Name</em>' attribute isn't clear, there really should be
+	 * more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Logo File Name</em>' attribute.
+	 * @see #setLogoFileName(String)
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getCustomer_LogoFileName()
+	 * @model
+	 * @generated
+	 */
+	String getLogoFileName();
+
+	/**
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Customer#getLogoFileName
+	 * <em>Logo File Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value the new value of the '<em>Logo File Name</em>' attribute.
+	 * @see #getLogoFileName()
+	 * @generated
+	 */
+	void setLogoFileName(String value);
 
 } // Customer

@@ -43,6 +43,7 @@
         eType="#//Order" resolveProxies="false" eOpposite="#//Order/customer"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="loyalty" eType="#//CustomerType"
         defaultValueLiteral="BRONCE"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="logoFileName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ShopItem">
     <eOperations name="namePriceOK" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">

@@ -12,7 +12,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class ActivatorUtils {
+public final class ActivatorUtils {
 	private ActivatorUtils() {
 	}
 

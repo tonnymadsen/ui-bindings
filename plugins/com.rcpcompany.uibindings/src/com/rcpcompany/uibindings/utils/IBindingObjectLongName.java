@@ -17,7 +17,7 @@ public interface IBindingObjectLongName extends IDisposable {
 	/**
 	 * Factory for {@link IBindingObjectLongName}.
 	 */
-	public static class Factory {
+	public static final class Factory {
 		private Factory() {
 		}
 

@@ -28,7 +28,7 @@ public class SimpleCellEditorFactory implements ICellEditorFactory {
 	/**
 	 * Factory methods.
 	 */
-	public static class Factory {
+	public static final class Factory {
 		private Factory() {
 		}
 

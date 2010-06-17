@@ -39,7 +39,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class ControlDecorationManager implements IDisposable, Listener {
+public final class ControlDecorationManager implements IDisposable, Listener {
 
 	/**
 	 * The size of fuzey match region - see {@link DecorationData#intersects(Rectangle, boolean)}.

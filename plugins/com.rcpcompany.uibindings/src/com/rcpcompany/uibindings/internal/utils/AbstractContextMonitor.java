@@ -93,7 +93,7 @@ public abstract class AbstractContextMonitor implements IDisposable {
 			switch (newBinding.getState()) {
 			case OK:
 				bindingAdded(newBinding);
-				//$FALL-THROUGH$
+				//$FALL-THROUGH$ fallthrough
 			case DISPOSED:
 				((EObject) newBinding).eAdapters().remove(myOKAdapter);
 				break;

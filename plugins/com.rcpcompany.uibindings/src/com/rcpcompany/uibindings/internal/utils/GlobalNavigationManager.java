@@ -52,7 +52,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class GlobalNavigationManager implements IGlobalNavigationManager {
+public final class GlobalNavigationManager implements IGlobalNavigationManager {
 	/**
 	 * Returns the manager for the specified window
 	 * 

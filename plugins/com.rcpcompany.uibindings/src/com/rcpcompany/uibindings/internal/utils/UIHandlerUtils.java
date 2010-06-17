@@ -19,7 +19,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class UIHandlerUtils {
+public final class UIHandlerUtils {
 	private UIHandlerUtils() {
 	}
 

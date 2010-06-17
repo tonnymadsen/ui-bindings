@@ -31,7 +31,7 @@ public class EValidatorAdapter extends AbstractValidatorAdapter {
 	/**
 	 * Factory method for {@link EValidatorAdapter}.
 	 */
-	public static class Factory {
+	public static final class Factory {
 		private Factory() {
 		}
 

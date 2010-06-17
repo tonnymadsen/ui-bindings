@@ -87,7 +87,7 @@ public interface ShopItem extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Shop</b></em>' container reference. It is bidirectional and
-	 * its opposite is ' {@link com.rcpcompany.uibindings.tests.shop.Shop#getShopItems
+	 * its opposite is '{@link com.rcpcompany.uibindings.tests.shop.Shop#getShopItems
 	 * <em>Shop Items</em>}'. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Shop</em>' container reference isn't clear, there really should be
@@ -117,7 +117,7 @@ public interface ShopItem extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Order Items</b></em>' reference list. The list contents are
 	 * of type {@link com.rcpcompany.uibindings.tests.shop.OrderItem}. It is bidirectional and its
-	 * opposite is ' {@link com.rcpcompany.uibindings.tests.shop.OrderItem#getItem <em>Item</em>}'.
+	 * opposite is '{@link com.rcpcompany.uibindings.tests.shop.OrderItem#getItem <em>Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Order Items</em>' reference list isn't clear, there really should
@@ -188,7 +188,7 @@ public interface ShopItem extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Group</b></em>' reference. It is bidirectional and its
-	 * opposite is ' {@link com.rcpcompany.uibindings.tests.shop.ShopItemGroup#getItems
+	 * opposite is '{@link com.rcpcompany.uibindings.tests.shop.ShopItemGroup#getItems
 	 * <em>Items</em>}'. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Group</em>' reference isn't clear, there really should be more of

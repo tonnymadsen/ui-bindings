@@ -16,7 +16,7 @@ import com.rcpcompany.uibindings.internal.utils.BindingMessagesPopup;
  * @noimplement
  */
 public interface IBindingMessagesPopup extends IDisposable {
-	public final static class Factory {
+	public static final class Factory {
 		private Factory() {
 
 		}
@@ -34,7 +34,7 @@ public interface IBindingMessagesPopup extends IDisposable {
 	}
 
 	/**
-	 * Opens the popup for the specified messages
+	 * Opens the popup for the specified messages.
 	 */
-	public void open(List<IBindingMessage> messages);
+	void open(List<IBindingMessage> messages);
 }

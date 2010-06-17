@@ -206,8 +206,8 @@ public interface Shop extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Orders</b></em>' containment reference list. The list
 	 * contents are of type {@link com.rcpcompany.uibindings.tests.shop.Order}. It is bidirectional
-	 * and its opposite is ' {@link com.rcpcompany.uibindings.tests.shop.Order#getShop
-	 * <em>Shop</em>}'. <!-- begin-user-doc -->
+	 * and its opposite is '{@link com.rcpcompany.uibindings.tests.shop.Order#getShop <em>Shop</em>}
+	 * '. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Orders</em>' containment reference list isn't clear, there really
 	 * should be more of a description here...

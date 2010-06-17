@@ -22,7 +22,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class GridBaseTestUtils {
+public final class GridBaseTestUtils {
 	private GridBaseTestUtils() {
 	}
 

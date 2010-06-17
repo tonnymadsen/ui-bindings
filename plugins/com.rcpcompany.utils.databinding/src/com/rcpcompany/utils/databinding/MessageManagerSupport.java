@@ -30,7 +30,7 @@ import org.eclipse.ui.forms.IMessageManager;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class MessageManagerSupport {
+public final class MessageManagerSupport {
 	protected final IMessageManager myMessageManager;
 	protected final DataBindingContext myContext;
 

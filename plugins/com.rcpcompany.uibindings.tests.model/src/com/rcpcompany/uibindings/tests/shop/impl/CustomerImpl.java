@@ -35,6 +35,8 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.CustomerImpl#getContact <em>Contact</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.CustomerImpl#getOrders <em>Orders</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.CustomerImpl#getLoyalty <em>Loyalty</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.CustomerImpl#getLogoFileName <em>Logo File
+ * Name</em>}</li>
  * </ul>
  * </p>
  * 
@@ -80,6 +82,26 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 	 * @ordered
 	 */
 	protected CustomerType loyalty = LOYALTY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLogoFileName() <em>Logo File Name</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getLogoFileName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LOGO_FILE_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLogoFileName() <em>Logo File Name</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getLogoFileName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String logoFileName = LOGO_FILE_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -246,6 +268,31 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 	 * 
 	 * @generated
 	 */
+	@Override
+	public String getLogoFileName() {
+		return logoFileName;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setLogoFileName(String newLogoFileName) {
+		final String oldLogoFileName = logoFileName;
+		logoFileName = newLogoFileName;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.CUSTOMER__LOGO_FILE_NAME,
+					oldLogoFileName, logoFileName));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -315,6 +362,8 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 			return getOrders();
 		case ShopPackage.CUSTOMER__LOYALTY:
 			return getLoyalty();
+		case ShopPackage.CUSTOMER__LOGO_FILE_NAME:
+			return getLogoFileName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -341,6 +390,9 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 		case ShopPackage.CUSTOMER__LOYALTY:
 			setLoyalty((CustomerType) newValue);
 			return;
+		case ShopPackage.CUSTOMER__LOGO_FILE_NAME:
+			setLogoFileName((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -365,6 +417,9 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 		case ShopPackage.CUSTOMER__LOYALTY:
 			setLoyalty(LOYALTY_EDEFAULT);
 			return;
+		case ShopPackage.CUSTOMER__LOGO_FILE_NAME:
+			setLogoFileName(LOGO_FILE_NAME_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -385,6 +440,9 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 			return orders != null && !orders.isEmpty();
 		case ShopPackage.CUSTOMER__LOYALTY:
 			return loyalty != LOYALTY_EDEFAULT;
+		case ShopPackage.CUSTOMER__LOGO_FILE_NAME:
+			return LOGO_FILE_NAME_EDEFAULT == null ? logoFileName != null : !LOGO_FILE_NAME_EDEFAULT
+					.equals(logoFileName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -401,6 +459,8 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (loyalty: ");
 		result.append(loyalty);
+		result.append(", logoFileName: ");
+		result.append(logoFileName);
 		result.append(')');
 		return result.toString();
 	}

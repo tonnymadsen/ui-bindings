@@ -7,10 +7,10 @@ package com.rcpcompany.utils.databinding;
  */
 public interface IObservableListMapper {
 	/**
-	 * Maps the specified value to a new value
+	 * Maps the specified value to a new value.
 	 * 
 	 * @param value the original value
 	 * @return the new value
 	 */
-	public Object map(Object value);
+	Object map(Object value);
 }

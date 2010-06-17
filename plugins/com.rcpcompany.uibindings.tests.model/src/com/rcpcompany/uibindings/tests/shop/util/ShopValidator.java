@@ -172,12 +172,16 @@ public class ShopValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateShop(Shop shop, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(shop, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(shop, diagnostics, context);
 		if (result || diagnostics != null) {
 			result &= validate_EveryDataValueConforms(shop, diagnostics, context);
 		}
 		if (result || diagnostics != null) {
 			result &= validate_EveryReferenceIsContained(shop, diagnostics, context);
+		}
+		if (result || diagnostics != null) {
+			result &= validate_EveryBidirectionalReferenceIsPaired(shop, diagnostics, context);
 		}
 		if (result || diagnostics != null) {
 			result &= validate_EveryProxyResolves(shop, diagnostics, context);
@@ -222,12 +226,16 @@ public class ShopValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateShopItem(ShopItem shopItem, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(shopItem, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(shopItem, diagnostics, context);
 		if (result || diagnostics != null) {
 			result &= validate_EveryDataValueConforms(shopItem, diagnostics, context);
 		}
 		if (result || diagnostics != null) {
 			result &= validate_EveryReferenceIsContained(shopItem, diagnostics, context);
+		}
+		if (result || diagnostics != null) {
+			result &= validate_EveryBidirectionalReferenceIsPaired(shopItem, diagnostics, context);
 		}
 		if (result || diagnostics != null) {
 			result &= validate_EveryProxyResolves(shopItem, diagnostics, context);
@@ -314,12 +322,16 @@ public class ShopValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateCountry(Country country, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(country, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(country, diagnostics, context);
 		if (result || diagnostics != null) {
 			result &= validate_EveryDataValueConforms(country, diagnostics, context);
 		}
 		if (result || diagnostics != null) {
 			result &= validate_EveryReferenceIsContained(country, diagnostics, context);
+		}
+		if (result || diagnostics != null) {
+			result &= validate_EveryBidirectionalReferenceIsPaired(country, diagnostics, context);
 		}
 		if (result || diagnostics != null) {
 			result &= validate_EveryProxyResolves(country, diagnostics, context);

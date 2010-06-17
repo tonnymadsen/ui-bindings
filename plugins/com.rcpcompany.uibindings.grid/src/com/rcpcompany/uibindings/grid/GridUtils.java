@@ -5,7 +5,7 @@ package com.rcpcompany.uibindings.grid;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class GridUtils {
+public final class GridUtils {
 	private GridUtils() {
 	}
 

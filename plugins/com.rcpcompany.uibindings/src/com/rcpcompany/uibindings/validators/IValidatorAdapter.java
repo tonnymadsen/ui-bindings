@@ -34,5 +34,5 @@ public interface IValidatorAdapter extends IDisposable {
 	 * @param root the root of the object tree to validate
 	 * @param messages the list to update
 	 */
-	public void validateObjectTree(EObject root, IObservableList messages);
+	void validateObjectTree(EObject root, IObservableList messages);
 }

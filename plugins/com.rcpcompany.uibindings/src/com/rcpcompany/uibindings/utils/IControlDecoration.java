@@ -24,7 +24,7 @@ public interface IControlDecoration {
 	/**
 	 * Factory for {@link IControlDecoration}.
 	 */
-	public static class Factory {
+	public static final class Factory {
 		private Factory() {
 		}
 

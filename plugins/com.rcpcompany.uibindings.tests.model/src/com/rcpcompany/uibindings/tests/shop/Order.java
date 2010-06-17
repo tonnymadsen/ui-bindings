@@ -45,7 +45,7 @@ public interface Order extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Shop</b></em>' container reference. It is bidirectional and
-	 * its opposite is ' {@link com.rcpcompany.uibindings.tests.shop.Shop#getOrders <em>Orders</em>}
+	 * its opposite is '{@link com.rcpcompany.uibindings.tests.shop.Shop#getOrders <em>Orders</em>}
 	 * '. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Shop</em>' container reference isn't clear, there really should be
@@ -64,7 +64,7 @@ public interface Order extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Customer</b></em>' reference. It is bidirectional and its
-	 * opposite is ' {@link com.rcpcompany.uibindings.tests.shop.Customer#getOrders <em>Orders</em>}
+	 * opposite is '{@link com.rcpcompany.uibindings.tests.shop.Customer#getOrders <em>Orders</em>}
 	 * '. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Customer</em>' reference isn't clear, there really should be more

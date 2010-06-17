@@ -236,7 +236,7 @@ public interface Constants {
 	 * The argument value is a {@link String} with The value is a <code>String</code> on the format
 	 * "(&lt;reference&gt; '.')* &lt;attribute&gt;".
 	 */
-	static final String ARG_FEATURE_NAME = "featureName"; //$NON-NLS-1$
+	String ARG_FEATURE_NAME = "featureName"; //$NON-NLS-1$
 
 	/**
 	 * Argument name for the allowed extensions of file name.

@@ -22,7 +22,7 @@ public interface ShopFactory extends EFactory {
 	 */
 	ShopFactory eINSTANCE = com.rcpcompany.uibindings.tests.shop.impl.ShopFactoryImpl.init();
 
-	public Shop getShop();
+	Shop getShop();
 
 	/**
 	 * Returns a new object of class '<em>Shop</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->

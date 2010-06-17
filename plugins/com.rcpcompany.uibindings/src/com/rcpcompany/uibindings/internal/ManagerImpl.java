@@ -311,7 +311,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			LogUtils.error(this, "TODO: find the right match, got priority " + psPriority + " (" //$NON-NLS-1$ //$NON-NLS-2$
 					+ modelType.getSimpleName() + ", " + uiType.getSimpleName() + ", " + type + "): " + ps.size() //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 					+ " matches:\n" + ps); //$NON-NLS-1$
-			//$FALL-THROUGH$
+			//$FALL-THROUGH$ fallthrough
 		case 1:
 			provider = ps.get(0);
 			break;
@@ -2680,7 +2680,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 				continue;
 			default:
 				LogUtils.error(this, "Multiple ITreeItemDescriptors found for " + modelObject + ". Picking random."); //$NON-NLS-1$ //$NON-NLS-2$
-				//$FALL-THROUGH$
+				//$FALL-THROUGH$ fallthrough
 			case 1:
 				descriptor = descriptors.iterator().next();
 				myTreeItemDescriptorCache.put(modelObject, descriptor);

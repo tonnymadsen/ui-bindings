@@ -211,13 +211,22 @@ public interface ShopPackage extends EPackage {
 	int CUSTOMER__LOYALTY = 3;
 
 	/**
+	 * The feature id for the '<em><b>Logo File Name</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOMER__LOGO_FILE_NAME = 4;
+
+	/**
 	 * The number of structural features of the '<em>Customer</em>' class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOMER_FEATURE_COUNT = 4;
+	int CUSTOMER_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemImpl
@@ -917,6 +926,18 @@ public interface ShopPackage extends EPackage {
 	EAttribute getCustomer_Loyalty();
 
 	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.tests.shop.Customer#getLogoFileName <em>Logo File Name</em>}
+	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Logo File Name</em>'.
+	 * @see com.rcpcompany.uibindings.tests.shop.Customer#getLogoFileName()
+	 * @see #getCustomer()
+	 * @generated
+	 */
+	EAttribute getCustomer_LogoFileName();
+
+	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.ShopItem
 	 * <em>Item</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -1012,7 +1033,7 @@ public interface ShopPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.ShopItemGroup
-	 * <em>Item Group</em>} '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <em>Item Group</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Item Group</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopItemGroup
@@ -1606,9 +1627,17 @@ public interface ShopPackage extends EPackage {
 		EAttribute CUSTOMER__LOYALTY = eINSTANCE.getCustomer_Loyalty();
 
 		/**
+		 * The meta object literal for the '<em><b>Logo File Name</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute CUSTOMER__LOGO_FILE_NAME = eINSTANCE.getCustomer_LogoFileName();
+
+		/**
 		 * The meta object literal for the '
-		 * {@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemImpl <em>Item</em>} ' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * {@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemImpl <em>Item</em>}' class. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopItemImpl
 		 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getShopItem()

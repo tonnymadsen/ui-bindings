@@ -46,6 +46,7 @@ public class CustomersView extends ViewPart {
 		detailsSection.addField("contact.address(w=200)");
 		detailsSection.addField("contact.country(w=200)");
 		detailsSection.addField("contact.newsletter(w=50)");
+		detailsSection.addField("logoFileName(w=200)");
 		detailsSection.addField("loyalty").arg(Constants.ARG_PREFERRED_CONTROL, RadioGroup.class.getName());
 
 		final IFormCreator ordersSection = myForm.addSection("Orders", table.getBinding().getSingleSelection());

@@ -14,7 +14,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class SelectionUtils {
+public final class SelectionUtils {
 	private SelectionUtils() {
 	}
 
