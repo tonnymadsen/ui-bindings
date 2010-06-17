@@ -8,6 +8,11 @@ import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.IUIAttributeFactory;
 import com.rcpcompany.uibindings.uiAttributes.SimpleUIAttribute;
 
+/**
+ * {@link IUIAttributeFactory} for the selection of certains controls.
+ * 
+ * @author Tonny Madsen, The RCP Company
+ */
 public class SelectionUIAttributeFactory implements IUIAttributeFactory {
 
 	@Override

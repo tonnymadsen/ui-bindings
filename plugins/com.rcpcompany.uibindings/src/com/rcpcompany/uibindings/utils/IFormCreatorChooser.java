@@ -22,13 +22,13 @@ import com.rcpcompany.uibindings.utils.IFormChooser.IFormChooserTester;
  * @noimplement
  */
 public interface IFormCreatorChooser extends IDisposable {
-	public final static class Factory {
+	public static final class Factory {
 		private Factory() {
 
 		}
 
 		/**
-		 * Constructs and returns a new form creator
+		 * Constructs and returns a new form creator.
 		 * 
 		 * @param context the context
 		 * @param discriminant the discriminant used to decide on the chosen form
@@ -41,7 +41,7 @@ public interface IFormCreatorChooser extends IDisposable {
 		}
 
 		/**
-		 * Constructs and returns a new form creator
+		 * Constructs and returns a new form creator.
 		 * 
 		 * @param context the context
 		 * @param object the object with the feature used to choose the form
@@ -62,7 +62,7 @@ public interface IFormCreatorChooser extends IDisposable {
 	 * @param tester the test object
 	 * @param creator the forms creator
 	 */
-	public void addForm(IFormChooserTester tester, IFormCreatorChooserCreator creator);
+	void addForm(IFormChooserTester tester, IFormCreatorChooserCreator creator);
 
 	/**
 	 * Adds a new form to this chooser, that will be chosen if the value of the discriminant equals
@@ -71,7 +71,7 @@ public interface IFormCreatorChooser extends IDisposable {
 	 * @param value the value
 	 * @param creator the forms creator
 	 */
-	public void addFormValue(Object value, IFormCreatorChooserCreator creator);
+	void addFormValue(Object value, IFormCreatorChooserCreator creator);
 
 	/**
 	 * Adds a new form to this chooser, that will be chosen if the value of the discriminant is an
@@ -80,7 +80,7 @@ public interface IFormCreatorChooser extends IDisposable {
 	 * @param clz the class
 	 * @param creator the forms creator
 	 */
-	public void addFormInstanceof(Class<?> clz, IFormCreatorChooserCreator creator);
+	void addFormInstanceof(Class<?> clz, IFormCreatorChooserCreator creator);
 
 	/**
 	 * Adds a new form to this chooser, that will be chosen if the value of the discriminant has the
@@ -89,7 +89,7 @@ public interface IFormCreatorChooser extends IDisposable {
 	 * @param clz the class
 	 * @param creator the forms creator
 	 */
-	public void addFormExactEClass(EClass clz, IFormCreatorChooserCreator creator);
+	void addFormExactEClass(EClass clz, IFormCreatorChooserCreator creator);
 
 	/**
 	 * Adds a new form to this chooser, that will be chosen if the value of the discriminant is an
@@ -98,5 +98,5 @@ public interface IFormCreatorChooser extends IDisposable {
 	 * @param clz the class
 	 * @param creator the forms creator
 	 */
-	public void addFormEClass(EClass clz, IFormCreatorChooserCreator creator);
+	void addFormEClass(EClass clz, IFormCreatorChooserCreator creator);
 }

@@ -175,7 +175,7 @@ public class StyledTextCellEditor extends CellEditor {
 		});
 		text.setFont(parent.getFont());
 		text.setBackground(parent.getBackground());
-		text.setText("");//$NON-NLS-1$
+		text.setText(""); //$NON-NLS-1$
 		text.addModifyListener(getModifyListener());
 		return text;
 	}
@@ -230,13 +230,13 @@ public class StyledTextCellEditor extends CellEditor {
 	protected void editOccured(ModifyEvent e) {
 		String value = text.getText();
 		if (value == null) {
-			value = "";//$NON-NLS-1$
+			value = ""; //$NON-NLS-1$
 		}
 		final Object typedValue = value;
 		final boolean oldValidState = isValueValid();
 		final boolean newValidState = isCorrect(typedValue);
 		if (typedValue == null && newValidState) {
-			Assert.isTrue(false, "Validator isn't limiting the cell editor's type range");//$NON-NLS-1$
+			Assert.isTrue(false, "Validator isn't limiting the cell editor's type range"); //$NON-NLS-1$
 		}
 		if (!newValidState) {
 			// try to insert the current value into the error message.

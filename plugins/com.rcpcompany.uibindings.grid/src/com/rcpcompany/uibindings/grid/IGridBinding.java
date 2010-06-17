@@ -79,7 +79,7 @@ public interface IGridBinding extends IBinding, IArgumentProvider {
 	 * 
 	 * @return <code>true</code> if the grid is being edited, <code>false</code> otherwise
 	 */
-	public boolean isEditing();
+	boolean isEditing();
 
 	/**
 	 * Starts editing of the specified cell based on the specified SWT event.
@@ -87,7 +87,7 @@ public interface IGridBinding extends IBinding, IArgumentProvider {
 	 * @param cell the cell to edit
 	 * @param event the SWT event that triggered the editing session
 	 */
-	public void editCell(IGridBindingCellInformation cell, ColumnViewerEditorActivationEvent event);
+	void editCell(IGridBindingCellInformation cell, ColumnViewerEditorActivationEvent event);
 
 	/**
 	 * Returns the value of the '<em><b>Rows</b></em>' map. The key is of type
@@ -163,7 +163,7 @@ public interface IGridBinding extends IBinding, IArgumentProvider {
 	 * 
 	 * @param point the point for the new focus cell.
 	 */
-	public void setFocusCell(Point point);
+	void setFocusCell(Point point);
 
 	/**
 	 * Sets the focus cell to the cell at the specified column and row.
@@ -177,7 +177,7 @@ public interface IGridBinding extends IBinding, IArgumentProvider {
 	 * @param column the wanted column
 	 * @param row the wanted row
 	 */
-	public void setFocusCellDelayed(int column, int row);
+	void setFocusCellDelayed(int column, int row);
 
 	/**
 	 * Updates the focus cell of the grid.
@@ -187,7 +187,7 @@ public interface IGridBinding extends IBinding, IArgumentProvider {
 	 * <p>
 	 * The operation is delayed.
 	 */
-	public void updateFocusCellDelayed();
+	void updateFocusCellDelayed();
 
 	/**
 	 * Returns the value of the '<em><b>Columns</b></em>' map. The key is of type
@@ -222,7 +222,7 @@ public interface IGridBinding extends IBinding, IArgumentProvider {
 	/**
 	 * The factory methods for {@link IGridBinding}.
 	 */
-	public static final class Factory {
+	static final class Factory {
 		private Factory() {
 		}
 
@@ -255,7 +255,7 @@ public interface IGridBinding extends IBinding, IArgumentProvider {
 	 * @param grid the grid control
 	 * @return <code>this</code>
 	 */
-	public IGridBinding grid(Grid grid);
+	IGridBinding grid(Grid grid);
 
 	/**
 	 * Sets the model of the binding.
@@ -263,23 +263,23 @@ public interface IGridBinding extends IBinding, IArgumentProvider {
 	 * @param model the grid
 	 * @return <code>this</code>
 	 */
-	public IGridBinding model(IGridModel model);
+	IGridBinding model(IGridModel model);
 
 	/**
-	 * Returns the cell at the specified coordinates
+	 * Returns the cell at the specified coordinates.
 	 * 
 	 * @param column the column number
 	 * @param row the row number
 	 * @return the cell or <code>null</code> if no cell is found
 	 */
-	public IGridBindingCellInformation getCell(int column, int row);
+	IGridBindingCellInformation getCell(int column, int row);
 
 	/**
-	 * Returns the cell at the specified column and row IDs
+	 * Returns the cell at the specified column and row IDs.
 	 * 
 	 * @param columnID the column ID
 	 * @param rowID the row ID
 	 * @return the cell or <code>null</code> if no cell is found
 	 */
-	public IGridBindingCellInformation getCell(Object columnID, Object rowID);
+	IGridBindingCellInformation getCell(Object columnID, Object rowID);
 } // IGridBinding

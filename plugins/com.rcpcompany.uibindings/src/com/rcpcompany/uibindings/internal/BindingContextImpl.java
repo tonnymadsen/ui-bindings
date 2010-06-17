@@ -493,9 +493,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	private final Adapter myTextCommitStrategyAdapter = new AdapterImpl() {
 		@Override
 		public void notifyChanged(Notification msg) {
-			if (msg.isTouch()) {
-				return;
-			}
+			if (msg.isTouch()) return;
 			if (msg.getFeature() == IUIBindingsPackage.Literals.MANAGER__TEXT_COMMIT_STRATEGY) {
 				getTextCommitStrategyCalculated();
 			}
@@ -532,9 +530,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	 */
 	@Override
 	public EditingDomain getEditingDomain() {
-		if (editingDomain == null) {
-			return IManager.Factory.getManager().getEditingDomain();
-		}
+		if (editingDomain == null) return IManager.Factory.getManager().getEditingDomain();
 		return editingDomain;
 	}
 
@@ -720,9 +716,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (top: "); //$NON-NLS-1$
@@ -855,7 +849,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 			default:
 				return;
 			}
-			//$FALL-THROUGH$
+			//$FALL-THROUGH$ fallthrough
 		case LAZY:
 			finishDeferred();
 			// if (myFinishDeferred)

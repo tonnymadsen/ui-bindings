@@ -65,16 +65,12 @@ public class SortableTableAdapter implements ISortableTableAdapter, DisposeListe
 			final AdapterImpl l = new AdapterImpl() {
 				@Override
 				public void notifyChanged(Notification msg) {
-					if (msg.isTouch()) {
-						return;
-					}
-					if (msg.getFeature() != IUIBindingsPackage.Literals.BINDING__STATE) {
-						return;
-					}
+					if (msg.isTouch()) return;
+					if (msg.getFeature() != IUIBindingsPackage.Literals.BINDING__STATE) return;
 					switch (myViewerBinding.getState()) {
 					case OK:
 						init();
-						//$FALL-THROUGH$
+						//$FALL-THROUGH$ fallthrough
 					case DISPOSED:
 						myViewerBinding.eAdapters().remove(this);
 						break;
@@ -94,12 +90,8 @@ public class SortableTableAdapter implements ISortableTableAdapter, DisposeListe
 		myViewerBinding.eAdapters().add(new AdapterImpl() {
 			@Override
 			public void notifyChanged(Notification msg) {
-				if (msg.isTouch()) {
-					return;
-				}
-				if (msg.getFeature() != IUIBindingsPackage.Literals.VIEWER_BINDING__COLUMNS) {
-					return;
-				}
+				if (msg.isTouch()) return;
+				if (msg.getFeature() != IUIBindingsPackage.Literals.VIEWER_BINDING__COLUMNS) return;
 
 				switch (msg.getEventType()) {
 				case Notification.REMOVE:
@@ -126,9 +118,7 @@ public class SortableTableAdapter implements ISortableTableAdapter, DisposeListe
 	@Override
 	public void dispose() {
 		myViewerBinding.deregisterService(this);
-		if (myTable.isDisposed()) {
-			return;
-		}
+		if (myTable.isDisposed()) return;
 		/*
 		 * If the viewer binding is not being disposed, then remove the comparator
 		 */
@@ -186,9 +176,7 @@ public class SortableTableAdapter implements ISortableTableAdapter, DisposeListe
 			if (Activator.getDefault().TRACE_SORTING) {
 				LogUtils.debug(this, ">> " + Arrays.toString(elements) + "\ncolumn=" + sortColumn);
 			}
-			if (sortColumn == null) {
-				return;
-			}
+			if (sortColumn == null) return;
 			final int dir = myTable.getSortDirection() == SWT.UP ? 1 : -1;
 
 			final IColumnBinding column = (IColumnBinding) IBindingContext.Factory.getBindingForWidget(sortColumn);
@@ -211,9 +199,7 @@ public class SortableTableAdapter implements ISortableTableAdapter, DisposeListe
 					public int compare(Object o1, Object o2) {
 						final Byte s1 = (Byte) values.get(o1);
 						final Byte s2 = (Byte) values.get(o2);
-						if (s1 == null || s2 == null) {
-							return 0;
-						}
+						if (s1 == null || s2 == null) return 0;
 						return dir * (s2 - s1);
 					}
 				};
@@ -226,9 +212,7 @@ public class SortableTableAdapter implements ISortableTableAdapter, DisposeListe
 					public int compare(Object o1, Object o2) {
 						final Short s1 = (Short) values.get(o1);
 						final Short s2 = (Short) values.get(o2);
-						if (s1 == null || s2 == null) {
-							return 0;
-						}
+						if (s1 == null || s2 == null) return 0;
 						return dir * (s2 - s1);
 					}
 				};
@@ -241,9 +225,7 @@ public class SortableTableAdapter implements ISortableTableAdapter, DisposeListe
 					public int compare(Object o1, Object o2) {
 						final Integer s1 = (Integer) values.get(o1);
 						final Integer s2 = (Integer) values.get(o2);
-						if (s1 == null || s2 == null) {
-							return 0;
-						}
+						if (s1 == null || s2 == null) return 0;
 						return dir * (s2 - s1);
 					}
 				};
@@ -256,13 +238,9 @@ public class SortableTableAdapter implements ISortableTableAdapter, DisposeListe
 					public int compare(Object o1, Object o2) {
 						final Long s1 = (Long) values.get(o1);
 						final Long s2 = (Long) values.get(o2);
-						if (s1 == null || s2 == null) {
-							return 0;
-						}
+						if (s1 == null || s2 == null) return 0;
 						final long d = s2 - s1;
-						if (d == 0) {
-							return 0;
-						}
+						if (d == 0) return 0;
 						return dir * (d < 0 ? 1 : -1);
 					}
 				};
@@ -275,13 +253,9 @@ public class SortableTableAdapter implements ISortableTableAdapter, DisposeListe
 					public int compare(Object o1, Object o2) {
 						final Float s1 = (Float) values.get(o1);
 						final Float s2 = (Float) values.get(o2);
-						if (s1 == null || s2 == null) {
-							return 0;
-						}
+						if (s1 == null || s2 == null) return 0;
 						final float d = s2 - s1;
-						if (d == 0) {
-							return 0;
-						}
+						if (d == 0) return 0;
 						return dir * (d < 0 ? 1 : -1);
 					}
 				};
@@ -294,13 +268,9 @@ public class SortableTableAdapter implements ISortableTableAdapter, DisposeListe
 					public int compare(Object o1, Object o2) {
 						final Double s1 = (Double) values.get(o1);
 						final Double s2 = (Double) values.get(o2);
-						if (s1 == null || s2 == null) {
-							return 0;
-						}
+						if (s1 == null || s2 == null) return 0;
 						final Double d = s2 - s1;
-						if (d == 0) {
-							return 0;
-						}
+						if (d == 0) return 0;
 						return dir * (d < 0 ? 1 : -1);
 					}
 				};
@@ -313,9 +283,7 @@ public class SortableTableAdapter implements ISortableTableAdapter, DisposeListe
 					public int compare(Object o1, Object o2) {
 						final String s1 = (String) values.get(o1);
 						final String s2 = (String) values.get(o2);
-						if (s1 == null || s2 == null) {
-							return 0;
-						}
+						if (s1 == null || s2 == null) return 0;
 						return dir * s1.compareToIgnoreCase(s2);
 					}
 				};

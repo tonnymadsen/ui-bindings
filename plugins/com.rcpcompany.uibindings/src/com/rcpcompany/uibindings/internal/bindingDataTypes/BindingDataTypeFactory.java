@@ -25,7 +25,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  * @author Tonny Madsen, The RCP Company
  */
 
-public class BindingDataTypeFactory {
+public final class BindingDataTypeFactory {
 	private BindingDataTypeFactory() {
 		// TODO Auto-generated constructor stub
 	}
@@ -126,7 +126,7 @@ public class BindingDataTypeFactory {
 	 * Mapping from class to the set of super classes as defined by
 	 * {@link IAdapterManager#computeClassOrder(Class)}.
 	 */
-	private final static Map<IBindingDataType, IBindingDataType[]> superTypeMapping = new HashMap<IBindingDataType, IBindingDataType[]>();
+	private static final Map<IBindingDataType, IBindingDataType[]> superTypeMapping = new HashMap<IBindingDataType, IBindingDataType[]>();
 
 	/**
 	 * Returns a list of the {@link IBindingDataType} objects that defines all the super types of

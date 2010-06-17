@@ -350,18 +350,12 @@ public class UIAttributePainter {
 	 * 
 	 */
 	public String getDisplayText() {
-		if (myInternalValues) {
-			return myInternalText;
-		}
+		if (myInternalValues) return myInternalText;
 		final IObservableValue displayValue = getAttribute().getCurrentValue();
-		if (displayValue == null) {
-			return null;
-		}
+		if (displayValue == null) return null;
 
 		final Object value = displayValue.getValue();
-		if (value == null) {
-			return null;
-		}
+		if (value == null) return null;
 		return value.toString();
 	}
 
@@ -372,21 +366,13 @@ public class UIAttributePainter {
 	 * 
 	 */
 	public Image getDisplayImage() {
-		if (myInternalValues) {
-			return myInternalImage;
-		}
+		if (myInternalValues) return myInternalImage;
 		final IObservableValue displayValue = getAttribute().getImageValue();
-		if (displayValue == null) {
-			return null;
-		}
+		if (displayValue == null) return null;
 
 		final Object value = displayValue.getValue();
-		if (value == null) {
-			return null;
-		}
-		if (!(value instanceof Image)) {
-			return null;
-		}
+		if (value == null) return null;
+		if (!(value instanceof Image)) return null;
 		return (Image) value;
 	}
 

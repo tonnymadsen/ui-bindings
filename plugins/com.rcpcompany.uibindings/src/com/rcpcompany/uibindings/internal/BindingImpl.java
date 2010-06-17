@@ -153,9 +153,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	@Override
 	public void setArguments(Map<String, Object> arguments) {
-		if (arguments == null) {
-			return;
-		}
+		if (arguments == null) return;
 		for (final Map.Entry<String, Object> n : arguments.entrySet()) {
 			getArguments().put(n.getKey(), n.getValue());
 		}
@@ -413,18 +411,14 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 */
 	@Override
 	public IBindingContext getContext() {
-		if (eContainerFeatureID() != IUIBindingsPackage.BINDING__CONTEXT) {
-			return null;
-		}
+		if (eContainerFeatureID() != IUIBindingsPackage.BINDING__CONTEXT) return null;
 		return (IBindingContext) eContainer();
 	}
 
 	@Override
 	public EditingDomain getEditingDomain() {
 		final IBindingContext context = getContext();
-		if (context == null) {
-			return IManager.Factory.getManager().getEditingDomain();
-		}
+		if (context == null) return IManager.Factory.getManager().getEditingDomain();
 		return context.getEditingDomain();
 	}
 
@@ -447,9 +441,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	public void setContext(IBindingContext newContext) {
 		if (newContext != eInternalContainer()
 				|| (eContainerFeatureID() != IUIBindingsPackage.BINDING__CONTEXT && newContext != null)) {
-			if (EcoreUtil.isAncestor(this, newContext)) {
+			if (EcoreUtil.isAncestor(this, newContext))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
-			}
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null) {
 				msgs = eBasicRemoveFromContainer(msgs);
@@ -590,16 +583,14 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	@Override
 	public Object getArgument(String name) {
-		if (!eIsSet(IUIBindingsPackage.Literals.BINDING__ARGUMENTS)) {
-			return null;
-		}
+		if (!eIsSet(IUIBindingsPackage.Literals.BINDING__ARGUMENTS)) return null;
 		return getArguments().get(name);
 	}
 
 	/**
 	 * Cached results from {@link #getArgument(String, Class, Object)}.
 	 */
-	final protected Map<String, Object> myCachedArguments = new HashMap<String, Object>();
+	protected final Map<String, Object> myCachedArguments = new HashMap<String, Object>();
 
 	/**
 	 * The package prefix name for all internal packages.
@@ -659,24 +650,19 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		/*
 		 * Try all enabled extenders
 		 */
-		if (addDecoratorExtenderArguments(results, name, argumentType, firstOnly) && firstOnly) {
-			return results;
-		}
+		if (addDecoratorExtenderArguments(results, name, argumentType, firstOnly) && firstOnly) return results;
 
 		/*
 		 * Check direct arguments
 		 */
-		if (addDirectArguments(results, name, argumentType, firstOnly) && firstOnly) {
-			return results;
-		}
+		if (addDirectArguments(results, name, argumentType, firstOnly) && firstOnly) return results;
 
 		/*
 		 * Try the model data type...
 		 */
 		if (getStaticDataType() != null
-				&& getStaticDataType().addArguments(results, this, name, argumentType, firstOnly) && firstOnly) {
+				&& getStaticDataType().addArguments(results, this, name, argumentType, firstOnly) && firstOnly)
 			return results;
-		}
 
 		/*
 		 * Now use the list of IBDT object to look for annotations.
@@ -687,27 +673,22 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 				if (dt == getStaticDataType()) {
 					continue;
 				}
-				if (dt.addArguments(results, this, name, argumentType, firstOnly) && firstOnly) {
-					return results;
-				}
+				if (dt.addArguments(results, this, name, argumentType, firstOnly) && firstOnly) return results;
 			}
 		}
 
 		/*
 		 * Add decorator provider arguments
 		 */
-		if (addDecoratorProviderArguments(results, name, argumentType, firstOnly) && firstOnly) {
-			return results;
-		}
+		if (addDecoratorProviderArguments(results, name, argumentType, firstOnly) && firstOnly) return results;
 
 		/**
 		 * And then any extra argument providers added to the binding
 		 */
 		if (eIsSet(IUIBindingsPackage.Literals.BINDING__EXTRA_ARGUMENT_PROVIDERS)) {
 			for (final IArgumentProvider ap : getExtraArgumentProviders()) {
-				if (getArgumentProviderArguments(results, name, ap, argumentType, firstOnly) && firstOnly) {
+				if (getArgumentProviderArguments(results, name, ap, argumentType, firstOnly) && firstOnly)
 					return results;
-				}
 			}
 		}
 
@@ -756,12 +737,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 */
 	public <ArgumentType> boolean addDirectArguments(List<IArgumentValue<ArgumentType>> results, String name,
 			Class<? extends ArgumentType> argumentType, boolean firstOnly) {
-		if (!eIsSet(IUIBindingsPackage.Literals.BINDING__ARGUMENTS)) {
-			return false;
-		}
-		if (!getArguments().containsKey(name)) {
-			return false;
-		}
+		if (!eIsSet(IUIBindingsPackage.Literals.BINDING__ARGUMENTS)) return false;
+		if (!getArguments().containsKey(name)) return false;
 		final Object value = getArguments().get(name);
 
 		if (value != null && !argumentType.isInstance(value)) {
@@ -776,16 +753,10 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	@Override
 	public <ArgumentType> boolean getArgumentProviderArguments(List<IArgumentValue<ArgumentType>> results, String name,
 			IArgumentProvider provider, Class<? extends ArgumentType> argumentType, boolean firstOnly) {
-		if (provider == null) {
-			return false;
-		}
-		if (!provider.eIsSet(IUIBindingsPackage.Literals.ARGUMENT_PROVIDER__DECLARED_ARGUMENTS)) {
-			return false;
-		}
+		if (provider == null) return false;
+		if (!provider.eIsSet(IUIBindingsPackage.Literals.ARGUMENT_PROVIDER__DECLARED_ARGUMENTS)) return false;
 		final Object val = provider.getDeclaredArguments().get(name);
-		if (val == null) {
-			return false;
-		}
+		if (val == null) return false;
 
 		final ArgumentType s;
 		if (val instanceof IConfigurationElement) {
@@ -825,12 +796,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		 */
 		if (myCachedArguments.containsKey(name)) {
 			final Object value = myCachedArguments.get(name);
-			if (value == null) {
-				return null;
-			}
-			if (argumentType.isInstance(value)) {
-				return (ArgumentType) value;
-			}
+			if (value == null) return null;
+			if (argumentType.isInstance(value)) return (ArgumentType) value;
 			LogUtils.error(this, "Cached argument '" + name + "' value '" + value + "' not of right type (expected " //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 					+ argumentType + ", got " + value.getClass() + "). Ignored.", getCreationPoint()); //$NON-NLS-1$ //$NON-NLS-2$
 			myCachedArguments.remove(name);
@@ -841,9 +808,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		/*
 		 * If no results was found, then use the default value
 		 */
-		if (list == null || list.size() == 0) {
-			return defaultValue;
-		}
+		if (list == null || list.size() == 0) return defaultValue;
 
 		final ArgumentType value = list.get(0).getValue();
 		myCachedArguments.put(name, value);
@@ -854,25 +819,23 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	@Override
 	public <ArgumentType> ArgumentType convertArgumentValue(String name, IConfigurationElement ce,
 			String attributeName, String value, Class<? extends ArgumentType> argumentType) {
-		if (value == null) {
-			return null;
-		}
-		if (argumentType == String.class) {
+		if (value == null) return null;
+		if (argumentType == String.class)
 			return (ArgumentType) value;
-		} else if (argumentType == Boolean.class) {
+		else if (argumentType == Boolean.class)
 			return (ArgumentType) Boolean.valueOf(value);
-		} else if (argumentType == Integer.class) {
+		else if (argumentType == Integer.class) {
 			/*
 			 * Special case handling:
 			 */
 			if (name.equals(ARG_ALIGNMENT)) {
-				if ("l".equals(value) || "left".equals(value)) {
+				if ("l".equals(value) || "left".equals(value))
 					return (ArgumentType) (Integer) SWT.LEAD;
-				} else if ("c".equals(value) || "center".equals(value)) {
+				else if ("c".equals(value) || "center".equals(value))
 					return (ArgumentType) (Integer) SWT.CENTER;
-				} else if ("r".equals(value) || "right".equals(value)) {
+				else if ("r".equals(value) || "right".equals(value))
 					return (ArgumentType) (Integer) SWT.TRAIL;
-				} else {
+				else {
 					LogUtils.error(this, ARG_ALIGNMENT + " must be one of 'l', 'c' or 'r', got '" + value + "'", null); //$NON-NLS-1$ //$NON-NLS-2$
 				}
 			} else {
@@ -1197,11 +1160,10 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case IUIBindingsPackage.BINDING__DECLARED_ARGUMENTS:
-			if (coreType) {
+			if (coreType)
 				return getDeclaredArguments();
-			} else {
+			else
 				return getDeclaredArguments().map();
-			}
 		case IUIBindingsPackage.BINDING__CONTEXT:
 			return getContext();
 		case IUIBindingsPackage.BINDING__STATE:
@@ -1211,11 +1173,10 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		case IUIBindingsPackage.BINDING__CREATION_POINT:
 			return getCreationPoint();
 		case IUIBindingsPackage.BINDING__ARGUMENTS:
-			if (coreType) {
+			if (coreType)
 				return getArguments();
-			} else {
+			else
 				return getArguments().map();
-			}
 		case IUIBindingsPackage.BINDING__ID:
 			return getId();
 		case IUIBindingsPackage.BINDING__TYPE:
@@ -1463,9 +1424,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
+		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (state: "); //$NON-NLS-1$

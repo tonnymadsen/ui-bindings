@@ -21,6 +21,7 @@ import com.rcpcompany.uibindings.uiAttributes.UIAttributePainter;
  * <em><b>Binding Cell Information</b></em>'. <!-- end-user-doc -->
  * 
  * <p>
+ * 
  * The following features are supported:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getColumn <em>Column</em>}</li>
@@ -283,6 +284,6 @@ public interface IGridBindingCellInformation extends EObject, IDisposable, IValu
 	 * 
 	 * @param event the event to handle for the cell
 	 */
-	public void handleEvent(Event event);
+	void handleEvent(Event event);
 
 } // IGridBindingCellInformation

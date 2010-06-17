@@ -21,7 +21,7 @@ public interface IBindingSpec {
 	/**
 	 * Factory methods for {@link ITableCreator}.
 	 */
-	public final static class Factory {
+	public static final class Factory {
 		private Factory() {
 
 		}
@@ -77,14 +77,14 @@ public interface IBindingSpec {
 	 * 
 	 * @return the base type
 	 */
-	public BaseType getType();
+	BaseType getType();
 
 	/**
 	 * Returns the feature of this spec.
 	 * 
 	 * @return the feature
 	 */
-	public EStructuralFeature getFeature();
+	EStructuralFeature getFeature();
 
 	/**
 	 * Returns the associated arguments for the feature.
@@ -93,25 +93,26 @@ public interface IBindingSpec {
 	 * 
 	 * @return the arguments
 	 */
-	public Map<String, Object> getArguments();
+	Map<String, Object> getArguments();
 
 	/**
 	 * The argument name for the width of the binding. The value has type {@link Integer}.
 	 * <p>
 	 * Alias for {@link Constants#ARG_WIDTH}.
 	 */
-	final static String WIDTH = "w";
+	String WIDTH = "w";
 
 	/**
 	 * The argument name for the height of the binding. The value has type {@link Integer}.
 	 * <p>
 	 * Alias for {@link Constants#ARG_HEIGHT}.
 	 */
-	final static String HEIGHT = "h";
+	String HEIGHT = "h";
+
 	/**
 	 * The argument name for the width weight of the binding. The value has type {@link Integer}.
 	 */
-	static final String WIDTH_WEIGHT = "ww";
+	String WIDTH_WEIGHT = "ww";
 
 	/**
 	 * The argument name for the alignment of the binding. The value has type {@link String} with
@@ -119,49 +120,49 @@ public interface IBindingSpec {
 	 * <p>
 	 * Alias for {@link Constants#ARG_ALIGNMENT}.
 	 */
-	final static String ALIGNMENT = "a";
+	String ALIGNMENT = "a";
 
 	/**
 	 * The argument name for the scrollbars of the binding. The value has type {@link String} with
 	 * the possible values "h" (horizontal), "v" (vertical) and "b" (both).
 	 */
-	final static String SCROLLBARS = "sb";
+	String SCROLLBARS = "sb";
 
 	/**
 	 * The argument name for the tooltip of the binding. The value has type {@link String}.
 	 */
-	final static String TOOLTIP = Constants.ARG_TOOL_TIP_TEXT;
+	String TOOLTIP = Constants.ARG_TOOL_TIP_TEXT;
 
 	/**
 	 * The argument name for the label of the binding. The value has type {@link String}.
 	 */
-	final static String LABEL = Constants.ARG_LABEL;
+	String LABEL = Constants.ARG_LABEL;
 
 	/**
 	 * The argument name for the type of the binding. The value has type {@link String}.
 	 */
-	final static String TYPE = Constants.ARG_TYPE;
+	String TYPE = Constants.ARG_TYPE;
 
 	/**
 	 * The argument name for the message format of the binding. The value has type {@link String}.
 	 */
-	final static String MESSAGE_FORMAT = Constants.ARG_MESSAGE_FORMAT;
+	String MESSAGE_FORMAT = Constants.ARG_MESSAGE_FORMAT;
 
 	/**
 	 * The argument name for read-only of the binding. The value has type {@link String} with the
 	 * possible values "false", and "true".
 	 */
-	final static String READONLY = Constants.ARG_READONLY;
+	String READONLY = Constants.ARG_READONLY;
 
 	/**
 	 * The argument name for multi-line binding. The value has type {@link String} with the possible
 	 * values "false", and "true".
 	 */
-	final static String MULTI = "multi";
+	String MULTI = "multi";
 
 	/**
 	 * The argument name for message collecting binding. The value has type {@link String} with the
 	 * possible values "false", and "true".
 	 */
-	final static String COLLECT_MESSAGES = Constants.ARG_MODEL_OBJECT_MESSAGES;
+	String COLLECT_MESSAGES = Constants.ARG_MODEL_OBJECT_MESSAGES;
 }

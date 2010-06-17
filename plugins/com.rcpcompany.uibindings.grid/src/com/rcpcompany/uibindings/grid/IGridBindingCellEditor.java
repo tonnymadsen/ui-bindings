@@ -107,10 +107,10 @@ public interface IGridBindingCellEditor extends EObject {
 	/**
 	 * Accepts the current value of the current edit session.
 	 */
-	public void acceptEdit();
+	void acceptEdit();
 
 	/**
 	 * Cancels the current value of the current edit session.
 	 */
-	public void cancelEdit();
+	void cancelEdit();
 } // IGridBindingCellEditor

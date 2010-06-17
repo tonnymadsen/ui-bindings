@@ -30,12 +30,15 @@ public class TestGridGridModel implements IGridModel {
 	private final IObservableList myColumns;
 	private final IObservableList myRows;
 
+	/**
+	 * Simple interface used to monitor changes in grids during tests.
+	 */
 	public interface Monitor {
-		public void gridDisposed();
+		void gridDisposed();
 
-		public void cellCreated(Cell cell);
+		void cellCreated(Cell cell);
 
-		public void cellDisposed(Cell cell);
+		void cellDisposed(Cell cell);
 
 	};
 

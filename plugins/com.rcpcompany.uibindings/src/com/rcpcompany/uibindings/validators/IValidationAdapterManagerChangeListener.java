@@ -13,5 +13,5 @@ public interface IValidationAdapterManagerChangeListener {
 	 * 
 	 * @param event a description of the current state
 	 */
-	public void affectedObjectsChanged(IValidationAdapterManagerChangeEvent event);
+	void affectedObjectsChanged(IValidationAdapterManagerChangeEvent event);
 }

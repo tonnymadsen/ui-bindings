@@ -151,34 +151,34 @@ public interface IGlobalNavigationManager extends IDisposable {
 	 * <p>
 	 * Any following locations are removed from the stack.
 	 */
-	public void addLocation();
+	void addLocation();
 
 	/**
 	 * Moves forward in the history if possible.
 	 */
-	public void forwardHistory();
+	void forwardHistory();
 
 	/**
 	 * Moves backward in the history if possible.
 	 */
-	public void backwardHistory();
+	void backwardHistory();
 
 	/**
-	 * Returns the number of kept locations in the navigation manager
+	 * Returns the number of kept locations in the navigation manager.
 	 * 
 	 * @return the number of locations
 	 */
 	int getNoKeptLocations();
 
 	/**
-	 * Sets the number of kept locations in the navigation manager
+	 * Sets the number of kept locations in the navigation manager.
 	 * 
 	 * @param noKeptLocations the number of locations
 	 */
 	void setNoKeptLocations(int noKeptLocations);
 
 	/**
-	 * Updates the current position based on the last reported binding
+	 * Updates the current position based on the last reported binding.
 	 */
 	void updateLocation();
 }

@@ -28,7 +28,7 @@ import com.rcpcompany.utils.logging.LogUtils;
 public class EnumBindingDecorator extends SimpleUIBindingDecorator implements IUIBindingDecorator {
 
 	/**
-	 * The provider
+	 * The provider.
 	 */
 	private final IEnumDecoratorProvider myProvider;
 
@@ -42,17 +42,17 @@ public class EnumBindingDecorator extends SimpleUIBindingDecorator implements IU
 	/**
 	 * Mapping UI to model with all the defined mappings.
 	 */
-	final protected Map<String, String> uiToModelMappings = new HashMap<String, String>();
+	protected final Map<String, String> uiToModelMappings = new HashMap<String, String>();
 
 	/**
-	 * The sequence of the ui elements
+	 * The sequence of the ui elements.
 	 */
-	final protected List<String> uiSequence = new ArrayList<String>();
+	protected final List<String> uiSequence = new ArrayList<String>();
 
 	/**
-	 * Mapping model to UI with all the defined mappings.
+	 * Mapping model to UI with all the defined mappings..
 	 */
-	final protected Map<String, String> modelToUIMappings = new HashMap<String, String>();
+	protected final Map<String, String> modelToUIMappings = new HashMap<String, String>();
 
 	private EEnum myEnumeration;
 

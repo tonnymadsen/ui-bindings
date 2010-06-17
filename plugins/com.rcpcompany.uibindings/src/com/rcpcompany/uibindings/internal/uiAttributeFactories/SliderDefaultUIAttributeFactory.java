@@ -10,6 +10,11 @@ import com.rcpcompany.uibindings.IUIAttributeFactory;
 import com.rcpcompany.uibindings.internal.observables.SliderObservableValue;
 import com.rcpcompany.uibindings.uiAttributes.SimpleUIAttribute;
 
+/**
+ * {@link IUIAttributeFactory} for {@link Slider}.
+ * 
+ * @author Tonny Madsen, The RCP Company
+ */
 public class SliderDefaultUIAttributeFactory implements IUIAttributeFactory {
 	@Override
 	public IUIAttribute create(Widget widget, String attribute) {
@@ -17,7 +22,6 @@ public class SliderDefaultUIAttributeFactory implements IUIAttributeFactory {
 	}
 
 	private static class Attribute extends SimpleUIAttribute {
-
 		private final IObservableValue myMinValue;
 		private final IObservableValue myMaxValue;
 

@@ -76,9 +76,7 @@ public class AutoFormBaseView<T extends EObject> extends ViewPart implements ISe
 	@Override
 	public void selectReveal(ISelection selection) {
 		final List<T> list = SelectionUtils.computeSelection(selection, myClass);
-		if (list.isEmpty()) {
-			return;
-		}
+		if (list.isEmpty()) return;
 
 		myCurrentValue.setValue(list.get(0));
 	}

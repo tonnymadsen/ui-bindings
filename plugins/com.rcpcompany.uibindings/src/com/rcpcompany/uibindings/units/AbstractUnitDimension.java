@@ -17,9 +17,7 @@ public abstract class AbstractUnitDimension implements IUnitDimension {
 	@Override
 	public IUnit getUnit(String name) {
 		for (final IUnit u : getUnits()) {
-			if (u.isName(name)) {
-				return u;
-			}
+			if (u.isName(name)) return u;
 		}
 		return null;
 	}

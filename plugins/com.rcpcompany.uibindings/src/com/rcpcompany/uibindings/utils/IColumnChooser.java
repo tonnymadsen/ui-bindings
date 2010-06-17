@@ -22,13 +22,13 @@ public interface IColumnChooser extends IDisposable {
 	/*
 	 * Factory for the chooser
 	 */
-	public final static class Factory {
+	public static final class Factory {
 		private Factory() {
 
 		}
 
 		/**
-		 * Constructs and returns a new column chooser
+		 * Constructs and returns a new column chooser.
 		 * 
 		 * @param viewer the viewer with the columns
 		 * @param addDefaultColumn add all default columns automatically
@@ -44,21 +44,21 @@ public interface IColumnChooser extends IDisposable {
 	 * <p>
 	 * The argument value is an {@link Boolean}, and the default is <code>true</code>.
 	 */
-	public static final String ARG_CHOOSABLE = "choosable";
+	String ARG_CHOOSABLE = "choosable";
 
 	/**
-	 * Adds the specified column to this chooser
+	 * Adds the specified column to this chooser.
 	 * 
 	 * @param column the column to be added
 	 */
-	public void addColumn(IColumnBinding column);
+	void addColumn(IColumnBinding column);
 
 	/**
-	 * Removes the specified column from this chooser
+	 * Removes the specified column from this chooser.
 	 * 
 	 * @param column the column to be removed
 	 */
-	public void removeColumn(IColumnBinding column);
+	void removeColumn(IColumnBinding column);
 
 	/**
 	 * Adds all default columns to this chooser.
@@ -66,5 +66,5 @@ public interface IColumnChooser extends IDisposable {
 	 * All columns are added to the chooser, except for columns with a {@link SpecialBinding} and
 	 * columns with zero width.
 	 */
-	public void addDefaultColumns();
+	void addDefaultColumns();
 }

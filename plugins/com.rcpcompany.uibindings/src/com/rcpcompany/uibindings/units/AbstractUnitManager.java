@@ -14,9 +14,7 @@ public abstract class AbstractUnitManager implements IUnitManager {
 	@Override
 	public IUnitDimension getDimension(String name) {
 		for (final IUnitDimension ud : getDimensions()) {
-			if (ud.getName().equals(name)) {
-				return ud;
-			}
+			if (ud.getName().equals(name)) return ud;
 		}
 		return null;
 	}
@@ -25,9 +23,7 @@ public abstract class AbstractUnitManager implements IUnitManager {
 	public IUnit getUnit(String name) {
 		for (final IUnitDimension ud : getDimensions()) {
 			final IUnit unit = ud.getUnit(name);
-			if (unit != null) {
-				return unit;
-			}
+			if (unit != null) return unit;
 		}
 		return null;
 	}

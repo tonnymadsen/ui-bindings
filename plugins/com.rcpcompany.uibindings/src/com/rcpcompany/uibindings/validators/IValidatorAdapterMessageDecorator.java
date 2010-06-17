@@ -24,27 +24,27 @@ public interface IValidatorAdapterMessageDecorator {
 	 * 
 	 * @return the binding of this decorator
 	 */
-	public IValueBinding getBinding();
+	IValueBinding getBinding();
 
 	/**
-	 * Adds a message to the decorator
+	 * Adds a message to the decorator.
 	 * 
 	 * @param message the new message
 	 */
-	public void addMessage(IBindingMessage message);
+	void addMessage(IBindingMessage message);
 
 	/**
-	 * Removes a message from the decorator
+	 * Removes a message from the decorator.
 	 * 
 	 * @param message the message to remove
 	 */
-	public void removeMessage(IBindingMessage message);
+	void removeMessage(IBindingMessage message);
 
 	/**
-	 * Returns whethe the unbound message is acceptable for this decorator
+	 * Returns whethe the unbound message is acceptable for this decorator.
 	 * 
 	 * @param unboundMessage the unbound message to test
 	 * @return <code>true</code> if the message is acceptable for the decorator
 	 */
-	public boolean accept(IBindingMessage unboundMessage);
+	boolean accept(IBindingMessage unboundMessage);
 }

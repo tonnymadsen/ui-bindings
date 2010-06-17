@@ -27,7 +27,7 @@ public interface ITableCreator extends IDisposable {
 	/**
 	 * Factory methods for {@link ITableCreator}.
 	 */
-	public final static class Factory {
+	public static final class Factory {
 		private Factory() {
 
 		}
@@ -107,60 +107,60 @@ public interface ITableCreator extends IDisposable {
 	}
 
 	/**
-	 * Style for the filter box
+	 * Style for the filter box.
 	 */
-	public static final int FILTER = SWT.SEARCH;
+	int FILTER = SWT.SEARCH;
 	/**
-	 * Style for a table that automatically resizes columns to match current table size
+	 * Style for a table that automatically resizes columns to match current table size.
 	 */
-	public static final int RESIZE = 0x800;
+	int RESIZE = 0x800;
 
 	/**
-	 * Returns the viewer binding for the table
+	 * Returns the viewer binding for the table.
 	 * 
 	 * @return the binding
 	 */
 	IViewerBinding getBinding();
 
 	/**
-	 * Returns the table of this table creator
+	 * Returns the table of this table creator.
 	 * 
 	 * @return the table
 	 */
-	public Table getTable();
+	Table getTable();
 
 	/**
-	 * Sets the content of the table to the specified list of items
+	 * Sets the content of the table to the specified list of items.
 	 * 
 	 * @param list the items
 	 * @return the binding
 	 */
-	public IViewerBinding setContent(IObservableList list);
+	IViewerBinding setContent(IObservableList list);
 
 	/**
-	 * Sets the content of the table to the specified list of items
+	 * Sets the content of the table to the specified list of items.
 	 * 
 	 * @param object the object
 	 * @param reference the reference of the object
 	 * 
 	 * @return the binding
 	 */
-	public IViewerBinding setContent(EObject object, EReference reference);
+	IViewerBinding setContent(EObject object, EReference reference);
 
 	/**
-	 * Sets the content of the table to the specified list of items
+	 * Sets the content of the table to the specified list of items.
 	 * 
 	 * @param object the object
 	 * @param reference the reference of the object
 	 * 
 	 * @return the binding
 	 */
-	public IViewerBinding setContent(IObservableValue object, EReference reference);
+	IViewerBinding setContent(IObservableValue object, EReference reference);
 
 	/**
 	 * Sets the focus to the table or the filter if one exists.
 	 */
-	public void setFocus();
+	void setFocus();
 
 	/**
 	 * Constructs a new column and binds to this.
@@ -169,7 +169,7 @@ public interface ITableCreator extends IDisposable {
 	 * @param width the wanted width
 	 * @return the column binding
 	 */
-	public IColumnBinding addColumn(EStructuralFeature feature, int width);
+	IColumnBinding addColumn(EStructuralFeature feature, int width);
 
 	/**
 	 * Constructs a new special column and binds to this.
@@ -178,7 +178,7 @@ public interface ITableCreator extends IDisposable {
 	 * @param width the wanted width
 	 * @return the column binding
 	 */
-	public IColumnBinding addColumn(SpecialBinding columnType, int width);
+	IColumnBinding addColumn(SpecialBinding columnType, int width);
 
 	/**
 	 * Constructs a new column and binds to this.
@@ -186,7 +186,7 @@ public interface ITableCreator extends IDisposable {
 	 * @param spec the specification of the new row TODO
 	 * @return the column binding
 	 */
-	public IColumnBinding addColumn(String spec);
+	IColumnBinding addColumn(String spec);
 
 	/**
 	 * Constructs a new sub-column and binds to this.
@@ -196,5 +196,5 @@ public interface ITableCreator extends IDisposable {
 	 * @param width the wanted width
 	 * @return the column binding
 	 */
-	public IColumnBinding addColumn(IColumnBinding baseColumn, EStructuralFeature feature, int width);
+	IColumnBinding addColumn(IColumnBinding baseColumn, EStructuralFeature feature, int width);
 }

@@ -54,10 +54,10 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	/**
 	 * The base manager...
 	 */
-	protected final static IManager theManager = IManager.Factory.getManager();
+	protected static final IManager theManager = IManager.Factory.getManager();
 
 	/**
-	 * Returns the validation adapter manager
+	 * Returns the validation adapter manager.
 	 * 
 	 * @return the manager
 	 */
@@ -248,7 +248,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	protected Map<IBindingMessage, List<IBindingMessage>> myBoundMessages = new HashMap<IBindingMessage, List<IBindingMessage>>();
 
 	/**
-	 * Mapping of value bindings to message decorators
+	 * Mapping of value bindings to message decorators.
 	 */
 	protected final List<IValidatorAdapterMessageDecorator> myDecorators = new ArrayList<IValidatorAdapterMessageDecorator>();
 
@@ -367,6 +367,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	 * Only used in {@link #validate()}.
 	 */
 	protected final Set<EObject> myObjects = new HashSet<EObject>();
+
 	/**
 	 * Unmodifiable version of {@link #myObjects}.
 	 */

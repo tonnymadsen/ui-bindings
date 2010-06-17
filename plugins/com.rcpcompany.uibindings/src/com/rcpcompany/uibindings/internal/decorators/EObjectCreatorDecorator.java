@@ -17,6 +17,11 @@ import com.rcpcompany.uibindings.decorators.SimpleUIBindingDecorator;
 import com.rcpcompany.utils.basic.ToStringUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
+/**
+ * {@link IUIBindingDecorator} for EObject creation.
+ * 
+ * @author Tonny Madsen, The RCP Company
+ */
 public class EObjectCreatorDecorator extends SimpleUIBindingDecorator implements IUIBindingDecorator {
 
 	private EClass myEClass;
@@ -30,19 +35,19 @@ public class EObjectCreatorDecorator extends SimpleUIBindingDecorator implements
 	/**
 	 * Mapping UI to model with all the defined mappings.
 	 */
-	final protected Map<String, EClass> uiToModelClassMappings = new HashMap<String, EClass>();
+	protected final Map<String, EClass> uiToModelClassMappings = new HashMap<String, EClass>();
 
 	/**
 	 * Mapping UI name to model objects.
 	 */
-	final protected Map<String, EObject> uiToModelObjectMappings = new HashMap<String, EObject>();
+	protected final Map<String, EObject> uiToModelObjectMappings = new HashMap<String, EObject>();
 
 	/**
 	 * Mapping model to UI with all the defined mappings.
 	 * <p>
 	 * Matching is based on an exact match
 	 */
-	final protected Map<EClass, String> modelToUIClassMappings = new HashMap<EClass, String>();
+	protected final Map<EClass, String> modelToUIClassMappings = new HashMap<EClass, String>();
 
 	@Override
 	public void init(IValueBinding binding) {

@@ -29,12 +29,12 @@ public interface IGridCell extends IDisposable {
 	 * 
 	 * @return the value
 	 */
-	public IObservableValue getValue();
+	IObservableValue getValue();
 
 	/**
-	 * Returns a map with all defined arguments
+	 * Returns a map with all defined arguments.
 	 * 
 	 * @return the map or <code>null</code> if no arguments are defined
 	 */
-	public Map<String, Object> getArguments();
+	Map<String, Object> getArguments();
 }

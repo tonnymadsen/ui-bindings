@@ -127,16 +127,12 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 			final AdapterImpl l = new AdapterImpl() {
 				@Override
 				public void notifyChanged(Notification msg) {
-					if (msg.isTouch()) {
-						return;
-					}
-					if (msg.getFeature() != IUIBindingsPackage.Literals.BINDING__STATE) {
-						return;
-					}
+					if (msg.isTouch()) return;
+					if (msg.getFeature() != IUIBindingsPackage.Literals.BINDING__STATE) return;
 					switch (getBinding().getState()) {
 					case OK:
 						init();
-						//$FALL-THROUGH$
+						//$FALL-THROUGH$ fallthrough
 					case DISPOSED:
 						getBinding().eAdapters().remove(this);
 						break;
@@ -197,7 +193,7 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	}
 
 	/**
-	 * Disposes of this binding message decoration
+	 * Disposes of this binding message decoration.
 	 */
 	@Override
 	public void dispose() {
@@ -239,9 +235,7 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 
 	@Override
 	public void notifyChanged(Notification msg) {
-		if (msg.isTouch()) {
-			return;
-		}
+		if (msg.isTouch()) return;
 		if ((msg.getFeature() == IUIBindingsPackage.Literals.MANAGER__MESSAGE_DECORATION_POSITION)
 				|| (msg.getFeature() == IUIBindingsPackage.Literals.MANAGER__ALTERNATIVE_DECORATION_POSITION)
 				|| (msg.getFeature() == IUIBindingsPackage.Literals.MANAGER__MESSAGE_DECORATION_MINIMUM_SEVERITY)
@@ -386,9 +380,7 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	 * Updates the message decoration of this decorator.
 	 */
 	protected void updateDecoration() {
-		if (getBinding().getState() != BindingState.OK) {
-			return;
-		}
+		if (getBinding().getState() != BindingState.OK) return;
 		if (!updateDecorationScheduled) {
 			updateDecorationScheduled = true;
 			PlatformUI.getWorkbench().getDisplay().asyncExec(myUpdateDecorationRunnable);
@@ -422,48 +414,44 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	/**
 	 * Decoration used to display <em>a value is required</em> for the binding.
 	 */
-	public final static FieldDecoration theRequiredFieldDecoration = FieldDecorationRegistry.getDefault()
+	public static final FieldDecoration theRequiredFieldDecoration = FieldDecorationRegistry.getDefault()
 			.getFieldDecoration(FieldDecorationRegistry.DEC_REQUIRED);
 	/**
 	 * Decoration used to display <em>additional information</em> is available for the binding.
 	 */
-	public final static FieldDecoration theInformationFieldDecoration = FieldDecorationRegistry.getDefault()
+	public static final FieldDecoration theInformationFieldDecoration = FieldDecorationRegistry.getDefault()
 			.getFieldDecoration(FieldDecorationRegistry.DEC_INFORMATION);
 	/**
 	 * Decoration used to display <em>a warning</em> is detected for the binding.
 	 */
-	public final static FieldDecoration theWarningFieldDecoration = FieldDecorationRegistry.getDefault()
+	public static final FieldDecoration theWarningFieldDecoration = FieldDecorationRegistry.getDefault()
 			.getFieldDecoration(FieldDecorationRegistry.DEC_WARNING);
 	/**
 	 * Decoration used to display <em>an error</em> is detected for the binding.
 	 */
-	public final static FieldDecoration theErrorFieldDecoration = FieldDecorationRegistry.getDefault()
+	public static final FieldDecoration theErrorFieldDecoration = FieldDecorationRegistry.getDefault()
 			.getFieldDecoration(FieldDecorationRegistry.DEC_ERROR);
 	/**
 	 * Decoration used to display <em>a content proposal</em> is detected for the binding.
 	 */
-	public final static FieldDecoration theContentProposalFieldDecoration = FieldDecorationRegistry.getDefault()
+	public static final FieldDecoration theContentProposalFieldDecoration = FieldDecorationRegistry.getDefault()
 			.getFieldDecoration(FieldDecorationRegistry.DEC_CONTENT_PROPOSAL);
 	/**
 	 * Decoration used to display <em>a quick fix proposal</em> is detected for the binding.
 	 */
-	public final static FieldDecoration theQuickfixFieldDecoration = FieldDecorationRegistry.getDefault()
+	public static final FieldDecoration theQuickfixFieldDecoration = FieldDecorationRegistry.getDefault()
 			.getFieldDecoration(FieldDecorationRegistry.DEC_ERROR_QUICKFIX);
 
 	/**
 	 * @see #updateDecoration()
 	 */
 	protected void updateDecorationDelayed() {
-		if (!updateDecorationScheduled) {
-			return;
-		}
+		if (!updateDecorationScheduled) return;
 		updateDecorationScheduled = false;
 		/*
 		 * As this operation is delayed, the widget might be disposed in the mean time...
 		 */
-		if (getBinding().getUIObservable().isDisposed()) {
-			return;
-		}
+		if (getBinding().getUIObservable().isDisposed()) return;
 
 		if (Activator.getDefault().TRACE_LIFECYCLE_VALUE_BINDING_MESSAGE_DECORATOR) {
 			LogUtils.debug(this, "update delayed " + hashCode() + ": " + getBinding()); //$NON-NLS-1$ //$NON-NLS-2$
@@ -626,9 +614,7 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 		if (UIBindingsUtils.equals(myOldMessageDecorationImage, myMessageDecorationImage)
 				&& UIBindingsUtils.equals(myOldMessageDecorationMessage, myMessageDecorationMessage)
 				&& UIBindingsUtils.equals(myOldAlternativeDecorationImage, myAlternativeDecorationImage)
-				&& UIBindingsUtils.equals(myOldAlternativeDecorationMessage, myAlternativeDecorationMessage)) {
-			return;
-		}
+				&& UIBindingsUtils.equals(myOldAlternativeDecorationMessage, myAlternativeDecorationMessage)) return;
 		getBinding().updateBinding();
 	}
 
@@ -652,9 +638,7 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 
 	@Override
 	public boolean accept(IBindingMessage unboundMessage) {
-		if (myObservedObject == null) {
-			return false;
-		}
+		if (myObservedObject == null) return false;
 
 		final IValueBinding binding = getBinding();
 		final IObservable modelObservable = binding.getModelObservable();
@@ -662,13 +646,10 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 		if (modelObservable instanceof IKeyedObservable) {
 			key = ((IKeyedObservable) modelObservable).getObservableKey();
 		}
-		if (unboundMessage.matches(myObservedObject, binding.getModelFeature(), key, myMessagesMatchingAlgorithm)) {
+		if (unboundMessage.matches(myObservedObject, binding.getModelFeature(), key, myMessagesMatchingAlgorithm))
 			return true;
-		}
 		if (myAcceptValueObjectMessages
-				&& unboundMessage.matches(myObservedObject, null, null, FeatureMatchingAlgorithm.EXACT)) {
-			return true;
-		}
+				&& unboundMessage.matches(myObservedObject, null, null, FeatureMatchingAlgorithm.EXACT)) return true;
 
 		return false;
 	}

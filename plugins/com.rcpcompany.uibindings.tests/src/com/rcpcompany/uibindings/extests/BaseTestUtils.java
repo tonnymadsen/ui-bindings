@@ -294,15 +294,11 @@ public class BaseTestUtils {
 		@Override
 		public void logging(IStatus status, String plugin) {
 			// Ignore non-error messages
-			if (status.getSeverity() != IStatus.ERROR) {
-				return;
-			}
+			if (status.getSeverity() != IStatus.ERROR) return;
 			final String m = status.getMessage();
 			if (myIgnorePatterns != null) {
 				for (final String p : myIgnorePatterns) {
-					if (m.matches(p)) {
-						return;
-					}
+					if (m.matches(p)) return;
 				}
 			}
 			called++;
@@ -706,9 +702,7 @@ public class BaseTestUtils {
 		@Override
 		public void logging(IStatus status, String plugin) {
 			// Ignore non-error messages
-			if (status.getSeverity() != IStatus.ERROR) {
-				return;
-			}
+			if (status.getSeverity() != IStatus.ERROR) return;
 			if (lastStatus != null) {
 				fail("Multiple log messages: '" + lastStatus.getMessage() + "' and '" + status.getMessage() + "'");
 			}

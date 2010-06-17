@@ -148,14 +148,14 @@ public interface IFormCreator extends IDisposable {
 	 * 
 	 * @return the binding context
 	 */
-	public IBindingContext getContext();
+	IBindingContext getContext();
 
 	/**
 	 * Returns the scrolled form the heads this form - if defined.
 	 * 
 	 * @return the scrolled form
 	 */
-	public ScrolledForm getScrolledForm();
+	ScrolledForm getScrolledForm();
 
 	/**
 	 * Returns the top {@link Composite} of this form creator.
@@ -166,14 +166,14 @@ public interface IFormCreator extends IDisposable {
 	 * 
 	 * @return the top composite
 	 */
-	public Composite getTop();
+	Composite getTop();
 
 	/**
 	 * Returns the form toolkit used by this creator
 	 * 
 	 * @return the toolkit
 	 */
-	public FormToolkit getToolkit();
+	FormToolkit getToolkit();
 
 	/**
 	 * Returns the section of this form.
@@ -182,14 +182,14 @@ public interface IFormCreator extends IDisposable {
 	 * 
 	 * @return the section
 	 */
-	public Section getSection();
+	Section getSection();
 
 	/**
 	 * Finishes the form and all created bindings.
 	 * <p>
 	 * Used to finish the context.
 	 */
-	public void finish();
+	void finish();
 
 	/**
 	 * Sets the primary object of the creator for the next set of create methods.
@@ -200,7 +200,7 @@ public interface IFormCreator extends IDisposable {
 	 *             {@link #createScrolledForm(IObservableValue, Composite, String)}
 	 */
 	@Deprecated
-	public void setObject(EObject object);
+	void setObject(EObject object);
 
 	/**
 	 * Returns the primary object of the creator.
@@ -210,28 +210,28 @@ public interface IFormCreator extends IDisposable {
 	 * @deprecated use {@link #getObservableValue()}
 	 */
 	@Deprecated
-	public EObject getObject();
+	EObject getObject();
 
 	/**
 	 * Returns the observable value of the creator.
 	 * 
 	 * @return the observable value
 	 */
-	public IObservableValue getObservableValue();
+	IObservableValue getObservableValue();
 
 	/**
 	 * Sets whether all binding created by the form is read-only. The default is <code>false</code>.
 	 * 
 	 * @param readonly <code>true</code> if all bindings should be read-only
 	 */
-	public void setReadOnly(boolean readonly);
+	void setReadOnly(boolean readonly);
 
 	/**
 	 * Returns whether this form is read-only.
 	 * 
 	 * @return <code>true</code> if this form is read-only
 	 */
-	public boolean isReadOnly();
+	boolean isReadOnly();
 
 	/**
 	 * Sets the heading of the scrolled form or section that forms the base of this form creator, if
@@ -239,7 +239,7 @@ public interface IFormCreator extends IDisposable {
 	 * 
 	 * @param heading the new heading
 	 */
-	public void setHeading(String heading);
+	void setHeading(String heading);
 
 	/**
 	 * Creates and returns a new {@link Composite}.
@@ -248,7 +248,7 @@ public interface IFormCreator extends IDisposable {
 	 * 
 	 * @return the new composite
 	 */
-	public Composite addComposite();
+	Composite addComposite();
 
 	/**
 	 * Creates and returns a new {@link Composite}.
@@ -260,7 +260,7 @@ public interface IFormCreator extends IDisposable {
 	 * 
 	 * @return the new composite
 	 */
-	public Composite addComposite(boolean grabHorizontal, boolean grabVertical);
+	Composite addComposite(boolean grabHorizontal, boolean grabVertical);
 
 	/**
 	 * Creates and returns a new table based on a table creator.
@@ -273,7 +273,7 @@ public interface IFormCreator extends IDisposable {
 	 * @deprecated use {@link #addTableCreator(EReference, boolean, int)}
 	 */
 	@Deprecated
-	public ITableCreator addTableCreator(boolean grabHorizontal, int style);
+	ITableCreator addTableCreator(boolean grabHorizontal, int style);
 
 	/**
 	 * Creates and returns a new table based on a table creator for the current object and the
@@ -284,7 +284,7 @@ public interface IFormCreator extends IDisposable {
 	 * @param style styles passed to the table creator
 	 * @return the new table creator
 	 */
-	public ITableCreator addTableCreator(EReference ref, boolean grabHorizontal, int style);
+	ITableCreator addTableCreator(EReference ref, boolean grabHorizontal, int style);
 
 	/**
 	 * Adds a new section to the form with the specified label.
@@ -292,7 +292,7 @@ public interface IFormCreator extends IDisposable {
 	 * @param label the label for the section
 	 * @return a new independent {@link IFormCreator}
 	 */
-	public IFormCreator addSection(String label);
+	IFormCreator addSection(String label);
 
 	/**
 	 * Adds a new section to the form with the specified label.
@@ -302,7 +302,7 @@ public interface IFormCreator extends IDisposable {
 	 *            vertically
 	 * @return a new independent {@link IFormCreator}
 	 */
-	public IFormCreator addSection(String label, boolean grabVertical);
+	IFormCreator addSection(String label, boolean grabVertical);
 
 	/**
 	 * Adds a new section to the form with the specified label.
@@ -311,7 +311,7 @@ public interface IFormCreator extends IDisposable {
 	 * @param obj the new observable
 	 * @return a new independent {@link IFormCreator}
 	 */
-	public IFormCreator addSection(String label, IObservableValue obj, boolean grabVertical);
+	IFormCreator addSection(String label, IObservableValue obj, boolean grabVertical);
 
 	/**
 	 * Adds a new section to the form with the specified label for the specified base object.
@@ -320,7 +320,7 @@ public interface IFormCreator extends IDisposable {
 	 * @param obj the new base object
 	 * @return a new independent {@link IFormCreator}
 	 */
-	public IFormCreator addSection(String label, EObject obj);
+	IFormCreator addSection(String label, EObject obj);
 
 	/**
 	 * Adds a new section to the form with the specified label for the specified base observable.
@@ -331,7 +331,7 @@ public interface IFormCreator extends IDisposable {
 	 * 
 	 *         TODO test
 	 */
-	public IFormCreator addSection(String label, IObservableValue obj);
+	IFormCreator addSection(String label, IObservableValue obj);
 
 	/**
 	 * Adds a simple label.
@@ -340,7 +340,7 @@ public interface IFormCreator extends IDisposable {
 	 * 
 	 * @param label the label
 	 */
-	public void addLabel(String label);
+	void addLabel(String label);
 
 	/**
 	 * Adds a label and a constant value.
@@ -349,7 +349,7 @@ public interface IFormCreator extends IDisposable {
 	 * @param value the value
 	 * @param style additional styles to use for the value Control
 	 */
-	public void addConstantField(String label, Object value, int style);
+	void addConstantField(String label, Object value, int style);
 
 	/**
 	 * Adds a new label and field for the specified feature.
@@ -359,7 +359,7 @@ public interface IFormCreator extends IDisposable {
 	 * @param feature the feature - of {@link #setObject(EObject) the current main object}
 	 * @return the value binding
 	 */
-	public IValueBinding addField(EStructuralFeature feature);
+	IValueBinding addField(EStructuralFeature feature);
 
 	/**
 	 * Adds a new observable value for the specified specification.
@@ -369,7 +369,7 @@ public interface IFormCreator extends IDisposable {
 	 * @param spec the specification of the feature
 	 * @return the observable value
 	 */
-	public IObservableValue getObservableValue(String spec);
+	IObservableValue getObservableValue(String spec);
 
 	/**
 	 * Adds a new observable value for the specified specification based on the specified base
@@ -381,7 +381,7 @@ public interface IFormCreator extends IDisposable {
 	 * @param spec the specification of the feature
 	 * @return the observable value
 	 */
-	public IObservableValue getObservableValue(IObservableValue base, String spec);
+	IObservableValue getObservableValue(IObservableValue base, String spec);
 
 	/**
 	 * Adds a new label and field for the specified specification.
@@ -393,7 +393,7 @@ public interface IFormCreator extends IDisposable {
 	 * @param spec the specification of the feature to show
 	 * @return the value binding
 	 */
-	public IValueBinding addField(String spec);
+	IValueBinding addField(String spec);
 
 	/**
 	 * Adds a new label and field for the specified specification.
@@ -406,7 +406,7 @@ public interface IFormCreator extends IDisposable {
 	 * @param spec the specification of the feature to show
 	 * @return the value binding
 	 */
-	public IValueBinding addField(IObservableValue value, String spec);
+	IValueBinding addField(IObservableValue value, String spec);
 
 	/**
 	 * Adds a new label and field for the specified feature.
@@ -417,7 +417,7 @@ public interface IFormCreator extends IDisposable {
 	 * @param style additional styles to use for the value Control
 	 * @return the value binding
 	 */
-	public IValueBinding addField(EStructuralFeature feature, int style);
+	IValueBinding addField(EStructuralFeature feature, int style);
 
 	/**
 	 * Adds a new label and field for the specified feature.
@@ -429,7 +429,7 @@ public interface IFormCreator extends IDisposable {
 	 * @param style additional styles to use for the value Control
 	 * @return the value binding
 	 */
-	public IValueBinding addField(EObject object, EStructuralFeature feature, int style);
+	IValueBinding addField(EObject object, EStructuralFeature feature, int style);
 
 	/**
 	 * Adds a new label and field for the specified observable value.
@@ -438,7 +438,7 @@ public interface IFormCreator extends IDisposable {
 	 * @param style TODO
 	 * @return the value binding
 	 */
-	public IValueBinding addField(IObservableValue value, int style);
+	IValueBinding addField(IObservableValue value, int style);
 
 	/**
 	 * Adds a new label and field for the specified feature of the observable value.
@@ -450,7 +450,7 @@ public interface IFormCreator extends IDisposable {
 	 * 
 	 *         TODO: test
 	 */
-	public IValueBinding addField(IObservableValue value, EStructuralFeature feature, int style);
+	IValueBinding addField(IObservableValue value, EStructuralFeature feature, int style);
 
 	/**
 	 * Creates and returns a new sub-form of this form creator for the specified parent.
@@ -458,7 +458,7 @@ public interface IFormCreator extends IDisposable {
 	 * @param parent the parent composite of the sub-form
 	 * @return the sub form
 	 */
-	public IFormCreator subForm(Composite parent);
+	IFormCreator subForm(Composite parent);
 
 	/**
 	 * Creates and returns a new sub-form of this form creator for the specified parent.
@@ -467,19 +467,19 @@ public interface IFormCreator extends IDisposable {
 	 * @param value the observable value of the sub-form
 	 * @return the sub form
 	 */
-	public IFormCreator subForm(Composite parent, IObservableValue value);
+	IFormCreator subForm(Composite parent, IObservableValue value);
 
 	/**
 	 * Sets the focus of the first field of the form that can accept focus.
 	 */
-	public void setFocus();
+	void setFocus();
 
 	/**
 	 * Adds a separator between sections in this form.
 	 * <p>
 	 * Same as <code>addSeparator(Separator.LINE)</code>.
 	 */
-	public void addSeparator();
+	void addSeparator();
 
 	/**
 	 * The possible separator types.
@@ -493,12 +493,12 @@ public interface IFormCreator extends IDisposable {
 	 * 
 	 * @param type the wanted type of separator
 	 */
-	public void addSeparator(Separator type);
+	void addSeparator(Separator type);
 
 	/**
 	 * Adds all objects messages for the current {@link #getObservableValue()}.
 	 */
-	public void addObjectMessages();
+	void addObjectMessages();
 
 	/**
 	 * Adds all objects messages for the specified {@link #getObservableValue(String)
@@ -506,14 +506,14 @@ public interface IFormCreator extends IDisposable {
 	 * 
 	 * @param spec the specification for the object
 	 */
-	public void addObjectMessages(String spec);
+	void addObjectMessages(String spec);
 
 	/**
 	 * Adds all objects messages for the specified value.
 	 * 
 	 * @param value the observable value
 	 */
-	public void addObjectMessages(IObservableValue value);
+	void addObjectMessages(IObservableValue value);
 
 	/**
 	 * Sets the layout data of the specified control to cover a part of this form.
@@ -522,7 +522,7 @@ public interface IFormCreator extends IDisposable {
 	 * @param grabHorizontal <code>true</code> if horizontal space should be grabed
 	 * @param grabVertical <code>true</code> if vertical space should be grabed
 	 */
-	public void setLayoutData(Control ctl, boolean grabHorizontal, boolean grabVertical);
+	void setLayoutData(Control ctl, boolean grabHorizontal, boolean grabVertical);
 
 	/**
 	 * Splits the current form into a number of parallel forms.
@@ -538,7 +538,7 @@ public interface IFormCreator extends IDisposable {
 	 * @param grab whether the column should grab space or not
 	 * @return the constructed forms
 	 */
-	public IFormCreator[] addColumns(boolean... grab);
+	IFormCreator[] addColumns(boolean... grab);
 
 	/**
 	 * Splits the current form into a number of parallel forms each formatted according to the
@@ -549,15 +549,15 @@ public interface IFormCreator extends IDisposable {
 	 * @param layoutData layout data for the specific column
 	 * @return the constructed forms
 	 */
-	public IFormCreator[] addColumns(GridData... layoutData);
+	IFormCreator[] addColumns(GridData... layoutData);
 
 	/**
-	 * Adds a new form chooser based on discriminant in another field
+	 * Adds a new form chooser based on discriminant in another field.
 	 * 
 	 * @param discriminant the discriminator field
 	 * @return the created chooser
 	 */
-	public IFormChooser addFormChooser(IValueBinding discriminant);
+	IFormChooser addFormChooser(IValueBinding discriminant);
 
 	/**
 	 * Adds a new form chooser based on discriminant.
@@ -565,7 +565,7 @@ public interface IFormCreator extends IDisposable {
 	 * @param discriminant the discriminator
 	 * @return the created chooser
 	 */
-	public IFormChooser addFormChooser(IObservableValue discriminant);
+	IFormChooser addFormChooser(IObservableValue discriminant);
 
 	/**
 	 * Returns whether the created fields in this form creator and all child form are aligned on the
@@ -573,7 +573,7 @@ public interface IFormCreator extends IDisposable {
 	 * 
 	 * @return <code>true</code> if they are aligned
 	 */
-	public boolean areFieldsAligned();
+	boolean areFieldsAligned();
 
 	/**
 	 * Set whether the created fields in this form creator and all child form are aligned on the
@@ -581,12 +581,12 @@ public interface IFormCreator extends IDisposable {
 	 * 
 	 * @param align <code>true</code> if they are aligned
 	 */
-	public void setFieldsAligned(boolean align);
+	void setFieldsAligned(boolean align);
 
 	/**
-	 * Returns whether this form is a top-level form or not
+	 * Returns whether this form is a top-level form or not.
 	 * 
 	 * @return true if it is a top-level form
 	 */
-	public boolean isTopForm();
+	boolean isTopForm();
 }
