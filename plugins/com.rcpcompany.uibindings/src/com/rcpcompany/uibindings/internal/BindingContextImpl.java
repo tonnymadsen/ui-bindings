@@ -961,7 +961,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 				/*
 				 * Check for TabFolder
 				 */
-				for (Composite c = b.getControl().getParent(); !(c instanceof Shell); c = c.getParent()) {
+				for (Control c = b.getControl(); c != null && !(c instanceof Shell) && c != getTop(); c = c.getParent()) {
 					if (c instanceof TabFolder || c instanceof CTabFolder) {
 						if (myTabFolders != null && myTabFolders.contains(c)) {
 							/*
@@ -982,6 +982,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 						c.addListener(SWT.Selection, myTabFolderListener);
 						myTabFolders.add(c);
 					}
+
 				}
 			}
 
