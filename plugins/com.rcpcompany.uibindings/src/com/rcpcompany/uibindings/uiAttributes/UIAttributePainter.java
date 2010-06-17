@@ -5,7 +5,6 @@ import java.util.List;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.util.Util;
-import org.eclipse.jface.viewers.StyledCellLabelProvider;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyleRange;
 import org.eclipse.swt.graphics.Color;
@@ -32,13 +31,18 @@ import com.rcpcompany.uibindings.IUIAttribute;
  * Used to paint a single virtual {@link IUIAttribute} for a label provider, a grid renderer or
  * similar.
  * <p>
- * Kepts as close as possible to {@link StyledCellLabelProvider}.
+ * Kept as close as possible to StyledCellLabelProvider.
  * 
  * @author Tonny Madsen, The RCP Company
  */
 public class UIAttributePainter {
 	/**
-	 * The margin around the image and text of a cell
+	 * Extra cell height used on XP to ensure the cells that the correct space around checkboxes.
+	 */
+	private static final int EXTRA_CELL_HEIGHT = 3;
+
+	/**
+	 * The margin around the image and text of a cell.
 	 */
 	public static final int MARGIN = 3;
 
@@ -55,7 +59,7 @@ public class UIAttributePainter {
 	private static int myMinHeight;
 
 	/**
-	 * Returns the minimum height for a cell to accommodate the check box images
+	 * Returns the minimum height for a cell to accommodate the check box images.
 	 * 
 	 * @return the minimum height
 	 */
@@ -82,8 +86,8 @@ public class UIAttributePainter {
 		if (JFaceResources.getImageRegistry().getDescriptor(CHECKED_KEY) == null) {
 			final Image shot = makeShot(parentControl, false);
 			final int height = shot.getBounds().height;
-			if (height + 3 > myMinHeight) {
-				myMinHeight = height + 3;
+			if (height + EXTRA_CELL_HEIGHT > myMinHeight) {
+				myMinHeight = height + EXTRA_CELL_HEIGHT;
 			}
 			JFaceResources.getImageRegistry().put(UNCHECKED_KEY, shot);
 			JFaceResources.getImageRegistry().put(CHECKED_KEY, makeShot(parentControl, true));
@@ -99,12 +103,12 @@ public class UIAttributePainter {
 	}
 
 	/**
-	 * The attribute painted by this painter
+	 * The attribute painted by this painter.
 	 */
 	private IUIAttribute myAttribute = null;
 
 	/**
-	 * The horizontal alignment
+	 * The horizontal alignment.
 	 */
 	private int myHorizontalAlignment = SWT.NONE;
 	private Color myDefaultBackground = null;
@@ -112,7 +116,7 @@ public class UIAttributePainter {
 	private boolean mySelected = false;
 
 	/**
-	 * Whether to use the internal values for the painter
+	 * Whether to use the internal values for the painter.
 	 */
 	private boolean myInternalValues = false;
 	private String myInternalText = null;
@@ -229,7 +233,7 @@ public class UIAttributePainter {
 	}
 
 	/**
-	 * Paints this UI attribute within the specified bounds
+	 * Paints this UI attribute within the specified bounds.
 	 * 
 	 * @param gc the GC to use
 	 * @param areaBounds the bounds of the area
@@ -304,6 +308,7 @@ public class UIAttributePainter {
 		switch (getHorizontalAlignment()) {
 		case SWT.NONE:
 		case SWT.LEFT:
+		default:
 			offsetX = MARGIN;
 			break;
 		case SWT.CENTER:
@@ -339,40 +344,54 @@ public class UIAttributePainter {
 	private final Color myFocusBorder;
 
 	/**
-	 * Returns the text used for the current attribute if any
+	 * Returns the text used for the current attribute if any.
 	 * 
 	 * @return the display text or null
 	 * 
 	 */
 	public String getDisplayText() {
-		if (myInternalValues) return myInternalText;
+		if (myInternalValues) {
+			return myInternalText;
+		}
 		final IObservableValue displayValue = getAttribute().getCurrentValue();
-		if (displayValue == null) return null;
+		if (displayValue == null) {
+			return null;
+		}
 
 		final Object value = displayValue.getValue();
-		if (value == null) return null;
+		if (value == null) {
+			return null;
+		}
 		return value.toString();
 	}
 
 	/**
-	 * Returns the image used for the current attribute if any
+	 * Returns the image used for the current attribute if any.
 	 * 
 	 * @return the display image or null
 	 * 
 	 */
 	public Image getDisplayImage() {
-		if (myInternalValues) return myInternalImage;
+		if (myInternalValues) {
+			return myInternalImage;
+		}
 		final IObservableValue displayValue = getAttribute().getImageValue();
-		if (displayValue == null) return null;
+		if (displayValue == null) {
+			return null;
+		}
 
 		final Object value = displayValue.getValue();
-		if (value == null) return null;
-		if (!(value instanceof Image)) return null;
+		if (value == null) {
+			return null;
+		}
+		if (!(value instanceof Image)) {
+			return null;
+		}
 		return (Image) value;
 	}
 
 	/**
-	 * Return the current attribute of the painter
+	 * Return the current attribute of the painter.
 	 * 
 	 * @return the attribute
 	 */
@@ -381,7 +400,7 @@ public class UIAttributePainter {
 	}
 
 	/**
-	 * Returns the current horizontal alignment
+	 * Returns the current horizontal alignment.
 	 * 
 	 * @return the alignment
 	 */
@@ -409,7 +428,7 @@ public class UIAttributePainter {
 	}
 
 	/**
-	 * Returns the current default background color
+	 * Returns the current default background color.
 	 * 
 	 * @return the color or <code>null</code>
 	 */
@@ -543,7 +562,7 @@ public class UIAttributePainter {
 	}
 
 	/**
-	 * Whether the painter is selected
+	 * Whether the painter is selected.
 	 * 
 	 * @return <code>true</code> if selected
 	 */
@@ -552,7 +571,7 @@ public class UIAttributePainter {
 	}
 
 	/**
-	 * Returns the size of the area for this cell
+	 * Returns the size of the area for this cell.
 	 * 
 	 * @param gc the GC used for ther cell
 	 * @return the size of the needed area
