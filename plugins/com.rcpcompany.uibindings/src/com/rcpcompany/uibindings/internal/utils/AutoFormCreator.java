@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.ui.IViewPart;
+import org.eclipse.ui.IWorkbenchPart;
 
 import com.rcpcompany.uibindings.utils.IAutoFormCreator;
 import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
@@ -27,17 +27,17 @@ import com.rcpcompany.uibindings.utils.IFormCreator;
  */
 public class AutoFormCreator implements IAutoFormCreator {
 	/**
-	 * The form used to create fields
+	 * The form used to create fields.
 	 */
 	private final IFormCreator myForm;
 
 	/**
-	 * The base {@link EClass} of the form
+	 * The base {@link EClass} of the form.
 	 */
 	private final EClass myEClass;
 
 	/**
-	 * The value of the form
+	 * The value of the form.
 	 */
 	private final IObservableValue myValue;
 
@@ -49,29 +49,29 @@ public class AutoFormCreator implements IAutoFormCreator {
 	};
 
 	/**
-	 * Section used for identification fields
+	 * Section used for identification fields.
 	 */
 	private final IFormCreator myIdentificationSection;
 
 	/**
-	 * Section used for identification fields
+	 * Section used for identification fields.
 	 */
 	private final IFormCreator myBaseSection;
 
 	/**
-	 * Section used for identification fields
+	 * Section used for identification fields.
 	 */
 	private final IFormCreator myOptionalSection;
 
 	/**
-	 * Constructs and returns a new auto form
+	 * Constructs and returns a new auto form.
 	 * 
 	 * @param value the value currently shown
 	 * @param title title used for the form
 	 * @param parent the parent composite
 	 * @param part the view part
 	 */
-	public AutoFormCreator(IObservableValue value, String title, Composite parent, IViewPart part) {
+	public AutoFormCreator(IObservableValue value, String title, Composite parent, IWorkbenchPart part) {
 		myValue = value;
 		final Object valueType = value.getValueType();
 		if (!(valueType instanceof EClass)) {
@@ -113,7 +113,7 @@ public class AutoFormCreator implements IAutoFormCreator {
 	}
 
 	/**
-	 * Updates the fields of the form
+	 * Updates the fields of the form.
 	 */
 	protected void updateFields() {
 		final Object value = myValue.getValue();
@@ -121,7 +121,7 @@ public class AutoFormCreator implements IAutoFormCreator {
 	}
 
 	/**
-	 * Returns the fields for the specified class
+	 * Returns the fields for the specified class.
 	 * 
 	 * @param eclass the class to find
 	 * @return the fields of the class
@@ -136,12 +136,12 @@ public class AutoFormCreator implements IAutoFormCreator {
 	}
 
 	/**
-	 * Map with all the field data on a per cass basis
+	 * Map with all the field data on a per class basis.
 	 */
 	public static final Map<EClass, ClassFieldData> theFields = new HashMap<EClass, ClassFieldData>();
 
 	/**
-	 * Data structure used to save information about fields in a specific class
+	 * Data structure used to save information about fields in a specific class.
 	 */
 	public static class ClassFieldData {
 		/**
@@ -179,12 +179,12 @@ public class AutoFormCreator implements IAutoFormCreator {
 		}
 
 		/**
-		 * List of all required features
+		 * List of all required features.
 		 */
 		private final List<EStructuralFeature> myRequiredFeatures = new ArrayList<EStructuralFeature>();
 
 		/**
-		 * List of all optional features
+		 * List of all optional features.
 		 */
 		private final List<EStructuralFeature> myOptionalFeatures = new ArrayList<EStructuralFeature>();
 

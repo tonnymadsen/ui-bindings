@@ -20,9 +20,10 @@ import com.rcpcompany.uibindings.utils.IGlobalNavigationManager.IGetSelectionTar
 import com.rcpcompany.utils.selection.SelectionUtils;
 
 /**
- * Creates and manages an {@link IAutoFormCreator}
+ * Creates and manages an {@link IAutoFormCreator}.
  * 
  * @author Tonny Madsen, The RCP Company
+ * @param <T> the base type for the editor
  */
 public class AutoFormBaseView<T extends EObject> extends ViewPart implements ISetSelectionTarget, IGetSelectionTarget {
 	private final EClass myEClass;
@@ -38,6 +39,12 @@ public class AutoFormBaseView<T extends EObject> extends ViewPart implements ISe
 	};
 	private final String myTitle;
 
+	/**
+	 * Constructs and returns a new editor for the specified class and with the specified title.
+	 * 
+	 * @param eClass the class if the editor - must match T
+	 * @param title the title for the editor
+	 */
 	public AutoFormBaseView(EClass eClass, String title) {
 		myEClass = eClass;
 		myTitle = title;
@@ -69,7 +76,9 @@ public class AutoFormBaseView<T extends EObject> extends ViewPart implements ISe
 	@Override
 	public void selectReveal(ISelection selection) {
 		final List<T> list = SelectionUtils.computeSelection(selection, myClass);
-		if (list.isEmpty()) return;
+		if (list.isEmpty()) {
+			return;
+		}
 
 		myCurrentValue.setValue(list.get(0));
 	}

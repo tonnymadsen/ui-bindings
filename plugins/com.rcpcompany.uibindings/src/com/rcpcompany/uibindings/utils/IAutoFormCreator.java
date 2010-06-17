@@ -2,7 +2,7 @@ package com.rcpcompany.uibindings.utils;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.ui.IViewPart;
+import org.eclipse.ui.IWorkbenchPart;
 
 import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.internal.utils.AutoFormCreator;
@@ -38,11 +38,15 @@ public interface IAutoFormCreator extends IDisposable {
 		/**
 		 * Creates a new form with the specified parent.
 		 * 
-		 * @param parent
+		 * @param value the value for the form
+		 * @param title the title of the form
+		 * @param parent the parent composite
+		 * @param part part for the form
 		 * 
 		 * @return the created form creator
 		 */
-		public static IAutoFormCreator createForm(IObservableValue value, String title, Composite parent, IViewPart part) {
+		public static IAutoFormCreator createForm(IObservableValue value, String title, Composite parent,
+				IWorkbenchPart part) {
 			return new AutoFormCreator(value, title, parent, part);
 		}
 
@@ -61,5 +65,5 @@ public interface IAutoFormCreator extends IDisposable {
 	 * 
 	 * @return form creator
 	 */
-	public IFormCreator getForm();
+	IFormCreator getForm();
 }
