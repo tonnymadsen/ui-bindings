@@ -239,7 +239,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	protected EditingDomain editingDomain = EDITING_DOMAIN_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->Constructs and returns a new emptycontext.<!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
@@ -276,7 +276,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc --><!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -486,7 +486,9 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	private final Adapter myTextCommitStrategyAdapter = new AdapterImpl() {
 		@Override
 		public void notifyChanged(Notification msg) {
-			if (msg.isTouch()) return;
+			if (msg.isTouch()) {
+				return;
+			}
 			if (msg.getFeature() == IUIBindingsPackage.Literals.MANAGER__TEXT_COMMIT_STRATEGY) {
 				getTextCommitStrategyCalculated();
 			}
@@ -523,7 +525,9 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	 */
 	@Override
 	public EditingDomain getEditingDomain() {
-		if (editingDomain == null) return IManager.Factory.getManager().getEditingDomain();
+		if (editingDomain == null) {
+			return IManager.Factory.getManager().getEditingDomain();
+		}
 		return editingDomain;
 	}
 
@@ -709,7 +713,9 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy()) {
+			return super.toString();
+		}
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (top: "); //$NON-NLS-1$
@@ -801,6 +807,9 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	 */
 	private boolean hasSupportBeenAdded = false;
 
+	/**
+	 * List of all new the bindings
+	 */
 	final protected List<IBinding> myNewBindings = new ArrayList<IBinding>();
 
 	/**
@@ -841,11 +850,15 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 			// myFinishDeferred = true;
 			break;
 		case FORCE:
+		default:
 			finishDeferred();
 			break;
 		}
 	}
 
+	/**
+	 * Deferred version of {@link #finish()}.
+	 */
 	protected void finishDeferred() {
 		myFinishDeferred = false;
 		if (isInFinish) {
@@ -948,11 +961,11 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 		/**
 		 * Reflows the the form/wizard/whatever that hosts this context.
 		 */
-		public void reflow();
+		void reflow();
 	}
 
 	/**
-	 * The context adapter used by the messages decorator support
+	 * The context adapter used by the messages decorator support.
 	 * 
 	 * TODO move
 	 */
