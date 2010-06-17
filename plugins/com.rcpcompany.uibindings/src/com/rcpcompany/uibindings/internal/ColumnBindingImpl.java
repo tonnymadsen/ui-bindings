@@ -186,7 +186,9 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 
 				@Override
 				public IObservable createObservable(Object target) {
-					if (!(target instanceof EObject)) return null;
+					if (!(target instanceof EObject)) {
+						return null;
+					}
 					final EObject eobj = (EObject) target;
 					final EClass ec = eobj.eClass();
 					final IObservableValue ov = Observables.constantObservableValue(eobj, ec);
@@ -453,7 +455,9 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 
 	@Override
 	public void dispose() {
-		if (getState() == BindingState.DISPOSED) return;
+		if (isDisposed()) {
+			return;
+		}
 		setState(BindingState.DISPOSE_PENDING);
 		disposeServices();
 		/*
@@ -546,9 +550,13 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			/*
 			 * No need to do anything more if we already have an outstanding request...
 			 */
-			if (myHasOutstandingFireLabelProviderChangedSet.contains(ci)) return;
+			if (myHasOutstandingFireLabelProviderChangedSet.contains(ci)) {
+				return;
+			}
 			final Control control = getViewerColumn().getViewer().getControl();
-			if (control.isDisposed()) return;
+			if (control.isDisposed()) {
+				return;
+			}
 			final LabelProviderChangedEvent event = new LabelProviderChangedEvent(GeneralLabelProvider.this,
 					ci.getElement());
 			if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS) {
@@ -558,7 +566,9 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			control.getDisplay().asyncExec(new Runnable() {
 				@Override
 				public void run() {
-					if (control.isDisposed()) return;
+					if (control.isDisposed()) {
+						return;
+					}
 					if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS) {
 						LogUtils.debug(ci.getLabelBinding(), ci.getLabelBinding() + " label changed (fired)"); //$NON-NLS-1$
 					}
@@ -580,7 +590,9 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		public void update(ViewerCell cell) {
 			final Object element = cell.getElement();
 			final IColumnBindingCellInformation ci = getCellInformation(element);
-			if (ci == null) return;
+			if (ci == null) {
+				return;
+			}
 			final IValueBinding labelBinding = ci.getLabelBinding();
 			if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS) {
 				LogUtils.debug(labelBinding, labelBinding + " update: " //$NON-NLS-1$
@@ -652,7 +664,9 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		 */
 		private void setupPainter(final IColumnBindingCellInformation ci, Event event) {
 			final UIAttributePainter painter = ci.getLabelPainter();
-			if (painter == null) return;
+			if (painter == null) {
+				return;
+			}
 
 			/*
 			 * Figure out whether the cell has focus
@@ -684,7 +698,9 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		@Override
 		protected void measure(Event event, Object element) {
 			final IColumnBindingCellInformation ci = getCellInformation(element);
-			if (ci == null) return;
+			if (ci == null) {
+				return;
+			}
 			setupPainter(ci, event);
 
 			final UIAttributePainter painter = ci.getLabelPainter();
@@ -699,14 +715,18 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		@Override
 		protected void paint(Event event, Object element) {
 			final IColumnBindingCellInformation ci = getCellInformation(element);
-			if (ci == null) return;
+			if (ci == null) {
+				return;
+			}
 			final IValueBinding labelBinding = ci.getLabelBinding();
 			if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS) {
 				final Object v = ci.getLabelUIAttribute().getCurrentValue().getValue();
 				LogUtils.debug(labelBinding, labelBinding + " paint: " + v); //$NON-NLS-1$
 			}
 
-			if (labelBinding.eIsSet(IUIBindingsPackage.Literals.BINDING__ERROR_CONDITIONS)) return;
+			if (labelBinding.eIsSet(IUIBindingsPackage.Literals.BINDING__ERROR_CONDITIONS)) {
+				return;
+			}
 			setupPainter(ci, event);
 			final UIAttributePainter painter = ci.getLabelPainter();
 			painter.setDefaultBackground(null);
@@ -751,7 +771,9 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		@Override
 		protected boolean canEdit(Object element) {
 			final ViewerCell focusCell = getViewer().getColumnViewerEditor().getFocusCell();
-			if (focusCell == null) return false;
+			if (focusCell == null) {
+				return false;
+			}
 			if (focusCell.getElement() != focusCell.getViewerRow().getElement()) {
 				LogUtils.debug(ColumnBindingImpl.this, "\ncell.element=" + focusCell.getElement() + "\nitem.data=" //$NON-NLS-1$ //$NON-NLS-2$
 						+ focusCell.getViewerRow().getElement());
@@ -774,7 +796,9 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		@Override
 		protected CellEditor getCellEditor(Object element) {
 			final ViewerCell focusCell = getViewer().getColumnViewerEditor().getFocusCell();
-			if (focusCell == null) return null;
+			if (focusCell == null) {
+				return null;
+			}
 			if (focusCell.getElement() != focusCell.getViewerRow().getElement()) {
 				LogUtils.debug(ColumnBindingImpl.this, "\ncell.element=" + focusCell.getElement() + "\nitem.data=" //$NON-NLS-1$ //$NON-NLS-2$
 						+ focusCell.getViewerRow().getElement());
@@ -832,13 +856,15 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	}
 
 	/**
-	 * The cell information objects for this column
+	 * The cell information objects for this column.
 	 */
 	public MyEditingSupport myEditingSupport = null;
 
 	@Override
 	public IColumnBindingCellInformation getCellInformation(Object element, boolean create) {
-		if (getState() == BindingState.DISPOSED) return null;
+		if (isDisposed()) {
+			return null;
+		}
 		final Object baseElement = element;
 		if (element instanceof IConstantTreeItem) {
 			final IConstantTreeItem ti = (IConstantTreeItem) element;
@@ -1479,11 +1505,15 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			columnVisibility.addValueChangeListener(new IValueChangeListener() {
 				@Override
 				public void handleValueChange(ValueChangeEvent event) {
-					if (getState() != BindingState.OK) return;
+					if (getState() != BindingState.OK) {
+						return;
+					}
 					final boolean o = event.diff.getOldValue() == Boolean.TRUE;
 					final boolean n = event.diff.getNewValue() == Boolean.TRUE;
 
-					if (o == n) return;
+					if (o == n) {
+						return;
+					}
 					final IColumnAdapter adapter = getColumnAdapter();
 					if (n) {
 						adapter.setWidth(myOldWidth > 0 ? myOldWidth : 10);
@@ -1571,10 +1601,11 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		case IUIBindingsPackage.COLUMN_BINDING__SUB_COLUMNS:
 			return getSubColumns();
 		case IUIBindingsPackage.COLUMN_BINDING__CELLS:
-			if (coreType)
+			if (coreType) {
 				return getCells();
-			else
+			} else {
 				return getCells().map();
+			}
 		case IUIBindingsPackage.COLUMN_BINDING__SPECIAL_BINDING_TYPE:
 			return getSpecialBindingType();
 		case IUIBindingsPackage.COLUMN_BINDING__FACTORY:
@@ -1701,7 +1732,9 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy()) {
+			return super.toString();
+		}
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (viewerColumn: "); //$NON-NLS-1$

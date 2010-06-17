@@ -115,7 +115,9 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 	@Override
 	public IBindingDataType getDataType() {
-		if (!isDynamic()) return super.getDataType();
+		if (!isDynamic()) {
+			return super.getDataType();
+		}
 		final IObservableValue ov = getModelObservableValue();
 		if (ov != null) {
 			/*
@@ -125,13 +127,14 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			 */
 			if (ov instanceof MyDetailObservableValue) {
 				final Object valueType = ((MyDetailObservableValue) ov).getValueType();
-				if (valueType != null) return BindingDataTypeFactory.create(valueType);
+				if (valueType != null) {
+					return BindingDataTypeFactory.create(valueType);
+				}
 			}
 			final Object v = ov.getValue();
-			if (v == null) /*
-							 * No value? We fall back on the static type
-							 */
-			return super.getDataType();
+			if (v == null) {
+				return super.getDataType();
+			}
 			return BindingDataTypeFactory.create(v.getClass());
 		}
 
@@ -169,7 +172,9 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 				con = ci.setFocus();
 			}
 		}
-		if (con == null) return;
+		if (con == null) {
+			return;
+		}
 
 		/*
 		 * Make sure all Sections and ExpandableComposite are expanded
@@ -214,7 +219,9 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		super.addErrorCondition(error);
 
 		final Control c = getControl();
-		if (c == null) return;
+		if (c == null) {
+			return;
+		}
 
 		final List<String> ecs = getErrorConditions();
 		final StringBuilder sb = new StringBuilder();
@@ -430,7 +437,9 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 	@Override
 	public Class<?> getUIType() {
-		if (getUIAttribute() == null) return null;
+		if (getUIAttribute() == null) {
+			return null;
+		}
 		return (Class<?>) getUIAttribute().getCurrentValue().getValueType();
 	}
 
@@ -470,7 +479,9 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 */
 	protected void decorateIfNeeded() {
 		final IBindingDataType newDynamicDataType = getDataType();
-		if (myPreviousDynamicDataType == newDynamicDataType) return;
+		if (myPreviousDynamicDataType == newDynamicDataType) {
+			return;
+		}
 
 		myPreviousDynamicDataType = newDynamicDataType;
 
@@ -732,7 +743,9 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	@Override
 	public IObservableValue getModelObservableValue() {
 		final IObservable observable = getModelObservable();
-		if (!(observable instanceof IObservableValue)) return null;
+		if (!(observable instanceof IObservableValue)) {
+			return null;
+		}
 		return (IObservableValue) observable;
 	}
 
@@ -753,14 +766,24 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 */
 	@Override
 	public EObject getModelObject() {
+		if (isDisposed()) {
+			LogUtils.debug(this, "disposed");
+			return null;
+		}
 		if (getModelObservable() instanceof IObserving) {
 			final Object observed = ((IObserving) getModelObservable()).getObserved();
-			if (observed instanceof EObject) return (EObject) observed;
+			if (observed instanceof EObject) {
+				return (EObject) observed;
+			}
 		}
 		final IObservableValue ov = getModelObservableValue();
-		if (ov == null) return null;
+		if (ov == null) {
+			return null;
+		}
 		final Object observed = ov.getValue();
-		if (!(observed instanceof EObject)) return null;
+		if (!(observed instanceof EObject)) {
+			return null;
+		}
 		return (EObject) observed;
 	}
 
@@ -772,7 +795,9 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	@Override
 	public EStructuralFeature getModelFeature() {
 		final Object valueType = getDataType().getValueType();
-		if (valueType instanceof EStructuralFeature) return (EStructuralFeature) valueType;
+		if (valueType instanceof EStructuralFeature) {
+			return (EStructuralFeature) valueType;
+		}
 		return null;
 	}
 
@@ -783,7 +808,9 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 */
 	@Override
 	public String getMessagePrefix() {
-		if (messagePrefix != null) return messagePrefix;
+		if (messagePrefix != null) {
+			return messagePrefix;
+		}
 
 		/*
 		 * If this binding has a control, then look for the previous label widget and use the text
@@ -823,7 +850,9 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		final IValueBindingCell ci = getCell();
 		if (ci != null) {
 			messagePrefix = ci.getMessagePrefix();
-			if (messagePrefix != null) return messagePrefix;
+			if (messagePrefix != null) {
+				return messagePrefix;
+			}
 		}
 
 		/*
@@ -881,7 +910,9 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 				continue;
 			}
 			got |= getArgumentProviderArguments(results, name, d, argumentType, firstOnly);
-			if (got && firstOnly) return true;
+			if (got && firstOnly) {
+				return true;
+			}
 		}
 
 		return got;
@@ -1129,9 +1160,13 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 	private String getBaseType() {
 		final EStructuralFeature feature = getModelFeature();
-		if (feature != null) return feature.getEContainingClass().getName() + "." + feature.getName(); //$NON-NLS-1$
+		if (feature != null) {
+			return feature.getEContainingClass().getName() + "." + feature.getName(); //$NON-NLS-1$
+		}
 		final EClassifier modelEType = getModelEType();
-		if (modelEType != null) return modelEType.getName();
+		if (modelEType != null) {
+			return modelEType.getName();
+		}
 
 		return super.toString();
 	}
@@ -1139,14 +1174,18 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	@Override
 	public Widget getWidget() {
 		final IUIAttribute attribute = getUIAttribute();
-		if (attribute == null) return null;
+		if (attribute == null) {
+			return null;
+		}
 		return attribute.getWidget();
 	}
 
 	@Override
 	public Control getControl() {
 		final Widget widget = getWidget();
-		if (widget instanceof Control) return (Control) widget;
+		if (widget instanceof Control) {
+			return (Control) widget;
+		}
 		return null;
 	}
 
@@ -1169,7 +1208,9 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 					break;
 				}
 			}
-			if (!found) return;
+			if (!found) {
+				return;
+			}
 		}
 		updateBinding();
 	}
@@ -1195,8 +1236,12 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 	@Override
 	public boolean isEClassFeature(Class<? extends EObject> objClass, EStructuralFeature sf) {
-		if (sf != getModelFeature()) return false;
-		if (objClass != null && !objClass.isInstance(getModelObject())) return false;
+		if (sf != getModelFeature()) {
+			return false;
+		}
+		if (objClass != null && !objClass.isInstance(getModelObject())) {
+			return false;
+		}
 		return true;
 	}
 

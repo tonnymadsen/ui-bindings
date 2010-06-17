@@ -65,19 +65,19 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * 
 	 * @param error the new condition
 	 */
-	public void addErrorCondition(String error);
+	void addErrorCondition(String error);
 
 	/**
 	 * Updates the binding.
 	 */
-	public void updateBinding();
+	void updateBinding();
 
 	/**
 	 * Updates the binding.
 	 * 
 	 * @param objects the changed objects or <code>null</code>
 	 */
-	public void updateBinding(Object[] objects);
+	void updateBinding(Object[] objects);
 
 	/**
 	 * Sets the type of the binding. Defaults to the empty string.
@@ -85,7 +85,7 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * @param type the type name
 	 * @return <code>this</code>
 	 */
-	public IBinding type(String type);
+	IBinding type(String type);
 
 	/**
 	 * Sets an argument for the binding. Some arguments are deduced from the EMF binding.
@@ -95,7 +95,7 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * 
 	 * @return <code>this</code>
 	 */
-	public IBinding arg(String name, Object value);
+	IBinding arg(String name, Object value);
 
 	/**
 	 * Sets a complete set of arguments for the binding.
@@ -103,7 +103,7 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * @param arguments the arguments to set
 	 * @return <code>this</code>
 	 */
-	public IBinding args(Map<String, Object> arguments);
+	IBinding args(Map<String, Object> arguments);
 
 	/**
 	 * Sets a complete set of arguments for the binding.
@@ -111,21 +111,21 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * @param arguments the arguments to set
 	 * @return <code>this</code>
 	 */
-	public IBinding args(EMap<String, Object> arguments);
+	IBinding args(EMap<String, Object> arguments);
 
 	/**
 	 * Short for <code>arg(IBinding.ARG_READONLY, true)</code>.
 	 * 
 	 * @return <code>this</code>
 	 */
-	public IBinding readonly();
+	IBinding readonly();
 
 	/**
 	 * Short for <code>arg({@link IBinding#ARG_DYNAMIC}, true)</code>.
 	 * 
 	 * @return <code>this</code>
 	 */
-	public IBinding dynamic();
+	IBinding dynamic();
 
 	/**
 	 * Short for <code>getId(id)</code>.
@@ -133,7 +133,7 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * @param id the new id
 	 * @return <code>this</code>
 	 */
-	public IBinding id(String id);
+	IBinding id(String id);
 
 	/**
 	 * Short for <code>arg({@link IBinding#ARG_LABEL}, label)</code>.
@@ -141,7 +141,7 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * @param label the label to add
 	 * @return <code>this</code>
 	 */
-	public IBinding label(String label);
+	IBinding label(String label);
 
 	/**
 	 * Short for <code>arg(IBinding.ARG_VALID_VALUES, list)</code>.
@@ -150,22 +150,22 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * 
 	 * @return <code>this</code>
 	 */
-	public IBinding validValues(IObservableList list);
+	IBinding validValues(IObservableList list);
 
 	/**
 	 * This is the first phase of the finish process that will make the binding effective.
 	 */
-	public void finish1();
+	void finish1();
 
 	/**
 	 * This is the second phase of the finish process that will make the binding effective.
 	 */
-	public void finish2();
+	void finish2();
 
 	/**
 	 * This is the third phase of the finish process that will make the binding effective.
 	 */
-	public void finish3();
+	void finish3();
 
 	/**
 	 * Adds a new data bind to the set of bindings for this bound binding.
@@ -173,7 +173,7 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * @param dataBinding the new data binding
 	 * @param monitorStatus monitor the binding status
 	 */
-	public void addDBBinding(Binding dataBinding, boolean monitorStatus);
+	void addDBBinding(Binding dataBinding, boolean monitorStatus);
 
 	/**
 	 * See
@@ -182,7 +182,7 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * 
 	 * @param monitorStatus monitor the binding status
 	 */
-	public void bindList(IObservableList targetObservableList, IObservableList modelObservableList,
+	void bindList(IObservableList targetObservableList, IObservableList modelObservableList,
 			UpdateListStrategy targetToModel, UpdateListStrategy modelToTarget, boolean monitorStatus);
 
 	/**
@@ -190,7 +190,7 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * {@link DataBindingContext#bindSet(IObservableSet, IObservableSet, UpdateSetStrategy, UpdateSetStrategy)}
 	 * for a description.
 	 */
-	public void bindSet(IObservableSet targetObservableSet, IObservableSet modelObservableSet,
+	void bindSet(IObservableSet targetObservableSet, IObservableSet modelObservableSet,
 			UpdateSetStrategy targetToModel, UpdateSetStrategy modelToTarget);
 
 	/**
@@ -202,7 +202,7 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * 
 	 * @return the databinding API binding object
 	 */
-	public Binding bindValue(IObservableValue targetObservableValue, IObservableValue modelObservableValue,
+	Binding bindValue(IObservableValue targetObservableValue, IObservableValue modelObservableValue,
 			UpdateValueStrategy targetToModel, UpdateValueStrategy modelToTarget, boolean monitorStatus);
 
 	/**
@@ -225,7 +225,7 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * 
 	 * @return the domain
 	 */
-	public EditingDomain getEditingDomain();
+	EditingDomain getEditingDomain();
 
 	/**
 	 * Sets the value of the '{@link com.rcpcompany.uibindings.IBinding#getContext <em>Context</em>}
@@ -254,6 +254,13 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * @generated
 	 */
 	BindingState getState();
+
+	/**
+	 * Returns whether the binding is currently disposed.
+	 * 
+	 * @return <code>true</code> if the binding is disposed or in process of being disposed
+	 */
+	boolean isDisposed();
 
 	/**
 	 * Sets the value of the '{@link com.rcpcompany.uibindings.IBinding#getState <em>State</em>}'
@@ -343,14 +350,14 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * @param name the name of the argument
 	 * @return the value or <code>null</code> if not set.
 	 */
-	public Object getArgument(String name);
+	Object getArgument(String name);
 
 	/**
 	 * Sets the specified arguments.
 	 * 
 	 * @param arguments the arguments to set - can be <code>null</code>
 	 */
-	public void setArguments(Map<String, Object> arguments);
+	void setArguments(Map<String, Object> arguments);
 
 	/**
 	 * Returns the named argument or <code>null</code> if not set.
@@ -367,7 +374,7 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * @param defaultValue the default value
 	 * @return the value or <code>null</code> if not set.
 	 */
-	public <ArgumentType> ArgumentType getArgument(String name, Class<? extends ArgumentType> argumentType,
+	<ArgumentType> ArgumentType getArgument(String name, Class<? extends ArgumentType> argumentType,
 			ArgumentType defaultValue);
 
 	/**
@@ -385,7 +392,7 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 *            found values
 	 * @return the value or <code>null</code> if not set.
 	 */
-	public <ArgumentType> List<IArgumentValue<ArgumentType>> getArguments(String name,
+	<ArgumentType> List<IArgumentValue<ArgumentType>> getArguments(String name,
 			Class<? extends ArgumentType> argumentType, boolean firstOnly);
 
 	/**
@@ -404,11 +411,12 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 *            &lt;ArgumentType&gt;
 	 * @return the value or <code>null</code> if not set.
 	 */
-	public <ArgumentType> ArgumentType convertArgumentValue(String name, IConfigurationElement ce,
-			String attributeName, String value, Class<? extends ArgumentType> argumentType);
+	<ArgumentType> ArgumentType convertArgumentValue(String name, IConfigurationElement ce, String attributeName,
+			String value, Class<? extends ArgumentType> argumentType);
 
 	/**
 	 * One argument value record as returned by
+	 * {@link IBinding#getArguments(String, Class, boolean)}.
 	 * 
 	 * @param <ArgumentType> the wanted argument type
 	 */
@@ -420,14 +428,14 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 		 * 
 		 * @return the source of the value - possibly in the form of an {@link IArgumentProvider}
 		 */
-		public Object getSource();
+		Object getSource();
 
 		/**
 		 * The value returned by the source.
 		 * 
 		 * @return the value
 		 */
-		public ArgumentType getValue();
+		ArgumentType getValue();
 	}
 
 	/**
@@ -441,7 +449,7 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * @param firstOnly <code>true</code> if only the first result is of interest
 	 * @return <code>true</code> if ant results was found
 	 */
-	public <ArgumentType> boolean getArgumentProviderArguments(List<IArgumentValue<ArgumentType>> results, String name,
+	<ArgumentType> boolean getArgumentProviderArguments(List<IArgumentValue<ArgumentType>> results, String name,
 			IArgumentProvider provider, Class<? extends ArgumentType> argumentType, boolean firstOnly);
 
 	/**
@@ -654,7 +662,7 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * changes. Whenever the value of the monitored observable value changes, the state is
 	 * re-evaluated.
 	 * 
-	 * @param context TODO
+	 * @param context the context with all relevant information
 	 */
-	public void updateSourceProviderState(ISourceProviderStateContext context);
+	void updateSourceProviderState(ISourceProviderStateContext context);
 } // IBinding
