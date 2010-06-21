@@ -110,7 +110,7 @@ public class GridCellTraversalTest {
 	}
 
 	/**
-	 * Does one stroke and tests the nwe position
+	 * Does one stroke and tests the nwe position.
 	 * 
 	 * @param stroke the stroke
 	 * @param column the new column
