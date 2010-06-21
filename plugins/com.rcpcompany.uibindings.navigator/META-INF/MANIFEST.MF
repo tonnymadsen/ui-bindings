@@ -8,7 +8,9 @@ Bundle-Vendor: Tonny Madsen, The RCP Company
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  com.rcpcompany.uibindings;bundle-version="2.3.0",
- com.rcpcompany.utils.logging;bundle-version="[1.2.0,2.0.0)"
+ com.rcpcompany.utils.logging;bundle-version="[1.2.0,2.0.0)",
+ com.rcpcompany.utils.extensionpoints;bundle-version="1.0.2",
+ com.rcpcompany.utils.selection;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: com.rcpcompany.uibindings.navigator.views

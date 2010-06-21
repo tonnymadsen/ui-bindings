@@ -2,6 +2,25 @@
 <?eclipse version="3.2"?>
 <plugin>
    <extension-point id="editors" name="Editoirs" schema="schema/editors.exsd"/>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Freezes the value of the editor to the current value"
+            id="com.rcpcompany.uibindings.navigator.commands.PinEditor"
+            name="Pin the editor to the current value">
+         <state
+               id="com.rcpcompany.uibindings.navigator.state1">
+         </state>
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commandImages">
+      <image
+            commandId="com.rcpcompany.uibindings.navigator.commands.PinEditor"
+            disabledIcon="IMG_ETOOL_PIN_EDITOR_DISABLED"
+            icon="IMG_ETOOL_PIN_EDITOR">
+      </image>
+   </extension>
 <extension
       point="org.eclipse.ui.decorators">
    <decorator
@@ -54,6 +73,17 @@
          class="com.rcpcompany.uibindings.utils.IGlobalNavigationManager$ForwardHistoryMenuContributor"
          locationURI="menu:com.rcpcompany.uibindings.forwardHistoryMenu">
    </menuContribution>
+   <menuContribution
+         allPopups="false"
+         locationURI="tolbar:com.rcpcompany.uibindings.navigator.internal.views.BaseView">
+      <control
+            class="com.rcpcompany.uibindings.navigator.editors.internal.views.SelectCurrentEditor">
+      </control>
+      <command
+            commandId="com.rcpcompany.uibindings.navigator.commands.PinEditor"
+            style="toggle">
+      </command>
+   </menuContribution>
 </extension>
 <extension
       point="org.eclipse.ui.handlers">
@@ -69,63 +99,27 @@
          </with>
       </activeWhen>
    </handler>
+   <handler
+         class="com.rcpcompany.uibindings.navigator.editors.internal.views.PinEditorHandler"
+         commandId="com.rcpcompany.uibindings.navigator.commands.PinEditor">
+      <activeWhen>
+         <with
+               variable="activeView">
+            <instanceof
+                  value="com.rcpcompany.uibindings.navigator.editors.internal.views.BaseView">
+            </instanceof>
+         </with>
+      </activeWhen>
+   </handler>
 </extension>
 <extension
       point="org.eclipse.ui.views">
    <view
          allowMultiple="true"
-         class="com.rcpcompany.uibindings.editors.internal.views.BaseView"
-         id="com.rcpcompany.uibindings.editors.internal.views.BaseView"
+         class="com.rcpcompany.uibindings.navigator.editors.internal.views.BaseView"
+         id="com.rcpcompany.uibindings.navigator.internal.views.BaseView"
          name="Generic Object Editor"
          restorable="true">
    </view>
-</extension>
-<extension
-      point="org.eclipse.ui.commands">
-   <command
-         description="Freezes the value of the editor to the current value"
-         id="com.rcpcompany.uibindings.editors.commands.PinEditor"
-         name="Pin the editor to the current value">
-      <state
-            id="com.rcpcompany.uibindings.editors.state1">
-      </state>
-   </command>
-</extension>
-<extension
-      point="org.eclipse.ui.menus">
-   <menuContribution
-         allPopups="false"
-         locationURI="tolbar:com.rcpcompany.uibindings.editors.internal.views.BaseView">
-      <control
-            class="com.rcpcompany.uibindings.editors.internal.views.SelectCurrentEditir">
-      </control>
-      <command
-            commandId="com.rcpcompany.uibindings.editors.commands.PinEditor"
-            style="toggle">
-      </command>
-   </menuContribution>
-</extension>
-<extension
-      point="org.eclipse.ui.commandImages">
-   <image
-         commandId="com.rcpcompany.uibindings.editors.commands.PinEditor"
-         disabledIcon="IMG_ETOOL_PIN_EDITOR_DISABLED"
-         icon="IMG_ETOOL_PIN_EDITOR">
-   </image>
-</extension>
-<extension
-      point="org.eclipse.ui.handlers">
-   <handler
-         class="com.rcpcompany.uibindings.editors.internal.views.PinEditorHandler"
-         commandId="com.rcpcompany.uibindings.editors.commands.PinEditor">
-      <activeWhen>
-         <with
-               variable="activeView">
-            <instanceof
-                  value="com.rcpcompany.uibindings.editors.internal.views.BaseView">
-            </instanceof>
-         </with>
-      </activeWhen>
-   </handler>
 </extension>
 </plugin>
