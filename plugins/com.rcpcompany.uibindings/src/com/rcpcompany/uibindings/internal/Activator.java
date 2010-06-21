@@ -27,18 +27,20 @@ import com.rcpcompany.uibindings.utils.ISortableTableAdapter;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * The activator class controls the plug-in life cycle
+ * The activator class controls the plug-in life cycle.
  */
 public class Activator extends AbstractUIPlugin {
 
-	// The plug-in ID
+	/**
+	 * The plug-in ID.
+	 */
 	public static final String ID = "com.rcpcompany.uibindings"; //$NON-NLS-1$
 
 	// The shared instance
 	private static Activator plugin;
 
 	/**
-	 * The constructor
+	 * The constructor.
 	 */
 	public Activator() {
 	}
