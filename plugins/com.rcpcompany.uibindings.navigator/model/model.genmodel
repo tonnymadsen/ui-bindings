@@ -7,11 +7,10 @@
     copyrightFields="false" usedGenPackages="../../com.rcpcompany.uibindings/model/uibindings.genmodel#//uibindings"
     interfaceNamePattern="I{0}" classNamePattern="" runtimePlatform="RCP">
   <foreignModel>model.ecore</foreignModel>
-  <genPackages prefix="Editors" basePackage="com.rcpcompany.uibindings.navigator"
-      disposableProviderFactory="true" adapterFactory="false" classPackageSuffix="internal"
-      ecorePackage="model.ecore#/">
-    <genClasses ecoreClass="model.ecore#//EditorManager">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//EditorManager/modelTypes"/>
+  <genPackages prefix="NavigatorModel" basePackage="com.rcpcompany.uibindings" disposableProviderFactory="true"
+      adapterFactory="false" classPackageSuffix="internal" ecorePackage="model.ecore#/">
+    <genClasses ecoreClass="model.ecore#//NavigatorManager">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//NavigatorManager/modelTypes"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//EditiorModelType">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//EditiorModelType/editors"/>

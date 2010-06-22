@@ -8,9 +8,6 @@
             description="Freezes the value of the editor to the current value"
             id="com.rcpcompany.uibindings.navigator.commands.PinEditor"
             name="Pin the editor to the current value">
-         <state
-               id="com.rcpcompany.uibindings.navigator.state1">
-         </state>
       </command>
    </extension>
    <extension
@@ -84,6 +81,29 @@
             style="toggle">
       </command>
    </menuContribution>
+   <menuContribution
+         allPopups="false"
+         locationURI="popup:org.eclipse.ui.popup.any?after=open">
+      <menu
+            id="com.rcpcompany.uibindings.navigator.openWith"
+            label="Open With"
+            mnemonic="h">
+         <visibleWhen
+               checkEnabled="false">
+            <with
+                  variable="activePart">
+               <instanceof
+                     value="com.rcpcompany.uibindings.navigator.views.NavigatorBaseView">
+               </instanceof>
+            </with>
+         </visibleWhen>
+      </menu>
+   </menuContribution>
+   <menuContribution
+         allPopups="false"
+         class="com.rcpcompany.uibindings.navigator.editors.internal.handlers.OpenWithContributions"
+         locationURI="menu:com.rcpcompany.uibindings.navigator.openWith">
+   </menuContribution>
 </extension>
 <extension
       point="org.eclipse.ui.handlers">
@@ -100,7 +120,7 @@
       </activeWhen>
    </handler>
    <handler
-         class="com.rcpcompany.uibindings.navigator.editors.internal.views.PinEditorHandler"
+         class="com.rcpcompany.uibindings.navigator.editors.internal.handlers.PinEditorHandler"
          commandId="com.rcpcompany.uibindings.navigator.commands.PinEditor">
       <activeWhen>
          <with

@@ -1,6 +1,7 @@
-package com.rcpcompany.uibindings.navigator.editors;
+package com.rcpcompany.uibindings.navigator;
 
 import org.eclipse.ui.IWorkbenchPart;
+
 
 /**
  * The context for {@link IEditor#createEditor(IEditorContext)}.

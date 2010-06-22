@@ -4,16 +4,16 @@
  *
  * $Id$
  */
-package com.rcpcompany.uibindings.navigator.editors.internal;
+package com.rcpcompany.uibindings.navigator.internal;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import com.rcpcompany.uibindings.navigator.editors.IEditor;
-import com.rcpcompany.uibindings.navigator.editors.IEditorDescriptor;
-import com.rcpcompany.uibindings.navigator.editors.IEditorsPackage;
+import com.rcpcompany.uibindings.navigator.IEditor;
+import com.rcpcompany.uibindings.navigator.IEditorDescriptor;
+import com.rcpcompany.uibindings.navigator.INavigatorModelPackage;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 import com.rcpcompany.utils.extensionpoints.CEResourceHolder;
 
@@ -24,11 +24,11 @@ import com.rcpcompany.utils.extensionpoints.CEResourceHolder;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.navigator.editors.internal.EditorDescriptorImpl#getId <em>Id</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.navigator.editors.internal.EditorDescriptorImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.navigator.editors.internal.EditorDescriptorImpl#getPriority <em>Priority</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.navigator.editors.internal.EditorDescriptorImpl#getFactory <em>Factory</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.navigator.editors.internal.EditorDescriptorImpl#getImage <em>Image</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorDescriptorImpl#getId <em>Id</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorDescriptorImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorDescriptorImpl#getPriority <em>Priority</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorDescriptorImpl#getFactory <em>Factory</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorDescriptorImpl#getImage <em>Image</em>}</li>
  * </ul>
  * </p>
  *
@@ -141,7 +141,7 @@ public class EditorDescriptorImpl extends EObjectImpl implements IEditorDescript
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return IEditorsPackage.Literals.EDITOR_DESCRIPTOR;
+		return INavigatorModelPackage.Literals.EDITOR_DESCRIPTOR;
 	}
 
 	/**
@@ -162,7 +162,7 @@ public class EditorDescriptorImpl extends EObjectImpl implements IEditorDescript
 		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IEditorsPackage.EDITOR_DESCRIPTOR__ID, oldId, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, INavigatorModelPackage.EDITOR_DESCRIPTOR__ID, oldId, id));
 	}
 
 	/**
@@ -183,7 +183,7 @@ public class EditorDescriptorImpl extends EObjectImpl implements IEditorDescript
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IEditorsPackage.EDITOR_DESCRIPTOR__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, INavigatorModelPackage.EDITOR_DESCRIPTOR__NAME, oldName, name));
 	}
 
 	/**
@@ -204,7 +204,7 @@ public class EditorDescriptorImpl extends EObjectImpl implements IEditorDescript
 		int oldPriority = priority;
 		priority = newPriority;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IEditorsPackage.EDITOR_DESCRIPTOR__PRIORITY, oldPriority, priority));
+			eNotify(new ENotificationImpl(this, Notification.SET, INavigatorModelPackage.EDITOR_DESCRIPTOR__PRIORITY, oldPriority, priority));
 	}
 
 	/**
@@ -225,7 +225,7 @@ public class EditorDescriptorImpl extends EObjectImpl implements IEditorDescript
 		CEObjectHolder<IEditor> oldFactory = factory;
 		factory = newFactory;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IEditorsPackage.EDITOR_DESCRIPTOR__FACTORY, oldFactory, factory));
+			eNotify(new ENotificationImpl(this, Notification.SET, INavigatorModelPackage.EDITOR_DESCRIPTOR__FACTORY, oldFactory, factory));
 	}
 
 	/**
@@ -246,7 +246,7 @@ public class EditorDescriptorImpl extends EObjectImpl implements IEditorDescript
 		CEResourceHolder oldImage = image;
 		image = newImage;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IEditorsPackage.EDITOR_DESCRIPTOR__IMAGE, oldImage, image));
+			eNotify(new ENotificationImpl(this, Notification.SET, INavigatorModelPackage.EDITOR_DESCRIPTOR__IMAGE, oldImage, image));
 	}
 
 	/**
@@ -257,15 +257,15 @@ public class EditorDescriptorImpl extends EObjectImpl implements IEditorDescript
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case IEditorsPackage.EDITOR_DESCRIPTOR__ID:
+			case INavigatorModelPackage.EDITOR_DESCRIPTOR__ID:
 				return getId();
-			case IEditorsPackage.EDITOR_DESCRIPTOR__NAME:
+			case INavigatorModelPackage.EDITOR_DESCRIPTOR__NAME:
 				return getName();
-			case IEditorsPackage.EDITOR_DESCRIPTOR__PRIORITY:
+			case INavigatorModelPackage.EDITOR_DESCRIPTOR__PRIORITY:
 				return getPriority();
-			case IEditorsPackage.EDITOR_DESCRIPTOR__FACTORY:
+			case INavigatorModelPackage.EDITOR_DESCRIPTOR__FACTORY:
 				return getFactory();
-			case IEditorsPackage.EDITOR_DESCRIPTOR__IMAGE:
+			case INavigatorModelPackage.EDITOR_DESCRIPTOR__IMAGE:
 				return getImage();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -280,19 +280,19 @@ public class EditorDescriptorImpl extends EObjectImpl implements IEditorDescript
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case IEditorsPackage.EDITOR_DESCRIPTOR__ID:
+			case INavigatorModelPackage.EDITOR_DESCRIPTOR__ID:
 				setId((String)newValue);
 				return;
-			case IEditorsPackage.EDITOR_DESCRIPTOR__NAME:
+			case INavigatorModelPackage.EDITOR_DESCRIPTOR__NAME:
 				setName((String)newValue);
 				return;
-			case IEditorsPackage.EDITOR_DESCRIPTOR__PRIORITY:
+			case INavigatorModelPackage.EDITOR_DESCRIPTOR__PRIORITY:
 				setPriority((Integer)newValue);
 				return;
-			case IEditorsPackage.EDITOR_DESCRIPTOR__FACTORY:
+			case INavigatorModelPackage.EDITOR_DESCRIPTOR__FACTORY:
 				setFactory((CEObjectHolder<IEditor>)newValue);
 				return;
-			case IEditorsPackage.EDITOR_DESCRIPTOR__IMAGE:
+			case INavigatorModelPackage.EDITOR_DESCRIPTOR__IMAGE:
 				setImage((CEResourceHolder)newValue);
 				return;
 		}
@@ -307,19 +307,19 @@ public class EditorDescriptorImpl extends EObjectImpl implements IEditorDescript
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case IEditorsPackage.EDITOR_DESCRIPTOR__ID:
+			case INavigatorModelPackage.EDITOR_DESCRIPTOR__ID:
 				setId(ID_EDEFAULT);
 				return;
-			case IEditorsPackage.EDITOR_DESCRIPTOR__NAME:
+			case INavigatorModelPackage.EDITOR_DESCRIPTOR__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case IEditorsPackage.EDITOR_DESCRIPTOR__PRIORITY:
+			case INavigatorModelPackage.EDITOR_DESCRIPTOR__PRIORITY:
 				setPriority(PRIORITY_EDEFAULT);
 				return;
-			case IEditorsPackage.EDITOR_DESCRIPTOR__FACTORY:
+			case INavigatorModelPackage.EDITOR_DESCRIPTOR__FACTORY:
 				setFactory((CEObjectHolder<IEditor>)null);
 				return;
-			case IEditorsPackage.EDITOR_DESCRIPTOR__IMAGE:
+			case INavigatorModelPackage.EDITOR_DESCRIPTOR__IMAGE:
 				setImage(IMAGE_EDEFAULT);
 				return;
 		}
@@ -334,15 +334,15 @@ public class EditorDescriptorImpl extends EObjectImpl implements IEditorDescript
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case IEditorsPackage.EDITOR_DESCRIPTOR__ID:
+			case INavigatorModelPackage.EDITOR_DESCRIPTOR__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case IEditorsPackage.EDITOR_DESCRIPTOR__NAME:
+			case INavigatorModelPackage.EDITOR_DESCRIPTOR__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case IEditorsPackage.EDITOR_DESCRIPTOR__PRIORITY:
+			case INavigatorModelPackage.EDITOR_DESCRIPTOR__PRIORITY:
 				return priority != PRIORITY_EDEFAULT;
-			case IEditorsPackage.EDITOR_DESCRIPTOR__FACTORY:
+			case INavigatorModelPackage.EDITOR_DESCRIPTOR__FACTORY:
 				return factory != null;
-			case IEditorsPackage.EDITOR_DESCRIPTOR__IMAGE:
+			case INavigatorModelPackage.EDITOR_DESCRIPTOR__IMAGE:
 				return IMAGE_EDEFAULT == null ? image != null : !IMAGE_EDEFAULT.equals(image);
 		}
 		return super.eIsSet(featureID);

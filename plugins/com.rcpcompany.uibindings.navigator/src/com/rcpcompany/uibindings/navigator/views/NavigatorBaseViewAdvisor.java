@@ -7,8 +7,7 @@ import org.eclipse.core.databinding.observable.list.IObservableList;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public abstract class NavigatorBaseViewAdvisor implements
-		INavigatorBaseViewAdvisor {
+public abstract class NavigatorBaseViewAdvisor implements INavigatorBaseViewAdvisor {
 
 	@Override
 	public abstract IObservableList getRootElements();

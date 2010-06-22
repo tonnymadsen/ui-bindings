@@ -10,21 +10,21 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import com.rcpcompany.uibindings.navigator.views.NavigatorBaseView;
 
 /**
- * Handler for 
+ * Handler for
+ * 
  * @author Tonny Madsen, The RCP Company
- *
+ * 
  */
-public class NavigatorViewCollapseAll extends AbstractHandler implements
-		IHandler {
+public class NavigatorViewCollapseAll extends AbstractHandler implements IHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		IWorkbenchPart workbenchPart = HandlerUtil.getActivePartChecked(event);
+		final IWorkbenchPart workbenchPart = HandlerUtil.getActivePartChecked(event);
 		if (!(workbenchPart instanceof NavigatorBaseView)) return null;
-		
-		NavigatorBaseView navigator = (NavigatorBaseView) workbenchPart;
+
+		final NavigatorBaseView navigator = (NavigatorBaseView) workbenchPart;
 		navigator.collapseAll();
-		
+
 		return null;
 	}
 }

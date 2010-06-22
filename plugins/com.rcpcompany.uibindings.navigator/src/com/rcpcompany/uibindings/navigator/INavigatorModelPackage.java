@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package com.rcpcompany.uibindings.navigator.editors;
+package com.rcpcompany.uibindings.navigator;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -22,17 +22,17 @@ import org.eclipse.emf.ecore.EReference;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see com.rcpcompany.uibindings.navigator.editors.IEditorsFactory
+ * @see com.rcpcompany.uibindings.navigator.INavigatorModelFactory
  * @generated
  */
-public interface IEditorsPackage extends EPackage {
+public interface INavigatorModelPackage extends EPackage {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNAME = "editors";
+	String eNAME = "navigator";
 
 	/**
 	 * The package namespace URI.
@@ -40,7 +40,7 @@ public interface IEditorsPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://rcpcompany.com/schemas/uibindings/editors";
+	String eNS_URI = "http://rcpcompany.com/schemas/uibindings/navigator";
 
 	/**
 	 * The package namespace name.
@@ -48,7 +48,7 @@ public interface IEditorsPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "editors";
+	String eNS_PREFIX = "navigator";
 
 	/**
 	 * The singleton instance of the package.
@@ -56,17 +56,17 @@ public interface IEditorsPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	IEditorsPackage eINSTANCE = com.rcpcompany.uibindings.navigator.editors.internal.EditorsPackageImpl.init();
+	INavigatorModelPackage eINSTANCE = com.rcpcompany.uibindings.navigator.internal.NavigatorModelPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.navigator.editors.internal.EditorManagerImpl <em>Editor Manager</em>}' class.
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.navigator.internal.NavigatorManagerImpl <em>Navigator Manager</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.rcpcompany.uibindings.navigator.editors.internal.EditorManagerImpl
-	 * @see com.rcpcompany.uibindings.navigator.editors.internal.EditorsPackageImpl#getEditorManager()
+	 * @see com.rcpcompany.uibindings.navigator.internal.NavigatorManagerImpl
+	 * @see com.rcpcompany.uibindings.navigator.internal.NavigatorModelPackageImpl#getNavigatorManager()
 	 * @generated
 	 */
-	int EDITOR_MANAGER = 0;
+	int NAVIGATOR_MANAGER = 0;
 
 	/**
 	 * The feature id for the '<em><b>Model Types</b></em>' map.
@@ -75,23 +75,23 @@ public interface IEditorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EDITOR_MANAGER__MODEL_TYPES = 0;
+	int NAVIGATOR_MANAGER__MODEL_TYPES = 0;
 
 	/**
-	 * The number of structural features of the '<em>Editor Manager</em>' class.
+	 * The number of structural features of the '<em>Navigator Manager</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EDITOR_MANAGER_FEATURE_COUNT = 1;
+	int NAVIGATOR_MANAGER_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.navigator.editors.internal.EditiorModelTypeImpl <em>Editior Model Type</em>}' class.
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.navigator.internal.EditiorModelTypeImpl <em>Editior Model Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.rcpcompany.uibindings.navigator.editors.internal.EditiorModelTypeImpl
-	 * @see com.rcpcompany.uibindings.navigator.editors.internal.EditorsPackageImpl#getEditiorModelType()
+	 * @see com.rcpcompany.uibindings.navigator.internal.EditiorModelTypeImpl
+	 * @see com.rcpcompany.uibindings.navigator.internal.NavigatorModelPackageImpl#getEditiorModelType()
 	 * @generated
 	 */
 	int EDITIOR_MODEL_TYPE = 1;
@@ -124,11 +124,11 @@ public interface IEditorsPackage extends EPackage {
 	int EDITIOR_MODEL_TYPE_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.navigator.editors.internal.EditorDescriptorImpl <em>Editor Descriptor</em>}' class.
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.navigator.internal.EditorDescriptorImpl <em>Editor Descriptor</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.rcpcompany.uibindings.navigator.editors.internal.EditorDescriptorImpl
-	 * @see com.rcpcompany.uibindings.navigator.editors.internal.EditorsPackageImpl#getEditorDescriptor()
+	 * @see com.rcpcompany.uibindings.navigator.internal.EditorDescriptorImpl
+	 * @see com.rcpcompany.uibindings.navigator.internal.NavigatorModelPackageImpl#getEditorDescriptor()
 	 * @generated
 	 */
 	int EDITOR_DESCRIPTOR = 2;
@@ -188,11 +188,11 @@ public interface IEditorsPackage extends EPackage {
 	int EDITOR_DESCRIPTOR_FEATURE_COUNT = 5;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.navigator.editors.IEditor <em>IEditor</em>}' class.
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.navigator.IEditor <em>IEditor</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.rcpcompany.uibindings.navigator.editors.IEditor
-	 * @see com.rcpcompany.uibindings.navigator.editors.internal.EditorsPackageImpl#getIEditor()
+	 * @see com.rcpcompany.uibindings.navigator.IEditor
+	 * @see com.rcpcompany.uibindings.navigator.internal.NavigatorModelPackageImpl#getIEditor()
 	 * @generated
 	 */
 	int IEDITOR = 3;
@@ -206,13 +206,12 @@ public interface IEditorsPackage extends EPackage {
 	 */
 	int IEDITOR_FEATURE_COUNT = 0;
 
-
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.navigator.editors.internal.StringToModelTypeMapEntryImpl <em>String To Model Type Map Entry</em>}' class.
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.navigator.internal.StringToModelTypeMapEntryImpl <em>String To Model Type Map Entry</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.rcpcompany.uibindings.navigator.editors.internal.StringToModelTypeMapEntryImpl
-	 * @see com.rcpcompany.uibindings.navigator.editors.internal.EditorsPackageImpl#getStringToModelTypeMapEntry()
+	 * @see com.rcpcompany.uibindings.navigator.internal.StringToModelTypeMapEntryImpl
+	 * @see com.rcpcompany.uibindings.navigator.internal.NavigatorModelPackageImpl#getStringToModelTypeMapEntry()
 	 * @generated
 	 */
 	int STRING_TO_MODEL_TYPE_MAP_ENTRY = 4;
@@ -246,129 +245,129 @@ public interface IEditorsPackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.navigator.editors.IEditorManager <em>Editor Manager</em>}'.
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.navigator.INavigatorManager <em>Navigator Manager</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Editor Manager</em>'.
-	 * @see com.rcpcompany.uibindings.navigator.editors.IEditorManager
+	 * @return the meta object for class '<em>Navigator Manager</em>'.
+	 * @see com.rcpcompany.uibindings.navigator.INavigatorManager
 	 * @generated
 	 */
-	EClass getEditorManager();
+	EClass getNavigatorManager();
 
 	/**
-	 * Returns the meta object for the map '{@link com.rcpcompany.uibindings.navigator.editors.IEditorManager#getModelTypes <em>Model Types</em>}'.
+	 * Returns the meta object for the map '{@link com.rcpcompany.uibindings.navigator.INavigatorManager#getModelTypes <em>Model Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the map '<em>Model Types</em>'.
-	 * @see com.rcpcompany.uibindings.navigator.editors.IEditorManager#getModelTypes()
-	 * @see #getEditorManager()
+	 * @see com.rcpcompany.uibindings.navigator.INavigatorManager#getModelTypes()
+	 * @see #getNavigatorManager()
 	 * @generated
 	 */
-	EReference getEditorManager_ModelTypes();
+	EReference getNavigatorManager_ModelTypes();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.navigator.editors.IEditiorModelType <em>Editior Model Type</em>}'.
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.navigator.IEditiorModelType <em>Editior Model Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Editior Model Type</em>'.
-	 * @see com.rcpcompany.uibindings.navigator.editors.IEditiorModelType
+	 * @see com.rcpcompany.uibindings.navigator.IEditiorModelType
 	 * @generated
 	 */
 	EClass getEditiorModelType();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.rcpcompany.uibindings.navigator.editors.IEditiorModelType#getEditors <em>Editors</em>}'.
+	 * Returns the meta object for the reference list '{@link com.rcpcompany.uibindings.navigator.IEditiorModelType#getEditors <em>Editors</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Editors</em>'.
-	 * @see com.rcpcompany.uibindings.navigator.editors.IEditiorModelType#getEditors()
+	 * @see com.rcpcompany.uibindings.navigator.IEditiorModelType#getEditors()
 	 * @see #getEditiorModelType()
 	 * @generated
 	 */
 	EReference getEditiorModelType_Editors();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.navigator.editors.IEditiorModelType#getModelType <em>Model Type</em>}'.
+	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.navigator.IEditiorModelType#getModelType <em>Model Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Model Type</em>'.
-	 * @see com.rcpcompany.uibindings.navigator.editors.IEditiorModelType#getModelType()
+	 * @see com.rcpcompany.uibindings.navigator.IEditiorModelType#getModelType()
 	 * @see #getEditiorModelType()
 	 * @generated
 	 */
 	EAttribute getEditiorModelType_ModelType();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.navigator.editors.IEditorDescriptor <em>Editor Descriptor</em>}'.
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.navigator.IEditorDescriptor <em>Editor Descriptor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Editor Descriptor</em>'.
-	 * @see com.rcpcompany.uibindings.navigator.editors.IEditorDescriptor
+	 * @see com.rcpcompany.uibindings.navigator.IEditorDescriptor
 	 * @generated
 	 */
 	EClass getEditorDescriptor();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.navigator.editors.IEditorDescriptor#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.navigator.IEditorDescriptor#getId <em>Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see com.rcpcompany.uibindings.navigator.editors.IEditorDescriptor#getId()
+	 * @see com.rcpcompany.uibindings.navigator.IEditorDescriptor#getId()
 	 * @see #getEditorDescriptor()
 	 * @generated
 	 */
 	EAttribute getEditorDescriptor_Id();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.navigator.editors.IEditorDescriptor#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.navigator.IEditorDescriptor#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.rcpcompany.uibindings.navigator.editors.IEditorDescriptor#getName()
+	 * @see com.rcpcompany.uibindings.navigator.IEditorDescriptor#getName()
 	 * @see #getEditorDescriptor()
 	 * @generated
 	 */
 	EAttribute getEditorDescriptor_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.navigator.editors.IEditorDescriptor#getPriority <em>Priority</em>}'.
+	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.navigator.IEditorDescriptor#getPriority <em>Priority</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Priority</em>'.
-	 * @see com.rcpcompany.uibindings.navigator.editors.IEditorDescriptor#getPriority()
+	 * @see com.rcpcompany.uibindings.navigator.IEditorDescriptor#getPriority()
 	 * @see #getEditorDescriptor()
 	 * @generated
 	 */
 	EAttribute getEditorDescriptor_Priority();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.navigator.editors.IEditorDescriptor#getFactory <em>Factory</em>}'.
+	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.navigator.IEditorDescriptor#getFactory <em>Factory</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Factory</em>'.
-	 * @see com.rcpcompany.uibindings.navigator.editors.IEditorDescriptor#getFactory()
+	 * @see com.rcpcompany.uibindings.navigator.IEditorDescriptor#getFactory()
 	 * @see #getEditorDescriptor()
 	 * @generated
 	 */
 	EAttribute getEditorDescriptor_Factory();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.navigator.editors.IEditorDescriptor#getImage <em>Image</em>}'.
+	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.navigator.IEditorDescriptor#getImage <em>Image</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Image</em>'.
-	 * @see com.rcpcompany.uibindings.navigator.editors.IEditorDescriptor#getImage()
+	 * @see com.rcpcompany.uibindings.navigator.IEditorDescriptor#getImage()
 	 * @see #getEditorDescriptor()
 	 * @generated
 	 */
 	EAttribute getEditorDescriptor_Image();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.navigator.editors.IEditor <em>IEditor</em>}'.
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.navigator.IEditor <em>IEditor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>IEditor</em>'.
-	 * @see com.rcpcompany.uibindings.navigator.editors.IEditor
+	 * @see com.rcpcompany.uibindings.navigator.IEditor
 	 * @generated
 	 */
 	EClass getIEditor();
@@ -412,7 +411,7 @@ public interface IEditorsPackage extends EPackage {
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
-	IEditorsFactory getEditorsFactory();
+	INavigatorModelFactory getNavigatorModelFactory();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -428,14 +427,14 @@ public interface IEditorsPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.navigator.editors.internal.EditorManagerImpl <em>Editor Manager</em>}' class.
+		 * The meta object literal for the '{@link com.rcpcompany.uibindings.navigator.internal.NavigatorManagerImpl <em>Navigator Manager</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.rcpcompany.uibindings.navigator.editors.internal.EditorManagerImpl
-		 * @see com.rcpcompany.uibindings.navigator.editors.internal.EditorsPackageImpl#getEditorManager()
+		 * @see com.rcpcompany.uibindings.navigator.internal.NavigatorManagerImpl
+		 * @see com.rcpcompany.uibindings.navigator.internal.NavigatorModelPackageImpl#getNavigatorManager()
 		 * @generated
 		 */
-		EClass EDITOR_MANAGER = eINSTANCE.getEditorManager();
+		EClass NAVIGATOR_MANAGER = eINSTANCE.getNavigatorManager();
 
 		/**
 		 * The meta object literal for the '<em><b>Model Types</b></em>' map feature.
@@ -443,14 +442,14 @@ public interface IEditorsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EDITOR_MANAGER__MODEL_TYPES = eINSTANCE.getEditorManager_ModelTypes();
+		EReference NAVIGATOR_MANAGER__MODEL_TYPES = eINSTANCE.getNavigatorManager_ModelTypes();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.navigator.editors.internal.EditiorModelTypeImpl <em>Editior Model Type</em>}' class.
+		 * The meta object literal for the '{@link com.rcpcompany.uibindings.navigator.internal.EditiorModelTypeImpl <em>Editior Model Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.rcpcompany.uibindings.navigator.editors.internal.EditiorModelTypeImpl
-		 * @see com.rcpcompany.uibindings.navigator.editors.internal.EditorsPackageImpl#getEditiorModelType()
+		 * @see com.rcpcompany.uibindings.navigator.internal.EditiorModelTypeImpl
+		 * @see com.rcpcompany.uibindings.navigator.internal.NavigatorModelPackageImpl#getEditiorModelType()
 		 * @generated
 		 */
 		EClass EDITIOR_MODEL_TYPE = eINSTANCE.getEditiorModelType();
@@ -472,11 +471,11 @@ public interface IEditorsPackage extends EPackage {
 		EAttribute EDITIOR_MODEL_TYPE__MODEL_TYPE = eINSTANCE.getEditiorModelType_ModelType();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.navigator.editors.internal.EditorDescriptorImpl <em>Editor Descriptor</em>}' class.
+		 * The meta object literal for the '{@link com.rcpcompany.uibindings.navigator.internal.EditorDescriptorImpl <em>Editor Descriptor</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.rcpcompany.uibindings.navigator.editors.internal.EditorDescriptorImpl
-		 * @see com.rcpcompany.uibindings.navigator.editors.internal.EditorsPackageImpl#getEditorDescriptor()
+		 * @see com.rcpcompany.uibindings.navigator.internal.EditorDescriptorImpl
+		 * @see com.rcpcompany.uibindings.navigator.internal.NavigatorModelPackageImpl#getEditorDescriptor()
 		 * @generated
 		 */
 		EClass EDITOR_DESCRIPTOR = eINSTANCE.getEditorDescriptor();
@@ -522,21 +521,21 @@ public interface IEditorsPackage extends EPackage {
 		EAttribute EDITOR_DESCRIPTOR__IMAGE = eINSTANCE.getEditorDescriptor_Image();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.navigator.editors.IEditor <em>IEditor</em>}' class.
+		 * The meta object literal for the '{@link com.rcpcompany.uibindings.navigator.IEditor <em>IEditor</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.rcpcompany.uibindings.navigator.editors.IEditor
-		 * @see com.rcpcompany.uibindings.navigator.editors.internal.EditorsPackageImpl#getIEditor()
+		 * @see com.rcpcompany.uibindings.navigator.IEditor
+		 * @see com.rcpcompany.uibindings.navigator.internal.NavigatorModelPackageImpl#getIEditor()
 		 * @generated
 		 */
 		EClass IEDITOR = eINSTANCE.getIEditor();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.navigator.editors.internal.StringToModelTypeMapEntryImpl <em>String To Model Type Map Entry</em>}' class.
+		 * The meta object literal for the '{@link com.rcpcompany.uibindings.navigator.internal.StringToModelTypeMapEntryImpl <em>String To Model Type Map Entry</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.rcpcompany.uibindings.navigator.editors.internal.StringToModelTypeMapEntryImpl
-		 * @see com.rcpcompany.uibindings.navigator.editors.internal.EditorsPackageImpl#getStringToModelTypeMapEntry()
+		 * @see com.rcpcompany.uibindings.navigator.internal.StringToModelTypeMapEntryImpl
+		 * @see com.rcpcompany.uibindings.navigator.internal.NavigatorModelPackageImpl#getStringToModelTypeMapEntry()
 		 * @generated
 		 */
 		EClass STRING_TO_MODEL_TYPE_MAP_ENTRY = eINSTANCE.getStringToModelTypeMapEntry();
@@ -559,4 +558,4 @@ public interface IEditorsPackage extends EPackage {
 
 	}
 
-} //IEditorsPackage
+} //INavigatorModelPackage

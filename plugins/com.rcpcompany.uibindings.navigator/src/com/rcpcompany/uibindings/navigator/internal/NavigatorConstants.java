@@ -1,7 +1,5 @@
 package com.rcpcompany.uibindings.navigator.internal;
 
-import com.rcpcompany.uibindings.navigator.editors.internal.EditorManagerImpl;
-
 /**
  * Various constants used in the navigator plug-in
  * 

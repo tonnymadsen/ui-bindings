@@ -3,7 +3,7 @@
  * 
  * $Id$
  */
-package com.rcpcompany.uibindings.navigator.editors.internal;
+package com.rcpcompany.uibindings.navigator.internal;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -22,33 +22,32 @@ import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import com.rcpcompany.uibindings.UIBindingsUtils;
-import com.rcpcompany.uibindings.navigator.editors.IEditiorModelType;
-import com.rcpcompany.uibindings.navigator.editors.IEditor;
-import com.rcpcompany.uibindings.navigator.editors.IEditorDescriptor;
-import com.rcpcompany.uibindings.navigator.editors.IEditorManager;
-import com.rcpcompany.uibindings.navigator.editors.IEditorsFactory;
-import com.rcpcompany.uibindings.navigator.editors.IEditorsPackage;
-import com.rcpcompany.uibindings.navigator.internal.NavigatorConstants;
+import com.rcpcompany.uibindings.navigator.IEditiorModelType;
+import com.rcpcompany.uibindings.navigator.IEditor;
+import com.rcpcompany.uibindings.navigator.IEditorDescriptor;
+import com.rcpcompany.uibindings.navigator.INavigatorManager;
+import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
+import com.rcpcompany.uibindings.navigator.INavigatorModelPackage;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 import com.rcpcompany.utils.extensionpoints.CEResourceHolder;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Editor Manager</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Manager</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.navigator.editors.internal.EditorManagerImpl#getModelTypes <em>Model
- * Types</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.navigator.internal.NavigatorManagerImpl#getModelTypes <em>
+ * Model Types</em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class EditorManagerImpl extends EObjectImpl implements IEditorManager {
+public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManager {
 	/**
-	 * The cached value of the '{@link #getModelTypes() <em>Model Types</em>}' reference. <!--
+	 * The cached value of the '{@link #getModelTypes() <em>Model Types</em>}' map. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getModelTypes()
@@ -62,7 +61,7 @@ public class EditorManagerImpl extends EObjectImpl implements IEditorManager {
 	 * 
 	 * @generated NOT
 	 */
-	protected EditorManagerImpl() {
+	protected NavigatorManagerImpl() {
 		super();
 
 		extensionReader();
@@ -89,7 +88,7 @@ public class EditorManagerImpl extends EObjectImpl implements IEditorManager {
 
 				IEditiorModelType emt = getModelTypes().get(modelType);
 				if (emt == null) {
-					emt = IEditorsFactory.eINSTANCE.createEditiorModelType();
+					emt = INavigatorModelFactory.eINSTANCE.createEditiorModelType();
 					emt.setModelType(modelType);
 
 					getModelTypes().put(modelType, emt);
@@ -101,7 +100,7 @@ public class EditorManagerImpl extends EObjectImpl implements IEditorManager {
 					continue;
 				}
 
-				final IEditorDescriptor descriptor = IEditorsFactory.eINSTANCE.createEditorDescriptor();
+				final IEditorDescriptor descriptor = INavigatorModelFactory.eINSTANCE.createEditorDescriptor();
 				emt.getEditors().add(descriptor);
 				descriptor.setId(id);
 				descriptor.setName(name);
@@ -145,7 +144,7 @@ public class EditorManagerImpl extends EObjectImpl implements IEditorManager {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return IEditorsPackage.Literals.EDITOR_MANAGER;
+		return INavigatorModelPackage.Literals.NAVIGATOR_MANAGER;
 	}
 
 	/**
@@ -156,8 +155,8 @@ public class EditorManagerImpl extends EObjectImpl implements IEditorManager {
 	public EMap<String, IEditiorModelType> getModelTypes() {
 		if (modelTypes == null) {
 			modelTypes = new EcoreEMap<String, IEditiorModelType>(
-					IEditorsPackage.Literals.STRING_TO_MODEL_TYPE_MAP_ENTRY, StringToModelTypeMapEntryImpl.class, this,
-					IEditorsPackage.EDITOR_MANAGER__MODEL_TYPES);
+					INavigatorModelPackage.Literals.STRING_TO_MODEL_TYPE_MAP_ENTRY,
+					StringToModelTypeMapEntryImpl.class, this, INavigatorModelPackage.NAVIGATOR_MANAGER__MODEL_TYPES);
 		}
 		return modelTypes;
 	}
@@ -170,7 +169,7 @@ public class EditorManagerImpl extends EObjectImpl implements IEditorManager {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case IEditorsPackage.EDITOR_MANAGER__MODEL_TYPES:
+		case INavigatorModelPackage.NAVIGATOR_MANAGER__MODEL_TYPES:
 			return ((InternalEList<?>) getModelTypes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -184,7 +183,7 @@ public class EditorManagerImpl extends EObjectImpl implements IEditorManager {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case IEditorsPackage.EDITOR_MANAGER__MODEL_TYPES:
+		case INavigatorModelPackage.NAVIGATOR_MANAGER__MODEL_TYPES:
 			if (coreType) {
 				return getModelTypes();
 			} else {
@@ -199,11 +198,10 @@ public class EditorManagerImpl extends EObjectImpl implements IEditorManager {
 	 * 
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case IEditorsPackage.EDITOR_MANAGER__MODEL_TYPES:
+		case INavigatorModelPackage.NAVIGATOR_MANAGER__MODEL_TYPES:
 			((EStructuralFeature.Setting) getModelTypes()).set(newValue);
 			return;
 		}
@@ -218,7 +216,7 @@ public class EditorManagerImpl extends EObjectImpl implements IEditorManager {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case IEditorsPackage.EDITOR_MANAGER__MODEL_TYPES:
+		case INavigatorModelPackage.NAVIGATOR_MANAGER__MODEL_TYPES:
 			getModelTypes().clear();
 			return;
 		}
@@ -233,10 +231,10 @@ public class EditorManagerImpl extends EObjectImpl implements IEditorManager {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case IEditorsPackage.EDITOR_MANAGER__MODEL_TYPES:
+		case INavigatorModelPackage.NAVIGATOR_MANAGER__MODEL_TYPES:
 			return modelTypes != null && !modelTypes.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} // EditorManagerImpl
+} // NavigatorManagerImpl

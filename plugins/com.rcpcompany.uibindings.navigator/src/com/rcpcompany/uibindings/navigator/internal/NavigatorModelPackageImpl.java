@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package com.rcpcompany.uibindings.navigator.editors.internal;
+package com.rcpcompany.uibindings.navigator.internal;
 
 import java.util.Map;
 
@@ -16,12 +16,12 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import com.rcpcompany.uibindings.IUIBindingsPackage;
-import com.rcpcompany.uibindings.navigator.editors.IEditiorModelType;
-import com.rcpcompany.uibindings.navigator.editors.IEditor;
-import com.rcpcompany.uibindings.navigator.editors.IEditorDescriptor;
-import com.rcpcompany.uibindings.navigator.editors.IEditorManager;
-import com.rcpcompany.uibindings.navigator.editors.IEditorsFactory;
-import com.rcpcompany.uibindings.navigator.editors.IEditorsPackage;
+import com.rcpcompany.uibindings.navigator.IEditiorModelType;
+import com.rcpcompany.uibindings.navigator.IEditor;
+import com.rcpcompany.uibindings.navigator.IEditorDescriptor;
+import com.rcpcompany.uibindings.navigator.INavigatorManager;
+import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
+import com.rcpcompany.uibindings.navigator.INavigatorModelPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,13 +29,13 @@ import com.rcpcompany.uibindings.navigator.editors.IEditorsPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EditorsPackageImpl extends EPackageImpl implements IEditorsPackage {
+public class NavigatorModelPackageImpl extends EPackageImpl implements INavigatorModelPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass editorManagerEClass = null;
+	private EClass navigatorManagerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,12 +76,12 @@ public class EditorsPackageImpl extends EPackageImpl implements IEditorsPackage 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see com.rcpcompany.uibindings.navigator.editors.IEditorsPackage#eNS_URI
+	 * @see com.rcpcompany.uibindings.navigator.INavigatorModelPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
-	private EditorsPackageImpl() {
-		super(eNS_URI, IEditorsFactory.eINSTANCE);
+	private NavigatorModelPackageImpl() {
+		super(eNS_URI, INavigatorModelFactory.eINSTANCE);
 	}
 
 	/**
@@ -94,7 +94,7 @@ public class EditorsPackageImpl extends EPackageImpl implements IEditorsPackage 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 * 
-	 * <p>This method is used to initialize {@link IEditorsPackage#eINSTANCE} when that field is accessed.
+	 * <p>This method is used to initialize {@link INavigatorModelPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,11 +103,11 @@ public class EditorsPackageImpl extends EPackageImpl implements IEditorsPackage 
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static IEditorsPackage init() {
-		if (isInited) return (IEditorsPackage)EPackage.Registry.INSTANCE.getEPackage(IEditorsPackage.eNS_URI);
+	public static INavigatorModelPackage init() {
+		if (isInited) return (INavigatorModelPackage)EPackage.Registry.INSTANCE.getEPackage(INavigatorModelPackage.eNS_URI);
 
 		// Obtain or create and register package
-		EditorsPackageImpl theEditorsPackage = (EditorsPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof EditorsPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new EditorsPackageImpl());
+		NavigatorModelPackageImpl theNavigatorModelPackage = (NavigatorModelPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof NavigatorModelPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new NavigatorModelPackageImpl());
 
 		isInited = true;
 
@@ -115,18 +115,18 @@ public class EditorsPackageImpl extends EPackageImpl implements IEditorsPackage 
 		IUIBindingsPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
-		theEditorsPackage.createPackageContents();
+		theNavigatorModelPackage.createPackageContents();
 
 		// Initialize created meta-data
-		theEditorsPackage.initializePackageContents();
+		theNavigatorModelPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
-		theEditorsPackage.freeze();
+		theNavigatorModelPackage.freeze();
 
   
 		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(IEditorsPackage.eNS_URI, theEditorsPackage);
-		return theEditorsPackage;
+		EPackage.Registry.INSTANCE.put(INavigatorModelPackage.eNS_URI, theNavigatorModelPackage);
+		return theNavigatorModelPackage;
 	}
 
 	/**
@@ -134,8 +134,8 @@ public class EditorsPackageImpl extends EPackageImpl implements IEditorsPackage 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEditorManager() {
-		return editorManagerEClass;
+	public EClass getNavigatorManager() {
+		return navigatorManagerEClass;
 	}
 
 	/**
@@ -143,8 +143,8 @@ public class EditorsPackageImpl extends EPackageImpl implements IEditorsPackage 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEditorManager_ModelTypes() {
-		return (EReference)editorManagerEClass.getEStructuralFeatures().get(0);
+	public EReference getNavigatorManager_ModelTypes() {
+		return (EReference)navigatorManagerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -269,8 +269,8 @@ public class EditorsPackageImpl extends EPackageImpl implements IEditorsPackage 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IEditorsFactory getEditorsFactory() {
-		return (IEditorsFactory)getEFactoryInstance();
+	public INavigatorModelFactory getNavigatorModelFactory() {
+		return (INavigatorModelFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -292,8 +292,8 @@ public class EditorsPackageImpl extends EPackageImpl implements IEditorsPackage 
 		isCreated = true;
 
 		// Create classes and their features
-		editorManagerEClass = createEClass(EDITOR_MANAGER);
-		createEReference(editorManagerEClass, EDITOR_MANAGER__MODEL_TYPES);
+		navigatorManagerEClass = createEClass(NAVIGATOR_MANAGER);
+		createEReference(navigatorManagerEClass, NAVIGATOR_MANAGER__MODEL_TYPES);
 
 		editiorModelTypeEClass = createEClass(EDITIOR_MODEL_TYPE);
 		createEReference(editiorModelTypeEClass, EDITIOR_MODEL_TYPE__EDITORS);
@@ -346,8 +346,8 @@ public class EditorsPackageImpl extends EPackageImpl implements IEditorsPackage 
 		// Add supertypes to classes
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(editorManagerEClass, IEditorManager.class, "EditorManager", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEditorManager_ModelTypes(), this.getStringToModelTypeMapEntry(), null, "modelTypes", null, 0, -1, IEditorManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(navigatorManagerEClass, INavigatorManager.class, "NavigatorManager", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNavigatorManager_ModelTypes(), this.getStringToModelTypeMapEntry(), null, "modelTypes", null, 0, -1, INavigatorManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(editiorModelTypeEClass, IEditiorModelType.class, "EditiorModelType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEditiorModelType_Editors(), this.getEditorDescriptor(), null, "editors", null, 0, -1, IEditiorModelType.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -373,4 +373,4 @@ public class EditorsPackageImpl extends EPackageImpl implements IEditorsPackage 
 		createResource(eNS_URI);
 	}
 
-} //EditorsPackageImpl
+} //NavigatorModelPackageImpl

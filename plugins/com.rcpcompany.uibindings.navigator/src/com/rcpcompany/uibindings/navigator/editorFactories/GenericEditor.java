@@ -1,7 +1,7 @@
-package com.rcpcompany.uibindings.navigator.editors.builtin;
+package com.rcpcompany.uibindings.navigator.editorFactories;
 
-import com.rcpcompany.uibindings.navigator.editors.IEditor;
-import com.rcpcompany.uibindings.navigator.editors.IEditorContext;
+import com.rcpcompany.uibindings.navigator.IEditor;
+import com.rcpcompany.uibindings.navigator.IEditorContext;
 import com.rcpcompany.uibindings.utils.IAutoFormCreator;
 
 /**

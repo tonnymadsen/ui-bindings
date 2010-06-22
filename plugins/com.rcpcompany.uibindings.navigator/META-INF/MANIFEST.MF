@@ -13,4 +13,6 @@ Require-Bundle: org.eclipse.ui,
  com.rcpcompany.utils.selection;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
-Export-Package: com.rcpcompany.uibindings.navigator.views
+Export-Package: com.rcpcompany.uibindings.navigator,
+ com.rcpcompany.uibindings.navigator.editorFactories,
+ com.rcpcompany.uibindings.navigator.views

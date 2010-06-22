@@ -1,4 +1,4 @@
-package com.rcpcompany.uibindings.navigator.editors;
+package com.rcpcompany.uibindings.navigator;
 
 
 /**

@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package com.rcpcompany.uibindings.navigator.editors.internal;
+package com.rcpcompany.uibindings.navigator.internal;
 
 import java.util.Collection;
 
@@ -15,9 +15,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectEList;
 
-import com.rcpcompany.uibindings.navigator.editors.IEditiorModelType;
-import com.rcpcompany.uibindings.navigator.editors.IEditorDescriptor;
-import com.rcpcompany.uibindings.navigator.editors.IEditorsPackage;
+import com.rcpcompany.uibindings.navigator.IEditiorModelType;
+import com.rcpcompany.uibindings.navigator.IEditorDescriptor;
+import com.rcpcompany.uibindings.navigator.INavigatorModelPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,8 +26,8 @@ import com.rcpcompany.uibindings.navigator.editors.IEditorsPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.navigator.editors.internal.EditiorModelTypeImpl#getEditors <em>Editors</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.navigator.editors.internal.EditiorModelTypeImpl#getModelType <em>Model Type</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.navigator.internal.EditiorModelTypeImpl#getEditors <em>Editors</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.navigator.internal.EditiorModelTypeImpl#getModelType <em>Model Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,7 +80,7 @@ public class EditiorModelTypeImpl extends EObjectImpl implements IEditiorModelTy
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return IEditorsPackage.Literals.EDITIOR_MODEL_TYPE;
+		return INavigatorModelPackage.Literals.EDITIOR_MODEL_TYPE;
 	}
 
 	/**
@@ -90,7 +90,7 @@ public class EditiorModelTypeImpl extends EObjectImpl implements IEditiorModelTy
 	 */
 	public EList<IEditorDescriptor> getEditors() {
 		if (editors == null) {
-			editors = new EObjectEList<IEditorDescriptor>(IEditorDescriptor.class, this, IEditorsPackage.EDITIOR_MODEL_TYPE__EDITORS);
+			editors = new EObjectEList<IEditorDescriptor>(IEditorDescriptor.class, this, INavigatorModelPackage.EDITIOR_MODEL_TYPE__EDITORS);
 		}
 		return editors;
 	}
@@ -113,7 +113,7 @@ public class EditiorModelTypeImpl extends EObjectImpl implements IEditiorModelTy
 		String oldModelType = modelType;
 		modelType = newModelType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IEditorsPackage.EDITIOR_MODEL_TYPE__MODEL_TYPE, oldModelType, modelType));
+			eNotify(new ENotificationImpl(this, Notification.SET, INavigatorModelPackage.EDITIOR_MODEL_TYPE__MODEL_TYPE, oldModelType, modelType));
 	}
 
 	/**
@@ -124,9 +124,9 @@ public class EditiorModelTypeImpl extends EObjectImpl implements IEditiorModelTy
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case IEditorsPackage.EDITIOR_MODEL_TYPE__EDITORS:
+			case INavigatorModelPackage.EDITIOR_MODEL_TYPE__EDITORS:
 				return getEditors();
-			case IEditorsPackage.EDITIOR_MODEL_TYPE__MODEL_TYPE:
+			case INavigatorModelPackage.EDITIOR_MODEL_TYPE__MODEL_TYPE:
 				return getModelType();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -141,11 +141,11 @@ public class EditiorModelTypeImpl extends EObjectImpl implements IEditiorModelTy
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case IEditorsPackage.EDITIOR_MODEL_TYPE__EDITORS:
+			case INavigatorModelPackage.EDITIOR_MODEL_TYPE__EDITORS:
 				getEditors().clear();
 				getEditors().addAll((Collection<? extends IEditorDescriptor>)newValue);
 				return;
-			case IEditorsPackage.EDITIOR_MODEL_TYPE__MODEL_TYPE:
+			case INavigatorModelPackage.EDITIOR_MODEL_TYPE__MODEL_TYPE:
 				setModelType((String)newValue);
 				return;
 		}
@@ -160,10 +160,10 @@ public class EditiorModelTypeImpl extends EObjectImpl implements IEditiorModelTy
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case IEditorsPackage.EDITIOR_MODEL_TYPE__EDITORS:
+			case INavigatorModelPackage.EDITIOR_MODEL_TYPE__EDITORS:
 				getEditors().clear();
 				return;
-			case IEditorsPackage.EDITIOR_MODEL_TYPE__MODEL_TYPE:
+			case INavigatorModelPackage.EDITIOR_MODEL_TYPE__MODEL_TYPE:
 				setModelType(MODEL_TYPE_EDEFAULT);
 				return;
 		}
@@ -178,9 +178,9 @@ public class EditiorModelTypeImpl extends EObjectImpl implements IEditiorModelTy
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case IEditorsPackage.EDITIOR_MODEL_TYPE__EDITORS:
+			case INavigatorModelPackage.EDITIOR_MODEL_TYPE__EDITORS:
 				return editors != null && !editors.isEmpty();
-			case IEditorsPackage.EDITIOR_MODEL_TYPE__MODEL_TYPE:
+			case INavigatorModelPackage.EDITIOR_MODEL_TYPE__MODEL_TYPE:
 				return MODEL_TYPE_EDEFAULT == null ? modelType != null : !MODEL_TYPE_EDEFAULT.equals(modelType);
 		}
 		return super.eIsSet(featureID);

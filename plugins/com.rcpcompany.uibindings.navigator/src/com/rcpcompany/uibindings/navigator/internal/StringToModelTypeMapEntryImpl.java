@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package com.rcpcompany.uibindings.navigator.editors.internal;
+package com.rcpcompany.uibindings.navigator.internal;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEMap;
@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import com.rcpcompany.uibindings.navigator.editors.IEditiorModelType;
-import com.rcpcompany.uibindings.navigator.editors.IEditorsPackage;
+import com.rcpcompany.uibindings.navigator.IEditiorModelType;
+import com.rcpcompany.uibindings.navigator.INavigatorModelPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,8 +24,8 @@ import com.rcpcompany.uibindings.navigator.editors.IEditorsPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.navigator.editors.internal.StringToModelTypeMapEntryImpl#getTypedKey <em>Key</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.navigator.editors.internal.StringToModelTypeMapEntryImpl#getTypedValue <em>Value</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.navigator.internal.StringToModelTypeMapEntryImpl#getTypedKey <em>Key</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.navigator.internal.StringToModelTypeMapEntryImpl#getTypedValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -78,7 +78,7 @@ public class StringToModelTypeMapEntryImpl extends EObjectImpl implements BasicE
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return IEditorsPackage.Literals.STRING_TO_MODEL_TYPE_MAP_ENTRY;
+		return INavigatorModelPackage.Literals.STRING_TO_MODEL_TYPE_MAP_ENTRY;
 	}
 
 	/**
@@ -99,7 +99,7 @@ public class StringToModelTypeMapEntryImpl extends EObjectImpl implements BasicE
 		String oldKey = key;
 		key = newKey;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IEditorsPackage.STRING_TO_MODEL_TYPE_MAP_ENTRY__KEY, oldKey, key));
+			eNotify(new ENotificationImpl(this, Notification.SET, INavigatorModelPackage.STRING_TO_MODEL_TYPE_MAP_ENTRY__KEY, oldKey, key));
 	}
 
 	/**
@@ -120,7 +120,7 @@ public class StringToModelTypeMapEntryImpl extends EObjectImpl implements BasicE
 		IEditiorModelType oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IEditorsPackage.STRING_TO_MODEL_TYPE_MAP_ENTRY__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, INavigatorModelPackage.STRING_TO_MODEL_TYPE_MAP_ENTRY__VALUE, oldValue, value));
 	}
 
 	/**
@@ -131,9 +131,9 @@ public class StringToModelTypeMapEntryImpl extends EObjectImpl implements BasicE
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case IEditorsPackage.STRING_TO_MODEL_TYPE_MAP_ENTRY__KEY:
+			case INavigatorModelPackage.STRING_TO_MODEL_TYPE_MAP_ENTRY__KEY:
 				return getTypedKey();
-			case IEditorsPackage.STRING_TO_MODEL_TYPE_MAP_ENTRY__VALUE:
+			case INavigatorModelPackage.STRING_TO_MODEL_TYPE_MAP_ENTRY__VALUE:
 				return getTypedValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -147,10 +147,10 @@ public class StringToModelTypeMapEntryImpl extends EObjectImpl implements BasicE
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case IEditorsPackage.STRING_TO_MODEL_TYPE_MAP_ENTRY__KEY:
+			case INavigatorModelPackage.STRING_TO_MODEL_TYPE_MAP_ENTRY__KEY:
 				setTypedKey((String)newValue);
 				return;
-			case IEditorsPackage.STRING_TO_MODEL_TYPE_MAP_ENTRY__VALUE:
+			case INavigatorModelPackage.STRING_TO_MODEL_TYPE_MAP_ENTRY__VALUE:
 				setTypedValue((IEditiorModelType)newValue);
 				return;
 		}
@@ -165,10 +165,10 @@ public class StringToModelTypeMapEntryImpl extends EObjectImpl implements BasicE
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case IEditorsPackage.STRING_TO_MODEL_TYPE_MAP_ENTRY__KEY:
+			case INavigatorModelPackage.STRING_TO_MODEL_TYPE_MAP_ENTRY__KEY:
 				setTypedKey(KEY_EDEFAULT);
 				return;
-			case IEditorsPackage.STRING_TO_MODEL_TYPE_MAP_ENTRY__VALUE:
+			case INavigatorModelPackage.STRING_TO_MODEL_TYPE_MAP_ENTRY__VALUE:
 				setTypedValue((IEditiorModelType)null);
 				return;
 		}
@@ -183,9 +183,9 @@ public class StringToModelTypeMapEntryImpl extends EObjectImpl implements BasicE
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case IEditorsPackage.STRING_TO_MODEL_TYPE_MAP_ENTRY__KEY:
+			case INavigatorModelPackage.STRING_TO_MODEL_TYPE_MAP_ENTRY__KEY:
 				return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
-			case IEditorsPackage.STRING_TO_MODEL_TYPE_MAP_ENTRY__VALUE:
+			case INavigatorModelPackage.STRING_TO_MODEL_TYPE_MAP_ENTRY__VALUE:
 				return value != null;
 		}
 		return super.eIsSet(featureID);
