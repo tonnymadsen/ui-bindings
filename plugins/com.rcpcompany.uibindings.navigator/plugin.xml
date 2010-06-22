@@ -137,9 +137,24 @@
    <view
          allowMultiple="true"
          class="com.rcpcompany.uibindings.navigator.internal.views.BaseEditorView"
-         id="com.rcpcompany.uibindings.navigator.internal.views.BaseView"
+         id="com.rcpcompany.uibindings.navigator.internal.views.BaseEditorView"
          name="Generic Object Editor"
-         restorable="true">
+         restorable="false">
    </view>
+</extension>
+<extension
+      point="org.eclipse.core.runtime.preferences">
+   <initializer
+         class="com.rcpcompany.uibindings.navigator.internal.PreferenceInitializer1">
+   </initializer>
+</extension>
+<extension
+      point="org.eclipse.ui.preferencePages">
+   <page
+         category="com.rcpcompany.uibindings.example.application.pages.basic"
+         class="com.rcpcompany.uibindings.navigator.internal.pages.PreferredEditorPage"
+         id="com.rcpcompany.uibindings.navigator.internal.pages.PreferredEditorPage"
+         name="Editors">
+   </page>
 </extension>
 </plugin>

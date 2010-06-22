@@ -7,13 +7,15 @@
             factory="com.rcpcompany.uibindings.tests.editors.shopEditors.ShopInfo.Editor"
             id="com.rcpcompany.uibindings.tests.editors.editors.basic"
             modelType="com.rcpcompany.uibindings.tests.shop.Shop"
-            name="Basic Shop Information">
+            name="Basic Shop Information"
+            priority="10000">
       </editor>
       <editor
             factory="com.rcpcompany.uibindings.tests.editors.shopEditors.ShopInfo.Editor"
             id="com.rcpcompany.uibindings.tests.editors.editors.countries"
             modelType="com.rcpcompany.uibindings.tests.shop.Shop"
-            name="Shop Countries">
+            name="Shop Countries"
+            priority="5000">
       </editor>
       <editor
             factory="com.rcpcompany.uibindings.navigator.editors.builtin.GenericEditor"
@@ -26,6 +28,12 @@
             id="com.rcpcompany.uibindings.tests.editors.editors.generic.country"
             modelType="com.rcpcompany.uibindings.tests.shop.Country"
             name="Generic Information (country)">
+      </editor>
+      <editor
+            factory="com.rcpcompany.uibindings.navigator.editors.builtin.GenericEditor"
+            id="com.rcpcompany.uibindings.tests.editors.editors.generic.shopinformation"
+            modelType="com.rcpcompany.uibindings.tests.shop.ShopItemInformation"
+            name="Generic Information (item info)">
       </editor>
    </extension>
 

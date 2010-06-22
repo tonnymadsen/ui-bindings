@@ -5,15 +5,17 @@
     nsURI="http://rcpcompany.com/schemas/uibindings/navigator" nsPrefix="navigator">
   <eClassifiers xsi:type="ecore:EClass" name="NavigatorManager">
     <eStructuralFeatures xsi:type="ecore:EReference" name="modelTypes" upperBound="-1"
-        eType="#//StringToModelTypeMapEntry" containment="true" resolveProxies="false"/>
+        eType="#//EditorModelType" transient="true" resolveProxies="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EditiorModelType">
+  <eClassifiers xsi:type="ecore:EClass" name="EditorModelType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="editors" upperBound="-1"
-        eType="#//EditorDescriptor" transient="true" resolveProxies="false"/>
+        eType="#//EditorPartDescriptor" transient="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preferredEditor" eType="#//EditorPartDescriptor"
+        transient="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelType" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EditorDescriptor">
+  <eClassifiers xsi:type="ecore:EClass" name="EditorPartDescriptor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" lowerBound="1"
@@ -29,9 +31,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IEditorPartFactory" instanceClassName="com.rcpcompany.uibindings.navigator.IEditorPartFactory"
       abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IEditorPartView" instanceClassName="com.rcpcompany.uibindings.navigator.IEditorPartView"
+      abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="StringToModelTypeMapEntry" instanceClassName="java.util.Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//EditiorModelType"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//EditorModelType"
         transient="true" resolveProxies="false"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -6,5 +6,5 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Tonny Madsen, The RCP Company
 Fragment-Host: com.rcpcompany.uibindings.navigator;bundle-version="[1.0.0,2.0.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Require-Bundle: org.junit4;bundle-version="[4.8.1,5.0.0)",
- com.rcpcompany.uibindings.tests.model;bundle-version="1.5.0"
+Require-Bundle: org.junit4,
+ com.rcpcompany.uibindings.tests.model

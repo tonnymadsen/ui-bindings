@@ -32,6 +32,15 @@ public interface INavigatorModelFactory extends EFactory {
 	INavigatorManager createNavigatorManager();
 
 	/**
+	 * Returns a new object of class '<em>Editor Model Type</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Editor Model Type</em>'.
+	 * @generated
+	 */
+	IEditorModelType createEditorModelType();
+
+	/**
 	 * Returns the manager.
 	 * 
 	 * @return the manager
@@ -39,22 +48,13 @@ public interface INavigatorModelFactory extends EFactory {
 	INavigatorManager getManager();
 
 	/**
-	 * Returns a new object of class '<em>Editior Model Type</em>'. <!-- begin-user-doc --> <!--
+	 * Returns a new object of class '<em>Editor Part Descriptor</em>'. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
-	 * @return a new object of class '<em>Editior Model Type</em>'.
+	 * @return a new object of class '<em>Editor Part Descriptor</em>'.
 	 * @generated
 	 */
-	IEditiorModelType createEditiorModelType();
-
-	/**
-	 * Returns a new object of class '<em>Editor Descriptor</em>'. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>Editor Descriptor</em>'.
-	 * @generated
-	 */
-	IEditorDescriptor createEditorDescriptor();
+	IEditorPartDescriptor createEditorPartDescriptor();
 
 	/**
 	 * Returns the package supported by this factory. <!-- begin-user-doc --> <!-- end-user-doc -->

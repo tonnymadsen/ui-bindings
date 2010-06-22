@@ -5,8 +5,11 @@
  */
 package com.rcpcompany.uibindings.navigator;
 
-import org.eclipse.emf.common.util.EMap;
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.ui.IWorkbenchWindow;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Navigator Manager</b></em>'.
@@ -25,19 +28,52 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface INavigatorManager extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Model Types</b></em>' map. The key is of type
-	 * {@link java.lang.String}, and the value is of type
-	 * {@link com.rcpcompany.uibindings.navigator.IEditiorModelType}, <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Model Types</b></em>' reference list. The list contents are
+	 * of type {@link com.rcpcompany.uibindings.navigator.IEditorModelType}. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Model Types</em>' map isn't clear, there really should be more of
 	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Model Types</em>' map.
+	 * @return the value of the '<em>Model Types</em>' reference list.
 	 * @see com.rcpcompany.uibindings.navigator.INavigatorModelPackage#getNavigatorManager_ModelTypes()
 	 * @generated
 	 */
-	EMap<String, IEditiorModelType> getModelTypes();
+	EList<IEditorModelType> getModelTypes();
 
+	/**
+	 * Finds and returns the best possible editor part descriptor for the specified object.
+	 * <p>
+	 * If the object is <code>null</code>, <code>null</code> is returned.
+	 * 
+	 * @param obj the object to find a descriptor for or <code>null</code>
+	 * @return the descriptor or <code>null</code>
+	 */
+	IEditorPartDescriptor getEditorPartDescriptor(EObject obj);
+
+	/**
+	 * Returns a view for the specified object.
+	 * <p>
+	 * And existing view for the specified object is automatically re-used.
+	 * <p>
+	 * Re-uses any old {@link IEditorPartView#isPinned() un-pinned} view instead of creating a new
+	 * view
+	 * 
+	 * @param obj the object of the new view
+	 * @return the view
+	 */
+	IEditorPartView getView(EObject obj);
+
+	/**
+	 * Returns a collection of all existing views in the active {@link IWorkbenchWindow}.
+	 * 
+	 * @return the collection of views
+	 */
+	Collection<IEditorPartView> getAllViews();
+
+	/**
+	 * Closes all existing views (whether pinned or not).
+	 */
+	void closeAllViews();
 } // INavigatorManager

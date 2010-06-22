@@ -7,9 +7,10 @@ package com.rcpcompany.uibindings.navigator;
  */
 public interface IEditorPartFactory {
 	/**
-	 * Creates the new editor part in the specified form.
+	 * Creates and returns the new editor part in the specified form.
 	 * 
 	 * @param context the context for the creation
+	 * @return the created editor part
 	 */
-	void createEditorPart(IEditorPartContext context);
+	IEditorPart createEditorPart(IEditorPartContext context);
 }

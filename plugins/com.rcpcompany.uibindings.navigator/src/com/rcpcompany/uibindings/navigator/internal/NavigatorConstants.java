@@ -13,11 +13,15 @@ public interface NavigatorConstants {
 	 */
 	String EDITORS_EXTENSION_POINT = Activator.ID + ".editors"; //$NON-NLS-1$
 
+	/**
+	 * The ID of the Generic Editor View.
+	 */
+	String VIEW_ID = Activator.ID + ".internal.views.BaseEditorView"; //$NON-NLS-1$
+
 	String ID_TAG = "id";
 	String MODEL_TYPE_TAG = "modelType";
 	String EDITOR_TAG = "editor";
 	String PRIORITY_TAG = "priority";
 	String NAME_TAG = "name";
 	String IMAGE_TAG = "image";
-
 }

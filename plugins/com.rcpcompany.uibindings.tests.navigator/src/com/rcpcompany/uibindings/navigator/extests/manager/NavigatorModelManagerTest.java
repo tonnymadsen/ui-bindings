@@ -10,11 +10,10 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.EMap;
 import org.junit.Test;
 
-import com.rcpcompany.uibindings.navigator.IEditiorModelType;
-import com.rcpcompany.uibindings.navigator.IEditorDescriptor;
+import com.rcpcompany.uibindings.navigator.IEditorModelType;
+import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
 import com.rcpcompany.uibindings.navigator.internal.NavigatorConstants;
@@ -50,29 +49,30 @@ public class NavigatorModelManagerTest {
 			}
 		}
 
-		assertEquals(4, list.size());
+		assertEquals(5, list.size());
 
 		final INavigatorManager manager = INavigatorModelFactory.eINSTANCE.getManager();
 
 		assertNotNull(manager);
 
-		final EMap<String, IEditiorModelType> modelTypes = manager.getModelTypes();
+		final EList<IEditorModelType> modelTypes = manager.getModelTypes();
 		assertNotNull(modelTypes);
-		assertEquals(2, modelTypes.size());
+		assertEquals(3, modelTypes.size());
 
-		final IEditiorModelType shopModelType = modelTypes.get(Shop.class.getName());
-		assertNotNull(shopModelType);
-		assertEquals(Shop.class.getName(), shopModelType.getModelType());
-		final EList<IEditorDescriptor> shopEditors = shopModelType.getEditors();
-		assertEquals(3, shopEditors.size());
-
-		final IEditiorModelType countryModelType = modelTypes.get(Country.class.getName());
-		assertNotNull(countryModelType);
-		assertEquals(Country.class.getName(), countryModelType.getModelType());
-		final EList<IEditorDescriptor> countryEditors = countryModelType.getEditors();
-		assertEquals(1, countryEditors.size());
-		final IEditorDescriptor countryED = countryEditors.get(0);
-		assertNotNull(countryED.getFactory());
-		assertEquals("Generic Information (country)", countryED.getName());
+		for (final IEditorModelType mt : manager.getModelTypes()) {
+			if (mt.getModelType().equals(Shop.class.getName())) {
+				assertEquals(Shop.class.getName(), mt.getModelType());
+				final EList<IEditorPartDescriptor> shopEditors = mt.getEditors();
+				assertEquals(3, shopEditors.size());
+			}
+			if (mt.getModelType().equals(Country.class.getName())) {
+				assertEquals(Country.class.getName(), mt.getModelType());
+				final EList<IEditorPartDescriptor> countryEditors = mt.getEditors();
+				assertEquals(1, countryEditors.size());
+				final IEditorPartDescriptor countryED = countryEditors.get(0);
+				assertNotNull(countryED.getFactory());
+				assertEquals("Generic Information (country)", countryED.getName());
+			}
+		}
 	}
 }

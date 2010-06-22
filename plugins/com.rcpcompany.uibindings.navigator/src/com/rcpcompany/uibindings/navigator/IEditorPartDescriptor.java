@@ -17,18 +17,20 @@ import com.rcpcompany.utils.extensionpoints.CEResourceHolder;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.navigator.IEditorDescriptor#getId <em>Id</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.navigator.IEditorDescriptor#getName <em>Name</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.navigator.IEditorDescriptor#getPriority <em>Priority</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.navigator.IEditorDescriptor#getFactory <em>Factory</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.navigator.IEditorDescriptor#getImage <em>Image</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.navigator.IEditorPartDescriptor#getId <em>Id</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.navigator.IEditorPartDescriptor#getName <em>Name</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.navigator.IEditorPartDescriptor#getPriority <em>Priority
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.navigator.IEditorPartDescriptor#getFactory <em>Factory</em>}
+ * </li>
+ * <li>{@link com.rcpcompany.uibindings.navigator.IEditorPartDescriptor#getImage <em>Image</em>}</li>
  * </ul>
  * </p>
  * 
- * @see com.rcpcompany.uibindings.navigator.INavigatorModelPackage#getEditorDescriptor()
+ * @see com.rcpcompany.uibindings.navigator.INavigatorModelPackage#getEditorPartDescriptor()
  * @generated
  */
-public interface IEditorDescriptor extends EObject {
+public interface IEditorPartDescriptor extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
@@ -39,14 +41,15 @@ public interface IEditorDescriptor extends EObject {
 	 * 
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
-	 * @see com.rcpcompany.uibindings.navigator.INavigatorModelPackage#getEditorDescriptor_Id()
+	 * @see com.rcpcompany.uibindings.navigator.INavigatorModelPackage#getEditorPartDescriptor_Id()
 	 * @generated
 	 */
 	String getId();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.navigator.IEditorDescriptor#getId
-	 * <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.navigator.IEditorPartDescriptor#getId <em>Id</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
@@ -64,14 +67,15 @@ public interface IEditorDescriptor extends EObject {
 	 * 
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see com.rcpcompany.uibindings.navigator.INavigatorModelPackage#getEditorDescriptor_Name()
+	 * @see com.rcpcompany.uibindings.navigator.INavigatorModelPackage#getEditorPartDescriptor_Name()
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.navigator.IEditorDescriptor#getName
-	 * <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.navigator.IEditorPartDescriptor#getName <em>Name</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
@@ -89,15 +93,15 @@ public interface IEditorDescriptor extends EObject {
 	 * 
 	 * @return the value of the '<em>Priority</em>' attribute.
 	 * @see #setPriority(int)
-	 * @see com.rcpcompany.uibindings.navigator.INavigatorModelPackage#getEditorDescriptor_Priority()
+	 * @see com.rcpcompany.uibindings.navigator.INavigatorModelPackage#getEditorPartDescriptor_Priority()
 	 * @generated
 	 */
 	int getPriority();
 
 	/**
 	 * Sets the value of the '
-	 * {@link com.rcpcompany.uibindings.navigator.IEditorDescriptor#getPriority <em>Priority</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.navigator.IEditorPartDescriptor#getPriority
+	 * <em>Priority</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Priority</em>' attribute.
 	 * @see #getPriority()
@@ -115,15 +119,15 @@ public interface IEditorDescriptor extends EObject {
 	 * 
 	 * @return the value of the '<em>Factory</em>' attribute.
 	 * @see #setFactory(CEObjectHolder)
-	 * @see com.rcpcompany.uibindings.navigator.INavigatorModelPackage#getEditorDescriptor_Factory()
+	 * @see com.rcpcompany.uibindings.navigator.INavigatorModelPackage#getEditorPartDescriptor_Factory()
 	 * @generated
 	 */
 	CEObjectHolder<IEditorPartFactory> getFactory();
 
 	/**
 	 * Sets the value of the '
-	 * {@link com.rcpcompany.uibindings.navigator.IEditorDescriptor#getFactory <em>Factory</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.navigator.IEditorPartDescriptor#getFactory <em>Factory</em>}
+	 * ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Factory</em>' attribute.
 	 * @see #getFactory()
@@ -141,14 +145,15 @@ public interface IEditorDescriptor extends EObject {
 	 * 
 	 * @return the value of the '<em>Image</em>' attribute.
 	 * @see #setImage(CEResourceHolder)
-	 * @see com.rcpcompany.uibindings.navigator.INavigatorModelPackage#getEditorDescriptor_Image()
+	 * @see com.rcpcompany.uibindings.navigator.INavigatorModelPackage#getEditorPartDescriptor_Image()
 	 * @generated
 	 */
 	CEResourceHolder getImage();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.navigator.IEditorDescriptor#getImage
-	 * <em>Image</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.navigator.IEditorPartDescriptor#getImage <em>Image</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Image</em>' attribute.
 	 * @see #getImage()
