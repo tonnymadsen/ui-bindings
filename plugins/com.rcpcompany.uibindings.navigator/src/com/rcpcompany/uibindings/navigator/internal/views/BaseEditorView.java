@@ -1,4 +1,4 @@
-package com.rcpcompany.uibindings.navigator.editors.internal.views;
+package com.rcpcompany.uibindings.navigator.internal.views;
 
 import java.util.List;
 
@@ -25,7 +25,7 @@ import com.rcpcompany.utils.selection.SelectionUtils;
  * @author Tonny Madsen, The RCP Company
  * @param <T> the base type for the editor
  */
-public class BaseView<T extends EObject> extends ViewPart implements ISetSelectionTarget, IGetSelectionTarget {
+public class BaseEditorView<T extends EObject> extends ViewPart implements ISetSelectionTarget, IGetSelectionTarget {
 	private final EClass myEClass;
 	private final Class myClass;
 	private final IObservableValue myCurrentValue;
@@ -45,7 +45,7 @@ public class BaseView<T extends EObject> extends ViewPart implements ISetSelecti
 	 * @param eClass the class if the editor - must match T
 	 * @param title the title for the editor
 	 */
-	public BaseView(EClass eClass, String title) {
+	public BaseEditorView(EClass eClass, String title) {
 		myEClass = eClass;
 		myTitle = title;
 		myClass = myEClass.getInstanceClass();

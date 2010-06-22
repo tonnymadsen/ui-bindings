@@ -39,7 +39,7 @@ public class NavigatorModelManagerTest {
 	}
 
 	@Test
-	public void testEditorExtensions() {
+	public void testExtensionReader() {
 		final List<IConfigurationElement> list = new ArrayList<IConfigurationElement>();
 
 		final IExtensionRegistry extensionRegistry = Platform.getExtensionRegistry();

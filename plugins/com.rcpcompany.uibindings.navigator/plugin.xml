@@ -74,7 +74,7 @@
          allPopups="false"
          locationURI="tolbar:com.rcpcompany.uibindings.navigator.internal.views.BaseView">
       <control
-            class="com.rcpcompany.uibindings.navigator.editors.internal.views.SelectCurrentEditor">
+            class="com.rcpcompany.uibindings.navigator.internal.views.SelectCurrentEditor">
       </control>
       <command
             commandId="com.rcpcompany.uibindings.navigator.commands.PinEditor"
@@ -126,7 +126,7 @@
          <with
                variable="activeView">
             <instanceof
-                  value="com.rcpcompany.uibindings.navigator.editors.internal.views.BaseView">
+                  value="com.rcpcompany.uibindings.navigator.internal.views.BaseEditorView">
             </instanceof>
          </with>
       </activeWhen>
@@ -136,7 +136,7 @@
       point="org.eclipse.ui.views">
    <view
          allowMultiple="true"
-         class="com.rcpcompany.uibindings.navigator.editors.internal.views.BaseView"
+         class="com.rcpcompany.uibindings.navigator.internal.views.BaseEditorView"
          id="com.rcpcompany.uibindings.navigator.internal.views.BaseView"
          name="Generic Object Editor"
          restorable="true">

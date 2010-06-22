@@ -1,7 +1,7 @@
 package com.rcpcompany.uibindings.navigator.editorFactories;
 
-import com.rcpcompany.uibindings.navigator.IEditor;
-import com.rcpcompany.uibindings.navigator.IEditorContext;
+import com.rcpcompany.uibindings.navigator.IEditorPartContext;
+import com.rcpcompany.uibindings.navigator.IEditorPartFactory;
 import com.rcpcompany.uibindings.utils.IAutoFormCreator;
 
 /**
@@ -9,10 +9,10 @@ import com.rcpcompany.uibindings.utils.IAutoFormCreator;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class GenericEditor implements IEditor {
+public class GenericEditor implements IEditorPartFactory {
 
 	@Override
-	public void createEditor(IEditorContext context) {
+	public void createEditorPart(IEditorPartContext context) {
 		IAutoFormCreator.Factory.createForm(null, null, null, null);
 	}
 }

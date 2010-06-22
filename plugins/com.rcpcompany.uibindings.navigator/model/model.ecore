@@ -21,13 +21,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="factory" lowerBound="1"
         transient="true">
       <eGenericType eClassifier="ecore:EDataType ../../com.rcpcompany.uibindings/model/uibindings.ecore#//CEObjectHolder">
-        <eTypeArguments eClassifier="#//IEditor"/>
+        <eTypeArguments eClassifier="#//IEditorPartFactory"/>
       </eGenericType>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="image" lowerBound="1" eType="ecore:EDataType ../../com.rcpcompany.uibindings/model/uibindings.ecore#//CEResourceHolder"
         transient="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IEditor" instanceClassName="com.rcpcompany.uibindings.navigator.IEditor"
+  <eClassifiers xsi:type="ecore:EClass" name="IEditorPartFactory" instanceClassName="com.rcpcompany.uibindings.navigator.IEditorPartFactory"
       abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="StringToModelTypeMapEntry" instanceClassName="java.util.Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

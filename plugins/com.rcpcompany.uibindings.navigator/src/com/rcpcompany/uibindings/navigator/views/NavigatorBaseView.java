@@ -88,7 +88,7 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension 
 	/**
 	 * Advisor used if/when the real advisor cannot be created
 	 */
-	public class DummyAdvisor extends NavigatorBaseViewAdvisor {
+	public class DummyAdvisor extends AbstractNavigatorBaseViewAdvisor {
 		@Override
 		public IObservableList getRootElements() {
 			return WritableList.withElementType(EObject.class);

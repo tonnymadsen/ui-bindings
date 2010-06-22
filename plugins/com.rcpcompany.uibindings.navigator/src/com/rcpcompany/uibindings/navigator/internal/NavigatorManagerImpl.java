@@ -23,8 +23,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.navigator.IEditiorModelType;
-import com.rcpcompany.uibindings.navigator.IEditor;
 import com.rcpcompany.uibindings.navigator.IEditorDescriptor;
+import com.rcpcompany.uibindings.navigator.IEditorPartFactory;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
 import com.rcpcompany.uibindings.navigator.INavigatorModelPackage;
@@ -105,7 +105,7 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 				descriptor.setId(id);
 				descriptor.setName(name);
 				descriptor.setImage(new CEResourceHolder(ce, NavigatorConstants.IMAGE_TAG));
-				descriptor.setFactory(new CEObjectHolder<IEditor>(ce));
+				descriptor.setFactory(new CEObjectHolder<IEditorPartFactory>(ce));
 
 				final String priority = ce.getAttribute(NavigatorConstants.PRIORITY_TAG);
 				if (priority != null && priority.length() > 0) {
@@ -152,6 +152,7 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EMap<String, IEditiorModelType> getModelTypes() {
 		if (modelTypes == null) {
 			modelTypes = new EcoreEMap<String, IEditiorModelType>(
@@ -184,11 +185,10 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case INavigatorModelPackage.NAVIGATOR_MANAGER__MODEL_TYPES:
-			if (coreType) {
+			if (coreType)
 				return getModelTypes();
-			} else {
+			else
 				return getModelTypes().map();
-			}
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
