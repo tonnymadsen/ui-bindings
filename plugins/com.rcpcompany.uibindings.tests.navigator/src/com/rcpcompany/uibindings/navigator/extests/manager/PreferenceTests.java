@@ -47,7 +47,7 @@ public class PreferenceTests {
 	 * Tests that setting the preferred will change the preferences
 	 */
 	@Test
-	public void testPreferred() {
+	public void testPreferredToPreference() {
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
 		final INavigatorManager manager = INavigatorModelFactory.eINSTANCE.getManager();
 
@@ -74,7 +74,45 @@ public class PreferenceTests {
 		assertEquals(second, mt.getPreferredEditor());
 		assertEquals(second.getId(), ps.getString(mt.getModelType()));
 
-		mt.setPreferredEditor(first);
+		mt.setPreferredEditor(null);
+
+		assertEquals(first, mt.getPreferredEditor());
+		assertEquals(first.getId(), ps.getString(mt.getModelType()));
+	}
+
+	/**
+	 * Tests that setting the preference will change the preferred
+	 */
+	@Test
+	public void testPreferenceToPreferred() {
+		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
+		final INavigatorManager manager = INavigatorModelFactory.eINSTANCE.getManager();
+
+		/*
+		 * Find the model type with multiple editors.
+		 */
+		IEditorModelType mt = null;
+		for (final IEditorModelType m : manager.getModelTypes()) {
+			if (m.getEditors().size() > 1) {
+				mt = m;
+				break;
+			}
+		}
+		assertNotNull(mt);
+
+		final IEditorPartDescriptor first = mt.getEditors().get(0);
+		final IEditorPartDescriptor second = mt.getEditors().get(1);
+
+		assertEquals(first, mt.getPreferredEditor());
+		assertEquals(first.getId(), ps.getString(mt.getModelType()));
+
+		ps.setValue(mt.getModelType(), second.getId());
+
+		assertEquals(second, mt.getPreferredEditor());
+		assertEquals(second.getId(), ps.getString(mt.getModelType()));
+
+		// Wrong value defaults to first..
+		ps.setValue(mt.getModelType(), "aaa");
 
 		assertEquals(first, mt.getPreferredEditor());
 		assertEquals(first.getId(), ps.getString(mt.getModelType()));
