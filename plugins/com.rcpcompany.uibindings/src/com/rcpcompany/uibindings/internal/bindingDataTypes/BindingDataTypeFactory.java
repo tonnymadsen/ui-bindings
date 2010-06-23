@@ -105,10 +105,10 @@ public final class BindingDataTypeFactory {
 		 */
 		final Registry registry = EPackage.Registry.INSTANCE;
 		for (final Object v : registry.values()) {
-			if (v == EcorePackage.eINSTANCE) {
+			if (!(v instanceof EPackage)) {
 				continue;
 			}
-			if (!(v instanceof EPackage)) {
+			if (v == EcorePackage.eINSTANCE) {
 				continue;
 			}
 			final EPackage ep = (EPackage) v;
