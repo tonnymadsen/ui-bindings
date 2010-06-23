@@ -24,4 +24,5 @@ public interface NavigatorConstants {
 	String PRIORITY_TAG = "priority";
 	String NAME_TAG = "name";
 	String IMAGE_TAG = "image";
+	String FACTORY_TAG = "factory";
 }

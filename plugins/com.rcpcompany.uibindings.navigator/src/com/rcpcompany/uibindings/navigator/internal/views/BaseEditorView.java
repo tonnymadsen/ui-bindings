@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.WritableValue;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.graphics.Image;
@@ -38,7 +38,7 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 	/**
 	 * The parent Composite for all the editor parts.
 	 */
-	private Composite myParent;
+	/* package */Composite myParent;
 
 	/**
 	 * Whether this editor is currently pinned.
@@ -46,24 +46,24 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 	 * If the editor is pinned, it will not react to selection changes and a new editor is created
 	 * instead of reusing an existing editor.
 	 */
-	private boolean myIsPinned = false;
+	/* package */boolean myIsPinned = false;
 
 	/**
 	 * The current editor part descriptor.
 	 */
-	private IEditorPartDescriptor myCurrentDesciptor;
+	/* package */IEditorPartDescriptor myCurrentDesciptor;
 
 	/**
 	 * The current editor part for this editor.
 	 */
-	private IEditorPart myCurrentEditorPart = null;
+	/* package */IEditorPart myCurrentEditorPart = null;
 
 	/**
 	 * The current base observable value of the editor.
 	 * <p>
 	 * The type of the value is based on the model type of the current editor descriptor.
 	 */
-	private IObservableValue myCurrentValue;
+	/* package */IObservableValue myCurrentValue;
 
 	/**
 	 * The factory context used in {@link IEditorPartFactory}.
@@ -107,8 +107,12 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 	@Override
 	public Image getTitleImage() {
 		if (myCurrentDesciptor != null) {
-			return myCurrentDesciptor.getImage().getImage();
+			final Image image = myCurrentDesciptor.getImage().getImage();
+			if (image != null) {
+				return image;
+			}
 		}
+		// TODO the model type image
 		return super.getTitleImage();
 	}
 
@@ -164,6 +168,7 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 	 * 
 	 * @param obj the new current object of the editor
 	 */
+	@Override
 	public void setCurrentObject(EObject obj) {
 		final IEditorPartDescriptor desc = findEditorPartDescriptor(obj);
 		if (desc == myCurrentEditorPart) {
@@ -181,8 +186,10 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 		 */
 		if (myCurrentEditorPart != null) {
 			myCurrentEditorPart.dispose();
-			for (final Control c : myParent.getChildren()) {
-				c.dispose();
+			if (!myParent.isDisposed()) {
+				for (final Control c : myParent.getChildren()) {
+					c.dispose();
+				}
 			}
 		}
 		if (myCurrentValue != null && !myCurrentValue.isDisposed()) {
@@ -203,8 +210,11 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 		 * - create the observable value for the editor part based on the type of the editor
 		 * descriptor
 		 */
-		// TODO
-		myCurrentValue = new WritableValue(obj, EcorePackage.Literals.EOBJECT);
+		final EClassifier cls = desc.getModelType().getModelTypeEClassifier();
+		if (cls == null) {
+			LogUtils.error(desc, "Classifier for " + desc.getModelType().getModelType() + " not set");
+		}
+		myCurrentValue = new WritableValue(obj, cls);
 		myCurrentDesciptor = desc;
 
 		/*
@@ -214,7 +224,9 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 		 */
 		final IEditorPartFactory factory = desc.getFactory().getObject();
 		try {
-			myCurrentEditorPart = factory.createEditorPart(myFactoryContext);
+			if (factory != null) {
+				myCurrentEditorPart = factory.createEditorPart(myFactoryContext);
+			}
 			if (myCurrentDesciptor == null) {
 				LogUtils.error(factory, "Editor Part Factory returned null");
 			}

@@ -4,12 +4,14 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.eclipse.jface.preference.IPreferenceStore;
+import org.junit.Before;
 import org.junit.Test;
 
 import com.rcpcompany.uibindings.navigator.IEditorModelType;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
+import com.rcpcompany.uibindings.navigator.extests.NavigatorTestUtils;
 import com.rcpcompany.uibindings.navigator.internal.Activator;
 
 /**
@@ -18,6 +20,10 @@ import com.rcpcompany.uibindings.navigator.internal.Activator;
  * @author Tonny Madsen, The RCP Company
  */
 public class PreferenceTests {
+	@Before
+	public void before() {
+		NavigatorTestUtils.resetAll();
+	}
 
 	/**
 	 * Tests that the defaults and the current values are all correct.

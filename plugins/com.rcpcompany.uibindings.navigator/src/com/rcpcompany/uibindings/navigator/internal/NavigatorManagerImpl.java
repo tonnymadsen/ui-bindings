@@ -17,6 +17,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectEList;
@@ -31,6 +32,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 
+import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.navigator.IEditorModelType;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
@@ -93,6 +95,22 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 				}
 
 				/*
+				 * Fill in information about the ECore class for this model type.
+				 * 
+				 * We don't have this before now as we don't know which plug-in the class comes
+				 * from...
+				 */
+				if (mt.getModelTypeEClassifier() == null) {
+					final EClassifier cls = IBindingDataType.Factory.convertToClassifier(c);
+					if (cls == null) {
+						LogUtils.DEBUG_STRACK_LEVELS = 8;
+						LogUtils.error(mt, "Classifier for " + mt.getModelType() + " not set");
+					}
+
+					mt.setModelTypeEClassifier(cls);
+				}
+
+				/*
 				 * Found a match. Find the preferred or the one with the highest priority.
 				 */
 				return mt.getPreferredEditor();
@@ -145,7 +163,7 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 				descriptor.setId(id);
 				descriptor.setName(name);
 				descriptor.setImage(new CEResourceHolder(ce, NavigatorConstants.IMAGE_TAG));
-				descriptor.setFactory(new CEObjectHolder<IEditorPartFactory>(ce));
+				descriptor.setFactory(new CEObjectHolder<IEditorPartFactory>(ce, NavigatorConstants.FACTORY_TAG));
 
 				final String priority = ce.getAttribute(NavigatorConstants.PRIORITY_TAG);
 				if (priority != null && priority.length() > 0) {
@@ -380,7 +398,7 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 		final Collection<IEditorPartView> views = new ArrayList<IEditorPartView>();
 		final IWorkbenchWindow ww = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 		for (final IViewReference ref : ww.getActivePage().getViewReferences()) {
-			if (ref.getId() != NavigatorConstants.VIEW_ID) {
+			if (!ref.getId().equals(NavigatorConstants.VIEW_ID)) {
 				continue;
 			}
 

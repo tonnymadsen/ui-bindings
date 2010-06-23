@@ -49,7 +49,7 @@ public class NavigatorModelManagerTest {
 			}
 		}
 
-		assertEquals(5, list.size());
+		assertEquals(7, list.size());
 
 		final INavigatorManager manager = INavigatorModelFactory.eINSTANCE.getManager();
 
@@ -57,7 +57,7 @@ public class NavigatorModelManagerTest {
 
 		final EList<IEditorModelType> modelTypes = manager.getModelTypes();
 		assertNotNull(modelTypes);
-		assertEquals(3, modelTypes.size());
+		assertEquals(4, modelTypes.size());
 
 		for (final IEditorModelType mt : manager.getModelTypes()) {
 			if (mt.getModelType().equals(Shop.class.getName())) {

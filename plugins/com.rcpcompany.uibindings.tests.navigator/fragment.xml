@@ -4,36 +4,48 @@
    <extension
          point="com.rcpcompany.uibindings.navigator.editors">
       <editor
-            factory="com.rcpcompany.uibindings.tests.editors.shopEditors.ShopInfo.Editor"
+            factory="com.rcpcompany.uibindings.tests.navigator.editorParts.BasicShopInfo"
             id="com.rcpcompany.uibindings.tests.editors.editors.basic"
             modelType="com.rcpcompany.uibindings.tests.shop.Shop"
             name="Basic Shop Information"
             priority="10000">
       </editor>
       <editor
-            factory="com.rcpcompany.uibindings.tests.editors.shopEditors.ShopInfo.Editor"
+            factory="com.rcpcompany.uibindings.tests.navigator.editorParts.Countries"
             id="com.rcpcompany.uibindings.tests.editors.editors.countries"
             modelType="com.rcpcompany.uibindings.tests.shop.Shop"
             name="Shop Countries"
             priority="5000">
       </editor>
       <editor
-            factory="com.rcpcompany.uibindings.navigator.editors.builtin.GenericEditor"
+            factory="com.rcpcompany.uibindings.navigator.editorFactories.GenericEditorPartFactory"
             id="com.rcpcompany.uibindings.tests.editors.editors.generic"
             modelType="com.rcpcompany.uibindings.tests.shop.Shop"
             name="Generic Information (shop)">
       </editor>
       <editor
-            factory="com.rcpcompany.uibindings.navigator.editors.builtin.GenericEditor"
+            factory="com.rcpcompany.uibindings.navigator.editorFactories.GenericEditorPartFactory"
             id="com.rcpcompany.uibindings.tests.editors.editors.generic.country"
             modelType="com.rcpcompany.uibindings.tests.shop.Country"
             name="Generic Information (country)">
       </editor>
       <editor
-            factory="com.rcpcompany.uibindings.navigator.editors.builtin.GenericEditor"
+            factory="com.rcpcompany.uibindings.navigator.editorFactories.GenericEditorPartFactory"
             id="com.rcpcompany.uibindings.tests.editors.editors.generic.shopinformation"
             modelType="com.rcpcompany.uibindings.tests.shop.ShopItemInformation"
             name="Generic Information (item info)">
+      </editor>
+      <editor
+            factory="com.rcpcompany.uibindings.navigator.internal.views.EditorPartFactoryTests$GroupEditorPartFactory"
+            id="com.rcpcompany.uibindings.navigator.internal.views.EditorPartFactoryTests.GroupEditorPartFactory"
+            modelType="com.rcpcompany.uibindings.tests.shop.ShopItemGroup"
+            name="Test (EditorPartFactoryTests)">
+      </editor>
+      <editor
+            factory="com.rcpcompany.uibindings.navigator.extests.editors.EditorPartLifecycleTests$GroupEditorPartFactory"
+            id="com.rcpcompany.uibindings.navigator.extests.editors.EditorPartLifecycleTests.GroupEditorPartFactory"
+            modelType="com.rcpcompany.uibindings.tests.shop.ShopItemGroup"
+            name="Test (EditorPartLifecycleTests)">
       </editor>
    </extension>
 

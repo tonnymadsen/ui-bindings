@@ -2,17 +2,20 @@ package com.rcpcompany.uibindings.navigator.extests.editors;
 
 import static org.junit.Assert.assertEquals;
 
+import org.eclipse.emf.ecore.EClass;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.rcpcompany.uibindings.navigator.IEditorPartView;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
+import com.rcpcompany.uibindings.navigator.extests.NavigatorTestUtils;
 import com.rcpcompany.uibindings.navigator.internal.views.BaseEditorView;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
+import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
 /**
  * Tests that the {@link BaseEditorView} is properly shown.
@@ -27,10 +30,12 @@ public class ShowViewTests {
 	private ShopItem myShopItem;
 	private Country myCountry;
 
+	EClass shopEClass = ShopPackage.Literals.SHOP;
+
 	@Before
 	public void before() {
+		NavigatorTestUtils.resetAll();
 		myManager = INavigatorModelFactory.eINSTANCE.getManager();
-		myManager.closeAllViews();
 
 		myShop1 = ShopFactory.eINSTANCE.createShop();
 		myShop2 = ShopFactory.eINSTANCE.createShop();
@@ -41,14 +46,23 @@ public class ShowViewTests {
 	}
 
 	/**
-	 * Test that an un-pinned view is reused for a new object
+	 * Test that {@link IEditorPartView#isPinned()} is respected in
+	 * {@link INavigatorManager#getView(org.eclipse.emf.ecore.EObject)}.
 	 */
 	@Test
 	public void reuseUnpinned() {
 		final IEditorPartView shop1View = myManager.getView(myShop1);
 		shop1View.setPinned(true);
 		final IEditorPartView shop2View = myManager.getView(myShop2);
+
+		// Re-use the view
 		assertEquals(shop1View, myManager.getView(myShop1));
 
+		shop1View.setPinned(false);
+
+		// Still re-use the existing view
+		assertEquals(shop2View, myManager.getView(myShop2));
+
+		assertEquals(shop1View, myManager.getView(myCountry));
 	}
 }

@@ -6,7 +6,11 @@
          <meta.schema plugin="com.rcpcompany.uibindings.editors" id="editors" name="UI Bindings Editors"/>
       </appinfo>
       <documentation>
-         [Enter description of this extension point.]
+         This extension point is used to define editor parts for use with the Open command of the navigator.
+&lt;p&gt;
+Each editor part is defined for a specific model type (a sub-class of &lt;code&gt;EObject&lt;/code&gt;) and is used when an object of the specified type is &quot;opened&quot;.
+&lt;p&gt;
+There can be multiple editor parts for a specific model type, in which case an &quot;Open With&quot; command be used to open the specific model object with the wanted editor part. The defined editor parts for a specific model type is sorted by a priority. The selected editor part for a specific model type is saved as a preference.
       </documentation>
    </annotation>
 
@@ -101,10 +105,10 @@
          <attribute name="factory" type="string" use="required">
             <annotation>
                <documentation>
-                  the implementation for the editor
+                  the factory for the editor part
                </documentation>
                <appinfo>
-                  <meta.attribute kind="java"/>
+                  <meta.attribute kind="java" basedOn="com.rcpcompany.uibindings.navigator.AbstractEditorPartFactory:com.rcpcompany.uibindings.navigator.IEditorPartFactory"/>
                </appinfo>
             </annotation>
          </attribute>
@@ -116,7 +120,7 @@
          <meta.section type="since"/>
       </appinfo>
       <documentation>
-         [Enter the first release in which this extension point appears.]
+         UI Bindings 2.4
       </documentation>
    </annotation>
 
@@ -125,7 +129,31 @@
          <meta.section type="examples"/>
       </appinfo>
       <documentation>
-         [Enter extension point usage example here.]
+         &lt;pre&gt;
+   &lt;extension
+         point=&quot;com.rcpcompany.uibindings.navigator.editors&quot;&gt;
+      &lt;editor
+            factory=&quot;com.rcpcompany.uibindings.tests.navigator.editorParts.BasicShopInfo&quot;
+            id=&quot;com.rcpcompany.uibindings.tests.editors.editors.basic&quot;
+            modelType=&quot;com.rcpcompany.uibindings.tests.shop.Shop&quot;
+            name=&quot;Basic Shop Information&quot;
+            priority=&quot;10000&quot;&gt;
+      &lt;/editor&gt;
+      &lt;editor
+            factory=&quot;com.rcpcompany.uibindings.tests.navigator.editorParts.Countries&quot;
+            id=&quot;com.rcpcompany.uibindings.tests.editors.editors.countries&quot;
+            modelType=&quot;com.rcpcompany.uibindings.tests.shop.Shop&quot;
+            name=&quot;Shop Countries&quot;
+            priority=&quot;5000&quot;&gt;
+      &lt;/editor&gt;
+      &lt;editor
+            factory=&quot;com.rcpcompany.uibindings.navigator.editorFactories.GenericEditorPartFactory&quot;
+            id=&quot;com.rcpcompany.uibindings.tests.editors.editors.generic&quot;
+            modelType=&quot;com.rcpcompany.uibindings.tests.shop.Shop&quot;
+            name=&quot;Generic Information (shop)&quot;&gt;
+      &lt;/editor&gt;
+   &lt;/extension&gt;
+&lt;/pre&gt;
       </documentation>
    </annotation>
 
@@ -134,7 +162,7 @@
          <meta.section type="apiinfo"/>
       </appinfo>
       <documentation>
-         [Enter API information here.]
+         The factory of an editor part must implement the interface &lt;code&gt;com.rcpcompany.uibindings.navigator.IEditorPartFactory&lt;/code&gt; as well as the abstract class &lt;code&gt;com.rcpcompany.uibindings.navigator.AbstractEditorPartFactory&lt;/code&gt;.
       </documentation>
    </annotation>
 
@@ -147,5 +175,13 @@
       </documentation>
    </annotation>
 
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         EPL
+      </documentation>
+   </annotation>
 
 </schema>
