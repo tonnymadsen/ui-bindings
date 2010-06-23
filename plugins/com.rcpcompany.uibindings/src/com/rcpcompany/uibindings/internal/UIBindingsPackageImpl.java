@@ -3864,6 +3864,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getEditingDomain() {
 		return editingDomainEDataType;
 	}
@@ -3873,6 +3874,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getWidget() {
 		return widgetEDataType;
 	}
@@ -3882,6 +3884,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getFormToolkit() {
 		return formToolkitEDataType;
 	}
@@ -3891,6 +3894,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getControl() {
 		return controlEDataType;
 	}
@@ -3900,6 +3904,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getComposite() {
 		return compositeEDataType;
 	}
@@ -3909,6 +3914,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getTable() {
 		return tableEDataType;
 	}
@@ -3918,6 +3924,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getTableColumn() {
 		return tableColumnEDataType;
 	}
@@ -3927,6 +3934,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getTree() {
 		return treeEDataType;
 	}
@@ -3936,6 +3944,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getTreeColumn() {
 		return treeColumnEDataType;
 	}
@@ -3945,6 +3954,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getClipboard() {
 		return clipboardEDataType;
 	}
@@ -3954,6 +3964,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getImage() {
 		return imageEDataType;
 	}
@@ -3963,6 +3974,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getColor() {
 		return colorEDataType;
 	}
@@ -3972,6 +3984,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getCursor() {
 		return cursorEDataType;
 	}
@@ -3981,6 +3994,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getSelectionListener() {
 		return selectionListenerEDataType;
 	}
@@ -3990,6 +4004,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getUpdateValueStrategy() {
 		return updateValueStrategyEDataType;
 	}
@@ -3999,6 +4014,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getUpdateListStrategy() {
 		return updateListStrategyEDataType;
 	}
@@ -4008,6 +4024,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getUpdateSetStrategy() {
 		return updateSetStrategyEDataType;
 	}
@@ -4017,6 +4034,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getNumberFormat() {
 		return numberFormatEDataType;
 	}
@@ -4026,6 +4044,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IUIBindingsFactory getUIBindingsFactory() {
 		return (IUIBindingsFactory) getEFactoryInstance();
 	}
