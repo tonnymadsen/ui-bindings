@@ -2,7 +2,6 @@ package com.rcpcompany.uibindings.navigator.extests.editors;
 
 import static org.junit.Assert.assertEquals;
 
-import org.eclipse.emf.ecore.EClass;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,7 +14,6 @@ import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
-import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
 /**
  * Tests that the {@link BaseEditorView} is properly shown.
@@ -29,8 +27,6 @@ public class ShowViewTests {
 	private Shop myShop2;
 	private ShopItem myShopItem;
 	private Country myCountry;
-
-	EClass shopEClass = ShopPackage.Literals.SHOP;
 
 	@Before
 	public void before() {

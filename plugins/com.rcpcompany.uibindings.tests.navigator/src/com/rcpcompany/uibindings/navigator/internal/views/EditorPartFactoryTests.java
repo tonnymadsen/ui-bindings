@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import org.eclipse.emf.ecore.EClass;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,7 +19,6 @@ import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
 import com.rcpcompany.uibindings.navigator.extests.NavigatorTestUtils;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItemGroup;
-import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
 /**
  * Tests of {@link IEditorPartFactory} and abstract implementations
@@ -31,8 +29,6 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 public class EditorPartFactoryTests {
 	protected static INavigatorManager myManager;
 	protected static ShopItemGroup myGroup;
-
-	EClass shopEClass = ShopPackage.Literals.SHOP;
 
 	@Before
 	public void before() {

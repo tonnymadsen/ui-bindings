@@ -2,10 +2,13 @@ package com.rcpcompany.uibindings.navigator.extests;
 
 import static org.junit.Assert.fail;
 
+import org.eclipse.emf.ecore.EClass;
+
 import com.rcpcompany.uibindings.navigator.IEditorModelType;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
+import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
 /**
  * Various test utilities for this test fragment
@@ -17,6 +20,10 @@ public class NavigatorTestUtils {
 	 * Resets the internal state to the base..
 	 */
 	public static void resetAll() {
+		/*
+		 * provoke that the Shop package is properly initialized
+		 */
+		final EClass shop = ShopPackage.Literals.SHOP;
 		final INavigatorManager manager = INavigatorModelFactory.eINSTANCE.getManager();
 		manager.closeAllViews();
 
@@ -39,7 +46,7 @@ public class NavigatorTestUtils {
 		for (final IEditorModelType mt : manager.getModelTypes()) {
 			if (mt.getModelType().equals(cls.getName())) {
 				for (final IEditorPartDescriptor d : mt.getEditors()) {
-					if (d.getId().equals(id)) { return d; }
+					if (d.getId().equals(id)) return d;
 				}
 			}
 		}
