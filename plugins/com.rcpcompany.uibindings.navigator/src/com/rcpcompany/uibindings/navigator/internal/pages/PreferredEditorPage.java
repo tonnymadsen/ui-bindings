@@ -10,11 +10,14 @@ import com.rcpcompany.uibindings.navigator.IEditorModelType;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
+import com.rcpcompany.uibindings.navigator.internal.Activator;
 
 public class PreferredEditorPage extends FieldEditorPreferencePage implements IWorkbenchPreferencePage {
 
 	public PreferredEditorPage() {
 		super("Editor Preferences", FieldEditorPreferencePage.GRID);
+
+		setPreferenceStore(Activator.getDefault().getPreferenceStore());
 	}
 
 	@Override
