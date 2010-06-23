@@ -1,48 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<launchConfiguration type="org.eclipse.pde.ui.JunitLaunchConfig">
+<launchConfiguration type="org.eclipse.pde.ui.RuntimeWorkbench">
 <booleanAttribute key="append.args" value="true"/>
 <booleanAttribute key="askclear" value="false"/>
 <booleanAttribute key="automaticAdd" value="false"/>
-<booleanAttribute key="automaticValidate" value="false"/>
+<booleanAttribute key="automaticValidate" value="true"/>
 <stringAttribute key="bootstrap" value=""/>
 <stringAttribute key="checked" value="com.rcpcompany.uibindings"/>
-<booleanAttribute key="clearConfig" value="true"/>
+<booleanAttribute key="clearConfig" value="false"/>
 <booleanAttribute key="clearws" value="true"/>
 <booleanAttribute key="clearwslog" value="false"/>
-<booleanAttribute key="com.mountainminds.eclemma.core.INPLACE_INSTRUMENTATION" value="true"/>
-<listAttribute key="com.mountainminds.eclemma.core.INSTRUMENTATION_PATHS">
-<listEntry value="/com.rcpcompany.uibindings/bin"/>
-<listEntry value="/com.rcpcompany.uibindings.tests.application/bin"/>
-<listEntry value="/com.rcpcompany.uibindings.tests.model/bin"/>
-<listEntry value="/com.rcpcompany.uibindings.tests/bin"/>
-</listAttribute>
-<stringAttribute key="configLocation" value="${workspace_loc}/.metadata/.plugins/org.eclipse.pde.core/pde-junit"/>
+<stringAttribute key="configLocation" value="${workspace_loc}/.metadata/.plugins/org.eclipse.pde.core/Shop"/>
 <booleanAttribute key="default" value="false"/>
 <booleanAttribute key="includeOptional" value="false"/>
-<stringAttribute key="location" value="${workspace_loc}/../junit-workspace"/>
-<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/com.rcpcompany.uibindings.tests/src/com/rcpcompany/uibindings/extests/observables/TextObservableValueTest.java"/>
+<stringAttribute key="location" value="${workspace_loc}/../runtime-shop.product"/>
+<listAttribute key="org.eclipse.debug.ui.favoriteGroups">
+<listEntry value="org.eclipse.debug.ui.launchGroup.debug"/>
+<listEntry value="org.eclipse.debug.ui.launchGroup.run"/>
 </listAttribute>
-<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
-<listEntry value="1"/>
-</listAttribute>
-<stringAttribute key="org.eclipse.jdt.junit.CONTAINER" value=""/>
-<booleanAttribute key="org.eclipse.jdt.junit.KEEPRUNNING_ATTR" value="false"/>
-<stringAttribute key="org.eclipse.jdt.junit.TESTNAME" value=""/>
-<stringAttribute key="org.eclipse.jdt.junit.TEST_KIND" value="org.eclipse.jdt.junit.loader.junit4"/>
-<stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.rcpcompany.uibindings.extests.observables.TextObservableValueTest"/>
+<stringAttribute key="org.eclipse.hyades.trace.ui.ATTR_DATA_COLLECTOR" value="org.eclipse.tptp.trace.jvmti.jvmtiMechanism:org.eclipse.tptp.analysisType.jvmti.execution"/>
+<stringAttribute key="org.eclipse.hyades.trace.ui.ATTR_DESTINATION_FILE" value=""/>
+<stringAttribute key="org.eclipse.hyades.trace.ui.ATTR_DESTINATION_MONITOR" value="DefaultMonitor"/>
+<stringAttribute key="org.eclipse.hyades.trace.ui.ATTR_DESTINATION_PROJECT" value="ProfileProject"/>
+<booleanAttribute key="org.eclipse.hyades.trace.ui.ATTR_PROFILE_TO_FILE" value="false"/>
+<stringAttribute key="org.eclipse.hyades.trace.ui.ATTR_PROFILING_SET" value="tptp-dummy-profiling-set-Shop"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -console -consoleLog -clean"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="com.rcpcompany.uibindings.tests"/>
 <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.pde.ui.workbenchClasspathProvider"/>
 <stringAttribute key="pde.version" value="3.3"/>
-<stringAttribute key="product" value="org.eclipse.sdk.ide"/>
-<booleanAttribute key="run_in_ui_thread" value="true"/>
+<stringAttribute key="product" value="com.rcpcompany.uibindings.shop.product"/>
+<stringAttribute key="productFile" value="\com.rcpcompany.uibindings.shop\shop.product"/>
 <stringAttribute key="selectedPlugin" value="com.rcpcompany.uibindings"/>
-<stringAttribute key="selected_target_plugins" value="org.eclipse.core.resources.win32.x86@default:false,org.junit4@default:default,org.eclipse.emf.edit@default:default,org.eclipse.core.runtime@default:true,org.eclipse.equinox.registry@default:default,org.eclipse.emf.common@default:default,org.eclipse.equinox.common@2:true,org.eclipse.swt@default:default,com.ibm.icu@default:default,org.eclipse.core.commands@default:default,org.eclipse.emf.ecore.xmi@default:default,org.eclipse.core.contenttype@default:default,org.eclipse.core.resources@default:default,org.eclipse.help@default:default,org.eclipse.core.databinding.property@default:default,org.eclipse.jface@default:default,org.eclipse.ui.workbench@default:default,org.eclipse.emf.databinding.edit@default:default,org.eclipse.core.databinding@default:default,org.eclipse.ui.forms@default:default,org.eclipse.equinox.preferences@default:default,org.eclipse.ui@default:default,org.eclipse.core.variables@default:default,org.eclipse.swt.win32.win32.x86@default:false,org.eclipse.core.filesystem@default:default,org.eclipse.core.expressions@default:default,org.eclipse.ant.core@default:default,org.eclipse.team.core@default:default,org.eclipse.core.filesystem.win32.x86@default:false,org.eclipse.jface.databinding@default:default,org.eclipse.core.jobs@default:default,org.eclipse.osgi@-1:true,org.eclipse.core.runtime.compatibility.registry@default:false,org.eclipse.core.databinding.observable@default:default,org.hamcrest.core@default:default,org.eclipse.emf.ecore@default:default,org.eclipse.equinox.app@default:default,org.eclipse.emf.databinding@default:default"/>
-<stringAttribute key="selected_workspace_plugins" value="com.rcpcompany.uibindings.tests.application@default:default,com.rcpcompany.uibindings.fragments.jface@default:false,com.rcpcompany.utils.logging@default:default,org.eclipse.nebula.widgets.radiogroup@default:default,com.rcpcompany.uibindings.financial@default:default,com.rcpcompany.utils.extensionpoints@default:default,com.rcpcompany.uibindings.nl1@default:false,com.rcpcompany.utils.basic@default:default,com.rcpcompany.utils.selection@default:default,com.rcpcompany.utils.databinding@default:default,com.rcpcompany.uibindings.grid@default:default,org.eclipse.nebula.widgets.grid@default:default,com.rcpcompany.uibindings.tests@default:false,com.rcpcompany.uibindings@default:default,com.rcpcompany.uibindings.tests.model@default:default"/>
-<booleanAttribute key="show_selected_only" value="false"/>
-<stringAttribute key="testApplication" value="com.rcpcompany.uibindings.tests.application.testApplication"/>
+<stringAttribute key="selected_target_plugins" value="org.junit4@default:default,org.eclipse.emf.edit@default:default,org.eclipse.core.runtime@default:true,org.eclipse.equinox.registry@default:default,org.eclipse.osgi.services@default:default,org.eclipse.emf.common@default:default,org.eclipse.equinox.common@2:true,org.eclipse.swt@default:default,com.ibm.icu@default:default,org.eclipse.core.commands@default:default,org.eclipse.emf.ecore.xmi@default:default,org.eclipse.core.contenttype@default:default,org.eclipse.help@default:default,org.eclipse.core.databinding.property@default:default,org.junit*4.8.1.v4_8_1_v20100427-1100@default:default,org.eclipse.jface@default:default,org.eclipse.ui.workbench@default:default,org.eclipse.emf.databinding.edit@default:default,org.eclipse.core.databinding@default:default,org.eclipse.ui.forms@default:default,org.eclipse.equinox.preferences@default:default,org.eclipse.ui@default:default,org.eclipse.core.variables@default:default,org.eclipse.swt.win32.win32.x86@default:false,org.eclipse.core.expressions@default:default,org.eclipse.ant.core@default:default,org.eclipse.jface.databinding@default:default,org.eclipse.core.jobs@default:default,org.eclipse.osgi@-1:true,org.eclipse.core.databinding.observable@default:default,org.hamcrest.core@default:default,org.eclipse.emf.ecore@default:default,org.eclipse.equinox.app@default:default,org.eclipse.emf.databinding@default:default"/>
+<stringAttribute key="selected_workspace_plugins" value="com.rcpcompany.uibindings.fragments.jface@default:false,com.rcpcompany.utils.logging@default:default,org.eclipse.nebula.widgets.radiogroup@default:default,com.rcpcompany.uibindings.financial@default:default,com.rcpcompany.utils.extensionpoints@default:default,com.rcpcompany.uibindings.nl1@default:false,com.rcpcompany.uibindings.std@default:false,com.rcpcompany.utils.basic@default:default,com.rcpcompany.utils.selection@default:default,com.rcpcompany.utils.databinding@default:default,com.rcpcompany.uibindings.navigator@default:default,com.rcpcompany.uibindings.grid@default:default,org.eclipse.nebula.widgets.grid@default:default,com.rcpcompany.uibindings.fragments.ecore@default:false,com.rcpcompany.uibindings@default:default,com.rcpcompany.uibindings.shop@default:default,com.rcpcompany.uibindings.tests.model@default:default"/>
+<booleanAttribute key="show_selected_only" value="true"/>
 <booleanAttribute key="tracing" value="true"/>
 <mapAttribute key="tracingOptions">
 <mapEntry key="com.mountainminds.eclemma.core/debug/analysis" value="true"/>
@@ -68,7 +57,7 @@
 <mapEntry key="com.rcpcompany.uibindings/trace/Lifecycle/ColumnEditors" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/Lifecycle/ValueBindingMessageImageDecorator" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/Lifecycle/ViewerBindingMessageDecorator" value="false"/>
-<mapEntry key="com.rcpcompany.uibindings/trace/MDValidationStatus" value="true"/>
+<mapEntry key="com.rcpcompany.uibindings/trace/MDValidationStatus" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/Navigation/global" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/Navigation/viewer" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/OpenCommand" value="false"/>
@@ -76,8 +65,8 @@
 <mapEntry key="com.rcpcompany.uibindings/trace/Sorting" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/SourceProvider" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/SourceProvider/Verbose" value="false"/>
-<mapEntry key="com.rcpcompany.uibindings/trace/Tree" value="false"/>
-<mapEntry key="com.rcpcompany.uibindings/trace/ValidationResults" value="true"/>
+<mapEntry key="com.rcpcompany.uibindings/trace/Tree" value="true"/>
+<mapEntry key="com.rcpcompany.uibindings/trace/ValidationResults" value="false"/>
 <mapEntry key="edu.umd.cs.findbugs.plugin.eclipse/debug" value="false"/>
 <mapEntry key="edu.umd.cs.findbugs.plugin.eclipse/debug/builder" value="false"/>
 <mapEntry key="edu.umd.cs.findbugs.plugin.eclipse/debug/content" value="false"/>
@@ -171,7 +160,7 @@
 <mapEntry key="org.eclipse.birt.report.model/metadata.StructRefPropertyType" value="false"/>
 <mapEntry key="org.eclipse.birt.report.model/parser.ModuleReader" value="false"/>
 <mapEntry key="org.eclipse.core.contenttype/debug" value="false"/>
-<mapEntry key="org.eclipse.core.expressions/debug/TypeExtensionManager" value="true"/>
+<mapEntry key="org.eclipse.core.expressions/debug/TypeExtensionManager" value="false"/>
 <mapEntry key="org.eclipse.core.expressions/tracePropertyResolving" value="true"/>
 <mapEntry key="org.eclipse.core.jobs/jobs" value="false"/>
 <mapEntry key="org.eclipse.core.jobs/jobs/beginend" value="false"/>
@@ -759,7 +748,7 @@
 <mapEntry key="org.eclipse.ui/trace/handlers.performance" value="false"/>
 <mapEntry key="org.eclipse.ui/trace/handlers.verbose" value="true"/>
 <mapEntry key="org.eclipse.ui/trace/handlers.verbose.commandId" value=""/>
-<mapEntry key="org.eclipse.ui/trace/keyBindings" value="true"/>
+<mapEntry key="org.eclipse.ui/trace/keyBindings" value="false"/>
 <mapEntry key="org.eclipse.ui/trace/keyBindings.verbose" value="false"/>
 <mapEntry key="org.eclipse.ui/trace/multipageeditor" value="false"/>
 <mapEntry key="org.eclipse.ui/trace/operations" value="false"/>
@@ -892,6 +881,7 @@
 </mapAttribute>
 <booleanAttribute key="useCustomFeatures" value="false"/>
 <booleanAttribute key="useDefaultConfig" value="true"/>
-<booleanAttribute key="useDefaultConfigArea" value="false"/>
-<booleanAttribute key="useProduct" value="false"/>
+<booleanAttribute key="useDefaultConfigArea" value="true"/>
+<booleanAttribute key="useProduct" value="true"/>
+<booleanAttribute key="usefeatures" value="false"/>
 </launchConfiguration>
