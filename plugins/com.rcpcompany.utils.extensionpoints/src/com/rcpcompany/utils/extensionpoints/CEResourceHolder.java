@@ -46,9 +46,12 @@ public class CEResourceHolder {
 	 */
 	public Image getImage() {
 		if (myImage == null) {
-			final ImageDescriptor descriptor = AbstractUIPlugin.imageDescriptorFromPlugin(myCE.getContributor()
-					.getName(), myCE.getAttribute(myAttrName));
-			myImage = descriptor.createImage();
+			final String imageName = myCE.getAttribute(myAttrName);
+			if (imageName != null) {
+				final ImageDescriptor descriptor = AbstractUIPlugin.imageDescriptorFromPlugin(myCE.getContributor()
+						.getName(), imageName);
+				myImage = descriptor.createImage();
+			}
 		}
 		return myImage;
 	}
