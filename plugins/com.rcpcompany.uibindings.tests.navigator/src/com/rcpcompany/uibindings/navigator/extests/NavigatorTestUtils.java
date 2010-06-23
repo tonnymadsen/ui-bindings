@@ -39,9 +39,7 @@ public class NavigatorTestUtils {
 		for (final IEditorModelType mt : manager.getModelTypes()) {
 			if (mt.getModelType().equals(cls.getName())) {
 				for (final IEditorPartDescriptor d : mt.getEditors()) {
-					if (d.getId().equals(id)) {
-						return d;
-					}
+					if (d.getId().equals(id)) { return d; }
 				}
 			}
 		}

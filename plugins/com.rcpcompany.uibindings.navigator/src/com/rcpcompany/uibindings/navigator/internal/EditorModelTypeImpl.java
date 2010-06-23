@@ -28,13 +28,18 @@ import com.rcpcompany.uibindings.navigator.INavigatorModelPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorModelTypeImpl#getEditors <em>Editors</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorModelTypeImpl#getPreferredEditor <em>Preferred Editor</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorModelTypeImpl#getModelType <em>Model Type</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorModelTypeImpl#getModelTypeEClassifier <em>Model Type EClassifier</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorModelTypeImpl#getEditors <em>
+ * Editors</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorModelTypeImpl#getPreferredEditor
+ * <em>Preferred Editor</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorModelTypeImpl#getModelType <em>
+ * Model Type</em>}</li>
+ * <li>
+ * {@link com.rcpcompany.uibindings.navigator.internal.EditorModelTypeImpl#getModelTypeEClassifier
+ * <em>Model Type EClassifier</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType {
@@ -51,6 +56,7 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 	/**
 	 * The cached value of the '{@link #getPreferredEditor() <em>Preferred Editor</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getPreferredEditor()
 	 * @generated
 	 * @ordered
@@ -78,9 +84,9 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 	protected String modelType = MODEL_TYPE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getModelTypeEClassifier() <em>Model Type EClassifier</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getModelTypeEClassifier() <em>Model Type EClassifier</em>}'
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getModelTypeEClassifier()
 	 * @generated
 	 * @ordered
@@ -89,6 +95,7 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected EditorModelTypeImpl() {
@@ -97,6 +104,7 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -106,18 +114,22 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<IEditorPartDescriptor> getEditors() {
 		if (editors == null) {
-			editors = new EObjectWithInverseEList<IEditorPartDescriptor>(IEditorPartDescriptor.class, this, INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS, INavigatorModelPackage.EDITOR_PART_DESCRIPTOR__MODEL_TYPE);
+			editors = new EObjectWithInverseEList<IEditorPartDescriptor>(IEditorPartDescriptor.class, this,
+					INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS,
+					INavigatorModelPackage.EDITOR_PART_DESCRIPTOR__MODEL_TYPE);
 		}
 		return editors;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -149,6 +161,7 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -158,159 +171,172 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setModelType(String newModelType) {
-		String oldModelType = modelType;
+		final String oldModelType = modelType;
 		modelType = newModelType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE, oldModelType, modelType));
+			eNotify(new ENotificationImpl(this, Notification.SET, INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE,
+					oldModelType, modelType));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClassifier getModelTypeEClassifier() {
 		return modelTypeEClassifier;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public void setModelTypeEClassifier(EClassifier newModelTypeEClassifier) {
-		EClassifier oldModelTypeEClassifier = modelTypeEClassifier;
+		final EClassifier oldModelTypeEClassifier = modelTypeEClassifier;
 		modelTypeEClassifier = newModelTypeEClassifier;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE_ECLASSIFIER, oldModelTypeEClassifier, modelTypeEClassifier));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE_ECLASSIFIER, oldModelTypeEClassifier,
+					modelTypeEClassifier));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getEditors()).basicAdd(otherEnd, msgs);
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getEditors()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS:
-				return ((InternalEList<?>)getEditors()).basicRemove(otherEnd, msgs);
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS:
+			return ((InternalEList<?>) getEditors()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS:
-				return getEditors();
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__PREFERRED_EDITOR:
-				return getPreferredEditor();
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE:
-				return getModelType();
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE_ECLASSIFIER:
-				return getModelTypeEClassifier();
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS:
+			return getEditors();
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__PREFERRED_EDITOR:
+			return getPreferredEditor();
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE:
+			return getModelType();
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE_ECLASSIFIER:
+			return getModelTypeEClassifier();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS:
-				getEditors().clear();
-				getEditors().addAll((Collection<? extends IEditorPartDescriptor>)newValue);
-				return;
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__PREFERRED_EDITOR:
-				setPreferredEditor((IEditorPartDescriptor)newValue);
-				return;
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE:
-				setModelType((String)newValue);
-				return;
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE_ECLASSIFIER:
-				setModelTypeEClassifier((EClassifier)newValue);
-				return;
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS:
+			getEditors().clear();
+			getEditors().addAll((Collection<? extends IEditorPartDescriptor>) newValue);
+			return;
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__PREFERRED_EDITOR:
+			setPreferredEditor((IEditorPartDescriptor) newValue);
+			return;
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE:
+			setModelType((String) newValue);
+			return;
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE_ECLASSIFIER:
+			setModelTypeEClassifier((EClassifier) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS:
-				getEditors().clear();
-				return;
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__PREFERRED_EDITOR:
-				setPreferredEditor((IEditorPartDescriptor)null);
-				return;
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE:
-				setModelType(MODEL_TYPE_EDEFAULT);
-				return;
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE_ECLASSIFIER:
-				setModelTypeEClassifier((EClassifier)null);
-				return;
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS:
+			getEditors().clear();
+			return;
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__PREFERRED_EDITOR:
+			setPreferredEditor((IEditorPartDescriptor) null);
+			return;
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE:
+			setModelType(MODEL_TYPE_EDEFAULT);
+			return;
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE_ECLASSIFIER:
+			setModelTypeEClassifier((EClassifier) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS:
-				return editors != null && !editors.isEmpty();
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__PREFERRED_EDITOR:
-				return preferredEditor != null;
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE:
-				return MODEL_TYPE_EDEFAULT == null ? modelType != null : !MODEL_TYPE_EDEFAULT.equals(modelType);
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE_ECLASSIFIER:
-				return modelTypeEClassifier != null;
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS:
+			return editors != null && !editors.isEmpty();
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__PREFERRED_EDITOR:
+			return preferredEditor != null;
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE:
+			return MODEL_TYPE_EDEFAULT == null ? modelType != null : !MODEL_TYPE_EDEFAULT.equals(modelType);
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE_ECLASSIFIER:
+			return modelTypeEClassifier != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (modelType: ");
 		result.append(modelType);
 		result.append(')');

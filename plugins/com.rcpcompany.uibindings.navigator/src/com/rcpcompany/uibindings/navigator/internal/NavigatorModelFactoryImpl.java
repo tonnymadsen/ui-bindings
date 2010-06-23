@@ -5,7 +5,6 @@
  */
 package com.rcpcompany.uibindings.navigator.internal;
 
-import com.rcpcompany.uibindings.navigator.*;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EClass;
@@ -22,30 +21,29 @@ import com.rcpcompany.uibindings.navigator.INavigatorModelPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class NavigatorModelFactoryImpl extends EFactoryImpl implements INavigatorModelFactory {
 	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static INavigatorModelFactory init() {
 		try {
-			INavigatorModelFactory theNavigatorModelFactory = (INavigatorModelFactory)EPackage.Registry.INSTANCE.getEFactory("http://rcpcompany.com/schemas/uibindings/navigator"); 
-			if (theNavigatorModelFactory != null) {
-				return theNavigatorModelFactory;
-			}
-		}
-		catch (Exception exception) {
+			final INavigatorModelFactory theNavigatorModelFactory = (INavigatorModelFactory) EPackage.Registry.INSTANCE
+					.getEFactory("http://rcpcompany.com/schemas/uibindings/navigator");
+			if (theNavigatorModelFactory != null) { return theNavigatorModelFactory; }
+		} catch (final Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new NavigatorModelFactoryImpl();
 	}
 
 	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NavigatorModelFactoryImpl() {
@@ -54,17 +52,22 @@ public class NavigatorModelFactoryImpl extends EFactoryImpl implements INavigato
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case INavigatorModelPackage.NAVIGATOR_MANAGER: return createNavigatorManager();
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE: return createEditorModelType();
-			case INavigatorModelPackage.EDITOR_PART_DESCRIPTOR: return createEditorPartDescriptor();
-			case INavigatorModelPackage.STRING_TO_MODEL_TYPE_MAP_ENTRY: return (EObject)createStringToModelTypeMapEntry();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		case INavigatorModelPackage.NAVIGATOR_MANAGER:
+			return createNavigatorManager();
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE:
+			return createEditorModelType();
+		case INavigatorModelPackage.EDITOR_PART_DESCRIPTOR:
+			return createEditorPartDescriptor();
+		case INavigatorModelPackage.STRING_TO_MODEL_TYPE_MAP_ENTRY:
+			return (EObject) createStringToModelTypeMapEntry();
+		default:
+			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -80,54 +83,60 @@ public class NavigatorModelFactoryImpl extends EFactoryImpl implements INavigato
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public INavigatorManager createNavigatorManager() {
-		NavigatorManagerImpl navigatorManager = new NavigatorManagerImpl();
+		final NavigatorManagerImpl navigatorManager = new NavigatorManagerImpl();
 		return navigatorManager;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public IEditorModelType createEditorModelType() {
-		EditorModelTypeImpl editorModelType = new EditorModelTypeImpl();
+		final EditorModelTypeImpl editorModelType = new EditorModelTypeImpl();
 		return editorModelType;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public IEditorPartDescriptor createEditorPartDescriptor() {
-		EditorPartDescriptorImpl editorPartDescriptor = new EditorPartDescriptorImpl();
+		final EditorPartDescriptorImpl editorPartDescriptor = new EditorPartDescriptorImpl();
 		return editorPartDescriptor;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Map.Entry<String, IEditorModelType> createStringToModelTypeMapEntry() {
-		StringToModelTypeMapEntryImpl stringToModelTypeMapEntry = new StringToModelTypeMapEntryImpl();
+		final StringToModelTypeMapEntryImpl stringToModelTypeMapEntry = new StringToModelTypeMapEntryImpl();
 		return stringToModelTypeMapEntry;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public INavigatorModelPackage getNavigatorModelPackage() {
-		return (INavigatorModelPackage)getEPackage();
+		return (INavigatorModelPackage) getEPackage();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @deprecated
 	 * @generated
 	 */

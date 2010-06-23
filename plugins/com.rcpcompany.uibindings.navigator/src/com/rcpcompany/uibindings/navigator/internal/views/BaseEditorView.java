@@ -98,9 +98,7 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 
 	@Override
 	public String getPartName() {
-		if (myCurrentDesciptor != null) {
-			return myCurrentDesciptor.getName();
-		}
+		if (myCurrentDesciptor != null) return myCurrentDesciptor.getName();
 		return super.getPartName();
 	}
 
@@ -108,9 +106,7 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 	public Image getTitleImage() {
 		if (myCurrentDesciptor != null) {
 			final Image image = myCurrentDesciptor.getImage().getImage();
-			if (image != null) {
-				return image;
-			}
+			if (image != null) return image;
 		}
 		// TODO the model type image
 		return super.getTitleImage();
@@ -139,13 +135,9 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 
 	@Override
 	public void selectReveal(ISelection selection) {
-		if (myCurrentEditorPart != null && isPinned()) {
-			return;
-		}
+		if (myCurrentEditorPart != null && isPinned()) return;
 		final List<EObject> list = SelectionUtils.computeSelection(selection, EObject.class);
-		if (list.isEmpty()) {
-			return;
-		}
+		if (list.isEmpty()) return;
 
 		setCurrentObject(list.get(0));
 	}
@@ -157,9 +149,7 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 
 	@Override
 	public EObject getCurrentObject() {
-		if (myCurrentValue != null) {
-			return (EObject) myCurrentValue.getValue();
-		}
+		if (myCurrentValue != null) return (EObject) myCurrentValue.getValue();
 		return null;
 	}
 
@@ -202,9 +192,7 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 		/*
 		 * Setup the new editor part
 		 */
-		if (desc == null) {
-			return;
-		}
+		if (desc == null) return;
 
 		/*
 		 * - create the observable value for the editor part based on the type of the editor

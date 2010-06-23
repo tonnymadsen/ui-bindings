@@ -83,9 +83,7 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 
 	@Override
 	public IEditorPartDescriptor getEditorPartDescriptor(EObject obj) {
-		if (obj == null) {
-			return null;
-		}
+		if (obj == null) { return null; }
 		final Class<?>[] classes = Platform.getAdapterManager().computeClassOrder(obj.getClass());
 		for (final Class<?> c : classes) {
 			final String typeName = c.getName();
@@ -249,9 +247,7 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	private final Adapter myPreferredModelTypeAdapter = new AdapterImpl() {
 		@Override
 		public void notifyChanged(Notification msg) {
-			if (msg.getFeature() != INavigatorModelPackage.Literals.EDITOR_MODEL_TYPE__PREFERRED_EDITOR) {
-				return;
-			}
+			if (msg.getFeature() != INavigatorModelPackage.Literals.EDITOR_MODEL_TYPE__PREFERRED_EDITOR) { return; }
 
 			final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
 			final IEditorModelType mt = (IEditorModelType) msg.getNotifier();
@@ -356,9 +352,7 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 		 * Look for a perfect match
 		 */
 		for (final IEditorPartView v : views) {
-			if (v.getCurrentObject() == obj) {
-				return v;
-			}
+			if (v.getCurrentObject() == obj) { return v; }
 		}
 
 		/*
