@@ -63,8 +63,8 @@ public class EditorPartFactoryTests {
 
 			assertNotNull(context);
 
-			assertTrue(context.getPart() instanceof BaseEditorView);
-			final BaseEditorView view = (BaseEditorView) context.getPart();
+			assertTrue(context.getWorkbenchPart() instanceof BaseEditorView);
+			final BaseEditorView view = (BaseEditorView) context.getWorkbenchPart();
 
 			assertEquals(view.myParent, context.getParent());
 

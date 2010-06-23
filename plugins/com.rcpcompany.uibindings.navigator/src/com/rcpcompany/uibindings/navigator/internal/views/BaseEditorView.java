@@ -70,7 +70,7 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 	 */
 	private final IEditorPartContext myFactoryContext = new IEditorPartContext() {
 		@Override
-		public IWorkbenchPart getPart() {
+		public IWorkbenchPart getWorkbenchPart() {
 			return BaseEditorView.this;
 		}
 

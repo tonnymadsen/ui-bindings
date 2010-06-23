@@ -14,7 +14,8 @@ import com.rcpcompany.uibindings.utils.IAutoFormCreator;
 public class GenericEditorPartFactory extends AbstractEditorPartFactory implements IEditorPartFactory {
 	@Override
 	public IEditorPart createEditorPart(IEditorPartContext context) {
-		final IAutoFormCreator form = IAutoFormCreator.Factory.createForm(null, null, null, null);
+		final IAutoFormCreator form = IAutoFormCreator.Factory.createForm(context.getCurrentValue(), context
+				.getDescriptor().getName(), context.getParent(), context.getWorkbenchPart());
 		return new IEditorPart() {
 			@Override
 			public void dispose() {

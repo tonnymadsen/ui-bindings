@@ -32,7 +32,7 @@ public interface IEditorPartContext {
 	 * 
 	 * @return the part
 	 */
-	IWorkbenchPart getPart();
+	IWorkbenchPart getWorkbenchPart();
 
 	/**
 	 * Returns the {@link IObservableValue} with the current value.
