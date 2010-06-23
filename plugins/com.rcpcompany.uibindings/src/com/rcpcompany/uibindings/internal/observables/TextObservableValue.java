@@ -22,7 +22,6 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.TextCommitStrategy;
-import com.rcpcompany.utils.basic.ToStringUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -54,7 +53,7 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 	protected boolean updating = false;
 
 	/**
-	 * The last value reported via a change event - also used for ESCAPE
+	 * The last value reported via a change event - also used for ESCAPE.
 	 */
 	protected String myOldValue;
 
@@ -82,7 +81,8 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 	private final Listener myControlListener = new Listener() {
 		@Override
 		public void handleEvent(Event event) {
-			LogUtils.debug(this, "Text='" + myAdapter.getText(myControl) + "'\n" + ToStringUtils.toString(event));
+			// LogUtils.debug(this, "Text='" + myAdapter.getText(myControl) + "'\n" +
+			// ToStringUtils.toString(event));
 			if (updating) return;
 
 			/*
@@ -118,14 +118,7 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 				myNextModifyValue = v.substring(0, event.start) + event.text + v.substring(event.end);
 				return;
 			case SWT.Modify:
-				if (myNextModifyValue != null && !myAdapter.getText(myControl).equals(myNextModifyValue)) /*
-																										 * See
-																										 * comment
-																										 * for
-																										 * myNextModifyValue
-																										 * .
-																										 */
-				return;
+				if (myNextModifyValue != null && !myAdapter.getText(myControl).equals(myNextModifyValue)) return;
 				myNextModifyValue = null;
 				break;
 			case SWT.FocusOut:
