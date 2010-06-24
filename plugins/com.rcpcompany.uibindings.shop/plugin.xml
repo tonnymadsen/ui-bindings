@@ -421,6 +421,14 @@
                commandId="org.eclipse.ui.navigate.collapseAll"
                style="push">
          </command>
+         <command
+               commandId="org.eclipse.ui.views.showView"
+               style="push">
+            <parameter
+                  name="org.eclipse.ui.views.showView.viewId"
+                  value="com.rcpcompany.uibindings.navigator.views.BaseEditorView">
+            </parameter>
+         </command>
       </menuContribution>
       <menuContribution
             locationURI="popup:org.eclipse.ui.popup.any">
@@ -558,6 +566,7 @@
          <feature
                name="price">
             <standardArguments
+                  readonly="true"
                   type="price">
             </standardArguments>
          </feature>
