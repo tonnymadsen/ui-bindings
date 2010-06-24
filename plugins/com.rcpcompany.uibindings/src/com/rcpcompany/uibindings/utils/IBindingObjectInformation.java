@@ -2,17 +2,19 @@ package com.rcpcompany.uibindings.utils;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.swt.graphics.Image;
 
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IDisposable;
+import com.rcpcompany.uibindings.internal.utils.BindingObjectInformation;
 
 /**
  * Utility class that returns the long name for a specific object using bindings.
- * <p>
- * Backward compatible information...
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public interface IBindingObjectLongName extends IDisposable {
+public interface IBindingObjectInformation extends IBindingObjectLongName, IDisposable {
 	/**
 	 * Factory for {@link IBindingObjectInformation}.
 	 */
@@ -27,7 +29,10 @@ public interface IBindingObjectLongName extends IDisposable {
 		 * @return the name or "&lt;null&gt;"
 		 */
 		public static String getLongName(EObject obj) {
-			return IBindingObjectInformation.Factory.getLongName(obj);
+			final IBindingObjectInformation ln = createLongName(obj, Constants.TYPE_LONG_NAME);
+			final String name = ln.getName();
+			ln.dispose();
+			return name;
 		}
 
 		/**
@@ -37,8 +42,8 @@ public interface IBindingObjectLongName extends IDisposable {
 		 * @param type the binding type
 		 * @return long name object
 		 */
-		public static IBindingObjectLongName createLongName(EObject obj, String type) {
-			return IBindingObjectInformation.Factory.createLongName(obj, type);
+		public static IBindingObjectInformation createLongName(EObject obj, String type) {
+			return new BindingObjectInformation(obj, type);
 		}
 
 		/**
@@ -54,7 +59,23 @@ public interface IBindingObjectLongName extends IDisposable {
 		 * @return the name
 		 */
 		public static String getLongName(ISelection selection) {
-			return IBindingObjectInformation.Factory.getLongName(selection);
+			if (!(selection instanceof IStructuredSelection)) return "";
+			final IStructuredSelection s = (IStructuredSelection) selection;
+			final StringBuilder sb = new StringBuilder();
+			for (final Object o : s.toArray()) {
+				if (!(o instanceof EObject)) {
+					continue;
+				}
+				final String name = getLongName((EObject) o);
+				if (name == null || name.equals("<null>")) {
+					continue;
+				}
+				if (sb.length() > 0) {
+					sb.append(", ");
+				}
+				sb.append(name);
+			}
+			return sb.toString();
 		}
 	}
 
@@ -64,4 +85,11 @@ public interface IBindingObjectLongName extends IDisposable {
 	 * @return the name
 	 */
 	String getName();
+
+	/**
+	 * Returns the image for this object.
+	 * 
+	 * @return the image or <code>null</code>
+	 */
+	Image getImage();
 }

@@ -2,29 +2,30 @@ package com.rcpcompany.uibindings.internal.utils;
 
 import org.eclipse.core.databinding.observable.value.WritableValue;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.swt.graphics.Image;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
-import com.rcpcompany.uibindings.utils.IBindingObjectLongName;
+import com.rcpcompany.uibindings.utils.IBindingObjectInformation;
 
 /**
- * Implementation of {@link IBindingObjectLongName}.
+ * Implementation of {@link IBindingObjectInformation}.
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class BindingObjectLongName implements IBindingObjectLongName {
+public class BindingObjectInformation implements IBindingObjectInformation {
 	private final EObject myObj;
 	private IBindingContext myContext;
 	private VirtualUIAttribute myAttribute;
 
 	/**
-	 * Constructs and returns a new name object for the specified object and binding type
+	 * Constructs and returns a new name object for the specified object and binding type.
 	 * 
 	 * @param obj the object
 	 * @param type the binding type - defaults to {@link Constants#TYPE_LONG_NAME}
 	 */
-	public BindingObjectLongName(EObject obj, String type) {
+	public BindingObjectInformation(EObject obj, String type) {
 		myObj = obj;
 		if (myObj != null) {
 			if (type == null) {
@@ -45,6 +46,12 @@ public class BindingObjectLongName implements IBindingObjectLongName {
 	public String getName() {
 		if (myContext == null) return "<null>";
 		return (String) myAttribute.getCurrentValue().getValue();
+	}
+
+	@Override
+	public Image getImage() {
+		if (myContext == null) return null;
+		return (Image) myAttribute.getImageValue().getValue();
 	}
 
 	@Override
