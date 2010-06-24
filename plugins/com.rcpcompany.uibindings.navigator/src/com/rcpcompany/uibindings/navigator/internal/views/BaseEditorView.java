@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.WritableValue;
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
@@ -20,7 +19,6 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.part.ISetSelectionTarget;
 import org.eclipse.ui.part.ViewPart;
 
-import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.navigator.IEditorPart;
 import com.rcpcompany.uibindings.navigator.IEditorPartContext;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
@@ -190,11 +188,7 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 		 * - create the observable value for the editor part based on the type of the editor
 		 * descriptor
 		 */
-		final EClassifier cls = desc.getModelType().getModelTypeEClassifier();
-		if (cls == null) {
-			LogUtils.error(desc, "Classifier for " + desc.getModelType().getModelType() + " not set");
-		}
-		myCurrentValue = new WritableValue(obj, cls);
+		myCurrentValue = new WritableValue(obj, obj.eClass());
 		myCurrentDesciptor = desc;
 
 		/*
@@ -234,7 +228,7 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 		Image image = myCurrentDesciptor.getImage().getImage();
 		if (image == null) {
 			final IBindingObjectInformation information = IBindingObjectInformation.Factory.createLongName(
-					(EObject) myCurrentValue.getValue(), Constants.TYPE_LONG_NAME);
+					(EObject) myCurrentValue.getValue(), "");
 			if (information != null) {
 				image = information.getImage();
 			}

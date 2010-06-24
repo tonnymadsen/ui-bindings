@@ -3,10 +3,16 @@ package com.rcpcompany.uibindings.navigator.extests.editors;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 import com.rcpcompany.uibindings.navigator.IEditorModelType;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
@@ -20,13 +26,31 @@ import com.rcpcompany.uibindings.tests.shop.ShopFactory;
  * 
  * @author Tonny Madsen, The RCP Company
  */
+@RunWith(Parameterized.class)
 public class EditorPartDescriptorTest {
 	private INavigatorManager myManager;
+	private final boolean myUseGenericEditorPartFallback;
+
+	@Parameters
+	public static List<Object[]> data() {
+		return Arrays.asList(new Object[][] {
+
+				// useGenericEditorPartFallback
+				{ false }, { true }
+
+		});
+	}
+
+	public EditorPartDescriptorTest(boolean useGenericEditorPartFallback) {
+		myUseGenericEditorPartFallback = useGenericEditorPartFallback;
+
+	}
 
 	@Before
 	public void before() {
 		NavigatorTestUtils.resetAll();
 		myManager = INavigatorModelFactory.eINSTANCE.getManager();
+		myManager.setUseGenericEditorPartFallback(myUseGenericEditorPartFallback);
 	}
 
 	/**
@@ -35,7 +59,12 @@ public class EditorPartDescriptorTest {
 	@Test
 	public void test() {
 		testOne(null, null);
-		testOne(null, EcoreFactory.eINSTANCE.createEObject());
+		if (myUseGenericEditorPartFallback) {
+			testOne("org.eclipse.emf.ecore.EObject.com.rcpcompany.uibindings.navigator.editorFactories.GenericEditorPartFactory",
+					EcoreFactory.eINSTANCE.createEObject());
+		} else {
+			testOne(null, EcoreFactory.eINSTANCE.createEObject());
+		}
 		testOne("com.rcpcompany.uibindings.tests.editors.editors.basic", ShopFactory.eINSTANCE.createShop());
 		testOne("com.rcpcompany.uibindings.tests.editors.editors.generic.country",
 				ShopFactory.eINSTANCE.createCountry());

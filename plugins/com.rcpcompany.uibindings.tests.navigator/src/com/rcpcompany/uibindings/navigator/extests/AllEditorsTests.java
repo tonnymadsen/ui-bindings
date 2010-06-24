@@ -6,6 +6,7 @@ import org.junit.runners.Suite;
 import com.rcpcompany.uibindings.navigator.extests.editors.EditorPartDescriptorTest;
 import com.rcpcompany.uibindings.navigator.extests.editors.EditorPartLifecycleTests;
 import com.rcpcompany.uibindings.navigator.extests.editors.ShowViewTests;
+import com.rcpcompany.uibindings.navigator.extests.manager.ManagerUseGenericEditorPartFallback;
 import com.rcpcompany.uibindings.navigator.extests.manager.NavigatorModelManagerTest;
 import com.rcpcompany.uibindings.navigator.extests.manager.PreferenceTests;
 import com.rcpcompany.uibindings.navigator.internal.views.EditorPartFactoryTests;
@@ -21,7 +22,7 @@ import com.rcpcompany.uibindings.navigator.internal.views.EditorPartFactoryTests
 		/*
 		 * Simple manager tests
 		 */
-		NavigatorModelManagerTest.class,
+		NavigatorModelManagerTest.class, ManagerUseGenericEditorPartFallback.class,
 
 		/*
 		 * Editor retrieval tests

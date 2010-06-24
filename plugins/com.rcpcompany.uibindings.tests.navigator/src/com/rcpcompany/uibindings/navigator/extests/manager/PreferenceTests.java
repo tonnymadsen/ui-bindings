@@ -63,6 +63,7 @@ public class PreferenceTests {
 		assertEquals(first.getId(), ps.getString(mt.getModelType()));
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				mt.setPreferredEditor(second);
 			}
@@ -72,6 +73,7 @@ public class PreferenceTests {
 		assertEquals(second.getId(), ps.getString(mt.getModelType()));
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				mt.setPreferredEditor(null);
 			}
@@ -100,6 +102,7 @@ public class PreferenceTests {
 		assertEquals(first.getId(), ps.getString(mt.getModelType()));
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				ps.setValue(mt.getModelType(), second.getId());
 			}

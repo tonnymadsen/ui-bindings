@@ -61,7 +61,7 @@ There can be multiple editor parts for a specific model type, in which case an &
          <attribute name="id" type="string" use="required">
             <annotation>
                <documentation>
-                  the ID for the editor. This ID is used in preferences to save information about the chosen editor.
+                  the ID for the editor. This ID is used in preferences to save information about the chosen editor. The ID must be unique per model type, but not necessarily globally unique.
                </documentation>
             </annotation>
          </attribute>

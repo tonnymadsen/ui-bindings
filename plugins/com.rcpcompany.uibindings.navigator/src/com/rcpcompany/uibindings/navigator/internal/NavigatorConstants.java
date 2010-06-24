@@ -1,5 +1,7 @@
 package com.rcpcompany.uibindings.navigator.internal;
 
+import com.rcpcompany.uibindings.navigator.INavigatorManager;
+
 /**
  * Various constants used in the navigator plug-in
  * 
@@ -17,6 +19,11 @@ public interface NavigatorConstants {
 	 * The ID of the Generic Editor View.
 	 */
 	String EDITOR_VIEW_ID = Activator.ID + ".views.BaseEditorView"; //$NON-NLS-1$
+
+	/**
+	 * Preference name for {@link INavigatorManager#isUseGenericEditorPartFallback()}.
+	 */
+	String PREF_USE_GENERIC_EDITOR_PART_FALLBACK = "USE_GENERIC_EDITOR_PART_FALLBACK";
 
 	String ID_TAG = "id";
 	String MODEL_TYPE_TAG = "modelType";

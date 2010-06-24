@@ -25,61 +25,54 @@ import com.rcpcompany.uibindings.navigator.INavigatorModelPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- * 
  * @generated
  */
 public class NavigatorModelPackageImpl extends EPackageImpl implements INavigatorModelPackage {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass navigatorManagerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass editorModelTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass editorPartDescriptorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass iEditorPartFactoryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass iEditorPartViewEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass stringToModelTypeMapEntryEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
-	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package package URI
-	 * value.
-	 * <p>
-	 * Note: the correct way to create the package is via the static factory method {@link #init
-	 * init()}, which also performs initialization of the package, or returns the registered
-	 * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
+	 * package URI value.
+	 * <p>Note: the correct way to create the package is via the static
+	 * factory method {@link #init init()}, which also performs
+	 * initialization of the package, or returns the registered package,
+	 * if one already exists.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see com.rcpcompany.uibindings.navigator.INavigatorModelPackage#eNS_URI
 	 * @see #init()
@@ -91,33 +84,26 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others
-	 * upon which it depends.
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 * 
-	 * <p>
-	 * This method is used to initialize {@link INavigatorModelPackage#eINSTANCE} when that field is
-	 * accessed. Clients should not invoke it directly. Instead, they should simply access that
-	 * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <p>This method is used to initialize {@link INavigatorModelPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
 	public static INavigatorModelPackage init() {
-		if (isInited)
-			return (INavigatorModelPackage) EPackage.Registry.INSTANCE.getEPackage(INavigatorModelPackage.eNS_URI);
+		if (isInited) return (INavigatorModelPackage)EPackage.Registry.INSTANCE.getEPackage(INavigatorModelPackage.eNS_URI);
 
 		// Obtain or create and register package
-		final NavigatorModelPackageImpl theNavigatorModelPackage = (NavigatorModelPackageImpl) (EPackage.Registry.INSTANCE
-				.get(eNS_URI) instanceof NavigatorModelPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-				: new NavigatorModelPackageImpl());
+		NavigatorModelPackageImpl theNavigatorModelPackage = (NavigatorModelPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof NavigatorModelPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new NavigatorModelPackageImpl());
 
 		isInited = true;
 
@@ -133,6 +119,7 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 		// Mark meta-data to indicate it can't be changed
 		theNavigatorModelPackage.freeze();
 
+  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(INavigatorModelPackage.eNS_URI, theNavigatorModelPackage);
 		return theNavigatorModelPackage;
@@ -140,7 +127,6 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -150,17 +136,24 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EReference getNavigatorManager_ModelTypes() {
-		return (EReference) navigatorManagerEClass.getEStructuralFeatures().get(0);
+		return (EReference)navigatorManagerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNavigatorManager_UseGenericEditorPartFallback() {
+		return (EAttribute)navigatorManagerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -170,47 +163,42 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EReference getEditorModelType_Editors() {
-		return (EReference) editorModelTypeEClass.getEStructuralFeatures().get(0);
+		return (EReference)editorModelTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EReference getEditorModelType_PreferredEditor() {
-		return (EReference) editorModelTypeEClass.getEStructuralFeatures().get(1);
+		return (EReference)editorModelTypeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EAttribute getEditorModelType_ModelType() {
-		return (EAttribute) editorModelTypeEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)editorModelTypeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EReference getEditorModelType_ModelTypeEClassifier() {
-		return (EReference) editorModelTypeEClass.getEStructuralFeatures().get(3);
+	public EAttribute getEditorModelType_AutoGenerated() {
+		return (EAttribute)editorModelTypeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -220,67 +208,60 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EReference getEditorPartDescriptor_ModelType() {
-		return (EReference) editorPartDescriptorEClass.getEStructuralFeatures().get(0);
+		return (EReference)editorPartDescriptorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EAttribute getEditorPartDescriptor_Id() {
-		return (EAttribute) editorPartDescriptorEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)editorPartDescriptorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EAttribute getEditorPartDescriptor_Name() {
-		return (EAttribute) editorPartDescriptorEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)editorPartDescriptorEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EAttribute getEditorPartDescriptor_Priority() {
-		return (EAttribute) editorPartDescriptorEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)editorPartDescriptorEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EAttribute getEditorPartDescriptor_Factory() {
-		return (EAttribute) editorPartDescriptorEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)editorPartDescriptorEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EAttribute getEditorPartDescriptor_Image() {
-		return (EAttribute) editorPartDescriptorEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)editorPartDescriptorEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -290,7 +271,6 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -300,7 +280,6 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -310,45 +289,41 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EAttribute getStringToModelTypeMapEntry_Key() {
-		return (EAttribute) stringToModelTypeMapEntryEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)stringToModelTypeMapEntryEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EReference getStringToModelTypeMapEntry_Value() {
-		return (EReference) stringToModelTypeMapEntryEClass.getEStructuralFeatures().get(1);
+		return (EReference)stringToModelTypeMapEntryEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public INavigatorModelFactory getNavigatorModelFactory() {
-		return (INavigatorModelFactory) getEFactoryInstance();
+		return (INavigatorModelFactory)getEFactoryInstance();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private boolean isCreated = false;
 
 	/**
-	 * Creates the meta-model objects for the package. This method is guarded to have no affect on
-	 * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Creates the meta-model objects for the package.  This method is
+	 * guarded to have no affect on any invocation but its first.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void createPackageContents() {
@@ -358,12 +333,13 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 		// Create classes and their features
 		navigatorManagerEClass = createEClass(NAVIGATOR_MANAGER);
 		createEReference(navigatorManagerEClass, NAVIGATOR_MANAGER__MODEL_TYPES);
+		createEAttribute(navigatorManagerEClass, NAVIGATOR_MANAGER__USE_GENERIC_EDITOR_PART_FALLBACK);
 
 		editorModelTypeEClass = createEClass(EDITOR_MODEL_TYPE);
 		createEReference(editorModelTypeEClass, EDITOR_MODEL_TYPE__EDITORS);
 		createEReference(editorModelTypeEClass, EDITOR_MODEL_TYPE__PREFERRED_EDITOR);
 		createEAttribute(editorModelTypeEClass, EDITOR_MODEL_TYPE__MODEL_TYPE);
-		createEReference(editorModelTypeEClass, EDITOR_MODEL_TYPE__MODEL_TYPE_ECLASSIFIER);
+		createEAttribute(editorModelTypeEClass, EDITOR_MODEL_TYPE__AUTO_GENERATED);
 
 		editorPartDescriptorEClass = createEClass(EDITOR_PART_DESCRIPTOR);
 		createEReference(editorPartDescriptorEClass, EDITOR_PART_DESCRIPTOR__MODEL_TYPE);
@@ -384,15 +360,14 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private boolean isInitialized = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model. This method is guarded to have
-	 * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Complete the initialization of the package and its meta-model.  This
+	 * method is guarded to have no affect on any invocation but its first.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void initializePackageContents() {
@@ -405,8 +380,7 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		final IUIBindingsPackage theUIBindingsPackage = (IUIBindingsPackage) EPackage.Registry.INSTANCE
-				.getEPackage(IUIBindingsPackage.eNS_URI);
+		IUIBindingsPackage theUIBindingsPackage = (IUIBindingsPackage)EPackage.Registry.INSTANCE.getEPackage(IUIBindingsPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -415,66 +389,34 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 		// Add supertypes to classes
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(navigatorManagerEClass, INavigatorManager.class, "NavigatorManager", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNavigatorManager_ModelTypes(), this.getEditorModelType(), null, "modelTypes", null, 0, -1,
-				INavigatorManager.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(navigatorManagerEClass, INavigatorManager.class, "NavigatorManager", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNavigatorManager_ModelTypes(), this.getEditorModelType(), null, "modelTypes", null, 0, -1, INavigatorManager.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNavigatorManager_UseGenericEditorPartFallback(), ecorePackage.getEBoolean(), "useGenericEditorPartFallback", "true", 1, 1, INavigatorManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(editorModelTypeEClass, IEditorModelType.class, "EditorModelType", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEditorModelType_Editors(), this.getEditorPartDescriptor(),
-				this.getEditorPartDescriptor_ModelType(), "editors", null, 0, -1, IEditorModelType.class, IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEReference(getEditorModelType_PreferredEditor(), this.getEditorPartDescriptor(), null, "preferredEditor",
-				null, 0, 1, IEditorModelType.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEditorModelType_ModelType(), ecorePackage.getEString(), "modelType", null, 1, 1,
-				IEditorModelType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEReference(getEditorModelType_ModelTypeEClassifier(), ecorePackage.getEClassifier(), null,
-				"modelTypeEClassifier", null, 0, 1, IEditorModelType.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(editorModelTypeEClass, IEditorModelType.class, "EditorModelType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEditorModelType_Editors(), this.getEditorPartDescriptor(), this.getEditorPartDescriptor_ModelType(), "editors", null, 0, -1, IEditorModelType.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEditorModelType_PreferredEditor(), this.getEditorPartDescriptor(), null, "preferredEditor", null, 0, 1, IEditorModelType.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEditorModelType_ModelType(), ecorePackage.getEString(), "modelType", null, 1, 1, IEditorModelType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEditorModelType_AutoGenerated(), ecorePackage.getEBoolean(), "autoGenerated", "false", 1, 1, IEditorModelType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(editorPartDescriptorEClass, IEditorPartDescriptor.class, "EditorPartDescriptor", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEditorPartDescriptor_ModelType(), this.getEditorModelType(),
-				this.getEditorModelType_Editors(), "modelType", null, 1, 1, IEditorPartDescriptor.class, IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEditorPartDescriptor_Id(), ecorePackage.getEString(), "id", null, 1, 1,
-				IEditorPartDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEditorPartDescriptor_Name(), ecorePackage.getEString(), "name", null, 1, 1,
-				IEditorPartDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEditorPartDescriptor_Priority(), ecorePackage.getEInt(), "priority", null, 1, 1,
-				IEditorPartDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		final EGenericType g1 = createEGenericType(theUIBindingsPackage.getCEObjectHolder());
-		final EGenericType g2 = createEGenericType(this.getIEditorPartFactory());
+		initEClass(editorPartDescriptorEClass, IEditorPartDescriptor.class, "EditorPartDescriptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEditorPartDescriptor_ModelType(), this.getEditorModelType(), this.getEditorModelType_Editors(), "modelType", null, 1, 1, IEditorPartDescriptor.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEditorPartDescriptor_Id(), ecorePackage.getEString(), "id", null, 1, 1, IEditorPartDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEditorPartDescriptor_Name(), ecorePackage.getEString(), "name", null, 1, 1, IEditorPartDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEditorPartDescriptor_Priority(), ecorePackage.getEInt(), "priority", null, 1, 1, IEditorPartDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		EGenericType g1 = createEGenericType(theUIBindingsPackage.getCEObjectHolder());
+		EGenericType g2 = createEGenericType(this.getIEditorPartFactory());
 		g1.getETypeArguments().add(g2);
-		initEAttribute(getEditorPartDescriptor_Factory(), g1, "factory", null, 1, 1, IEditorPartDescriptor.class,
-				IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEditorPartDescriptor_Image(), theUIBindingsPackage.getCEResourceHolder(), "image", null, 1,
-				1, IEditorPartDescriptor.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEditorPartDescriptor_Factory(), g1, "factory", null, 1, 1, IEditorPartDescriptor.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEditorPartDescriptor_Image(), theUIBindingsPackage.getCEResourceHolder(), "image", null, 1, 1, IEditorPartDescriptor.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(iEditorPartFactoryEClass, IEditorPartFactory.class, "IEditorPartFactory", IS_ABSTRACT, IS_INTERFACE,
-				!IS_GENERATED_INSTANCE_CLASS);
+		initEClass(iEditorPartFactoryEClass, IEditorPartFactory.class, "IEditorPartFactory", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(iEditorPartViewEClass, IEditorPartView.class, "IEditorPartView", IS_ABSTRACT, IS_INTERFACE,
-				!IS_GENERATED_INSTANCE_CLASS);
+		initEClass(iEditorPartViewEClass, IEditorPartView.class, "IEditorPartView", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(stringToModelTypeMapEntryEClass, Map.Entry.class, "StringToModelTypeMapEntry", !IS_ABSTRACT,
-				!IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStringToModelTypeMapEntry_Key(), ecorePackage.getEString(), "key", null, 0, 1,
-				Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEReference(getStringToModelTypeMapEntry_Value(), this.getEditorModelType(), null, "value", null, 0, 1,
-				Map.Entry.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(stringToModelTypeMapEntryEClass, Map.Entry.class, "StringToModelTypeMapEntry", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStringToModelTypeMapEntry_Key(), ecorePackage.getEString(), "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStringToModelTypeMapEntry_Value(), this.getEditorModelType(), null, "value", null, 0, 1, Map.Entry.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
