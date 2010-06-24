@@ -225,7 +225,10 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 		 * - Update the view part info
 		 */
 		setPartName(myCurrentDesciptor.getName());
-		Image image = myCurrentDesciptor.getImage().getImage();
+		Image image = null;
+		if (image == null && myCurrentDesciptor.getImage() != null) {
+			myCurrentDesciptor.getImage().getImage();
+		}
 		if (image == null) {
 			final IBindingObjectInformation information = IBindingObjectInformation.Factory.createLongName(
 					(EObject) myCurrentValue.getValue(), "");
