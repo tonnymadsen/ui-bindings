@@ -567,6 +567,11 @@ public interface Constants {
 	String PROPERTY_CAN_UNDO = "canUndo"; //$NON-NLS-1$
 
 	/**
+	 * The default {@link IBinding} type.
+	 */
+	String TYPE_DEFAULT = ""; //$NON-NLS-1$
+
+	/**
 	 * The {@link IBinding} type used for fields that should have a long human readable name.
 	 */
 	String TYPE_LONG_NAME = "longName"; //$NON-NLS-1$
