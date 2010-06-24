@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.rcpcompany.uibindings.navigator.AbstractEditorPartFactory;
+import com.rcpcompany.uibindings.navigator.FormEditorPartFactory;
 import com.rcpcompany.uibindings.navigator.IEditorModelType;
 import com.rcpcompany.uibindings.navigator.IEditorPart;
 import com.rcpcompany.uibindings.navigator.IEditorPartContext;
@@ -22,6 +23,8 @@ import com.rcpcompany.uibindings.tests.shop.ShopItemGroup;
 
 /**
  * Tests of {@link IEditorPartFactory} and abstract implementations
+ * 
+ * TODO missing test of {@link FormEditorPartFactory}.
  * 
  * @author Tonny Madsen, The RCP Company
  * 

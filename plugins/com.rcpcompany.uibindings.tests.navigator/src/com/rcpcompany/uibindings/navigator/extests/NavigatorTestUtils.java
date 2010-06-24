@@ -67,4 +67,13 @@ public class NavigatorTestUtils {
 		final IEditorPartDescriptor descriptor = findDescriptor(cls, id);
 		descriptor.getModelType().setPreferredEditor(descriptor);
 	}
+
+	public static IEditorModelType getMultipleEditorModelType() {
+		final INavigatorManager manager = INavigatorModelFactory.eINSTANCE.getManager();
+		for (final IEditorModelType m : manager.getModelTypes()) {
+			if (m.getEditors().size() > 1) return m;
+		}
+		fail("no EditorModelType found with multiple editors");
+		return null;
+	}
 }

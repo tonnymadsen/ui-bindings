@@ -8,16 +8,19 @@ import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.ISelectionService;
+import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.IWorkbenchPartConstants;
 import org.eclipse.ui.part.ISetSelectionTarget;
 import org.eclipse.ui.part.ViewPart;
 
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.navigator.IEditorPart;
 import com.rcpcompany.uibindings.navigator.IEditorPartContext;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
@@ -25,6 +28,8 @@ import com.rcpcompany.uibindings.navigator.IEditorPartFactory;
 import com.rcpcompany.uibindings.navigator.IEditorPartView;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
+import com.rcpcompany.uibindings.navigator.internal.Activator;
+import com.rcpcompany.uibindings.utils.IBindingObjectInformation;
 import com.rcpcompany.uibindings.utils.IGlobalNavigationManager.IGetSelectionTarget;
 import com.rcpcompany.utils.logging.LogUtils;
 import com.rcpcompany.utils.selection.SelectionUtils;
@@ -36,9 +41,14 @@ import com.rcpcompany.utils.selection.SelectionUtils;
  */
 public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGetSelectionTarget, IEditorPartView {
 	/**
-	 * The parent Composite for all the editor parts.
+	 * The parent Composite for the current editor part - if any
 	 */
 	/* package */Composite myParent;
+
+	/**
+	 * The parent Composite from {@link IViewPart#createPartControl(Composite)}.
+	 */
+	/* package */Composite myViewPartParent;
 
 	/**
 	 * Whether this editor is currently pinned.
@@ -97,24 +107,8 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 	}
 
 	@Override
-	public String getPartName() {
-		if (myCurrentDesciptor != null) return myCurrentDesciptor.getName();
-		return super.getPartName();
-	}
-
-	@Override
-	public Image getTitleImage() {
-		if (myCurrentDesciptor != null) {
-			final Image image = myCurrentDesciptor.getImage().getImage();
-			if (image != null) return image;
-		}
-		// TODO the model type image
-		return super.getTitleImage();
-	}
-
-	@Override
 	public void createPartControl(Composite parent) {
-		myParent = parent;
+		myViewPartParent = parent;
 
 		final ISelectionService ss = getSite().getWorkbenchWindow().getSelectionService();
 		ss.addPostSelectionListener(mySelectionListener);
@@ -123,7 +117,7 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 
 	@Override
 	public void dispose() {
-		setCurrentObject(null);
+		cleanEditorPart();
 		final ISelectionService ss = getSite().getWorkbenchWindow().getSelectionService();
 		ss.removePostSelectionListener(mySelectionListener);
 		super.dispose();
@@ -144,6 +138,8 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 
 	@Override
 	public ISelection getCurrentSelection() {
+		if (myCurrentValue == null) return StructuredSelection.EMPTY;
+
 		return new StructuredSelection(myCurrentValue.getValue());
 	}
 
@@ -160,39 +156,35 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 	 */
 	@Override
 	public void setCurrentObject(EObject obj) {
+		/*
+		 * Same object? Just return...
+		 */
+		if (myCurrentValue != null && myCurrentValue.getValue() == obj) return;
+
 		final IEditorPartDescriptor desc = findEditorPartDescriptor(obj);
+		if (Activator.getDefault().TRACE_EDITOR_PARTS_LIFECYCLE) {
+			LogUtils.debug(this, "Descriptor found: " + obj + "\n-> " + desc);
+		}
 		if (desc == myCurrentEditorPart) {
 			/*
 			 * The editor part itself did not change... just update the observable value.
 			 */
 			if (myCurrentValue != null) {
+				if (Activator.getDefault().TRACE_EDITOR_PARTS_LIFECYCLE) {
+					LogUtils.debug(this, "Editor part value changed to " + obj);
+				}
 				myCurrentValue.setValue(obj);
 			}
 			return;
 		}
 
-		/*
-		 * Clean up after the previous editor part
-		 */
-		if (myCurrentEditorPart != null) {
-			myCurrentEditorPart.dispose();
-			if (!myParent.isDisposed()) {
-				for (final Control c : myParent.getChildren()) {
-					c.dispose();
-				}
-			}
-		}
-		if (myCurrentValue != null && !myCurrentValue.isDisposed()) {
-			myCurrentValue.dispose();
-		}
-		myCurrentValue = null;
-		myCurrentEditorPart = null;
-		myCurrentDesciptor = null;
-
-		/*
-		 * Setup the new editor part
-		 */
 		if (desc == null) return;
+
+		if (Activator.getDefault().TRACE_EDITOR_PARTS_LIFECYCLE) {
+			LogUtils.debug(this, "Editor part description\n" + myCurrentEditorPart + "\n-> " + desc);
+		}
+
+		cleanEditorPart();
 
 		/*
 		 * - create the observable value for the editor part based on the type of the editor
@@ -213,7 +205,10 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 		final IEditorPartFactory factory = desc.getFactory().getObject();
 		try {
 			if (factory != null) {
+				myParent = new Composite(myViewPartParent, SWT.NONE);
+				myParent.setLayout(new FillLayout());
 				myCurrentEditorPart = factory.createEditorPart(myFactoryContext);
+				myViewPartParent.layout(true);
 			}
 			if (myCurrentDesciptor == null) {
 				LogUtils.error(factory, "Editor Part Factory returned null");
@@ -223,17 +218,51 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 		}
 
 		if (myCurrentEditorPart == null) {
-			myCurrentValue.dispose();
-			myCurrentValue = null;
-			myCurrentDesciptor = null;
+			if (Activator.getDefault().TRACE_EDITOR_PARTS_LIFECYCLE) {
+				LogUtils.debug(this, "Failed");
+			}
+			cleanEditorPart();
+			setPartName("");
+			setTitleImage(null);
 			return;
 		}
 
 		/*
 		 * - Update the view part info
 		 */
-		firePropertyChange(IWorkbenchPartConstants.PROP_PART_NAME);
-		firePropertyChange(IWorkbenchPartConstants.PROP_TITLE);
+		setPartName(myCurrentDesciptor.getName());
+		Image image = myCurrentDesciptor.getImage().getImage();
+		if (image == null) {
+			final IBindingObjectInformation information = IBindingObjectInformation.Factory.createLongName(
+					(EObject) myCurrentValue.getValue(), Constants.TYPE_LONG_NAME);
+			if (information != null) {
+				image = information.getImage();
+			}
+		}
+		setTitleImage(image);
+	}
+
+	/**
+	 * 
+	 */
+	private void cleanEditorPart() {
+		/*
+		 * - Clean up after the previous editor part
+		 */
+		if (myCurrentEditorPart != null) {
+			myCurrentEditorPart.dispose();
+			if (!myViewPartParent.isDisposed()) {
+				for (final Control c : myViewPartParent.getChildren()) {
+					c.dispose();
+				}
+			}
+		}
+		if (myCurrentValue != null && !myCurrentValue.isDisposed()) {
+			myCurrentValue.dispose();
+		}
+		myCurrentValue = null;
+		myCurrentEditorPart = null;
+		myCurrentDesciptor = null;
 	}
 
 	/**

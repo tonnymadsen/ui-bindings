@@ -12,9 +12,6 @@ import java.util.Comparator;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
@@ -83,7 +80,7 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 
 	@Override
 	public IEditorPartDescriptor getEditorPartDescriptor(EObject obj) {
-		if (obj == null) { return null; }
+		if (obj == null) return null;
 		final Class<?>[] classes = Platform.getAdapterManager().computeClassOrder(obj.getClass());
 		for (final Class<?> c : classes) {
 			final String typeName = c.getName();
@@ -101,7 +98,6 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 				if (mt.getModelTypeEClassifier() == null) {
 					final EClassifier cls = IBindingDataType.Factory.convertToClassifier(c);
 					if (cls == null) {
-						LogUtils.DEBUG_STRACK_LEVELS = 8;
 						LogUtils.error(mt, "Classifier for " + mt.getModelType() + " not set");
 					}
 
@@ -202,7 +198,6 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 
 		for (final IEditorModelType mt : getModelTypes()) {
 			ps.setDefault(mt.getModelType(), mt.getEditors().get(0).getId());
-			mt.eAdapters().add(myPreferredModelTypeAdapter);
 		}
 		ps.addPropertyChangeListener(myPreferenceListener);
 		myPreferenceListener.propertyChange(null);
@@ -235,24 +230,10 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 					 */
 					LogUtils.error(this, "Preference not found for " + mt.getModelType() + ": '" + id
 							+ "'. Reset to default.");
-					ps.setValue(mt.getModelType(), mt.getPreferredEditor().getId());
+					mt.setPreferredEditor(mt.getEditors().get(0));
 				}
 			}
 		}
-	};
-
-	/**
-	 * Adapter that mirrors the currently preferred editor as a preference.
-	 */
-	private final Adapter myPreferredModelTypeAdapter = new AdapterImpl() {
-		@Override
-		public void notifyChanged(Notification msg) {
-			if (msg.getFeature() != INavigatorModelPackage.Literals.EDITOR_MODEL_TYPE__PREFERRED_EDITOR) { return; }
-
-			final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-			final IEditorModelType mt = (IEditorModelType) msg.getNotifier();
-			ps.setValue(mt.getModelType(), mt.getPreferredEditor().getId());
-		};
 	};
 
 	/**
@@ -352,7 +333,7 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 		 * Look for a perfect match
 		 */
 		for (final IEditorPartView v : views) {
-			if (v.getCurrentObject() == obj) { return v; }
+			if (v.getCurrentObject() == obj) return v;
 		}
 
 		/*
@@ -371,13 +352,13 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 		IViewPart view = null;
 		try {
 			view = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
-					.showView(NavigatorConstants.VIEW_ID, "" + myNextSecondaryId++, IWorkbenchPage.VIEW_ACTIVATE);
+					.showView(NavigatorConstants.EDITOR_VIEW_ID, "" + myNextSecondaryId++, IWorkbenchPage.VIEW_ACTIVATE);
 		} catch (final PartInitException ex) {
 			LogUtils.error(this, ex);
 			return null;
 		}
 		if (!(view instanceof IEditorPartView)) {
-			LogUtils.error(view, "Part has ID " + NavigatorConstants.VIEW_ID + " but is not a IEditorPartView");
+			LogUtils.error(view, "Part has ID " + NavigatorConstants.EDITOR_VIEW_ID + " but is not a IEditorPartView");
 			return null;
 		}
 
@@ -392,13 +373,13 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 		final Collection<IEditorPartView> views = new ArrayList<IEditorPartView>();
 		final IWorkbenchWindow ww = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 		for (final IViewReference ref : ww.getActivePage().getViewReferences()) {
-			if (!ref.getId().equals(NavigatorConstants.VIEW_ID)) {
+			if (!ref.getId().equals(NavigatorConstants.EDITOR_VIEW_ID)) {
 				continue;
 			}
 
 			final IWorkbenchPart part = ref.getPart(false);
 			if (!(part instanceof IEditorPartView)) {
-				LogUtils.error(part, "Part has ID " + NavigatorConstants.VIEW_ID + " but is not a IEditorPartView");
+				LogUtils.error(part, "Part has ID " + NavigatorConstants.EDITOR_VIEW_ID + " but is not a IEditorPartView");
 				continue;
 			}
 			views.add((IEditorPartView) part);

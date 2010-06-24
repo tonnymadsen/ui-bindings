@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.jface.preference.IPreferenceStore;
 
 import com.rcpcompany.uibindings.navigator.IEditorModelType;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
@@ -148,6 +149,9 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 			newPreferredEditor = getEditors().get(0);
 		}
 		setPreferredEditorGen(newPreferredEditor);
+
+		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
+		ps.setValue(getModelType(), getPreferredEditor().getId());
 	}
 
 	public void setPreferredEditorGen(IEditorPartDescriptor newPreferredEditor) {
@@ -178,9 +182,10 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 	public void setModelType(String newModelType) {
 		final String oldModelType = modelType;
 		modelType = newModelType;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE,
 					oldModelType, modelType));
+		}
 	}
 
 	/**
@@ -202,10 +207,11 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 	public void setModelTypeEClassifier(EClassifier newModelTypeEClassifier) {
 		final EClassifier oldModelTypeEClassifier = modelTypeEClassifier;
 		modelTypeEClassifier = newModelTypeEClassifier;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET,
 					INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE_ECLASSIFIER, oldModelTypeEClassifier,
 					modelTypeEClassifier));
+		}
 	}
 
 	/**

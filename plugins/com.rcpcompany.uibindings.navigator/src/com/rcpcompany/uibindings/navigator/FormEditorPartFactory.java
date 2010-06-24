@@ -12,9 +12,7 @@ public abstract class FormEditorPartFactory extends AbstractEditorPartFactory im
 	public final IEditorPart createEditorPart(IEditorPartContext context) {
 		final IFormCreator form = IFormCreator.Factory.createScrolledForm(context.getCurrentValue(),
 				context.getParent(), context.getDescriptor().getName());
-
 		createForm(context, form);
-
 		form.finish();
 
 		return new IEditorPart() {

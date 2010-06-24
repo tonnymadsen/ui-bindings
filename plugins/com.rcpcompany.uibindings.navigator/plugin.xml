@@ -137,7 +137,7 @@
    <view
          allowMultiple="true"
          class="com.rcpcompany.uibindings.navigator.internal.views.BaseEditorView"
-         id="com.rcpcompany.uibindings.navigator.internal.views.BaseEditorView"
+         id="com.rcpcompany.uibindings.navigator.views.BaseEditorView"
          name="Generic Object Editor"
          restorable="false">
    </view>

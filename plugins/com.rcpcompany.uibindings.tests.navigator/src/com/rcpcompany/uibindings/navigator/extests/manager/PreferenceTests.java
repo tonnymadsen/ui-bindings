@@ -1,7 +1,8 @@
 package com.rcpcompany.uibindings.navigator.extests.manager;
 
+import static com.rcpcompany.uibindings.extests.BaseTestUtils.assertNoLog;
+import static com.rcpcompany.uibindings.extests.BaseTestUtils.assertOneLog;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.junit.Before;
@@ -49,19 +50,11 @@ public class PreferenceTests {
 	@Test
 	public void testPreferredToPreference() {
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-		final INavigatorManager manager = INavigatorModelFactory.eINSTANCE.getManager();
 
 		/*
 		 * Find the model type with multiple editors.
 		 */
-		IEditorModelType mt = null;
-		for (final IEditorModelType m : manager.getModelTypes()) {
-			if (m.getEditors().size() > 1) {
-				mt = m;
-				break;
-			}
-		}
-		assertNotNull(mt);
+		final IEditorModelType mt = NavigatorTestUtils.getMultipleEditorModelType();
 
 		final IEditorPartDescriptor first = mt.getEditors().get(0);
 		final IEditorPartDescriptor second = mt.getEditors().get(1);
@@ -69,12 +62,20 @@ public class PreferenceTests {
 		assertEquals(first, mt.getPreferredEditor());
 		assertEquals(first.getId(), ps.getString(mt.getModelType()));
 
-		mt.setPreferredEditor(second);
+		assertNoLog(new Runnable() {
+			public void run() {
+				mt.setPreferredEditor(second);
+			}
+		});
 
 		assertEquals(second, mt.getPreferredEditor());
 		assertEquals(second.getId(), ps.getString(mt.getModelType()));
 
-		mt.setPreferredEditor(null);
+		assertNoLog(new Runnable() {
+			public void run() {
+				mt.setPreferredEditor(null);
+			}
+		});
 
 		assertEquals(first, mt.getPreferredEditor());
 		assertEquals(first.getId(), ps.getString(mt.getModelType()));
@@ -86,19 +87,11 @@ public class PreferenceTests {
 	@Test
 	public void testPreferenceToPreferred() {
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-		final INavigatorManager manager = INavigatorModelFactory.eINSTANCE.getManager();
 
 		/*
 		 * Find the model type with multiple editors.
 		 */
-		IEditorModelType mt = null;
-		for (final IEditorModelType m : manager.getModelTypes()) {
-			if (m.getEditors().size() > 1) {
-				mt = m;
-				break;
-			}
-		}
-		assertNotNull(mt);
+		final IEditorModelType mt = NavigatorTestUtils.getMultipleEditorModelType();
 
 		final IEditorPartDescriptor first = mt.getEditors().get(0);
 		final IEditorPartDescriptor second = mt.getEditors().get(1);
@@ -106,13 +99,22 @@ public class PreferenceTests {
 		assertEquals(first, mt.getPreferredEditor());
 		assertEquals(first.getId(), ps.getString(mt.getModelType()));
 
-		ps.setValue(mt.getModelType(), second.getId());
+		assertNoLog(new Runnable() {
+			public void run() {
+				ps.setValue(mt.getModelType(), second.getId());
+			}
+		});
 
 		assertEquals(second, mt.getPreferredEditor());
 		assertEquals(second.getId(), ps.getString(mt.getModelType()));
 
 		// Wrong value defaults to first..
-		ps.setValue(mt.getModelType(), "aaa");
+		assertOneLog(new Runnable() {
+			@Override
+			public void run() {
+				ps.setValue(mt.getModelType(), "aaa");
+			}
+		});
 
 		assertEquals(first, mt.getPreferredEditor());
 		assertEquals(first.getId(), ps.getString(mt.getModelType()));

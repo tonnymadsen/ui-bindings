@@ -16,7 +16,7 @@ public interface NavigatorConstants {
 	/**
 	 * The ID of the Generic Editor View.
 	 */
-	String VIEW_ID = Activator.ID + ".internal.views.BaseEditorView"; //$NON-NLS-1$
+	String EDITOR_VIEW_ID = Activator.ID + ".views.BaseEditorView"; //$NON-NLS-1$
 
 	String ID_TAG = "id";
 	String MODEL_TYPE_TAG = "modelType";

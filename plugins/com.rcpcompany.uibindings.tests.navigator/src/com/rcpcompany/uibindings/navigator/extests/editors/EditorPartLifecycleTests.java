@@ -3,6 +3,8 @@ package com.rcpcompany.uibindings.navigator.extests.editors;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Text;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -39,16 +41,34 @@ public class EditorPartLifecycleTests {
 	}
 
 	/**
-	 * Tests {@link IEditorPartContext}.
+	 * Tests life cycle when the view is close - then the editor part is closed.
 	 */
 	@Test
-	public void testLifecycle() {
+	public void testLifecycleViewClose() {
 		assertEquals(false, GroupEditorPartFactory.constructed);
 		final IEditorPartView view = myManager.getView(myGroup);
 		assertNotNull(view);
 		assertEquals(true, GroupEditorPartFactory.constructed);
+		assertEquals(false, GroupEditorPartFactory.myText.isDisposed());
 		myManager.closeAllViews();
 		assertEquals(false, GroupEditorPartFactory.constructed);
+		assertEquals(true, GroupEditorPartFactory.myText.isDisposed());
+	}
+
+	/**
+	 * Tests life cycle when the selection object is changed...
+	 */
+	@Test
+	public void testLifecycleSelectionChanged() {
+		assertEquals(false, GroupEditorPartFactory.constructed);
+		final IEditorPartView view = myManager.getView(myGroup);
+		assertNotNull(view);
+		assertEquals(true, GroupEditorPartFactory.constructed);
+		assertEquals(false, GroupEditorPartFactory.myText.isDisposed());
+		final IEditorPartView view2 = myManager.getView(ShopFactory.eINSTANCE.createShop());
+		assertEquals(false, GroupEditorPartFactory.constructed);
+		assertEquals(true, GroupEditorPartFactory.myText.isDisposed());
+		assertEquals(view, view2);
 	}
 
 	/**
@@ -56,10 +76,14 @@ public class EditorPartLifecycleTests {
 	 */
 	public static class GroupEditorPartFactory extends AbstractEditorPartFactory implements IEditorPartFactory {
 		public static boolean constructed = false;
+		public static Text myText;
 
 		@Override
 		public IEditorPart createEditorPart(IEditorPartContext context) {
 			constructed = true;
+			myText = new Text(context.getParent(), SWT.SINGLE | SWT.LEAD | SWT.BORDER);
+			myText.setText("Hello world");
+
 			return new IEditorPart() {
 				@Override
 				public void dispose() {
@@ -67,6 +91,5 @@ public class EditorPartLifecycleTests {
 				}
 			};
 		}
-
 	}
 }

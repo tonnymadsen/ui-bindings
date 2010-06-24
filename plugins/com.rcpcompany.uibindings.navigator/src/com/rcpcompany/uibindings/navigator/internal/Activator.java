@@ -1,5 +1,6 @@
 package com.rcpcompany.uibindings.navigator.internal;
 
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -8,7 +9,9 @@ import org.osgi.framework.BundleContext;
  */
 public class Activator extends AbstractUIPlugin {
 
-	// The plug-in ID
+	/**
+	 * The plug-in ID.
+	 */
 	public static final String ID = "com.rcpcompany.uibindings.navigator";
 
 	// The shared instance
@@ -20,22 +23,22 @@ public class Activator extends AbstractUIPlugin {
 	public Activator() {
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
+	/**
+	 * <code>true</code> if tracing the life-cycle of editor parts.
 	 */
+	public boolean TRACE_EDITOR_PARTS_LIFECYCLE = false;
+
 	@Override
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
+
+		if (isDebugging()) {
+			TRACE_EDITOR_PARTS_LIFECYCLE = Boolean.parseBoolean(Platform.getDebugOption(ID
+					+ "/trace/EditorParts/LifeCycle")); //$NON-NLS-1$
+		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
-	 */
 	@Override
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
