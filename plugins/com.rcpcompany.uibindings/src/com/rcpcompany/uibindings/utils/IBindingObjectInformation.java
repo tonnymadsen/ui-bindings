@@ -36,7 +36,7 @@ public interface IBindingObjectInformation extends IBindingObjectLongName, IDisp
 		}
 
 		/**
-		 * Returns a new long name object for the specified object with the specified binding type
+		 * Returns a new long name object for the specified object with the specified binding type.
 		 * 
 		 * @param obj the object
 		 * @param type the binding type
