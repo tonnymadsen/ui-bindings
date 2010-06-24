@@ -15,8 +15,15 @@
          point="org.eclipse.ui.perspectives">
       <perspective
             class="com.rcpcompany.uibindings.tests.application.Perspective"
+            icon="icons/house_16x16.png"
             id="com.rcpcompany.uibindings.example.application.perspectives.Shop"
             name="Shop">
+      </perspective>
+      <perspective
+            class="com.rcpcompany.uibindings.tests.application.perspectives.NavigatorPerspective"
+            icon="platform:/plugin/com.rcpcompany.uibindings/images/views/navigator_view.gif"
+            id="com.rcpcompany.uibindings.example.application.perspectives.Navigator"
+            name="Navigator">
       </perspective>
    </extension>
    <extension
@@ -102,6 +109,9 @@
                relationship="stack"
                relative="com.rcpcompany.uibindings.example.application.views.ShopBasicsView">
          </view>
+         <perspectiveShortcut
+               id="com.rcpcompany.uibindings.example.application.perspectives.Navigator">
+         </perspectiveShortcut>
       </perspectiveExtension>
    </extension>
    <extension
@@ -708,6 +718,21 @@
             featureName="items"
             parent="com.rcpcompany.uibindings.shop.treeItems.shopItemGroup">
       </treeItemRelation>
+   </extension>
+   <extension
+         point="com.rcpcompany.uibindings.navigator.editors">
+      <editor
+            factory="com.rcpcompany.uibindings.shop.editorPartFactories.ShopBasicInformation"
+            id="com.rcpcompany.uibindings.shop.editorPartFactories.ShopBasicInformation"
+            modelType="com.rcpcompany.uibindings.tests.shop.Shop"
+            name="Basic Information">
+      </editor>
+      <editor
+            factory="com.rcpcompany.uibindings.shop.editorPartFactories.ShopCountries"
+            id="com.rcpcompany.uibindings.shop.editorPartFactories.ShopCountries"
+            modelType="com.rcpcompany.uibindings.tests.shop.Shop"
+            name="Countries">
+      </editor>
    </extension>
 
 
