@@ -48,5 +48,16 @@
             name="Test (EditorPartLifecycleTests)">
       </editor>
    </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            advisor="com.rcpcompany.uibindings.navigator.extests.utils.ShopNavigatorAdvisor"
+            class="com.rcpcompany.uibindings.navigator.views.NavigatorBaseView"
+            icon="platform:/plugin/com.rcpcompany.uibindings/images/views/navigator_view.gif"
+            id="com.rcpcompany.uibindings.navigator.extests.NavigatorView"
+            name="Shop Navigator"
+            restorable="true">
+      </view>
+   </extension>
 
 </fragment>
