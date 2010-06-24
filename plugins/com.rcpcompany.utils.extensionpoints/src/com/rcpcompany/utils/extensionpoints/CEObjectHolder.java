@@ -52,6 +52,20 @@ public class CEObjectHolder<X> {
 	}
 
 	/**
+	 * Constructs and returns a new holder object for the specified object.
+	 * <p>
+	 * This can be considered a constant holder object.
+	 * 
+	 * @param obj the constant holder value
+	 * 
+	 */
+	public CEObjectHolder(X obj) {
+		myCE = null;
+		myAttrName = null;
+		myObject = obj;
+	}
+
+	/**
 	 * Returns the object for the holder object.
 	 * 
 	 * @return the object or <code>null</code>
