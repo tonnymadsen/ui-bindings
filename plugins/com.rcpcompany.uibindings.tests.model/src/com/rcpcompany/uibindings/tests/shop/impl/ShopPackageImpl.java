@@ -645,6 +645,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getContact_Address() {
 		return (EAttribute) contactEClass.getEStructuralFeatures().get(2);
 	}
@@ -654,6 +655,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getContact_City() {
 		return (EAttribute) contactEClass.getEStructuralFeatures().get(3);
 	}
@@ -663,6 +665,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getContact_Zip() {
 		return (EAttribute) contactEClass.getEStructuralFeatures().get(4);
 	}
@@ -672,6 +675,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getContact_Country() {
 		return (EReference) contactEClass.getEStructuralFeatures().get(5);
 	}
@@ -681,6 +685,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getContact_Shop() {
 		return (EReference) contactEClass.getEStructuralFeatures().get(0);
 	}
@@ -690,6 +695,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getContact_Customer() {
 		return (EReference) contactEClass.getEStructuralFeatures().get(6);
 	}
@@ -699,6 +705,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getContact_Newsletter() {
 		return (EAttribute) contactEClass.getEStructuralFeatures().get(7);
 	}
@@ -708,6 +715,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getContact_Birthday() {
 		return (EAttribute) contactEClass.getEStructuralFeatures().get(8);
 	}
@@ -717,6 +725,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getCountry() {
 		return countryEClass;
 	}
@@ -726,6 +735,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCountry_Name() {
 		return (EAttribute) countryEClass.getEStructuralFeatures().get(1);
 	}
@@ -735,6 +745,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCountry_Abbreviation() {
 		return (EAttribute) countryEClass.getEStructuralFeatures().get(2);
 	}
@@ -744,6 +755,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getCountry_Shop() {
 		return (EReference) countryEClass.getEStructuralFeatures().get(0);
 	}
@@ -753,6 +765,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getShopItemInformation() {
 		return shopItemInformationEClass;
 	}
@@ -762,6 +775,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getShopItemDescription() {
 		return shopItemDescriptionEClass;
 	}
@@ -771,6 +785,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getShopItemDescription_Description() {
 		return (EAttribute) shopItemDescriptionEClass.getEStructuralFeatures().get(0);
 	}
