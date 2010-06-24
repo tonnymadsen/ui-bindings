@@ -38,7 +38,7 @@ import com.rcpcompany.uibindings.navigator.IEditorPartView;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
 import com.rcpcompany.uibindings.navigator.INavigatorModelPackage;
-import com.rcpcompany.uibindings.navigator.editorFactories.GenericEditorPartFactory;
+import com.rcpcompany.uibindings.navigator.editorFactories.GenericPlainFormEditorPartFactory;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 import com.rcpcompany.utils.extensionpoints.CEResourceHolder;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -139,8 +139,8 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 
 			final IEditorPartDescriptor desc = INavigatorModelFactory.eINSTANCE.createEditorPartDescriptor();
 
-			desc.setId(mt.getModelType() + "." + GenericEditorPartFactory.class.getName());
-			desc.setFactory(new CEObjectHolder<IEditorPartFactory>(new GenericEditorPartFactory()));
+			desc.setId(mt.getModelType() + "." + GenericPlainFormEditorPartFactory.class.getName());
+			desc.setFactory(new CEObjectHolder<IEditorPartFactory>(new GenericPlainFormEditorPartFactory()));
 			desc.setName("Generic Information");
 			desc.setPriority(1000);
 

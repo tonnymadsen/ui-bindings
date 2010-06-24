@@ -127,6 +127,7 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 
 	@Override
 	public void selectReveal(ISelection selection) {
+		System.out.println("select " + IBindingObjectInformation.Factory.getLongName(selection));
 		if (myCurrentEditorPart != null && isPinned()) return;
 		final List<EObject> list = SelectionUtils.computeSelection(selection, EObject.class);
 		if (list.isEmpty()) return;

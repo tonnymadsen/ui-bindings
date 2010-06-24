@@ -157,4 +157,14 @@
          name="Editors">
    </page>
 </extension>
+<extension
+      point="com.rcpcompany.uibindings.navigator.editors">
+   <editor
+         factory="com.rcpcompany.uibindings.navigator.editorFactories.EmptyEditorPartFactory"
+         id="com.rcpcompany.uibindings.navigator.internal.com.rcpcompany.uibindings.IConstantTreeItem"
+         modelType="com.rcpcompany.uibindings.IConstantTreeItem"
+         name="Empty Container"
+         priority="1">
+   </editor>
+</extension>
 </plugin>
