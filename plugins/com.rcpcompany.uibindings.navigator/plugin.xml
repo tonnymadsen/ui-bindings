@@ -131,6 +131,20 @@
          </with>
       </activeWhen>
    </handler>
+   <handler
+         class="com.rcpcompany.uibindings.navigator.editors.internal.handlers.OpenBindingHandler"
+         commandId="com.rcpcompany.uibindings.commands.openBinding">
+      <activeWhen>
+         <iterate
+               ifEmpty="false"
+               operator="or">
+            <test
+                  forcePluginActivation="true"
+                  property="com.rcpcompany.uibindings.navigator.hasEditorPartDescriptor">
+            </test>
+         </iterate>
+      </activeWhen>
+   </handler>
 </extension>
 <extension
       point="org.eclipse.ui.views">
@@ -166,5 +180,15 @@
          name="Empty Container"
          priority="1">
    </editor>
+</extension>
+<extension
+      point="org.eclipse.core.expressions.propertyTesters">
+   <propertyTester
+         class="com.rcpcompany.uibindings.navigator.internal.propertyTesters.EObjectPropertyTester"
+         id="com.rcpcompany.uibindings.navigator.internal.propertyTesters.EObjectPropertyTester"
+         namespace="com.rcpcompany.uibindings.navigator"
+         properties="hasEditorPartDescriptor"
+         type="org.eclipse.emf.ecore.EObject">
+   </propertyTester>
 </extension>
 </plugin>
