@@ -11,7 +11,7 @@ import com.rcpcompany.uibindings.utils.IAutoFormCreator;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class GenericEditorPartFactory extends AbstractEditorPartFactory implements IEditorPartFactory {
+public class GenericAutoFormEditorPartFactory extends AbstractEditorPartFactory implements IEditorPartFactory {
 	@Override
 	public IEditorPart createEditorPart(IEditorPartContext context) {
 		final IAutoFormCreator form = IAutoFormCreator.Factory.createForm(context.getCurrentValue(), context
