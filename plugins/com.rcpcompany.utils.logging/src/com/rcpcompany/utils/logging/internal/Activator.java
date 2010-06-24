@@ -9,9 +9,7 @@
  *******************************************************************************/
 package com.rcpcompany.utils.logging.internal;
 
-import org.eclipse.core.runtime.ILog;
 import org.eclipse.core.runtime.Plugin;
-import org.eclipse.jface.dialogs.ErrorDialog;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.service.packageadmin.PackageAdmin;
@@ -41,10 +39,9 @@ public class Activator extends Plugin {
 	 * The singleton activator.
 	 */
 	private static Activator theActivator;
-	private static ConsoleLog log;
 
 	/**
-	 * Constructs and returns a new activator
+	 * Constructs and returns a new activator.
 	 */
 	public Activator() {
 		theActivator = this;
@@ -107,9 +104,9 @@ public class Activator extends Plugin {
 	 * @return the build ID or <code>null</code>
 	 */
 	public String getBundleId(Object object) {
-		if (object == null) return null;
+		if (object == null) { return null; }
 
-		if (object instanceof String) return (String) object;
+		if (object instanceof String) { return (String) object; }
 
 		return getBundleId(object.getClass());
 	}
@@ -122,13 +119,13 @@ public class Activator extends Plugin {
 	 * @return the build ID or <code>null</code>
 	 */
 	public String getBundleId(Class<? extends Object> clazz) {
-		if (clazz == null) return null;
+		if (clazz == null) { return null; }
 
 		final PackageAdmin packageAdmin = getBundleAdmin();
-		if (packageAdmin == null) return null;
+		if (packageAdmin == null) { return null; }
 
 		final Bundle source = packageAdmin.getBundle(clazz);
-		if (source == null || source.getSymbolicName() == null) return null;
+		if (source == null || source.getSymbolicName() == null) { return null; }
 
 		return source.getSymbolicName();
 	}
@@ -143,20 +140,4 @@ public class Activator extends Plugin {
 		}
 		return (PackageAdmin) bundleTracker.getService();
 	}
-
-	public static ILog getPlatformLog() {
-		if (ErrorDialog.AUTOMATED_MODE) return getConsoleLog();
-		if (getDefault() != null)
-			return getDefault().getLog();
-		else
-			return getConsoleLog();
-	}
-
-	private static ILog getConsoleLog() {
-		if (log == null) {
-			log = new ConsoleLog();
-		}
-		return log;
-	}
-
 }

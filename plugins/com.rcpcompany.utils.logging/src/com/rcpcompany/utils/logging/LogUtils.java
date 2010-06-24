@@ -61,7 +61,7 @@ public final class LogUtils {
 	/**
 	 * The log used for all messages.
 	 */
-	private static final ILog LOG = Activator.getPlatformLog();
+	private static final ILog LOG = Activator.getDefault().getLog();
 
 	/**
 	 * Logs the specified debug message.
@@ -74,12 +74,12 @@ public final class LogUtils {
 	}
 
 	/**
-	 * List of log listeners
+	 * List of log listeners.
 	 */
 	private static ArrayList<ILogListener> listeners = new ArrayList<ILogListener>();
 
 	/**
-	 * Adds a new log listener to this utility class
+	 * Adds a new log listener to this utility class.
 	 * 
 	 * @param listener the listener to add
 	 */
@@ -88,7 +88,7 @@ public final class LogUtils {
 	}
 
 	/**
-	 * Removes an existing log listener from this utility class
+	 * Removes an existing log listener from this utility class.
 	 * 
 	 * @param listener the listener to remove
 	 */
@@ -120,6 +120,7 @@ public final class LogUtils {
 	 * Logs the specified error message.
 	 * 
 	 * @param context the context related to the message
+	 * @param message the message
 	 * @param exception any exception associated with the log message or <code>null</code>
 	 */
 	public static void error(Object context, String message, Throwable exception) {
@@ -131,6 +132,7 @@ public final class LogUtils {
 	 * Logs and <em>throws</em> the specified error message as an {@link IllegalArgumentException}.
 	 * 
 	 * @param context the context related to the message
+	 * @param message the message
 	 * @param exception any exception associated with the log message or <code>null</code>
 	 */
 	public static void throwException(Object context, String message, Throwable exception) {
@@ -151,17 +153,15 @@ public final class LogUtils {
 	 * Logs the specified message.
 	 * 
 	 * @param context the context related to the message
-	 * @param severity
-	 * 
-	 * @param obj the object that is related to the message
+	 * @param severity the severity of the log message
 	 * @param message the message to print
 	 * @param exception any exception associated with the log message or <code>null</code>
 	 */
 	protected static void log(Object context, int severity, String message, Throwable exception) {
 		/*
-		 * Special case: if the excpetion is the same as last time!! So don't report it again...
+		 * Special case: if the exception is the same as last time!! So don't report it again...
 		 */
-		if (exception != null && exception == lastException) return;
+		if (exception != null && exception == lastException) { return; }
 		lastException = exception;
 		String pluginID = UNKNOWN_PLUGIN;
 		String messagePrefix = null;
