@@ -1,6 +1,7 @@
 package com.rcpcompany.uibindings.internal.bindingDataTypes;
 
 import org.eclipse.emf.ecore.EAnnotation;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
@@ -42,9 +43,9 @@ public class EStructuralFeatureBindingDataType extends BindingDataTypeImpl {
 	@Override
 	public IArgumentProvider getArgumentProvider(String type) {
 		final IManager manager = IManager.Factory.getManager();
-		manager.runModelArgumentMediators(myStructuralFeature.getEContainingClass());
-		return manager.getModelFeatureInfo(myStructuralFeature.getContainerClass().getName(),
-				myStructuralFeature.getName(), type, false);
+		final EClass eClass = myStructuralFeature.getEContainingClass();
+		manager.runModelArgumentMediators(eClass);
+		return manager.getModelFeatureInfo(eClass.getInstanceClassName(), myStructuralFeature.getName(), type, false);
 	}
 
 	@Override
