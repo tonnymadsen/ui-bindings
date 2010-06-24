@@ -84,6 +84,7 @@ public interface IBindingObjectInformation extends IBindingObjectLongName, IDisp
 	 * 
 	 * @return the name
 	 */
+	@Override
 	String getName();
 
 	/**
