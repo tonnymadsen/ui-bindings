@@ -27,7 +27,7 @@ public interface IBindingSpec {
 		}
 
 		/**
-		 * Parses and returns a new binding specification for the specified specification
+		 * Parses and returns a new binding specification for the specified specification.
 		 * 
 		 * @param startType the starting type
 		 * @param spec the spec to parse
