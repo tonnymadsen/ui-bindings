@@ -34,8 +34,11 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 	/**
 	 * Shortcut to the manager...
 	 */
-	protected static final IManager theManager = IManager.Factory.getManager();
+	protected static final IManager THE_MANAGER = IManager.Factory.getManager();
 
+	/**
+	 * Constructs and returns a new list.
+	 */
 	public ViewerBindingTreeFactoryList() {
 		super(Collections.EMPTY_LIST, EObject.class);
 
@@ -63,7 +66,7 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 	}
 
 	/**
-	 * Adds the children of a new target element to the list
+	 * Adds the children of a new target element to the list.
 	 * 
 	 * @param target the target
 	 * @param descriptor the descriptor used for the target
@@ -73,7 +76,7 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 	}
 
 	/**
-	 * Adds the specific target element to the list
+	 * Adds the specific target element to the list.
 	 * 
 	 * @param target the target
 	 */
@@ -81,7 +84,10 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 		new DirectElement(target);
 	}
 
-	protected IChangeListener myRelationChangeListener = new IChangeListener() {
+	/**
+	 * Listener used to recalculate the list when any of the added elements change.
+	 */
+	protected final IChangeListener myRelationChangeListener = new IChangeListener() {
 		@Override
 		public void handleChange(ChangeEvent event) {
 			recalculateList();
@@ -89,7 +95,7 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 	};
 
 	/**
-	 * The base elements of this list
+	 * The base elements of this list.
 	 */
 	protected final List<IElement> myElements = new ArrayList<IElement>();
 
@@ -100,19 +106,22 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 	 */
 	protected interface IElement {
 		/**
-		 * Add of the generated elements for this element to the specified list
+		 * Add of the generated elements for this element to the specified list.
 		 * 
 		 * @param list the list to add the elements to
 		 */
 		void addToList(List<EObject> list);
 	}
 
+	/**
+	 * A direct element.
+	 */
 	protected class DirectElement implements IElement {
 
 		private final EObject myTarget;
 
 		/**
-		 * Constructs and returns a new direct element
+		 * Constructs and returns a new direct element.
 		 * 
 		 * @param target the target
 		 */
@@ -132,20 +141,15 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 	 * Element that will add child elements based on the relations from the element itself.
 	 */
 	protected class RelationElement implements IElement {
-		private final EObject myTarget;
-		private final ITreeItemDescriptor myDescriptor;
 		private final List<Relation> myRelations = new ArrayList<Relation>();
 
 		/**
-		 * Constructs and returns new base element
+		 * Constructs and returns new base element.
 		 * 
 		 * @param target the target
 		 * @param descriptor the descriptor used for the target
 		 */
 		public RelationElement(EObject target, ITreeItemDescriptor descriptor) {
-			myTarget = target;
-			myDescriptor = descriptor;
-
 			myElements.add(this);
 
 			/*
@@ -178,7 +182,16 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 			recalculateList();
 		}
 
-		private void addRelation(ITreeItemRelation rel, IObservable observable) {
+		private void addRelation(final ITreeItemRelation rel, IObservable observable) {
+			if (Activator.getDefault().TRACE_TREE) {
+				observable.addChangeListener(new IChangeListener() {
+					@Override
+					public void handleChange(ChangeEvent event) {
+						LogUtils.debug(ViewerBindingTreeFactoryList.this, "rel changed: " + rel);
+					}
+				});
+			}
+
 			myRelations.add(new Relation(rel, observable));
 		}
 
@@ -192,7 +205,7 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 			private final IObservable myObservable;
 
 			/**
-			 * Constructs and returns new base element
+			 * Constructs and returns new base element.
 			 * 
 			 * @param relation
 			 * @param observable
@@ -228,6 +241,9 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 		}
 	}
 
+	/**
+	 * Updates the list based on the added elements.
+	 */
 	public void recalculateList() {
 		final List<EObject> newList = new ArrayList<EObject>();
 
