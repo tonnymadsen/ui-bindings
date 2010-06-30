@@ -103,6 +103,7 @@ import com.rcpcompany.uibindings.extests.utils.DoubleClickAdapterTest;
 import com.rcpcompany.uibindings.extests.utils.FilterTest;
 import com.rcpcompany.uibindings.extests.utils.FormChooserTest;
 import com.rcpcompany.uibindings.extests.utils.FormCreatorTest;
+import com.rcpcompany.uibindings.extests.utils.IPathMatcherTests;
 import com.rcpcompany.uibindings.extests.utils.MouseDownConverterTest;
 import com.rcpcompany.uibindings.extests.utils.OpenCommandTextWidgetEnablementTest;
 import com.rcpcompany.uibindings.extests.utils.OpenCommandViewerEnablementTest;
@@ -194,7 +195,7 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		/*
 		 * Utilities
 		 */
-		BindingSpecTest.class,
+		BindingSpecTest.class, IPathMatcherTests.class,
 
 		/*
 		 * Source Providers
