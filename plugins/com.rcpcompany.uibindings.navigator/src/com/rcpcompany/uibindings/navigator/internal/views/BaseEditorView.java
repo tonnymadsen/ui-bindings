@@ -16,6 +16,7 @@ import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.part.ISetSelectionTarget;
 import org.eclipse.ui.part.ViewPart;
 
@@ -280,6 +281,9 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 	@Override
 	public void setPinned(boolean pinned) {
 		myIsPinned = pinned;
+		LogUtils.debug(this, "pinned=" + myIsPinned);
+		final ICommandService cs = (ICommandService) getSite().getService(ICommandService.class);
+		cs.refreshElements("com.rcpcompany.uibindings.navigator.commands.PinEditor", null);
 	}
 
 	@Override

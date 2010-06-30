@@ -6,6 +6,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExecutableExtension;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
@@ -53,7 +54,7 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 		myTree.setHeaderVisible(false);
 		myTreeColumn = new TreeColumn(myTree, SWT.LEAD);
 		myTreeColumn.setWidth(300);
-		// TODO: use listener to make this column 100%
+		// TODO: use layout to make this column 100%
 
 		final IObservableList list = myAdvisor.getRootElements();
 		myTreeBinding = myContext.addViewer().viewer(myTree).model(list);
@@ -63,6 +64,13 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 		myContext.finish();
 
 		IBindingContextSelectionProvider.Factory.adapt(myContext, getSite());
+
+		addToolbarItems();
+	}
+
+	private void addToolbarItems() {
+		final IToolBarManager toolbar = getViewSite().getActionBars().getToolBarManager();
+
 	}
 
 	@Override

@@ -72,9 +72,9 @@
    </menuContribution>
    <menuContribution
          allPopups="false"
-         locationURI="tolbar:com.rcpcompany.uibindings.navigator.internal.views.BaseView">
+         locationURI="toolbar:com.rcpcompany.uibindings.navigator.views.BaseEditorView">
       <control
-            class="com.rcpcompany.uibindings.navigator.internal.views.SelectCurrentEditor">
+            class="com.rcpcompany.uibindings.navigator.internal.views.SelectCurrentEditorPart">
       </control>
       <command
             commandId="com.rcpcompany.uibindings.navigator.commands.PinEditor"
@@ -126,7 +126,7 @@
          <with
                variable="activeView">
             <instanceof
-                  value="com.rcpcompany.uibindings.navigator.internal.views.BaseEditorView">
+                  value="com.rcpcompany.uibindings.navigator.IEditorPartView">
             </instanceof>
          </with>
       </activeWhen>
