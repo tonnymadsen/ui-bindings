@@ -1,4 +1,4 @@
-package com.rcpcompany.uibindings.navigator.editors.internal.handlers;
+package com.rcpcompany.uibindings.navigator.internal.handlers;
 
 import org.eclipse.ui.menus.ExtensionContributionFactory;
 import org.eclipse.ui.menus.IContributionRoot;
@@ -9,7 +9,7 @@ import org.eclipse.ui.services.IServiceLocator;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class OpenWithContributions extends ExtensionContributionFactory {
+public class OpenWithContributionFactory extends ExtensionContributionFactory {
 	@Override
 	public void createContributionItems(IServiceLocator serviceLocator, IContributionRoot additions) {
 		// TODO

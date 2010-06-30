@@ -104,29 +104,35 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	}
 
 	@Override
-	public IEditorPartDescriptor getEditorPartDescriptor(EObject obj) {
+	public IEditorModelType getModelType(EObject obj) {
 		if (obj == null) return null;
-		Class<? extends EObject> cls = obj.getClass();
+		final Class<? extends EObject> cls = obj.getClass();
 		final Class<?>[] classes = Platform.getAdapterManager().computeClassOrder(cls);
 		for (final Class<?> c : classes) {
 			final String typeName = c.getName();
 			for (final IEditorModelType mt : getModelTypes()) {
-				if (!mt.getModelType().equals(typeName)) {
-					continue;
-				}
-
-				/*
-				 * Found a match. Find the preferred or the one with the highest priority.
-				 */
-				return mt.getPreferredEditor();
+				if (mt.getModelType().equals(typeName)) return mt;
 			}
 		}
+
+		return null;
+	}
+
+	@Override
+	public IEditorPartDescriptor getEditorPartDescriptor(EObject obj) {
+		if (obj == null) return null;
+		IEditorModelType mt = getModelType(obj);
+		/*
+		 * Found a match. Find the preferred or the one with the highest priority.
+		 */
+		if (mt != null) return mt.getPreferredEditor();
 
 		/*
 		 * If falling back on the generic factory, then create and install this properly.
 		 */
 		if (isUseGenericEditorPartFallback()) {
-			final IEditorModelType mt = INavigatorModelFactory.eINSTANCE.createEditorModelType();
+			mt = INavigatorModelFactory.eINSTANCE.createEditorModelType();
+			Class<? extends EObject> cls = obj.getClass();
 			if (!cls.isInterface()) {
 				final Class<?>[] interfaces = cls.getInterfaces();
 				if (interfaces.length > 0) {

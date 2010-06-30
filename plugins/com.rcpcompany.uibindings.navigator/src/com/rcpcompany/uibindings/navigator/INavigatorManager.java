@@ -45,6 +45,14 @@ public interface INavigatorManager extends EObject {
 	EList<IEditorModelType> getModelTypes();
 
 	/**
+	 * Finds the {@link IEditorModelType} for the specified object if one exists already.
+	 * 
+	 * @param obj the object to look up
+	 * @return the editor mode type or <code>null</code> if none exists
+	 */
+	IEditorModelType getModelType(EObject obj);
+
+	/**
 	 * Returns the value of the '<em><b>Use Generic Editor Part Fallback</b></em>' attribute. The
 	 * default value is <code>"true"</code>. <!-- begin-user-doc -->
 	 * <p>

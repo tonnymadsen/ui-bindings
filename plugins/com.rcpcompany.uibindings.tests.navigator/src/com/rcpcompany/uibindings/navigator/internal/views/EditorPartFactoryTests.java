@@ -84,7 +84,7 @@ public class EditorPartFactoryTests {
 				}
 			}
 			assertEquals(desc, context.getDescriptor());
-			assertEquals(view.myCurrentDesciptor, context.getDescriptor());
+			assertEquals(view.getCurrentDescriptor(), context.getDescriptor());
 
 			return null;
 		}

@@ -88,7 +88,7 @@ public class NavigatorModelFactoryImpl extends EFactoryImpl implements INavigato
 	 */
 	@Override
 	public INavigatorManager createNavigatorManager() {
-		final NavigatorManagerImpl navigatorManager = new NavigatorManagerImpl();
+		final INavigatorManager navigatorManager = new NavigatorManagerImpl();
 		return navigatorManager;
 	}
 

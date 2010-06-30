@@ -1,4 +1,4 @@
-package com.rcpcompany.uibindings.navigator.editors.internal.handlers;
+package com.rcpcompany.uibindings.navigator.internal.handlers;
 
 import java.util.List;
 

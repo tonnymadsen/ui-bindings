@@ -1,6 +1,9 @@
 package com.rcpcompany.uibindings.navigator.internal;
 
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.jface.resource.JFaceResources;
+import org.eclipse.jface.resource.LocalResourceManager;
+import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -54,4 +57,17 @@ public class Activator extends AbstractUIPlugin {
 		return plugin;
 	}
 
+	private ResourceManager myResources;
+
+	/**
+	 * Returns a local resource manager for use in this plug-in.
+	 * 
+	 * @return the manager
+	 */
+	public ResourceManager getResourceManager() {
+		if (myResources == null) {
+			myResources = new LocalResourceManager(JFaceResources.getResources());
+		}
+		return myResources;
+	}
 }

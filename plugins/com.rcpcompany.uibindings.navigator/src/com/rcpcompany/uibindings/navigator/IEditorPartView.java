@@ -41,4 +41,8 @@ public interface IEditorPartView {
 	 */
 	void setCurrentObject(EObject obj);
 
+	/**
+	 * Activates this view in the workbench.
+	 */
+	void activateView();
 }
