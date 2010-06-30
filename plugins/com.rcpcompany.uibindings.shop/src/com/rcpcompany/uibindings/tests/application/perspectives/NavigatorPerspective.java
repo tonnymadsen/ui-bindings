@@ -24,7 +24,7 @@ public class NavigatorPerspective implements IPerspectiveFactory {
 		folder.addView("com.rcpcompany.uibindings.views.ValidationView");
 		final IPlaceholderFolderLayout pfolder = layout.createPlaceholderFolder(EDITORS_FOLDER, IPageLayout.RIGHT,
 				0.3f, APPLICATION_FOLDER);
-		pfolder.addPlaceholder("com.rcpcompany.uibindings.navigator.views.BaseEditorView");
+		pfolder.addPlaceholder("com.rcpcompany.uibindings.navigator.views.BaseEditorView:.*");
 
 		folder = layout.createFolder(NAVIGATOR_FOLDER, IPageLayout.TOP, 0.65f, APPLICATION_FOLDER);
 		folder.addView("com.rcpcompany.uibindings.shop.views.ShopNavigationView");
