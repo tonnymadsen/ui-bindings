@@ -20,6 +20,5 @@ public class Countries extends FormEditorPartFactory implements IEditorPartFacto
 		final ITableCreator table = form.addTableCreator(ShopPackage.Literals.SHOP__COUNTRIES, true, SWT.NONE);
 
 		table.addColumn("name");
-		table.addColumn("abbreviation");
 	}
 }
