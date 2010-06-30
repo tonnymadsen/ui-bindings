@@ -89,12 +89,12 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 
 	/**
 	 * Listener used to trigger an update of the UIToModel strategy, in case, the valid UI List
-	 * changes
+	 * changes.
 	 */
 	private IChangeListener myUIListChangeListener = null;
 
 	/**
-	 * Change listener for the current value if set
+	 * Change listener for the current value if set.
 	 */
 	protected IValueChangeListener myValueChangeListener;
 
@@ -108,13 +108,13 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 	/**
 	 * Common Identity update strategy. Saves lots of identical objects.
 	 */
-	protected static final UpdateValueStrategy theIdentityUpdateStrategy = new UpdateValueStrategy(false,
+	protected static final UpdateValueStrategy IDENTITY_UPDATE_STRATEGY = new UpdateValueStrategy(false,
 			UpdateValueStrategy.POLICY_UPDATE);
 
 	/**
 	 * Common Identity update strategy. Saves lots of identical objects.
 	 */
-	protected static final UpdateValueStrategy theIdentityNeverUpdateStrategy = new UpdateValueStrategy(false,
+	protected static final UpdateValueStrategy IDENTITY_NEVER_UPDATE_STRATEGY = new UpdateValueStrategy(false,
 			UpdateValueStrategy.POLICY_NEVER);
 
 	@Override
@@ -250,7 +250,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 				});
 			}
 		} else {
-			uiToModelUpdateStrategy = theIdentityNeverUpdateStrategy;
+			uiToModelUpdateStrategy = IDENTITY_NEVER_UPDATE_STRATEGY;
 
 			if (attribute.isChangeable() && control != null) {
 				if (control instanceof Button) {
@@ -290,8 +290,8 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 			myDecoratedValue = WritableValue.withValueType(String.class);
 			myDecoratedValue.setValue(""); //$NON-NLS-1$
 			myFormattedValue = new MessageFormatObservableValue(myDecoratedValue, null);
-			uiToDecoratedDB = binding.bindValue(uiAttributeValue, myFormattedValue, theIdentityUpdateStrategy,
-					theIdentityUpdateStrategy, false);
+			uiToDecoratedDB = binding.bindValue(uiAttributeValue, myFormattedValue, IDENTITY_UPDATE_STRATEGY,
+					IDENTITY_UPDATE_STRATEGY, false);
 		} else {
 			myDecoratedValue = uiAttributeValue;
 			uiToDecoratedDB = null;
@@ -413,7 +413,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 	}
 
 	/**
-	 * Decorates the binding with misc things like help, tooltip, etc
+	 * Decorates the binding with misc things like help, tooltip, etc.
 	 */
 	public void decorateMisc() {
 		final IValueBinding binding = getBinding();
@@ -439,7 +439,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 	}
 
 	/**
-	 * Sets up the specified content proposal provider
+	 * Sets up the specified content proposal provider.
 	 * 
 	 * @param proposalProvider the proposal provider
 	 */
@@ -465,7 +465,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 	}
 
 	/**
-	 * Decorates the binding with all relevant field assist
+	 * Decorates the binding with all relevant field assist.
 	 */
 	public void decorateAssist() {
 		/*
@@ -491,7 +491,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 	}
 
 	/**
-	 * Runs all known extenders
+	 * Runs all known extenders.
 	 */
 	protected void runExtenders() {
 		/*
@@ -890,17 +890,17 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 	/**
 	 * The context used for all extenders...
 	 */
-	MyExtenderContext myExtenderContext = null;
+	/* package */MyExtenderContext myExtenderContext = null;
 
 	/**
 	 * The formatted value in case it is a String.
 	 */
-	MessageFormatObservableValue myFormattedValue;
+	/* package */MessageFormatObservableValue myFormattedValue;
 
 	/**
 	 * Observable value for value as converted by the decorator...
 	 */
-	IObservableValue myDecoratedValue;
+	/* package */IObservableValue myDecoratedValue;
 
 	@Override
 	public void update() {
