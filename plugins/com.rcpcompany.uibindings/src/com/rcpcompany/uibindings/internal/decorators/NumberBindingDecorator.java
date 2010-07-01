@@ -57,22 +57,22 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		public boolean myMaxSet = false;
 
 		/**
-		 * Whether min value is inclusive
+		 * Whether min value is inclusive.
 		 */
 		public boolean myMinInclusive = true;
 
 		/**
-		 * Whether max value is inclusive
+		 * Whether max value is inclusive.
 		 */
 		public boolean myMaxInclusive = true;
 
 		/**
-		 * The minimum value for this interval
+		 * The minimum value for this interval.
 		 */
 		public BigDecimal myMin = myAdapter.getMinimum();
 
 		/**
-		 * The maximum value for this interval
+		 * The maximum value for this interval.
 		 */
 		public BigDecimal myMax = myAdapter.getMaximum();
 
@@ -233,7 +233,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 	public static final int NUMBER_ERROR_CODE = 1000;
 
 	/**
-	 * The provider
+	 * The provider.
 	 */
 	private final INumberDecoratorProvider myProvider;
 
@@ -250,7 +250,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 	private Class<?> myUIType;
 
 	/**
-	 * The formatter instance
+	 * The formatter instance.
 	 */
 	private Formatter myFormatter;
 
@@ -260,7 +260,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 	private StringBuilder myBuffer;
 
 	/**
-	 * The used adapter for the specific model type
+	 * The used adapter for the specific model type.
 	 */
 	protected NumberAdapter myAdapter;
 
@@ -312,7 +312,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 	}
 
 	/**
-	 * Special version of init when the decorator is only used for validation
+	 * Special version of init when the decorator is only used for validation.
 	 * 
 	 * @param binding the binding
 	 */
@@ -499,12 +499,12 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 	protected Interval myDeclaredInterval = null;
 
 	/**
-	 * The "native" interval of the decorator based on the EMF field
+	 * The "native" interval of the decorator based on the EMF field.
 	 */
 	protected Interval myNativeInterval = null;
 
 	/**
-	 * Checks the specified number against the range of this decorator
+	 * Checks the specified number against the range of this decorator.
 	 * 
 	 * @param fromObject the original object
 	 * @param number the number to test
@@ -515,7 +515,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 	}
 
 	/**
-	 * Returns the minimum value of the decorator
+	 * Returns the minimum value of the decorator.
 	 * 
 	 * @return the minimum value
 	 */
@@ -524,7 +524,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 	}
 
 	/**
-	 * Returns the maximum value of this decorator
+	 * Returns the maximum value of this decorator.
 	 * 
 	 * @return the maximum value
 	 */
