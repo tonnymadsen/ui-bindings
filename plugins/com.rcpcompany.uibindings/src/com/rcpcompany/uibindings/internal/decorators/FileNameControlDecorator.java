@@ -183,7 +183,7 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 					}
 					if (!f)
 						return UIBindingsUtils.error(IManager.Factory.getManager().isValidationErrorsAreFatal(),
-								FILE_NAME_ERROR_CODE, "File should end with one of " + extString);
+								FILE_NAME_ERROR_CODE, "File should match one of " + extString);
 				}
 
 				return Status.OK_STATUS;
@@ -201,9 +201,5 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 		} else {
 			myDirectoryMode = false;
 		}
-	}
-
-	public String checkValue(Object value) {
-		return null;
 	}
 }
