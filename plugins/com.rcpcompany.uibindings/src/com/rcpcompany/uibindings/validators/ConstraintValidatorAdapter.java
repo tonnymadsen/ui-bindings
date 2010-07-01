@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.databinding.observable.list.IObservableList;
+import org.eclipse.core.databinding.validation.IValidator;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -31,7 +33,7 @@ import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
 
 /**
  * This class provides an adapter interface between the constraint specified in the uibindings
- * extension point and {@link IValidatorAdapterManager}
+ * extension point and {@link IValidatorAdapterManager}.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -52,38 +54,47 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 		 * @param messages the list of current messages
 		 * @return the message for the validation if it failed
 		 */
-		public Message validate(EObject obj, IObservableList messages);
+		Message validate(EObject obj, IObservableList messages);
 	}
 
 	/**
 	 * Map with all found constraints indexed by class. Extended ALAP in
 	 * {@link #getConstraints(EObject)}.
 	 */
-	protected Map<EClass, List<IConstraint>> myConstraints = new HashMap<EClass, List<IConstraint>>();
+	private final Map<EClass, List<IConstraint>> myConstraints = new HashMap<EClass, List<IConstraint>>();
 
 	@Override
 	public void validateObjectTree(EObject root, IObservableList messages) {
-		final TreeIterator<Object> iterator = EcoreUtil.getAllContents(root, false);
 		final List<Message> toRemoveMessages = new ArrayList<Message>(messages);
+		validateOneEObject(root, messages, toRemoveMessages);
+		final TreeIterator<Object> iterator = EcoreUtil.getAllContents(root, false);
 		for (; iterator.hasNext();) {
 			final Object o = iterator.next();
 			if (!(o instanceof EObject)) {
 				continue;
 			}
-			final EObject obj = (EObject) o;
-			/*
-			 * Find the constraints for this particular object
-			 */
-			final List<IConstraint> constraints = getConstraints(obj);
-			if (constraints == null) {
-				continue;
-			}
-			for (final IConstraint c : constraints) {
-				toRemoveMessages.remove(c.validate(obj, messages));
-			}
+			validateOneEObject((EObject) o, messages, toRemoveMessages);
 		}
 
 		messages.removeAll(toRemoveMessages);
+	}
+
+	/**
+	 * Validates the given object. Returns messages and possible messages to be removed.
+	 * 
+	 * @param obj the object to validate
+	 * @param messages the list of current messages
+	 * @param toRemoveMessages list of messages to be removed at the end of the validation
+	 */
+	private void validateOneEObject(final EObject obj, IObservableList messages, final List<Message> toRemoveMessages) {
+		/*
+		 * Find the constraints for this particular object
+		 */
+		final List<IConstraint> constraints = getConstraints(obj);
+		if (constraints == null) return;
+		for (final IConstraint c : constraints) {
+			toRemoveMessages.remove(c.validate(obj, messages));
+		}
 	}
 
 	/**
@@ -147,7 +158,7 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 	}
 
 	/**
-	 * Construct to handle number range based violations
+	 * Construct to handle number range based violations.
 	 */
 	public static class NumberConstraint implements IConstraint {
 
@@ -155,7 +166,7 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 		private final NumberBindingDecorator myDecorator;
 
 		/**
-		 * Constructs and return a new constraint for the specified feature and decorator
+		 * Constructs and return a new constraint for the specified feature and decorator.
 		 * 
 		 * @param feature the feature in question
 		 * @param decorator the decorator to use to perform the validationitself
@@ -205,7 +216,8 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 			/*
 			 * Create new message
 			 */
-			final Message f = new Message(obj, myFeature, m, BindingMessageSeverity.ERROR);
+			final Message f = new Message(obj, myFeature, m, BindingMessageSeverity.ERROR,
+					NumberBindingDecorator.NUMBER_ERROR_CODE);
 			messages.add(f);
 
 			return f;
@@ -213,22 +225,24 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 	}
 
 	/**
-	 * Construct to handle file name based violations
+	 * Construct to handle file name based violations.
 	 */
 	public static class FileNameConstraint implements IConstraint {
 
 		private final EStructuralFeature myFeature;
 		private final FileNameControlDecorator myDecorator;
+		private final IValidator myValidator;
 
 		/**
-		 * Constructs and return a new constraint for the specified feature and decorator
+		 * Constructs and return a new constraint for the specified feature and decorator.
 		 * 
 		 * @param feature the feature in question
-		 * @param decorator the decorator to use to perform the validationitself
+		 * @param decorator the decorator to use to perform the validation itself
 		 */
 		public FileNameConstraint(EStructuralFeature feature, FileNameControlDecorator decorator) {
 			myFeature = feature;
 			myDecorator = decorator;
+			myValidator = decorator.getUIToModelAfterConvertValidator();
 		}
 
 		@Override
@@ -236,21 +250,22 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 			final Object value = obj.eGet(myFeature);
 			if (value == null) return null;
 
-			final String m = myDecorator.checkValue(value);
-			if (m == null) return null;
+			final IStatus status = myValidator.validate(value);
+			if (status.isOK()) return null;
 
 			/*
 			 * Error found!! Check if the message is already present in the list
 			 */
 			for (final Object o : messages) {
 				final Message f = (Message) o;
-				if (f.getObject() == obj && f.getFeature() == myFeature && f.getMessage().equals(m)) return f;
+				if (f.getObject() == obj && f.getFeature() == myFeature && f.getMessage().equals(status.getMessage()))
+					return f;
 			}
 
 			/*
 			 * Create new message
 			 */
-			final Message f = new Message(obj, myFeature, m, BindingMessageSeverity.ERROR);
+			final Message f = new Message(obj, myFeature, status);
 			messages.add(f);
 
 			return f;
@@ -263,12 +278,41 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 	 * @author Tonny Madsen, The RCP Company
 	 */
 	private static class Message extends AbstractBindingMessage {
-		public Message(EObject object, EStructuralFeature feature, String message, BindingMessageSeverity severity) {
+		public Message(EObject object, EStructuralFeature feature, String message, BindingMessageSeverity severity,
+				int code) {
 			super(null);
 			myObject = object;
 			myFeature = feature;
 			myMessage = message;
 			mySeverity = severity;
+			myCode = code;
+			addTarget(object, feature, null);
+		}
+
+		public Message(EObject object, EStructuralFeature feature, IStatus status) {
+			super(null);
+			myObject = object;
+			myFeature = feature;
+			myMessage = status.getMessage();
+			switch (status.getSeverity()) {
+			case IStatus.OK:
+				mySeverity = BindingMessageSeverity.NONE;
+				break;
+			case IStatus.INFO:
+				mySeverity = BindingMessageSeverity.INFORMATION;
+				break;
+			case IStatus.WARNING:
+				mySeverity = BindingMessageSeverity.WARNING;
+				break;
+			case IStatus.ERROR:
+				mySeverity = BindingMessageSeverity.ERROR;
+				break;
+			default:
+				mySeverity = BindingMessageSeverity.NONE;
+				break;
+			}
+			myCode = status.getCode();
+
 			addTarget(object, feature, null);
 		}
 
@@ -276,6 +320,7 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 		private final EStructuralFeature myFeature;
 		private final String myMessage;
 		private final BindingMessageSeverity mySeverity;
+		private final int myCode;
 
 		@Override
 		public String getSource() {
@@ -284,7 +329,7 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 
 		@Override
 		public int getCode() {
-			return NumberBindingDecorator.NUMBER_ERROR_CODE;
+			return myCode;
 		}
 
 		@Override
