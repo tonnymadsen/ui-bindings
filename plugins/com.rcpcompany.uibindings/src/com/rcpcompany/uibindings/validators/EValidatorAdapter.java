@@ -183,7 +183,7 @@ public class EValidatorAdapter extends AbstractValidatorAdapter {
 	}
 
 	/**
-	 * The diagnostian used for the validation
+	 * The diagnostian used for the validation.
 	 */
 	protected Diagnostician myDiagnostician = new Diagnostician();
 
