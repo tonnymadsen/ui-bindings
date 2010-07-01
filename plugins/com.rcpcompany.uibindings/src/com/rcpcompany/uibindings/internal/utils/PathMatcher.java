@@ -6,7 +6,6 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 import com.rcpcompany.uibindings.utils.IPathMatcher;
-import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Implementation of {@link IPathMatcher}.
@@ -59,44 +58,37 @@ public class PathMatcher implements IPathMatcher {
 	private String translateGlob(String pattern) {
 		String p = pattern;
 		final char separator = File.separatorChar;
-		// System.out.println(">>>" + p + "<<<");
 
 		/*
 		 * Translate all "\\" into "/", to make the rest easier
 		 */
 		p = p.replaceAll("\\\\", "/");
-		// System.out.println(">>>" + p + "<<<");
 
 		/*
 		 * "." -> "\." to get a verbatim match
 		 */
 		p = p.replaceAll("\\.", "\\\\.");
-		// System.out.println(">>>" + p + "<<<");
 
 		/*
 		 * "?" -> "[^/]"
 		 */
 		p = p.replaceAll("[?]", "[^/]");
-		// System.out.println(">>>" + p + "<<<");
 
 		/*
 		 * "[!...]" -> "[^...]"
 		 */
 		p = p.replaceAll("^\\[!", "[^");
 		p = p.replaceAll("(?<!\\\\)\\[!", "[^");
-		// System.out.println(">>>" + p + "<<<");
 
 		/*
 		 * "*" -> "[^/]*"
 		 */
 		p = p.replaceAll("[*]", "[^/]*");
-		// System.out.println("*>>>" + p + "<<<");
 
 		/*
 		 * "**" -> "[^/]*(/[^/]*)*"
 		 */
 		p = p.replaceAll("\\[^/]\\*\\[^/]\\*", "[^/]*(/[^/]*)*");
-		// System.out.println(">>>" + p + "<<<");
 
 		/*
 		 * "{...,...}" -> "(...|...)" - not suported yet
@@ -111,7 +103,6 @@ public class PathMatcher implements IPathMatcher {
 		if (p.charAt(0) != '/') {
 			p = "((/[^/]*)*/)?" + p;
 		}
-		// System.out.println(">>>" + p + "<<<");
 
 		/*
 		 * Translate all '/' to the native separator (if different from '/')
@@ -127,7 +118,6 @@ public class PathMatcher implements IPathMatcher {
 		} else if (separator != '/') {
 			p = p.replace('/', separator);
 		}
-		// System.out.println(">>>" + p + "<<<");
 
 		/*
 		 * For Windows (separator == '\'), add drive letter and network drive support
@@ -135,9 +125,8 @@ public class PathMatcher implements IPathMatcher {
 		if (separator == '\\') {
 			p = "([a-z]:|\\\\[^\\\\]+)?" + p;
 		}
-		// System.out.println(">>>" + p + "<<<");
 
-		LogUtils.debug(this, "translate '" + pattern + "' -> '" + p + "'");
+		// LogUtils.debug(this, "translate '" + pattern + "' -> '" + p + "'");
 		return p;
 	}
 
