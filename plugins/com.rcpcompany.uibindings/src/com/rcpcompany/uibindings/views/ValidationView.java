@@ -38,7 +38,7 @@ public class ValidationView extends ViewPart {
 	/* package */Composite myTop; // For testing
 
 	/**
-	 * The current messages in the view
+	 * The current messages in the view.
 	 */
 	protected IObservableList myMessages;
 	private final IListChangeListener myMessageListListener = new IListChangeListener() {
@@ -49,7 +49,7 @@ public class ValidationView extends ViewPart {
 	};
 
 	/**
-	 * Updates the tooltip on the view tab
+	 * Updates the tooltip on the view tab.
 	 */
 	protected void updateViewTooltip() {
 		if (myMessages.size() == 0) {
@@ -67,6 +67,8 @@ public class ValidationView extends ViewPart {
 				break;
 			case INFORMATION:
 				infos++;
+				break;
+			default:
 				break;
 			}
 		}
@@ -158,7 +160,8 @@ public class ValidationView extends ViewPart {
 				}
 				break;
 			}
-			final WritableValue value = WritableValue.withValueType(EcorePackage.Literals.EOBJECT);
+			final WritableValue value = WritableValue.withValueType(modelObject != null ? modelObject.eClass()
+					: EcorePackage.Literals.EOBJECT);
 			value.setValue(modelObject);
 			return value;
 		}
