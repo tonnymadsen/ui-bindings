@@ -37,7 +37,7 @@ public class DataBindingDecoratorMessageObservableValue extends AbstractObservab
 	protected final IObservableValue myValidationStatus;
 
 	/**
-	 * Constructs and returns a new observable value
+	 * Constructs and returns a new observable value.
 	 * 
 	 * @param valueBinding the value binding
 	 * @param dataBinding the data binding
