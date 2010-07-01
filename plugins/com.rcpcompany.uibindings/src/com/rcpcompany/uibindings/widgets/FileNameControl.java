@@ -1,13 +1,14 @@
 package com.rcpcompany.uibindings.widgets;
 
+import org.eclipse.core.runtime.ISafeRunnable;
+import org.eclipse.core.runtime.SafeRunner;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.DirectoryDialog;
-import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.FileDialog;
-import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.Listener;
 
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.InternalConstants;
@@ -18,7 +19,7 @@ import com.rcpcompany.uibindings.internal.observables.TextObservableValue;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class FileNameControl extends BaseTextButtonWidget {
+public class FileNameControl extends BaseTextButtonWidget implements TextObservableValue.IWidgetUpdated {
 	private static Image myButtonImage = Activator.getDefault().getImageRegistry()
 			.get(InternalConstants.IMG_OPEN_DIALOG);
 	private boolean myExistingOnly = true;
@@ -62,36 +63,20 @@ public class FileNameControl extends BaseTextButtonWidget {
 		setText(path);
 
 		/*
-		 * Need to provoke the TextObservableValue to accept the text, but faking a Return
+		 * Need to provoke the TextObservableValue to accept the text
 		 */
-		postENTER();
-	}
+		for (final Listener l : getListeners(100)) {
+			SafeRunner.run(new ISafeRunnable() {
+				@Override
+				public void run() throws Exception {
+					l.handleEvent(null);
+				}
 
-	/**
-	 * Posts an ENTER (or CR) for the text control to provoke the {@link TextObservableValue}.
-	 */
-	private void postENTER() {
-		final Text c = getTextControl();
-		if (!c.isFocusControl()) return;
-		Event event;
-
-		event = new Event();
-		event.type = SWT.KeyDown;
-		event.stateMask = 0;
-		event.keyCode = SWT.CR;
-		event.character = (char) event.keyCode;
-		event.widget = c;
-
-		c.getDisplay().post(event);
-
-		event = new Event();
-		event.type = SWT.KeyUp;
-		event.stateMask = 0;
-		event.keyCode = SWT.CR;
-		event.character = (char) event.keyCode;
-		event.widget = c;
-
-		c.getDisplay().post(event);
+				@Override
+				public void handleException(Throwable exception) {
+				}
+			});
+		}
 	}
 
 	private void updateMessage() {
@@ -171,5 +156,15 @@ public class FileNameControl extends BaseTextButtonWidget {
 	 */
 	public boolean isDirectoryMode() {
 		return myDirectoryMode;
+	}
+
+	@Override
+	public void addWidgetUpdatedListener(Listener listener) {
+		addListener(100, listener);
+	}
+
+	@Override
+	public void removeWidgetUpdatedListener(Listener listener) {
+		removeListener(100, listener);
 	}
 }

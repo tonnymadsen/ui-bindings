@@ -37,6 +37,33 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 		IDelayedChangeObservable {
 
 	/**
+	 * This interface is used to allow a widget to inform the {@link IObservableValue} that the
+	 * value for the widget has been extraordinarily updated.
+	 * <p>
+	 * The first example is {@link Text} widgets with an associated browse dialog button - when the
+	 * browse dialog is closed the interface is used to let the observable know the value has
+	 * changed. This is needed when the {@link TextCommitStrategy#ON_FOCUS_OUT} strategy is used.
+	 */
+	public interface IWidgetUpdated {
+		/**
+		 * Adds a listener to be called when the value changes.
+		 * <p>
+		 * The <code>event</code> argument is not needed and will be null.
+		 * 
+		 * @param listener the listener to add
+		 */
+		void addWidgetUpdatedListener(Listener listener);
+
+		/**
+		 * Removes a listener previously added with
+		 * {@link IWidgetUpdated#addWidgetUpdatedListener(Listener)}
+		 * 
+		 * @param listener the listener to remove
+		 */
+		void removeWidgetUpdatedListener(Listener listener);
+	};
+
+	/**
 	 * The observed widget.
 	 */
 	protected final Control myControl;
@@ -84,6 +111,14 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 			// LogUtils.debug(this, "Text='" + myAdapter.getText(myControl) + "'\n" +
 			// ToStringUtils.toString(event));
 			if (updating) return;
+
+			/**
+			 * Used to provoke an immediate commit of the current value if it has changed
+			 */
+			if (event == null) {
+				forceUpdateValue();
+				return;
+			}
 
 			/*
 			 * Special handling for some of the event types
@@ -229,6 +264,20 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 	 */
 	public TextObservableValue(final Text text) {
 		this(SWTObservables.getRealm(text.getDisplay()), text);
+	}
+
+	/**
+	 * Constructs and returns a new observable for the Text widget.
+	 * 
+	 * @param text the Text widget
+	 * @param updater an optional updater interface
+	 */
+	public TextObservableValue(final Text text, IWidgetUpdated updater) {
+		this(SWTObservables.getRealm(text.getDisplay()), text);
+
+		if (updater != null) {
+			updater.addWidgetUpdatedListener(myControlListener);
+		}
 	}
 
 	/**
