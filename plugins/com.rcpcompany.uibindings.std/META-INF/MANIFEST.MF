@@ -4,5 +4,5 @@ Bundle-Name: Standard settings for UI Bindings
 Bundle-SymbolicName: com.rcpcompany.uibindings.std;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: The RCP Company
-Fragment-Host: com.rcpcompany.uibindings;bundle-version="[2.1.40,2.4.0)"
+Fragment-Host: com.rcpcompany.uibindings;bundle-version="[2.1.40,3)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

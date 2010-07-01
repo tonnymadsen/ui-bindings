@@ -168,7 +168,7 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 				if (myFilters != null) {
 					final String extString = Arrays.toString(myFilters);
 					final String fv = file.getName();
-					LogUtils.debug(this, "Check '" + v + "' (" + fv + ") against " + extString);
+					// LogUtils.debug(this, "Check '" + v + "' (" + fv + ") against " + extString);
 					boolean f = false;
 					for (final String es : myFilters) {
 						for (final String e : es.split(";")) {

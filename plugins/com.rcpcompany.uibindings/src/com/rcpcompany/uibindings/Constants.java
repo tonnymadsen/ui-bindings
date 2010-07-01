@@ -242,15 +242,20 @@ public interface Constants {
 	 * Argument name for the allowed extensions of file name.
 	 * <p>
 	 * On the form "extension-group("///"extension-group)*", where each extension group is on the
-	 * form "[label:]filter(";"filter)*" and each filter normally is on the form "*.xxx". If any of
-	 * the groups have a label, all must have one.
+	 * form "[label:]filter(";"filter)*" and each filter is on the glob form - e.g. "*.xxx".
+	 * <p>
+	 * See <a href="http://java.sun.com/docs/books/tutorial/essential/io/fileOps.html#glob">What Is
+	 * a Glob?</a>.
+	 * <p>
+	 * If any of the groups have a label, all must have one.
 	 * <p>
 	 * Examples:
 	 * <ul>
 	 * <li>"*.*" - accepts all files</li>
 	 * <li>"*.gif;*.png" - extension filter for image files</li>
-	 * <li>"Image:*.gif;*.png///Icon:*.bmp///Other:*.*" - extension filter for image and icons files
-	 * with labels</li>
+	 * <li>"Image:*.gif;*.png///Splash:splash.bmp///Icon:*.bmp///Other:*.*" - extension filter for
+	 * image and icons files with labels</li>
+	 * <li>"/tmp/**" - extension filter all files in /tmp or sub-directories</li>
 	 * </ul>
 	 * <p>
 	 * The argument value is a {@link String String array} with the extensions

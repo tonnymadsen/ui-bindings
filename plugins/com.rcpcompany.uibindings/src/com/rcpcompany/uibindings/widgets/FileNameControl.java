@@ -20,8 +20,8 @@ import com.rcpcompany.uibindings.internal.observables.TextObservableValue;
  * @author Tonny Madsen, The RCP Company
  */
 public class FileNameControl extends BaseTextButtonWidget implements TextObservableValue.IWidgetUpdated {
-	private static Image myButtonImage = Activator.getDefault().getImageRegistry()
-			.get(InternalConstants.IMG_OPEN_DIALOG);
+	private static Image myButtonImage = Activator.getDefault().getImageRegistry().get(
+			InternalConstants.IMG_OPEN_DIALOG);
 	private boolean myExistingOnly = true;
 	private String[] myFilterExtensions = null;
 	private String[] myFilterNames = null;
@@ -36,6 +36,7 @@ public class FileNameControl extends BaseTextButtonWidget implements TextObserva
 	 */
 	public FileNameControl(Composite parent, int style) {
 		super(parent, style, myButtonImage);
+		setToolTipText("Browse");
 	}
 
 	@Override
