@@ -476,6 +476,7 @@
          <feature
                name="tmpDir">
             <standardArguments
+                  extensions="/temp/**"
                   label="Temporary Directory"
                   type="directoryName">
             </standardArguments>
