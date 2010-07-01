@@ -132,7 +132,8 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 		final IToolBarManager toolbar = getViewSite().getActionBars().getToolBarManager();
 
 		toolbar.add(new PinEditorContributionItem());
-		toolbar.add(new SelectEditorPartFactoryContributionItem());
+		mySelectEditorPartFactoryContributionItem = new SelectEditorPartFactoryContributionItem();
+		toolbar.add(mySelectEditorPartFactoryContributionItem);
 	}
 
 	@Override
@@ -305,6 +306,9 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 	 */
 	public void setCurrentDescriptor(IEditorPartDescriptor desciptor) {
 		myCurrentDescriptor = desciptor;
+		if (mySelectEditorPartFactoryContributionItem != null) {
+			mySelectEditorPartFactoryContributionItem.update();
+		}
 	}
 
 	/**
@@ -325,6 +329,8 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 			selectReveal(selection);
 		}
 	};
+
+	private SelectEditorPartFactoryContributionItem mySelectEditorPartFactoryContributionItem;
 
 	/**
 	 * {@link IContributionItem} for "Pin Editor ".
@@ -361,6 +367,11 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 	 */
 	public class SelectEditorPartFactoryContributionItem extends ContributionItem {
 		private ToolItem myItem;
+		private final Image myFallBackImage;
+
+		public SelectEditorPartFactoryContributionItem() {
+			myFallBackImage = PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_OBJ_ELEMENT);
+		}
 
 		@Override
 		public void fill(ToolBar parent, int index) {
@@ -372,9 +383,9 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 				@Override
 				public void widgetSelected(SelectionEvent event) {
 					final Menu menu = new Menu(myItem.getParent());
-//					if (workbenchHelpSystem != null) {
-//						workbenchHelpSystem.setHelp(menu, helpContextId);
-//					}
+					// if (workbenchHelpSystem != null) {
+					// workbenchHelpSystem.setHelp(menu, helpContextId);
+					// }
 					final IEditorModelType mt = INavigatorModelFactory.eINSTANCE.getManager().getModelType(
 							getCurrentObject());
 					for (final IEditorPartDescriptor d : mt.getEditors()) {
@@ -407,8 +418,24 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 
 		@Override
 		public void update() {
-			myItem.setEnabled(getCurrentDescriptor() != null);
-			myItem.setText(getCurrentDescriptor() == null ? "<none>" : getCurrentDescriptor().getName());
+			if (myItem.isDisposed()) return;
+			final boolean enabled = getCurrentDescriptor() != null;
+			myItem.setEnabled(enabled);
+			Image image = myFallBackImage;
+			if (enabled) {
+				final CEResourceHolder imageHolder = getCurrentDescriptor().getImage();
+				if (imageHolder != null) {
+					image = imageHolder.getImage();
+				}
+			}
+			myItem.setImage(image);
+			/*
+			 * Adding the text does not work when the next selected item has a longer text... Then
+			 * the item disappears altogether
+			 */
+
+			// myItem.setText(getCurrentDescriptor() == null ? "<none>" :
+			// getCurrentDescriptor().getName());
 		}
 	}
 }
