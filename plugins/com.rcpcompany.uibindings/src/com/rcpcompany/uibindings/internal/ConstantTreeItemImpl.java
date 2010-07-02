@@ -245,4 +245,9 @@ public class ConstantTreeItemImpl extends EObjectImpl implements IConstantTreeIt
 		return super.eIsSet(featureID);
 	}
 
+	@Override
+	public String toString() {
+		return "ConstantTreeItem:" + getDescriptor().toString();
+	}
+
 } // AnonCellItemImpl
