@@ -174,6 +174,26 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 	 * @generated
 	 */
 	@Override
+	public EAttribute getNavigatorManager_PinEditorByDefault() {
+		return (EAttribute) navigatorManagerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNavigatorManager_OpenMustOpenNew() {
+		return (EAttribute) navigatorManagerEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getEditorModelType() {
 		return editorModelTypeEClass;
 	}
@@ -369,6 +389,8 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 		navigatorManagerEClass = createEClass(NAVIGATOR_MANAGER);
 		createEReference(navigatorManagerEClass, NAVIGATOR_MANAGER__MODEL_TYPES);
 		createEAttribute(navigatorManagerEClass, NAVIGATOR_MANAGER__USE_GENERIC_EDITOR_PART_FALLBACK);
+		createEAttribute(navigatorManagerEClass, NAVIGATOR_MANAGER__PIN_EDITOR_BY_DEFAULT);
+		createEAttribute(navigatorManagerEClass, NAVIGATOR_MANAGER__OPEN_MUST_OPEN_NEW);
 
 		editorModelTypeEClass = createEClass(EDITOR_MODEL_TYPE);
 		createEReference(editorModelTypeEClass, EDITOR_MODEL_TYPE__EDITORS);
@@ -434,6 +456,12 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 		initEAttribute(getNavigatorManager_UseGenericEditorPartFallback(), ecorePackage.getEBoolean(),
 				"useGenericEditorPartFallback", "true", 1, 1, INavigatorManager.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNavigatorManager_PinEditorByDefault(), ecorePackage.getEBoolean(), "pinEditorByDefault",
+				"false", 1, 1, INavigatorManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNavigatorManager_OpenMustOpenNew(), ecorePackage.getEBoolean(), "openMustOpenNew", "false",
+				1, 1, INavigatorManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(editorModelTypeEClass, IEditorModelType.class, "EditorModelType", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

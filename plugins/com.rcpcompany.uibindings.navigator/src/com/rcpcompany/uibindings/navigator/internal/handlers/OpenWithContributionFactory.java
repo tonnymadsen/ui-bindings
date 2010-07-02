@@ -18,7 +18,7 @@ import org.eclipse.ui.services.IServiceLocator;
 
 import com.rcpcompany.uibindings.navigator.IEditorModelType;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
-import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
+import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.utils.extensionpoints.CEResourceHolder;
 import com.rcpcompany.utils.selection.SelectionUtils;
 
@@ -40,7 +40,7 @@ public class OpenWithContributionFactory extends ExtensionContributionFactory {
 		if (list.size() != 1) return;
 		final EObject obj = list.get(0);
 
-		final IEditorModelType mt = INavigatorModelFactory.eINSTANCE.getManager().getModelType(obj);
+		final IEditorModelType mt = INavigatorManager.Factory.getManager().getModelType(obj);
 		final EList<IEditorPartDescriptor> editors = mt.getEditors();
 
 		/*
@@ -66,7 +66,7 @@ public class OpenWithContributionFactory extends ExtensionContributionFactory {
 						@Override
 						public void widgetSelected(SelectionEvent e) {
 							d.getModelType().setPreferredEditor(d);
-							INavigatorModelFactory.eINSTANCE.getManager().getView(obj);
+							INavigatorManager.Factory.getManager().openView(obj);
 						}
 					});
 				}

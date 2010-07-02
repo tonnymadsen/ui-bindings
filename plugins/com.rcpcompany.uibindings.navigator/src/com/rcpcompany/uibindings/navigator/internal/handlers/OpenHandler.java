@@ -11,7 +11,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
-import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
+import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.utils.selection.SelectionUtils;
 
 /**
@@ -30,7 +30,7 @@ public class OpenHandler extends AbstractHandler implements IHandler {
 		final List<EObject> list = SelectionUtils.computeSelection(selection, EObject.class);
 
 		for (final EObject o : list) {
-			INavigatorModelFactory.eINSTANCE.getManager().getView(o);
+			INavigatorManager.Factory.getManager().openView(o);
 		}
 		return null;
 	}

@@ -25,6 +25,16 @@ public interface NavigatorConstants {
 	 */
 	String PREF_USE_GENERIC_EDITOR_PART_FALLBACK = "USE_GENERIC_EDITOR_PART_FALLBACK";
 
+	/**
+	 * Preference name for {@link INavigatorManager#isOpenMustOpenNew()}.
+	 */
+	String PREF_OPEN_MUST_OPEN_NEW = "PREF_OPEN_MUST_OPEN_NEW";
+
+	/**
+	 * Preference name for {@link INavigatorManager#isPinEditorByDefault()()}.
+	 */
+	String PREF_PIN_EDITOR_BY_DEFAULT = "PREF_PIN_EDITOR_BY_DEFAULT";
+
 	String ID_TAG = "id";
 	String MODEL_TYPE_TAG = "modelType";
 	String EDITOR_TAG = "editor";
@@ -32,4 +42,5 @@ public interface NavigatorConstants {
 	String NAME_TAG = "name";
 	String IMAGE_TAG = "image";
 	String FACTORY_TAG = "factory";
+
 }

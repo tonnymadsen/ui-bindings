@@ -37,7 +37,7 @@ import com.rcpcompany.uibindings.navigator.IEditorPartContext;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.IEditorPartFactory;
 import com.rcpcompany.uibindings.navigator.IEditorPartView;
-import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
+import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.internal.Activator;
 import com.rcpcompany.uibindings.utils.IBindingObjectInformation;
 import com.rcpcompany.uibindings.utils.IGlobalNavigationManager.IGetSelectionTarget;
@@ -67,7 +67,7 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 	 * If the editor is pinned, it will not react to selection changes and a new editor is created
 	 * instead of reusing an existing editor.
 	 */
-	/* package */boolean myIsPinned = false;
+	/* package */boolean myIsPinned = INavigatorManager.Factory.getManager().isPinEditorByDefault();
 
 	/**
 	 * The current editor part descriptor.
@@ -185,7 +185,7 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 	 */
 	@Override
 	public void setCurrentObject(EObject obj) {
-		final IEditorPartDescriptor desc = INavigatorModelFactory.eINSTANCE.getManager().getEditorPartDescriptor(obj);
+		final IEditorPartDescriptor desc = INavigatorManager.Factory.getManager().getEditorPartDescriptor(obj);
 		if (Activator.getDefault().TRACE_EDITOR_PARTS_LIFECYCLE) {
 			LogUtils.debug(this, "Descriptor found: " + obj + "\n-> " + desc);
 		}
@@ -386,8 +386,7 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 					// if (workbenchHelpSystem != null) {
 					// workbenchHelpSystem.setHelp(menu, helpContextId);
 					// }
-					final IEditorModelType mt = INavigatorModelFactory.eINSTANCE.getManager().getModelType(
-							getCurrentObject());
+					final IEditorModelType mt = INavigatorManager.Factory.getManager().getModelType(getCurrentObject());
 					for (final IEditorPartDescriptor d : mt.getEditors()) {
 						final MenuItem item = new MenuItem(menu, SWT.NONE);
 						item.setText(d.getName());

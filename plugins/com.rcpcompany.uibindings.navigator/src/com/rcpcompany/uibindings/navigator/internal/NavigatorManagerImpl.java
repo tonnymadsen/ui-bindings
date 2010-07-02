@@ -54,6 +54,11 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <li>
  * {@link com.rcpcompany.uibindings.navigator.internal.NavigatorManagerImpl#isUseGenericEditorPartFallback
  * <em>Use Generic Editor Part Fallback</em>}</li>
+ * <li>
+ * {@link com.rcpcompany.uibindings.navigator.internal.NavigatorManagerImpl#isPinEditorByDefault
+ * <em>Pin Editor By Default</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.navigator.internal.NavigatorManagerImpl#isOpenMustOpenNew
+ * <em>Open Must Open New</em>}</li>
  * </ul>
  * </p>
  * 
@@ -90,6 +95,46 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	 * @ordered
 	 */
 	protected boolean useGenericEditorPartFallback = USE_GENERIC_EDITOR_PART_FALLBACK_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isPinEditorByDefault() <em>Pin Editor By Default</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #isPinEditorByDefault()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PIN_EDITOR_BY_DEFAULT_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isPinEditorByDefault() <em>Pin Editor By Default</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #isPinEditorByDefault()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean pinEditorByDefault = PIN_EDITOR_BY_DEFAULT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isOpenMustOpenNew() <em>Open Must Open New</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #isOpenMustOpenNew()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean OPEN_MUST_OPEN_NEW_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isOpenMustOpenNew() <em>Open Must Open New</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #isOpenMustOpenNew()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean openMustOpenNew = OPEN_MUST_OPEN_NEW_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -243,11 +288,22 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	private void preferenceReader() {
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
 
+		/*
+		 * Setupo defaults
+		 */
 		ps.setDefault(NavigatorConstants.PREF_USE_GENERIC_EDITOR_PART_FALLBACK,
 				NavigatorManagerImpl.USE_GENERIC_EDITOR_PART_FALLBACK_EDEFAULT);
+		ps.setDefault(NavigatorConstants.PREF_OPEN_MUST_OPEN_NEW, NavigatorManagerImpl.OPEN_MUST_OPEN_NEW_EDEFAULT);
+		ps.setDefault(NavigatorConstants.PREF_PIN_EDITOR_BY_DEFAULT,
+				NavigatorManagerImpl.PIN_EDITOR_BY_DEFAULT_EDEFAULT);
+
 		for (final IEditorModelType mt : getModelTypes()) {
 			ps.setDefault(mt.getModelType(), mt.getEditors().get(0).getId());
 		}
+
+		/**
+		 * Monitor changes
+		 */
 		ps.addPropertyChangeListener(myPreferenceListener);
 		myPreferenceListener.propertyChange(null);
 	}
@@ -257,9 +313,17 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 
 		@Override
 		public void propertyChange(PropertyChangeEvent event) {
-			final boolean b = ps.getBoolean(NavigatorConstants.PREF_USE_GENERIC_EDITOR_PART_FALLBACK);
+			boolean b = ps.getBoolean(NavigatorConstants.PREF_USE_GENERIC_EDITOR_PART_FALLBACK);
 			if (isUseGenericEditorPartFallback() != b) {
 				setUseGenericEditorPartFallback(b);
+			}
+			b = ps.getBoolean(NavigatorConstants.PREF_OPEN_MUST_OPEN_NEW);
+			if (isOpenMustOpenNew() != b) {
+				setOpenMustOpenNew(b);
+			}
+			b = ps.getBoolean(NavigatorConstants.PREF_PIN_EDITOR_BY_DEFAULT);
+			if (isPinEditorByDefault() != b) {
+				setPinEditorByDefault(b);
 			}
 
 			for (final IEditorModelType mt : getModelTypes()) {
@@ -340,6 +404,11 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 				.setValue(NavigatorConstants.PREF_USE_GENERIC_EDITOR_PART_FALLBACK, newUseGenericEditorPartFallback);
 	}
 
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public void setUseGenericEditorPartFallbackGen(boolean newUseGenericEditorPartFallback) {
 		final boolean oldUseGenericEditorPartFallback = useGenericEditorPartFallback;
 		useGenericEditorPartFallback = newUseGenericEditorPartFallback;
@@ -356,12 +425,89 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	 * @generated
 	 */
 	@Override
+	public boolean isPinEditorByDefault() {
+		return pinEditorByDefault;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public void setPinEditorByDefault(boolean newPinEditorByDefault) {
+		setPinEditorByDefaultGen(newPinEditorByDefault);
+		Activator.getDefault().getPreferenceStore()
+				.setValue(NavigatorConstants.PREF_PIN_EDITOR_BY_DEFAULT, newPinEditorByDefault);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setPinEditorByDefaultGen(boolean newPinEditorByDefault) {
+		final boolean oldPinEditorByDefault = pinEditorByDefault;
+		pinEditorByDefault = newPinEditorByDefault;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					INavigatorModelPackage.NAVIGATOR_MANAGER__PIN_EDITOR_BY_DEFAULT, oldPinEditorByDefault,
+					pinEditorByDefault));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean isOpenMustOpenNew() {
+		return openMustOpenNew;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public void setOpenMustOpenNew(boolean newOpenMustOpenNew) {
+		setOpenMustOpenNewGen(newOpenMustOpenNew);
+		Activator.getDefault().getPreferenceStore()
+				.setValue(NavigatorConstants.PREF_OPEN_MUST_OPEN_NEW, newOpenMustOpenNew);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setOpenMustOpenNewGen(boolean newOpenMustOpenNew) {
+		final boolean oldOpenMustOpenNew = openMustOpenNew;
+		openMustOpenNew = newOpenMustOpenNew;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					INavigatorModelPackage.NAVIGATOR_MANAGER__OPEN_MUST_OPEN_NEW, oldOpenMustOpenNew, openMustOpenNew));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case INavigatorModelPackage.NAVIGATOR_MANAGER__MODEL_TYPES:
 			return getModelTypes();
 		case INavigatorModelPackage.NAVIGATOR_MANAGER__USE_GENERIC_EDITOR_PART_FALLBACK:
 			return isUseGenericEditorPartFallback();
+		case INavigatorModelPackage.NAVIGATOR_MANAGER__PIN_EDITOR_BY_DEFAULT:
+			return isPinEditorByDefault();
+		case INavigatorModelPackage.NAVIGATOR_MANAGER__OPEN_MUST_OPEN_NEW:
+			return isOpenMustOpenNew();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -382,6 +528,12 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 		case INavigatorModelPackage.NAVIGATOR_MANAGER__USE_GENERIC_EDITOR_PART_FALLBACK:
 			setUseGenericEditorPartFallback((Boolean) newValue);
 			return;
+		case INavigatorModelPackage.NAVIGATOR_MANAGER__PIN_EDITOR_BY_DEFAULT:
+			setPinEditorByDefault((Boolean) newValue);
+			return;
+		case INavigatorModelPackage.NAVIGATOR_MANAGER__OPEN_MUST_OPEN_NEW:
+			setOpenMustOpenNew((Boolean) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -400,6 +552,12 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 		case INavigatorModelPackage.NAVIGATOR_MANAGER__USE_GENERIC_EDITOR_PART_FALLBACK:
 			setUseGenericEditorPartFallback(USE_GENERIC_EDITOR_PART_FALLBACK_EDEFAULT);
 			return;
+		case INavigatorModelPackage.NAVIGATOR_MANAGER__PIN_EDITOR_BY_DEFAULT:
+			setPinEditorByDefault(PIN_EDITOR_BY_DEFAULT_EDEFAULT);
+			return;
+		case INavigatorModelPackage.NAVIGATOR_MANAGER__OPEN_MUST_OPEN_NEW:
+			setOpenMustOpenNew(OPEN_MUST_OPEN_NEW_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -416,6 +574,10 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 			return modelTypes != null && !modelTypes.isEmpty();
 		case INavigatorModelPackage.NAVIGATOR_MANAGER__USE_GENERIC_EDITOR_PART_FALLBACK:
 			return useGenericEditorPartFallback != USE_GENERIC_EDITOR_PART_FALLBACK_EDEFAULT;
+		case INavigatorModelPackage.NAVIGATOR_MANAGER__PIN_EDITOR_BY_DEFAULT:
+			return pinEditorByDefault != PIN_EDITOR_BY_DEFAULT_EDEFAULT;
+		case INavigatorModelPackage.NAVIGATOR_MANAGER__OPEN_MUST_OPEN_NEW:
+			return openMustOpenNew != OPEN_MUST_OPEN_NEW_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -432,6 +594,10 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (useGenericEditorPartFallback: ");
 		result.append(useGenericEditorPartFallback);
+		result.append(", pinEditorByDefault: ");
+		result.append(pinEditorByDefault);
+		result.append(", openMustOpenNew: ");
+		result.append(openMustOpenNew);
 		result.append(')');
 		return result.toString();
 	}
@@ -442,14 +608,20 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	private int myNextSecondaryId = 0;;
 
 	@Override
-	public IEditorPartView getView(EObject obj) {
+	public IEditorPartView openView(EObject obj) {
 		final Collection<IEditorPartView> views = getAllViews();
 
 		/*
 		 * Look for a perfect match
 		 */
 		for (final IEditorPartView v : views) {
-			if (v.getCurrentObject() == obj) return v;
+			if (v.getCurrentObject() == obj) {
+				/*
+				 * This might change the view
+				 */
+				v.setCurrentObject(obj);
+				return v;
+			}
 		}
 
 		/*

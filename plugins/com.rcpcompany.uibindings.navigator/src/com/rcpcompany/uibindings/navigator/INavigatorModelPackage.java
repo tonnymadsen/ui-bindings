@@ -83,13 +83,31 @@ public interface INavigatorModelPackage extends EPackage {
 	int NAVIGATOR_MANAGER__USE_GENERIC_EDITOR_PART_FALLBACK = 1;
 
 	/**
+	 * The feature id for the '<em><b>Pin Editor By Default</b></em>' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATOR_MANAGER__PIN_EDITOR_BY_DEFAULT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Open Must Open New</b></em>' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATOR_MANAGER__OPEN_MUST_OPEN_NEW = 3;
+
+	/**
 	 * The number of structural features of the '<em>Navigator Manager</em>' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATOR_MANAGER_FEATURE_COUNT = 2;
+	int NAVIGATOR_MANAGER_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '
@@ -332,6 +350,30 @@ public interface INavigatorModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getNavigatorManager_UseGenericEditorPartFallback();
+
+	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.navigator.INavigatorManager#isPinEditorByDefault
+	 * <em>Pin Editor By Default</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Pin Editor By Default</em>'.
+	 * @see com.rcpcompany.uibindings.navigator.INavigatorManager#isPinEditorByDefault()
+	 * @see #getNavigatorManager()
+	 * @generated
+	 */
+	EAttribute getNavigatorManager_PinEditorByDefault();
+
+	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.navigator.INavigatorManager#isOpenMustOpenNew
+	 * <em>Open Must Open New</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Open Must Open New</em>'.
+	 * @see com.rcpcompany.uibindings.navigator.INavigatorManager#isOpenMustOpenNew()
+	 * @see #getNavigatorManager()
+	 * @generated
+	 */
+	EAttribute getNavigatorManager_OpenMustOpenNew();
 
 	/**
 	 * Returns the meta object for class '
@@ -578,6 +620,22 @@ public interface INavigatorModelPackage extends EPackage {
 		 */
 		EAttribute NAVIGATOR_MANAGER__USE_GENERIC_EDITOR_PART_FALLBACK = eINSTANCE
 				.getNavigatorManager_UseGenericEditorPartFallback();
+
+		/**
+		 * The meta object literal for the '<em><b>Pin Editor By Default</b></em>' attribute
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute NAVIGATOR_MANAGER__PIN_EDITOR_BY_DEFAULT = eINSTANCE.getNavigatorManager_PinEditorByDefault();
+
+		/**
+		 * The meta object literal for the '<em><b>Open Must Open New</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute NAVIGATOR_MANAGER__OPEN_MUST_OPEN_NEW = eINSTANCE.getNavigatorManager_OpenMustOpenNew();
 
 		/**
 		 * The meta object literal for the '
