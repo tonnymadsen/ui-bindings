@@ -15,6 +15,7 @@ import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.internal.Activator;
 import com.rcpcompany.uibindings.navigator.internal.NavigatorConstants;
+import com.rcpcompany.utils.basic.ToStringUtils;
 
 /**
  * Preference page for all things related to the editors of the navigator.
@@ -53,7 +54,7 @@ public class PreferredEditorPage extends FieldEditorPreferencePage implements IW
 			 * 
 			 * IBindingObjectInformation
 			 */
-			String name = "" + mt.getModelType();
+			String name = ToStringUtils.formatHumanReadable(mt.getModelType());
 			final IModelClassInfo info = uim.getModelClassInfo(mt.getModelType(), null, false);
 			if (info != null) {
 				final Object l = info.getDeclaredArguments().get(Constants.ARG_LABEL);

@@ -6,13 +6,26 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExecutableExtension;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.action.ContributionItem;
+import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.action.IToolBarManager;
+import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.ToolBar;
+import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
+import org.eclipse.ui.ISelectionListener;
+import org.eclipse.ui.ISelectionService;
+import org.eclipse.ui.ISharedImages;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ISetSelectionTarget;
 import org.eclipse.ui.part.ViewPart;
 
@@ -20,6 +33,8 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.SpecialBinding;
+import com.rcpcompany.uibindings.navigator.IEditorPartView;
+import com.rcpcompany.uibindings.navigator.internal.Activator;
 import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -44,6 +59,29 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 	private IColumnBinding myTreeColumnBinding;
 	private TreeViewer myTreeViewer;
 
+	/**
+	 * Whether this navigator is linked to the editors or not...
+	 */
+	private boolean myIsLinkedWithEditors = false;
+
+	/**
+	 * Sets whether this navigator is linked to the editors or not...
+	 * 
+	 * @param isLinked <code>true</code> if linked
+	 */
+	public void setLinkedWithEditors(boolean isLinked) {
+		myIsLinkedWithEditors = isLinked;
+	}
+
+	/**
+	 * Returns whether this navigator is linked to the editors or not...
+	 * 
+	 * @return <code>true</code> if linked
+	 */
+	public boolean isLinkedWithEditors() {
+		return myIsLinkedWithEditors;
+	}
+
 	@Override
 	public void createPartControl(Composite parent) {
 		myContext = IBindingContext.Factory.createContext(parent);
@@ -66,11 +104,44 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 		IBindingContextSelectionProvider.Factory.adapt(myContext, getSite());
 
 		addToolbarItems();
+		listenToSelection();
 	}
 
+	/**
+	 * Adds view local toolbar items
+	 */
 	private void addToolbarItems() {
 		final IToolBarManager toolbar = getViewSite().getActionBars().getToolBarManager();
 
+		toolbar.add(new LinkWithEditorContributionItem());
+	}
+
+	/**
+	 * Selection listener.
+	 * <p>
+	 * The functionality depends on {@link #isLinkedWithEditors()}.
+	 */
+	private final ISelectionListener listener = new ISelectionListener() {
+		@Override
+		public void selectionChanged(IWorkbenchPart part, ISelection selection) {
+			if (isLinkedWithEditors() && part instanceof IEditorPartView) {
+				final IEditorPartView view = (IEditorPartView) part;
+				final EObject obj = view.getCurrentObject();
+				if (obj != null) {
+					selectReveal(new StructuredSelection(obj));
+					return;
+				}
+			}
+			selectReveal(selection);
+		}
+	};
+
+	/**
+	 * Sets up a listener for the current selection
+	 */
+	private void listenToSelection() {
+		final ISelectionService ss = getSite().getWorkbenchWindow().getSelectionService();
+		ss.addPostSelectionListener(listener);
 	}
 
 	@Override
@@ -87,6 +158,9 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 
 	@Override
 	public void selectReveal(ISelection selection) {
+		if (selection == null) return;
+		if (selection.isEmpty()) return;
+		if (selection.equals(myTreeViewer.getSelection())) return;
 		myTreeViewer.setSelection(selection, true);
 	}
 
@@ -111,4 +185,37 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 			return WritableList.withElementType(EObject.class);
 		}
 	}
+
+	/**
+	 * {@link IContributionItem} for "Link with Editor".
+	 */
+	public class LinkWithEditorContributionItem extends ContributionItem {
+		private ToolItem myItem;
+
+		@Override
+		public void fill(ToolBar parent, int index) {
+			myItem = new ToolItem(parent, SWT.CHECK, index);
+			final ISharedImages sharedImages = PlatformUI.getWorkbench().getSharedImages();
+			// images from IWorkbenchGraphicConstants
+			final ImageRegistry imageRegistry = Activator.getDefault().getImageRegistry();
+			imageRegistry.put("LINKED", Activator.imageDescriptorFromPlugin(Activator.ID, "images/synced.gif"));
+			myItem.setImage(imageRegistry.get("LINKED"));
+
+			myItem.setToolTipText("Link navigator with editors");
+
+			myItem.addSelectionListener(new SelectionAdapter() {
+				@Override
+				public void widgetSelected(SelectionEvent e) {
+					setLinkedWithEditors(!isLinkedWithEditors());
+					update();
+				}
+			});
+		}
+
+		@Override
+		public void update() {
+			myItem.setSelection(isLinkedWithEditors());
+		}
+	}
+
 }

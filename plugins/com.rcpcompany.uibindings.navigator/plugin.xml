@@ -77,6 +77,16 @@
             id="openWith"
             label="Open With"
             mnemonic="h">
+         <visibleWhen
+               checkEnabled="false">
+            <iterate
+                  ifEmpty="false"
+                  operator="or">
+               <instanceof
+                     value="org.eclipse.emf.ecore.EObject">
+               </instanceof>
+            </iterate>
+         </visibleWhen>
       </menu>
    </menuContribution>
    <menuContribution
@@ -144,6 +154,7 @@
    <editor
          factory="com.rcpcompany.uibindings.navigator.editorFactories.EmptyEditorPartFactory"
          id="com.rcpcompany.uibindings.navigator.internal.com.rcpcompany.uibindings.IConstantTreeItem"
+         image="IMG_ETOOL_CLEAR"
          modelType="com.rcpcompany.uibindings.IConstantTreeItem"
          name="Empty Container"
          priority="1">
