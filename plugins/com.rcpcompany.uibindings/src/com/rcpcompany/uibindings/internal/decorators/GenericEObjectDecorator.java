@@ -27,14 +27,14 @@ import com.rcpcompany.utils.logging.LogUtils;
 public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements IUIBindingDecorator {
 
 	/**
-	 * The valid values in this decorator
+	 * The valid values in this decorator.
 	 */
 	private IObservableList myValidValues;
 
 	/**
-	 * The mapper used in this decorator
+	 * The mapper used in this decorator.
 	 */
-	protected IClassIdentiferMapper myClassIdentiferMapper = null;
+	private IClassIdentiferMapper myClassIdentiferMapper = null;
 
 	/**
 	 * The string used for <code>null</code> in the binding.
