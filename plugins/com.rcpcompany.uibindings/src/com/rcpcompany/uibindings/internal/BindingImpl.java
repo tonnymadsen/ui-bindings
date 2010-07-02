@@ -1067,7 +1067,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	@Override
 	public void addErrorCondition(String error) {
-		LogUtils.error(this, error, getCreationPoint());
+		LogUtils.error(this, this + ": " + error, getCreationPoint());
 		getErrorConditions().add(error);
 	}
 
