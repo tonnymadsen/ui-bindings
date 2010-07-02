@@ -71,28 +71,18 @@
       </command>
    </menuContribution>
    <menuContribution
-         allPopups="false"
-         class="com.rcpcompany.uibindings.navigator.internal.handlers.OpenWithContributionFactory"
-         locationURI="popup:org.eclipse.ui.popup.any?after=open">
+         allPopups="true"
+         locationURI="popup:org.eclipse.ui.popup.any?after=com.rcpcompany.uibindings.commands.open">
       <menu
-            id="com.rcpcompany.uibindings.navigator.openWithMenu"
+            id="openWith"
             label="Open With"
             mnemonic="h">
-         <visibleWhen
-               checkEnabled="false">
-            <with
-                  variable="activePart">
-               <instanceof
-                     value="com.rcpcompany.uibindings.navigator.views.NavigatorBaseView">
-               </instanceof>
-            </with>
-         </visibleWhen>
       </menu>
    </menuContribution>
    <menuContribution
-         allPopups="false"
+         allPopups="true"
          class="com.rcpcompany.uibindings.navigator.internal.handlers.OpenWithContributionFactory"
-         locationURI="menu:com.rcpcompany.uibindings.navigator.openWithMenu">
+         locationURI="popup:openWith">
    </menuContribution>
 </extension>
 <extension
@@ -110,7 +100,7 @@
       </activeWhen>
    </handler>
    <handler
-         class="com.rcpcompany.uibindings.navigator.internal.handlers.OpenBindingHandler"
+         class="com.rcpcompany.uibindings.navigator.internal.handlers.OpenHandler"
          commandId="com.rcpcompany.uibindings.commands.openBinding">
       <activeWhen>
          <iterate

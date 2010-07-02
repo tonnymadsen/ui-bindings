@@ -21,7 +21,7 @@ import com.rcpcompany.utils.selection.SelectionUtils;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class OpenBindingHandler extends AbstractHandler implements IHandler {
+public class OpenHandler extends AbstractHandler implements IHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
