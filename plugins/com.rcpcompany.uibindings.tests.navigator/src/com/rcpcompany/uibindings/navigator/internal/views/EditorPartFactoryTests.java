@@ -36,7 +36,7 @@ public class EditorPartFactoryTests {
 	@Before
 	public void before() {
 		NavigatorTestUtils.resetAll();
-		myManager = INavigatorModelFactory.eINSTANCE.getManager();
+		myManager = INavigatorManager.Factory.getManager();
 
 		myGroup = ShopFactory.eINSTANCE.createShopItemGroup();
 
@@ -49,7 +49,7 @@ public class EditorPartFactoryTests {
 	 */
 	@Test
 	public void testEditorPartContext() {
-		final IEditorPartView view = myManager.getView(myGroup);
+		final IEditorPartView view = myManager.openView(myGroup);
 		assertNotNull(view);
 		assertTrue(GroupEditorPartFactory.hasRun);
 	}

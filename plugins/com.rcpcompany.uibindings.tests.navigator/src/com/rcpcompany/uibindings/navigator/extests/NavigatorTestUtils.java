@@ -25,7 +25,7 @@ public class NavigatorTestUtils {
 		 * provoke that the Shop package is properly initialized
 		 */
 		final EClass shop = ShopPackage.Literals.SHOP;
-		final INavigatorManager manager = INavigatorModelFactory.eINSTANCE.getManager();
+		final INavigatorManager manager = INavigatorManager.Factory.getManager();
 		manager.eUnset(INavigatorModelPackage.Literals.NAVIGATOR_MANAGER__USE_GENERIC_EDITOR_PART_FALLBACK);
 
 		manager.closeAllViews();
@@ -49,7 +49,7 @@ public class NavigatorTestUtils {
 	 * @return the editor part
 	 */
 	public static IEditorPartDescriptor findDescriptor(Class cls, String id) {
-		final INavigatorManager manager = INavigatorModelFactory.eINSTANCE.getManager();
+		final INavigatorManager manager = INavigatorManager.Factory.getManager();
 		for (final IEditorModelType mt : manager.getModelTypes()) {
 			if (mt.getModelType().equals(cls.getName())) {
 				for (final IEditorPartDescriptor d : mt.getEditors()) {
@@ -76,7 +76,7 @@ public class NavigatorTestUtils {
 	}
 
 	public static IEditorModelType getMultipleEditorModelType() {
-		final INavigatorManager manager = INavigatorModelFactory.eINSTANCE.getManager();
+		final INavigatorManager manager = INavigatorManager.Factory.getManager();
 		for (final IEditorModelType m : manager.getModelTypes()) {
 			if (m.getEditors().size() > 1) return m;
 		}

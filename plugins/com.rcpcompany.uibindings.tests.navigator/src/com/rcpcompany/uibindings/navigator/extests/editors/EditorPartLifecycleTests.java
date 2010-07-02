@@ -32,7 +32,7 @@ public class EditorPartLifecycleTests {
 	@Before
 	public void before() {
 		NavigatorTestUtils.resetAll();
-		myManager = INavigatorModelFactory.eINSTANCE.getManager();
+		myManager = INavigatorManager.Factory.getManager();
 
 		myGroup = ShopFactory.eINSTANCE.createShopItemGroup();
 
@@ -46,7 +46,7 @@ public class EditorPartLifecycleTests {
 	@Test
 	public void testLifecycleViewClose() {
 		assertEquals(false, GroupEditorPartFactory.constructed);
-		final IEditorPartView view = myManager.getView(myGroup);
+		final IEditorPartView view = myManager.openView(myGroup);
 		assertNotNull(view);
 		assertEquals(true, GroupEditorPartFactory.constructed);
 		assertEquals(false, GroupEditorPartFactory.myText.isDisposed());
@@ -61,11 +61,11 @@ public class EditorPartLifecycleTests {
 	@Test
 	public void testLifecycleSelectionChanged() {
 		assertEquals(false, GroupEditorPartFactory.constructed);
-		final IEditorPartView view = myManager.getView(myGroup);
+		final IEditorPartView view = myManager.openView(myGroup);
 		assertNotNull(view);
 		assertEquals(true, GroupEditorPartFactory.constructed);
 		assertEquals(false, GroupEditorPartFactory.myText.isDisposed());
-		final IEditorPartView view2 = myManager.getView(ShopFactory.eINSTANCE.createShop());
+		final IEditorPartView view2 = myManager.openView(ShopFactory.eINSTANCE.createShop());
 		assertEquals(false, GroupEditorPartFactory.constructed);
 		assertEquals(true, GroupEditorPartFactory.myText.isDisposed());
 		assertEquals(view, view2);

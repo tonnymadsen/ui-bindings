@@ -19,7 +19,7 @@ import com.rcpcompany.uibindings.navigator.IEditorPartView;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
 import com.rcpcompany.uibindings.navigator.extests.NavigatorTestUtils;
-import com.rcpcompany.uibindings.navigator.internal.handlers.OpenBindingHandler;
+import com.rcpcompany.uibindings.navigator.internal.handlers.OpenHandler;
 import com.rcpcompany.uibindings.navigator.internal.propertyTesters.EObjectPropertyTester;
 import com.rcpcompany.uibindings.navigator.views.NavigatorBaseView;
 import com.rcpcompany.uibindings.tests.shop.Country;
@@ -28,7 +28,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
 
 /**
- * Tests {@link OpenBindingHandler} and {@link EObjectPropertyTester} used for
+ * Tests {@link OpenHandler} and {@link EObjectPropertyTester} used for
  * <code>com.rcpcompany.uibindings.commands.openBinding</code>.
  * 
  * @author Tonny Madsen, The RCP Company
@@ -46,7 +46,7 @@ public class OpenBindingTests {
 	@Before
 	public void before() {
 		NavigatorTestUtils.resetAll();
-		myManager = INavigatorModelFactory.eINSTANCE.getManager();
+		myManager = INavigatorManager.Factory.getManager();
 
 		myShop = ShopFactory.eINSTANCE.getShop();
 

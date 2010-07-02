@@ -32,7 +32,7 @@ public class PreferenceTests {
 	@Test
 	public void testDefaults() {
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-		final INavigatorManager manager = INavigatorModelFactory.eINSTANCE.getManager();
+		final INavigatorManager manager = INavigatorManager.Factory.getManager();
 
 		for (final IEditorModelType mt : manager.getModelTypes()) {
 			final String c = mt.getModelType();

@@ -33,10 +33,10 @@ public class NavigatorModelManagerTest {
 	 */
 	@Test
 	public void oneAndOnlyOne() {
-		final INavigatorManager manager = INavigatorModelFactory.eINSTANCE.getManager();
+		final INavigatorManager manager = INavigatorManager.Factory.getManager();
 		assertNotNull(manager);
 
-		assertEquals(manager, INavigatorModelFactory.eINSTANCE.getManager());
+		assertEquals(manager, INavigatorManager.Factory.getManager());
 	}
 
 	@Test
@@ -53,7 +53,7 @@ public class NavigatorModelManagerTest {
 
 		assertEquals(8, list.size());
 
-		final INavigatorManager manager = INavigatorModelFactory.eINSTANCE.getManager();
+		final INavigatorManager manager = INavigatorManager.Factory.getManager();
 
 		assertNotNull(manager);
 

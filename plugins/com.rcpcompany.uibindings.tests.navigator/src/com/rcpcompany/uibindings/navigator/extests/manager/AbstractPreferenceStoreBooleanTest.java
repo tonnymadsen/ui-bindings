@@ -65,7 +65,7 @@ public abstract class AbstractPreferenceStoreBooleanTest {
 
 	@Before
 	public void setup() {
-		m = INavigatorModelFactory.eINSTANCE.getManager();
+		m = INavigatorManager.Factory.getManager();
 	}
 
 	public void testPS2M(final boolean newValue) {
