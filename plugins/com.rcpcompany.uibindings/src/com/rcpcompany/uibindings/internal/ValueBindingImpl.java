@@ -759,7 +759,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			if (observed instanceof EObject) return (EObject) observed;
 		}
 		final IObservableValue ov = getModelObservableValue();
-		if (ov == null) return null;
+		if (ov == null || ov.isDisposed()) return null;
 		final Object observed = ov.getValue();
 		if (!(observed instanceof EObject)) return null;
 		return (EObject) observed;

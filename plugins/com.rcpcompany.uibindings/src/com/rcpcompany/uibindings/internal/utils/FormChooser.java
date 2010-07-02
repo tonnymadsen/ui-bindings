@@ -179,9 +179,26 @@ public class FormChooser implements IFormChooser {
 
 		/*
 		 * Hmmm?
+		 * 
+		 * We make sure all outstanding asyncExecs are executed at this point...
 		 */
-		while (myTop.getDisplay().readAndDispatch()) {
-		}
+//		final Listener l = new Listener() {
+//			@Override
+//			public void handleEvent(Event event) {
+//				LogUtils.debug(this, ToStringUtils.toString(event));
+//			}
+//		};
+//		for (int i = SWT.None; i < SWT.ImeComposition; i++) {
+//			Display.getCurrent().addFilter(i, l);
+//		}
+//		while (myTop.getDisplay().readAndDispatch()) {
+//			// Do nothing
+//			LogUtils.debug(this, "readAndDispatch");
+//		}
+//		for (int i = SWT.None; i < SWT.ImeComposition; i++) {
+//			Display.getCurrent().removeFilter(i, l);
+//		}
+//		LogUtils.debug(this, "readAndDispatch ok");
 	}
 
 	private void createEmptyComposite() {

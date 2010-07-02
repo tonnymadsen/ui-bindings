@@ -155,7 +155,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	protected void checkSelection() {
 		ISelection selection = null;
 		if (myCurrentProvider != null) {
-			myCurrentProvider.getSelection();
+			selection = myCurrentProvider.getSelection();
 		}
 
 		if (selection == null) {

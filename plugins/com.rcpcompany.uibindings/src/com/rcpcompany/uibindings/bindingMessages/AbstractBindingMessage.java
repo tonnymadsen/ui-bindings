@@ -53,11 +53,13 @@ public abstract class AbstractBindingMessage extends BindingMessageImpl {
 
 	@Override
 	public String getPrefix() {
+		if (getBinding() == null) return "";
 		return getBinding().getMessagePrefix();
 	}
 
 	@Override
 	public Control getControl() {
+		if (getBinding() == null) return null;
 		return getBinding().getControl();
 	}
 
