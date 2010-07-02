@@ -49,7 +49,7 @@ public class EditorPartDescriptorTest {
 	@Before
 	public void before() {
 		NavigatorTestUtils.resetAll();
-		myManager = INavigatorModelFactory.eINSTANCE.getManager();
+		myManager = INavigatorManager.Factory.getManager();
 		myManager.setUseGenericEditorPartFallback(myUseGenericEditorPartFallback);
 	}
 
