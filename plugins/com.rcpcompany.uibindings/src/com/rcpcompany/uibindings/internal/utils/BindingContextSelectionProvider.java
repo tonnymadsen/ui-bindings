@@ -153,7 +153,10 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	}
 
 	protected void checkSelection() {
-		ISelection selection = myCurrentProvider.getSelection();
+		ISelection selection = null;
+		if (myCurrentProvider != null) {
+			myCurrentProvider.getSelection();
+		}
 
 		if (selection == null) {
 			selection = myEmptySelection;
@@ -164,7 +167,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	}
 
 	/**
-	 * The workbench site where the menu is registered
+	 * The workbench site where the menu is registered.
 	 */
 	private final IWorkbenchPartSite mySite;
 
@@ -179,7 +182,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	private ISelection myCurrentSelection = null;
 
 	/**
-	 * The menu
+	 * The menu.
 	 */
 	private final MenuManager myMenuManager = new MenuManager();
 
@@ -203,7 +206,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	};
 
 	/**
-	 * Creates the context menu
+	 * Creates the context menu.
 	 */
 	private void createContextMenu() {
 		mySite.registerContextMenu(myMenuManager, this);
@@ -319,12 +322,12 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		private final ListenerList selectionChangedListeners = new ListenerList();
 
 		/**
-		 * The current selection
+		 * The current selection.
 		 */
 		private ISelection selection = null;
 
 		/**
-		 * The observable value that forms the base of the selection provider
+		 * The observable value that forms the base of the selection provider.
 		 */
 		private final IObservableValue myValue;
 
@@ -349,7 +352,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		}
 
 		@Override
-		public void setSelection(ISelection selection) {
+		public void setSelection(ISelection sel) {
 			// Not supported as this is a not a viewer
 		}
 
