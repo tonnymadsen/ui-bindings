@@ -6,9 +6,6 @@ import com.rcpcompany.utils.basic.ClassUtils;
 
 public class GenericClassNameDecorator extends SimpleUIBindingDecorator implements IUIBindingDecorator {
 
-	public GenericClassNameDecorator() {
-	}
-
 	@Override
 	public boolean isChangeable() {
 		return false;
@@ -24,7 +21,7 @@ public class GenericClassNameDecorator extends SimpleUIBindingDecorator implemen
 			cls = fromObject.getClass();
 		}
 
-		return ClassUtils.getLastClassName(cls.getName());
+		return ClassUtils.getLastClassName(cls);
 	}
 
 	@Override
