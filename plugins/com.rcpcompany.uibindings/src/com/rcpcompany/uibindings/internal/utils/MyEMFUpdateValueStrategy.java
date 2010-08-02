@@ -12,21 +12,21 @@ import org.eclipse.emf.ecore.EAttribute;
  */
 public class MyEMFUpdateValueStrategy extends UpdateValueStrategy {
 	/**
-	 * Constructs a new strategy
+	 * Constructs a new strategy.
 	 */
 	public MyEMFUpdateValueStrategy() {
 		this(true, POLICY_UPDATE);
 	}
 
 	/**
-	 * Constructs a new strategy
+	 * Constructs a new strategy.
 	 */
 	public MyEMFUpdateValueStrategy(int updatePolicy) {
 		this(true, updatePolicy);
 	}
 
 	/**
-	 * Constructs a new strategy
+	 * Constructs a new strategy.
 	 */
 	public MyEMFUpdateValueStrategy(boolean provideDefaults, int updatePolicy) {
 		super(provideDefaults, updatePolicy);

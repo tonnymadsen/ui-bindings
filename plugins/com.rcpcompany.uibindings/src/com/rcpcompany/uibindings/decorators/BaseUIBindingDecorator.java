@@ -217,7 +217,6 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		 */
 		final IObservableList decoratorUIList = getValidUIList();
 
-		// TODO TMTM Move
 		final boolean changeable = getBinding().isChangeable();
 		UpdateValueStrategy uiToModelUpdateStrategy;
 		if (changeable) {

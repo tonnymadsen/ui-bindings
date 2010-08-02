@@ -513,14 +513,23 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 	@Override
 	public boolean isChangeable() {
-		assertTrue(getDecorator() != null, "Called before in OK state"); //$NON-NLS-1$
+		/*
+		 * Can now be called before in state OK - e.g. from the form creator
+		 */
+		// assertTrue(getDecorator() != null, "Called before in OK state"); //$NON-NLS-1$
 		final IUIAttribute attribute = getUIAttribute();
-		final Widget widget = attribute.getWidget();
-		final boolean changeable = attribute.isChangeable()
-				&& (widget == null || (!widget.isDisposed() && (widget.getStyle() & SWT.READ_ONLY) != SWT.READ_ONLY))
-				&& getArgument(Constants.ARG_READONLY, Boolean.class, Boolean.FALSE) != Boolean.TRUE
-				&& getDecorator().isChangeable();
-		return changeable;
+		if (attribute != null) {
+			if (!attribute.isChangeable()) return false;
+			final Widget widget = attribute.getWidget();
+			if (widget != null && (!widget.isDisposed() || (widget.getStyle() & SWT.READ_ONLY) == SWT.READ_ONLY))
+				return false;
+		}
+		if (getArgument(Constants.ARG_READONLY, Boolean.class, Boolean.FALSE)) return false;
+
+		final IUIBindingDecorator d = getDecorator();
+		if (d != null && !d.isChangeable()) return false;
+
+		return true;
 	}
 
 	@Override

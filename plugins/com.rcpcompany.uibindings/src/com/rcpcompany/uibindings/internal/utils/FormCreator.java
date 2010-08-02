@@ -78,17 +78,17 @@ public class FormCreator implements IFormCreator {
 	private final Composite myTop;
 
 	/**
-	 * The toolkit used to create all widgets
+	 * The toolkit used to create all widgets.
 	 */
 	private final FormToolkit myToolkit;
 
 	/**
-	 * The current value of this form
+	 * The current value of this form.
 	 */
 	private final IObservableValue myObservableValue;
 
 	/**
-	 * For a hierarchy of forms, the top form
+	 * For a hierarchy of forms, the top form.
 	 */
 	private final FormCreator myTopForm;
 
@@ -111,7 +111,7 @@ public class FormCreator implements IFormCreator {
 	private Section mySection = null;
 
 	/**
-	 * List of all sub forms - including sections
+	 * List of all sub forms - including sections.
 	 */
 	private List<FormCreator> mySubForms = null;
 
@@ -134,7 +134,7 @@ public class FormCreator implements IFormCreator {
 	protected Adapter myContextListener = null;
 
 	/**
-	 * Listener used to track the current focus widget
+	 * Listener used to track the current focus widget.
 	 * <p>
 	 * Only used in the top form.
 	 */
@@ -148,7 +148,7 @@ public class FormCreator implements IFormCreator {
 	protected Control myLastFocusControl;
 
 	/**
-	 * Constructs and returns a new form creator
+	 * Constructs and returns a new form creator.
 	 * 
 	 * @param context the context
 	 * @param obj the main object
@@ -161,7 +161,7 @@ public class FormCreator implements IFormCreator {
 	}
 
 	/**
-	 * Constructs and returns a new form creator
+	 * Constructs and returns a new form creator.
 	 * 
 	 * @param context the context
 	 * @param value the observable value
@@ -175,7 +175,7 @@ public class FormCreator implements IFormCreator {
 	}
 
 	/**
-	 * Constructs and returns a new form creator
+	 * Constructs and returns a new form creator.
 	 * 
 	 * @param topForm the top-level creator for this form creator - <code>null</code> for a
 	 *            top-level creator
@@ -308,7 +308,7 @@ public class FormCreator implements IFormCreator {
 	}
 
 	/**
-	 * Creates a sub form for the specified parent and new base object
+	 * Creates a sub form for the specified parent and new base object.
 	 * 
 	 * @param parent the parent composite
 	 * @param obj the new base object
@@ -477,7 +477,7 @@ public class FormCreator implements IFormCreator {
 	}
 
 	/**
-	 * Fixes the binding based on the binding description
+	 * Fixes the binding based on the binding description.
 	 * 
 	 * @param description the description of the wanted binding
 	 */
@@ -492,7 +492,7 @@ public class FormCreator implements IFormCreator {
 				String.class, null));
 
 		int style = description.placeholderStyle;
-		if (myReadOnly || description.binding.getArgument(Constants.ARG_READONLY, Boolean.class, false)) {
+		if (myReadOnly || !description.binding.isChangeable()) {
 			style |= SWT.READ_ONLY;
 		}
 
@@ -965,7 +965,7 @@ public class FormCreator implements IFormCreator {
 	}
 
 	/**
-	 * The description of a single binding of this form
+	 * The description of a single binding of this form.
 	 */
 	private static class BindingDescription {
 

@@ -276,8 +276,7 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	/**
 	 * Returns the value of the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Changeable</em>' attribute isn't clear, there really should be
-	 * more of a description here...
+	 * Can be called before the binding is fully instantiated (in state OK).
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

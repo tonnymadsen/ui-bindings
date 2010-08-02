@@ -9,6 +9,8 @@ import org.eclipse.core.databinding.observable.value.AbstractObservableValue;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.runtime.Assert;
 
+import com.rcpcompany.uibindings.UIBindingsUtils;
+
 /**
  * A decorating observable value that formats the decorated value with a {@link MessageFormat}.
  * <p>
@@ -117,7 +119,7 @@ public class MessageFormatObservableValue extends AbstractObservableValue {
 			decoratedValue = MessageFormat.format(myFormat, origValue);
 		}
 
-		if (decoratedValue == null ? myCurrectValue == null : decoratedValue.equals(myCurrectValue)) return;
+		if (UIBindingsUtils.equals(decoratedValue, myCurrectValue)) return;
 
 		fireValueChange(Diffs.createValueDiff(myCurrectValue, myCurrectValue = decoratedValue));
 	}
