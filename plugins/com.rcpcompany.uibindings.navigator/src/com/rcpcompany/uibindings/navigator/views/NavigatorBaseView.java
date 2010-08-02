@@ -26,6 +26,8 @@ import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.dialogs.FilteredTree;
+import org.eclipse.ui.dialogs.PatternFilter;
 import org.eclipse.ui.part.ISetSelectionTarget;
 import org.eclipse.ui.part.ViewPart;
 
@@ -52,7 +54,6 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 	protected INavigatorBaseViewAdvisor myAdvisor = null;
 
 	private Tree myTree;
-	private TreeColumn myTreeColumn;
 
 	private IBindingContext myContext;
 	private IViewerBinding myTreeBinding;
@@ -63,6 +64,8 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 	 * Whether this navigator is linked to the editors or not...
 	 */
 	private boolean myIsLinkedWithEditors = false;
+
+	private FilteredTree myFilteredTree;
 
 	/**
 	 * Sets whether this navigator is linked to the editors or not...
@@ -88,16 +91,19 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 
 		// TODO add filter
 
-		myTree = new Tree(parent, SWT.SINGLE | SWT.FULL_SELECTION);
+		final PatternFilter patternFilter = new TreePatternFilter();
+		myFilteredTree = new FilteredTree(parent, SWT.FULL_SELECTION | SWT.SINGLE | SWT.H_SCROLL | SWT.V_SCROLL
+				| SWT.BORDER, patternFilter, true);
+		myTreeViewer = myFilteredTree.getViewer();
+		myTree = myTreeViewer.getTree();
 		myTree.setHeaderVisible(false);
-		myTreeColumn = new TreeColumn(myTree, SWT.LEAD);
-		myTreeColumn.setWidth(300);
+		final TreeColumn column = new TreeColumn(myTree, SWT.LEAD);
+		column.setWidth(300);
 		// TODO: use layout to make this column 100%
 
 		final IObservableList list = myAdvisor.getRootElements();
-		myTreeBinding = myContext.addViewer().viewer(myTree).model(list);
-		myTreeViewer = (TreeViewer) myTreeBinding.getViewer();
-		myTreeColumnBinding = myTreeBinding.addColumn().column(myTreeColumn).model(SpecialBinding.TREE_ITEM);
+		myTreeBinding = myContext.addViewer().viewer(myTreeViewer).model(list);
+		myTreeColumnBinding = myTreeBinding.addColumn().column(column).model(SpecialBinding.TREE_ITEM);
 
 		myContext.finish();
 
@@ -218,4 +224,10 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 		}
 	}
 
+	/**
+	 * Pattern filter used for the navigator tree
+	 */
+	public class TreePatternFilter extends PatternFilter {
+
+	}
 }

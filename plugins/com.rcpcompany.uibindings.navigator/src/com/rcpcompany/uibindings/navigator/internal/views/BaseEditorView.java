@@ -8,7 +8,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.action.ContributionItem;
 import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.action.IToolBarManager;
-import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
@@ -190,7 +189,7 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 		if (Activator.getDefault().TRACE_EDITOR_PARTS_LIFECYCLE) {
 			LogUtils.debug(this, "Descriptor found: " + obj + "\n-> " + desc);
 		}
-		if (desc == myCurrentEditorPart) {
+		if (desc == myCurrentDescriptor) {
 			/*
 			 * The editor part itself did not change... just update the observable value.
 			 */
@@ -203,10 +202,13 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 			return;
 		}
 
+		/*
+		 * No new descriptor....
+		 */
 		if (desc == null) return;
 
 		if (Activator.getDefault().TRACE_EDITOR_PARTS_LIFECYCLE) {
-			LogUtils.debug(this, "Editor part description\n" + myCurrentEditorPart + "\n-> " + desc);
+			LogUtils.debug(this, "Editor part description\n" + myCurrentDescriptor + "\n-> " + desc);
 		}
 
 		cleanEditorPart();
@@ -327,6 +329,10 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 	private final ISelectionListener mySelectionListener = new ISelectionListener() {
 		@Override
 		public void selectionChanged(IWorkbenchPart part, ISelection selection) {
+			/*
+			 * The changes that results from this part is ignoreed.
+			 */
+			if (part == BaseEditorView.this) return;
 			selectReveal(selection);
 		}
 	};
