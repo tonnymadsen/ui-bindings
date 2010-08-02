@@ -488,10 +488,6 @@
       <model
             class="com.rcpcompany.uibindings.tests.shop.Country">
          <argument
-               name="openCommand"
-               value="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.example.application.views.ShopBasicsView)">
-         </argument>
-         <argument
                name="validValues"
                value="com.rcpcompany.uibindings.shop.observableListFactories.CountriesObservableListFactory">
          </argument>
@@ -500,6 +496,8 @@
                value="com.rcpcompany.uibindings.items.GenericDeletor">
          </argument>
          <standardArguments
+               image="icons/country_16x16.png"
+               openCommand="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.example.application.views.ShopBasicsView)"
                preferredCellEditor="org.eclipse.swt.custom.CCombo">
          </standardArguments>
       </model>
@@ -515,9 +513,6 @@
                   type="price">
             </standardArguments>
          </feature>
-         <argument
-               name="image">
-         </argument>
          <standardArguments
                image="icons\shopItem-16x16.png"
                openCommand="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.example.application.views.InventoryView)">
@@ -652,7 +647,9 @@
       </treeItem>
       <treeItem
             id="com.rcpcompany.uibindings.shop.treeItems.shopItemFolder">
-         <standardArguments></standardArguments>
+         <standardArguments
+               image="icons\shopItem-16x16.png"
+               text="Items"></standardArguments>
       </treeItem>
       <treeItem
             id="com.rcpcompany.uibindings.shop.treeItems.shopItemGroups">
@@ -734,12 +731,14 @@
       <editor
             factory="com.rcpcompany.uibindings.shop.editorPartFactories.ShopBasicInformation"
             id="com.rcpcompany.uibindings.shop.editorPartFactories.ShopBasicInformation"
+            image="IMG_OBJ_FILE"
             modelType="com.rcpcompany.uibindings.tests.shop.Shop"
             name="Basic Information">
       </editor>
       <editor
             factory="com.rcpcompany.uibindings.shop.editorPartFactories.ShopCountries"
             id="com.rcpcompany.uibindings.shop.editorPartFactories.ShopCountries"
+            image="icons/country_16x16.png"
             modelType="com.rcpcompany.uibindings.tests.shop.Shop"
             name="Countries">
       </editor>

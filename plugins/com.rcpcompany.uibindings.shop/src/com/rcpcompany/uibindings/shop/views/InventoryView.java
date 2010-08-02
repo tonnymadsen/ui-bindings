@@ -60,7 +60,7 @@ public class InventoryView extends ViewPart {
 		};
 		final IColumnBinding orders = table.addColumn("__NONE__(w=10em,a=r,label='Orders')")
 				.model(usesFactory, EcorePackage.Literals.EINT).readonly();
-		table.addColumn("information(w=16em,ww=200)").dynamic();
+		// table.addColumn("information(w=16em,ww=200)").dynamic();
 
 		myForm.addField(orders.getColumnVisibility(), SWT.NONE).label("Show Orders");
 
@@ -83,7 +83,7 @@ public class InventoryView extends ViewPart {
 			@Override
 			public void createForm(IBindingContext context, IObservableValue discriminant, Composite parent) {
 				final IFormCreator sub = details.subForm(parent);
-				final IObservableValue subValue = new WritableValue(myForm.getObject(),
+				final IObservableValue subValue = new WritableValue(myForm.getObservableValue().getValue(),
 						ShopPackage.Literals.SHOP_ITEM_DESCRIPTION);
 				sub.addField(subValue, "description");
 				sub.finish();
@@ -93,7 +93,7 @@ public class InventoryView extends ViewPart {
 			@Override
 			public void createForm(IBindingContext context, IObservableValue discriminant, Composite parent) {
 				final IFormCreator sub = myForm.subForm(parent);
-				final IObservableValue subValue = new WritableValue(myForm.getObject(),
+				final IObservableValue subValue = new WritableValue(myForm.getObservableValue().getValue(),
 						ShopPackage.Literals.SHOP_ITEM_URL);
 				sub.addField(subValue, "url(label='URL')");
 				sub.finish();
