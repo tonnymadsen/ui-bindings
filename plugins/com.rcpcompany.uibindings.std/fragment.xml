@@ -4,6 +4,38 @@
    <extension
          point="org.eclipse.ui.menus">
       <menuContribution
+            allPopups="true"
+            locationURI="popup:org.eclipse.ui.popup.any">
+         <separator
+               name="open"
+               visible="false">
+         </separator>
+         <separator
+               name="undo"
+               visible="false">
+         </separator>
+         <separator
+               name="new"
+               visible="false">
+         </separator>
+         <separator
+               name="delete"
+               visible="false">
+         </separator>
+         <separator
+               name="navigation"
+               visible="false">
+         </separator>
+         <separator
+               name="additions"
+               visible="false">
+         </separator>
+         <separator
+               name="select"
+               visible="false">
+         </separator>
+      </menuContribution>
+      <menuContribution
             locationURI="popup:org.eclipse.ui.popup.any?after=undo">
          <command
                commandId="org.eclipse.ui.edit.undo"
@@ -24,6 +56,7 @@
             locationURI="popup:org.eclipse.ui.popup.any?after=open">
          <command
                commandId="com.rcpcompany.uibindings.commands.open"
+               id="com.rcpcompany.uibindings.commands.open"
                style="push">
             <visibleWhen
                   checkEnabled="true">
