@@ -102,7 +102,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	/**
 	 * Whether this is a dynamic binding or not.
 	 */
-	protected boolean isDynamic = false;
+	private boolean isDynamic = false;
 
 	/**
 	 * Returns whether this is a dynamic binding or not.
@@ -521,7 +521,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		if (attribute != null) {
 			if (!attribute.isChangeable()) return false;
 			final Widget widget = attribute.getWidget();
-			if (widget != null && (!widget.isDisposed() || (widget.getStyle() & SWT.READ_ONLY) == SWT.READ_ONLY))
+			if (widget != null && (!widget.isDisposed() && (widget.getStyle() & SWT.READ_ONLY) == SWT.READ_ONLY))
 				return false;
 		}
 		if (getArgument(Constants.ARG_READONLY, Boolean.class, Boolean.FALSE)) return false;
