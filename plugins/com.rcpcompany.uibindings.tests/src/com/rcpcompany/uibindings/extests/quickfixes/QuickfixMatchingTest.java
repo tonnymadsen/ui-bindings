@@ -1,8 +1,7 @@
 package com.rcpcompany.uibindings.extests.quickfixes;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.assertNoLog;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.assertOneLog;
-import static org.junit.Assert.assertEquals;
+import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;

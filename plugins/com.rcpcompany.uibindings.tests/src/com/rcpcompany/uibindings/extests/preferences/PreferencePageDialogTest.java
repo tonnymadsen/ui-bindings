@@ -1,9 +1,6 @@
 package com.rcpcompany.uibindings.extests.preferences;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import org.eclipse.core.commands.ParameterizedCommand;
 import org.eclipse.jface.preference.PreferenceDialog;

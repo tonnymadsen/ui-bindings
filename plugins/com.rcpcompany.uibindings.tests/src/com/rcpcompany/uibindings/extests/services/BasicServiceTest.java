@@ -1,8 +1,7 @@
 package com.rcpcompany.uibindings.extests.services;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.assertNoLog;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.createTestView;
-import static org.junit.Assert.assertEquals;
+import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static org.junit.Assert.*;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;

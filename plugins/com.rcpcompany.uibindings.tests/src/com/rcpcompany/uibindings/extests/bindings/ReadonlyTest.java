@@ -1,13 +1,7 @@
 package com.rcpcompany.uibindings.extests.bindings;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.assertNoLog;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.assertOneLog;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.createTestView;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.postKeyStroke;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.postMouse;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.sleep;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.yield;
-import static org.junit.Assert.assertEquals;
+import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static org.junit.Assert.*;
 
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;

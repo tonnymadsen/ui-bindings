@@ -1,15 +1,7 @@
 package com.rcpcompany.uibindings.internal.utils;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.assertNoLog;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.createTestView;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.resetAll;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.yield;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNotSame;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static org.junit.Assert.*;
 
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;

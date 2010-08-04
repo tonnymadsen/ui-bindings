@@ -1,9 +1,7 @@
 package com.rcpcompany.uibindings.extests.observables;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.createTestView;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.yield;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static org.junit.Assert.*;
 
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;

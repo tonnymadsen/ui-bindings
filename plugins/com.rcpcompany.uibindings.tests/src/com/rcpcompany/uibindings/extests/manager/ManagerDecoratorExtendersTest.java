@@ -1,7 +1,6 @@
 package com.rcpcompany.uibindings.extests.manager;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Collection;

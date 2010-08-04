@@ -1,6 +1,6 @@
 package com.rcpcompany.uibindings.extests;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 import org.eclipse.jface.resource.JFaceResources;
 import org.junit.Test;

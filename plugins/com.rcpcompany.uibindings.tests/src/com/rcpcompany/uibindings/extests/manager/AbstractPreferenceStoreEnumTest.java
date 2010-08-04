@@ -1,9 +1,7 @@
 package com.rcpcompany.uibindings.extests.manager;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.assertNoLog;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.assertOneLog;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static org.junit.Assert.*;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;

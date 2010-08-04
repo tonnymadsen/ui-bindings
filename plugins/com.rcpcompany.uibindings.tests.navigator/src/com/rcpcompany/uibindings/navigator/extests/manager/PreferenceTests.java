@@ -1,8 +1,7 @@
 package com.rcpcompany.uibindings.navigator.extests.manager;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.assertNoLog;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.assertOneLog;
-import static org.junit.Assert.assertEquals;
+import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static org.junit.Assert.*;
 
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.junit.Before;
@@ -11,7 +10,6 @@ import org.junit.Test;
 import com.rcpcompany.uibindings.navigator.IEditorModelType;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
-import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
 import com.rcpcompany.uibindings.navigator.extests.NavigatorTestUtils;
 import com.rcpcompany.uibindings.navigator.internal.Activator;
 

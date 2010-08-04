@@ -5,7 +5,7 @@
  */
 package com.rcpcompany.uibindings.internal;
 
-import static java.lang.Math.min;
+import static java.lang.Math.*;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

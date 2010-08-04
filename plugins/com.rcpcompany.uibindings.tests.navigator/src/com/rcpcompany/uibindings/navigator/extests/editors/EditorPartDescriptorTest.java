@@ -1,7 +1,6 @@
 package com.rcpcompany.uibindings.navigator.extests.editors;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,7 +16,6 @@ import org.junit.runners.Parameterized.Parameters;
 import com.rcpcompany.uibindings.navigator.IEditorModelType;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
-import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
 import com.rcpcompany.uibindings.navigator.extests.NavigatorTestUtils;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 

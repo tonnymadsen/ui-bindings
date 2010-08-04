@@ -1,8 +1,6 @@
 package com.rcpcompany.uibindings.extests.manager;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.assertPixelColor;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.createTestView;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.yield;
+import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 
 import java.util.Arrays;
 import java.util.Collection;

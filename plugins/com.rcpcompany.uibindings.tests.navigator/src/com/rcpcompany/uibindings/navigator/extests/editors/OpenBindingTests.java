@@ -1,10 +1,7 @@
 package com.rcpcompany.uibindings.navigator.extests.editors;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.showView;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static org.junit.Assert.*;
 
 import java.util.Collection;
 
@@ -17,7 +14,6 @@ import org.junit.Test;
 
 import com.rcpcompany.uibindings.navigator.IEditorPartView;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
-import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
 import com.rcpcompany.uibindings.navigator.extests.NavigatorTestUtils;
 import com.rcpcompany.uibindings.navigator.internal.handlers.OpenHandler;
 import com.rcpcompany.uibindings.navigator.internal.propertyTesters.EObjectPropertyTester;

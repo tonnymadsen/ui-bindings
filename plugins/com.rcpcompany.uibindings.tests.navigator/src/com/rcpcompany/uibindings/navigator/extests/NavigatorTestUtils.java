@@ -1,13 +1,12 @@
 package com.rcpcompany.uibindings.navigator.extests;
 
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import org.eclipse.emf.ecore.EClass;
 
 import com.rcpcompany.uibindings.navigator.IEditorModelType;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
-import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
 import com.rcpcompany.uibindings.navigator.INavigatorModelPackage;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 

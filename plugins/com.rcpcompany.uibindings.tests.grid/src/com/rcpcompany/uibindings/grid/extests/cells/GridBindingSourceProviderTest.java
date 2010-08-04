@@ -1,11 +1,8 @@
 package com.rcpcompany.uibindings.grid.extests.cells;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.createTestView;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.resetAll;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.yield;
-import static com.rcpcompany.uibindings.grid.extests.GridBaseTestUtils.createTestGrid;
-import static com.rcpcompany.uibindings.grid.extests.GridBaseTestUtils.postMouse;
-import static org.junit.Assert.assertEquals;
+import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static com.rcpcompany.uibindings.grid.extests.GridBaseTestUtils.*;
+import static org.junit.Assert.*;
 
 import java.util.Map;
 

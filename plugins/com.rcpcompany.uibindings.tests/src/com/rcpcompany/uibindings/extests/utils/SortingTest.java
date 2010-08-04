@@ -1,11 +1,7 @@
 package com.rcpcompany.uibindings.extests.utils;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.createTestView;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.postMouse;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.sleep;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.yield;
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
+import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static org.junit.Assert.*;
 
 import org.eclipse.core.databinding.observable.value.WritableValue;
 import org.eclipse.emf.common.util.EList;

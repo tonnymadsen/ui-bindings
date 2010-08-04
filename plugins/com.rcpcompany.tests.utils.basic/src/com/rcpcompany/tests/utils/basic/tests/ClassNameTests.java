@@ -11,7 +11,7 @@
  *******************************************************************************/
 package com.rcpcompany.tests.utils.basic.tests;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 

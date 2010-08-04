@@ -1,8 +1,7 @@
 package com.rcpcompany.uibindings.navigator.extests.manager;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.assertNoLog;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static org.junit.Assert.*;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
@@ -13,7 +12,6 @@ import org.junit.Test;
 
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
-import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
 import com.rcpcompany.uibindings.navigator.internal.Activator;
 
 public abstract class AbstractPreferenceStoreBooleanTest {

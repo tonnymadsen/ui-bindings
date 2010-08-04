@@ -1,11 +1,7 @@
 package com.rcpcompany.uibindings.extests.widgets;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.assertNoLog;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.createTestView;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.resetAll;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.sleep;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static org.junit.Assert.*;
 
 import java.util.Arrays;
 import java.util.Collection;

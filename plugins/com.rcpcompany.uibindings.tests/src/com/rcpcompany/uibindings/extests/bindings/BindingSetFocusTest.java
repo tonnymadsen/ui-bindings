@@ -1,7 +1,7 @@
 package com.rcpcompany.uibindings.extests.bindings;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.createTestView;
-import static org.junit.Assert.assertEquals;
+import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static org.junit.Assert.*;
 
 import java.util.Arrays;
 import java.util.Collection;

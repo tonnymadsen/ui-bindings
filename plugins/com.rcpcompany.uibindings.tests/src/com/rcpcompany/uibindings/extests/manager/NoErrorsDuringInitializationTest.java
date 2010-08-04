@@ -1,6 +1,6 @@
 package com.rcpcompany.uibindings.extests.manager;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 

@@ -1,6 +1,6 @@
 package com.rcpcompany.uibindings.quixkfixes;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 

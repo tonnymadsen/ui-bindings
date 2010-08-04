@@ -1,8 +1,7 @@
 package com.rcpcompany.uibindings.extests.manager;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.assertNoLog;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Collection;

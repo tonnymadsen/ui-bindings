@@ -1,9 +1,7 @@
 package com.rcpcompany.uibindings.extests.bindings;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.createTestView;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.resetAll;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotSame;
+import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static org.junit.Assert.*;
 
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.junit.After;

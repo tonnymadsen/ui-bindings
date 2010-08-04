@@ -11,8 +11,7 @@
  *******************************************************************************/
 package com.rcpcompany.tests.utils.logging.tests;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

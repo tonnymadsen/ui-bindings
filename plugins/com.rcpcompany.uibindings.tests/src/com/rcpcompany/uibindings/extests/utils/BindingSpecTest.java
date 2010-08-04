@@ -1,9 +1,7 @@
 package com.rcpcompany.uibindings.extests.utils;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.assertOneLog;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static org.junit.Assert.*;
 
 import java.util.List;
 import java.util.Map;

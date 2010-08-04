@@ -1,9 +1,6 @@
 package com.rcpcompany.uibindings.extests.utils;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.assertPixelColor;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.createTestView;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.sleep;
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.yield;
+import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;

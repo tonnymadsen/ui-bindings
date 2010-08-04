@@ -1,9 +1,7 @@
 package com.rcpcompany.uibindings.extests.decoratorProviders;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.assertNoLog;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static org.junit.Assert.*;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

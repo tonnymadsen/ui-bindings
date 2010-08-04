@@ -1,6 +1,6 @@
 package com.rcpcompany.uibindings.extests.bindingMessages;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
