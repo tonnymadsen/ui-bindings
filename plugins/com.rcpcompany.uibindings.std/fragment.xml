@@ -168,6 +168,50 @@
    <extension
          point="org.eclipse.ui.handlers">
       <handler
+            class="com.rcpcompany.uibindings.handlers.EditingDomainUndoHandler"
+            commandId="org.eclipse.ui.edit.undo">
+         <enabledWhen>
+            <with
+                  variable="com.rcpcompany.uibindings.sourceProviders.theManager">
+               <test
+                     forcePluginActivation="true"
+                     property="com.rcpcompany.uibindings.canUndo">
+               </test>
+            </with>
+         </enabledWhen>
+         <activeWhen>
+            <with
+                  variable="com.rcpcompany.uibindings.sourceProviders.theManager">
+               <test
+                     forcePluginActivation="true"
+                     property="com.rcpcompany.uibindings.canUndo">
+               </test>
+            </with>
+         </activeWhen>
+      </handler>
+      <handler
+            class="com.rcpcompany.uibindings.handlers.EditingDomainRedoHandler"
+            commandId="org.eclipse.ui.edit.redo">
+         <enabledWhen>
+            <with
+                  variable="com.rcpcompany.uibindings.sourceProviders.theManager">
+               <test
+                     forcePluginActivation="true"
+                     property="com.rcpcompany.uibindings.canRedo">
+               </test>
+            </with>
+         </enabledWhen>
+         <activeWhen>
+            <with
+                  variable="com.rcpcompany.uibindings.sourceProviders.theManager">
+               <test
+                     forcePluginActivation="true"
+                     property="com.rcpcompany.uibindings.canRedo">
+               </test>
+            </with>
+         </activeWhen>
+      </handler>
+      <handler
             class="com.rcpcompany.uibindings.utils.IGlobalNavigationManager$ForwardHistoryHandler"
             commandId="org.eclipse.ui.navigate.forwardHistory">
       </handler>
