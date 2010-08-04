@@ -84,12 +84,7 @@ public class UIAttributePainter {
 		 * Here - and not static - as the Display may not be setup correctly before now
 		 */
 		if (JFaceResources.getImageRegistry().getDescriptor(CHECKED_KEY) == null) {
-			final Image shot = makeShot(parentControl, false);
-			final int height = shot.getBounds().height;
-			if (height + EXTRA_CELL_HEIGHT > myMinHeight) {
-				myMinHeight = height + EXTRA_CELL_HEIGHT;
-			}
-			JFaceResources.getImageRegistry().put(UNCHECKED_KEY, shot);
+			JFaceResources.getImageRegistry().put(UNCHECKED_KEY, makeShot(parentControl, false));
 			JFaceResources.getImageRegistry().put(CHECKED_KEY, makeShot(parentControl, true));
 		}
 		final FormColors colors = IManager.Factory.getManager().getFormToolkit().getColors();
@@ -471,18 +466,17 @@ public class UIAttributePainter {
 		final Image image = new Image(control.getDisplay(), bsize.x, bsize.y);
 		gc.copyArea(image, 0, 0);
 		gc.dispose();
-		shell.getDisplay().asyncExec(new Runnable() {
-			@Override
-			public void run() {
-				shell.close();
-			}
-		});
+		shell.close();
 
 		final ImageData imageData = image.getImageData();
 		imageData.transparentPixel = imageData.palette.getPixel(greenScreen.getRGB());
 
 		final Image img = new Image(control.getDisplay(), imageData);
 		image.dispose();
+
+		if (bsize.y + EXTRA_CELL_HEIGHT > myMinHeight) {
+			myMinHeight = bsize.y + EXTRA_CELL_HEIGHT;
+		}
 
 		return img;
 	}
