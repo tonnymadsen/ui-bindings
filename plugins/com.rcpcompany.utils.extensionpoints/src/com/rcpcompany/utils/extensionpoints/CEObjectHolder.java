@@ -2,7 +2,9 @@ package com.rcpcompany.utils.extensionpoints;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
+import org.osgi.framework.Bundle;
 
+import com.rcpcompany.utils.extensionpoints.internals.Activator;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -79,5 +81,26 @@ public class CEObjectHolder<X> {
 			}
 		}
 		return myObject;
+	}
+
+	/**
+	 * Returns the object for the holder object.
+	 * 
+	 * @return the object or <code>null</code>
+	 */
+	public Class<X> getObjectClass() {
+		final String name = myCE.getContributor().getName();
+		final String className = myCE.getAttribute(myAttrName);
+		final Bundle bundle = Activator.getDefault().getBundle(name);
+		if (bundle == null) {
+			LogUtils.error(myCE, myAttrName + ": cannot find bundle configuration element");
+			return null;
+		}
+		try {
+			return bundle.loadClass(className);
+		} catch (final ClassNotFoundException ex) {
+			LogUtils.error(myCE, myAttrName + ": class cannot be loaded: " + className, ex);
+			return null;
+		}
 	}
 }
