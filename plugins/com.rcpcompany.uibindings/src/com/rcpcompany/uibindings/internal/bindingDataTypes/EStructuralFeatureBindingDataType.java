@@ -1,15 +1,10 @@
 package com.rcpcompany.uibindings.internal.bindingDataTypes;
 
-import org.eclipse.emf.ecore.EAnnotation;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.*;
+import org.eclipse.emf.ecore.util.*;
 
-import com.rcpcompany.uibindings.Constants;
-import com.rcpcompany.uibindings.IArgumentProvider;
-import com.rcpcompany.uibindings.IBindingDataType;
-import com.rcpcompany.uibindings.IManager;
-import com.rcpcompany.uibindings.internal.BindingDataTypeImpl;
+import com.rcpcompany.uibindings.*;
+import com.rcpcompany.uibindings.internal.*;
 
 /**
  * An {@link IBindingDataType} for {@link EStructuralFeature}.
@@ -78,7 +73,8 @@ public class EStructuralFeatureBindingDataType extends BindingDataTypeImpl {
 
 	@Override
 	public boolean isChangeable() {
-		return myStructuralFeature.isChangeable();
+		return myStructuralFeature.isChangeable()
+				&& !EcoreUtil.isSuppressedVisibility(myStructuralFeature, EcoreUtil.SET);
 	}
 
 	@Override
