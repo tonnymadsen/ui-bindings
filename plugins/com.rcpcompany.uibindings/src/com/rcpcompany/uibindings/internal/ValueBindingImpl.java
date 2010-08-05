@@ -517,6 +517,14 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		 * Can now be called before in state OK - e.g. from the form creator
 		 */
 		// assertTrue(getDecorator() != null, "Called before in OK state"); //$NON-NLS-1$
+
+		/*
+		 * TODO Not sure about this! In general, the reaction to non-changeable fields stinks!
+		 */
+		// if (eIsSet(IUIBindingsPackage.Literals.BINDING__ERROR_CONDITIONS) &&
+		// getErrorConditions().size() > 0)
+		// return false;
+
 		final IUIAttribute attribute = getUIAttribute();
 		if (attribute != null) {
 			if (!attribute.isChangeable()) return false;
@@ -524,6 +532,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			if (widget != null && (!widget.isDisposed() && (widget.getStyle() & SWT.READ_ONLY) == SWT.READ_ONLY))
 				return false;
 		}
+
 		if (getArgument(Constants.ARG_READONLY, Boolean.class, Boolean.FALSE)) return false;
 
 		final IUIBindingDecorator d = getDecorator();
