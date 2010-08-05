@@ -6,47 +6,73 @@
       <editor
             factory="com.rcpcompany.uibindings.tests.navigator.editorParts.BasicShopInfo"
             id="com.rcpcompany.uibindings.tests.editors.editors.basic"
-            modelType="com.rcpcompany.uibindings.tests.shop.Shop"
             name="Basic Shop Information"
             priority="10000">
+         <modelType
+               class="com.rcpcompany.uibindings.tests.shop.Shop">
+         </modelType>
       </editor>
       <editor
             factory="com.rcpcompany.uibindings.tests.navigator.editorParts.Countries"
             id="com.rcpcompany.uibindings.tests.editors.editors.countries"
-            modelType="com.rcpcompany.uibindings.tests.shop.Shop"
             name="Shop Countries"
             priority="5000">
+         <modelType
+               class="com.rcpcompany.uibindings.tests.shop.Shop">
+         </modelType>
       </editor>
       <editor
-            factory="com.rcpcompany.uibindings.navigator.editorFactories.GenericEditorPartFactory"
+            factory="com.rcpcompany.uibindings.navigator.editorFactories.GenericPlainFormEditorPartFactory"
             id="com.rcpcompany.uibindings.tests.editors.editors.generic"
-            modelType="com.rcpcompany.uibindings.tests.shop.Shop"
             name="Generic Information (shop)">
+         <modelType
+               class="com.rcpcompany.uibindings.tests.shop.Shop">
+         </modelType>
       </editor>
       <editor
-            factory="com.rcpcompany.uibindings.navigator.editorFactories.GenericEditorPartFactory"
+            factory="com.rcpcompany.uibindings.navigator.editorFactories.GenericPlainFormEditorPartFactory"
             id="com.rcpcompany.uibindings.tests.editors.editors.generic.country"
-            modelType="com.rcpcompany.uibindings.tests.shop.Country"
             name="Generic Information (country)">
+         <modelType
+               class="com.rcpcompany.uibindings.tests.shop.Country">
+         </modelType>
       </editor>
       <editor
-            factory="com.rcpcompany.uibindings.navigator.editorFactories.GenericEditorPartFactory"
+            factory="com.rcpcompany.uibindings.navigator.editorFactories.GenericPlainFormEditorPartFactory"
             id="com.rcpcompany.uibindings.tests.editors.editors.generic.shopinformation"
-            modelType="com.rcpcompany.uibindings.tests.shop.ShopItemInformation"
             name="Generic Information (item info)">
+         <modelType
+               class="com.rcpcompany.uibindings.tests.shop.ShopItemInformation">
+         </modelType>
       </editor>
       <editor
             factory="com.rcpcompany.uibindings.navigator.internal.views.EditorPartFactoryTests$GroupEditorPartFactory"
             id="com.rcpcompany.uibindings.navigator.internal.views.EditorPartFactoryTests.GroupEditorPartFactory"
-            modelType="com.rcpcompany.uibindings.tests.shop.ShopItemGroup"
             name="Test (EditorPartFactoryTests)">
+         <modelType
+               class="com.rcpcompany.uibindings.tests.shop.ShopItemGroup">
+         </modelType>
       </editor>
       <editor
             factory="com.rcpcompany.uibindings.navigator.extests.editors.EditorPartLifecycleTests$GroupEditorPartFactory"
             id="com.rcpcompany.uibindings.navigator.extests.editors.EditorPartLifecycleTests.GroupEditorPartFactory"
-            modelType="com.rcpcompany.uibindings.tests.shop.ShopItemGroup"
             name="Test (EditorPartLifecycleTests)">
+         <modelType
+               class="com.rcpcompany.uibindings.tests.shop.ShopItemGroup">
+         </modelType>
       </editor>
+      <preferenceModelType
+            modelType="com.rcpcompany.uibindings.tests.shop.Shop">
+      </preferenceModelType>
+      <preferenceModelType
+            modelType="com.rcpcompany.uibindings.tests.shop.Country">
+      </preferenceModelType>
+      <preferenceModelType
+            modelType="com.rcpcompany.uibindings.tests.shop.ShopItemInformation">
+      </preferenceModelType>
+      <preferenceModelType
+            modelType="com.rcpcompany.uibindings.tests.shop.ShopItemGroup">
+      </preferenceModelType>
    </extension>
    <extension
          point="org.eclipse.ui.views">

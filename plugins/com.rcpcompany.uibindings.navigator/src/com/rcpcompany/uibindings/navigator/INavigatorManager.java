@@ -11,6 +11,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.ui.IWorkbenchWindow;
 
+import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
+
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Navigator Manager</b></em>'.
  * <!-- end-user-doc -->
@@ -18,6 +20,8 @@ import org.eclipse.ui.IWorkbenchWindow;
  * <p>
  * The following features are supported:
  * <ul>
+ * <li>{@link com.rcpcompany.uibindings.navigator.INavigatorManager#getDescriptors <em>Descriptors
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.navigator.INavigatorManager#getModelTypes <em>Model Types
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.navigator.INavigatorManager#isUseGenericEditorPartFallback
@@ -26,6 +30,8 @@ import org.eclipse.ui.IWorkbenchWindow;
  * Editor By Default</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.navigator.INavigatorManager#isOpenMustOpenNew <em>Open Must
  * Open New</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.navigator.INavigatorManager#getPreferenceModelTypes <em>
+ * Preference Model Types</em>}</li>
  * </ul>
  * </p>
  * 
@@ -33,6 +39,22 @@ import org.eclipse.ui.IWorkbenchWindow;
  * @generated
  */
 public interface INavigatorManager extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Descriptors</b></em>' containment reference list. The list
+	 * contents are of type {@link com.rcpcompany.uibindings.navigator.IEditorPartDescriptor}. <!--
+	 * begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Descriptors</em>' containment reference list isn't clear, there
+	 * really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Descriptors</em>' containment reference list.
+	 * @see com.rcpcompany.uibindings.navigator.INavigatorModelPackage#getNavigatorManager_Descriptors()
+	 * @generated
+	 */
+	EList<IEditorPartDescriptor> getDescriptors();
+
 	/**
 	 * Factory information for {@link INavigatorManager}.
 	 */
@@ -54,15 +76,16 @@ public interface INavigatorManager extends EObject {
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Model Types</b></em>' reference list. The list contents are
-	 * of type {@link com.rcpcompany.uibindings.navigator.IEditorModelType}. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Model Types</b></em>' containment reference list. The list
+	 * contents are of type {@link com.rcpcompany.uibindings.navigator.IEditorModelType}. <!--
+	 * begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Model Types</em>' map isn't clear, there really should be more of
 	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Model Types</em>' reference list.
+	 * @return the value of the '<em>Model Types</em>' containment reference list.
 	 * @see com.rcpcompany.uibindings.navigator.INavigatorModelPackage#getNavigatorManager_ModelTypes()
 	 * @generated
 	 */
@@ -74,7 +97,7 @@ public interface INavigatorManager extends EObject {
 	 * @param obj the object to look up
 	 * @return the editor mode type or <code>null</code> if none exists
 	 */
-	IEditorModelType getModelType(EObject obj);
+	IEditorModelType getModelType(Class<? extends EObject> cls);
 
 	/**
 	 * Returns the value of the '<em><b>Use Generic Editor Part Fallback</b></em>' attribute. The
@@ -157,6 +180,22 @@ public interface INavigatorManager extends EObject {
 	 * @generated
 	 */
 	void setOpenMustOpenNew(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Preference Model Types</b></em>' attribute list. The list
+	 * contents are of type {@link com.rcpcompany.utils.extensionpoints.CEObjectHolder}
+	 * &lt;org.eclipse.emf.ecore.EObject>. <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Preference Model Types</em>' attribute list isn't clear, there
+	 * really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Preference Model Types</em>' attribute list.
+	 * @see com.rcpcompany.uibindings.navigator.INavigatorModelPackage#getNavigatorManager_PreferenceModelTypes()
+	 * @generated
+	 */
+	EList<CEObjectHolder<EObject>> getPreferenceModelTypes();
 
 	/**
 	 * Finds and returns the best possible editor part descriptor for the specified object.

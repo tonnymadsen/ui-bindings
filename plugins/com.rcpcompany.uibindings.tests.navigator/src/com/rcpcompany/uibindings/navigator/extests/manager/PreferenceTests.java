@@ -3,6 +3,7 @@ package com.rcpcompany.uibindings.navigator.extests.manager;
 import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,6 +13,7 @@ import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.extests.NavigatorTestUtils;
 import com.rcpcompany.uibindings.navigator.internal.Activator;
+import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 
 /**
  * Tests the preferences for the registrered mode types.
@@ -32,9 +34,14 @@ public class PreferenceTests {
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
 		final INavigatorManager manager = INavigatorManager.Factory.getManager();
 
-		for (final IEditorModelType mt : manager.getModelTypes()) {
+		for (final CEObjectHolder<EObject> pmt : manager.getPreferenceModelTypes()) {
+			final IEditorModelType mt = manager.getModelType(pmt.getObjectClass());
+
 			final String c = mt.getModelType();
 			final String def = ps.getDefaultString(c);
+			if (def == null || def.length() == 0) {
+				continue;
+			}
 
 			assertEquals(mt.getEditors().get(0).getId(), def);
 			assertEquals(ps.getString(c), def);

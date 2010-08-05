@@ -294,7 +294,6 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 	@Override
 	public void setPinned(boolean pinned) {
 		myIsPinned = pinned;
-		LogUtils.debug(this, "pinned=" + myIsPinned);
 	}
 
 	@Override
@@ -393,7 +392,8 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 					// if (workbenchHelpSystem != null) {
 					// workbenchHelpSystem.setHelp(menu, helpContextId);
 					// }
-					final IEditorModelType mt = INavigatorManager.Factory.getManager().getModelType(getCurrentObject());
+					final IEditorModelType mt = INavigatorManager.Factory.getManager().getModelType(
+							getCurrentObject().getClass());
 					for (final IEditorPartDescriptor d : mt.getEditors()) {
 						final MenuItem item = new MenuItem(menu, SWT.NONE);
 						item.setText(d.getName());
@@ -405,7 +405,7 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 						item.addSelectionListener(new SelectionAdapter() {
 							@Override
 							public void widgetSelected(SelectionEvent e) {
-								d.getModelType().setPreferredEditor(d);
+								mt.setPreferredEditor(d);
 								setCurrentObject(getCurrentObject());
 								update();
 							}

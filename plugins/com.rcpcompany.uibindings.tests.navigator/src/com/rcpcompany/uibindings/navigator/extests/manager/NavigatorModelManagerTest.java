@@ -54,6 +54,10 @@ public class NavigatorModelManagerTest {
 
 		assertNotNull(manager);
 
+		final EList<IEditorPartDescriptor> editors = manager.getDescriptors();
+		assertNotNull(editors);
+		assertEquals(8, editors.size());
+
 		final EList<IEditorModelType> modelTypes = manager.getModelTypes();
 		assertNotNull(modelTypes);
 		assertEquals(5, modelTypes.size());

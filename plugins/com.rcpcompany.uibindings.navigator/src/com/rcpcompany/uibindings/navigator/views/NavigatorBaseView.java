@@ -30,6 +30,7 @@ import org.eclipse.ui.dialogs.FilteredTree;
 import org.eclipse.ui.dialogs.PatternFilter;
 import org.eclipse.ui.part.ISetSelectionTarget;
 import org.eclipse.ui.part.ViewPart;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IColumnBinding;
@@ -204,7 +205,7 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 			final ISharedImages sharedImages = PlatformUI.getWorkbench().getSharedImages();
 			// images from IWorkbenchGraphicConstants
 			final ImageRegistry imageRegistry = Activator.getDefault().getImageRegistry();
-			imageRegistry.put("LINKED", Activator.imageDescriptorFromPlugin(Activator.ID, "images/synced.gif"));
+			imageRegistry.put("LINKED", AbstractUIPlugin.imageDescriptorFromPlugin(Activator.ID, "images/synced.gif"));
 			myItem.setImage(imageRegistry.get("LINKED"));
 
 			myItem.setToolTipText("Link navigator with editors");

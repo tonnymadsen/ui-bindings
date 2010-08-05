@@ -40,11 +40,11 @@ public class OpenWithContributionFactory extends ExtensionContributionFactory {
 		if (list.size() != 1) return;
 		final EObject obj = list.get(0);
 
-		final IEditorModelType mt = INavigatorManager.Factory.getManager().getModelType(obj);
+		final IEditorModelType mt = INavigatorManager.Factory.getManager().getModelType(obj.getClass());
 		final EList<IEditorPartDescriptor> editors = mt.getEditors();
 
 		/*
-		 * Only one editor... Ignore
+		 * Less than two editors... no need for an open with menu... Ignore.
 		 */
 		if (editors.size() < 2) return;
 
@@ -65,7 +65,7 @@ public class OpenWithContributionFactory extends ExtensionContributionFactory {
 					mi.addSelectionListener(new SelectionAdapter() {
 						@Override
 						public void widgetSelected(SelectionEvent e) {
-							d.getModelType().setPreferredEditor(d);
+							mt.setPreferredEditor(d);
 							INavigatorManager.Factory.getManager().openView(obj);
 						}
 					});

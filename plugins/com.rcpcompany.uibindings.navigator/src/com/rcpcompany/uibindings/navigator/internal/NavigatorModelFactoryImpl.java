@@ -34,7 +34,7 @@ public class NavigatorModelFactoryImpl extends EFactoryImpl implements INavigato
 		try {
 			final INavigatorModelFactory theNavigatorModelFactory = (INavigatorModelFactory) EPackage.Registry.INSTANCE
 					.getEFactory("http://rcpcompany.com/schemas/uibindings/navigator");
-			if (theNavigatorModelFactory != null) { return theNavigatorModelFactory; }
+			if (theNavigatorModelFactory != null) return theNavigatorModelFactory;
 		} catch (final Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
@@ -76,7 +76,7 @@ public class NavigatorModelFactoryImpl extends EFactoryImpl implements INavigato
 	@Override
 	public INavigatorManager getManager() {
 		if (theManager == null) {
-			theManager = createNavigatorManager();
+			createNavigatorManager();
 		}
 		return theManager;
 	}
@@ -84,11 +84,13 @@ public class NavigatorModelFactoryImpl extends EFactoryImpl implements INavigato
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public INavigatorManager createNavigatorManager() {
 		final NavigatorManagerImpl navigatorManager = new NavigatorManagerImpl();
+		theManager = navigatorManager;
+		navigatorManager.init();
 		return navigatorManager;
 	}
 

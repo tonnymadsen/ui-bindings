@@ -58,8 +58,7 @@ public class EditorPartDescriptorTest {
 	public void test() {
 		testOne(null, null);
 		if (myUseGenericEditorPartFallback) {
-			testOne("org.eclipse.emf.ecore.EObject.com.rcpcompany.uibindings.navigator.editorFactories.GenericPlainFormEditorPartFactory",
-					EcoreFactory.eINSTANCE.createEObject());
+			testOne("org.eclipse.emf.ecore.EObject.generic", EcoreFactory.eINSTANCE.createEObject());
 		} else {
 			testOne(null, EcoreFactory.eINSTANCE.createEObject());
 		}

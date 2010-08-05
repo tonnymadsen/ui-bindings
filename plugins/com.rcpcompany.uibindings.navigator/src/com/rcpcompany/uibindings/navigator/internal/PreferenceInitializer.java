@@ -9,7 +9,7 @@ import com.rcpcompany.uibindings.navigator.INavigatorManager;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class PreferenceInitializer1 extends AbstractPreferenceInitializer {
+public class PreferenceInitializer extends AbstractPreferenceInitializer {
 	@Override
 	public void initializeDefaultPreferences() {
 		INavigatorManager.Factory.getManager();

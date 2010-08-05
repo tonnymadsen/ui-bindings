@@ -42,5 +42,7 @@ public interface NavigatorConstants {
 	String NAME_TAG = "name";
 	String IMAGE_TAG = "image";
 	String FACTORY_TAG = "factory";
+	String CLASS_TAG = "class";
+	String PREFERENCE_MODEL_TYPE_TAG = "preferenceModelType";
 
 }

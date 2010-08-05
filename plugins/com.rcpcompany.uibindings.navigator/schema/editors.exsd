@@ -6,9 +6,9 @@
          <meta.schema plugin="com.rcpcompany.uibindings.editors" id="editors" name="UI Bindings Editors"/>
       </appinfo>
       <documentation>
-         This extension point is used to define editor parts for use with the Open command of the navigator.
+         This extension point is used to define editor parts for use with the Open and double-click commands of the navigator.
 &lt;p&gt;
-Each editor part is defined for a specific model type (a sub-class of &lt;code&gt;EObject&lt;/code&gt;) and is used when an object of the specified type is &quot;opened&quot;.
+Each editor part is defined for a specific set of model types (sub-classes of &lt;code&gt;EObject&lt;/code&gt;) and is used when an object of the specified type is &quot;opened&quot;.
 &lt;p&gt;
 There can be multiple editor parts for a specific model type, in which case an &quot;Open With&quot; command be used to open the specific model object with the wanted editor part. The defined editor parts for a specific model type is sorted by a priority. The selected editor part for a specific model type is saved as a preference.
       </documentation>
@@ -23,6 +23,7 @@ There can be multiple editor parts for a specific model type, in which case an &
       <complexType>
          <choice minOccurs="0" maxOccurs="unbounded">
             <element ref="editor"/>
+            <element ref="preferenceModelType"/>
          </choice>
          <attribute name="point" type="string" use="required">
             <annotation>
@@ -58,6 +59,9 @@ There can be multiple editor parts for a specific model type, in which case an &
          </documentation>
       </annotation>
       <complexType>
+         <choice minOccurs="0" maxOccurs="unbounded">
+            <element ref="modelType"/>
+         </choice>
          <attribute name="id" type="string" use="required">
             <annotation>
                <documentation>
@@ -85,16 +89,6 @@ There can be multiple editor parts for a specific model type, in which case an &
                </appinfo>
             </annotation>
          </attribute>
-         <attribute name="modelType" type="string" use="required">
-            <annotation>
-               <documentation>
-                  the model type for this editor
-               </documentation>
-               <appinfo>
-                  <meta.attribute kind="java" basedOn=":org.eclipse.emf.ecore.EObject"/>
-               </appinfo>
-            </annotation>
-         </attribute>
          <attribute name="priority" type="string">
             <annotation>
                <documentation>
@@ -109,6 +103,43 @@ There can be multiple editor parts for a specific model type, in which case an &
                </documentation>
                <appinfo>
                   <meta.attribute kind="java" basedOn="com.rcpcompany.uibindings.navigator.AbstractEditorPartFactory:com.rcpcompany.uibindings.navigator.IEditorPartFactory"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="modelType">
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the model type for this editor
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.emf.ecore.EObject"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="preferenceModelType">
+      <annotation>
+         <documentation>
+            Declaration of a editor type to be included in the preference page for the navigator.
+&lt;p&gt;
+Note that if a specific object is shown in the navigator, it is automatically included in this list.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="modelType" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the class of the model type to include in the preference page
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.emf.ecore.EObject"/>
                </appinfo>
             </annotation>
          </attribute>

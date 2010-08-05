@@ -137,7 +137,7 @@
 <extension
       point="org.eclipse.core.runtime.preferences">
    <initializer
-         class="com.rcpcompany.uibindings.navigator.internal.PreferenceInitializer1">
+         class="com.rcpcompany.uibindings.navigator.internal.PreferenceInitializer">
    </initializer>
 </extension>
 <extension
@@ -155,10 +155,15 @@
          factory="com.rcpcompany.uibindings.navigator.editorFactories.EmptyEditorPartFactory"
          id="com.rcpcompany.uibindings.navigator.internal.com.rcpcompany.uibindings.IConstantTreeItem"
          image="IMG_ETOOL_CLEAR"
-         modelType="com.rcpcompany.uibindings.IConstantTreeItem"
          name="Empty Container"
          priority="1">
+      <modelType
+            class="com.rcpcompany.uibindings.IConstantTreeItem">
+      </modelType>
    </editor>
+   <preferenceModelType
+         modelType="com.rcpcompany.uibindings.IConstantTreeItem">
+   </preferenceModelType>
 </extension>
 <extension
       point="org.eclipse.core.expressions.propertyTesters">
