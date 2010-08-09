@@ -177,13 +177,6 @@ Note that if a specific object is shown in the navigator, it is automatically in
             <element ref="iterate"/>
             <element ref="reference"/>
          </choice>
-         <attribute name="checkEnabled" type="boolean" use="default" value="false">
-            <annotation>
-               <documentation>
-                  If this attribute is set to &lt;code&gt;true&lt;/code&gt;, then there should be no sub-elements.  This just checks the enabled state of the command, and makes the corresponding element visible if the command is enabled.
-               </documentation>
-            </annotation>
-         </attribute>
       </complexType>
    </element>
 
