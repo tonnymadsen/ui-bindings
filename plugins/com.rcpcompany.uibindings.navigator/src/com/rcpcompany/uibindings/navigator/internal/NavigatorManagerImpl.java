@@ -235,6 +235,7 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 		 */
 		if (descs.size() == 0 && isUseGenericEditorPartFallback()) {
 			if (myFallbackEditor == null) {
+				// TODO: move to declaration!
 				myFallbackEditor = INavigatorModelFactory.eINSTANCE.createEditorPartDescriptor();
 
 				myFallbackEditor.setFallbackEditor(true);
