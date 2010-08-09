@@ -32,6 +32,7 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
@@ -103,7 +104,8 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 		// TODO: use layout to make this column 100%
 
 		final IObservableList list = myAdvisor.getRootElements();
-		myTreeBinding = myContext.addViewer().viewer(myTreeViewer).model(list);
+		myTreeBinding = myContext.addViewer().viewer(myTreeViewer).model(list).arg(Constants.ARG_DOUBLE_CLICK_COMMAND,
+				Constants.DEFAULT_OPEN_COMMAND);
 		myTreeColumnBinding = myTreeBinding.addColumn().column(column).model(SpecialBinding.TREE_ITEM);
 
 		myContext.finish();
