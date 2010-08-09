@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: UIBinding based navigator
+Bundle-Name: UIBinding based navigator and editor framework
 Bundle-SymbolicName: com.rcpcompany.uibindings.navigator;singleton:=true
-Bundle-Version: 1.1.2.qualifier
+Bundle-Version: 1.1.3.qualifier
 Bundle-Activator: com.rcpcompany.uibindings.navigator.internal.Activator
 Bundle-Vendor: Tonny Madsen, The RCP Company
 Require-Bundle: org.eclipse.ui,
