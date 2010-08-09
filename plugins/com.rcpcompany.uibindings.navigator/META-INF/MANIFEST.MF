@@ -8,6 +8,7 @@ Bundle-Vendor: Tonny Madsen, The RCP Company
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.expressions,
+ org.eclipse.core.expressions.source;bundle-version="[3.0.0,4.0.0)";resolution:=optional,
  com.rcpcompany.uibindings;bundle-version="[2.3.2,3.0.0)",
  com.rcpcompany.utils.logging;bundle-version="[1.2.1,2.0.0)",
  com.rcpcompany.utils.extensionpoints;bundle-version="[1.0.3,2.0.0)",

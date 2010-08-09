@@ -14,6 +14,8 @@ There can be multiple editor parts for a specific model type, in which case an &
       </documentation>
    </annotation>
 
+   <include schemaLocation="schema://org.eclipse.core.expressions/schema/expressionLanguage.exsd"/>
+
    <element name="extension">
       <annotation>
          <appinfo>
@@ -56,11 +58,18 @@ There can be multiple editor parts for a specific model type, in which case an &
       <annotation>
          <documentation>
             Definition of a new editor for a specific model type.
+&lt;p&gt;
+The editor is offered for an object in the navigator iff:
+&lt;ul&gt;
+&lt;li&gt;one of the interfaces specified in the &lt;code&gt;modelType&lt;/code&gt; sub-elements is a super class or super interface of the object, and&lt;/li&gt;
+&lt;li&gt;the specified &lt;code&gt;enabledWhen&lt;/code&gt; expression evaluates to &lt;code&gt;true&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
          </documentation>
       </annotation>
       <complexType>
          <choice minOccurs="0" maxOccurs="unbounded">
             <element ref="modelType"/>
+            <element ref="enabledWhen"/>
          </choice>
          <attribute name="id" type="string" use="required">
             <annotation>
@@ -141,6 +150,38 @@ Note that if a specific object is shown in the navigator, it is automatically in
                <appinfo>
                   <meta.attribute kind="java" basedOn=":org.eclipse.emf.ecore.EObject"/>
                </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="enabledWhen">
+      <annotation>
+         <documentation>
+            A core Expression that controls whether the specified editor is enabled
+         </documentation>
+      </annotation>
+      <complexType>
+         <choice minOccurs="0" maxOccurs="1">
+            <element ref="not"/>
+            <element ref="or"/>
+            <element ref="and"/>
+            <element ref="instanceof"/>
+            <element ref="test"/>
+            <element ref="systemTest"/>
+            <element ref="equals"/>
+            <element ref="count"/>
+            <element ref="with"/>
+            <element ref="resolve"/>
+            <element ref="adapt"/>
+            <element ref="iterate"/>
+            <element ref="reference"/>
+         </choice>
+         <attribute name="checkEnabled" type="boolean" use="default" value="false">
+            <annotation>
+               <documentation>
+                  If this attribute is set to &lt;code&gt;true&lt;/code&gt;, then there should be no sub-elements.  This just checks the enabled state of the command, and makes the corresponding element visible if the command is enabled.
+               </documentation>
             </annotation>
          </attribute>
       </complexType>

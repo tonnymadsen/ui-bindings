@@ -5,8 +5,14 @@
  */
 package com.rcpcompany.uibindings.navigator.internal;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
+import org.eclipse.core.expressions.EvaluationResult;
+import org.eclipse.core.expressions.Expression;
+import org.eclipse.core.expressions.IEvaluationContext;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -14,10 +20,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.services.IEvaluationService;
 
 import com.rcpcompany.uibindings.navigator.IEditorModelType;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.INavigatorModelPackage;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Editior Model Type</b></em>
@@ -25,12 +35,15 @@ import com.rcpcompany.uibindings.navigator.INavigatorModelPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorModelTypeImpl#getEditors <em>Editors</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorModelTypeImpl#getPreferredEditor <em>Preferred Editor</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorModelTypeImpl#getModelType <em>Model Type</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorModelTypeImpl#getEditors <em>
+ * Editors</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorModelTypeImpl#getPreferredEditor
+ * <em>Preferred Editor</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorModelTypeImpl#getModelType <em>
+ * Model Type</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType {
@@ -47,6 +60,7 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 	/**
 	 * The cached value of the '{@link #getPreferredEditor() <em>Preferred Editor</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getPreferredEditor()
 	 * @generated
 	 * @ordered
@@ -75,6 +89,7 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected EditorModelTypeImpl() {
@@ -83,6 +98,7 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -92,18 +108,45 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<IEditorPartDescriptor> getEditors() {
 		if (editors == null) {
-			editors = new EObjectEList<IEditorPartDescriptor>(IEditorPartDescriptor.class, this, INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS);
+			editors = new EObjectEList<IEditorPartDescriptor>(IEditorPartDescriptor.class, this,
+					INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS);
 		}
 		return editors;
 	}
 
+	@Override
+	public List<IEditorPartDescriptor> getEnabledEditors() {
+		final List<IEditorPartDescriptor> l = new ArrayList<IEditorPartDescriptor>();
+
+		final IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+		final IEvaluationService service = (IEvaluationService) window.getService(IEvaluationService.class);
+
+		final IEvaluationContext context = service.getCurrentState();
+
+		for (final IEditorPartDescriptor d : getEditors()) {
+			final Expression e = d.getEnabledWhenExpression();
+			try {
+				if (e == null || e.evaluate(context) == EvaluationResult.TRUE) {
+					l.add(d);
+					continue;
+				}
+			} catch (final CoreException ex) {
+				LogUtils.error(this, ex);
+			}
+		}
+
+		return l;
+	}
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -138,6 +181,7 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -147,101 +191,109 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setModelType(String newModelType) {
-		String oldModelType = modelType;
+		final String oldModelType = modelType;
 		modelType = newModelType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE, oldModelType, modelType));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE,
+					oldModelType, modelType));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS:
-				return getEditors();
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__PREFERRED_EDITOR:
-				return getPreferredEditor();
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE:
-				return getModelType();
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS:
+			return getEditors();
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__PREFERRED_EDITOR:
+			return getPreferredEditor();
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE:
+			return getModelType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS:
-				getEditors().clear();
-				getEditors().addAll((Collection<? extends IEditorPartDescriptor>)newValue);
-				return;
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__PREFERRED_EDITOR:
-				setPreferredEditor((IEditorPartDescriptor)newValue);
-				return;
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE:
-				setModelType((String)newValue);
-				return;
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS:
+			getEditors().clear();
+			getEditors().addAll((Collection<? extends IEditorPartDescriptor>) newValue);
+			return;
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__PREFERRED_EDITOR:
+			setPreferredEditor((IEditorPartDescriptor) newValue);
+			return;
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE:
+			setModelType((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS:
-				getEditors().clear();
-				return;
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__PREFERRED_EDITOR:
-				setPreferredEditor((IEditorPartDescriptor)null);
-				return;
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE:
-				setModelType(MODEL_TYPE_EDEFAULT);
-				return;
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS:
+			getEditors().clear();
+			return;
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__PREFERRED_EDITOR:
+			setPreferredEditor((IEditorPartDescriptor) null);
+			return;
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE:
+			setModelType(MODEL_TYPE_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS:
-				return editors != null && !editors.isEmpty();
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__PREFERRED_EDITOR:
-				return preferredEditor != null;
-			case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE:
-				return MODEL_TYPE_EDEFAULT == null ? modelType != null : !MODEL_TYPE_EDEFAULT.equals(modelType);
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS:
+			return editors != null && !editors.isEmpty();
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__PREFERRED_EDITOR:
+			return preferredEditor != null;
+		case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE:
+			return MODEL_TYPE_EDEFAULT == null ? modelType != null : !MODEL_TYPE_EDEFAULT.equals(modelType);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (modelType: ");
 		result.append(modelType);
 		result.append(')');

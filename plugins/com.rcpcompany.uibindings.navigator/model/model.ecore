@@ -47,6 +47,8 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="image" lowerBound="1" eType="ecore:EDataType ../../com.rcpcompany.uibindings/model/uibindings.ecore#//CEResourceHolder"
         transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabledWhenExpression"
+        eType="#//Expression" transient="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IEditorPartFactory" instanceClassName="com.rcpcompany.uibindings.navigator.IEditorPartFactory"
       abstract="true" interface="true"/>
@@ -57,4 +59,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//EditorModelType"
         transient="true" resolveProxies="false"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Expression" instanceClassName="org.eclipse.core.expressions.Expression"
+      serializable="false"/>
 </ecore:EPackage>

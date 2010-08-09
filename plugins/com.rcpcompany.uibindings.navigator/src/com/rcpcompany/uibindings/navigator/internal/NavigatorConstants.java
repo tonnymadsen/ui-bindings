@@ -44,5 +44,6 @@ public interface NavigatorConstants {
 	String FACTORY_TAG = "factory";
 	String CLASS_TAG = "class";
 	String PREFERENCE_MODEL_TYPE_TAG = "preferenceModelType";
+	String ENABLED_WHEN_TAG = "ENABLEDwHEN";
 
 }

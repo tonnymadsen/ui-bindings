@@ -2,7 +2,6 @@ package com.rcpcompany.uibindings.navigator.internal.handlers;
 
 import java.util.List;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.action.ContributionItem;
 import org.eclipse.jface.action.IContributionItem;
@@ -41,7 +40,7 @@ public class OpenWithContributionFactory extends ExtensionContributionFactory {
 		final EObject obj = list.get(0);
 
 		final IEditorModelType mt = INavigatorManager.Factory.getManager().getModelType(obj.getClass());
-		final EList<IEditorPartDescriptor> editors = mt.getEditors();
+		final List<IEditorPartDescriptor> editors = mt.getEnabledEditors();
 
 		/*
 		 * Less than two editors... no need for an open with menu... Ignore.

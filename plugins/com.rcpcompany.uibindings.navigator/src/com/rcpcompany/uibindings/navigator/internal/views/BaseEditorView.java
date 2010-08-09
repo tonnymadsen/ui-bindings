@@ -394,7 +394,7 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 					// }
 					final IEditorModelType mt = INavigatorManager.Factory.getManager().getModelType(
 							getCurrentObject().getClass());
-					for (final IEditorPartDescriptor d : mt.getEditors()) {
+					for (final IEditorPartDescriptor d : mt.getEnabledEditors()) {
 						final MenuItem item = new MenuItem(menu, SWT.NONE);
 						item.setText(d.getName());
 						final CEResourceHolder image = d.getImage();

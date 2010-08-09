@@ -10,6 +10,8 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 
+import org.eclipse.core.expressions.ExpressionConverter;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
@@ -339,6 +341,27 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 				} else {
 					descriptor.setPriority(1000);
 				}
+
+				/*
+				 * Read any expression...
+				 */
+				final IConfigurationElement[] expressionCEs = ce.getChildren(NavigatorConstants.ENABLED_WHEN_TAG);
+				switch (expressionCEs.length) {
+				case 0:
+					break;
+				case 1:
+					try {
+						descriptor.setEnabledWhenExpression(ExpressionConverter.getDefault().perform(expressionCEs[0]));
+					} catch (final CoreException ex) {
+						LogUtils.error(ce, ex);
+					}
+					break;
+				default:
+					LogUtils.error(ce, "Multiple " + NavigatorConstants.ENABLED_WHEN_TAG
+							+ " sub-elements not supported. Ignored.");
+					break;
+				}
+
 				getDescriptors().add(descriptor);
 			} else if (NavigatorConstants.PREFERENCE_MODEL_TYPE_TAG.equals(elementName)) {
 				getPreferenceModelTypes().add(new CEObjectHolder<EObject>(ce, NavigatorConstants.MODEL_TYPE_TAG));
@@ -815,7 +838,7 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 
 		IEditorPartDescriptor pref = null;
 		/*
-		 * Trye to lookup the editor id
+		 * Try to lookup the editor id
 		 */
 		for (final IEditorPartDescriptor e : mt.getEditors()) {
 			if (e.getId().equals(id)) {

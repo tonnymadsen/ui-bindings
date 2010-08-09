@@ -104,8 +104,8 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 		// TODO: use layout to make this column 100%
 
 		final IObservableList list = myAdvisor.getRootElements();
-		myTreeBinding = myContext.addViewer().viewer(myTreeViewer).model(list).arg(Constants.ARG_DOUBLE_CLICK_COMMAND,
-				Constants.DEFAULT_OPEN_COMMAND);
+		myTreeBinding = myContext.addViewer().viewer(myTreeViewer).model(list)
+				.arg(Constants.ARG_DOUBLE_CLICK_COMMAND, Constants.DEFAULT_OPEN_COMMAND);
 		myTreeColumnBinding = myTreeBinding.addColumn().column(column).model(SpecialBinding.TREE_ITEM);
 
 		myContext.finish();
