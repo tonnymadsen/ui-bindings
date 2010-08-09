@@ -356,10 +356,10 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 
 		public void update() {
 			final IWorkbenchPage activePage = myWindow.getActivePage();
-			if (activePage == null) {
-				LogUtils.debug(this, "Active page is null");
-				return;
-			}
+			/*
+			 * The active page will be null when closing a window...
+			 */
+			if (activePage == null) return;
 			final IWorkbenchPart activePart = activePage.getActivePart();
 			if (!(activePart instanceof IViewPart)) {
 				if (getId() == null) {
