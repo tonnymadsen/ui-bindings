@@ -54,7 +54,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  */
 public final class GlobalNavigationManager implements IGlobalNavigationManager {
 	/**
-	 * Returns the manager for the specified window
+	 * Returns the manager for the specified window.
 	 * 
 	 * @param window the window in question
 	 * @param create true if the manager should be created if missing
@@ -90,7 +90,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 	private final List<Location> myLocationStack = new ArrayList<Location>();
 
 	/**
-	 * Returns the location stack
+	 * Returns the location stack.
 	 * 
 	 * @return the stack
 	 */
@@ -134,7 +134,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 	};
 
 	/**
-	 * Map of all managers
+	 * Map of all managers.
 	 */
 	private static final Map<IWorkbenchWindow, GlobalNavigationManager> myManagers = new HashMap<IWorkbenchWindow, GlobalNavigationManager>();
 
@@ -159,7 +159,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 	}
 
 	/**
-	 * Disposes this manager
+	 * Disposes this manager.
 	 */
 	@Override
 	public void dispose() {
@@ -172,7 +172,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 	}
 
 	/**
-	 * Returns the window of this manager
+	 * Returns the window of this manager.
 	 * 
 	 * @return the window
 	 */
@@ -257,7 +257,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 	}
 
 	/**
-	 * Goes back in history
+	 * Goes back in history.
 	 */
 	@Override
 	public void backwardHistory() {
@@ -266,7 +266,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 	}
 
 	/**
-	 * Returns whether the backward history method is active right now
+	 * Returns whether the backward history method is active right now.
 	 * 
 	 * @return <code>true</code> if active
 	 */
@@ -275,7 +275,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 	}
 
 	/**
-	 * Goes forward in history
+	 * Goes forward in history.
 	 */
 	@Override
 	public void forwardHistory() {
@@ -284,7 +284,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 	}
 
 	/**
-	 * Returns whether the forward history method is active right now
+	 * Returns whether the forward history method is active right now.
 	 * 
 	 * @return <code>true</code> if active
 	 */
@@ -303,7 +303,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 	}
 
 	/**
-	 * Returns the location at the specific index
+	 * Returns the location at the specific index.
 	 * 
 	 * @param i the index
 	 * @return the location
@@ -315,7 +315,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 	}
 
 	/**
-	 * Returns the current location
+	 * Returns the current location.
 	 * 
 	 * @return the location
 	 */
@@ -656,7 +656,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 
 	public class MySourceProviderListener implements ISourceProviderListener, IDisposable {
 		/**
-		 * The source name
+		 * The source name.
 		 */
 		private final String mySourceName;
 
@@ -671,7 +671,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 		private Object myValue;
 
 		/**
-		 * Constructs and returns a new listsner for the specified source
+		 * Constructs and returns a new listsner for the specified source.
 		 * 
 		 * @param sps the {@link ISourceProvider} service
 		 * @param sourceName the name of the source

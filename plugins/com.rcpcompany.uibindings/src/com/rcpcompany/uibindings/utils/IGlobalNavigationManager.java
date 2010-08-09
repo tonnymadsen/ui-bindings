@@ -74,7 +74,7 @@ public interface IGlobalNavigationManager extends IDisposable {
 		}
 
 		/**
-		 * Installs a SWT listener that will convert Mouse 4 and 5 to specific commands
+		 * Installs a SWT listener that will convert Mouse 4 and 5 to specific commands.
 		 * 
 		 * @param backwardCommand the serialized backward command
 		 * @param forwardCommand the serialized forward command
@@ -89,7 +89,7 @@ public interface IGlobalNavigationManager extends IDisposable {
 
 		/**
 		 * Installs a SWT listener that will convert Mouse 4 and 5 to the usual backward and forward
-		 * history commands
+		 * history commands.
 		 */
 		public static void installMouseHandling() {
 			try {
@@ -115,18 +115,18 @@ public interface IGlobalNavigationManager extends IDisposable {
 		 * 
 		 * @return the selection
 		 */
-		public ISelection getCurrentSelection();
+		ISelection getCurrentSelection();
 	}
 
 	/**
-	 * The forwardHistory handler
+	 * The forwardHistory handler.
 	 */
 	public class ForwardHistoryHandler extends GlobalNavigationManager.ForwardHandler {
 
 	};
 
 	/**
-	 * The backwardHistory handler
+	 * The backwardHistory handler.
 	 */
 	public static class BackwardHistoryHandler extends GlobalNavigationManager.BackwardHandler {
 
