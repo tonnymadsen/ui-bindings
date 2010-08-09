@@ -23,7 +23,6 @@ import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.ui.ISelectionListener;
-import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IWorkbenchPart;
@@ -121,9 +120,9 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 	public void createPartControl(Composite parent) {
 		myViewPartParent = parent;
 
-		final ISelectionService ss = getSite().getWorkbenchWindow().getSelectionService();
-		ss.addPostSelectionListener(mySelectionListener);
-		selectReveal(ss.getSelection());
+//		final ISelectionService ss = getSite().getWorkbenchWindow().getSelectionService();
+//		ss.addPostSelectionListener(mySelectionListener);
+//		selectReveal(ss.getSelection());
 
 		createToolbarContributions();
 	}
@@ -139,8 +138,8 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 	@Override
 	public void dispose() {
 		cleanEditorPart();
-		final ISelectionService ss = getSite().getWorkbenchWindow().getSelectionService();
-		ss.removePostSelectionListener(mySelectionListener);
+//		final ISelectionService ss = getSite().getWorkbenchWindow().getSelectionService();
+//		ss.removePostSelectionListener(mySelectionListener);
 		super.dispose();
 	}
 
