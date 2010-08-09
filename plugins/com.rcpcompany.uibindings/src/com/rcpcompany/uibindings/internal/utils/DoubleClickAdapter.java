@@ -28,12 +28,12 @@ import com.rcpcompany.utils.logging.LogUtils;
  */
 public class DoubleClickAdapter implements Listener, IDisposable {
 	/**
-	 * The viewer of this adapter
+	 * The viewer of this adapter.
 	 */
-	protected final IViewerBinding myViewer;
+	private final IViewerBinding myViewer;
 
 	/**
-	 * Creates a new adapter for the specified viewer
+	 * Creates a new adapter for the specified viewer.
 	 * 
 	 * @param viewer the viewer
 	 */
@@ -42,6 +42,11 @@ public class DoubleClickAdapter implements Listener, IDisposable {
 		new DoubleClickAdapter(viewer);
 	}
 
+	/**
+	 * Constructs and returns a new adapter for the specified viewer.
+	 * 
+	 * @param viewer the viewer of the adapter
+	 */
 	public DoubleClickAdapter(IViewerBinding viewer) {
 		myViewer = viewer;
 		myViewer.registerService(this);
