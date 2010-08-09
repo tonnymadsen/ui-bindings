@@ -44,6 +44,7 @@ import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
 import com.rcpcompany.uibindings.navigator.INavigatorModelPackage;
 import com.rcpcompany.uibindings.navigator.editorFactories.GenericPlainFormEditorPartFactory;
+import com.rcpcompany.uibindings.utils.IGlobalNavigationManager;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 import com.rcpcompany.utils.extensionpoints.CEResourceHolder;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -724,6 +725,8 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	@Override
 	public IEditorPartView openView(EObject obj) {
 		final Collection<IEditorPartView> views = getAllViews();
+
+		IGlobalNavigationManager.Factory.addLocation();
 
 		/*
 		 * Look for a perfect match
