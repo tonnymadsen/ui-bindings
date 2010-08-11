@@ -28,8 +28,6 @@ import com.rcpcompany.uibindings.internal.BindingImpl.ArgumentValue;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl#getDeclaredArguments <em>
- * Declared Arguments</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl#getName <em>Name</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl#getValueType <em>Value Type
  * </em>}</li>
@@ -42,6 +40,8 @@ import com.rcpcompany.uibindings.internal.BindingImpl.ArgumentValue;
  * Data Type</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl#isRequired <em>Required</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl#isChangeable <em>Changeable
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl#isUnsettable <em>Unsettable
  * </em>}</li>
  * </ul>
  * </p>

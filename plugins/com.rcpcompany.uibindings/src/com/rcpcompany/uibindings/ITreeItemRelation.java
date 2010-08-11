@@ -35,7 +35,7 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 public interface ITreeItemRelation extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Parent</b></em>' reference. It is bidirectional and its
-	 * opposite is ' {@link com.rcpcompany.uibindings.ITreeItemDescriptor#getChildren
+	 * opposite is '{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getChildren
 	 * <em>Children</em>}'. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parent</em>' reference list isn't clear, there really should be

@@ -57,7 +57,7 @@ public abstract class BaseTextButtonWidget extends Composite {
 		myDialogButton.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
 		myDialogButton.setImage(buttonImage);
 		myDialogButton.setBackground(getBackground());
-		myDialogButton.setToolTipText("Open dialog");
+		myDialogButton.setToolTipText("Browse");
 		myDialogButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseDown(MouseEvent e) {
@@ -203,6 +203,5 @@ public abstract class BaseTextButtonWidget extends Composite {
 	public void setToolTipText(String string) {
 		super.setToolTipText(string);
 		myText.setToolTipText(string);
-		myDialogButton.setToolTipText(string);
 	}
 }

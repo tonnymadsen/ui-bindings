@@ -28,6 +28,7 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
  * <li>{@link com.rcpcompany.uibindings.internal.ModelClassInfoImpl#getClassName <em>Class Name
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ModelClassInfoImpl#getFeatures <em>Features</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ModelClassInfoImpl#getTypes <em>Types</em>}</li>
  * </ul>
  * </p>
  * 
@@ -55,8 +56,8 @@ public class ModelClassInfoImpl extends ModelInfoImpl implements IModelClassInfo
 	protected String className = CLASS_NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference
-	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getFeatures() <em>Features</em>}' map. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @see #getFeatures()
 	 * @generated

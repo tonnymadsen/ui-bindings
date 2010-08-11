@@ -23,7 +23,7 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * <ul>
  * <li>
  * {@link com.rcpcompany.uibindings.internal.EMFObservableFactoryDescriptorImpl#getPackagePrefix
- * <em>Package Prefix </em>}</li>
+ * <em>Package Prefix</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.EMFObservableFactoryDescriptorImpl#getFactory <em>
  * Factory</em>}</li>
  * </ul>

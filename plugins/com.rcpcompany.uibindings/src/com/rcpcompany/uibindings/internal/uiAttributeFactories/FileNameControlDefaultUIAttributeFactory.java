@@ -26,7 +26,8 @@ public class FileNameControlDefaultUIAttributeFactory implements IUIAttributeFac
 		private final IControlContentAdapter myAdapter;
 
 		public Attribute(Widget widget, String attribute) {
-			super(widget, attribute, new TextObservableValue(((FileNameControl) widget).getTextControl()), true);
+			super(widget, attribute, new TextObservableValue(((FileNameControl) widget).getTextControl(),
+					(FileNameControl) widget), true);
 
 			myAdapter = new TextContentAdapter();
 		}

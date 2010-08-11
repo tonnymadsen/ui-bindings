@@ -17,11 +17,14 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.IDecoratorProvider#getManager <em>Manager</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IDecoratorProvider#getId <em>Id</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IDecoratorProvider#getName <em>Name</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IDecoratorProvider#getType <em>Type</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IDecoratorProvider#getModelTypes <em>Model Types</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IDecoratorProvider#getUiTypes <em>Ui Types</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IDecoratorProvider#getProviderCE <em>Provider CE</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IDecoratorProvider#getChildCE <em>Child CE</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IDecoratorProvider#getDecorator <em>Decorator</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IDecoratorProvider#isExactModelTypeMatch <em>Exact Model
+ * Type Match</em>}</li>
  * </ul>
  * </p>
  * 
@@ -31,7 +34,7 @@ import org.eclipse.emf.common.util.EList;
 public interface IDecoratorProvider extends IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>Manager</b></em>' container reference. It is bidirectional
-	 * and its opposite is ' {@link com.rcpcompany.uibindings.IManager#getProviders
+	 * and its opposite is '{@link com.rcpcompany.uibindings.IManager#getProviders
 	 * <em>Providers</em>}'. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Manager</em>' container reference isn't clear, there really should

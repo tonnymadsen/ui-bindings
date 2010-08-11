@@ -4732,7 +4732,7 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the map '{@link com.rcpcompany.uibindings.IManager#getModelInfo
-	 * <em>Model Info</em>} '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <em>Model Info</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the map '<em>Model Info</em>'.
 	 * @see com.rcpcompany.uibindings.IManager#getModelInfo()
@@ -4862,7 +4862,7 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IBindingContext#getTop <em>Top</em>} '. <!-- begin-user-doc
+	 * {@link com.rcpcompany.uibindings.IBindingContext#getTop <em>Top</em>}'. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Top</em>'.
@@ -5097,7 +5097,7 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IBinding#getUIType <em>UI Type</em>} '. <!-- begin-user-doc
+	 * {@link com.rcpcompany.uibindings.IBinding#getUIType <em>UI Type</em>}'. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>UI Type</em>'.
@@ -5157,7 +5157,7 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IBinding#getControl <em>Control</em>} '. <!-- begin-user-doc
+	 * {@link com.rcpcompany.uibindings.IBinding#getControl <em>Control</em>}'. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Control</em>'.
@@ -5299,7 +5299,7 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the reference '
-	 * {@link com.rcpcompany.uibindings.IValueBinding#getCell <em>Cell</em>} '. <!-- begin-user-doc
+	 * {@link com.rcpcompany.uibindings.IValueBinding#getCell <em>Cell</em>}'. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Cell</em>'.
@@ -5628,7 +5628,7 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IViewerBinding#getList <em>List</em>} '. <!-- begin-user-doc
+	 * {@link com.rcpcompany.uibindings.IViewerBinding#getList <em>List</em>}'. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>List</em>'.
@@ -5722,7 +5722,7 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IDecoratorProvider#getId <em>Id</em>} '. <!-- begin-user-doc
+	 * {@link com.rcpcompany.uibindings.IDecoratorProvider#getId <em>Id</em>}'. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Id</em>'.
@@ -5839,7 +5839,7 @@ public interface IUIBindingsPackage extends EPackage {
 	/**
 	 * Returns the meta object for the attribute '
 	 * {@link com.rcpcompany.uibindings.IEnumDecoratorProvider#isAddingDefaultMappings
-	 * <em>Adding Default Mappings</em>} '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <em>Adding Default Mappings</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Adding Default Mappings</em>'.
 	 * @see com.rcpcompany.uibindings.IEnumDecoratorProvider#isAddingDefaultMappings()
@@ -5919,7 +5919,7 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IBindingDataType
-	 * <em>Binding Data Type</em>} '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <em>Binding Data Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Binding Data Type</em>'.
 	 * @see com.rcpcompany.uibindings.IBindingDataType
@@ -6059,7 +6059,7 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IColumnAdapter#getText <em>Text</em>} '. <!-- begin-user-doc
+	 * {@link com.rcpcompany.uibindings.IColumnAdapter#getText <em>Text</em>}'. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Text</em>'.
@@ -6362,7 +6362,7 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IArgumentProvider
-	 * <em>Argument Provider</em>} '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <em>Argument Provider</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Argument Provider</em>'.
 	 * @see com.rcpcompany.uibindings.IArgumentProvider
@@ -6388,7 +6388,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * 
 	 * @return the meta object for class '<em>IDisposable</em>'.
 	 * @see com.rcpcompany.uibindings.IDisposable
-	 * @model instanceClass="com.rcpcompany.uibindings.IDisposable"
 	 * @generated
 	 */
 	EClass getIDisposable();
@@ -6419,7 +6418,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * 
 	 * @return the meta object for class '<em>Constants</em>'.
 	 * @see com.rcpcompany.uibindings.Constants
-	 * @model instanceClass="com.rcpcompany.uibindings.Constants"
 	 * @generated
 	 */
 	EClass getConstants();
@@ -6496,8 +6494,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * 
 	 * @return the meta object for class '<em>String To String Map Entry</em>'.
 	 * @see java.util.Map.Entry
-	 * @model keyDataType="org.eclipse.emf.ecore.EString"
-	 *        valueDataType="org.eclipse.emf.ecore.EString"
 	 * @generated
 	 */
 	EClass getStringToStringMapEntry();
@@ -6541,8 +6537,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * 
 	 * @return the meta object for class '<em>String To Object Map Entry</em>'.
 	 * @see java.util.Map.Entry
-	 * @model keyDataType="org.eclipse.emf.ecore.EString"
-	 *        valueDataType="org.eclipse.emf.ecore.EJavaObject"
 	 * @generated
 	 */
 	EClass getStringToObjectMapEntry();
@@ -6641,8 +6635,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * 
 	 * @return the meta object for class '<em>String To Boolean Map Entry</em>'.
 	 * @see java.util.Map.Entry
-	 * @model keyDataType="org.eclipse.emf.ecore.EString"
-	 *        valueDataType="org.eclipse.emf.ecore.EBoolean"
 	 * @generated
 	 */
 	EClass getStringToBooleanMapEntry();
@@ -6675,9 +6667,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * 
 	 * @return the meta object for class '<em>Object To CI Map Entry</em>'.
 	 * @see java.util.Map.Entry
-	 * @model keyType="org.eclipse.emf.ecore.EObject" keyResolveProxies="false" keyTransient="true"
-	 *        valueType="com.rcpcompany.uibindings.ColumnBindingCellInformation"
-	 *        valueResolveProxies="false"
 	 * @generated
 	 */
 	EClass getObjectToCIMapEntry();
@@ -6728,7 +6717,7 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IQuickfixProposal
-	 * <em>Quickfix Proposal</em>} '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <em>Quickfix Proposal</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Quickfix Proposal</em>'.
 	 * @see com.rcpcompany.uibindings.IQuickfixProposal
@@ -6869,7 +6858,7 @@ public interface IUIBindingsPackage extends EPackage {
 	/**
 	 * Returns the meta object for the attribute '
 	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getMessagePattern
-	 * <em>Message Pattern</em>} '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <em>Message Pattern</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Message Pattern</em>'.
 	 * @see com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor#getMessagePattern()
@@ -7443,11 +7432,11 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getUIAttribute_FieldAssistAdapter();
 
 	/**
-	 * Returns the meta object for the reference list '
+	 * Returns the meta object for the containment reference list '
 	 * {@link com.rcpcompany.uibindings.IUIAttribute#getImageDecorations <em>Image Decorations</em>}
 	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the reference list '<em>Image Decorations</em>'.
+	 * @return the meta object for the containment reference list '<em>Image Decorations</em>'.
 	 * @see com.rcpcompany.uibindings.IUIAttribute#getImageDecorations()
 	 * @see #getUIAttribute()
 	 * @generated
@@ -7748,7 +7737,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * 
 	 * @return the meta object for data type '<em>DB Binding</em>'.
 	 * @see org.eclipse.core.databinding.Binding
-	 * @model instanceClass="org.eclipse.core.databinding.Binding" serializeable="false"
 	 * @generated
 	 */
 	EDataType getDBBinding();
@@ -7796,7 +7784,7 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for data type '{@link org.eclipse.ui.services.IServiceLocator
-	 * <em>IService Locator</em>} '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <em>IService Locator</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>IService Locator</em>'.
 	 * @see org.eclipse.ui.services.IServiceLocator
@@ -7924,7 +7912,7 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for data type '{@link org.eclipse.emf.edit.domain.EditingDomain
-	 * <em>Editing Domain</em>} '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <em>Editing Domain</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Editing Domain</em>'.
 	 * @see org.eclipse.emf.edit.domain.EditingDomain
@@ -7938,7 +7926,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * 
 	 * @return the meta object for data type '<em>Widget</em>'.
 	 * @see org.eclipse.swt.widgets.Widget
-	 * @model instanceClass="org.eclipse.swt.widgets.Widget" serializeable="false"
 	 * @generated
 	 */
 	EDataType getWidget();
@@ -7959,7 +7946,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * 
 	 * @return the meta object for data type '<em>Control</em>'.
 	 * @see org.eclipse.swt.widgets.Control
-	 * @model instanceClass="org.eclipse.swt.widgets.Control" serializeable="false"
 	 * @generated
 	 */
 	EDataType getControl();
@@ -7970,7 +7956,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * 
 	 * @return the meta object for data type '<em>Composite</em>'.
 	 * @see org.eclipse.swt.widgets.Composite
-	 * @model instanceClass="org.eclipse.swt.widgets.Composite" serializeable="false"
 	 * @generated
 	 */
 	EDataType getComposite();
@@ -7991,7 +7976,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * 
 	 * @return the meta object for data type '<em>Table Column</em>'.
 	 * @see org.eclipse.swt.widgets.TableColumn
-	 * @model instanceClass="org.eclipse.swt.widgets.TableColumn" serializeable="false"
 	 * @generated
 	 */
 	EDataType getTableColumn();
@@ -8012,7 +7996,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * 
 	 * @return the meta object for data type '<em>Tree Column</em>'.
 	 * @see org.eclipse.swt.widgets.TreeColumn
-	 * @model instanceClass="org.eclipse.swt.widgets.TreeColumn" serializeable="false"
 	 * @generated
 	 */
 	EDataType getTreeColumn();
@@ -8023,7 +8006,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * 
 	 * @return the meta object for data type '<em>Clipboard</em>'.
 	 * @see org.eclipse.swt.dnd.Clipboard
-	 * @model instanceClass="org.eclipse.swt.dnd.Clipboard" serializeable="false"
 	 * @generated
 	 */
 	EDataType getClipboard();
@@ -8034,7 +8016,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * 
 	 * @return the meta object for data type '<em>Image</em>'.
 	 * @see org.eclipse.swt.graphics.Image
-	 * @model instanceClass="org.eclipse.swt.graphics.Image" serializeable="false"
 	 * @generated
 	 */
 	EDataType getImage();
@@ -8107,7 +8088,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * 
 	 * @return the meta object for data type '<em>Number Format</em>'.
 	 * @see com.ibm.icu.text.NumberFormat
-	 * @model instanceClass="com.ibm.icu.text.NumberFormat" serializeable="false"
 	 * @generated
 	 */
 	EDataType getNumberFormat();
@@ -8269,7 +8249,7 @@ public interface IUIBindingsPackage extends EPackage {
 		EAttribute MANAGER__ALTERNATE_ROW_COLORS = eINSTANCE.getManager_AlternateRowColors();
 
 		/**
-		 * The meta object literal for the '<em><b>Validation Error Is Warning</b></em>' attribute
+		 * The meta object literal for the '<em><b>Validation Errors Are Fatal</b></em>' attribute
 		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
@@ -8357,8 +8337,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EReference MANAGER__OBSERVABLE_FACTORIES = eINSTANCE.getManager_ObservableFactories();
 
 		/**
-		 * The meta object literal for the '<em><b>Quickfix Proposal Processors</b></em>' reference
-		 * list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Quickfix Proposal Processors</b></em>'
+		 * containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -9337,7 +9317,7 @@ public interface IUIBindingsPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link com.rcpcompany.uibindings.internal.ModelInfoImpl
-		 * <em>Model Info</em>} ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <em>Model Info</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.internal.ModelInfoImpl
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getModelInfo()
@@ -9365,8 +9345,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EAttribute MODEL_CLASS_INFO__CLASS_NAME = eINSTANCE.getModelClassInfo_ClassName();
 
 		/**
-		 * The meta object literal for the '<em><b>Features</b></em>' containment reference list
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Features</b></em>' map feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -9804,7 +9784,7 @@ public interface IUIBindingsPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link com.rcpcompany.uibindings.IServiceRegistry
-		 * <em>Service Registry</em>} ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <em>Service Registry</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.IServiceRegistry
 		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getServiceRegistry()
@@ -10348,8 +10328,8 @@ public interface IUIBindingsPackage extends EPackage {
 		EAttribute UI_ATTRIBUTE__FIELD_ASSIST_ADAPTER = eINSTANCE.getUIAttribute_FieldAssistAdapter();
 
 		/**
-		 * The meta object literal for the '<em><b>Image Decorations</b></em>' reference list
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Image Decorations</b></em>' containment reference
+		 * list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */

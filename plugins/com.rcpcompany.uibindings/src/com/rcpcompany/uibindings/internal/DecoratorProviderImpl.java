@@ -40,7 +40,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  * Declared Arguments</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getManager <em>Manager</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getId <em>Id</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getName <em>Name</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getType <em>Type</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getModelTypes <em>Model Types
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getUiTypes <em>Ui Types</em>}
@@ -49,6 +49,10 @@ import com.rcpcompany.utils.logging.LogUtils;
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getChildCE <em>Child CE</em>}
  * </li>
+ * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getDecorator <em>Decorator
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#isExactModelTypeMatch <em>
+ * Exact Model Type Match</em>}</li>
  * </ul>
  * </p>
  * 

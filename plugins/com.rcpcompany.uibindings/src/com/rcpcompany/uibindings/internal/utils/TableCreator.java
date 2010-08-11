@@ -45,7 +45,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  */
 public class TableCreator implements ITableCreator {
 	/**
-	 * The context used for the bindings
+	 * The context used for the bindings.
 	 */
 	protected final IBindingContext myContext;
 
@@ -55,12 +55,12 @@ public class TableCreator implements ITableCreator {
 	protected final Table myTable;
 
 	/**
-	 * The viewer binding used for the table
+	 * The viewer binding used for the table.
 	 */
 	protected final IViewerBinding myViewerBinding;
 
 	/**
-	 * A filter Text field if wanted
+	 * A filter Text field if wanted.
 	 */
 	protected Text myFilter = null;
 
@@ -210,6 +210,9 @@ public class TableCreator implements ITableCreator {
 				foundColumn = addColumn(SpecialBinding.ROW_NO, 0);
 				foundColumn.getColumnAdapter().setAlignment(SWT.RIGHT);
 				break;
+			case ROW_ELEMENT:
+				foundColumn = addColumn(SpecialBinding.ROW_ELEMENT, 0);
+				break;
 			case FEATURE:
 				/*
 				 * See if a column already exists for the feature
@@ -234,6 +237,9 @@ public class TableCreator implements ITableCreator {
 					}
 				}
 				break;
+			default:
+				LogUtils.error(this, "Unknown special binding: " + s.getType());
+				continue;
 			}
 			final IColumnAdapter adapter = foundColumn.getColumnAdapter();
 

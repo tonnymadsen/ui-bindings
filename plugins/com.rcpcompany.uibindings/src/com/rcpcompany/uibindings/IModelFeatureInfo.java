@@ -18,7 +18,6 @@ package com.rcpcompany.uibindings;
  * </p>
  * 
  * @see com.rcpcompany.uibindings.IUIBindingsPackage#getModelFeatureInfo()
- * @model
  * @generated
  */
 public interface IModelFeatureInfo extends IModelInfo {

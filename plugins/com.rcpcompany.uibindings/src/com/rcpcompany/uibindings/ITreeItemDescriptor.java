@@ -64,7 +64,7 @@ public interface ITreeItemDescriptor extends IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>Children</b></em>' reference list. The list contents are of
 	 * type {@link com.rcpcompany.uibindings.ITreeItemRelation}. It is bidirectional and its
-	 * opposite is ' {@link com.rcpcompany.uibindings.ITreeItemRelation#getParent <em>Parent</em>}'.
+	 * opposite is '{@link com.rcpcompany.uibindings.ITreeItemRelation#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Children</em>' reference list isn't clear, there really should be

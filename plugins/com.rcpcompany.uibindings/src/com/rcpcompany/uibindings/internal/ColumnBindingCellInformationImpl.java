@@ -48,12 +48,12 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getElement <em>
  * Element</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getLabelBinding
- * <em>Label Binding </em>}</li>
+ * <em>Label Binding</em>}</li>
  * <li>
  * {@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getLabelUIAttribute
  * <em>Label UI Attribute</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getLabelPainter
- * <em>Label Painter </em>}</li>
+ * <em>Label Painter</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getObjectValue
  * <em>Object Value</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingCellInformationImpl#getSourceValue

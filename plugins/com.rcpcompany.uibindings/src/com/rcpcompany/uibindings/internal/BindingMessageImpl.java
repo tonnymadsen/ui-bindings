@@ -29,14 +29,16 @@ import com.rcpcompany.utils.basic.ClassUtils;
  * The following features are implemented:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageImpl#getBinding <em>Binding</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageImpl#getModelObject <em>Model Object
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageImpl#getMessage <em>Message</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageImpl#getSeverity <em>Severity</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageImpl#getMessageType <em>Message Type
  * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageImpl#getModelFeature <em>Model
- * Feature</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageImpl#getPrefix <em>Prefix</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageImpl#getTargets <em>Targets</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageImpl#getData <em>Data</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageImpl#getSource <em>Source</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageImpl#getCode <em>Code</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingMessageImpl#getDetails <em>Details</em>}</li>
  * </ul>
  * </p>
  * 

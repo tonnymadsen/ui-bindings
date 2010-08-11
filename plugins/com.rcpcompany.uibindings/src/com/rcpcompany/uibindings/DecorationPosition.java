@@ -179,8 +179,8 @@ public enum DecorationPosition implements Enumerator {
 	public static final List<DecorationPosition> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Message Decoration Position</b></em>' literal with the specified literal
-	 * value. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the '<em><b>Decoration Position</b></em>' literal with the specified literal value.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -207,8 +207,8 @@ public enum DecorationPosition implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Message Decoration Position</b></em>' literal with the specified integer
-	 * value. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the '<em><b>Decoration Position</b></em>' literal with the specified integer value.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */

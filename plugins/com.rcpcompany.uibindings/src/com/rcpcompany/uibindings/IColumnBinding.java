@@ -256,8 +256,8 @@ public interface IColumnBinding extends IBinding {
 
 	/**
 	 * Returns the value of the '<em><b>Viewer Binding</b></em>' reference. It is bidirectional and
-	 * its opposite is ' {@link com.rcpcompany.uibindings.IViewerBinding#getColumns
-	 * <em>Columns</em>}'. <!-- begin-user-doc -->
+	 * its opposite is '{@link com.rcpcompany.uibindings.IViewerBinding#getColumns <em>Columns</em>}
+	 * '. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Viewer Binding</em>' reference isn't clear, there really should be
 	 * more of a description here...
@@ -312,7 +312,7 @@ public interface IColumnBinding extends IBinding {
 
 	/**
 	 * Returns the value of the '<em><b>Base Column</b></em>' reference. It is bidirectional and its
-	 * opposite is ' {@link com.rcpcompany.uibindings.IColumnBinding#getSubColumns
+	 * opposite is '{@link com.rcpcompany.uibindings.IColumnBinding#getSubColumns
 	 * <em>Sub Columns</em>}'. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Base Column</em>' reference isn't clear, there really should be
@@ -341,7 +341,7 @@ public interface IColumnBinding extends IBinding {
 	/**
 	 * Returns the value of the '<em><b>Sub Columns</b></em>' reference list. The list contents are
 	 * of type {@link com.rcpcompany.uibindings.IColumnBinding}. It is bidirectional and its
-	 * opposite is ' {@link com.rcpcompany.uibindings.IColumnBinding#getBaseColumn
+	 * opposite is '{@link com.rcpcompany.uibindings.IColumnBinding#getBaseColumn
 	 * <em>Base Column</em>}'. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sub Columns</em>' reference list isn't clear, there really should

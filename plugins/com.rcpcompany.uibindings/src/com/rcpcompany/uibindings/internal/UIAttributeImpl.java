@@ -257,8 +257,8 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	protected static final IControlContentAdapter FIELD_ASSIST_ADAPTER_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getImageDecorations() <em>Image Decorations</em>}' reference
-	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getImageDecorations() <em>Image Decorations</em>}'
+	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getImageDecorations()
 	 * @generated

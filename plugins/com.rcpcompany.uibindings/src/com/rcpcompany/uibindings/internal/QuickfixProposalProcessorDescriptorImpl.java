@@ -25,7 +25,7 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * <ul>
  * <li>
  * {@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorDescriptorImpl#getModelType
- * <em>Model Type </em>}</li>
+ * <em>Model Type</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorDescriptorImpl#getFeature
  * <em>Feature</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorDescriptorImpl#getSource
@@ -37,7 +37,7 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * <em>Message Pattern</em>}</li>
  * <li>
  * {@link com.rcpcompany.uibindings.internal.QuickfixProposalProcessorDescriptorImpl#getProcessor
- * <em>Processor </em>}</li>
+ * <em>Processor</em>}</li>
  * </ul>
  * </p>
  * 

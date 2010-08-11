@@ -38,7 +38,7 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * <li>{@link com.rcpcompany.uibindings.IManager#getModelArgumentMediators <em>Model Argument
  * Mediators</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#getModelArgumentMediatorClasses <em>Model Argument
- * Mediator Classes </em>}</li>
+ * Mediator Classes</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#getTextCommitStrategy <em>Text Commit Strategy
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#getTextCommitStrategyDelay <em>Text Commit Strategy
@@ -51,7 +51,7 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * <li>{@link com.rcpcompany.uibindings.IManager#getMessageDecorationMinimumSeverity <em>Message
  * Decoration Minimum Severity</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#getAlternativeDecorationPosition <em>Alternative
- * Decoration Position </em>}</li>
+ * Decoration Position</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#isAutoApplySingleQuickfix <em>Auto Apply Single
  * Quickfix</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#isAlternateRowColors <em>Alternate Row Colors</em>}
@@ -62,11 +62,11 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * <li>{@link com.rcpcompany.uibindings.IManager#getValidationDelayWindow <em>Validation Delay
  * Window</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#isRequiredVBImageDecorationShown <em>Required VB
- * Image Decoration Shown </em>}</li>
+ * Image Decoration Shown</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#isAssistVBImageDecorationShown <em>Assist VB Image
- * Decoration Shown </em>}</li>
+ * Decoration Shown</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#isQuickfixVBImageDecorationShown <em>Quickfix VB
- * Image Decoration Shown </em>}</li>
+ * Image Decoration Shown</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#isViewNavigationRecorded <em>View Navigation
  * Recorded</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#getModelInfo <em>Model Info</em>}</li>
@@ -319,7 +319,7 @@ public interface IManager extends IBaseObject {
 
 	/**
 	 * Returns the value of the '<em><b>Message Decoration Position</b></em>' attribute. The default
-	 * value is <code>"BottomLeft"</code>. The literals are from the enumeration
+	 * value is <code>"BOTTOM_LEFT"</code>. The literals are from the enumeration
 	 * {@link com.rcpcompany.uibindings.DecorationPosition}. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Message Decoration Position</em>' attribute isn't clear, there
@@ -350,7 +350,7 @@ public interface IManager extends IBaseObject {
 
 	/**
 	 * Returns the value of the '<em><b>Message Decoration Minimum Severity</b></em>' attribute. The
-	 * default value is <code>"Warning"</code>. The literals are from the enumeration
+	 * default value is <code>"WARNING"</code>. The literals are from the enumeration
 	 * {@link com.rcpcompany.uibindings.BindingMessageSeverity}. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Message Decoration Minimum Severity</em>' attribute isn't clear,
@@ -381,7 +381,7 @@ public interface IManager extends IBaseObject {
 
 	/**
 	 * Returns the value of the '<em><b>Alternative Decoration Position</b></em>' attribute. The
-	 * default value is <code>"TopLeft"</code>. The literals are from the enumeration
+	 * default value is <code>"TOP_LEFT"</code>. The literals are from the enumeration
 	 * {@link com.rcpcompany.uibindings.DecorationPosition}. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Alternative Decoration Position</em>' attribute isn't clear, there

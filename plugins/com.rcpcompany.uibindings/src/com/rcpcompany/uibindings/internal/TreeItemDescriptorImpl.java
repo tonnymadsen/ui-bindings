@@ -33,7 +33,7 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
  * The following features are implemented:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getDeclaredArguments <em>
- * Declared Arguments </em>}</li>
+ * Declared Arguments</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getId <em>Id</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getChildren <em>Children
  * </em>}</li>

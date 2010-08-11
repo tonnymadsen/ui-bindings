@@ -31,7 +31,17 @@ public enum SpecialBinding implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TREE_ITEM(1, "TREE_ITEM", "TREE_ITEM"); //$NON-NLS-1$ //$NON-NLS-2$
+	TREE_ITEM(1, "TREE_ITEM", "TREE_ITEM"),
+
+	/**
+	 * The '<em><b>ROW ELEMENT</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @see #ROW_ELEMENT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ROW_ELEMENT(2, "ROW_ELEMENT", "ROW_ELEMENT"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>ROW NO</b></em>' literal value. <!-- begin-user-doc -->
@@ -62,12 +72,26 @@ public enum SpecialBinding implements Enumerator {
 	public static final int TREE_ITEM_VALUE = 1;
 
 	/**
+	 * The '<em><b>ROW ELEMENT</b></em>' literal value. <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>ROW ELEMENT</b></em>' literal object isn't clear, there really
+	 * should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #ROW_ELEMENT
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ROW_ELEMENT_VALUE = 2;
+
+	/**
 	 * An array of all the '<em><b>Special Binding</b></em>' enumerators. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	private static final SpecialBinding[] VALUES_ARRAY = new SpecialBinding[] { ROW_NO, TREE_ITEM, };
+	private static final SpecialBinding[] VALUES_ARRAY = new SpecialBinding[] { ROW_NO, TREE_ITEM, ROW_ELEMENT, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Special Binding</b></em>' enumerators. <!--
@@ -117,6 +141,8 @@ public enum SpecialBinding implements Enumerator {
 			return ROW_NO;
 		case TREE_ITEM_VALUE:
 			return TREE_ITEM;
+		case ROW_ELEMENT_VALUE:
+			return ROW_ELEMENT;
 		}
 		return null;
 	}

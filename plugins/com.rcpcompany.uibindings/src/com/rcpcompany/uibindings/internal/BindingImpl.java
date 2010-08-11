@@ -94,7 +94,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getWidget <em>Widget</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getControl <em>Control</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getExtraArgumentProviders <em>Extra
- * Argument Providers </em>}</li>
+ * Argument Providers</em>}</li>
  * </ul>
  * </p>
  * 

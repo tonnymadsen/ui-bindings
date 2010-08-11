@@ -28,9 +28,9 @@ import com.rcpcompany.uibindings.IValueBinding;
  * <li>{@link com.rcpcompany.uibindings.internal.UIBindingDecoratorImpl#isChangeable <em>Changeable
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.UIBindingDecoratorImpl#getModelToUIConverter <em>
- * Model To UI Converter </em>}</li>
+ * Model To UI Converter</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.UIBindingDecoratorImpl#getUIToModelConverter <em>UI
- * To Model Converter </em>}</li>
+ * To Model Converter</em>}</li>
  * <li>
  * {@link com.rcpcompany.uibindings.internal.UIBindingDecoratorImpl#getUIToModelAfterConvertValidator
  * <em>UI To Model After Convert Validator</em>}</li>

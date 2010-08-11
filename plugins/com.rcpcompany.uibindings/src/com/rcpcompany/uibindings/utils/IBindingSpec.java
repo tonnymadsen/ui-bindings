@@ -54,6 +54,11 @@ public interface IBindingSpec {
 		ROW_NO("__ROW_NO__"),
 
 		/**
+		 * Spec for "__ROW_ELEMENT__".
+		 */
+		ROW_ELEMENT("__ROW_ELEMENT__"),
+
+		/**
 		 * Spec is based on feature.
 		 * 
 		 * @see IBindingSpec#getFeature()

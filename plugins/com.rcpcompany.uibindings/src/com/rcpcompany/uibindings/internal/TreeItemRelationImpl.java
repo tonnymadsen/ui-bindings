@@ -24,11 +24,15 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.TreeItemRelationImpl#getId <em>Id</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.TreeItemRelationImpl#getParent <em>Parent</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.TreeItemRelationImpl#getDescriptor <em>Descriptor
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.TreeItemRelationImpl#getProcessor <em>Processor
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.TreeItemRelationImpl#getFeatureName <em>Feature
  * Name</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.TreeItemRelationImpl#getPriority <em>Priority</em>}
+ * </li>
  * </ul>
  * </p>
  * 

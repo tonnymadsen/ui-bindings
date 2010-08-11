@@ -204,8 +204,8 @@ public interface IViewerBinding extends IBinding {
 	/**
 	 * Returns the value of the '<em><b>Columns</b></em>' reference list. The list contents are of
 	 * type {@link com.rcpcompany.uibindings.IColumnBinding}. It is bidirectional and its opposite
-	 * is ' {@link com.rcpcompany.uibindings.IColumnBinding#getViewerBinding
-	 * <em>Viewer Binding</em>}'. <!-- begin-user-doc -->
+	 * is '{@link com.rcpcompany.uibindings.IColumnBinding#getViewerBinding <em>Viewer Binding</em>}
+	 * '. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Columns</em>' reference list isn't clear, there really should be
 	 * more of a description here...

@@ -149,6 +149,9 @@ public final class BindingSpecFactory {
 				} else if (featureName.equals(BaseType.ROW_NO.toString())) {
 					s = new MyBindingSpecOther(BaseType.ROW_NO);
 					type = null;
+				} else if (featureName.equals(BaseType.ROW_ELEMENT.toString())) {
+					s = new MyBindingSpecOther(BaseType.ROW_ELEMENT);
+					type = null;
 				} else {
 					EStructuralFeature feature = type.getEStructuralFeature(featureName);
 					/*

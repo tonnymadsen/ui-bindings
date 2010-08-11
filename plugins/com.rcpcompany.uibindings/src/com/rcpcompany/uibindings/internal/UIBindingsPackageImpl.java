@@ -4565,15 +4565,15 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getManager_MessageDecorationPosition(),
 				this.getDecorationPosition(),
-				"messageDecorationPosition", "BottomLeft", 1, 1, IManager.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+				"messageDecorationPosition", "BOTTOM_LEFT", 1, 1, IManager.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(
 				getManager_MessageDecorationMinimumSeverity(),
 				this.getBindingMessageSeverity(),
-				"messageDecorationMinimumSeverity", "Warning", 0, 1, IManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+				"messageDecorationMinimumSeverity", "WARNING", 0, 1, IManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(
 				getManager_AlternativeDecorationPosition(),
 				this.getDecorationPosition(),
-				"alternativeDecorationPosition", "TopLeft", 1, 1, IManager.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+				"alternativeDecorationPosition", "TOP_LEFT", 1, 1, IManager.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(
 				getManager_AutoApplySingleQuickfix(),
 				ecorePackage.getEBoolean(),
@@ -5660,6 +5660,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEEnum(specialBindingEEnum, SpecialBinding.class, "SpecialBinding"); //$NON-NLS-1$
 		addEEnumLiteral(specialBindingEEnum, SpecialBinding.ROW_NO);
 		addEEnumLiteral(specialBindingEEnum, SpecialBinding.TREE_ITEM);
+		addEEnumLiteral(specialBindingEEnum, SpecialBinding.ROW_ELEMENT);
 
 		initEEnum(bindingMessageSeverityEEnum, BindingMessageSeverity.class, "BindingMessageSeverity"); //$NON-NLS-1$
 		addEEnumLiteral(bindingMessageSeverityEEnum, BindingMessageSeverity.NONE);

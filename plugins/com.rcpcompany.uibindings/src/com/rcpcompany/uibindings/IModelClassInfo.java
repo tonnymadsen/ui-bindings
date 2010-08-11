@@ -16,11 +16,11 @@ import org.eclipse.emf.common.util.EMap;
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.IModelClassInfo#getClassName <em>Class Name</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IModelClassInfo#getFeatures <em>Features</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IModelClassInfo#getTypes <em>Types</em>}</li>
  * </ul>
  * </p>
  * 
  * @see com.rcpcompany.uibindings.IUIBindingsPackage#getModelClassInfo()
- * @model
  * @generated
  */
 public interface IModelClassInfo extends IModelInfo {

@@ -1,10 +1,16 @@
 package com.rcpcompany.uibindings.internal.bindingDataTypes;
 
-import org.eclipse.emf.ecore.*;
-import org.eclipse.emf.ecore.util.*;
+import org.eclipse.emf.ecore.EAnnotation;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
-import com.rcpcompany.uibindings.*;
-import com.rcpcompany.uibindings.internal.*;
+import com.rcpcompany.uibindings.Constants;
+import com.rcpcompany.uibindings.IArgumentProvider;
+import com.rcpcompany.uibindings.IBindingDataType;
+import com.rcpcompany.uibindings.IManager;
+import com.rcpcompany.uibindings.internal.BindingDataTypeImpl;
 
 /**
  * An {@link IBindingDataType} for {@link EStructuralFeature}.

@@ -165,6 +165,14 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		assertTrue(specialValue != null, "No value?"); //$NON-NLS-1$
 		setSpecialBindingType(specialValue);
 		switch (specialValue) {
+		case ROW_ELEMENT:
+			final IObservableFactory rowElementFactory = new IObservableFactory() {
+				@Override
+				public IObservable createObservable(Object target) {
+					return Observables.constantObservableValue(target, EcorePackage.Literals.EOBJECT);
+				}
+			};
+			return model(rowElementFactory, EcorePackage.Literals.ESTRING);
 		case ROW_NO:
 			final IObservableFactory rowNoFactory = new IObservableFactory() {
 				@Override
@@ -176,12 +184,12 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 					.readonly().arg(IColumnChooser.ARG_CHOOSABLE, false);
 		case TREE_ITEM:
 			final IObservableFactory treeItemFactory = new IObservableFactory() {
-				final IObservableValue dummyOV = WritableValue.withValueType(EcorePackage.Literals.EOBJECT);
-				final IUIAttribute dummyAttribute = new VirtualUIAttribute(String.class);
+				private final IObservableValue dummyOV = WritableValue.withValueType(EcorePackage.Literals.EOBJECT);
+				private final IUIAttribute dummyAttribute = new VirtualUIAttribute(String.class);
 				/*
 				 * This binding is finished before first use by the context...
 				 */
-				final IValueBinding dummyBinding = getContext().addBinding().ui(dummyAttribute).model(dummyOV)
+				private final IValueBinding dummyBinding = getContext().addBinding().ui(dummyAttribute).model(dummyOV)
 						.dynamic();
 
 				@Override

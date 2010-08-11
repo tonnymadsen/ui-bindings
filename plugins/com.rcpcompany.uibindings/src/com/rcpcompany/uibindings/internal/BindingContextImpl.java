@@ -67,6 +67,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  * The following features are implemented:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingContextImpl#getBindings <em>Bindings</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingContextImpl#getOkBindings <em>Ok Bindings
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingContextImpl#getTop <em>Top</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingContextImpl#getDbContext <em>Db Context
  * </em>}</li>
@@ -77,6 +79,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  * Commit Strategy</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingContextImpl#getTextCommitStrategyCalculated
  * <em>Text Commit Strategy Calculated</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingContextImpl#getEditingDomain <em>Editing
+ * Domain</em>}</li>
  * </ul>
  * </p>
  * 

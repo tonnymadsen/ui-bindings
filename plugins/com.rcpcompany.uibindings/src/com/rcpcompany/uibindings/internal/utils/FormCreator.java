@@ -592,13 +592,20 @@ public class FormCreator implements IFormCreator {
 	@Deprecated
 	public ITableCreator addTableCreator(boolean grabHorizontal, int style) {
 		final Composite parent = addComposite(grabHorizontal, false);
-		return ITableCreator.Factory.create(getContext(), parent, style);
+		final ITableCreator table = ITableCreator.Factory.create(getContext(), parent, style);
+		if (isReadOnly()) {
+			table.getBinding().readonly();
+		}
+		return table;
 	}
 
 	@Override
 	public ITableCreator addTableCreator(EReference ref, boolean grabHorizontal, int style) {
 		final Composite parent = addComposite(grabHorizontal, false);
 		final ITableCreator table = ITableCreator.Factory.create(getContext(), parent, style, myObservableValue, ref);
+		if (isReadOnly()) {
+			table.getBinding().readonly();
+		}
 		return table;
 	}
 

@@ -207,7 +207,7 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 
 	/**
 	 * Returns the value of the '<em><b>Context</b></em>' container reference. It is bidirectional
-	 * and its opposite is ' {@link com.rcpcompany.uibindings.IBindingContext#getBindings
+	 * and its opposite is '{@link com.rcpcompany.uibindings.IBindingContext#getBindings
 	 * <em>Bindings</em>}'. <!-- begin-user-doc -->
 	 * 
 	 * <!-- end-user-doc -->
@@ -229,9 +229,9 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 
 	/**
 	 * Sets the value of the '{@link com.rcpcompany.uibindings.IBinding#getContext <em>Context</em>}
-	 * ' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * ' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @param value the new value of the '<em>Context</em>' reference.
+	 * @param value the new value of the '<em>Context</em>' container reference.
 	 * @see #getContext()
 	 * @generated
 	 */

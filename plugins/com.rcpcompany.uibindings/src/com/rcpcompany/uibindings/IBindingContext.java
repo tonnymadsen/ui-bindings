@@ -434,7 +434,6 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	 * @return the value of the '<em>State</em>' attribute.
 	 * @see com.rcpcompany.uibindings.BindingState
 	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getBindingContext_State()
-	 * @model default="INIT" required="true" suppressedSetVisibility="true"
 	 * @generated
 	 */
 	BindingState getState();
@@ -504,7 +503,7 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 
 	/**
 	 * Sets the value of the '{@link com.rcpcompany.uibindings.IBindingContext#getEditingDomain
-	 * <em>Editing Domain</em>} ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <em>Editing Domain</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Editing Domain</em>' attribute.
 	 * @see #getEditingDomain()

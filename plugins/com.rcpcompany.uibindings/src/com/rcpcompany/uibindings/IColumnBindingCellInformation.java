@@ -246,14 +246,13 @@ public interface IColumnBindingCellInformation extends EObject, IDisposable, IVa
 	 * @return the value of the '<em>Enabled</em>' attribute.
 	 * @see #setEnabled(boolean)
 	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getColumnBindingCellInformation_Enabled()
-	 * @model default="true" required="true" transient="true"
 	 * @generated
 	 */
 	boolean isEnabled();
 
 	/**
 	 * Sets the value of the '
-	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#isEnabled <em>Enabled</em>} '
+	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation#isEnabled <em>Enabled</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Enabled</em>' attribute.

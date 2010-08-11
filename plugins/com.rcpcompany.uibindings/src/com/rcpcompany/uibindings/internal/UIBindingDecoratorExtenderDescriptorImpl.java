@@ -29,7 +29,7 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * <ul>
  * <li>
  * {@link com.rcpcompany.uibindings.internal.UIBindingDecoratorExtenderDescriptorImpl#getDeclaredArguments
- * <em> Declared Arguments</em>}</li>
+ * <em>Declared Arguments</em>}</li>
  * <li>
  * {@link com.rcpcompany.uibindings.internal.UIBindingDecoratorExtenderDescriptorImpl#getPriority
  * <em>Priority</em>}</li>
