@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
+import java.util.Map.Entry;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.WritableValue;
@@ -44,13 +44,13 @@ import org.eclipse.ui.forms.widgets.TableWrapLayout;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
-import com.rcpcompany.uibindings.IBindingContext.FinishOption;
 import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.UIBindingsUtils;
+import com.rcpcompany.uibindings.IBindingContext.FinishOption;
 import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
 import com.rcpcompany.uibindings.utils.IBindingSpec;
 import com.rcpcompany.uibindings.utils.IFormChooser;
@@ -225,7 +225,11 @@ public class FormCreator implements IFormCreator {
 	}
 
 	public FormCreator(final EObject obj, WizardPage page, Composite parent) {
-		myToolkit = IManager.Factory.getManager().getFormToolkit();
+		this(obj, page, IManager.Factory.getManager().getFormToolkit(), parent);
+	}
+
+	public FormCreator(final EObject obj, WizardPage page, FormToolkit toolkit, Composite parent) {
+		myToolkit = toolkit;
 		myTopForm = this;
 
 		myFocusListener = new Listener() {
@@ -1117,8 +1121,8 @@ public class FormCreator implements IFormCreator {
 			myObjectMessageObjects = new HashSet<IObservableValue>();
 		}
 		if (myObjectMessageObjects.contains(value)) return;
-		myContext.addBinding().model(value).ui(new VirtualUIAttribute(String.class))
-				.arg(Constants.ARG_VALUE_OBJECT_MESSAGES, true);
+		myContext.addBinding().model(value).ui(new VirtualUIAttribute(String.class)).arg(
+				Constants.ARG_VALUE_OBJECT_MESSAGES, true);
 		myObjectMessageObjects.add(value);
 	}
 }

@@ -141,6 +141,19 @@ public interface IFormCreator extends IDisposable {
 		public static IFormCreator createWizardPage(EObject obj, WizardPage page, Composite parent) {
 			return new FormCreator(obj, page, parent);
 		}
+
+		/**
+		 * Creates a new form with the specified wizard page.
+		 * 
+		 * @param obj the data object of the page
+		 * @param page the wizard page itself
+		 * @param toolkit the {@link FormToolkit} to use
+		 * @param parent the parent composite
+		 * @return the created form creator
+		 */
+		public static IFormCreator createWizardPage(EObject obj, WizardPage page, FormToolkit toolkit, Composite parent) {
+			return new FormCreator(obj, page, toolkit, parent);
+		}
 	}
 
 	/**
@@ -435,7 +448,7 @@ public interface IFormCreator extends IDisposable {
 	 * Adds a new label and field for the specified observable value.
 	 * 
 	 * @param value the observable value to show
-	 * @param style TODO
+	 * @param style the SWT style to use for the field
 	 * @return the value binding
 	 */
 	IValueBinding addField(IObservableValue value, int style);
