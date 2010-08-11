@@ -3,11 +3,13 @@ Bundle-ManifestVersion: 2
 Bundle-Name: UI Bindings Debug Facilities
 Bundle-SymbolicName: com.rcpcompany.uibindings.debug;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: com.rcpcompany.uibindings.debug.Activator
+Bundle-Activator: com.rcpcompany.uibindings.debug.internals.Activator
 Bundle-Vendor: The RCP Company
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  com.rcpcompany.uibindings;bundle-version="[2.4.0,3.0.0)",
- com.rcpcompany.utils.selection;bundle-version="[1.0.1,2.0.0)"
+ com.rcpcompany.utils.selection;bundle-version="[1.0.1,2.0.0)",
+ com.rcpcompany.utils.logging;bundle-version="[1.2.1,2.0.0)",
+ com.rcpcompany.utils.basic;bundle-version="[1.1.0,2.0.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy

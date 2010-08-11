@@ -10,6 +10,7 @@ import org.eclipse.core.databinding.observable.value.WritableValue;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
@@ -21,9 +22,12 @@ import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.part.ViewPart;
 
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.utils.IBindingSpec.BaseType;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.utils.ITableCreator;
+import com.rcpcompany.utils.basic.ClassUtils;
+import com.rcpcompany.utils.logging.LogUtils;
 
 public class CurrentSelectionView extends ViewPart {
 
@@ -55,21 +59,31 @@ public class CurrentSelectionView extends ViewPart {
 		myForm = IFormCreator.Factory.createScrolledForm(myViewValue, parent, "Selected Objects");
 		myForm.setReadOnly(true);
 
-		myForm.addField(myCurrentPartValue, SWT.READ_ONLY).label("Current Part");
+		myForm.addField(myCurrentPartValue, SWT.READ_ONLY).label("Current Part").arg(Constants.ARG_WIDTH, 500);
 
 		myEObjectSection = myForm.addSection("EObjects");
 		myEObjectTable = ITableCreator.Factory.create(myForm.getContext(), myEObjectSection.addComposite(), SWT.BORDER,
 				myEObjectList);
 		myEObjectTable.addColumn(BaseType.ROW_NO + "(w=100)");
-		myEObjectTable.addColumn(BaseType.ROW_ELEMENT + "(w=300)").dynamic();
+		myEObjectTable.addColumn(BaseType.ROW_ELEMENT + "(label='Object',w=400,type=" + Constants.TYPE_LONG_NAME + ")");
 
 		myObjectSection = myForm.addSection("Other Objects");
 		myObjectViewer = new TableViewer(myObjectSection.addComposite(), SWT.FULL_SELECTION | SWT.READ_ONLY);
+		myObjectViewer.getTable().setHeaderVisible(true);
+		myObjectViewer.getTable().setLinesVisible(true);
 		myObjectViewerColumn = new TableViewerColumn(myObjectViewer, SWT.NONE);
-		myObjectViewerColumn.getColumn().setText("toString(");
+		myObjectViewerColumn.getColumn().setText("toString()");
 		myObjectViewerColumn.getColumn().setWidth(400);
+		myObjectViewerColumn.setLabelProvider(new ColumnLabelProvider() {
+			@Override
+			public String getText(Object element) {
+				return ClassUtils.getLastClassName(element) + ": " + element;
+			}
+		});
 		myObjectViewer.setContentProvider(ArrayContentProvider.getInstance());
 		myObjectViewer.setInput(myObjectList);
+
+		myForm.finish();
 
 		final ISelectionService ss = getSite().getWorkbenchWindow().getSelectionService();
 		ss.addPostSelectionListener(mySelectionListener);
@@ -96,6 +110,8 @@ public class CurrentSelectionView extends ViewPart {
 	}
 
 	protected void updateSelection(IWorkbenchPart part, ISelection selection) {
+		LogUtils.debug(this, "part=" + part + "\n" + selection);
+		if (part == this) return;
 		myCurrentPartValue.setValue(part.toString());
 
 		try {
