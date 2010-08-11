@@ -100,11 +100,19 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		}
 	};
 
+	/**
+	 * Empty selection used when there are no current selection.
+	 */
 	protected final ISelection myEmptySelection = new ISelection() {
 		@Override
 		public boolean isEmpty() {
 			return true;
 		}
+
+		@Override
+		public String toString() {
+			return "*EMPTY SELECTION*";
+		};
 	};
 
 	@Override
