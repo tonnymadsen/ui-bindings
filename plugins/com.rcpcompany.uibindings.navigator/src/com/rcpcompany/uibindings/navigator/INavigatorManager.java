@@ -213,12 +213,13 @@ public interface INavigatorManager extends EObject {
 	 * And existing view for the specified object is automatically re-used.
 	 * <p>
 	 * Re-uses any old {@link IEditorPartView#isPinned() un-pinned} view instead of creating a new
-	 * view.
+	 * view. See <code>forceNewEditor</code> below.
 	 * 
 	 * @param obj the object of the new view
+	 * @param forceNewEditor whether force open a new editor and not reuse any exiting editors
 	 * @return the view
 	 */
-	IEditorPartView openView(EObject obj);
+	IEditorPartView openView(EObject obj, boolean forceNewEditor);
 
 	/**
 	 * Returns a collection of all existing views in the active {@link IWorkbenchWindow}.

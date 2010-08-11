@@ -747,34 +747,34 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	private int myNextSecondaryId = 0;;
 
 	@Override
-	public IEditorPartView openView(EObject obj) {
-		final Collection<IEditorPartView> views = getAllViews();
-
+	public IEditorPartView openView(EObject obj, boolean forceNewEditor) {
 		IGlobalNavigationManager.Factory.addLocation();
 
-		/*
-		 * Look for a perfect match
-		 */
-		for (final IEditorPartView v : views) {
-			if (v.getCurrentObject() == obj) {
-				/*
-				 * This might change the view
-				 */
-				v.setCurrentObject(obj);
-				return v;
+		if (!forceNewEditor) {
+			final Collection<IEditorPartView> views = getAllViews();
+			/*
+			 * Look for a perfect match
+			 */
+			for (final IEditorPartView v : views) {
+				if (v.getCurrentObject() == obj) {
+					/*
+					 * This might change the view
+					 */
+					v.setCurrentObject(obj);
+					return v;
+				}
+			}
+
+			/*
+			 * Look for an un-pinned view
+			 */
+			for (final IEditorPartView v : views) {
+				if (!v.isPinned()) {
+					v.setCurrentObject(obj);
+					return v;
+				}
 			}
 		}
-
-		/*
-		 * Look for an un-pinned view
-		 */
-		for (final IEditorPartView v : views) {
-			if (!v.isPinned()) {
-				v.setCurrentObject(obj);
-				return v;
-			}
-		}
-
 		/*
 		 * Create a new view
 		 */

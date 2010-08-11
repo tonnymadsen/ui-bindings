@@ -8,6 +8,8 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
@@ -25,12 +27,20 @@ public class OpenHandler extends AbstractHandler implements IHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
+		boolean forceNewEditor = false;
 		final ISelection selection = HandlerUtil.getCurrentSelectionChecked(event);
+
+		if (event.getTrigger() instanceof Event) {
+			final Event e = (Event) event.getTrigger();
+			if ((e.stateMask & SWT.SHIFT) == SWT.SHIFT) {
+				forceNewEditor = true;
+			}
+		}
 
 		final List<EObject> list = SelectionUtils.computeSelection(selection, EObject.class);
 
 		for (final EObject o : list) {
-			INavigatorManager.Factory.getManager().openView(o);
+			INavigatorManager.Factory.getManager().openView(o, forceNewEditor);
 		}
 		return null;
 	}

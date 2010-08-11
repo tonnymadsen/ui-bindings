@@ -65,7 +65,7 @@ public class OpenWithContributionFactory extends ExtensionContributionFactory {
 						@Override
 						public void widgetSelected(SelectionEvent e) {
 							mt.setPreferredEditor(d);
-							INavigatorManager.Factory.getManager().openView(obj);
+							INavigatorManager.Factory.getManager().openView(obj, false);
 						}
 					});
 				}

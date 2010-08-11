@@ -148,9 +148,6 @@
             class="com.rcpcompany.uibindings.IConstantTreeItem">
       </modelType>
    </editor>
-   <preferenceModelType
-         modelType="com.rcpcompany.uibindings.IConstantTreeItem">
-   </preferenceModelType>
 </extension>
 <extension
       point="org.eclipse.core.expressions.propertyTesters">
