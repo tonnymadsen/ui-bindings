@@ -88,15 +88,29 @@ public class IPathMatcherTests {
 	 */
 	@Test
 	public void dirStarStarMatch() {
-		final IPathMatcher m1 = IPathMatcher.Factory.getPathMatcher("glob:/*/*.java");
+		final IPathMatcher m1 = IPathMatcher.Factory.getPathMatcher("glob:/**/*.java");
 
 		assertTrue(m1.matches("/tmp/a.java"));
 		assertTrue(m1.matches("/a/a.java"));
+		assertTrue(m1.matches("/a/b/abc.java"));
 		assertTrue(m1.matches("c:\\a\\ccc.java"));
 
 		assertFalse(m1.matches("abc.java"));
-		assertFalse(m1.matches("/a/b/abc.java"));
 		assertFalse(m1.matches("/a/b.java/t"));
+
+		final IPathMatcher m2 = IPathMatcher.Factory.getPathMatcher("glob:/windows/**");
+
+		assertTrue(m2.matches("/windows"));
+		assertTrue(m2.matches("/windows/"));
+		assertTrue(m2.matches("/windows/temp"));
+		assertTrue(m2.matches("C:\\Windows"));
+		assertTrue(m2.matches("C:\\Windows\\"));
+		assertTrue(m2.matches("C:\\Windows\\temp"));
+		assertTrue(m2.matches("c:\\windows\\ccc.java"));
+
+		assertFalse(m2.matches("abc.java"));
+		assertFalse(m2.matches("/a/b/abc.java"));
+		assertFalse(m2.matches("/a/b.java/t"));
 	}
 
 	/**

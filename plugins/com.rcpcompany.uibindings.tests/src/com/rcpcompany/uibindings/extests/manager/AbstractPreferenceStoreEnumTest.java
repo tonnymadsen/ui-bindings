@@ -7,6 +7,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.preference.IPreferenceStore;
+import org.junit.Before;
 import org.junit.Test;
 
 import com.rcpcompany.uibindings.IManager;
@@ -67,6 +68,11 @@ public abstract class AbstractPreferenceStoreEnumTest<E extends Enum<E>> {
 
 			called += 1;
 		}
+	}
+
+	@Before
+	public void before() {
+		resetAll();
 	}
 
 	public void testPS2M(final E newValue) {
