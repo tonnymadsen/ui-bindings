@@ -140,11 +140,13 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	private IViewerBinding model(IObservableList list, IBindingDataType dataType) {
 		assertTrue(list != null, "The list must be non-null");
 		assertTrue(dataType != null, "The data type must be non-null");
+		setList(list);
+		setStaticDataType(dataType);
 		for (final Object o : list) {
 			assertTrue(o instanceof EObject, "Only EObjects are allowed in root elements of tree: " + o);
 		}
-		setList(list);
-		setStaticDataType(dataType);
+		assertTrue(getModelEType() instanceof EClass, "The data type must be an EClass (and not an EDataType): "
+				+ getModelEType());
 		return this;
 	}
 
