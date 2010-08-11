@@ -28,13 +28,14 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 
+/**
+ * The "Orders versus Shop Items" view.
+ * 
+ * @author Tonny Madsen, The RCP Company
+ */
 public class OrdersShopItemsGridView extends ViewPart {
 
 	private IFormCreator myForm;
-
-	public OrdersShopItemsGridView() {
-		// TODO Auto-generated constructor stub
-	}
 
 	@Override
 	public void createPartControl(Composite parent) {
@@ -83,8 +84,10 @@ public class OrdersShopItemsGridView extends ViewPart {
 				return map;
 			case DATA:
 				final Map<String, Object> dataMap = new HashMap<String, Object>();
-				dataMap.put(Constants.ARG_READONLY, true);
+				// dataMap.put(Constants.ARG_READONLY, true);
 				return dataMap;
+			default:
+				break;
 			}
 			return null;
 		}
@@ -105,6 +108,8 @@ public class OrdersShopItemsGridView extends ViewPart {
 				}
 				return Observables.constantObservableValue(SWTObservables.getRealm(Display.getCurrent()), null,
 						String.class);
+			default:
+				break;
 			}
 			return null;
 		}

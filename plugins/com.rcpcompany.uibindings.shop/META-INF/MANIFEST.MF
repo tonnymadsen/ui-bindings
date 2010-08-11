@@ -15,8 +15,8 @@ Require-Bundle: org.eclipse.ui;bundle-version="[3.0.0,4.0.0)",
  com.rcpcompany.utils.basic;bundle-version="1.0.3",
  com.rcpcompany.uibindings.grid;bundle-version="1.0.0",
  org.eclipse.nebula.widgets.radiogroup;bundle-version="0.1.0",
- com.rcpcompany.utils.swt.structurevisualizer;bundle-version="1.0.0";resolution:=optional,
- com.rcpcompany.uibindings.navigator;bundle-version="1.0.0"
+ com.rcpcompany.uibindings.navigator;bundle-version="[1.0.0,2.0.0)",
+ com.rcpcompany.uibindings.debug;bundle-version="[1.0.0,2.0.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Import-Package: com.rcpcompany.utils.databinding

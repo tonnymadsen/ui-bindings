@@ -232,11 +232,6 @@
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
-            class="com.rcpcompany.uibindings.UIBindingPreferences:basicPreferencePage"
-            id="com.rcpcompany.uibindings.example.application.pages.basic"
-            name="Basic UI Bindings">
-      </page>
-      <page
             class="org.eclipse.ui.ExtensionFactory:newKeysPreferencePage"
             id="com.rcpcompany.uibindings.example.application.pages.keys"
             name="Keys">
@@ -247,10 +242,9 @@
             name="Colors and Fonts">
       </page>
       <page
-            category="com.rcpcompany.uibindings.example.application.pages.basic"
-            class="com.rcpcompany.uibindings.UIBindingPreferences:validationPreferencePage"
-            id="com.rcpcompany.uibindings.example.application.pages.validation"
-            name="Validation">
+            class="com.rcpcompany.uibindings.navigator.internal.pages.PreferredEditorPage"
+            id="com.rcpcompany.uibindings.example.application.pages.editors"
+            name="Editors">
       </page>
    </extension>
    <extension
@@ -476,7 +470,7 @@
          <feature
                name="tmpDir">
             <standardArguments
-                  extensions="/temp/**"
+                  extensions="/windows/**"
                   label="Temporary Directory"
                   type="directoryName">
             </standardArguments>
@@ -732,15 +726,19 @@
             factory="com.rcpcompany.uibindings.shop.editorPartFactories.ShopBasicInformation"
             id="com.rcpcompany.uibindings.shop.editorPartFactories.ShopBasicInformation"
             image="IMG_OBJ_FILE"
-            modelType="com.rcpcompany.uibindings.tests.shop.Shop"
             name="Basic Information">
+         <modelType
+               class="com.rcpcompany.uibindings.tests.shop.Shop">
+         </modelType>
       </editor>
       <editor
             factory="com.rcpcompany.uibindings.shop.editorPartFactories.ShopCountries"
             id="com.rcpcompany.uibindings.shop.editorPartFactories.ShopCountries"
             image="icons/country_16x16.png"
-            modelType="com.rcpcompany.uibindings.tests.shop.Shop"
             name="Countries">
+         <modelType
+               class="com.rcpcompany.uibindings.tests.shop.Shop">
+         </modelType>
       </editor>
    </extension>
 
