@@ -132,7 +132,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	}
 
 	/**
-	 * Returns the viewer used for this column
+	 * Returns the viewer used for this column.
 	 * 
 	 * @return the viewer
 	 */
@@ -143,7 +143,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	/**
 	 * The label provider for the column.
 	 */
-	protected GeneralLabelProvider myLabelProvider;
+	private GeneralLabelProvider myLabelProvider;
 
 	@Override
 	public IColumnBinding model(EStructuralFeature feature) {
@@ -152,11 +152,11 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	}
 
 	@Override
-	public IColumnBinding model(IColumnBinding baseColumn, EStructuralFeature feature) {
-		assertTrue(baseColumn != null, "No base column?"); //$NON-NLS-1$
-		assertTrue(baseColumn.getViewerBinding() == getViewerBinding(), "Not same viewer"); //$NON-NLS-1$
+	public IColumnBinding model(IColumnBinding baseCol, EStructuralFeature feature) {
+		assertTrue(baseCol != null, "No base column?"); //$NON-NLS-1$
+		assertTrue(baseCol.getViewerBinding() == getViewerBinding(), "Not same viewer"); //$NON-NLS-1$
 		assertTrue(feature != null, "No feature?"); //$NON-NLS-1$
-		setBaseColumn(baseColumn);
+		setBaseColumn(baseCol);
 		return model(UIBindingsEMFObservables.valueFactory(Realm.getDefault(), getEditingDomain(), feature), feature);
 	}
 
@@ -172,7 +172,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 					return Observables.constantObservableValue(target, EcorePackage.Literals.EOBJECT);
 				}
 			};
-			return model(rowElementFactory, EcorePackage.Literals.ESTRING);
+			return model(rowElementFactory, EcorePackage.Literals.EOBJECT).dynamic();
 		case ROW_NO:
 			final IObservableFactory rowNoFactory = new IObservableFactory() {
 				@Override
