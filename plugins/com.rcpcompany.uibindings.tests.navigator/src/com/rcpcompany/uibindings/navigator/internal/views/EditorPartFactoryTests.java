@@ -46,7 +46,7 @@ public class EditorPartFactoryTests {
 	 */
 	@Test
 	public void testEditorPartContext() {
-		final IEditorPartView view = myManager.openView(myGroup);
+		final IEditorPartView view = myManager.openView(myGroup, false);
 		assertNotNull(view);
 		assertTrue(GroupEditorPartFactory.hasRun);
 	}
@@ -77,6 +77,7 @@ public class EditorPartFactoryTests {
 			for (final IEditorModelType mt : myManager.getModelTypes()) {
 				if (mt.getModelType().equals(ShopItemGroup.class.getName())) {
 					assertEquals(2, mt.getEditors().size());
+					assertEquals(2, mt.getEnabledEditors().size());
 					desc = mt.getEditors().get(0);
 				}
 			}

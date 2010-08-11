@@ -44,7 +44,7 @@ public class EditorPartLifecycleTests {
 	@Test
 	public void testLifecycleViewClose() {
 		assertEquals(false, GroupEditorPartFactory.constructed);
-		final IEditorPartView view = myManager.openView(myGroup);
+		final IEditorPartView view = myManager.openView(myGroup, false);
 		assertNotNull(view);
 		assertEquals(true, GroupEditorPartFactory.constructed);
 		assertEquals(false, GroupEditorPartFactory.myText.isDisposed());
@@ -59,11 +59,11 @@ public class EditorPartLifecycleTests {
 	@Test
 	public void testLifecycleSelectionChanged() {
 		assertEquals(false, GroupEditorPartFactory.constructed);
-		final IEditorPartView view = myManager.openView(myGroup);
+		final IEditorPartView view = myManager.openView(myGroup, false);
 		assertNotNull(view);
 		assertEquals(true, GroupEditorPartFactory.constructed);
 		assertEquals(false, GroupEditorPartFactory.myText.isDisposed());
-		final IEditorPartView view2 = myManager.openView(ShopFactory.eINSTANCE.createShop());
+		final IEditorPartView view2 = myManager.openView(ShopFactory.eINSTANCE.createShop(), false);
 		assertEquals(false, GroupEditorPartFactory.constructed);
 		assertEquals(true, GroupEditorPartFactory.myText.isDisposed());
 		assertEquals(view, view2);

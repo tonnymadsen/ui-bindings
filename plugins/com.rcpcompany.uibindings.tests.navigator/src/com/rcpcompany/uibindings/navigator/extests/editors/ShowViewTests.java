@@ -42,22 +42,22 @@ public class ShowViewTests {
 
 	/**
 	 * Test that {@link IEditorPartView#isPinned()} is respected in
-	 * {@link INavigatorManager#openView(org.eclipse.emf.ecore.EObject)}.
+	 * {@link INavigatorManager#openView(org.eclipse.emf.ecore.EObject, boolean)}.
 	 */
 	@Test
 	public void reuseUnpinned() {
-		final IEditorPartView shop1View = myManager.openView(myShop1);
+		final IEditorPartView shop1View = myManager.openView(myShop1, false);
 		shop1View.setPinned(true);
-		final IEditorPartView shop2View = myManager.openView(myShop2);
+		final IEditorPartView shop2View = myManager.openView(myShop2, false);
 
 		// Re-use the view
-		assertEquals(shop1View, myManager.openView(myShop1));
+		assertEquals(shop1View, myManager.openView(myShop1, false));
 
 		shop1View.setPinned(false);
 
 		// Still re-use the existing view
-		assertEquals(shop2View, myManager.openView(myShop2));
+		assertEquals(shop2View, myManager.openView(myShop2, false));
 
-		assertEquals(shop1View, myManager.openView(myCountry));
+		assertEquals(shop1View, myManager.openView(myCountry, false));
 	}
 }
