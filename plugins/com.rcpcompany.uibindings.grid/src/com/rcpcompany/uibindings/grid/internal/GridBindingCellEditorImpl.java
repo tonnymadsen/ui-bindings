@@ -498,11 +498,12 @@ public class GridBindingCellEditorImpl extends EObjectImpl implements IGridBindi
 	}
 
 	/**
-	 * Traverse listener for the edit control
+	 * Traverse listener for the edit control.
 	 */
 	protected final TraverseListener myTabEditingListener = new TraverseListener() {
 		@Override
 		public void keyTraversed(TraverseEvent e) {
+			if (!e.doit) return;
 			switch (e.detail) {
 			case SWT.TRAVERSE_ESCAPE:
 				break;
@@ -522,7 +523,7 @@ public class GridBindingCellEditorImpl extends EObjectImpl implements IGridBindi
 	};
 
 	/**
-	 * Dispose listener for the edit control
+	 * Dispose listener for the edit control.
 	 */
 	protected final DisposeListener myDisposeListener = new DisposeListener() {
 		@Override
