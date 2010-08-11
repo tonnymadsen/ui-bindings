@@ -78,7 +78,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getModelObservable <em>Model
  * Observable</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getModelObservableValue <em>Model
- * Observable Value </em>}</li>
+ * Observable Value</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getModelObject <em>Model Object
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getModelFeature <em>Model Feature

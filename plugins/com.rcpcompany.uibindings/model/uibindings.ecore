@@ -43,11 +43,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="editCellSingleClick" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageDecorationPosition"
-        lowerBound="1" eType="#//DecorationPosition" transient="true" defaultValueLiteral="BottomLeft"/>
+        lowerBound="1" eType="#//DecorationPosition" transient="true" defaultValueLiteral="BOTTOM_LEFT"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageDecorationMinimumSeverity"
-        eType="#//BindingMessageSeverity" defaultValueLiteral="Warning"/>
+        eType="#//BindingMessageSeverity" defaultValueLiteral="WARNING"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="alternativeDecorationPosition"
-        lowerBound="1" eType="#//DecorationPosition" transient="true" defaultValueLiteral="TopLeft"/>
+        lowerBound="1" eType="#//DecorationPosition" transient="true" defaultValueLiteral="TOP_LEFT"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="autoApplySingleQuickfix"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         transient="true" defaultValueLiteral="false"/>
@@ -551,6 +551,7 @@
   <eClassifiers xsi:type="ecore:EEnum" name="SpecialBinding">
     <eLiterals name="ROW_NO"/>
     <eLiterals name="TREE_ITEM" value="1"/>
+    <eLiterals name="ROW_ELEMENT" value="2" literal="ROW_ELEMENT"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="BindingMessageSeverity">
     <eLiterals name="None" literal="NONE"/>

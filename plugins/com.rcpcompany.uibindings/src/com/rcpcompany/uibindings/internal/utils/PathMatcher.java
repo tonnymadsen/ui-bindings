@@ -39,14 +39,16 @@ public class PathMatcher implements IPathMatcher {
 	 * @param pattern the pattern of this matcher
 	 */
 	public PathMatcher(String pattern) {
+		String regexp = null;
 		if (pattern.startsWith("glob:")) {
-			pattern = translateGlob(pattern.substring("glob:".length()));
+			regexp = translateGlob(pattern.substring("glob:".length()));
 		} else if (pattern.startsWith("regex:")) {
-			pattern = pattern.substring("regex:".length());
+			regexp = pattern.substring("regex:".length());
 		} else
 			throw new IllegalArgumentException("Pattern must start with 'glob:' or 'regex:'. Was: '" + pattern + "'");
 
-		myPattern = Pattern.compile(pattern);
+		// LogUtils.debug(null, pattern + " -> " + regexp);
+		myPattern = Pattern.compile(regexp, Pattern.CASE_INSENSITIVE);
 	}
 
 	/**
@@ -88,7 +90,15 @@ public class PathMatcher implements IPathMatcher {
 		/*
 		 * "**" -> "[^/]*(/[^/]*)*"
 		 */
-		p = p.replaceAll("\\[^/]\\*\\[^/]\\*", "[^/]*(/[^/]*)*");
+		final String dss = "[^/]*(/[^/]*)*";
+		p = p.replace("[^/]*[^/]*", dss);
+
+		/*
+		 * "/**" at the end of the string -> "([^/]*(/[^/]*)*)?"
+		 */
+		if (p.endsWith("/" + dss)) {
+			p = p.substring(0, p.length() - dss.length() - 1) + "(" + dss + ")?";
+		}
 
 		/*
 		 * "{...,...}" -> "(...|...)" - not suported yet
@@ -123,7 +133,7 @@ public class PathMatcher implements IPathMatcher {
 		 * For Windows (separator == '\'), add drive letter and network drive support
 		 */
 		if (separator == '\\') {
-			p = "([a-z]:|\\\\[^\\\\]+)?" + p;
+			p = "([a-z]:|[/\\\\][^/\\\\]+)?" + p;
 		}
 
 		// LogUtils.debug(this, "translate '" + pattern + "' -> '" + p + "'");

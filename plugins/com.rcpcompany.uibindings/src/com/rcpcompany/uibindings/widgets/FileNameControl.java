@@ -20,8 +20,9 @@ import com.rcpcompany.uibindings.internal.observables.TextObservableValue;
  * @author Tonny Madsen, The RCP Company
  */
 public class FileNameControl extends BaseTextButtonWidget implements TextObservableValue.IWidgetUpdated {
-	private static Image myButtonImage = Activator.getDefault().getImageRegistry().get(
-			InternalConstants.IMG_OPEN_DIALOG);
+	private static final int UPDATE_EVENT_ID = 100;
+	private static Image myButtonImage = Activator.getDefault().getImageRegistry()
+			.get(InternalConstants.IMG_OPEN_DIALOG);
 	private boolean myExistingOnly = true;
 	private String[] myFilterExtensions = null;
 	private String[] myFilterNames = null;
@@ -36,7 +37,6 @@ public class FileNameControl extends BaseTextButtonWidget implements TextObserva
 	 */
 	public FileNameControl(Composite parent, int style) {
 		super(parent, style, myButtonImage);
-		setToolTipText("Browse");
 	}
 
 	@Override
@@ -66,7 +66,7 @@ public class FileNameControl extends BaseTextButtonWidget implements TextObserva
 		/*
 		 * Need to provoke the TextObservableValue to accept the text
 		 */
-		for (final Listener l : getListeners(100)) {
+		for (final Listener l : getListeners(UPDATE_EVENT_ID)) {
 			SafeRunner.run(new ISafeRunnable() {
 				@Override
 				public void run() throws Exception {
@@ -161,11 +161,11 @@ public class FileNameControl extends BaseTextButtonWidget implements TextObserva
 
 	@Override
 	public void addWidgetUpdatedListener(Listener listener) {
-		addListener(100, listener);
+		addListener(UPDATE_EVENT_ID, listener);
 	}
 
 	@Override
 	public void removeWidgetUpdatedListener(Listener listener) {
-		removeListener(100, listener);
+		removeListener(UPDATE_EVENT_ID, listener);
 	}
 }

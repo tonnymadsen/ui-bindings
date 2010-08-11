@@ -102,13 +102,13 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getDecoratorExtenders <em>Decorator
  * Extenders</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getModelArgumentMediators <em>Model
- * Argument Mediators </em>}</li>
+ * Argument Mediators</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getModelArgumentMediatorClasses <em>
  * Model Argument Mediator Classes</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getTextCommitStrategy <em>Text Commit
  * Strategy</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getTextCommitStrategyDelay <em>Text
- * Commit Strategy Delay </em>}</li>
+ * Commit Strategy Delay</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isEditCellAnyKey <em>Edit Cell Any Key
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isEditCellSingleClick <em>Edit Cell
@@ -120,11 +120,11 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getAlternativeDecorationPosition <em>
  * Alternative Decoration Position</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isAutoApplySingleQuickfix <em>Auto
- * Apply Single Quickfix </em>}</li>
+ * Apply Single Quickfix</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isAlternateRowColors <em>Alternate Row
  * Colors</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isValidationErrorsAreFatal <em>
- * Validation Errors Are Fatal </em>}</li>
+ * Validation Errors Are Fatal</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getValidationDelay <em>Validation Delay
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getValidationDelayWindow <em>Validation
@@ -677,7 +677,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 
 	/**
 	 * The default value of the '{@link #isRequiredVBImageDecorationShown()
-	 * <em>Required VB Image Decoration Shown</em>} ' attribute. <!-- begin-user-doc --> <!--
+	 * <em>Required VB Image Decoration Shown</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @see #isRequiredVBImageDecorationShown()
@@ -721,7 +721,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 
 	/**
 	 * The default value of the '{@link #isQuickfixVBImageDecorationShown()
-	 * <em>Quickfix VB Image Decoration Shown</em>} ' attribute. <!-- begin-user-doc --> <!--
+	 * <em>Quickfix VB Image Decoration Shown</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @see #isQuickfixVBImageDecorationShown()

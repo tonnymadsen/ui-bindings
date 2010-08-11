@@ -37,17 +37,17 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 	/**
 	 * Allowed extensions.
 	 */
-	protected String[] myFilters;
+	private String[] myFilters;
 
 	/**
 	 * Whether only existing file and directories are allowed.
 	 */
-	protected boolean myExistingOnly;
+	private boolean myExistingOnly;
 
 	/**
 	 * Whether directories or files are managed.
 	 */
-	protected boolean myDirectoryMode = false;
+	private boolean myDirectoryMode = false;
 
 	private String[] myFilterNames;
 
@@ -56,6 +56,68 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 		super.init(binding);
 
 		initForValidation(binding);
+	}
+
+	/**
+	 * Validates the specified value and returns a coresponding status.
+	 * 
+	 * @param value the {@link String} value to validate
+	 * @return the status value
+	 */
+	public IStatus validateValue(Object value) {
+		final String v = (String) value;
+		final File file = new File(v);
+		final String fv = file.getAbsolutePath();
+//		LogUtils.debug(this, "f='" + value + "' (" + fv + ")");
+
+		/*
+		 * - Check existance
+		 */
+		if (myExistingOnly) {
+			if (!file.exists()) return validationError("File does not exist");
+		}
+
+		/*
+		 * Check type (file/directory)
+		 */
+		if (myDirectoryMode && !file.isDirectory())
+			return validationError("Directory expected");
+		else if (!myDirectoryMode && !file.isFile()) return validationError("File expected");
+
+		/*
+		 * - Check extension
+		 */
+		if (myFilters != null) {
+			final String extString = Arrays.toString(myFilters);
+			// LogUtils.debug(this, "Check '" + v + "' (" + fv + ") against " + extString);
+			boolean f = false;
+			for (final String es : myFilters) {
+				for (final String e : es.split(";")) {
+					if (IPathMatcher.Factory.getPathMatcher("glob:" + e).matches(fv)) {
+						f = true;
+						break;
+					}
+				}
+				if (f) {
+					break;
+				}
+			}
+			if (!f) return validationError("File should match one of " + extString);
+		}
+
+		return Status.OK_STATUS;
+	}
+
+	/**
+	 * Returns a new error {@link IStatus} with the specified message.
+	 * 
+	 * @param m the message of the status
+	 * @return the status object
+	 */
+	private IStatus validationError(final String m) {
+//		LogUtils.debug(this, "-- " + m);
+		return UIBindingsUtils.error(IManager.Factory.getManager().isValidationErrorsAreFatal(), FILE_NAME_ERROR_CODE,
+				m);
 	}
 
 	/**
@@ -140,53 +202,7 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 		return new IValidator() {
 			@Override
 			public IStatus validate(Object value) {
-				final String v = (String) value;
-				final File file = new File(v);
-
-				/*
-				 * - Check existance
-				 */
-				if (myExistingOnly) {
-					if (!file.exists())
-						return UIBindingsUtils.error(IManager.Factory.getManager().isValidationErrorsAreFatal(),
-								FILE_NAME_ERROR_CODE, "File does not exist");
-				}
-
-				/*
-				 * Check type (file/directory)
-				 */
-				if (myDirectoryMode && !file.isDirectory())
-					return UIBindingsUtils.error(IManager.Factory.getManager().isValidationErrorsAreFatal(),
-							FILE_NAME_ERROR_CODE, "Directory expected");
-				else if (!myDirectoryMode && !file.isFile())
-					return UIBindingsUtils.error(IManager.Factory.getManager().isValidationErrorsAreFatal(),
-							FILE_NAME_ERROR_CODE, "File expected");
-
-				/*
-				 * - Check extension
-				 */
-				if (myFilters != null) {
-					final String extString = Arrays.toString(myFilters);
-					final String fv = file.getName();
-					// LogUtils.debug(this, "Check '" + v + "' (" + fv + ") against " + extString);
-					boolean f = false;
-					for (final String es : myFilters) {
-						for (final String e : es.split(";")) {
-							if (IPathMatcher.Factory.getPathMatcher("glob:" + e).matches(fv)) {
-								f = true;
-								break;
-							}
-						}
-						if (f) {
-							break;
-						}
-					}
-					if (!f)
-						return UIBindingsUtils.error(IManager.Factory.getManager().isValidationErrorsAreFatal(),
-								FILE_NAME_ERROR_CODE, "File should match one of " + extString);
-				}
-
-				return Status.OK_STATUS;
+				return validateValue(value);
 			}
 		};
 	}

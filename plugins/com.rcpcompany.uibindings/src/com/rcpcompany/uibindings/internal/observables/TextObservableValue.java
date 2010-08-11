@@ -56,7 +56,7 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 
 		/**
 		 * Removes a listener previously added with
-		 * {@link IWidgetUpdated#addWidgetUpdatedListener(Listener)}
+		 * {@link IWidgetUpdated#addWidgetUpdatedListener(Listener)}.
 		 * 
 		 * @param listener the listener to remove
 		 */
@@ -66,28 +66,28 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 	/**
 	 * The observed widget.
 	 */
-	protected final Control myControl;
+	private final Control myControl;
 
 	/**
 	 * The adapter for the widget.
 	 */
-	protected final ControlAdapter myAdapter;
+	private final ControlAdapter myAdapter;
 
 	/**
 	 * <code>true</code> while the widget is updated via {@link #setValue(Object)}. Used to prevent
 	 * reporting the changes.
 	 */
-	protected boolean updating = false;
+	private boolean updating = false;
 
 	/**
 	 * The last value reported via a change event - also used for ESCAPE.
 	 */
-	protected String myOldValue;
+	private String myOldValue;
 
 	/**
 	 * <code>true</code> if this observable will use ENTER to force the value.
 	 */
-	protected boolean myHandleENTER;
+	private final boolean myHandleENTER;
 
 	/**
 	 * The expect value of the text widget at the next modify event - if non-<code>null</code>.
@@ -103,105 +103,114 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 	 * Also see <a href="http://jira.marintek.sintef.no/jira/browse/SIMA-623">SIMA-623: Text widget
 	 * with Focus out commit strategy, seems to commit early.</a>
 	 */
-	protected String myNextModifyValue = null;
+	private String myNextModifyValue = null;
 
 	private final Listener myControlListener = new Listener() {
 		@Override
 		public void handleEvent(Event event) {
-			// LogUtils.debug(this, "Text='" + myAdapter.getText(myControl) + "'\n" +
-			// ToStringUtils.toString(event));
-			if (updating) return;
-
-			/**
-			 * Used to provoke an immediate commit of the current value if it has changed
-			 */
-			if (event == null) {
-				forceUpdateValue();
-				return;
-			}
-
-			/*
-			 * Special handling for some of the event types
-			 */
-			switch (event.type) {
-			case SWT.KeyDown:
-				/*
-				 * Handle ENTER and ESCAPE
-				 */
-				switch (event.keyCode) {
-				case SWT.CR:
-					if (myHandleENTER) {
-						forceUpdateValue();
-						/*
-						 * Cannot eat the keydown as it is also used when the binding is put into a
-						 * cell of a viewer // event.doit = false;
-						 */
-					}
-					break;
-				case SWT.ESC:
-					doSetValue(myOldValue);
-					break;
-				default:
-					break;
-				}
-				return;
-			case SWT.Verify:
-				/*
-				 * Predict the new value
-				 */
-				final String v = myAdapter.getText(myControl);
-				myNextModifyValue = v.substring(0, event.start) + event.text + v.substring(event.end);
-				return;
-			case SWT.Modify:
-				if (myNextModifyValue != null && !myAdapter.getText(myControl).equals(myNextModifyValue)) return;
-				myNextModifyValue = null;
-				break;
-			case SWT.FocusOut:
-				forceUpdateValue();
-				break;
-			case SWT.Selection:
-				forceUpdateValue();
-				break;
-			default:
-				break;
-			}
-
-			/*
-			 * Handling of the different strategies
-			 */
-			switch (myStrategy) {
-			case ON_MODIFY:
-				if (event.type != SWT.Modify) return;
-				break;
-			case ON_FOCUS_OUT:
-				// if (event.type != SWT.FocusOut)
-				// return;
-				break;
-			case ON_MODIFY_DELAY:
-				if (event.type != SWT.Modify) return;
-				break;
-			default:
-				LogUtils.error(this, "Unknown strategy " + myStrategy);
-			}
-
-			updateValue(event.type == SWT.Modify, false);
+			handleControlEvent(event);
 		}
 	};
 
 	/**
+	 * Handle all SWT events on the Text (or whatever) control.
+	 * 
+	 * @param event the event
+	 */
+	protected void handleControlEvent(Event event) {
+		// LogUtils.debug(this, "Text='" + myAdapter.getText(myControl) + "'\n" +
+		// ToStringUtils.toString(event));
+		if (updating) return;
+
+		/**
+		 * Used to provoke an immediate commit of the current value if it has changed
+		 */
+		if (event == null) {
+			forceUpdateValue();
+			return;
+		}
+
+		/*
+		 * Special handling for some of the event types
+		 */
+		switch (event.type) {
+		case SWT.KeyDown:
+			/*
+			 * Handle ENTER and ESCAPE
+			 */
+			switch (event.keyCode) {
+			case SWT.CR:
+				if (myHandleENTER) {
+					forceUpdateValue();
+					/*
+					 * Cannot eat the keydown as it is also used when the binding is put into a cell
+					 * of a viewer // event.doit = false;
+					 */
+				}
+				break;
+			case SWT.ESC:
+				doSetValue(myOldValue);
+				break;
+			default:
+				break;
+			}
+			return;
+		case SWT.Verify:
+			/*
+			 * Predict the new value
+			 */
+			final String v = myAdapter.getText(myControl);
+			myNextModifyValue = v.substring(0, event.start) + event.text + v.substring(event.end);
+			return;
+		case SWT.Modify:
+			if (myNextModifyValue != null && !myAdapter.getText(myControl).equals(myNextModifyValue)) return;
+			myNextModifyValue = null;
+			break;
+		case SWT.FocusOut:
+			forceUpdateValue();
+			break;
+		case SWT.Selection:
+			forceUpdateValue();
+			break;
+		default:
+			break;
+		}
+
+		/*
+		 * Handling of the different strategies
+		 */
+		switch (myStrategy) {
+		case ON_MODIFY:
+			if (event.type != SWT.Modify) return;
+			break;
+		case ON_FOCUS_OUT:
+			// if (event.type != SWT.FocusOut)
+			// return;
+			break;
+		case ON_MODIFY_DELAY:
+			if (event.type != SWT.Modify) return;
+			break;
+		default:
+			LogUtils.error(this, "Unknown strategy " + myStrategy);
+		}
+
+		updateValue(event.type == SWT.Modify, false);
+	}
+
+	/**
 	 * The binding context of this observable...
 	 */
-	protected IBindingContext myContext;
+	private IBindingContext myContext;
 
 	/**
 	 * The current strategy of the observable.
 	 */
-	protected TextCommitStrategy myStrategy;
+	private TextCommitStrategy myStrategy;
 
 	/**
 	 * Used to suppress the events provoked by strategy changes.
 	 */
-	protected boolean mySuppressStrategyChanges = false;
+	private boolean mySuppressStrategyChanges = false;
 
 	/**
 	 * <code>true</code> when stale has been fired.
