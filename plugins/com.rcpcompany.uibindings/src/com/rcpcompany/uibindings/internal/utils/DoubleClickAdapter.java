@@ -109,8 +109,9 @@ public class DoubleClickAdapter implements Listener, IDisposable {
 			if (pc == null) return;
 
 			/*
-			 * Execute it... If sucessful, then mark the event.
+			 * Execute it... If successful, then mark the event.
 			 */
+			if (!pc.getCommand().isHandled()) return;
 			hs.executeCommand(pc, event);
 			event.doit = false;
 		} catch (final CommandException ex) {
