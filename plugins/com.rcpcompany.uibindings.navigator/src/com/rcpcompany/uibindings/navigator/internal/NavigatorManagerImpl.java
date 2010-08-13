@@ -485,8 +485,8 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	@Override
 	public void setUseGenericEditorPartFallback(boolean newUseGenericEditorPartFallback) {
 		setUseGenericEditorPartFallbackGen(newUseGenericEditorPartFallback);
-		Activator.getDefault().getPreferenceStore()
-				.setValue(NavigatorConstants.PREF_USE_GENERIC_EDITOR_PART_FALLBACK, newUseGenericEditorPartFallback);
+		Activator.getDefault().getPreferenceStore().setValue(NavigatorConstants.PREF_USE_GENERIC_EDITOR_PART_FALLBACK,
+				newUseGenericEditorPartFallback);
 	}
 
 	/**
@@ -522,8 +522,8 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	@Override
 	public void setPinEditorByDefault(boolean newPinEditorByDefault) {
 		setPinEditorByDefaultGen(newPinEditorByDefault);
-		Activator.getDefault().getPreferenceStore()
-				.setValue(NavigatorConstants.PREF_PIN_EDITOR_BY_DEFAULT, newPinEditorByDefault);
+		Activator.getDefault().getPreferenceStore().setValue(NavigatorConstants.PREF_PIN_EDITOR_BY_DEFAULT,
+				newPinEditorByDefault);
 	}
 
 	/**
@@ -559,8 +559,8 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	@Override
 	public void setOpenMustOpenNew(boolean newOpenMustOpenNew) {
 		setOpenMustOpenNewGen(newOpenMustOpenNew);
-		Activator.getDefault().getPreferenceStore()
-				.setValue(NavigatorConstants.PREF_OPEN_MUST_OPEN_NEW, newOpenMustOpenNew);
+		Activator.getDefault().getPreferenceStore().setValue(NavigatorConstants.PREF_OPEN_MUST_OPEN_NEW,
+				newOpenMustOpenNew);
 	}
 
 	/**
@@ -761,6 +761,7 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 					 * This might change the view
 					 */
 					v.setCurrentObject(obj);
+					v.activateView();
 					return v;
 				}
 			}
@@ -771,6 +772,7 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 			for (final IEditorPartView v : views) {
 				if (!v.isPinned()) {
 					v.setCurrentObject(obj);
+					v.activateView();
 					return v;
 				}
 			}
@@ -780,11 +782,8 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 		 */
 		IViewPart view = null;
 		try {
-			view = PlatformUI
-					.getWorkbench()
-					.getActiveWorkbenchWindow()
-					.getActivePage()
-					.showView(NavigatorConstants.EDITOR_VIEW_ID, "" + myNextSecondaryId++, IWorkbenchPage.VIEW_ACTIVATE);
+			view = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView(
+					NavigatorConstants.EDITOR_VIEW_ID, "" + myNextSecondaryId++, IWorkbenchPage.VIEW_ACTIVATE);
 		} catch (final PartInitException ex) {
 			LogUtils.error(this, ex);
 			return null;

@@ -120,9 +120,9 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 	public void createPartControl(Composite parent) {
 		myViewPartParent = parent;
 
-//		final ISelectionService ss = getSite().getWorkbenchWindow().getSelectionService();
-//		ss.addPostSelectionListener(mySelectionListener);
-//		selectReveal(ss.getSelection());
+		// final ISelectionService ss = getSite().getWorkbenchWindow().getSelectionService();
+		// ss.addPostSelectionListener(mySelectionListener);
+		// selectReveal(ss.getSelection());
 
 		createToolbarContributions();
 	}
@@ -138,8 +138,8 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 	@Override
 	public void dispose() {
 		cleanEditorPart();
-//		final ISelectionService ss = getSite().getWorkbenchWindow().getSelectionService();
-//		ss.removePostSelectionListener(mySelectionListener);
+		// final ISelectionService ss = getSite().getWorkbenchWindow().getSelectionService();
+		// ss.removePostSelectionListener(mySelectionListener);
 		super.dispose();
 	}
 
@@ -150,6 +150,7 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 
 	@Override
 	public void setFocus() {
+		myViewPartParent.setFocus();
 	}
 
 	@Override
