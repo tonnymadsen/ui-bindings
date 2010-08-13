@@ -35,8 +35,8 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 public interface ITreeItemRelation extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Parent</b></em>' reference. It is bidirectional and its
-	 * opposite is '{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getChildren
-	 * <em>Children</em>}'. <!-- begin-user-doc -->
+	 * opposite is '{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getChildRelations
+	 * <em>Child Relations</em>}'. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parent</em>' reference list isn't clear, there really should be
 	 * more of a description here...
@@ -46,7 +46,7 @@ public interface ITreeItemRelation extends EObject {
 	 * @return the value of the '<em>Parent</em>' reference.
 	 * @see #setParent(ITreeItemDescriptor)
 	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getTreeItemRelation_Parent()
-	 * @see com.rcpcompany.uibindings.ITreeItemDescriptor#getChildren
+	 * @see com.rcpcompany.uibindings.ITreeItemDescriptor#getChildRelations
 	 * @generated
 	 */
 	ITreeItemDescriptor getParent();
@@ -62,7 +62,9 @@ public interface ITreeItemRelation extends EObject {
 	void setParent(ITreeItemDescriptor value);
 
 	/**
-	 * Returns the value of the '<em><b>Descriptor</b></em>' reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Descriptor</b></em>' reference. It is bidirectional and its
+	 * opposite is '{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getParentRelations
+	 * <em>Parent Relations</em>}'. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Descriptor</em>' reference isn't clear, there really should be
 	 * more of a description here...
@@ -72,6 +74,7 @@ public interface ITreeItemRelation extends EObject {
 	 * @return the value of the '<em>Descriptor</em>' reference.
 	 * @see #setDescriptor(ITreeItemDescriptor)
 	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getTreeItemRelation_Descriptor()
+	 * @see com.rcpcompany.uibindings.ITreeItemDescriptor#getParentRelations
 	 * @generated
 	 */
 	ITreeItemDescriptor getDescriptor();

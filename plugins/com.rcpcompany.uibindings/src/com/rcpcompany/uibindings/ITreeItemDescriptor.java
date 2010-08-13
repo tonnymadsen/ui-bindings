@@ -25,10 +25,17 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getId <em>Id</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getChildren <em>Children</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getChildRelations <em>Child Relations
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getCe <em>Ce</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getModelTypes <em>Model Types</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getNewWizardID <em>New Wizard ID</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getParentRelations <em>Parent Relations
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getPrimaryParent <em>Primary Parent
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.ITreeItemDescriptor#isEmptyFolderHidden <em>Empty Folder
+ * Hidden</em>}</li>
  * </ul>
  * </p>
  * 
@@ -62,22 +69,22 @@ public interface ITreeItemDescriptor extends IArgumentProvider {
 	void setId(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Children</b></em>' reference list. The list contents are of
-	 * type {@link com.rcpcompany.uibindings.ITreeItemRelation}. It is bidirectional and its
+	 * Returns the value of the '<em><b>Child Relations</b></em>' reference list. The list contents
+	 * are of type {@link com.rcpcompany.uibindings.ITreeItemRelation}. It is bidirectional and its
 	 * opposite is '{@link com.rcpcompany.uibindings.ITreeItemRelation#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Children</em>' reference list isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Child Relations</em>' reference list isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Children</em>' reference list.
-	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getTreeItemDescriptor_Children()
+	 * @return the value of the '<em>Child Relations</em>' reference list.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getTreeItemDescriptor_ChildRelations()
 	 * @see com.rcpcompany.uibindings.ITreeItemRelation#getParent
 	 * @generated
 	 */
-	EList<ITreeItemRelation> getChildren();
+	EList<ITreeItemRelation> getChildRelations();
 
 	/**
 	 * Returns the value of the '<em><b>Ce</b></em>' attribute. <!-- begin-user-doc -->
@@ -143,5 +150,75 @@ public interface ITreeItemDescriptor extends IArgumentProvider {
 	 * @generated
 	 */
 	void setNewWizardID(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Parent Relations</b></em>' reference list. The list contents
+	 * are of type {@link com.rcpcompany.uibindings.ITreeItemRelation}. It is bidirectional and its
+	 * opposite is '{@link com.rcpcompany.uibindings.ITreeItemRelation#getDescriptor
+	 * <em>Descriptor</em>}'. <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parent Relations</em>' reference list isn't clear, there really
+	 * should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Parent Relations</em>' reference list.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getTreeItemDescriptor_ParentRelations()
+	 * @see com.rcpcompany.uibindings.ITreeItemRelation#getDescriptor
+	 * @generated
+	 */
+	EList<ITreeItemRelation> getParentRelations();
+
+	/**
+	 * Returns the value of the '<em><b>Primary Parent</b></em>' reference. <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Primary Parent</em>' reference isn't clear, there really should be
+	 * more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Primary Parent</em>' reference.
+	 * @see #setPrimaryParent(ITreeItemDescriptor)
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getTreeItemDescriptor_PrimaryParent()
+	 * @generated
+	 */
+	ITreeItemDescriptor getPrimaryParent();
+
+	/**
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getPrimaryParent
+	 * <em>Primary Parent</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value the new value of the '<em>Primary Parent</em>' reference.
+	 * @see #getPrimaryParent()
+	 * @generated
+	 */
+	void setPrimaryParent(ITreeItemDescriptor value);
+
+	/**
+	 * Returns the value of the '<em><b>Empty Folder Hidden</b></em>' attribute. The default value
+	 * is <code>"false"</code>. <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Empty Folder Hidden</em>' attribute isn't clear, there really
+	 * should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Empty Folder Hidden</em>' attribute.
+	 * @see #setEmptyFolderHidden(boolean)
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getTreeItemDescriptor_EmptyFolderHidden()
+	 * @generated
+	 */
+	boolean isEmptyFolderHidden();
+
+	/**
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.ITreeItemDescriptor#isEmptyFolderHidden
+	 * <em>Empty Folder Hidden</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value the new value of the '<em>Empty Folder Hidden</em>' attribute.
+	 * @see #isEmptyFolderHidden()
+	 * @generated
+	 */
+	void setEmptyFolderHidden(boolean value);
 
 } // ITreeItemDescriptor

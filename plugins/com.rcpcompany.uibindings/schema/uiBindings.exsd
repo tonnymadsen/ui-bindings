@@ -252,7 +252,7 @@ The UI value need not be specified in which case it defaults to the &lt;code&gt;
          <attribute name="alsoPrimitive" type="boolean" use="default" value="true">
             <annotation>
                <documentation>
-                  used with the boxed Java classes - such as &lt;code&gt;java.lang.Integer&lt;/code&gt; - and specifies that the primitive type is also included.
+                  used with the boxed Java classes - such as &lt;code&gt;java.lang.Integer&lt;/code&gt; - and specifies that the primitive type is also included (e.g &lt;code&gt;int&lt;/code&gt;).
                </documentation>
             </annotation>
          </attribute>
@@ -424,6 +424,25 @@ Each item can have a number of arguments for the label binding in the form of &l
                <appinfo>
                   <meta.attribute kind="identifier" basedOn="org.eclipse.ui.newWizards/wizard/@id"/>
                </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="primaryParent" type="string">
+            <annotation>
+               <documentation>
+                  the id of a specific &lt;code&gt;treeItem&lt;/code&gt; that is the primary parent tree item for this item. This referred tree item is expected to include this item either directly or via constant container.
+&lt;p&gt;
+ If this is &lt;code&gt;null&lt;/code&gt;, then the parent is found via the &lt;code&gt;treeItemRelation&lt;/code&gt; elements - though only if exactly one parent can be found this way.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="identifier" basedOn="com.rcpcompany.uibindings.uiBindings/treeItem/@id"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="emptyFolderHidden" type="boolean" use="default" value="false">
+            <annotation>
+               <documentation>
+                  whether a folder/container should be included or hidden in the tree if it is empty.
+               </documentation>
             </annotation>
          </attribute>
       </complexType>

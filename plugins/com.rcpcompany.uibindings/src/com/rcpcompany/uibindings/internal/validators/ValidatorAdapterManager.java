@@ -54,7 +54,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	/**
 	 * The base manager...
 	 */
-	protected static final IManager theManager = IManager.Factory.getManager();
+	private static final IManager THE_MANAGER = IManager.Factory.getManager();
 
 	/**
 	 * Returns the validation adapter manager.
@@ -62,7 +62,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	 * @return the manager
 	 */
 	public static IValidatorAdapterManager getManager() {
-		IValidatorAdapterManager mng = theManager.getService(IValidatorAdapterManager.class);
+		IValidatorAdapterManager mng = THE_MANAGER.getService(IValidatorAdapterManager.class);
 		if (mng == null) {
 			mng = new ValidatorAdapterManager();
 		}
@@ -73,12 +73,12 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	 * Contructs and returns a new manager.
 	 */
 	protected ValidatorAdapterManager() {
-		theManager.registerService(this);
+		THE_MANAGER.registerService(this);
 	}
 
 	@Override
 	public void dispose() {
-		theManager.deregisterService(this);
+		THE_MANAGER.deregisterService(this);
 
 		for (final ValidationRoot root : myValidationRoots.toArray(new ValidationRoot[0])) {
 			removeRoot(root.myRoot, root.myValidationAdapter);
@@ -105,7 +105,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	/**
 	 * List of all the current validation roots.
 	 */
-	protected List<ValidationRoot> myValidationRoots = new ArrayList<ValidationRoot>();
+	private final List<ValidationRoot> myValidationRoots = new ArrayList<ValidationRoot>();
 
 	@Override
 	public void reset() {
@@ -154,7 +154,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	/**
 	 * The time when the next validation will be performed.
 	 */
-	protected long myNextValidation = System.currentTimeMillis();
+	private long myNextValidation = System.currentTimeMillis();
 
 	@Override
 	public void delayValidation() {
@@ -162,18 +162,18 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 		/*
 		 * If a new validation has just been scheduled, then ignore this change
 		 */
-		if (System.currentTimeMillis() < myNextValidation - theManager.getValidationDelay()
-				+ theManager.getValidationDelayWindow()) return;
-		myNextValidation = System.currentTimeMillis() + theManager.getValidationDelay();
+		if (System.currentTimeMillis() < myNextValidation - THE_MANAGER.getValidationDelay()
+				+ THE_MANAGER.getValidationDelayWindow()) return;
+		myNextValidation = System.currentTimeMillis() + THE_MANAGER.getValidationDelay();
 		Display.getDefault().asyncExec(new Runnable() {
 			@Override
 			public void run() {
-				Display.getDefault().timerExec(theManager.getValidationDelay(), myDelayRunnable);
+				Display.getDefault().timerExec(THE_MANAGER.getValidationDelay(), myDelayRunnable);
 			}
 		});
 	}
 
-	protected Runnable myDelayRunnable = new Runnable() {
+	private final Runnable myDelayRunnable = new Runnable() {
 		@Override
 		public void run() {
 			if (myNextValidation > System.currentTimeMillis() + 50) return;
@@ -208,10 +208,10 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 			LogUtils.debug(this, "Results:" + sb);
 		}
 		if (myChangedObjects.size() > 0) {
-			myObjects.clear();
+			myCurrentObjects.clear();
 			for (final IBindingMessage m : getUnboundMessages()) {
 				for (final IBindingMessageTarget t : m.getTargets()) {
-					myObjects.add(t.getModelObject());
+					myCurrentObjects.add(t.getModelObject());
 				}
 			}
 			for (final Object l : getListeners()) {
@@ -245,12 +245,15 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	 * <p>
 	 * This way it is easy to remove the bound messages when the unbound message is removed.
 	 */
-	protected Map<IBindingMessage, List<IBindingMessage>> myBoundMessages = new HashMap<IBindingMessage, List<IBindingMessage>>();
+	private final Map<IBindingMessage, List<IBindingMessage>> myBoundMessages = new HashMap<IBindingMessage, List<IBindingMessage>>();
 
 	/**
-	 * Mapping of value bindings to message decorators.
+	 * Added message decorators.
+	 * 
+	 * @see #addDecorator(IValidatorAdapterMessageDecorator)
+	 * @see #removeDecorator(IValidatorAdapterMessageDecorator)
 	 */
-	protected final List<IValidatorAdapterMessageDecorator> myDecorators = new ArrayList<IValidatorAdapterMessageDecorator>();
+	private final List<IValidatorAdapterMessageDecorator> myDecorators = new ArrayList<IValidatorAdapterMessageDecorator>();
 
 	/**
 	 * Adds a new message to the manager, and populates all relevant decorators.
@@ -354,7 +357,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	/**
 	 * Change listener that see the changes in unbound messages.
 	 */
-	protected IListChangeListener myFoundMessageChangeListener = new IListChangeListener() {
+	private final IListChangeListener myFoundMessageChangeListener = new IListChangeListener() {
 		@Override
 		public void handleListChange(ListChangeEvent event) {
 			event.diff.accept(myUnboundMessageChangeVisitor);
@@ -366,19 +369,24 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	 * <p>
 	 * Only used in {@link #validate()}.
 	 */
-	protected final Set<EObject> myObjects = new HashSet<EObject>();
+	private final Set<EObject> myCurrentObjects = new HashSet<EObject>();
 
 	/**
-	 * Unmodifiable version of {@link #myObjects}.
+	 * Unmodifiable version of {@link #myCurrentObjects}.
 	 */
-	protected final Set<EObject> myObjectsUnmodifiable = Collections.unmodifiableSet(myObjects);
+	protected final Set<EObject> myCurrentObjectsUnmodifiable = Collections.unmodifiableSet(myCurrentObjects);
+
+	@Override
+	public Set<EObject> getCurrentObjects() {
+		return myCurrentObjectsUnmodifiable;
+	}
 
 	/**
 	 * Set used to collect the changed objects of the last validate.
 	 * <p>
 	 * Only used in {@link #validate()}.
 	 */
-	protected final Set<EObject> myChangedObjects = new HashSet<EObject>();
+	private final Set<EObject> myChangedObjects = new HashSet<EObject>();
 
 	/**
 	 * Unmodifiable version of {@link #myChangedObjects}.
@@ -415,7 +423,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	protected IValidationAdapterManagerChangeEvent myChangeEvent = new IValidationAdapterManagerChangeEvent() {
 		@Override
 		public Set<EObject> getCurrentObjects() {
-			return myObjectsUnmodifiable;
+			return myCurrentObjectsUnmodifiable;
 		}
 
 		@Override

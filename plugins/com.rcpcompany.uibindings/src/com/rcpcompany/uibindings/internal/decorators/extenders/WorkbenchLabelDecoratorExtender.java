@@ -1,5 +1,6 @@
 package com.rcpcompany.uibindings.internal.decorators.extenders;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.DecorationContext;
 import org.eclipse.jface.viewers.IColorDecorator;
 import org.eclipse.jface.viewers.IDecorationContext;
@@ -27,9 +28,10 @@ import com.rcpcompany.uibindings.decorators.extenders.AbstractUIBindingDecorator
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class LabelDecoratorExtender extends AbstractUIBindingDecoratorExtender implements ILabelProviderListener {
+public class WorkbenchLabelDecoratorExtender extends AbstractUIBindingDecoratorExtender implements
+		ILabelProviderListener {
 
-	public LabelDecoratorExtender() {
+	public WorkbenchLabelDecoratorExtender() {
 		theWorkbenchDecorator.addListener(this);
 	}
 
@@ -46,7 +48,8 @@ public class LabelDecoratorExtender extends AbstractUIBindingDecoratorExtender i
 
 	@Override
 	public void extend(IUIBindingDecoratorExtenderContext context) {
-		final Object element = context.getDecoratedValue().getValue();
+		final EObject element = context.getBinding().getModelObject();
+//		final Object element = context.getDecoratedValue().getValue();
 
 		// Text
 

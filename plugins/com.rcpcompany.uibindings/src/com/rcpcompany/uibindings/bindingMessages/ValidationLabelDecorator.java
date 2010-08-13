@@ -64,7 +64,13 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 	 * @author Tonny Madsen, The RCP Company
 	 */
 	public interface IPropagationAdapter {
-		public Object getParent(Object object);
+		/**
+		 * Returns the parent object of the specified child.
+		 * 
+		 * @param object the child object
+		 * @return the parent of the child or <code>null</code> for root elements
+		 */
+		Object getParent(Object object);
 	}
 
 	/**
@@ -73,9 +79,9 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 	 */
 	public static final String PROPAGATE = "propagate"; //$NON-NLS-1$
 	/**
-	 * The propagation adapter used to find the parent
+	 * The propagation adapter used to find the parent.
 	 */
-	protected IPropagationAdapter myPropagationAdapter = null;
+	private IPropagationAdapter myPropagationAdapter = null;
 
 	/**
 	 * Returns the current propagation adapter.
@@ -98,8 +104,11 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 	/**
 	 * The validation manager...
 	 */
-	protected final IValidatorAdapterManager myValidatorManager = IValidatorAdapterManager.Factory.getManager();
+	private final IValidatorAdapterManager myValidatorManager = IValidatorAdapterManager.Factory.getManager();
 
+	/**
+	 * Constructs and returns a new decorator.
+	 */
 	public ValidationLabelDecorator() {
 		myValidatorManager.addValidationAdapterManagerChangeListener(myVAMListener);
 	}
@@ -112,7 +121,7 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 	/**
 	 * The current severities for the affected objects. Calculated in
 	 */
-	protected Map<Object, Integer> myObjectSeverities = new HashMap<Object, Integer>();
+	private final Map<Object, Integer> myObjectSeverities = new HashMap<Object, Integer>();
 
 	/**
 	 * Returns the max severity for the specified element.
@@ -147,16 +156,18 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 		case IMessageProvider.ERROR:
 			decoration.addOverlay(ERROR_IMAGE);
 			break;
+		default:
+			break;
 		}
 	}
 
 	/**
-	 * Image used to indicate that the object has an error
+	 * Image used to indicate that the object has an error.
 	 */
 	public static final ImageDescriptor ERROR_IMAGE = ImageDescriptor.createFromImage(FieldDecorationRegistry
 			.getDefault().getFieldDecoration(FieldDecorationRegistry.DEC_ERROR).getImage());
 	/**
-	 * Image used to indicate that the object has a warning
+	 * Image used to indicate that the object has a warning.
 	 */
 	public static final ImageDescriptor WARNING_IMAGE = ImageDescriptor.createFromImage(FieldDecorationRegistry
 			.getDefault().getFieldDecoration(FieldDecorationRegistry.DEC_WARNING).getImage());
@@ -167,11 +178,23 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 	 * @see #addListener(ILabelProviderListener)
 	 * @see #removeListener(ILabelProviderListener)
 	 */
-	protected final ArrayList<ILabelProviderListener> myListeners = new ArrayList<ILabelProviderListener>();
+	private final ArrayList<ILabelProviderListener> myListeners = new ArrayList<ILabelProviderListener>();
+
+	/**
+	 * Whether this decorator has been fully initialized.
+	 */
+	private boolean inited;
 
 	@Override
 	public void addListener(ILabelProviderListener listener) {
-		myListeners.add(listener);
+		if (!myListeners.contains(listener)) {
+			myListeners.add(listener);
+		}
+
+		if (!inited) {
+			inited = true;
+			calculateSeverities();
+		}
 	}
 
 	@Override
@@ -182,7 +205,7 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 	private final IValidationAdapterManagerChangeListener myVAMListener = new IValidationAdapterManagerChangeListener() {
 		@Override
 		public void affectedObjectsChanged(IValidationAdapterManagerChangeEvent event) {
-			calculateSeverities(event);
+			calculateSeverities();
 		}
 	};
 
@@ -193,14 +216,11 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 
 	/**
 	 * Calculates the severities for all the affected objects covered by this decorator.
-	 * 
-	 * @param vamEvent a description of the current state
 	 */
-	protected void calculateSeverities(IValidationAdapterManagerChangeEvent vamEvent) {
-
+	protected void calculateSeverities() {
 		// Calculate the new severities for all objects with a message
 		final Map<Object, Integer> newSeverities = new HashMap<Object, Integer>();
-		for (final EObject o : vamEvent.getCurrentObjects()) {
+		for (final EObject o : myValidatorManager.getCurrentObjects()) {
 			final int severity = myValidatorManager.getObjectSeverity(o);
 			if (severity == IMessageProvider.NONE) {
 				continue;
@@ -215,6 +235,9 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 			final Object o = e.getKey();
 			if (myObjectSeverities.get(o) == e.getValue()) {
 				continue;
+			}
+			if (Activator.getDefault().TRACE_LABEL_DECORATOR) {
+				LogUtils.debug(this, hashCode() + ": " + o + ": NEW severity: " + e.getValue()); //$NON-NLS-1$ //$NON-NLS-2$
 			}
 			myObjectSeverities.put(o, e.getValue());
 			changedObjects.add(o);
@@ -250,7 +273,7 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 	 * <p>
 	 * Used to avoid creating too many Integer objects in {@link #updateSeverity(Map, Object, int)}.
 	 */
-	private static final Integer[] severityObjects = { IMessageProvider.NONE, IMessageProvider.INFORMATION,
+	private static final Integer[] SEVERITY_OBJECTS = { IMessageProvider.NONE, IMessageProvider.INFORMATION,
 			IMessageProvider.WARNING, IMessageProvider.ERROR };
 
 	/**
@@ -282,7 +305,7 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 		if (Activator.getDefault().TRACE_LABEL_DECORATOR) {
 			LogUtils.debug(this, hashCode() + ": update " + severity + ": " + o); //$NON-NLS-1$ //$NON-NLS-2$
 		}
-		map.put(o, severityObjects[severity]);
+		map.put(o, SEVERITY_OBJECTS[severity]);
 
 		if (myPropagationAdapter == null) return;
 		final Object parent = myPropagationAdapter.getParent(o);

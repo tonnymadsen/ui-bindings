@@ -8,7 +8,7 @@ package com.rcpcompany.uibindings.validators;
  */
 public interface IValidationAdapterManagerChangeListener {
 	/**
-	 * Signals that the state of the {@link IValidatorAdapterManager} has changed. specified objects
+	 * Signals that the state of the {@link IValidatorAdapterManager} has changed. Specific objects
 	 * have either gotten additional messages, changed messages or "lost" messages.
 	 * 
 	 * @param event a description of the current state

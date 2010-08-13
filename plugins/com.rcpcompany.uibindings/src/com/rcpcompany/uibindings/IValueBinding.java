@@ -319,7 +319,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>Model Object</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * The is normally the object that contains the feature that is showned in the binding.
+	 * The is normally the object that contains the feature that is shown in the binding.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

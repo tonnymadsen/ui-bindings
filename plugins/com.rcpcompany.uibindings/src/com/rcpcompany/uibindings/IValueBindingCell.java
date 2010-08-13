@@ -20,14 +20,14 @@ public interface IValueBindingCell {
 	 * 
 	 * @return the Control that contains the cell - e.g. a table or grid
 	 */
-	public Control setFocus();
+	Control setFocus();
 
 	/**
 	 * Returns a string that is suitable as a message prefix for any messages of the binding.
 	 * 
 	 * @return the proposed prefix or <code>null</code> if no string can be found
 	 */
-	public String getMessagePrefix();
+	String getMessagePrefix();
 
 	/**
 	 * Returns the {@link IObservableValue} for the object value of the cell.
@@ -37,7 +37,7 @@ public interface IValueBindingCell {
 	 * 
 	 * @return the observable value
 	 */
-	public IObservableValue getObjectValue();
+	IObservableValue getObjectValue();
 
 	/**
 	 * Returns the {@link IValueBinding value binding} for the cell.
@@ -46,12 +46,12 @@ public interface IValueBindingCell {
 	 * 
 	 * @return the label binding
 	 */
-	public IValueBinding getLabelBinding();
+	IValueBinding getLabelBinding();
 
 	/**
 	 * Returns the column of the cell, in case the cell belongs to an {@link IViewerBinding}.
 	 * 
 	 * @return the column or <code>null</code>
 	 */
-	public IColumnBinding getColumnBinding();
+	IColumnBinding getColumnBinding();
 }

@@ -1,36 +1,55 @@
 package com.rcpcompany.uibindings.internal;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.core.databinding.observable.IObservable;
+import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.masterdetail.IObservableFactory;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.databinding.viewers.ObservableListTreeContentProvider;
+import org.eclipse.jface.databinding.viewers.TreeStructureAdvisor;
 import org.eclipse.swt.widgets.Tree;
 
 import com.rcpcompany.uibindings.IConstantTreeItem;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.ITreeItemDescriptor;
+import com.rcpcompany.uibindings.ITreeItemRelation;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.utils.basic.ClassUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tree factory for use in a {@link IViewerBinding viewer binding} when used with a {@link Tree}.
+ * <p>
+ * Note that this list also acts as a {@link TreeStructureAdvisor} - see
+ * {@link ObservableListTreeContentProvider} for details.
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class ViewerBindingTreeFactory implements IObservableFactory {
+public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IObservableFactory {
 	/**
 	 * Shortcut to the manager...
 	 */
-	protected static final IManager manager = IManager.Factory.getManager();
-	private final IViewerBinding myViewer;
+	protected static final IManager MANAGER = IManager.Factory.getManager();
 
 	/**
-	 * Constructs and returns a new tree factory for the specified viewer
+	 * Map with all results returned by this factory.
+	 */
+	private final Map<Object, IObservableList> myResults = new HashMap<Object, IObservableList>();
+
+	/**
+	 * The root elements of the tree
+	 */
+	private final IObservableList myRootList;
+
+	/**
+	 * Constructs and returns a new tree factory for the specified viewer.
 	 * 
 	 * @param viewer the viewer with the tree
 	 */
-	public ViewerBindingTreeFactory(IViewerBinding viewer) {
-		myViewer = viewer;
+	public ViewerBindingTreeFactory(IObservableList rootList) {
+		myRootList = rootList;
 	}
 
 	@Override
@@ -41,7 +60,13 @@ public class ViewerBindingTreeFactory implements IObservableFactory {
 		/*
 		 * The root items
 		 */
-		if (target == myViewer.getList()) return myViewer.getList();
+		if (target == myRootList) return myRootList;
+
+		/*
+		 * Look for any cached results
+		 */
+		final IObservableList list = myResults.get(target);
+		if (list != null) return list;
 
 		final EObject etarget;
 		final ITreeItemDescriptor descriptor;
@@ -55,7 +80,7 @@ public class ViewerBindingTreeFactory implements IObservableFactory {
 			descriptor = item.getDescriptor();
 		} else if (target instanceof EObject) {
 			etarget = (EObject) target;
-			descriptor = manager.getTreeItem(etarget);
+			descriptor = MANAGER.getTreeItem(etarget);
 		} else {
 			LogUtils.error(this,
 					"Target is not an EObject, but an " + ClassUtils.getLastClassName(target) + ": " + target); //$NON-NLS-1$
@@ -65,20 +90,90 @@ public class ViewerBindingTreeFactory implements IObservableFactory {
 		/*
 		 * If we don´t have a descriptor, then we don't have any children!
 		 */
-		if (descriptor == null) {
-			if (Activator.getDefault().TRACE_TREE) {
-				// LogUtils.debug(this,
-				//						"Cannot find the descriptor for " + ClassUtils.getLastClassName(target) + ": " + target); //$NON-NLS-1$
-			}
+		if (descriptor == null) // if (Activator.getDefault().TRACE_TREE) {
+			// LogUtils.debug(this,
+			//						"Cannot find the descriptor for " + ClassUtils.getLastClassName(target) + ": " + target); //$NON-NLS-1$
+			// }
 			return null;
-		}
 
-		final ViewerBindingTreeFactoryList l = new ViewerBindingTreeFactoryList();
+		final ViewerBindingTreeFactoryList l = new ViewerBindingTreeFactoryList(this);
 		l.addChildren(etarget, descriptor);
 		if (Activator.getDefault().TRACE_TREE) {
 			LogUtils.debug(this, "--> " + l); //$NON-NLS-1$
 		}
 
+		myResults.put(target, l);
 		return l;
 	}
+
+	@Override
+	public Boolean hasChildren(Object element) {
+		final IObservableList list = (IObservableList) createObservable(element);
+		if (list == null) return false;
+		return !list.isEmpty();
+	}
+
+	@Override
+	public Object getParent(Object child) {
+		/*
+		 * The root elements from the tree
+		 */
+		if (child == myRootList) return null;
+
+		final EObject echild;
+		final ITreeItemDescriptor childDescriptor;
+
+		/*
+		 * Find the target and the descriptor for the child
+		 */
+		if (child instanceof IConstantTreeItem) {
+			final IConstantTreeItem item = (IConstantTreeItem) child;
+			echild = item.getTarget();
+			childDescriptor = item.getDescriptor();
+		} else if (child instanceof EObject) {
+			echild = (EObject) child;
+			childDescriptor = MANAGER.getTreeItem(echild);
+		} else {
+			LogUtils.error(this, "Child is not an EObject, but an " + ClassUtils.getLastClassName(child) + ": " + child); //$NON-NLS-1$
+			return null;
+		}
+
+		/*
+		 * Look at the parents TODO
+		 */
+		final ITreeItemDescriptor parentDesc = childDescriptor.getPrimaryParent();
+		EObject parent = null;
+		if (parentDesc != null) {
+			parent = findParent(echild, childDescriptor, parentDesc, null);
+			if (parent != null) return parent;
+
+			LogUtils.error(parentDesc, "Parent Descriptor is not a parent of " + echild);
+		}
+
+		for (final ITreeItemRelation parentRel : childDescriptor.getParentRelations()) {
+			parent = findParent(echild, childDescriptor, parentRel.getParent(), parentRel);
+			if (parent != null) return parent;
+		}
+
+		return null;
+	}
+
+	/**
+	 * Tests whether the specified parent descriptor can be an immediate parent of the specified
+	 * child.
+	 * 
+	 * @param echild the child object
+	 * @param childDescriptor the child descriptor
+	 * @param parentDesc the parent descriptor to test
+	 * @param parentRelation possible parent relation to test
+	 * @return the parent object of found; otherwise <code>null</code>
+	 */
+	private EObject findParent(EObject echild, ITreeItemDescriptor childDescriptor, ITreeItemDescriptor parentDesc,
+			ITreeItemRelation parentRelation) {
+		for (final ITreeItemRelation relation : parentDesc.getChildRelations()) {
+
+		}
+		return null;
+	}
+
 }

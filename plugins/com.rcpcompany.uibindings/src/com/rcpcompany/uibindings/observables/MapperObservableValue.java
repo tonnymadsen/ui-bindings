@@ -1,6 +1,7 @@
 package com.rcpcompany.uibindings.observables;
 
 import org.eclipse.core.databinding.observable.Diffs;
+import org.eclipse.core.databinding.observable.IObserving;
 import org.eclipse.core.databinding.observable.value.AbstractObservableValue;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.IValueChangeListener;
@@ -12,11 +13,11 @@ import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.UIBindingsUtils.IClassIdentiferMapper;
 
 /**
- * Observable value that returns a value based on a mapper.
+ * Observable value that returns a value based on a mapper functor (function object).
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class MapperObservableValue extends AbstractObservableValue {
+public class MapperObservableValue extends AbstractObservableValue implements IObserving {
 
 	private final IValueChangeListener listener = new IValueChangeListener() {
 		@Override
@@ -116,5 +117,10 @@ public class MapperObservableValue extends AbstractObservableValue {
 	@Override
 	public Object getValueType() {
 		return myCurrentOV.getValueType();
+	}
+
+	@Override
+	public Object getObserved() {
+		return myBaseObject.getValue();
 	}
 }

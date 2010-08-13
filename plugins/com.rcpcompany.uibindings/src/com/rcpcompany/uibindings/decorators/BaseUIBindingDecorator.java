@@ -723,7 +723,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		}
 
 		/**
-		 * Returns the UI attribute of this binding
+		 * Returns the UI attribute of this binding.
 		 * 
 		 * @return the attribute
 		 */

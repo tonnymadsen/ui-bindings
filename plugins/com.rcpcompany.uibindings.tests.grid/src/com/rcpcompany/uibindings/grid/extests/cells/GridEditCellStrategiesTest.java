@@ -44,7 +44,17 @@ import com.rcpcompany.uibindings.grid.extests.models.TestGridGridModel;
 public class GridEditCellStrategiesTest {
 	@Parameters
 	public static Collection<Object[]> data() {
-		return Arrays.asList(new Object[][] { { false, false }, { false, true }, { true, false }, { true, true } });
+		return Arrays.asList(new Object[][] {
+
+		{ false, false },
+
+		{ false, true },
+
+		{ true, false },
+
+		{ true, true }
+
+		});
 	}
 
 	private final boolean myEditCellAnyKey;
@@ -115,7 +125,7 @@ public class GridEditCellStrategiesTest {
 	}
 
 	/**
-	 * Tests double click: always activate edit
+	 * Tests double click: always activate edit.
 	 */
 	@Test
 	public void testDoubleClick() {
@@ -128,7 +138,7 @@ public class GridEditCellStrategiesTest {
 	}
 
 	/**
-	 * Tests single click: only edit if preference is set
+	 * Tests single click: only edit if preference is set.
 	 */
 	@Test
 	public void testSingleClick() {
@@ -141,20 +151,22 @@ public class GridEditCellStrategiesTest {
 	}
 
 	/**
-	 * Tests any key: only edit if preference is set
+	 * Tests any key: only edit if preference is set.
 	 */
 	@Test
 	public void testAnyKey() {
-		testEditStrategy(myEditCellAnyKey, "a", new Runnable() {
+		testEditStrategy(myEditCellAnyKey, "ba", new Runnable() {
 			@Override
 			public void run() {
 				postKeyStroke(myGrid, "a");
+				postKeyStroke(myGrid, "ARROW_LEFT");
+				postKeyStroke(myGrid, "b");
 			}
 		});
 	}
 
 	/**
-	 * Tests double click: always activate edit
+	 * Tests double click: always activate edit.
 	 */
 	@Test
 	public void testDoubleClickTraversal() {
@@ -170,7 +182,7 @@ public class GridEditCellStrategiesTest {
 	}
 
 	/**
-	 * Tests single click: only edit if preference is set
+	 * Tests single click: only edit if preference is set.
 	 */
 	@Test
 	public void testSingleClickTraversal() {
@@ -186,7 +198,7 @@ public class GridEditCellStrategiesTest {
 	}
 
 	/**
-	 * Tests any key: only edit if preference is set
+	 * Tests any key: only edit if preference is set.
 	 */
 	@Test
 	public void testAnyKeyTraversal() {
@@ -237,7 +249,7 @@ public class GridEditCellStrategiesTest {
 	}
 
 	/**
-	 * Tests that the specified runnable can get the table into edit mode (or not)
+	 * Tests that the specified runnable can get the table into edit mode (or not).
 	 * 
 	 * @param editExpected whether edit mode is expected
 	 * @param expectedValue the value expected in the edit box

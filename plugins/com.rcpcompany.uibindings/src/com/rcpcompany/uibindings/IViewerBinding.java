@@ -11,11 +11,14 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.viewers.ColumnViewer;
+import org.eclipse.jface.viewers.ILabelDecorator;
 import org.eclipse.jface.viewers.ViewerColumn;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
+
+import com.rcpcompany.uibindings.bindingMessages.ValidationLabelDecorator;
 
 /**
  * <!-- begin-user-doc -->
@@ -110,7 +113,7 @@ public interface IViewerBinding extends IBinding {
 	 * @return <code>this</code>
 	 */
 	@Override
-	public IViewerBinding type(String type);
+	IViewerBinding type(String type);
 
 	/**
 	 * Sets an argument for the binding. Some arguments are deduced from the EMF binding.
@@ -121,7 +124,7 @@ public interface IViewerBinding extends IBinding {
 	 * @return <code>this</code>
 	 */
 	@Override
-	public IViewerBinding arg(String name, Object value);
+	IViewerBinding arg(String name, Object value);
 
 	/**
 	 * Sets a complete set of arguments for the binding.
@@ -130,7 +133,7 @@ public interface IViewerBinding extends IBinding {
 	 * @return <code>this</code>
 	 */
 	@Override
-	public IViewerBinding args(Map<String, Object> arguments);
+	IViewerBinding args(Map<String, Object> arguments);
 
 	/**
 	 * Sets a complete set of aerguments for the binding.
@@ -139,7 +142,7 @@ public interface IViewerBinding extends IBinding {
 	 * @return <code>this</code>
 	 */
 	@Override
-	public IViewerBinding args(EMap<String, Object> arguments);
+	IViewerBinding args(EMap<String, Object> arguments);
 
 	/**
 	 * Short for <code>arg(IBinding.ARG_READONLY, true)</code>.
@@ -147,7 +150,7 @@ public interface IViewerBinding extends IBinding {
 	 * @return <code>this</code>
 	 */
 	@Override
-	public IViewerBinding readonly();
+	IViewerBinding readonly();
 
 	/**
 	 * Short for <code>getId(id)</code>.
@@ -156,26 +159,14 @@ public interface IViewerBinding extends IBinding {
 	 * @return <code>this</code>
 	 */
 	@Override
-	public IViewerBinding id(String id);
+	IViewerBinding id(String id);
 
 	/**
 	 * Constructs and returns a new column binding to this viewer.
 	 * 
 	 * @return the new column binding
 	 */
-	public IColumnBinding addColumn();
-
-	/**
-	 * Constructs and returns a new column binding to this viewer.
-	 * <p>
-	 * Shortcut for <code>addColumn().column(column).emf(feature)</code>.
-	 * 
-	 * @param column the widget to bind
-	 * @param feature the feature of the column
-	 * 
-	 * @return the new column binding
-	 */
-	public IColumnBinding addColumn(ViewerColumn column, EStructuralFeature feature);
+	IColumnBinding addColumn();
 
 	/**
 	 * Constructs and returns a new column binding to this viewer.
@@ -187,7 +178,7 @@ public interface IViewerBinding extends IBinding {
 	 * 
 	 * @return the new column binding
 	 */
-	public IColumnBinding addColumn(TableColumn column, EStructuralFeature feature);
+	IColumnBinding addColumn(ViewerColumn column, EStructuralFeature feature);
 
 	/**
 	 * Constructs and returns a new column binding to this viewer.
@@ -199,7 +190,19 @@ public interface IViewerBinding extends IBinding {
 	 * 
 	 * @return the new column binding
 	 */
-	public IColumnBinding addColumn(TreeColumn column, EStructuralFeature feature);
+	IColumnBinding addColumn(TableColumn column, EStructuralFeature feature);
+
+	/**
+	 * Constructs and returns a new column binding to this viewer.
+	 * <p>
+	 * Shortcut for <code>addColumn().column(column).emf(feature)</code>.
+	 * 
+	 * @param column the widget to bind
+	 * @param feature the feature of the column
+	 * 
+	 * @return the new column binding
+	 */
+	IColumnBinding addColumn(TreeColumn column, EStructuralFeature feature);
 
 	/**
 	 * Returns the value of the '<em><b>Columns</b></em>' reference list. The list contents are of
@@ -319,11 +322,19 @@ public interface IViewerBinding extends IBinding {
 	void setFocus(EObject element, int column);
 
 	/**
-	 * Returns the cell for the specified column and element
+	 * Returns the cell for the specified column and element.
 	 * 
 	 * @param columnNo the column number
 	 * @param element the element
 	 * @return the cell
 	 */
 	IColumnBindingCellInformation getCell(int columnNo, Object element);
+
+	/**
+	 * Returns an {@link ILabelDecorator} (possibly <code>null</code>) for use in the viewer. The
+	 * decorator decorates with the current validation state.
+	 * 
+	 * @return the label decorator
+	 */
+	ValidationLabelDecorator getValidationLabelDecorator();
 } // IViewerBinding

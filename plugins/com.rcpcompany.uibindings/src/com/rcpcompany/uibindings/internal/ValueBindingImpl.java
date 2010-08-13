@@ -138,7 +138,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		return super.getDataType();
 	}
 
-	protected IChangeListener myTypeListener = new IChangeListener() {
+	private final IChangeListener myTypeListener = new IChangeListener() {
 		@Override
 		public void handleChange(ChangeEvent event) {
 			decorateIfNeeded();
@@ -223,9 +223,9 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	}
 
 	/**
-	 * The generic "simple" {@link Control} factory
+	 * The generic "simple" {@link Control} factory.
 	 */
-	protected static final IControlFactory theSimpleControlFactory = new IControlFactory() {
+	private static final IControlFactory theSimpleControlFactory = new IControlFactory() {
 		@Override
 		public Control create(IControlFactoryContext context) {
 			int style = context.getStyle();
@@ -611,7 +611,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	protected static final IObservableValue MODEL_OBSERVABLE_VALUE_EDEFAULT = null;
 
 	/**
-	 * <code>true</code> if {@link #modelObservable} should be disposed by {@link #dispose()}
+	 * <code>true</code> if {@link #modelObservable} should be disposed by {@link #dispose()}.
 	 */
 	private boolean myModelObservableDispose = true;
 

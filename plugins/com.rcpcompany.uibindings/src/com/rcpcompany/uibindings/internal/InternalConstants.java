@@ -16,7 +16,6 @@ import com.rcpcompany.uibindings.widgets.FileNameControl;
  * @author Tonny Madsen, The RCP Company
  */
 public interface InternalConstants {
-
 	/**
 	 * The widget data key used for all widgets to mark their association with a specific binding.
 	 * 
@@ -50,6 +49,7 @@ public interface InternalConstants {
 	String PRIORITY_TAG = "priority"; //$NON-NLS-1$
 	String JAVA_DECORATOR_TAG = "javaDecorator"; //$NON-NLS-1$
 	String PARENT_TAG = "parent"; //$NON-NLS-1$
+	String PRIMARY_PARENT_TAG = "primaryParent"; //$NON-NLS-1$
 	String TREE_ITEM_RELATION_TAG = "treeItemRelation"; //$NON-NLS-1$
 	String TREE_ITEM_TAG = "treeItem"; //$NON-NLS-1$
 	String NAME_TAG = "name"; //$NON-NLS-1$
@@ -72,29 +72,30 @@ public interface InternalConstants {
 	String MAPPING_TAG = "mapping"; //$NON-NLS-1$
 	String ALSO_PRIMITIVE_TAG = "alsoPrimitive"; //$NON-NLS-1$
 	String MODEL_ARGUMENT_MEDIATOR_TAG = "modelArgumentMediator"; //$NON-NLS-1$
+	String EMPTY_FOLDER_HIDDEN_TAG = "emptyFolderHidden"; //$NON-NLS-1$
 
 	/**
-	 * Cell Editor Type: Text
+	 * Cell Editor Type: Text.
 	 */
 	String CELL_EDITOR_TYPE_TEXT = Text.class.getName();
 
 	/**
-	 * Cell Editor Type: StyledText
+	 * Cell Editor Type: StyledText.
 	 */
 	String CELL_EDITOR_TYPE_STYLED_TEXT = StyledText.class.getName();
 
 	/**
-	 * Cell Editor Type: Button (really checkbox)
+	 * Cell Editor Type: Button (really checkbox).
 	 */
 	String CELL_EDITOR_TYPE_BUTTON = Button.class.getName();
 
 	/**
-	 * Cell Editor Type: Combo
+	 * Cell Editor Type: Combo.
 	 */
 	String CELL_EDITOR_TYPE_COMBO = Combo.class.getName();
 
 	/**
-	 * Cell Editor Type: CCombo
+	 * Cell Editor Type: CCombo.
 	 */
 	String CELL_EDITOR_TYPE_CCOMBO = CCombo.class.getName();
 

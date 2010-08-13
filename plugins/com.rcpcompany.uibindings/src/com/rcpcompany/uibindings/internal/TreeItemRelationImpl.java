@@ -169,11 +169,11 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 			NotificationChain msgs = null;
 			if (parent != null) {
 				msgs = ((InternalEObject) parent).eInverseRemove(this,
-						IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CHILDREN, ITreeItemDescriptor.class, msgs);
+						IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CHILD_RELATIONS, ITreeItemDescriptor.class, msgs);
 			}
 			if (newParent != null) {
 				msgs = ((InternalEObject) newParent).eInverseAdd(this,
-						IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CHILDREN, ITreeItemDescriptor.class, msgs);
+						IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CHILD_RELATIONS, ITreeItemDescriptor.class, msgs);
 			}
 			msgs = basicSetParent(newParent, msgs);
 			if (msgs != null) {
@@ -200,13 +200,45 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 	 * 
 	 * @generated
 	 */
-	@Override
-	public void setDescriptor(ITreeItemDescriptor newDescriptor) {
+	public NotificationChain basicSetDescriptor(ITreeItemDescriptor newDescriptor, NotificationChain msgs) {
 		final ITreeItemDescriptor oldDescriptor = descriptor;
 		descriptor = newDescriptor;
 		if (eNotificationRequired()) {
+			final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					IUIBindingsPackage.TREE_ITEM_RELATION__DESCRIPTOR, oldDescriptor, newDescriptor);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setDescriptor(ITreeItemDescriptor newDescriptor) {
+		if (newDescriptor != descriptor) {
+			NotificationChain msgs = null;
+			if (descriptor != null) {
+				msgs = ((InternalEObject) descriptor).eInverseRemove(this,
+						IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__PARENT_RELATIONS, ITreeItemDescriptor.class, msgs);
+			}
+			if (newDescriptor != null) {
+				msgs = ((InternalEObject) newDescriptor).eInverseAdd(this,
+						IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__PARENT_RELATIONS, ITreeItemDescriptor.class, msgs);
+			}
+			msgs = basicSetDescriptor(newDescriptor, msgs);
+			if (msgs != null) {
+				msgs.dispatch();
+			}
+		} else if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, IUIBindingsPackage.TREE_ITEM_RELATION__DESCRIPTOR,
-					oldDescriptor, descriptor));
+					newDescriptor, newDescriptor));
 		}
 	}
 
@@ -297,9 +329,15 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 		case IUIBindingsPackage.TREE_ITEM_RELATION__PARENT:
 			if (parent != null) {
 				msgs = ((InternalEObject) parent).eInverseRemove(this,
-						IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CHILDREN, ITreeItemDescriptor.class, msgs);
+						IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CHILD_RELATIONS, ITreeItemDescriptor.class, msgs);
 			}
 			return basicSetParent((ITreeItemDescriptor) otherEnd, msgs);
+		case IUIBindingsPackage.TREE_ITEM_RELATION__DESCRIPTOR:
+			if (descriptor != null) {
+				msgs = ((InternalEObject) descriptor).eInverseRemove(this,
+						IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__PARENT_RELATIONS, ITreeItemDescriptor.class, msgs);
+			}
+			return basicSetDescriptor((ITreeItemDescriptor) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -314,6 +352,8 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 		switch (featureID) {
 		case IUIBindingsPackage.TREE_ITEM_RELATION__PARENT:
 			return basicSetParent(null, msgs);
+		case IUIBindingsPackage.TREE_ITEM_RELATION__DESCRIPTOR:
+			return basicSetDescriptor(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}

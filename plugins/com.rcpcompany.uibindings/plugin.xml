@@ -887,8 +887,12 @@
             priority="100">
       </decoratorExtender>
       <decoratorExtender
-            class="com.rcpcompany.uibindings.internal.decorators.extenders.LabelDecoratorExtender"
+            class="com.rcpcompany.uibindings.internal.decorators.extenders.WorkbenchLabelDecoratorExtender"
             priority="10000">
+      </decoratorExtender>
+      <decoratorExtender
+            class="com.rcpcompany.uibindings.internal.decorators.extenders.ViewerSpecificLabelDecoratorExtender"
+            priority="10001">
       </decoratorExtender>
    </extension>
    <extension

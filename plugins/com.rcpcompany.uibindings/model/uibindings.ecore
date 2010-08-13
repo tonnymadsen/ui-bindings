@@ -650,9 +650,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TreeItemRelation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//TreeItemDescriptor"
-        transient="true" resolveProxies="false" eOpposite="#//TreeItemDescriptor/children"/>
+        transient="true" resolveProxies="false" eOpposite="#//TreeItemDescriptor/childRelations"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="descriptor" eType="#//TreeItemDescriptor"
-        transient="true" resolveProxies="false"/>
+        transient="true" resolveProxies="false" eOpposite="#//TreeItemDescriptor/parentRelations"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="processor" lowerBound="1"
         transient="true">
       <eGenericType eClassifier="#//CEObjectHolder">
@@ -666,13 +666,19 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TreeItemDescriptor" eSuperTypes="#//ArgumentProvider">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="childRelations" upperBound="-1"
         eType="#//TreeItemRelation" resolveProxies="false" eOpposite="#//TreeItemRelation/parent"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ce" lowerBound="1" eType="#//IConfigurationElement"
         transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelTypes" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="newWizardID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentRelations" upperBound="-1"
+        eType="#//TreeItemRelation" resolveProxies="false" eOpposite="#//TreeItemRelation/descriptor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="primaryParent" eType="#//TreeItemDescriptor"
+        transient="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emptyFolderHidden" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        transient="true" defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConstantTreeItem" eSuperTypes="#//ArgumentProvider">
     <eStructuralFeatures xsi:type="ecore:EReference" name="descriptor" lowerBound="1"

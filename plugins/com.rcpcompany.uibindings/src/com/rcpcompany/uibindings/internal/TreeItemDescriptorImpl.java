@@ -35,13 +35,19 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
  * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getDeclaredArguments <em>
  * Declared Arguments</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getId <em>Id</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getChildren <em>Children
- * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getChildRelations <em>Child
+ * Relations</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getCe <em>Ce</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getModelTypes <em>Model
  * Types</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getNewWizardID <em>New
  * Wizard ID</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getParentRelations <em>
+ * Parent Relations</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getPrimaryParent <em>Primary
+ * Parent</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#isEmptyFolderHidden <em>
+ * Empty Folder Hidden</em>}</li>
  * </ul>
  * </p>
  * 
@@ -79,14 +85,14 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	protected String id = ID_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getChildren() <em>Children</em>}' reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getChildRelations() <em>Child Relations</em>}' reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @see #getChildren()
+	 * @see #getChildRelations()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ITreeItemRelation> children;
+	protected EList<ITreeItemRelation> childRelations;
 
 	/**
 	 * The default value of the '{@link #getCe() <em>Ce</em>}' attribute. <!-- begin-user-doc -->
@@ -137,6 +143,46 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	 * @ordered
 	 */
 	protected String newWizardID = NEW_WIZARD_ID_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getParentRelations() <em>Parent Relations</em>}' reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getParentRelations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ITreeItemRelation> parentRelations;
+
+	/**
+	 * The cached value of the '{@link #getPrimaryParent() <em>Primary Parent</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getPrimaryParent()
+	 * @generated
+	 * @ordered
+	 */
+	protected ITreeItemDescriptor primaryParent;
+
+	/**
+	 * The default value of the '{@link #isEmptyFolderHidden() <em>Empty Folder Hidden</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #isEmptyFolderHidden()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean EMPTY_FOLDER_HIDDEN_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isEmptyFolderHidden() <em>Empty Folder Hidden</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #isEmptyFolderHidden()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean emptyFolderHidden = EMPTY_FOLDER_HIDDEN_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -202,12 +248,13 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	 * @generated
 	 */
 	@Override
-	public EList<ITreeItemRelation> getChildren() {
-		if (children == null) {
-			children = new EObjectWithInverseEList<ITreeItemRelation>(ITreeItemRelation.class, this,
-					IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CHILDREN, IUIBindingsPackage.TREE_ITEM_RELATION__PARENT);
+	public EList<ITreeItemRelation> getChildRelations() {
+		if (childRelations == null) {
+			childRelations = new EObjectWithInverseEList<ITreeItemRelation>(ITreeItemRelation.class, this,
+					IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CHILD_RELATIONS,
+					IUIBindingsPackage.TREE_ITEM_RELATION__PARENT);
 		}
-		return children;
+		return childRelations;
 	}
 
 	/**
@@ -279,12 +326,80 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	 * 
 	 * @generated
 	 */
+	@Override
+	public EList<ITreeItemRelation> getParentRelations() {
+		if (parentRelations == null) {
+			parentRelations = new EObjectWithInverseEList<ITreeItemRelation>(ITreeItemRelation.class, this,
+					IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__PARENT_RELATIONS,
+					IUIBindingsPackage.TREE_ITEM_RELATION__DESCRIPTOR);
+		}
+		return parentRelations;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public ITreeItemDescriptor getPrimaryParent() {
+		return primaryParent;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setPrimaryParent(ITreeItemDescriptor newPrimaryParent) {
+		final ITreeItemDescriptor oldPrimaryParent = primaryParent;
+		primaryParent = newPrimaryParent;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__PRIMARY_PARENT, oldPrimaryParent, primaryParent));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean isEmptyFolderHidden() {
+		return emptyFolderHidden;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setEmptyFolderHidden(boolean newEmptyFolderHidden) {
+		final boolean oldEmptyFolderHidden = emptyFolderHidden;
+		emptyFolderHidden = newEmptyFolderHidden;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__EMPTY_FOLDER_HIDDEN, oldEmptyFolderHidden,
+					emptyFolderHidden));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CHILDREN:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getChildren()).basicAdd(otherEnd, msgs);
+		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CHILD_RELATIONS:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getChildRelations()).basicAdd(otherEnd, msgs);
+		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__PARENT_RELATIONS:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getParentRelations()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -299,8 +414,10 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 		switch (featureID) {
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__DECLARED_ARGUMENTS:
 			return ((InternalEList<?>) getDeclaredArguments()).basicRemove(otherEnd, msgs);
-		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CHILDREN:
-			return ((InternalEList<?>) getChildren()).basicRemove(otherEnd, msgs);
+		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CHILD_RELATIONS:
+			return ((InternalEList<?>) getChildRelations()).basicRemove(otherEnd, msgs);
+		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__PARENT_RELATIONS:
+			return ((InternalEList<?>) getParentRelations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -320,14 +437,20 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 				return getDeclaredArguments().map();
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__ID:
 			return getId();
-		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CHILDREN:
-			return getChildren();
+		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CHILD_RELATIONS:
+			return getChildRelations();
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CE:
 			return getCe();
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__MODEL_TYPES:
 			return getModelTypes();
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__NEW_WIZARD_ID:
 			return getNewWizardID();
+		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__PARENT_RELATIONS:
+			return getParentRelations();
+		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__PRIMARY_PARENT:
+			return getPrimaryParent();
+		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__EMPTY_FOLDER_HIDDEN:
+			return isEmptyFolderHidden();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -347,9 +470,9 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__ID:
 			setId((String) newValue);
 			return;
-		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CHILDREN:
-			getChildren().clear();
-			getChildren().addAll((Collection<? extends ITreeItemRelation>) newValue);
+		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CHILD_RELATIONS:
+			getChildRelations().clear();
+			getChildRelations().addAll((Collection<? extends ITreeItemRelation>) newValue);
 			return;
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CE:
 			setCe((IConfigurationElement) newValue);
@@ -360,6 +483,16 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 			return;
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__NEW_WIZARD_ID:
 			setNewWizardID((String) newValue);
+			return;
+		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__PARENT_RELATIONS:
+			getParentRelations().clear();
+			getParentRelations().addAll((Collection<? extends ITreeItemRelation>) newValue);
+			return;
+		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__PRIMARY_PARENT:
+			setPrimaryParent((ITreeItemDescriptor) newValue);
+			return;
+		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__EMPTY_FOLDER_HIDDEN:
+			setEmptyFolderHidden((Boolean) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -379,8 +512,8 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__ID:
 			setId(ID_EDEFAULT);
 			return;
-		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CHILDREN:
-			getChildren().clear();
+		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CHILD_RELATIONS:
+			getChildRelations().clear();
 			return;
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CE:
 			setCe(CE_EDEFAULT);
@@ -390,6 +523,15 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 			return;
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__NEW_WIZARD_ID:
 			setNewWizardID(NEW_WIZARD_ID_EDEFAULT);
+			return;
+		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__PARENT_RELATIONS:
+			getParentRelations().clear();
+			return;
+		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__PRIMARY_PARENT:
+			setPrimaryParent((ITreeItemDescriptor) null);
+			return;
+		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__EMPTY_FOLDER_HIDDEN:
+			setEmptyFolderHidden(EMPTY_FOLDER_HIDDEN_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -407,14 +549,20 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 			return declaredArguments != null && !declaredArguments.isEmpty();
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__ID:
 			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CHILDREN:
-			return children != null && !children.isEmpty();
+		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CHILD_RELATIONS:
+			return childRelations != null && !childRelations.isEmpty();
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CE:
 			return CE_EDEFAULT == null ? ce != null : !CE_EDEFAULT.equals(ce);
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__MODEL_TYPES:
 			return modelTypes != null && !modelTypes.isEmpty();
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__NEW_WIZARD_ID:
 			return NEW_WIZARD_ID_EDEFAULT == null ? newWizardID != null : !NEW_WIZARD_ID_EDEFAULT.equals(newWizardID);
+		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__PARENT_RELATIONS:
+			return parentRelations != null && !parentRelations.isEmpty();
+		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__PRIMARY_PARENT:
+			return primaryParent != null;
+		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__EMPTY_FOLDER_HIDDEN:
+			return emptyFolderHidden != EMPTY_FOLDER_HIDDEN_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

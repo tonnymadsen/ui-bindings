@@ -3035,7 +3035,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EReference getTreeItemDescriptor_Children() {
+	public EReference getTreeItemDescriptor_ChildRelations() {
 		return (EReference) treeItemDescriptorEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -3067,6 +3067,36 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	@Override
 	public EAttribute getTreeItemDescriptor_NewWizardID() {
 		return (EAttribute) treeItemDescriptorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EReference getTreeItemDescriptor_ParentRelations() {
+		return (EReference) treeItemDescriptorEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EReference getTreeItemDescriptor_PrimaryParent() {
+		return (EReference) treeItemDescriptorEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTreeItemDescriptor_EmptyFolderHidden() {
+		return (EAttribute) treeItemDescriptorEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -4326,10 +4356,13 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 
 		treeItemDescriptorEClass = createEClass(TREE_ITEM_DESCRIPTOR);
 		createEAttribute(treeItemDescriptorEClass, TREE_ITEM_DESCRIPTOR__ID);
-		createEReference(treeItemDescriptorEClass, TREE_ITEM_DESCRIPTOR__CHILDREN);
+		createEReference(treeItemDescriptorEClass, TREE_ITEM_DESCRIPTOR__CHILD_RELATIONS);
 		createEAttribute(treeItemDescriptorEClass, TREE_ITEM_DESCRIPTOR__CE);
 		createEAttribute(treeItemDescriptorEClass, TREE_ITEM_DESCRIPTOR__MODEL_TYPES);
 		createEAttribute(treeItemDescriptorEClass, TREE_ITEM_DESCRIPTOR__NEW_WIZARD_ID);
+		createEReference(treeItemDescriptorEClass, TREE_ITEM_DESCRIPTOR__PARENT_RELATIONS);
+		createEReference(treeItemDescriptorEClass, TREE_ITEM_DESCRIPTOR__PRIMARY_PARENT);
+		createEAttribute(treeItemDescriptorEClass, TREE_ITEM_DESCRIPTOR__EMPTY_FOLDER_HIDDEN);
 
 		constantTreeItemEClass = createEClass(CONSTANT_TREE_ITEM);
 		createEReference(constantTreeItemEClass, CONSTANT_TREE_ITEM__DESCRIPTOR);
@@ -5376,12 +5409,12 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEReference(
 				getTreeItemRelation_Parent(),
 				this.getTreeItemDescriptor(),
-				this.getTreeItemDescriptor_Children(),
+				this.getTreeItemDescriptor_ChildRelations(),
 				"parent", null, 0, 1, ITreeItemRelation.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(
 				getTreeItemRelation_Descriptor(),
 				this.getTreeItemDescriptor(),
-				null,
+				this.getTreeItemDescriptor_ParentRelations(),
 				"descriptor", null, 0, 1, ITreeItemRelation.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		g1 = createEGenericType(this.getCEObjectHolder());
 		g2 = createEGenericType(this.getIObservableFactory());
@@ -5406,10 +5439,10 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				ecorePackage.getEString(),
 				"id", null, 1, 1, ITreeItemDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(
-				getTreeItemDescriptor_Children(),
+				getTreeItemDescriptor_ChildRelations(),
 				this.getTreeItemRelation(),
 				this.getTreeItemRelation_Parent(),
-				"children", null, 0, -1, ITreeItemDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"childRelations", null, 0, -1, ITreeItemDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getTreeItemDescriptor_Ce(),
 				this.getIConfigurationElement(),
@@ -5422,6 +5455,20 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				getTreeItemDescriptor_NewWizardID(),
 				ecorePackage.getEString(),
 				"newWizardID", null, 0, 1, ITreeItemDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getTreeItemDescriptor_ParentRelations(),
+				this.getTreeItemRelation(),
+				this.getTreeItemRelation_Descriptor(),
+				"parentRelations", null, 0, -1, ITreeItemDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getTreeItemDescriptor_PrimaryParent(),
+				this.getTreeItemDescriptor(),
+				null,
+				"primaryParent", null, 0, 1, ITreeItemDescriptor.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getTreeItemDescriptor_EmptyFolderHidden(),
+				ecorePackage.getEBoolean(),
+				"emptyFolderHidden", "false", 0, 1, ITreeItemDescriptor.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 
 		initEClass(constantTreeItemEClass, IConstantTreeItem.class,
 				"ConstantTreeItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

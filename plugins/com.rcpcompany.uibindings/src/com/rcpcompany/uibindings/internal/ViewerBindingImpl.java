@@ -37,6 +37,7 @@ import org.eclipse.jface.viewers.ColumnViewerEditor;
 import org.eclipse.jface.viewers.ColumnViewerEditorActivationStrategy;
 import org.eclipse.jface.viewers.ColumnViewerToolTipSupport;
 import org.eclipse.jface.viewers.FocusCellOwnerDrawHighlighter;
+import org.eclipse.jface.viewers.ILabelDecorator;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
@@ -76,6 +77,7 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
+import com.rcpcompany.uibindings.bindingMessages.ValidationLabelDecorator;
 import com.rcpcompany.uibindings.internal.bindingDataTypes.BindingDataTypeFactory;
 import com.rcpcompany.uibindings.internal.observables.properties.MySelectionProviderSingleSelectionProperty;
 import com.rcpcompany.uibindings.internal.utils.DoubleClickAdapter;
@@ -276,6 +278,23 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 
 	};
 
+	/**
+	 * A {@link ILabelDecorator} (possibly <code>null</code>) for use in the viewer. The decorator
+	 * decorates with the current validation state.
+	 */
+	private ValidationLabelDecorator myValidationLabelDecorator;
+
+	/**
+	 * Returns an {@link ILabelDecorator} (possibly <code>null</code>) for use in the viewer. The
+	 * decorator decorates with the current validation state.
+	 * 
+	 * @return the label decorator
+	 */
+	@Override
+	public ValidationLabelDecorator getValidationLabelDecorator() {
+		return myValidationLabelDecorator;
+	}
+
 	@Override
 	public Class<?> getUIType() {
 		// Not used
@@ -296,9 +315,17 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 			viewer.setContentProvider(contentProvider);
 			setElements(contentProvider.getKnownElements());
 		} else if (viewer instanceof TreeViewer) {
+			final ViewerBindingTreeFactory listFactory = new ViewerBindingTreeFactory(getList());
 			final ObservableListTreeContentProvider contentProvider = new ObservableListTreeContentProvider(
-					new ViewerBindingTreeFactory(this), null);
+					listFactory, listFactory);
+			myValidationLabelDecorator = new ValidationLabelDecorator();
 			viewer.setContentProvider(contentProvider);
+			myValidationLabelDecorator.setPropagationAdapter(new ValidationLabelDecorator.IPropagationAdapter() {
+				@Override
+				public Object getParent(Object object) {
+					return contentProvider.getParent(object);
+				}
+			});
 			setElements(contentProvider.getKnownElements());
 		} else {
 			assertTrue(false, "Viewer not a Table or a Tree?"); //$NON-NLS-1$

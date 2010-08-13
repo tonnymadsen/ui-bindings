@@ -1,6 +1,7 @@
 package com.rcpcompany.uibindings.validators;
 
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.emf.ecore.EObject;
@@ -148,4 +149,11 @@ public interface IValidatorAdapterManager {
 	 * For use in tests...
 	 */
 	void reset();
+
+	/**
+	 * Returns an unmodifiable set of the objects that currently have associated messages.
+	 * 
+	 * @return the set of objects
+	 */
+	Set<EObject> getCurrentObjects();
 }

@@ -106,7 +106,8 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 		final IObservableList list = myAdvisor.getRootElements();
 		myTreeBinding = myContext.addViewer().viewer(myTreeViewer).model(list)
 				.arg(Constants.ARG_DOUBLE_CLICK_COMMAND, Constants.DEFAULT_OPEN_COMMAND);
-		myTreeColumnBinding = myTreeBinding.addColumn().column(column).model(SpecialBinding.TREE_ITEM);
+		myTreeColumnBinding = myTreeBinding.addColumn().column(column).model(SpecialBinding.TREE_ITEM)
+				.arg(Constants.ARG_LABEL_DECORATOR, true);
 
 		myContext.finish();
 
@@ -207,7 +208,10 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 			final ISharedImages sharedImages = PlatformUI.getWorkbench().getSharedImages();
 			// images from IWorkbenchGraphicConstants
 			final ImageRegistry imageRegistry = Activator.getDefault().getImageRegistry();
-			imageRegistry.put("LINKED", AbstractUIPlugin.imageDescriptorFromPlugin(Activator.ID, "images/synced.gif"));
+			if (imageRegistry.getDescriptor("LINKED") == null) {
+				imageRegistry.put("LINKED",
+						AbstractUIPlugin.imageDescriptorFromPlugin(Activator.ID, "images/synced.gif"));
+			}
 			myItem.setImage(imageRegistry.get("LINKED"));
 
 			myItem.setToolTipText("Link navigator with editors");

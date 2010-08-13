@@ -6,8 +6,6 @@
 package com.rcpcompany.uibindings.internal;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.emf.common.notify.Notification;
@@ -28,6 +26,7 @@ import com.rcpcompany.uibindings.IDecoratorProvider;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIBindingDecorator;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
+import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -88,18 +87,6 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 		}
 	}
 
-	public static Map<String, String> myBoxed2Primitive = new HashMap<String, String>();
-	static {
-		myBoxed2Primitive.put(Boolean.class.getName(), Boolean.TYPE.getName());
-		myBoxed2Primitive.put(Character.class.getName(), Character.TYPE.getName());
-		myBoxed2Primitive.put(Byte.class.getName(), Byte.TYPE.getName());
-		myBoxed2Primitive.put(Short.class.getName(), Short.TYPE.getName());
-		myBoxed2Primitive.put(Integer.class.getName(), Integer.TYPE.getName());
-		myBoxed2Primitive.put(Long.class.getName(), Long.TYPE.getName());
-		myBoxed2Primitive.put(Float.class.getName(), Float.TYPE.getName());
-		myBoxed2Primitive.put(Double.class.getName(), Double.TYPE.getName());
-	}
-
 	@Override
 	public void providerReader(String id, IConfigurationElement providerCE, IConfigurationElement childCE) {
 		setId(id);
@@ -130,7 +117,7 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 			}
 			modelTypes.add(attr);
 			if (alsoPrimitive) {
-				final String primitiveType = myBoxed2Primitive.get(attr);
+				final String primitiveType = UIBindingsUtils.getBoxed2Primitive(attr);
 				if (primitiveType != null) {
 					modelTypes.add(primitiveType);
 				}
@@ -154,7 +141,7 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 			}
 			uiTypes.add(attr);
 			if (alsoPrimitive) {
-				final String primitiveType = myBoxed2Primitive.get(attr);
+				final String primitiveType = UIBindingsUtils.getBoxed2Primitive(attr);
 				if (primitiveType != null) {
 					uiTypes.add(primitiveType);
 				}

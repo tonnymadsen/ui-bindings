@@ -626,4 +626,9 @@ public interface Constants {
 	 * The color definition used for cells that have focus when the control does not have focus.
 	 */
 	String COLOR_SELECTION_NO_FOCUS_BACKGROUND = PREFIX + "colorDefinitions.SelectionNoFocusBackground"; //$NON-NLS-1$
+
+    /**
+     * The default priority for tree item relations.
+     */
+	public static final int DEFAULT_TREE_ITEM_RELATION_PRIORITY = 1000;
 }

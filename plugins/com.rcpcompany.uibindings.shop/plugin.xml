@@ -242,9 +242,9 @@
             name="Colors and Fonts">
       </page>
       <page
-            class="com.rcpcompany.uibindings.navigator.internal.pages.PreferredEditorPage"
-            id="com.rcpcompany.uibindings.example.application.pages.editors"
-            name="Editors">
+            class="org.eclipse.ui.ExtensionFactory:decoratorsPreferencePage"
+            id="org.eclipse.ui.ExtensionFactory:decoratorsPreferencePage"
+            name="Label Decorators">
       </page>
    </extension>
    <extension
@@ -666,6 +666,13 @@
          </modelType>
       </treeItem>
       <treeItem
+            emptyFolderHidden="true"
+            id="com.rcpcompany.uibindings.shop.treeItems.orderFolder">
+         <standardArguments
+               text="Orders">
+         </standardArguments>
+      </treeItem>
+      <treeItem
             id="com.rcpcompany.uibindings.shop.treeItems.order">
          <modelType
                alsoPrimitive="true"
@@ -699,7 +706,7 @@
             parent="com.rcpcompany.uibindings.shop.treeItems.shopItemFolder">
       </treeItemRelation>
       <treeItemRelation
-            featureName="orders"
+            id="com.rcpcompany.uibindings.shop.treeItems.orderFolder"
             parent="com.rcpcompany.uibindings.shop.treeItems.customer">
       </treeItemRelation>
       <treeItemRelation
@@ -718,6 +725,10 @@
       <treeItemRelation
             featureName="items"
             parent="com.rcpcompany.uibindings.shop.treeItems.shopItemGroup">
+      </treeItemRelation>
+      <treeItemRelation
+            featureName="orders"
+            parent="com.rcpcompany.uibindings.shop.treeItems.orderFolder">
       </treeItemRelation>
    </extension>
    <extension

@@ -293,10 +293,11 @@ public final class UIBindingsUtils {
 		/**
 		 * @see IUIBindingDecorator#getDisplayObservableValue(IObservableValue)
 		 * @param value the value
-		 * @param editingDomain TODO
+		 * @param editingDomain the editing domain used for any changes in the returned observable
+		 *            value
 		 * @return the observable value for the displayed text
 		 */
-		public IObservableValue getObservableValue(IObservableValue value, EditingDomain editingDomain);
+		IObservableValue getObservableValue(IObservableValue value, EditingDomain editingDomain);
 	}
 
 	/**
@@ -453,6 +454,33 @@ public final class UIBindingsUtils {
 		}
 		list.clear();
 		list.addAll(newList);
+	}
+
+	/**
+	 * Mapping of boxed to primitive data types - e.g. <code>Integer</code> to <code>int</code>.
+	 */
+	private static final Map<String, String> myBoxed2Primitive = new HashMap<String, String>();
+
+	static {
+		UIBindingsUtils.myBoxed2Primitive.put(Boolean.class.getName(), Boolean.TYPE.getName());
+		UIBindingsUtils.myBoxed2Primitive.put(Character.class.getName(), Character.TYPE.getName());
+		UIBindingsUtils.myBoxed2Primitive.put(Byte.class.getName(), Byte.TYPE.getName());
+		UIBindingsUtils.myBoxed2Primitive.put(Short.class.getName(), Short.TYPE.getName());
+		UIBindingsUtils.myBoxed2Primitive.put(Integer.class.getName(), Integer.TYPE.getName());
+		UIBindingsUtils.myBoxed2Primitive.put(Long.class.getName(), Long.TYPE.getName());
+		UIBindingsUtils.myBoxed2Primitive.put(Float.class.getName(), Float.TYPE.getName());
+		UIBindingsUtils.myBoxed2Primitive.put(Double.class.getName(), Double.TYPE.getName());
+	}
+
+	/**
+	 * Returns the primitive data type corresponding to the specified boxed data type, if one
+	 * exists.
+	 * 
+	 * @param boxed the boxed type
+	 * @return the primitive type or <code>null</code>
+	 */
+	public static String getBoxed2Primitive(String boxed) {
+		return myBoxed2Primitive.get(boxed);
 	}
 
 }

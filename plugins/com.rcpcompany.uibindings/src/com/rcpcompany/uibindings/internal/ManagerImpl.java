@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
@@ -849,7 +850,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	private void extensionReader() {
 		final IExtensionRegistry registry = Platform.getExtensionRegistry();
 
-		final List<IConfigurationElement> relations = new ArrayList<IConfigurationElement>();
+		final Map<IConfigurationElement, ITreeItemDescriptor> delayedTreeItems = new HashMap<IConfigurationElement, ITreeItemDescriptor>();
+		final List<IConfigurationElement> delayedTreeRelations = new ArrayList<IConfigurationElement>();
+
 		for (final IConfigurationElement ce : registry
 				.getConfigurationElementsFor(InternalConstants.UIBINDINGS_EXTENSION_POINT)) {
 			final String elementName = ce.getName();
@@ -1000,26 +1003,48 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 					}
 					modelTypes.add(attr);
 					if (alsoPrimitive) {
-						final String primitiveType = DecoratorProviderImpl.myBoxed2Primitive.get(attr);
+						final String primitiveType = UIBindingsUtils.getBoxed2Primitive(attr);
 						if (primitiveType != null) {
 							modelTypes.add(primitiveType);
 						}
 					}
 				}
+				final String attr = ce.getAttribute(InternalConstants.EMPTY_FOLDER_HIDDEN_TAG);
+				descriptor.setEmptyFolderHidden(attr != null && Boolean.valueOf(attr).booleanValue());
+
+				delayedTreeItems.put(ce, descriptor);
 				readArguments(descriptor, ce);
 				getTreeItems().add(descriptor);
 			} else if (InternalConstants.TREE_ITEM_RELATION_TAG.equals(elementName)) {
 				// Delayed...
-				relations.add(ce);
+				delayedTreeRelations.add(ce);
 			} else {
 				LogUtils.error(ce, "Unknown element name: '" + elementName + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		}
 
 		/*
+		 * Now go through the items again and handle any parent pointers
+		 */
+		for (final Entry<IConfigurationElement, ITreeItemDescriptor> e : delayedTreeItems.entrySet()) {
+			final IConfigurationElement ce = e.getKey();
+
+			final String attr = ce.getAttribute(InternalConstants.PRIMARY_PARENT_TAG);
+			if (attr == null || attr.length() == 0) {
+				continue;
+			}
+			final ITreeItemDescriptor parent = getTreeItem(attr);
+			if (parent == null) {
+				LogUtils.error(ce, InternalConstants.PRIMARY_PARENT_TAG + " " + attr + " is unknown. Ignored."); //$NON-NLS-1$ //$NON-NLS-2$
+				continue;
+			}
+			e.getValue().setPrimaryParent(parent);
+		}
+
+		/*
 		 * Now go through the relations
 		 */
-		for (final IConfigurationElement ce : relations) {
+		for (final IConfigurationElement ce : delayedTreeRelations) {
 			final ITreeItemRelation rel = IUIBindingsFactory.eINSTANCE.createTreeItemRelation();
 			String attr = ce.getAttribute(InternalConstants.PARENT_TAG);
 			if (attr == null || attr.length() == 0) {
@@ -1041,7 +1066,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 					continue;
 				}
 			} else {
-				rel.setPriority(1000);
+				rel.setPriority(Constants.DEFAULT_TREE_ITEM_RELATION_PRIORITY);
 			}
 
 			ITreeItemDescriptor desc = null;
@@ -1092,7 +1117,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			}
 		};
 		for (final ITreeItemDescriptor tid : getTreeItems()) {
-			UIBindingsUtils.sort(tid.getChildren(), comparator);
+			UIBindingsUtils.sort(tid.getChildRelations(), comparator);
 		}
 	}
 

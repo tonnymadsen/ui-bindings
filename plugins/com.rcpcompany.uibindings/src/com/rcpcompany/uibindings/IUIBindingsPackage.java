@@ -3400,13 +3400,13 @@ public interface IUIBindingsPackage extends EPackage {
 	int TREE_ITEM_DESCRIPTOR__ID = ARGUMENT_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Children</b></em>' reference list. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Child Relations</b></em>' reference list. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_ITEM_DESCRIPTOR__CHILDREN = ARGUMENT_PROVIDER_FEATURE_COUNT + 1;
+	int TREE_ITEM_DESCRIPTOR__CHILD_RELATIONS = ARGUMENT_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Ce</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -3436,13 +3436,40 @@ public interface IUIBindingsPackage extends EPackage {
 	int TREE_ITEM_DESCRIPTOR__NEW_WIZARD_ID = ARGUMENT_PROVIDER_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Parent Relations</b></em>' reference list. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_ITEM_DESCRIPTOR__PARENT_RELATIONS = ARGUMENT_PROVIDER_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Primary Parent</b></em>' reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_ITEM_DESCRIPTOR__PRIMARY_PARENT = ARGUMENT_PROVIDER_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Empty Folder Hidden</b></em>' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_ITEM_DESCRIPTOR__EMPTY_FOLDER_HIDDEN = ARGUMENT_PROVIDER_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Tree Item Descriptor</em>' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_ITEM_DESCRIPTOR_FEATURE_COUNT = ARGUMENT_PROVIDER_FEATURE_COUNT + 5;
+	int TREE_ITEM_DESCRIPTOR_FEATURE_COUNT = ARGUMENT_PROVIDER_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.ConstantTreeItemImpl
@@ -6973,15 +7000,15 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the reference list '
-	 * {@link com.rcpcompany.uibindings.ITreeItemDescriptor#getChildren <em>Children</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.ITreeItemDescriptor#getChildRelations
+	 * <em>Child Relations</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the reference list '<em>Children</em>'.
-	 * @see com.rcpcompany.uibindings.ITreeItemDescriptor#getChildren()
+	 * @return the meta object for the reference list '<em>Child Relations</em>'.
+	 * @see com.rcpcompany.uibindings.ITreeItemDescriptor#getChildRelations()
 	 * @see #getTreeItemDescriptor()
 	 * @generated
 	 */
-	EReference getTreeItemDescriptor_Children();
+	EReference getTreeItemDescriptor_ChildRelations();
 
 	/**
 	 * Returns the meta object for the attribute '
@@ -7018,6 +7045,42 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTreeItemDescriptor_NewWizardID();
+
+	/**
+	 * Returns the meta object for the reference list '
+	 * {@link com.rcpcompany.uibindings.ITreeItemDescriptor#getParentRelations
+	 * <em>Parent Relations</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference list '<em>Parent Relations</em>'.
+	 * @see com.rcpcompany.uibindings.ITreeItemDescriptor#getParentRelations()
+	 * @see #getTreeItemDescriptor()
+	 * @generated
+	 */
+	EReference getTreeItemDescriptor_ParentRelations();
+
+	/**
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.ITreeItemDescriptor#getPrimaryParent
+	 * <em>Primary Parent</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference '<em>Primary Parent</em>'.
+	 * @see com.rcpcompany.uibindings.ITreeItemDescriptor#getPrimaryParent()
+	 * @see #getTreeItemDescriptor()
+	 * @generated
+	 */
+	EReference getTreeItemDescriptor_PrimaryParent();
+
+	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.ITreeItemDescriptor#isEmptyFolderHidden
+	 * <em>Empty Folder Hidden</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Empty Folder Hidden</em>'.
+	 * @see com.rcpcompany.uibindings.ITreeItemDescriptor#isEmptyFolderHidden()
+	 * @see #getTreeItemDescriptor()
+	 * @generated
+	 */
+	EAttribute getTreeItemDescriptor_EmptyFolderHidden();
 
 	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IConstantTreeItem
@@ -10004,12 +10067,12 @@ public interface IUIBindingsPackage extends EPackage {
 		EAttribute TREE_ITEM_DESCRIPTOR__ID = eINSTANCE.getTreeItemDescriptor_Id();
 
 		/**
-		 * The meta object literal for the '<em><b>Children</b></em>' reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Child Relations</b></em>' reference list feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		EReference TREE_ITEM_DESCRIPTOR__CHILDREN = eINSTANCE.getTreeItemDescriptor_Children();
+		EReference TREE_ITEM_DESCRIPTOR__CHILD_RELATIONS = eINSTANCE.getTreeItemDescriptor_ChildRelations();
 
 		/**
 		 * The meta object literal for the '<em><b>Ce</b></em>' attribute feature. <!--
@@ -10034,6 +10097,30 @@ public interface IUIBindingsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TREE_ITEM_DESCRIPTOR__NEW_WIZARD_ID = eINSTANCE.getTreeItemDescriptor_NewWizardID();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent Relations</b></em>' reference list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference TREE_ITEM_DESCRIPTOR__PARENT_RELATIONS = eINSTANCE.getTreeItemDescriptor_ParentRelations();
+
+		/**
+		 * The meta object literal for the '<em><b>Primary Parent</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference TREE_ITEM_DESCRIPTOR__PRIMARY_PARENT = eINSTANCE.getTreeItemDescriptor_PrimaryParent();
+
+		/**
+		 * The meta object literal for the '<em><b>Empty Folder Hidden</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute TREE_ITEM_DESCRIPTOR__EMPTY_FOLDER_HIDDEN = eINSTANCE.getTreeItemDescriptor_EmptyFolderHidden();
 
 		/**
 		 * The meta object literal for the '
