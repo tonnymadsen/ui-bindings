@@ -34,26 +34,26 @@ public class ManagerTreeFunctionalityTest {
 			if (i.getId().equals("com.rcpcompany.uibindings.shop.treeItems.shop")) {
 				assertEquals(1, i.getModelTypes().size());
 				assertEquals("com.rcpcompany.uibindings.tests.shop.Shop", i.getModelTypes().get(0));
-				assertEquals(1, i.getChildren().size());
+				assertEquals(1, i.getChildRelations().size());
 				assertEquals(0, i.getDeclaredArguments().size());
 
-				final ITreeItemRelation relation = i.getChildren().get(0);
+				final ITreeItemRelation relation = i.getChildRelations().get(0);
 				assertEquals("com.rcpcompany.uibindings.shop.treeItems.contactFolder", relation.getDescriptor().getId());
 				assertEquals(null, relation.getFeatureName());
 				assertEquals(null, relation.getProcessor());
 			} else if (i.getId().equals("com.rcpcompany.uibindings.shop.treeItems.contactFolder")) {
 				assertEquals(0, i.getModelTypes().size());
-				assertEquals(1, i.getChildren().size());
+				assertEquals(1, i.getChildRelations().size());
 				assertEquals(2, i.getDeclaredArguments().size());
 
-				final ITreeItemRelation relation = i.getChildren().get(0);
+				final ITreeItemRelation relation = i.getChildRelations().get(0);
 				assertEquals(null, relation.getDescriptor());
 				assertEquals("contacts", relation.getFeatureName());
 				assertEquals(null, relation.getProcessor());
 			} else if (i.getId().equals("com.rcpcompany.uibindings.shop.treeItems.contact")) {
 				assertEquals(1, i.getModelTypes().size());
 				assertEquals("com.rcpcompany.uibindings.tests.shop.Contact", i.getModelTypes().get(0));
-				assertEquals(0, i.getChildren().size());
+				assertEquals(0, i.getChildRelations().size());
 				assertEquals(0, i.getDeclaredArguments().size());
 			} else {
 				fail("Unknown id: " + i.getId());
