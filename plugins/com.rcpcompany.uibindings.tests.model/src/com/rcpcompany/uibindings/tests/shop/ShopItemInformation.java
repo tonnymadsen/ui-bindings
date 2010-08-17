@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  * 
  * 
  * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItemInformation()
- * @model
  * @generated
  */
 public interface ShopItemInformation extends EObject {

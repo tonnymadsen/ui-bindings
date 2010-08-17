@@ -25,11 +25,11 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link com.rcpcompany.uibindings.tests.shop.ShopItem#isForSale <em>For Sale</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getInformation <em>Information</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getGroup <em>Group</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getLocations <em>Locations</em>}</li>
  * </ul>
  * </p>
  * 
  * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItem()
- * @model
  * @generated
  */
 public interface ShopItem extends EObject {
@@ -44,7 +44,6 @@ public interface ShopItem extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItem_Name()
-	 * @model required="true"
 	 * @generated
 	 */
 	String getName();
@@ -70,7 +69,6 @@ public interface ShopItem extends EObject {
 	 * @return the value of the '<em>Price</em>' attribute.
 	 * @see #setPrice(float)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItem_Price()
-	 * @model required="true"
 	 * @generated
 	 */
 	float getPrice();
@@ -99,7 +97,6 @@ public interface ShopItem extends EObject {
 	 * @see #setShop(Shop)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItem_Shop()
 	 * @see com.rcpcompany.uibindings.tests.shop.Shop#getShopItems
-	 * @model opposite="shopItems" resolveProxies="false" required="true" transient="false"
 	 * @generated
 	 */
 	Shop getShop();
@@ -128,7 +125,6 @@ public interface ShopItem extends EObject {
 	 * @return the value of the '<em>Order Items</em>' reference list.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItem_OrderItems()
 	 * @see com.rcpcompany.uibindings.tests.shop.OrderItem#getItem
-	 * @model opposite="item" resolveProxies="false" transient="true"
 	 * @generated
 	 */
 	EList<OrderItem> getOrderItems();
@@ -144,7 +140,6 @@ public interface ShopItem extends EObject {
 	 * @return the value of the '<em>For Sale</em>' attribute.
 	 * @see #setForSale(boolean)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItem_ForSale()
-	 * @model required="true"
 	 * @generated
 	 */
 	boolean isForSale();
@@ -200,7 +195,6 @@ public interface ShopItem extends EObject {
 	 * @see #setGroup(ShopItemGroup)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItem_Group()
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopItemGroup#getItems
-	 * @model opposite="items"
 	 * @generated
 	 */
 	ShopItemGroup getGroup();
@@ -216,10 +210,23 @@ public interface ShopItem extends EObject {
 	void setGroup(ShopItemGroup value);
 
 	/**
+	 * Returns the value of the '<em><b>Locations</b></em>' attribute list. The list contents are of
+	 * type {@link java.lang.String}. <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Locations</em>' attribute list isn't clear, there really should be
+	 * more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Locations</em>' attribute list.
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItem_Locations()
+	 * @generated
+	 */
+	EList<String> getLocations();
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @model diagnosticsDataType="com.rcpcompany.uibindings.tests.shop.DiagnosticChain"
-	 *        diagnosticsRequired="true"
 	 * @generated
 	 */
 	boolean namePriceOK(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -227,8 +234,6 @@ public interface ShopItem extends EObject {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @model diagnosticsDataType="com.rcpcompany.uibindings.tests.shop.DiagnosticChain"
-	 *        diagnosticsRequired="true"
 	 * @generated
 	 */
 	boolean nameOK(DiagnosticChain diagnostics, Map<Object, Object> context);

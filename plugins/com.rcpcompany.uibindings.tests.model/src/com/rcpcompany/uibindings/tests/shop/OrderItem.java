@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * 
  * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getOrderItem()
- * @model
  * @generated
  */
 public interface OrderItem extends EObject {
@@ -37,7 +36,6 @@ public interface OrderItem extends EObject {
 	 * 
 	 * @return the value of the '<em>No</em>' attribute.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getOrderItem_No()
-	 * @model required="true" transient="true" changeable="false"
 	 * @generated
 	 */
 	int getNo();
@@ -56,7 +54,6 @@ public interface OrderItem extends EObject {
 	 * @see #setOrder(Order)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getOrderItem_Order()
 	 * @see com.rcpcompany.uibindings.tests.shop.Order#getItems
-	 * @model opposite="items" resolveProxies="false" required="true" transient="false"
 	 * @generated
 	 */
 	Order getOrder();
@@ -85,7 +82,6 @@ public interface OrderItem extends EObject {
 	 * @see #setItem(ShopItem)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getOrderItem_Item()
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopItem#getOrderItems
-	 * @model opposite="orderItems" resolveProxies="false" required="true"
 	 * @generated
 	 */
 	ShopItem getItem();
@@ -112,7 +108,6 @@ public interface OrderItem extends EObject {
 	 * @return the value of the '<em>Count</em>' attribute.
 	 * @see #setCount(int)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getOrderItem_Count()
-	 * @model default="1" required="true"
 	 * @generated
 	 */
 	int getCount();
@@ -137,7 +132,6 @@ public interface OrderItem extends EObject {
 	 * 
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getOrderItem_Id()
-	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	String getId();

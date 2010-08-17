@@ -3,13 +3,13 @@
   <countries name="Denmark" abbreviation="DK"/>
   <countries name="Norway" abbreviation="NO"/>
   <countries name="Sweden" abbreviation="SE"/>
-  <contacts name="Tue Aller" address="Algade 4" city="Trondheim" zip="3400" country="Norway" newsletter="true" birthday="1999-10-10T00:00:00.000+0200"/>
-  <contacts name="Hans Jörgenson" address="Vasagatan 5" city="Stockholm" zip="21 145" country="Norway" customer="//@customers.1" birthday="1976-12-16T00:00:00.000+0100"/>
-  <contacts name="Tonny Madsen" address="Rued Langgaards Vej 7, 5D12" city="København" zip="2300" country="Denmark" customer="//@customers.0" newsletter="true" birthday="1964-11-16T00:00:00.000+0100"/>
-  <contacts name="Henrik Hansen" city="Søborg" country="Norway" birthday="1964-11-16T00:00:00.000+0100"/>
-  <contacts name="Søren Søren" city="Århus" country="Denmark" birthday="1964-11-16T00:00:00.000+0100"/>
-  <contacts name="Tonny" city="Køge" country="Norway"/>
-  <contacts name="Allan" city="Hvidovre" country="Norway" newsletter="true"/>
+  <contacts name="Tue Aller" address="Algade 4" city="Trondheim" zip="3400" country="NO" newsletter="true" birthday="1999-10-10T00:00:00.000+0200"/>
+  <contacts name="Hans Jörgenson" address="Vasagatan 5" city="Stockholm" zip="21 145" country="NO" customer="//@customers.1" birthday="1976-12-16T00:00:00.000+0100"/>
+  <contacts name="Tonny Madsen" address="Rued Langgaards Vej 7, 5D12" city="København" zip="2300" country="DK" customer="//@customers.0" newsletter="true" birthday="1964-11-16T00:00:00.000+0100"/>
+  <contacts name="Henrik Hansen" city="Søborg" country="NO" birthday="1964-11-16T00:00:00.000+0100"/>
+  <contacts name="Søren Søren" city="Århus" country="DK" birthday="1964-11-16T00:00:00.000+0100"/>
+  <contacts name="Tonny" city="Køge" country="NO"/>
+  <contacts name="Allan" city="Hvidovre" country="NO" newsletter="true"/>
   <shopItems name="EMF Eclipse Modeling Framework" price="200.0"/>
   <shopItems name="RCP Principles" price="210.0"/>
   <shopItems name="Eclipse Plug-ins" price="300.0" group="//@shopGroups.0">

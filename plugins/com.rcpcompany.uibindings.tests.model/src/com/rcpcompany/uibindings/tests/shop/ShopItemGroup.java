@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * 
  * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItemGroup()
- * @model
  * @generated
  */
 public interface ShopItemGroup extends EObject {
@@ -39,7 +38,6 @@ public interface ShopItemGroup extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItemGroup_Name()
-	 * @model required="true"
 	 * @generated
 	 */
 	String getName();
@@ -68,7 +66,6 @@ public interface ShopItemGroup extends EObject {
 	 * @return the value of the '<em>Items</em>' reference list.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItemGroup_Items()
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopItem#getGroup
-	 * @model opposite="group"
 	 * @generated
 	 */
 	EList<ShopItem> getItems();
@@ -87,7 +84,6 @@ public interface ShopItemGroup extends EObject {
 	 * @see #setShop(Shop)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItemGroup_Shop()
 	 * @see com.rcpcompany.uibindings.tests.shop.Shop#getShopGroups
-	 * @model opposite="shopGroups" resolveProxies="false" required="true" transient="false"
 	 * @generated
 	 */
 	Shop getShop();
@@ -113,7 +109,6 @@ public interface ShopItemGroup extends EObject {
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItemGroup_Description()
-	 * @model
 	 * @generated
 	 */
 	String getDescription();

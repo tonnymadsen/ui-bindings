@@ -17,7 +17,6 @@ package com.rcpcompany.uibindings.tests.shop;
  * </p>
  * 
  * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItemURL()
- * @model
  * @generated
  */
 public interface ShopItemURL extends ShopItemInformation {
@@ -32,7 +31,6 @@ public interface ShopItemURL extends ShopItemInformation {
 	 * @return the value of the '<em>Url</em>' attribute.
 	 * @see #setUrl(String)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItemURL_Url()
-	 * @model
 	 * @generated
 	 */
 	String getUrl();

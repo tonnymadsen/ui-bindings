@@ -2,39 +2,65 @@
 <genmodel:GenModel xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.rcpcompany.uibindings.tests.model/src"
-    modelPluginID="com.rcpcompany.uibindings.tests.model" modelName="Shop" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="6.0" copyrightFields="false">
+    modelPluginID="com.rcpcompany.uibindings.tests.model" modelName="Shop" suppressEMFModelTags="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false">
   <foreignModel>shop.ecore</foreignModel>
   <genPackages prefix="Shop" basePackage="com.rcpcompany.uibindings.tests" disposableProviderFactory="true"
       ecorePackage="shop.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="shop.ecore#//CustomerType">
-      <genEnumLiterals ecoreEnumLiteral="shop.ecore#//CustomerType/Bronce"/>
-      <genEnumLiterals ecoreEnumLiteral="shop.ecore#//CustomerType/Silver"/>
-      <genEnumLiterals ecoreEnumLiteral="shop.ecore#//CustomerType/Gold"/>
+      <genEnumLiterals ecoreEnumLiteral="shop.ecore#//CustomerType/BRONCE"/>
+      <genEnumLiterals ecoreEnumLiteral="shop.ecore#//CustomerType/SILVER"/>
+      <genEnumLiterals ecoreEnumLiteral="shop.ecore#//CustomerType/GOLD"/>
     </genEnums>
+    <genDataTypes ecoreDataType="shop.ecore#//DiagnosticChain"/>
     <genClasses ecoreClass="shop.ecore#//Shop">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute shop.ecore#//Shop/name"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute shop.ecore#//Shop/nextOrderNo"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute shop.ecore#//Shop/nextCustomerNo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute shop.ecore#//Shop/tmpDir"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference shop.ecore#//Shop/countries"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference shop.ecore#//Shop/contacts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference shop.ecore#//Shop/shopItems"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference shop.ecore#//Shop/orders"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference shop.ecore#//Shop/customers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference shop.ecore#//Shop/shopGroups"/>
       <genOperations ecoreOperation="shop.ecore#//Shop/save"/>
+      <genOperations ecoreOperation="shop.ecore#//Shop/nameLengthOK">
+        <genParameters ecoreParameter="shop.ecore#//Shop/nameLengthOK/diagnostics"/>
+        <genParameters ecoreParameter="shop.ecore#//Shop/nameLengthOK/context"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="shop.ecore#//Customer">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference shop.ecore#//Customer/shop"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference shop.ecore#//Customer/contact"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference shop.ecore#//Customer/orders"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute shop.ecore#//Customer/loyalty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute shop.ecore#//Customer/logoFileName"/>
     </genClasses>
     <genClasses ecoreClass="shop.ecore#//ShopItem">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference shop.ecore#//ShopItem/shop"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute shop.ecore#//ShopItem/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute shop.ecore#//ShopItem/price"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference shop.ecore#//ShopItem/shop"/>
       <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference shop.ecore#//ShopItem/orderItems"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute shop.ecore#//ShopItem/forSale"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference shop.ecore#//ShopItem/information"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference shop.ecore#//ShopItem/group"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute shop.ecore#//ShopItem/locations"/>
+      <genOperations ecoreOperation="shop.ecore#//ShopItem/namePriceOK">
+        <genParameters ecoreParameter="shop.ecore#//ShopItem/namePriceOK/diagnostics"/>
+        <genParameters ecoreParameter="shop.ecore#//ShopItem/namePriceOK/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="shop.ecore#//ShopItem/nameOK">
+        <genParameters ecoreParameter="shop.ecore#//ShopItem/nameOK/diagnostics"/>
+        <genParameters ecoreParameter="shop.ecore#//ShopItem/nameOK/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="shop.ecore#//ShopItemGroup">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute shop.ecore#//ShopItemGroup/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference shop.ecore#//ShopItemGroup/items"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference shop.ecore#//ShopItemGroup/shop"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute shop.ecore#//ShopItemGroup/description"/>
     </genClasses>
     <genClasses ecoreClass="shop.ecore#//Order">
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute shop.ecore#//Order/no"/>
@@ -53,21 +79,36 @@
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute shop.ecore#//OrderItem/id"/>
     </genClasses>
     <genClasses ecoreClass="shop.ecore#//Contact">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference shop.ecore#//Contact/shop"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute shop.ecore#//Contact/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute shop.ecore#//Contact/address"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute shop.ecore#//Contact/city"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute shop.ecore#//Contact/zip"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference shop.ecore#//Contact/country"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference shop.ecore#//Contact/shop"/>
       <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference shop.ecore#//Contact/customer"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute shop.ecore#//Contact/newsletter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute shop.ecore#//Contact/birthday"/>
     </genClasses>
     <genClasses ecoreClass="shop.ecore#//Country">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference shop.ecore#//Country/shop"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute shop.ecore#//Country/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute shop.ecore#//Country/abbreviation"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference shop.ecore#//Country/shop"/>
+      <genOperations ecoreOperation="shop.ecore#//Country/abbreviationLengthOK">
+        <genParameters ecoreParameter="shop.ecore#//Country/abbreviationLengthOK/diagnostics"/>
+        <genParameters ecoreParameter="shop.ecore#//Country/abbreviationLengthOK/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="shop.ecore#//Country/abbreviationCaseOK">
+        <genParameters ecoreParameter="shop.ecore#//Country/abbreviationCaseOK/diagnostics"/>
+        <genParameters ecoreParameter="shop.ecore#//Country/abbreviationCaseOK/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="shop.ecore#//ShopItemInformation"/>
+    <genClasses ecoreClass="shop.ecore#//ShopItemDescription">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute shop.ecore#//ShopItemDescription/description"/>
+    </genClasses>
+    <genClasses ecoreClass="shop.ecore#//ShopItemURL">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute shop.ecore#//ShopItemURL/url"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

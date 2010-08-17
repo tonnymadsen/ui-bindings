@@ -18,7 +18,6 @@ package com.rcpcompany.uibindings.tests.shop;
  * </p>
  * 
  * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItemDescription()
- * @model
  * @generated
  */
 public interface ShopItemDescription extends ShopItemInformation {
@@ -33,7 +32,6 @@ public interface ShopItemDescription extends ShopItemInformation {
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItemDescription_Description()
-	 * @model
 	 * @generated
 	 */
 	String getDescription();

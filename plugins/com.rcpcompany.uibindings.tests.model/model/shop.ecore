@@ -66,7 +66,8 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="shop" lowerBound="1" eType="#//Shop"
         resolveProxies="false" eOpposite="#//Shop/shopItems"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="orderItems" upperBound="-1"
         eType="#//OrderItem" transient="true" resolveProxies="false" eOpposite="#//OrderItem/item"/>
@@ -76,6 +77,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="group" eType="#//ShopItemGroup"
         eOpposite="#//ShopItemGroup/items"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="locations" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ShopItemGroup">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -95,7 +98,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
         transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="2" eType="#//OrderItem"
-        containment="true" resolveProxies="false" eOpposite="#//OrderItem/order"/>
+        containment="true" resolveProxies="false" eOpposite="#//OrderItem/order" eKeys="#//OrderItem/no"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OrderItem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="no" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
@@ -149,10 +152,9 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="shop" lowerBound="1" eType="#//Shop"
         resolveProxies="false" eOpposite="#//Shop/countries"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abbreviation" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="CustomerType">
     <eLiterals name="BRONCE" literal="Bronce"/>

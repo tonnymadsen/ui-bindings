@@ -33,7 +33,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * 
  * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShop()
- * @model
  * @generated
  */
 public interface Shop extends EObject {
@@ -48,7 +47,6 @@ public interface Shop extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShop_Name()
-	 * @model
 	 * @generated
 	 */
 	String getName();
@@ -74,7 +72,6 @@ public interface Shop extends EObject {
 	 * @return the value of the '<em>Next Order No</em>' attribute.
 	 * @see #setNextOrderNo(int)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShop_NextOrderNo()
-	 * @model required="true"
 	 * @generated
 	 */
 	int getNextOrderNo();
@@ -101,7 +98,6 @@ public interface Shop extends EObject {
 	 * @return the value of the '<em>Next Customer No</em>' attribute.
 	 * @see #setNextCustomerNo(int)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShop_NextCustomerNo()
-	 * @model required="true"
 	 * @generated
 	 */
 	int getNextCustomerNo();
@@ -128,7 +124,6 @@ public interface Shop extends EObject {
 	 * @return the value of the '<em>Tmp Dir</em>' attribute.
 	 * @see #setTmpDir(String)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShop_TmpDir()
-	 * @model default="C:\\Windows\\Temp" required="true"
 	 * @generated
 	 */
 	String getTmpDir();
@@ -217,7 +212,6 @@ public interface Shop extends EObject {
 	 * @return the value of the '<em>Orders</em>' containment reference list.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShop_Orders()
 	 * @see com.rcpcompany.uibindings.tests.shop.Order#getShop
-	 * @model opposite="shop" containment="true"
 	 * @generated
 	 */
 	EList<Order> getOrders();
@@ -265,7 +259,6 @@ public interface Shop extends EObject {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @model
 	 * @generated
 	 */
 	void save();
@@ -273,8 +266,6 @@ public interface Shop extends EObject {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @model diagnosticsDataType="com.rcpcompany.uibindings.tests.shop.DiagnosticChain"
-	 *        diagnosticsRequired="true"
 	 * @generated
 	 */
 	boolean nameLengthOK(DiagnosticChain diagnostics, Map<Object, Object> context);

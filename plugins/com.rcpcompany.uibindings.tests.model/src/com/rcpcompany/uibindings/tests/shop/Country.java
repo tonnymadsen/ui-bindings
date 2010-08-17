@@ -38,7 +38,6 @@ public interface Country extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getCountry_Name()
-	 * @model id="true" required="true"
 	 * @generated
 	 */
 	String getName();
@@ -64,7 +63,6 @@ public interface Country extends EObject {
 	 * @return the value of the '<em>Abbreviation</em>' attribute.
 	 * @see #setAbbreviation(String)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getCountry_Abbreviation()
-	 * @model required="true"
 	 * @generated
 	 */
 	String getAbbreviation();
@@ -93,7 +91,6 @@ public interface Country extends EObject {
 	 * @see #setShop(Shop)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getCountry_Shop()
 	 * @see com.rcpcompany.uibindings.tests.shop.Shop#getCountries
-	 * @model opposite="countries" resolveProxies="false" required="true" transient="false"
 	 * @generated
 	 */
 	Shop getShop();
@@ -111,8 +108,6 @@ public interface Country extends EObject {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @model diagnosticsDataType="com.rcpcompany.uibindings.tests.shop.DiagnosticChain"
-	 *        diagnosticsRequired="true"
 	 * @generated
 	 */
 	boolean abbreviationLengthOK(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -120,8 +115,6 @@ public interface Country extends EObject {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @model diagnosticsDataType="com.rcpcompany.uibindings.tests.shop.DiagnosticChain"
-	 *        diagnosticsRequired="true"
 	 * @generated
 	 */
 	boolean abbreviationCaseOK(DiagnosticChain diagnostics, Map<Object, Object> context);

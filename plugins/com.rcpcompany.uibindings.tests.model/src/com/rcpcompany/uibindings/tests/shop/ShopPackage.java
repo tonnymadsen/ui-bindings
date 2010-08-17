@@ -302,13 +302,22 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM__GROUP = 6;
 
 	/**
+	 * The feature id for the '<em><b>Locations</b></em>' attribute list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_ITEM__LOCATIONS = 7;
+
+	/**
 	 * The number of structural features of the '<em>Item</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM_FEATURE_COUNT = 7;
+	int SHOP_ITEM_FEATURE_COUNT = 8;
 
 	/**
 	 * The meta object id for the '
@@ -1032,6 +1041,18 @@ public interface ShopPackage extends EPackage {
 	EReference getShopItem_Group();
 
 	/**
+	 * Returns the meta object for the attribute list '
+	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItem#getLocations <em>Locations</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute list '<em>Locations</em>'.
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopItem#getLocations()
+	 * @see #getShopItem()
+	 * @generated
+	 */
+	EAttribute getShopItem_Locations();
+
+	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.ShopItemGroup
 	 * <em>Item Group</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -1465,7 +1486,6 @@ public interface ShopPackage extends EPackage {
 	 * 
 	 * @return the meta object for data type '<em>Diagnostic Chain</em>'.
 	 * @see org.eclipse.emf.common.util.DiagnosticChain
-	 * @model instanceClass="org.eclipse.emf.common.util.DiagnosticChain"
 	 * @generated
 	 */
 	EDataType getDiagnosticChain();
@@ -1700,6 +1720,14 @@ public interface ShopPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SHOP_ITEM__GROUP = eINSTANCE.getShopItem_Group();
+
+		/**
+		 * The meta object literal for the '<em><b>Locations</b></em>' attribute list feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute SHOP_ITEM__LOCATIONS = eINSTANCE.getShopItem_Locations();
 
 		/**
 		 * The meta object literal for the '

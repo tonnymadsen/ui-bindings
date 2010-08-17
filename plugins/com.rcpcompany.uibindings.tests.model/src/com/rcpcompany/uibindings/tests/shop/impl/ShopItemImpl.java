@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -45,6 +46,8 @@ import com.rcpcompany.uibindings.validators.EValidatorAdapter;
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemImpl#getInformation <em>Information
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemImpl#getGroup <em>Group</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemImpl#getLocations <em>Locations
+ * </em>}</li>
  * </ul>
  * </p>
  * 
@@ -140,6 +143,16 @@ public class ShopItemImpl extends EObjectImpl implements ShopItem {
 	 * @ordered
 	 */
 	protected ShopItemGroup group;
+
+	/**
+	 * The cached value of the '{@link #getLocations() <em>Locations</em>}' attribute list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getLocations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> locations;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -429,6 +442,19 @@ public class ShopItemImpl extends EObjectImpl implements ShopItem {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
+	 * @generated
+	 */
+	@Override
+	public EList<String> getLocations() {
+		if (locations == null) {
+			locations = new EDataTypeUniqueEList<String>(String.class, this, ShopPackage.SHOP_ITEM__LOCATIONS);
+		}
+		return locations;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	@Override
@@ -557,6 +583,8 @@ public class ShopItemImpl extends EObjectImpl implements ShopItem {
 		case ShopPackage.SHOP_ITEM__GROUP:
 			if (resolve) return getGroup();
 			return basicGetGroup();
+		case ShopPackage.SHOP_ITEM__LOCATIONS:
+			return getLocations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -592,6 +620,10 @@ public class ShopItemImpl extends EObjectImpl implements ShopItem {
 		case ShopPackage.SHOP_ITEM__GROUP:
 			setGroup((ShopItemGroup) newValue);
 			return;
+		case ShopPackage.SHOP_ITEM__LOCATIONS:
+			getLocations().clear();
+			getLocations().addAll((Collection<? extends String>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -625,6 +657,9 @@ public class ShopItemImpl extends EObjectImpl implements ShopItem {
 		case ShopPackage.SHOP_ITEM__GROUP:
 			setGroup((ShopItemGroup) null);
 			return;
+		case ShopPackage.SHOP_ITEM__LOCATIONS:
+			getLocations().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -651,6 +686,8 @@ public class ShopItemImpl extends EObjectImpl implements ShopItem {
 			return information != null;
 		case ShopPackage.SHOP_ITEM__GROUP:
 			return group != null;
+		case ShopPackage.SHOP_ITEM__LOCATIONS:
+			return locations != null && !locations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -671,6 +708,8 @@ public class ShopItemImpl extends EObjectImpl implements ShopItem {
 		result.append(price);
 		result.append(", forSale: ");
 		result.append(forSale);
+		result.append(", locations: ");
+		result.append(locations);
 		result.append(')');
 		return result.toString();
 	}

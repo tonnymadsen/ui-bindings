@@ -16,7 +16,6 @@ import org.eclipse.emf.common.util.Enumerator;
  * <em><b>Customer Type</b></em>', and utility methods for working with them. <!-- end-user-doc -->
  * 
  * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getCustomerType()
- * @model
  * @generated
  */
 public enum CustomerType implements Enumerator {
@@ -56,7 +55,6 @@ public enum CustomerType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @see #BRONCE
-	 * @model literal="Bronce"
 	 * @generated
 	 * @ordered
 	 */
@@ -71,7 +69,6 @@ public enum CustomerType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @see #SILVER
-	 * @model literal="Silver"
 	 * @generated
 	 * @ordered
 	 */
@@ -86,7 +83,6 @@ public enum CustomerType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @see #GOLD
-	 * @model literal="Gold"
 	 * @generated
 	 * @ordered
 	 */

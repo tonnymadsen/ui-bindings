@@ -9,7 +9,6 @@ import java.net.URL;
 
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -17,8 +16,9 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.edit.domain.EditingDomain;
 
+import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Customer;
@@ -71,7 +71,8 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	@Override
 	public Shop getShop() {
 		if (theShop == null) {
-			final ResourceSetImpl rs = new ResourceSetImpl();
+			final IManager manager = IManager.Factory.getManager();
+			final EditingDomain editingDomain = manager.getEditingDomain();
 			final ShopPackage shopPackage = ShopPackage.eINSTANCE;
 
 			/*
@@ -85,15 +86,9 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 			} catch (final Exception ex) {
 				LogUtils.error(this, ex);
 			}
-			// URI uri =
-			// URI.createPlatformPluginURI("/com.rcpcompany.uibindings.tests.model/data/TEST.shop",
-			// true);
-			final URI uri = URI.createURI(resolve.toString());
-			final Resource resource = rs.getResource(uri, true);
+			final Resource resource = editingDomain.loadResource(resolve.toString());
 
 			theShop = (Shop) resource.getContents().get(0);
-
-			// resource.eAdapters().add(new LiveValidationContentAdapter());
 		}
 		return theShop;
 	}

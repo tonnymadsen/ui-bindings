@@ -25,7 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * 
  * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getCustomer()
- * @model
  * @generated
  */
 public interface Customer extends EObject {
@@ -43,7 +42,6 @@ public interface Customer extends EObject {
 	 * @see #setShop(Shop)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getCustomer_Shop()
 	 * @see com.rcpcompany.uibindings.tests.shop.Shop#getCustomers
-	 * @model opposite="customers" resolveProxies="false" required="true" transient="false"
 	 * @generated
 	 */
 	Shop getShop();
@@ -72,7 +70,6 @@ public interface Customer extends EObject {
 	 * @see #setContact(Contact)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getCustomer_Contact()
 	 * @see com.rcpcompany.uibindings.tests.shop.Contact#getCustomer
-	 * @model opposite="customer" resolveProxies="false" required="true"
 	 * @generated
 	 */
 	Contact getContact();
@@ -120,7 +117,6 @@ public interface Customer extends EObject {
 	 * @see com.rcpcompany.uibindings.tests.shop.CustomerType
 	 * @see #setLoyalty(CustomerType)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getCustomer_Loyalty()
-	 * @model default="BRONCE"
 	 * @generated
 	 */
 	CustomerType getLoyalty();
@@ -147,7 +143,6 @@ public interface Customer extends EObject {
 	 * @return the value of the '<em>Logo File Name</em>' attribute.
 	 * @see #setLogoFileName(String)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getCustomer_LogoFileName()
-	 * @model
 	 * @generated
 	 */
 	String getLogoFileName();

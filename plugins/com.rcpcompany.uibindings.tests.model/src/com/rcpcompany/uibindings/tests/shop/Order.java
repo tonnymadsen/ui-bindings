@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * 
  * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getOrder()
- * @model
  * @generated
  */
 public interface Order extends EObject {
@@ -38,7 +37,6 @@ public interface Order extends EObject {
 	 * 
 	 * @return the value of the '<em>No</em>' attribute.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getOrder_No()
-	 * @model id="true" required="true" changeable="false"
 	 * @generated
 	 */
 	int getNo();
@@ -56,8 +54,6 @@ public interface Order extends EObject {
 	 * @return the value of the '<em>Shop</em>' container reference.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getOrder_Shop()
 	 * @see com.rcpcompany.uibindings.tests.shop.Shop#getOrders
-	 * @model opposite="orders" resolveProxies="false" required="true" transient="false"
-	 *        changeable="false" derived="true"
 	 * @generated
 	 */
 	Shop getShop();
@@ -76,7 +72,6 @@ public interface Order extends EObject {
 	 * @see #setCustomer(Customer)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getOrder_Customer()
 	 * @see com.rcpcompany.uibindings.tests.shop.Customer#getOrders
-	 * @model opposite="orders" resolveProxies="false"
 	 * @generated
 	 */
 	Customer getCustomer();
@@ -102,7 +97,6 @@ public interface Order extends EObject {
 	 * @return the value of the '<em>Price</em>' attribute.
 	 * @see #setPrice(float)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getOrder_Price()
-	 * @model required="true" transient="true"
 	 * @generated
 	 */
 	float getPrice();

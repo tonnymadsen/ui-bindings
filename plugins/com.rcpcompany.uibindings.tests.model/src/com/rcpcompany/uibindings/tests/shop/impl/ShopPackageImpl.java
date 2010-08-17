@@ -456,6 +456,16 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getShopItem_Locations() {
+		return (EAttribute) shopItemEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getShopItemGroup() {
 		return shopItemGroupEClass;
 	}
@@ -795,6 +805,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getShopItemURL() {
 		return shopItemURLEClass;
 	}
@@ -804,6 +815,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getShopItemURL_Url() {
 		return (EAttribute) shopItemURLEClass.getEStructuralFeatures().get(0);
 	}
@@ -813,6 +825,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EEnum getCustomerType() {
 		return customerTypeEEnum;
 	}
@@ -822,6 +835,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getDiagnosticChain() {
 		return diagnosticChainEDataType;
 	}
@@ -831,6 +845,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public ShopFactory getShopFactory() {
 		return (ShopFactory) getEFactoryInstance();
 	}
@@ -880,6 +895,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		createEAttribute(shopItemEClass, SHOP_ITEM__FOR_SALE);
 		createEReference(shopItemEClass, SHOP_ITEM__INFORMATION);
 		createEReference(shopItemEClass, SHOP_ITEM__GROUP);
+		createEAttribute(shopItemEClass, SHOP_ITEM__LOCATIONS);
 
 		shopItemGroupEClass = createEClass(SHOP_ITEM_GROUP);
 		createEAttribute(shopItemGroupEClass, SHOP_ITEM_GROUP__NAME);
@@ -1024,7 +1040,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 				ShopItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getShopItem_Name(), ecorePackage.getEString(), "name", null, 1, 1, ShopItem.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getShopItem_Price(), ecorePackage.getEFloat(), "price", null, 1, 1, ShopItem.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getShopItem_OrderItems(), this.getOrderItem(), this.getOrderItem_Item(), "orderItems", null, 0,
@@ -1038,6 +1054,8 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		initEReference(getShopItem_Group(), this.getShopItemGroup(), this.getShopItemGroup_Items(), "group", null, 0,
 				1, ShopItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getShopItem_Locations(), ecorePackage.getEString(), "locations", null, 0, -1, ShopItem.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(shopItemEClass, ecorePackage.getEBoolean(), "namePriceOK", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getDiagnosticChain(), "diagnostics", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -1085,6 +1103,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		initEReference(getOrder_Items(), this.getOrderItem(), this.getOrderItem_Order(), "items", null, 0, 2,
 				Order.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getOrder_Items().getEKeys().add(this.getOrderItem_No());
 
 		initEClass(orderItemEClass, OrderItem.class, "OrderItem", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1129,9 +1148,9 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCountry_Name(), ecorePackage.getEString(), "name", null, 1, 1, Country.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCountry_Abbreviation(), ecorePackage.getEString(), "abbreviation", null, 1, 1, Country.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(countryEClass, ecorePackage.getEBoolean(), "abbreviationLengthOK", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
