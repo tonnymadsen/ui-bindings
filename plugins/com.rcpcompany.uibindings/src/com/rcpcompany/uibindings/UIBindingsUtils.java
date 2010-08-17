@@ -1,7 +1,6 @@
 package com.rcpcompany.uibindings;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -17,6 +16,7 @@ import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -257,6 +257,26 @@ public final class UIBindingsUtils {
 	}
 
 	/**
+	 * Returns whether the two EObjects are equal or both <code>null</code>.
+	 * <p>
+	 * If <code>key</code> is non-<code>null</code>, also tests if the key attribute of the objects
+	 * are {@link #equals(Object, Object)}
+	 * 
+	 * @param a object a
+	 * @param b object b
+	 * @param key key attribute in objects
+	 * @return true if a and b are equal or both <code>null</code>
+	 */
+	public static boolean equals(EObject a, EObject b, EAttribute key) {
+		if (a == b) return true;
+		if (a == null) return false;
+		if (a.equals(b)) return true;
+
+		if (b == null || key == null) return false;
+		return equals(a.eGet(key), b.eGet(key));
+	}
+
+	/**
 	 * Constructs and returns a new simple editing domain suitable for wizards.
 	 * 
 	 * @return the new editing domain
@@ -446,30 +466,23 @@ public final class UIBindingsUtils {
 	 * @see Comparator
 	 */
 	public static <T> void sort(EList<T> list, Comparator<? super T> c) {
-		final Object[] a = list.toArray();
-		Arrays.sort(a, (Comparator) c);
-		final List<T> newList = new ArrayList<T>();
-		for (final Object element : a) {
-			newList.add((T) element);
-		}
-		list.clear();
-		list.addAll(newList);
+		ECollections.sort(list, c);
 	}
 
 	/**
 	 * Mapping of boxed to primitive data types - e.g. <code>Integer</code> to <code>int</code>.
 	 */
-	private static final Map<String, String> myBoxed2Primitive = new HashMap<String, String>();
+	private static final Map<String, String> BOXED2PRIMITIVE = new HashMap<String, String>();
 
 	static {
-		UIBindingsUtils.myBoxed2Primitive.put(Boolean.class.getName(), Boolean.TYPE.getName());
-		UIBindingsUtils.myBoxed2Primitive.put(Character.class.getName(), Character.TYPE.getName());
-		UIBindingsUtils.myBoxed2Primitive.put(Byte.class.getName(), Byte.TYPE.getName());
-		UIBindingsUtils.myBoxed2Primitive.put(Short.class.getName(), Short.TYPE.getName());
-		UIBindingsUtils.myBoxed2Primitive.put(Integer.class.getName(), Integer.TYPE.getName());
-		UIBindingsUtils.myBoxed2Primitive.put(Long.class.getName(), Long.TYPE.getName());
-		UIBindingsUtils.myBoxed2Primitive.put(Float.class.getName(), Float.TYPE.getName());
-		UIBindingsUtils.myBoxed2Primitive.put(Double.class.getName(), Double.TYPE.getName());
+		UIBindingsUtils.BOXED2PRIMITIVE.put(Boolean.class.getName(), Boolean.TYPE.getName());
+		UIBindingsUtils.BOXED2PRIMITIVE.put(Character.class.getName(), Character.TYPE.getName());
+		UIBindingsUtils.BOXED2PRIMITIVE.put(Byte.class.getName(), Byte.TYPE.getName());
+		UIBindingsUtils.BOXED2PRIMITIVE.put(Short.class.getName(), Short.TYPE.getName());
+		UIBindingsUtils.BOXED2PRIMITIVE.put(Integer.class.getName(), Integer.TYPE.getName());
+		UIBindingsUtils.BOXED2PRIMITIVE.put(Long.class.getName(), Long.TYPE.getName());
+		UIBindingsUtils.BOXED2PRIMITIVE.put(Float.class.getName(), Float.TYPE.getName());
+		UIBindingsUtils.BOXED2PRIMITIVE.put(Double.class.getName(), Double.TYPE.getName());
 	}
 
 	/**
@@ -480,7 +493,6 @@ public final class UIBindingsUtils {
 	 * @return the primitive type or <code>null</code>
 	 */
 	public static String getBoxed2Primitive(String boxed) {
-		return myBoxed2Primitive.get(boxed);
+		return BOXED2PRIMITIVE.get(boxed);
 	}
-
 }

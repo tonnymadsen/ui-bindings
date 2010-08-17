@@ -100,6 +100,7 @@ import com.rcpcompany.uibindings.extests.utils.BindingObjectLongNameTest;
 import com.rcpcompany.uibindings.extests.utils.BindingSpecTest;
 import com.rcpcompany.uibindings.extests.utils.ControlDecorationTest;
 import com.rcpcompany.uibindings.extests.utils.DoubleClickAdapterTest;
+import com.rcpcompany.uibindings.extests.utils.EcoreExtUtilsSyncTest;
 import com.rcpcompany.uibindings.extests.utils.FilterTest;
 import com.rcpcompany.uibindings.extests.utils.FormChooserTest;
 import com.rcpcompany.uibindings.extests.utils.FormCreatorTest;
@@ -195,7 +196,7 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		/*
 		 * Utilities
 		 */
-		BindingSpecTest.class, IPathMatcherTests.class,
+		BindingSpecTest.class, IPathMatcherTests.class, EcoreExtUtilsSyncTest.class,
 
 		/*
 		 * Source Providers

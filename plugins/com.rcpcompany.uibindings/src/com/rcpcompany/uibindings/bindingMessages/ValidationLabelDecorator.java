@@ -178,7 +178,7 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 	 * @see #addListener(ILabelProviderListener)
 	 * @see #removeListener(ILabelProviderListener)
 	 */
-	private final ArrayList<ILabelProviderListener> myListeners = new ArrayList<ILabelProviderListener>();
+	/* package */final ArrayList<ILabelProviderListener> myListeners = new ArrayList<ILabelProviderListener>();
 
 	/**
 	 * Whether this decorator has been fully initialized.

@@ -131,7 +131,7 @@
          </command>
       </menuContribution>
    <menuContribution
-         locationURI="menu:navigate">
+         locationURI="menu:navigatex">
       <command
             commandId="org.eclipse.ui.navigate.backwardHistory"
             id="com.rcpcompany.uibindings.backwardHistoryMenu"
@@ -144,7 +144,7 @@
       </command>
    </menuContribution>
    <menuContribution
-         locationURI="toolbar:navigate">
+         locationURI="toolbar:navigatex">
       <command
             commandId="org.eclipse.ui.navigate.backwardHistory"
             id="com.rcpcompany.uibindings.backwardHistoryMenu"
@@ -230,6 +230,25 @@
          commandId="org.eclipse.ui.navigate.forwardHistory"
          icon="images/forward_nav_16x16.gif">
    </image>
+</extension>
+<extension
+      point="org.eclipse.ui.preferencePages">
+   <page
+         class="com.rcpcompany.uibindings.UIBindingPreferences:basicPreferencePage"
+         id="com.rcpcompany.uibindings.example.application.pages.basic"
+         name="Basic UI Bindings">
+   </page>
+   <page
+         category="com.rcpcompany.uibindings.example.application.pages.basic"
+         class="com.rcpcompany.uibindings.UIBindingPreferences:validationPreferencePage"
+         id="com.rcpcompany.uibindings.example.application.pages.validation"
+         name="Validation">
+   </page>
+   <page
+         class="com.rcpcompany.uibindings.navigator.internal.pages.PreferredEditorPage"
+         id="com.rcpcompany.uibindings.example.application.pages.editors"
+         name="Editors">
+   </page>
 </extension>
 
 </fragment>

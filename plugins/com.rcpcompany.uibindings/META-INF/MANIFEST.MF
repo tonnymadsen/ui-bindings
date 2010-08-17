@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: com.rcpcompany.uibindings;singleton:=true
-Bundle-Version: 2.4.3.qualifier
+Bundle-Version: 2.4.5.qualifier
 Bundle-Activator: com.rcpcompany.uibindings.internal.Activator
 Bundle-Vendor: %Bundle-Vendor
 Require-Bundle: org.eclipse.ui;bundle-version="[3.4.0,4.0.0)";resolution:=optional;visibility:=reexport,

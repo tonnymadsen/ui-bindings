@@ -81,7 +81,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 		THE_MANAGER.deregisterService(this);
 
 		for (final ValidationRoot root : myValidationRoots.toArray(new ValidationRoot[0])) {
-			removeRoot(root.myRoot, root.myValidationAdapter);
+			removeRoot(root.getRoot(), root.getValidationAdapter());
 		}
 
 		for (final IValidatorAdapterMessageDecorator d : myDecorators.toArray(new IValidatorAdapterMessageDecorator[0])) {
@@ -105,12 +105,12 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	/**
 	 * List of all the current validation roots.
 	 */
-	private final List<ValidationRoot> myValidationRoots = new ArrayList<ValidationRoot>();
+	/* package */final List<ValidationRoot> myValidationRoots = new ArrayList<ValidationRoot>();
 
 	@Override
 	public void reset() {
 		for (final ValidationRoot root : myValidationRoots.toArray(new ValidationRoot[0])) {
-			removeRoot(root.myRoot, root.myValidationAdapter);
+			removeRoot(root.getRoot(), root.getValidationAdapter());
 		}
 	}
 
@@ -123,7 +123,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	@Override
 	public void removeRoot(EObject root, IValidatorAdapter validationAdapter) {
 		for (final ValidationRoot r : myValidationRoots) {
-			if (r.myRoot == root && r.myValidationAdapter == validationAdapter) {
+			if (r.getRoot() == root && r.getValidationAdapter() == validationAdapter) {
 				myValidationRoots.remove(r);
 				r.dispose();
 				break;
@@ -194,11 +194,11 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 		myUnboundMessages.clear();
 		for (final ValidationRoot r : myValidationRoots) {
 			try {
-				r.myValidationAdapter.validateObjectTree(r.myRoot, r.myFoundMessages);
+				r.myValidationAdapter.validateObjectTree(r.getRoot(), r.getFoundMessages());
 			} catch (final Exception ex) {
 				LogUtils.error(r.myValidationAdapter, ex);
 			}
-			myUnboundMessages.addAll(r.myFoundMessages);
+			myUnboundMessages.addAll(r.getFoundMessages());
 		}
 		if (Activator.getDefault().TRACE_VALIDATION_RESULT) {
 			final StringBuilder sb = new StringBuilder();
@@ -374,7 +374,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	/**
 	 * Unmodifiable version of {@link #myCurrentObjects}.
 	 */
-	protected final Set<EObject> myCurrentObjectsUnmodifiable = Collections.unmodifiableSet(myCurrentObjects);
+	private final Set<EObject> myCurrentObjectsUnmodifiable = Collections.unmodifiableSet(myCurrentObjects);
 
 	@Override
 	public Set<EObject> getCurrentObjects() {
@@ -391,36 +391,35 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	/**
 	 * Unmodifiable version of {@link #myChangedObjects}.
 	 */
-	protected final Set<EObject> myChangedObjectsUnmodifiable = Collections.unmodifiableSet(myChangedObjects);
+	private final Set<EObject> myChangedObjectsUnmodifiable = Collections.unmodifiableSet(myChangedObjects);
 
 	/**
 	 * The list of unbound messages across all roots.
 	 * <p>
 	 * Here for optimization purposes...
 	 */
-	protected final List<IBindingMessage> myUnboundMessages = new ArrayList<IBindingMessage>();
+	private final List<IBindingMessage> myUnboundMessages = new ArrayList<IBindingMessage>();
 
 	/**
 	 * Unmodifiable version of {@link #myUnboundMessages}.
 	 */
-	protected final List<IBindingMessage> myUnboundMessagesUnmodifiable = Collections
-			.unmodifiableList(myUnboundMessages);
+	private final List<IBindingMessage> myUnboundMessagesUnmodifiable = Collections.unmodifiableList(myUnboundMessages);
 
 	/**
 	 * Observable version of {@link #myUnboundMessages}
 	 * <p>
 	 * Here for optimization purposes...
 	 */
-	protected final IObservableList myUnboundMessagesOL = WritableList
+	private final IObservableList myUnboundMessagesOL = WritableList
 			.withElementType(IUIBindingsPackage.Literals.BINDING_MESSAGE);
 
 	/**
 	 * Unmodifiable version of {@link #myUnboundMessagesOL}.
 	 */
-	protected final IObservableList myUnboundMessagesOLUnmodifiable = Observables
+	private final IObservableList myUnboundMessagesOLUnmodifiable = Observables
 			.unmodifiableObservableList(myUnboundMessagesOL);
 
-	protected IValidationAdapterManagerChangeEvent myChangeEvent = new IValidationAdapterManagerChangeEvent() {
+	private final IValidationAdapterManagerChangeEvent myChangeEvent = new IValidationAdapterManagerChangeEvent() {
 		@Override
 		public Set<EObject> getCurrentObjects() {
 			return myCurrentObjectsUnmodifiable;
@@ -432,7 +431,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 		}
 	};
 
-	protected ListDiffVisitor myUnboundMessageChangeVisitor = new ListDiffVisitor() {
+	private final ListDiffVisitor myUnboundMessageChangeVisitor = new ListDiffVisitor() {
 		@Override
 		public void handleAdd(int index, Object element) {
 			final IBindingMessage m = (IBindingMessage) element;
@@ -453,11 +452,22 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	 * {@link ValidatorAdapterManager#addRoot(EObject, IValidatorAdapter)}.
 	 */
 	protected class ValidationRoot implements IDisposable {
-		public final EObject myRoot;
 
-		public final IValidatorAdapter myValidationAdapter;
+		public EObject getRoot() {
+			return myRoot;
+		}
 
-		public final IObservableList myFoundMessages = WritableList.withElementType(IBindingMessage.class);
+		public IValidatorAdapter getValidationAdapter() {
+			return myValidationAdapter;
+		}
+
+		public IObservableList getFoundMessages() {
+			return myFoundMessages;
+		}
+
+		private final EObject myRoot;
+		private final IValidatorAdapter myValidationAdapter;
+		private final IObservableList myFoundMessages = WritableList.withElementType(IBindingMessage.class);
 
 		public ValidationRoot(EObject root, IValidatorAdapter validationAdapter) {
 			Assert.isNotNull(root);
@@ -491,6 +501,9 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 		return severity;
 	}
 
+	/**
+	 * A bound message based on an unbound message and a specific binding.
+	 */
 	private static class BoundMessage extends AbstractBindingMessage {
 
 		private final IBindingMessage myParentMessage;
