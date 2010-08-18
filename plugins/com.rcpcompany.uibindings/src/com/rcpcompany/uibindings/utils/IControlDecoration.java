@@ -60,26 +60,26 @@ public interface IControlDecoration {
 	 * 
 	 * @return the control
 	 */
-	public Control getControl();
+	Control getControl();
 
 	/**
 	 * The location of this decoration in relation to the control.
 	 * 
 	 * @return the relative location
 	 */
-	public Point getLocation();
+	Point getLocation();
 
 	/**
 	 * Returns the image of this decoration.
 	 * 
 	 * @return the image or <code>null</code>
 	 */
-	public Image getImage();
+	Image getImage();
 
 	/**
 	 * Returns the tooltip of this decoration.
 	 * 
 	 * @return the tooltip or <code>null</code>
 	 */
-	public String getTooltip();
+	String getTooltip();
 }
