@@ -25,6 +25,7 @@ import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
@@ -1100,7 +1101,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		/*
 		 * Sort the extenders.
 		 */
-		UIBindingsUtils.sort(getDecoratorExtenders(), new Comparator<IUIBindingDecoratorExtenderDescriptor>() {
+		ECollections.sort(getDecoratorExtenders(), new Comparator<IUIBindingDecoratorExtenderDescriptor>() {
 			@Override
 			public int compare(IUIBindingDecoratorExtenderDescriptor o1, IUIBindingDecoratorExtenderDescriptor o2) {
 				return o2.getPriority() - o1.getPriority();
@@ -1117,7 +1118,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			}
 		};
 		for (final ITreeItemDescriptor tid : getTreeItems()) {
-			UIBindingsUtils.sort(tid.getChildRelations(), comparator);
+			ECollections.sort(tid.getChildRelations(), comparator);
 		}
 	}
 

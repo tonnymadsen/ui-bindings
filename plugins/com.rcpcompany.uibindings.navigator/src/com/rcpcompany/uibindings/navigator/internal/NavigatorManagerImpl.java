@@ -17,6 +17,7 @@ import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -271,7 +272,7 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 				return o2.getPriority() - o1.getPriority();
 			}
 		};
-		UIBindingsUtils.sort(mt.getEditors(), comparator);
+		ECollections.sort(mt.getEditors(), comparator);
 		setCurrentPreferenceValue(mt);
 
 		getModelTypes().add(mt);
