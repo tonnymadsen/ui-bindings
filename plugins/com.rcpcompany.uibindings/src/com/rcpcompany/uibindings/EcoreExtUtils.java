@@ -1,5 +1,6 @@
 package com.rcpcompany.uibindings;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.runtime.Assert;
@@ -29,7 +30,7 @@ public final class EcoreExtUtils {
 
 	}
 
-	private static final EditingDomain THE_EDITING_DOMAIN = UIBindingsUtils.createEditingDomain();
+	public static final EditingDomain THE_EDITING_DOMAIN = UIBindingsUtils.createEditingDomain();
 
 	/**
 	 * Synchronizes the information from the <code>source</code> object into the <code>target</code>
@@ -40,12 +41,14 @@ public final class EcoreExtUtils {
 	 * @param target the object synchronized into
 	 * @param source the object synchronized from
 	 */
-	public static <T extends EObject> void sync(T target, T source) {
+	public static <T extends EObject> SyncController sync(T target, T source) {
 		Assert.isTrue(source.getClass() == target.getClass(), "target and source must have exactly the same types");
 		final SyncController controller = new SyncController();
 		controller.setEditingDomain(THE_EDITING_DOMAIN);
 		controller.sync(target, source);
 		controller.commit();
+
+		return controller;
 	}
 
 	/**
@@ -57,37 +60,18 @@ public final class EcoreExtUtils {
 	 * @param target the object synchronized into
 	 * @param source the object synchronized from
 	 */
-	public static <T extends EObject> void sync(EList<T> target, EList<T> source) {
+	public static <T extends EObject> SyncController sync(EList<T> target, EList<T> source) {
 		final SyncController controller = new SyncController();
 		controller.setEditingDomain(THE_EDITING_DOMAIN);
 		controller.sync(target, source);
 		controller.commit();
-	}
 
-	/**
-	 * Synchronizes the information from the <code>source</code> object into the <code>target</code>
-	 * object.
-	 * <p>
-	 * The behavior of the synchronization is controlled via the sync controller.
-	 * <p>
-	 * The changes are not made until the controller is committed.
-	 * <p>
-	 * The class of <code>target</code> and <code>source</code> must be the same, e.g.
-	 * <code>source.getClass() == target.getClass()</code>.
-	 * 
-	 * @param <T> the type of the involved objects
-	 * @param target the object synchronized into
-	 * @param source the object synchronized from
-	 * @param controller the controller for the operation
-	 */
-	public static <T extends EObject> void sync(T target, T source, SyncController controller) {
-		Assert.isTrue(source.getClass() == target.getClass(), "target and source must have exactly the same types");
-		controller.sync(source, target);
+		return controller;
 	}
 
 	/**
 	 * This class is used to control a synchronize operation in
-	 * {@link EcoreExtUtils#sync(EObject, EObject, SyncController)}.
+	 * {@link EcoreExtUtils#sync(EObject, EObject)} and {@link EcoreExtUtils#sync(EList, EList)}.
 	 */
 	public static class SyncController {
 		private EditingDomain myEditingDomain;
@@ -95,6 +79,11 @@ public final class EcoreExtUtils {
 		 * A compound command that collects all the created commands.
 		 */
 		private CompoundCommand myCompoundCommand;
+
+		/**
+		 * A list of objects that have been removed in the synchronization from the target.
+		 */
+		private List<EObject> myRemovedObjects = null;
 
 		/**
 		 * Synchronizes the information from the <code>source</code> object into the
@@ -246,26 +235,33 @@ public final class EcoreExtUtils {
 			 * Remove any excess elements
 			 */
 			for (int i = targetList.size(); i > sourceList.size();) {
-				addCommand(RemoveCommand.create(getEditingDomain(), target, sf, targetList.get(--i)));
+				final Object obj = targetList.get(--i);
+				addCommand(RemoveCommand.create(getEditingDomain(), target, sf, obj));
 			}
 		}
 
 		/**
-		 * Synchronizes the specified containment structural feature from the <code>source</code>
-		 * object into the <code>target</code> object.
+		 * Synchronizes the specified containment list from the <code>source</code> object into the
+		 * <code>target</code> object.
 		 * 
 		 * @param <T> the type of the involved objects
 		 * @param ref the structural feature to synchronize
 		 * @param target the object synchronized into
-		 * @param sourceList the objects synchronized from
+		 * @param sourceList the list synchronized from
 		 */
-		private <T extends EObject> void syncContainmentList(EReference ref, T target, EList<T> sourceList) {
+		private <T extends EObject> void syncContainmentList(EReference ref, T target, List<T> sourceList) {
+			if (!target.eIsSet(ref) && (sourceList == null || sourceList.isEmpty())) return;
 			final EList<EObject> targetList = new BasicEList<EObject>((EList<EObject>) target.eGet(ref));
-			final EAttribute key = findKeyAttribute(ref);
 			if (targetList == sourceList) return;
-			if (targetList.isEmpty() && sourceList.isEmpty()) return;
 
-			for (int index = 0; index < sourceList.size(); index++) {
+			int sourceListSize = 0;
+			if (sourceList != null) {
+				sourceListSize = sourceList.size();
+			}
+
+			final EAttribute key = findKeyAttribute(ref);
+
+			for (int index = 0; index < sourceListSize; index++) {
 				final EObject sourceObject = sourceList.get(index);
 				/*
 				 * Is targetList long enougth
@@ -301,6 +297,7 @@ public final class EcoreExtUtils {
 						 */
 						if (targetIndex == -1) {
 							addCommand(SetCommand.create(getEditingDomain(), target, ref, sourceObject, index));
+							addRemovedObject(targetObject);
 							targetList.set(index, sourceObject);
 						} else {
 							addCommand(AddCommand.create(getEditingDomain(), target, ref, sourceObject, index));
@@ -314,6 +311,7 @@ public final class EcoreExtUtils {
 					 */
 					if (targetIndex == -1) {
 						addCommand(RemoveCommand.create(getEditingDomain(), target, ref, sourceObject));
+						addRemovedObject(sourceObject);
 						targetList.remove(index);
 						done = false;
 						continue;
@@ -335,11 +333,14 @@ public final class EcoreExtUtils {
 					sync(targetList.get(index), sourceObject);
 				} while (!done);
 			}
+
 			/*
-			 * Remove any excess elements
+			 * Remove any excess elements in the target list
 			 */
-			for (int i = targetList.size(); i > sourceList.size();) {
-				addCommand(RemoveCommand.create(getEditingDomain(), target, ref, targetList.get(--i)));
+			for (int i = targetList.size(); i > sourceListSize;) {
+				final EObject obj = targetList.get(--i);
+				addCommand(RemoveCommand.create(getEditingDomain(), target, ref, obj));
+				addRemovedObject(obj);
 			}
 		}
 
@@ -374,7 +375,7 @@ public final class EcoreExtUtils {
 			return ref.getEReferenceType().getEIDAttribute();
 		}
 
-		private int indexOf(EList<EObject> list, EAttribute key, EObject lookup, int index) {
+		private int indexOf(List<EObject> list, EAttribute key, EObject lookup, int index) {
 			for (int i = index; i < list.size(); i++) {
 				if (UIBindingsUtils.equals(lookup, list.get(i), key)) return i;
 			}
@@ -392,6 +393,23 @@ public final class EcoreExtUtils {
 			}
 
 			myCompoundCommand.append(c);
+		}
+
+		private void addRemovedObject(EObject obj) {
+			if (myRemovedObjects == null) {
+				myRemovedObjects = new ArrayList<EObject>();
+			}
+			myRemovedObjects.add(obj);
+		}
+
+		/**
+		 * Returns a list with the {@link EObject objects} that will be removed from the target
+		 * object if this controller is committed.
+		 * 
+		 * @return the list of objects - can be <code>null</code>
+		 */
+		public List<EObject> getRemovedObjects() {
+			return myRemovedObjects;
 		}
 
 		/**

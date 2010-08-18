@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.junit.Test;
 
 import com.rcpcompany.uibindings.EcoreExtUtils;
+import com.rcpcompany.uibindings.EcoreExtUtils.SyncController;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
@@ -43,7 +44,7 @@ public class EcoreExtUtilsSyncTest {
 		target.setName("cba");
 		target.setAbbreviation("AB");
 
-		sync(target, source, ShopPackage.Literals.COUNTRY__NAME);
+		sync(target, source, null, ShopPackage.Literals.COUNTRY__NAME);
 
 		assertEquals("abc", target.getName());
 		assertEquals("AB", target.getAbbreviation());
@@ -68,7 +69,7 @@ public class EcoreExtUtilsSyncTest {
 		targetCountry.setAbbreviation("AB");
 		target.setCountry(targetCountry);
 
-		sync(target, source, ShopPackage.Literals.CONTACT__NAME, ShopPackage.Literals.CONTACT__COUNTRY);
+		sync(target, source, null, ShopPackage.Literals.CONTACT__NAME, ShopPackage.Literals.CONTACT__COUNTRY);
 
 		assertEquals("Tonny", target.getName());
 		assertEquals("cba", targetCountry.getName());// NOT CHANGED! Not containment
@@ -88,7 +89,7 @@ public class EcoreExtUtilsSyncTest {
 		final ShopItem target = ShopFactory.eINSTANCE.createShopItem();
 		target.setName("abc");
 
-		sync(target, source, ShopPackage.Literals.SHOP_ITEM__LOCATIONS, ShopPackage.Literals.SHOP_ITEM__LOCATIONS);
+		sync(target, source, null, ShopPackage.Literals.SHOP_ITEM__LOCATIONS, ShopPackage.Literals.SHOP_ITEM__LOCATIONS);
 
 		assertEquals("abc", target.getName());
 		assertEquals(2, target.getLocations().size());
@@ -111,7 +112,7 @@ public class EcoreExtUtilsSyncTest {
 		target.getLocations().add("b");
 		target.getLocations().add("c");
 
-		sync(target, source, ShopPackage.Literals.SHOP_ITEM__LOCATIONS);
+		sync(target, source, null, ShopPackage.Literals.SHOP_ITEM__LOCATIONS);
 
 		assertEquals("abc", target.getName());
 		assertEquals(2, target.getLocations().size());
@@ -137,7 +138,7 @@ public class EcoreExtUtilsSyncTest {
 		target.getLocations().add("b");
 		target.getLocations().add("c");
 
-		sync(target, source, ShopPackage.Literals.SHOP_ITEM__LOCATIONS, ShopPackage.Literals.SHOP_ITEM__LOCATIONS);
+		sync(target, source, null, ShopPackage.Literals.SHOP_ITEM__LOCATIONS, ShopPackage.Literals.SHOP_ITEM__LOCATIONS);
 
 		assertEquals("abc", target.getName());
 		assertEquals(4, target.getLocations().size());
@@ -168,7 +169,7 @@ public class EcoreExtUtilsSyncTest {
 		shopItem2b.setPrice(200f);
 		shopItem2b.setShop(target);
 
-		sync(target, source, ShopPackage.Literals.SHOP_ITEM__PRICE, ShopPackage.Literals.SHOP__SHOP_ITEMS);
+		sync(target, source, null, ShopPackage.Literals.SHOP_ITEM__PRICE, ShopPackage.Literals.SHOP__SHOP_ITEMS);
 
 		assertEquals(2, target.getShopItems().size());
 		assertEquals(target, shopItem1.getShop());
@@ -197,7 +198,7 @@ public class EcoreExtUtilsSyncTest {
 		shopItem2b.setPrice(200f);
 		shopItem2b.setShop(target);
 
-		sync(target, target.getShopItems(), source.getShopItems(), ShopPackage.Literals.SHOP_ITEM__PRICE,
+		sync(target, target.getShopItems(), source.getShopItems(), null, ShopPackage.Literals.SHOP_ITEM__PRICE,
 				ShopPackage.Literals.SHOP__SHOP_ITEMS);
 
 		assertEquals(2, target.getShopItems().size());
@@ -226,9 +227,14 @@ public class EcoreExtUtilsSyncTest {
 		shopItem2b.setName("2");
 		shopItem2b.setPrice(200f);
 		shopItem2b.setShop(target);
+		final ShopItem shopItem3 = ShopFactory.eINSTANCE.createShopItem();
+		shopItem3.setName("3");
+		shopItem3.setPrice(300f);
+		shopItem3.setShop(target);
 
-		sync(target, target.getShopItems(), sourceList, ShopPackage.Literals.SHOP_ITEM__PRICE,
-				ShopPackage.Literals.SHOP__SHOP_ITEMS);
+		sync(target, target.getShopItems(), sourceList, new EObject[] { shopItem3 },
+				ShopPackage.Literals.SHOP_ITEM__PRICE, ShopPackage.Literals.SHOP__SHOP_ITEMS,
+				ShopPackage.Literals.SHOP_ITEM__SHOP, ShopPackage.Literals.SHOP__SHOP_ITEMS);
 
 		assertEquals(2, target.getShopItems().size());
 		assertEquals(target, shopItem1.getShop());
@@ -244,46 +250,74 @@ public class EcoreExtUtilsSyncTest {
 			if (msg.isTouch()) return;
 			final EStructuralFeature sf = (EStructuralFeature) msg.getFeature();
 			if (sf == null) return;
-			System.out.println(">>>" + msg);
+//			LogUtils.debug(this, ">>>" + msg);
 			myChanges.add(sf);
 		}
 	};
 
-	private <T extends EObject> void sync(T target, T source, EStructuralFeature... expected) {
+	private <T extends EObject> void sync(T target, T source, Object[] expectedRemovedObjects,
+			EStructuralFeature... expectedFeatureChanges) {
+		SyncController controller = null;
 		try {
 			myChanges.clear();
 			target.eAdapters().add(myChangeListener);
-			EcoreExtUtils.sync(target, source);
+			controller = EcoreExtUtils.sync(target, source);
 		} finally {
 			target.eAdapters().remove(myChangeListener);
 		}
-		final EStructuralFeature[] actual = myChanges.toArray(new EStructuralFeature[myChanges.size()]);
 
-		Arrays.sort(expected, SF_COMPARATOR);
-		Arrays.sort(actual, SF_COMPARATOR);
-		assertArrayEquals(expected, actual);
+		final EStructuralFeature[] actualFeatureChanges = myChanges.toArray(new EStructuralFeature[myChanges.size()]);
+		Arrays.sort(expectedFeatureChanges, SF_COMPARATOR);
+		Arrays.sort(actualFeatureChanges, SF_COMPARATOR);
+		assertArrayEquals(expectedFeatureChanges, actualFeatureChanges);
+
+		if (expectedRemovedObjects == null) {
+			assertEquals(null, controller.getRemovedObjects());
+		} else {
+			assertNotNull(controller.getRemovedObjects());
+			final Object[] actualRemovedObjects = controller.getRemovedObjects().toArray(new Object[0]);
+			Arrays.sort(expectedRemovedObjects, OBJECT_COMPARATOR);
+			Arrays.sort(actualRemovedObjects, OBJECT_COMPARATOR);
+			assertArrayEquals(expectedFeatureChanges, actualFeatureChanges);
+		}
 	}
 
 	private <T extends EObject> void sync(EObject targetOwner, EList<T> target, EList<T> source,
-			EStructuralFeature... expected) {
+			Object[] expectedRemovedObjects, EStructuralFeature... expectedFeatureChanges) {
+		SyncController controller = null;
 		try {
 			myChanges.clear();
 			targetOwner.eAdapters().add(myChangeListener);
-			EcoreExtUtils.sync(target, source);
+			controller = EcoreExtUtils.sync(target, source);
 		} finally {
 			targetOwner.eAdapters().remove(myChangeListener);
 		}
-		final EStructuralFeature[] actual = myChanges.toArray(new EStructuralFeature[myChanges.size()]);
 
-		Arrays.sort(expected, SF_COMPARATOR);
-		Arrays.sort(actual, SF_COMPARATOR);
-		assertArrayEquals(expected, actual);
+		final EStructuralFeature[] actualFeatureChanges = myChanges.toArray(new EStructuralFeature[myChanges.size()]);
+		Arrays.sort(expectedFeatureChanges, SF_COMPARATOR);
+		Arrays.sort(actualFeatureChanges, SF_COMPARATOR);
+		assertArrayEquals(expectedFeatureChanges, actualFeatureChanges);
+
+		if (expectedRemovedObjects == null) {
+			assertEquals(null, controller.getRemovedObjects());
+		} else {
+			final Object[] actualRemovedObjects = controller.getRemovedObjects().toArray(new Object[0]);
+			Arrays.sort(expectedRemovedObjects, OBJECT_COMPARATOR);
+			Arrays.sort(actualRemovedObjects, OBJECT_COMPARATOR);
+			assertArrayEquals(expectedFeatureChanges, actualFeatureChanges);
+		}
 	}
 
 	private static final Comparator<EStructuralFeature> SF_COMPARATOR = new Comparator<EStructuralFeature>() {
-
 		@Override
 		public int compare(EStructuralFeature sf1, EStructuralFeature sf2) {
+			return System.identityHashCode(sf1) - System.identityHashCode(sf2);
+		}
+	};
+
+	private static final Comparator<Object> OBJECT_COMPARATOR = new Comparator<Object>() {
+		@Override
+		public int compare(Object sf1, Object sf2) {
 			return System.identityHashCode(sf1) - System.identityHashCode(sf2);
 		}
 	};
