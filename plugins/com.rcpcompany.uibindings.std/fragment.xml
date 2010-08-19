@@ -256,7 +256,7 @@
             commandId="org.eclipse.ui.edit.undo">
          <enabledWhen>
             <with
-                  variable="com.rcpcompany.uibindings.canUndo">
+                  variable="com.rcpcompany.uibindings.sourceProviders.canUndo">
                <equals
                      value="true">
                </equals>
@@ -264,7 +264,7 @@
          </enabledWhen>
          <activeWhen>
             <with
-                  variable="com.rcpcompany.uibindings.canUndo">
+                  variable="com.rcpcompany.uibindings.sourceProviders.canUndo">
                <equals
                      value="true">
                </equals>
@@ -276,7 +276,7 @@
             commandId="org.eclipse.ui.edit.redo">
          <enabledWhen>
             <with
-                  variable="com.rcpcompany.uibindings.canRedo">
+                  variable="com.rcpcompany.uibindings.sourceProviders.canRedo">
                <equals
                      value="true">
                </equals>
@@ -284,7 +284,7 @@
          </enabledWhen>
          <activeWhen>
             <with
-                  variable="com.rcpcompany.uibindings.canRedo">
+                  variable="com.rcpcompany.uibindings.sourceProviders.canRedo">
                <equals
                      value="true">
                </equals>

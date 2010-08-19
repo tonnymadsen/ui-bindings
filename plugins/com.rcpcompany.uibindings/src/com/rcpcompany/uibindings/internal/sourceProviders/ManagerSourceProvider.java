@@ -36,8 +36,8 @@ public class ManagerSourceProvider extends AbstractSourceProvider {
 	 * <p>
 	 * <b>NOTE:</b> If you update this list, remember to update the services extension as well!
 	 */
-	public static final String[] PROVIDED_SOURCE_NAMES = new String[] { Constants.PREFIX + Constants.PROPERTY_CAN_UNDO,
-			Constants.PREFIX + Constants.PROPERTY_CAN_REDO, };
+	public static final String[] PROVIDED_SOURCE_NAMES = new String[] { Constants.SOURCES_CAN_UNDO,
+			Constants.SOURCES_CAN_REDO, };
 
 	/**
 	 * Constructs and returns a new source provider.
@@ -157,15 +157,15 @@ public class ManagerSourceProvider extends AbstractSourceProvider {
 		final EditingDomain editingDomain = theManager.getEditingDomain();
 		final CommandStack commandStack = editingDomain.getCommandStack();
 
-		newState.put(Constants.PREFIX + Constants.PROPERTY_CAN_UNDO, commandStack.canUndo());
-		newState.put(Constants.PREFIX + Constants.PROPERTY_CAN_REDO, commandStack.canRedo());
+		newState.put(Constants.SOURCES_CAN_UNDO, commandStack.canUndo());
+		newState.put(Constants.SOURCES_CAN_REDO, commandStack.canRedo());
 
 		return newState;
 	}
 
 	private void initializeMap(final Map<String, Object> map) {
-		map.put(Constants.PREFIX + Constants.PROPERTY_CAN_UNDO, false);
-		map.put(Constants.PREFIX + Constants.PROPERTY_CAN_REDO, false);
+		map.put(Constants.SOURCES_CAN_UNDO, false);
+		map.put(Constants.SOURCES_CAN_REDO, false);
 	}
 
 	@Override

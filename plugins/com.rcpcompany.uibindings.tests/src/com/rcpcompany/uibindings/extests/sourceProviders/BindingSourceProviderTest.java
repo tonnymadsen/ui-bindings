@@ -206,6 +206,8 @@ public class BindingSourceProviderTest {
 	@Test
 	public void testServicesExtension() {
 		boolean found = false;
+		final Map<String, Object> currentState = myProvider.getCurrentState();
+
 		final IExtensionRegistry registry = Platform.getExtensionRegistry();
 		for (final IConfigurationElement ce : registry.getConfigurationElementsFor("org.eclipse.ui.services")) {
 			if (!ce.getContributor().getName().equals(Activator.ID)) {
@@ -219,7 +221,6 @@ public class BindingSourceProviderTest {
 			assertTrue(!found);
 			found = true;
 
-			final Map<String, Object> currentState = myProvider.getCurrentState();
 			final IConfigurationElement[] children = ce.getChildren("variable");
 			for (final IConfigurationElement cce : children) {
 				final String name = cce.getAttribute("name");
@@ -234,48 +235,6 @@ public class BindingSourceProviderTest {
 		}
 
 		assertTrue(found);
-	}
-
-	/**
-	 * Tests that the used sources in the uibinding plug-ins are all legal.
-	 */
-	@Test
-	public void testUsedSourcesHandlers() {
-		testUsedSources("org.eclipse.ui.handlers");
-	}
-
-	/**
-	 * Tests that the used sources in the uibinding plug-ins are all legal.
-	 */
-	@Test
-	public void testUsedSourcesMenus() {
-		testUsedSources("org.eclipse.ui.menus");
-	}
-
-	private void testUsedSources(String epName) {
-		final IExtensionRegistry registry = Platform.getExtensionRegistry();
-		for (final IConfigurationElement ce : registry.getConfigurationElementsFor(epName)) {
-			if (!ce.getContributor().getName().startsWith(Activator.ID)) {
-				continue;
-			}
-			testUsedSourcesElement(ce);
-		}
-	}
-
-	private void testUsedSourcesElement(IConfigurationElement ce) {
-		if (ce.getName().equals("with")) {
-			final String attribute = ce.getAttribute("variable");
-			if (attribute != null && attribute.length() != 0) {
-				if (attribute.startsWith(Constants.PREFIX)) {
-					final Map<String, Object> currentState = myProvider.getCurrentState();
-
-					assertTrue(attribute + " not present", currentState.containsKey(attribute));
-				}
-			}
-		}
-		for (final IConfigurationElement cce : ce.getChildren()) {
-			testUsedSourcesElement(cce);
-		}
 	}
 
 	/**

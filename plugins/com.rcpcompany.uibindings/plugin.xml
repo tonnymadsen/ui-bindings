@@ -1379,11 +1379,11 @@
       <sourceProvider
             provider="com.rcpcompany.uibindings.internal.sourceProviders.ManagerSourceProvider">
          <variable
-               name="com.rcpcompany.uibindings.canUndo"
+               name="com.rcpcompany.uibindings.sourceProviders.canUndo"
                priorityLevel="activeSite">
          </variable>
          <variable
-               name="com.rcpcompany.uibindings.canRedo"
+               name="com.rcpcompany.uibindings.sourceProviders.canRedo"
                priorityLevel="activeSite">
          </variable>
       </sourceProvider>
@@ -1445,5 +1445,11 @@
       <initializer
             class="com.rcpcompany.uibindings.internal.PreferenceInitializer">
       </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.definitions">
+      <definition
+            id="com.rcpcompany.uibindings.definition1">
+      </definition>
    </extension>
 </plugin>

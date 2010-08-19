@@ -379,6 +379,16 @@ public interface Constants {
 			ARG_VALUE_OBJECT_MESSAGES, ARG_WIDTH };
 
 	/**
+	 * Property name used in {@link ManagerPropertyTester}.
+	 */
+	String PROPERTY_CAN_REDO = "canRedo"; //$NON-NLS-1$
+
+	/**
+	 * Property name used in {@link ManagerPropertyTester}.
+	 */
+	String PROPERTY_CAN_UNDO = "canUndo"; //$NON-NLS-1$
+
+	/**
 	 * Prefix for all IDs.
 	 */
 	String PREFIX = Activator.ID + "."; //$NON-NLS-1$
@@ -523,6 +533,20 @@ public interface Constants {
 	String SOURCES_ACTIVE_VIEWER_ELEMENT_DELETE = SOURCES_ACTIVE_VIEWER_ELEMENT + "#delete"; //$NON-NLS-1$
 
 	/**
+	 * Source provider name for whether undo is possible.
+	 * <p>
+	 * The type of the value is {@link boolean}.
+	 */
+	String SOURCES_CAN_UNDO = SOURCES + PROPERTY_CAN_UNDO;
+
+	/**
+	 * Source provider name for whether redo is possible.
+	 * <p>
+	 * The type of the value is {@link boolean}.
+	 */
+	String SOURCES_CAN_REDO = SOURCES + PROPERTY_CAN_REDO;
+
+	/**
 	 * The ID of the default "Open" command used when no specific open command is associated with
 	 * the specific classifier or feature.
 	 */
@@ -560,16 +584,6 @@ public interface Constants {
 	String ATTR_SELECTION = "selection"; //$NON-NLS-1$
 
 	String ATTR_CURSOR = "cursor"; //$NON-NLS-1$
-
-	/**
-	 * Property name used in {@link ManagerPropertyTester}.
-	 */
-	String PROPERTY_CAN_REDO = "canRedo"; //$NON-NLS-1$
-
-	/**
-	 * Property name used in {@link ManagerPropertyTester}.
-	 */
-	String PROPERTY_CAN_UNDO = "canUndo"; //$NON-NLS-1$
 
 	/**
 	 * The default {@link IBinding} type.
@@ -627,8 +641,8 @@ public interface Constants {
 	 */
 	String COLOR_SELECTION_NO_FOCUS_BACKGROUND = PREFIX + "colorDefinitions.SelectionNoFocusBackground"; //$NON-NLS-1$
 
-    /**
-     * The default priority for tree item relations.
-     */
+	/**
+	 * The default priority for tree item relations.
+	 */
 	public static final int DEFAULT_TREE_ITEM_RELATION_PRIORITY = 1000;
 }

@@ -20,6 +20,7 @@ import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.ILogListener;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
@@ -95,6 +96,11 @@ public class BaseTestUtils {
 		mng.eUnset(IUIBindingsPackage.Literals.MANAGER__VALIDATION_DELAY);
 		mng.eUnset(IUIBindingsPackage.Literals.MANAGER__VALIDATION_DELAY_WINDOW);
 		mng.eUnset(IUIBindingsPackage.Literals.MANAGER__VALIDATION_ERRORS_ARE_FATAL);
+
+		final CommandStack cs = mng.getEditingDomain().getCommandStack();
+		cs.flush();
+		assertEquals(false, cs.canUndo());
+		assertEquals(false, cs.canRedo());
 
 		IValidatorAdapterManager.Factory.getManager().reset();
 

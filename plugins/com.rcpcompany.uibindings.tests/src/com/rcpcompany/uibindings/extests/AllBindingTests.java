@@ -71,6 +71,8 @@ import com.rcpcompany.uibindings.extests.quickfixes.NamingQuickfixTest;
 import com.rcpcompany.uibindings.extests.quickfixes.QuickfixMatchingTest;
 import com.rcpcompany.uibindings.extests.services.BasicServiceTest;
 import com.rcpcompany.uibindings.extests.sourceProviders.BindingSourceProviderTest;
+import com.rcpcompany.uibindings.extests.sourceProviders.CommonSourceProviderTest;
+import com.rcpcompany.uibindings.extests.sourceProviders.ManagerSourceProviderTest;
 import com.rcpcompany.uibindings.extests.spy.SpyDialogTest;
 import com.rcpcompany.uibindings.extests.trees.TreeContentTest;
 import com.rcpcompany.uibindings.extests.uiAttributeFactories.contentAdapters.ContentAdapterTest;
@@ -205,7 +207,7 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		/*
 		 * Source Providers
 		 */
-		BindingSourceProviderTest.class,
+		CommonSourceProviderTest.class, BindingSourceProviderTest.class, ManagerSourceProviderTest.class,
 
 		/*
 		 * Extenders

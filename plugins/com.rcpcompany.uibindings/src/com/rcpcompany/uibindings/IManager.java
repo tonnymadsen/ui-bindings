@@ -106,7 +106,7 @@ public interface IManager extends IBaseObject {
 	 * 
 	 * @param objects the changed objects or <code>null</code>
 	 */
-	public void updateBindings(Object[] objects);
+	void updateBindings(Object[] objects);
 
 	/**
 	 * Returns the value of the '<em><b>Providers</b></em>' containment reference list. The list
