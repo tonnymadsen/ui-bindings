@@ -25,6 +25,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
 import com.rcpcompany.uibindings.utils.ISortableTableAdapter;
+import com.rcpcompany.uibindings.utils.IViewerToolBar;
 
 /**
  * A view that shows the basic shop information such as the name and all defined countries.
@@ -102,6 +103,7 @@ public class ShopBasicsView extends ViewPart {
 
 		ISortableTableAdapter.Factory.adapt(viewer);
 		IBindingContextSelectionProvider.Factory.adapt(context, getSite());
+		IViewerToolBar.Factory.addToolBar(viewer, IViewerToolBar.HORIZONTAL | IViewerToolBar.STANDARD_ITEMS);
 
 		mySaveButton.addSelectionListener(new SelectionAdapter() {
 			@Override

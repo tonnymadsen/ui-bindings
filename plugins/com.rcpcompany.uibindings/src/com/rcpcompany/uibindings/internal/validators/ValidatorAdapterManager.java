@@ -78,7 +78,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 
 	@Override
 	public void dispose() {
-		THE_MANAGER.deregisterService(this);
+		THE_MANAGER.unregisterService(this);
 
 		for (final ValidationRoot root : myValidationRoots.toArray(new ValidationRoot[0])) {
 			removeRoot(root.getRoot(), root.getValidationAdapter());

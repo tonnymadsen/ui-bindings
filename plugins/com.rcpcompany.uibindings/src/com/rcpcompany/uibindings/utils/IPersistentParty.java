@@ -13,19 +13,19 @@ public interface IPersistentParty {
 	 * 
 	 * @return the ID or <code>null</code>
 	 */
-	public String getId();
+	String getId();
 
 	/**
 	 * Saves all state for the specified context.
 	 * 
 	 * @param memento the memento to save state into
 	 */
-	public void saveState(IMemento memento);
+	void saveState(IMemento memento);
 
 	/**
 	 * Restores all state for the specified context.
 	 * 
 	 * @param memento the memento to restore state from
 	 */
-	public void restoreState(IMemento memento);
+	void restoreState(IMemento memento);
 }

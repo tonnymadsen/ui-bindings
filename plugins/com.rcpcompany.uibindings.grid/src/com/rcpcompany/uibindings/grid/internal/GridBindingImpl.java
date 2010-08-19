@@ -1122,10 +1122,10 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 
 		IGridBindingCellInformation currentCell;
 		/*
-		 * If a specific position is specified in the event (x,y) then use this to focus
+		 * If a specific position is specified in the event (x,y) then use this to focus.
 		 */
 		final Event event = context.getEvent();
-		if (event.x != 0 || event.y != 0) {
+		if ((event.x != 0 || event.y != 0) && event.widget == getControl()) {
 			setFocusCell(new Point(event.x, event.y));
 		}
 		currentCell = getFocusCell();

@@ -391,22 +391,22 @@ public class GridBindingRowInformationImpl extends EObjectImpl implements IGridB
 	}
 
 	/**
-	 * Initializes the row object
+	 * Initializes the row object.
 	 * 
-	 * @param grid the grid binding
+	 * @param binding the grid binding
 	 * @param rowID the row ID object
 	 * @param index the index of the new row
 	 */
-	public void init(IGridBinding grid, Object rowID, int index) {
-		this.grid = grid;
+	public void init(IGridBinding binding, Object rowID, int index) {
+		this.grid = binding;
 		id = rowID;
-		grid.getRows().put(getId(), this);
+		binding.getRows().put(getId(), this);
 
 		if (!GridUtils.isHeader(getId())) {
 			gridItem = new GridItem(getGrid().getGrid(), SWT.NONE, index);
 		}
 
-		for (final IGridBindingColumnInformation column : grid.getColumns().values()) {
+		for (final IGridBindingColumnInformation column : binding.getColumns().values()) {
 			IGridFactory.eINSTANCE.createGridBindingCellInformation(column, this);
 		}
 	}

@@ -29,7 +29,7 @@ public class EnumImageExtender extends AbstractUIBindingDecoratorExtender {
 	/**
 	 * Map with all found mappings.
 	 */
-	protected static final Map<Object, Image> theImageMap = new HashMap<Object, Image>();
+	protected static final Map<Object, Image> IMAGE_MAP = new HashMap<Object, Image>();
 
 	@Override
 	public boolean isEnabled(IValueBinding binding) {
@@ -48,14 +48,14 @@ public class EnumImageExtender extends AbstractUIBindingDecoratorExtender {
 
 		final Enumerator enumValue = (Enumerator) value;
 
-		if (!theImageMap.containsKey(enumValue)) {
+		if (!IMAGE_MAP.containsKey(enumValue)) {
 			final EEnum e = (EEnum) binding.getDataType().getEType();
 			final EEnumLiteral literal = e.getEEnumLiteralByLiteral(enumValue.getLiteral());
 			final IBindingDataType dataType = BindingDataTypeFactory.create(literal);
 			final ImageDescriptor id = dataType.getArgument(binding, Constants.ARG_IMAGE, ImageDescriptor.class);
 
 			if (id == null) {
-				theImageMap.put(enumValue, null);
+				IMAGE_MAP.put(enumValue, null);
 				return;
 			}
 
@@ -64,13 +64,13 @@ public class EnumImageExtender extends AbstractUIBindingDecoratorExtender {
 				LogUtils.error(binding, "The image for enumration value "
 						+ binding.getDataType().getDataType().getName() + "#" + enumValue.getLiteral()
 						+ " cannot be loaded");
-				theImageMap.put(enumValue, null);
+				IMAGE_MAP.put(enumValue, null);
 				return;
 			}
-			theImageMap.put(enumValue, image);
+			IMAGE_MAP.put(enumValue, image);
 		}
 
-		final Image image = theImageMap.get(enumValue);
+		final Image image = IMAGE_MAP.get(enumValue);
 		if (image != null) {
 			context.setImage(image);
 		}

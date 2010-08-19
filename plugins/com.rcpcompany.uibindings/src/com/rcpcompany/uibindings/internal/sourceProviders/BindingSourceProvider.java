@@ -125,7 +125,7 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 	};
 
 	/**
-	 * The previous state reported by the provider
+	 * The previous state reported by the provider.
 	 */
 	protected final Map<String, Object> myOldState = new HashMap<String, Object>();
 
@@ -308,7 +308,7 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 	}
 
 	/**
-	 * Returns a Map with the current state for the specific event if specified
+	 * Returns a Map with the current state for the specific event if specified.
 	 * 
 	 * @param event the current event - possibly <code>null</code>
 	 * @return a Map with the current state
@@ -377,9 +377,6 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 			}
 
 			observe(event, values);
-
-			if (b instanceof IValueBinding) {
-			}
 		} catch (final Exception ex) {
 			LogUtils.error(this, ex);
 		}

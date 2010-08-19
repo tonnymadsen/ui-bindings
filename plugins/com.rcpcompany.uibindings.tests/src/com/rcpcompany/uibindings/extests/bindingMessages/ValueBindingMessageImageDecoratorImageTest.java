@@ -9,11 +9,11 @@ import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageIma
 public class ValueBindingMessageImageDecoratorImageTest {
 	@Test
 	public void imageTests() {
-		assertNotNull(ValueBindingMessageImageDecorator.theContentProposalFieldDecoration);
-		assertNotNull(ValueBindingMessageImageDecorator.theInformationFieldDecoration);
-		assertNotNull(ValueBindingMessageImageDecorator.theWarningFieldDecoration);
-		assertNotNull(ValueBindingMessageImageDecorator.theErrorFieldDecoration);
-		assertNotNull(ValueBindingMessageImageDecorator.theQuickfixFieldDecoration);
-		assertNotNull(ValueBindingMessageImageDecorator.theRequiredFieldDecoration);
+		assertNotNull(ValueBindingMessageImageDecorator.CONTENT_PROPOSAL_FIELD_DECORATOR);
+		assertNotNull(ValueBindingMessageImageDecorator.INFORMATION_FIELD_DECORATOR);
+		assertNotNull(ValueBindingMessageImageDecorator.WARNING_FIELD_DECORATOR);
+		assertNotNull(ValueBindingMessageImageDecorator.ERROR_FIELD_DECORATOR);
+		assertNotNull(ValueBindingMessageImageDecorator.QUICKFIX_FIELD_DECORATOR);
+		assertNotNull(ValueBindingMessageImageDecorator.REQUIRED_FIELD_DECORATOR);
 	}
 }

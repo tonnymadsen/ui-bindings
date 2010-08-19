@@ -124,7 +124,7 @@ public class FinancialUpDownExtender extends AbstractUIBindingDecoratorExtender 
 
 		@Override
 		public void dispose() {
-			myBinding.deregisterService(this);
+			myBinding.unregisterService(this);
 		}
 
 		/**

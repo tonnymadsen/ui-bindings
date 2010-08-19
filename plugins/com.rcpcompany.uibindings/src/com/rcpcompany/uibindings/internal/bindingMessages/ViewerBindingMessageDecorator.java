@@ -82,7 +82,7 @@ public class ViewerBindingMessageDecorator implements IDisposable {
 		}
 		getControl().removeListener(SWT.PaintItem, myPaintItemListener);
 		// TODO
-		getViewerBinding().deregisterService(this);
+		getViewerBinding().unregisterService(this);
 	}
 
 	/**

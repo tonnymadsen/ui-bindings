@@ -39,7 +39,7 @@ public class StyledTextCellEditor extends CellEditor {
 	private ModifyListener modifyListener;
 
 	/**
-	 * State information for updating action enablement
+	 * State information for updating action enablement.
 	 */
 	private boolean isSelection = false;
 

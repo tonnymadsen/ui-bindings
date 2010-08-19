@@ -126,7 +126,7 @@ public final class BindingDataTypeFactory {
 	 * Mapping from class to the set of super classes as defined by
 	 * {@link IAdapterManager#computeClassOrder(Class)}.
 	 */
-	private static final Map<IBindingDataType, IBindingDataType[]> superTypeMapping = new HashMap<IBindingDataType, IBindingDataType[]>();
+	private static final Map<IBindingDataType, IBindingDataType[]> SUPER_TYPE_MAPPING = new HashMap<IBindingDataType, IBindingDataType[]>();
 
 	/**
 	 * Returns a list of the {@link IBindingDataType} objects that defines all the super types of
@@ -143,7 +143,7 @@ public final class BindingDataTypeFactory {
 	 * @return the super types
 	 */
 	public static IBindingDataType[] getSuperTypes(IBindingDataType dt) {
-		IBindingDataType[] dts = superTypeMapping.get(dt);
+		IBindingDataType[] dts = SUPER_TYPE_MAPPING.get(dt);
 		if (dts == null) {
 			final List<IBindingDataType> dtList = new ArrayList<IBindingDataType>();
 			final EClassifier classifier = dt.getEType();
@@ -172,7 +172,7 @@ public final class BindingDataTypeFactory {
 				dtList.add(BindingDataTypeFactory.create(c));
 			}
 			dts = dtList.toArray(new IBindingDataType[0]);
-			superTypeMapping.put(dt, dts);
+			SUPER_TYPE_MAPPING.put(dt, dts);
 		}
 		return dts;
 	}

@@ -345,21 +345,21 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		final Class<?> modelType = binding.getModelType();
 
 		if (modelType == Byte.class || modelType == Byte.TYPE) {
-			myAdapter = theByteAdapter;
+			myAdapter = BYTE_ADAPTER;
 		} else if (modelType == Short.class || modelType == Short.TYPE) {
-			myAdapter = theShortAdapter;
+			myAdapter = SHORT_ADAPTER;
 		} else if (modelType == Integer.class || modelType == Integer.TYPE) {
-			myAdapter = theIntegerAdapter;
+			myAdapter = INTEGER_ADAPTER;
 		} else if (modelType == Long.class || modelType == Long.TYPE) {
-			myAdapter = theLongAdapter;
+			myAdapter = LONG_ADAPTER;
 		} else if (modelType == Float.class || modelType == Float.TYPE) {
-			myAdapter = theFloatAdapter;
+			myAdapter = FLOAT_ADAPTER;
 		} else if (modelType == Double.class || modelType == Double.TYPE) {
-			myAdapter = theDoubleAdapter;
+			myAdapter = DOUBLE_ADAPTER;
 		} else if (modelType == BigDecimal.class) {
-			myAdapter = theBigIntegerAdapter;
+			myAdapter = BIG_INTERGER_ADAPTER;
 		} else if (modelType == BigInteger.class) {
-			myAdapter = theBigDecimalAdapter;
+			myAdapter = BIG_DECIMAL_ADAPTER;
 		}
 
 		if (myAdapter == null) {
@@ -460,8 +460,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			if (parsePosition.getErrorIndex() != -1 || parsePosition.getIndex() != s.length()) {
 				boolean ok = false;
 				try {
-					if (myAdapter == theFloatAdapter || myAdapter == theDoubleAdapter
-							|| myAdapter == theBigDecimalAdapter) {
+					if (myAdapter == FLOAT_ADAPTER || myAdapter == DOUBLE_ADAPTER || myAdapter == BIG_DECIMAL_ADAPTER) {
 						number = BigDecimal.valueOf(Double.parseDouble(s));
 						ok = true;
 					}
@@ -589,7 +588,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		 * 
 		 * @return the format
 		 */
-		public NumberFormat getPlainParseFormat();
+		NumberFormat getPlainParseFormat();
 
 		/**
 		 * Returns the format used to parse this type with groupings.
@@ -598,21 +597,21 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		 * 
 		 * @return the format
 		 */
-		public NumberFormat getGroupingParseFormat();
+		NumberFormat getGroupingParseFormat();
 
 		/**
 		 * Returns the minimum value for the type. The value is the same type as TODO
 		 * 
 		 * @return the minimum
 		 */
-		public BigDecimal getMinimum();
+		BigDecimal getMinimum();
 
 		/**
 		 * Returns the minimum value for the type. The value is the same type as TODO
 		 * 
 		 * @return the minimum
 		 */
-		public BigDecimal getMaximum();
+		BigDecimal getMaximum();
 
 		/**
 		 * Returns a new number with the same value, but of the correct type. When this method is
@@ -622,13 +621,13 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		 * @param source the source number to be converted
 		 * @return the resulting number
 		 */
-		public Number getConformantNumber(BigDecimal source);
+		Number getConformantNumber(BigDecimal source);
 	}
 
 	/**
 	 * The adapter for {@link Byte}{@code .class} and {@link Byte}{@code .TYPE}.
 	 */
-	private static final NumberAdapter theByteAdapter = new NumberAdapter() {
+	private static final NumberAdapter BYTE_ADAPTER = new NumberAdapter() {
 		private final DecimalFormat myPlainFormat = setupDecimalFormat(NumberFormat.getIntegerInstance(), false);
 		private final DecimalFormat myGroupingFormat = setupDecimalFormat(NumberFormat.getIntegerInstance(), true);
 
@@ -669,7 +668,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 	/**
 	 * The adapter for {@link Short}{@code .class} and {@link Short}{@code .TYPE}.
 	 */
-	private static final NumberAdapter theShortAdapter = new NumberAdapter() {
+	private static final NumberAdapter SHORT_ADAPTER = new NumberAdapter() {
 		private final DecimalFormat myPlainFormat = setupDecimalFormat(NumberFormat.getIntegerInstance(), false);
 		private final DecimalFormat myGroupingFormat = setupDecimalFormat(NumberFormat.getIntegerInstance(), true);
 
@@ -710,7 +709,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 	/**
 	 * The adapter for {@link Integer}{@code .class} and {@link Integer}{@code .TYPE}.
 	 */
-	private static final NumberAdapter theIntegerAdapter = new NumberAdapter() {
+	private static final NumberAdapter INTEGER_ADAPTER = new NumberAdapter() {
 		private final DecimalFormat myPlainFormat = setupDecimalFormat(NumberFormat.getIntegerInstance(), false);
 		private final DecimalFormat myGroupingFormat = setupDecimalFormat(NumberFormat.getIntegerInstance(), true);
 
@@ -751,7 +750,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 	/**
 	 * The adapter for {@link Long}{@code .class} and {@link Long}{@code .TYPE}.
 	 */
-	private static final NumberAdapter theLongAdapter = new NumberAdapter() {
+	private static final NumberAdapter LONG_ADAPTER = new NumberAdapter() {
 		private final DecimalFormat myPlainFormat = setupDecimalFormat(NumberFormat.getIntegerInstance(), false);
 		private final DecimalFormat myGroupingFormat = setupDecimalFormat(NumberFormat.getIntegerInstance(), true);
 
@@ -792,7 +791,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 	/**
 	 * The adapter for {@link Float}{@code .class} and {@link Float}{@code .TYPE}.
 	 */
-	private static final NumberAdapter theFloatAdapter = new NumberAdapter() {
+	private static final NumberAdapter FLOAT_ADAPTER = new NumberAdapter() {
 		private final DecimalFormat myPlainFormat = setupDecimalFormat(NumberFormat.getNumberInstance(), false);
 		private final DecimalFormat myGroupingFormat = setupDecimalFormat(NumberFormat.getNumberInstance(), true);
 
@@ -829,7 +828,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 	/**
 	 * The adapter for {@link Double}{@code .class} and {@link Double}{@code .TYPE}.
 	 */
-	private static final NumberAdapter theDoubleAdapter = new NumberAdapter() {
+	private static final NumberAdapter DOUBLE_ADAPTER = new NumberAdapter() {
 		private final DecimalFormat myPlainFormat = setupDecimalFormat(NumberFormat.getNumberInstance(), false);
 		private final DecimalFormat myGroupingFormat = setupDecimalFormat(NumberFormat.getNumberInstance(), true);
 
@@ -866,7 +865,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 	/**
 	 * The adapter for {@link BigInteger}{@code .class} and {@link BigInteger}{@code .TYPE}.
 	 */
-	private static final NumberAdapter theBigIntegerAdapter = new NumberAdapter() {
+	private static final NumberAdapter BIG_INTERGER_ADAPTER = new NumberAdapter() {
 		private final DecimalFormat myPlainFormat = setupDecimalFormat(NumberFormat.getNumberInstance(), false);
 		private final DecimalFormat myGroupingFormat = setupDecimalFormat(NumberFormat.getNumberInstance(), true);
 
@@ -903,7 +902,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 	/**
 	 * The adapter for {@link BigDecimal}{@code .class} and {@link BigDecimal}{@code .TYPE}.
 	 */
-	private static final NumberAdapter theBigDecimalAdapter = new NumberAdapter() {
+	private static final NumberAdapter BIG_DECIMAL_ADAPTER = new NumberAdapter() {
 		private final DecimalFormat myPlainFormat = setupDecimalFormat(NumberFormat.getNumberInstance(), false);
 		private final DecimalFormat myGroupingFormat = setupDecimalFormat(NumberFormat.getNumberInstance(), true);
 

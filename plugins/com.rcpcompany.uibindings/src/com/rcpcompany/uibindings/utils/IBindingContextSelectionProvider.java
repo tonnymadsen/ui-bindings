@@ -49,27 +49,27 @@ public interface IBindingContextSelectionProvider extends IDisposable {
 	 * @param control the control to add
 	 * @param provider the selection provider used when the control has focus
 	 */
-	public void addControl(Control control, ISelectionProvider provider);
+	void addControl(Control control, ISelectionProvider provider);
 
 	/**
-	 * Adds the specified control with the specified "constant" selection value
+	 * Adds the specified control with the specified "constant" selection value.
 	 * 
 	 * @param control the control to add
 	 * @param selection the "constant" selection value to use
 	 */
-	public void addControl(Control control, IObservableValue selection);
+	void addControl(Control control, IObservableValue selection);
 
 	/**
-	 * Removes the control from the list of controls managed by this manager
+	 * Removes the control from the list of controls managed by this manager.
 	 * 
 	 * @param control the control to remove
 	 */
-	public void removeControl(Control control);
+	void removeControl(Control control);
 
 	/**
-	 * Adds the specified viewer with its "natural" selection provider
+	 * Adds the specified viewer with its "natural" selection provider.
 	 * 
 	 * @param viewer the viewer to add
 	 */
-	public void addViewer(Viewer viewer);
+	void addViewer(Viewer viewer);
 }

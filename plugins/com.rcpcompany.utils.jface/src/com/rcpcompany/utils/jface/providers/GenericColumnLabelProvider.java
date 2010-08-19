@@ -24,7 +24,7 @@ import org.eclipse.swt.widgets.Text;
 public class GenericColumnLabelProvider extends ColumnLabelProvider {
 
 	/**
-	 * The structural feature for the main
+	 * The structural feature for the main.
 	 */
 	private final EStructuralFeature myFeature;
 
@@ -38,7 +38,7 @@ public class GenericColumnLabelProvider extends ColumnLabelProvider {
 	}
 
 	/**
-	 * Constructs and returns a new column label provider
+	 * Constructs and returns a new column label provider.
 	 * 
 	 * @param feature the feature of the column
 	 */

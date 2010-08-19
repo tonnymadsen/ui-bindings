@@ -67,7 +67,7 @@ public class ContextMessageDecorator extends AbstractContextMonitor {
 
 	@Override
 	public void dispose() {
-		myContext.deregisterService(this);
+		myContext.unregisterService(this);
 		super.dispose();
 		if (myAdapter != null) {
 			myAdapter.dispose();

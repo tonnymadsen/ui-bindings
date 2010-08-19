@@ -37,12 +37,12 @@ public interface IBindingContextPersistence extends IDisposable {
 	 * 
 	 * @param memento the memento to save state into
 	 */
-	public void saveState(IMemento memento);
+	void saveState(IMemento memento);
 
 	/**
 	 * Restores all state for the specified context.
 	 * 
 	 * @param memento the memento to restore state from
 	 */
-	public void restoreState(IMemento memento);
+	void restoreState(IMemento memento);
 }

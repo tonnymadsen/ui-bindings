@@ -109,7 +109,7 @@ public class OpenCommandSupport {
 		@Override
 		public void dispose() {
 			final IManager manager = IManager.Factory.getManager();
-			manager.deregisterService(this);
+			manager.unregisterService(this);
 
 			/*
 			 * Remove all listeners

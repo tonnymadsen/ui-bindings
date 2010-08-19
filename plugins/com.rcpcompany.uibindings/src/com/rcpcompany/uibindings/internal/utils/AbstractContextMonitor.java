@@ -51,7 +51,7 @@ public abstract class AbstractContextMonitor implements IDisposable {
 			bindingRemoved(b);
 		}
 		getContext().eAdapters().remove(myContextAdapter);
-		getContext().deregisterService(this);
+		getContext().unregisterService(this);
 	}
 
 	/**

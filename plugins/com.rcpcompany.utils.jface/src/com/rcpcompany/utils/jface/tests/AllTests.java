@@ -4,7 +4,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 /**
- * All tests for this plug-in
+ * All tests for this plug-in.
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({ PluginTest.class })

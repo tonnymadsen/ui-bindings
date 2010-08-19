@@ -62,7 +62,7 @@ public final class BindingSpecFactory {
 	/**
 	 * The display used for unit conversions.
 	 */
-	protected static final Display theDisplay;
+	protected static final Display DISPLAY;
 
 	/**
 	 * The font metrics used for the default font. Used for unit conversions.
@@ -98,8 +98,8 @@ public final class BindingSpecFactory {
 		ARGUMENT_TYPES.put(Constants.ARG_MESSAGE_FORMAT, String.class);
 
 		// Compute and store a font metric
-		theDisplay = Display.getDefault();
-		final GC gc = new GC(theDisplay);
+		DISPLAY = Display.getDefault();
+		final GC gc = new GC(DISPLAY);
 		final Font f = JFaceResources.getDefaultFont();
 		theFontHeight = f.getFontData()[0].height;
 		gc.setFont(f);
@@ -110,7 +110,7 @@ public final class BindingSpecFactory {
 	/**
 	 * All calculated specs so far
 	 */
-	protected static final Map<EClass, Map<String, List<IBindingSpec>>> specLists = new HashMap<EClass, Map<String, List<IBindingSpec>>>();
+	protected static final Map<EClass, Map<String, List<IBindingSpec>>> CALCULATED_SPECS = new HashMap<EClass, Map<String, List<IBindingSpec>>>();
 
 	/**
 	 * Parses the specified spec based on the specified startType and returns the calculated spec
@@ -121,10 +121,10 @@ public final class BindingSpecFactory {
 	 * @return the spec list
 	 */
 	public static List<IBindingSpec> parseSingleSpec(EClass startType, String spec) {
-		Map<String, List<IBindingSpec>> typeSpecs = specLists.get(startType);
+		Map<String, List<IBindingSpec>> typeSpecs = CALCULATED_SPECS.get(startType);
 		if (typeSpecs == null) {
 			typeSpecs = new HashMap<String, List<IBindingSpec>>();
-			specLists.put(startType, typeSpecs);
+			CALCULATED_SPECS.put(startType, typeSpecs);
 		}
 		List<IBindingSpec> sl = typeSpecs.get(spec);
 		if (sl != null) return sl;
@@ -255,7 +255,7 @@ public final class BindingSpecFactory {
 							} else if (argUnit.equals("em")) {
 								factor = theFontHeight;
 							} else if (argUnit.equals("mm")) {
-								factor = theDisplay.getDPI().x / 25.4f;
+								factor = DISPLAY.getDPI().x / 25.4f;
 							} else if (argUnit.equals("dlu")) {
 								factor = theFontHeight / 4.0f;
 							} else {

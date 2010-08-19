@@ -153,7 +153,7 @@ public abstract class BaseObjectImpl extends EObjectImpl implements IBaseObject 
 	};
 
 	@Override
-	public <T> void deregisterService(T serviceObject) {
+	public <T> void unregisterService(T serviceObject) {
 		getServices().remove(serviceObject);
 	};
 

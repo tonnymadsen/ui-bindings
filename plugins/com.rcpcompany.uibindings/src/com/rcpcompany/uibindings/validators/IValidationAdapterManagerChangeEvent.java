@@ -16,12 +16,12 @@ public interface IValidationAdapterManagerChangeEvent {
 	 * 
 	 * @return the current objects
 	 */
-	public Set<EObject> getCurrentObjects();
+	Set<EObject> getCurrentObjects();
 
 	/**
 	 * Returns a set of all the changed objects of {@link IValidatorAdapterManager}.
 	 * 
 	 * @return the changed objects
 	 */
-	public Set<EObject> getChangedObjects();
+	Set<EObject> getChangedObjects();
 }

@@ -1008,6 +1008,14 @@
             disabledIcon="images/showEntryDisabled.gif"
             icon="images/showEntryEnabled.gif">
       </image>
+      <image
+            commandId="com.rcpcompany.uibindings.commands.moveItemUp"
+            icon="images/commands/up.png">
+      </image>
+      <image
+            commandId="com.rcpcompany.uibindings.commands.moveItemDown"
+            icon="images/commands/down.png">
+      </image>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">

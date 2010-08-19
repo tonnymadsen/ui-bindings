@@ -12,5 +12,5 @@ public interface IWidgetDecorationFactory {
 	 * @param position the position of the new decoration - TODO
 	 * @return the new decoration
 	 */
-	public IWidgetDecoration create(int position);
+	IWidgetDecoration create(int position);
 }

@@ -17,28 +17,28 @@ public interface IViewerItemDeletorContext {
 	 * 
 	 * @return the binding
 	 */
-	public IViewerBinding getViewerBinding();
+	IViewerBinding getViewerBinding();
 
 	/**
 	 * The involved {@link IObservableList observable list}.
 	 * 
 	 * @return the list
 	 */
-	public IObservableList getList();
+	IObservableList getList();
 
 	/**
 	 * The index of the object in the list.
 	 * 
 	 * @return the index
 	 */
-	public int getIndex();
+	int getIndex();
 
 	/**
 	 * Returns an object to be deleted.
 	 * 
 	 * @return the object to be deleted
 	 */
-	public EObject getObject();
+	EObject getObject();
 
 	/**
 	 * Returns whether the delete is just a test or if it is for real.
@@ -48,5 +48,5 @@ public interface IViewerItemDeletorContext {
 	 * 
 	 * @return <code>true</code> if only testing
 	 */
-	public boolean getTestOnly();
+	boolean getTestOnly();
 }

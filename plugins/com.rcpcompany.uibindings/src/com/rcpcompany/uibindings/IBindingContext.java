@@ -156,7 +156,7 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 		}
 
 		/**
-		 * Returns the binding associated with the specified widget if any
+		 * Returns the binding associated with the specified widget if any.
 		 * 
 		 * @param widget the widget
 		 * @return the associated binding or <code>null</code>
@@ -172,7 +172,7 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	 * 
 	 * @param objects the changed objects or <code>null</code>
 	 */
-	public void updateBindings(Object[] objects);
+	void updateBindings(Object[] objects);
 
 	/**
 	 * Signals that all bindings are performed for this context.
@@ -182,12 +182,12 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	 * Short for
 	 * <code>{@link #finish(FinishOption) finish}({@link FinishOption#LAZY FinishOption.LAZY})</code>.
 	 */
-	public void finish();
+	void finish();
 
 	/**
 	 * Possible options for {@link IBindingContext#finish(FinishOption)}.
 	 */
-	public enum FinishOption {
+	enum FinishOption {
 		/**
 		 * Lazily finish the context via {@link Display#asyncExec(Runnable)}.
 		 */
@@ -212,19 +212,19 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	 * 
 	 * @param option the finish option to execute
 	 */
-	public void finish(FinishOption option);
+	void finish(FinishOption option);
 
 	/**
 	 * Requests the form/wizard/whatever that hosts this context is reflowed/re-layout...
 	 */
-	public void reflow();
+	void reflow();
 
 	/**
-	 * Constructs and returns a new value binding to this context
+	 * Constructs and returns a new value binding to this context.
 	 * 
 	 * @return the new binding
 	 */
-	public IValueBinding addBinding();
+	IValueBinding addBinding();
 
 	/**
 	 * Constructs and returns a new value binding to this context
@@ -237,7 +237,7 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	 * 
 	 * @return the new binding
 	 */
-	public IValueBinding addBinding(Widget widget, EObject object, EStructuralFeature feature);
+	IValueBinding addBinding(Widget widget, EObject object, EStructuralFeature feature);
 
 	/**
 	 * Constructs and returns a new value binding to this context
@@ -251,7 +251,7 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	 * 
 	 * @return the new binding
 	 */
-	public IValueBinding addBinding(Widget widget, String attribute, EObject object, EStructuralFeature feature);
+	IValueBinding addBinding(Widget widget, String attribute, EObject object, EStructuralFeature feature);
 
 	/**
 	 * Constructs and returns a new value binding to this context
@@ -264,7 +264,7 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	 * 
 	 * @return the new binding
 	 */
-	public IValueBinding addBinding(Widget widget, IObservableValue object, EStructuralFeature feature);
+	IValueBinding addBinding(Widget widget, IObservableValue object, EStructuralFeature feature);
 
 	/**
 	 * Constructs and returns a new value binding to this context
@@ -278,14 +278,14 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	 * 
 	 * @return the new binding
 	 */
-	public IValueBinding addBinding(Widget widget, String attribute, IObservableValue object, EStructuralFeature feature);
+	IValueBinding addBinding(Widget widget, String attribute, IObservableValue object, EStructuralFeature feature);
 
 	/**
 	 * Constructs and returns a new viewer binding.
 	 * 
 	 * @return the new binding
 	 */
-	public IViewerBinding addViewer();
+	IViewerBinding addViewer();
 
 	/**
 	 * Constructs and returns a new binding in the context for the input of a viewer.
@@ -296,7 +296,7 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	 * 
 	 * @return the new binding
 	 */
-	public IViewerBinding addViewer(ColumnViewer viewer, EObject object, EReference reference);
+	IViewerBinding addViewer(ColumnViewer viewer, EObject object, EReference reference);
 
 	/**
 	 * Constructs and returns a new binding in the context for the input of a table.
@@ -307,7 +307,7 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	 * 
 	 * @return the new binding
 	 */
-	public IViewerBinding addViewer(Table table, EObject object, EReference reference);
+	IViewerBinding addViewer(Table table, EObject object, EReference reference);
 
 	/**
 	 * Constructs and returns a new binding in the context for the input of a viewer.
@@ -318,7 +318,7 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	 * 
 	 * @return the new binding
 	 */
-	public IViewerBinding addViewer(Table table, IObservableValue object, EReference reference);
+	IViewerBinding addViewer(Table table, IObservableValue object, EReference reference);
 
 	/**
 	 * Constructs and returns a new binding in the context for the input of a viewer.
@@ -329,7 +329,7 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	 * 
 	 * @return the new binding
 	 */
-	public IViewerBinding addViewer(ColumnViewer viewer, IObservableValue object, EReference reference);
+	IViewerBinding addViewer(ColumnViewer viewer, IObservableValue object, EReference reference);
 
 	/**
 	 * Constructs and returns a new binding in the context for the input of a viewer.
@@ -341,7 +341,7 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	 * 
 	 * @return the new binding
 	 */
-	public IViewerBinding addViewer(ColumnViewer viewer, IObservableList list);
+	IViewerBinding addViewer(ColumnViewer viewer, IObservableList list);
 
 	/**
 	 * Returns the value of the '<em><b>Bindings</b></em>' containment reference list. The list

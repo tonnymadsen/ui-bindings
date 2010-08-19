@@ -56,7 +56,7 @@ public class DoubleClickAdapter implements Listener, IDisposable {
 
 	@Override
 	public void dispose() {
-		myViewer.deregisterService(this);
+		myViewer.unregisterService(this);
 		myViewer.getControl().removeListener(SWT.MouseDoubleClick, this);
 	}
 

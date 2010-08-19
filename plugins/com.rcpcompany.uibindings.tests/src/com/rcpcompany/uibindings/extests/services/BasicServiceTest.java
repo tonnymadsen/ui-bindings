@@ -97,7 +97,7 @@ public class BasicServiceTest {
 		assertEquals(a, register.getService(I.class));
 		assertEquals(b, register.getService(B.class));
 
-		register.deregisterService(a);
+		register.unregisterService(a);
 
 		assertEquals(null, register.getService(A.class));
 		assertEquals(null, register.getService(I.class));

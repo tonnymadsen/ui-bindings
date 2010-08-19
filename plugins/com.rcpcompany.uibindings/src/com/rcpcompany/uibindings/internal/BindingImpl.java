@@ -115,10 +115,10 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		int i = 0;
 		for (i = 0; i < stackTrace.length; i++) {
 			final StackTraceElement element = stackTrace[i];
-			if (element.getClassName().startsWith(mySpyPackageName)) {
+			if (element.getClassName().startsWith(SPY_PACKAGE_NAME)) {
 				break;
 			}
-			if (element.getClassName().startsWith(myInternalPackageName)) {
+			if (element.getClassName().startsWith(INTERNAL_PACKAGE_NAME)) {
 				continue;
 			}
 
@@ -595,12 +595,12 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	/**
 	 * The package prefix name for all internal packages.
 	 */
-	private static final String myInternalPackageName = BindingImpl.class.getPackage().getName();
+	private static final String INTERNAL_PACKAGE_NAME = BindingImpl.class.getPackage().getName();
 
 	/**
 	 * The package prefix name for all internal spy packages.
 	 */
-	private static final String mySpyPackageName = myInternalPackageName + ".spy"; //$NON-NLS-1$
+	private static final String SPY_PACKAGE_NAME = INTERNAL_PACKAGE_NAME + ".spy"; //$NON-NLS-1$
 
 	/**
 	 * Clears all previously cached arguments.
@@ -902,24 +902,16 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		return null;
 	}
 
-	/**
-	 * Adds the specified widget to the set of widgets managed by this binding.
-	 * 
-	 * @param widget the widget
-	 */
-	protected void registerWidget(Widget widget) {
+	@Override
+	public void registerWidget(Widget widget) {
 		assertTrue(widget != null, "widget null"); //$NON-NLS-1$
 		assertTrue(widget.getData(InternalConstants.WIDGET_KEY) == null, widget
 				+ ": Widget already registered to binding"); //$NON-NLS-1$
 		widget.setData(InternalConstants.WIDGET_KEY, this);
 	}
 
-	/**
-	 * Removes the specified widget from the set of widgets managed by this binding.
-	 * 
-	 * @param widget the widget
-	 */
-	protected void unregisterWidget(Widget widget) {
+	@Override
+	public void unregisterWidget(Widget widget) {
 		assertTrue(widget != null, "widget null"); //$NON-NLS-1$
 		if (!widget.isDisposed()) {
 			widget.setData(InternalConstants.WIDGET_KEY, null);

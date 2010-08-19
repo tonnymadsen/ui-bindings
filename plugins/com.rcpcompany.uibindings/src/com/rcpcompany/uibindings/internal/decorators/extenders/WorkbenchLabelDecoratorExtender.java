@@ -32,12 +32,12 @@ public class WorkbenchLabelDecoratorExtender extends AbstractUIBindingDecoratorE
 		ILabelProviderListener {
 
 	public WorkbenchLabelDecoratorExtender() {
-		theWorkbenchDecorator.addListener(this);
+		WORKBENCH_DECORATOR.addListener(this);
 	}
 
 	@Override
 	public void dispose() {
-		theWorkbenchDecorator.removeListener(this);
+		WORKBENCH_DECORATOR.removeListener(this);
 		super.dispose();
 	}
 
@@ -55,27 +55,27 @@ public class WorkbenchLabelDecoratorExtender extends AbstractUIBindingDecoratorE
 
 		final Image image = context.getImage();
 		Image decorated = null;
-		if (theWorkbenchDecorator instanceof LabelDecorator) {
-			decorated = ((LabelDecorator) theWorkbenchDecorator).decorateImage(image, element, getDecorationContext());
+		if (WORKBENCH_DECORATOR instanceof LabelDecorator) {
+			decorated = ((LabelDecorator) WORKBENCH_DECORATOR).decorateImage(image, element, getDecorationContext());
 		} else {
-			decorated = theWorkbenchDecorator.decorateImage(image, element);
+			decorated = WORKBENCH_DECORATOR.decorateImage(image, element);
 		}
 		if (decorated != null) {
 			context.setImage(decorated);
 		}
 
-		if (theWorkbenchDecorator instanceof IColorDecorator) {
-			final Color foreground = ((IColorDecorator) theWorkbenchDecorator).decorateForeground(element);
+		if (WORKBENCH_DECORATOR instanceof IColorDecorator) {
+			final Color foreground = ((IColorDecorator) WORKBENCH_DECORATOR).decorateForeground(element);
 			if (foreground != null) {
 				context.setForegound(foreground);
 			}
-			final Color background = ((IColorDecorator) theWorkbenchDecorator).decorateBackground(element);
+			final Color background = ((IColorDecorator) WORKBENCH_DECORATOR).decorateBackground(element);
 			if (background != null) {
 				context.setBackgound(background);
 			}
 		}
-		if (theWorkbenchDecorator instanceof IFontDecorator) {
-			final Font font = ((IFontDecorator) theWorkbenchDecorator).decorateFont(element);
+		if (WORKBENCH_DECORATOR instanceof IFontDecorator) {
+			final Font font = ((IFontDecorator) WORKBENCH_DECORATOR).decorateFont(element);
 			if (font != null) {
 				context.setFont(font);
 			}
@@ -83,7 +83,7 @@ public class WorkbenchLabelDecoratorExtender extends AbstractUIBindingDecoratorE
 
 	}
 
-	/* package */static final ILabelDecorator theWorkbenchDecorator = PlatformUI.getWorkbench().getDecoratorManager()
+	/* package */static final ILabelDecorator WORKBENCH_DECORATOR = PlatformUI.getWorkbench().getDecoratorManager()
 			.getLabelDecorator();
 
 	/* package */final IDecorationContext myDecorationContext = DecorationContext.DEFAULT_CONTEXT;;

@@ -115,7 +115,7 @@ public class FilteringTableAdapter implements IFilteringTableAdapter, DisposeLis
 		myFilter.removeValueChangeListener(myFilterListener);
 		myTableViewer.removeFilter(myViewerFilter);
 		myTable.removeDisposeListener(this);
-		myViewerBinding.deregisterService(this);
+		myViewerBinding.unregisterService(this);
 	}
 
 	/**

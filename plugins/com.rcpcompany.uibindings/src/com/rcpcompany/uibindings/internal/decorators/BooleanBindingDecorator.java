@@ -22,49 +22,49 @@ public class BooleanBindingDecorator extends SimpleUIBindingDecorator implements
 	/**
 	 * The mapping of model values to UI values.
 	 */
-	protected static final Map<Boolean, String> theModelToUIMap = new HashMap<Boolean, String>();
+	protected static final Map<Boolean, String> MODEL_TO_UI_MAP = new HashMap<Boolean, String>();
 	/**
 	 * The mapping of UI values to model values.
 	 */
-	protected static final Map<String, Boolean> theUIToModelMap = new HashMap<String, Boolean>();
-	protected static final IObservableList theValidUIList;
+	protected static final Map<String, Boolean> UI_TO_MODEL_MAP = new HashMap<String, Boolean>();
+	protected static final IObservableList VALID_UI_LIST;
 
 	static {
-		theModelToUIMap.put(Boolean.TRUE, "true");
-		theUIToModelMap.put("true", Boolean.TRUE);
-		theUIToModelMap.put("1", Boolean.TRUE);
-		theUIToModelMap.put("+", Boolean.TRUE);
-		theUIToModelMap.put("yes", Boolean.TRUE);
+		MODEL_TO_UI_MAP.put(Boolean.TRUE, "true");
+		UI_TO_MODEL_MAP.put("true", Boolean.TRUE);
+		UI_TO_MODEL_MAP.put("1", Boolean.TRUE);
+		UI_TO_MODEL_MAP.put("+", Boolean.TRUE);
+		UI_TO_MODEL_MAP.put("yes", Boolean.TRUE);
 
-		theModelToUIMap.put(Boolean.FALSE, "false");
-		theUIToModelMap.put("false", Boolean.FALSE);
-		theUIToModelMap.put("0", Boolean.FALSE);
-		theUIToModelMap.put("-", Boolean.FALSE);
-		theUIToModelMap.put("no", Boolean.FALSE);
+		MODEL_TO_UI_MAP.put(Boolean.FALSE, "false");
+		UI_TO_MODEL_MAP.put("false", Boolean.FALSE);
+		UI_TO_MODEL_MAP.put("0", Boolean.FALSE);
+		UI_TO_MODEL_MAP.put("-", Boolean.FALSE);
+		UI_TO_MODEL_MAP.put("no", Boolean.FALSE);
 
 		// Otherwise use a list with the currently defined target to model key - properly sorted
 		final List<String> bl = new ArrayList<String>();
-		bl.addAll(theUIToModelMap.keySet());
+		bl.addAll(UI_TO_MODEL_MAP.keySet());
 		Collections.sort(bl);
 
-		theValidUIList = Observables.staticObservableList(bl, String.class);
+		VALID_UI_LIST = Observables.staticObservableList(bl, String.class);
 	}
 
 	@Override
 	public IObservableList getValidUIList() {
-		return theValidUIList;
+		return VALID_UI_LIST;
 	}
 
 	@Override
 	protected Object convertModelToUI(Object fromObject) {
-		return theModelToUIMap.get(fromObject);
+		return MODEL_TO_UI_MAP.get(fromObject);
 	}
 
 	@Override
 	protected Object convertUIToModel(Object fromObject) {
-		if (!theUIToModelMap.containsKey(fromObject))
+		if (!UI_TO_MODEL_MAP.containsKey(fromObject))
 			throw new IllegalArgumentException(MessageFormat.format("Illegal value ''{0}''", fromObject));
-		return theUIToModelMap.get(fromObject);
+		return UI_TO_MODEL_MAP.get(fromObject);
 	}
 
 }

@@ -11,6 +11,11 @@ import com.rcpcompany.uibindings.validators.ConstraintValidatorAdapter;
 import com.rcpcompany.uibindings.validators.EValidatorAdapter;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 
+/**
+ * The workbench advisor.
+ * 
+ * @author Tonny Madsen, The RCP Company
+ */
 public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 
 	private static final String PERSPECTIVE_ID = "com.rcpcompany.uibindings.example.application.perspectives.Shop";

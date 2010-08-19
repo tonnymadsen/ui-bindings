@@ -12,7 +12,7 @@ import org.eclipse.ui.PlatformUI;
  */
 public class DecoratedColumnLabelProvider extends GenericColumnLabelProvider {
 	/**
-	 * The label decorator to use
+	 * The label decorator to use.
 	 */
 	private final ILabelDecorator myLabelDecorator;
 

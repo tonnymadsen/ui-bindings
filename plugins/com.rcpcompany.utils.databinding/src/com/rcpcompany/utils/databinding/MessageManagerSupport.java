@@ -78,11 +78,10 @@ public final class MessageManagerSupport {
 	}
 
 	/**
-	 * Visitor that adds and removes a validation status listener from the context
+	 * Visitor that adds and removes a validation status listener from the context.
 	 * 
 	 */
 	protected final ListDiffVisitor myVisitor = new ListDiffVisitor() {
-
 		@Override
 		public void handleAdd(int index, Object element) {
 			final ValidationStatusProvider p = (ValidationStatusProvider) element;

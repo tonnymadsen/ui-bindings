@@ -86,7 +86,7 @@ public class GridBindingSourceProviderTest {
 	}
 
 	/**
-	 * Source values for a column binding for a simple feature
+	 * Source values for a column binding for a simple feature.
 	 */
 	@Test
 	public void testSimpleBinding() {

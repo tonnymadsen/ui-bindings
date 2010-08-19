@@ -17,6 +17,9 @@ import com.rcpcompany.uibindings.internal.utils.FilteringTableAdapter;
  * @author Tonny Madsen, The RCP Company
  */
 public interface IFilteringTableAdapter extends IDisposable {
+	/**
+	 * Factory for {@link IFilteringTableAdapter}.
+	 */
 	public final class Factory {
 		private Factory() {
 
@@ -76,5 +79,5 @@ public interface IFilteringTableAdapter extends IDisposable {
 	 * 
 	 * @return the text control
 	 */
-	public Text getText();
+	Text getText();
 }

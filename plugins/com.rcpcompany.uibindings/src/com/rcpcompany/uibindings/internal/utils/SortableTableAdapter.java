@@ -117,7 +117,7 @@ public class SortableTableAdapter implements ISortableTableAdapter, DisposeListe
 	 */
 	@Override
 	public void dispose() {
-		myViewerBinding.deregisterService(this);
+		myViewerBinding.unregisterService(this);
 		if (myTable.isDisposed()) return;
 		/*
 		 * If the viewer binding is not being disposed, then remove the comparator

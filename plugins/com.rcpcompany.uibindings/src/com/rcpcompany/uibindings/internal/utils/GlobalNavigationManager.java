@@ -61,7 +61,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 	 * @return the manager
 	 */
 	public static GlobalNavigationManager getManager(IWorkbenchWindow window, boolean create) {
-		GlobalNavigationManager manager = myManagers.get(window);
+		GlobalNavigationManager manager = MANAGERS.get(window);
 		if (manager == null && create) {
 			manager = new GlobalNavigationManager(window);
 		}
@@ -136,7 +136,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 	/**
 	 * Map of all managers.
 	 */
-	private static final Map<IWorkbenchWindow, GlobalNavigationManager> myManagers = new HashMap<IWorkbenchWindow, GlobalNavigationManager>();
+	private static final Map<IWorkbenchWindow, GlobalNavigationManager> MANAGERS = new HashMap<IWorkbenchWindow, GlobalNavigationManager>();
 
 	/**
 	 * Constructs and returns a new navigation manager for the specified window.
@@ -146,7 +146,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 	private GlobalNavigationManager(IWorkbenchWindow window) {
 		Assert.isNotNull(window);
 		myWindow = window;
-		myManagers.put(window, this);
+		MANAGERS.put(window, this);
 
 		final ISourceProviderService sps = (ISourceProviderService) window.getService(ISourceProviderService.class);
 		myBindingSourceProviderListener = new MySourceProviderListener(sps, Constants.SOURCES_ACTIVE_BINDING);
@@ -166,8 +166,8 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 		myBindingSourceProviderListener.dispose();
 
 		PlatformUI.getWorkbench().removeWindowListener(myWindowListener);
-		IManager.Factory.getManager().deregisterService(this);
-		myManagers.remove(myWindow);
+		IManager.Factory.getManager().unregisterService(this);
+		MANAGERS.remove(myWindow);
 
 	}
 

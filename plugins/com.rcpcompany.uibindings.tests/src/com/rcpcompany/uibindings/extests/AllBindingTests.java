@@ -136,6 +136,9 @@ import com.rcpcompany.uibindings.extests.widgets.FileNameControlTest;
 import com.rcpcompany.uibindings.internal.ManagerSizesTest;
 import com.rcpcompany.uibindings.internal.decorators.extenders.OpenCommandSupportLowLevelTest;
 import com.rcpcompany.uibindings.internal.utils.GlobalNavigationManagerTest;
+import com.rcpcompany.uibindings.internal.utils.ViewerToolBarBaseTests;
+import com.rcpcompany.uibindings.internal.utils.ViewerToolBarFunctionTests;
+import com.rcpcompany.uibindings.internal.utils.ViewerToolBarItemPresentTests;
 import com.rcpcompany.uibindings.internal.validators.BasicMessageCollectionTest;
 import com.rcpcompany.uibindings.internal.validators.BindingMessageCollectionTest;
 import com.rcpcompany.uibindings.internal.validators.BindingObjectMessageCollectionTest;
@@ -196,7 +199,8 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		/*
 		 * Utilities
 		 */
-		BindingSpecTest.class, IPathMatcherTests.class, EcoreExtUtilsSyncTest.class,
+		BindingSpecTest.class, IPathMatcherTests.class, EcoreExtUtilsSyncTest.class, ViewerToolBarBaseTests.class,
+		ViewerToolBarFunctionTests.class, ViewerToolBarItemPresentTests.class,
 
 		/*
 		 * Source Providers

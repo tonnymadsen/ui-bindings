@@ -225,7 +225,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	/**
 	 * The generic "simple" {@link Control} factory.
 	 */
-	private static final IControlFactory theSimpleControlFactory = new IControlFactory() {
+	private static final IControlFactory SIMPLE_CONTROL_FACTORY = new IControlFactory() {
 		@Override
 		public Control create(IControlFactoryContext context) {
 			int style = context.getStyle();
@@ -285,7 +285,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	@Override
 	public Control createPreferredControl(final Composite parent, final int style) {
 		final IControlFactory factory = getArgument(Constants.ARG_PREFERRED_CONTROL_FACTORY, IControlFactory.class,
-				theSimpleControlFactory);
+				SIMPLE_CONTROL_FACTORY);
 
 		return factory.create(new IControlFactoryContext() {
 			@Override

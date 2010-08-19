@@ -664,4 +664,21 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * @param context the context with all relevant information
 	 */
 	void updateSourceProviderState(ISourceProviderStateContext context);
+
+	/**
+	 * Adds the specified widget to the set of widgets managed by this binding.
+	 * <p>
+	 * The widget is not automatically {@link #unregisterWidget(Widget) unregistered} - this must be
+	 * manually.
+	 * 
+	 * @param widget the widget
+	 */
+	void registerWidget(Widget widget);
+
+	/**
+	 * Removes the specified widget from the set of widgets managed by this binding.
+	 * 
+	 * @param widget the widget
+	 */
+	void unregisterWidget(Widget widget);
 } // IBinding

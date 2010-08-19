@@ -127,10 +127,10 @@ public class AutoFormCreator implements IAutoFormCreator {
 	 * @return the fields of the class
 	 */
 	public static ClassFieldData getFields(EClass eclass) {
-		ClassFieldData d = theFields.get(eclass);
+		ClassFieldData d = FIELDS.get(eclass);
 		if (d == null) {
 			d = new ClassFieldData(eclass);
-			theFields.put(eclass, d);
+			FIELDS.put(eclass, d);
 		}
 		return d;
 	}
@@ -138,7 +138,7 @@ public class AutoFormCreator implements IAutoFormCreator {
 	/**
 	 * Map with all the field data on a per class basis.
 	 */
-	public static final Map<EClass, ClassFieldData> theFields = new HashMap<EClass, ClassFieldData>();
+	public static final Map<EClass, ClassFieldData> FIELDS = new HashMap<EClass, ClassFieldData>();
 
 	/**
 	 * Data structure used to save information about fields in a specific class.

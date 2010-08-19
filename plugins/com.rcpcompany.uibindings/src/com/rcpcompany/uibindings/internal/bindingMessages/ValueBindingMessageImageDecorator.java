@@ -175,7 +175,7 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 		/*
 		 * Register this decorator with the ValidatorAdapterManager.
 		 */
-		theValidationManager.addDecorator(this);
+		VALIDATION_MANAGER.addDecorator(this);
 
 		/*
 		 * Add ourself as a message decorator to the context if present
@@ -202,14 +202,14 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 		 */
 		updateDecorationScheduled = false;
 
-		theValidationManager.removeDecorator(this);
+		VALIDATION_MANAGER.removeDecorator(this);
 
 		final IObservableValue observable = getBinding().getUIObservable();
 		observable.removeChangeListener(myChangeListener);
 		if (observable instanceof IDelayedChangeObservable) {
 			((IDelayedChangeObservable) observable).removeDelayedChangeListener(myDelayedChangeListener);
 		}
-		getBinding().deregisterService(this);
+		getBinding().unregisterService(this);
 
 		/*
 		 * Clear all messages and update the context decorator...
@@ -409,37 +409,37 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	/**
 	 * The VAM...
 	 */
-	public static final IValidatorAdapterManager theValidationManager = IValidatorAdapterManager.Factory.getManager();
+	public static final IValidatorAdapterManager VALIDATION_MANAGER = IValidatorAdapterManager.Factory.getManager();
 
 	/**
 	 * Decoration used to display <em>a value is required</em> for the binding.
 	 */
-	public static final FieldDecoration theRequiredFieldDecoration = FieldDecorationRegistry.getDefault()
+	public static final FieldDecoration REQUIRED_FIELD_DECORATOR = FieldDecorationRegistry.getDefault()
 			.getFieldDecoration(FieldDecorationRegistry.DEC_REQUIRED);
 	/**
 	 * Decoration used to display <em>additional information</em> is available for the binding.
 	 */
-	public static final FieldDecoration theInformationFieldDecoration = FieldDecorationRegistry.getDefault()
+	public static final FieldDecoration INFORMATION_FIELD_DECORATOR = FieldDecorationRegistry.getDefault()
 			.getFieldDecoration(FieldDecorationRegistry.DEC_INFORMATION);
 	/**
 	 * Decoration used to display <em>a warning</em> is detected for the binding.
 	 */
-	public static final FieldDecoration theWarningFieldDecoration = FieldDecorationRegistry.getDefault()
+	public static final FieldDecoration WARNING_FIELD_DECORATOR = FieldDecorationRegistry.getDefault()
 			.getFieldDecoration(FieldDecorationRegistry.DEC_WARNING);
 	/**
 	 * Decoration used to display <em>an error</em> is detected for the binding.
 	 */
-	public static final FieldDecoration theErrorFieldDecoration = FieldDecorationRegistry.getDefault()
+	public static final FieldDecoration ERROR_FIELD_DECORATOR = FieldDecorationRegistry.getDefault()
 			.getFieldDecoration(FieldDecorationRegistry.DEC_ERROR);
 	/**
 	 * Decoration used to display <em>a content proposal</em> is detected for the binding.
 	 */
-	public static final FieldDecoration theContentProposalFieldDecoration = FieldDecorationRegistry.getDefault()
+	public static final FieldDecoration CONTENT_PROPOSAL_FIELD_DECORATOR = FieldDecorationRegistry.getDefault()
 			.getFieldDecoration(FieldDecorationRegistry.DEC_CONTENT_PROPOSAL);
 	/**
 	 * Decoration used to display <em>a quick fix proposal</em> is detected for the binding.
 	 */
-	public static final FieldDecoration theQuickfixFieldDecoration = FieldDecorationRegistry.getDefault()
+	public static final FieldDecoration QUICKFIX_FIELD_DECORATOR = FieldDecorationRegistry.getDefault()
 			.getFieldDecoration(FieldDecorationRegistry.DEC_ERROR_QUICKFIX);
 
 	/**
@@ -456,7 +456,7 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 		if (Activator.getDefault().TRACE_LIFECYCLE_VALUE_BINDING_MESSAGE_DECORATOR) {
 			LogUtils.debug(this, "update delayed " + hashCode() + ": " + getBinding()); //$NON-NLS-1$ //$NON-NLS-2$
 		}
-		if (theValidationManager != null) {
+		if (VALIDATION_MANAGER != null) {
 			if (getBinding().getModelObservable().isDisposed()) {
 				LogUtils.debug(this, "value is disposed");
 				return;
@@ -469,7 +469,7 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 			final EObject newObservedObject = getBinding().getModelObject();
 			if (myObservedObject != newObservedObject) {
 				myObservedObject = newObservedObject;
-				theValidationManager.resetDecorator(this);
+				VALIDATION_MANAGER.resetDecorator(this);
 			}
 		}
 
@@ -566,13 +566,13 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 			myMessageDecorationImage = null;
 			break;
 		case IMessageProvider.ERROR:
-			myMessageDecorationImage = theErrorFieldDecoration.getImage();
+			myMessageDecorationImage = ERROR_FIELD_DECORATOR.getImage();
 			break;
 		case IMessageProvider.WARNING:
-			myMessageDecorationImage = theWarningFieldDecoration.getImage();
+			myMessageDecorationImage = WARNING_FIELD_DECORATOR.getImage();
 			break;
 		case IMessageProvider.INFORMATION:
-			myMessageDecorationImage = theInformationFieldDecoration.getImage();
+			myMessageDecorationImage = INFORMATION_FIELD_DECORATOR.getImage();
 			break;
 		}
 		myMessageDecorationMessage = sb.toString();
@@ -591,16 +591,16 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 
 			// TODO TMTM add key bindings
 			if (myQuickfixes.size() > 0 && manager.isQuickfixVBImageDecorationShown()) {
-				myAlternativeDecorationImage = theQuickfixFieldDecoration.getImage();
-				myAlternativeDecorationMessage = theQuickfixFieldDecoration.getDescription();
+				myAlternativeDecorationImage = QUICKFIX_FIELD_DECORATOR.getImage();
+				myAlternativeDecorationMessage = QUICKFIX_FIELD_DECORATOR.getDescription();
 			} else if (myShowAlternativeDecorations && getBinding().getDataType().isRequired()
 					&& manager.isRequiredVBImageDecorationShown()) {
-				myAlternativeDecorationImage = theRequiredFieldDecoration.getImage();
+				myAlternativeDecorationImage = REQUIRED_FIELD_DECORATOR.getImage();
 				myAlternativeDecorationMessage = Messages.ValueBindingMessageImageDecorator_ValueRequired;
 			} else if (myShowAlternativeDecorations && getBinding().getDecorator().getValidUIList() != null
 					&& getBinding().getUIAttribute().getFieldAssistAdapter() != null
 					&& manager.isAssistVBImageDecorationShown()) {
-				myAlternativeDecorationImage = theContentProposalFieldDecoration.getImage();
+				myAlternativeDecorationImage = CONTENT_PROPOSAL_FIELD_DECORATOR.getImage();
 				myAlternativeDecorationMessage = Messages.ValueBindingMessageImageDecorator_ContentAssistAvailanble;
 			} else {
 				myAlternativeDecorationImage = null;

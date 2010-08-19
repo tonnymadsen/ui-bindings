@@ -16,5 +16,5 @@ public interface IFormCreatorChooserCreator {
 	 * @param discriminant the discriminant value that resulted in the form
 	 * @param form the form for the chooser
 	 */
-	public void createForm(IObservableValue discriminant, IFormCreator form);
+	void createForm(IObservableValue discriminant, IFormCreator form);
 }

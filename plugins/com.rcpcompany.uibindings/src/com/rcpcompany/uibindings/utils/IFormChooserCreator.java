@@ -19,5 +19,5 @@ public interface IFormChooserCreator {
 	 * @param discriminant the discriminant
 	 * @param parent the parent composite - with a {@link FillLayout}
 	 */
-	public void createForm(IBindingContext context, IObservableValue discriminant, Composite parent);
+	void createForm(IBindingContext context, IObservableValue discriminant, Composite parent);
 }

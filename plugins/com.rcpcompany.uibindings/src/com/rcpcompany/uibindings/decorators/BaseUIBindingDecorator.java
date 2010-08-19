@@ -124,6 +124,10 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 
 	@Override
 	public void dispose() {
+		if (getBinding() == null) {
+			LogUtils.debug(this, "Already disposed?");
+			return;
+		}
 		if (myDisposeDisplayChangeListener != null) {
 			myDisplayValue.removeChangeListener(myDisposeDisplayChangeListener);
 			myDisposeDisplayChangeListener = null;

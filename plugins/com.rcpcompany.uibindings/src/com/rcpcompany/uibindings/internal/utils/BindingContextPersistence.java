@@ -35,7 +35,7 @@ public class BindingContextPersistence implements IBindingContextPersistence, ID
 	 */
 	@Override
 	public void dispose() {
-		myContext.deregisterService(this);
+		myContext.unregisterService(this);
 	}
 
 	protected final IBindingContext myContext;

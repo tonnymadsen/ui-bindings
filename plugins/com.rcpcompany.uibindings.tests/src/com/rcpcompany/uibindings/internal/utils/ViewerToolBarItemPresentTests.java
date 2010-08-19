@@ -7,9 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.ToolBar;
+import org.eclipse.swt.widgets.ToolItem;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,16 +24,16 @@ import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.utils.IFormCreator;
-import com.rcpcompany.uibindings.utils.ITableButtonBar;
 import com.rcpcompany.uibindings.utils.ITableCreator;
+import com.rcpcompany.uibindings.utils.IViewerToolBar;
 
 /**
- * Tests of the presence of buttons in {@link ITableButtonBar}.
+ * Tests of the presence of {@link ToolBar} items in {@link IViewerToolBar}.
  * 
  * @author Tonny Madsen, The RCP Company
  */
 @RunWith(Parameterized.class)
-public class TableButtonBarButtonPresentTests {
+public class ViewerToolBarItemPresentTests {
 	private final int myStyle;
 
 	/**
@@ -40,7 +41,7 @@ public class TableButtonBarButtonPresentTests {
 	 */
 	@Before
 	public void beforeConstantTest() {
-		assertEquals(15, ITableButtonBar.ADD | ITableButtonBar.DELETE | ITableButtonBar.UP | ITableButtonBar.DOWN);
+		assertEquals(15, IViewerToolBar.ADD | IViewerToolBar.DELETE | IViewerToolBar.UP | IViewerToolBar.DOWN);
 	}
 
 	@Parameters
@@ -53,12 +54,9 @@ public class TableButtonBarButtonPresentTests {
 		return d;
 	}
 
-	public TableButtonBarButtonPresentTests(int style) {
+	public ViewerToolBarItemPresentTests(int style) {
 		myStyle = style;
 	}
-
-	private static final int[] CONSTANTS = new int[] { ITableButtonBar.ADD, ITableButtonBar.DELETE, ITableButtonBar.UP,
-			ITableButtonBar.DOWN, ITableButtonBar.BORDER, ITableButtonBar.HORIZONTAL, ITableButtonBar.VERTICAL };
 
 	private TestView myView;
 
@@ -93,23 +91,23 @@ public class TableButtonBarButtonPresentTests {
 	}
 
 	/**
-	 * Tests that the correct buttons are present for all the combinations of ADD, DELETE, UP and
+	 * Tests that the correct items are present for all the combinations of ADD, DELETE, UP and
 	 * DOWN.
 	 */
 	@Test
-	public void testButtonPresent() {
-		final ITableButtonBar bb = ITableButtonBar.Factory.addButtonBar(myTableBinding, myStyle);
+	public void testItemPresent() {
+		final IViewerToolBar bb = IViewerToolBar.Factory.addToolBar(myTableBinding, myStyle);
 
 		assertNotNull(bb);
-		for (final int s : CONSTANTS) {
-			final Button button = bb.getButton(s);
+		for (final int s : IViewerToolBar.STYLES) {
+			final ToolItem item = bb.getItem(s);
 			if ((myStyle & s) == 0) {
-				assertEquals(null, button);
+				assertEquals(null, item);
 			} else {
-				assertNotNull(button);
-				assertTrue(button.isVisible());
+				assertNotNull(item);
+				// assertTrue(button.isVisible());
 				// Check parentage
-				for (Composite c = button.getParent();; c = c.getParent()) {
+				for (Composite c = item.getParent();; c = c.getParent()) {
 					assertNotNull(c);
 					assertFalse(c instanceof Shell);
 					if (c == myView.getParent()) {

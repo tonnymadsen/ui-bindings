@@ -1060,10 +1060,13 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 		ViewerCell cell;
 		/*
 		 * If no specific position is specified in the event (x,y) = (0,0), then try using the
-		 * current focus cell. This is needed when navigating in the table
+		 * current focus cell. This is needed when navigating in the table.
+		 * 
+		 * Also do this if the widget of the event is not this viewers control. That happens when
+		 * extra widgets are mapped to this binding with IBinding.registerWidget()
 		 */
 		final Event event = context.getEvent();
-		if (event.x == 0 && event.y == 0) {
+		if (event.x == 0 && event.y == 0 || event.widget != getControl()) {
 			cell = viewer.getColumnViewerEditor().getFocusCell();
 		} else {
 			cell = viewer.getCell(new Point(event.x, event.y));
