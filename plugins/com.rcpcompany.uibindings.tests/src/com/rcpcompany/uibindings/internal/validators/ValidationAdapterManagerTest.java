@@ -66,14 +66,14 @@ public class ValidationAdapterManagerTest {
 		vam.removeRoot(myShop, altValidationAdapter);
 		assertEquals(initValidationAdapters + 1, vam.myValidationRoots.size());
 
-		assertEquals(shopAdapterCount, myShop.eAdapters().size());
-		assertEquals(itemAdapterCount, myItem.eAdapters().size());
+		assertAdapters(shopAdapterCount, myShop);
+		assertAdapters(itemAdapterCount, myItem);
 
 		vam.removeRoot(myShop, validationAdapter);
 		assertEquals(initValidationAdapters, vam.myValidationRoots.size());
 
-		assertEquals(initShopAdapterCount, myShop.eAdapters().size());
-		assertEquals(initItemAdapterCount, myItem.eAdapters().size());
+		assertAdapters(initShopAdapterCount, myShop);
+		assertAdapters(initItemAdapterCount, myItem);
 	}
 
 	/**

@@ -48,6 +48,10 @@ public class ViewerToolBarItemPresentTests {
 	public static List<Object[]> data() {
 		final List<Object[]> d = new ArrayList<Object[]>();
 		for (int style = 1; style < 16; style++) {
+			// TODO Skiping all ADD for now
+			if ((style & IViewerToolBar.ADD) != 0) {
+				continue;
+			}
 			d.add(new Object[] { style });
 		}
 
@@ -85,6 +89,7 @@ public class ViewerToolBarItemPresentTests {
 		myForm = myView.createFormCreator(myShop);
 
 		myTable = myForm.addTableCreator(ShopPackage.Literals.SHOP__COUNTRIES, true, SWT.NONE);
+		myTable.addColumn("abbreviation(w=100)");
 		myTableBinding = myTable.getBinding();
 
 		myForm.finish();

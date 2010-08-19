@@ -16,7 +16,6 @@ import org.eclipse.ui.forms.widgets.TableWrapLayout;
 import org.eclipse.ui.handlers.IHandlerService;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.rcpcompany.uibindings.Constants;
@@ -179,7 +178,6 @@ public class ViewerItemDeletorTest {
 	 * Checks that the first item is deleted on request.
 	 */
 	@Test
-	@Ignore
 	public void testFunction() {
 		try {
 			final ICommandService cs = (ICommandService) myView.getSite().getService(ICommandService.class);

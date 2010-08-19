@@ -1,5 +1,6 @@
 package com.rcpcompany.uibindings.utils;
 
+import org.eclipse.core.runtime.Assert;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
@@ -27,6 +28,7 @@ public interface IViewerToolBar {
 		 * @param style the style for the toolbar
 		 */
 		public static IViewerToolBar addToolBar(IViewerBinding viewer, int style) {
+			Assert.isNotNull(viewer);
 			return ViewerToolBar.addToolBar(viewer, style);
 		}
 	};

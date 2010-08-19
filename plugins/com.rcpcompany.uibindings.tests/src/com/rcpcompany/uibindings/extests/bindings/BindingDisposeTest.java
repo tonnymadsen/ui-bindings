@@ -79,6 +79,6 @@ public class BindingDisposeTest {
 		assertEquals(0, context.getBindings().size());
 		assertEquals("New", myShop.getName());
 		assertTrue(ov.isDisposed());
-		assertEquals(noInitAdapters, myShop.eAdapters().size());
+		assertAdapters(noInitAdapters, myShop);
 	}
 }

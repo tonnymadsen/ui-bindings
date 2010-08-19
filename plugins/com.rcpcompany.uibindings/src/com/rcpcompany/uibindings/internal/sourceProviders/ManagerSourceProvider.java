@@ -58,7 +58,7 @@ public class ManagerSourceProvider extends AbstractSourceProvider {
 	/**
 	 * Listener for the current {@link EditingDomain} of the {@link IManager}.
 	 */
-	protected final Adapter myManagerListener = new AdapterImpl() {
+	private final Adapter myManagerListener = new AdapterImpl() {
 		@Override
 		public void notifyChanged(Notification msg) {
 			if (msg.isTouch()) return;
@@ -79,9 +79,9 @@ public class ManagerSourceProvider extends AbstractSourceProvider {
 	/**
 	 * Listener for the command stack of the current {@link EditingDomain}.
 	 */
-	protected CommandStackListener myCommandStackListener = new CommandStackListener() {
+	private final CommandStackListener myCommandStackListener = new CommandStackListener() {
 		@Override
-		public void commandStackChanged(EventObject arg0) {
+		public void commandStackChanged(EventObject event) {
 			reportSourceChanges();
 		}
 	};
@@ -92,9 +92,9 @@ public class ManagerSourceProvider extends AbstractSourceProvider {
 	private final IManager theManager = IManager.Factory.getManager();
 
 	/**
-	 * The previous state reported by the provider
+	 * The previous state reported by the provider.
 	 */
-	protected final Map<String, Object> myOldState = new HashMap<String, Object>();
+	private final Map<String, Object> myOldState = new HashMap<String, Object>();
 
 	@Override
 	public Map<String, Object> getCurrentState() {

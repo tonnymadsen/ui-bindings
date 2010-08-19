@@ -33,7 +33,7 @@ public interface ITableCreator extends IDisposable {
 		}
 
 		/**
-		 * Constructs and returns a new table creator
+		 * Constructs and returns a new table creator.
 		 * 
 		 * @param context the context
 		 * @param parent the parent composite of the new table with a {@link GridLayout}
@@ -49,7 +49,7 @@ public interface ITableCreator extends IDisposable {
 
 		/**
 		 * Constructs and returns a new table creator and sets the content of the table to the
-		 * specified list of items
+		 * specified list of items.
 		 * 
 		 * @param context the context
 		 * @param parent the parent composite of the new table with a {@link GridLayout}
@@ -69,7 +69,7 @@ public interface ITableCreator extends IDisposable {
 
 		/**
 		 * Constructs and returns a new table creator and sets the content of the table to the
-		 * specified list of items
+		 * specified list of items.
 		 * 
 		 * @param context the context
 		 * @param parent the parent composite of the new table with a {@link GridLayout}
@@ -87,7 +87,7 @@ public interface ITableCreator extends IDisposable {
 
 		/**
 		 * Constructs and returns a new table creator and sets the content of the table to the
-		 * specified list of items
+		 * specified list of items.
 		 * 
 		 * @param context the context
 		 * @param parent the parent composite of the new table with a {@link GridLayout}

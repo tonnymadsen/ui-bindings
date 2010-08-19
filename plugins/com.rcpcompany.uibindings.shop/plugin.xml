@@ -248,99 +248,6 @@
       </page>
    </extension>
    <extension
-         point="org.eclipse.ui.menus">
-      <menuContribution
-            locationURI="menu:org.eclipse.ui.main.menu">
-         <menu
-               id="file"
-               label="&amp;File">
-            <command
-                  commandId="org.eclipse.ui.newWizard"
-                  style="push">
-            </command>
-            <command
-                  commandId="org.eclipse.ui.file.save"
-                  style="push">
-            </command>
-            <command
-                  commandId="org.eclipse.ui.file.exit"
-                  style="push">
-            </command>
-         </menu>
-         <menu
-               id="edit"
-               label="&amp;Edit">
-            <command
-                  commandId="org.eclipse.ui.edit.undo"
-                  style="push">
-            </command>
-            <command
-                  commandId="org.eclipse.ui.edit.redo"
-                  style="push">
-            </command>
-            <separator
-                  name="paste"
-                  visible="true">
-            </separator>
-            <command
-                  commandId="com.rcpcompany.uibindings.commands.SuperPaste"
-                  style="push">
-            </command>
-         </menu>
-         <menu
-               id="tools"
-               label="&amp;Tools">
-            <command
-                  commandId="org.eclipse.ui.views.showView"
-                  style="push">
-            </command>
-            <command
-                  commandId="org.eclipse.ui.window.preferences"
-                  style="push">
-            </command>
-         </menu>
-         <menu
-               id="navigate"
-               label="&amp;Navigate">
-         </menu>
-         <menu
-               id="help"
-               label="Help"
-               mnemonic="H">
-            <command
-                  commandId="org.eclipse.ui.help.aboutAction"
-                  style="push">
-            </command>
-         </menu>
-      </menuContribution>
-      <menuContribution
-            locationURI="toolbar:org.eclipse.ui.main.toolbar">
-         <toolbar
-               id="file">
-         </toolbar>
-         <toolbar
-               id="edit">
-            <command
-                  commandId="org.eclipse.ui.edit.undo"
-                  disabledIcon="platform:/plugin/org.eclipse.ui/icons/full/dtool16/undo_edit.gif"
-                  icon="platform:/plugin/org.eclipse.ui/icons/full/etool16/undo_edit.gif"
-                  id="org.eclipse.ui.edit.undo.mc.edit"
-                  style="push">
-            </command>
-            <command
-                  commandId="org.eclipse.ui.edit.redo"
-                  disabledIcon="platform:/plugin/org.eclipse.ui/icons/full/dtool16/redo_edit.gif"
-                  icon="platform:/plugin/org.eclipse.ui/icons/full/etool16/redo_edit.gif"
-                  id="org.eclipse.ui.edit.redo.mc.edit"
-                  style="push">
-            </command>
-         </toolbar>
-         <toolbar
-               id="navigate">
-         </toolbar>
-      </menuContribution>
-   </extension>
-   <extension
          point="org.eclipse.ui.commands">
       <command
             id="com.rcpcompany.uibindings.example.application.commands.ShowSelection"
@@ -357,50 +264,6 @@
       <handler
             class="com.rcpcompany.uibindings.example.application.handlers.ShowSelection"
             commandId="com.rcpcompany.uibindings.example.application.commands.ShowSelection">
-      </handler>
-      <handler
-            class="com.rcpcompany.uibindings.handlers.EditingDomainUndoHandler"
-            commandId="org.eclipse.ui.edit.undo">
-         <enabledWhen>
-            <with
-                  variable="com.rcpcompany.uibindings.sourceProviders.theManager">
-               <test
-                     forcePluginActivation="true"
-                     property="com.rcpcompany.uibindings.canUndo">
-               </test>
-            </with>
-         </enabledWhen>
-         <activeWhen>
-            <with
-                  variable="com.rcpcompany.uibindings.sourceProviders.theManager">
-               <test
-                     forcePluginActivation="true"
-                     property="com.rcpcompany.uibindings.canUndo">
-               </test>
-            </with>
-         </activeWhen>
-      </handler>
-      <handler
-            class="com.rcpcompany.uibindings.handlers.EditingDomainRedoHandler"
-            commandId="org.eclipse.ui.edit.redo">
-         <enabledWhen>
-            <with
-                  variable="com.rcpcompany.uibindings.sourceProviders.theManager">
-               <test
-                     forcePluginActivation="true"
-                     property="com.rcpcompany.uibindings.canRedo">
-               </test>
-            </with>
-         </enabledWhen>
-         <activeWhen>
-            <with
-                  variable="com.rcpcompany.uibindings.sourceProviders.theManager">
-               <test
-                     forcePluginActivation="true"
-                     property="com.rcpcompany.uibindings.canRedo">
-               </test>
-            </with>
-         </activeWhen>
       </handler>
       <handler
             class="com.rcpcompany.uibindings.shop.handlers.SaveHandler"
@@ -452,16 +315,6 @@
                value="Shop Demo">
          </property>
       </product>
-   </extension>
-   <extension
-         point="org.eclipse.core.runtime.adapters">
-      <factory
-            adaptableType="com.rcpcompany.uibindings.tests.shop.Contact"
-            class="com.rcpcompany.uibindings.shop.UIBindingPropertiesAdapterFactory">
-         <adapter
-               type="I">
-         </adapter>
-      </factory>
    </extension>
    <extension
          point="com.rcpcompany.uibindings.uiBindings">

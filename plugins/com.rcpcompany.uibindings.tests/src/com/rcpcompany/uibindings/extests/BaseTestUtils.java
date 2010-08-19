@@ -20,6 +20,9 @@ import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.ILogListener;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.jface.bindings.keys.KeyStroke;
 import org.eclipse.jface.bindings.keys.ParseException;
 import org.eclipse.swt.SWT;
@@ -861,5 +864,31 @@ public class BaseTestUtils {
 		}
 		System.out.println("ss");
 		// assertEquals(expectedRGB, actualRGB);
+	}
+
+	/**
+	 * Tests that the number of "real" adapters on the specified object is as expected.
+	 * <p>
+	 * The following {@link Adapter} types are not considered real:
+	 * <ul>
+	 * <li>sub-classes of {@link ItemProviderAdapter}</li>
+	 * <li>
+	 * </li>
+	 * </ul>
+	 * 
+	 * @param noExpected the expected number of adapters
+	 * @param obj the objects to test
+	 */
+	public static void assertAdapters(int noExpected, EObject obj) {
+		int no = 0;
+		for (final Adapter a : obj.eAdapters()) {
+			if (a instanceof ItemProviderAdapter) {
+				continue;
+			}
+
+			no++;
+		}
+
+		assertEquals(noExpected, no);
 	}
 }

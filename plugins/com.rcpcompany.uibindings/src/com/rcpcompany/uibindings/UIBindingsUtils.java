@@ -13,9 +13,6 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.command.BasicCommandStack;
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notifier;
-import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
@@ -26,6 +23,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.swt.SWT;
@@ -282,24 +280,20 @@ public final class UIBindingsUtils {
 	 * @return the new editing domain
 	 */
 	public static EditingDomain createEditingDomain() {
-		final EditingDomain newDomain = new AdapterFactoryEditingDomain(new AdapterFactoryImpl() {
-			@Override
-			protected Adapter createAdapter(Notifier target) {
-				return null;
-			}
-		}, new BasicCommandStack());
+		final EditingDomain newDomain = new AdapterFactoryEditingDomain(new ReflectiveItemProviderAdapterFactory(),
+				new BasicCommandStack());
 		return newDomain;
 	}
 
 	/**
-	 * Returns whether the application is running under Windows XP
+	 * Returns whether the application is running under Windows XP.
 	 * 
 	 * @return <code>true</code> if Windows XP, <code>false</code> otherwise
 	 */
 	public static boolean isWindowsXP() {
 		final String osname = System.getProperty("os.name"); //$NON-NLS-1$
 		final String osversion = System.getProperty("os.version"); //$NON-NLS-1$
-		LogUtils.debug(Activator.getDefault(), "name='" + osname + "', version='" + osversion + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+		//LogUtils.debug(Activator.getDefault(), "name='" + osname + "', version='" + osversion + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return osname.startsWith("Windows") && "5.1".equals(osversion); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
@@ -333,7 +327,7 @@ public final class UIBindingsUtils {
 	 * </ul>
 	 * 
 	 * @param binding the binding to map
-	 * @param eClass TODO
+	 * @param ec the class to create the mapper for
 	 * 
 	 * @return the mapper
 	 */

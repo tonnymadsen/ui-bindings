@@ -306,6 +306,7 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 		final ColumnViewer viewer = getViewer();
 		assertTrue(viewer != null, "No viewer set"); //$NON-NLS-1$
 		assertTrue(getList() != null, "No model list"); //$NON-NLS-1$
+		assertTrue(!getColumns().isEmpty(), "No columns in viewer"); //$NON-NLS-1$
 
 		final Control control = getControl();
 		assertTrue((control.getStyle() & SWT.FULL_SELECTION) != 0, "Viewer must have SWT.FULL_SELECTION set"); //$NON-NLS-1$

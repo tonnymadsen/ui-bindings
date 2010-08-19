@@ -8,7 +8,7 @@ import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IManager;
 
 /**
- * Property tester for the manager state
+ * Property tester for the manager state.
  * 
  * TODO TEST
  * 

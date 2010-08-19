@@ -1,14 +1,15 @@
 package com.rcpcompany.uibindings.internal.utils;
 
 import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static org.junit.Assert.*;
 
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.tests.shop.Country;
@@ -37,8 +38,13 @@ public class ViewerToolBarFunctionTests {
 
 	private IViewerBinding myTableBinding;
 
+	private IViewerToolBar myToolBar;
+
 	@Before
 	public void before() {
+		resetAll();
+		IManager.Factory.getManager().setEditCellSingleClick(false);
+
 		myShop = ShopFactory.eINSTANCE.createShop();
 		myCountry1 = ShopFactory.eINSTANCE.createCountry();
 		myCountry1.setAbbreviation("AB");
@@ -52,6 +58,7 @@ public class ViewerToolBarFunctionTests {
 		myForm = myView.createFormCreator(myShop);
 
 		myTable = myForm.addTableCreator(ShopPackage.Literals.SHOP__COUNTRIES, true, SWT.NONE);
+		myTable.addColumn("abbreviation(w=100)");
 		myTableBinding = myTable.getBinding();
 
 		myForm.finish();
@@ -62,7 +69,7 @@ public class ViewerToolBarFunctionTests {
 	 */
 	@Test
 	public void testButtonFunctionADD() {
-		testButton(IViewerToolBar.ADD, "");
+		createItem(IViewerToolBar.ADD, "");
 	}
 
 	/**
@@ -70,7 +77,22 @@ public class ViewerToolBarFunctionTests {
 	 */
 	@Test
 	public void testButtonFunctionDELETE() {
-		testButton(IViewerToolBar.DELETE, "org.eclipse.ui.edit.delete");
+		final ToolItem item = createItem(IViewerToolBar.DELETE, "org.eclipse.ui.edit.delete");
+		yield();
+
+		postMouse(myTable.getTable(), myTable.getBinding().getFirstTableColumnOffset(),
+				myShop.getCountries().size() - 1);
+		yield();
+		assertTrue(item.isEnabled());
+
+		postMouse(myTable.getTable(), myTable.getBinding().getFirstTableColumnOffset(), 0);
+		yield();
+		assertTrue(item.isEnabled());
+
+		postMouse(item.getParent(), item.getBounds());
+
+		assertEquals(1, myShop.getCountries().size());
+		assertEquals(myCountry2, myShop.getCountries().get(0));
 	}
 
 	/**
@@ -78,15 +100,43 @@ public class ViewerToolBarFunctionTests {
 	 */
 	@Test
 	public void testButtonFunctionUP() {
-		testButton(IViewerToolBar.UP, "com.rcpcompany.uibindings.commands.moveItemUp");
+		final ToolItem item = createItem(IViewerToolBar.UP, "com.rcpcompany.uibindings.commands.moveItemUp");
+		yield();
+
+		postMouse(myTable.getTable(), myTable.getBinding().getFirstTableColumnOffset(), 0);
+		yield();
+		assertTrue(!item.isEnabled());
+
+		postMouse(myTable.getTable(), myTable.getBinding().getFirstTableColumnOffset(),
+				myShop.getCountries().size() - 1);
+		yield();
+		assertTrue(item.isEnabled());
+
+		postMouse(item.getParent(), item.getBounds());
+
+		assertEquals(myShop.getCountries().get(0), myCountry2);
 	}
 
 	/**
 	 * Tests that the correct command is executed for DOWN.
 	 */
 	@Test
-	public void testButtonFunctiondOWN() {
-		testButton(IViewerToolBar.DOWN, "com.rcpcompany.uibindings.commands.moveItemDown");
+	public void testButtonFunctionDOWN() {
+		final ToolItem item = createItem(IViewerToolBar.DOWN, "com.rcpcompany.uibindings.commands.moveItemDown");
+		yield();
+
+		postMouse(myTable.getTable(), myTable.getBinding().getFirstTableColumnOffset(),
+				myShop.getCountries().size() - 1);
+		yield();
+		assertTrue(!item.isEnabled());
+
+		postMouse(myTable.getTable(), myTable.getBinding().getFirstTableColumnOffset(), 0);
+		yield();
+		assertTrue(item.isEnabled());
+
+		postMouse(item.getParent(), item.getBounds());
+
+		assertEquals(myShop.getCountries().get(0), myCountry2);
 	}
 
 	/**
@@ -94,11 +144,21 @@ public class ViewerToolBarFunctionTests {
 	 * 
 	 * @param itemID the button ID
 	 * @param commandID the command string
+	 * @return the created {@link ToolBar} item
 	 */
-	private void testButton(int itemID, String commandID) {
-		final IViewerToolBar bb = IViewerToolBar.Factory.addToolBar(myTableBinding, itemID);
+	private ToolItem createItem(int itemID, String commandID) {
+		myToolBar = IViewerToolBar.Factory.addToolBar(myTableBinding, itemID);
 
-		final ToolItem button = bb.getItem(itemID);
-		//button.se
+		for (final int s : new int[] { IViewerToolBar.ADD, IViewerToolBar.DELETE, IViewerToolBar.UP,
+				IViewerToolBar.DOWN }) {
+			final ToolItem item = myToolBar.getItem(s);
+			if (s == itemID) {
+				assertNotNull(item);
+			} else {
+				assertEquals(null, item);
+			}
+		}
+
+		return myToolBar.getItem(itemID);
 	}
 }

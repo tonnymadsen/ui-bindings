@@ -181,7 +181,7 @@ public class ViewerToolBar implements IViewerToolBar, IDisposable {
 
 	@Override
 	public void addItem(int id, String commandId) {
-		final ToolItemCommandAdapter a = new ToolItemCommandAdapter(commandId);
+		final CommandToolItemAdapter a = new CommandToolItemAdapter(commandId);
 		addItem(id, a.getItem());
 	}
 
@@ -200,9 +200,9 @@ public class ViewerToolBar implements IViewerToolBar, IDisposable {
 	}
 
 	/**
-	 * An adapter for Commands to TiilItem.
+	 * An adapter for IParameterizedCommand to {@link ToolItem}.
 	 */
-	private class ToolItemCommandAdapter implements Listener, ICommandListener {
+	private class CommandToolItemAdapter implements Listener, ICommandListener {
 		private final String myCommandId;
 		private final ToolItem myItem;
 		private ParameterizedCommand myCommand = null;
@@ -216,7 +216,7 @@ public class ViewerToolBar implements IViewerToolBar, IDisposable {
 			return myItem;
 		}
 
-		public ToolItemCommandAdapter(String commandId) {
+		public CommandToolItemAdapter(String commandId) {
 			myCommandId = commandId;
 			myItem = new ToolItem(getToolBar(), SWT.PUSH);
 			try {

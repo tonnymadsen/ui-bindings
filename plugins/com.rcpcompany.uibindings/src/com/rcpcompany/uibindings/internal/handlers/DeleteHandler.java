@@ -27,7 +27,7 @@ public class DeleteHandler extends AbstractHandler implements IHandler {
 			LogUtils.debug(this, "");
 		}
 		// The binding
-		final IBinding bb = (IBinding) HandlerUtil.getVariableChecked(ee, Constants.SOURCES_ACTIVE_BINDING);
+		final IBinding bb = (IBinding) HandlerUtil.getVariableChecked(ee, Constants.SOURCES_ACTIVE_CONTAINER_BINDING);
 		if (!(bb instanceof IViewerBinding)) return null;
 		// The viewer
 		final IViewerBinding vb = (IViewerBinding) bb;
