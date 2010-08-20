@@ -106,10 +106,10 @@ public class TreeContentTest {
 	public void testContent() {
 
 		final TreeViewer viewer = (TreeViewer) myTreeBinding.getViewer();
-		viewer.expandAll();
 		/*
 		 * Make sure the tree is properly shown
 		 */
+		viewer.expandAll();
 		yield();
 
 		TreeItem[] items = myTree.getItems();

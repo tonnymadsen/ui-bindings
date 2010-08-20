@@ -75,6 +75,7 @@ import com.rcpcompany.uibindings.extests.sourceProviders.CommonSourceProviderTes
 import com.rcpcompany.uibindings.extests.sourceProviders.ManagerSourceProviderTest;
 import com.rcpcompany.uibindings.extests.spy.SpyDialogTest;
 import com.rcpcompany.uibindings.extests.trees.TreeContentTest;
+import com.rcpcompany.uibindings.extests.trees.TreePerformanceTest;
 import com.rcpcompany.uibindings.extests.uiAttributeFactories.contentAdapters.ContentAdapterTest;
 import com.rcpcompany.uibindings.extests.uiAttributes.UIAttributeCComboFactoryPropertiesTest;
 import com.rcpcompany.uibindings.extests.uiAttributes.UIAttributeCheckButtonFactoryPropertiesTest;
@@ -262,7 +263,7 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		/*
 		 * Trees
 		 */
-		ManagerTreeFunctionalityTest.class, TreeContentTest.class,
+		ManagerTreeFunctionalityTest.class, TreeContentTest.class, TreePerformanceTest.class,
 
 		/*
 		 * Widgets

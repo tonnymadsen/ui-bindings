@@ -51,27 +51,24 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 		super(Collections.EMPTY_LIST, EObject.class);
 		myFactory = factory;
 
-		addListChangeListener(new IListChangeListener() {
-			@Override
-			public void handleListChange(ListChangeEvent event) {
-				event.diff.accept(new ListDiffVisitor() {
-
-					@Override
-					public void handleRemove(int index, Object element) {
-						if (Activator.getDefault().TRACE_TREE) {
+		if (Activator.getDefault().TRACE_TREE) {
+			addListChangeListener(new IListChangeListener() {
+				@Override
+				public void handleListChange(ListChangeEvent event) {
+					event.diff.accept(new ListDiffVisitor() {
+						@Override
+						public void handleRemove(int index, Object element) {
 							LogUtils.debug(ViewerBindingTreeFactoryList.this, "removed[" + index + "]: " + element);
 						}
-					}
 
-					@Override
-					public void handleAdd(int index, Object element) {
-						if (Activator.getDefault().TRACE_TREE) {
+						@Override
+						public void handleAdd(int index, Object element) {
 							LogUtils.debug(ViewerBindingTreeFactoryList.this, "added[" + index + "]: " + element);
 						}
-					}
-				});
-			}
-		});
+					});
+				}
+			});
+		}
 	}
 
 	/**
@@ -96,7 +93,7 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 	/**
 	 * Listener used to recalculate the list when any of the added elements change.
 	 */
-	protected final IChangeListener myRelationChangeListener = new IChangeListener() {
+	private final IChangeListener myRelationChangeListener = new IChangeListener() {
 		@Override
 		public void handleChange(ChangeEvent event) {
 			recalculateList();
@@ -106,7 +103,7 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 	/**
 	 * The base elements of this list.
 	 */
-	protected final List<IElement> myElements = new ArrayList<IElement>();
+	private final List<IElement> myElements = new ArrayList<IElement>();
 
 	/**
 	 * The basic interface for an element in the base list.
@@ -150,7 +147,7 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 	 * Element that will add child elements based on the relations from the element itself.
 	 */
 	protected class RelationElement implements IElement {
-		private final List<Relation> myRelations = new ArrayList<Relation>();
+		private List<Relation> myRelations = null;
 
 		/**
 		 * Constructs and returns new base element.
@@ -207,6 +204,9 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 				});
 			}
 
+			if (myRelations == null) {
+				myRelations = new ArrayList<Relation>();
+			}
 			myRelations.add(new Relation(rel, observable, childDescriptor));
 		}
 
@@ -261,6 +261,7 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 
 		@Override
 		public void addToList(List<EObject> newList) {
+			if (myRelations == null) return;
 			for (final Relation rel : myRelations) {
 				rel.addToList(newList);
 			}

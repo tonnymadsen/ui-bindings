@@ -4,7 +4,6 @@ import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IConstantTreeItem;
 import com.rcpcompany.uibindings.IUIBindingDecorator;
 import com.rcpcompany.uibindings.decorators.SimpleUIBindingDecorator;
-import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * {@link IUIBindingDecorator} used for {@link IConstantTreeItem} objects.
@@ -16,7 +15,8 @@ public class ConstantTreeItemDecorator extends SimpleUIBindingDecorator implemen
 	protected Object convertModelToUI(Object fromObject) {
 		String l = getBinding().getArgument(Constants.ARG_TEXT, String.class, null);
 		if (l == null) {
-			LogUtils.error(getBinding(), "No text for model object: " + getBinding().getModelObject());
+			// LogUtils.error(getBinding(), "No text for model object: " +
+			// getBinding().getModelObject());
 			l = "<no text?>";
 		}
 		return l;

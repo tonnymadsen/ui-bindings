@@ -74,9 +74,9 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	}
 
 	/**
-	 * The {@link IValueBinding value binding} of this decorator
+	 * The {@link IValueBinding value binding} of this decorator.
 	 */
-	protected final IValueBinding myBinding;
+	private final IValueBinding myBinding;
 
 	/**
 	 * <code>true</code> if alternative decorations are shown.
@@ -95,7 +95,7 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	private final boolean myAcceptValueObjectMessages;
 
 	/**
-	 * Constructs and returns a new message c
+	 * Constructs and returns a new decorator.
 	 * 
 	 * @param binding the value binding
 	 */
@@ -274,7 +274,7 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	 * Change listener used to update the decoration whenever any of the individual elements of
 	 * {@link #myMessageProviders} is changed.
 	 */
-	protected final IChangeListener myChangeListener = new IChangeListener() {
+	private final IChangeListener myChangeListener = new IChangeListener() {
 		@Override
 		public void handleChange(ChangeEvent event) {
 			updateDecoration();
@@ -287,7 +287,7 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	 * 
 	 * See {@link TextObservableValue} for more information
 	 */
-	protected IDelayedChangeListener myDelayedChangeListener = null;
+	private IDelayedChangeListener myDelayedChangeListener = null;
 
 	@Override
 	public IValueBinding getBinding() {
@@ -299,7 +299,7 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	 * <p>
 	 * The list elements are observable values that returns an {@link IBindingMessage}.
 	 */
-	protected final IObservableList myMessageProviders = WritableList.withElementType(IObservableValue.class);
+	private final IObservableList myMessageProviders = WritableList.withElementType(IObservableValue.class);
 
 	/**
 	 * The current list of outstanding messages for this decorator.
@@ -364,12 +364,12 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	 * 
 	 * Set to <code>true</code> in {@link #updateDecoration()}
 	 */
-	protected boolean updateDecorationScheduled = false;
+	private boolean updateDecorationScheduled = false;
 
 	/**
 	 * Runnable used to delay the update.
 	 */
-	protected final Runnable myUpdateDecorationRunnable = new Runnable() {
+	private final Runnable myUpdateDecorationRunnable = new Runnable() {
 		@Override
 		public void run() {
 			updateDecorationDelayed();
@@ -390,7 +390,7 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	/**
 	 * The object observed by this decorator. Used to track changes in master-detail bindings.
 	 */
-	protected EObject myObservedObject = null;
+	private EObject myObservedObject = null;
 
 	private Image myMessageDecorationImage;
 	private String myMessageDecorationMessage;
@@ -573,6 +573,8 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 			break;
 		case IMessageProvider.INFORMATION:
 			myMessageDecorationImage = INFORMATION_FIELD_DECORATOR.getImage();
+			break;
+		default:
 			break;
 		}
 		myMessageDecorationMessage = sb.toString();

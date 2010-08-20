@@ -449,12 +449,34 @@
                class="com.rcpcompany.uibindings.tests.shop.Contact">
          </modelType>
       </treeItem>
+      <treeItem
+            id="com.rcpcompany.uibindings.shop.treeItems.customer">
+         <modelType
+               alsoPrimitive="true"
+               class="com.rcpcompany.uibindings.tests.shop.Customer">
+         </modelType>
+      </treeItem>
+      <treeItem
+            id="com.rcpcompany.uibindings.shop.treeItems.order">
+         <modelType
+               alsoPrimitive="true"
+               class="com.rcpcompany.uibindings.tests.shop.Order">
+         </modelType>
+      </treeItem>
       <treeItemRelation
             parent="com.rcpcompany.uibindings.shop.treeItems.shop"
             id="com.rcpcompany.uibindings.shop.treeItems.contactFolder">
       </treeItemRelation>
       <treeItemRelation
             parent="com.rcpcompany.uibindings.shop.treeItems.contactFolder" featureName="contacts">
+      </treeItemRelation>
+      <treeItemRelation
+            featureName="customer"
+            parent="com.rcpcompany.uibindings.shop.treeItems.contact">
+      </treeItemRelation>
+      <treeItemRelation
+            featureName="orders"
+            parent="com.rcpcompany.uibindings.shop.treeItems.customer">
       </treeItemRelation>
    </extension>
 

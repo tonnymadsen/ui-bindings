@@ -39,7 +39,7 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 	private final Map<Object, IObservableList> myResults = new HashMap<Object, IObservableList>();
 
 	/**
-	 * The root elements of the tree
+	 * The root elements of the tree.
 	 */
 	private final IObservableList myRootList;
 
@@ -88,7 +88,7 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 		}
 
 		/*
-		 * If we don´t have a descriptor, then we don't have any children!
+		 * If we donï¿½t have a descriptor, then we don't have any children!
 		 */
 		if (descriptor == null) // if (Activator.getDefault().TRACE_TREE) {
 			// LogUtils.debug(this,
