@@ -1,9 +1,11 @@
 package com.rcpcompany.uibindings.internal;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.core.databinding.observable.IObservable;
+import org.eclipse.core.databinding.observable.Observables;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.masterdetail.IObservableFactory;
 import org.eclipse.emf.ecore.EObject;
@@ -97,13 +99,21 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 			return null;
 
 		final ViewerBindingTreeFactoryList l = new ViewerBindingTreeFactoryList(this);
+		IObservableList result = l;
 		l.addChildren(etarget, descriptor);
+		/*
+		 * If the result is a constant list, then we replace it with a better performing version.
+		 */
+		if (l.isConstant()) {
+			result = Observables.staticObservableList(new ArrayList<Object>(l), l.getElementType());
+			l.dispose();
+		}
 		if (Activator.getDefault().TRACE_TREE) {
 			LogUtils.debug(this, "--> " + l); //$NON-NLS-1$
 		}
 
-		myResults.put(target, l);
-		return l;
+		myResults.put(target, result);
+		return result;
 	}
 
 	@Override

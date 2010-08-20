@@ -91,6 +91,21 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 	}
 
 	/**
+	 * Returns whether the content of this list with the current children is constant.
+	 * <p>
+	 * A constant list can be optimized to a constant {@link IObservableList} by the caller.
+	 * 
+	 * @return <code>true</code> if constant
+	 */
+	public boolean isConstant() {
+		for (final IElement be : myElements) {
+			if (!be.isConstant()) return false;
+		}
+
+		return true;
+	}
+
+	/**
 	 * Listener used to recalculate the list when any of the added elements change.
 	 */
 	private final IChangeListener myRelationChangeListener = new IChangeListener() {
@@ -117,6 +132,13 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 		 * @param list the list to add the elements to
 		 */
 		void addToList(List<EObject> list);
+
+		/**
+		 * Returns whether the content of this element is constant.
+		 * 
+		 * @return <code>true</code> if constant
+		 */
+		boolean isConstant();
 	}
 
 	/**
@@ -140,6 +162,11 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 		@Override
 		public void addToList(List<EObject> list) {
 			list.add(myTarget);
+		}
+
+		@Override
+		public boolean isConstant() {
+			return true;
 		}
 	}
 
@@ -257,6 +284,20 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 					return;
 				}
 			}
+
+			/**
+			 * Returns whether the content of this specific relation is constant.
+			 * 
+			 * @return <code>true</code> if constant
+			 */
+			public boolean isConstant() {
+				if (myObservable instanceof IObservableValue) {
+					if (myChildDescriptor != null && myChildDescriptor.isEmptyFolderHidden()) return false;
+					return true;
+				}
+				if (myObservable instanceof IObservableList) return false;
+				return false;
+			}
 		}
 
 		@Override
@@ -265,6 +306,16 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 			for (final Relation rel : myRelations) {
 				rel.addToList(newList);
 			}
+		}
+
+		@Override
+		public boolean isConstant() {
+			if (myRelations == null) return true;
+			for (final Relation rel : myRelations) {
+				if (!rel.isConstant()) return false;
+			}
+
+			return true;
 		}
 	}
 
