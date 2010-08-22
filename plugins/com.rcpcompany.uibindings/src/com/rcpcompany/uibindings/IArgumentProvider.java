@@ -5,42 +5,35 @@
  */
 package com.rcpcompany.uibindings;
 
-import org.eclipse.emf.common.util.EMap;
-import org.eclipse.emf.ecore.EObject;
+import java.util.Map;
+
+import org.eclipse.core.runtime.IConfigurationElement;
 
 /**
- * <!-- begin-user-doc -->
+ * This interface is used by all classes that can provide "semi-constant" arguments to the bindings.
  * <p>
- * This interface is used by all class that can have arguments declared in <code>plugin.xml</code>.
- * </p>
- * <!-- end-user-doc -->
- * 
+ * It is primary arguments declared in <code>plugin.xml</code> - in which case the value is an
+ * {@link IConfigurationElement} - but it can also be arguments provided via a
+ * {@link IModelArgumentMediator}.
  * <p>
- * The following features are supported:
- * <ul>
- * <li>{@link com.rcpcompany.uibindings.IArgumentProvider#getDeclaredArguments <em>Declared
- * Arguments</em>}</li>
- * </ul>
- * </p>
+ * If the value is an {@link IConfigurationElement}, this registry element will either have an
+ * attribute with the key name or alternative have the attributes <code>name</code> and
+ * <code>value</code> with the value.
  * 
- * @see com.rcpcompany.uibindings.IUIBindingsPackage#getArgumentProvider()
- * @generated
+ * @author Tonny Madsen, The RCP Company
  */
-public interface IArgumentProvider extends EObject {
+public interface IArgumentProvider {
 	/**
-	 * Returns the value of the '<em><b>Declared Arguments</b></em>' map. The key is of type
-	 * {@link java.lang.String}, and the value is of type {@link java.lang.Object}, <!--
-	 * begin-user-doc -->
-	 * <p>
-	 * The map contains all the defined arguments in the <code>plugin.xml</code> - the exact
-	 * declarations used depends on the object with the arguments.
-	 * </p>
-	 * <!-- end-user-doc -->
+	 * Returns a map with all the declared arguments.
 	 * 
-	 * @return the value of the '<em>Declared Arguments</em>' map.
-	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getArgumentProvider_DeclaredArguments()
-	 * @generated
+	 * @return the map
 	 */
-	EMap<String, Object> getDeclaredArguments();
+	Map<String, Object> getDeclaredArguments();
 
+	/**
+	 * Returns whether this argument provider has any declared arguments.
+	 * 
+	 * @return <code>true</code> if arguments are declared.
+	 */
+	boolean hasDeclaredArguments();
 } // IArgumentProvider

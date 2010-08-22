@@ -21,7 +21,6 @@ import com.rcpcompany.uibindings.uiAttributes.UIAttributePainter;
  * <em><b>Binding Cell Information</b></em>'. <!-- end-user-doc -->
  * 
  * <p>
- * 
  * The following features are supported:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getColumn <em>Column</em>}</li>
@@ -31,7 +30,7 @@ import com.rcpcompany.uibindings.uiAttributes.UIAttributePainter;
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getLabelBinding <em>Label
  * Binding</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getLabelUIAttribute <em>
- * Label UI Attribute </em>}</li>
+ * Label UI Attribute</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getObjectValue <em>Object
  * Value</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#isChangeable <em>Changeable
@@ -41,7 +40,7 @@ import com.rcpcompany.uibindings.uiAttributes.UIAttributePainter;
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getValueType <em>Value Type
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getPasteUIAttribute <em>
- * Paste UI Attribute </em>}</li>
+ * Paste UI Attribute</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getToolTipText <em>Tool Tip
  * Text</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#isEnabled <em>Enabled</em>}
@@ -57,8 +56,7 @@ import com.rcpcompany.uibindings.uiAttributes.UIAttributePainter;
 public interface IGridBindingCellInformation extends EObject, IDisposable, IValueBindingCell {
 	/**
 	 * Returns the value of the '<em><b>Column</b></em>' reference. It is bidirectional and its
-	 * opposite is '
-	 * {@link com.rcpcompany.uibindings.grid.IGridBindingColumnInformation#getRowCells
+	 * opposite is '{@link com.rcpcompany.uibindings.grid.IGridBindingColumnInformation#getRowCells
 	 * <em>Row Cells</em>}'. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Column</em>' reference isn't clear, there really should be more of
@@ -69,16 +67,13 @@ public interface IGridBindingCellInformation extends EObject, IDisposable, IValu
 	 * @return the value of the '<em>Column</em>' reference.
 	 * @see com.rcpcompany.uibindings.grid.IGridPackage#getGridBindingCellInformation_Column()
 	 * @see com.rcpcompany.uibindings.grid.IGridBindingColumnInformation#getRowCells
-	 * @model opposite="rowCells" resolveProxies="false" required="true" transient="true"
-	 *        suppressedSetVisibility="true"
 	 * @generated
 	 */
 	IGridBindingColumnInformation getColumn();
 
 	/**
 	 * Returns the value of the '<em><b>Row</b></em>' reference. It is bidirectional and its
-	 * opposite is '
-	 * {@link com.rcpcompany.uibindings.grid.IGridBindingRowInformation#getColumnCells
+	 * opposite is '{@link com.rcpcompany.uibindings.grid.IGridBindingRowInformation#getColumnCells
 	 * <em>Column Cells</em>}'. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Row</em>' reference isn't clear, there really should be more of a
@@ -89,8 +84,6 @@ public interface IGridBindingCellInformation extends EObject, IDisposable, IValu
 	 * @return the value of the '<em>Row</em>' reference.
 	 * @see com.rcpcompany.uibindings.grid.IGridPackage#getGridBindingCellInformation_Row()
 	 * @see com.rcpcompany.uibindings.grid.IGridBindingRowInformation#getColumnCells
-	 * @model opposite="columnCells" resolveProxies="false" required="true" transient="true"
-	 *        suppressedSetVisibility="true"
 	 * @generated
 	 */
 	IGridBindingRowInformation getRow();
@@ -249,7 +242,6 @@ public interface IGridBindingCellInformation extends EObject, IDisposable, IValu
 	 * @return the value of the '<em>Enabled</em>' attribute.
 	 * @see #setEnabled(boolean)
 	 * @see com.rcpcompany.uibindings.grid.IGridPackage#getGridBindingCellInformation_Enabled()
-	 * @model default="true" required="true" transient="true"
 	 * @generated
 	 */
 	boolean isEnabled();

@@ -1,4 +1,5 @@
 com.rcpcompany.uibindings/debug=false
+com.rcpcompany.uibindings/conf/CreationPoint/StackLevels=8
 com.rcpcompany.uibindings/trace/SourceProvider=false
 com.rcpcompany.uibindings/trace/SourceProvider/Verbose=false
 com.rcpcompany.uibindings/trace/Navigation/viewer=false

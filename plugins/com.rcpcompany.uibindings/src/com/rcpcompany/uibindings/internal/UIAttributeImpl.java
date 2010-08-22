@@ -7,7 +7,6 @@ package com.rcpcompany.uibindings.internal;
 
 import java.util.Collection;
 
-import org.eclipse.core.databinding.observable.IChangeListener;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.IValueChangeListener;
@@ -609,36 +608,6 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 					myLastImageDecorationsOuterBounds);
 		}
 	}
-
-	@Override
-	public void addChangeListener(IChangeListener listener) {
-		getCurrentValue().addChangeListener(listener);
-		getEnabledValue().addChangeListener(listener);
-		getFontValue().addChangeListener(listener);
-		getCursorValue().addChangeListener(listener);
-		getForegroundValue().addChangeListener(listener);
-		getBackgroundValue().addChangeListener(listener);
-		getImageValue().addChangeListener(listener);
-		getTooltipValue().addChangeListener(listener);
-		getStyleRangeList().addChangeListener(listener);
-		/*
-		 * No need to monitor the decorations, as these are handled via the IControlDecoration
-		 * interface
-		 */
-	}
-
-	@Override
-	public void removeChangeListener(IChangeListener listener) {
-		getCurrentValue().removeChangeListener(listener);
-		getEnabledValue().removeChangeListener(listener);
-		getFontValue().removeChangeListener(listener);
-		getCursorValue().removeChangeListener(listener);
-		getForegroundValue().removeChangeListener(listener);
-		getBackgroundValue().removeChangeListener(listener);
-		getImageValue().removeChangeListener(listener);
-		getTooltipValue().removeChangeListener(listener);
-		getStyleRangeList().removeChangeListener(listener);
-	};
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

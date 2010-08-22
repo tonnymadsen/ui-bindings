@@ -19,17 +19,18 @@ import org.eclipse.nebula.widgets.grid.GridEditor;
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellEditor#getGrid <em>Grid</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellEditor#getGridEditor <em>Grid Editor
  * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellEditor#getActiveEditCell <em>Active
+ * Edit Cell</em>}</li>
  * </ul>
  * </p>
  * 
  * @see com.rcpcompany.uibindings.grid.IGridPackage#getGridBindingCellEditor()
- * @model
  * @generated
  */
 public interface IGridBindingCellEditor extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Grid</b></em>' reference. It is bidirectional and its
-	 * opposite is ' {@link com.rcpcompany.uibindings.grid.IGridBinding#getCellEditor
+	 * opposite is '{@link com.rcpcompany.uibindings.grid.IGridBinding#getCellEditor
 	 * <em>Cell Editor</em>}'. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Grid</em>' container reference isn't clear, there really should be

@@ -29,7 +29,7 @@ public class ManagerTreeFunctionalityTest {
 	public void testGetTreeItems() {
 		final EList<ITreeItemDescriptor> treeItems = myManager.getTreeItems();
 
-		assertEquals(3, treeItems.size());
+		assertEquals(5, treeItems.size());
 		for (final ITreeItemDescriptor i : treeItems) {
 			if (i.getId().equals("com.rcpcompany.uibindings.shop.treeItems.shop")) {
 				assertEquals(1, i.getModelTypes().size());
@@ -53,8 +53,10 @@ public class ManagerTreeFunctionalityTest {
 			} else if (i.getId().equals("com.rcpcompany.uibindings.shop.treeItems.contact")) {
 				assertEquals(1, i.getModelTypes().size());
 				assertEquals("com.rcpcompany.uibindings.tests.shop.Contact", i.getModelTypes().get(0));
-				assertEquals(0, i.getChildRelations().size());
+				assertEquals(1, i.getChildRelations().size());
 				assertEquals(0, i.getDeclaredArguments().size());
+			} else if (i.getId().equals("com.rcpcompany.uibindings.shop.treeItems.customer")) {
+			} else if (i.getId().equals("com.rcpcompany.uibindings.shop.treeItems.order")) {
 			} else {
 				fail("Unknown id: " + i.getId());
 			}

@@ -26,7 +26,7 @@ public interface IUIBindingDecoratorExtender extends EObject, IDisposable {
 	 * @param binding the binding
 	 * @return <code>true</code> if this extender is enabled
 	 */
-	public boolean isEnabled(IValueBinding binding);
+	boolean isEnabled(IValueBinding binding);
 
 	/**
 	 * Extends the specified binding context.
@@ -35,7 +35,7 @@ public interface IUIBindingDecoratorExtender extends EObject, IDisposable {
 	 * 
 	 * @param context the context to extend
 	 */
-	public void extend(IUIBindingDecoratorExtenderContext context);
+	void extend(IUIBindingDecoratorExtenderContext context);
 
 	/**
 	 * Updates the specified state for this binding. Used in {@link BindingSourceProvider}.
@@ -46,5 +46,5 @@ public interface IUIBindingDecoratorExtender extends EObject, IDisposable {
 	 * @param binding the binding in question
 	 * @param context TODO
 	 */
-	public void updateSourceProviderState(IValueBinding binding, ISourceProviderStateContext context);
+	void updateSourceProviderState(IValueBinding binding, ISourceProviderStateContext context);
 } // IUIBindingDecoratorExtender

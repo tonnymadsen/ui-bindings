@@ -8,7 +8,6 @@ import org.eclipse.jface.util.Util;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyleRange;
 import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
@@ -138,7 +137,7 @@ public class UIAttributePainter {
 		myPreparedTextBounds = null;
 		myPreparedTotalX = 0;
 
-		IObservableValue value;
+		final IObservableValue value;
 		/*
 		 * Image
 		 */
@@ -167,20 +166,14 @@ public class UIAttributePainter {
 			myPreparedTextLayout.setText("");
 			myPreparedTextLayout.setText(t);
 
-			value = getAttribute().getFontValue();
-			if (value != null && value.getValue() instanceof Font) {
-				myPreparedTextLayout.setFont((Font) value.getValue());
-			} else {
-				myPreparedTextLayout.setFont(null);
-			}
+			myPreparedTextLayout.setFont(getAttribute().getFont());
 
 			// text width without any styles
 			final int originalTextWidth = myPreparedTextLayout.getBounds().width;
 			boolean containsOtherFont = false;
 
-			@SuppressWarnings("unchecked")
-			final List<StyleRange> styleRanges = getAttribute().getStyleRangeList();
-			if (!styleRanges.isEmpty()) { // user filled styled ranges
+			final List<StyleRange> styleRanges = getAttribute().getStyleRanges();
+			if (styleRanges != null && !styleRanges.isEmpty()) { // user filled styled ranges
 				for (final StyleRange styleRange : styleRanges) {
 					myPreparedTextLayout.setStyle(styleRange, styleRange.start, styleRange.start + styleRange.length
 							- 1);
@@ -243,26 +236,23 @@ public class UIAttributePainter {
 		final Color oldForeground = gc.getForeground();
 		final Color oldBackground = gc.getBackground();
 
-		IObservableValue value;
+		final IObservableValue value;
 		/*
 		 * Colors
 		 */
 		Color foreground = oldForeground;
-		value = getAttribute().getForegroundValue();
-		if (value != null && value.getValue() instanceof Color) {
-			foreground = (Color) value.getValue();
+		final Color f = getAttribute().getForeground();
+		if (f != null) {
+			foreground = f;
 		}
-		value = getAttribute().getEnabledValue();
-		if (value != null && value.getValue() != null) {
-			if (value.getValue() == Boolean.FALSE) {
-				foreground = Display.getCurrent().getSystemColor(SWT.COLOR_GRAY);
-			}
+		if (getAttribute().isEnabled() == Boolean.FALSE) {
+			foreground = Display.getCurrent().getSystemColor(SWT.COLOR_GRAY);
 		}
 
 		Color background = getDefaultBackground();
-		value = getAttribute().getBackgroundValue();
-		if (value != null && value.getValue() instanceof Color) {
-			background = (Color) value.getValue();
+		final Color b = getAttribute().getBackground();
+		if (b != null) {
+			background = b;
 		}
 
 		if (isSelected() || hasFocus()) {

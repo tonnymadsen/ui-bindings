@@ -6,21 +6,19 @@
 package com.rcpcompany.uibindings.internal;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 import com.rcpcompany.uibindings.IDecoratorProvider;
 import com.rcpcompany.uibindings.IManager;
@@ -35,8 +33,6 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getDeclaredArguments <em>
- * Declared Arguments</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getManager <em>Manager</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getId <em>Id</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getType <em>Type</em>}</li>
@@ -151,16 +147,6 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 			LogUtils.error(providerCE, "No UI Types supplied. Ignored."); //$NON-NLS-1$
 		}
 	}
-
-	/**
-	 * The cached value of the '{@link #getDeclaredArguments() <em>Declared Arguments</em>}' map.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getDeclaredArguments()
-	 * @generated
-	 * @ordered
-	 */
-	protected EMap<String, Object> declaredArguments;
 
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
@@ -301,18 +287,19 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 		return IUIBindingsPackage.Literals.DECORATOR_PROVIDER;
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
+	private Map<String, Object> myDeclaredArguments = null;
+
 	@Override
-	public EMap<String, Object> getDeclaredArguments() {
-		if (declaredArguments == null) {
-			declaredArguments = new EcoreEMap<String, Object>(IUIBindingsPackage.Literals.STRING_TO_OBJECT_MAP_ENTRY,
-					StringToObjectMapEntryImpl.class, this, IUIBindingsPackage.DECORATOR_PROVIDER__DECLARED_ARGUMENTS);
+	public Map<String, Object> getDeclaredArguments() {
+		if (myDeclaredArguments == null) {
+			myDeclaredArguments = new HashMap<String, Object>();
 		}
-		return declaredArguments;
+		return myDeclaredArguments;
+	}
+
+	@Override
+	public boolean hasDeclaredArguments() {
+		return myDeclaredArguments != null;
 	}
 
 	/**
@@ -516,8 +503,6 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case IUIBindingsPackage.DECORATOR_PROVIDER__DECLARED_ARGUMENTS:
-			return ((InternalEList<?>) getDeclaredArguments()).basicRemove(otherEnd, msgs);
 		case IUIBindingsPackage.DECORATOR_PROVIDER__MANAGER:
 			return basicSetManager(null, msgs);
 		}
@@ -547,11 +532,6 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case IUIBindingsPackage.DECORATOR_PROVIDER__DECLARED_ARGUMENTS:
-			if (coreType)
-				return getDeclaredArguments();
-			else
-				return getDeclaredArguments().map();
 		case IUIBindingsPackage.DECORATOR_PROVIDER__MANAGER:
 			return getManager();
 		case IUIBindingsPackage.DECORATOR_PROVIDER__ID:
@@ -583,9 +563,6 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case IUIBindingsPackage.DECORATOR_PROVIDER__DECLARED_ARGUMENTS:
-			((EStructuralFeature.Setting) getDeclaredArguments()).set(newValue);
-			return;
 		case IUIBindingsPackage.DECORATOR_PROVIDER__MANAGER:
 			setManager((IManager) newValue);
 			return;
@@ -624,9 +601,6 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case IUIBindingsPackage.DECORATOR_PROVIDER__DECLARED_ARGUMENTS:
-			getDeclaredArguments().clear();
-			return;
 		case IUIBindingsPackage.DECORATOR_PROVIDER__MANAGER:
 			setManager((IManager) null);
 			return;
@@ -663,8 +637,6 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case IUIBindingsPackage.DECORATOR_PROVIDER__DECLARED_ARGUMENTS:
-			return declaredArguments != null && !declaredArguments.isEmpty();
 		case IUIBindingsPackage.DECORATOR_PROVIDER__MANAGER:
 			return getManager() != null;
 		case IUIBindingsPackage.DECORATOR_PROVIDER__ID:

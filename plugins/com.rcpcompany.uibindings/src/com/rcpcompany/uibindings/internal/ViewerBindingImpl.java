@@ -18,7 +18,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -194,7 +193,7 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 
 	@Override
 	public IViewerBinding arg(String name, Object value) {
-		assertTrue(name != null, "name musrt be non-null"); //$NON-NLS-1$
+		assertTrue(name != null, "name must be non-null"); //$NON-NLS-1$
 		getArguments().put(name, value);
 		return this;
 	}
@@ -202,12 +201,6 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	@Override
 	public IViewerBinding args(Map<String, Object> arguments) {
 		setArguments(arguments);
-		return this;
-	}
-
-	@Override
-	public IViewerBinding args(EMap<String, Object> arguments) {
-		setArguments(arguments.map());
 		return this;
 	}
 
@@ -263,13 +256,14 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	 * Private {@link CellNavigationStrategy}, which will not permit us to go to the first column!
 	 */
 	private final CellNavigationStrategy theCellNavigationStrategy = new CellNavigationStrategy() {
-
 		@Override
 		public ViewerCell findSelectedCell(ColumnViewer viewer, ViewerCell currentSelectedCell, Event event) {
 			switch (event.keyCode) {
 			case SWT.ARROW_LEFT:
 				if (currentSelectedCell != null && currentSelectedCell.getColumnIndex() <= getFirstTableColumnOffset())
 					return currentSelectedCell;
+				break;
+			default:
 				break;
 			}
 
@@ -417,12 +411,12 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	/**
 	 * The last element reported as selected - only used for viewers with style {@link SWT#SINGLE}.
 	 */
-	protected Object myLastReportedSelectedElement = null;
+	private Object myLastReportedSelectedElement = null;
 
 	/**
 	 * Listener to update {@link #myLastReportedSelectedElement}.
 	 */
-	protected ISelectionChangedListener mySelectionChangedListener = null;
+	private ISelectionChangedListener mySelectionChangedListener = null;
 
 	/**
 	 * The {@link SWT#PaintItem} listener is used to synchronize the current focus cell based on the
@@ -678,7 +672,8 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 				case Notification.SET:
 					final IColumnBinding c = (IColumnBinding) msg.getOldValue();
 					c.eAdapters().remove(this);
-					updateCursor();
+					break;
+				default:
 					break;
 				}
 				switch (msg.getEventType()) {
@@ -686,9 +681,11 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 				case Notification.SET:
 					final IColumnBinding c = (IColumnBinding) msg.getNewValue();
 					c.eAdapters().add(this);
-					updateCursor();
+					break;
+				default:
 					break;
 				}
+				updateCursor();
 			} else if (msg.getFeature() == IUIBindingsPackage.Literals.COLUMN_BINDING__CURSOR) {
 				updateCursor();
 			}

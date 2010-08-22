@@ -5,6 +5,8 @@
  */
 package com.rcpcompany.uibindings;
 
+import org.eclipse.emf.ecore.EObject;
+
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 
 /**
@@ -24,7 +26,7 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * @see com.rcpcompany.uibindings.IUIBindingsPackage#getUIBindingDecoratorExtenderDescriptor()
  * @generated
  */
-public interface IUIBindingDecoratorExtenderDescriptor extends IArgumentProvider {
+public interface IUIBindingDecoratorExtenderDescriptor extends EObject, IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>Priority</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>

@@ -13,7 +13,6 @@ import org.eclipse.core.databinding.observable.set.IObservableSet;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.swt.widgets.Control;
@@ -36,7 +35,6 @@ import com.rcpcompany.uibindings.utils.IBindingContextPersistence;
  * <li>{@link com.rcpcompany.uibindings.IBinding#getState <em>State</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IBinding#isChangeable <em>Changeable</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IBinding#getCreationPoint <em>Creation Point</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IBinding#getArguments <em>Arguments</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IBinding#getId <em>Id</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IBinding#getType <em>Type</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IBinding#getLabel <em>Label</em>}</li>
@@ -104,14 +102,6 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * @return <code>this</code>
 	 */
 	IBinding args(Map<String, Object> arguments);
-
-	/**
-	 * Sets a complete set of arguments for the binding.
-	 * 
-	 * @param arguments the arguments to set
-	 * @return <code>this</code>
-	 */
-	IBinding args(EMap<String, Object> arguments);
 
 	/**
 	 * Short for <code>arg(IBinding.ARG_READONLY, true)</code>.
@@ -304,19 +294,19 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	Throwable getCreationPoint();
 
 	/**
-	 * Returns the value of the '<em><b>Arguments</b></em>' map. The key is of type
-	 * {@link java.lang.String}, and the value is of type {@link java.lang.Object}, <!--
-	 * begin-user-doc -->
-	 * <p>
-	 * The returned map contains all the defined arguments for the binding.
-	 * </p>
-	 * <!-- end-user-doc -->
+	 * Returns a map with all binding specific arguments added with
+	 * {@link IBinding#arg(String, Object)}.
 	 * 
-	 * @return the value of the '<em>Arguments</em>' map.
-	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getBinding_Arguments()
-	 * @generated
+	 * @return the map
 	 */
-	EMap<String, Object> getArguments();
+	Map<String, Object> getArguments();
+
+	/**
+	 * Returns whether {@link #getArguments()} returns any map.
+	 * 
+	 * @return <code>true</code> if it does
+	 */
+	boolean hasArguments();
 
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc -->

@@ -6,7 +6,6 @@ import java.util.Map;
 import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
-import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -66,7 +65,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * @param attribute the attribute of the widget to bind to
 	 * @return <code>this</code>
 	 */
-	public IValueBinding ui(Widget widget, String attribute);
+	IValueBinding ui(Widget widget, String attribute);
 
 	/**
 	 * Binds the target (UI) side of this binding to the principle attribute of the specified SWT
@@ -77,7 +76,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * @param widget the widget to bind to
 	 * @return <code>this</code>
 	 */
-	public IValueBinding ui(Widget widget);
+	IValueBinding ui(Widget widget);
 
 	/**
 	 * Binds the target (UI) side of this binding to the specified {@link ISWTObservable SWT
@@ -86,7 +85,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * @param observable the observable to bind to
 	 * @return <code>this</code>
 	 */
-	public IValueBinding ui(ISWTObservableValue observable);
+	IValueBinding ui(ISWTObservableValue observable);
 
 	/**
 	 * Binds the target (UI) side of this binding to the specified {@link IUIAttribute UI attribute}
@@ -98,7 +97,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * @param attribute the attribute
 	 * @return <code>this</code>
 	 */
-	public IValueBinding ui(IUIAttribute attribute);
+	IValueBinding ui(IUIAttribute attribute);
 
 	/**
 	 * The control of the UI value, if any.
@@ -106,7 +105,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * @return the control or <code>null</code>
 	 */
 	@Override
-	public Control getControl();
+	Control getControl();
 
 	/**
 	 * Binds this binding to the specified EMF feature.
@@ -116,7 +115,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * 
 	 * @return <code>this</code>
 	 */
-	public IValueBinding model(EObject modelObject, EStructuralFeature feature);
+	IValueBinding model(EObject modelObject, EStructuralFeature feature);
 
 	/**
 	 * Binds this binding to the specified EMF feature.
@@ -126,7 +125,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * 
 	 * @return <code>this</code>
 	 */
-	public IValueBinding model(IObservableValue modelObject, EStructuralFeature feature);
+	IValueBinding model(IObservableValue modelObject, EStructuralFeature feature);
 
 	/**
 	 * Binds this binding directly to the specified observable.
@@ -134,7 +133,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * @param observable the observable to bind to
 	 * @return <code>this</code>
 	 */
-	public IValueBinding model(IObservableValue observable);
+	IValueBinding model(IObservableValue observable);
 
 	/**
 	 * Sets the type of the binding. Defaults to "<code>basic</code>".
@@ -144,7 +143,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * @return <code>this</code>
 	 */
 	@Override
-	public IValueBinding type(String type);
+	IValueBinding type(String type);
 
 	/**
 	 * Sets an argument for the binding. Some arguments are deduced from the EMF binding.
@@ -155,7 +154,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * @return <code>this</code>
 	 */
 	@Override
-	public IValueBinding arg(String name, Object value);
+	IValueBinding arg(String name, Object value);
 
 	/**
 	 * Sets a complete set of arguments for the binding.
@@ -164,16 +163,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * @return <code>this</code>
 	 */
 	@Override
-	public IValueBinding args(Map<String, Object> arguments);
-
-	/**
-	 * Sets a complete set of arguments for the binding.
-	 * 
-	 * @param arguments the arguments to set
-	 * @return <code>this</code>
-	 */
-	@Override
-	public IValueBinding args(EMap<String, Object> arguments);
+	IValueBinding args(Map<String, Object> arguments);
 
 	/**
 	 * Short for <code>arg({@link IBinding#ARG_READONLY}, true)</code>.
@@ -181,7 +171,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * @return <code>this</code>
 	 */
 	@Override
-	public IValueBinding readonly();
+	IValueBinding readonly();
 
 	/**
 	 * Short for <code>arg({@link IBinding#ARG_DYNAMIC}, true)</code>.
@@ -189,7 +179,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * @return <code>this</code>
 	 */
 	@Override
-	public IValueBinding dynamic();
+	IValueBinding dynamic();
 
 	/**
 	 * Short for <code>arg({@link IBinding#ARG_LABEL}, label)</code>.
@@ -198,7 +188,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * @return <code>this</code>
 	 */
 	@Override
-	public IValueBinding label(String label);
+	IValueBinding label(String label);
 
 	/**
 	 * Short for <code>getId(id)</code>.
@@ -207,7 +197,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * @return <code>this</code>
 	 */
 	@Override
-	public IValueBinding id(String id);
+	IValueBinding id(String id);
 
 	/**
 	 * Short for <code>arg({@link IBinding#ARG_VALID_VALUES}, list)</code>.
@@ -217,7 +207,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * @return <code>this</code>
 	 */
 	@Override
-	public IValueBinding validValues(IObservableList list);
+	IValueBinding validValues(IObservableList list);
 
 	/**
 	 * Short for <code>arg({@link IBinding#ARG_VALID_VALUES}, list)</code>.
@@ -227,7 +217,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * 
 	 * @return <code>this</code>
 	 */
-	public IValueBinding validValues(List<?> list, Object type);
+	IValueBinding validValues(List<?> list, Object type);
 
 	/**
 	 * Short for <code>arg({@link IBinding#ARG_VALID_VALUES}, list)</code>.
@@ -237,7 +227,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * 
 	 * @return <code>this</code>
 	 */
-	public IValueBinding validValues(EObject obj, EReference ref);
+	IValueBinding validValues(EObject obj, EReference ref);
 
 	/**
 	 * Sets the focus on the control or cell of this binding if possible.
@@ -245,12 +235,12 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * Also all TabFolder, CTabFolder, Section, and ExpandableComposite between the widget and the
 	 * Composite of the {@link IBindingContext} is configured to show the correct child.
 	 */
-	public void setFocus();
+	void setFocus();
 
 	/**
 	 * Forces an immediate update of the UI side of the binding.
 	 */
-	public void updateUI();
+	void updateUI();
 
 	/**
 	 * Creates a usable control for this binding based on {@link IBinding#ARG_PREFERRED_CONTROL}.
@@ -261,7 +251,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * @param style the style
 	 * @return the new control
 	 */
-	public Control createPreferredControl(Composite parent, int style);
+	Control createPreferredControl(Composite parent, int style);
 
 	/**
 	 * Returns the value of the '<em><b>Model Observable</b></em>' attribute. <!-- begin-user-doc

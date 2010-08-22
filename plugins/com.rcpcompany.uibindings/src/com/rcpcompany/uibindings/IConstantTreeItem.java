@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see com.rcpcompany.uibindings.IUIBindingsPackage#getConstantTreeItem()
  * @generated
  */
-public interface IConstantTreeItem extends IArgumentProvider {
+public interface IConstantTreeItem extends EObject, IArgumentProvider {
 
 	/**
 	 * Returns the value of the '<em><b>Descriptor</b></em>' reference. <!-- begin-user-doc -->

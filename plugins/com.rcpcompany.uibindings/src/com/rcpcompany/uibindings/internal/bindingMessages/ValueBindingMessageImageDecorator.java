@@ -7,10 +7,7 @@ import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.observable.ChangeEvent;
 import org.eclipse.core.databinding.observable.IChangeListener;
 import org.eclipse.core.databinding.observable.IObservable;
-import org.eclipse.core.databinding.observable.list.IListChangeListener;
 import org.eclipse.core.databinding.observable.list.IObservableList;
-import org.eclipse.core.databinding.observable.list.ListChangeEvent;
-import org.eclipse.core.databinding.observable.list.ListDiffVisitor;
 import org.eclipse.core.databinding.observable.list.WritableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.runtime.Assert;
@@ -51,10 +48,15 @@ import com.rcpcompany.uibindings.validators.IValidatorAdapterMessageDecorator;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * Internal object that holds the actual data for each binding.
+ * Message decorator for {@link IValueBinding} objects.
+ * <p>
+ * One of these exists for each {@link IValueBinding} object so some care must be taken to limit the
+ * amount of data in the object.
+ * 
+ * @author Tonny Madsen, The RCP Company
  */
 public class ValueBindingMessageImageDecorator extends AdapterImpl implements IDisposable, IContextMessageProvider,
-		IValidatorAdapterMessageDecorator, Adapter {
+		IValidatorAdapterMessageDecorator, Adapter, IChangeListener, IDelayedChangeListener {
 
 	/**
 	 * Extender for {@link ValueBindingMessageImageDecorator}.
@@ -79,22 +81,6 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	private final IValueBinding myBinding;
 
 	/**
-	 * <code>true</code> if alternative decorations are shown.
-	 */
-	private final boolean myShowAlternativeDecorations;
-
-	/**
-	 * The feature matching algorithm used for the messages.
-	 */
-	private final FeatureMatchingAlgorithm myMessagesMatchingAlgorithm;
-
-	/**
-	 * <code>true</code> if object messages for the current value object of the binding should be
-	 * accepted as well.
-	 */
-	private final boolean myAcceptValueObjectMessages;
-
-	/**
 	 * Constructs and returns a new decorator.
 	 * 
 	 * @param binding the value binding
@@ -102,15 +88,6 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	public ValueBindingMessageImageDecorator(IValueBinding binding) {
 		myBinding = binding;
 		myObservedObject = getBinding().getModelObject();
-		myShowAlternativeDecorations = binding.getControl() != null;
-
-		if (binding.getArgument(Constants.ARG_MODEL_OBJECT_MESSAGES, Boolean.class, Boolean.FALSE) == Boolean.TRUE) {
-			myMessagesMatchingAlgorithm = FeatureMatchingAlgorithm.EXACT_OR_NULL;
-		} else {
-			myMessagesMatchingAlgorithm = FeatureMatchingAlgorithm.EXACT;
-		}
-		myAcceptValueObjectMessages = binding.getArgument(Constants.ARG_VALUE_OBJECT_MESSAGES, Boolean.class,
-				Boolean.FALSE) == Boolean.TRUE;
 
 		init();
 	}
@@ -124,24 +101,7 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 			/*
 			 * If not in state OK, then wait until we get there...
 			 */
-			final AdapterImpl l = new AdapterImpl() {
-				@Override
-				public void notifyChanged(Notification msg) {
-					if (msg.isTouch()) return;
-					if (msg.getFeature() != IUIBindingsPackage.Literals.BINDING__STATE) return;
-					switch (getBinding().getState()) {
-					case OK:
-						init();
-						//$FALL-THROUGH$ fallthrough
-					case DISPOSED:
-						getBinding().eAdapters().remove(this);
-						break;
-					default:
-						break;
-					}
-				}
-			};
-			getBinding().eAdapters().add(l);
+			getBinding().eAdapters().add(this);
 			return;
 		}
 		Assert.isTrue(getBinding().getState() == BindingState.OK);
@@ -151,25 +111,20 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 
 		getBinding().registerService(this);
 		final IObservableValue observable = getBinding().getUIObservable();
-		observable.addChangeListener(myChangeListener);
+		observable.addChangeListener(this);
 		if (observable instanceof IDelayedChangeObservable) {
-			myDelayedChangeListener = new IDelayedChangeListener() {
-				@Override
-				public void handleDelayedChange(DelayedChangeEvent event) {
-					updateDecoration();
-				}
-			};
-			((IDelayedChangeObservable) observable).addDelayedChangeListener(myDelayedChangeListener);
+			((IDelayedChangeObservable) observable).addDelayedChangeListener(this);
 		}
 
 		/*
 		 * The list change listener will ensure that the change listener is added to all the message
 		 * providers
 		 */
-		myMessageProviders.addListChangeListener(myListChangeListener);
-		for (final Binding b : getBinding().getMonitoredDBBindings()) {
+		myMessageProviders = new IObservableValue[0];
+		final List<Binding> bindings = getBinding().getMonitoredDBBindings();
+		for (int i = 0; i < bindings.size(); i++) {
 			// TODO TMTM reduce the extra observable!
-			myMessageProviders.add(new DataBindingDecoratorMessageObservableValue(getBinding(), b));
+			myMessageProviders[i] = new DataBindingDecoratorMessageObservableValue(getBinding(), bindings.get(i));
 		}
 
 		/*
@@ -205,9 +160,9 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 		VALIDATION_MANAGER.removeDecorator(this);
 
 		final IObservableValue observable = getBinding().getUIObservable();
-		observable.removeChangeListener(myChangeListener);
+		observable.removeChangeListener(this);
 		if (observable instanceof IDelayedChangeObservable) {
-			((IDelayedChangeObservable) observable).removeDelayedChangeListener(myDelayedChangeListener);
+			((IDelayedChangeObservable) observable).removeDelayedChangeListener(this);
 		}
 		getBinding().unregisterService(this);
 
@@ -218,10 +173,9 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 
 		// Remove all listeners
 		for (final Object v : myMessageProviders) {
-			((IObservableValue) v).removeChangeListener(myChangeListener);
+			((IObservableValue) v).removeChangeListener(this);
 		}
-		myMessageProviders.removeListChangeListener(myListChangeListener);
-		myMessageProviders.clear();
+		myMessageProviders = null;
 		final ContextMessageDecorator contextMessageDecorator = myBinding.getContext().getService(
 				ContextMessageDecorator.class);
 		if (contextMessageDecorator != null) {
@@ -244,50 +198,38 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 				|| (msg.getFeature() == IUIBindingsPackage.Literals.MANAGER__QUICKFIX_VB_IMAGE_DECORATION_SHOWN)) {
 			updateDecoration();
 		}
+		if (msg.getFeature() == IUIBindingsPackage.Literals.BINDING__STATE) {
+			final ValueBindingMessageImageDecorator decorator = (ValueBindingMessageImageDecorator) msg.getNotifier();
+			switch (decorator.getBinding().getState()) {
+			case OK:
+				decorator.init();
+				//$FALL-THROUGH$ fallthrough
+			case DISPOSED:
+				decorator.getBinding().eAdapters().remove(this);
+				break;
+			default:
+				break;
+			}
+		}
 	}
 
 	/**
-	 * Change listener used to add/remove change listener to the individual elements of
-	 * {@link #myMessageProviders}.
+	 * Common change listener used to update the decoration whenever any of the individual elements
+	 * of {@link #myMessageProviders} is changed.
 	 */
-	private final IListChangeListener myListChangeListener = new IListChangeListener() {
-		@Override
-		public void handleListChange(ListChangeEvent event) {
-			event.diff.accept(new ListDiffVisitor() {
-
-				@Override
-				public void handleRemove(int index, Object element) {
-					((IObservableValue) element).removeChangeListener(myChangeListener);
-					updateDecoration();
-				}
-
-				@Override
-				public void handleAdd(int index, Object element) {
-					((IObservableValue) element).addChangeListener(myChangeListener);
-					updateDecoration();
-				}
-			});
-		}
-	};
+	@Override
+	public void handleChange(ChangeEvent event) {
+		updateDecoration();
+	}
 
 	/**
-	 * Change listener used to update the decoration whenever any of the individual elements of
-	 * {@link #myMessageProviders} is changed.
+	 * Common change listener used to update the decoration whenever changes are initiated for the
+	 * UI Observable. See {@link TextObservableValue} for more information.
 	 */
-	private final IChangeListener myChangeListener = new IChangeListener() {
-		@Override
-		public void handleChange(ChangeEvent event) {
-			updateDecoration();
-		}
-	};
-
-	/**
-	 * Delayed Change listener used to update the decoration whenever changes are initiated for the
-	 * UI Observable.
-	 * 
-	 * See {@link TextObservableValue} for more information
-	 */
-	private IDelayedChangeListener myDelayedChangeListener = null;
+	@Override
+	public void handleDelayedChange(DelayedChangeEvent event) {
+		updateDecoration();
+	}
 
 	@Override
 	public IValueBinding getBinding() {
@@ -295,11 +237,14 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	}
 
 	/**
-	 * A List of all the added message providers for this messages decorator.
+	 * Array with all the added message providers for this messages decorator.
 	 * <p>
-	 * The list elements are observable values that returns an {@link IBindingMessage}.
+	 * The list elements are observable values that returns an {@link IBindingMessage} or
+	 * <code>null</code>.
+	 * <p>
+	 * The array is static - once it is created, it does not change.
 	 */
-	private final IObservableList myMessageProviders = WritableList.withElementType(IObservableValue.class);
+	private IObservableValue[] myMessageProviders = null;
 
 	/**
 	 * The current list of outstanding messages for this decorator.
@@ -346,17 +291,18 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	}
 
 	/**
-	 * The current list of quick fixes for this decorator based on the current set of messages.
-	 */
-	private final List<IQuickfixProposal> myQuickfixes = new ArrayList<IQuickfixProposal>();
-
-	/**
 	 * Returns the current list of quick fixes..
 	 * 
 	 * @return the list
 	 */
 	public List<IQuickfixProposal> getQuickfixes() {
-		return myQuickfixes;
+		final IManager manager = IManager.Factory.getManager();
+		final List<IQuickfixProposal> quickfixes = new ArrayList<IQuickfixProposal>();
+		for (final IBindingMessage m : myMessages) {
+			manager.getQuickfixes(m, quickfixes);
+		}
+
+		return quickfixes;
 	}
 
 	/**
@@ -367,23 +313,18 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	private boolean updateDecorationScheduled = false;
 
 	/**
-	 * Runnable used to delay the update.
-	 */
-	private final Runnable myUpdateDecorationRunnable = new Runnable() {
-		@Override
-		public void run() {
-			updateDecorationDelayed();
-		}
-	};
-
-	/**
 	 * Updates the message decoration of this decorator.
 	 */
 	protected void updateDecoration() {
 		if (getBinding().getState() != BindingState.OK) return;
 		if (!updateDecorationScheduled) {
 			updateDecorationScheduled = true;
-			PlatformUI.getWorkbench().getDisplay().asyncExec(myUpdateDecorationRunnable);
+			PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
+				@Override
+				public void run() {
+					updateDecorationDelayed();
+				}
+			});
 		}
 	}
 
@@ -397,14 +338,6 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 
 	private Image myAlternativeDecorationImage;
 	private String myAlternativeDecorationMessage;
-
-	private Image myOldMessageDecorationImage;
-
-	private String myOldMessageDecorationMessage;
-
-	private Image myOldAlternativeDecorationImage;
-
-	private String myOldAlternativeDecorationMessage;
 
 	/**
 	 * The VAM...
@@ -555,12 +488,11 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 			sb.append(message.getMessage());
 		}
 
-		myOldMessageDecorationImage = myMessageDecorationImage;
-		myOldMessageDecorationMessage = myMessageDecorationMessage;
-
 		/*
 		 * Show the appropriate message decorations
 		 */
+		final Image oldMessageDecorationImage = myMessageDecorationImage;
+		final String oldMessageDecorationMessage = myMessageDecorationMessage;
 		switch (maxType) {
 		case IMessageProvider.NONE:
 			myMessageDecorationImage = null;
@@ -579,27 +511,25 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 		}
 		myMessageDecorationMessage = sb.toString();
 
-		myOldAlternativeDecorationImage = myAlternativeDecorationImage;
-		myOldAlternativeDecorationMessage = myAlternativeDecorationMessage;
 		/*
 		 * The alternative stuff is only relevant if the binding is changeable...
 		 */
+		final Image oldAlternativeDecorationImage = myAlternativeDecorationImage;
+		final String oldAlternativeDecorationMessage = myAlternativeDecorationMessage;
 		if (getBinding().isChangeable()) {
 			final IManager manager = IManager.Factory.getManager();
-			myQuickfixes.clear();
-			for (final IBindingMessage m : myMessages) {
-				manager.getQuickfixes(m, myQuickfixes);
-			}
+
+			final boolean showAlternativeDecorations = getBinding().getControl() != null;
 
 			// TODO TMTM add key bindings
-			if (myQuickfixes.size() > 0 && manager.isQuickfixVBImageDecorationShown()) {
+			if (getQuickfixes().size() > 0 && manager.isQuickfixVBImageDecorationShown()) {
 				myAlternativeDecorationImage = QUICKFIX_FIELD_DECORATOR.getImage();
 				myAlternativeDecorationMessage = QUICKFIX_FIELD_DECORATOR.getDescription();
-			} else if (myShowAlternativeDecorations && getBinding().getDataType().isRequired()
+			} else if (showAlternativeDecorations && getBinding().getDataType().isRequired()
 					&& manager.isRequiredVBImageDecorationShown()) {
 				myAlternativeDecorationImage = REQUIRED_FIELD_DECORATOR.getImage();
 				myAlternativeDecorationMessage = Messages.ValueBindingMessageImageDecorator_ValueRequired;
-			} else if (myShowAlternativeDecorations && getBinding().getDecorator().getValidUIList() != null
+			} else if (showAlternativeDecorations && getBinding().getDecorator().getValidUIList() != null
 					&& getBinding().getUIAttribute().getFieldAssistAdapter() != null
 					&& manager.isAssistVBImageDecorationShown()) {
 				myAlternativeDecorationImage = CONTENT_PROPOSAL_FIELD_DECORATOR.getImage();
@@ -613,10 +543,14 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 		/*
 		 * If everything is the same, then do nothing
 		 */
-		if (UIBindingsUtils.equals(myOldMessageDecorationImage, myMessageDecorationImage)
-				&& UIBindingsUtils.equals(myOldMessageDecorationMessage, myMessageDecorationMessage)
-				&& UIBindingsUtils.equals(myOldAlternativeDecorationImage, myAlternativeDecorationImage)
-				&& UIBindingsUtils.equals(myOldAlternativeDecorationMessage, myAlternativeDecorationMessage)) return;
+		if (UIBindingsUtils.equals(oldMessageDecorationImage, myMessageDecorationImage)
+				&& UIBindingsUtils.equals(oldMessageDecorationMessage, myMessageDecorationMessage)
+				&& UIBindingsUtils.equals(oldAlternativeDecorationImage, myAlternativeDecorationImage)
+				&& UIBindingsUtils.equals(oldAlternativeDecorationMessage, myAlternativeDecorationMessage)) return;
+
+		/*
+		 * Update the binding
+		 */
 		getBinding().updateBinding();
 	}
 
@@ -648,9 +582,16 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 		if (modelObservable instanceof IKeyedObservable) {
 			key = ((IKeyedObservable) modelObservable).getObservableKey();
 		}
-		if (unboundMessage.matches(myObservedObject, binding.getModelFeature(), key, myMessagesMatchingAlgorithm))
-			return true;
-		if (myAcceptValueObjectMessages
+
+		FeatureMatchingAlgorithm matchingAlgorithm;
+		if (binding.getArgument(Constants.ARG_MODEL_OBJECT_MESSAGES, Boolean.class, Boolean.FALSE) == Boolean.TRUE) {
+			matchingAlgorithm = FeatureMatchingAlgorithm.EXACT_OR_NULL;
+		} else {
+			matchingAlgorithm = FeatureMatchingAlgorithm.EXACT;
+		}
+		if (unboundMessage.matches(myObservedObject, binding.getModelFeature(), key, matchingAlgorithm)) return true;
+
+		if (binding.getArgument(Constants.ARG_VALUE_OBJECT_MESSAGES, Boolean.class, Boolean.FALSE) == Boolean.TRUE
 				&& unboundMessage.matches(myObservedObject, null, null, FeatureMatchingAlgorithm.EXACT)) return true;
 
 		return false;

@@ -6,7 +6,6 @@ import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.set.IObservableSet;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -134,15 +133,6 @@ public interface IViewerBinding extends IBinding {
 	 */
 	@Override
 	IViewerBinding args(Map<String, Object> arguments);
-
-	/**
-	 * Sets a complete set of aerguments for the binding.
-	 * 
-	 * @param arguments the arguments to set
-	 * @return <code>this</code>
-	 */
-	@Override
-	IViewerBinding args(EMap<String, Object> arguments);
 
 	/**
 	 * Short for <code>arg(IBinding.ARG_READONLY, true)</code>.

@@ -4,8 +4,8 @@ import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
 import java.util.List;
+import java.util.Map;
 
-import org.eclipse.emf.common.util.EMap;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
@@ -120,7 +120,7 @@ public class ArgumentsScopeTest {
 			}
 		});
 
-		final EMap<String, Object> arguments = binding.getArguments();
+		final Map<String, Object> arguments = binding.getArguments();
 		assertNotNull(arguments);
 		assertEquals("a", arguments.get(ARG));
 

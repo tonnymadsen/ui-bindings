@@ -116,8 +116,10 @@ public class SimpleCellEditorFactory implements ICellEditorFactory {
 		/*
 		 * The binding for the text while editing
 		 */
-		final IValueBinding editorBinding = context.addBinding().ui(ce.getControl()).model(value)
-				.args(labelBinding.getArguments());
+		final IValueBinding editorBinding = context.addBinding().ui(ce.getControl()).model(value);
+		if (labelBinding.hasArguments()) {
+			editorBinding.getExtraArgumentProviders().add(labelBinding);
+		}
 
 		editorBinding.setCell(cell);
 

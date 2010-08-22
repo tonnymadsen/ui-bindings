@@ -117,19 +117,22 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 		 * 
 		 * The attribute is NOT changeable, so paste must make it own changeable binding first.
 		 */
-		setLabelUIAttribute(new VirtualUIAttribute(String.class));
+		final VirtualUIAttribute attribute = new VirtualUIAttribute(String.class);
+		setLabelUIAttribute(attribute);
 
 		final UIAttributePainter painter = new UIAttributePainter(column.getViewerBinding().getControl(),
 				getLabelUIAttribute());
 		setLabelPainter(painter);
 
 		final IBindingContext context = getColumn().getContext();
-		final IUIAttribute attribute = getLabelUIAttribute();
-		final IValueBinding lb = context.addBinding().model(newObjectValue).ui(attribute).args(column.getArguments());
+		final IValueBinding lb = context.addBinding().model(newObjectValue).ui(attribute);
+		if (column.hasArguments()) {
+			lb.getExtraArgumentProviders().add(column);
+		}
 		setLabelBinding(lb);
 		lb.setCell(this);
 		/*
-		 * For constant tree items we add an extra argument provider...
+		 * For constant tree items we add an extra argument provider with the descriptor
 		 */
 		if (element instanceof IConstantTreeItem) {
 			lb.getExtraArgumentProviders().add(((IConstantTreeItem) element).getDescriptor());
@@ -794,7 +797,9 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 			LogUtils.debug(this, this + " disposed"); //$NON-NLS-1$
 		}
 
-		getLabelUIAttribute().removeChangeListener(myAttributeValueListener);
+		if (getLabelUIAttribute() instanceof VirtualUIAttribute) {
+			((VirtualUIAttribute) getLabelUIAttribute()).removeChangeListener(myAttributeValueListener);
+		}
 		getLabelBinding().dispose();
 		getLabelUIAttribute().dispose();
 		/*

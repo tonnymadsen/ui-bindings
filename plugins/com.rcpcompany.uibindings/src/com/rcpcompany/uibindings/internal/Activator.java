@@ -14,6 +14,7 @@ import org.osgi.framework.BundleContext;
 
 import com.rcpcompany.uibindings.BindingMessageSeverity;
 import com.rcpcompany.uibindings.DecorationPosition;
+import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IColumnBindingCellInformation;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.TextCommitStrategy;
@@ -52,6 +53,13 @@ public class Activator extends AbstractUIPlugin {
 	}
 
 	private IPropertyChangeListener myListener = null;
+
+	/**
+	 * Number of levels in the {@link IBinding#getCreationPoint() creation point} stack traces.
+	 * <p>
+	 * <code>0</code> means disabled.
+	 */
+	public int CREATION_POINT_STACK_LEVELS = 0;
 
 	/**
 	 * <code>true</code> if tracing the built-in source providers.
@@ -203,6 +211,8 @@ public class Activator extends AbstractUIPlugin {
 		myListener.propertyChange(null);
 
 		if (isDebugging()) {
+			CREATION_POINT_STACK_LEVELS = Integer.parseInt(Platform.getDebugOption(ID
+					+ "/conf/CreationPoint/StackLevels")); //$NON-NLS-1$
 			TRACE_SOURCE_PROVIDER = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/SourceProvider")); //$NON-NLS-1$
 			TRACE_SOURCE_PROVIDER_VERBOSE = Boolean.parseBoolean(Platform.getDebugOption(ID
 					+ "/trace/SourceProvider/Verbose")); //$NON-NLS-1$

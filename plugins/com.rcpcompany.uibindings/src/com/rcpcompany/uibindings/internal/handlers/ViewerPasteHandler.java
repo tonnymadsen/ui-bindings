@@ -84,7 +84,10 @@ public class ViewerPasteHandler extends AbstractHandler implements IHandler {
 			final WritableValue ov = new WritableValue("", String.class);
 			final IUIAttribute attribute = new SimpleUIAttribute(null, null, ov, true);
 			final IValueBinding pasteBinding = context.addBinding().model(binding.getModelObservableValue())
-					.ui(attribute).args(binding.getArguments());
+					.ui(attribute);
+			if (binding.hasArguments()) {
+				pasteBinding.getExtraArgumentProviders().add(binding);
+			}
 			context.finish(FinishOption.FORCE);
 
 			ov.setValue(content);

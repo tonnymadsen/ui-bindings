@@ -190,8 +190,8 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	protected IGridBindingCellInformation focusCell;
 
 	/**
-	 * The cached value of the '{@link #getCellEditor() <em>Cell Editor</em>}' containment
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getCellEditor() <em>Cell Editor</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getCellEditor()
 	 * @generated
@@ -1048,7 +1048,7 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 
 	@Override
 	public IBinding arg(String name, Object value) {
-		assertTrue(name != null, "name musrt be non-null");
+		assertTrue(name != null, "name must be non-null"); //$NON-NLS-1$
 		getArguments().put(name, value);
 		return this;
 	}
@@ -1056,12 +1056,6 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	@Override
 	public IBinding args(Map<String, Object> arguments) {
 		setArguments(arguments);
-		return this;
-	}
-
-	@Override
-	public IBinding args(EMap<String, Object> arguments) {
-		setArguments(arguments.map());
 		return this;
 	}
 

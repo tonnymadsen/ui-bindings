@@ -6,20 +6,19 @@
 package com.rcpcompany.uibindings.internal;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
-import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import com.rcpcompany.uibindings.ITreeItemDescriptor;
@@ -32,8 +31,6 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getDeclaredArguments <em>
- * Declared Arguments</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getId <em>Id</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getChildRelations <em>Child
  * Relations</em>}</li>
@@ -54,16 +51,6 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
  * @generated
  */
 public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDescriptor {
-	/**
-	 * The cached value of the '{@link #getDeclaredArguments() <em>Declared Arguments</em>}' map.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getDeclaredArguments()
-	 * @generated
-	 * @ordered
-	 */
-	protected EMap<String, Object> declaredArguments;
-
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -203,18 +190,19 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 		return IUIBindingsPackage.Literals.TREE_ITEM_DESCRIPTOR;
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
+	private Map<String, Object> myDeclaredArguments = null;
+
 	@Override
-	public EMap<String, Object> getDeclaredArguments() {
-		if (declaredArguments == null) {
-			declaredArguments = new EcoreEMap<String, Object>(IUIBindingsPackage.Literals.STRING_TO_OBJECT_MAP_ENTRY,
-					StringToObjectMapEntryImpl.class, this, IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__DECLARED_ARGUMENTS);
+	public Map<String, Object> getDeclaredArguments() {
+		if (myDeclaredArguments == null) {
+			myDeclaredArguments = new HashMap<String, Object>();
 		}
-		return declaredArguments;
+		return myDeclaredArguments;
+	}
+
+	@Override
+	public boolean hasDeclaredArguments() {
+		return myDeclaredArguments != null;
 	}
 
 	/**
@@ -412,8 +400,6 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__DECLARED_ARGUMENTS:
-			return ((InternalEList<?>) getDeclaredArguments()).basicRemove(otherEnd, msgs);
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CHILD_RELATIONS:
 			return ((InternalEList<?>) getChildRelations()).basicRemove(otherEnd, msgs);
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__PARENT_RELATIONS:
@@ -430,11 +416,6 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__DECLARED_ARGUMENTS:
-			if (coreType)
-				return getDeclaredArguments();
-			else
-				return getDeclaredArguments().map();
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__ID:
 			return getId();
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CHILD_RELATIONS:
@@ -464,9 +445,6 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__DECLARED_ARGUMENTS:
-			((EStructuralFeature.Setting) getDeclaredArguments()).set(newValue);
-			return;
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__ID:
 			setId((String) newValue);
 			return;
@@ -506,9 +484,6 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__DECLARED_ARGUMENTS:
-			getDeclaredArguments().clear();
-			return;
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__ID:
 			setId(ID_EDEFAULT);
 			return;
@@ -545,8 +520,6 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__DECLARED_ARGUMENTS:
-			return declaredArguments != null && !declaredArguments.isEmpty();
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__ID:
 			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__CHILD_RELATIONS:

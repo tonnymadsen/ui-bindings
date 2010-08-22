@@ -261,7 +261,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 
 	@Override
 	public IColumnBinding arg(String name, Object value) {
-		assertTrue(name != null, "No name?"); //$NON-NLS-1$
+		assertTrue(name != null, "name must be non-null"); //$NON-NLS-1$
 		getArguments().put(name, value);
 		return this;
 	}
@@ -269,12 +269,6 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	@Override
 	public IColumnBinding args(Map<String, Object> arguments) {
 		setArguments(arguments);
-		return this;
-	}
-
-	@Override
-	public IColumnBinding args(EMap<String, Object> arguments) {
-		setArguments(arguments.map());
 		return this;
 	}
 
@@ -654,7 +648,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		}
 
 		/**
-		 * Sets up the painter
+		 * Sets up the painter.
 		 * 
 		 * @param ci the cell
 		 * @param event the event that resulted in the painting
@@ -849,6 +843,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	public IColumnBindingCellInformation getCellInformation(Object element, boolean create) {
 		if (isDisposed()) return null;
 		final Object baseElement = element;
+		// TODO?
 		if (element instanceof IConstantTreeItem) {
 			final IConstantTreeItem ti = (IConstantTreeItem) element;
 			// baseElement = ti.getTarget();

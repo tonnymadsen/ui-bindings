@@ -59,22 +59,23 @@ public class EMFListAttributeList extends WritableList implements IObservableLis
 	};
 
 	private final IListChangeListener myListMonitor = new IListChangeListener() {
+		private final ListDiffVisitor visitor = new ListDiffVisitor() {
+			@Override
+			public void handleRemove(int index, Object element) {
+				((EObject) element).eAdapters().remove(myFeatureMonitor);
+				remove(index);
+			}
+
+			@Override
+			public void handleAdd(int index, Object element) {
+				add(index, myMapper.map(element));
+				((EObject) element).eAdapters().add(myFeatureMonitor);
+			}
+		};
 
 		@Override
 		public void handleListChange(ListChangeEvent event) {
-			event.diff.accept(new ListDiffVisitor() {
-				@Override
-				public void handleRemove(int index, Object element) {
-					((EObject) element).eAdapters().remove(myFeatureMonitor);
-					remove(index);
-				}
-
-				@Override
-				public void handleAdd(int index, Object element) {
-					add(index, myMapper.map(element));
-					((EObject) element).eAdapters().add(myFeatureMonitor);
-				}
-			});
+			event.diff.accept(visitor);
 		}
 	};
 

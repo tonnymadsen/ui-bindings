@@ -20,7 +20,6 @@ import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
@@ -49,6 +48,8 @@ import org.eclipse.ui.forms.widgets.Section;
 
 import com.rcpcompany.uibindings.BindingState;
 import com.rcpcompany.uibindings.Constants;
+import com.rcpcompany.uibindings.IBinding;
+import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IControlFactory;
 import com.rcpcompany.uibindings.IControlFactoryContext;
@@ -138,12 +139,10 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		return super.getDataType();
 	}
 
-	private final IChangeListener myTypeListener = new IChangeListener() {
-		@Override
-		public void handleChange(ChangeEvent event) {
-			decorateIfNeeded();
-		}
-	};
+	/**
+	 * Listener used to monitor dynamic bindings for changes in the basic observable value.
+	 */
+	private IChangeListener myTypeListener = null;
 
 	@Override
 	public void updateUI() {
@@ -367,7 +366,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 	@Override
 	public IValueBinding arg(String name, Object value) {
-		assertTrue(name != null, "No name"); //$NON-NLS-1$
+		assertTrue(name != null, "name must be non-null"); //$NON-NLS-1$
 		getArguments().put(name, value);
 		return this;
 	}
@@ -375,12 +374,6 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	@Override
 	public IValueBinding args(Map<String, Object> arguments) {
 		setArguments(arguments);
-		return this;
-	}
-
-	@Override
-	public IValueBinding args(EMap<String, Object> arguments) {
-		setArguments(arguments.map());
 		return this;
 	}
 
@@ -439,7 +432,13 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		isDynamic = getArgument(ARG_DYNAMIC, Boolean.class, false);
 
 		final IObservableValue ov = getModelObservableValue();
-		if (ov != null) {
+		if (ov != null && isDynamic) {
+			myTypeListener = new IChangeListener() {
+				@Override
+				public void handleChange(ChangeEvent event) {
+					decorateIfNeeded();
+				}
+			};
 			ov.addChangeListener(myTypeListener);
 		}
 
@@ -568,8 +567,9 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		}
 		super.dispose();
 		final IObservableValue ov = getModelObservableValue();
-		if (ov != null) {
+		if (myTypeListener != null && ov != null) {
 			ov.removeChangeListener(myTypeListener);
+			myTypeListener = null;
 		}
 		if (getModelObservable() != null && myModelObservableDispose) {
 			getModelObservable().dispose();
@@ -618,10 +618,13 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	/**
 	 * Dispose listener for the control of the binding.
 	 */
-	protected DisposeListener myDisposeListener = new DisposeListener() {
+	private static final DisposeListener myDisposeListener = new DisposeListener() {
 		@Override
 		public void widgetDisposed(DisposeEvent e) {
-			dispose();
+			final IBinding b = IBindingContext.Factory.getBindingForWidget(e.widget);
+			if (b != null) {
+				b.dispose();
+			}
 		}
 	};
 
@@ -886,7 +889,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			/*
 			 * Optimalization: not many extenders will have arguments
 			 */
-			if (!d.eIsSet(IUIBindingsPackage.Literals.ARGUMENT_PROVIDER__DECLARED_ARGUMENTS)) {
+			if (!d.hasDeclaredArguments()) {
 				continue;
 			}
 			final CEObjectHolder<IUIBindingDecoratorExtender> factory = d.getFactory();
@@ -1132,12 +1135,14 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	@Override
 	public String toString() {
 		String baseType = getBaseType();
-		for (final Entry<String, Object> e : getArguments().entrySet()) {
-			String s = e.getValue() == null ? Messages.ValueBindingImpl_NullString : e.getValue().toString();
-			if (s.length() > 15) {
-				s = s.substring(0, 15) + "..."; //$NON-NLS-1$
+		if (hasArguments()) {
+			for (final Entry<String, Object> e : getArguments().entrySet()) {
+				String s = e.getValue() == null ? Messages.ValueBindingImpl_NullString : e.getValue().toString();
+				if (s.length() > 15) {
+					s = s.substring(0, 15) + "..."; //$NON-NLS-1$
+				}
+				baseType += ", " + e.getKey() + "=" + s; //$NON-NLS-1$ //$NON-NLS-2$
 			}
-			baseType += ", " + e.getKey() + "=" + s; //$NON-NLS-1$ //$NON-NLS-2$
 		}
 		if (getState() != BindingState.OK) {
 			baseType += ", STATE=" + getState();

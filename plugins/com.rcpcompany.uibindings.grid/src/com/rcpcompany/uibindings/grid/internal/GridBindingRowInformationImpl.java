@@ -38,7 +38,7 @@ import com.rcpcompany.uibindings.grid.IGridPackage;
  * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingRowInformationImpl#getId <em>Id
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingRowInformationImpl#getColumnCells
- * <em>Column Cells </em>}</li>
+ * <em>Column Cells</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingRowInformationImpl#getGridItem <em>
  * Grid Item</em>}</li>
  * </ul>

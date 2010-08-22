@@ -176,11 +176,11 @@ public interface IManager extends IBaseObject {
 	EList<CEObjectHolder<IModelArgumentMediator>> getModelArgumentMediators();
 
 	/**
-	 * Runs all defined model argument mediators if not already done for the specified class
+	 * Runs all defined model argument mediators if not already done for the specified class.
 	 * 
 	 * @param classifier the class to run the mediators for
 	 */
-	public void runModelArgumentMediators(EClassifier classifier);
+	void runModelArgumentMediators(EClassifier classifier);
 
 	/**
 	 * Returns the value of the '<em><b>Model Argument Mediator Classes</b></em>' attribute. <!--
@@ -693,7 +693,7 @@ public interface IManager extends IBaseObject {
 	 * @param modelObject the model object to match against.
 	 * @return the descriptor that matches
 	 */
-	public ITreeItemDescriptor getTreeItem(EObject modelObject);
+	ITreeItemDescriptor getTreeItem(EObject modelObject);
 
 	/**
 	 * Finds and returns the {@link ITreeItemDescriptor} for the specified ID.
@@ -701,7 +701,7 @@ public interface IManager extends IBaseObject {
 	 * @param id the ID to find
 	 * @return the descriptor with the ID or <code>null</code>
 	 */
-	public ITreeItemDescriptor getTreeItem(String id);
+	ITreeItemDescriptor getTreeItem(String id);
 
 	/**
 	 * Returns the value of the '<em><b>Clipboard</b></em>' attribute. <!-- begin-user-doc -->
@@ -863,7 +863,7 @@ public interface IManager extends IBaseObject {
 	void getQuickfixes(IBindingMessage message, List<IQuickfixProposal> proposals);
 
 	/**
-	 * Creates new UI attribute from the widget type and the wanted attribute
+	 * Creates new UI attribute from the widget type and the wanted attribute.
 	 * 
 	 * @param widget the widget
 	 * @param attribute the attribute of the widget
@@ -878,5 +878,5 @@ public interface IManager extends IBaseObject {
 	 * @param cell TODO
 	 * @return <code>true</code> if a new editor should be started
 	 */
-	public boolean isEditorActivationEvent(ColumnViewerEditorActivationEvent event, IValueBindingCell cell);
+	boolean isEditorActivationEvent(ColumnViewerEditorActivationEvent event, IValueBindingCell cell);
 } // IManager

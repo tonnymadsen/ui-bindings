@@ -7,6 +7,7 @@ package com.rcpcompany.uibindings;
 
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,7 +43,7 @@ import org.eclipse.emf.common.util.EList;
  * @see com.rcpcompany.uibindings.IUIBindingsPackage#getTreeItemDescriptor()
  * @generated
  */
-public interface ITreeItemDescriptor extends IArgumentProvider {
+public interface ITreeItemDescriptor extends EObject, IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>

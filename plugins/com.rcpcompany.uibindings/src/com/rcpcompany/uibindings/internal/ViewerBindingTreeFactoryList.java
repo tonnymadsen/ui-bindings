@@ -266,6 +266,7 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 				if (myObservable instanceof IObservableValue) {
 					final IObservableValue ov = (IObservableValue) myObservable;
 					final EObject value = (EObject) ov.getValue();
+					if (value == null) return;
 					/*
 					 * Test if we are to hide a child because it does not have any children itself.
 					 */
@@ -292,8 +293,8 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 			 */
 			public boolean isConstant() {
 				if (myObservable instanceof IObservableValue) {
-					if (myChildDescriptor != null && myChildDescriptor.isEmptyFolderHidden()) return false;
-					return true;
+					if (myChildDescriptor != null && !myChildDescriptor.isEmptyFolderHidden()) return true;
+					return false;
 				}
 				if (myObservable instanceof IObservableList) return false;
 				return false;

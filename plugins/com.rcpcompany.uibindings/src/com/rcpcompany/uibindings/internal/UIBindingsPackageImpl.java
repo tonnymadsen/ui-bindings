@@ -273,7 +273,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
-	private EClass argumentProviderEClass = null;
+	private EClass iArgumentProviderEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1325,18 +1325,8 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EReference getBinding_Arguments() {
-		return (EReference) bindingEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public EAttribute getBinding_Id() {
-		return (EAttribute) bindingEClass.getEStructuralFeatures().get(5);
+		return (EAttribute) bindingEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1346,7 +1336,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 */
 	@Override
 	public EAttribute getBinding_Type() {
-		return (EAttribute) bindingEClass.getEStructuralFeatures().get(6);
+		return (EAttribute) bindingEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1356,7 +1346,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 */
 	@Override
 	public EAttribute getBinding_Label() {
-		return (EAttribute) bindingEClass.getEStructuralFeatures().get(7);
+		return (EAttribute) bindingEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1366,7 +1356,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 */
 	@Override
 	public EReference getBinding_StaticDataType() {
-		return (EReference) bindingEClass.getEStructuralFeatures().get(8);
+		return (EReference) bindingEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1376,7 +1366,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 */
 	@Override
 	public EReference getBinding_DataType() {
-		return (EReference) bindingEClass.getEStructuralFeatures().get(9);
+		return (EReference) bindingEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1386,7 +1376,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 */
 	@Override
 	public EReference getBinding_ModelEType() {
-		return (EReference) bindingEClass.getEStructuralFeatures().get(10);
+		return (EReference) bindingEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -1396,7 +1386,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 */
 	@Override
 	public EAttribute getBinding_ModelType() {
-		return (EAttribute) bindingEClass.getEStructuralFeatures().get(11);
+		return (EAttribute) bindingEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -1406,7 +1396,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 */
 	@Override
 	public EAttribute getBinding_UIType() {
-		return (EAttribute) bindingEClass.getEStructuralFeatures().get(12);
+		return (EAttribute) bindingEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -1416,7 +1406,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 */
 	@Override
 	public EAttribute getBinding_DBBindings() {
-		return (EAttribute) bindingEClass.getEStructuralFeatures().get(13);
+		return (EAttribute) bindingEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -1426,7 +1416,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 */
 	@Override
 	public EAttribute getBinding_MonitoredDBBindings() {
-		return (EAttribute) bindingEClass.getEStructuralFeatures().get(14);
+		return (EAttribute) bindingEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -1436,7 +1426,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 */
 	@Override
 	public EAttribute getBinding_ErrorConditions() {
-		return (EAttribute) bindingEClass.getEStructuralFeatures().get(15);
+		return (EAttribute) bindingEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -1446,7 +1436,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 */
 	@Override
 	public EAttribute getBinding_Widget() {
-		return (EAttribute) bindingEClass.getEStructuralFeatures().get(16);
+		return (EAttribute) bindingEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -1456,7 +1446,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 */
 	@Override
 	public EAttribute getBinding_Control() {
-		return (EAttribute) bindingEClass.getEStructuralFeatures().get(17);
+		return (EAttribute) bindingEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -1466,7 +1456,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 */
 	@Override
 	public EReference getBinding_ExtraArgumentProviders() {
-		return (EReference) bindingEClass.getEStructuralFeatures().get(18);
+		return (EReference) bindingEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -2485,18 +2475,8 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EClass getArgumentProvider() {
-		return argumentProviderEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public EReference getArgumentProvider_DeclaredArguments() {
-		return (EReference) argumentProviderEClass.getEStructuralFeatures().get(0);
+	public EClass getIArgumentProvider() {
+		return iArgumentProviderEClass;
 	}
 
 	/**
@@ -4146,7 +4126,6 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		createEAttribute(bindingEClass, BINDING__STATE);
 		createEAttribute(bindingEClass, BINDING__CHANGEABLE);
 		createEAttribute(bindingEClass, BINDING__CREATION_POINT);
-		createEReference(bindingEClass, BINDING__ARGUMENTS);
 		createEAttribute(bindingEClass, BINDING__ID);
 		createEAttribute(bindingEClass, BINDING__TYPE);
 		createEAttribute(bindingEClass, BINDING__LABEL);
@@ -4281,8 +4260,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		createEAttribute(uiBindingDecoratorExtenderDescriptorEClass, UI_BINDING_DECORATOR_EXTENDER_DESCRIPTOR__PRIORITY);
 		createEAttribute(uiBindingDecoratorExtenderDescriptorEClass, UI_BINDING_DECORATOR_EXTENDER_DESCRIPTOR__FACTORY);
 
-		argumentProviderEClass = createEClass(ARGUMENT_PROVIDER);
-		createEReference(argumentProviderEClass, ARGUMENT_PROVIDER__DECLARED_ARGUMENTS);
+		iArgumentProviderEClass = createEClass(IARGUMENT_PROVIDER);
 
 		iDisposableEClass = createEClass(IDISPOSABLE);
 
@@ -4509,28 +4487,28 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		bindingContextEClass.getESuperTypes().add(this.getBaseObject());
 		bindingContextEClass.getESuperTypes().add(this.getIDisposable());
 		bindingEClass.getESuperTypes().add(this.getBaseObject());
-		bindingEClass.getESuperTypes().add(this.getArgumentProvider());
+		bindingEClass.getESuperTypes().add(this.getIArgumentProvider());
 		bindingEClass.getESuperTypes().add(this.getIDisposable());
 		bindingEClass.getESuperTypes().add(this.getConstants());
 		valueBindingEClass.getESuperTypes().add(this.getBinding());
-		valueBindingEClass.getESuperTypes().add(this.getArgumentProvider());
+		valueBindingEClass.getESuperTypes().add(this.getIArgumentProvider());
 		columnBindingEClass.getESuperTypes().add(this.getBinding());
 		columnBindingCellInformationEClass.getESuperTypes().add(this.getIDisposable());
 		columnBindingCellInformationEClass.getESuperTypes().add(this.getValueBindingCell());
 		viewerBindingEClass.getESuperTypes().add(this.getBinding());
-		decoratorProviderEClass.getESuperTypes().add(this.getArgumentProvider());
+		decoratorProviderEClass.getESuperTypes().add(this.getIArgumentProvider());
 		javaDecoratorProviderEClass.getESuperTypes().add(this.getDecoratorProvider());
 		enumDecoratorProviderEClass.getESuperTypes().add(this.getDecoratorProvider());
 		numberDecoratorProviderEClass.getESuperTypes().add(this.getDecoratorProvider());
-		modelInfoEClass.getESuperTypes().add(this.getArgumentProvider());
+		modelInfoEClass.getESuperTypes().add(this.getIArgumentProvider());
 		modelClassInfoEClass.getESuperTypes().add(this.getModelInfo());
 		modelFeatureInfoEClass.getESuperTypes().add(this.getModelInfo());
 		uiBindingDecoratorEClass.getESuperTypes().add(this.getIDisposable());
 		uiBindingDecoratorExtenderEClass.getESuperTypes().add(this.getIDisposable());
-		uiBindingDecoratorExtenderDescriptorEClass.getESuperTypes().add(this.getArgumentProvider());
+		uiBindingDecoratorExtenderDescriptorEClass.getESuperTypes().add(this.getIArgumentProvider());
 		quickfixProposalEClass.getESuperTypes().add(this.getIContentProposal());
-		treeItemDescriptorEClass.getESuperTypes().add(this.getArgumentProvider());
-		constantTreeItemEClass.getESuperTypes().add(this.getArgumentProvider());
+		treeItemDescriptorEClass.getESuperTypes().add(this.getIArgumentProvider());
+		constantTreeItemEClass.getESuperTypes().add(this.getIArgumentProvider());
 		bindingMessageEClass.getESuperTypes().add(this.getIMessage());
 		uiAttributeEClass.getESuperTypes().add(this.getIDisposable());
 		uiAttributeImageDecorationEClass.getESuperTypes().add(this.getIDisposable());
@@ -4732,11 +4710,6 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				getBinding_CreationPoint(),
 				this.getThrowable(),
 				"creationPoint", null, 1, 1, IBinding.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-				getBinding_Arguments(),
-				this.getStringToObjectMapEntry(),
-				null,
-				"arguments", null, 0, -1, IBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getBinding_Id(),
 				ecorePackage.getEString(),
@@ -4800,7 +4773,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				"control", null, 0, 1, IBinding.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(
 				getBinding_ExtraArgumentProviders(),
-				this.getArgumentProvider(),
+				this.getIArgumentProvider(),
 				null,
 				"extraArgumentProviders", null, 0, -1, IBinding.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
@@ -5225,13 +5198,8 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				g1,
 				"factory", null, 1, 1, IUIBindingDecoratorExtenderDescriptor.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(argumentProviderEClass, IArgumentProvider.class,
-				"ArgumentProvider", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-				getArgumentProvider_DeclaredArguments(),
-				this.getStringToObjectMapEntry(),
-				null,
-				"declaredArguments", null, 0, -1, IArgumentProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(iArgumentProviderEClass, IArgumentProvider.class,
+				"IArgumentProvider", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		initEClass(iDisposableEClass, IDisposable.class,
 				"IDisposable", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

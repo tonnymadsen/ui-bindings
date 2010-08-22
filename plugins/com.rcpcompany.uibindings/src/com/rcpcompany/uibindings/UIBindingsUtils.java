@@ -379,8 +379,13 @@ public final class UIBindingsUtils {
 		}
 
 		// Fall back on toString()....
-		return new DefaultMapper();
+		return DEFAULT_MAPPER;
 	}
+
+	/**
+	 * The singleton default mapper.
+	 */
+	public final static DefaultMapper DEFAULT_MAPPER = new DefaultMapper();
 
 	public static class DefaultMapper implements IClassIdentiferMapper {
 		@Override

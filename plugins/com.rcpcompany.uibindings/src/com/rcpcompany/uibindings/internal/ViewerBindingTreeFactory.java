@@ -109,7 +109,7 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 			l.dispose();
 		}
 		if (Activator.getDefault().TRACE_TREE) {
-			LogUtils.debug(this, "--> " + l); //$NON-NLS-1$
+			LogUtils.debug(this, "--> " + result); //$NON-NLS-1$
 		}
 
 		myResults.put(target, result);

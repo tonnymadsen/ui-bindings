@@ -25,15 +25,15 @@ public class ContextMessageDecorator extends AbstractContextMonitor {
 	/**
 	 * The {@link IBindingContext} of this message decorator.
 	 */
-	protected final IBindingContext myContext;
+	private final IBindingContext myContext;
 
 	/**
 	 * The {@link IContextMessageDecoratorAdapter adapter} for this decorator context.
 	 */
-	protected IContextMessageDecoratorAdapter myAdapter;
+	private IContextMessageDecoratorAdapter myAdapter;
 
 	/**
-	 * Returns the adapter of this decorator
+	 * Returns the adapter of this decorator.
 	 * 
 	 * @return the adapter
 	 */
@@ -42,7 +42,7 @@ public class ContextMessageDecorator extends AbstractContextMonitor {
 	}
 
 	/**
-	 * Returns a list of all messages for this decorator
+	 * Returns a list of all messages for this decorator.
 	 * 
 	 * @return the messages
 	 */
@@ -51,7 +51,7 @@ public class ContextMessageDecorator extends AbstractContextMonitor {
 	}
 
 	/**
-	 * Constructs and returns a new decorator
+	 * Constructs and returns a new decorator.
 	 * 
 	 * @param context the context
 	 * @param adapter the adapter for the actual context form
@@ -148,7 +148,7 @@ public class ContextMessageDecorator extends AbstractContextMonitor {
 	}
 
 	/**
-	 * Removes a message provider
+	 * Removes a message provider.
 	 * 
 	 * @param provider the provider
 	 */
@@ -169,7 +169,7 @@ public class ContextMessageDecorator extends AbstractContextMonitor {
 	/**
 	 * Listener that monitors the messages providers for any changes in the messages.
 	 */
-	protected IListChangeListener myProviderChangeListener = new IListChangeListener() {
+	private final IListChangeListener myProviderChangeListener = new IListChangeListener() {
 		private final ListDiffVisitor myVisitor = new ListDiffVisitor() {
 
 			@Override
@@ -191,19 +191,19 @@ public class ContextMessageDecorator extends AbstractContextMonitor {
 	};
 
 	/**
-	 * The list of current messages
+	 * The list of current messages.
 	 */
 	private final List<IBindingMessage> myMessages = new ArrayList<IBindingMessage>();
 
 	/**
-	 * Whether {@link #updateMessages()} has been delayed
+	 * Whether {@link #updateMessages()} has been delayed.
 	 */
-	protected boolean updateMessagesDelayed = false;
+	private boolean updateMessagesDelayed = false;
 
 	/**
-	 * {@link Runnable} for the next delayed update up messages in the adapter
+	 * {@link Runnable} for the next delayed update up messages in the adapter.
 	 */
-	protected Runnable myUpdateMessagesRunnable = new Runnable() {
+	private final Runnable myUpdateMessagesRunnable = new Runnable() {
 		@Override
 		public void run() {
 			updateMessagesDelayed = false;

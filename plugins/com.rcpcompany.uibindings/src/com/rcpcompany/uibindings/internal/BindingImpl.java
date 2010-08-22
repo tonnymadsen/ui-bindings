@@ -26,17 +26,13 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectEList;
-import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
@@ -52,7 +48,6 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.ICellEditorFactory;
 import com.rcpcompany.uibindings.IControlFactory;
-import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IObservableListFactory;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
@@ -69,14 +64,11 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getDeclaredArguments <em>Declared
- * Arguments</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getContext <em>Context</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getState <em>State</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#isChangeable <em>Changeable</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getCreationPoint <em>Creation Point
  * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getArguments <em>Arguments</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getId <em>Id</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getType <em>Type</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getLabel <em>Label</em>}</li>
@@ -109,25 +101,28 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	public BindingImpl() {
 		super();
 
-		final Throwable cp = new Throwable();
-		cp.fillInStackTrace();
-		final StackTraceElement[] stackTrace = cp.getStackTrace();
-		int i = 0;
-		for (i = 0; i < stackTrace.length; i++) {
-			final StackTraceElement element = stackTrace[i];
-			if (element.getClassName().startsWith(SPY_PACKAGE_NAME)) {
+		if (Activator.getDefault().CREATION_POINT_STACK_LEVELS > 0) {
+			final Throwable cp = new Throwable();
+			cp.fillInStackTrace();
+			final StackTraceElement[] stackTrace = cp.getStackTrace();
+			int i = 0;
+			for (i = 0; i < stackTrace.length; i++) {
+				final StackTraceElement element = stackTrace[i];
+				if (element.getClassName().startsWith(SPY_PACKAGE_NAME)) {
+					break;
+				}
+				if (element.getClassName().startsWith(INTERNAL_PACKAGE_NAME)) {
+					continue;
+				}
+
 				break;
 			}
-			if (element.getClassName().startsWith(INTERNAL_PACKAGE_NAME)) {
-				continue;
-			}
-
-			break;
+			final StackTraceElement[] newStackTrace = new StackTraceElement[min(stackTrace.length - i,
+					Activator.getDefault().CREATION_POINT_STACK_LEVELS)];
+			System.arraycopy(stackTrace, i, newStackTrace, 0, newStackTrace.length);
+			cp.setStackTrace(newStackTrace);
+			setCreationPoint(cp);
 		}
-		final StackTraceElement[] newStackTrace = new StackTraceElement[min(stackTrace.length - i, 8)];
-		System.arraycopy(stackTrace, i, newStackTrace, 0, newStackTrace.length);
-		cp.setStackTrace(newStackTrace);
-		setCreationPoint(cp);
 
 		if (Activator.getDefault().TRACE_LIFECYCLE_BINDINGS) {
 			LogUtils.debug(this, this + " constructed"); //$NON-NLS-1$
@@ -154,9 +149,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	@Override
 	public void setArguments(Map<String, Object> arguments) {
 		if (arguments == null) return;
-		for (final Map.Entry<String, Object> n : arguments.entrySet()) {
-			getArguments().put(n.getKey(), n.getValue());
-		}
+		getArguments().putAll(arguments);
 	}
 
 	@Override
@@ -198,16 +191,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		addDBBinding(b, monitorStatus);
 		return b;
 	}
-
-	/**
-	 * The cached value of the '{@link #getDeclaredArguments() <em>Declared Arguments</em>}' map.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getDeclaredArguments()
-	 * @generated
-	 * @ordered
-	 */
-	protected EMap<String, Object> declaredArguments;
 
 	/**
 	 * The default value of the '{@link #getState() <em>State</em>}' attribute. <!-- begin-user-doc
@@ -258,16 +241,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * @ordered
 	 */
 	protected Throwable creationPoint = CREATION_POINT_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getArguments() <em>Arguments</em>}' map. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 * 
-	 * @see #getArguments()
-	 * @generated
-	 * @ordered
-	 */
-	protected EMap<String, Object> arguments;
 
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
@@ -390,18 +363,19 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		return IUIBindingsPackage.Literals.BINDING;
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
+	private Map<String, Object> myDeclaredArguments = null;
+
 	@Override
-	public EMap<String, Object> getDeclaredArguments() {
-		if (declaredArguments == null) {
-			declaredArguments = new EcoreEMap<String, Object>(IUIBindingsPackage.Literals.STRING_TO_OBJECT_MAP_ENTRY,
-					StringToObjectMapEntryImpl.class, this, IUIBindingsPackage.BINDING__DECLARED_ARGUMENTS);
+	public Map<String, Object> getDeclaredArguments() {
+		if (myDeclaredArguments == null) {
+			myDeclaredArguments = new HashMap<String, Object>();
 		}
-		return declaredArguments;
+		return myDeclaredArguments;
+	}
+
+	@Override
+	public boolean hasDeclaredArguments() {
+		return myDeclaredArguments != null;
 	}
 
 	/**
@@ -544,17 +518,21 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
+	 * A map with all binding specific arguments added with {@link IBinding#arg(String, Object)}.
 	 */
+	private Map<String, Object> myArguments = null;
+
 	@Override
-	public EMap<String, Object> getArguments() {
-		if (arguments == null) {
-			arguments = new EcoreEMap<String, Object>(IUIBindingsPackage.Literals.STRING_TO_OBJECT_MAP_ENTRY,
-					StringToObjectMapEntryImpl.class, this, IUIBindingsPackage.BINDING__ARGUMENTS);
+	public Map<String, Object> getArguments() {
+		if (myArguments == null) {
+			myArguments = new HashMap<String, Object>();
 		}
-		return arguments;
+		return myArguments;
+	}
+
+	@Override
+	public boolean hasArguments() {
+		return myArguments != null && !myArguments.isEmpty();
 	}
 
 	/**
@@ -583,14 +561,14 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	@Override
 	public Object getArgument(String name) {
-		if (!eIsSet(IUIBindingsPackage.Literals.BINDING__ARGUMENTS)) return null;
+		if (!hasArguments()) return null;
 		return getArguments().get(name);
 	}
 
 	/**
 	 * Cached results from {@link #getArgument(String, Class, Object)}.
 	 */
-	protected final Map<String, Object> myCachedArguments = new HashMap<String, Object>();
+	private final Map<String, Object> myCachedArguments = new HashMap<String, Object>();
 
 	/**
 	 * The package prefix name for all internal packages.
@@ -737,7 +715,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 */
 	public <ArgumentType> boolean addDirectArguments(List<IArgumentValue<ArgumentType>> results, String name,
 			Class<? extends ArgumentType> argumentType, boolean firstOnly) {
-		if (!eIsSet(IUIBindingsPackage.Literals.BINDING__ARGUMENTS)) return false;
+		if (!hasArguments()) return false;
 		if (!getArguments().containsKey(name)) return false;
 		final Object value = getArguments().get(name);
 
@@ -754,7 +732,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	public <ArgumentType> boolean getArgumentProviderArguments(List<IArgumentValue<ArgumentType>> results, String name,
 			IArgumentProvider provider, Class<? extends ArgumentType> argumentType, boolean firstOnly) {
 		if (provider == null) return false;
-		if (!provider.eIsSet(IUIBindingsPackage.Literals.ARGUMENT_PROVIDER__DECLARED_ARGUMENTS)) return false;
+		if (!provider.hasDeclaredArguments()) return false;
 		final Object val = provider.getDeclaredArguments().get(name);
 		if (val == null) return false;
 
@@ -778,12 +756,12 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		} else {
 			s = null;
 		}
-		if (val != s) {
-			/*
-			 * Just convert once!
-			 */
-			provider.getDeclaredArguments().put(name, s);
-		}
+		// if (val != s) {
+		// /*
+		// * Just convert once!
+		// */
+		// provider.getDeclaredArguments().put(name, s);
+		// }
 		results.add(new ArgumentValue<ArgumentType>(provider, s));
 		return true;
 	}
@@ -1118,12 +1096,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case IUIBindingsPackage.BINDING__DECLARED_ARGUMENTS:
-			return ((InternalEList<?>) getDeclaredArguments()).basicRemove(otherEnd, msgs);
 		case IUIBindingsPackage.BINDING__CONTEXT:
 			return basicSetContext(null, msgs);
-		case IUIBindingsPackage.BINDING__ARGUMENTS:
-			return ((InternalEList<?>) getArguments()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1151,11 +1125,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case IUIBindingsPackage.BINDING__DECLARED_ARGUMENTS:
-			if (coreType)
-				return getDeclaredArguments();
-			else
-				return getDeclaredArguments().map();
 		case IUIBindingsPackage.BINDING__CONTEXT:
 			return getContext();
 		case IUIBindingsPackage.BINDING__STATE:
@@ -1164,11 +1133,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 			return isChangeable();
 		case IUIBindingsPackage.BINDING__CREATION_POINT:
 			return getCreationPoint();
-		case IUIBindingsPackage.BINDING__ARGUMENTS:
-			if (coreType)
-				return getArguments();
-			else
-				return getArguments().map();
 		case IUIBindingsPackage.BINDING__ID:
 			return getId();
 		case IUIBindingsPackage.BINDING__TYPE:
@@ -1210,9 +1174,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case IUIBindingsPackage.BINDING__DECLARED_ARGUMENTS:
-			((EStructuralFeature.Setting) getDeclaredArguments()).set(newValue);
-			return;
 		case IUIBindingsPackage.BINDING__CONTEXT:
 			setContext((IBindingContext) newValue);
 			return;
@@ -1221,9 +1182,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 			return;
 		case IUIBindingsPackage.BINDING__CREATION_POINT:
 			setCreationPoint((Throwable) newValue);
-			return;
-		case IUIBindingsPackage.BINDING__ARGUMENTS:
-			((EStructuralFeature.Setting) getArguments()).set(newValue);
 			return;
 		case IUIBindingsPackage.BINDING__ID:
 			setId((String) newValue);
@@ -1259,9 +1217,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case IUIBindingsPackage.BINDING__DECLARED_ARGUMENTS:
-			getDeclaredArguments().clear();
-			return;
 		case IUIBindingsPackage.BINDING__CONTEXT:
 			setContext((IBindingContext) null);
 			return;
@@ -1270,9 +1225,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 			return;
 		case IUIBindingsPackage.BINDING__CREATION_POINT:
 			setCreationPoint(CREATION_POINT_EDEFAULT);
-			return;
-		case IUIBindingsPackage.BINDING__ARGUMENTS:
-			getArguments().clear();
 			return;
 		case IUIBindingsPackage.BINDING__ID:
 			setId(ID_EDEFAULT);
@@ -1304,8 +1256,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case IUIBindingsPackage.BINDING__DECLARED_ARGUMENTS:
-			return declaredArguments != null && !declaredArguments.isEmpty();
 		case IUIBindingsPackage.BINDING__CONTEXT:
 			return getContext() != null;
 		case IUIBindingsPackage.BINDING__STATE:
@@ -1315,8 +1265,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		case IUIBindingsPackage.BINDING__CREATION_POINT:
 			return CREATION_POINT_EDEFAULT == null ? creationPoint != null : !CREATION_POINT_EDEFAULT
 					.equals(creationPoint);
-		case IUIBindingsPackage.BINDING__ARGUMENTS:
-			return arguments != null && !arguments.isEmpty();
 		case IUIBindingsPackage.BINDING__ID:
 			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		case IUIBindingsPackage.BINDING__TYPE:
@@ -1347,66 +1295,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 			return extraArgumentProviders != null && !extraArgumentProviders.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == IArgumentProvider.class) {
-			switch (derivedFeatureID) {
-			case IUIBindingsPackage.BINDING__DECLARED_ARGUMENTS:
-				return IUIBindingsPackage.ARGUMENT_PROVIDER__DECLARED_ARGUMENTS;
-			default:
-				return -1;
-			}
-		}
-		if (baseClass == IDisposable.class) {
-			switch (derivedFeatureID) {
-			default:
-				return -1;
-			}
-		}
-		if (baseClass == Constants.class) {
-			switch (derivedFeatureID) {
-			default:
-				return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == IArgumentProvider.class) {
-			switch (baseFeatureID) {
-			case IUIBindingsPackage.ARGUMENT_PROVIDER__DECLARED_ARGUMENTS:
-				return IUIBindingsPackage.BINDING__DECLARED_ARGUMENTS;
-			default:
-				return -1;
-			}
-		}
-		if (baseClass == IDisposable.class) {
-			switch (baseFeatureID) {
-			default:
-				return -1;
-			}
-		}
-		if (baseClass == Constants.class) {
-			switch (baseFeatureID) {
-			default:
-				return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

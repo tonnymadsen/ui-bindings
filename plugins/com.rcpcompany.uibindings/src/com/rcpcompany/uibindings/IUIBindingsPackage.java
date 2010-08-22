@@ -529,22 +529,13 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING__SERVICES = BASE_OBJECT__SERVICES;
 
 	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BINDING__DECLARED_ARGUMENTS = BASE_OBJECT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Context</b></em>' container reference. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING__CONTEXT = BASE_OBJECT_FEATURE_COUNT + 1;
+	int BINDING__CONTEXT = BASE_OBJECT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>State</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -553,7 +544,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING__STATE = BASE_OBJECT_FEATURE_COUNT + 2;
+	int BINDING__STATE = BASE_OBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -562,7 +553,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING__CHANGEABLE = BASE_OBJECT_FEATURE_COUNT + 3;
+	int BINDING__CHANGEABLE = BASE_OBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Creation Point</b></em>' attribute. <!-- begin-user-doc -->
@@ -571,16 +562,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING__CREATION_POINT = BASE_OBJECT_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Arguments</b></em>' map. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BINDING__ARGUMENTS = BASE_OBJECT_FEATURE_COUNT + 5;
+	int BINDING__CREATION_POINT = BASE_OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -589,7 +571,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING__ID = BASE_OBJECT_FEATURE_COUNT + 6;
+	int BINDING__ID = BASE_OBJECT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -598,7 +580,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING__TYPE = BASE_OBJECT_FEATURE_COUNT + 7;
+	int BINDING__TYPE = BASE_OBJECT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -607,7 +589,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING__LABEL = BASE_OBJECT_FEATURE_COUNT + 8;
+	int BINDING__LABEL = BASE_OBJECT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Static Data Type</b></em>' reference. <!-- begin-user-doc -->
@@ -616,7 +598,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING__STATIC_DATA_TYPE = BASE_OBJECT_FEATURE_COUNT + 9;
+	int BINDING__STATIC_DATA_TYPE = BASE_OBJECT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Data Type</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -625,7 +607,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING__DATA_TYPE = BASE_OBJECT_FEATURE_COUNT + 10;
+	int BINDING__DATA_TYPE = BASE_OBJECT_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Model EType</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -634,7 +616,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING__MODEL_ETYPE = BASE_OBJECT_FEATURE_COUNT + 11;
+	int BINDING__MODEL_ETYPE = BASE_OBJECT_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Model Type</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -643,7 +625,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING__MODEL_TYPE = BASE_OBJECT_FEATURE_COUNT + 12;
+	int BINDING__MODEL_TYPE = BASE_OBJECT_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>UI Type</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -652,7 +634,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING__UI_TYPE = BASE_OBJECT_FEATURE_COUNT + 13;
+	int BINDING__UI_TYPE = BASE_OBJECT_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>DB Bindings</b></em>' attribute list. <!-- begin-user-doc -->
@@ -661,7 +643,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING__DB_BINDINGS = BASE_OBJECT_FEATURE_COUNT + 14;
+	int BINDING__DB_BINDINGS = BASE_OBJECT_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Monitored DB Bindings</b></em>' attribute list. <!--
@@ -670,7 +652,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING__MONITORED_DB_BINDINGS = BASE_OBJECT_FEATURE_COUNT + 15;
+	int BINDING__MONITORED_DB_BINDINGS = BASE_OBJECT_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Error Conditions</b></em>' attribute list. <!-- begin-user-doc
@@ -679,7 +661,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING__ERROR_CONDITIONS = BASE_OBJECT_FEATURE_COUNT + 16;
+	int BINDING__ERROR_CONDITIONS = BASE_OBJECT_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Widget</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -688,7 +670,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING__WIDGET = BASE_OBJECT_FEATURE_COUNT + 17;
+	int BINDING__WIDGET = BASE_OBJECT_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Control</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -697,7 +679,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING__CONTROL = BASE_OBJECT_FEATURE_COUNT + 18;
+	int BINDING__CONTROL = BASE_OBJECT_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Extra Argument Providers</b></em>' reference list. <!--
@@ -706,7 +688,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING__EXTRA_ARGUMENT_PROVIDERS = BASE_OBJECT_FEATURE_COUNT + 19;
+	int BINDING__EXTRA_ARGUMENT_PROVIDERS = BASE_OBJECT_FEATURE_COUNT + 17;
 
 	/**
 	 * The number of structural features of the '<em>Binding</em>' class. <!-- begin-user-doc -->
@@ -715,7 +697,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING_FEATURE_COUNT = BASE_OBJECT_FEATURE_COUNT + 20;
+	int BINDING_FEATURE_COUNT = BASE_OBJECT_FEATURE_COUNT + 18;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.ValueBindingImpl
@@ -735,15 +717,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALUE_BINDING__SERVICES = BINDING__SERVICES;
-
-	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_BINDING__DECLARED_ARGUMENTS = BINDING__DECLARED_ARGUMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' container reference. <!-- begin-user-doc -->
@@ -780,15 +753,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALUE_BINDING__CREATION_POINT = BINDING__CREATION_POINT;
-
-	/**
-	 * The feature id for the '<em><b>Arguments</b></em>' map. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_BINDING__ARGUMENTS = BINDING__ARGUMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -1054,15 +1018,6 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__SERVICES = BINDING__SERVICES;
 
 	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int COLUMN_BINDING__DECLARED_ARGUMENTS = BINDING__DECLARED_ARGUMENTS;
-
-	/**
 	 * The feature id for the '<em><b>Context</b></em>' container reference. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -1097,15 +1052,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COLUMN_BINDING__CREATION_POINT = BINDING__CREATION_POINT;
-
-	/**
-	 * The feature id for the '<em><b>Arguments</b></em>' map. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int COLUMN_BINDING__ARGUMENTS = BINDING__ARGUMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -1341,16 +1287,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 */
 	int VIEWER_BINDING = 8;
-
-	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.IArgumentProvider
-	 * <em>Argument Provider</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see com.rcpcompany.uibindings.IArgumentProvider
-	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getArgumentProvider()
-	 * @generated
-	 */
-	int ARGUMENT_PROVIDER = 22;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl
@@ -1613,15 +1549,6 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__SERVICES = BINDING__SERVICES;
 
 	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int VIEWER_BINDING__DECLARED_ARGUMENTS = BINDING__DECLARED_ARGUMENTS;
-
-	/**
 	 * The feature id for the '<em><b>Context</b></em>' container reference. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -1656,15 +1583,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @ordered
 	 */
 	int VIEWER_BINDING__CREATION_POINT = BINDING__CREATION_POINT;
-
-	/**
-	 * The feature id for the '<em><b>Arguments</b></em>' map. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int VIEWER_BINDING__ARGUMENTS = BINDING__ARGUMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -1865,31 +1783,23 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING_FEATURE_COUNT = BINDING_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.IArgumentProvider
+	 * <em>IArgument Provider</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
+	 * @see com.rcpcompany.uibindings.IArgumentProvider
+	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIArgumentProvider()
 	 * @generated
-	 * @ordered
 	 */
-	int ARGUMENT_PROVIDER__DECLARED_ARGUMENTS = 0;
+	int IARGUMENT_PROVIDER = 22;
 
 	/**
-	 * The number of structural features of the '<em>Argument Provider</em>' class. <!--
+	 * The number of structural features of the '<em>IArgument Provider</em>' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int ARGUMENT_PROVIDER_FEATURE_COUNT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int DECORATOR_PROVIDER__DECLARED_ARGUMENTS = ARGUMENT_PROVIDER__DECLARED_ARGUMENTS;
+	int IARGUMENT_PROVIDER_FEATURE_COUNT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Manager</b></em>' container reference. <!-- begin-user-doc -->
@@ -1898,7 +1808,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DECORATOR_PROVIDER__MANAGER = ARGUMENT_PROVIDER_FEATURE_COUNT + 0;
+	int DECORATOR_PROVIDER__MANAGER = IARGUMENT_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -1907,7 +1817,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DECORATOR_PROVIDER__ID = ARGUMENT_PROVIDER_FEATURE_COUNT + 1;
+	int DECORATOR_PROVIDER__ID = IARGUMENT_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -1916,7 +1826,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DECORATOR_PROVIDER__TYPE = ARGUMENT_PROVIDER_FEATURE_COUNT + 2;
+	int DECORATOR_PROVIDER__TYPE = IARGUMENT_PROVIDER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Model Types</b></em>' attribute list. <!-- begin-user-doc -->
@@ -1925,7 +1835,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DECORATOR_PROVIDER__MODEL_TYPES = ARGUMENT_PROVIDER_FEATURE_COUNT + 3;
+	int DECORATOR_PROVIDER__MODEL_TYPES = IARGUMENT_PROVIDER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Ui Types</b></em>' attribute list. <!-- begin-user-doc -->
@@ -1934,7 +1844,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DECORATOR_PROVIDER__UI_TYPES = ARGUMENT_PROVIDER_FEATURE_COUNT + 4;
+	int DECORATOR_PROVIDER__UI_TYPES = IARGUMENT_PROVIDER_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Provider CE</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -1943,7 +1853,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DECORATOR_PROVIDER__PROVIDER_CE = ARGUMENT_PROVIDER_FEATURE_COUNT + 5;
+	int DECORATOR_PROVIDER__PROVIDER_CE = IARGUMENT_PROVIDER_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Child CE</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -1952,7 +1862,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DECORATOR_PROVIDER__CHILD_CE = ARGUMENT_PROVIDER_FEATURE_COUNT + 6;
+	int DECORATOR_PROVIDER__CHILD_CE = IARGUMENT_PROVIDER_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Decorator</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -1961,7 +1871,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DECORATOR_PROVIDER__DECORATOR = ARGUMENT_PROVIDER_FEATURE_COUNT + 7;
+	int DECORATOR_PROVIDER__DECORATOR = IARGUMENT_PROVIDER_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Exact Model Type Match</b></em>' attribute. <!--
@@ -1970,7 +1880,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DECORATOR_PROVIDER__EXACT_MODEL_TYPE_MATCH = ARGUMENT_PROVIDER_FEATURE_COUNT + 8;
+	int DECORATOR_PROVIDER__EXACT_MODEL_TYPE_MATCH = IARGUMENT_PROVIDER_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Decorator Provider</em>' class. <!--
@@ -1979,16 +1889,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DECORATOR_PROVIDER_FEATURE_COUNT = ARGUMENT_PROVIDER_FEATURE_COUNT + 9;
-
-	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_DECORATOR_PROVIDER__DECLARED_ARGUMENTS = DECORATOR_PROVIDER__DECLARED_ARGUMENTS;
+	int DECORATOR_PROVIDER_FEATURE_COUNT = IARGUMENT_PROVIDER_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Manager</b></em>' container reference. <!-- begin-user-doc -->
@@ -2079,15 +1980,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_DECORATOR_PROVIDER_FEATURE_COUNT = DECORATOR_PROVIDER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int ENUM_DECORATOR_PROVIDER__DECLARED_ARGUMENTS = DECORATOR_PROVIDER__DECLARED_ARGUMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Manager</b></em>' container reference. <!-- begin-user-doc -->
@@ -2234,15 +2126,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENUM_DECORATOR_PROVIDER_ENTRY_FEATURE_COUNT = 2;
-
-	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_DECORATOR_PROVIDER__DECLARED_ARGUMENTS = DECORATOR_PROVIDER__DECLARED_ARGUMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Manager</b></em>' container reference. <!-- begin-user-doc -->
@@ -2515,31 +2398,13 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_ADAPTER_FEATURE_COUNT = 8;
 
 	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_INFO__DECLARED_ARGUMENTS = ARGUMENT_PROVIDER__DECLARED_ARGUMENTS;
-
-	/**
 	 * The number of structural features of the '<em>Model Info</em>' class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_INFO_FEATURE_COUNT = ARGUMENT_PROVIDER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_CLASS_INFO__DECLARED_ARGUMENTS = MODEL_INFO__DECLARED_ARGUMENTS;
+	int MODEL_INFO_FEATURE_COUNT = IARGUMENT_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -2576,15 +2441,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MODEL_CLASS_INFO_FEATURE_COUNT = MODEL_INFO_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_FEATURE_INFO__DECLARED_ARGUMENTS = MODEL_INFO__DECLARED_ARGUMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Feature Name</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -2709,22 +2565,13 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_BINDING_DECORATOR_EXTENDER_DESCRIPTOR = 21;
 
 	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int UI_BINDING_DECORATOR_EXTENDER_DESCRIPTOR__DECLARED_ARGUMENTS = ARGUMENT_PROVIDER__DECLARED_ARGUMENTS;
-
-	/**
 	 * The feature id for the '<em><b>Priority</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BINDING_DECORATOR_EXTENDER_DESCRIPTOR__PRIORITY = ARGUMENT_PROVIDER_FEATURE_COUNT + 0;
+	int UI_BINDING_DECORATOR_EXTENDER_DESCRIPTOR__PRIORITY = IARGUMENT_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Factory</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -2733,7 +2580,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BINDING_DECORATOR_EXTENDER_DESCRIPTOR__FACTORY = ARGUMENT_PROVIDER_FEATURE_COUNT + 1;
+	int UI_BINDING_DECORATOR_EXTENDER_DESCRIPTOR__FACTORY = IARGUMENT_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>UI Binding Decorator Extender Descriptor</em>'
@@ -2742,7 +2589,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BINDING_DECORATOR_EXTENDER_DESCRIPTOR_FEATURE_COUNT = ARGUMENT_PROVIDER_FEATURE_COUNT + 2;
+	int UI_BINDING_DECORATOR_EXTENDER_DESCRIPTOR_FEATURE_COUNT = IARGUMENT_PROVIDER_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.IModelArgumentMediator
@@ -3382,22 +3229,13 @@ public interface IUIBindingsPackage extends EPackage {
 	int TREE_ITEM_DESCRIPTOR = 41;
 
 	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int TREE_ITEM_DESCRIPTOR__DECLARED_ARGUMENTS = ARGUMENT_PROVIDER__DECLARED_ARGUMENTS;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_ITEM_DESCRIPTOR__ID = ARGUMENT_PROVIDER_FEATURE_COUNT + 0;
+	int TREE_ITEM_DESCRIPTOR__ID = IARGUMENT_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Child Relations</b></em>' reference list. <!-- begin-user-doc
@@ -3406,7 +3244,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_ITEM_DESCRIPTOR__CHILD_RELATIONS = ARGUMENT_PROVIDER_FEATURE_COUNT + 1;
+	int TREE_ITEM_DESCRIPTOR__CHILD_RELATIONS = IARGUMENT_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Ce</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -3415,7 +3253,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_ITEM_DESCRIPTOR__CE = ARGUMENT_PROVIDER_FEATURE_COUNT + 2;
+	int TREE_ITEM_DESCRIPTOR__CE = IARGUMENT_PROVIDER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Model Types</b></em>' attribute list. <!-- begin-user-doc -->
@@ -3424,7 +3262,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_ITEM_DESCRIPTOR__MODEL_TYPES = ARGUMENT_PROVIDER_FEATURE_COUNT + 3;
+	int TREE_ITEM_DESCRIPTOR__MODEL_TYPES = IARGUMENT_PROVIDER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>New Wizard ID</b></em>' attribute. <!-- begin-user-doc -->
@@ -3433,7 +3271,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_ITEM_DESCRIPTOR__NEW_WIZARD_ID = ARGUMENT_PROVIDER_FEATURE_COUNT + 4;
+	int TREE_ITEM_DESCRIPTOR__NEW_WIZARD_ID = IARGUMENT_PROVIDER_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Parent Relations</b></em>' reference list. <!-- begin-user-doc
@@ -3442,7 +3280,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_ITEM_DESCRIPTOR__PARENT_RELATIONS = ARGUMENT_PROVIDER_FEATURE_COUNT + 5;
+	int TREE_ITEM_DESCRIPTOR__PARENT_RELATIONS = IARGUMENT_PROVIDER_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Primary Parent</b></em>' reference. <!-- begin-user-doc -->
@@ -3451,7 +3289,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_ITEM_DESCRIPTOR__PRIMARY_PARENT = ARGUMENT_PROVIDER_FEATURE_COUNT + 6;
+	int TREE_ITEM_DESCRIPTOR__PRIMARY_PARENT = IARGUMENT_PROVIDER_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Empty Folder Hidden</b></em>' attribute. <!-- begin-user-doc
@@ -3460,7 +3298,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_ITEM_DESCRIPTOR__EMPTY_FOLDER_HIDDEN = ARGUMENT_PROVIDER_FEATURE_COUNT + 7;
+	int TREE_ITEM_DESCRIPTOR__EMPTY_FOLDER_HIDDEN = IARGUMENT_PROVIDER_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Tree Item Descriptor</em>' class. <!--
@@ -3469,7 +3307,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_ITEM_DESCRIPTOR_FEATURE_COUNT = ARGUMENT_PROVIDER_FEATURE_COUNT + 8;
+	int TREE_ITEM_DESCRIPTOR_FEATURE_COUNT = IARGUMENT_PROVIDER_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.ConstantTreeItemImpl
@@ -3482,22 +3320,13 @@ public interface IUIBindingsPackage extends EPackage {
 	int CONSTANT_TREE_ITEM = 42;
 
 	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTANT_TREE_ITEM__DECLARED_ARGUMENTS = ARGUMENT_PROVIDER__DECLARED_ARGUMENTS;
-
-	/**
 	 * The feature id for the '<em><b>Descriptor</b></em>' reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTANT_TREE_ITEM__DESCRIPTOR = ARGUMENT_PROVIDER_FEATURE_COUNT + 0;
+	int CONSTANT_TREE_ITEM__DESCRIPTOR = IARGUMENT_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -3506,7 +3335,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTANT_TREE_ITEM__TARGET = ARGUMENT_PROVIDER_FEATURE_COUNT + 1;
+	int CONSTANT_TREE_ITEM__TARGET = IARGUMENT_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Constant Tree Item</em>' class. <!--
@@ -3515,7 +3344,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTANT_TREE_ITEM_FEATURE_COUNT = ARGUMENT_PROVIDER_FEATURE_COUNT + 2;
+	int CONSTANT_TREE_ITEM_FEATURE_COUNT = IARGUMENT_PROVIDER_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.ui.forms.IMessage <em>IMessage</em>}' class.
@@ -5030,17 +4859,6 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBinding_CreationPoint();
 
 	/**
-	 * Returns the meta object for the map '{@link com.rcpcompany.uibindings.IBinding#getArguments
-	 * <em>Arguments</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the map '<em>Arguments</em>'.
-	 * @see com.rcpcompany.uibindings.IBinding#getArguments()
-	 * @see #getBinding()
-	 * @generated
-	 */
-	EReference getBinding_Arguments();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.IBinding#getId
 	 * <em>Id</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -6389,25 +6207,13 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IArgumentProvider
-	 * <em>Argument Provider</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <em>IArgument Provider</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for class '<em>Argument Provider</em>'.
+	 * @return the meta object for class '<em>IArgument Provider</em>'.
 	 * @see com.rcpcompany.uibindings.IArgumentProvider
 	 * @generated
 	 */
-	EClass getArgumentProvider();
-
-	/**
-	 * Returns the meta object for the map '
-	 * {@link com.rcpcompany.uibindings.IArgumentProvider#getDeclaredArguments
-	 * <em>Declared Arguments</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the map '<em>Declared Arguments</em>'.
-	 * @see com.rcpcompany.uibindings.IArgumentProvider#getDeclaredArguments()
-	 * @see #getArgumentProvider()
-	 * @generated
-	 */
-	EReference getArgumentProvider_DeclaredArguments();
+	EClass getIArgumentProvider();
 
 	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IDisposable
@@ -8558,14 +8364,6 @@ public interface IUIBindingsPackage extends EPackage {
 		EAttribute BINDING__CREATION_POINT = eINSTANCE.getBinding_CreationPoint();
 
 		/**
-		 * The meta object literal for the '<em><b>Arguments</b></em>' map feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference BINDING__ARGUMENTS = eINSTANCE.getBinding_Arguments();
-
-		/**
 		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -9554,21 +9352,13 @@ public interface IUIBindingsPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link com.rcpcompany.uibindings.IArgumentProvider
-		 * <em>Argument Provider</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <em>IArgument Provider</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibindings.IArgumentProvider
-		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getArgumentProvider()
+		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIArgumentProvider()
 		 * @generated
 		 */
-		EClass ARGUMENT_PROVIDER = eINSTANCE.getArgumentProvider();
-
-		/**
-		 * The meta object literal for the '<em><b>Declared Arguments</b></em>' map feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference ARGUMENT_PROVIDER__DECLARED_ARGUMENTS = eINSTANCE.getArgumentProvider_DeclaredArguments();
+		EClass IARGUMENT_PROVIDER = eINSTANCE.getIArgumentProvider();
 
 		/**
 		 * The meta object literal for the '{@link com.rcpcompany.uibindings.IDisposable

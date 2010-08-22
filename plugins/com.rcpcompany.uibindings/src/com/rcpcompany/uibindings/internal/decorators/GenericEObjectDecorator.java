@@ -66,7 +66,7 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 		 */
 		final EClassifier type = getBinding().getDataType().getEType();
 		if (!(type instanceof EClass)) {
-			myClassIdentiferMapper = new UIBindingsUtils.DefaultMapper();
+			myClassIdentiferMapper = UIBindingsUtils.DEFAULT_MAPPER;
 		} else {
 			myClassIdentiferMapper = UIBindingsUtils.createClassIdentiferMapper(getBinding(), (EClass) type);
 		}

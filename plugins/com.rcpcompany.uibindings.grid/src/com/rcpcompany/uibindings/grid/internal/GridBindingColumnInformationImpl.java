@@ -43,7 +43,7 @@ import com.rcpcompany.uibindings.grid.internal.renderers.UIPainterCellRenderer;
  * <em>Row Cells</em>}</li>
  * <li>
  * {@link com.rcpcompany.uibindings.grid.internal.GridBindingColumnInformationImpl#getGridColumn
- * <em>Grid Column </em>}</li>
+ * <em>Grid Column</em>}</li>
  * </ul>
  * </p>
  * 

@@ -7,6 +7,7 @@ package com.rcpcompany.uibindings;
 
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Decorator Provider</b></em>
@@ -31,7 +32,7 @@ import org.eclipse.emf.common.util.EList;
  * @see com.rcpcompany.uibindings.IUIBindingsPackage#getDecoratorProvider()
  * @generated
  */
-public interface IDecoratorProvider extends IArgumentProvider {
+public interface IDecoratorProvider extends EObject, IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>Manager</b></em>' container reference. It is bidirectional
 	 * and its opposite is '{@link com.rcpcompany.uibindings.IManager#getProviders

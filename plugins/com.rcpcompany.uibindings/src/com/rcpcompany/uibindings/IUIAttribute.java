@@ -2,12 +2,15 @@ package com.rcpcompany.uibindings;
 
 import java.util.List;
 
-import org.eclipse.core.databinding.observable.IChangeListener;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.fieldassist.IControlContentAdapter;
+import org.eclipse.swt.custom.StyleRange;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Cursor;
+import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
@@ -223,6 +226,13 @@ public interface IUIAttribute extends EObject, IDisposable {
 	IObservableValue getFontValue();
 
 	/**
+	 * Returns the current value of {@link #getFontValue()} if set.
+	 * 
+	 * @return the font or <code>null</code>
+	 */
+	Font getFont();
+
+	/**
 	 * Returns the value of the '<em><b>Image Value</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
 	 * Returns an optional observable value that designates the image of the widget if set.
@@ -254,6 +264,13 @@ public interface IUIAttribute extends EObject, IDisposable {
 	IObservableValue getForegroundValue();
 
 	/**
+	 * Returns the current value of {@link #getForegroundValue()} if set.
+	 * 
+	 * @return the color or <code>null</code>
+	 */
+	Color getForeground();
+
+	/**
 	 * Returns the value of the '<em><b>Background Value</b></em>' attribute. <!-- begin-user-doc
 	 * -->
 	 * <p>
@@ -272,6 +289,13 @@ public interface IUIAttribute extends EObject, IDisposable {
 	IObservableValue getBackgroundValue();
 
 	/**
+	 * Returns the current value of {@link #getBackgroundValue()} if set.
+	 * 
+	 * @return the color or <code>null</code>
+	 */
+	Color getBackground();
+
+	/**
 	 * Returns the value of the '<em><b>Enabled Value</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
 	 * Returns an optional observable value that designates the enabled of the widget if set.
@@ -286,6 +310,13 @@ public interface IUIAttribute extends EObject, IDisposable {
 	 * @generated
 	 */
 	IObservableValue getEnabledValue();
+
+	/**
+	 * Returns the current value of {@link #getEnabledValue()} if set.
+	 * 
+	 * @return the Boolean value or <code>null</code>
+	 */
+	Boolean isEnabled();
 
 	/**
 	 * Returns the value of the '<em><b>Cursor Value</b></em>' attribute. <!-- begin-user-doc -->
@@ -304,6 +335,13 @@ public interface IUIAttribute extends EObject, IDisposable {
 	IObservableValue getCursorValue();
 
 	/**
+	 * Returns the current value of {@link #getCursorValue()} if set.
+	 * 
+	 * @return the cursor or <code>null</code>
+	 */
+	Cursor getCursor();
+
+	/**
 	 * Returns the value of the '<em><b>Style Range List</b></em>' attribute. <!-- begin-user-doc
 	 * -->
 	 * <p>
@@ -320,6 +358,13 @@ public interface IUIAttribute extends EObject, IDisposable {
 	 * @generated
 	 */
 	IObservableList getStyleRangeList();
+
+	/**
+	 * Returns the current value of {@link #getStyleRangeList()} if set.
+	 * 
+	 * @return the list or <code>null</code>
+	 */
+	List<StyleRange> getStyleRanges();
 
 	/**
 	 * Returns the value of the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc -->
@@ -403,18 +448,4 @@ public interface IUIAttribute extends EObject, IDisposable {
 	 * @param outerBounds the outer bounds of the control
 	 */
 	public void updateImageDecorations(Control control, Rectangle innerBounds, Rectangle outerBounds);
-
-	/**
-	 * Adds the specified change listener to all the observable values of this attribute
-	 * 
-	 * @param listener the listener to add
-	 */
-	public void addChangeListener(IChangeListener listener);
-
-	/**
-	 * Removes the specified change listener from all the observable values of this attribute
-	 * 
-	 * @param listener the listener to remove
-	 */
-	public void removeChangeListener(IChangeListener listener);
 } // IUIAttribute

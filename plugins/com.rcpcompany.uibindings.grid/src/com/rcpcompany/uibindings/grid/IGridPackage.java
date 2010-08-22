@@ -76,15 +76,6 @@ public interface IGridPackage extends EPackage {
 	int GRID_BINDING__SERVICES = IUIBindingsPackage.BINDING__SERVICES;
 
 	/**
-	 * The feature id for the '<em><b>Declared Arguments</b></em>' map. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int GRID_BINDING__DECLARED_ARGUMENTS = IUIBindingsPackage.BINDING__DECLARED_ARGUMENTS;
-
-	/**
 	 * The feature id for the '<em><b>Context</b></em>' container reference. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -119,15 +110,6 @@ public interface IGridPackage extends EPackage {
 	 * @ordered
 	 */
 	int GRID_BINDING__CREATION_POINT = IUIBindingsPackage.BINDING__CREATION_POINT;
-
-	/**
-	 * The feature id for the '<em><b>Arguments</b></em>' map. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int GRID_BINDING__ARGUMENTS = IUIBindingsPackage.BINDING__ARGUMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -245,6 +227,15 @@ public interface IGridPackage extends EPackage {
 	 * @ordered
 	 */
 	int GRID_BINDING__CONTROL = IUIBindingsPackage.BINDING__CONTROL;
+
+	/**
+	 * The feature id for the '<em><b>Extra Argument Providers</b></em>' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_BINDING__EXTRA_ARGUMENT_PROVIDERS = IUIBindingsPackage.BINDING__EXTRA_ARGUMENT_PROVIDERS;
 
 	/**
 	 * The feature id for the '<em><b>No Column Headers</b></em>' attribute. <!-- begin-user-doc -->
@@ -1193,9 +1184,6 @@ public interface IGridPackage extends EPackage {
 	 * 
 	 * @return the meta object for class '<em>Object To Column Map Entry</em>'.
 	 * @see java.util.Map.Entry
-	 * @model keyDataType="org.eclipse.emf.ecore.EJavaObject"
-	 *        valueType="com.rcpcompany.uibindings.grid.GridBindingColumnInformation"
-	 *        valueResolveProxies="false"
 	 * @generated
 	 */
 	EClass getObjectToColumnMapEntry();
@@ -1228,9 +1216,6 @@ public interface IGridPackage extends EPackage {
 	 * 
 	 * @return the meta object for class '<em>Object To Row Map Entry</em>'.
 	 * @see java.util.Map.Entry
-	 * @model keyDataType="org.eclipse.emf.ecore.EJavaObject"
-	 *        valueType="com.rcpcompany.uibindings.grid.GridBindingRowInformation"
-	 *        valueResolveProxies="false"
 	 * @generated
 	 */
 	EClass getObjectToRowMapEntry();
@@ -1263,7 +1248,6 @@ public interface IGridPackage extends EPackage {
 	 * 
 	 * @return the meta object for data type '<em>Grid</em>'.
 	 * @see org.eclipse.nebula.widgets.grid.Grid
-	 * @model instanceClass="org.eclipse.nebula.widgets.grid.Grid" serializeable="false"
 	 * @generated
 	 */
 	EDataType getGrid();
@@ -1274,7 +1258,6 @@ public interface IGridPackage extends EPackage {
 	 * 
 	 * @return the meta object for data type '<em>Column</em>'.
 	 * @see org.eclipse.nebula.widgets.grid.GridColumn
-	 * @model instanceClass="org.eclipse.nebula.widgets.grid.GridColumn" serializeable="false"
 	 * @generated
 	 */
 	EDataType getGridColumn();
@@ -1285,7 +1268,6 @@ public interface IGridPackage extends EPackage {
 	 * 
 	 * @return the meta object for data type '<em>Editor</em>'.
 	 * @see org.eclipse.nebula.widgets.grid.GridEditor
-	 * @model instanceClass="org.eclipse.nebula.widgets.grid.GridEditor" serializeable="false"
 	 * @generated
 	 */
 	EDataType getGridEditor();
@@ -1296,7 +1278,6 @@ public interface IGridPackage extends EPackage {
 	 * 
 	 * @return the meta object for data type '<em>Item</em>'.
 	 * @see org.eclipse.nebula.widgets.grid.GridItem
-	 * @model instanceClass="org.eclipse.nebula.widgets.grid.GridItem" serializeable="false"
 	 * @generated
 	 */
 	EDataType getGridItem();
@@ -1353,8 +1334,8 @@ public interface IGridPackage extends EPackage {
 		EAttribute GRID_BINDING__NO_COLUMN_HEADERS = eINSTANCE.getGridBinding_NoColumnHeaders();
 
 		/**
-		 * The meta object literal for the '<em><b>Cell Editor</b></em>' containment reference
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Cell Editor</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */

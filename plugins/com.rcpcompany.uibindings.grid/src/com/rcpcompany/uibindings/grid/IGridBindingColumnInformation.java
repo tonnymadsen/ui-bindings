@@ -74,7 +74,6 @@ public interface IGridBindingColumnInformation extends EObject, IDisposable {
 	 * @return the value of the '<em>Row Cells</em>' reference list.
 	 * @see com.rcpcompany.uibindings.grid.IGridPackage#getGridBindingColumnInformation_RowCells()
 	 * @see com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getColumn
-	 * @model opposite="column" resolveProxies="false"
 	 * @generated
 	 */
 	EList<IGridBindingCellInformation> getRowCells();

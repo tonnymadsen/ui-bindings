@@ -714,6 +714,11 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 					id.getTooltipValue().setValue(eid.tooltip);
 				}
 			}
+
+			/*
+			 * Reduce the memory usage a bit...
+			 */
+			reset();
 		}
 
 		@Override

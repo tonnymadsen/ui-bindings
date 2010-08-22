@@ -67,23 +67,23 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <em>Data Type</em>}</li>
  * <li>
  * {@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getLabelBinding
- * <em>Label Binding </em>}</li>
+ * <em>Label Binding</em>}</li>
  * <li>
  * {@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getLabelUIAttribute
  * <em>Label UI Attribute</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getObjectValue
- * <em>Object Value </em>}</li>
+ * <em>Object Value</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#isChangeable
  * <em>Changeable</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getDisplayText
- * <em>Display Text </em>}</li>
+ * <em>Display Text</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getValueType
  * <em>Value Type</em>}</li>
  * <li>
  * {@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getPasteUIAttribute
  * <em>Paste UI Attribute</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getToolTipText
- * <em>Tool Tip Text </em>}</li>
+ * <em>Tool Tip Text</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#isEnabled <em>
  * Enabled</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getPainter <em>
@@ -363,14 +363,14 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 		if (newColumn != column) {
 			NotificationChain msgs = null;
 			if (column != null) {
-				msgs = ((InternalEObject) column)
-						.eInverseRemove(this, IGridPackage.GRID_BINDING_COLUMN_INFORMATION__ROW_CELLS
-								+ EOFFSET_CORRECTION_ROW_CELLS_OPPOSITE, IGridBindingColumnInformation.class, msgs);
+				msgs = ((InternalEObject) column).eInverseRemove(this,
+						IGridPackage.GRID_BINDING_COLUMN_INFORMATION__ROW_CELLS + EOFFSET_CORRECTION_COLUMN_OPPOSITE,
+						IGridBindingColumnInformation.class, msgs);
 			}
 			if (newColumn != null) {
-				msgs = ((InternalEObject) newColumn)
-						.eInverseAdd(this, IGridPackage.GRID_BINDING_COLUMN_INFORMATION__ROW_CELLS
-								+ EOFFSET_CORRECTION_ROW_CELLS_OPPOSITE, IGridBindingColumnInformation.class, msgs);
+				msgs = ((InternalEObject) newColumn).eInverseAdd(this,
+						IGridPackage.GRID_BINDING_COLUMN_INFORMATION__ROW_CELLS + EOFFSET_CORRECTION_COLUMN_OPPOSITE,
+						IGridBindingColumnInformation.class, msgs);
 			}
 			msgs = basicSetColumn(newColumn, msgs);
 			if (msgs != null) {
@@ -422,13 +422,13 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 			NotificationChain msgs = null;
 			if (row != null) {
 				msgs = ((InternalEObject) row).eInverseRemove(this,
-						IGridPackage.GRID_BINDING_ROW_INFORMATION__COLUMN_CELLS
-								+ EOFFSET_CORRECTION_COLUMN_CELLS_OPPOSITE, IGridBindingRowInformation.class, msgs);
+						IGridPackage.GRID_BINDING_ROW_INFORMATION__COLUMN_CELLS + EOFFSET_CORRECTION_ROW_OPPOSITE,
+						IGridBindingRowInformation.class, msgs);
 			}
 			if (newRow != null) {
 				msgs = ((InternalEObject) newRow).eInverseAdd(this,
-						IGridPackage.GRID_BINDING_ROW_INFORMATION__COLUMN_CELLS
-								+ EOFFSET_CORRECTION_COLUMN_CELLS_OPPOSITE, IGridBindingRowInformation.class, msgs);
+						IGridPackage.GRID_BINDING_ROW_INFORMATION__COLUMN_CELLS + EOFFSET_CORRECTION_ROW_OPPOSITE,
+						IGridBindingRowInformation.class, msgs);
 			}
 			msgs = basicSetRow(newRow, msgs);
 			if (msgs != null) {
@@ -699,16 +699,16 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 		switch (featureID - EOFFSET_CORRECTION) {
 		case IGridPackage.GRID_BINDING_CELL_INFORMATION__COLUMN:
 			if (column != null) {
-				msgs = ((InternalEObject) column)
-						.eInverseRemove(this, IGridPackage.GRID_BINDING_COLUMN_INFORMATION__ROW_CELLS
-								+ EOFFSET_CORRECTION_ROW_CELLS_OPPOSITE, IGridBindingColumnInformation.class, msgs);
+				msgs = ((InternalEObject) column).eInverseRemove(this,
+						IGridPackage.GRID_BINDING_COLUMN_INFORMATION__ROW_CELLS + EOFFSET_CORRECTION_COLUMN_OPPOSITE,
+						IGridBindingColumnInformation.class, msgs);
 			}
 			return basicSetColumn((IGridBindingColumnInformation) otherEnd, msgs);
 		case IGridPackage.GRID_BINDING_CELL_INFORMATION__ROW:
 			if (row != null) {
 				msgs = ((InternalEObject) row).eInverseRemove(this,
-						IGridPackage.GRID_BINDING_ROW_INFORMATION__COLUMN_CELLS
-								+ EOFFSET_CORRECTION_COLUMN_CELLS_OPPOSITE, IGridBindingRowInformation.class, msgs);
+						IGridPackage.GRID_BINDING_ROW_INFORMATION__COLUMN_CELLS + EOFFSET_CORRECTION_ROW_OPPOSITE,
+						IGridBindingRowInformation.class, msgs);
 			}
 			return basicSetRow((IGridBindingRowInformation) otherEnd, msgs);
 		}
@@ -969,7 +969,9 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 					+ getColumn().getId() + ", " + getRow().getId() + "]@" + hashCode());
 		}
 
-		getLabelUIAttribute().removeChangeListener(myPropertyValueListener);
+		if (getLabelUIAttribute() instanceof VirtualUIAttribute) {
+			((VirtualUIAttribute) getLabelUIAttribute()).removeChangeListener(myPropertyValueListener);
+		}
 
 		getLabelBinding().dispose();
 
@@ -984,7 +986,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	}
 
 	/**
-	 * Initializes the cell with the information from tjhe model
+	 * Initializes the cell with the information from the model.
 	 * 
 	 * @param column the column
 	 * @param row the row
@@ -1038,9 +1040,10 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 			/*
 			 * We will use a UI binding to convert from myValue to myLabelUIAttribute...
 			 */
-			setLabelUIAttribute(new VirtualUIAttribute(String.class));
+			final VirtualUIAttribute attribute = new VirtualUIAttribute(String.class);
+			setLabelUIAttribute(attribute);
 
-			final IValueBinding lb = context.addBinding().model(value).ui(getLabelUIAttribute());
+			final IValueBinding lb = context.addBinding().model(value).ui(attribute);
 			final Map<String, Object> args = cell.getArguments();
 			if (args != null) {
 				lb.args(args);
@@ -1052,7 +1055,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 			 * Set up the painter
 			 */
 			final Grid gridControl = grid.getGrid();
-			final UIAttributePainter p = new UIAttributePainter(gridControl, getLabelUIAttribute());
+			final UIAttributePainter p = new UIAttributePainter(gridControl, attribute);
 			p.setDefaultBackground(gridControl.getBackground());
 			setPainter(p);
 
@@ -1072,7 +1075,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 			 */
 			context.finish(FinishOption.IF_ALREADY_FINISHED);
 
-			getLabelUIAttribute().addChangeListener(myPropertyValueListener);
+			attribute.addChangeListener(myPropertyValueListener);
 
 			// An immediate update
 			updateCellValuesDelayed();

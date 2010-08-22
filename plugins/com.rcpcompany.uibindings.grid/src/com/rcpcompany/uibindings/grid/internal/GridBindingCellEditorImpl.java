@@ -51,7 +51,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellEditorImpl#getGridEditor <em>
  * Grid Editor</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellEditorImpl#getActiveEditCell
- * <em>Active Edit Cell </em>}</li>
+ * <em>Active Edit Cell</em>}</li>
  * </ul>
  * </p>
  * 
@@ -97,6 +97,14 @@ public class GridBindingCellEditorImpl extends EObjectImpl implements IGridBindi
 	 * @ordered
 	 */
 	protected IGridBindingCellInformation activeEditCell;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private static final int EOFFSET_CORRECTION_GRID_OPPOSITE = IGridPackage.Literals.GRID_BINDING
+			.getFeatureID(IGridPackage.Literals.GRID_BINDING__CELL_EDITOR) - IGridPackage.GRID_BINDING__CELL_EDITOR;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -184,11 +192,11 @@ public class GridBindingCellEditorImpl extends EObjectImpl implements IGridBindi
 			NotificationChain msgs = null;
 			if (grid != null) {
 				msgs = ((InternalEObject) grid).eInverseRemove(this, IGridPackage.GRID_BINDING__CELL_EDITOR
-						+ EOFFSET_CORRECTION_CELL_EDITOR_OPPOSITE, IGridBinding.class, msgs);
+						+ EOFFSET_CORRECTION_GRID_OPPOSITE, IGridBinding.class, msgs);
 			}
 			if (newGrid != null) {
 				msgs = ((InternalEObject) newGrid).eInverseAdd(this, IGridPackage.GRID_BINDING__CELL_EDITOR
-						+ EOFFSET_CORRECTION_CELL_EDITOR_OPPOSITE, IGridBinding.class, msgs);
+						+ EOFFSET_CORRECTION_GRID_OPPOSITE, IGridBinding.class, msgs);
 			}
 			msgs = basicSetGrid(newGrid, msgs);
 			if (msgs != null) {
@@ -246,7 +254,7 @@ public class GridBindingCellEditorImpl extends EObjectImpl implements IGridBindi
 		case IGridPackage.GRID_BINDING_CELL_EDITOR__GRID:
 			if (grid != null) {
 				msgs = ((InternalEObject) grid).eInverseRemove(this, IGridPackage.GRID_BINDING__CELL_EDITOR
-						+ EOFFSET_CORRECTION_CELL_EDITOR_OPPOSITE, IGridBinding.class, msgs);
+						+ EOFFSET_CORRECTION_GRID_OPPOSITE, IGridBinding.class, msgs);
 			}
 			return basicSetGrid((IGridBinding) otherEnd, msgs);
 		}

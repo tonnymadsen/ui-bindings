@@ -68,7 +68,7 @@ public interface IColumnBinding extends IBinding {
 	 * 
 	 * @return the new column binding
 	 */
-	public IColumnBinding addColumn(ViewerColumn column, EStructuralFeature feature);
+	IColumnBinding addColumn(ViewerColumn column, EStructuralFeature feature);
 
 	/**
 	 * Constructs and returns a new column binding to this viewer.
@@ -80,7 +80,7 @@ public interface IColumnBinding extends IBinding {
 	 * 
 	 * @return the new column binding
 	 */
-	public IColumnBinding addColumn(TableColumn column, EStructuralFeature feature);
+	IColumnBinding addColumn(TableColumn column, EStructuralFeature feature);
 
 	/**
 	 * Constructs and returns a new column binding to this viewer.
@@ -92,7 +92,7 @@ public interface IColumnBinding extends IBinding {
 	 * 
 	 * @return the new column binding
 	 */
-	public IColumnBinding addColumn(TreeColumn column, EStructuralFeature feature);
+	IColumnBinding addColumn(TreeColumn column, EStructuralFeature feature);
 
 	/**
 	 * Binds this binding to the value of the specified JFace column.
@@ -100,7 +100,7 @@ public interface IColumnBinding extends IBinding {
 	 * @param column the column to bind
 	 * @return <code>this</code>
 	 */
-	public IColumnBinding column(ViewerColumn column);
+	IColumnBinding column(ViewerColumn column);
 
 	/**
 	 * Binds this binding to the value of the specified {@link TableColumn SWT table column}.
@@ -108,7 +108,7 @@ public interface IColumnBinding extends IBinding {
 	 * @param column the column to bind
 	 * @return <code>this</code>
 	 */
-	public IColumnBinding column(TableColumn column);
+	IColumnBinding column(TableColumn column);
 
 	/**
 	 * Binds this binding to the value of the specified {@link TreeColumn SWT tree column}.
@@ -116,7 +116,7 @@ public interface IColumnBinding extends IBinding {
 	 * @param column the column to bind
 	 * @return <code>this</code>
 	 */
-	public IColumnBinding column(TreeColumn column);
+	IColumnBinding column(TreeColumn column);
 
 	/**
 	 * Binds this binding to the specified EMF feature.
@@ -125,7 +125,7 @@ public interface IColumnBinding extends IBinding {
 	 * 
 	 * @return <code>this</code>
 	 */
-	public IColumnBinding model(EStructuralFeature feature);
+	IColumnBinding model(EStructuralFeature feature);
 
 	/**
 	 * Binds this binding to a special value.
@@ -134,7 +134,7 @@ public interface IColumnBinding extends IBinding {
 	 * 
 	 * @return <code>this</code>
 	 */
-	public IColumnBinding model(SpecialBinding specialValue);
+	IColumnBinding model(SpecialBinding specialValue);
 
 	/**
 	 * Binds this binding via a observable value factory.
@@ -145,7 +145,7 @@ public interface IColumnBinding extends IBinding {
 	 * 
 	 * @return <code>this</code>
 	 */
-	public IColumnBinding model(IObservableFactory factory, EClassifier type);
+	IColumnBinding model(IObservableFactory factory, EClassifier type);
 
 	/**
 	 * Binds this binding via a observable value factory.
@@ -156,7 +156,7 @@ public interface IColumnBinding extends IBinding {
 	 * 
 	 * @return <code>this</code>
 	 */
-	public IColumnBinding model(IObservableFactory factory, EStructuralFeature type);
+	IColumnBinding model(IObservableFactory factory, EStructuralFeature type);
 
 	/**
 	 * Binds this binding to the specified EMF features based on the result of another column.
@@ -169,7 +169,7 @@ public interface IColumnBinding extends IBinding {
 	 * 
 	 * @return <code>this</code>
 	 */
-	public IColumnBinding model(IColumnBinding baseColumn, EStructuralFeature feature);
+	IColumnBinding model(IColumnBinding baseColumn, EStructuralFeature feature);
 
 	/**
 	 * Sets the type of the binding. Defaults to "<code>basic</code>".
@@ -179,7 +179,7 @@ public interface IColumnBinding extends IBinding {
 	 * @return <code>this</code>
 	 */
 	@Override
-	public IColumnBinding type(String type);
+	IColumnBinding type(String type);
 
 	/**
 	 * Sets an argument for the binding. Some arguments are deduced from the EMF binding.
@@ -190,7 +190,7 @@ public interface IColumnBinding extends IBinding {
 	 * @return <code>this</code>
 	 */
 	@Override
-	public IColumnBinding arg(String name, Object value);
+	IColumnBinding arg(String name, Object value);
 
 	/**
 	 * Sets a complete set of arguments for the binding.
@@ -199,16 +199,7 @@ public interface IColumnBinding extends IBinding {
 	 * @return <code>this</code>
 	 */
 	@Override
-	public IColumnBinding args(Map<String, Object> arguments);
-
-	/**
-	 * Sets a complete set of arguments for the binding.
-	 * 
-	 * @param arguments the arguments to set
-	 * @return <code>this</code>
-	 */
-	@Override
-	public IColumnBinding args(EMap<String, Object> arguments);
+	IColumnBinding args(Map<String, Object> arguments);
 
 	/**
 	 * Short for <code>arg(IBinding.ARG_READONLY, true)</code>.
@@ -216,7 +207,7 @@ public interface IColumnBinding extends IBinding {
 	 * @return <code>this</code>
 	 */
 	@Override
-	public IColumnBinding readonly();
+	IColumnBinding readonly();
 
 	/**
 	 * Short for <code>arg({@link IBinding#ARG_DYNAMIC}, true)</code>.
@@ -224,7 +215,7 @@ public interface IColumnBinding extends IBinding {
 	 * @return <code>this</code>
 	 */
 	@Override
-	public IColumnBinding dynamic();
+	IColumnBinding dynamic();
 
 	/**
 	 * Short for <code>getId(id)</code>.
@@ -233,7 +224,7 @@ public interface IColumnBinding extends IBinding {
 	 * @return <code>this</code>
 	 */
 	@Override
-	public IColumnBinding id(String id);
+	IColumnBinding id(String id);
 
 	/**
 	 * Short for <code>arg({@link IBinding#ARG_LABEL}, label)</code>.
@@ -242,7 +233,7 @@ public interface IColumnBinding extends IBinding {
 	 * @return <code>this</code>
 	 */
 	@Override
-	public IColumnBinding label(String label);
+	IColumnBinding label(String label);
 
 	/**
 	 * Short for <code>arg(IBinding.ARG_VALID_VALUES, list)</code>.
@@ -252,7 +243,7 @@ public interface IColumnBinding extends IBinding {
 	 * @return <code>this</code>
 	 */
 	@Override
-	public IColumnBinding validValues(IObservableList list);
+	IColumnBinding validValues(IObservableList list);
 
 	/**
 	 * Returns the value of the '<em><b>Viewer Binding</b></em>' reference. It is bidirectional and
@@ -459,7 +450,7 @@ public interface IColumnBinding extends IBinding {
 	IObservableValue getColumnVisibility();
 
 	/**
-	 * Returns the cell information object for this column and the specified element
+	 * Returns the cell information object for this column and the specified element.
 	 * 
 	 * @param element the row element
 	 * @return the cell information
@@ -478,7 +469,7 @@ public interface IColumnBinding extends IBinding {
 	IColumnBindingCellInformation getCellInformation(Object element, boolean create);
 
 	/**
-	 * Returns the value shown in the cell in this column for the specified element
+	 * Returns the value shown in the cell in this column for the specified element.
 	 * 
 	 * @param element the specified row element
 	 * @return the current display value
