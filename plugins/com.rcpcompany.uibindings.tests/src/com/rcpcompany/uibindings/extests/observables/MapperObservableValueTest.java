@@ -97,7 +97,6 @@ public class MapperObservableValueTest {
 
 	@Test
 	public void mapperTest() {
-
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
@@ -112,10 +111,12 @@ public class MapperObservableValueTest {
 
 				// No base yet.
 				assertEquals(null, ov.getValue());
+				assertEquals(null, ov.getObserved());
 
 				base.setValue(myContact);
 
 				assertEquals(myResult, ov.getValue());
+				assertEquals(myContact, ov.getObserved());
 
 				final IValueChangeListener listener = new IValueChangeListener() {
 					@Override
@@ -145,6 +146,8 @@ public class MapperObservableValueTest {
 				ov.removeValueChangeListener(listener);
 
 				assertEquals(1, changeCount);
+
+				assertEquals(myContact, ov.getObserved());
 
 				if (myResult.equals("shop.name")) {
 					assertEquals(myResult + "-3", myShop.getName());
