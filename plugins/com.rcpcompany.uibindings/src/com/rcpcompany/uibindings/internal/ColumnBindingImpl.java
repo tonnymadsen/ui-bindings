@@ -68,6 +68,7 @@ import org.eclipse.swt.widgets.Widget;
 
 import com.rcpcompany.uibindings.BindingState;
 import com.rcpcompany.uibindings.Constants;
+import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.ICellEditorFactory;
 import com.rcpcompany.uibindings.ICellEditorFactoryContext;
@@ -832,6 +833,11 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	public IObservableValue getValue(Object element) {
 		final IColumnBindingCellInformation ci = getCellInformation(element);
 		return ci.getObjectValue();
+	}
+
+	@Override
+	public IBinding getParentBinding() {
+		return getViewerBinding();
 	}
 
 	/**

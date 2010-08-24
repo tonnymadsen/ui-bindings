@@ -120,31 +120,30 @@ public class ValidationAdapterManagerMasterDetailTest {
 	public void testValue() {
 		final List<IBindingMessage> messages = myMessageDecorator.getMessages();
 		assertNotNull(messages);
-		final List<IQuickfixProposal> quickfixes = myMessageDecorator.getQuickfixes();
-		assertNotNull(quickfixes);
+		assertNotNull(myMessageDecorator.getQuickfixes());
 
 		myCurrentItem.setValue(null);
 		yield(); // Decorator updates are made in an asyncExec
 
 		assertEquals(0, messages.size());
-		assertEquals(0, quickfixes.size());
+		assertEquals(0, myMessageDecorator.getQuickfixes().size());
 
 		myCurrentItem.setValue(myAltItem);
 		yield(); // Decorator updates are made in an asyncExec
 
 		assertEquals(0, messages.size());
-		assertEquals(0, quickfixes.size());
+		assertEquals(0, myMessageDecorator.getQuickfixes().size());
 
 		myCurrentItem.setValue(myChangedItem);
 		yield(); // Decorator updates are made in an asyncExec
 
 		assertEquals(1, messages.size());
-		assertEquals(0, quickfixes.size());
+		assertEquals(0, myMessageDecorator.getQuickfixes().size());
 
 		myCurrentItem.setValue(myAltItem);
 		yield(); // Decorator updates are made in an asyncExec
 
 		assertEquals(0, messages.size());
-		assertEquals(0, quickfixes.size());
+		assertEquals(0, myMessageDecorator.getQuickfixes().size());
 	}
 }

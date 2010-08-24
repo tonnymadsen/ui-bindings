@@ -1,6 +1,7 @@
 package com.rcpcompany.uibindings.extests.trees;
 
 import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static org.junit.Assert.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -47,15 +48,19 @@ public class TreePerformanceTest {
 	public static List<Object[]> data() {
 		return Arrays.asList(new Object[][] {
 
-		// sizeFactor
+				// sizeFactor
 
-				// { 1 }, { 10 },
+				{ 1 }, { 10 },
 
 				{ 50 },
 
-				// { 100 },
+				{ 100 },
 
-				// { 1000 },
+//				{ 200 },
+//
+//				{ 500 },
+//
+//				{ 1000 },
 
 				});
 	}
@@ -74,60 +79,77 @@ public class TreePerformanceTest {
 	private IViewerBinding myTreeBinding;
 	private IColumnBinding myTreeColumnBinding;
 
+	private int myNoShopObjs;
+
 	@Before
 	public void before() {
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 
-		createModel();
+		try {
+			myShop = createModel();
+		} catch (final OutOfMemoryError ex) {
+			fail("factor " + mySizeFactor + ": " + ex.getMessage());
+		}
 		createView();
 
 		myView.getSite().getPage().activate(myView);
 	}
 
-	private void createModel() {
+	private Shop createModel() {
+		final Runtime runtime = Runtime.getRuntime();
+		myNoShopObjs = 0;
+		runtime.gc();
+		final long startMemory = runtime.totalMemory() - runtime.freeMemory();
 		final long startTime = System.currentTimeMillis();
-		int noObjs = 0;
 
-		myShop = ShopFactory.eINSTANCE.createShop();
-		noObjs++;
-		myShop.setName("my shop");
+		final Shop shop = ShopFactory.eINSTANCE.createShop();
+		myNoShopObjs++;
+		shop.setName("my shop");
 
 		final Country country = ShopFactory.eINSTANCE.createCountry();
-		noObjs++;
+		myNoShopObjs++;
 		country.setName("name");
 		country.setName("abbreviation");
-		country.setShop(myShop);
+		country.setShop(shop);
 
 		for (int i = 0; i < mySizeFactor; i++) {
 			final Country c = ShopFactory.eINSTANCE.createCountry();
-			noObjs++;
+			myNoShopObjs++;
 			c.setName("name " + i);
 			c.setAbbreviation("abbreviation " + i);
-			c.setShop(myShop);
+			c.setShop(shop);
 		}
 
 		for (int i = 0; i < mySizeFactor; i++) {
 			final Contact c = ShopFactory.eINSTANCE.createContact();
-			noObjs++;
+			myNoShopObjs++;
 			c.setName("name " + i);
 			c.setCountry(country);
-			c.setShop(myShop);
+			c.setShop(shop);
 
 			final Customer cust = ShopFactory.eINSTANCE.createCustomer();
-			noObjs++;
+			myNoShopObjs++;
 			cust.setContact(c);
-			cust.setShop(myShop);
+			cust.setShop(shop);
 
 			for (int j = 0; j < mySizeFactor; j++) {
 				final Order o = ShopFactory.eINSTANCE.createOrder();
-				noObjs++;
+				myNoShopObjs++;
 				o.setCustomer(cust);
 				o.setPrice(1000f);
 			}
 		}
 
 		final long endTime = System.currentTimeMillis();
-		System.out.println("model: " + (endTime - startTime) + "ms for " + noObjs + " objects");
+		runtime.gc();
+		final long endMemory = runtime.totalMemory() - runtime.freeMemory();
+		final long deltaTime = endTime - startTime;
+		final long deltaMemory = endMemory - startMemory;
+		System.out.println("model (" + mySizeFactor + "): " + myNoShopObjs + " objects " + deltaTime + " ms "
+				+ deltaMemory + " bytes (= " + (1f * deltaTime / myNoShopObjs) + " ms/obj) "
+				+ (deltaMemory / myNoShopObjs) + " bytes/obj)");
+
+		return shop;
 	}
 
 	/**
@@ -179,6 +201,7 @@ public class TreePerformanceTest {
 
 		// sleep(2000);
 
-		System.out.println("factor " + mySizeFactor + ": " + (endTime - startTime));
+		System.out.println("expand (" + mySizeFactor + "): " + (endTime - startTime) + " (= "
+				+ (1f * (endTime - startTime) / myNoShopObjs) + " ms/obj)");
 	}
 }

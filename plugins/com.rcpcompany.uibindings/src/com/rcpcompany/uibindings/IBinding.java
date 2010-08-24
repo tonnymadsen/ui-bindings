@@ -309,6 +309,14 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	boolean hasArguments();
 
 	/**
+	 * Returns the parent binding of this binding. E.g. the {@link IValueBinding} for cells of a
+	 * table or grid has the column or grid as the parent.
+	 * 
+	 * @return the parent binding or <code>null</code>
+	 */
+	IBinding getParentBinding();
+
+	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
 	 * The id is used to identify the binding then data from the binding is persisted - see

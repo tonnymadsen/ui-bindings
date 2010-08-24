@@ -120,11 +120,12 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 		 * The list change listener will ensure that the change listener is added to all the message
 		 * providers
 		 */
-		myMessageProviders = new IObservableValue[0];
 		final List<Binding> bindings = getBinding().getMonitoredDBBindings();
+		myMessageProviders = new IObservableValue[bindings.size()];
 		for (int i = 0; i < bindings.size(); i++) {
 			// TODO TMTM reduce the extra observable!
 			myMessageProviders[i] = new DataBindingDecoratorMessageObservableValue(getBinding(), bindings.get(i));
+			myMessageProviders[i].addChangeListener(this);
 		}
 
 		/*
@@ -190,6 +191,10 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	@Override
 	public void notifyChanged(Notification msg) {
 		if (msg.isTouch()) return;
+
+		/*
+		 * React to change is the configuration used by this decorator.
+		 */
 		if ((msg.getFeature() == IUIBindingsPackage.Literals.MANAGER__MESSAGE_DECORATION_POSITION)
 				|| (msg.getFeature() == IUIBindingsPackage.Literals.MANAGER__ALTERNATIVE_DECORATION_POSITION)
 				|| (msg.getFeature() == IUIBindingsPackage.Literals.MANAGER__MESSAGE_DECORATION_MINIMUM_SEVERITY)
@@ -197,19 +202,23 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 				|| (msg.getFeature() == IUIBindingsPackage.Literals.MANAGER__ASSIST_VB_IMAGE_DECORATION_SHOWN)
 				|| (msg.getFeature() == IUIBindingsPackage.Literals.MANAGER__QUICKFIX_VB_IMAGE_DECORATION_SHOWN)) {
 			updateDecoration();
+			return;
 		}
+		/*
+		 * When the state of the underlying binding changes to OK or DISPOSED, then react to this.
+		 */
 		if (msg.getFeature() == IUIBindingsPackage.Literals.BINDING__STATE) {
-			final ValueBindingMessageImageDecorator decorator = (ValueBindingMessageImageDecorator) msg.getNotifier();
-			switch (decorator.getBinding().getState()) {
+			switch (getBinding().getState()) {
 			case OK:
-				decorator.init();
+				init();
 				//$FALL-THROUGH$ fallthrough
 			case DISPOSED:
-				decorator.getBinding().eAdapters().remove(this);
+				getBinding().eAdapters().remove(this);
 				break;
 			default:
 				break;
 			}
+			return;
 		}
 	}
 
@@ -292,6 +301,8 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 
 	/**
 	 * Returns the current list of quick fixes..
+	 * <p>
+	 * A new list is returned for every call.
 	 * 
 	 * @return the list
 	 */

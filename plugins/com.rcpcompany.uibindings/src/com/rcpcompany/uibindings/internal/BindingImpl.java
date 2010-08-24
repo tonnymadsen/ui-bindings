@@ -535,6 +535,11 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		return myArguments != null && !myArguments.isEmpty();
 	}
 
+	@Override
+	public IBinding getParentBinding() {
+		return null;
+	}
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -660,13 +665,25 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		 */
 		if (addDecoratorProviderArguments(results, name, argumentType, firstOnly) && firstOnly) return results;
 
-		/**
+		/*
 		 * And then any extra argument providers added to the binding
 		 */
 		if (eIsSet(IUIBindingsPackage.Literals.BINDING__EXTRA_ARGUMENT_PROVIDERS)) {
 			for (final IArgumentProvider ap : getExtraArgumentProviders()) {
 				if (getArgumentProviderArguments(results, name, ap, argumentType, firstOnly) && firstOnly)
 					return results;
+			}
+		}
+
+		/*
+		 * And lastly parent bindings
+		 */
+		final IBinding parent = getParentBinding();
+		if (parent != null) {
+			final List<IArgumentValue<ArgumentType>> r = parent.getArguments(name, argumentType, firstOnly);
+			if (r.size() > 0) {
+				if (firstOnly) return r;
+				results.addAll(r);
 			}
 		}
 

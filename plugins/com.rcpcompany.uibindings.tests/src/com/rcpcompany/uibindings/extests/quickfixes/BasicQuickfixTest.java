@@ -113,19 +113,18 @@ public class BasicQuickfixTest {
 		final ValueBindingMessageImageDecorator decorator = myCountryVB
 				.getService(ValueBindingMessageImageDecorator.class);
 		assertNotNull(decorator);
-		final List<IQuickfixProposal> quickfixes = decorator.getQuickfixes();
-		assertNotNull(quickfixes);
+		assertNotNull(decorator.getQuickfixes());
 		assertTrue(myBoundText.setFocus());
 		yield();
 		assertEquals("", myBoundText.getText());
 
-		assertEquals(0, quickfixes.size());
+		assertEquals(0, decorator.getQuickfixes().size());
 
 		myBoundText.setText(myCountry.getAbbreviation().toLowerCase());
 
 		yield();
 		assertEquals(null, myContact.getCountry());
-		assertEquals(1, quickfixes.size());
+		assertEquals(1, decorator.getQuickfixes().size());
 
 		final IHandlerService bs = (IHandlerService) myTestView.getSite().getService(IHandlerService.class);
 		assertNotNull(bs);
@@ -138,7 +137,7 @@ public class BasicQuickfixTest {
 		yield();
 		assertEquals(myCountry.getAbbreviation(), myBoundText.getText());
 		assertEquals(myCountry, myContact.getCountry());
-		assertEquals(0, quickfixes.size());
+		assertEquals(0, decorator.getQuickfixes().size());
 	}
 
 	@Test
@@ -149,19 +148,18 @@ public class BasicQuickfixTest {
 		final ValueBindingMessageImageDecorator decorator = myCountryVB
 				.getService(ValueBindingMessageImageDecorator.class);
 		assertNotNull(decorator);
-		final List<IQuickfixProposal> quickfixes = decorator.getQuickfixes();
-		assertNotNull(quickfixes);
+		assertNotNull(decorator.getQuickfixes());
 		assertTrue(myBoundText.setFocus());
 		yield();
 		assertEquals("", myBoundText.getText());
 
-		assertEquals(0, quickfixes.size());
+		assertEquals(0, decorator.getQuickfixes().size());
 
 		myBoundText.setText(myCountry.getAbbreviation().toLowerCase());
 
 		yield();
 		assertEquals(null, myContact.getCountry());
-		assertEquals(1, quickfixes.size());
+		assertEquals(1, decorator.getQuickfixes().size());
 
 		final int noShells = myBoundText.getDisplay().getShells().length;
 
@@ -175,7 +173,7 @@ public class BasicQuickfixTest {
 
 		assertEquals(myCountry.getAbbreviation(), myBoundText.getText());
 		assertEquals(myCountry, myContact.getCountry());
-		assertEquals(0, quickfixes.size());
+		assertEquals(0, decorator.getQuickfixes().size());
 	}
 
 	@Test
@@ -185,19 +183,18 @@ public class BasicQuickfixTest {
 		final ValueBindingMessageImageDecorator decorator = myCountryVB
 				.getService(ValueBindingMessageImageDecorator.class);
 		assertNotNull(decorator);
-		final List<IQuickfixProposal> quickfixes = decorator.getQuickfixes();
-		assertNotNull(quickfixes);
+		assertNotNull(decorator.getQuickfixes());
 		assertTrue(myBoundText.setFocus());
 		yield();
 		assertEquals("", myBoundText.getText());
 
-		assertEquals(0, quickfixes.size());
+		assertEquals(0, decorator.getQuickfixes().size());
 
 		myBoundText.setText(myCountry.getAbbreviation());
 
 		yield();
 		assertEquals(myCountry, myContact.getCountry());
-		assertEquals(0, quickfixes.size());
+		assertEquals(0, decorator.getQuickfixes().size());
 
 		final IHandlerService bs = (IHandlerService) myTestView.getSite().getService(IHandlerService.class);
 		assertNotNull(bs);
@@ -210,7 +207,7 @@ public class BasicQuickfixTest {
 		yield();
 		assertEquals(myCountry.getAbbreviation(), myBoundText.getText());
 		assertEquals(myCountry, myContact.getCountry());
-		assertEquals(0, quickfixes.size());
+		assertEquals(0, decorator.getQuickfixes().size());
 	}
 
 	@Test

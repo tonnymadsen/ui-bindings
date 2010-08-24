@@ -915,6 +915,12 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		return getArgumentProviderArguments(results, name, getDecoratorProvider(), argumentType, firstOnly);
 	}
 
+	@Override
+	public IBinding getParentBinding() {
+		if (getCell() != null && getCell().getColumnBinding() != null) return getCell().getColumnBinding();
+		return super.getParentBinding();
+	}
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 

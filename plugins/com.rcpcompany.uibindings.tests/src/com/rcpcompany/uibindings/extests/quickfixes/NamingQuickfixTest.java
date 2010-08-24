@@ -104,49 +104,48 @@ public class NamingQuickfixTest {
 
 	@Test
 	public void testValue() {
-		final List<IQuickfixProposal> quickfixes = myMessageDecorator.getQuickfixes();
-		assertNotNull(quickfixes);
+		assertNotNull(myMessageDecorator.getQuickfixes());
 
-		assertEquals(0, quickfixes.size());
+		assertEquals(0, myMessageDecorator.getQuickfixes().size());
 
 		// No quickfixes
 		myText.setText("n");
 		sleep(VD + 200);
-		assertEquals(0, quickfixes.size());
+		assertEquals(0, myMessageDecorator.getQuickfixes().size());
 
 		// Case
 		myText.setText("no");
 		sleep(VD + 200);
-		assertEquals(1, quickfixes.size());
-		assertEquals("Change case", quickfixes.get(0).getLabel());
+		assertEquals(1, myMessageDecorator.getQuickfixes().size());
+		assertEquals("Change case", myMessageDecorator.getQuickfixes().get(0).getLabel());
 
 		// extra letter
 		myText.setText("NOt");
 		sleep(VD + 200);
-		assertEquals(1, quickfixes.size());
-		assertEquals("Remove extra letter", quickfixes.get(0).getLabel());
+		assertEquals(1, myMessageDecorator.getQuickfixes().size());
+		assertEquals("Remove extra letter", myMessageDecorator.getQuickfixes().get(0).getLabel());
 
 		// extra letter
 		myText.setText("NxO");
 		sleep(VD + 200);
-		assertEquals(1, quickfixes.size());
-		assertEquals("Remove extra letter", quickfixes.get(0).getLabel());
+		assertEquals(1, myMessageDecorator.getQuickfixes().size());
+		assertEquals("Remove extra letter", myMessageDecorator.getQuickfixes().get(0).getLabel());
 
 		// missing letter
 		myText.setText("O");
 		sleep(VD + 200);
-		assertEquals(1, quickfixes.size());
-		assertEquals("Add missing letter", quickfixes.get(0).getLabel());
+		assertEquals(1, myMessageDecorator.getQuickfixes().size());
+		assertEquals("Add missing letter", myMessageDecorator.getQuickfixes().get(0).getLabel());
 
 		// transposed
 		myText.setText("ON");
 		sleep(VD + 200);
-		assertEquals(1, quickfixes.size());
-		assertEquals("Transposed letters", quickfixes.get(0).getLabel());
+		assertEquals(1, myMessageDecorator.getQuickfixes().size());
+		assertEquals("Transposed letters", myMessageDecorator.getQuickfixes().get(0).getLabel());
 
 		// no quick fixes
 		myText.setText("NO");
 		sleep(VD + 200);
-		assertEquals(0, quickfixes.size());
+		assertEquals(0, myMessageDecorator.getQuickfixes().size());
 	}
 }

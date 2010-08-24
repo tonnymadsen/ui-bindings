@@ -75,6 +75,7 @@ public class BasicValueBindingTest {
 
 	@Before
 	public void setup() {
+		resetAll();
 		IManager.Factory.getManager().setTextCommitStrategy(myStrategy);
 		IManager.Factory.getManager().setTextCommitStrategyDelay(DELAY);
 		IManager.Factory.getManager().setEditCellSingleClick(false);
@@ -134,6 +135,7 @@ public class BasicValueBindingTest {
 				countries);
 
 		context.finish();
+		myView.getBody().layout();
 		yield();
 	}
 
@@ -154,13 +156,12 @@ public class BasicValueBindingTest {
 		assertNotNull(decorator);
 		final List<IBindingMessage> messages = decorator.getMessages();
 		assertNotNull(messages);
-		final List<IQuickfixProposal> quickfixes = decorator.getQuickfixes();
-		assertNotNull(quickfixes);
+		assertNotNull(decorator.getQuickfixes());
 		try {
 			myCountryText.setFocus();
 
 			assertEquals(0, messages.size());
-			assertEquals(0, quickfixes.size());
+			assertEquals(0, decorator.getQuickfixes().size());
 
 			myCountryText.setText("n");
 			yield();
@@ -169,7 +170,7 @@ public class BasicValueBindingTest {
 			assertEquals(oldCountry, contact.getCountry());
 
 			assertEquals(1, messages.size());
-			assertEquals(0, quickfixes.size());
+			assertEquals(0, decorator.getQuickfixes().size());
 
 			myCountryText.setText("no");
 			yield();
@@ -177,7 +178,7 @@ public class BasicValueBindingTest {
 			assertEquals(oldCountry, contact.getCountry());
 
 			assertEquals(1, messages.size());
-			assertEquals(1, quickfixes.size());
+			assertEquals(1, decorator.getQuickfixes().size());
 
 			myCountryText.setText("n");
 			yield();
@@ -185,7 +186,7 @@ public class BasicValueBindingTest {
 			assertEquals(oldCountry, contact.getCountry());
 
 			assertEquals(1, messages.size());
-			assertEquals(0, quickfixes.size());
+			assertEquals(0, decorator.getQuickfixes().size());
 
 			myCountryText.setText(myCountry1.getAbbreviation());
 			yield();
@@ -206,7 +207,7 @@ public class BasicValueBindingTest {
 			assertEquals(myCountry1.getAbbreviation(), contact.getCountry().getAbbreviation());
 
 			assertEquals(0, messages.size());
-			assertEquals(0, quickfixes.size());
+			assertEquals(0, decorator.getQuickfixes().size());
 		} finally {
 			contact.setCountry(oldCountry);
 		}
