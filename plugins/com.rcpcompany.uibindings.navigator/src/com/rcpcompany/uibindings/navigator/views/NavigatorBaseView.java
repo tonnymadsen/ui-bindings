@@ -23,9 +23,7 @@ import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
 import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.ISelectionService;
-import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.FilteredTree;
 import org.eclipse.ui.dialogs.PatternFilter;
 import org.eclipse.ui.part.ISetSelectionTarget;
@@ -205,8 +203,6 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 		@Override
 		public void fill(ToolBar parent, int index) {
 			myItem = new ToolItem(parent, SWT.CHECK, index);
-			final ISharedImages sharedImages = PlatformUI.getWorkbench().getSharedImages();
-			// images from IWorkbenchGraphicConstants
 			final ImageRegistry imageRegistry = Activator.getDefault().getImageRegistry();
 			if (imageRegistry.getDescriptor("LINKED") == null) {
 				imageRegistry.put("LINKED",

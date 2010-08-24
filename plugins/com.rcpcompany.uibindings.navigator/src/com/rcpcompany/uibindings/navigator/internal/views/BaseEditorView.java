@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.action.ContributionItem;
 import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.action.IToolBarManager;
+import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
@@ -29,6 +30,7 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ISetSelectionTarget;
 import org.eclipse.ui.part.ViewPart;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 import com.rcpcompany.uibindings.navigator.IEditorModelType;
 import com.rcpcompany.uibindings.navigator.IEditorPart;
@@ -131,6 +133,7 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 		final IToolBarManager toolbar = getViewSite().getActionBars().getToolBarManager();
 
 		toolbar.add(new PinEditorContributionItem());
+		toolbar.add(new CloneEditorContributionItem());
 		mySelectEditorPartFactoryContributionItem = new SelectEditorPartFactoryContributionItem();
 		toolbar.add(mySelectEditorPartFactoryContributionItem);
 	}
@@ -365,6 +368,35 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 		public void update() {
 			myItem.setEnabled(getCurrentObject() != null);
 			myItem.setSelection(isPinned());
+		}
+	}
+
+	/**
+	 * {@link IContributionItem} for "Clone Editor".
+	 */
+	public class CloneEditorContributionItem extends ContributionItem {
+		private ToolItem myItem;
+
+		@Override
+		public void fill(ToolBar parent, int index) {
+			myItem = new ToolItem(parent, SWT.PUSH, index);
+			final ISharedImages sharedImages = PlatformUI.getWorkbench().getSharedImages();
+			// images from IWorkbenchGraphicConstants
+			final ImageRegistry imageRegistry = Activator.getDefault().getImageRegistry();
+			if (imageRegistry.getDescriptor("CLONE") == null) {
+				imageRegistry.put("CLONE",
+						AbstractUIPlugin.imageDescriptorFromPlugin(Activator.ID, "images/clone_16x16.png"));
+			}
+			myItem.setImage(imageRegistry.get("CLONE"));
+
+			myItem.setToolTipText("Clone this editor");
+
+			myItem.addSelectionListener(new SelectionAdapter() {
+				@Override
+				public void widgetSelected(SelectionEvent e) {
+					INavigatorManager.Factory.getManager().openView(getCurrentObject(), true);
+				}
+			});
 		}
 	}
 
