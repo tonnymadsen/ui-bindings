@@ -500,6 +500,10 @@ public class FormCreator implements IFormCreator {
 			style |= SWT.READ_ONLY;
 		}
 
+		if (description.binding.getArgument(Constants.ARG_PASSWORD, Boolean.class, false)) {
+			style |= SWT.PASSWORD;
+		}
+
 		/*
 		 * Create the real control/controls
 		 */

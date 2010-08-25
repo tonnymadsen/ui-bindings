@@ -184,6 +184,14 @@ public interface Constants {
 	String ARG_READONLY = "readonly"; //$NON-NLS-1$
 
 	/**
+	 * Argument name for a binding should bahave like a password field.
+	 * <p>
+	 * The argument value is either {@link Boolean#TRUE} or {@link Boolean#FALSE}. The default is
+	 * <code>false</code>.
+	 */
+	String ARG_PASSWORD = "password";
+
+	/**
 	 * Argument name for the tool tip text of a control.
 	 * <p>
 	 * The argument value is a {@link String}.

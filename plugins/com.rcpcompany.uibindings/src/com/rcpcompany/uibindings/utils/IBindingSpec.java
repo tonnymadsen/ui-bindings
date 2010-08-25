@@ -166,6 +166,12 @@ public interface IBindingSpec {
 	String MULTI = "multi";
 
 	/**
+	 * The argument name for password fields. The value has type {@link String} with the possible
+	 * values "false", and "true".
+	 */
+	String PASSWORD = Constants.ARG_PASSWORD;
+
+	/**
 	 * The argument name for message collecting binding. The value has type {@link String} with the
 	 * possible values "false", and "true".
 	 */

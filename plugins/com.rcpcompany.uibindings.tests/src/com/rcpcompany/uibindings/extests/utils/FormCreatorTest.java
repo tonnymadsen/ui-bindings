@@ -383,6 +383,27 @@ public class FormCreatorTest {
 	}
 
 	/**
+	 * Tests the creation of password field via specs
+	 */
+	@Test
+	public void testSpecPASSWORD() {
+		assertNoLog(new Runnable() {
+			@Override
+			public void run() {
+				myContext = IBindingContext.Factory.createContext(myBody);
+				myForm = IFormCreator.Factory.createForm(myContext, myContact, myToolkit, myBody);
+
+				myField1 = myForm.addField("name(password=true)");
+
+				myForm.finish();
+			}
+		});
+
+		final int style = myField1.getControl().getStyle();
+		assertTrue((style & SWT.PASSWORD) == SWT.PASSWORD);
+	}
+
+	/**
 	 * Tests the creation of center aligned field via specs
 	 */
 	@Test

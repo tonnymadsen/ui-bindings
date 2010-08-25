@@ -47,32 +47,32 @@ public final class BindingSpecFactory {
 	/**
 	 * The aliases: alias -&gt; canonical version.
 	 */
-	protected static final Map<String, String> ALIASES = new HashMap<String, String>();
+	private static final Map<String, String> ALIASES = new HashMap<String, String>();
 
 	/**
-	 * The types of all all defined arguments
+	 * The types of all all defined arguments.
 	 */
-	protected static final Map<String, Class<?>> ARGUMENT_TYPES = new HashMap<String, Class<?>>();
+	private static final Map<String, Class<?>> ARGUMENT_TYPES = new HashMap<String, Class<?>>();
 
 	/**
 	 * List of the arguments that supports a unit.
 	 */
-	protected static final Map<String, Boolean> ARGUMENTS_WITH_UNITS = new HashMap<String, Boolean>();
+	private static final Map<String, Boolean> ARGUMENTS_WITH_UNITS = new HashMap<String, Boolean>();
 
 	/**
 	 * The display used for unit conversions.
 	 */
-	protected static final Display DISPLAY;
+	private static final Display DISPLAY;
 
 	/**
 	 * The font metrics used for the default font. Used for unit conversions.
 	 */
-	protected static FontMetrics theFontMetrics;
+	private static FontMetrics theFontMetrics;
 
 	/**
 	 * The current font height used for unit conversions.
 	 */
-	protected static float theFontHeight;
+	private static float theFontHeight;
 
 	static {
 		ALIASES.put(IBindingSpec.WIDTH, Constants.ARG_WIDTH);
@@ -92,6 +92,7 @@ public final class BindingSpecFactory {
 		ARGUMENT_TYPES.put(IBindingSpec.COLLECT_MESSAGES, Boolean.class);
 
 		ARGUMENT_TYPES.put(Constants.ARG_READONLY, Boolean.class);
+		ARGUMENT_TYPES.put(Constants.ARG_PASSWORD, Boolean.class);
 		ARGUMENT_TYPES.put(Constants.ARG_TOOL_TIP_TEXT, String.class);
 		ARGUMENT_TYPES.put(Constants.ARG_LABEL, String.class);
 		ARGUMENT_TYPES.put(Constants.ARG_TYPE, String.class);
@@ -108,7 +109,7 @@ public final class BindingSpecFactory {
 	}
 
 	/**
-	 * All calculated specs so far
+	 * All calculated specs so far.
 	 */
 	protected static final Map<EClass, Map<String, List<IBindingSpec>>> CALCULATED_SPECS = new HashMap<EClass, Map<String, List<IBindingSpec>>>();
 
