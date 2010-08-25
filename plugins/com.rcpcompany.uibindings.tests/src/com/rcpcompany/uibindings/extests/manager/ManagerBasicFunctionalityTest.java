@@ -129,7 +129,7 @@ public class ManagerBasicFunctionalityTest {
 	public void testGetModelClassInfo() {
 		IModelClassInfo ci = m.getModelClassInfo(Contact.class.getName(), null, false);
 		assertNotNull(ci);
-		final Object object = ci.getDeclaredArguments().get("hello");
+		final Object object = ci.getArguments().get("hello");
 		assertTrue(object instanceof IConfigurationElement);
 		assertEquals("olleh", ((IConfigurationElement) object).getAttribute(InternalConstants.VALUE_TAG));
 
@@ -141,7 +141,7 @@ public class ManagerBasicFunctionalityTest {
 	public void testGetModelClassInfoWithType() {
 		IModelClassInfo ci = m.getModelClassInfo(Contact.class.getName(), "subtype", false);
 		assertNotNull(ci);
-		final Object object = ci.getDeclaredArguments().get("hello");
+		final Object object = ci.getArguments().get("hello");
 		assertTrue(object instanceof IConfigurationElement);
 		assertEquals("ollehsub", ((IConfigurationElement) object).getAttribute(InternalConstants.VALUE_TAG));
 
@@ -154,7 +154,7 @@ public class ManagerBasicFunctionalityTest {
 		IModelFeatureInfo ci = m.getModelFeatureInfo(Contact.class.getName(),
 				ShopPackage.Literals.CONTACT__CITY.getName(), null, false);
 		assertNotNull(ci);
-		final Object object = ci.getDeclaredArguments().get("foo");
+		final Object object = ci.getArguments().get("foo");
 		assertTrue(object instanceof IConfigurationElement);
 		assertEquals("bar", ((IConfigurationElement) object).getAttribute(InternalConstants.VALUE_TAG));
 
@@ -168,7 +168,7 @@ public class ManagerBasicFunctionalityTest {
 		IModelFeatureInfo ci = m.getModelFeatureInfo(Contact.class.getName(),
 				ShopPackage.Literals.CONTACT__CITY.getName(), "subtype", false);
 		assertNotNull(ci);
-		final Object object = ci.getDeclaredArguments().get("foo");
+		final Object object = ci.getArguments().get("foo");
 		assertTrue(object instanceof IConfigurationElement);
 		assertEquals("barsub", ((IConfigurationElement) object).getAttribute(InternalConstants.VALUE_TAG));
 
