@@ -402,7 +402,11 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 
 	@Override
 	public void finish3() {
-		getViewer().setInput(getList());
+		if (getViewer() instanceof TreeViewer) {
+			getViewer().setInput(ViewerBindingTreeFactory.ROOT_ELEMENT);
+		} else {
+			getViewer().setInput(getList());
+		}
 
 		getElements().addSetChangeListener(myElementsListener);
 		myElementsListener.handleSetChange(null);

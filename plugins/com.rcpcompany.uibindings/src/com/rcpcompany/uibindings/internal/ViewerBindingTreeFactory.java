@@ -11,6 +11,7 @@ import org.eclipse.core.databinding.observable.masterdetail.IObservableFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.databinding.viewers.ObservableListTreeContentProvider;
 import org.eclipse.jface.databinding.viewers.TreeStructureAdvisor;
+import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Tree;
 
 import com.rcpcompany.uibindings.IConstantTreeItem;
@@ -34,6 +35,16 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 	 * Shortcut to the manager...
 	 */
 	protected static final IManager MANAGER = IManager.Factory.getManager();
+
+	/**
+	 * The root element as specified for {@link TreeViewer#setInput(Object)}.
+	 */
+	public static final Object ROOT_ELEMENT = new Object() {
+		@Override
+		public String toString() {
+			return "ROOT";
+		};
+	};
 
 	/**
 	 * Map with all results returned by this factory.
@@ -62,7 +73,7 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 		/*
 		 * The root items
 		 */
-		if (target == myRootList) return myRootList;
+		if (target == ROOT_ELEMENT) return myRootList;
 
 		/*
 		 * Look for any cached results
@@ -129,6 +140,7 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 		 * The root elements from the tree
 		 */
 		if (child == myRootList) return null;
+		if (child == ROOT_ELEMENT) return null;
 
 		final EObject echild;
 		final ITreeItemDescriptor childDescriptor;
