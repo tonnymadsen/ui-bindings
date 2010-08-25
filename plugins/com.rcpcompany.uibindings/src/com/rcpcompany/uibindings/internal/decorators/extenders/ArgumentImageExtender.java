@@ -19,7 +19,6 @@ public class ArgumentImageExtender extends AbstractUIBindingDecoratorExtender {
 
 	@Override
 	public boolean isEnabled(IValueBinding binding) {
-		// TODO: if show image
 		if (binding.getParentBinding() != null && !binding.getArgument(Constants.ARG_SHOW_IMAGE, Boolean.class, false))
 			return false;
 		final ImageDescriptor id = binding.getArgument(Constants.ARG_IMAGE, ImageDescriptor.class, null);

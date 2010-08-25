@@ -5,7 +5,6 @@
  */
 package com.rcpcompany.uibindings.internal;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -71,19 +70,14 @@ public class ConstantTreeItemImpl extends EObjectImpl implements IConstantTreeIt
 		return IUIBindingsPackage.Literals.CONSTANT_TREE_ITEM;
 	}
 
-	private Map<String, Object> myDeclaredArguments = null;
-
 	@Override
 	public Map<String, Object> getDeclaredArguments() {
-		if (myDeclaredArguments == null) {
-			myDeclaredArguments = new HashMap<String, Object>();
-		}
-		return myDeclaredArguments;
+		return getDescriptor().getDeclaredArguments();
 	}
 
 	@Override
 	public boolean hasDeclaredArguments() {
-		return myDeclaredArguments != null;
+		return getDescriptor().hasDeclaredArguments();
 	}
 
 	/**
