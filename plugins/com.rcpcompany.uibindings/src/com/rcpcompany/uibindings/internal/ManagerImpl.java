@@ -1133,7 +1133,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			for (final String name : Constants.EXT_POINT_ATTRIBUTE_NAMES) {
 				final String value = childCE.getAttribute(name);
 				if (value != null && value.length() > 0) {
-					provider.getDeclaredArguments().put(name, childCE);
+					provider.getArguments().put(name, childCE);
 				}
 			}
 		}
@@ -1143,7 +1143,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 				LogUtils.error(childCE, "Argument name must be specified. Ignored"); //$NON-NLS-1$
 				continue;
 			}
-			provider.getDeclaredArguments().put(name, childCE);
+			provider.getArguments().put(name, childCE);
 		}
 	}
 

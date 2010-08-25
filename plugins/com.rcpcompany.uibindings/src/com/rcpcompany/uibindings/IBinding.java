@@ -294,21 +294,6 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	Throwable getCreationPoint();
 
 	/**
-	 * Returns a map with all binding specific arguments added with
-	 * {@link IBinding#arg(String, Object)}.
-	 * 
-	 * @return the map
-	 */
-	Map<String, Object> getArguments();
-
-	/**
-	 * Returns whether {@link #getArguments()} returns any map.
-	 * 
-	 * @return <code>true</code> if it does
-	 */
-	boolean hasArguments();
-
-	/**
 	 * Returns the parent binding of this binding. E.g. the {@link IValueBinding} for cells of a
 	 * table or grid has the column or grid as the parent.
 	 * 

@@ -901,7 +901,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			/*
 			 * Optimalization: not many extenders will have arguments
 			 */
-			if (!d.hasDeclaredArguments()) {
+			if (!d.hasArguments()) {
 				continue;
 			}
 			final CEObjectHolder<IUIBindingDecoratorExtender> factory = d.getFactory();

@@ -28,12 +28,12 @@ public interface IArgumentProvider {
 	 * 
 	 * @return the map
 	 */
-	Map<String, Object> getDeclaredArguments();
+	Map<String, Object> getArguments();
 
 	/**
 	 * Returns whether this argument provider has any declared arguments.
 	 * 
 	 * @return <code>true</code> if arguments are declared.
 	 */
-	boolean hasDeclaredArguments();
+	boolean hasArguments();
 } // IArgumentProvider

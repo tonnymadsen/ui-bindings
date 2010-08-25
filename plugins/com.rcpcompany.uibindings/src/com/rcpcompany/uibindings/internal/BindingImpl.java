@@ -363,21 +363,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		return IUIBindingsPackage.Literals.BINDING;
 	}
 
-	private Map<String, Object> myDeclaredArguments = null;
-
-	@Override
-	public Map<String, Object> getDeclaredArguments() {
-		if (myDeclaredArguments == null) {
-			myDeclaredArguments = new HashMap<String, Object>();
-		}
-		return myDeclaredArguments;
-	}
-
-	@Override
-	public boolean hasDeclaredArguments() {
-		return myDeclaredArguments != null;
-	}
-
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -749,8 +734,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	public <ArgumentType> boolean getArgumentProviderArguments(List<IArgumentValue<ArgumentType>> results, String name,
 			IArgumentProvider provider, Class<? extends ArgumentType> argumentType, boolean firstOnly) {
 		if (provider == null) return false;
-		if (!provider.hasDeclaredArguments()) return false;
-		final Object val = provider.getDeclaredArguments().get(name);
+		if (!provider.hasArguments()) return false;
+		final Object val = provider.getArguments().get(name);
 		if (val == null) return false;
 
 		final ArgumentType s;

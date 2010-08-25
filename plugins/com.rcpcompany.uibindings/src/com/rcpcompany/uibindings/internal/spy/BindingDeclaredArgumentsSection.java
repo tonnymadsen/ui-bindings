@@ -19,11 +19,11 @@ public class BindingDeclaredArgumentsSection implements IBindingSpySection {
 	public void build(IFormCreator creator, ExecutionEvent event) {
 		final IBinding b = (IBinding) creator.getObject();
 
-		if (!b.hasDeclaredArguments()) return;
+		if (!b.hasArguments()) return;
 
 		final IFormCreator subform = creator.addSection("Declared Arguments");
 
-		for (final Entry<String, Object> e : b.getDeclaredArguments().entrySet()) {
+		for (final Entry<String, Object> e : b.getArguments().entrySet()) {
 			subform.addConstantField(e.getKey() + ":", e.getValue(), SWT.NONE);
 		}
 	}

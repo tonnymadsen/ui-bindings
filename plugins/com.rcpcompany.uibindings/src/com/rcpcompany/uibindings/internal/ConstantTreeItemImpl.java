@@ -71,13 +71,13 @@ public class ConstantTreeItemImpl extends EObjectImpl implements IConstantTreeIt
 	}
 
 	@Override
-	public Map<String, Object> getDeclaredArguments() {
-		return getDescriptor().getDeclaredArguments();
+	public Map<String, Object> getArguments() {
+		return getDescriptor().getArguments();
 	}
 
 	@Override
-	public boolean hasDeclaredArguments() {
-		return getDescriptor().hasDeclaredArguments();
+	public boolean hasArguments() {
+		return getDescriptor().hasArguments();
 	}
 
 	/**

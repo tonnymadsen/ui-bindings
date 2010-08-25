@@ -290,7 +290,7 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	private Map<String, Object> myDeclaredArguments = null;
 
 	@Override
-	public Map<String, Object> getDeclaredArguments() {
+	public Map<String, Object> getArguments() {
 		if (myDeclaredArguments == null) {
 			myDeclaredArguments = new HashMap<String, Object>();
 		}
@@ -298,7 +298,7 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	}
 
 	@Override
-	public boolean hasDeclaredArguments() {
+	public boolean hasArguments() {
 		return myDeclaredArguments != null;
 	}
 

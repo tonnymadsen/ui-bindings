@@ -45,7 +45,7 @@ public class ModelInfoImpl extends EObjectImpl implements IModelInfo {
 	private Map<String, Object> myDeclaredArguments = null;
 
 	@Override
-	public Map<String, Object> getDeclaredArguments() {
+	public Map<String, Object> getArguments() {
 		if (myDeclaredArguments == null) {
 			myDeclaredArguments = new HashMap<String, Object>();
 		}
@@ -53,7 +53,7 @@ public class ModelInfoImpl extends EObjectImpl implements IModelInfo {
 	}
 
 	@Override
-	public boolean hasDeclaredArguments() {
+	public boolean hasArguments() {
 		return myDeclaredArguments != null;
 	}
 

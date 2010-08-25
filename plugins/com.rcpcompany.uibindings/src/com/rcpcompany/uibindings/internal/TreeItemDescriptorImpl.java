@@ -193,7 +193,7 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	private Map<String, Object> myDeclaredArguments = null;
 
 	@Override
-	public Map<String, Object> getDeclaredArguments() {
+	public Map<String, Object> getArguments() {
 		if (myDeclaredArguments == null) {
 			myDeclaredArguments = new HashMap<String, Object>();
 		}
@@ -201,7 +201,7 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	}
 
 	@Override
-	public boolean hasDeclaredArguments() {
+	public boolean hasArguments() {
 		return myDeclaredArguments != null;
 	}
 

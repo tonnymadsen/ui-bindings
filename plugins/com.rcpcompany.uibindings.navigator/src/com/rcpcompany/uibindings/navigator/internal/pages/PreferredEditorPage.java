@@ -58,7 +58,7 @@ public class PreferredEditorPage extends FieldEditorPreferencePage implements IW
 			String name = ToStringUtils.formatHumanReadable(mt.getModelType());
 			final IModelClassInfo info = uim.getModelClassInfo(mt.getModelType(), null, false);
 			if (info != null) {
-				final Object l = info.getDeclaredArguments().get(Constants.ARG_LABEL);
+				final Object l = info.getArguments().get(Constants.ARG_LABEL);
 				if (l != null && l instanceof String) {
 					name = (String) l;
 				}
