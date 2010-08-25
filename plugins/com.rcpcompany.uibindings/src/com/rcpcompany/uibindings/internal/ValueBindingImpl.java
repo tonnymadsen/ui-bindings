@@ -506,7 +506,19 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			return;
 		}
 
-		getDecorator().init(this);
+		/*
+		 * Initialize the decorator. If anything goes wrong, reset to null..
+		 */
+		try {
+			getDecorator().init(this);
+		} catch (final RuntimeException ex) {
+			setDecorator(null);
+			return;
+		} catch (final Exception ex) {
+			setDecorator(null);
+			LogUtils.error(this, ex);
+			return;
+		}
 		getDecorator().decorate();
 	}
 

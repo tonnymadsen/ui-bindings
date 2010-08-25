@@ -107,6 +107,15 @@ public interface Constants {
 	String ARG_IMAGE = "image"; //$NON-NLS-1$
 
 	/**
+	 * Argument name for whether to show an image for a binding with an parent binding.
+	 * <p>
+	 * E.g. for cells in viewers and grids.
+	 * <p>
+	 * The argument value is {@link Boolean}. The default is <code>false</code>.
+	 */
+	String ARG_SHOW_IMAGE = "showImage";
+
+	/**
 	 * Argument name for when a "new" value is allowed. Depends on the actual type of the value.
 	 * <ul>
 	 * <li>for a reference, whether new values are allowed apart from the current set</li>

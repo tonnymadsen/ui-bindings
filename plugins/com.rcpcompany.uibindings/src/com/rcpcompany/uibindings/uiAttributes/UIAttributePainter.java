@@ -352,13 +352,7 @@ public class UIAttributePainter {
 	 */
 	public Image getDisplayImage() {
 		if (myInternalValues) return myInternalImage;
-		final IObservableValue displayValue = getAttribute().getImageValue();
-		if (displayValue == null) return null;
-
-		final Object value = displayValue.getValue();
-		if (value == null) return null;
-		if (!(value instanceof Image)) return null;
-		return (Image) value;
+		return getAttribute().getImage();
 	}
 
 	/**

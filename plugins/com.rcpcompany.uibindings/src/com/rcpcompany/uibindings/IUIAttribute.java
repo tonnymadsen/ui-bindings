@@ -11,6 +11,7 @@ import org.eclipse.swt.custom.StyleRange;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
@@ -106,6 +107,13 @@ public interface IUIAttribute extends EObject, IDisposable {
 	 * @generated
 	 */
 	Widget getWidget();
+
+	/**
+	 * Returns whether this attribute has been disposed.
+	 * 
+	 * @return <code>true</code> if disposed
+	 */
+	boolean isDisposed();
 
 	/**
 	 * Returns the value of the '<em><b>Attribute</b></em>' attribute. The default value is
@@ -210,6 +218,13 @@ public interface IUIAttribute extends EObject, IDisposable {
 	IObservableValue getTooltipValue();
 
 	/**
+	 * Returns the current value of {@link #getTooltipValue()} if set.
+	 * 
+	 * @return the string or <code>null</code>
+	 */
+	String getTooltip();
+
+	/**
 	 * Returns the value of the '<em><b>Font Value</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
 	 * Returns an optional observable value that designates the font of the widget if set.
@@ -244,6 +259,13 @@ public interface IUIAttribute extends EObject, IDisposable {
 	 * @generated
 	 */
 	IObservableValue getImageValue();
+
+	/**
+	 * Returns the current value of {@link #getImageValue()} if set.
+	 * 
+	 * @return the image or <code>null</code>
+	 */
+	Image getImage();
 
 	/**
 	 * Returns the value of the '<em><b>Foreground Value</b></em>' attribute. <!-- begin-user-doc

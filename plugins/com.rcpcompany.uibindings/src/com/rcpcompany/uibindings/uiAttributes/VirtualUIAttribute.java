@@ -9,6 +9,7 @@ import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.list.WritableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.WritableValue;
+import org.eclipse.core.runtime.Assert;
 import org.eclipse.swt.custom.StyleRange;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Cursor;
@@ -41,6 +42,13 @@ public class VirtualUIAttribute extends AbstractUIAttribute {
 	private IObservableValue myMaxValue;
 	private IObservableList myStyleRangeList;
 
+//	private final IDisposeListener myDisposeListener = new IDisposeListener() {
+//		@Override
+//		public void handleDispose(DisposeEvent event) {
+//			LogUtils.debug(event.getSource(), "disposed");
+//		}
+//	};
+
 	/**
 	 * Constructs and returns a new UI Attribute.
 	 * 
@@ -52,12 +60,14 @@ public class VirtualUIAttribute extends AbstractUIAttribute {
 
 	@Override
 	public Widget getWidget() {
+		Assert.isTrue(!isDisposed());
 		return null;
 	}
 
 	@Override
 	public final void dispose() {
 		for (final IObservable v : myObservables) {
+//			v.removeDisposeListener(myDisposeListener);
 			v.dispose();
 			if (myListeners != null) {
 				for (final IChangeListener myListener : myListeners) {
@@ -126,8 +136,15 @@ public class VirtualUIAttribute extends AbstractUIAttribute {
 		}
 	};
 
+	/**
+	 * Adds a new observable to the list of observables managed by this attribute.
+	 * 
+	 * @param observable the new observable
+	 * @return the observable
+	 */
 	protected final IObservableValue addObservable(IObservableValue observable) {
 		myObservables.add(observable);
+//		observable.addDisposeListener(myDisposeListener);
 		if (myListeners != null) {
 			for (final IChangeListener myListener : myListeners) {
 				if (myListener != null) {
@@ -138,6 +155,12 @@ public class VirtualUIAttribute extends AbstractUIAttribute {
 		return observable;
 	}
 
+	/**
+	 * Adds a new observable to the list of observables managed by this attribute.
+	 * 
+	 * @param observable the new observable
+	 * @return the observable
+	 */
 	protected final IObservableList addObservable(IObservableList observable) {
 		myObservables.add(observable);
 		if (myListeners != null) {
@@ -152,116 +175,166 @@ public class VirtualUIAttribute extends AbstractUIAttribute {
 
 	@Override
 	public final IObservableValue getCurrentValue() {
+		Assert.isTrue(!isDisposed());
 		return myValue;
 	}
 
 	@Override
 	public IObservableValue getTooltipValue() {
+		Assert.isTrue(!isDisposed());
 		if (myTooltipValue == null) {
 			myTooltipValue = addObservable(WritableValue.withValueType(String.class));
 		}
+		Assert.isTrue(!myTooltipValue.isDisposed());
 		return myTooltipValue;
 	}
 
 	@Override
+	public String getTooltip() {
+		Assert.isTrue(!isDisposed());
+		if (myTooltipValue == null) return null;
+		Assert.isTrue(!myTooltipValue.isDisposed());
+		return (String) myTooltipValue.getValue();
+	}
+
+	@Override
 	public IObservableValue getFontValue() {
+		Assert.isTrue(!isDisposed());
 		if (myFontValue == null) {
 			myFontValue = addObservable(WritableValue.withValueType(Font.class));
 		}
+		Assert.isTrue(!myFontValue.isDisposed());
 		return myFontValue;
 	}
 
 	@Override
+	public Font getFont() {
+		Assert.isTrue(!isDisposed());
+		if (myFontValue == null) return null;
+		Assert.isTrue(!myFontValue.isDisposed());
+		return (Font) myFontValue.getValue();
+	}
+
+	@Override
 	public IObservableValue getCursorValue() {
+		Assert.isTrue(!isDisposed());
 		if (myCursorValue == null) {
 			myCursorValue = addObservable(WritableValue.withValueType(Cursor.class));
 		}
+		Assert.isTrue(!myCursorValue.isDisposed());
 		return myCursorValue;
 	}
 
 	@Override
 	public Cursor getCursor() {
+		Assert.isTrue(!isDisposed());
 		if (myCursorValue == null) return null;
 		return (Cursor) myCursorValue.getValue();
 	}
 
 	@Override
 	public IObservableValue getImageValue() {
+		Assert.isTrue(!isDisposed());
 		if (myImageValue == null) {
 			myImageValue = addObservable(WritableValue.withValueType(Image.class));
 		}
+		Assert.isTrue(!myImageValue.isDisposed());
 		return myImageValue;
 	}
 
 	@Override
+	public Image getImage() {
+		Assert.isTrue(!isDisposed());
+		if (myImageValue == null) return null;
+		Assert.isTrue(!myImageValue.isDisposed());
+		return (Image) myImageValue.getValue();
+	}
+
+	@Override
 	public IObservableValue getForegroundValue() {
+		Assert.isTrue(!isDisposed());
 		if (myForegroundValue == null) {
 			myForegroundValue = addObservable(WritableValue.withValueType(Color.class));
 		}
+		Assert.isTrue(!myForegroundValue.isDisposed());
 		return myForegroundValue;
 	}
 
 	@Override
 	public Color getForeground() {
+		Assert.isTrue(!isDisposed());
 		if (myForegroundValue == null) return null;
 		return (Color) myForegroundValue.getValue();
 	}
 
 	@Override
 	public IObservableValue getBackgroundValue() {
+		Assert.isTrue(!isDisposed());
 		if (myBackgroundValue == null) {
 			myBackgroundValue = addObservable(WritableValue.withValueType(Color.class));
 		}
+		Assert.isTrue(!myBackgroundValue.isDisposed());
 		return myBackgroundValue;
 	}
 
 	@Override
 	public Color getBackground() {
+		Assert.isTrue(!isDisposed());
 		if (myBackgroundValue == null) return null;
 		return (Color) myBackgroundValue.getValue();
 	}
 
 	@Override
 	public IObservableValue getEnabledValue() {
+		Assert.isTrue(!isDisposed());
 		if (myEnabledValue == null) {
 			myEnabledValue = addObservable(WritableValue.withValueType(Boolean.TYPE));
 		}
+		Assert.isTrue(!myEnabledValue.isDisposed());
 		return myEnabledValue;
 	}
 
 	@Override
 	public Boolean isEnabled() {
+		Assert.isTrue(!isDisposed());
 		if (myEnabledValue == null) return null;
 		return (Boolean) myEnabledValue.getValue();
 	}
 
 	@Override
 	public IObservableValue getMinValue() {
+		Assert.isTrue(!isDisposed());
 		if (myMinValue == null) {
 			myMinValue = addObservable(WritableValue.withValueType(Integer.TYPE));
 		}
+		Assert.isTrue(!myMinValue.isDisposed());
 		return myMinValue;
 	}
 
 	@Override
 	public IObservableValue getMaxValue() {
+		Assert.isTrue(!isDisposed());
 		if (myMaxValue == null) {
 			myMaxValue = addObservable(WritableValue.withValueType(Integer.TYPE));
 		}
+		Assert.isTrue(!myMaxValue.isDisposed());
 		return myMaxValue;
 	}
 
 	@Override
 	public IObservableList getStyleRangeList() {
+		Assert.isTrue(!isDisposed());
 		if (myStyleRangeList == null) {
 			myStyleRangeList = addObservable(WritableList.withElementType(StyleRange.class));
 		}
+		Assert.isTrue(!myStyleRangeList.isDisposed());
 		return myStyleRangeList;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<StyleRange> getStyleRanges() {
+		Assert.isTrue(!isDisposed());
 		if (myStyleRangeList == null) return null;
 		return myStyleRangeList;
 	}

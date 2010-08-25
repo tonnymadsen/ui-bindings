@@ -1129,11 +1129,11 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 		final Object modelType = v.getValueType();
 
 		final String text = (String) attr.getCurrentValue().getValue();
-		final Color foreground = (Color) attr.getForegroundValue().getValue();
-		final Color background = (Color) attr.getBackgroundValue().getValue();
-		final Image image = (Image) attr.getImageValue().getValue();
-		final Font font = (Font) attr.getFontValue().getValue();
-		final String tooltip = (String) attr.getTooltipValue().getValue();
+		final Color foreground = attr.getForeground();
+		final Color background = attr.getBackground();
+		final Image image = attr.getImage();
+		final Font font = attr.getFont();
+		final String tooltip = attr.getTooltip();
 		// TODO: the rest: cursor, enabled, style range
 		if (gridItem == null) {
 			/*

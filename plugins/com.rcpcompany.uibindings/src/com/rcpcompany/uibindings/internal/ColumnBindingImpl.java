@@ -615,9 +615,9 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			 * Map all changes to the label attribute to the cell.
 			 */
 			final IUIAttribute labelAttribute = ci.getLabelUIAttribute();
-			IObservableValue value = labelAttribute.getTooltipValue();
-			if (value != null && value.getValue() != null) {
-				ci.setToolTipText((String) value.getValue());
+			final String tt = labelAttribute.getTooltip();
+			if (tt != null) {
+				ci.setToolTipText(tt);
 			}
 
 			final UIAttributePainter painter = ci.getLabelPainter();
@@ -632,9 +632,9 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 				}
 			}
 
-			value = labelAttribute.getCursorValue();
-			if (value != null) {
-				setCursor((Cursor) value.getValue());
+			final Cursor c = labelAttribute.getCursor();
+			if (c != null) {
+				setCursor(c);
 			}
 
 			/*
@@ -645,7 +645,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 
 			// For testing
 			cell.setText((String) ci.getLabelUIAttribute().getCurrentValue().getValue());
-			cell.setImage((Image) ci.getLabelUIAttribute().getImageValue().getValue());
+			cell.setImage(ci.getLabelUIAttribute().getImage());
 		}
 
 		/**

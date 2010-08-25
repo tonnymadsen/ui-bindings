@@ -279,6 +279,12 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 		for (final IUIAttributeImageDecoration id : getImageDecorations()) {
 			id.dispose();
 		}
+		setAttribute(ATTRIBUTE_EDEFAULT);
+	}
+
+	@Override
+	public boolean isDisposed() {
+		return getAttribute() == null;
 	}
 
 	/**

@@ -9,6 +9,7 @@ import org.eclipse.swt.custom.StyleRange;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Widget;
 
 import com.rcpcompany.uibindings.IUIAttribute;
@@ -27,11 +28,23 @@ public abstract class AbstractUIAttribute extends UIAttributeImpl {
 	public abstract Widget getWidget();
 
 	@Override
+	public IObservableValue getImageValue() {
+		return null;
+	}
+
+	@Override
+	public Image getImage() {
+		final IObservableValue value = getImageValue();
+		if (value == null) return null;
+		return (Image) value.getValue();
+	}
+
+	@Override
 	public abstract IObservableValue getCurrentValue();
 
 	@Override
 	public Cursor getCursor() {
-		final IObservableValue value = getFontValue();
+		final IObservableValue value = getCursorValue();
 		if (value == null) return null;
 		return (Cursor) value.getValue();
 	}
@@ -66,6 +79,13 @@ public abstract class AbstractUIAttribute extends UIAttributeImpl {
 	@Override
 	public IObservableValue getTooltipValue() {
 		return null;
+	}
+
+	@Override
+	public String getTooltip() {
+		final IObservableValue value = getTooltipValue();
+		if (value == null) return null;
+		return (String) value.getValue();
 	}
 
 	@Override
