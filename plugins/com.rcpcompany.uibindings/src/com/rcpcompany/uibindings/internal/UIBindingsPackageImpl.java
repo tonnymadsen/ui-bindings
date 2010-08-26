@@ -75,6 +75,7 @@ import com.rcpcompany.uibindings.IEMFObservableFactory;
 import com.rcpcompany.uibindings.IEMFObservableFactoryDescriptor;
 import com.rcpcompany.uibindings.IEnumDecoratorProvider;
 import com.rcpcompany.uibindings.IEnumDecoratorProviderEntry;
+import com.rcpcompany.uibindings.IFormatterProvider;
 import com.rcpcompany.uibindings.IJavaDecoratorProvider;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IModelArgumentMediator;
@@ -540,6 +541,13 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	private EDataType ceResourceHolderEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EDataType iFormatterProviderEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1147,6 +1155,16 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	@Override
 	public EReference getManager_Contexts() {
 		return (EReference) managerEClass.getEStructuralFeatures().get(28);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getManager_FormatterProvider() {
+		return (EAttribute) managerEClass.getEStructuralFeatures().get(29);
 	}
 
 	/**
@@ -3695,6 +3713,16 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
+	public EDataType getIFormatterProvider() {
+		return iFormatterProviderEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EDataType getDBContext() {
 		return dbContextEDataType;
 	}
@@ -4109,6 +4137,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		createEReference(managerEClass, MANAGER__OBSERVABLE_FACTORIES);
 		createEReference(managerEClass, MANAGER__QUICKFIX_PROPOSAL_PROCESSORS);
 		createEReference(managerEClass, MANAGER__CONTEXTS);
+		createEAttribute(managerEClass, MANAGER__FORMATTER_PROVIDER);
 
 		bindingContextEClass = createEClass(BINDING_CONTEXT);
 		createEReference(bindingContextEClass, BINDING_CONTEXT__BINDINGS);
@@ -4416,6 +4445,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		iemfObservableFactoryEDataType = createEDataType(IEMF_OBSERVABLE_FACTORY);
 		ceObjectHolderEDataType = createEDataType(CE_OBJECT_HOLDER);
 		ceResourceHolderEDataType = createEDataType(CE_RESOURCE_HOLDER);
+		iFormatterProviderEDataType = createEDataType(IFORMATTER_PROVIDER);
 		dbContextEDataType = createEDataType(DB_CONTEXT);
 		dbBindingEDataType = createEDataType(DB_BINDING);
 		columnViewerEDataType = createEDataType(COLUMN_VIEWER);
@@ -4650,6 +4680,10 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				this.getBindingContext(),
 				null,
 				"contexts", null, 0, -1, IManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getManager_FormatterProvider(),
+				this.getIFormatterProvider(),
+				"formatterProvider", null, 1, 1, IManager.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(bindingContextEClass, IBindingContext.class,
 				"BindingContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -5692,6 +5726,8 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				"CEObjectHolder", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEDataType(ceResourceHolderEDataType, CEResourceHolder.class,
 				"CEResourceHolder", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(iFormatterProviderEDataType, IFormatterProvider.class,
+				"IFormatterProvider", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEDataType(dbContextEDataType, DataBindingContext.class,
 				"DBContext", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEDataType(dbBindingEDataType, Binding.class, "DBBinding", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

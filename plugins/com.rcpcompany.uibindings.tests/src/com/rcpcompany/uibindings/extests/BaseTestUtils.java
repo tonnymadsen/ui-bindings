@@ -96,6 +96,7 @@ public class BaseTestUtils {
 		mng.eUnset(IUIBindingsPackage.Literals.MANAGER__VALIDATION_DELAY);
 		mng.eUnset(IUIBindingsPackage.Literals.MANAGER__VALIDATION_DELAY_WINDOW);
 		mng.eUnset(IUIBindingsPackage.Literals.MANAGER__VALIDATION_ERRORS_ARE_FATAL);
+		mng.eUnset(IUIBindingsPackage.Literals.MANAGER__FORMATTER_PROVIDER);
 
 		final CommandStack cs = mng.getEditingDomain().getCommandStack();
 		cs.flush();

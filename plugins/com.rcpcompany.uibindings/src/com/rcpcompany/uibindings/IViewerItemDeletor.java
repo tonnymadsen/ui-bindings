@@ -16,7 +16,7 @@ public interface IViewerItemDeletor {
 	 * Deletes the specified object in the viewer.
 	 * 
 	 * @param context that describes the object be deleted
-	 * @return <code>true</code> if the succeeded, false otherwise
+	 * @return <code>true</code> if the succeeded, <code>false</code> otherwise
 	 */
 	boolean deleteItem(IViewerItemDeletorContext context);
 }

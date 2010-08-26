@@ -13,7 +13,6 @@ import java.text.DecimalFormatSymbols;
 import java.text.MessageFormat;
 import java.text.NumberFormat;
 import java.text.ParsePosition;
-import java.util.Formatter;
 
 import org.eclipse.core.databinding.validation.IValidator;
 import org.eclipse.core.runtime.IStatus;
@@ -21,6 +20,7 @@ import org.eclipse.core.runtime.Status;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingMessage;
+import com.rcpcompany.uibindings.IFormatter;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.INumberDecoratorProvider;
 import com.rcpcompany.uibindings.IUIBindingDecorator;
@@ -149,7 +149,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		}
 
 		/**
-		 * Be backward compatible - apply limits from min and max arguments
+		 * Be backward compatible - apply limits from min and max arguments.
 		 */
 		public void retrieveMinMaxLimits() {
 			BigDecimal argument;
@@ -172,7 +172,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		}
 
 		/**
-		 * Checks the specified number against the range of this decorator
+		 * Checks the specified number against the range of this decorator.
 		 * 
 		 * @param fromObject the original object
 		 * @param number the number to test
@@ -252,7 +252,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 	/**
 	 * The formatter instance.
 	 */
-	private Formatter myFormatter;
+	private IFormatter myFormatter;
 
 	/**
 	 * The buffer used for the output.
@@ -305,7 +305,8 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		super.init(binding);
 
 		myBuffer = new StringBuilder();
-		myFormatter = new Formatter(myBuffer);
+		myFormatter = IManager.Factory.getManager().getFormatterProvider()
+				.getFormatter(myBuffer, myProvider.getFormat());
 		myUIType = getBinding().getUIType();
 
 		initForValidation(getBinding());
@@ -374,7 +375,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			return fromObject;
 		else if (myUIType == String.class) {
 			myBuffer.setLength(0);
-			myFormatter.format(myProvider.getFormat(), fromObject);
+			myFormatter.format(fromObject);
 			return myBuffer.toString();
 		} else
 			return null;
@@ -465,6 +466,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 						ok = true;
 					}
 				} catch (final NumberFormatException ex) {
+					// Do nothing
 				}
 				if (!ok) {
 					final int errorPos = (parsePosition.getErrorIndex() != -1) ? parsePosition.getErrorIndex()
@@ -495,12 +497,12 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 	/**
 	 * The "declared" interval of the decorator based on the {@link Constants#ARG_RANGE}.
 	 */
-	protected Interval myDeclaredInterval = null;
+	private Interval myDeclaredInterval = null;
 
 	/**
 	 * The "native" interval of the decorator based on the EMF field.
 	 */
-	protected Interval myNativeInterval = null;
+	private Interval myNativeInterval = null;
 
 	/**
 	 * Checks the specified number against the range of this decorator.

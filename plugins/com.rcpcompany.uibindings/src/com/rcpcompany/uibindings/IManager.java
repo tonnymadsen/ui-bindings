@@ -77,6 +77,7 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * <li>{@link com.rcpcompany.uibindings.IManager#getQuickfixProposalProcessors <em>Quickfix Proposal
  * Processors</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#getContexts <em>Contexts</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IManager#getFormatterProvider <em>Formatter Provider</em>}</li>
  * </ul>
  * </p>
  * 
@@ -765,6 +766,32 @@ public interface IManager extends IBaseObject {
 	 * @generated
 	 */
 	EList<IBindingContext> getContexts();
+
+	/**
+	 * Returns the value of the '<em><b>Formatter Provider</b></em>' attribute. <!-- begin-user-doc
+	 * -->
+	 * <p>
+	 * If the meaning of the '<em>Formatter Provider</em>' attribute isn't clear, there really
+	 * should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Formatter Provider</em>' attribute.
+	 * @see #setFormatterProvider(IFormatterProvider)
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getManager_FormatterProvider()
+	 * @generated
+	 */
+	IFormatterProvider getFormatterProvider();
+
+	/**
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IManager#getFormatterProvider
+	 * <em>Formatter Provider</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value the new value of the '<em>Formatter Provider</em>' attribute.
+	 * @see #getFormatterProvider()
+	 * @generated
+	 */
+	void setFormatterProvider(IFormatterProvider value);
 
 	/**
 	 * Returns the value of the '<em><b>Editing Domain</b></em>' attribute. <!-- begin-user-doc -->

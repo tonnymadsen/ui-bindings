@@ -367,7 +367,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	@Override
 	public IValueBinding arg(String name, Object value) {
 		assertTrue(name != null, "name must be non-null"); //$NON-NLS-1$
-		getArguments().put(name, value);
+		getArguments().put(name.intern(), value);
 		return this;
 	}
 

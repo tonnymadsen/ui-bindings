@@ -10,6 +10,7 @@ import org.eclipse.core.expressions.Expression;
 import org.eclipse.core.expressions.ExpressionInfo;
 import org.eclipse.core.expressions.IEvaluationContext;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.widgets.Control;
@@ -436,6 +437,13 @@ public interface Constants {
 	 * The type of the value is {@link IManager}.
 	 */
 	String SOURCES_THE_MANAGER = SOURCES + "theManager"; //$NON-NLS-1$
+
+	/**
+	 * Source provider name for the {@link Platform} itself.
+	 * <p>
+	 * The type of the value is {@link Platform}.
+	 */
+	String SOURCES_PLATFORM = SOURCES + "platform"; //$NON-NLS-1$
 
 	/**
 	 * Source provider name for the active binding context.

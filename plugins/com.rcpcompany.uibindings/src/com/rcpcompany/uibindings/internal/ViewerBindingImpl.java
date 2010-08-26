@@ -194,7 +194,7 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	@Override
 	public IViewerBinding arg(String name, Object value) {
 		assertTrue(name != null, "name must be non-null"); //$NON-NLS-1$
-		getArguments().put(name, value);
+		getArguments().put(name.intern(), value);
 		return this;
 	}
 

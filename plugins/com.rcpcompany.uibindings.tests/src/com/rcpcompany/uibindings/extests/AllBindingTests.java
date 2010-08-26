@@ -27,6 +27,7 @@ import com.rcpcompany.uibindings.extests.decoratorProviders.DecoratorProviderTes
 import com.rcpcompany.uibindings.extests.decoratorProviders.EObjectCreatorDecoratorProviderTest;
 import com.rcpcompany.uibindings.extests.decoratorProviders.EnumDecoratorProviderTest;
 import com.rcpcompany.uibindings.extests.decoratorProviders.NumberDecoratorProviderRangeTest;
+import com.rcpcompany.uibindings.extests.decoratorProviders.NumberDecoratorProviderSpecialFPTest;
 import com.rcpcompany.uibindings.extests.decoratorProviders.NumberDecoratorProviderTest;
 import com.rcpcompany.uibindings.extests.decoratorProviders.SpecialDecoratorProviderTest;
 import com.rcpcompany.uibindings.extests.issues.SIMA621ProblemsIncreases;
@@ -44,6 +45,7 @@ import com.rcpcompany.uibindings.extests.manager.ManagerDecoratorExtendersTest;
 import com.rcpcompany.uibindings.extests.manager.ManagerDecoratorProvidersTest;
 import com.rcpcompany.uibindings.extests.manager.ManagerEditCellAnyKeyTest;
 import com.rcpcompany.uibindings.extests.manager.ManagerEditCellSingleClickTest;
+import com.rcpcompany.uibindings.extests.manager.ManagerFormatterProviderTest;
 import com.rcpcompany.uibindings.extests.manager.ManagerMessageDecorationMinimumSeverityTest;
 import com.rcpcompany.uibindings.extests.manager.ManagerMessageDecorationPositionTest;
 import com.rcpcompany.uibindings.extests.manager.ManagerQuickfixVBIDShown;
@@ -181,7 +183,7 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		ManagerAutoApplyQuickfixTest.class, ManagerAlternatingRowColors.class, AlternatingRowColorsTest.class,
 		ManagerValidationDelayTest.class, ManagerTreeFunctionalityTest.class, ManagerValidationErrorsAreFatal.class,
 		ValidationErrorsAreFatalTest.class, ManagerRequiredVBIDShown.class, ManagerAssistVBIDShown.class,
-		ManagerQuickfixVBIDShown.class, ManagerViewNavigationRecorded.class,
+		ManagerQuickfixVBIDShown.class, ManagerViewNavigationRecorded.class, ManagerFormatterProviderTest.class,
 
 		SimplePreferredCellEditorTest.class, PreferredCellEditorFactoryTest.class,
 
@@ -275,7 +277,7 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		 */
 		DecoratorProviderTest.class, SpecialDecoratorProviderTest.class, EnumDecoratorProviderTest.class,
 		NumberDecoratorProviderRangeTest.class, NumberDecoratorProviderTest.class,
-		EObjectCreatorDecoratorProviderTest.class,
+		NumberDecoratorProviderSpecialFPTest.class, EObjectCreatorDecoratorProviderTest.class,
 
 		ValueBindingMessageImageDecoratorImageTest.class,
 

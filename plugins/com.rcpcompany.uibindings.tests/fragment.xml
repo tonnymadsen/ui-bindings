@@ -390,6 +390,19 @@
                value="[0;8]">
          </argument>
       </bindingDecorator>
+      <bindingDecorator
+            type="NULL">
+         <modelType
+               alsoPrimitive="true"
+               class="java.lang.Double">
+         </modelType>
+         <uiType
+               class="java.lang.String">
+         </uiType>
+         <number
+               format="NULL format">
+         </number>
+      </bindingDecorator>
    </extension>
    <extension
          point="org.eclipse.ui.commands">
@@ -418,10 +431,6 @@
             commandId="com.rcpcompany.uibindings.tests.commands.MouseDownConverterTestCommand">
       </handler>
    </extension>
-
-
-
-
 
 
    <extension

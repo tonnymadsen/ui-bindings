@@ -63,6 +63,7 @@ import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IDecoratorProvider;
 import com.rcpcompany.uibindings.IEMFObservableFactory;
 import com.rcpcompany.uibindings.IEMFObservableFactoryDescriptor;
+import com.rcpcompany.uibindings.IFormatterProvider;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IModelArgumentMediator;
 import com.rcpcompany.uibindings.IModelClassInfo;
@@ -85,6 +86,7 @@ import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.UIBindingPreferences;
 import com.rcpcompany.uibindings.UIBindingsUtils;
+import com.rcpcompany.uibindings.internal.formatters.DefaultFormatterProvider;
 import com.rcpcompany.uibindings.internal.observableFactories.DefaultEMFObservableFactory;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -147,6 +149,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getQuickfixProposalProcessors <em>
  * Quickfix Proposal Processors</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getContexts <em>Contexts</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getFormatterProvider <em>Formatter
+ * Provider</em>}</li>
  * </ul>
  * </p>
  * 
@@ -835,6 +839,26 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected EList<IBindingContext> contexts;
 
 	/**
+	 * The default value of the '{@link #getFormatterProvider() <em>Formatter Provider</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getFormatterProvider()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final IFormatterProvider FORMATTER_PROVIDER_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getFormatterProvider() <em>Formatter Provider</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getFormatterProvider()
+	 * @generated
+	 * @ordered
+	 */
+	protected IFormatterProvider formatterProvider = FORMATTER_PROVIDER_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -1143,7 +1167,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 				LogUtils.error(childCE, "Argument name must be specified. Ignored"); //$NON-NLS-1$
 				continue;
 			}
-			provider.getArguments().put(name, childCE);
+			provider.getArguments().put(name.intern(), childCE);
 		}
 	}
 
@@ -1909,7 +1933,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		if (cInfo == null && create) {
 			cInfo = IUIBindingsFactory.eINSTANCE.createModelClassInfo();
 			cInfo.setClassName(className);
-			getModelInfo().put(className, cInfo);
+			getModelInfo().put(className.intern(), cInfo);
 		}
 		/*
 		 * Handle the type part
@@ -1919,7 +1943,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			if (tInfo == null && create) {
 				tInfo = IUIBindingsFactory.eINSTANCE.createModelClassInfo();
 				tInfo.setClassName(className);
-				cInfo.getTypes().put(type, tInfo);
+				cInfo.getTypes().put(type.intern(), tInfo);
 			}
 			cInfo = tInfo;
 		}
@@ -1936,7 +1960,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		if (fInfo == null && create) {
 			fInfo = IUIBindingsFactory.eINSTANCE.createModelFeatureInfo();
 			fInfo.setFeatureName(featureName);
-			cInfo.getFeatures().put(featureName, fInfo);
+			cInfo.getFeatures().put(featureName.intern(), fInfo);
 		}
 
 		return fInfo;
@@ -2010,6 +2034,35 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 					IUIBindingsPackage.MANAGER__CONTEXTS);
 		}
 		return contexts;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public IFormatterProvider getFormatterProvider() {
+		if (formatterProvider == null) {
+			setFormatterProvider(new DefaultFormatterProvider());
+		}
+
+		return formatterProvider;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setFormatterProvider(IFormatterProvider newFormatterProvider) {
+		final IFormatterProvider oldFormatterProvider = formatterProvider;
+		formatterProvider = newFormatterProvider;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, IUIBindingsPackage.MANAGER__FORMATTER_PROVIDER,
+					oldFormatterProvider, formatterProvider));
+		}
 	}
 
 	/**
@@ -2277,6 +2330,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			return getQuickfixProposalProcessors();
 		case IUIBindingsPackage.MANAGER__CONTEXTS:
 			return getContexts();
+		case IUIBindingsPackage.MANAGER__FORMATTER_PROVIDER:
+			return getFormatterProvider();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -2383,6 +2438,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			getContexts().clear();
 			getContexts().addAll((Collection<? extends IBindingContext>) newValue);
 			return;
+		case IUIBindingsPackage.MANAGER__FORMATTER_PROVIDER:
+			setFormatterProvider((IFormatterProvider) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -2479,6 +2537,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		case IUIBindingsPackage.MANAGER__CONTEXTS:
 			getContexts().clear();
 			return;
+		case IUIBindingsPackage.MANAGER__FORMATTER_PROVIDER:
+			setFormatterProvider(FORMATTER_PROVIDER_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -2550,6 +2611,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			return quickfixProposalProcessors != null && !quickfixProposalProcessors.isEmpty();
 		case IUIBindingsPackage.MANAGER__CONTEXTS:
 			return contexts != null && !contexts.isEmpty();
+		case IUIBindingsPackage.MANAGER__FORMATTER_PROVIDER:
+			return FORMATTER_PROVIDER_EDEFAULT == null ? formatterProvider != null : !FORMATTER_PROVIDER_EDEFAULT
+					.equals(formatterProvider);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -2606,6 +2670,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		result.append(viewNavigationRecorded);
 		result.append(", clipboard: "); //$NON-NLS-1$
 		result.append(clipboard);
+		result.append(", formatterProvider: "); //$NON-NLS-1$
+		result.append(formatterProvider);
 		result.append(')');
 		return result.toString();
 	}

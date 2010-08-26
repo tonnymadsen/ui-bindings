@@ -88,6 +88,8 @@
         resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contexts" upperBound="-1"
         eType="#//BindingContext" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="formatterProvider" lowerBound="1"
+        eType="#//IFormatterProvider" transient="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BindingContext" eSuperTypes="#//BaseObject #//IDisposable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
@@ -873,6 +875,8 @@
     <eTypeParameters name="X"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="CEResourceHolder" instanceClassName="com.rcpcompany.utils.extensionpoints.CEResourceHolder"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="IFormatterProvider" instanceClassName="com.rcpcompany.uibindings.IFormatterProvider"
       serializable="false"/>
   <eClassifiers xsi:type="ecore:EDataType" name="DBContext" instanceClassName="org.eclipse.core.databinding.DataBindingContext"
       serializable="false"/>

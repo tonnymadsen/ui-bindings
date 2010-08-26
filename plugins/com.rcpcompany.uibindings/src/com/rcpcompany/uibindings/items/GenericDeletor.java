@@ -1,9 +1,6 @@
 package com.rcpcompany.uibindings.items;
 
 import org.eclipse.core.databinding.observable.list.IObservableList;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IExecutableExtension;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -23,7 +20,7 @@ import com.rcpcompany.uibindings.IViewerItemDeletorContext;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class GenericDeletor implements IViewerItemDeletor, IExecutableExtension {
+public class GenericDeletor implements IViewerItemDeletor {
 
 	@Override
 	public boolean deleteItem(IViewerItemDeletorContext context) {
@@ -54,11 +51,5 @@ public class GenericDeletor implements IViewerItemDeletor, IExecutableExtension 
 		}
 
 		return true;
-	}
-
-	@Override
-	public void setInitializationData(IConfigurationElement config, String propertyName, Object data)
-			throws CoreException {
-
 	}
 }
