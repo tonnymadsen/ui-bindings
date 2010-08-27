@@ -1016,6 +1016,10 @@
             commandId="com.rcpcompany.uibindings.commands.moveItemDown"
             icon="images/commands/down.png">
       </image>
+      <image
+            commandId="com.rcpcompany.uibindings.commands.BindingSpy"
+            icon="images/commands/face-glasses_16x16.png">
+      </image>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
