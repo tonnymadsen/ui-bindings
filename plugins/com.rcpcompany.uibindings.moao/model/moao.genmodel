@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.rcpcompany.uibindings.moao/src"
+    modelPluginID="com.rcpcompany.uibindings.moao" templateDirectory="" modelName="MOAO"
+    suppressEMFModelTags="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    suppressGenModelAnnotations="false" copyrightFields="false" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
+    interfaceNamePattern="I{0}">
+  <foreignModel>moao.ecore</foreignModel>
+  <genPackages prefix="MOAO" basePackage="com.rcpcompany.uibindings" disposableProviderFactory="true"
+      classPackageSuffix="internal" fileExtensions="" ecorePackage="moao.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="moao.ecore#//Severity">
+      <genEnumLiterals ecoreEnumLiteral="moao.ecore#//Severity/WARNING"/>
+      <genEnumLiterals ecoreEnumLiteral="moao.ecore#//Severity/ERROR"/>
+      <genEnumLiterals ecoreEnumLiteral="moao.ecore#//Severity/INFO"/>
+      <genEnumLiterals ecoreEnumLiteral="moao.ecore#//Severity/COMMENT"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="moao.ecore#//DiagnosticChain"/>
+    <genDataTypes ecoreDataType="moao.ecore#//Map">
+      <genTypeParameters ecoreTypeParameter="moao.ecore#//Map/K"/>
+      <genTypeParameters ecoreTypeParameter="moao.ecore#//Map/V"/>
+    </genDataTypes>
+    <genDataTypes ecoreDataType="moao.ecore#//Exception"/>
+    <genClasses ecoreClass="moao.ecore#//MOAO">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference moao.ecore#//MOAO/messages"/>
+    </genClasses>
+    <genClasses ecoreClass="moao.ecore#//NamedObject">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute moao.ecore#//NamedObject/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute moao.ecore#//NamedObject/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute moao.ecore#//NamedObject/uuid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute moao.ecore#//NamedObject/enabled"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="moao.ecore#//IAdaptable"/>
+    <genClasses ecoreClass="moao.ecore#//MOAOMessage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute moao.ecore#//MOAOMessage/owner"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference moao.ecore#//MOAOMessage/object"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference moao.ecore#//MOAOMessage/feature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute moao.ecore#//MOAOMessage/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute moao.ecore#//MOAOMessage/severity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute moao.ecore#//MOAOMessage/details"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="moao.ecore#//EStructuralFeature"/>
+  </genPackages>
+</genmodel:GenModel>

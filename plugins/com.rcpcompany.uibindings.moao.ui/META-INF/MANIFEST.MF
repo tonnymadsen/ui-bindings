@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: UI Bindings: MOAO UI
+Bundle-SymbolicName: com.rcpcompany.uibindings.moao.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.rcpcompany.uibindings.moao.ui.internal.Activator
+Bundle-Vendor: The RCP Company
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.rcpcompany.uibindings.moao;bundle-version="[1.0.0,2.0.0)",
+ com.rcpcompany.utils.basic;bundle-version="[1.1.0,2.0.0)"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
