@@ -21,9 +21,9 @@ import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.observables.TextObservableValue;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
-import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
 /**
  * Tests whether listeners used by the {@link TextObservableValue} are properly disposed after use.
@@ -96,7 +96,7 @@ public class TextObservableValueDisposeTest {
 	public void test() {
 		final int initialSize = myContext.eAdapters().size();
 
-		final IValueBinding b = myContext.addBinding(myText, myShop, ShopPackage.Literals.SHOP__NAME);
+		final IValueBinding b = myContext.addBinding(myText, myShop, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 		myContext.finish();
 		yield();
 

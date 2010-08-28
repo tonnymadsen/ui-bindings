@@ -19,9 +19,9 @@ import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
-import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 import com.rcpcompany.uibindings.widgets.FileNameControl;
@@ -113,7 +113,7 @@ public class FileNameControlTest {
 				final Text w = new Text(myForm.addComposite(), SWT.SINGLE | SWT.LEAD | SWT.BORDER);
 				w.setText("");
 
-				b = myForm.getContext().addBinding(w, myShop, ShopPackage.Literals.SHOP__NAME).type(myType)
+				b = myForm.getContext().addBinding(w, myShop, IMOAOPackage.Literals.NAMED_OBJECT__NAME).type(myType)
 						.arg(Constants.ARG_NEW_ALLOWED, myNewAllowed).arg(Constants.ARG_EXTENSIONS, myExtensions);
 				myForm.finish();
 			}
@@ -133,7 +133,7 @@ public class FileNameControlTest {
 				final FileNameControl w = new FileNameControl(myForm.addComposite(), SWT.SINGLE | SWT.LEAD | SWT.BORDER);
 				w.setText("");
 
-				b = myForm.getContext().addBinding(w, myShop, ShopPackage.Literals.SHOP__NAME).type(myType)
+				b = myForm.getContext().addBinding(w, myShop, IMOAOPackage.Literals.NAMED_OBJECT__NAME).type(myType)
 						.arg(Constants.ARG_NEW_ALLOWED, myNewAllowed).arg(Constants.ARG_EXTENSIONS, myExtensions);
 				myForm.finish();
 			}

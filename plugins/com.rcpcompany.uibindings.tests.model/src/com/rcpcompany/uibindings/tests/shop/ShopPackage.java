@@ -12,6 +12,8 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
+
 /**
  * <!-- begin-user-doc --> The <b>Package</b> for the model. It contains accessors for the meta
  * objects to represent
@@ -66,13 +68,40 @@ public interface ShopPackage extends EPackage {
 	int SHOP = 0;
 
 	/**
+	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP__MESSAGES = IMOAOPackage.NAMED_OBJECT__MESSAGES;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP__NAME = 0;
+	int SHOP__NAME = IMOAOPackage.NAMED_OBJECT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP__DESCRIPTION = IMOAOPackage.NAMED_OBJECT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP__UUID = IMOAOPackage.NAMED_OBJECT__UUID;
 
 	/**
 	 * The feature id for the '<em><b>Next Order No</b></em>' attribute. <!-- begin-user-doc -->
@@ -81,7 +110,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP__NEXT_ORDER_NO = 1;
+	int SHOP__NEXT_ORDER_NO = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Next Customer No</b></em>' attribute. <!-- begin-user-doc -->
@@ -90,7 +119,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP__NEXT_CUSTOMER_NO = 2;
+	int SHOP__NEXT_CUSTOMER_NO = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Tmp Dir</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -99,7 +128,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP__TMP_DIR = 3;
+	int SHOP__TMP_DIR = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Countries</b></em>' containment reference list. <!--
@@ -108,7 +137,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP__COUNTRIES = 4;
+	int SHOP__COUNTRIES = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Contacts</b></em>' containment reference list. <!--
@@ -117,7 +146,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP__CONTACTS = 5;
+	int SHOP__CONTACTS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Shop Items</b></em>' containment reference list. <!--
@@ -126,7 +155,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP__SHOP_ITEMS = 6;
+	int SHOP__SHOP_ITEMS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Orders</b></em>' containment reference list. <!--
@@ -135,7 +164,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP__ORDERS = 7;
+	int SHOP__ORDERS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Customers</b></em>' containment reference list. <!--
@@ -144,7 +173,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP__CUSTOMERS = 8;
+	int SHOP__CUSTOMERS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Shop Groups</b></em>' containment reference list. <!--
@@ -153,7 +182,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP__SHOP_GROUPS = 9;
+	int SHOP__SHOP_GROUPS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Shop</em>' class. <!-- begin-user-doc --> <!--
@@ -162,7 +191,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_FEATURE_COUNT = 10;
+	int SHOP_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.impl.CustomerImpl
@@ -175,13 +204,22 @@ public interface ShopPackage extends EPackage {
 	int CUSTOMER = 1;
 
 	/**
+	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOMER__MESSAGES = IMOAOPackage.MOAO__MESSAGES;
+
+	/**
 	 * The feature id for the '<em><b>Shop</b></em>' container reference. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOMER__SHOP = 0;
+	int CUSTOMER__SHOP = IMOAOPackage.MOAO_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Contact</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -190,7 +228,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOMER__CONTACT = 1;
+	int CUSTOMER__CONTACT = IMOAOPackage.MOAO_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Orders</b></em>' reference list. <!-- begin-user-doc --> <!--
@@ -199,7 +237,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOMER__ORDERS = 2;
+	int CUSTOMER__ORDERS = IMOAOPackage.MOAO_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Loyalty</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -208,7 +246,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOMER__LOYALTY = 3;
+	int CUSTOMER__LOYALTY = IMOAOPackage.MOAO_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Logo File Name</b></em>' attribute. <!-- begin-user-doc -->
@@ -217,7 +255,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOMER__LOGO_FILE_NAME = 4;
+	int CUSTOMER__LOGO_FILE_NAME = IMOAOPackage.MOAO_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Customer</em>' class. <!-- begin-user-doc -->
@@ -226,7 +264,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOMER_FEATURE_COUNT = 5;
+	int CUSTOMER_FEATURE_COUNT = IMOAOPackage.MOAO_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemImpl
@@ -239,13 +277,13 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM = 2;
 
 	/**
-	 * The feature id for the '<em><b>Shop</b></em>' container reference. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM__SHOP = 0;
+	int SHOP_ITEM__MESSAGES = IMOAOPackage.NAMED_OBJECT__MESSAGES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -254,7 +292,34 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM__NAME = 1;
+	int SHOP_ITEM__NAME = IMOAOPackage.NAMED_OBJECT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_ITEM__DESCRIPTION = IMOAOPackage.NAMED_OBJECT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_ITEM__UUID = IMOAOPackage.NAMED_OBJECT__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Shop</b></em>' container reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_ITEM__SHOP = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Price</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -263,7 +328,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM__PRICE = 2;
+	int SHOP_ITEM__PRICE = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Order Items</b></em>' reference list. <!-- begin-user-doc -->
@@ -272,7 +337,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM__ORDER_ITEMS = 3;
+	int SHOP_ITEM__ORDER_ITEMS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>For Sale</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -281,7 +346,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM__FOR_SALE = 4;
+	int SHOP_ITEM__FOR_SALE = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Information</b></em>' containment reference. <!--
@@ -290,7 +355,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM__INFORMATION = 5;
+	int SHOP_ITEM__INFORMATION = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Group</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -299,7 +364,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM__GROUP = 6;
+	int SHOP_ITEM__GROUP = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Locations</b></em>' attribute list. <!-- begin-user-doc -->
@@ -308,7 +373,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM__LOCATIONS = 7;
+	int SHOP_ITEM__LOCATIONS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Item</em>' class. <!-- begin-user-doc --> <!--
@@ -317,7 +382,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM_FEATURE_COUNT = 8;
+	int SHOP_ITEM_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '
@@ -331,31 +396,22 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM_GROUP = 3;
 
 	/**
+	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_ITEM_GROUP__MESSAGES = IMOAOPackage.NAMED_OBJECT__MESSAGES;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM_GROUP__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Items</b></em>' reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int SHOP_ITEM_GROUP__ITEMS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Shop</b></em>' container reference. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int SHOP_ITEM_GROUP__SHOP = 2;
+	int SHOP_ITEM_GROUP__NAME = IMOAOPackage.NAMED_OBJECT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -364,7 +420,34 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM_GROUP__DESCRIPTION = 3;
+	int SHOP_ITEM_GROUP__DESCRIPTION = IMOAOPackage.NAMED_OBJECT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_ITEM_GROUP__UUID = IMOAOPackage.NAMED_OBJECT__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Items</b></em>' reference list. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_ITEM_GROUP__ITEMS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Shop</b></em>' container reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_ITEM_GROUP__SHOP = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Item Group</em>' class. <!-- begin-user-doc -->
@@ -373,7 +456,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM_GROUP_FEATURE_COUNT = 4;
+	int SHOP_ITEM_GROUP_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.impl.OrderImpl
@@ -386,13 +469,22 @@ public interface ShopPackage extends EPackage {
 	int ORDER = 4;
 
 	/**
+	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ORDER__MESSAGES = IMOAOPackage.MOAO__MESSAGES;
+
+	/**
 	 * The feature id for the '<em><b>No</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int ORDER__NO = 0;
+	int ORDER__NO = IMOAOPackage.MOAO_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Shop</b></em>' container reference. <!-- begin-user-doc -->
@@ -401,7 +493,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORDER__SHOP = 1;
+	int ORDER__SHOP = IMOAOPackage.MOAO_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Customer</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -410,7 +502,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORDER__CUSTOMER = 2;
+	int ORDER__CUSTOMER = IMOAOPackage.MOAO_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Price</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -419,7 +511,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORDER__PRICE = 3;
+	int ORDER__PRICE = IMOAOPackage.MOAO_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Items</b></em>' containment reference list. <!--
@@ -428,7 +520,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORDER__ITEMS = 4;
+	int ORDER__ITEMS = IMOAOPackage.MOAO_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Order</em>' class. <!-- begin-user-doc --> <!--
@@ -437,7 +529,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORDER_FEATURE_COUNT = 5;
+	int ORDER_FEATURE_COUNT = IMOAOPackage.MOAO_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.impl.OrderItemImpl
@@ -450,13 +542,22 @@ public interface ShopPackage extends EPackage {
 	int ORDER_ITEM = 5;
 
 	/**
+	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ORDER_ITEM__MESSAGES = IMOAOPackage.MOAO__MESSAGES;
+
+	/**
 	 * The feature id for the '<em><b>No</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int ORDER_ITEM__NO = 0;
+	int ORDER_ITEM__NO = IMOAOPackage.MOAO_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Order</b></em>' container reference. <!-- begin-user-doc -->
@@ -465,7 +566,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORDER_ITEM__ORDER = 1;
+	int ORDER_ITEM__ORDER = IMOAOPackage.MOAO_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Item</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -474,7 +575,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORDER_ITEM__ITEM = 2;
+	int ORDER_ITEM__ITEM = IMOAOPackage.MOAO_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Count</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -483,7 +584,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORDER_ITEM__COUNT = 3;
+	int ORDER_ITEM__COUNT = IMOAOPackage.MOAO_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -492,7 +593,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORDER_ITEM__ID = 4;
+	int ORDER_ITEM__ID = IMOAOPackage.MOAO_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Order Item</em>' class. <!-- begin-user-doc -->
@@ -501,7 +602,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORDER_ITEM_FEATURE_COUNT = 5;
+	int ORDER_ITEM_FEATURE_COUNT = IMOAOPackage.MOAO_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.impl.ContactImpl
@@ -514,13 +615,13 @@ public interface ShopPackage extends EPackage {
 	int CONTACT = 6;
 
 	/**
-	 * The feature id for the '<em><b>Shop</b></em>' container reference. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CONTACT__SHOP = 0;
+	int CONTACT__MESSAGES = IMOAOPackage.NAMED_OBJECT__MESSAGES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -529,7 +630,34 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTACT__NAME = 1;
+	int CONTACT__NAME = IMOAOPackage.NAMED_OBJECT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONTACT__DESCRIPTION = IMOAOPackage.NAMED_OBJECT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONTACT__UUID = IMOAOPackage.NAMED_OBJECT__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Shop</b></em>' container reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONTACT__SHOP = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Address</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -538,7 +666,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTACT__ADDRESS = 2;
+	int CONTACT__ADDRESS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>City</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -547,7 +675,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTACT__CITY = 3;
+	int CONTACT__CITY = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Zip</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -556,7 +684,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTACT__ZIP = 4;
+	int CONTACT__ZIP = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Country</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -565,7 +693,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTACT__COUNTRY = 5;
+	int CONTACT__COUNTRY = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Customer</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -574,7 +702,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTACT__CUSTOMER = 6;
+	int CONTACT__CUSTOMER = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Newsletter</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -583,7 +711,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTACT__NEWSLETTER = 7;
+	int CONTACT__NEWSLETTER = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Birthday</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -592,7 +720,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTACT__BIRTHDAY = 8;
+	int CONTACT__BIRTHDAY = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Contact</em>' class. <!-- begin-user-doc -->
@@ -601,7 +729,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTACT_FEATURE_COUNT = 9;
+	int CONTACT_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.impl.CountryImpl
@@ -614,13 +742,13 @@ public interface ShopPackage extends EPackage {
 	int COUNTRY = 7;
 
 	/**
-	 * The feature id for the '<em><b>Shop</b></em>' container reference. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int COUNTRY__SHOP = 0;
+	int COUNTRY__MESSAGES = IMOAOPackage.NAMED_OBJECT__MESSAGES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -629,7 +757,34 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNTRY__NAME = 1;
+	int COUNTRY__NAME = IMOAOPackage.NAMED_OBJECT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int COUNTRY__DESCRIPTION = IMOAOPackage.NAMED_OBJECT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int COUNTRY__UUID = IMOAOPackage.NAMED_OBJECT__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Shop</b></em>' container reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int COUNTRY__SHOP = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Abbreviation</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -638,7 +793,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNTRY__ABBREVIATION = 2;
+	int COUNTRY__ABBREVIATION = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Country</em>' class. <!-- begin-user-doc -->
@@ -647,7 +802,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNTRY_FEATURE_COUNT = 3;
+	int COUNTRY_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '
@@ -661,13 +816,22 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM_INFORMATION = 8;
 
 	/**
+	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_ITEM_INFORMATION__MESSAGES = IMOAOPackage.MOAO__MESSAGES;
+
+	/**
 	 * The number of structural features of the '<em>Item Information</em>' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM_INFORMATION_FEATURE_COUNT = 0;
+	int SHOP_ITEM_INFORMATION_FEATURE_COUNT = IMOAOPackage.MOAO_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '
@@ -681,13 +845,13 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM_DESCRIPTION = 9;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM_DESCRIPTION__DESCRIPTION = SHOP_ITEM_INFORMATION_FEATURE_COUNT + 0;
+	int SHOP_ITEM_DESCRIPTION__MESSAGES = SHOP_ITEM_INFORMATION__MESSAGES;
 
 	/**
 	 * The number of structural features of the '<em>Item Description</em>' class. <!--
@@ -696,7 +860,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM_DESCRIPTION_FEATURE_COUNT = SHOP_ITEM_INFORMATION_FEATURE_COUNT + 1;
+	int SHOP_ITEM_DESCRIPTION_FEATURE_COUNT = SHOP_ITEM_INFORMATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemURLImpl
@@ -707,6 +871,15 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 */
 	int SHOP_ITEM_URL = 10;
+
+	/**
+	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_ITEM_URL__MESSAGES = SHOP_ITEM_INFORMATION__MESSAGES;
 
 	/**
 	 * The feature id for the '<em><b>Url</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -755,18 +928,6 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getShop();
-
-	/**
-	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.tests.shop.Shop#getName <em>Name</em>}'. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.rcpcompany.uibindings.tests.shop.Shop#getName()
-	 * @see #getShop()
-	 * @generated
-	 */
-	EAttribute getShop_Name();
 
 	/**
 	 * Returns the meta object for the attribute '
@@ -958,18 +1119,6 @@ public interface ShopPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItem#getName <em>Name</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.rcpcompany.uibindings.tests.shop.ShopItem#getName()
-	 * @see #getShopItem()
-	 * @generated
-	 */
-	EAttribute getShopItem_Name();
-
-	/**
-	 * Returns the meta object for the attribute '
 	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItem#getPrice <em>Price</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -1063,18 +1212,6 @@ public interface ShopPackage extends EPackage {
 	EClass getShopItemGroup();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItemGroup#getName <em>Name</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.rcpcompany.uibindings.tests.shop.ShopItemGroup#getName()
-	 * @see #getShopItemGroup()
-	 * @generated
-	 */
-	EAttribute getShopItemGroup_Name();
-
-	/**
 	 * Returns the meta object for the reference list '
 	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItemGroup#getItems <em>Items</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -1097,18 +1234,6 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getShopItemGroup_Shop();
-
-	/**
-	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItemGroup#getDescription
-	 * <em>Description</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see com.rcpcompany.uibindings.tests.shop.ShopItemGroup#getDescription()
-	 * @see #getShopItemGroup()
-	 * @generated
-	 */
-	EAttribute getShopItemGroup_Description();
 
 	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.Order
@@ -1262,18 +1387,6 @@ public interface ShopPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.tests.shop.Contact#getName <em>Name</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.rcpcompany.uibindings.tests.shop.Contact#getName()
-	 * @see #getContact()
-	 * @generated
-	 */
-	EAttribute getContact_Name();
-
-	/**
-	 * Returns the meta object for the attribute '
 	 * {@link com.rcpcompany.uibindings.tests.shop.Contact#getAddress <em>Address</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -1380,18 +1493,6 @@ public interface ShopPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.tests.shop.Country#getName <em>Name</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.rcpcompany.uibindings.tests.shop.Country#getName()
-	 * @see #getCountry()
-	 * @generated
-	 */
-	EAttribute getCountry_Name();
-
-	/**
-	 * Returns the meta object for the attribute '
 	 * {@link com.rcpcompany.uibindings.tests.shop.Country#getAbbreviation <em>Abbreviation</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -1435,18 +1536,6 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getShopItemDescription();
-
-	/**
-	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItemDescription#getDescription
-	 * <em>Description</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see com.rcpcompany.uibindings.tests.shop.ShopItemDescription#getDescription()
-	 * @see #getShopItemDescription()
-	 * @generated
-	 */
-	EAttribute getShopItemDescription_Description();
 
 	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.ShopItemURL
@@ -1522,14 +1611,6 @@ public interface ShopPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SHOP = eINSTANCE.getShop();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute SHOP__NAME = eINSTANCE.getShop_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Next Order No</b></em>' attribute feature. <!--
@@ -1666,14 +1747,6 @@ public interface ShopPackage extends EPackage {
 		EClass SHOP_ITEM = eINSTANCE.getShopItem();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute SHOP_ITEM__NAME = eINSTANCE.getShopItem_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Price</b></em>' attribute feature. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -1741,14 +1814,6 @@ public interface ShopPackage extends EPackage {
 		EClass SHOP_ITEM_GROUP = eINSTANCE.getShopItemGroup();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute SHOP_ITEM_GROUP__NAME = eINSTANCE.getShopItemGroup_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Items</b></em>' reference list feature. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -1763,14 +1828,6 @@ public interface ShopPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SHOP_ITEM_GROUP__SHOP = eINSTANCE.getShopItemGroup_Shop();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute SHOP_ITEM_GROUP__DESCRIPTION = eINSTANCE.getShopItemGroup_Description();
 
 		/**
 		 * The meta object literal for the '
@@ -1886,14 +1943,6 @@ public interface ShopPackage extends EPackage {
 		EClass CONTACT = eINSTANCE.getContact();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute CONTACT__NAME = eINSTANCE.getContact_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Address</b></em>' attribute feature. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -1969,14 +2018,6 @@ public interface ShopPackage extends EPackage {
 		EClass COUNTRY = eINSTANCE.getCountry();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute COUNTRY__NAME = eINSTANCE.getCountry_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Abbreviation</b></em>' attribute feature. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -2013,14 +2054,6 @@ public interface ShopPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SHOP_ITEM_DESCRIPTION = eINSTANCE.getShopItemDescription();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute SHOP_ITEM_DESCRIPTION__DESCRIPTION = eINSTANCE.getShopItemDescription_Description();
 
 		/**
 		 * The meta object literal for the '

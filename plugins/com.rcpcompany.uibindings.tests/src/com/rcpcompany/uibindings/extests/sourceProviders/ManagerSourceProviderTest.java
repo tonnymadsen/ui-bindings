@@ -25,9 +25,9 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.sourceProviders.BindingSourceProvider;
 import com.rcpcompany.uibindings.internal.sourceProviders.ManagerSourceProvider;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
-import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
 /**
  * Tests of the defined sources in {@link ManagerSourceProvider} and well as the value of these.
@@ -126,7 +126,7 @@ public class ManagerSourceProviderTest {
 
 		testUndoRedo("ABC", false, false);
 
-		final Command c1 = SetCommand.create(ed, myShop, ShopPackage.Literals.SHOP__NAME, "NEW");
+		final Command c1 = SetCommand.create(ed, myShop, IMOAOPackage.Literals.NAMED_OBJECT__NAME, "NEW");
 		cs.execute(c1);
 		testUndoRedo("NEW", true, false);
 

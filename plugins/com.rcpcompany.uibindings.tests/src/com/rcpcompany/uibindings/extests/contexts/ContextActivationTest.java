@@ -30,6 +30,7 @@ import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.Activator;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
@@ -105,10 +106,10 @@ public class ContextActivationTest {
 
 	private void bindUI() {
 		myContext = IBindingContext.Factory.createContext(myView.getScrolledForm());
-		myNameBinding = myContext.addBinding(myNameText, myShop, ShopPackage.Literals.SHOP__NAME);
+		myNameBinding = myContext.addBinding(myNameText, myShop, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 
 		myViewerBinding = myContext.addViewer(myTable, myShop, ShopPackage.Literals.SHOP__CONTACTS);
-		myViewerBinding.addColumn(myTableColumn, ShopPackage.Literals.CONTACT__NAME);
+		myViewerBinding.addColumn(myTableColumn, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 
 		myContext.finish();
 		yield();

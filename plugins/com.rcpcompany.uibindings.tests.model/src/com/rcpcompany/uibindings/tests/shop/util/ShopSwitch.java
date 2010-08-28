@@ -7,9 +7,12 @@ package com.rcpcompany.uibindings.tests.shop.util;
 
 import java.util.List;
 
+import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
+import com.rcpcompany.uibindings.moao.IMOAO;
+import com.rcpcompany.uibindings.moao.INamedObject;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Customer;
@@ -92,6 +95,15 @@ public class ShopSwitch<T> {
 			final Shop shop = (Shop) theEObject;
 			T result = caseShop(shop);
 			if (result == null) {
+				result = caseNamedObject(shop);
+			}
+			if (result == null) {
+				result = caseMOAO(shop);
+			}
+			if (result == null) {
+				result = caseIAdaptable(shop);
+			}
+			if (result == null) {
 				result = defaultCase(theEObject);
 			}
 			return result;
@@ -99,6 +111,12 @@ public class ShopSwitch<T> {
 		case ShopPackage.CUSTOMER: {
 			final Customer customer = (Customer) theEObject;
 			T result = caseCustomer(customer);
+			if (result == null) {
+				result = caseMOAO(customer);
+			}
+			if (result == null) {
+				result = caseIAdaptable(customer);
+			}
 			if (result == null) {
 				result = defaultCase(theEObject);
 			}
@@ -108,6 +126,15 @@ public class ShopSwitch<T> {
 			final ShopItem shopItem = (ShopItem) theEObject;
 			T result = caseShopItem(shopItem);
 			if (result == null) {
+				result = caseNamedObject(shopItem);
+			}
+			if (result == null) {
+				result = caseMOAO(shopItem);
+			}
+			if (result == null) {
+				result = caseIAdaptable(shopItem);
+			}
+			if (result == null) {
 				result = defaultCase(theEObject);
 			}
 			return result;
@@ -115,6 +142,15 @@ public class ShopSwitch<T> {
 		case ShopPackage.SHOP_ITEM_GROUP: {
 			final ShopItemGroup shopItemGroup = (ShopItemGroup) theEObject;
 			T result = caseShopItemGroup(shopItemGroup);
+			if (result == null) {
+				result = caseNamedObject(shopItemGroup);
+			}
+			if (result == null) {
+				result = caseMOAO(shopItemGroup);
+			}
+			if (result == null) {
+				result = caseIAdaptable(shopItemGroup);
+			}
 			if (result == null) {
 				result = defaultCase(theEObject);
 			}
@@ -124,6 +160,12 @@ public class ShopSwitch<T> {
 			final Order order = (Order) theEObject;
 			T result = caseOrder(order);
 			if (result == null) {
+				result = caseMOAO(order);
+			}
+			if (result == null) {
+				result = caseIAdaptable(order);
+			}
+			if (result == null) {
 				result = defaultCase(theEObject);
 			}
 			return result;
@@ -131,6 +173,12 @@ public class ShopSwitch<T> {
 		case ShopPackage.ORDER_ITEM: {
 			final OrderItem orderItem = (OrderItem) theEObject;
 			T result = caseOrderItem(orderItem);
+			if (result == null) {
+				result = caseMOAO(orderItem);
+			}
+			if (result == null) {
+				result = caseIAdaptable(orderItem);
+			}
 			if (result == null) {
 				result = defaultCase(theEObject);
 			}
@@ -140,6 +188,15 @@ public class ShopSwitch<T> {
 			final Contact contact = (Contact) theEObject;
 			T result = caseContact(contact);
 			if (result == null) {
+				result = caseNamedObject(contact);
+			}
+			if (result == null) {
+				result = caseMOAO(contact);
+			}
+			if (result == null) {
+				result = caseIAdaptable(contact);
+			}
+			if (result == null) {
 				result = defaultCase(theEObject);
 			}
 			return result;
@@ -148,6 +205,15 @@ public class ShopSwitch<T> {
 			final Country country = (Country) theEObject;
 			T result = caseCountry(country);
 			if (result == null) {
+				result = caseNamedObject(country);
+			}
+			if (result == null) {
+				result = caseMOAO(country);
+			}
+			if (result == null) {
+				result = caseIAdaptable(country);
+			}
+			if (result == null) {
 				result = defaultCase(theEObject);
 			}
 			return result;
@@ -155,6 +221,12 @@ public class ShopSwitch<T> {
 		case ShopPackage.SHOP_ITEM_INFORMATION: {
 			final ShopItemInformation shopItemInformation = (ShopItemInformation) theEObject;
 			T result = caseShopItemInformation(shopItemInformation);
+			if (result == null) {
+				result = caseMOAO(shopItemInformation);
+			}
+			if (result == null) {
+				result = caseIAdaptable(shopItemInformation);
+			}
 			if (result == null) {
 				result = defaultCase(theEObject);
 			}
@@ -167,6 +239,12 @@ public class ShopSwitch<T> {
 				result = caseShopItemInformation(shopItemDescription);
 			}
 			if (result == null) {
+				result = caseMOAO(shopItemDescription);
+			}
+			if (result == null) {
+				result = caseIAdaptable(shopItemDescription);
+			}
+			if (result == null) {
 				result = defaultCase(theEObject);
 			}
 			return result;
@@ -176,6 +254,12 @@ public class ShopSwitch<T> {
 			T result = caseShopItemURL(shopItemURL);
 			if (result == null) {
 				result = caseShopItemInformation(shopItemURL);
+			}
+			if (result == null) {
+				result = caseMOAO(shopItemURL);
+			}
+			if (result == null) {
+				result = caseIAdaptable(shopItemURL);
 			}
 			if (result == null) {
 				result = defaultCase(theEObject);
@@ -338,6 +422,48 @@ public class ShopSwitch<T> {
 	 * @generated
 	 */
 	public T caseShopItemURL(ShopItemURL object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IAdaptable</em>'. <!--
+	 * begin-user-doc --> This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IAdaptable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIAdaptable(IAdaptable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>MOAO</em>'. <!--
+	 * begin-user-doc --> This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>MOAO</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMOAO(IMOAO object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Named Object</em>'. <!--
+	 * begin-user-doc --> This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Named Object</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNamedObject(INamedObject object) {
 		return null;
 	}
 

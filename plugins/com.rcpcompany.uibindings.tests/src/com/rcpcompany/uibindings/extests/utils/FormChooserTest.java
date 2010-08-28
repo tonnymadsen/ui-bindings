@@ -20,6 +20,7 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
@@ -115,7 +116,7 @@ public class FormChooserTest {
 							@Override
 							public void run() {
 								context.addBinding().ui(myDisposeText)
-										.model(discriminant, ShopPackage.Literals.SHOP_ITEM_DESCRIPTION__DESCRIPTION);
+										.model(discriminant, IMOAOPackage.Literals.NAMED_OBJECT__DESCRIPTION);
 								context.finish();
 								yield();
 							}
@@ -218,7 +219,7 @@ public class FormChooserTest {
 							@Override
 							public void run() {
 								context.addBinding().ui(myDisposeText)
-										.model(discriminant, ShopPackage.Literals.SHOP_ITEM_DESCRIPTION__DESCRIPTION);
+										.model(discriminant, IMOAOPackage.Literals.NAMED_OBJECT__DESCRIPTION);
 								context.finish();
 								yield();
 							}
@@ -288,7 +289,7 @@ public class FormChooserTest {
 							@Override
 							public void run() {
 								context.addBinding().ui(myDisposeText)
-										.model(discriminant, ShopPackage.Literals.SHOP_ITEM_DESCRIPTION__DESCRIPTION);
+										.model(discriminant, IMOAOPackage.Literals.NAMED_OBJECT__DESCRIPTION);
 								context.finish();
 								yield();
 							}

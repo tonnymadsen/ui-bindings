@@ -108,11 +108,13 @@ public class NumberDecoratorProviderSpecialFPTest {
 	 */
 	private void testOne(final double value, final String expectedResult) {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myTestObject.setD(value);
 			}
 		});
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				yield();
 			}

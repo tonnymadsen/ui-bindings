@@ -32,7 +32,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
 /**
- * Test of {@link MapprtObservableValue}.
+ * Test of {@link MapperObservableValue}.
  * 
  * @author Tonny Madsen, The RCP Company
  */

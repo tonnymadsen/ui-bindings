@@ -52,6 +52,7 @@ public class ManagerFormatterProviderTest {
 
 	private void testOne(final String format, final Object arg, final String expectedResult) {
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final StringBuilder sb = new StringBuilder();
 				final IFormatter formatter = myOrigFormatterProvider.getFormatter(sb, format);

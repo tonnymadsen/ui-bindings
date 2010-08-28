@@ -15,6 +15,7 @@ import org.eclipse.swt.widgets.Display;
 import org.junit.Test;
 
 import com.rcpcompany.uibindings.Constants;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.utils.IBindingSpec;
 import com.rcpcompany.uibindings.utils.IBindingSpec.BaseType;
@@ -29,7 +30,7 @@ public class BindingSpecTest {
 	public void testSimpleSpecFeature() {
 		final List<IBindingSpec> spec = IBindingSpec.Factory.parseSingleSpec(ShopPackage.Literals.CONTACT, "name");
 		assertEquals(1, spec.size());
-		specTest(spec.get(0), ShopPackage.Literals.CONTACT__NAME);
+		specTest(spec.get(0), IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 	}
 
 	@Test
@@ -45,7 +46,7 @@ public class BindingSpecTest {
 				"country.name");
 		assertEquals(2, spec.size());
 		specTest(spec.get(0), ShopPackage.Literals.CONTACT__COUNTRY);
-		specTest(spec.get(1), ShopPackage.Literals.COUNTRY__NAME);
+		specTest(spec.get(1), IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 	}
 
 	@Test
@@ -53,7 +54,7 @@ public class BindingSpecTest {
 		final List<IBindingSpec> spec = IBindingSpec.Factory.parseSingleSpec(ShopPackage.Literals.CONTACT,
 				"name(w=100)");
 		assertEquals(1, spec.size());
-		specTest(spec.get(0), ShopPackage.Literals.CONTACT__NAME, Constants.ARG_WIDTH, 100);
+		specTest(spec.get(0), IMOAOPackage.Literals.NAMED_OBJECT__NAME, Constants.ARG_WIDTH, 100);
 	}
 
 	@Test
@@ -78,7 +79,7 @@ public class BindingSpecTest {
 				"country(toolTipText=hello).name(w=100,toolTipText='hello world',multi)");
 		assertEquals(2, spec.size());
 		specTest(spec.get(0), ShopPackage.Literals.CONTACT__COUNTRY, Constants.ARG_TOOL_TIP_TEXT, "hello");
-		specTest(spec.get(1), ShopPackage.Literals.COUNTRY__NAME, Constants.ARG_WIDTH, 100, IBindingSpec.TOOLTIP,
+		specTest(spec.get(1), IMOAOPackage.Literals.NAMED_OBJECT__NAME, Constants.ARG_WIDTH, 100, IBindingSpec.TOOLTIP,
 				"hello world", IBindingSpec.MULTI, Boolean.TRUE);
 	}
 
@@ -98,7 +99,7 @@ public class BindingSpecTest {
 				"country(w=10em).name(w=10dlu)");
 		assertEquals(2, spec.size());
 		specTest(spec.get(0), ShopPackage.Literals.CONTACT__COUNTRY, Constants.ARG_WIDTH, Math.round(10 * fh));
-		specTest(spec.get(1), ShopPackage.Literals.COUNTRY__NAME, Constants.ARG_WIDTH, Math.round(10 / 4.0f * fh));
+		specTest(spec.get(1), IMOAOPackage.Literals.NAMED_OBJECT__NAME, Constants.ARG_WIDTH, Math.round(10 / 4.0f * fh));
 	}
 
 	@Test
@@ -111,7 +112,7 @@ public class BindingSpecTest {
 				"country(w=10mm).name(width=10px)");
 		assertEquals(2, spec.size());
 		specTest(spec.get(0), ShopPackage.Literals.CONTACT__COUNTRY, Constants.ARG_WIDTH, 10 * 96 / 25);
-		specTest(spec.get(1), ShopPackage.Literals.COUNTRY__NAME, Constants.ARG_WIDTH, 10);
+		specTest(spec.get(1), IMOAOPackage.Literals.NAMED_OBJECT__NAME, Constants.ARG_WIDTH, 10);
 	}
 
 	@Test
@@ -119,8 +120,8 @@ public class BindingSpecTest {
 		final List<IBindingSpec> spec = IBindingSpec.Factory.parseSingleSpec(ShopPackage.Literals.CONTACT,
 				"name(tooltiptext=hello, type=number,label='abc')");
 		assertEquals(1, spec.size());
-		specTest(spec.get(0), ShopPackage.Literals.CONTACT__NAME, IBindingSpec.TOOLTIP, "hello", Constants.ARG_TYPE,
-				"number", Constants.ARG_LABEL, "abc");
+		specTest(spec.get(0), IMOAOPackage.Literals.NAMED_OBJECT__NAME, IBindingSpec.TOOLTIP, "hello",
+				Constants.ARG_TYPE, "number", Constants.ARG_LABEL, "abc");
 	}
 
 	@Test
@@ -129,7 +130,7 @@ public class BindingSpecTest {
 				"country().name");
 		assertEquals(2, spec.size());
 		specTest(spec.get(0), ShopPackage.Literals.CONTACT__COUNTRY);
-		specTest(spec.get(1), ShopPackage.Literals.COUNTRY__NAME);
+		specTest(spec.get(1), IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 	}
 
 	public void specTest(IBindingSpec s, EStructuralFeature feature, Object... vars) {

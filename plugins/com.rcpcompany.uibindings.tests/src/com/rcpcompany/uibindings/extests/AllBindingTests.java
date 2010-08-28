@@ -59,6 +59,7 @@ import com.rcpcompany.uibindings.extests.manager.ManagerViewNavigationRecorded;
 import com.rcpcompany.uibindings.extests.manager.NoErrorsDuringInitializationTest;
 import com.rcpcompany.uibindings.extests.manager.ValidationErrorsAreFatalTest;
 import com.rcpcompany.uibindings.extests.observables.CountObservableValueTest;
+import com.rcpcompany.uibindings.extests.observables.EListKeyedElementObservableValueTest;
 import com.rcpcompany.uibindings.extests.observables.GuardObservableValueTest;
 import com.rcpcompany.uibindings.extests.observables.Issue44ComboTest;
 import com.rcpcompany.uibindings.extests.observables.MapperObservableValueTest;
@@ -226,6 +227,7 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		 */
 		TextObservableValueDisposeTest.class, TextObservableValueTest.class, CountObservableValueTest.class,
 		MessageFormatObservableValueTest.class, GuardObservableValueTest.class, MapperObservableValueTest.class,
+		EListKeyedElementObservableValueTest.class,
 
 		/*
 		 * UI Attributes

@@ -16,12 +16,13 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
+import com.rcpcompany.uibindings.moao.internal.NamedObjectImpl;
 import com.rcpcompany.uibindings.tests.shop.OrderItem;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
@@ -38,7 +39,6 @@ import com.rcpcompany.uibindings.validators.EValidatorAdapter;
  * The following features are implemented:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemImpl#getShop <em>Shop</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemImpl#getName <em>Name</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemImpl#getPrice <em>Price</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemImpl#getOrderItems <em>Order Items
  * </em>}</li>
@@ -53,27 +53,7 @@ import com.rcpcompany.uibindings.validators.EValidatorAdapter;
  * 
  * @generated
  */
-public class ShopItemImpl extends EObjectImpl implements ShopItem {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 * 
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
+public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 	/**
 	 * The default value of the '{@link #getPrice() <em>Price</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
@@ -171,30 +151,6 @@ public class ShopItemImpl extends EObjectImpl implements ShopItem {
 	@Override
 	protected EClass eStaticClass() {
 		return ShopPackage.Literals.SHOP_ITEM;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void setName(String newName) {
-		final String oldName = name;
-		name = newName;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_ITEM__NAME, oldName, name));
-		}
 	}
 
 	/**
@@ -467,14 +423,14 @@ public class ShopItemImpl extends EObjectImpl implements ShopItem {
 			EValidatorAdapter.Factory.addDiagnostic(diagnostics, ShopValidator.DIAGNOSTIC_SOURCE,
 					ShopValidator.SHOP_ITEM__NAME_PRICE_OK, Diagnostic.WARNING,
 					"Name should include word FREE if price is 0.0", new Object[][] {
-							{ this, ShopPackage.Literals.SHOP_ITEM__NAME },
+							{ this, IMOAOPackage.Literals.NAMED_OBJECT__NAME },
 							{ this, ShopPackage.Literals.SHOP_ITEM__PRICE } });
 			return false;
 		}
 		if (!priceFree && nameFree) {
 			EValidatorAdapter.Factory.addDiagnostic(diagnostics, ShopValidator.DIAGNOSTIC_SOURCE,
 					ShopValidator.SHOP_ITEM__NAME_PRICE_OK, Diagnostic.ERROR, "Only free items may include word FREE",
-					new Object[][] { { this, ShopPackage.Literals.SHOP_ITEM__NAME },
+					new Object[][] { { this, IMOAOPackage.Literals.NAMED_OBJECT__NAME },
 							{ this, ShopPackage.Literals.SHOP_ITEM__PRICE } });
 			return false;
 		}
@@ -570,8 +526,6 @@ public class ShopItemImpl extends EObjectImpl implements ShopItem {
 		switch (featureID) {
 		case ShopPackage.SHOP_ITEM__SHOP:
 			return getShop();
-		case ShopPackage.SHOP_ITEM__NAME:
-			return getName();
 		case ShopPackage.SHOP_ITEM__PRICE:
 			return getPrice();
 		case ShopPackage.SHOP_ITEM__ORDER_ITEMS:
@@ -600,9 +554,6 @@ public class ShopItemImpl extends EObjectImpl implements ShopItem {
 		switch (featureID) {
 		case ShopPackage.SHOP_ITEM__SHOP:
 			setShop((Shop) newValue);
-			return;
-		case ShopPackage.SHOP_ITEM__NAME:
-			setName((String) newValue);
 			return;
 		case ShopPackage.SHOP_ITEM__PRICE:
 			setPrice((Float) newValue);
@@ -639,9 +590,6 @@ public class ShopItemImpl extends EObjectImpl implements ShopItem {
 		case ShopPackage.SHOP_ITEM__SHOP:
 			setShop((Shop) null);
 			return;
-		case ShopPackage.SHOP_ITEM__NAME:
-			setName(NAME_EDEFAULT);
-			return;
 		case ShopPackage.SHOP_ITEM__PRICE:
 			setPrice(PRICE_EDEFAULT);
 			return;
@@ -674,8 +622,6 @@ public class ShopItemImpl extends EObjectImpl implements ShopItem {
 		switch (featureID) {
 		case ShopPackage.SHOP_ITEM__SHOP:
 			return getShop() != null;
-		case ShopPackage.SHOP_ITEM__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case ShopPackage.SHOP_ITEM__PRICE:
 			return price != PRICE_EDEFAULT;
 		case ShopPackage.SHOP_ITEM__ORDER_ITEMS:
@@ -702,9 +648,7 @@ public class ShopItemImpl extends EObjectImpl implements ShopItem {
 		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", price: ");
+		result.append(" (price: ");
 		result.append(price);
 		result.append(", forSale: ");
 		result.append(forSale);

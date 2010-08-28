@@ -22,7 +22,6 @@ import org.junit.runners.Parameterized.Parameters;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.IManager;
-import com.rcpcompany.uibindings.IQuickfixProposal;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;

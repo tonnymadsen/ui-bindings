@@ -18,12 +18,14 @@ public class BindingCreationSection implements IBindingSpySection {
 	@Override
 	public void build(IFormCreator creator, ExecutionEvent event) {
 		final IBinding b = (IBinding) creator.getObject();
+		final Throwable creationPoint = b.getCreationPoint();
+		if (creationPoint == null) return;
 
 		final IFormCreator subform = creator.addSection("Location");
 
 		final StringBuilder sb = new StringBuilder();
 		sb.append("Creation point (copy to Eclipse Console View)");
-		for (final StackTraceElement e : b.getCreationPoint().getStackTrace()) {
+		for (final StackTraceElement e : creationPoint.getStackTrace()) {
 			sb.append("\n\tat ").append(e.getClassName()).append('.').append(e.getMethodName()).append(" (")
 					.append(e.getFileName()).append(':').append(e.getLineNumber()).append(')');
 		}

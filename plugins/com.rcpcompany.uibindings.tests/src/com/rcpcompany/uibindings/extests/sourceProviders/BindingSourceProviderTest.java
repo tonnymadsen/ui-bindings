@@ -38,6 +38,7 @@ import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.sourceProviders.BindingSourceProvider;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
@@ -186,15 +187,15 @@ public class BindingSourceProviderTest {
 				ShopPackage.Literals.SHOP__COUNTRIES);
 
 		myViewerBinding = myContext.addViewer(myTableViewer, myShop, ShopPackage.Literals.SHOP__CONTACTS);
-		myNameColumnBinding = myViewerBinding.addColumn(myNameColumn, ShopPackage.Literals.CONTACT__NAME);
+		myNameColumnBinding = myViewerBinding.addColumn(myNameColumn, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 		myCountryColumnBinding = myViewerBinding.addColumn(myCountryColumn, ShopPackage.Literals.CONTACT__COUNTRY)
 				.arg(Constants.ARG_FEATURE_NAME, "abbreviation").validValues(countries);
 		myCountryNameColumnBinding = myCountryColumnBinding.addColumn(myCountryNameColumn,
-				ShopPackage.Literals.COUNTRY__NAME).readonly();
+				IMOAOPackage.Literals.NAMED_OBJECT__NAME).readonly();
 
 		final IObservableValue selection = myViewerBinding.getSingleSelection();
 
-		myNameBinding = myContext.addBinding(myNameText, selection, ShopPackage.Literals.CONTACT__NAME);
+		myNameBinding = myContext.addBinding(myNameText, selection, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 
 		myContext.finish();
 		yield();
@@ -306,7 +307,7 @@ public class BindingSourceProviderTest {
 		assertSource(Constants.SOURCES_ACTIVE_BINDING_RO, false);
 		assertSource(Constants.SOURCES_ACTIVE_BINDING_TYPE, "");
 		assertSource(Constants.SOURCES_ACTIVE_BINDING_MODEL_OBJECT, myContact2);
-		assertSource(Constants.SOURCES_ACTIVE_BINDING_FEATURE, ShopPackage.Literals.CONTACT__NAME);
+		assertSource(Constants.SOURCES_ACTIVE_BINDING_FEATURE, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 		assertSource(Constants.SOURCES_ACTIVE_BINDING_VALUE, myContact2.getName());
 		assertSource(Constants.SOURCES_ACTIVE_BINDING_VALUE_DISPLAY, myContact2.getName());
 	}
@@ -352,7 +353,7 @@ public class BindingSourceProviderTest {
 		assertSource(Constants.SOURCES_ACTIVE_CONTAINER_BINDING, myViewerBinding);
 		assertSource(Constants.SOURCES_ACTIVE_BINDING, ci.getLabelBinding());
 		assertSource(Constants.SOURCES_ACTIVE_BINDING_RO, true);
-		assertSource(Constants.SOURCES_ACTIVE_BINDING_FEATURE, ShopPackage.Literals.COUNTRY__NAME);
+		assertSource(Constants.SOURCES_ACTIVE_BINDING_FEATURE, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 		assertSource(Constants.SOURCES_ACTIVE_BINDING_TYPE, "");
 		assertSource(Constants.SOURCES_ACTIVE_BINDING_MODEL_OBJECT, myCountry2);
 		assertSource(Constants.SOURCES_ACTIVE_BINDING_VALUE, myCountry2.getName());

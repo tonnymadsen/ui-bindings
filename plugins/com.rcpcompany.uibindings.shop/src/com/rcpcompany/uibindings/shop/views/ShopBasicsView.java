@@ -20,6 +20,7 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
@@ -92,11 +93,11 @@ public class ShopBasicsView extends ViewPart {
 		final Shop shop = ShopFactory.eINSTANCE.getShop();
 		final IBindingContext context = IBindingContext.Factory.createContext(myTop);
 
-		context.addBinding(myShopName, shop, ShopPackage.Literals.SHOP__NAME);
+		context.addBinding(myShopName, shop, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 
 		final IViewerBinding viewer = context.addViewer().viewer(myTableViewer)
 				.model(shop, ShopPackage.Literals.SHOP__COUNTRIES);
-		myNameColumn = viewer.addColumn(myCountryName, ShopPackage.Literals.COUNTRY__NAME);
+		myNameColumn = viewer.addColumn(myCountryName, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 		viewer.addColumn(myCountryAbbrev, ShopPackage.Literals.COUNTRY__ABBREVIATION);
 
 		context.finish();

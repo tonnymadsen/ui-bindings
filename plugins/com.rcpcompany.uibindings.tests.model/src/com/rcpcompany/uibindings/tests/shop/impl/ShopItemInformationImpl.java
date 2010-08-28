@@ -6,8 +6,8 @@
 package com.rcpcompany.uibindings.tests.shop.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import com.rcpcompany.uibindings.moao.internal.MOAOImpl;
 import com.rcpcompany.uibindings.tests.shop.ShopItemInformation;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
@@ -19,7 +19,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  * 
  * @generated
  */
-public class ShopItemInformationImpl extends EObjectImpl implements ShopItemInformation {
+public class ShopItemInformationImpl extends MOAOImpl implements ShopItemInformation {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 

@@ -17,6 +17,7 @@ import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.SpecialBinding;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
@@ -57,7 +58,7 @@ public class ShopTreeView extends ViewPart {
 			public IObservable createObservable(Object target) {
 				if (target instanceof Shop) {
 					final Shop shop = (Shop) target;
-					return UIBindingsEMFObservables.observeValue(shop, ShopPackage.Literals.SHOP__NAME);
+					return UIBindingsEMFObservables.observeValue(shop, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 				}
 				if (target instanceof Contact) {
 					final Contact c = (Contact) target;

@@ -18,10 +18,11 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
+import com.rcpcompany.uibindings.moao.internal.NamedObjectImpl;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Customer;
@@ -39,7 +40,6 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getName <em>Name</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getNextOrderNo <em>Next Order No
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getNextCustomerNo <em>Next Customer
@@ -57,27 +57,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  * 
  * @generated
  */
-public class ShopImpl extends EObjectImpl implements Shop {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 * 
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
+public class ShopImpl extends NamedObjectImpl implements Shop {
 	/**
 	 * The default value of the '{@link #getNextOrderNo() <em>Next Order No</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -215,30 +195,6 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	@Override
 	protected EClass eStaticClass() {
 		return ShopPackage.Literals.SHOP;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void setName(String newName) {
-		final String oldName = name;
-		name = newName;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP__NAME, oldName, name));
-		}
 	}
 
 	/**
@@ -425,7 +381,7 @@ public class ShopImpl extends EObjectImpl implements Shop {
 			if (diagnostics != null) {
 				diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, ShopValidator.DIAGNOSTIC_SOURCE,
 						ShopValidator.SHOP__NAME_LENGTH_OK, "The name must be at least 2 letters", new Object[] { this,
-								ShopPackage.Literals.SHOP__NAME }));
+								IMOAOPackage.Literals.NAMED_OBJECT__NAME }));
 			}
 			return false;
 		}
@@ -489,8 +445,6 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ShopPackage.SHOP__NAME:
-			return getName();
 		case ShopPackage.SHOP__NEXT_ORDER_NO:
 			return getNextOrderNo();
 		case ShopPackage.SHOP__NEXT_CUSTOMER_NO:
@@ -522,9 +476,6 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ShopPackage.SHOP__NAME:
-			setName((String) newValue);
-			return;
 		case ShopPackage.SHOP__NEXT_ORDER_NO:
 			setNextOrderNo((Integer) newValue);
 			return;
@@ -570,9 +521,6 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ShopPackage.SHOP__NAME:
-			setName(NAME_EDEFAULT);
-			return;
 		case ShopPackage.SHOP__NEXT_ORDER_NO:
 			setNextOrderNo(NEXT_ORDER_NO_EDEFAULT);
 			return;
@@ -612,8 +560,6 @@ public class ShopImpl extends EObjectImpl implements Shop {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ShopPackage.SHOP__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case ShopPackage.SHOP__NEXT_ORDER_NO:
 			return nextOrderNo != NEXT_ORDER_NO_EDEFAULT;
 		case ShopPackage.SHOP__NEXT_CUSTOMER_NO:
@@ -646,9 +592,7 @@ public class ShopImpl extends EObjectImpl implements Shop {
 		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", nextOrderNo: ");
+		result.append(" (nextOrderNo: ");
 		result.append(nextOrderNo);
 		result.append(", nextCustomerNo: ");
 		result.append(nextCustomerNo);

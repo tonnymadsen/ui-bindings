@@ -9,7 +9,8 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
+
+import com.rcpcompany.uibindings.moao.INamedObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Item</b></em>'. <!--
@@ -19,7 +20,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getShop <em>Shop</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getName <em>Name</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getPrice <em>Price</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getOrderItems <em>Order Items</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.ShopItem#isForSale <em>For Sale</em>}</li>
@@ -32,32 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItem()
  * @generated
  */
-public interface ShopItem extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really should be more of a
-	 * description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItem_Name()
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getName
-	 * <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
+public interface ShopItem extends INamedObject {
 	/**
 	 * Returns the value of the '<em><b>Price</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>

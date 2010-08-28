@@ -19,6 +19,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
@@ -114,7 +115,7 @@ public class TableCreatorTest {
 
 		final ITableCreator creator = ITableCreator.Factory.create(context, myBody, SWT.NONE, items);
 
-		creator.addColumn(ShopPackage.Literals.SHOP_ITEM__NAME, 200);
+		creator.addColumn(IMOAOPackage.Literals.NAMED_OBJECT__NAME, 200);
 		creator.addColumn(ShopPackage.Literals.SHOP_ITEM__PRICE, 100);
 
 		context.finish();

@@ -117,8 +117,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 				break;
 			}
-			final StackTraceElement[] newStackTrace = new StackTraceElement[min(stackTrace.length - i,
-					Activator.getDefault().CREATION_POINT_STACK_LEVELS)];
+			final StackTraceElement[] newStackTrace = new StackTraceElement[min(stackTrace.length - i, Activator
+					.getDefault().CREATION_POINT_STACK_LEVELS)];
 			System.arraycopy(stackTrace, i, newStackTrace, 0, newStackTrace.length);
 			cp.setStackTrace(newStackTrace);
 			setCreationPoint(cp);
@@ -663,14 +663,15 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		/*
 		 * And lastly parent bindings
 		 */
-		final IBinding parent = getParentBinding();
-		if (parent != null) {
-			final List<IArgumentValue<ArgumentType>> r = parent.getArguments(name, argumentType, firstOnly);
-			if (r.size() > 0) {
-				if (firstOnly) return r;
-				results.addAll(r);
-			}
-		}
+		// final IBinding parent = getParentBinding();
+		// if (parent != null) {
+		// final List<IArgumentValue<ArgumentType>> r = parent.getArguments(name, argumentType,
+		// firstOnly);
+		// if (r.size() > 0) {
+		// if (firstOnly) return r;
+		// results.addAll(r);
+		// }
+		// }
 
 		return results;
 	};

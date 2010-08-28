@@ -28,6 +28,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
@@ -134,11 +135,11 @@ public class ViewerSingleSelectionTest {
 		myContext = IBindingContext.Factory.createContext(myView.getScrolledForm());
 
 		myViewerBinding = myContext.addViewer(myTableViewer, myShop, ShopPackage.Literals.SHOP__COUNTRIES);
-		myViewerBinding.addColumn(myNameColumn, ShopPackage.Literals.COUNTRY__NAME);
+		myViewerBinding.addColumn(myNameColumn, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 
 		final IObservableValue selection = myViewerBinding.getSingleSelection();
 
-		myContext.addBinding(myNameText, selection, ShopPackage.Literals.COUNTRY__NAME);
+		myContext.addBinding(myNameText, selection, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 
 		myContext.finish();
 		yield();

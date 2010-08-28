@@ -27,6 +27,7 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
@@ -157,11 +158,11 @@ public class ViewerDisposeTest {
 
 				myViewerBinding = myContext.addViewer(myTableViewer, myShop, ShopPackage.Literals.SHOP__CONTACTS);
 				myContactNameBinding = myViewerBinding.addColumn(myContactNameColumn,
-						ShopPackage.Literals.CONTACT__NAME);
+						IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 				myCountryAbbrevBinding = myViewerBinding.addColumn(myCountryAbbrevColumn,
 						ShopPackage.Literals.CONTACT__COUNTRY);
 				myCountryNameBinding = myCountryAbbrevBinding.addColumn(myCountryNameColumn,
-						ShopPackage.Literals.COUNTRY__NAME);
+						IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 				myContactCityBinding = myViewerBinding.addColumn(myContactCityColumn,
 						ShopPackage.Literals.CONTACT__CITY);
 

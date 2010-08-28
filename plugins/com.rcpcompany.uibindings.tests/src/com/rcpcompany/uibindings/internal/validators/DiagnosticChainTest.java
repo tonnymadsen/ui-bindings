@@ -21,10 +21,10 @@ import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
-import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.validators.EValidatorAdapter;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 
@@ -76,7 +76,7 @@ public class DiagnosticChainTest {
 		myValidatorManager = (ValidatorAdapterManager) IValidatorAdapterManager.Factory.getManager();
 
 		myContext = IBindingContext.Factory.createContext(myView.getScrolledForm());
-		myBinding = myContext.addBinding(text, myItem, ShopPackage.Literals.SHOP_ITEM__NAME);
+		myBinding = myContext.addBinding(text, myItem, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 
 		myContext.finish();
 		yield();

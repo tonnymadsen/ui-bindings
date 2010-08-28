@@ -12,9 +12,9 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import com.rcpcompany.uibindings.moao.internal.NamedObjectImpl;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Customer;
@@ -28,7 +28,6 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  * The following features are implemented:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ContactImpl#getShop <em>Shop</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ContactImpl#getName <em>Name</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ContactImpl#getAddress <em>Address</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ContactImpl#getCity <em>City</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ContactImpl#getZip <em>Zip</em>}</li>
@@ -42,27 +41,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  * 
  * @generated
  */
-public class ContactImpl extends EObjectImpl implements Contact {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 * 
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
+public class ContactImpl extends NamedObjectImpl implements Contact {
 	/**
 	 * The default value of the '{@link #getAddress() <em>Address</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -200,30 +179,6 @@ public class ContactImpl extends EObjectImpl implements Contact {
 	@Override
 	protected EClass eStaticClass() {
 		return ShopPackage.Literals.CONTACT;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void setName(String newName) {
-		final String oldName = name;
-		name = newName;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.CONTACT__NAME, oldName, name));
-		}
 	}
 
 	/**
@@ -538,8 +493,6 @@ public class ContactImpl extends EObjectImpl implements Contact {
 		switch (featureID) {
 		case ShopPackage.CONTACT__SHOP:
 			return getShop();
-		case ShopPackage.CONTACT__NAME:
-			return getName();
 		case ShopPackage.CONTACT__ADDRESS:
 			return getAddress();
 		case ShopPackage.CONTACT__CITY:
@@ -568,9 +521,6 @@ public class ContactImpl extends EObjectImpl implements Contact {
 		switch (featureID) {
 		case ShopPackage.CONTACT__SHOP:
 			setShop((Shop) newValue);
-			return;
-		case ShopPackage.CONTACT__NAME:
-			setName((String) newValue);
 			return;
 		case ShopPackage.CONTACT__ADDRESS:
 			setAddress((String) newValue);
@@ -608,9 +558,6 @@ public class ContactImpl extends EObjectImpl implements Contact {
 		case ShopPackage.CONTACT__SHOP:
 			setShop((Shop) null);
 			return;
-		case ShopPackage.CONTACT__NAME:
-			setName(NAME_EDEFAULT);
-			return;
 		case ShopPackage.CONTACT__ADDRESS:
 			setAddress(ADDRESS_EDEFAULT);
 			return;
@@ -646,8 +593,6 @@ public class ContactImpl extends EObjectImpl implements Contact {
 		switch (featureID) {
 		case ShopPackage.CONTACT__SHOP:
 			return getShop() != null;
-		case ShopPackage.CONTACT__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case ShopPackage.CONTACT__ADDRESS:
 			return ADDRESS_EDEFAULT == null ? address != null : !ADDRESS_EDEFAULT.equals(address);
 		case ShopPackage.CONTACT__CITY:
@@ -676,9 +621,7 @@ public class ContactImpl extends EObjectImpl implements Contact {
 		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", address: ");
+		result.append(" (address: ");
 		result.append(address);
 		result.append(", city: ");
 		result.append(city);

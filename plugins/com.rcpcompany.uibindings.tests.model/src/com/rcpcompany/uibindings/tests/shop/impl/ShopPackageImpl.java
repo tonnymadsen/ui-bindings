@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Customer;
@@ -178,6 +179,9 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 		isInited = true;
 
+		// Initialize simple dependencies
+		IMOAOPackage.eINSTANCE.eClass();
+
 		// Create package meta-data objects
 		theShopPackage.createPackageContents();
 
@@ -216,7 +220,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getShop_Name() {
+	public EAttribute getShop_NextOrderNo() {
 		return (EAttribute) shopEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -226,7 +230,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getShop_NextOrderNo() {
+	public EAttribute getShop_NextCustomerNo() {
 		return (EAttribute) shopEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -236,7 +240,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getShop_NextCustomerNo() {
+	public EAttribute getShop_TmpDir() {
 		return (EAttribute) shopEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -246,18 +250,8 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getShop_TmpDir() {
-		return (EAttribute) shopEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public EReference getShop_Countries() {
-		return (EReference) shopEClass.getEStructuralFeatures().get(4);
+		return (EReference) shopEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -267,7 +261,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 */
 	@Override
 	public EReference getShop_Contacts() {
-		return (EReference) shopEClass.getEStructuralFeatures().get(5);
+		return (EReference) shopEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -277,7 +271,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 */
 	@Override
 	public EReference getShop_ShopItems() {
-		return (EReference) shopEClass.getEStructuralFeatures().get(6);
+		return (EReference) shopEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -287,7 +281,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 */
 	@Override
 	public EReference getShop_Orders() {
-		return (EReference) shopEClass.getEStructuralFeatures().get(7);
+		return (EReference) shopEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -297,7 +291,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 */
 	@Override
 	public EReference getShop_Customers() {
-		return (EReference) shopEClass.getEStructuralFeatures().get(8);
+		return (EReference) shopEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -307,7 +301,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 */
 	@Override
 	public EReference getShop_ShopGroups() {
-		return (EReference) shopEClass.getEStructuralFeatures().get(9);
+		return (EReference) shopEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -386,18 +380,8 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getShopItem_Name() {
-		return (EAttribute) shopItemEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public EAttribute getShopItem_Price() {
-		return (EAttribute) shopItemEClass.getEStructuralFeatures().get(2);
+		return (EAttribute) shopItemEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -417,7 +401,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 */
 	@Override
 	public EReference getShopItem_OrderItems() {
-		return (EReference) shopItemEClass.getEStructuralFeatures().get(3);
+		return (EReference) shopItemEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -427,7 +411,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 */
 	@Override
 	public EAttribute getShopItem_ForSale() {
-		return (EAttribute) shopItemEClass.getEStructuralFeatures().get(4);
+		return (EAttribute) shopItemEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -437,7 +421,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 */
 	@Override
 	public EReference getShopItem_Information() {
-		return (EReference) shopItemEClass.getEStructuralFeatures().get(5);
+		return (EReference) shopItemEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -447,7 +431,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 */
 	@Override
 	public EReference getShopItem_Group() {
-		return (EReference) shopItemEClass.getEStructuralFeatures().get(6);
+		return (EReference) shopItemEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -457,7 +441,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 */
 	@Override
 	public EAttribute getShopItem_Locations() {
-		return (EAttribute) shopItemEClass.getEStructuralFeatures().get(7);
+		return (EAttribute) shopItemEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -476,18 +460,8 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getShopItemGroup_Name() {
-		return (EAttribute) shopItemGroupEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public EReference getShopItemGroup_Items() {
-		return (EReference) shopItemGroupEClass.getEStructuralFeatures().get(1);
+		return (EReference) shopItemGroupEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -497,17 +471,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 */
 	@Override
 	public EReference getShopItemGroup_Shop() {
-		return (EReference) shopItemGroupEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public EAttribute getShopItemGroup_Description() {
-		return (EAttribute) shopItemGroupEClass.getEStructuralFeatures().get(3);
+		return (EReference) shopItemGroupEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -646,7 +610,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getContact_Name() {
+	public EAttribute getContact_Address() {
 		return (EAttribute) contactEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -656,7 +620,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getContact_Address() {
+	public EAttribute getContact_City() {
 		return (EAttribute) contactEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -666,7 +630,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getContact_City() {
+	public EAttribute getContact_Zip() {
 		return (EAttribute) contactEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -676,18 +640,8 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getContact_Zip() {
-		return (EAttribute) contactEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public EReference getContact_Country() {
-		return (EReference) contactEClass.getEStructuralFeatures().get(5);
+		return (EReference) contactEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -707,7 +661,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 */
 	@Override
 	public EReference getContact_Customer() {
-		return (EReference) contactEClass.getEStructuralFeatures().get(6);
+		return (EReference) contactEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -717,7 +671,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 */
 	@Override
 	public EAttribute getContact_Newsletter() {
-		return (EAttribute) contactEClass.getEStructuralFeatures().get(7);
+		return (EAttribute) contactEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -727,7 +681,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 */
 	@Override
 	public EAttribute getContact_Birthday() {
-		return (EAttribute) contactEClass.getEStructuralFeatures().get(8);
+		return (EAttribute) contactEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -746,18 +700,8 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCountry_Name() {
-		return (EAttribute) countryEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public EAttribute getCountry_Abbreviation() {
-		return (EAttribute) countryEClass.getEStructuralFeatures().get(2);
+		return (EAttribute) countryEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -788,16 +732,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	@Override
 	public EClass getShopItemDescription() {
 		return shopItemDescriptionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public EAttribute getShopItemDescription_Description() {
-		return (EAttribute) shopItemDescriptionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -869,7 +803,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 		// Create classes and their features
 		shopEClass = createEClass(SHOP);
-		createEAttribute(shopEClass, SHOP__NAME);
 		createEAttribute(shopEClass, SHOP__NEXT_ORDER_NO);
 		createEAttribute(shopEClass, SHOP__NEXT_CUSTOMER_NO);
 		createEAttribute(shopEClass, SHOP__TMP_DIR);
@@ -889,7 +822,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 		shopItemEClass = createEClass(SHOP_ITEM);
 		createEReference(shopItemEClass, SHOP_ITEM__SHOP);
-		createEAttribute(shopItemEClass, SHOP_ITEM__NAME);
 		createEAttribute(shopItemEClass, SHOP_ITEM__PRICE);
 		createEReference(shopItemEClass, SHOP_ITEM__ORDER_ITEMS);
 		createEAttribute(shopItemEClass, SHOP_ITEM__FOR_SALE);
@@ -898,10 +830,8 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		createEAttribute(shopItemEClass, SHOP_ITEM__LOCATIONS);
 
 		shopItemGroupEClass = createEClass(SHOP_ITEM_GROUP);
-		createEAttribute(shopItemGroupEClass, SHOP_ITEM_GROUP__NAME);
 		createEReference(shopItemGroupEClass, SHOP_ITEM_GROUP__ITEMS);
 		createEReference(shopItemGroupEClass, SHOP_ITEM_GROUP__SHOP);
-		createEAttribute(shopItemGroupEClass, SHOP_ITEM_GROUP__DESCRIPTION);
 
 		orderEClass = createEClass(ORDER);
 		createEAttribute(orderEClass, ORDER__NO);
@@ -919,7 +849,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 		contactEClass = createEClass(CONTACT);
 		createEReference(contactEClass, CONTACT__SHOP);
-		createEAttribute(contactEClass, CONTACT__NAME);
 		createEAttribute(contactEClass, CONTACT__ADDRESS);
 		createEAttribute(contactEClass, CONTACT__CITY);
 		createEAttribute(contactEClass, CONTACT__ZIP);
@@ -930,13 +859,11 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 		countryEClass = createEClass(COUNTRY);
 		createEReference(countryEClass, COUNTRY__SHOP);
-		createEAttribute(countryEClass, COUNTRY__NAME);
 		createEAttribute(countryEClass, COUNTRY__ABBREVIATION);
 
 		shopItemInformationEClass = createEClass(SHOP_ITEM_INFORMATION);
 
 		shopItemDescriptionEClass = createEClass(SHOP_ITEM_DESCRIPTION);
-		createEAttribute(shopItemDescriptionEClass, SHOP_ITEM_DESCRIPTION__DESCRIPTION);
 
 		shopItemURLEClass = createEClass(SHOP_ITEM_URL);
 		createEAttribute(shopItemURLEClass, SHOP_ITEM_URL__URL);
@@ -970,18 +897,28 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		final IMOAOPackage theMOAOPackage = (IMOAOPackage) EPackage.Registry.INSTANCE.getEPackage(IMOAOPackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		shopEClass.getESuperTypes().add(theMOAOPackage.getNamedObject());
+		customerEClass.getESuperTypes().add(theMOAOPackage.getMOAO());
+		shopItemEClass.getESuperTypes().add(theMOAOPackage.getNamedObject());
+		shopItemGroupEClass.getESuperTypes().add(theMOAOPackage.getNamedObject());
+		orderEClass.getESuperTypes().add(theMOAOPackage.getMOAO());
+		orderItemEClass.getESuperTypes().add(theMOAOPackage.getMOAO());
+		contactEClass.getESuperTypes().add(theMOAOPackage.getNamedObject());
+		countryEClass.getESuperTypes().add(theMOAOPackage.getNamedObject());
+		shopItemInformationEClass.getESuperTypes().add(theMOAOPackage.getMOAO());
 		shopItemDescriptionEClass.getESuperTypes().add(this.getShopItemInformation());
 		shopItemURLEClass.getESuperTypes().add(this.getShopItemInformation());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(shopEClass, Shop.class, "Shop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getShop_Name(), ecorePackage.getEString(), "name", null, 0, 1, Shop.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getShop_NextOrderNo(), ecorePackage.getEInt(), "nextOrderNo", null, 1, 1, Shop.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getShop_NextCustomerNo(), ecorePackage.getEInt(), "nextCustomerNo", null, 1, 1, Shop.class,
@@ -1039,8 +976,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		initEReference(getShopItem_Shop(), this.getShop(), this.getShop_ShopItems(), "shop", null, 1, 1,
 				ShopItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getShopItem_Name(), ecorePackage.getEString(), "name", null, 1, 1, ShopItem.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getShopItem_Price(), ecorePackage.getEFloat(), "price", null, 1, 1, ShopItem.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getShopItem_OrderItems(), this.getOrderItem(), this.getOrderItem_Item(), "orderItems", null, 0,
@@ -1077,17 +1012,12 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 		initEClass(shopItemGroupEClass, ShopItemGroup.class, "ShopItemGroup", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getShopItemGroup_Name(), ecorePackage.getEString(), "name", null, 1, 1, ShopItemGroup.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getShopItemGroup_Items(), this.getShopItem(), this.getShopItem_Group(), "items", null, 0, -1,
 				ShopItemGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getShopItemGroup_Shop(), this.getShop(), this.getShop_ShopGroups(), "shop", null, 1, 1,
 				ShopItemGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getShopItemGroup_Description(), ecorePackage.getEString(), "description", null, 0, 1,
-				ShopItemGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(orderEClass, Order.class, "Order", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOrder_No(), ecorePackage.getEInt(), "no", null, 1, 1, Order.class, !IS_TRANSIENT,
@@ -1124,8 +1054,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		initEReference(getContact_Shop(), this.getShop(), this.getShop_Contacts(), "shop", null, 1, 1, Contact.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getContact_Name(), ecorePackage.getEString(), "name", null, 1, 1, Contact.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContact_Address(), ecorePackage.getEString(), "address", null, 0, 1, Contact.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContact_City(), ecorePackage.getEString(), "city", null, 1, 1, Contact.class, !IS_TRANSIENT,
@@ -1147,10 +1075,8 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		initEReference(getCountry_Shop(), this.getShop(), this.getShop_Countries(), "shop", null, 1, 1, Country.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCountry_Name(), ecorePackage.getEString(), "name", null, 1, 1, Country.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCountry_Abbreviation(), ecorePackage.getEString(), "abbreviation", null, 1, 1, Country.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(countryEClass, ecorePackage.getEBoolean(), "abbreviationLengthOK", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
@@ -1176,9 +1102,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 		initEClass(shopItemDescriptionEClass, ShopItemDescription.class, "ShopItemDescription", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getShopItemDescription_Description(), ecorePackage.getEString(), "description", null, 0, 1,
-				ShopItemDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(shopItemURLEClass, ShopItemURL.class, "ShopItemURL", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

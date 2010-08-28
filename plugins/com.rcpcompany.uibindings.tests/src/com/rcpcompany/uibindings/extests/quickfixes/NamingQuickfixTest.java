@@ -3,8 +3,6 @@ package com.rcpcompany.uibindings.extests.quickfixes;
 import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
-import java.util.List;
-
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -16,7 +14,6 @@ import org.junit.Test;
 
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
-import com.rcpcompany.uibindings.IQuickfixProposal;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;

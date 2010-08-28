@@ -19,9 +19,9 @@ import com.rcpcompany.uibindings.extests.utils.ShowViewSelectionTestView;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.decorators.extenders.OpenCommandSupport.ContextData;
 import com.rcpcompany.uibindings.internal.decorators.extenders.OpenCommandSupport.ManagerData;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
-import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 
 /**
@@ -89,7 +89,7 @@ public class OpenCommandSupportLowLevelTest {
 
 		myForm = myView.createFormCreator(myShop);
 
-		myNameField = myForm.addField(myShop, ShopPackage.Literals.SHOP__NAME, SWT.NONE);
+		myNameField = myForm.addField(myShop, IMOAOPackage.Literals.NAMED_OBJECT__NAME, SWT.NONE);
 
 		myText = new Text(myForm.addComposite(), SWT.SINGLE | SWT.LEAD | SWT.BORDER);
 		myText.setText("Outside");

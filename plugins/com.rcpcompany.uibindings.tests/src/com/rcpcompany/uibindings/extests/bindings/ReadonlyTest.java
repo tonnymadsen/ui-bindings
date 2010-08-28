@@ -22,6 +22,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
@@ -134,17 +135,17 @@ public class ReadonlyTest {
 			public void run() {
 				final IBindingContext context = IBindingContext.Factory.createContext(myView.getScrolledForm());
 
-				context.addBinding(myRWText, mySI, ShopPackage.Literals.SHOP_ITEM__NAME);
-				context.addBinding(mySWTROText, mySI, ShopPackage.Literals.SHOP_ITEM__NAME);
-				context.addBinding(myARGROText, mySI, ShopPackage.Literals.SHOP_ITEM__NAME).readonly();
+				context.addBinding(myRWText, mySI, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
+				context.addBinding(mySWTROText, mySI, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
+				context.addBinding(myARGROText, mySI, IMOAOPackage.Literals.NAMED_OBJECT__NAME).readonly();
 
 				myViewer = context.addViewer(myTableViewerMixed, myShop, ShopPackage.Literals.SHOP__SHOP_ITEMS);
-				myViewer.addColumn(myNameColumnRW, ShopPackage.Literals.SHOP_ITEM__NAME);
-				myViewer.addColumn(myPriceColumnRO, ShopPackage.Literals.SHOP_ITEM__NAME).readonly();
+				myViewer.addColumn(myNameColumnRW, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
+				myViewer.addColumn(myPriceColumnRO, IMOAOPackage.Literals.NAMED_OBJECT__NAME).readonly();
 
 				myViewer = context.addViewer(myTableViewerRO, myShop, ShopPackage.Literals.SHOP__SHOP_ITEMS).readonly();
-				myViewer.addColumn(myNameColumnVRO, ShopPackage.Literals.SHOP_ITEM__NAME);
-				myViewer.addColumn(myPriceColumnVRO, ShopPackage.Literals.SHOP_ITEM__NAME).readonly();
+				myViewer.addColumn(myNameColumnVRO, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
+				myViewer.addColumn(myPriceColumnVRO, IMOAOPackage.Literals.NAMED_OBJECT__NAME).readonly();
 
 				context.finish();
 				yield();

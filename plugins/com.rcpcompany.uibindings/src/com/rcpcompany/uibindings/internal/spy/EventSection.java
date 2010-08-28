@@ -42,7 +42,7 @@ public class EventSection implements IBindingSpySection {
 				s = s.substring(0, 28) + "...";
 			}
 
-			subform.addConstantField(label, s, SWT.MULTI | SWT.WRAP);
+			subform.addConstantField(label, s, SWT.NULL);
 		}
 	}
 }

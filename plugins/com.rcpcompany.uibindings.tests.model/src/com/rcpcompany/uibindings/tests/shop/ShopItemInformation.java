@@ -5,7 +5,7 @@
  */
 package com.rcpcompany.uibindings.tests.shop;
 
-import org.eclipse.emf.ecore.EObject;
+import com.rcpcompany.uibindings.moao.IMOAO;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Item Information</b></em>'.
@@ -15,5 +15,5 @@ import org.eclipse.emf.ecore.EObject;
  * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItemInformation()
  * @generated
  */
-public interface ShopItemInformation extends EObject {
+public interface ShopItemInformation extends IMOAO {
 } // ShopItemInformation

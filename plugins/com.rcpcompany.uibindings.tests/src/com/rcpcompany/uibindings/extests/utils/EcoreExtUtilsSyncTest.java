@@ -17,6 +17,7 @@ import org.junit.Test;
 
 import com.rcpcompany.uibindings.EcoreExtUtils;
 import com.rcpcompany.uibindings.EcoreExtUtils.SyncController;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
@@ -44,7 +45,7 @@ public class EcoreExtUtilsSyncTest {
 		target.setName("cba");
 		target.setAbbreviation("AB");
 
-		sync(target, source, null, ShopPackage.Literals.COUNTRY__NAME);
+		sync(target, source, null, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 
 		assertEquals("abc", target.getName());
 		assertEquals("AB", target.getAbbreviation());
@@ -69,7 +70,7 @@ public class EcoreExtUtilsSyncTest {
 		targetCountry.setAbbreviation("AB");
 		target.setCountry(targetCountry);
 
-		sync(target, source, null, ShopPackage.Literals.CONTACT__NAME, ShopPackage.Literals.CONTACT__COUNTRY);
+		sync(target, source, null, IMOAOPackage.Literals.NAMED_OBJECT__NAME, ShopPackage.Literals.CONTACT__COUNTRY);
 
 		assertEquals("Tonny", target.getName());
 		assertEquals("cba", targetCountry.getName());// NOT CHANGED! Not containment

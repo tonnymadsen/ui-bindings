@@ -16,8 +16,8 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IServiceRegistry;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
-import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
 /**
  * Tests the basic {@link IServiceRegistry} functionality
@@ -79,7 +79,7 @@ public class BasicServiceTest {
 
 				final IBindingContext context = IBindingContext.Factory.createContext(body);
 				final IValueBinding binding = context.addBinding(text, ShopFactory.eINSTANCE.getShop(),
-						ShopPackage.Literals.SHOP__NAME);
+						IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 
 				testServiceInterface(binding);
 			}

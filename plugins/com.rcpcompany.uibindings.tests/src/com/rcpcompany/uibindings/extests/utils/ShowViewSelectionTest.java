@@ -31,6 +31,7 @@ import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
@@ -181,7 +182,7 @@ public class ShowViewSelectionTest {
 		final IObservableList countries = UIBindingsEMFObservables.observeList(myContext.getEditingDomain(), myShop,
 				ShopPackage.Literals.SHOP__COUNTRIES);
 		myViewerBinding = myContext.addViewer(myTableViewer1, myShop, ShopPackage.Literals.SHOP__COUNTRIES);
-		myViewerBinding.addColumn(myNameColumn1, ShopPackage.Literals.COUNTRY__NAME)
+		myViewerBinding.addColumn(myNameColumn1, IMOAOPackage.Literals.NAMED_OBJECT__NAME)
 				.arg(Constants.ARG_OPEN_COMMAND, SHOW_VIEW_COMMAND).validValues(countries);
 
 		myContext.finish();

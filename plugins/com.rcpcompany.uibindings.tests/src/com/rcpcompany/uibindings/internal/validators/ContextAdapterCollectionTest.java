@@ -16,6 +16,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
@@ -74,7 +75,7 @@ public class ContextAdapterCollectionTest {
 		myValidatorManager = (ValidatorAdapterManager) IValidatorAdapterManager.Factory.getManager();
 
 		myContext = IBindingContext.Factory.createContext(myView.getScrolledForm());
-		myNameBinding = myContext.addBinding(nameText, myItem, ShopPackage.Literals.SHOP_ITEM__NAME);
+		myNameBinding = myContext.addBinding(nameText, myItem, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 		myPriceBinding = myContext.addBinding(priceText, myItem, ShopPackage.Literals.SHOP_ITEM__PRICE);
 
 		myContext.finish();

@@ -104,7 +104,6 @@ public class BindingSpyDialog extends PopupDialog {
 		new BindingCreationSection().build(form, myEvent);
 		new BindingErrorsSection().build(form, myEvent);
 		new BindingArgumentsSection().build(form, myEvent);
-		new BindingDeclaredArgumentsSection().build(form, myEvent);
 		new BindingServicesSection().build(form, myEvent);
 		new EventSection().build(form, myEvent);
 

@@ -15,9 +15,9 @@ import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
-import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.uiAttributes.SimpleUIAttribute;
 
 /**
@@ -68,7 +68,7 @@ public class BindingDisposeTest {
 
 		final WritableValue ov = new WritableValue("", String.class);
 		final IUIAttribute attribute = new SimpleUIAttribute(null, null, ov, true);
-		final IValueBinding binding = context.addBinding().model(myShop, ShopPackage.Literals.SHOP__NAME).ui(attribute);
+		final IValueBinding binding = context.addBinding().model(myShop, IMOAOPackage.Literals.NAMED_OBJECT__NAME).ui(attribute);
 		context.finish();
 		yield();
 

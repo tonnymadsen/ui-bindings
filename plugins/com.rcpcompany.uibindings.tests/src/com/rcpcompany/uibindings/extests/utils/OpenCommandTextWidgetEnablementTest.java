@@ -23,6 +23,7 @@ import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
@@ -111,7 +112,7 @@ public class OpenCommandTextWidgetEnablementTest {
 		final IObservableList countries = UIBindingsEMFObservables.observeList(Realm.getDefault(), myForm.getContext()
 				.getEditingDomain(), myShop, ShopPackage.Literals.SHOP__COUNTRIES);
 
-		myNameField = myForm.addField(myContact1, ShopPackage.Literals.CONTACT__NAME, SWT.NONE);
+		myNameField = myForm.addField(myContact1, IMOAOPackage.Literals.NAMED_OBJECT__NAME, SWT.NONE);
 		myCountryOKField = myForm.addField(myContact1, ShopPackage.Literals.CONTACT__COUNTRY, SWT.NONE)
 				.arg(Constants.ARG_OPEN_COMMAND, SHOW_VIEW_COMMAND).validValues(countries);
 		myCountryNOKField = myForm.addField(myContact1, ShopPackage.Literals.CONTACT__COUNTRY, SWT.NONE)

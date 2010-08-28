@@ -10,9 +10,9 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import com.rcpcompany.uibindings.moao.internal.MOAOImpl;
 import com.rcpcompany.uibindings.tests.shop.Order;
 import com.rcpcompany.uibindings.tests.shop.OrderItem;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
@@ -34,7 +34,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  * 
  * @generated
  */
-public class OrderItemImpl extends EObjectImpl implements OrderItem {
+public class OrderItemImpl extends MOAOImpl implements OrderItem {
 	/**
 	 * The default value of the '{@link #getNo() <em>No</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

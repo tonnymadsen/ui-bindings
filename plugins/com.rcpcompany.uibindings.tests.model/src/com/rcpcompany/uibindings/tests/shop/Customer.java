@@ -6,7 +6,8 @@
 package com.rcpcompany.uibindings.tests.shop;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
+
+import com.rcpcompany.uibindings.moao.IMOAO;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Customer</b></em>'. <!--
@@ -27,7 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getCustomer()
  * @generated
  */
-public interface Customer extends EObject {
+public interface Customer extends IMOAO {
 	/**
 	 * Returns the value of the '<em><b>Shop</b></em>' container reference. It is bidirectional and
 	 * its opposite is '{@link com.rcpcompany.uibindings.tests.shop.Shop#getCustomers

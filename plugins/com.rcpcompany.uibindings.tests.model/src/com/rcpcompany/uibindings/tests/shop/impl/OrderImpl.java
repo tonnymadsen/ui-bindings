@@ -14,10 +14,10 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import com.rcpcompany.uibindings.moao.internal.MOAOImpl;
 import com.rcpcompany.uibindings.tests.shop.Customer;
 import com.rcpcompany.uibindings.tests.shop.Order;
 import com.rcpcompany.uibindings.tests.shop.OrderItem;
@@ -41,7 +41,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  * 
  * @generated
  */
-public class OrderImpl extends EObjectImpl implements Order {
+public class OrderImpl extends MOAOImpl implements Order {
 	/**
 	 * The default value of the '{@link #getNo() <em>No</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

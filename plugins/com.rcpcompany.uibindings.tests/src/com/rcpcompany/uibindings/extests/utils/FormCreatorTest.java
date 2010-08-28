@@ -22,11 +22,11 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
-import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 
 /**
@@ -266,7 +266,7 @@ public class FormCreatorTest {
 				myForm = IFormCreator.Factory.createForm(myContext, myShopItem, myToolkit, myBody);
 
 				mySubform = myForm.addSection("Basics");
-				myField1 = mySubform.addField(ShopPackage.Literals.SHOP_ITEM__NAME);
+				myField1 = mySubform.addField(IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 
 				myForm.finish();
 			}
@@ -304,7 +304,7 @@ public class FormCreatorTest {
 				myContext = IBindingContext.Factory.createContext(myBody);
 				myForm = IFormCreator.Factory.createForm(myContext, myShopItem, myToolkit, myBody);
 
-				myField1 = myForm.addField(ShopPackage.Literals.SHOP_ITEM__NAME).label("hello");
+				myField1 = myForm.addField(IMOAOPackage.Literals.NAMED_OBJECT__NAME).label("hello");
 
 				myForm.finish();
 			}
@@ -325,7 +325,7 @@ public class FormCreatorTest {
 				myContext = IBindingContext.Factory.createContext(myBody);
 				myForm = IFormCreator.Factory.createForm(myContext, myShopItem, myToolkit, myBody);
 
-				myField1 = myForm.addField(ShopPackage.Literals.SHOP_ITEM__NAME).arg(Constants.ARG_PREFERRED_CONTROL,
+				myField1 = myForm.addField(IMOAOPackage.Literals.NAMED_OBJECT__NAME).arg(Constants.ARG_PREFERRED_CONTROL,
 						StyledText.class.getName());
 
 				myForm.finish();
@@ -518,7 +518,7 @@ public class FormCreatorTest {
 				myContext = IBindingContext.Factory.createContext(myBody);
 				myForm = IFormCreator.Factory.createForm(myContext, myShopItem, myToolkit, myBody);
 
-				myField1 = myForm.addField(ShopPackage.Literals.SHOP_ITEM__NAME, SWT.MULTI);
+				myField1 = myForm.addField(IMOAOPackage.Literals.NAMED_OBJECT__NAME, SWT.MULTI);
 
 				myForm.finish();
 			}

@@ -13,11 +13,11 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import com.rcpcompany.uibindings.moao.internal.MOAOImpl;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Customer;
 import com.rcpcompany.uibindings.tests.shop.CustomerType;
@@ -42,7 +42,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  * 
  * @generated
  */
-public class CustomerImpl extends EObjectImpl implements Customer {
+public class CustomerImpl extends MOAOImpl implements Customer {
 	/**
 	 * The cached value of the '{@link #getContact() <em>Contact</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->

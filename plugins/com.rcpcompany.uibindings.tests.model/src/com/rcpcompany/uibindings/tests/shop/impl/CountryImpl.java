@@ -13,9 +13,9 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import com.rcpcompany.uibindings.moao.internal.NamedObjectImpl;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
@@ -29,7 +29,6 @@ import com.rcpcompany.uibindings.validators.EValidatorAdapter;
  * The following features are implemented:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.CountryImpl#getShop <em>Shop</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.CountryImpl#getName <em>Name</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.CountryImpl#getAbbreviation <em>Abbreviation
  * </em>}</li>
  * </ul>
@@ -37,27 +36,7 @@ import com.rcpcompany.uibindings.validators.EValidatorAdapter;
  * 
  * @generated
  */
-public class CountryImpl extends EObjectImpl implements Country {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 * 
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
+public class CountryImpl extends NamedObjectImpl implements Country {
 	/**
 	 * The default value of the '{@link #getAbbreviation() <em>Abbreviation</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -95,30 +74,6 @@ public class CountryImpl extends EObjectImpl implements Country {
 	@Override
 	protected EClass eStaticClass() {
 		return ShopPackage.Literals.COUNTRY;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void setName(String newName) {
-		final String oldName = name;
-		name = newName;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.COUNTRY__NAME, oldName, name));
-		}
 	}
 
 	/**
@@ -287,8 +242,6 @@ public class CountryImpl extends EObjectImpl implements Country {
 		switch (featureID) {
 		case ShopPackage.COUNTRY__SHOP:
 			return getShop();
-		case ShopPackage.COUNTRY__NAME:
-			return getName();
 		case ShopPackage.COUNTRY__ABBREVIATION:
 			return getAbbreviation();
 		}
@@ -305,9 +258,6 @@ public class CountryImpl extends EObjectImpl implements Country {
 		switch (featureID) {
 		case ShopPackage.COUNTRY__SHOP:
 			setShop((Shop) newValue);
-			return;
-		case ShopPackage.COUNTRY__NAME:
-			setName((String) newValue);
 			return;
 		case ShopPackage.COUNTRY__ABBREVIATION:
 			setAbbreviation((String) newValue);
@@ -327,9 +277,6 @@ public class CountryImpl extends EObjectImpl implements Country {
 		case ShopPackage.COUNTRY__SHOP:
 			setShop((Shop) null);
 			return;
-		case ShopPackage.COUNTRY__NAME:
-			setName(NAME_EDEFAULT);
-			return;
 		case ShopPackage.COUNTRY__ABBREVIATION:
 			setAbbreviation(ABBREVIATION_EDEFAULT);
 			return;
@@ -347,8 +294,6 @@ public class CountryImpl extends EObjectImpl implements Country {
 		switch (featureID) {
 		case ShopPackage.COUNTRY__SHOP:
 			return getShop() != null;
-		case ShopPackage.COUNTRY__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case ShopPackage.COUNTRY__ABBREVIATION:
 			return ABBREVIATION_EDEFAULT == null ? abbreviation != null : !ABBREVIATION_EDEFAULT.equals(abbreviation);
 		}
@@ -365,9 +310,7 @@ public class CountryImpl extends EObjectImpl implements Country {
 		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", abbreviation: ");
+		result.append(" (abbreviation: ");
 		result.append(abbreviation);
 		result.append(')');
 		return result.toString();

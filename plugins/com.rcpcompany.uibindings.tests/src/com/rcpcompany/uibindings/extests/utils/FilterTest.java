@@ -19,6 +19,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.utils.FilteringTableAdapter;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
@@ -108,7 +109,7 @@ public class FilterTest {
 		myContext = IBindingContext.Factory.createContext(myView.getScrolledForm());
 
 		myViewer = myContext.addViewer(myTable, myShop, ShopPackage.Literals.SHOP__COUNTRIES);
-		myViewer.addColumn(myNameColumn, ShopPackage.Literals.COUNTRY__NAME);
+		myViewer.addColumn(myNameColumn, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 		myViewer.addColumn(myAbbreviationColumn, ShopPackage.Literals.COUNTRY__ABBREVIATION);
 
 		myContext.finish();

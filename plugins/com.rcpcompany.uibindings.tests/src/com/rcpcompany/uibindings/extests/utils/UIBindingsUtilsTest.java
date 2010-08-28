@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import com.rcpcompany.uibindings.DecorationPosition;
 import com.rcpcompany.uibindings.UIBindingsUtils;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
 /**
@@ -52,7 +53,7 @@ public class UIBindingsUtilsTest {
 
 		assertEquals(SWT.NONE, UIBindingsUtils.defaultAlignment(EcorePackage.Literals.ESTRING));
 
-		assertEquals(SWT.NONE, UIBindingsUtils.defaultAlignment(ShopPackage.Literals.SHOP_ITEM__NAME));
+		assertEquals(SWT.NONE, UIBindingsUtils.defaultAlignment(IMOAOPackage.Literals.NAMED_OBJECT__NAME));
 		assertEquals(SWT.RIGHT, UIBindingsUtils.defaultAlignment(ShopPackage.Literals.SHOP_ITEM__PRICE));
 	}
 }

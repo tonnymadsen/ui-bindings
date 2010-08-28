@@ -24,6 +24,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
@@ -137,10 +138,10 @@ public class ViewerItemDeletorTest {
 		myContext = IBindingContext.Factory.createContext(myView.getScrolledForm());
 
 		myViewerBinding1 = myContext.addViewer(myTableViewer1, myShop, ShopPackage.Literals.SHOP__COUNTRIES);
-		myViewerBinding1.addColumn(myNameColumn1, ShopPackage.Literals.COUNTRY__NAME);
+		myViewerBinding1.addColumn(myNameColumn1, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 
 		myViewerBinding2 = myContext.addViewer(myTableViewer2, myShop, ShopPackage.Literals.SHOP__SHOP_ITEMS);
-		myViewerBinding2.addColumn(myNameColumn2, ShopPackage.Literals.SHOP_ITEM__NAME);
+		myViewerBinding2.addColumn(myNameColumn2, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 
 		myContext.finish();
 		yield();

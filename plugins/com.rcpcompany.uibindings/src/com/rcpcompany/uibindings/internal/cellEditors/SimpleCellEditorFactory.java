@@ -118,7 +118,6 @@ public class SimpleCellEditorFactory implements ICellEditorFactory {
 		 */
 		final IValueBinding editorBinding = context.addBinding().ui(ce.getControl()).model(value);
 		if (labelBinding.hasArguments()) {
-			// TODO: problem with arguments
 			editorBinding.getExtraArgumentProviders().add(labelBinding);
 		}
 

@@ -27,6 +27,7 @@ import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.handlers.ViewerCopyHandler;
 import com.rcpcompany.uibindings.internal.handlers.ViewerPasteHandler;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
@@ -145,7 +146,7 @@ public class CopyPasteInViewerTest {
 				ShopPackage.Literals.SHOP__SHOP_GROUPS);
 
 		myViewerBinding = myContext.addViewer(myTableViewer, myShop, ShopPackage.Literals.SHOP__SHOP_ITEMS);
-		myViewerBinding.addColumn(myNameColumn, ShopPackage.Literals.SHOP_ITEM__NAME);
+		myViewerBinding.addColumn(myNameColumn, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 		myViewerBinding.addColumn(myPriceColumn, ShopPackage.Literals.SHOP_ITEM__PRICE).type("##.#");
 		myViewerBinding.addColumn(myGroupColumn, ShopPackage.Literals.SHOP_ITEM__GROUP).validValues(groups);
 

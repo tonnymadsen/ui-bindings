@@ -16,9 +16,9 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.spy.BindingSpyDialog;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
-import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
 public class SpyDialogTest {
 	private Shop myShop;
@@ -57,7 +57,7 @@ public class SpyDialogTest {
 	private void bindUI() {
 		final IBindingContext context = IBindingContext.Factory.createContext(myView.getScrolledForm());
 
-		context.addBinding(myText, myShop, ShopPackage.Literals.SHOP__NAME);
+		context.addBinding(myText, myShop, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 
 		context.finish();
 		yield();

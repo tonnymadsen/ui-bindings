@@ -27,6 +27,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
@@ -100,7 +101,7 @@ public class SIMO182BugInUIBindingForTableCellEditor {
 		myContext = IBindingContext.Factory.createContext(myView.getScrolledForm());
 		myCurrentCountry = WritableList.withElementType(ShopPackage.Literals.COUNTRY);
 		myViewerBinding = myContext.addViewer(myViewer, myCurrentCountry);
-		myNameBinding = myViewerBinding.addColumn(myNameColumn, ShopPackage.Literals.COUNTRY__NAME);
+		myNameBinding = myViewerBinding.addColumn(myNameColumn, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 
 		myContext.finish();
 		yield();

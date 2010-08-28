@@ -10,17 +10,24 @@ import com.rcpcompany.uibindings.IUIBindingDecoratorExtenderContext;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.decorators.extenders.AbstractUIBindingDecoratorExtender;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Contact;
-import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
+/**
+ * Extender for {@link Contact#getName()}.
+ * 
+ * @author Tonny Madsen, The RCP Company
+ * 
+ */
 public class ContactExtender extends AbstractUIBindingDecoratorExtender implements IUIBindingDecoratorExtender {
 
 	@Override
 	public boolean isEnabled(IValueBinding binding) {
-		return binding.isEClassFeature(null, ShopPackage.Literals.CONTACT__NAME);
+		return binding.isEClassFeature(null, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 	}
 
-	final Image cornerImage = UIBindingsUtils.getCornerImage(DecorationPosition.TOP_RIGHT, new RGB(0, 0, 255));
+	private final Image cornerImage = UIBindingsUtils.getCornerImage(DecorationPosition.BOTTOM_RIGHT, new RGB(0, 255,
+			255));
 
 	@Override
 	public void extend(IUIBindingDecoratorExtenderContext context) {
@@ -29,7 +36,7 @@ public class ContactExtender extends AbstractUIBindingDecoratorExtender implemen
 
 		final Contact c = (Contact) value;
 		if (c.getCustomer() != null) {
-			context.setDecoratingImage(DecorationPosition.TOP_RIGHT, false, cornerImage, "Contact is a customer");
+			context.setDecoratingImage(DecorationPosition.BOTTOM_RIGHT, false, cornerImage, "Contact is a customer");
 		}
 	}
 }

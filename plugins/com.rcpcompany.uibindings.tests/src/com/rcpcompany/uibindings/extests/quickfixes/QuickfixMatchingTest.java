@@ -15,12 +15,12 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IQuickfixProposal;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.bindingMessages.AbstractBindingMessage;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Customer;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
-import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
 /**
  * Tests of how quick fix processors are matched against binding messages.
@@ -78,13 +78,13 @@ public class QuickfixMatchingTest {
 	@Test
 	public void testMatchingMatchOnFeature() {
 		// match on feature
-		testQ(1, null, ShopPackage.Literals.SHOP_ITEM__NAME, null, Integer.MIN_VALUE, null);
+		testQ(1, null, IMOAOPackage.Literals.NAMED_OBJECT__NAME, null, Integer.MIN_VALUE, null);
 	}
 
 	@Test
 	public void testMatchingMatchOnIllegalComb() {
 		// match on illegal combinations
-		testQ(1, myShop, ShopPackage.Literals.SHOP_ITEM__NAME, null, Integer.MIN_VALUE, null);
+		testQ(1, myShop, IMOAOPackage.Literals.NAMED_OBJECT__NAME, null, Integer.MIN_VALUE, null);
 	}
 
 	@Test

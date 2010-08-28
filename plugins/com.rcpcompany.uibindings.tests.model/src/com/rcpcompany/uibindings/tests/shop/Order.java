@@ -6,7 +6,8 @@
 package com.rcpcompany.uibindings.tests.shop;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
+
+import com.rcpcompany.uibindings.moao.IMOAO;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Order</b></em>'. <!--
@@ -26,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getOrder()
  * @generated
  */
-public interface Order extends EObject {
+public interface Order extends IMOAO {
 	/**
 	 * Returns the value of the '<em><b>No</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>

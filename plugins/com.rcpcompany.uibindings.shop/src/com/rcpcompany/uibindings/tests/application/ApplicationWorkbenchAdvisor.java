@@ -4,6 +4,7 @@ import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchAdvisor;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
 
+import com.rcpcompany.uibindings.moao.util.MOAOMessageValidatorAdapter;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.utils.IGlobalNavigationManager;
@@ -45,6 +46,7 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 		final Shop theShop = ShopFactory.eINSTANCE.getShop();
 		vam.addRoot(theShop, new EValidatorAdapter());
 		vam.addRoot(theShop, new ConstraintValidatorAdapter());
+		vam.addRoot(theShop, new MOAOMessageValidatorAdapter());
 
 		IGlobalNavigationManager.Factory.installMouseHandling();
 	}

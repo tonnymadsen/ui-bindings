@@ -5,11 +5,14 @@
  */
 package com.rcpcompany.uibindings.tests.shop.util;
 
+import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
+import com.rcpcompany.uibindings.moao.IMOAO;
+import com.rcpcompany.uibindings.moao.INamedObject;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Customer;
@@ -124,6 +127,21 @@ public class ShopAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseShopItemURL(ShopItemURL object) {
 			return createShopItemURLAdapter();
+		}
+
+		@Override
+		public Adapter caseIAdaptable(IAdaptable object) {
+			return createIAdaptableAdapter();
+		}
+
+		@Override
+		public Adapter caseMOAO(IMOAO object) {
+			return createMOAOAdapter();
+		}
+
+		@Override
+		public Adapter caseNamedObject(INamedObject object) {
+			return createNamedObjectAdapter();
 		}
 
 		@Override
@@ -300,6 +318,49 @@ public class ShopAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createShopItemURLAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.core.runtime.IAdaptable
+	 * <em>IAdaptable</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+	 * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+	 * the cases anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.core.runtime.IAdaptable
+	 * @generated
+	 */
+	public Adapter createIAdaptableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.rcpcompany.uibindings.moao.IMOAO
+	 * <em>MOAO</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
+	 * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
+	 * cases anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.rcpcompany.uibindings.moao.IMOAO
+	 * @generated
+	 */
+	public Adapter createMOAOAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '
+	 * {@link com.rcpcompany.uibindings.moao.INamedObject <em>Named Object</em>}'. <!--
+	 * begin-user-doc --> This default implementation returns null so that we can easily ignore
+	 * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.rcpcompany.uibindings.moao.INamedObject
+	 * @generated
+	 */
+	public Adapter createNamedObjectAdapter() {
 		return null;
 	}
 

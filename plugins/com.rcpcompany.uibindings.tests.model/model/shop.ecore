@@ -3,7 +3,7 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="shop"
     nsURI="http://rcp-company.com/schemas/shop.ecore" nsPrefix="shop">
-  <eClassifiers xsi:type="ecore:EClass" name="Shop">
+  <eClassifiers xsi:type="ecore:EClass" name="Shop" eSuperTypes="../../com.rcpcompany.uibindings.moao/model/moao.ecore#//NamedObject">
     <eOperations name="save"/>
     <eOperations name="nameLengthOK" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="diagnostics" lowerBound="1" eType="#//DiagnosticChain"/>
@@ -14,7 +14,6 @@
         </eGenericType>
       </eParameters>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nextOrderNo" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nextCustomerNo" lowerBound="1"
@@ -34,7 +33,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="shopGroups" upperBound="-1"
         eType="#//ShopItemGroup" containment="true" resolveProxies="false" eOpposite="#//ShopItemGroup/shop"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Customer">
+  <eClassifiers xsi:type="ecore:EClass" name="Customer" eSuperTypes="../../com.rcpcompany.uibindings.moao/model/moao.ecore#//MOAO">
     <eStructuralFeatures xsi:type="ecore:EReference" name="shop" lowerBound="1" eType="#//Shop"
         resolveProxies="false" eOpposite="#//Shop/customers"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contact" lowerBound="1"
@@ -45,7 +44,7 @@
         defaultValueLiteral="BRONCE"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="logoFileName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ShopItem">
+  <eClassifiers xsi:type="ecore:EClass" name="ShopItem" eSuperTypes="../../com.rcpcompany.uibindings.moao/model/moao.ecore#//NamedObject">
     <eOperations name="namePriceOK" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="diagnostics" lowerBound="1" eType="#//DiagnosticChain"/>
       <eParameters name="context">
@@ -66,8 +65,6 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="shop" lowerBound="1" eType="#//Shop"
         resolveProxies="false" eOpposite="#//Shop/shopItems"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="orderItems" upperBound="-1"
         eType="#//OrderItem" transient="true" resolveProxies="false" eOpposite="#//OrderItem/item"/>
@@ -80,15 +77,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="locations" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ShopItemGroup">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ShopItemGroup" eSuperTypes="../../com.rcpcompany.uibindings.moao/model/moao.ecore#//NamedObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
         eType="#//ShopItem" eOpposite="#//ShopItem/group"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="shop" lowerBound="1" eType="#//Shop"
         resolveProxies="false" eOpposite="#//Shop/shopGroups"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Order">
+  <eClassifiers xsi:type="ecore:EClass" name="Order" eSuperTypes="../../com.rcpcompany.uibindings.moao/model/moao.ecore#//MOAO">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="no" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         changeable="false" iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="shop" lowerBound="1" eType="#//Shop"
@@ -100,7 +95,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="2" eType="#//OrderItem"
         containment="true" resolveProxies="false" eOpposite="#//OrderItem/order" eKeys="#//OrderItem/no"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OrderItem">
+  <eClassifiers xsi:type="ecore:EClass" name="OrderItem" eSuperTypes="../../com.rcpcompany.uibindings.moao/model/moao.ecore#//MOAO">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="no" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         changeable="false" transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="order" lowerBound="1" eType="#//Order"
@@ -112,10 +107,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Contact">
+  <eClassifiers xsi:type="ecore:EClass" name="Contact" eSuperTypes="../../com.rcpcompany.uibindings.moao/model/moao.ecore#//NamedObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="shop" lowerBound="1" eType="#//Shop"
         resolveProxies="false" eOpposite="#//Shop/contacts"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="city" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="zip" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -128,7 +122,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="birthday" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Country">
+  <eClassifiers xsi:type="ecore:EClass" name="Country" eSuperTypes="../../com.rcpcompany.uibindings.moao/model/moao.ecore#//NamedObject">
     <eAnnotations source="http://rcp-company.com/schemas/uibindings">
       <details key="featureName" value="abbreviation"/>
     </eAnnotations>
@@ -152,9 +146,8 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="shop" lowerBound="1" eType="#//Shop"
         resolveProxies="false" eOpposite="#//Shop/countries"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abbreviation" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="CustomerType">
     <eLiterals name="BRONCE" literal="Bronce"/>
@@ -162,10 +155,8 @@
     <eLiterals name="GOLD" value="2" literal="Gold"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="DiagnosticChain" instanceClassName="org.eclipse.emf.common.util.DiagnosticChain"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ShopItemInformation"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ShopItemDescription" eSuperTypes="#//ShopItemInformation">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ShopItemInformation" eSuperTypes="../../com.rcpcompany.uibindings.moao/model/moao.ecore#//MOAO"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ShopItemDescription" eSuperTypes="#//ShopItemInformation"/>
   <eClassifiers xsi:type="ecore:EClass" name="ShopItemURL" eSuperTypes="#//ShopItemInformation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

@@ -14,9 +14,9 @@ import org.junit.Test;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
-import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
 /**
  * Tests that when the model is changed, then the ValueBinding is changed as well.
@@ -75,7 +75,7 @@ public class BasicSetTestValue {
 			public void run() {
 				myContext = IBindingContext.Factory.createContext(myView.getScrolledForm());
 
-				myContext.addBinding(myShopName, myShop, ShopPackage.Literals.SHOP__NAME);
+				myContext.addBinding(myShopName, myShop, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 				myContext.finish();
 				yield();
 			}

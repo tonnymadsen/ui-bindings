@@ -7,7 +7,7 @@ package com.rcpcompany.uibindings.tests.shop;
 
 import java.util.Date;
 
-import org.eclipse.emf.ecore.EObject;
+import com.rcpcompany.uibindings.moao.INamedObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Contact</b></em>'. <!--
@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Contact#getShop <em>Shop</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.Contact#getName <em>Name</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Contact#getAddress <em>Address</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Contact#getCity <em>City</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Contact#getZip <em>Zip</em>}</li>
@@ -31,32 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getContact()
  * @generated
  */
-public interface Contact extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really should be more of a
-	 * description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getContact_Name()
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Contact#getName
-	 * <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
+public interface Contact extends INamedObject {
 	/**
 	 * Returns the value of the '<em><b>Address</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
