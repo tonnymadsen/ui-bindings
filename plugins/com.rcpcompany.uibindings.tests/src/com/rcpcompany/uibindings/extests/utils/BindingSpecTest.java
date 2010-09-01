@@ -214,6 +214,11 @@ public class BindingSpecTest {
 	}
 
 	@Test
+	public void testSimpleSpecOther__ROW_ELEMENT__MultiLevel() {
+		testSimpleSpecSyntaxError("__ROW_ELEMENT__.name)");
+	}
+
+	@Test
 	public void testSimpleSpecUnitError1() {
 		testSimpleSpecSyntaxError("country(w=1 xx)");
 	}
