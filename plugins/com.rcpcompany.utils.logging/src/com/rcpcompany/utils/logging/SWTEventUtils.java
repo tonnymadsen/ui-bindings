@@ -6,8 +6,6 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 
-import com.rcpcompany.utils.basic.ToStringUtils;
-
 /**
  * This class includes a number of utility classes that can make it easier to develop and test SWT
  * based applications.
@@ -22,7 +20,7 @@ public final class SWTEventUtils {
 	public final static Listener SWT_EVENT_LISTENER = new Listener() {
 		@Override
 		public void handleEvent(Event event) {
-			LogUtils.debug(this, ToStringUtils.toString(event));
+			// LogUtils.debug(this, ToStringUtils.toString(event));
 		}
 	};
 
