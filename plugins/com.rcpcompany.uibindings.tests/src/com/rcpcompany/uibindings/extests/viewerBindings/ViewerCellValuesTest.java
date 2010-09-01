@@ -74,7 +74,8 @@ public class ViewerCellValuesTest {
 		myCreator = ITableCreator.Factory.create(myContext, myBody, SWT.NONE, myShop,
 				ShopPackage.Literals.SHOP__SHOP_ITEMS);
 		myCreator.addColumn("name(w=100)");
-		myCreator.addColumn("price(w=100)");
+		myCreator.addColumn("price(w=100)").type("price-dummy"); // Speciel decorator with format
+																	// "%,.3f"
 
 		myContext.finish();
 		yield();
@@ -93,7 +94,7 @@ public class ViewerCellValuesTest {
 	@Test
 	public void testCellValuesRow0() {
 		oneCell(0, 0, myShopItem1.getName());
-		oneCell(0, 1, String.format("%,.2f", myShopItem1.getPrice()));
+		oneCell(0, 1, String.format("%,.3f", myShopItem1.getPrice()));
 	}
 
 	/**
@@ -102,7 +103,7 @@ public class ViewerCellValuesTest {
 	@Test
 	public void testCellValuesRow1() {
 		oneCell(1, 0, myShopItem2.getName());
-		oneCell(1, 1, String.format("%,.2f", myShopItem2.getPrice()));
+		oneCell(1, 1, String.format("%,.3f", myShopItem2.getPrice()));
 	}
 
 	public void oneCell(int rowNo, int columnNo, String expectedText) {

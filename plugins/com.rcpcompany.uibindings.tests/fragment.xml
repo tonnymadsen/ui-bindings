@@ -403,6 +403,22 @@
                format="NULL format">
          </number>
       </bindingDecorator>
+      <bindingDecorator
+            type="price-dummy">
+         <modelType
+               alsoPrimitive="true"
+               class="java.lang.Float">
+         </modelType>
+         <uiType
+               class="java.lang.String">
+         </uiType>
+         <number
+               format="%,.3f">
+         </number>
+         <standardArguments
+               range="[0; 10000]">
+         </standardArguments>
+      </bindingDecorator>
    </extension>
    <extension
          point="org.eclipse.ui.commands">
