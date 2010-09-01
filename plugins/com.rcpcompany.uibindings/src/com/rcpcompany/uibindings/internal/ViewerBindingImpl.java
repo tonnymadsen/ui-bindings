@@ -166,8 +166,8 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 
 	@Override
 	public IViewerBinding model(IObservableValue object, EReference reference) {
-		return model(UIBindingsEMFObservables.observeDetailList(object, reference), BindingDataTypeFactory
-				.create(reference));
+		return model(UIBindingsEMFObservables.observeDetailList(object, reference),
+				BindingDataTypeFactory.create(reference));
 	}
 
 	@Override
@@ -1091,12 +1091,12 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 			final EObject element = (EObject) cell.getElement();
 			if (element != null) {
 				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT, element);
-				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_UP, UIHandlerUtils.moveElement(
-						this, element, -1, true));
-				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_DOWN, UIHandlerUtils.moveElement(
-						this, element, 1, true));
-				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_DELETE, UIHandlerUtils.deleteElement(
-						this, element, true));
+				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_UP,
+						UIHandlerUtils.moveElement(this, element, -1, true));
+				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_DOWN,
+						UIHandlerUtils.moveElement(this, element, 1, true));
+				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_DELETE,
+						UIHandlerUtils.deleteElement(this, element, true));
 			}
 
 			final int i = cell.getColumnIndex();
@@ -1111,9 +1111,7 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 				context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_VALUE, value);
 				context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_TYPE, ""); //$NON-NLS-1$
 				if (labelBinding != null) {
-					context
-							.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_MODEL_OBJECT, labelBinding
-									.getModelObject());
+					context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_MODEL_OBJECT, labelBinding.getModelObject());
 					context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_FEATURE, labelBinding.getModelFeature());
 					context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_UNSETTABLE, labelBinding.getDataType()
 							.isUnsettable());
