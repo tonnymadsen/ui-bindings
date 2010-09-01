@@ -83,7 +83,6 @@ import com.rcpcompany.uibindings.internal.observables.properties.MySelectionProv
 import com.rcpcompany.uibindings.internal.utils.DoubleClickAdapter;
 import com.rcpcompany.uibindings.internal.utils.UIHandlerUtils;
 import com.rcpcompany.utils.logging.LogUtils;
-import com.rcpcompany.utils.logging.SWTEventUtils;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Viewer Binding</b></em>'.
@@ -166,8 +165,8 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 
 	@Override
 	public IViewerBinding model(IObservableValue object, EReference reference) {
-		return model(UIBindingsEMFObservables.observeDetailList(object, reference), BindingDataTypeFactory
-				.create(reference));
+		return model(UIBindingsEMFObservables.observeDetailList(object, reference),
+				BindingDataTypeFactory.create(reference));
 	}
 
 	@Override
@@ -307,7 +306,7 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 
 		final Control control = getControl();
 		assertTrue((control.getStyle() & SWT.FULL_SELECTION) != 0, "Viewer must have SWT.FULL_SELECTION set"); //$NON-NLS-1$
-		SWTEventUtils.swtListen(control);
+		// SWTEventUtils.swtListen(control);
 
 		if (viewer instanceof TableViewer) {
 			final ObservableListContentProvider contentProvider = new ObservableListContentProvider();
@@ -404,13 +403,14 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 			/*
 			 * Reflow the context if the number of entries has changed
 			 */
-			if (event != null && event.diff != null) {
-				final Set<?> additions = event.diff.getAdditions();
-				final Set<?> removals = event.diff.getRemovals();
-				if (additions == null || removals == null || additions.size() != removals.size()) {
-					getContext().reflow();
-				}
-			}
+			getContext().reflow();
+//			if (event != null && event.diff != null) {
+//				final Set<?> additions = event.diff.getAdditions();
+//				final Set<?> removals = event.diff.getRemovals();
+//				if (additions == null || removals == null || additions.size() != removals.size()) {
+//					getContext().reflow();
+//				}
+//			}
 		}
 	};
 
@@ -1091,12 +1091,12 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 			final EObject element = (EObject) cell.getElement();
 			if (element != null) {
 				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT, element);
-				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_UP, UIHandlerUtils.moveElement(
-						this, element, -1, true));
-				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_DOWN, UIHandlerUtils.moveElement(
-						this, element, 1, true));
-				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_DELETE, UIHandlerUtils.deleteElement(
-						this, element, true));
+				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_UP,
+						UIHandlerUtils.moveElement(this, element, -1, true));
+				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_DOWN,
+						UIHandlerUtils.moveElement(this, element, 1, true));
+				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_DELETE,
+						UIHandlerUtils.deleteElement(this, element, true));
 			}
 
 			final int i = cell.getColumnIndex();
@@ -1111,9 +1111,7 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 				context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_VALUE, value);
 				context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_TYPE, ""); //$NON-NLS-1$
 				if (labelBinding != null) {
-					context
-							.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_MODEL_OBJECT, labelBinding
-									.getModelObject());
+					context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_MODEL_OBJECT, labelBinding.getModelObject());
 					context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_FEATURE, labelBinding.getModelFeature());
 					context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_UNSETTABLE, labelBinding.getDataType()
 							.isUnsettable());
