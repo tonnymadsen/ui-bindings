@@ -451,7 +451,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 
 		initEClass(namedObjectEClass, INamedObject.class, "NamedObject", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNamedObject_Name(), ecorePackage.getEString(), "name", null, 0, 1, INamedObject.class,
+		initEAttribute(getNamedObject_Name(), ecorePackage.getEString(), "name", null, 1, 1, INamedObject.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNamedObject_Description(), ecorePackage.getEString(), "description", null, 0, 1,
 				INamedObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
