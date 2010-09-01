@@ -7,11 +7,11 @@ import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.graphics.Rectangle;
 
 /**
- * Implementation of {@link FocusCellHighlighter} that delegates the real "painting" of cells to
+ * Implementation of {@link FocusCellHighlighter} that delegates the real "painting" of cells to.
  */
 public class FocusCellUIPainterHighlighter extends FocusCellHighlighter {
 	/**
-	 * Create a new instance which can be passed to a {@link TreeViewerFocusCellManager}
+	 * Create a new instance which can be passed to a {@link TreeViewerFocusCellManager}.
 	 * 
 	 * @param viewer the viewer
 	 */
