@@ -51,7 +51,31 @@
    <extension
          point="com.rcpcompany.uibindings.uiBindings">
       <model
+            class="com.rcpcompany.uibindings.moao.IMOAO">
+         <standardArguments
+               preferredCellEditor="org.eclipse.swt.custom.CCombo"
+               preferredControl="org.eclipse.swt.custom.CCombo">
+         </standardArguments>
+      </model>
+      <model
+            class="com.rcpcompany.uibindings.moao.IMOAOMessage">
+         <feature
+               name="details">
+            <standardArguments
+                  width="500">
+            </standardArguments>
+         </feature>
+         <feature
+               name="description">
+            <standardArguments
+                  width="500">
+            </standardArguments>
+         </feature>
+      </model>
+      <model
             class="com.rcpcompany.uibindings.moao.INamedObject">
+         <standardArguments
+               modelObjectMessages="true"></standardArguments>
          <feature
                name="name">
             <standardArguments
