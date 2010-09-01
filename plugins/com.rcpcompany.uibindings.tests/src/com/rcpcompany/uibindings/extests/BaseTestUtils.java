@@ -338,12 +338,9 @@ public class BaseTestUtils {
 	}
 
 	public static void yield() {
-		LogUtils.debug("", "before");
 		while (DISPLAY.readAndDispatch()) {
-			LogUtils.debug("", "in loop");
 			// Do nothing
 		}
-		LogUtils.debug("", "after");
 	}
 
 	/**
@@ -560,16 +557,8 @@ public class BaseTestUtils {
 			e.type = SWT.MouseDown;
 			e.button = button;
 			e.count = i;
-			swtListen(new Runnable() {
-				public void run() {
-					LogUtils.debug(e, "Posting: " /* + ToStringUtils.toString(e) */);
-					Display.DEBUG = true;
-					assertTrue(c.getDisplay().post(e));
-					LogUtils.debug("", "xxx");
-					yield();
-					Display.DEBUG = false;
-				}
-			});
+			assertTrue(c.getDisplay().post(e));
+			yield();
 
 			e.type = SWT.MouseUp;
 			e.button = button;
@@ -757,9 +746,7 @@ public class BaseTestUtils {
 		for (int i = SWT.None; i < SWT.ImeComposition; i++) {
 			Display.getCurrent().addFilter(i, SWT_EVENT_LISTENER);
 		}
-		LogUtils.debug("", "before run");
 		assertNoLog(runnable);
-		LogUtils.debug("", "after run");
 		for (int i = SWT.None; i < SWT.ImeComposition; i++) {
 			Display.getCurrent().removeFilter(i, SWT_EVENT_LISTENER);
 		}
