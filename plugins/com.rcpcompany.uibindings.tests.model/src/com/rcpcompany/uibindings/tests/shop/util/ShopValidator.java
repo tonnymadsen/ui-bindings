@@ -23,6 +23,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopItemDescription;
 import com.rcpcompany.uibindings.tests.shop.ShopItemGroup;
 import com.rcpcompany.uibindings.tests.shop.ShopItemInformation;
+import com.rcpcompany.uibindings.tests.shop.ShopItemProperties;
 import com.rcpcompany.uibindings.tests.shop.ShopItemURL;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
@@ -141,6 +142,8 @@ public class ShopValidator extends EObjectValidator {
 			return validateCustomer((Customer) value, diagnostics, context);
 		case ShopPackage.SHOP_ITEM:
 			return validateShopItem((ShopItem) value, diagnostics, context);
+		case ShopPackage.SHOP_ITEM_PROPERTIES:
+			return validateShopItemProperties((ShopItemProperties) value, diagnostics, context);
 		case ShopPackage.SHOP_ITEM_GROUP:
 			return validateShopItemGroup((ShopItemGroup) value, diagnostics, context);
 		case ShopPackage.ORDER:
@@ -179,9 +182,6 @@ public class ShopValidator extends EObjectValidator {
 		}
 		if (result || diagnostics != null) {
 			result &= validate_EveryReferenceIsContained(shop, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_EveryBidirectionalReferenceIsPaired(shop, diagnostics, context);
 		}
 		if (result || diagnostics != null) {
 			result &= validate_EveryProxyResolves(shop, diagnostics, context);
@@ -235,9 +235,6 @@ public class ShopValidator extends EObjectValidator {
 			result &= validate_EveryReferenceIsContained(shopItem, diagnostics, context);
 		}
 		if (result || diagnostics != null) {
-			result &= validate_EveryBidirectionalReferenceIsPaired(shopItem, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
 			result &= validate_EveryProxyResolves(shopItem, diagnostics, context);
 		}
 		if (result || diagnostics != null) {
@@ -277,6 +274,16 @@ public class ShopValidator extends EObjectValidator {
 	 */
 	public boolean validateShopItem_nameOK(ShopItem shopItem, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return shopItem.nameOK(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateShopItemProperties(ShopItemProperties shopItemProperties, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(shopItemProperties, diagnostics, context);
 	}
 
 	/**
@@ -329,9 +336,6 @@ public class ShopValidator extends EObjectValidator {
 		}
 		if (result || diagnostics != null) {
 			result &= validate_EveryReferenceIsContained(country, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_EveryBidirectionalReferenceIsPaired(country, diagnostics, context);
 		}
 		if (result || diagnostics != null) {
 			result &= validate_EveryProxyResolves(country, diagnostics, context);

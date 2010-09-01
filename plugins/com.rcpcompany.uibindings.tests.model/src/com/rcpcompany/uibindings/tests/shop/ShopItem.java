@@ -26,6 +26,7 @@ import com.rcpcompany.uibindings.moao.INamedObject;
  * <li>{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getInformation <em>Information</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getGroup <em>Group</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getLocations <em>Locations</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getProperties <em>Properties</em>}</li>
  * </ul>
  * </p>
  * 
@@ -198,6 +199,34 @@ public interface ShopItem extends INamedObject {
 	 * @generated
 	 */
 	EList<String> getLocations();
+
+	/**
+	 * Returns the value of the '<em><b>Properties</b></em>' reference. It is bidirectional and its
+	 * opposite is '{@link com.rcpcompany.uibindings.tests.shop.ShopItemProperties#getItem
+	 * <em>Item</em>}'. <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Properties</em>' reference isn't clear, there really should be
+	 * more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Properties</em>' reference.
+	 * @see #setProperties(ShopItemProperties)
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItem_Properties()
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopItemProperties#getItem
+	 * @generated
+	 */
+	ShopItemProperties getProperties();
+
+	/**
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getProperties
+	 * <em>Properties</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value the new value of the '<em>Properties</em>' reference.
+	 * @see #getProperties()
+	 * @generated
+	 */
+	void setProperties(ShopItemProperties value);
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

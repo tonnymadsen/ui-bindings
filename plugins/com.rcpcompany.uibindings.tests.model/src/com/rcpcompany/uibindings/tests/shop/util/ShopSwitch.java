@@ -23,6 +23,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopItemDescription;
 import com.rcpcompany.uibindings.tests.shop.ShopItemGroup;
 import com.rcpcompany.uibindings.tests.shop.ShopItemInformation;
+import com.rcpcompany.uibindings.tests.shop.ShopItemProperties;
 import com.rcpcompany.uibindings.tests.shop.ShopItemURL;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
@@ -133,6 +134,23 @@ public class ShopSwitch<T> {
 			}
 			if (result == null) {
 				result = caseIAdaptable(shopItem);
+			}
+			if (result == null) {
+				result = defaultCase(theEObject);
+			}
+			return result;
+		}
+		case ShopPackage.SHOP_ITEM_PROPERTIES: {
+			final ShopItemProperties shopItemProperties = (ShopItemProperties) theEObject;
+			T result = caseShopItemProperties(shopItemProperties);
+			if (result == null) {
+				result = caseNamedObject(shopItemProperties);
+			}
+			if (result == null) {
+				result = caseMOAO(shopItemProperties);
+			}
+			if (result == null) {
+				result = caseIAdaptable(shopItemProperties);
 			}
 			if (result == null) {
 				result = defaultCase(theEObject);
@@ -310,6 +328,20 @@ public class ShopSwitch<T> {
 	 * @generated
 	 */
 	public T caseShopItem(ShopItem object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Item Properties</em>'.
+	 * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Item Properties</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseShopItemProperties(ShopItemProperties object) {
 		return null;
 	}
 

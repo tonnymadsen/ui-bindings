@@ -50,6 +50,15 @@ public interface ShopFactory extends EFactory {
 	ShopItem createShopItem();
 
 	/**
+	 * Returns a new object of class '<em>Item Properties</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Item Properties</em>'.
+	 * @generated
+	 */
+	ShopItemProperties createShopItemProperties();
+
+	/**
 	 * Returns a new object of class '<em>Item Group</em>'. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 

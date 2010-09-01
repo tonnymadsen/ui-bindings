@@ -28,6 +28,7 @@ import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopItemGroup;
 import com.rcpcompany.uibindings.tests.shop.ShopItemInformation;
+import com.rcpcompany.uibindings.tests.shop.ShopItemProperties;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.tests.shop.util.ShopValidator;
 import com.rcpcompany.uibindings.validators.EValidatorAdapter;
@@ -47,6 +48,8 @@ import com.rcpcompany.uibindings.validators.EValidatorAdapter;
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemImpl#getGroup <em>Group</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemImpl#getLocations <em>Locations
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemImpl#getProperties <em>Properties
  * </em>}</li>
  * </ul>
  * </p>
@@ -133,6 +136,16 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 	 * @ordered
 	 */
 	protected EList<String> locations;
+
+	/**
+	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getProperties()
+	 * @generated
+	 * @ordered
+	 */
+	protected ShopItemProperties properties;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -411,6 +424,82 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
+	 * @generated
+	 */
+	@Override
+	public ShopItemProperties getProperties() {
+		if (properties != null && properties.eIsProxy()) {
+			final InternalEObject oldProperties = (InternalEObject) properties;
+			properties = (ShopItemProperties) eResolveProxy(oldProperties);
+			if (properties != oldProperties) {
+				if (eNotificationRequired()) {
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ShopPackage.SHOP_ITEM__PROPERTIES,
+							oldProperties, properties));
+				}
+			}
+		}
+		return properties;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public ShopItemProperties basicGetProperties() {
+		return properties;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public NotificationChain basicSetProperties(ShopItemProperties newProperties, NotificationChain msgs) {
+		final ShopItemProperties oldProperties = properties;
+		properties = newProperties;
+		if (eNotificationRequired()) {
+			final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					ShopPackage.SHOP_ITEM__PROPERTIES, oldProperties, newProperties);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setProperties(ShopItemProperties newProperties) {
+		if (newProperties != properties) {
+			NotificationChain msgs = null;
+			if (properties != null) {
+				msgs = ((InternalEObject) properties).eInverseRemove(this, ShopPackage.SHOP_ITEM_PROPERTIES__ITEM,
+						ShopItemProperties.class, msgs);
+			}
+			if (newProperties != null) {
+				msgs = ((InternalEObject) newProperties).eInverseAdd(this, ShopPackage.SHOP_ITEM_PROPERTIES__ITEM,
+						ShopItemProperties.class, msgs);
+			}
+			msgs = basicSetProperties(newProperties, msgs);
+			if (msgs != null) {
+				msgs.dispatch();
+			}
+		} else if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_ITEM__PROPERTIES, newProperties,
+					newProperties));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	@Override
@@ -478,6 +567,12 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 						ShopItemGroup.class, msgs);
 			}
 			return basicSetGroup((ShopItemGroup) otherEnd, msgs);
+		case ShopPackage.SHOP_ITEM__PROPERTIES:
+			if (properties != null) {
+				msgs = ((InternalEObject) properties).eInverseRemove(this, ShopPackage.SHOP_ITEM_PROPERTIES__ITEM,
+						ShopItemProperties.class, msgs);
+			}
+			return basicSetProperties((ShopItemProperties) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -498,6 +593,8 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 			return basicSetInformation(null, msgs);
 		case ShopPackage.SHOP_ITEM__GROUP:
 			return basicSetGroup(null, msgs);
+		case ShopPackage.SHOP_ITEM__PROPERTIES:
+			return basicSetProperties(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -539,6 +636,9 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 			return basicGetGroup();
 		case ShopPackage.SHOP_ITEM__LOCATIONS:
 			return getLocations();
+		case ShopPackage.SHOP_ITEM__PROPERTIES:
+			if (resolve) return getProperties();
+			return basicGetProperties();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -575,6 +675,9 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 			getLocations().clear();
 			getLocations().addAll((Collection<? extends String>) newValue);
 			return;
+		case ShopPackage.SHOP_ITEM__PROPERTIES:
+			setProperties((ShopItemProperties) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -608,6 +711,9 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 		case ShopPackage.SHOP_ITEM__LOCATIONS:
 			getLocations().clear();
 			return;
+		case ShopPackage.SHOP_ITEM__PROPERTIES:
+			setProperties((ShopItemProperties) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -634,6 +740,8 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 			return group != null;
 		case ShopPackage.SHOP_ITEM__LOCATIONS:
 			return locations != null && !locations.isEmpty();
+		case ShopPackage.SHOP_ITEM__PROPERTIES:
+			return properties != null;
 		}
 		return super.eIsSet(featureID);
 	}

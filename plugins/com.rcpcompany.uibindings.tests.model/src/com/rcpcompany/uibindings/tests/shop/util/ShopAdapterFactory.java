@@ -23,6 +23,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopItemDescription;
 import com.rcpcompany.uibindings.tests.shop.ShopItemGroup;
 import com.rcpcompany.uibindings.tests.shop.ShopItemInformation;
+import com.rcpcompany.uibindings.tests.shop.ShopItemProperties;
 import com.rcpcompany.uibindings.tests.shop.ShopItemURL;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
@@ -87,6 +88,11 @@ public class ShopAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseShopItem(ShopItem object) {
 			return createShopItemAdapter();
+		}
+
+		@Override
+		public Adapter caseShopItemProperties(ShopItemProperties object) {
+			return createShopItemPropertiesAdapter();
 		}
 
 		@Override
@@ -201,6 +207,21 @@ public class ShopAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createShopItemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '
+	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItemProperties <em>Item Properties</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+	 * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopItemProperties
+	 * @generated
+	 */
+	public Adapter createShopItemPropertiesAdapter() {
 		return null;
 	}
 

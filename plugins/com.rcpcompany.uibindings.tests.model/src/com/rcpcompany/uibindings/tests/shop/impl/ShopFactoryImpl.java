@@ -31,6 +31,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopItemDescription;
 import com.rcpcompany.uibindings.tests.shop.ShopItemGroup;
 import com.rcpcompany.uibindings.tests.shop.ShopItemInformation;
+import com.rcpcompany.uibindings.tests.shop.ShopItemProperties;
 import com.rcpcompany.uibindings.tests.shop.ShopItemURL;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -107,6 +108,8 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 			return createCustomer();
 		case ShopPackage.SHOP_ITEM:
 			return createShopItem();
+		case ShopPackage.SHOP_ITEM_PROPERTIES:
+			return createShopItemProperties();
 		case ShopPackage.SHOP_ITEM_GROUP:
 			return createShopItemGroup();
 		case ShopPackage.ORDER:
@@ -193,6 +196,17 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	public ShopItem createShopItem() {
 		final ShopItemImpl shopItem = new ShopItemImpl();
 		return shopItem;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public ShopItemProperties createShopItemProperties() {
+		final ShopItemPropertiesImpl shopItemProperties = new ShopItemPropertiesImpl();
+		return shopItemProperties;
 	}
 
 	/**
