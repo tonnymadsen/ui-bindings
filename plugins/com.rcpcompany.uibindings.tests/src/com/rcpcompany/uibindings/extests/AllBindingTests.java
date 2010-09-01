@@ -167,7 +167,7 @@ NoErrorsDuringInitializationTest.class,
 /*
  * Basic internal tests.
  */
-PluginTest.class, PluginQualifierTest.class,
+PluginTest.class, PluginConfTest.class,
 
 /*
  * Various constants

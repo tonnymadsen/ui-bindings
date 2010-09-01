@@ -101,16 +101,6 @@ public class ViewerEditCellStrategiesTest {
 		myView.getSite().getPage().activate(myView);
 		myBody.layout();
 
-		// final Listener listener = new Listener() {
-		// @Override
-		// public void handleEvent(Event event) {
-		// LogUtils.debug(this, ToStringUtils.toString(event));
-		// }
-		// };
-		// for (int i = SWT.None; i <= SWT.ImeComposition; i++) {
-		// myTable.getDisplay().addFilter(i, listener);
-		// }
-		//
 		// myTableViewer.getColumnViewerEditor().addEditorActivationListener(new
 		// ColumnViewerEditorActivationListener()
 		// {
@@ -201,7 +191,9 @@ public class ViewerEditCellStrategiesTest {
 
 		myViewerBinding = myContext.addViewer(myTableViewer, myShop, ShopPackage.Literals.SHOP__SHOP_ITEMS);
 		myViewerBinding.addColumn(myNameColumn, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
-		myViewerBinding.addColumn(myPriceColumn, ShopPackage.Literals.SHOP_ITEM__PRICE).type("currency");
+		// Speciel decorator with format "%,.3f" - to test that the arguments are properly
+		// propagated
+		myViewerBinding.addColumn(myPriceColumn, ShopPackage.Literals.SHOP_ITEM__PRICE).type("price-dummy");
 		myViewerBinding.addColumn(myForSaleColumn, ShopPackage.Literals.SHOP_ITEM__FOR_SALE);
 
 		myContext.finish();
@@ -253,7 +245,7 @@ public class ViewerEditCellStrategiesTest {
 	@Test
 	public void testDoubleClickTraversal() {
 		if (!myEditCellSingleClick) {
-			testTABTraversal(myShopItem1.getName(), String.format("%,.2f", myShopItem1.getPrice()),
+			testTABTraversal(myShopItem1.getName(), String.format("%,.3f", myShopItem1.getPrice()),
 					myShopItem1.isForSale(), myShopItem2.getName(), new Runnable() {
 						@Override
 						public void run() {
@@ -269,7 +261,7 @@ public class ViewerEditCellStrategiesTest {
 	@Test
 	public void testSingleClickTraversal() {
 		if (myEditCellSingleClick) {
-			testTABTraversal(myShopItem1.getName(), String.format("%,.2f", myShopItem1.getPrice()),
+			testTABTraversal(myShopItem1.getName(), String.format("%,.3f", myShopItem1.getPrice()),
 					myShopItem1.isForSale(), myShopItem2.getName(), new Runnable() {
 						@Override
 						public void run() {
@@ -285,7 +277,7 @@ public class ViewerEditCellStrategiesTest {
 	@Test
 	public void testAnyKeyTraversal() {
 		if (myEditCellAnyKey) {
-			testTABTraversal("a", String.format("%,.2f", myShopItem1.getPrice()), myShopItem1.isForSale(),
+			testTABTraversal("a", String.format("%,.3f", myShopItem1.getPrice()), myShopItem1.isForSale(),
 					myShopItem2.getName(), new Runnable() {
 						@Override
 						public void run() {

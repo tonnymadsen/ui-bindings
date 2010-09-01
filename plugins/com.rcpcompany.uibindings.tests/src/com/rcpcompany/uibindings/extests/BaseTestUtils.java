@@ -535,7 +535,7 @@ public class BaseTestUtils {
 	 * @param noClicks the number of clicks
 	 * @param p the point
 	 */
-	public static void postMouseDown(String modifiers, int button, Control c, int noClicks) {
+	public static void postMouseDown(String modifiers, int button, final Control c, int noClicks) {
 		KeyStroke keyStroke = null;
 		try {
 			if (modifiers != null) {
@@ -557,7 +557,6 @@ public class BaseTestUtils {
 			e.type = SWT.MouseDown;
 			e.button = button;
 			e.count = i;
-			// LogUtils.debug(e, ToStringUtils.toString(e));
 			assertTrue(c.getDisplay().post(e));
 			yield();
 
@@ -731,24 +730,25 @@ public class BaseTestUtils {
 		}
 	}
 
+	public final static Listener SWT_EVENT_LISTENER = new Listener() {
+		@Override
+		public void handleEvent(Event event) {
+			LogUtils.debug(this, ToStringUtils.toString(event));
+		}
+	};
+
 	/**
 	 * Runs the specified {@link Runnable} while debugging the SWT events.
 	 * 
 	 * @param runnable the {@link Runnable} to run
 	 */
 	public static void swtListen(Runnable runnable) {
-		final Listener l = new Listener() {
-			@Override
-			public void handleEvent(Event event) {
-				LogUtils.debug(this, ToStringUtils.toString(event));
-			}
-		};
 		for (int i = SWT.None; i < SWT.ImeComposition; i++) {
-			Display.getCurrent().addFilter(i, l);
+			Display.getCurrent().addFilter(i, SWT_EVENT_LISTENER);
 		}
 		assertNoLog(runnable);
 		for (int i = SWT.None; i < SWT.ImeComposition; i++) {
-			Display.getCurrent().removeFilter(i, l);
+			Display.getCurrent().removeFilter(i, SWT_EVENT_LISTENER);
 		}
 	}
 

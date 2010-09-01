@@ -332,12 +332,21 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	protected void setTop(final ScrolledForm top) {
 		myContextMessageDecoratorAdapter = new ScrolledFormContextMessageDecoratorAdapter(top);
 		myFormReflow = new IFormReflow() {
+			boolean reflowPending = false;
+
 			@Override
 			public void reflow() {
+				if (reflowPending) return;
+				// reflowPending = true;
+//				LogUtils.DEBUG_STRACK_LEVELS = 20;
+//				LogUtils.debug(this, "xxxx");
+//				LogUtils.DEBUG_STRACK_LEVELS = 0;
 				top.getDisplay().asyncExec(new Runnable() {
 					@Override
 					public void run() {
+						reflowPending = false;
 						if (!top.isDisposed()) {
+//							LogUtils.debug(this, "layout");
 							top.layout(true, true);
 							top.reflow(true);
 						}
@@ -1065,7 +1074,6 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 		BIND: for (final IBinding b : getBindings()) {
 			if (b instanceof IValueBinding) {
 				final IValueBinding v = (IValueBinding) b;
-				System.out.println();
 				final EObject mo = v.getModelObject();
 				for (final Object o : objects) {
 					if (o == mo) {

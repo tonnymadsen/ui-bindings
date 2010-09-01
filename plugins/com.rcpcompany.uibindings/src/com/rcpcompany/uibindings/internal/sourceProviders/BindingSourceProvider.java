@@ -127,12 +127,12 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 	/**
 	 * The previous state reported by the provider.
 	 */
-	protected final Map<String, Object> myOldState = new HashMap<String, Object>();
+	private final Map<String, Object> myOldState = new HashMap<String, Object>();
 
 	/**
 	 * The last widget that was used for {@link #getCurrentState(Event)}.
 	 */
-	protected Widget myLastWidget = null;
+	private Widget myLastWidget = null;
 
 	/**
 	 * The UI Context service.
@@ -147,17 +147,17 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 	 * 
 	 * @see #observe(Event, List)
 	 */
-	protected List<IObservableValue> myPreviousValues = new ArrayList<IObservableValue>();
+	private final List<IObservableValue> myPreviousValues = new ArrayList<IObservableValue>();
 
 	/**
 	 * The event associated with {@link #myPreviousValues}.
 	 */
-	protected Event myPreviousValueEvent;
+	private Event myPreviousValueEvent;
 
 	/**
 	 * A listener that monitors changes in {@link #myPreviousValues}.
 	 */
-	protected IChangeListener myObservedChangeListener = new IChangeListener() {
+	private final IChangeListener myObservedChangeListener = new IChangeListener() {
 		@Override
 		public void handleChange(ChangeEvent event) {
 			reportSourceChanges(myPreviousValueEvent);

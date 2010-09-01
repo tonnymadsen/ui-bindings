@@ -74,7 +74,8 @@ public class ViewerCellValuesTest {
 		myCreator = ITableCreator.Factory.create(myContext, myBody, SWT.NONE, myShop,
 				ShopPackage.Literals.SHOP__SHOP_ITEMS);
 		myCreator.addColumn("name(w=100)");
-		myCreator.addColumn("price(w=100)");
+		myCreator.addColumn("price(w=100)").type("price-dummy"); // Speciel decorator with format
+																	// "%,.3f"
 
 		myContext.finish();
 		yield();
