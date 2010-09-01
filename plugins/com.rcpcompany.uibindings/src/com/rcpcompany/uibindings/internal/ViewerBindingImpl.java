@@ -83,7 +83,6 @@ import com.rcpcompany.uibindings.internal.observables.properties.MySelectionProv
 import com.rcpcompany.uibindings.internal.utils.DoubleClickAdapter;
 import com.rcpcompany.uibindings.internal.utils.UIHandlerUtils;
 import com.rcpcompany.utils.logging.LogUtils;
-import com.rcpcompany.utils.logging.SWTEventUtils;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Viewer Binding</b></em>'.
@@ -307,7 +306,7 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 
 		final Control control = getControl();
 		assertTrue((control.getStyle() & SWT.FULL_SELECTION) != 0, "Viewer must have SWT.FULL_SELECTION set"); //$NON-NLS-1$
-		SWTEventUtils.swtListen(control);
+		// SWTEventUtils.swtListen(control);
 
 		if (viewer instanceof TableViewer) {
 			final ObservableListContentProvider contentProvider = new ObservableListContentProvider();
