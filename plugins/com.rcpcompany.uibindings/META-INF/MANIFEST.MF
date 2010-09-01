@@ -20,7 +20,7 @@ Require-Bundle: org.eclipse.ui;bundle-version="[3.4.0,4.0.0)";resolution:=option
  com.rcpcompany.utils.selection;bundle-version="[1.0.0,2.0.0)";resolution:=optional,
  com.ibm.icu;bundle-version="[3.0.0,5.0.0)",
  org.junit4,
- org.eclipse.nebula.widgets.radiogroup;bundle-version="[0.1.0,1.0.0)";resolution:=optional;visibility:=reexport
+ org.eclipse.nebula.widgets.radiogroup;bundle-version="[0.1.0,1.0.0)";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Export-Package: com.rcpcompany.uibindings,
  com.rcpcompany.uibindings.bindingMessages,
