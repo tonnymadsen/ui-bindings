@@ -338,15 +338,15 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 			public void reflow() {
 				if (reflowPending) return;
 				// reflowPending = true;
-				LogUtils.DEBUG_STRACK_LEVELS = 20;
-				LogUtils.debug(this, "xxxx");
-				LogUtils.DEBUG_STRACK_LEVELS = 0;
+//				LogUtils.DEBUG_STRACK_LEVELS = 20;
+//				LogUtils.debug(this, "xxxx");
+//				LogUtils.DEBUG_STRACK_LEVELS = 0;
 				top.getDisplay().asyncExec(new Runnable() {
 					@Override
 					public void run() {
 						reflowPending = false;
 						if (!top.isDisposed()) {
-							LogUtils.debug(this, "layout");
+//							LogUtils.debug(this, "layout");
 							top.layout(true, true);
 							top.reflow(true);
 						}
