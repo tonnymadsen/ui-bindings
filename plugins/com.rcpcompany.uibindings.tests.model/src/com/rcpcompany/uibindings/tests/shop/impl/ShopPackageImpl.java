@@ -985,15 +985,18 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		initEReference(getShop_Countries(), this.getCountry(), this.getCountry_Shop(), "countries", null, 0, -1,
 				Shop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getShop_Countries().getEKeys().add(this.getCountry_Abbreviation());
 		initEReference(getShop_Contacts(), this.getContact(), this.getContact_Shop(), "contacts", null, 0, -1,
 				Shop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getShop_ShopItems(), this.getShopItem(), this.getShopItem_Shop(), "shopItems", null, 0, -1,
 				Shop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getShop_ShopItems().getEKeys().add(theMOAOPackage.getNamedObject_Name());
 		initEReference(getShop_Orders(), this.getOrder(), this.getOrder_Shop(), "orders", null, 0, -1, Shop.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getShop_Orders().getEKeys().add(this.getOrder_No());
 		initEReference(getShop_Customers(), this.getCustomer(), this.getCustomer_Shop(), "customers", null, 0, -1,
 				Shop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -21,13 +21,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tmpDir" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="C:\Windows\Temp"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="countries" upperBound="-1"
-        eType="#//Country" containment="true" resolveProxies="false" eOpposite="#//Country/shop"/>
+        eType="#//Country" containment="true" resolveProxies="false" eOpposite="#//Country/shop"
+        eKeys="#//Country/abbreviation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contacts" upperBound="-1"
         eType="#//Contact" containment="true" resolveProxies="false" eOpposite="#//Contact/shop"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="shopItems" upperBound="-1"
-        eType="#//ShopItem" containment="true" resolveProxies="false" eOpposite="#//ShopItem/shop"/>
+        eType="#//ShopItem" containment="true" resolveProxies="false" eOpposite="#//ShopItem/shop"
+        eKeys="../../com.rcpcompany.uibindings.moao/model/moao.ecore#//NamedObject/name"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="orders" upperBound="-1"
-        eType="#//Order" containment="true" resolveProxies="false" eOpposite="#//Order/shop"/>
+        eType="#//Order" containment="true" resolveProxies="false" eOpposite="#//Order/shop"
+        eKeys="#//Order/no"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="customers" upperBound="-1"
         eType="#//Customer" containment="true" resolveProxies="false" eOpposite="#//Customer/shop"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="shopGroups" upperBound="-1"
