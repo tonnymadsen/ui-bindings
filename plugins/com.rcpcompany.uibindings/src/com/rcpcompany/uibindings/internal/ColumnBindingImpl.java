@@ -1,5 +1,5 @@
 /**
- * <copyright> </copyright>
+ * a * <copyright> </copyright>
  * 
  * $Id$
  */
@@ -95,6 +95,7 @@ import com.rcpcompany.uibindings.observables.MapperObservableValue;
 import com.rcpcompany.uibindings.uiAttributes.UIAttributePainter;
 import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
 import com.rcpcompany.uibindings.utils.IColumnChooser;
+import com.rcpcompany.utils.basic.ToStringUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -708,6 +709,9 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS) {
 				final Object v = ci.getLabelUIAttribute().getCurrentValue().getValue();
 				LogUtils.debug(labelBinding, labelBinding + " paint: " + v); //$NON-NLS-1$
+			}
+			if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS && Activator.getDefault().TRACE_EVENTS_SWT) {
+				LogUtils.debug(labelBinding, ToStringUtils.toString(event));
 			}
 
 			if (labelBinding.eIsSet(IUIBindingsPackage.Literals.BINDING__ERROR_CONDITIONS)) return;
