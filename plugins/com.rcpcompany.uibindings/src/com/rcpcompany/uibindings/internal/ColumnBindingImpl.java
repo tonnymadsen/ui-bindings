@@ -633,10 +633,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 				}
 			}
 
-			final Cursor c = labelAttribute.getCursor();
-			if (c != null) {
-				setCursor(c);
-			}
+			setCursor(labelAttribute.getCursor());
 
 			/*
 			 * Update the image decorations of the label...
