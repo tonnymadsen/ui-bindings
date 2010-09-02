@@ -3,6 +3,9 @@ package com.rcpcompany.uibindings.extests.bindings;
 import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
@@ -12,6 +15,9 @@ import org.eclipse.ui.forms.widgets.TableWrapLayout;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingContext;
@@ -19,6 +25,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 
@@ -27,7 +34,25 @@ import com.rcpcompany.uibindings.tests.shop.ShopFactory;
  * 
  * @author Tonny Madsen, The RCP Company
  */
+@RunWith(Parameterized.class)
 public class CreationPointTest {
+	private final int myLevels;
+
+	@Parameters
+	public static List<Object[]> data() {
+		return Arrays.asList(new Object[][] {
+
+		{ 0 },
+
+		{ 7 }
+
+		});
+	}
+
+	public CreationPointTest(int levels) {
+		myLevels = levels;
+	}
+
 	private Shop myShop;
 
 	private TestView myView;
@@ -36,11 +61,16 @@ public class CreationPointTest {
 
 	private Text myText;
 
+	private int STACK_LEVELS;
+
 	@Before
 	public void before() {
+		resetAll();
 		IManager.Factory.getManager().setTextCommitStrategy(TextCommitStrategy.ON_MODIFY);
 		IManager.Factory.getManager().setEditCellAnyKey(false);
 		IManager.Factory.getManager().setEditCellSingleClick(false);
+
+		STACK_LEVELS = Activator.getDefault().CREATION_POINT_STACK_LEVELS;
 
 		createShop();
 		createView();
@@ -73,6 +103,8 @@ public class CreationPointTest {
 		if (myView != null) {
 			myView.getSite().getPage().hideView(myView);
 		}
+
+		Activator.getDefault().CREATION_POINT_STACK_LEVELS = STACK_LEVELS;
 	}
 
 	protected int lineNumber;
@@ -80,10 +112,11 @@ public class CreationPointTest {
 	protected IValueBinding binding;
 
 	/**
-	 * Binds the UI
+	 * Test the creation of the creation point structure.
 	 */
 	@Test
-	public void testValue() {
+	public void testCP() {
+		Activator.getDefault().CREATION_POINT_STACK_LEVELS = myLevels;
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
@@ -94,12 +127,19 @@ public class CreationPointTest {
 				lineNumber = t.getStackTrace()[0].getLineNumber() + 2;
 				binding = context.addBinding();
 				assertNotNull(binding);
-				assertNotNull(binding.getCreationPoint());
-				assertEquals(lineNumber, binding.getCreationPoint().getStackTrace()[0].getLineNumber());
+				final Throwable creationPoint = binding.getCreationPoint();
+				if (Activator.getDefault().CREATION_POINT_STACK_LEVELS == 0) {
+					assertEquals(null, creationPoint);
+				} else {
+					assertNotNull(creationPoint);
+					assertEquals(myLevels, creationPoint.getStackTrace().length);
+					assertEquals(lineNumber, creationPoint.getStackTrace()[0].getLineNumber());
 
-				binding.ui(myText);
-				assertNotNull(binding.getCreationPoint());
-				assertEquals(lineNumber, binding.getCreationPoint().getStackTrace()[0].getLineNumber());
+					binding.ui(myText);
+					assertNotNull(creationPoint);
+					assertEquals(myLevels, creationPoint.getStackTrace().length);
+					assertEquals(lineNumber, creationPoint.getStackTrace()[0].getLineNumber());
+				}
 			}
 		});
 
@@ -117,9 +157,14 @@ public class CreationPointTest {
 		Throwable exception = status.getException();
 		assertNotNull(exception);
 		exception = exception.getCause();
-		assertNotNull(exception);
-		assertEquals(lineNumber, exception.getStackTrace()[0].getLineNumber());
+		if (Activator.getDefault().CREATION_POINT_STACK_LEVELS == 0) {
+			assertEquals(null, exception);
+		} else {
+			assertNotNull(exception);
+			assertEquals(myLevels, exception.getStackTrace().length);
+			assertEquals(lineNumber, exception.getStackTrace()[0].getLineNumber());
 
-		// assertEquals(null, binding.getCreationPoint());
+			// assertEquals(null, binding.getCreationPoint());
+		}
 	}
 }

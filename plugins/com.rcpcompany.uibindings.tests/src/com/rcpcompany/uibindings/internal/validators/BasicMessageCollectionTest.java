@@ -15,6 +15,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.validators.EValidatorAdapter;
 import com.rcpcompany.uibindings.validators.IValidatorAdapter;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests the basic collection of messages from {@link IValidatorAdapter validation adapters}.
@@ -34,11 +35,11 @@ public class BasicMessageCollectionTest {
 		IValidatorAdapterManager.Factory.getManager().reset();
 		IManager.Factory.getManager().setValidationDelay(VD);
 		myShop = ShopFactory.eINSTANCE.createShop();
+		myShop.setName("xx");
 
 		myManager = IValidatorAdapterManager.Factory.getManager();
 		myValidationAdapter = new EValidatorAdapter();
 		myManager.addRoot(myShop, myValidationAdapter);
-
 	}
 
 	@After
@@ -52,6 +53,7 @@ public class BasicMessageCollectionTest {
 		 * Initial situation
 		 */
 		sleep(2 * VD);
+		//LogUtils.debug(this, "um: " + myManager.getUnboundMessages());
 		assertEquals(0, myManager.getUnboundMessages().size());
 		assertEquals(0, myManager.getUnboundMessagesOL().size());
 

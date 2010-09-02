@@ -189,6 +189,7 @@ public class OpenCommandViewerEnablementTest {
 		yield();
 
 		postMouseMove(myTable, p);
+		yield();
 
 		final Cursor cursor2 = column.getViewerBinding().getControl().getCursor();
 		assertEquals(initCursor, cursor2);

@@ -60,7 +60,7 @@
 <mapEntry key="com.rcpcompany.uibindings/trace/Contexts" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/ControlDecorations" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/ControlDecorations/Verbose" value="false"/>
-<mapEntry key="com.rcpcompany.uibindings/trace/Decorators" value="false"/>
+<mapEntry key="com.rcpcompany.uibindings/trace/Decorators" value="true"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/Events/CellEditorActivation" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/Events/LabelProviders" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/Events/SWT" value="false"/>
@@ -71,7 +71,7 @@
 <mapEntry key="com.rcpcompany.uibindings/trace/Lifecycle/ColumnEditors" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/Lifecycle/ValueBindingMessageImageDecorator" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/Lifecycle/ViewerBindingMessageDecorator" value="false"/>
-<mapEntry key="com.rcpcompany.uibindings/trace/MDValidationStatus" value="true"/>
+<mapEntry key="com.rcpcompany.uibindings/trace/MDValidationStatus" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/Navigation/global" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/Navigation/viewer" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/OpenCommand" value="false"/>
@@ -80,7 +80,7 @@
 <mapEntry key="com.rcpcompany.uibindings/trace/SourceProvider" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/SourceProvider/Verbose" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/Tree" value="false"/>
-<mapEntry key="com.rcpcompany.uibindings/trace/ValidationResults" value="true"/>
+<mapEntry key="com.rcpcompany.uibindings/trace/ValidationResults" value="false"/>
 <mapEntry key="edu.umd.cs.findbugs.plugin.eclipse/debug" value="false"/>
 <mapEntry key="edu.umd.cs.findbugs.plugin.eclipse/debug/builder" value="false"/>
 <mapEntry key="edu.umd.cs.findbugs.plugin.eclipse/debug/content" value="false"/>
