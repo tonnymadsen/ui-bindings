@@ -75,7 +75,7 @@ public class OpenCommandSupport {
 		/**
 		 * The singleton manager data.
 		 */
-		protected static ManagerData theData;
+		/* package */static ManagerData theData;
 
 		/**
 		 * Returns the singleton manager data.
@@ -125,21 +125,21 @@ public class OpenCommandSupport {
 		 * <p>
 		 * {@link SWT#MouseEnter} is registered in case CTRL is pressed outside the application.
 		 */
-		final Listener theStartListener = new Listener() {
+		private final Listener theStartListener = new Listener() {
 			@Override
 			public void handleEvent(Event event) {
 				handleStartEvent(event);
 			}
 		};
 
-		boolean isHoverListenerInstalled = false;
+		/* package */boolean isHoverListenerInstalled = false;
 
 		/**
-		 * Handles the start event
+		 * Handles the start event.
 		 * 
 		 * @param event the event itself
 		 */
-		protected void handleStartEvent(Event event) {
+		private void handleStartEvent(Event event) {
 			boolean hoverWanted = false;
 			if (event != null) {
 				switch (event.type) {
@@ -153,8 +153,13 @@ public class OpenCommandSupport {
 				case SWT.KeyUp:
 					hoverWanted = event.stateMask == SWT.CTRL && event.keyCode != SWT.CTRL;
 					break;
+				default:
+					LogUtils.error(this, "Unknown event ignored: " + ToStringUtils.toString(event));
+					return;
 				}
 			}
+			// LogUtils.debug(this, "hoverWanted=" + hoverWanted + "\n" +
+			// ToStringUtils.toString(event));
 			if (hoverWanted == isHoverListenerInstalled) return;
 			isHoverListenerInstalled = hoverWanted;
 			if (Activator.getDefault().TRACE_OPEN_COMMAND && Activator.getDefault().TRACE_EVENTS_SWT) {
@@ -169,8 +174,8 @@ public class OpenCommandSupport {
 				display.addFilter(SWT.MouseExit, theHoverListener);
 
 				/*
-				 * To start the hovering immediately, we have to create a new event with the correct
-				 * widget
+				 * To start the hovering immediately, we have to create am (artificial) event with
+				 * the correct widget
 				 */
 				final Control cursorControl = display.getCursorControl();
 				if (cursorControl != null) {
@@ -199,7 +204,7 @@ public class OpenCommandSupport {
 		 * <p>
 		 * Only installed when CTRL is pressed.
 		 */
-		protected final Listener theHoverListener = new Listener() {
+		private final Listener theHoverListener = new Listener() {
 			@Override
 			public void handleEvent(Event event) {
 				handleHoverEvent(event);
@@ -207,7 +212,7 @@ public class OpenCommandSupport {
 		};
 
 		/**
-		 * Handles the hover event
+		 * Handles the hover event.
 		 * 
 		 * @param event the event itself
 		 */
@@ -238,9 +243,9 @@ public class OpenCommandSupport {
 		}
 
 		/**
-		 * The source provider - used to get the current state
+		 * The source provider - used to get the current state.
 		 */
-		final BindingSourceProvider theBindingSourceProvider;
+		private final BindingSourceProvider theBindingSourceProvider;
 
 		/**
 		 * Returns the "open" command for the specified event.
@@ -307,18 +312,18 @@ public class OpenCommandSupport {
 		/**
 		 * The hand cursor shared by all instances.
 		 */
-		final Cursor myHandCursor = new Cursor(Display.getDefault(), SWT.CURSOR_HAND);
+		private final Cursor myHandCursor = Display.getDefault().getSystemCursor(SWT.CURSOR_HAND);
 
 		/**
 		 * The binding that is currently "open" or active.
 		 */
-		IValueBinding myOpenBinding = null;
+		private IValueBinding myOpenBinding = null;
 
 		/**
 		 * Whether the open command associated with the {@link #myOpenBinding} should be
 		 * "displayed".
 		 */
-		boolean myShowOpenCommand = false;
+		private boolean myShowOpenCommand = false;
 
 		// @Override
 		// public boolean isEnabled(IValueBinding binding) {
@@ -329,6 +334,8 @@ public class OpenCommandSupport {
 		 * @see IUIBindingDecoratorExtender#extend(IUIBindingDecoratorExtenderContext)
 		 */
 		protected void extend(IUIBindingDecoratorExtenderContext context) {
+			// LogUtils.debug(this, "binding=" + context.getBinding() + ": ext=" +
+			// (context.getBinding() == myOpenBinding && myShowOpenCommand));
 			if (context.getBinding() != myOpenBinding || !myShowOpenCommand) return;
 			final Color color = JFaceColors.getActiveHyperlinkText(Display.getCurrent());
 			context.setForegound(color);
@@ -346,7 +353,7 @@ public class OpenCommandSupport {
 		}
 
 		/**
-		 * Sets the current active binding
+		 * Sets the current active binding.
 		 * 
 		 * @param binding the new active binding or <code>null</code>
 		 * @param show TODO
@@ -357,7 +364,8 @@ public class OpenCommandSupport {
 			 */
 			if (myOpenBinding == binding && myShowOpenCommand == show) return;
 			if (Activator.getDefault().TRACE_OPEN_COMMAND) {
-				LogUtils.debug(this, "changed from\n(" + myOpenBinding + ") ->\n(" + binding + ")");
+				LogUtils.debug(this, "changed from\n(" + myOpenBinding + ", " + myShowOpenCommand + ") ->\n(" + binding
+						+ ", " + show + ")");
 			}
 
 			/*
@@ -432,7 +440,7 @@ public class OpenCommandSupport {
 		 * Note that all context does not necessarily have the same service as they often are in
 		 * different views and thus different service providers.
 		 */
-		final IHandlerService myHandlerService;
+		private final IHandlerService myHandlerService;
 
 		/**
 		 * The command service
@@ -440,13 +448,13 @@ public class OpenCommandSupport {
 		 * Note that all context does not necessarily have the same service as they often are in
 		 * different views and thus different service providers.
 		 */
-		final ICommandService myCommandServices;
+		private final ICommandService myCommandServices;
 
 		/**
 		 * A map with all the known commands. Used to avoid de-serialization of the commands
 		 * repeatably.
 		 */
-		Map<String, ParameterizedCommand> myCommands = new HashMap<String, ParameterizedCommand>();
+		private final Map<String, ParameterizedCommand> myCommands = new HashMap<String, ParameterizedCommand>();
 
 		/**
 		 * Deserializes the specified command and returns the corresponding parameterized command.
@@ -458,7 +466,7 @@ public class OpenCommandSupport {
 		 * @param c the command in String form
 		 * @return the parameterized command or <code>null</code>
 		 */
-		ParameterizedCommand getCommand(String c) {
+		private ParameterizedCommand getCommand(String c) {
 			ParameterizedCommand pc = myCommands.get(c);
 			if (pc == null) {
 				try {
@@ -476,7 +484,7 @@ public class OpenCommandSupport {
 	}
 
 	/**
-	 * Extender for OpenCommand
+	 * Extender for OpenCommand.
 	 */
 	public static class Extender extends AbstractUIBindingDecoratorExtender implements IUIBindingDecoratorExtender {
 		private final ManagerData myMD = ManagerData.getData();
@@ -493,9 +501,7 @@ public class OpenCommandSupport {
 	}
 
 	/**
-	 * Handler for OpenCommand
-	 * 
-	 * @author Tonny Madsen, The RCP Company
+	 * Handler for OpenCommand.
 	 */
 	public static class OpenHandler extends AbstractHandler implements IHandler {
 		private final ManagerData myService = ManagerData.getData();
