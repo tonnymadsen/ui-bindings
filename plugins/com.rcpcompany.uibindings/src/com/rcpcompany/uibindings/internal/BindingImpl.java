@@ -626,6 +626,16 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		if (addDirectArguments(results, name, argumentType, firstOnly) && firstOnly) return results;
 
 		/*
+		 * And then any extra argument providers added to the binding
+		 */
+		if (eIsSet(IUIBindingsPackage.Literals.BINDING__EXTRA_ARGUMENT_PROVIDERS)) {
+			for (final IArgumentProvider ap : getExtraArgumentProviders()) {
+				if (getArgumentProviderArguments(results, name, ap, argumentType, firstOnly) && firstOnly)
+					return results;
+			}
+		}
+
+		/*
 		 * Try the model data type...
 		 */
 		if (getStaticDataType() != null
@@ -649,16 +659,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		 * Add decorator provider arguments
 		 */
 		if (addDecoratorProviderArguments(results, name, argumentType, firstOnly) && firstOnly) return results;
-
-		/*
-		 * And then any extra argument providers added to the binding
-		 */
-		if (eIsSet(IUIBindingsPackage.Literals.BINDING__EXTRA_ARGUMENT_PROVIDERS)) {
-			for (final IArgumentProvider ap : getExtraArgumentProviders()) {
-				if (getArgumentProviderArguments(results, name, ap, argumentType, firstOnly) && firstOnly)
-					return results;
-			}
-		}
 
 		/*
 		 * And lastly parent bindings
