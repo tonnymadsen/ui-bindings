@@ -251,7 +251,7 @@ public class EcoreExtUtilsSyncTest {
 			if (msg.isTouch()) return;
 			final EStructuralFeature sf = (EStructuralFeature) msg.getFeature();
 			if (sf == null) return;
-//			LogUtils.debug(this, ">>>" + msg);
+			// LogUtils.debug(this, ">>> " + msg);
 			myChanges.add(sf);
 		}
 	};
