@@ -22,6 +22,7 @@ import com.rcpcompany.uibindings.IBindingContext.FinishOption;
 import com.rcpcompany.uibindings.IColumnBindingCellInformation;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIAttribute;
+import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.internal.Activator;
@@ -87,6 +88,9 @@ public class ViewerPasteHandler extends AbstractHandler implements IHandler {
 					.ui(attribute);
 			if (binding.hasArguments()) {
 				pasteBinding.getExtraArgumentProviders().add(binding);
+			}
+			if (binding.eIsSet(IUIBindingsPackage.Literals.BINDING__EXTRA_ARGUMENT_PROVIDERS)) {
+				pasteBinding.getExtraArgumentProviders().addAll(binding.getExtraArgumentProviders());
 			}
 			context.finish(FinishOption.FORCE);
 

@@ -13,6 +13,7 @@ import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.ICellEditorFactory;
 import com.rcpcompany.uibindings.ICellEditorFactoryContext;
+import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IValueBindingCell;
 import com.rcpcompany.uibindings.internal.InternalConstants;
@@ -119,6 +120,9 @@ public class SimpleCellEditorFactory implements ICellEditorFactory {
 		final IValueBinding editorBinding = context.addBinding().ui(ce.getControl()).model(value);
 		if (labelBinding.hasArguments()) {
 			editorBinding.getExtraArgumentProviders().add(labelBinding);
+		}
+		if (labelBinding.eIsSet(IUIBindingsPackage.Literals.BINDING__EXTRA_ARGUMENT_PROVIDERS)) {
+			editorBinding.getExtraArgumentProviders().addAll(labelBinding.getExtraArgumentProviders());
 		}
 
 		editorBinding.setCell(cell);

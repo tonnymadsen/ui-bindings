@@ -129,6 +129,9 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 		if (column.hasArguments()) {
 			lb.getExtraArgumentProviders().add(column);
 		}
+		if (column.eIsSet(IUIBindingsPackage.Literals.BINDING__EXTRA_ARGUMENT_PROVIDERS)) {
+			lb.getExtraArgumentProviders().addAll(column.getExtraArgumentProviders());
+		}
 		setLabelBinding(lb);
 		lb.setCell(this);
 		/*
