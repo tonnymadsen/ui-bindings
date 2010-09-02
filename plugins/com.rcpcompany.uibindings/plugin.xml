@@ -894,6 +894,10 @@
             class="com.rcpcompany.uibindings.internal.decorators.extenders.ViewerSpecificLabelDecoratorExtender"
             priority="10001">
       </decoratorExtender>
+      <decoratorExtender
+            class="com.rcpcompany.uibindings.internal.decorators.extenders.UnitSupportLabelDecoratorExtender"
+            priority="10002">
+      </decoratorExtender>
    </extension>
    <extension
          point="org.eclipse.ui.contexts">

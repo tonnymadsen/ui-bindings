@@ -29,6 +29,7 @@ import com.rcpcompany.uibindings.extests.decoratorProviders.EnumDecoratorProvide
 import com.rcpcompany.uibindings.extests.decoratorProviders.NumberDecoratorProviderRangeTest;
 import com.rcpcompany.uibindings.extests.decoratorProviders.NumberDecoratorProviderSpecialFPTest;
 import com.rcpcompany.uibindings.extests.decoratorProviders.NumberDecoratorProviderTest;
+import com.rcpcompany.uibindings.extests.decoratorProviders.NumberDecoratorProviderUnitTest;
 import com.rcpcompany.uibindings.extests.decoratorProviders.SpecialDecoratorProviderTest;
 import com.rcpcompany.uibindings.extests.issues.SIMA621ProblemsIncreases;
 import com.rcpcompany.uibindings.extests.issues.SIMO182BugInUIBindingForTableCellEditor;
@@ -280,6 +281,7 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		DecoratorProviderTest.class, SpecialDecoratorProviderTest.class, EnumDecoratorProviderTest.class,
 		NumberDecoratorProviderRangeTest.class, NumberDecoratorProviderTest.class,
 		NumberDecoratorProviderSpecialFPTest.class, EObjectCreatorDecoratorProviderTest.class,
+		NumberDecoratorProviderUnitTest.class,
 
 		ValueBindingMessageImageDecoratorImageTest.class,
 

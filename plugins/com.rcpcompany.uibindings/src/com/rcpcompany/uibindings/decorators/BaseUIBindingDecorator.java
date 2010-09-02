@@ -436,7 +436,10 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 			// bind tool tip
 			value = binding.getArgument(Constants.ARG_TOOL_TIP_TEXT, String.class, null);
 			if (value != null) {
-				control.setToolTipText(value);
+				final IObservableValue tooltipValue = getBinding().getUIAttribute().getTooltipValue();
+				if (tooltipValue != null) {
+					control.setToolTipText(value);
+				}
 			}
 		}
 	}
@@ -545,7 +548,6 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		private boolean myMessageFormatSet;
 
 		private String myTooltip;
-		private boolean myTooltipSet;
 		private IObservableValue myTooltipValue;
 
 		private int myMin;
@@ -597,7 +599,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		 * Resets the context.
 		 */
 		public void reset() {
-			myTooltip = null;
+			myTooltip = getBinding().getArgument(Constants.ARG_TOOL_TIP_TEXT, String.class, null);
 			myMessageFormat = null;
 			myMin = Integer.MIN_VALUE;
 			myMax = Integer.MAX_VALUE;
@@ -625,7 +627,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 			if (myMessageFormatSet && myFormattedValue != null) {
 				myFormattedValue.setMessageFormat(myMessageFormat);
 			}
-			if (myTooltipSet) {
+			if (myTooltip != null) {
 				if (myTooltipValue == null) {
 					myTooltipValue = getAttribute().getTooltipValue();
 				}
@@ -753,7 +755,6 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 			} else {
 				myTooltip += "\n" + tooltip; //$NON-NLS-1$
 			}
-			myTooltipSet = true;
 		}
 
 		@Override

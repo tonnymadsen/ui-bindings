@@ -27,6 +27,9 @@ import com.rcpcompany.uibindings.IUIBindingDecorator;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.decorators.SimpleUIBindingDecorator;
+import com.rcpcompany.uibindings.units.IUnitBindingSupport;
+import com.rcpcompany.uibindings.units.IUnitBindingSupportContext;
+import com.rcpcompany.uibindings.units.IUnitBindingSupportListener;
 import com.rcpcompany.uibindings.validators.ConstraintValidatorAdapter;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -41,7 +44,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class NumberBindingDecorator extends SimpleUIBindingDecorator implements IUIBindingDecorator {
+public class NumberBindingDecorator extends SimpleUIBindingDecorator implements IUIBindingDecorator,
+		IUnitBindingSupportContext, IUnitBindingSupportListener {
 	/**
 	 * A single interval as described in {@link Constants#ARG_RANGE}.
 	 */
@@ -233,6 +237,11 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 	public static final int NUMBER_ERROR_CODE = 1000;
 
 	/**
+	 * Unit support for this binding or <code>null</code>.
+	 */
+	private IUnitBindingSupport myUnitSupport;
+
+	/**
 	 * The provider.
 	 */
 	private final INumberDecoratorProvider myProvider;
@@ -310,6 +319,26 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		myUIType = getBinding().getUIType();
 
 		initForValidation(getBinding());
+
+		myUnitSupport = getBinding().getArgument(Constants.ARG_UNIT_SUPPORT, IUnitBindingSupport.class, null);
+		if (myUnitSupport != null) {
+			myUnitSupport.addListener(this);
+		}
+	}
+
+	@Override
+	public void dispose() {
+		super.dispose();
+
+		if (myUnitSupport != null) {
+			myUnitSupport.removeListener(this);
+		}
+	}
+
+	@Override
+	public void unitsChanged() {
+		getBinding().updateUI();
+		getBinding().updateBinding();
 	}
 
 	/**
@@ -371,6 +400,12 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 
 	@Override
 	protected Object convertModelToUI(Object fromObject) {
+		if (myUnitSupport != null) {
+			final double factor = getUnitFactor();
+			if (factor != 1.0) {
+				fromObject = myAdapter.scale(fromObject, factor, true);
+			}
+		}
 		if (myUIType == Integer.class || myUIType == Integer.TYPE)
 			return fromObject;
 		else if (myUIType == String.class) {
@@ -379,6 +414,11 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			return myBuffer.toString();
 		} else
 			return null;
+	}
+
+	private double getUnitFactor() {
+		if (myUnitSupport == null) return 1.0;
+		return myUnitSupport.getFactor(this);
 	}
 
 	@Override
@@ -392,6 +432,12 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		 */
 		if (myLastFromObject != fromObject) {
 			myLastConvertedValue = convertToBigDecimal(fromObject);
+			if (myUnitSupport != null) {
+				final double factor = getUnitFactor();
+				if (factor != 1.0) {
+					myLastConvertedValue = myLastConvertedValue.divide(new BigDecimal(factor));
+				}
+			}
 			myLastFromObject = fromObject;
 		}
 
@@ -593,6 +639,17 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		NumberFormat getPlainParseFormat();
 
 		/**
+		 * Scales and returns a new number of the correct type.
+		 * 
+		 * @param fromObject the number to scale
+		 * @param factor the scaling factor
+		 * @param viewToUI whether to scale from view to UI (multiply by the factor) or UI to model
+		 *            (divide by the factor)
+		 * @return the new number
+		 */
+		Object scale(Object fromObject, double factor, boolean viewToUI);
+
+		/**
 		 * Returns the format used to parse this type with groupings.
 		 * <p>
 		 * See {@link #getPlainParseFormat()}.
@@ -665,6 +722,10 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 				throw new IllegalArgumentException("Fraction not allowed");
 			}
 		}
+
+		public Object scale(Object fromObject, double factor, boolean viewToUI) {
+			return fromObject;
+		};
 	};
 
 	/**
@@ -706,6 +767,10 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 				throw new IllegalArgumentException("Fraction not allowed");
 			}
 		}
+
+		public Object scale(Object fromObject, double factor, boolean viewToUI) {
+			return fromObject;
+		};
 	};
 
 	/**
@@ -747,6 +812,10 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 				throw new IllegalArgumentException("Fraction not allowed");
 			}
 		}
+
+		public Object scale(Object fromObject, double factor, boolean viewToUI) {
+			return fromObject;
+		};
 	};
 
 	/**
@@ -788,6 +857,10 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 				throw new IllegalArgumentException("Fraction not allowed");
 			}
 		}
+
+		public Object scale(Object fromObject, double factor, boolean viewToUI) {
+			return fromObject;
+		};
 	};
 
 	/**
@@ -825,6 +898,14 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		public Number getConformantNumber(BigDecimal source) {
 			return new Float(source.floatValue());
 		}
+
+		public Object scale(Object fromObject, double factor, boolean viewToUI) {
+			final Float i = (Float) fromObject;
+			if (viewToUI)
+				return i * factor;
+			else
+				return i / factor;
+		};
 	};
 
 	/**
@@ -862,6 +943,14 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		public Number getConformantNumber(BigDecimal source) {
 			return new Double(source.doubleValue());
 		}
+
+		public Object scale(Object fromObject, double factor, boolean viewToUI) {
+			final Double i = (Double) fromObject;
+			if (viewToUI)
+				return i * factor;
+			else
+				return i / factor;
+		};
 	};
 
 	/**
@@ -899,6 +988,10 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 				throw new IllegalArgumentException("Fraction not allowed");
 			}
 		}
+
+		public Object scale(Object fromObject, double factor, boolean viewToUI) {
+			return fromObject;
+		};
 	};
 
 	/**
@@ -932,5 +1025,13 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		public Number getConformantNumber(BigDecimal source) {
 			return source;
 		}
+
+		public Object scale(Object fromObject, double factor, boolean viewToUI) {
+			final BigDecimal i = (BigDecimal) fromObject;
+			if (viewToUI)
+				return i.multiply(new BigDecimal(factor, null));
+			else
+				return i.divide(new BigDecimal(factor, null));
+		};
 	};
 }

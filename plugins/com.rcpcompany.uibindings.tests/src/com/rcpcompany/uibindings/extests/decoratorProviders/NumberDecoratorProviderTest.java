@@ -27,8 +27,14 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.internal.NumberDecoratorProviderImpl;
 import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator;
 
+/**
+ * Basics test of {@link NumberDecoratorProviderImpl}.
+ * 
+ * @author Tonny Madsen, The RCP Company
+ */
 @RunWith(Parameterized.class)
 public class NumberDecoratorProviderTest {
 	@Parameters
@@ -270,10 +276,6 @@ public class NumberDecoratorProviderTest {
 		myUI2MOK = ui2mOK;
 		myUI2MError = ui2mError;
 	}
-
-	// public NumberDecoratorProviderTest() {
-	// myFeature = TestModelPackage.Literals.TEST_OBJECT__NUMBER;
-	// }
 
 	private TestView myView;
 	private Composite myBody;

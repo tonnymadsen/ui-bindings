@@ -55,6 +55,7 @@ import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IViewerItemCreator;
 import com.rcpcompany.uibindings.IViewerItemDeletor;
 import com.rcpcompany.uibindings.internal.bindingDataTypes.BindingDataTypeFactory;
+import com.rcpcompany.uibindings.units.IUnitBindingSupport;
 import com.rcpcompany.utils.basic.ToStringUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -845,6 +846,17 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 					final IObservableListFactory factory = (IObservableListFactory) ce
 							.createExecutableExtension(attributeName);
 					return (ArgumentType) factory.createList(vb);
+				} catch (final CoreException ex) {
+					LogUtils.error(this, ex);
+				}
+			}
+		} else if (argumentType == IUnitBindingSupport.class) {
+			if (this instanceof IValueBinding) {
+				final IValueBinding vb = (IValueBinding) this;
+				try {
+					final IUnitBindingSupport adapter = (IUnitBindingSupport) ce
+							.createExecutableExtension(attributeName);
+					return (ArgumentType) adapter;
 				} catch (final CoreException ex) {
 					LogUtils.error(this, ex);
 				}

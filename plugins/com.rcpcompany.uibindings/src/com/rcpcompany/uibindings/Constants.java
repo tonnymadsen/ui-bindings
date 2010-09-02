@@ -19,12 +19,12 @@ import org.eclipse.ui.ISources;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.decorators.NumberBindingDecorator;
 import com.rcpcompany.uibindings.internal.propertyTesters.ManagerPropertyTester;
+import com.rcpcompany.uibindings.units.IUnitBindingSupport;
 
 /**
  * Various constants that does not belong anywhere else.
  * 
  * @author Tonny Madsen, The RCP Company
- * @since 1.3
  */
 public interface Constants {
 
@@ -384,6 +384,13 @@ public interface Constants {
 	 * The argument is a text string with the base unit type of the binding. E.g. "M"
 	 */
 	String ARG_UNIT = "unit"; //$NON-NLS-1$
+
+	/**
+	 * Argument name for the unit support for a binding.
+	 * <p>
+	 * The argument value is an {@link IUnitBindingSupport unit binding support object}.
+	 */
+	String ARG_UNIT_SUPPORT = "unitSupport";
 
 	/**
 	 * The arguments that can be used directly as attribute names in the uibindings extension point
