@@ -22,7 +22,6 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.TextCommitStrategy;
-import com.rcpcompany.utils.basic.ToStringUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -119,7 +118,8 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 	 * @param event the event
 	 */
 	protected void handleControlEvent(Event event) {
-		LogUtils.debug(this, "Text='" + myAdapter.getText(myControl) + "'\n" + ToStringUtils.toString(event));
+		// LogUtils.debug(this, "Text='" + myAdapter.getText(myControl) + "'\n" +
+		// ToStringUtils.toString(event));
 		if (updating) return;
 
 		/**
