@@ -38,7 +38,7 @@ public interface IBindingObjectLongName extends IDisposable {
 		 * @return long name object
 		 */
 		public static IBindingObjectLongName createLongName(EObject obj, String type) {
-			return IBindingObjectInformation.Factory.createLongName(obj, type);
+			return IBindingObjectInformation.Factory.createObjectInformation(obj, type);
 		}
 
 		/**
