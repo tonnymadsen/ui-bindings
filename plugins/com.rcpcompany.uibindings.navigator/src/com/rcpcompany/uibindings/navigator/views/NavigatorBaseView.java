@@ -91,8 +91,6 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 	public void createPartControl(Composite parent) {
 		myContext = IBindingContext.Factory.createContext(parent);
 
-		// TODO add filter
-
 		final PatternFilter patternFilter = new TreePatternFilter();
 		myFilteredTree = new FilteredTree(parent, SWT.FULL_SELECTION | SWT.SINGLE | SWT.H_SCROLL | SWT.V_SCROLL
 				| SWT.BORDER, patternFilter, true);
@@ -104,10 +102,10 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 		// TODO: use layout to make this column 100%
 
 		final IObservableList list = myAdvisor.getRootElements();
-		myTreeBinding = myContext.addViewer().viewer(myTreeViewer).model(list).arg(Constants.ARG_DOUBLE_CLICK_COMMAND,
-				Constants.DEFAULT_OPEN_COMMAND);
-		myTreeColumnBinding = myTreeBinding.addColumn().column(column).model(SpecialBinding.TREE_ITEM).arg(
-				Constants.ARG_LABEL_DECORATOR, true).arg(Constants.ARG_SHOW_IMAGE, true);
+		myTreeBinding = myContext.addViewer().viewer(myTreeViewer).model(list)
+				.arg(Constants.ARG_DOUBLE_CLICK_COMMAND, Constants.DEFAULT_OPEN_COMMAND);
+		myTreeColumnBinding = myTreeBinding.addColumn().column(column).model(SpecialBinding.TREE_ITEM)
+				.arg(Constants.ARG_LABEL_DECORATOR, true).arg(Constants.ARG_SHOW_IMAGE, true);
 
 		myContext.finish();
 
@@ -209,8 +207,8 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 			// images from IWorkbenchGraphicConstants
 			final ImageRegistry imageRegistry = Activator.getDefault().getImageRegistry();
 			if (imageRegistry.getDescriptor("LINKED") == null) {
-				imageRegistry.put("LINKED", AbstractUIPlugin.imageDescriptorFromPlugin(Activator.ID,
-						"images/synced.gif"));
+				imageRegistry.put("LINKED",
+						AbstractUIPlugin.imageDescriptorFromPlugin(Activator.ID, "images/synced.gif"));
 			}
 			myItem.setImage(imageRegistry.get("LINKED"));
 
