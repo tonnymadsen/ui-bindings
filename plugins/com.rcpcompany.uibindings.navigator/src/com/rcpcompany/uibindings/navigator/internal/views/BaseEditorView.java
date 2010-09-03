@@ -4,11 +4,12 @@ import java.util.List;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.WritableValue;
+import org.eclipse.core.runtime.ISafeRunnable;
+import org.eclipse.core.runtime.SafeRunner;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.action.ContributionItem;
 import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.action.IToolBarManager;
-import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
@@ -30,7 +31,6 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ISetSelectionTarget;
 import org.eclipse.ui.part.ViewPart;
-import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 import com.rcpcompany.uibindings.navigator.IEditorModelType;
 import com.rcpcompany.uibindings.navigator.IEditorPart;
@@ -133,7 +133,6 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 		final IToolBarManager toolbar = getViewSite().getActionBars().getToolBarManager();
 
 		toolbar.add(new PinEditorContributionItem());
-		toolbar.add(new CloneEditorContributionItem());
 		mySelectEditorPartFactoryContributionItem = new SelectEditorPartFactoryContributionItem();
 		toolbar.add(mySelectEditorPartFactoryContributionItem);
 	}
@@ -201,6 +200,9 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 					LogUtils.debug(this, "Editor part value changed to " + obj);
 				}
 				myCurrentValue.setValue(obj);
+				final IBindingObjectInformation info = IBindingObjectInformation.Factory.createObjectInformation(
+						(EObject) myCurrentValue.getValue(), null);
+				setPartName(info.getName() + ": " + getCurrentDescriptor().getName());
 			}
 			return;
 		}
@@ -233,7 +235,18 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 			if (factory != null) {
 				myParent = new Composite(myViewPartParent, SWT.NONE);
 				myParent.setLayout(new FillLayout());
-				myCurrentEditorPart = factory.createEditorPart(myFactoryContext);
+				SafeRunner.run(new ISafeRunnable() {
+					@Override
+					public void run() throws Exception {
+						myCurrentEditorPart = factory.createEditorPart(myFactoryContext);
+					}
+
+					@Override
+					public void handleException(Throwable ex) {
+						LogUtils.error(factory, "Error detected during editor creation", ex);
+						// TODO: create error view
+					}
+				});
 				myViewPartParent.layout(true);
 			}
 			if (getCurrentDescriptor() == null) {
@@ -256,17 +269,15 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 		/*
 		 * - Update the view part info
 		 */
-		setPartName(getCurrentDescriptor().getName());
+		final IBindingObjectInformation info = IBindingObjectInformation.Factory.createObjectInformation(
+				(EObject) myCurrentValue.getValue(), null);
+		setPartName(info.getName() + ": " + getCurrentDescriptor().getName());
 		Image image = null;
 		if (image == null && getCurrentDescriptor().getImage() != null) {
 			getCurrentDescriptor().getImage().getImage();
 		}
 		if (image == null) {
-			final IBindingObjectInformation information = IBindingObjectInformation.Factory.createLongName(
-					(EObject) myCurrentValue.getValue(), "");
-			if (information != null) {
-				image = information.getImage();
-			}
+			image = info.getImage();
 		}
 		setTitleImage(image);
 	}
@@ -368,35 +379,6 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 		public void update() {
 			myItem.setEnabled(getCurrentObject() != null);
 			myItem.setSelection(isPinned());
-		}
-	}
-
-	/**
-	 * {@link IContributionItem} for "Clone Editor".
-	 */
-	public class CloneEditorContributionItem extends ContributionItem {
-		private ToolItem myItem;
-
-		@Override
-		public void fill(ToolBar parent, int index) {
-			myItem = new ToolItem(parent, SWT.PUSH, index);
-			final ISharedImages sharedImages = PlatformUI.getWorkbench().getSharedImages();
-			// images from IWorkbenchGraphicConstants
-			final ImageRegistry imageRegistry = Activator.getDefault().getImageRegistry();
-			if (imageRegistry.getDescriptor("CLONE") == null) {
-				imageRegistry.put("CLONE",
-						AbstractUIPlugin.imageDescriptorFromPlugin(Activator.ID, "images/clone_16x16.png"));
-			}
-			myItem.setImage(imageRegistry.get("CLONE"));
-
-			myItem.setToolTipText("Clone this editor");
-
-			myItem.addSelectionListener(new SelectionAdapter() {
-				@Override
-				public void widgetSelected(SelectionEvent e) {
-					INavigatorManager.Factory.getManager().openView(getCurrentObject(), true);
-				}
-			});
 		}
 	}
 

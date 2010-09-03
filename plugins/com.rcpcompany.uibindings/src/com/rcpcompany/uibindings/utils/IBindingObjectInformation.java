@@ -29,7 +29,7 @@ public interface IBindingObjectInformation extends IBindingObjectLongName, IDisp
 		 * @return the name or "&lt;null&gt;"
 		 */
 		public static String getLongName(EObject obj) {
-			final IBindingObjectInformation ln = createLongName(obj, Constants.TYPE_LONG_NAME);
+			final IBindingObjectInformation ln = createObjectInformation(obj, Constants.TYPE_LONG_NAME);
 			final String name = ln.getName();
 			ln.dispose();
 			return name;
@@ -42,7 +42,7 @@ public interface IBindingObjectInformation extends IBindingObjectLongName, IDisp
 		 * @param type the binding type
 		 * @return long name object
 		 */
-		public static IBindingObjectInformation createLongName(EObject obj, String type) {
+		public static IBindingObjectInformation createObjectInformation(EObject obj, String type) {
 			return new BindingObjectInformation(obj, type);
 		}
 

@@ -1,5 +1,6 @@
 package com.rcpcompany.uibindings.navigator;
 
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 
@@ -13,6 +14,8 @@ public abstract class FormEditorPartFactory extends AbstractEditorPartFactory im
 	public final IEditorPart createEditorPart(IEditorPartContext context) {
 		final IFormCreator form = IFormCreator.Factory.createScrolledForm(context.getCurrentValue(),
 				context.getParent(), context.getDescriptor().getName());
+		form.getContext().addBinding().ui(form.getScrolledForm()).model(context.getCurrentValue())
+				.arg(Constants.ARG_MESSAGE_FORMAT, "{0} - " + context.getDescriptor().getName()).readonly();
 		createForm(context, form);
 		form.finish();
 
@@ -20,7 +23,6 @@ public abstract class FormEditorPartFactory extends AbstractEditorPartFactory im
 		 * IBindingContextSelectionProvider is automatically disposed with the context..
 		 */
 		IBindingContextSelectionProvider.Factory.adapt(form.getContext(), context.getWorkbenchPart().getSite());
-
 		return new IEditorPart() {
 			@Override
 			public void dispose() {
