@@ -14,6 +14,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
  */
 public class CEResourceHolder {
 	private final IConfigurationElement myCE;
+	private ImageDescriptor myImageDescriptor = null;
 	private Image myImage = null;
 	private final String myAttrName;
 
@@ -46,13 +47,27 @@ public class CEResourceHolder {
 	 */
 	public Image getImage() {
 		if (myImage == null) {
-			final String imageName = myCE.getAttribute(myAttrName);
-			if (imageName != null) {
-				final ImageDescriptor descriptor = AbstractUIPlugin.imageDescriptorFromPlugin(myCE.getContributor()
-						.getName(), imageName);
+			final ImageDescriptor descriptor = getImageDescriptor();
+			if (descriptor != null) {
 				myImage = descriptor.createImage();
 			}
 		}
 		return myImage;
+	}
+
+	/**
+	 * Returns the image descriptor for the holder object.
+	 * 
+	 * @return the image or <code>null</code>
+	 */
+	public ImageDescriptor getImageDescriptor() {
+		if (myImageDescriptor == null) {
+			final String imageName = myCE.getAttribute(myAttrName);
+			if (imageName != null) {
+				myImageDescriptor = AbstractUIPlugin.imageDescriptorFromPlugin(myCE.getContributor().getName(),
+						imageName);
+			}
+		}
+		return myImageDescriptor;
 	}
 }
