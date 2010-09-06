@@ -14,6 +14,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.ISources;
 
 import com.rcpcompany.uibindings.internal.Activator;
@@ -175,6 +176,16 @@ public interface Constants {
 	 * depends on the context.
 	 */
 	String ARG_VALID_VALUES = "validValues"; //$NON-NLS-1$
+
+	/**
+	 * Argument name for the tree ID of a {@link IViewerBinding} with a {@link Tree}.
+	 * <p>
+	 * Used to control the items that are available in the navigator. See the
+	 * <code>com.rcpcompany.uibindings.uiBindings</code> extension point.
+	 * <p>
+	 * The argument value is an {@link String} with the ID.
+	 */
+	String ARG_TREE_ID = "treeID";
 
 	/**
 	 * Argument name for a binding should be read/only.
@@ -676,5 +687,5 @@ public interface Constants {
 	/**
 	 * The default priority for tree item relations.
 	 */
-	public static final int DEFAULT_TREE_ITEM_RELATION_PRIORITY = 1000;
+	int DEFAULT_TREE_ITEM_RELATION_PRIORITY = 1000;
 }

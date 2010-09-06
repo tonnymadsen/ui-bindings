@@ -57,12 +57,28 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 	private final IObservableList myRootList;
 
 	/**
+	 * The ID of the tree.
+	 */
+	private final String myTreeID;
+
+	/**
+	 * Returns the ID of the tree.
+	 * 
+	 * @return the tree ID
+	 */
+	public String getTreeID() {
+		return myTreeID;
+	}
+
+	/**
 	 * Constructs and returns a new tree factory for the specified viewer.
 	 * 
-	 * @param viewer the viewer with the tree
+	 * @param rootList the root element
+	 * @param treeID the ID of the tree
 	 */
-	public ViewerBindingTreeFactory(IObservableList rootList) {
+	public ViewerBindingTreeFactory(IObservableList rootList, String treeID) {
 		myRootList = rootList;
+		myTreeID = treeID;
 	}
 
 	@Override
@@ -197,5 +213,4 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 		}
 		return null;
 	}
-
 }

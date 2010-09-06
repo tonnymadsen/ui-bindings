@@ -1021,10 +1021,11 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 					attr = child.getAttribute(InternalConstants.CLASS_TAG);
 					if (attr == null || attr.length() == 0) {
 						LogUtils.error(ce, "Required attribute class is empty. Ignored."); //$NON-NLS-1$
-						break;
+						continue;
 					}
 					if (modelTypes.contains(attr)) {
 						LogUtils.error(child, "Duplicate model type: '" + attr + "'. Ignored."); //$NON-NLS-1$ //$NON-NLS-2$
+						continue;
 					}
 					modelTypes.add(attr);
 					if (alsoPrimitive) {
@@ -1119,6 +1120,25 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			} else {
 				// Do nothing
 			}
+
+			/*
+			 * Add tree IDs
+			 */
+			for (final IConfigurationElement child : ce.getChildren(InternalConstants.NAVIGATOR_TAG)) {
+				attr = child.getAttribute(InternalConstants.ID_TAG);
+				final boolean alsoPrimitive = attr == null || Boolean.valueOf(attr).booleanValue();
+				attr = child.getAttribute(InternalConstants.CLASS_TAG);
+				if (attr == null || attr.length() == 0) {
+					LogUtils.error(ce, "Required attribute '" + InternalConstants.ID_TAG + "' is empty. Ignored."); //$NON-NLS-1$
+					continue;
+				}
+				if (rel.getTreeIDs().contains(attr)) {
+					LogUtils.error(child, "Duplicate ID: '" + attr + "'. Ignored."); //$NON-NLS-1$ //$NON-NLS-2$
+					continue;
+				}
+				rel.getTreeIDs().add(attr);
+			}
+
 			rel.setParent(parent);
 		}
 

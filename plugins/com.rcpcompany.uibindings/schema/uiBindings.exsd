@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="com.nordea.cd.core" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="com.rcpcompany.uibindings" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
-      <appinfo>
-         <meta.schema plugin="com.nordea.cd.core" id="uiBindings" name="UI Bindings Support"/>
-      </appinfo>
+      <appInfo>
+         <meta.schema plugin="com.rcpcompany.uibindings" id="uiBindings" name="UI Bindings Support"/>
+      </appInfo>
       <documentation>
          This extension point is used to declare UI binding providers for use in the &lt;em&gt;UIBinding&lt;/em&gt; framework.
 &lt;p&gt;
@@ -24,9 +24,9 @@ This framework is based on the concept of decoration of widgets rather than exte
 
    <element name="extension">
       <annotation>
-         <appinfo>
+         <appInfo>
             <meta.element />
-         </appinfo>
+         </appInfo>
       </annotation>
       <complexType>
          <choice minOccurs="1" maxOccurs="unbounded">
@@ -59,9 +59,9 @@ This framework is based on the concept of decoration of widgets rather than exte
                <documentation>
                   
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute translatable="true"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
       </complexType>
@@ -69,9 +69,9 @@ This framework is based on the concept of decoration of widgets rather than exte
 
    <element name="bindingDecorator">
       <annotation>
-         <appinfo>
+         <appInfo>
             <meta.element labelAttribute="name"/>
-         </appinfo>
+         </appInfo>
          <documentation>
             A binding decorator for a specific business data type such as a date, an amount, a customer ID or a contact ID.
 &lt;p&gt;
@@ -132,9 +132,9 @@ Each extender can have a number of arguments for the label binding in the form o
                <documentation>
                   the class of the extender.
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="java" basedOn="com.rcpcompany.uibindings.decorators.extenders.AbstractUIBindingDecoratorExtender:com.rcpcompany.uibindings.IUIBindingDecoratorExtender"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
          <attribute name="priority" type="string" use="default" value="100">
@@ -159,9 +159,9 @@ Each extender can have a number of arguments for the label binding in the form o
                <documentation>
                   the Java based binding decorator to use for this binding.
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="java" basedOn="com.rcpcompany.uibindings.decorators.BaseUIBindingDecorator:com.rcpcompany.uibindings.IUIBindingDecorator"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
       </complexType>
@@ -244,9 +244,9 @@ The UI value need not be specified in which case it defaults to the &lt;code&gt;
                <documentation>
                   the type of a model object that can be supported by this binding provider. The test is performed using &lt;code&gt;instanceof&lt;/code&gt;.
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="java"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
          <attribute name="alsoPrimitive" type="boolean" use="default" value="true">
@@ -273,9 +273,9 @@ The concrete UI type used in a specific binding depending on the UI observable a
                <documentation>
                   the type of a target object that can be supported by this binding provider. The test is performed using &lt;code&gt;instanceof&lt;/code&gt;.
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="java"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
          <attribute name="alsoPrimitive" type="boolean" use="default" value="true">
@@ -300,9 +300,9 @@ The concrete UI type used in a specific binding depending on the UI observable a
                <documentation>
                   the ID of a specific binding provider
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="identifier" basedOn="com.rcpcompany.uibindings.uiBindings/bindingProvider/@id"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
          <attribute name="class" type="string" use="required">
@@ -310,9 +310,9 @@ The concrete UI type used in a specific binding depending on the UI observable a
                <documentation>
                   a class that is mapped to the binding. The test is performed using &lt;code&gt;instanceof&lt;/code&gt;.
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="java"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
       </complexType>
@@ -332,9 +332,9 @@ Attributes - or properties - designates the different values a specific SWT widg
                <documentation>
                   the class of widgets that is handles by this data
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="java" basedOn="org.eclipse.swt.widgets.Widget:"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
          <attribute name="attribute" type="string">
@@ -349,9 +349,9 @@ Attributes - or properties - designates the different values a specific SWT widg
                <documentation>
                   a factory class that will create the wanted &lt;code&gt;IUIAttribute&lt;/code&gt;.
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="java" basedOn=":com.rcpcompany.uibindings.IUIAttributeFactory"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
       </complexType>
@@ -385,9 +385,9 @@ This strategy means:
                <documentation>
                   the factory to use for the Java package
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="java" basedOn="com.rcpcompany.uibindings.AbstractEMFObservableFactory:com.rcpcompany.uibindings.IEMFObservableFactory"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
       </complexType>
@@ -421,9 +421,9 @@ Each item can have a number of arguments for the label binding in the form of &l
                <documentation>
                   an optional ID for a &quot;new&quot; wizard that will create objects of this type. Only usable for tree items with a single specific modelType element.
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="identifier" basedOn="org.eclipse.ui.newWizards/wizard/@id"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
          <attribute name="primaryParent" type="string">
@@ -433,9 +433,9 @@ Each item can have a number of arguments for the label binding in the form of &l
 &lt;p&gt;
  If this is &lt;code&gt;null&lt;/code&gt;, then the parent is found via the &lt;code&gt;treeItemRelation&lt;/code&gt; elements - though only if exactly one parent can be found this way.
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="identifier" basedOn="com.rcpcompany.uibindings.uiBindings/treeItem/@id"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
          <attribute name="emptyFolderHidden" type="boolean" use="default" value="false">
@@ -471,9 +471,9 @@ If &lt;code&gt;id&lt;/code&gt; is set it specified the ID of the description for
                <documentation>
                   the parent in the relationship
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="identifier" basedOn="com.rcpcompany.uibindings.uiBindings/treeItem/@id"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
          <attribute name="id" type="string">
@@ -481,9 +481,9 @@ If &lt;code&gt;id&lt;/code&gt; is set it specified the ID of the description for
                <documentation>
                   the id of a specific &lt;code&gt;treeItem&lt;/code&gt; that will then be the child item. If this is &lt;code&gt;null&lt;/code&gt;, then the normal look-up via &lt;code&gt;IManager.getTreeItemDescription(..)&lt;/code&gt; is performed.
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="identifier" basedOn="com.rcpcompany.uibindings.uiBindings/treeItem/@id"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
          <attribute name="class" type="string">
@@ -491,9 +491,9 @@ If &lt;code&gt;id&lt;/code&gt; is set it specified the ID of the description for
                <documentation>
                   the class name of a factory that will return an observable value or list with the children of the parent. Only one of &lt;code&gt;class&lt;/class&gt; and &lt;code&gt;featureName&lt;/class&gt; may be set.
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="java" basedOn=":org.eclipse.core.databinding.observable.masterdetail.IObservableFactory"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
          <attribute name="featureName" type="string">
@@ -538,9 +538,9 @@ Each model class can have a number of arguments for the label binding in the for
                <documentation>
                   the model class. This can also be the type of an attribute as well as a Java class or a primitive type.
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="java"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
       </complexType>
@@ -663,9 +663,9 @@ Each feature can have a number of arguments for the label binding in the form of
                <documentation>
                   the image to show with the binding.
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="resource"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
          <attribute name="label" type="string">
@@ -673,9 +673,9 @@ Each feature can have a number of arguments for the label binding in the form of
                <documentation>
                   the label of a structural feature or a class when it cannot be deduced correctly automatically. E.g. if the feature is named &quot;ipAddr&quot;, then the automatic name would be &quot;Ip Addr&quot; - which can be fixed by setting this attribute to &quot;IP Address&quot;, or whatever..
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute translatable="true"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
          <attribute name="labelDecorator" type="boolean">
@@ -715,9 +715,9 @@ The default is &lt;code&gt;false&lt;/code&gt; .
                <documentation>
                   the label used instead of the empty string for null values in references.
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute translatable="true"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
          <attribute name="openCommand" type="string">
@@ -753,9 +753,9 @@ The default is &lt;code&gt;false&lt;/code&gt; .
                <documentation>
                   the preferred cell editor factory for cell editing for the binding
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="java" basedOn=":com.rcpcompany.uibindings.ICellEditorFactory"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
          <attribute name="preferredControl" type="string">
@@ -767,9 +767,9 @@ The default is &lt;code&gt;false&lt;/code&gt; .
 &lt;li&gt;Supports a constructor (Composite, int) &lt;/li&gt;
 &lt;/ul&gt;
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="java" basedOn="org.eclipse.swt.widgets.Control:"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
          <attribute name="preferredControlFactory" type="string">
@@ -777,9 +777,9 @@ The default is &lt;code&gt;false&lt;/code&gt; .
                <documentation>
                   the preferred Control factory for the binding
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="java" basedOn=":com.rcpcompany.uibindings.IControlFactory"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
          <attribute name="range" type="string">
@@ -828,9 +828,9 @@ Examples
                <documentation>
                   the constant text to use for a binding. Primary used for constant cells in trees
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute translatable="true"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
          <attribute name="textCommitStrategy">
@@ -855,9 +855,9 @@ Examples
                <documentation>
                   the tool tip text of a control
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute translatable="true"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
          <attribute name="type" type="string">
@@ -903,9 +903,9 @@ The argument is a text string with the base unit type of the binding. E.g. &quot
                <documentation>
                   The decorator used to do the decoration itself.
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="java" basedOn=":com.rcpcompany.uibindings.decoratorDecorators.IDecoratorDecorator"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
       </complexType>
@@ -951,9 +951,9 @@ Each processor is only envoked if a set of optional restrictions are all fulfill
                <documentation>
                   optional restriction based on the Java data type of the model attribute
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="java"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
          <attribute name="source" type="string">
@@ -982,9 +982,9 @@ Each processor is only envoked if a set of optional restrictions are all fulfill
                <documentation>
                   a class with a quick fix proposal processor.
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="java" basedOn="com.rcpcompany.uibindings.quixkfixes.AbstractQuickfixProposalProcessor:com.rcpcompany.uibindings.IQuickfixProposalProcessor"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
       </complexType>
@@ -1006,45 +1006,64 @@ A specific mediator wil only be invoked once for a specific class.
                <documentation>
                   
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="java" basedOn=":com.rcpcompany.uibindings.IModelArgumentMediator"/>
-               </appinfo>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="navigator">
+      <annotation>
+         <documentation>
+            The identification of annavigator that should use this relation.
+&lt;p&gt;
+Per default, all relations are automatically assigned to the &lt;code&gt;&quot;&quot;&lt;/code&gt; id, but a relation can be assigned to additional navigators with this element.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  the identification of annavigator that should use this relation
+               </documentation>
             </annotation>
          </attribute>
       </complexType>
    </element>
 
    <annotation>
-      <appinfo>
+      <appInfo>
          <meta.section type="since"/>
-      </appinfo>
+      </appInfo>
       <documentation>
          [Enter the first release in which this extension point appears.]
       </documentation>
    </annotation>
 
    <annotation>
-      <appinfo>
+      <appInfo>
          <meta.section type="examples"/>
-      </appinfo>
+      </appInfo>
       <documentation>
          [Enter extension point usage example here.]
       </documentation>
    </annotation>
 
    <annotation>
-      <appinfo>
+      <appInfo>
          <meta.section type="apiInfo"/>
-      </appinfo>
+      </appInfo>
       <documentation>
          [Enter API information here.]
       </documentation>
    </annotation>
 
    <annotation>
-      <appinfo>
+      <appInfo>
          <meta.section type="implementation"/>
-      </appinfo>
+      </appInfo>
       <documentation>
          [Enter information about supplied implementation of this extension point.]
       </documentation>

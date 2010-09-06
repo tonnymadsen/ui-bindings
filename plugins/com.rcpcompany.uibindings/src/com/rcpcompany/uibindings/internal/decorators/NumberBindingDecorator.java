@@ -309,13 +309,24 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		return myLimitsSet;
 	}
 
+	/**
+	 * Returns whether the number of this decorator is an integral number - e.g. one of {@link Byte}
+	 * , {@link Short}, {@link Integer} or {@link Long} or their corresponding primitive types.
+	 * 
+	 * @return <code>true</code> if it is an integral number and <code>false</code> if it is a real
+	 *         number
+	 */
+	public boolean isIntegralNumber() {
+		return myAdapter.isIntegralNumber();
+	}
+
 	@Override
 	public void init(IValueBinding binding) {
 		super.init(binding);
 
 		myBuffer = new StringBuilder();
-		myFormatter = IManager.Factory.getManager().getFormatterProvider()
-				.getFormatter(myBuffer, myProvider.getFormat());
+		myFormatter = IManager.Factory.getManager().getFormatterProvider().getFormatter(myBuffer,
+				myProvider.getFormat());
 		myUIType = getBinding().getUIType();
 
 		initForValidation(getBinding());
@@ -435,7 +446,13 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			if (myUnitSupport != null) {
 				final double factor = getUnitFactor();
 				if (factor != 1.0) {
-					myLastConvertedValue = myLastConvertedValue.divide(new BigDecimal(factor));
+					try {
+						myLastConvertedValue = myLastConvertedValue.divide(new BigDecimal(factor),
+								BigDecimal.ROUND_DOWN);
+					} catch (final ArithmeticException ex) {
+						LogUtils.error(this, myLastConvertedValue + "/" + factor + ": " + ex.getMessage(), ex);
+						throw ex;
+					}
 				}
 			}
 			myLastFromObject = fromObject;
@@ -518,8 +535,8 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 					final int errorPos = (parsePosition.getErrorIndex() != -1) ? parsePosition.getErrorIndex()
 							: parsePosition.getIndex();
 					throw new IllegalArgumentException(MessageFormat.format(
-							"Illegal {0}: ''{1}'' at position {2}: ''{3}''", myLabel, fromObject, errorPos + 1,
-							s.charAt(errorPos)));
+							"Illegal {0}: ''{1}'' at position {2}: ''{3}''", myLabel, fromObject, errorPos + 1, s
+									.charAt(errorPos)));
 				}
 			}
 
@@ -639,6 +656,16 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		NumberFormat getPlainParseFormat();
 
 		/**
+		 * Returns whether the number of this decorator is an integral number - e.g. one of
+		 * {@link Byte} , {@link Short}, {@link Integer} or {@link Long} or their corresponding
+		 * primitive types.
+		 * 
+		 * @return <code>true</code> if it is an integral number and <code>false</code> if it is a
+		 *         real number
+		 */
+		boolean isIntegralNumber();
+
+		/**
 		 * Scales and returns a new number of the correct type.
 		 * 
 		 * @param fromObject the number to scale
@@ -725,6 +752,11 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 
 		public Object scale(Object fromObject, double factor, boolean viewToUI) {
 			return fromObject;
+		}
+
+		@Override
+		public boolean isIntegralNumber() {
+			return true;
 		};
 	};
 
@@ -771,6 +803,11 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		public Object scale(Object fromObject, double factor, boolean viewToUI) {
 			return fromObject;
 		};
+
+		@Override
+		public boolean isIntegralNumber() {
+			return true;
+		};
 	};
 
 	/**
@@ -815,6 +852,11 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 
 		public Object scale(Object fromObject, double factor, boolean viewToUI) {
 			return fromObject;
+		};
+
+		@Override
+		public boolean isIntegralNumber() {
+			return true;
 		};
 	};
 
@@ -861,6 +903,11 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		public Object scale(Object fromObject, double factor, boolean viewToUI) {
 			return fromObject;
 		};
+
+		@Override
+		public boolean isIntegralNumber() {
+			return true;
+		};
 	};
 
 	/**
@@ -905,6 +952,11 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 				return i * factor;
 			else
 				return i / factor;
+		};
+
+		@Override
+		public boolean isIntegralNumber() {
+			return false;
 		};
 	};
 
@@ -951,6 +1003,11 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			else
 				return i / factor;
 		};
+
+		@Override
+		public boolean isIntegralNumber() {
+			return false;
+		};
 	};
 
 	/**
@@ -991,6 +1048,11 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 
 		public Object scale(Object fromObject, double factor, boolean viewToUI) {
 			return fromObject;
+		};
+
+		@Override
+		public boolean isIntegralNumber() {
+			return true;
 		};
 	};
 
@@ -1033,5 +1095,11 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			else
 				return i.divide(new BigDecimal(factor, null));
 		};
+
+		@Override
+		public boolean isIntegralNumber() {
+			return false;
+		};
 	};
+
 }

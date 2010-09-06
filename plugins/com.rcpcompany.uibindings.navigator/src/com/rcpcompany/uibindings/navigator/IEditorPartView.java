@@ -45,4 +45,11 @@ public interface IEditorPartView {
 	 * Activates this view in the workbench.
 	 */
 	void activateView();
+
+	/**
+	 * Returns the current editor descriptor of this editor.
+	 * 
+	 * @return the descriptor
+	 */
+	IEditorPartDescriptor getCurrentDescriptor();
 }

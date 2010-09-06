@@ -3013,6 +3013,16 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
+	public EAttribute getTreeItemRelation_TreeIDs() {
+		return (EAttribute) treeItemRelationEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getTreeItemDescriptor() {
 		return treeItemDescriptorEClass;
 	}
@@ -4360,6 +4370,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		createEAttribute(treeItemRelationEClass, TREE_ITEM_RELATION__PROCESSOR);
 		createEAttribute(treeItemRelationEClass, TREE_ITEM_RELATION__FEATURE_NAME);
 		createEAttribute(treeItemRelationEClass, TREE_ITEM_RELATION__PRIORITY);
+		createEAttribute(treeItemRelationEClass, TREE_ITEM_RELATION__TREE_IDS);
 
 		treeItemDescriptorEClass = createEClass(TREE_ITEM_DESCRIPTOR);
 		createEAttribute(treeItemDescriptorEClass, TREE_ITEM_DESCRIPTOR__ID);
@@ -5433,6 +5444,10 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				getTreeItemRelation_Priority(),
 				ecorePackage.getEInt(),
 				"priority", null, 1, 1, ITreeItemRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getTreeItemRelation_TreeIDs(),
+				ecorePackage.getEString(),
+				"treeIDs", null, 0, -1, ITreeItemRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(treeItemDescriptorEClass, ITreeItemDescriptor.class,
 				"TreeItemDescriptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

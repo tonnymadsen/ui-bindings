@@ -6,6 +6,7 @@
 package com.rcpcompany.uibindings;
 
 import org.eclipse.core.databinding.observable.masterdetail.IObservableFactory;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
@@ -26,6 +27,7 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * <li>{@link com.rcpcompany.uibindings.ITreeItemRelation#getProcessor <em>Processor</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.ITreeItemRelation#getFeatureName <em>Feature Name</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.ITreeItemRelation#getPriority <em>Priority</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.ITreeItemRelation#getTreeIDs <em>Tree IDs</em>}</li>
  * </ul>
  * </p>
  * 
@@ -163,5 +165,20 @@ public interface ITreeItemRelation extends EObject {
 	 * @generated
 	 */
 	void setPriority(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Tree IDs</b></em>' attribute list. The list contents are of
+	 * type {@link java.lang.String}. <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Tree IDs</em>' attribute list isn't clear, there really should be
+	 * more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Tree IDs</em>' attribute list.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getTreeItemRelation_TreeIDs()
+	 * @generated
+	 */
+	EList<String> getTreeIDs();
 
 } // ITreeItemRelation

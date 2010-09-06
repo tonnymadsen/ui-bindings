@@ -192,6 +192,12 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 			 * We get them in the correct sequence as the list is already sorted by priority
 			 */
 			for (final ITreeItemRelation rel : descriptor.getChildRelations()) {
+				final String treeID = myFactory.getTreeID();
+				if (treeID != null && treeID.length() > 0) {
+					if (!rel.getTreeIDs().contains(treeID)) {
+						continue;
+					}
+				}
 				if (rel.getProcessor() != null) {
 					final IObservableFactory processor = rel.getProcessor().getObject();
 					if (processor != null) {

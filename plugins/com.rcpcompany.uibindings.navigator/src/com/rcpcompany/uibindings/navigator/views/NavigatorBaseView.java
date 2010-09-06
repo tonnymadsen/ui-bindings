@@ -105,7 +105,8 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 		myTreeBinding = myContext.addViewer().viewer(myTreeViewer).model(list)
 				.arg(Constants.ARG_DOUBLE_CLICK_COMMAND, Constants.DEFAULT_OPEN_COMMAND);
 		myTreeColumnBinding = myTreeBinding.addColumn().column(column).model(SpecialBinding.TREE_ITEM)
-				.arg(Constants.ARG_LABEL_DECORATOR, true).arg(Constants.ARG_SHOW_IMAGE, true);
+				.arg(Constants.ARG_LABEL_DECORATOR, true).arg(Constants.ARG_SHOW_IMAGE, true)
+				.arg(Constants.ARG_TREE_ID, myAdvisor.getTreeID());
 
 		myContext.finish();
 

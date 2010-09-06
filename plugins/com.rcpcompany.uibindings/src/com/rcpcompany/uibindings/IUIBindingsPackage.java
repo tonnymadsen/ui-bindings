@@ -3219,13 +3219,22 @@ public interface IUIBindingsPackage extends EPackage {
 	int TREE_ITEM_RELATION__PRIORITY = 4;
 
 	/**
+	 * The feature id for the '<em><b>Tree IDs</b></em>' attribute list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_ITEM_RELATION__TREE_IDS = 5;
+
+	/**
 	 * The number of structural features of the '<em>Tree Item Relation</em>' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_ITEM_RELATION_FEATURE_COUNT = 5;
+	int TREE_ITEM_RELATION_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl
@@ -6814,6 +6823,18 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getTreeItemRelation_Priority();
 
 	/**
+	 * Returns the meta object for the attribute list '
+	 * {@link com.rcpcompany.uibindings.ITreeItemRelation#getTreeIDs <em>Tree IDs</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute list '<em>Tree IDs</em>'.
+	 * @see com.rcpcompany.uibindings.ITreeItemRelation#getTreeIDs()
+	 * @see #getTreeItemRelation()
+	 * @generated
+	 */
+	EAttribute getTreeItemRelation_TreeIDs();
+
+	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.ITreeItemDescriptor
 	 * <em>Tree Item Descriptor</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -9885,6 +9906,14 @@ public interface IUIBindingsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TREE_ITEM_RELATION__PRIORITY = eINSTANCE.getTreeItemRelation_Priority();
+
+		/**
+		 * The meta object literal for the '<em><b>Tree IDs</b></em>' attribute list feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute TREE_ITEM_RELATION__TREE_IDS = eINSTANCE.getTreeItemRelation_TreeIDs();
 
 		/**
 		 * The meta object literal for the '

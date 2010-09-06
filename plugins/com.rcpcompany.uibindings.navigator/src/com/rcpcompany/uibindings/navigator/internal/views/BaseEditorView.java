@@ -7,34 +7,20 @@ import org.eclipse.core.databinding.observable.value.WritableValue;
 import org.eclipse.core.runtime.ISafeRunnable;
 import org.eclipse.core.runtime.SafeRunner;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.jface.action.ContributionItem;
-import org.eclipse.jface.action.IContributionItem;
-import org.eclipse.jface.action.IToolBarManager;
-import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Menu;
-import org.eclipse.swt.widgets.MenuItem;
-import org.eclipse.swt.widgets.ToolBar;
-import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.ui.ISelectionListener;
-import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.part.ISetSelectionTarget;
 import org.eclipse.ui.part.ViewPart;
-import org.eclipse.ui.plugin.AbstractUIPlugin;
 
-import com.rcpcompany.uibindings.navigator.IEditorModelType;
 import com.rcpcompany.uibindings.navigator.IEditorPart;
 import com.rcpcompany.uibindings.navigator.IEditorPartContext;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
@@ -42,9 +28,10 @@ import com.rcpcompany.uibindings.navigator.IEditorPartFactory;
 import com.rcpcompany.uibindings.navigator.IEditorPartView;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.internal.Activator;
+import com.rcpcompany.uibindings.navigator.internal.NavigatorConstants;
+import com.rcpcompany.uibindings.navigator.internal.handlers.SelectEditorPartMenuContributor;
 import com.rcpcompany.uibindings.utils.IBindingObjectInformation;
 import com.rcpcompany.uibindings.utils.IGlobalNavigationManager.IGetSelectionTarget;
-import com.rcpcompany.utils.extensionpoints.CEResourceHolder;
 import com.rcpcompany.utils.logging.LogUtils;
 import com.rcpcompany.utils.selection.SelectionUtils;
 
@@ -127,17 +114,6 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 		// final ISelectionService ss = getSite().getWorkbenchWindow().getSelectionService();
 		// ss.addPostSelectionListener(mySelectionListener);
 		// selectReveal(ss.getSelection());
-
-		createToolbarContributions();
-	}
-
-	private void createToolbarContributions() {
-		final IToolBarManager toolbar = getViewSite().getActionBars().getToolBarManager();
-
-		toolbar.add(new PinEditorContributionItem());
-		toolbar.add(new CloneEditorContributionItem());
-		mySelectEditorPartFactoryContributionItem = new SelectEditorPartFactoryContributionItem();
-		toolbar.add(mySelectEditorPartFactoryContributionItem);
 	}
 
 	@Override
@@ -325,9 +301,13 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 	 */
 	public void setCurrentDescriptor(IEditorPartDescriptor desciptor) {
 		myCurrentDescriptor = desciptor;
-		if (mySelectEditorPartFactoryContributionItem != null) {
-			mySelectEditorPartFactoryContributionItem.update();
-		}
+
+		/*
+		 * Make all select editor parts update themselves...
+		 */
+		LogUtils.debug(this, "update " + NavigatorConstants.SELECT_EDITOR_PART_COMMAND);
+		final ICommandService commandService = (ICommandService) getSite().getService(ICommandService.class);
+		commandService.refreshElements(NavigatorConstants.SELECT_EDITOR_PART_COMMAND, null);
 	}
 
 	/**
@@ -353,139 +333,5 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 		}
 	};
 
-	private SelectEditorPartFactoryContributionItem mySelectEditorPartFactoryContributionItem;
-
-	/**
-	 * {@link IContributionItem} for "Pin Editor ".
-	 */
-	public class PinEditorContributionItem extends ContributionItem {
-		private ToolItem myItem;
-
-		@Override
-		public void fill(ToolBar parent, int index) {
-			myItem = new ToolItem(parent, SWT.CHECK, index);
-			final ISharedImages sharedImages = PlatformUI.getWorkbench().getSharedImages();
-			myItem.setImage(sharedImages.getImage("IMG_ETOOL_PIN_EDITOR"));
-			myItem.setDisabledImage(sharedImages.getImage("IMG_ETOOL_PIN_EDITOR_DISABLED"));
-			myItem.setToolTipText("Pin editor");
-
-			myItem.addSelectionListener(new SelectionAdapter() {
-				@Override
-				public void widgetSelected(SelectionEvent e) {
-					setPinned(!isPinned());
-					update();
-				}
-			});
-		}
-
-		@Override
-		public void update() {
-			myItem.setEnabled(getCurrentObject() != null);
-			myItem.setSelection(isPinned());
-		}
-	}
-
-	/**
-	 * {@link IContributionItem} for "Clone Editor ".
-	 */
-	public class CloneEditorContributionItem extends ContributionItem {
-		private ToolItem myItem;
-
-		@Override
-		public void fill(ToolBar parent, int index) {
-			myItem = new ToolItem(parent, SWT.CHECK, index);
-			final ImageRegistry imageRegistry = Activator.getDefault().getImageRegistry();
-			if (imageRegistry.getDescriptor("CLONE_EDITOR") == null) {
-				imageRegistry.put("CLONE_EDITOR",
-						AbstractUIPlugin.imageDescriptorFromPlugin(Activator.ID, "images/clone_16x16.png"));
-			}
-			myItem.setImage(imageRegistry.get("CLONE_EDITOR"));
-
-			myItem.setToolTipText("Clone editor");
-
-			myItem.addSelectionListener(new SelectionAdapter() {
-				@Override
-				public void widgetSelected(SelectionEvent e) {
-					INavigatorManager.Factory.getManager().openView(getCurrentObject(), true);
-				}
-			});
-		}
-	}
-
-	/**
-	 * {@link IContributionItem} for "Select editor".
-	 */
-	public class SelectEditorPartFactoryContributionItem extends ContributionItem {
-		private ToolItem myItem;
-		private final Image myFallBackImage;
-
-		public SelectEditorPartFactoryContributionItem() {
-			myFallBackImage = PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_OBJ_ELEMENT);
-		}
-
-		@Override
-		public void fill(ToolBar parent, int index) {
-			myItem = new ToolItem(parent, SWT.DROP_DOWN, index);
-			myItem.setToolTipText("Selects the format of the editor");
-			update();
-
-			myItem.addSelectionListener(new SelectionAdapter() {
-				@Override
-				public void widgetSelected(SelectionEvent event) {
-					final Menu menu = new Menu(myItem.getParent());
-					// if (workbenchHelpSystem != null) {
-					// workbenchHelpSystem.setHelp(menu, helpContextId);
-					// }
-					final IEditorModelType mt = INavigatorManager.Factory.getManager().getModelType(
-							getCurrentObject().getClass());
-					for (final IEditorPartDescriptor d : mt.getEnabledEditors()) {
-						final MenuItem item = new MenuItem(menu, SWT.NONE);
-						item.setText(d.getName());
-						final CEResourceHolder image = d.getImage();
-						if (image != null) {
-							item.setImage(image.getImage());
-						}
-
-						item.addSelectionListener(new SelectionAdapter() {
-							@Override
-							public void widgetSelected(SelectionEvent e) {
-								mt.setPreferredEditor(d);
-								setCurrentObject(getCurrentObject());
-								update();
-							}
-						});
-					}
-
-					// position the menu below the drop down item
-					final Point point = myItem.getParent().toDisplay(new Point(event.x, event.y));
-					menu.setLocation(point.x, point.y);
-					menu.setVisible(true);
-
-					update();
-				}
-			});
-		}
-
-		@Override
-		public void update() {
-			if (myItem.isDisposed()) return;
-			final boolean enabled = getCurrentDescriptor() != null;
-			myItem.setEnabled(enabled);
-			Image image = myFallBackImage;
-			if (enabled) {
-				final CEResourceHolder imageHolder = getCurrentDescriptor().getImage();
-				if (imageHolder != null) {
-					image = imageHolder.getImage();
-				}
-			}
-			myItem.setImage(image);
-			/*
-			 * Adding the text does not work when the next selected item has a longer text... Then
-			 * the item disappears altogether
-			 */
-
-			// myItem.setText(getCurrentDescriptor() == null ? "<none>" :
-			// getCurrentDescriptor().getName());
-		}
-	}
+	private SelectEditorPartMenuContributor mySelectEditorPartFactoryItem;
 }

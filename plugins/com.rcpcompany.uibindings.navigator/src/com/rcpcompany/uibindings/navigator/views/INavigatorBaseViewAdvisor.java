@@ -13,5 +13,15 @@ public interface INavigatorBaseViewAdvisor {
 	 * 
 	 * @return the root elements
 	 */
-	public IObservableList getRootElements();
+	IObservableList getRootElements();
+
+	/**
+	 * Returns the navigator (tree) ID.
+	 * <p>
+	 * Used to control the items that are available in the navigator. See the
+	 * <code>com.rcpcompany.uibindings.uiBindings</code> extension point.
+	 * 
+	 * @return the navigator ID
+	 */
+	String getTreeID();
 }

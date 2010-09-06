@@ -753,7 +753,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 			if (myTooltip == null) {
 				myTooltip = tooltip;
 			} else {
-				myTooltip += "\n" + tooltip; //$NON-NLS-1$
+				myTooltip += " " + tooltip; //$NON-NLS-1$
 			}
 		}
 

@@ -20,5 +20,4 @@ public class ShopNavigatorAdvisor extends AbstractNavigatorBaseViewAdvisor imple
 		list.add(ShopFactory.eINSTANCE.getShop());
 		return list;
 	}
-
 }

@@ -46,4 +46,13 @@ public interface NavigatorConstants {
 	String PREFERENCE_MODEL_TYPE_TAG = "preferenceModelType";
 	String ENABLED_WHEN_TAG = "ENABLEDwHEN";
 
+	/**
+	 * Command ID for the "Select Editor..." command.
+	 */
+	String SELECT_EDITOR_PART_COMMAND = Activator.ID + ".commands.SelectEditorPart";
+
+	/**
+	 * Parameter ID for the <code>editorID</code> parameter of {@link #SELECT_EDITOR_PART_COMMAND}.
+	 */
+	String EDITOR_ID_PARAMETER = "editorID";
 }

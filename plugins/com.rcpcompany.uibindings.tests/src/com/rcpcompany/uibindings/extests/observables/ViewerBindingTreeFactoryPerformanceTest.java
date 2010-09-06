@@ -73,7 +73,7 @@ public class ViewerBindingTreeFactoryPerformanceTest {
 			/*
 			 * Construction
 			 */
-			final ViewerBindingTreeFactory factory = new ViewerBindingTreeFactory(shopList);
+			final ViewerBindingTreeFactory factory = new ViewerBindingTreeFactory(shopList, null);
 			final long t2 = System.currentTimeMillis();
 
 			/*
@@ -106,7 +106,7 @@ public class ViewerBindingTreeFactoryPerformanceTest {
 			final IObservableList shopList = WritableList.withElementType(ShopPackage.Literals.SHOP);
 			shopList.add(shop);
 
-			final ViewerBindingTreeFactory factory = new ViewerBindingTreeFactory(shopList);
+			final ViewerBindingTreeFactory factory = new ViewerBindingTreeFactory(shopList, null);
 			final IObservableList list1 = (IObservableList) factory.createObservable(shop);
 			assertEquals(1, list1.size());
 			final IObservableList list2 = (IObservableList) factory.createObservable(list1.get(0));

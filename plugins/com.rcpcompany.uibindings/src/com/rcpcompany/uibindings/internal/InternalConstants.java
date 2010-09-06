@@ -73,6 +73,7 @@ public interface InternalConstants {
 	String ALSO_PRIMITIVE_TAG = "alsoPrimitive"; //$NON-NLS-1$
 	String MODEL_ARGUMENT_MEDIATOR_TAG = "modelArgumentMediator"; //$NON-NLS-1$
 	String EMPTY_FOLDER_HIDDEN_TAG = "emptyFolderHidden"; //$NON-NLS-1$
+	String NAVIGATOR_TAG = "navigator"; //$NON-NLS-1$
 
 	/**
 	 * Cell Editor Type: Text.

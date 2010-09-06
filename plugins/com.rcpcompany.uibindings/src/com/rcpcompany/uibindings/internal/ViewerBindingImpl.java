@@ -7,7 +7,6 @@ package com.rcpcompany.uibindings.internal;
 
 import java.util.Collection;
 import java.util.Map;
-import java.util.Set;
 
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.set.IObservableSet;
@@ -313,7 +312,8 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 			viewer.setContentProvider(contentProvider);
 			setElements(contentProvider.getKnownElements());
 		} else if (viewer instanceof TreeViewer) {
-			final ViewerBindingTreeFactory listFactory = new ViewerBindingTreeFactory(getList());
+			final ViewerBindingTreeFactory listFactory = new ViewerBindingTreeFactory(getList(), getArgument(
+					ARG_TREE_ID, String.class, null));
 			final ObservableListTreeContentProvider contentProvider = new ObservableListTreeContentProvider(
 					listFactory, listFactory);
 			myValidationLabelDecorator = new ValidationLabelDecorator();
@@ -404,13 +404,13 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 			 * Reflow the context if the number of entries has changed
 			 */
 			getContext().reflow();
-//			if (event != null && event.diff != null) {
-//				final Set<?> additions = event.diff.getAdditions();
-//				final Set<?> removals = event.diff.getRemovals();
-//				if (additions == null || removals == null || additions.size() != removals.size()) {
-//					getContext().reflow();
-//				}
-//			}
+			// if (event != null && event.diff != null) {
+			// final Set<?> additions = event.diff.getAdditions();
+			// final Set<?> removals = event.diff.getRemovals();
+			// if (additions == null || removals == null || additions.size() != removals.size()) {
+			// getContext().reflow();
+			// }
+			// }
 		}
 	};
 

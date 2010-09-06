@@ -2,6 +2,9 @@ package com.rcpcompany.uibindings.navigator.extests.editors;
 
 import static org.junit.Assert.*;
 
+import org.eclipse.jface.action.IMenuManager;
+import org.eclipse.jface.action.IToolBarManager;
+import org.eclipse.ui.IActionBars;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -41,7 +44,7 @@ public class ShowViewTests {
 	}
 
 	/**
-	 * Test that {@link IEditorPartView#isPinned()} is respected in
+	 * Tests that {@link IEditorPartView#isPinned()} is respected in
 	 * {@link INavigatorManager#openView(org.eclipse.emf.ecore.EObject, boolean)}.
 	 */
 	@Test
@@ -59,5 +62,22 @@ public class ShowViewTests {
 		assertEquals(shop2View, myManager.openView(myShop2, false));
 
 		assertEquals(shop1View, myManager.openView(myCountry, false));
+	}
+
+	/**
+	 * Tests the menu and toolbar of the view
+	 */
+	@Test
+	public void toolbar() {
+		final BaseEditorView shopView = (BaseEditorView) myManager.openView(myShop1, false);
+		final IActionBars actionBars = shopView.getViewSite().getActionBars();
+		/*
+		 * Items of the menu
+		 */
+		final IMenuManager menu = actionBars.getMenuManager();
+		menu.updateAll(true);
+		menu.findUsingPath("");
+
+		final IToolBarManager toolBar = actionBars.getToolBarManager();
 	}
 }

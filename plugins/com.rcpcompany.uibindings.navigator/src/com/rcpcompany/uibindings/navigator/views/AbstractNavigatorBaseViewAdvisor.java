@@ -11,4 +11,9 @@ public abstract class AbstractNavigatorBaseViewAdvisor implements INavigatorBase
 
 	@Override
 	public abstract IObservableList getRootElements();
+
+	@Override
+	public String getTreeID() {
+		return "";
+	}
 }

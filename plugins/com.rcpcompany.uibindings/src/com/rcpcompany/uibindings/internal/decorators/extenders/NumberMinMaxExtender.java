@@ -24,6 +24,7 @@ public class NumberMinMaxExtender extends AbstractUIBindingDecoratorExtender {
 		final IValueBinding binding = context.getBinding();
 		if (!(binding.getDecorator() instanceof NumberBindingDecorator)) return;
 		final NumberBindingDecorator d = (NumberBindingDecorator) binding.getDecorator();
+		if (!d.isIntegralNumber()) return;
 
 		try {
 			final BigDecimal m = d.getMin();

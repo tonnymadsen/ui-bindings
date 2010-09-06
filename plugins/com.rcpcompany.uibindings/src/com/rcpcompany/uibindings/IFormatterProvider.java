@@ -7,7 +7,7 @@ import java.util.Formatter;
  * replace or extend the implementation.
  * <p>
  * All implementations must return a Java {@link Formatter} compatible implementation for all
- * formats supported by this - e.g. <code>%g</code> - but is free to supåport any other format as
+ * formats supported by this - e.g. <code>%g</code> - but is free to support any other format as
  * well.
  * <p>
  * Formatter providers are stored {@link IManager#getFormatterProvider()}.

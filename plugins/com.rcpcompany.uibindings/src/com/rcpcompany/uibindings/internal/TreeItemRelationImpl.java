@@ -5,13 +5,17 @@
  */
 package com.rcpcompany.uibindings.internal;
 
+import java.util.Collection;
+
 import org.eclipse.core.databinding.observable.masterdetail.IObservableFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 import com.rcpcompany.uibindings.ITreeItemDescriptor;
 import com.rcpcompany.uibindings.ITreeItemRelation;
@@ -33,6 +37,7 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * Name</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.TreeItemRelationImpl#getPriority <em>Priority</em>}
  * </li>
+ * <li>{@link com.rcpcompany.uibindings.internal.TreeItemRelationImpl#getTreeIDs <em>Tree IDs</em>}</li>
  * </ul>
  * </p>
  * 
@@ -108,6 +113,16 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 	 * @ordered
 	 */
 	protected int priority = PRIORITY_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getTreeIDs() <em>Tree IDs</em>}' attribute list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getTreeIDs()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> treeIDs;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -322,6 +337,20 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 	 * 
 	 * @generated
 	 */
+	@Override
+	public EList<String> getTreeIDs() {
+		if (treeIDs == null) {
+			treeIDs = new EDataTypeUniqueEList<String>(String.class, this,
+					IUIBindingsPackage.TREE_ITEM_RELATION__TREE_IDS);
+		}
+		return treeIDs;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -376,6 +405,8 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 			return getFeatureName();
 		case IUIBindingsPackage.TREE_ITEM_RELATION__PRIORITY:
 			return getPriority();
+		case IUIBindingsPackage.TREE_ITEM_RELATION__TREE_IDS:
+			return getTreeIDs();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -404,6 +435,10 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 		case IUIBindingsPackage.TREE_ITEM_RELATION__PRIORITY:
 			setPriority((Integer) newValue);
 			return;
+		case IUIBindingsPackage.TREE_ITEM_RELATION__TREE_IDS:
+			getTreeIDs().clear();
+			getTreeIDs().addAll((Collection<? extends String>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -431,6 +466,9 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 		case IUIBindingsPackage.TREE_ITEM_RELATION__PRIORITY:
 			setPriority(PRIORITY_EDEFAULT);
 			return;
+		case IUIBindingsPackage.TREE_ITEM_RELATION__TREE_IDS:
+			getTreeIDs().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -453,6 +491,8 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 			return FEATURE_NAME_EDEFAULT == null ? featureName != null : !FEATURE_NAME_EDEFAULT.equals(featureName);
 		case IUIBindingsPackage.TREE_ITEM_RELATION__PRIORITY:
 			return priority != PRIORITY_EDEFAULT;
+		case IUIBindingsPackage.TREE_ITEM_RELATION__TREE_IDS:
+			return treeIDs != null && !treeIDs.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -473,6 +513,8 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 		result.append(featureName);
 		result.append(", priority: "); //$NON-NLS-1$
 		result.append(priority);
+		result.append(", treeIDs: "); //$NON-NLS-1$
+		result.append(treeIDs);
 		result.append(')');
 		return result.toString();
 	}
