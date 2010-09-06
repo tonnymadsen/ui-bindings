@@ -1,4 +1,4 @@
-package com.rcpcompany.utils.logging;
+package com.rcpcompany.utils.jface;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Control;
