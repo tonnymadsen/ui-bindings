@@ -60,7 +60,7 @@ public class NamingQuickfixTest {
 		IManager.Factory.getManager().setValidationDelay(VD);
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 
-		myShop = ShopFactory.eINSTANCE.getShop();
+		myShop = ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain());
 		myContact = myShop.getContacts().get(0);
 		myOldCountry = myContact.getCountry();
 

@@ -7,6 +7,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
 import com.rcpcompany.uibindings.Constants;
+import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.SpecialBinding;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
@@ -29,7 +30,7 @@ public class CustomersView extends ViewPart {
 		final Composite composite = new Composite(parent, SWT.NONE);
 		composite.setLayout(new GridLayout(1, false));
 
-		final Shop shop = ShopFactory.eINSTANCE.getShop();
+		final Shop shop = ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain());
 		myForm = IFormCreator.Factory.createScrolledForm(shop, composite, "Customers");
 
 		final ITableCreator table = myForm.addTableCreator(ShopPackage.Literals.SHOP__CUSTOMERS, true,

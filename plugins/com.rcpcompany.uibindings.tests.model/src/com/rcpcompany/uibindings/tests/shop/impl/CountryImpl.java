@@ -16,11 +16,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.rcpcompany.uibindings.moao.internal.NamedObjectImpl;
+import com.rcpcompany.uibindings.model.utils.EValidatorAdapterUtils;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.tests.shop.util.ShopValidator;
-import com.rcpcompany.uibindings.validators.EValidatorAdapter;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Country</b></em>'. <!--
@@ -157,7 +157,7 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 	public boolean abbreviationLengthOK(DiagnosticChain diagnostics, Map<Object, Object> context) {
 		final String a = getAbbreviation();
 		if (a != null && a.length() != 2) {
-			EValidatorAdapter.Factory.addError(diagnostics, ShopValidator.DIAGNOSTIC_SOURCE,
+			EValidatorAdapterUtils.addError(diagnostics, ShopValidator.DIAGNOSTIC_SOURCE,
 					ShopValidator.COUNTRY__ABBREVIATION_LENGTH_OK, "The country abbreviation must be 2 letters", this,
 					ShopPackage.Literals.COUNTRY__ABBREVIATION);
 			return false;
@@ -176,7 +176,7 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 		if (a != null) {
 			for (int i = 0; i < a.length(); i++) {
 				if (!Character.isUpperCase(a.charAt(i))) {
-					EValidatorAdapter.Factory.addWarning(diagnostics, ShopValidator.DIAGNOSTIC_SOURCE,
+					EValidatorAdapterUtils.addWarning(diagnostics, ShopValidator.DIAGNOSTIC_SOURCE,
 							ShopValidator.COUNTRY__ABBREVIATION_CASE_OK, "The country abbreviation '" + a
 									+ "' should be in uppercase letters only", this,
 							ShopPackage.Literals.COUNTRY__ABBREVIATION);

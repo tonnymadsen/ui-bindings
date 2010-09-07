@@ -119,7 +119,7 @@ public class ManagerBasicFunctionalityTest {
 		IEMFObservableFactory factory = m.getObservableFactory(to);
 		assertEquals(DefaultEMFObservableFactory.class, factory.getClass());
 
-		final Shop shop = ShopFactory.eINSTANCE.getShop();
+		final Shop shop = ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain());
 
 		factory = m.getObservableFactory(shop);
 		assertEquals(ShopEMFObservableFactory.class, factory.getClass());

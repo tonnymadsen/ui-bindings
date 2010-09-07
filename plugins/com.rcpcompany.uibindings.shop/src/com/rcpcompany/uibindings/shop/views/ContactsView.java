@@ -3,6 +3,7 @@ package com.rcpcompany.uibindings.shop.views;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
+import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
@@ -21,7 +22,7 @@ public class ContactsView extends ViewPart {
 
 	@Override
 	public void createPartControl(Composite parent) {
-		final Shop shop = ShopFactory.eINSTANCE.getShop();
+		final Shop shop = ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain());
 		myForm = IFormCreator.Factory.createScrolledForm(shop, parent, "Contacts");
 
 		final ITableCreator orderTable = myForm.addTableCreator(ShopPackage.Literals.SHOP__CONTACTS, true,

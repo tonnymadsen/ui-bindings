@@ -90,7 +90,7 @@ public class ShopBasicsView extends ViewPart {
 	}
 
 	private void bindUI() {
-		final Shop shop = ShopFactory.eINSTANCE.getShop();
+		final Shop shop = ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain());
 		final IBindingContext context = IBindingContext.Factory.createContext(myTop);
 
 		context.addBinding(myShopName, shop, IMOAOPackage.Literals.NAMED_OBJECT__NAME);

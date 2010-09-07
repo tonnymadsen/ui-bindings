@@ -13,5 +13,5 @@ Export-Package: com.rcpcompany.uibindings.moao,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.ui,
- com.rcpcompany.uibindings;bundle-version="[2.4.0,3.0.0)";visibility:=reexport
+ com.rcpcompany.uibindings;bundle-version="[2.4.0,3.0.0)"
 Bundle-ActivationPolicy: lazy

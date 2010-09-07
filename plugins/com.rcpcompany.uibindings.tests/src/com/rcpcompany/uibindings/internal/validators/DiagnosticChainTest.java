@@ -63,7 +63,7 @@ public class DiagnosticChainTest {
 		IManager.Factory.getManager().setValidationDelay(VD);
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 
-		myShop = ShopFactory.eINSTANCE.getShop();
+		myShop = ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain());
 		myItem = myShop.getShopItems().get(0);
 		myOldName = myItem.getName();
 

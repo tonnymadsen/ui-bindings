@@ -11,6 +11,7 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.ui.part.ViewPart;
 
 import com.rcpcompany.uibindings.IBindingContext;
+import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Customer;
@@ -47,7 +48,7 @@ public class CBasic extends ViewPart {
 
 		final IBindingContext context = IBindingContext.Factory.createContext(top);
 
-		final Shop shop = ShopFactory.eINSTANCE.getShop();
+		final Shop shop = ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain());
 
 		final Customer customer = shop.getCustomers().get(0);
 		final Contact contact = customer.getContact();

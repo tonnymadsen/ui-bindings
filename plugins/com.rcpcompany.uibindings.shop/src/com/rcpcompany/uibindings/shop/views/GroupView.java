@@ -4,6 +4,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
+import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
@@ -22,7 +23,7 @@ public class GroupView extends ViewPart {
 
 	@Override
 	public void createPartControl(Composite parent) {
-		final Shop shop = ShopFactory.eINSTANCE.getShop();
+		final Shop shop = ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain());
 		myForm = IFormCreator.Factory.createScrolledForm(shop, parent, "Group");
 
 		final IFormCreator[] columns = myForm.addColumns(true, true);

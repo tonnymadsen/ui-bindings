@@ -6,6 +6,7 @@
 package com.rcpcompany.uibindings.tests.shop;
 
 import org.eclipse.emf.ecore.EFactory;
+import org.eclipse.emf.edit.domain.EditingDomain;
 
 /**
  * <!-- begin-user-doc --> The <b>Factory</b> for the model. It provides a create method for each
@@ -22,7 +23,7 @@ public interface ShopFactory extends EFactory {
 	 */
 	ShopFactory eINSTANCE = com.rcpcompany.uibindings.tests.shop.impl.ShopFactoryImpl.init();
 
-	Shop getShop();
+	Shop getShop(EditingDomain editingDomain);
 
 	/**
 	 * Returns a new object of class '<em>Shop</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->

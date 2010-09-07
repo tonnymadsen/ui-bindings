@@ -17,6 +17,7 @@ public class NavigatorPerspective implements IPerspectiveFactory {
 	private static final String APPLICATION_FOLDER = PERSPECTIVE_ID + ".applFolder";
 	private static final String EDITORS_FOLDER = PERSPECTIVE_ID + ".editorsFolder";
 
+	@Override
 	public void createInitialLayout(IPageLayout layout) {
 		layout.setEditorAreaVisible(false);
 

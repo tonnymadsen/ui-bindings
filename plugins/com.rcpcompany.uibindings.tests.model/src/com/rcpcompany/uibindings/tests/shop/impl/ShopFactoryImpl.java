@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
-import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Customer;
@@ -70,10 +69,8 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	}
 
 	@Override
-	public Shop getShop() {
+	public Shop getShop(EditingDomain editingDomain) {
 		if (theShop == null) {
-			final IManager manager = IManager.Factory.getManager();
-			final EditingDomain editingDomain = manager.getEditingDomain();
 			final ShopPackage shopPackage = ShopPackage.eINSTANCE;
 
 			/*

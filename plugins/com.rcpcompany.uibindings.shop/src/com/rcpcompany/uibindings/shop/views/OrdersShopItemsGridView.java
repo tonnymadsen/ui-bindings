@@ -13,6 +13,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.part.ViewPart;
 
 import com.rcpcompany.uibindings.Constants;
+import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.grid.AbstractGridCell;
 import com.rcpcompany.uibindings.grid.IGridBinding;
@@ -39,7 +40,7 @@ public class OrdersShopItemsGridView extends ViewPart {
 
 	@Override
 	public void createPartControl(Composite parent) {
-		final Shop shop = ShopFactory.eINSTANCE.getShop();
+		final Shop shop = ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain());
 		myForm = IFormCreator.Factory.createScrolledForm(shop, parent, "Orders versus Shop Items");
 
 		final Grid g = new Grid(myForm.addComposite(true, true), SWT.NONE);

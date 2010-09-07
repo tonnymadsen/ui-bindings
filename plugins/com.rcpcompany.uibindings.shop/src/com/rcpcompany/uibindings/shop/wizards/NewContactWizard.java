@@ -5,6 +5,7 @@ import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 
+import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 
@@ -25,7 +26,7 @@ public class NewContactWizard extends Wizard implements INewWizard {
 
 	@Override
 	public boolean performFinish() {
-		ShopFactory.eINSTANCE.getShop().getContacts().add(myContact);
+		ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain()).getContacts().add(myContact);
 		return true;
 	}
 

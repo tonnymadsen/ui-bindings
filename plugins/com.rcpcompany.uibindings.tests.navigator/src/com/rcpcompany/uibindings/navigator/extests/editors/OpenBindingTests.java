@@ -12,6 +12,7 @@ import org.eclipse.ui.handlers.IHandlerService;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.navigator.IEditorPartView;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.extests.NavigatorTestUtils;
@@ -44,7 +45,7 @@ public class OpenBindingTests {
 		NavigatorTestUtils.resetAll();
 		myManager = INavigatorManager.Factory.getManager();
 
-		myShop = ShopFactory.eINSTANCE.getShop();
+		myShop = ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain());
 
 		myCountry = myShop.getCountries().get(0);
 

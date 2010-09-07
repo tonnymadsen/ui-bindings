@@ -78,7 +78,7 @@ public class BasicServiceTest {
 				text.setText("");
 
 				final IBindingContext context = IBindingContext.Factory.createContext(body);
-				final IValueBinding binding = context.addBinding(text, ShopFactory.eINSTANCE.getShop(),
+				final IValueBinding binding = context.addBinding(text, ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain()),
 						IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 
 				testServiceInterface(binding);

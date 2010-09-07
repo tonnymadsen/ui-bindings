@@ -57,7 +57,7 @@ public class EnumDecoratorProviderTest {
 		IManager.Factory.getManager().setValidationDelay(500);
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 
-		myShop = ShopFactory.eINSTANCE.getShop();
+		myShop = ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain());
 		myCustomer = myShop.getCustomers().get(0);
 		myOldLoyalty = myCustomer.getLoyalty();
 

@@ -57,7 +57,7 @@ public class ScrolledFormAdapterTest {
 		IManager.Factory.getManager().setValidationDelay(500);
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 
-		myShop = ShopFactory.eINSTANCE.getShop();
+		myShop = ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain());
 
 		myView = createTestView(this);
 		myBody = myView.getBody();

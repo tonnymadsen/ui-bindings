@@ -46,7 +46,7 @@ public class Issue44ComboTest {
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 
 		myTestView = createTestView(this);
-		shop = ShopFactory.eINSTANCE.getShop();
+		shop = ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain());
 		contact = shop.getContacts().get(0);
 		contactAbbreviation = contact.getCountry().getAbbreviation();
 		countries = shop.getCountries();

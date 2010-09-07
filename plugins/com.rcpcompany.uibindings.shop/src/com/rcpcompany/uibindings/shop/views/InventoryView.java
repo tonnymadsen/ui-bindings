@@ -18,6 +18,7 @@ import org.eclipse.ui.part.ViewPart;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IColumnBinding;
+import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.observables.CountObservableValue;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
@@ -41,7 +42,8 @@ public class InventoryView extends ViewPart {
 
 	@Override
 	public void createPartControl(Composite parent) {
-		myForm = IFormCreator.Factory.createScrolledForm(ShopFactory.eINSTANCE.getShop(), parent, "Inventory");
+		myForm = IFormCreator.Factory.createScrolledForm(
+				ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain()), parent, "Inventory");
 
 		final ITableCreator table = myForm.addTableCreator(ShopPackage.Literals.SHOP__SHOP_ITEMS, true,
 				ITableCreator.FILTER | ITableCreator.RESIZE);

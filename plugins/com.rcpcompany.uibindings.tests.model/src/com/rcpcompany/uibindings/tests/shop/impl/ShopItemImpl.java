@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.moao.internal.NamedObjectImpl;
+import com.rcpcompany.uibindings.model.utils.EValidatorAdapterUtils;
 import com.rcpcompany.uibindings.tests.shop.OrderItem;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
@@ -31,7 +32,6 @@ import com.rcpcompany.uibindings.tests.shop.ShopItemInformation;
 import com.rcpcompany.uibindings.tests.shop.ShopItemProperties;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.tests.shop.util.ShopValidator;
-import com.rcpcompany.uibindings.validators.EValidatorAdapter;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Item</b></em>'. <!--
@@ -509,7 +509,7 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 		final boolean priceFree = getPrice() >= 0.0f && getPrice() < 0.1f;
 		final boolean nameFree = n.contains("FREE");
 		if (priceFree && !nameFree) {
-			EValidatorAdapter.Factory.addDiagnostic(diagnostics, ShopValidator.DIAGNOSTIC_SOURCE,
+			EValidatorAdapterUtils.addDiagnostic(diagnostics, ShopValidator.DIAGNOSTIC_SOURCE,
 					ShopValidator.SHOP_ITEM__NAME_PRICE_OK, Diagnostic.WARNING,
 					"Name should include word FREE if price is 0.0", new Object[][] {
 							{ this, IMOAOPackage.Literals.NAMED_OBJECT__NAME },
@@ -517,7 +517,7 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 			return false;
 		}
 		if (!priceFree && nameFree) {
-			EValidatorAdapter.Factory.addDiagnostic(diagnostics, ShopValidator.DIAGNOSTIC_SOURCE,
+			EValidatorAdapterUtils.addDiagnostic(diagnostics, ShopValidator.DIAGNOSTIC_SOURCE,
 					ShopValidator.SHOP_ITEM__NAME_PRICE_OK, Diagnostic.ERROR, "Only free items may include word FREE",
 					new Object[][] { { this, IMOAOPackage.Literals.NAMED_OBJECT__NAME },
 							{ this, ShopPackage.Literals.SHOP_ITEM__PRICE } });
@@ -538,7 +538,7 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 			/*
 			 * The null feature is on purpose - see DiagnosticChainTest
 			 */
-			EValidatorAdapter.Factory.addError(diagnostics, ShopValidator.DIAGNOSTIC_SOURCE,
+			EValidatorAdapterUtils.addError(diagnostics, ShopValidator.DIAGNOSTIC_SOURCE,
 					ShopValidator.SHOP_ITEM__NAME_OK, "Name not correct (at least two characters)", this, null);
 			return false;
 		}
