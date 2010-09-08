@@ -26,14 +26,14 @@ import com.rcpcompany.utils.logging.LogUtils;
  */
 public class MyTextCellEditor extends TextCellEditor {
 	/**
-	 * The context of the cell editor
+	 * The context of the cell editor.
 	 */
 	protected final IBindingContext myContext;
 	// Used to signal that the text has just been replaced and should not be selected
 	private boolean justReplacedText = false;
 
 	/**
-	 * The text widget itself
+	 * The text widget itself.
 	 */
 	private Text myText;
 	private IHandlerActivation myActiveUndoHandler;

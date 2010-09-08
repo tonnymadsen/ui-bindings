@@ -22,7 +22,7 @@ public interface IUnitBindingSupport {
 	 * Returns the current unit for the binding of the context.
 	 * 
 	 * @param context the context for the operation
-	 * @return the unit
+	 * @return the unit - e.g "m/s"
 	 */
 	String getUnitDescription(IUnitBindingSupportContext context);
 

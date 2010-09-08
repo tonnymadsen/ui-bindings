@@ -2734,6 +2734,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		final boolean isBoolean = dataType == Boolean.class || dataType == Boolean.TYPE;
 		switch (event.eventType) {
 		case ColumnViewerEditorActivationEvent.TRAVERSAL:
+			/*
+			 * Travesal within a table or tree with TAB or arrows.
+			 */
 			return true;
 		case ColumnViewerEditorActivationEvent.MOUSE_CLICK_SELECTION:
 			if (treeColumn) return false;
@@ -2758,6 +2761,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 				if (event.character != 0 && !Character.isISOControl(event.character)) return true;
 			}
 			return false;
+		default:
+			break;
 		}
 		return false;
 	}
