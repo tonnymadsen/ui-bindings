@@ -41,8 +41,6 @@ import com.rcpcompany.uibindings.uiAttributes.UIAttributePainter;
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getPasteUIAttribute <em>
  * Paste UI Attribute</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getToolTipText <em>Tool Tip
- * Text</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#isEnabled <em>Enabled</em>}
  * </li>
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getPainter <em>Painter
@@ -203,32 +201,6 @@ public interface IGridBindingCellInformation extends EObject, IDisposable, IValu
 	 * @generated
 	 */
 	IUIAttribute getPasteUIAttribute();
-
-	/**
-	 * Returns the value of the '<em><b>Tool Tip Text</b></em>' attribute. <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Tool Tip Text</em>' attribute isn't clear, there really should be
-	 * more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Tool Tip Text</em>' attribute.
-	 * @see #setToolTipText(String)
-	 * @see com.rcpcompany.uibindings.grid.IGridPackage#getGridBindingCellInformation_ToolTipText()
-	 * @generated
-	 */
-	String getToolTipText();
-
-	/**
-	 * Sets the value of the '
-	 * {@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getToolTipText
-	 * <em>Tool Tip Text</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value the new value of the '<em>Tool Tip Text</em>' attribute.
-	 * @see #getToolTipText()
-	 * @generated
-	 */
-	void setToolTipText(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Enabled</b></em>' attribute. The default value is

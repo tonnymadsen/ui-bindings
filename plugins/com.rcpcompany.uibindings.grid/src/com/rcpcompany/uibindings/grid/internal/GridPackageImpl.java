@@ -390,7 +390,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGridBindingCellInformation_ToolTipText() {
+	public EAttribute getGridBindingCellInformation_Enabled() {
 		return (EAttribute) gridBindingCellInformationEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -400,18 +400,8 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGridBindingCellInformation_Enabled() {
-		return (EAttribute) gridBindingCellInformationEClass.getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public EAttribute getGridBindingCellInformation_Painter() {
-		return (EAttribute) gridBindingCellInformationEClass.getEStructuralFeatures().get(12);
+		return (EAttribute) gridBindingCellInformationEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -713,7 +703,6 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 		createEAttribute(gridBindingCellInformationEClass, GRID_BINDING_CELL_INFORMATION__DISPLAY_TEXT);
 		createEAttribute(gridBindingCellInformationEClass, GRID_BINDING_CELL_INFORMATION__VALUE_TYPE);
 		createEReference(gridBindingCellInformationEClass, GRID_BINDING_CELL_INFORMATION__PASTE_UI_ATTRIBUTE);
-		createEAttribute(gridBindingCellInformationEClass, GRID_BINDING_CELL_INFORMATION__TOOL_TIP_TEXT);
 		createEAttribute(gridBindingCellInformationEClass, GRID_BINDING_CELL_INFORMATION__ENABLED);
 		createEAttribute(gridBindingCellInformationEClass, GRID_BINDING_CELL_INFORMATION__PAINTER);
 
@@ -852,9 +841,6 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 		initEReference(getGridBindingCellInformation_PasteUIAttribute(), theUIBindingsPackage.getUIAttribute(), null,
 				"pasteUIAttribute", null, 1, 1, IGridBindingCellInformation.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGridBindingCellInformation_ToolTipText(), ecorePackage.getEString(), "toolTipText", null, 0,
-				1, IGridBindingCellInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
-				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGridBindingCellInformation_Enabled(), ecorePackage.getEBoolean(), "enabled", "true", 1, 1,
 				IGridBindingCellInformation.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

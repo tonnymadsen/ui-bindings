@@ -42,6 +42,12 @@ public class UIPainterCellRenderer extends GridCellRenderer implements IRenderer
 		return false;
 	}
 
+	/**
+	 * Returns the painter for this cell.
+	 * 
+	 * @param value the row grid item
+	 * @return the painter
+	 */
 	private UIAttributePainter getPainter(Object value) {
 		final IGridBindingCellInformation ci = myColumn.getCell((GridItem) value);
 		if (ci == null) return null;

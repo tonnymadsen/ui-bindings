@@ -82,8 +82,6 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <li>
  * {@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getPasteUIAttribute
  * <em>Paste UI Attribute</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getToolTipText
- * <em>Tool Tip Text</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#isEnabled <em>
  * Enabled</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingCellInformationImpl#getPainter <em>
@@ -203,26 +201,6 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	 * @ordered
 	 */
 	protected IUIAttribute pasteUIAttribute;
-
-	/**
-	 * The default value of the '{@link #getToolTipText() <em>Tool Tip Text</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getToolTipText()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String TOOL_TIP_TEXT_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getToolTipText() <em>Tool Tip Text</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getToolTipText()
-	 * @generated
-	 * @ordered
-	 */
-	protected String toolTipText = TOOL_TIP_TEXT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute. <!--
@@ -620,32 +598,6 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	 * @generated
 	 */
 	@Override
-	public String getToolTipText() {
-		return toolTipText;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void setToolTipText(String newToolTipText) {
-		final String oldToolTipText = toolTipText;
-		toolTipText = newToolTipText;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					IGridPackage.GRID_BINDING_CELL_INFORMATION__TOOL_TIP_TEXT + EOFFSET_CORRECTION, oldToolTipText,
-					toolTipText));
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public boolean isEnabled() {
 		return enabled;
 	}
@@ -759,8 +711,6 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 			return getValueType();
 		case IGridPackage.GRID_BINDING_CELL_INFORMATION__PASTE_UI_ATTRIBUTE:
 			return getPasteUIAttribute();
-		case IGridPackage.GRID_BINDING_CELL_INFORMATION__TOOL_TIP_TEXT:
-			return getToolTipText();
 		case IGridPackage.GRID_BINDING_CELL_INFORMATION__ENABLED:
 			return isEnabled();
 		case IGridPackage.GRID_BINDING_CELL_INFORMATION__PAINTER:
@@ -797,9 +747,6 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 			return;
 		case IGridPackage.GRID_BINDING_CELL_INFORMATION__PASTE_UI_ATTRIBUTE:
 			setPasteUIAttribute((IUIAttribute) newValue);
-			return;
-		case IGridPackage.GRID_BINDING_CELL_INFORMATION__TOOL_TIP_TEXT:
-			setToolTipText((String) newValue);
 			return;
 		case IGridPackage.GRID_BINDING_CELL_INFORMATION__ENABLED:
 			setEnabled((Boolean) newValue);
@@ -840,9 +787,6 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 		case IGridPackage.GRID_BINDING_CELL_INFORMATION__PASTE_UI_ATTRIBUTE:
 			setPasteUIAttribute((IUIAttribute) null);
 			return;
-		case IGridPackage.GRID_BINDING_CELL_INFORMATION__TOOL_TIP_TEXT:
-			setToolTipText(TOOL_TIP_TEXT_EDEFAULT);
-			return;
 		case IGridPackage.GRID_BINDING_CELL_INFORMATION__ENABLED:
 			setEnabled(ENABLED_EDEFAULT);
 			return;
@@ -882,8 +826,6 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 			return getValueType() != null;
 		case IGridPackage.GRID_BINDING_CELL_INFORMATION__PASTE_UI_ATTRIBUTE:
 			return pasteUIAttribute != null;
-		case IGridPackage.GRID_BINDING_CELL_INFORMATION__TOOL_TIP_TEXT:
-			return TOOL_TIP_TEXT_EDEFAULT == null ? toolTipText != null : !TOOL_TIP_TEXT_EDEFAULT.equals(toolTipText);
 		case IGridPackage.GRID_BINDING_CELL_INFORMATION__ENABLED:
 			return enabled != ENABLED_EDEFAULT;
 		case IGridPackage.GRID_BINDING_CELL_INFORMATION__PAINTER:
@@ -927,8 +869,6 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 				return IGridPackage.GRID_BINDING_CELL_INFORMATION__VALUE_TYPE + EOFFSET_CORRECTION;
 			case IGridPackage.GRID_BINDING_CELL_INFORMATION__PASTE_UI_ATTRIBUTE:
 				return IGridPackage.GRID_BINDING_CELL_INFORMATION__PASTE_UI_ATTRIBUTE + EOFFSET_CORRECTION;
-			case IGridPackage.GRID_BINDING_CELL_INFORMATION__TOOL_TIP_TEXT:
-				return IGridPackage.GRID_BINDING_CELL_INFORMATION__TOOL_TIP_TEXT + EOFFSET_CORRECTION;
 			case IGridPackage.GRID_BINDING_CELL_INFORMATION__ENABLED:
 				return IGridPackage.GRID_BINDING_CELL_INFORMATION__ENABLED + EOFFSET_CORRECTION;
 			case IGridPackage.GRID_BINDING_CELL_INFORMATION__PAINTER:
@@ -952,8 +892,6 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (objectValue: ");
 		result.append(objectValue);
-		result.append(", toolTipText: ");
-		result.append(toolTipText);
 		result.append(", enabled: ");
 		result.append(enabled);
 		result.append(", painter: ");
@@ -1124,11 +1062,11 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 		 * Update the cell
 		 */
 		final IUIAttribute attr = getLabelUIAttribute();
-		if (attr.getCurrentValue().isDisposed()) return;
+		final IObservableValue currentValue = attr.getCurrentValue();
+		if (currentValue.isDisposed()) return;
 		final IObservableValue v = getObjectValue();
-		final Object modelType = v.getValueType();
 
-		final String text = (String) attr.getCurrentValue().getValue();
+		final String text = (String) currentValue.getValue();
 		final Color foreground = attr.getForeground();
 		final Color background = attr.getBackground();
 		final Image image = attr.getImage();
@@ -1205,6 +1143,8 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 		case SWT.KeyDown:
 			getGrid().editCell(this, new ColumnViewerEditorActivationEvent(MyViewerCell.INSTANCE, new KeyEvent(event)));
 			event.doit = false;
+			break;
+		default:
 			break;
 		}
 	}

@@ -420,22 +420,13 @@ public interface IGridPackage extends EPackage {
 	int GRID_BINDING_CELL_INFORMATION__PASTE_UI_ATTRIBUTE = IUIBindingsPackage.IDISPOSABLE_FEATURE_COUNT + 9;
 
 	/**
-	 * The feature id for the '<em><b>Tool Tip Text</b></em>' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int GRID_BINDING_CELL_INFORMATION__TOOL_TIP_TEXT = IUIBindingsPackage.IDISPOSABLE_FEATURE_COUNT + 10;
-
-	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING_CELL_INFORMATION__ENABLED = IUIBindingsPackage.IDISPOSABLE_FEATURE_COUNT + 11;
+	int GRID_BINDING_CELL_INFORMATION__ENABLED = IUIBindingsPackage.IDISPOSABLE_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Painter</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -444,7 +435,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING_CELL_INFORMATION__PAINTER = IUIBindingsPackage.IDISPOSABLE_FEATURE_COUNT + 12;
+	int GRID_BINDING_CELL_INFORMATION__PAINTER = IUIBindingsPackage.IDISPOSABLE_FEATURE_COUNT + 11;
 
 	/**
 	 * The number of structural features of the '<em>Binding Cell Information</em>' class. <!--
@@ -453,7 +444,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING_CELL_INFORMATION_FEATURE_COUNT = IUIBindingsPackage.IDISPOSABLE_FEATURE_COUNT + 13;
+	int GRID_BINDING_CELL_INFORMATION_FEATURE_COUNT = IUIBindingsPackage.IDISPOSABLE_FEATURE_COUNT + 12;
 
 	/**
 	 * The meta object id for the '
@@ -979,18 +970,6 @@ public interface IGridPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getToolTipText
-	 * <em>Tool Tip Text</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Tool Tip Text</em>'.
-	 * @see com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getToolTipText()
-	 * @see #getGridBindingCellInformation()
-	 * @generated
-	 */
-	EAttribute getGridBindingCellInformation_ToolTipText();
-
-	/**
-	 * Returns the meta object for the attribute '
 	 * {@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#isEnabled <em>Enabled</em>}
 	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -1482,14 +1461,6 @@ public interface IGridPackage extends EPackage {
 		 */
 		EReference GRID_BINDING_CELL_INFORMATION__PASTE_UI_ATTRIBUTE = eINSTANCE
 				.getGridBindingCellInformation_PasteUIAttribute();
-
-		/**
-		 * The meta object literal for the '<em><b>Tool Tip Text</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute GRID_BINDING_CELL_INFORMATION__TOOL_TIP_TEXT = eINSTANCE.getGridBindingCellInformation_ToolTipText();
 
 		/**
 		 * The meta object literal for the '<em><b>Enabled</b></em>' attribute feature. <!--
