@@ -13,12 +13,12 @@ import org.eclipse.swt.widgets.TableItem;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class TableViewerFocusCellManagerEx extends TableViewerFocusCellManager {
-	public TableViewerFocusCellManagerEx(TableViewer viewer, FocusCellHighlighter focusDrawingDelegate) {
+public class MyTableViewerFocusCellManager extends TableViewerFocusCellManager {
+	public MyTableViewerFocusCellManager(TableViewer viewer, FocusCellHighlighter focusDrawingDelegate) {
 		super(viewer, focusDrawingDelegate);
 	}
 
-	public TableViewerFocusCellManagerEx(TableViewer viewer, FocusCellHighlighter focusDrawingDelegate,
+	public MyTableViewerFocusCellManager(TableViewer viewer, FocusCellHighlighter focusDrawingDelegate,
 			CellNavigationStrategy navigationStrategy) {
 		super(viewer, focusDrawingDelegate, navigationStrategy);
 	}

@@ -13,12 +13,12 @@ import org.eclipse.swt.widgets.TreeItem;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class TreeViewerFocusCellManagerEx extends TreeViewerFocusCellManager {
-	public TreeViewerFocusCellManagerEx(TreeViewer viewer, FocusCellHighlighter focusDrawingDelegate) {
+public class MyTreeViewerFocusCellManager extends TreeViewerFocusCellManager {
+	public MyTreeViewerFocusCellManager(TreeViewer viewer, FocusCellHighlighter focusDrawingDelegate) {
 		super(viewer, focusDrawingDelegate);
 	}
 
-	public TreeViewerFocusCellManagerEx(TreeViewer viewer, FocusCellHighlighter focusDrawingDelegate,
+	public MyTreeViewerFocusCellManager(TreeViewer viewer, FocusCellHighlighter focusDrawingDelegate,
 			CellNavigationStrategy navigationStrategy) {
 		super(viewer, focusDrawingDelegate, navigationStrategy);
 	}
