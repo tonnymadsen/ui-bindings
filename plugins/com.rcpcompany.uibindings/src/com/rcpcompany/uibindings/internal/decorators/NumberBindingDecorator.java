@@ -255,11 +255,6 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 	}
 
 	/**
-	 * The UI Type of the decorator.
-	 */
-	private Class<?> myUIType;
-
-	/**
 	 * The formatter instance.
 	 */
 	private IFormatter myFormatter;
@@ -328,7 +323,6 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		myBuffer = new StringBuilder();
 		myFormatter = IManager.Factory.getManager().getFormatterProvider()
 				.getFormatter(myBuffer, myProvider.getFormat());
-		myUIType = getBinding().getUIType();
 
 		initForValidation(getBinding());
 
@@ -426,9 +420,11 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 				fromObject = myAdapter.scale(fromObject, factor, true);
 			}
 		}
-		if (myUIType == Integer.class || myUIType == Integer.TYPE)
+		final Class<?> uiType = getBinding().getUIType();
+
+		if (uiType == Integer.class || uiType == Integer.TYPE)
 			return fromObject;
-		else if (myUIType == String.class) {
+		else if (uiType == String.class) {
 			myBuffer.setLength(0);
 			myFormatter.format(fromObject);
 			return myBuffer.toString();
@@ -507,10 +503,11 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		if (myAdapter == null) return null;
 
 		BigDecimal d = null;
-		if (myUIType == Integer.class || myUIType == Integer.TYPE) {
+		final Class<?> uiType = getBinding().getUIType();
+		if (uiType == Integer.class || uiType == Integer.TYPE) {
 			getBinding().assertTrue(fromObject instanceof Integer, "fromObject not an Integer");
 			d = new BigDecimal((Integer) fromObject);
-		} else if (myUIType == String.class) {
+		} else if (uiType == String.class) {
 			getBinding().assertTrue(fromObject instanceof String, "fromObject not a String");
 			final String s = (String) fromObject;
 			/*
