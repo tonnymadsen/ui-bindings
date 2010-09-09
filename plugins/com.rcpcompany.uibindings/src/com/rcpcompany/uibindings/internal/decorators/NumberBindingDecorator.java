@@ -195,38 +195,38 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			if (minViolated && !myMaxSet) {
 				if (BigDecimal.ZERO.equals(myMin)) {
 					if (myMinInclusive)
-						return MessageFormat.format("{0}: ''{1}'' must be positive or zero", myLabel, fromObject,
+						return MessageFormat.format("{0}: ''{1}'' must be positive or zero", getLabel(), fromObject,
 								typeOfCheck, myMin, myMax);
 					else
-						return MessageFormat.format("{0}: ''{1}'' must be positive", myLabel, fromObject, typeOfCheck,
-								myMin, myMax);
+						return MessageFormat.format("{0}: ''{1}'' must be positive", getLabel(), fromObject,
+								typeOfCheck, myMin, myMax);
 				} else {
 					if (myMinInclusive)
-						return MessageFormat.format("{0}: ''{1}'' outside {2} range (min {3})", myLabel, fromObject,
+						return MessageFormat.format("{0}: ''{1}'' outside {2} range (min {3})", getLabel(), fromObject,
 								typeOfCheck, myMin, myMax);
 					else
-						return MessageFormat.format("{0}: ''{1}'' outside {2} range (greater than {3})", myLabel,
+						return MessageFormat.format("{0}: ''{1}'' outside {2} range (greater than {3})", getLabel(),
 								fromObject, typeOfCheck, myMin, myMax);
 				}
 			}
 			if (maxViolated && !myMinSet) {
 				if (BigDecimal.ZERO.equals(myMax)) {
 					if (myMaxInclusive)
-						return MessageFormat.format("{0}: ''{1}'' must be negative or zero", myLabel, fromObject,
+						return MessageFormat.format("{0}: ''{1}'' must be negative or zero", getLabel(), fromObject,
 								typeOfCheck, myMin, myMax);
 					else
-						return MessageFormat.format("{0}: ''{1}'' must be negative", myLabel, fromObject, typeOfCheck,
-								myMin, myMax);
+						return MessageFormat.format("{0}: ''{1}'' must be negative", getLabel(), fromObject,
+								typeOfCheck, myMin, myMax);
 				} else {
 					if (myMaxInclusive)
-						return MessageFormat.format("{0}: ''{1}'' outside {2} range (max {4})", myLabel, fromObject,
+						return MessageFormat.format("{0}: ''{1}'' outside {2} range (max {4})", getLabel(), fromObject,
 								typeOfCheck, myMin, myMax);
 					else
-						return MessageFormat.format("{0}: ''{1}'' outside {2} range (less than {4})", myLabel,
+						return MessageFormat.format("{0}: ''{1}'' outside {2} range (less than {4})", getLabel(),
 								fromObject, typeOfCheck, myMin, myMax);
 				}
 			}
-			return MessageFormat.format("{0}: ''{1}'' outside {2} range {3}{4}; {5}{6}", myLabel, fromObject,
+			return MessageFormat.format("{0}: ''{1}'' outside {2} range {3}{4}; {5}{6}", getLabel(), fromObject,
 					typeOfCheck, myMinInclusive ? "[" : "]", myMin, myMax, myMaxInclusive ? "]" : "[");
 		}
 
@@ -273,11 +273,6 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 	 * The used adapter for the specific model type.
 	 */
 	protected NumberAdapter myAdapter;
-
-	/**
-	 * The label used in error messages.
-	 */
-	protected String myLabel;
 
 	/**
 	 * Whether any limits has been set for this decorator.
@@ -365,7 +360,6 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 	 */
 	public void initForValidation(IValueBinding binding) {
 		setBinding(binding);
-		myLabel = getBinding().getLabel();
 		calculateAdapter(binding);
 
 		final String range = getBinding().getArgument(Constants.ARG_RANGE, String.class, null);
@@ -413,6 +407,15 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			binding.addErrorCondition("Cannot convert model type " + modelType.getName() + " to String");
 			return;
 		}
+	}
+
+	/**
+	 * Returns the label for the binding.
+	 * 
+	 * @return the label
+	 */
+	public String getLabel() {
+		return getBinding().getLabel();
 	}
 
 	@Override
@@ -513,7 +516,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			/*
 			 * - Parse the string
 			 */
-			if (s == null || s.length() == 0) throw new IllegalArgumentException(myLabel + ": number missing");
+			if (s == null || s.length() == 0) throw new IllegalArgumentException(getLabel() + ": number missing");
 			final ParsePosition parsePosition = new ParsePosition(0);
 			final boolean formatUsesGroupings = myProvider.getFormat().indexOf(',') >= 0;
 			final NumberFormat format = formatUsesGroupings ? myAdapter.getGroupingParseFormat() : myAdapter
@@ -540,7 +543,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 					final int errorPos = (parsePosition.getErrorIndex() != -1) ? parsePosition.getErrorIndex()
 							: parsePosition.getIndex();
 					throw new IllegalArgumentException(MessageFormat.format(
-							"Illegal {0}: ''{1}'' at position {2}: ''{3}''", myLabel, fromObject, errorPos + 1,
+							"Illegal {0}: ''{1}'' at position {2}: ''{3}''", getLabel(), fromObject, errorPos + 1,
 							s.charAt(errorPos)));
 				}
 			}
