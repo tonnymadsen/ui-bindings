@@ -466,6 +466,9 @@ If &lt;code&gt;id&lt;/code&gt; is set it specified the ID of the description for
          </documentation>
       </annotation>
       <complexType>
+         <choice minOccurs="0" maxOccurs="unbounded">
+            <element ref="navigator"/>
+         </choice>
          <attribute name="parent" type="string" use="required">
             <annotation>
                <documentation>
@@ -1017,7 +1020,7 @@ A specific mediator wil only be invoked once for a specific class.
    <element name="navigator">
       <annotation>
          <documentation>
-            The identification of annavigator that should use this relation.
+            The identification of a tree or navigator that should use this relation.
 &lt;p&gt;
 Per default, all relations are automatically assigned to the &lt;code&gt;&quot;&quot;&lt;/code&gt; id, but a relation can be assigned to additional navigators with this element.
          </documentation>
