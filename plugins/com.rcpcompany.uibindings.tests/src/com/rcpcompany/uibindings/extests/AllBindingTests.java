@@ -67,6 +67,8 @@ import com.rcpcompany.uibindings.extests.observables.MapperObservableValueTest;
 import com.rcpcompany.uibindings.extests.observables.MessageFormatObservableValueTest;
 import com.rcpcompany.uibindings.extests.observables.TextObservableValueDisposeTest;
 import com.rcpcompany.uibindings.extests.observables.TextObservableValueTest;
+import com.rcpcompany.uibindings.extests.observables.ViewerBindingTreeFactoryPerformanceTest;
+import com.rcpcompany.uibindings.extests.observables.ViewerBindingTreeFactoryTest;
 import com.rcpcompany.uibindings.extests.observables.getset.BasicSetTestValue;
 import com.rcpcompany.uibindings.extests.observables.getset.BasicSetTestViewer;
 import com.rcpcompany.uibindings.extests.preferences.PreferencePageDialogTest;
@@ -228,7 +230,8 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		 */
 		TextObservableValueDisposeTest.class, TextObservableValueTest.class, CountObservableValueTest.class,
 		MessageFormatObservableValueTest.class, GuardObservableValueTest.class, MapperObservableValueTest.class,
-		EListKeyedElementObservableValueTest.class,
+		EListKeyedElementObservableValueTest.class, ViewerBindingTreeFactoryTest.class,
+		ViewerBindingTreeFactoryPerformanceTest.class,
 
 		/*
 		 * UI Attributes

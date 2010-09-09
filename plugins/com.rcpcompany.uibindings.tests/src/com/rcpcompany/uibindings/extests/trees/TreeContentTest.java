@@ -118,9 +118,11 @@ public class TreeContentTest {
 		assertEquals(myShop.getName(), items[0].getText(0));
 
 		items = items[0].getItems();
-		assertEquals(1, items.length);
+		assertEquals(2, items.length);
 		assertTrue(items[0].getData() instanceof IConstantTreeItem);
 		assertEquals("Contacts", items[0].getText(0));
+		assertEquals(myShopItem, items[1].getData());
+		assertEquals(myShopItem.getName(), items[1].getText(0));
 
 		items = items[0].getItems();
 		assertEquals(2, items.length);
