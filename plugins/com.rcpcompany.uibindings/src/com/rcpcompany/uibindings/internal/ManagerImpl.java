@@ -882,60 +882,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 				.getConfigurationElementsFor(InternalConstants.UIBINDINGS_EXTENSION_POINT)) {
 			final String elementName = ce.getName();
 			if (InternalConstants.BINDING_DECORATOR_TAG.equals(elementName)) {
-				String id = ce.getAttribute(InternalConstants.ID_TAG);
-				if (id == null || id.length() == 0) {
-					id = "<unspecified>"; //$NON-NLS-1$
-				}
-
-				final IConfigurationElement[] javaProviders = ce.getChildren(InternalConstants.JAVA_DECORATOR_TAG);
-				final IConfigurationElement[] enumProviders = ce.getChildren(InternalConstants.ENUM_TAG);
-				final IConfigurationElement[] numberProviders = ce.getChildren(InternalConstants.NUMBER_TAG);
-
-				switch (javaProviders.length + enumProviders.length + numberProviders.length) {
-				case 0:
-					LogUtils.error(ce, id + ": Exactly one type decorator required. Provider ignored. Got none."); //$NON-NLS-1$
-					continue;
-				case 1:
-					break;
-				default:
-					LogUtils.error(ce, id + ": Exactly one type decorator required. Provider ignored. Got " //$NON-NLS-1$
-							+ Arrays.toString(javaProviders) + " and " + Arrays.toString(enumProviders)); //$NON-NLS-1$
-					break;
-				}
-				if (javaProviders.length + enumProviders.length > 1) {
-					LogUtils.error(ce, id + ": Exactly one type decorator required. Provider ignored. Got " //$NON-NLS-1$
-							+ Arrays.toString(javaProviders) + " and " + Arrays.toString(enumProviders)); //$NON-NLS-1$
-					continue;
-				}
-				IDecoratorProvider provider = null;
-				if (javaProviders.length == 1) {
-					provider = IUIBindingsFactory.eINSTANCE.createJavaDecoratorProvider();
-					provider.providerReader(id, ce, javaProviders[0]);
-				}
-				if (enumProviders.length == 1) {
-					provider = IUIBindingsFactory.eINSTANCE.createEnumDecoratorProvider();
-					provider.providerReader(id, ce, enumProviders[0]);
-				}
-				if (numberProviders.length == 1) {
-					provider = IUIBindingsFactory.eINSTANCE.createNumberDecoratorProvider();
-					provider.providerReader(id, ce, numberProviders[0]);
-				}
-				readArguments(provider, ce);
-
-				getProviders().add(provider);
+				extenderReaderBindingDecorator(ce);
 			} else if (InternalConstants.UI_ATTRIBUTE_FACTORY_TAG.equals(elementName)) {
-				// TODO: check for dups
-				final IUIAttributeFactoryDescriptor descriptor = IUIBindingsFactory.eINSTANCE
-						.createUIAttributeFactoryDescriptor();
-				descriptor.setTypeName(ce.getAttribute(InternalConstants.WIDGET_TYPE_TAG));
-				String attribute = ce.getAttribute(InternalConstants.ATTRIBUTE_TAG);
-				if (attribute == null) {
-					attribute = ""; //$NON-NLS-1$
-				}
-				descriptor.setAttribute(attribute);
-				descriptor.setFactory(new CEObjectHolder<IUIAttributeFactory>(ce));
-
-				getUiAttributeFactories().add(descriptor);
+				extensionReaderUIAttributeFactory(ce);
 			} else if (InternalConstants.DECORATOR_EXTENDER_TAG.equals(elementName)) {
 				// TODO: check for dups
 				final IUIBindingDecoratorExtenderDescriptor descriptor = IUIBindingsFactory.eINSTANCE
@@ -949,34 +898,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 				final CEObjectHolder<IModelArgumentMediator> mediator = new CEObjectHolder<IModelArgumentMediator>(ce);
 				getModelArgumentMediators().add(mediator);
 			} else if (InternalConstants.QUICKFIX_PROCESSOR_TAG.equals(elementName)) {
-				final IQuickfixProposalProcessorDescriptor qi = IUIBindingsFactory.eINSTANCE
-						.createQuickfixProposalProcessorDescriptor();
-
-				final String code = ce.getAttribute(InternalConstants.CODE_TAG);
-				if (code != null && code.length() > 0) {
-					try {
-						qi.setCode(Integer.parseInt(code));
-					} catch (final NumberFormatException ex) {
-						LogUtils.error(ce, ex);
-						continue;
-					}
-				} else {
-					qi.setCode(Integer.MIN_VALUE);
-				}
-				final String pattern = ce.getAttribute(InternalConstants.MESSAGE_PATTERN_TAG);
-				if (pattern != null && pattern.length() > 0) {
-					try {
-						qi.setMessagePattern(Pattern.compile(pattern));
-					} catch (final PatternSyntaxException ex) {
-						LogUtils.error(ce, ex);
-						continue;
-					}
-				}
-				qi.setSource(ce.getAttribute(InternalConstants.SOURCE_TAG));
-				qi.setFeature(ce.getAttribute(InternalConstants.FEATURE_TAG));
-				qi.setModelType(ce.getAttribute(InternalConstants.MODEL_TYPE_TAG));
-				qi.setProcessor(new CEObjectHolder<IQuickfixProposalProcessor>(ce, InternalConstants.PROCESSOR_TAG));
-				getQuickfixProposalProcessors().add(qi);
+				extensionReaderQuickfixProcessor(ce);
 			} else if (InternalConstants.OBSERVABLES_FACTORY_TAG.equals(elementName)) {
 				final IEMFObservableFactoryDescriptor desc = IUIBindingsFactory.eINSTANCE
 						.createEMFObservableFactoryDescriptor();
@@ -984,27 +906,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 				desc.setFactory(new CEObjectHolder<IEMFObservableFactory>(ce));
 				getObservableFactories().add(desc);
 			} else if (InternalConstants.MODEL_TAG.equals(elementName)) {
-				final String className = ce.getAttribute(InternalConstants.CLASS_TAG);
-				if (className == null || className.length() == 0) {
-					LogUtils.error(ce, "Class name must be specified. Ignored"); //$NON-NLS-1$
-					continue;
-				}
-
-				final String type = ce.getAttribute(InternalConstants.TARGET_TYPE_TAG);
-
-				final IModelClassInfo cInfo = getModelClassInfo(className, type, true);
-				readArguments(cInfo, ce);
-
-				for (final IConfigurationElement childCE : ce.getChildren(InternalConstants.FEATURE_TAG)) {
-					final String featureName = childCE.getAttribute(InternalConstants.NAME_TAG);
-					if (featureName == null || featureName.length() == 0) {
-						LogUtils.error(childCE, "Feature name must be specified. Ignored"); //$NON-NLS-1$
-						continue;
-					}
-
-					final IModelFeatureInfo fInfo = getModelFeatureInfo(className, featureName, type, true);
-					readArguments(fInfo, childCE);
-				}
+				extensionReaderModel(ce);
 			} else if (InternalConstants.TREE_ITEM_TAG.equals(elementName)) {
 				final String id = ce.getAttribute(InternalConstants.ID_TAG);
 				if (id == null || id.length() == 0) {
@@ -1071,75 +973,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		 * Now go through the relations
 		 */
 		for (final IConfigurationElement ce : delayedTreeRelations) {
-			final ITreeItemRelation rel = IUIBindingsFactory.eINSTANCE.createTreeItemRelation();
-			String attr = ce.getAttribute(InternalConstants.PARENT_TAG);
-			if (attr == null || attr.length() == 0) {
-				LogUtils.error(ce, InternalConstants.PARENT_TAG + " must be specified. Ignored"); //$NON-NLS-1$
-				continue;
-			}
-			final ITreeItemDescriptor parent = getTreeItem(attr);
-			if (parent == null) {
-				LogUtils.error(ce, InternalConstants.PARENT_TAG + " " + attr + " is unknown. Ignored."); //$NON-NLS-1$ //$NON-NLS-2$
-				continue;
-			}
-
-			attr = ce.getAttribute(InternalConstants.PRIORITY_TAG);
-			if (attr != null && attr.length() > 0) {
-				try {
-					rel.setPriority(Integer.parseInt(attr));
-				} catch (final NumberFormatException ex) {
-					LogUtils.error(ce, ex);
-					continue;
-				}
-			} else {
-				rel.setPriority(Constants.DEFAULT_TREE_ITEM_RELATION_PRIORITY);
-			}
-
-			ITreeItemDescriptor desc = null;
-			attr = ce.getAttribute(InternalConstants.ID_TAG);
-			if (attr != null && attr.length() > 0) {
-				desc = getTreeItem(attr);
-				if (desc == null) {
-					LogUtils.error(ce, InternalConstants.ID_TAG + " " + attr + " is unknown. Ignored."); //$NON-NLS-1$ //$NON-NLS-2$
-					continue;
-				}
-				rel.setDescriptor(desc);
-			}
-
-			final String c = ce.getAttribute(InternalConstants.CLASS_TAG);
-			final String f = ce.getAttribute(InternalConstants.FEATURE_NAME_TAG);
-			if (c != null && c.length() > 0) {
-				rel.setProcessor(new CEObjectHolder<IObservableFactory>(ce, InternalConstants.CLASS_TAG));
-				if (f != null && f.length() > 0) {
-					LogUtils.error(ce, "Both " + InternalConstants.CLASS_TAG + " " + InternalConstants.FEATURE_NAME_TAG //$NON-NLS-1$ //$NON-NLS-2$
-							+ " may not by specified. Ignored."); //$NON-NLS-1$
-					continue;
-				}
-			} else if (f != null && f.length() > 0) {
-				rel.setFeatureName(f);
-			} else {
-				// Do nothing
-			}
-
-			/*
-			 * Add tree IDs
-			 */
-			for (final IConfigurationElement child : ce.getChildren(InternalConstants.NAVIGATOR_TAG)) {
-				attr = child.getAttribute(InternalConstants.ID_TAG);
-				final boolean alsoPrimitive = attr == null || Boolean.valueOf(attr).booleanValue();
-				attr = child.getAttribute(InternalConstants.CLASS_TAG);
-				if (attr == null || attr.length() == 0) {
-					LogUtils.error(ce, "Required attribute '" + InternalConstants.ID_TAG + "' is empty. Ignored."); //$NON-NLS-1$
-					continue;
-				}
-				if (rel.getTreeIDs().contains(attr)) {
-					LogUtils.error(child, "Duplicate ID: '" + attr + "'. Ignored."); //$NON-NLS-1$ //$NON-NLS-2$
-					continue;
-				}
-				rel.getTreeIDs().add(attr);
-			}
-
-			rel.setParent(parent);
+			extensionReaderTreeItemRelation(ce);
 		}
 
 		/*
@@ -1164,6 +998,205 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		for (final ITreeItemDescriptor tid : getTreeItems()) {
 			ECollections.sort(tid.getChildRelations(), comparator);
 		}
+	}
+
+	/**
+	 * @param ce
+	 */
+	private void extensionReaderTreeItemRelation(final IConfigurationElement ce) {
+		final ITreeItemRelation rel = IUIBindingsFactory.eINSTANCE.createTreeItemRelation();
+		String attr = ce.getAttribute(InternalConstants.PARENT_TAG);
+		if (attr == null || attr.length() == 0) {
+			LogUtils.error(ce, InternalConstants.PARENT_TAG + " must be specified. Ignored"); //$NON-NLS-1$
+			return;
+		}
+		final ITreeItemDescriptor parent = getTreeItem(attr);
+		if (parent == null) {
+			LogUtils.error(ce, InternalConstants.PARENT_TAG + " " + attr + " is unknown. Ignored."); //$NON-NLS-1$ //$NON-NLS-2$
+			return;
+		}
+
+		attr = ce.getAttribute(InternalConstants.PRIORITY_TAG);
+		if (attr != null && attr.length() > 0) {
+			try {
+				rel.setPriority(Integer.parseInt(attr));
+			} catch (final NumberFormatException ex) {
+				LogUtils.error(ce, ex);
+				return;
+			}
+		} else {
+			rel.setPriority(Constants.DEFAULT_TREE_ITEM_RELATION_PRIORITY);
+		}
+
+		ITreeItemDescriptor desc = null;
+		attr = ce.getAttribute(InternalConstants.ID_TAG);
+		if (attr != null && attr.length() > 0) {
+			desc = getTreeItem(attr);
+			if (desc == null) {
+				LogUtils.error(ce, InternalConstants.ID_TAG + " " + attr + " is unknown. Ignored."); //$NON-NLS-1$ //$NON-NLS-2$
+				return;
+			}
+			rel.setDescriptor(desc);
+		}
+
+		final String c = ce.getAttribute(InternalConstants.CLASS_TAG);
+		final String f = ce.getAttribute(InternalConstants.FEATURE_NAME_TAG);
+		if (c != null && c.length() > 0) {
+			rel.setProcessor(new CEObjectHolder<IObservableFactory>(ce, InternalConstants.CLASS_TAG));
+			if (f != null && f.length() > 0) {
+				LogUtils.error(ce, "Both " + InternalConstants.CLASS_TAG + " " + InternalConstants.FEATURE_NAME_TAG //$NON-NLS-1$ //$NON-NLS-2$
+						+ " may not by specified. Ignored."); //$NON-NLS-1$
+				return;
+			}
+		} else if (f != null && f.length() > 0) {
+			rel.setFeatureName(f);
+		} else {
+			// Do nothing
+		}
+
+		/*
+		 * Add tree IDs
+		 */
+		for (final IConfigurationElement child : ce.getChildren(InternalConstants.NAVIGATOR_TAG)) {
+			attr = child.getAttribute(InternalConstants.ID_TAG);
+			if (attr == null || attr.length() == 0) {
+				LogUtils.error(child, "Required attribute '" + InternalConstants.ID_TAG + "' is empty. Ignored."); //$NON-NLS-1$
+				return;
+			}
+			if (rel.getTreeIDs().contains(attr)) {
+				LogUtils.error(child, "Duplicate ID: '" + attr + "'. Ignored."); //$NON-NLS-1$ //$NON-NLS-2$
+				return;
+			}
+			rel.getTreeIDs().add(attr);
+		}
+
+		rel.setParent(parent);
+	}
+
+	/**
+	 * @param ce
+	 */
+	private void extensionReaderUIAttributeFactory(final IConfigurationElement ce) {
+		// TODO: check for dups
+		final IUIAttributeFactoryDescriptor descriptor = IUIBindingsFactory.eINSTANCE
+				.createUIAttributeFactoryDescriptor();
+		descriptor.setTypeName(ce.getAttribute(InternalConstants.WIDGET_TYPE_TAG));
+		String attribute = ce.getAttribute(InternalConstants.ATTRIBUTE_TAG);
+		if (attribute == null) {
+			attribute = ""; //$NON-NLS-1$
+		}
+		descriptor.setAttribute(attribute);
+		descriptor.setFactory(new CEObjectHolder<IUIAttributeFactory>(ce));
+
+		getUiAttributeFactories().add(descriptor);
+	}
+
+	/**
+	 * @param ce
+	 */
+	private void extensionReaderModel(final IConfigurationElement ce) {
+		final String className = ce.getAttribute(InternalConstants.CLASS_TAG);
+		if (className == null || className.length() == 0) {
+			LogUtils.error(ce, "Class name must be specified. Ignored"); //$NON-NLS-1$
+			return;
+		}
+
+		final String type = ce.getAttribute(InternalConstants.TARGET_TYPE_TAG);
+
+		final IModelClassInfo cInfo = getModelClassInfo(className, type, true);
+		readArguments(cInfo, ce);
+
+		for (final IConfigurationElement childCE : ce.getChildren(InternalConstants.FEATURE_TAG)) {
+			final String featureName = childCE.getAttribute(InternalConstants.NAME_TAG);
+			if (featureName == null || featureName.length() == 0) {
+				LogUtils.error(childCE, "Feature name must be specified. Ignored"); //$NON-NLS-1$
+				return;
+			}
+
+			final IModelFeatureInfo fInfo = getModelFeatureInfo(className, featureName, type, true);
+			readArguments(fInfo, childCE);
+		}
+	}
+
+	/**
+	 * @param ce
+	 */
+	private void extensionReaderQuickfixProcessor(final IConfigurationElement ce) {
+		final IQuickfixProposalProcessorDescriptor qi = IUIBindingsFactory.eINSTANCE
+				.createQuickfixProposalProcessorDescriptor();
+
+		final String code = ce.getAttribute(InternalConstants.CODE_TAG);
+		if (code != null && code.length() > 0) {
+			try {
+				qi.setCode(Integer.parseInt(code));
+			} catch (final NumberFormatException ex) {
+				LogUtils.error(ce, ex);
+				return;
+			}
+		} else {
+			qi.setCode(Integer.MIN_VALUE);
+		}
+		final String pattern = ce.getAttribute(InternalConstants.MESSAGE_PATTERN_TAG);
+		if (pattern != null && pattern.length() > 0) {
+			try {
+				qi.setMessagePattern(Pattern.compile(pattern));
+			} catch (final PatternSyntaxException ex) {
+				LogUtils.error(ce, ex);
+				return;
+			}
+		}
+		qi.setSource(ce.getAttribute(InternalConstants.SOURCE_TAG));
+		qi.setFeature(ce.getAttribute(InternalConstants.FEATURE_TAG));
+		qi.setModelType(ce.getAttribute(InternalConstants.MODEL_TYPE_TAG));
+		qi.setProcessor(new CEObjectHolder<IQuickfixProposalProcessor>(ce, InternalConstants.PROCESSOR_TAG));
+		getQuickfixProposalProcessors().add(qi);
+	}
+
+	/**
+	 * @param ce
+	 */
+	private void extenderReaderBindingDecorator(final IConfigurationElement ce) {
+		String id = ce.getAttribute(InternalConstants.ID_TAG);
+		if (id == null || id.length() == 0) {
+			id = "<unspecified>"; //$NON-NLS-1$
+		}
+
+		final IConfigurationElement[] javaProviders = ce.getChildren(InternalConstants.JAVA_DECORATOR_TAG);
+		final IConfigurationElement[] enumProviders = ce.getChildren(InternalConstants.ENUM_TAG);
+		final IConfigurationElement[] numberProviders = ce.getChildren(InternalConstants.NUMBER_TAG);
+
+		switch (javaProviders.length + enumProviders.length + numberProviders.length) {
+		case 0:
+			LogUtils.error(ce, id + ": Exactly one type decorator required. Provider ignored. Got none."); //$NON-NLS-1$
+			return;
+		case 1:
+			break;
+		default:
+			LogUtils.error(ce, id + ": Exactly one type decorator required. Provider ignored. Got " //$NON-NLS-1$
+					+ Arrays.toString(javaProviders) + " and " + Arrays.toString(enumProviders)); //$NON-NLS-1$
+			break;
+		}
+		if (javaProviders.length + enumProviders.length > 1) {
+			LogUtils.error(ce, id + ": Exactly one type decorator required. Provider ignored. Got " //$NON-NLS-1$
+					+ Arrays.toString(javaProviders) + " and " + Arrays.toString(enumProviders)); //$NON-NLS-1$
+			return;
+		}
+		IDecoratorProvider provider = null;
+		if (javaProviders.length == 1) {
+			provider = IUIBindingsFactory.eINSTANCE.createJavaDecoratorProvider();
+			provider.providerReader(id, ce, javaProviders[0]);
+		}
+		if (enumProviders.length == 1) {
+			provider = IUIBindingsFactory.eINSTANCE.createEnumDecoratorProvider();
+			provider.providerReader(id, ce, enumProviders[0]);
+		}
+		if (numberProviders.length == 1) {
+			provider = IUIBindingsFactory.eINSTANCE.createNumberDecoratorProvider();
+			provider.providerReader(id, ce, numberProviders[0]);
+		}
+		readArguments(provider, ce);
+
+		getProviders().add(provider);
 	}
 
 	/**

@@ -83,6 +83,7 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 
 	@Override
 	public IObservable createObservable(Object target) {
+		if (target == null) return null;
 		if (Activator.getDefault().TRACE_TREE) {
 			LogUtils.debug(this, "object [" + ClassUtils.getLastClassName(target) + "]: " + target); //$NON-NLS-1$ //$NON-NLS-2$
 		}
