@@ -228,6 +228,15 @@
             name="Shop Navigator"
             restorable="true">
       </view>
+      <view
+            advisor="com.rcpcompany.uibindings.shop.views.advisors.ShopNavigatorContactsAdvisor"
+            category="com.rcpcompany.uibindings.example.application.viewCategories.shop"
+            class="com.rcpcompany.uibindings.navigator.views.NavigatorBaseView"
+            icon="platform:/plugin/com.rcpcompany.uibindings/images/views/navigator_view.gif"
+            id="com.rcpcompany.uibindings.shop.views.ShopNavigationView"
+            name="Shop Navigator (Contact Information)"
+            restorable="true">
+      </view>
    </extension>
    <extension
          point="org.eclipse.ui.preferencePages">
@@ -543,6 +552,9 @@
       <treeItemRelation
             parent="com.rcpcompany.uibindings.shop.treeItems.shop"
             id="com.rcpcompany.uibindings.shop.treeItems.contactFolder">
+         <navigator
+               id="contacts">
+         </navigator>
       </treeItemRelation>
       <treeItemRelation
             id="com.rcpcompany.uibindings.shop.treeItems.shopItemFolder"
@@ -554,6 +566,9 @@
       </treeItemRelation>
       <treeItemRelation
             parent="com.rcpcompany.uibindings.shop.treeItems.contactFolder"  featureName="contacts">
+         <navigator
+               id="contacts">
+         </navigator>
       </treeItemRelation>
       <treeItemRelation
             featureName="shopItems"

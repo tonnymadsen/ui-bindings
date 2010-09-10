@@ -14,7 +14,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class ShopNavigatorAdvisor extends AbstractNavigatorBaseViewAdvisor implements INavigatorBaseViewAdvisor {
+public class ShopNavigatorContactsAdvisor extends AbstractNavigatorBaseViewAdvisor implements INavigatorBaseViewAdvisor {
 	@Override
 	public IObservableList getRootElements() {
 		final IObservableList list = WritableList.withElementType(ShopPackage.Literals.SHOP);
@@ -22,8 +22,4 @@ public class ShopNavigatorAdvisor extends AbstractNavigatorBaseViewAdvisor imple
 		return list;
 	}
 
-	@Override
-	public String getTreeID() {
-		return "contacts";
-	}
 }
