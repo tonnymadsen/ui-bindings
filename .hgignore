@@ -1,0 +1,3 @@
+
+syntax: regexp
+^plugins/com\.rcpcompany\..*/bin$
