@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.jface.databinding.viewers.IViewerValueProperty;
@@ -39,14 +40,14 @@ import org.eclipse.jface.viewers.FocusCellOwnerDrawHighlighter;
 import org.eclipse.jface.viewers.ILabelDecorator;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.MyTableViewerEditor;
+import org.eclipse.jface.viewers.MyTableViewerFocusCellManager;
+import org.eclipse.jface.viewers.MyTreeViewerFocusCellManager;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.jface.viewers.MyTableViewerEditor;
-import org.eclipse.jface.viewers.MyTableViewerFocusCellManager;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.TreeViewerEditor;
-import org.eclipse.jface.viewers.MyTreeViewerFocusCellManager;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.jface.viewers.ViewerColumn;
 import org.eclipse.swt.SWT;
@@ -78,6 +79,7 @@ import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.bindingMessages.ValidationLabelDecorator;
 import com.rcpcompany.uibindings.internal.bindingDataTypes.BindingDataTypeFactory;
+import com.rcpcompany.uibindings.internal.observables.MyDetailObservableList;
 import com.rcpcompany.uibindings.internal.observables.properties.MySelectionProviderSingleSelectionProperty;
 import com.rcpcompany.uibindings.internal.utils.DoubleClickAdapter;
 import com.rcpcompany.uibindings.internal.utils.UIHandlerUtils;
@@ -461,6 +463,48 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 				getViewer().setSelection(new StructuredSelection(element), false);
 			}
 		}
+	};
+
+	@Override
+	public IElementParentage getElementParentage(final EObject element) {
+		if (getViewer() instanceof TableViewer) {
+			final IObservableList ol = getList();
+			return new IElementParentage() {
+				@Override
+				public EReference getReference() {
+					final IObservableList l = getList();
+					if (l instanceof EObjectEList<?>) {
+						final EObjectEList<?> el = (EObjectEList<?>) l;
+						final EStructuralFeature sf = el.getEStructuralFeature();
+						if (!(sf instanceof EReference)) return null;
+						return (EReference) sf;
+					}
+					if (l instanceof MyDetailObservableList)
+						return (EReference) ((MyDetailObservableList) l).getElementType();
+					return null;
+				}
+
+				@Override
+				public EObject getParent() {
+					final IObservableList l = getList();
+					if (l instanceof EObjectEList<?>) {
+						final EObjectEList<?> el = (EObjectEList<?>) l;
+						final Object notifier = el.getNotifier();
+						if (!(notifier instanceof EObject)) return null;
+						return (EObject) notifier;
+					}
+					if (l instanceof MyDetailObservableList)
+						return (EObject) ((MyDetailObservableList) l).getObserved();
+					return null;
+				}
+
+				@Override
+				public EObject getElement() {
+					return element;
+				}
+			};
+		}
+		return null;
 	};
 
 	@Override
@@ -1097,8 +1141,6 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 						UIHandlerUtils.moveElement(this, element, -1, true));
 				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_DOWN,
 						UIHandlerUtils.moveElement(this, element, 1, true));
-				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_DELETE,
-						UIHandlerUtils.deleteElement(this, element, true));
 			}
 
 			final int i = cell.getColumnIndex();

@@ -92,6 +92,11 @@ public class Activator extends AbstractUIPlugin {
 	public boolean TRACE_HANDLERS = false;
 
 	/**
+	 * <code>true</code> if tracing execution of property testers.
+	 */
+	public boolean TRACE_PROPERTY_TESTERS = false;
+
+	/**
 	 * <code>true</code> if tracing activations of contexts.
 	 */
 	public boolean TRACE_CONTEXTS = false;
@@ -221,6 +226,7 @@ public class Activator extends AbstractUIPlugin {
 			TRACE_OPEN_COMMAND = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/OpenCommand")); //$NON-NLS-1$
 			TRACE_CONTEXTS = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/Contexts")); //$NON-NLS-1$
 			TRACE_HANDLERS = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/Handlers")); //$NON-NLS-1$
+			TRACE_PROPERTY_TESTERS = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/PropertyTesters")); //$NON-NLS-1$
 			TRACE_DECORATORS = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/Decorators")); //$NON-NLS-1$
 			TRACE_ATTRIBUTE_IMAGE_DECORATORS = Boolean.parseBoolean(Platform.getDebugOption(ID
 					+ "/trace/Attributes/ImagesDecorators")); //$NON-NLS-1$

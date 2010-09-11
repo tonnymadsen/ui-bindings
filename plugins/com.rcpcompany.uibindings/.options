@@ -7,6 +7,7 @@ com.rcpcompany.uibindings/trace/Navigation/global=false
 com.rcpcompany.uibindings/trace/OpenCommand=false
 com.rcpcompany.uibindings/trace/Contexts=false
 com.rcpcompany.uibindings/trace/Handlers=false
+com.rcpcompany.uibindings/trace/PropertyTesters=false
 com.rcpcompany.uibindings/trace/Decorators=false
 com.rcpcompany.uibindings/trace/Attributes/ImagesDecorators=false
 com.rcpcompany.uibindings/trace/Lifecycle/Bindings=false

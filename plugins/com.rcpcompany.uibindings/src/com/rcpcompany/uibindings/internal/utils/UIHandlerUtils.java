@@ -7,10 +7,7 @@ import org.eclipse.jface.viewers.ColumnViewer;
 import org.eclipse.jface.viewers.ColumnViewerEditor;
 import org.eclipse.jface.viewers.ViewerCell;
 
-import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IViewerBinding;
-import com.rcpcompany.uibindings.IViewerItemDeletor;
-import com.rcpcompany.uibindings.IViewerItemDeletorContext;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -74,59 +71,6 @@ public final class UIHandlerUtils {
 			vb.setFocus(element, oldFocusCell.getColumnIndex());
 			// ((Table) viewer.getControl()).setSelection(newPosition);
 		}
-		return true;
-	}
-
-	/**
-	 * Deletes the specified element in the viewer of the binding.
-	 * 
-	 * @param vb the viewer binding
-	 * @param element the element to delete
-	 * @param testOnly <code>true</code> if the move should only be tested for, but not performed
-	 * @return <code>true</code> if the element could be deleted
-	 */
-	public static boolean deleteElement(final IViewerBinding vb, final EObject element, final boolean testOnly) {
-		// if (Activator.getDefault().TRACE_NAVIGATION) {
-		// LogUtils.debug(vb, "delta=" + delta + ", testOnly=" + testOnly + ", element=" + element);
-		// }
-
-		Assert.isNotNull(vb);
-		if (element == null) return false;
-
-		final IViewerItemDeletor deletor = vb.getArgument(Constants.ARG_ITEM_DELETOR, IViewerItemDeletor.class, null);
-		if (deletor == null) return false;
-
-		final int oldPosition = vb.getList().indexOf(element);
-		if (oldPosition == -1) return false;
-
-		// Do it
-		final IViewerItemDeletorContext context = new IViewerItemDeletorContext() {
-			@Override
-			public IViewerBinding getViewerBinding() {
-				return vb;
-			}
-
-			@Override
-			public EObject getObject() {
-				return element;
-			}
-
-			@Override
-			public IObservableList getList() {
-				return vb.getList();
-			}
-
-			@Override
-			public int getIndex() {
-				return oldPosition;
-			}
-
-			@Override
-			public boolean getTestOnly() {
-				return testOnly;
-			}
-		};
-		deletor.deleteItem(context);
 		return true;
 	}
 }

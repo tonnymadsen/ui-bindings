@@ -137,7 +137,7 @@ import com.rcpcompany.uibindings.extests.viewerBindings.ViewerDisposeTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerEditCellCommitStrategiesTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerEditCellStrategiesTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerEditCheckboxTest;
-import com.rcpcompany.uibindings.extests.viewerBindings.ViewerItemDeletorTest;
+import com.rcpcompany.uibindings.extests.viewerBindings.ViewerTableDeleteElementTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerItemMoveTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerReflowTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerSingleSelectionTest;
@@ -264,7 +264,7 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		 * Viewer bindings
 		 */
 		ViewerCellValuesTest.class, ViewerReflowTest.class, ViewerDisposeTest.class,
-		ViewerEditCellStrategiesTest.class, ViewerEditCheckboxTest.class, ViewerItemDeletorTest.class,
+		ViewerEditCellStrategiesTest.class, ViewerEditCheckboxTest.class, ViewerTableDeleteElementTest.class,
 		ViewerItemMoveTest.class, ViewerSingleSelectionTest.class, ViewerEditCellCommitStrategiesTest.class,
 		ColumnVisibilityTest.class, ViewerEditCellStrategiesTest.class, ViewerColumnHeaderAlignment.class,
 

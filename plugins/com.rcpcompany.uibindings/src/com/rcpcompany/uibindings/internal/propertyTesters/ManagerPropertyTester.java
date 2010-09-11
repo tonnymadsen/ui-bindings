@@ -6,6 +6,8 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IManager;
+import com.rcpcompany.uibindings.internal.Activator;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Property tester for the manager state.
@@ -17,6 +19,9 @@ import com.rcpcompany.uibindings.IManager;
 public class ManagerPropertyTester extends PropertyTester {
 	@Override
 	public boolean test(Object receiver, String property, Object[] args, Object expectedValue) {
+		if (Activator.getDefault().TRACE_PROPERTY_TESTERS) {
+			LogUtils.debug(this, Constants.PREFIX + property + "(" + receiver + ")");
+		}
 		if (Constants.PROPERTY_CAN_UNDO.equals(property)) {
 			final EditingDomain ed = IManager.Factory.getManager().getEditingDomain();
 			final CommandStack cs = ed.getCommandStack();

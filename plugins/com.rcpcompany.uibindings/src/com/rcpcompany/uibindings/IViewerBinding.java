@@ -304,6 +304,44 @@ public interface IViewerBinding extends IBinding {
 	int getFirstTableColumnOffset();
 
 	/**
+	 * The interface for the return value of {@link IViewerBinding#getElementParentage()}.
+	 */
+	public interface IElementParentage {
+		/**
+		 * Returns the element in question.
+		 * 
+		 * @return the element
+		 */
+		EObject getElement();
+
+		/**
+		 * Returns the parent object of the element.
+		 * 
+		 * @return the parent
+		 */
+		EObject getParent();
+
+		/**
+		 * Returns the reference for the element in the parent.
+		 * 
+		 * @return the reference
+		 */
+		EReference getReference();
+	}
+
+	/**
+	 * Returns the parentage for the element in this viewer.
+	 * <p>
+	 * The parentage for an element depends on the type of the viewer. For a {@link Table} based
+	 * viewer, it is pretty simple. For TODO
+	 * 
+	 * @param element the element in question
+	 * @return an object that describes the parentage or <code>null</code> if the parentage is not
+	 *         known
+	 */
+	IElementParentage getElementParentage(EObject element);
+
+	/**
 	 * Focus on the cell identified by the element and column number if possible.
 	 * 
 	 * @param element the element

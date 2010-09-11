@@ -127,6 +127,12 @@ public class ManagerSourceProvider extends AbstractSourceProvider {
 			}
 		}
 		if (newState.size() != 0) {
+			/*
+			 * Reset the property testers as well, when any of values changes
+			 */
+			newState.put(Constants.PREFIX + Constants.PROPERTY_CAN_UNDO, true);
+			newState.put(Constants.PREFIX + Constants.PROPERTY_CAN_REDO, true);
+
 			if (Activator.getDefault().TRACE_SOURCE_PROVIDER) {
 				final StringBuilder sb = new StringBuilder("Binding sources change:");
 				for (final Map.Entry<String, Object> i : newState.entrySet()) {

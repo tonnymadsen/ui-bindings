@@ -4,75 +4,60 @@ import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.core.commands.ParameterizedCommand;
-import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.jface.viewers.TableViewerColumn;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.commands.ICommandService;
-import org.eclipse.ui.forms.widgets.TableWrapData;
-import org.eclipse.ui.forms.widgets.TableWrapLayout;
 import org.eclipse.ui.handlers.IHandlerService;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.rcpcompany.uibindings.Constants;
-import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.views.TestView;
-import com.rcpcompany.uibindings.moao.IMOAOPackage;
+import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+import com.rcpcompany.uibindings.utils.IFormCreator;
+import com.rcpcompany.uibindings.utils.ITableCreator;
 
 /**
- * Tests the use of {@link Constants#ARG_ITEM_DELETOR}.
- * <p>
- * Depends on:
- * <ul>
- * <li>Country has a deletor (GenericDeletor)</li>
- * <li>Shop Item does not</li>
- * </ul>
+ * Tests deleting elements from a {@link Table} based {@link IViewerBinding}.
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class ViewerItemDeletorTest {
+public class ViewerTableDeleteElementTest {
 	private Shop myShop;
 	private Country myCountry1;
 	private Country myCountry2;
 	private ShopItem myShopItem1;
 
 	private TestView myView;
-	private Composite myBody;
 
-	private TableViewer myTableViewer1;
-	private Table myTable1;
-	private TableViewerColumn myNameColumn1;
-
-	private TableViewer myTableViewer2;
-	private TableViewerColumn myNameColumn2;
-
-	private IBindingContext myContext;
-	private IViewerBinding myViewerBinding1;
-	private IViewerBinding myViewerBinding2;
+	private IViewerBinding myCountriesVB;
+	private IViewerBinding myShopItemsVB;
+	private Contact myContact;
+	private ResourceSet myResourceSet;
+	private Resource myResource;
 
 	@Before
 	public void before() {
+		resetAll();
 		IManager.Factory.getManager().setTextCommitStrategy(TextCommitStrategy.ON_MODIFY);
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 
 		createShop();
 		createView();
-		bindUI();
 
 		myView.getSite().getPage().activate(myView);
-		myBody.layout();
 	}
 
 	@After
@@ -94,9 +79,20 @@ public class ViewerItemDeletorTest {
 		myCountry2.setName("2");
 		myShop.getCountries().add(myCountry2);
 
+		myContact = ShopFactory.eINSTANCE.createContact();
+		myContact.setName("nn");
+		myContact.setCountry(myCountry2);
+		myContact.setShop(myShop);
+
 		myShopItem1 = ShopFactory.eINSTANCE.createShopItem();
 		myShopItem1.setName("si1");
 		myShop.getShopItems().add(myShopItem1);
+
+		myResourceSet = IManager.Factory.getManager().getEditingDomain().getResourceSet();
+		myResource = new ResourceImpl();
+		myResourceSet.getResources().add(myResource);
+
+		myResource.getContents().add(myShop);
 	}
 
 	/**
@@ -104,51 +100,32 @@ public class ViewerItemDeletorTest {
 	 */
 	public void createView() {
 		myView = createTestView(this);
-		myBody = myView.getBody();
-		myBody.setLayout(new TableWrapLayout());
+		final IFormCreator form = myView.createFormCreator(myShop);
+		ITableCreator table;
 
-		myTableViewer1 = new TableViewer(myBody, SWT.FULL_SELECTION | SWT.BORDER);
-		myTable1 = myTableViewer1.getTable();
-		myTable1.setLayoutData(new TableWrapData(TableWrapData.FILL));
-		myTable1.setHeaderVisible(true);
+		table = form.addTableCreator(ShopPackage.Literals.SHOP__COUNTRIES, true, SWT.NONE);
+		table.addColumn("name(w=100)");
 
-		myNameColumn1 = new TableViewerColumn(myTableViewer1, SWT.NONE);
-		myNameColumn1.getColumn().setWidth(100);
+		myCountriesVB = table.getBinding();
 
-		myTableViewer2 = new TableViewer(myBody, SWT.FULL_SELECTION | SWT.BORDER);
-		final Table table = myTableViewer1.getTable();
-		table.setLayoutData(new TableWrapData(TableWrapData.FILL));
-		table.setHeaderVisible(true);
+		table = form.addTableCreator(ShopPackage.Literals.SHOP__SHOP_ITEMS, true, SWT.NONE);
+		table.addColumn("name(w=100)");
 
-		myNameColumn2 = new TableViewerColumn(myTableViewer2, SWT.NONE);
-		myNameColumn2.getColumn().setWidth(100);
+		myShopItemsVB = table.getBinding();
+
+		form.finish();
 	}
 
 	@After
 	public void disposeView() {
+		myResourceSet.getResources().remove(myResource);
 		if (myView != null) {
 			myView.getSite().getPage().hideView(myView);
 		}
 	}
 
 	/**
-	 * Binds the UI
-	 */
-	public void bindUI() {
-		myContext = IBindingContext.Factory.createContext(myView.getScrolledForm());
-
-		myViewerBinding1 = myContext.addViewer(myTableViewer1, myShop, ShopPackage.Literals.SHOP__COUNTRIES);
-		myViewerBinding1.addColumn(myNameColumn1, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
-
-		myViewerBinding2 = myContext.addViewer(myTableViewer2, myShop, ShopPackage.Literals.SHOP__SHOP_ITEMS);
-		myViewerBinding2.addColumn(myNameColumn2, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
-
-		myContext.finish();
-		yield();
-	}
-
-	/**
-	 * Checks that the shop item table does have an enabled delete operation
+	 * Checks that the delete command is enabled and disabled when needed
 	 */
 	@Test
 	public void testEnablement() {
@@ -159,17 +136,30 @@ public class ViewerItemDeletorTest {
 			final ParameterizedCommand deleteCommand = cs.deserialize(ActionFactory.DELETE.getCommandId());
 			assertTrue(deleteCommand.getCommand().isDefined());
 
-			// myTableViewer1.getTable().setFocus();
-			postMouse(myTableViewer1.getTable(), 0 + myViewerBinding1.getFirstTableColumnOffset(), 1);
+			/*
+			 * First country can be deleted
+			 */
+			postMouse((Table) myCountriesVB.getControl(), 0 + myCountriesVB.getFirstTableColumnOffset(), 0);
 			yield();
 
 			assertTrue(deleteCommand.getCommand().isHandled());
 
-			myTableViewer2.getTable().setFocus();
-			postMouse(myTableViewer2.getTable(), 0 + myViewerBinding2.getFirstTableColumnOffset(), 0);
+			/*
+			 * Second country cannot be deleted, but... the command is still enabled...
+			 */
+			postMouse((Table) myCountriesVB.getControl(), 0 + myCountriesVB.getFirstTableColumnOffset(), 1);
 			yield();
 
-			assertTrue(!deleteCommand.getCommand().isHandled());
+			assertTrue(deleteCommand.getCommand().isHandled());
+
+			/*
+			 * Shop item can be deleted
+			 */
+			myShopItemsVB.getControl().setFocus();
+			postMouse((Table) myShopItemsVB.getControl(), 0 + myShopItemsVB.getFirstTableColumnOffset(), 0);
+			yield();
+
+			assertTrue(deleteCommand.getCommand().isHandled());
 		} catch (final Exception ex) {
 			fail(ex.getMessage());
 		}
@@ -179,7 +169,7 @@ public class ViewerItemDeletorTest {
 	 * Checks that the first item is deleted on request.
 	 */
 	@Test
-	public void testFunction() {
+	public void testFunctionOK() {
 		try {
 			final ICommandService cs = (ICommandService) myView.getSite().getService(ICommandService.class);
 			final IHandlerService hs = (IHandlerService) myView.getSite().getService(IHandlerService.class);
@@ -187,13 +177,36 @@ public class ViewerItemDeletorTest {
 			final ParameterizedCommand deleteCommand = cs.deserialize(ActionFactory.DELETE.getCommandId());
 
 			// myTableViewer1.getTable().setFocus();
-			postMouse(myTableViewer1.getTable(), 0 + myViewerBinding1.getFirstTableColumnOffset(), 0);
+			postMouse((Table) myCountriesVB.getControl(), 0 + myCountriesVB.getFirstTableColumnOffset(), 0);
 			yield();
 
 			assertEquals(2, myShop.getCountries().size());
 			hs.executeCommand(deleteCommand, null);
 			assertEquals(1, myShop.getCountries().size());
 			assertTrue(myShop.getCountries().contains(myCountry2));
+		} catch (final Exception ex) {
+			fail(ex.getMessage());
+		}
+	}
+
+	/**
+	 * Checks that the country cannot be deleted as there are a reference from a contact.
+	 */
+	@Test
+	public void testFunctionFail() {
+		try {
+			final ICommandService cs = (ICommandService) myView.getSite().getService(ICommandService.class);
+			final IHandlerService hs = (IHandlerService) myView.getSite().getService(IHandlerService.class);
+
+			final ParameterizedCommand deleteCommand = cs.deserialize(ActionFactory.DELETE.getCommandId());
+
+			// myTableViewer1.getTable().setFocus();
+			postMouse((Table) myCountriesVB.getControl(), 0 + myCountriesVB.getFirstTableColumnOffset(), 1);
+			yield();
+
+			assertEquals(2, myShop.getCountries().size());
+			hs.executeCommand(deleteCommand, null);
+			assertEquals(2, myShop.getCountries().size());
 		} catch (final Exception ex) {
 			fail(ex.getMessage());
 		}

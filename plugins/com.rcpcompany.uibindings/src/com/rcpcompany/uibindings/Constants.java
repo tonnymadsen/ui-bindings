@@ -19,6 +19,8 @@ import org.eclipse.ui.ISources;
 
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.decorators.NumberBindingDecorator;
+import com.rcpcompany.uibindings.internal.propertyTesters.EObjectPropertyTester;
+import com.rcpcompany.uibindings.internal.propertyTesters.IViewerBindingPropertyTester;
 import com.rcpcompany.uibindings.internal.propertyTesters.ManagerPropertyTester;
 import com.rcpcompany.uibindings.units.IUnitBindingSupport;
 
@@ -324,20 +326,6 @@ public interface Constants {
 	String ARG_DOUBLE_CLICK_COMMAND = "doubleClickCommand"; //$NON-NLS-1$
 
 	/**
-	 * Argument name for a functor object that can create a new object in a viewer.
-	 * <p>
-	 * The argument value is an
-	 */
-	String ARG_ITEM_CREATOR = "itemCreator"; //$NON-NLS-1$
-
-	/**
-	 * Argument name for a functor object that can delete an exiting object in a viewer.
-	 * <p>
-	 * The argument value is an {@link IViewerItemDeletor}.
-	 */
-	String ARG_ITEM_DELETOR = "itemDeletor"; //$NON-NLS-1$
-
-	/**
 	 * Argument name for the text commit strategy.
 	 * <p>
 	 * The argument value is one of {@link TextCommitStrategy}.
@@ -413,6 +401,16 @@ public interface Constants {
 			ARG_PREFERRED_CELL_EDITOR_FACTORY, ARG_PREFERRED_CONTROL, ARG_PREFERRED_CONTROL_FACTORY, ARG_RANGE,
 			ARG_READONLY, ARG_REQUIRED, ARG_TEXT, ARG_TEXT_COMMIT_STRATEGY, ARG_TOOL_TIP_TEXT, ARG_TYPE, ARG_UNIT,
 			ARG_VALUE_OBJECT_MESSAGES, ARG_WIDTH };
+
+	/**
+	 * Property name used in {@link EObjectPropertyTester}.
+	 */
+	String PROPERTY_CAN_DELETE = "canDelete"; //$NON-NLS-1$
+
+	/**
+	 * Property name used in {@link IViewerBindingPropertyTester}.
+	 */
+	String PROPERTY_CAN_DELETE_SELECTED_OBJECTS = "canDeleteSelectedObjects"; //$NON-NLS-1$
 
 	/**
 	 * Property name used in {@link ManagerPropertyTester}.
@@ -569,11 +567,6 @@ public interface Constants {
 	 * Source provider name for the property that the active row element can be moved down.
 	 */
 	String SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_DOWN = SOURCES_ACTIVE_VIEWER_ELEMENT + "#moveDown"; //$NON-NLS-1$
-
-	/**
-	 * Source provider name for the property that the active row element can be deleted.
-	 */
-	String SOURCES_ACTIVE_VIEWER_ELEMENT_DELETE = SOURCES_ACTIVE_VIEWER_ELEMENT + "#delete"; //$NON-NLS-1$
 
 	/**
 	 * Source provider name for whether undo is possible.

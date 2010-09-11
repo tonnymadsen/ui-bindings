@@ -85,7 +85,6 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 
 			Constants.SOURCES_ACTIVE_VIEWER_ELEMENT, Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_TYPE,
 			Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_UP, Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_DOWN,
-			Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_DELETE,
 
 	};
 
@@ -228,7 +227,14 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 				myOldState.put(s, n);
 			}
 		}
-		if (newState.size() != 0) {
+
+		if (!newState.isEmpty()) {
+			/*
+			 * Reset the property testers as well, when any of values changes
+			 */
+			newState.put(Constants.PREFIX + Constants.PROPERTY_CAN_DELETE, true);
+			newState.put(Constants.PREFIX + Constants.PROPERTY_CAN_DELETE_SELECTED_OBJECTS, true);
+
 			if (Activator.getDefault().TRACE_SOURCE_PROVIDER) {
 				final StringBuilder sb = new StringBuilder("Binding sources change:");
 				for (final Map.Entry<String, Object> i : newState.entrySet()) {
@@ -394,7 +400,6 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 		map.put(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_TYPE, IEvaluationContext.UNDEFINED_VARIABLE);
 		map.put(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_UP, false);
 		map.put(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_DOWN, false);
-		map.put(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_DELETE, false);
 
 		map.put(Constants.SOURCES_ACTIVE_BINDING, IEvaluationContext.UNDEFINED_VARIABLE);
 		map.put(Constants.SOURCES_ACTIVE_BINDING_TYPE, IEvaluationContext.UNDEFINED_VARIABLE);

@@ -21,7 +21,7 @@
 <booleanAttribute key="includeOptional" value="false"/>
 <stringAttribute key="location" value="${workspace_loc}/../junit-workspace"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/com.rcpcompany.uibindings.tests/src/com/rcpcompany/uibindings/extests/AllBindingTests.java"/>
+<listEntry value="/com.rcpcompany.uibindings.tests/src/com/rcpcompany/uibindings/extests/viewerBindings/ViewerTableDeleteElementTest.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
@@ -31,7 +31,7 @@
 <stringAttribute key="org.eclipse.jdt.junit.TESTNAME" value=""/>
 <stringAttribute key="org.eclipse.jdt.junit.TEST_KIND" value="org.eclipse.jdt.junit.loader.junit4"/>
 <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.rcpcompany.uibindings.extests.AllBindingTests"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.rcpcompany.uibindings.extests.viewerBindings.ViewerTableDeleteElementTest"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -console -consoleLog -clean"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="com.rcpcompany.uibindings.tests"/>
 <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.pde.ui.workbenchClasspathProvider"/>
@@ -39,8 +39,8 @@
 <stringAttribute key="product" value="org.eclipse.sdk.ide"/>
 <booleanAttribute key="run_in_ui_thread" value="true"/>
 <stringAttribute key="selectedPlugin" value="com.rcpcompany.uibindings"/>
-<stringAttribute key="selected_target_plugins" value="org.eclipse.swt@default:default,org.eclipse.core.expressions@default:default,org.eclipse.equinox.preferences@default:default,org.hamcrest.core@default:default,org.eclipse.emf.databinding.edit@default:default,org.eclipse.core.databinding@default:default,org.eclipse.core.databinding.property@default:default,org.eclipse.emf.databinding@default:default,org.eclipse.emf.ecore@default:default,org.eclipse.ui@default:default,org.eclipse.core.filesystem@default:default,org.eclipse.core.filesystem.win32.x86@default:false,org.eclipse.core.databinding.observable@default:default,org.eclipse.equinox.app@default:default,org.eclipse.ui.forms@default:default,org.eclipse.emf.ecore.xmi@default:default,org.eclipse.core.resources.win32.x86@default:false,com.ibm.icu@default:default,org.eclipse.core.commands@default:default,org.eclipse.help@default:default,org.eclipse.jface@default:default,org.eclipse.core.resources@default:default,org.eclipse.core.runtime@default:true,org.eclipse.equinox.servletbridge.extensionbundle@default:false,org.eclipse.core.runtime.compatibility.registry@default:false,org.junit4@default:default,org.eclipse.equinox.common@2:true,org.eclipse.team.core@default:default,org.eclipse.jface.databinding@default:default,org.eclipse.core.jobs@default:default,org.eclipse.emf.edit@default:default,org.eclipse.swt.win32.win32.x86@default:false,org.eclipse.core.contenttype@default:default,org.eclipse.equinox.transforms.hook@default:false,org.eclipse.emf.common@default:default,org.junit*4.8.1.v4_8_1_v20100427-1100@default:default,org.eclipse.ui.workbench@default:default,org.eclipse.equinox.registry@default:default,org.eclipse.osgi@-1:true"/>
-<stringAttribute key="selected_workspace_plugins" value="com.rcpcompany.uibindings@default:default,com.rcpcompany.uibindings.moao@default:default,com.rcpcompany.uibindings.fragments.ecore@default:false,com.rcpcompany.uibindings.moao.ui@default:default,com.rcpcompany.uibindings.financial.nl1@default:false,com.rcpcompany.uibindings.tests.application@default:default,com.rcpcompany.uibindings.tests.grid@default:false,com.rcpcompany.uibindings.fragments.jface@default:false,com.rcpcompany.utils.databinding.nl1@default:false,com.rcpcompany.utils.databinding@default:default,com.rcpcompany.utils.basic.nl1@default:false,org.eclipse.nebula.widgets.grid@default:default,com.rcpcompany.utils.selection@default:default,com.rcpcompany.uibindings.grid.nl1@default:false,com.rcpcompany.uibindings.financial@default:default,com.rcpcompany.utils.logging@default:default,org.eclipse.nebula.widgets.radiogroup@default:default,com.rcpcompany.uibindings.std@default:false,com.rcpcompany.uibindings.tests@default:false,com.rcpcompany.uibindings.nl1@default:false,com.rcpcompany.uibindings.grid@default:default,com.rcpcompany.utils.extensionpoints@default:default,com.rcpcompany.utils.basic@default:default,com.rcpcompany.uibindings.tests.model@default:default"/>
+<stringAttribute key="selected_target_plugins" value="org.eclipse.core.commands@default:default,org.eclipse.core.runtime@default:true,org.eclipse.equinox.common@2:true,org.eclipse.core.filesystem@default:default,org.eclipse.core.contenttype@default:default,org.eclipse.emf.ecore@default:default,org.eclipse.emf.databinding@default:default,org.eclipse.core.resources.win32.x86@default:false,com.ibm.icu@default:default,org.eclipse.core.resources@default:default,org.eclipse.equinox.registry@default:default,org.junit4@default:default,org.eclipse.core.filesystem.win32.x86@default:false,org.eclipse.emf.databinding.edit@default:default,org.eclipse.core.expressions@default:default,org.eclipse.core.jobs@default:default,org.eclipse.ui@default:default,org.eclipse.core.databinding@default:default,org.eclipse.ui.workbench@default:default,org.eclipse.emf.edit@default:default,org.eclipse.equinox.app@default:default,org.eclipse.core.databinding.observable@default:default,org.eclipse.emf.common@default:default,org.junit*4.8.1.v4_8_1_v20100427-1100@default:default,org.eclipse.swt.win32.win32.x86@default:false,org.hamcrest.core@default:default,org.eclipse.core.databinding.property@default:default,org.eclipse.equinox.preferences@default:default,org.eclipse.osgi@-1:true,org.eclipse.core.runtime.compatibility.registry@default:false,org.eclipse.jface@default:default,org.eclipse.swt@default:default,org.eclipse.ui.forms@default:default,org.eclipse.help@default:default,org.eclipse.emf.ecore.xmi@default:default,org.eclipse.jface.databinding@default:default,org.eclipse.team.core@default:default"/>
+<stringAttribute key="selected_workspace_plugins" value="com.rcpcompany.uibindings.grid@default:default,com.rcpcompany.uibindings.tests@default:false,com.rcpcompany.utils.databinding.nl1@default:false,com.rcpcompany.utils.selection@default:default,com.rcpcompany.uibindings.tests.application@default:default,com.rcpcompany.uibindings.tests.grid@default:false,com.rcpcompany.uibindings.moao@default:default,com.rcpcompany.utils.basic@default:default,com.rcpcompany.uibindings.std@default:false,com.rcpcompany.uibindings@default:default,com.rcpcompany.uibindings.fragments.jface@default:false,com.rcpcompany.utils.extensionpoints@default:default,org.eclipse.nebula.widgets.grid@default:default,com.rcpcompany.uibindings.tests.model@default:default,com.rcpcompany.uibindings.moao.ui@default:default,com.rcpcompany.utils.basic.nl1@default:false,com.rcpcompany.uibindings.model.utils@default:default,com.rcpcompany.uibindings.fragments.ecore@default:false,com.rcpcompany.utils.logging@default:default,com.rcpcompany.utils.databinding@default:default,org.eclipse.nebula.widgets.radiogroup@default:default,com.rcpcompany.uibindings.financial@default:default"/>
 <booleanAttribute key="show_selected_only" value="false"/>
 <stringAttribute key="testApplication" value="com.rcpcompany.uibindings.tests.application.testApplication"/>
 <booleanAttribute key="tracing" value="true"/>
@@ -60,7 +60,7 @@
 <mapEntry key="com.rcpcompany.uibindings/trace/Contexts" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/ControlDecorations" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/ControlDecorations/Verbose" value="false"/>
-<mapEntry key="com.rcpcompany.uibindings/trace/Decorators" value="true"/>
+<mapEntry key="com.rcpcompany.uibindings/trace/Decorators" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/Events/CellEditorActivation" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/Events/LabelProviders" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/Events/SWT" value="false"/>
@@ -77,20 +77,14 @@
 <mapEntry key="com.rcpcompany.uibindings/trace/OpenCommand" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/Quickfixes" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/Sorting" value="false"/>
-<mapEntry key="com.rcpcompany.uibindings/trace/SourceProvider" value="false"/>
-<mapEntry key="com.rcpcompany.uibindings/trace/SourceProvider/Verbose" value="false"/>
+<mapEntry key="com.rcpcompany.uibindings/trace/SourceProvider" value="true"/>
+<mapEntry key="com.rcpcompany.uibindings/trace/SourceProvider/Verbose" value="true"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/Tree" value="false"/>
 <mapEntry key="com.rcpcompany.uibindings/trace/ValidationResults" value="false"/>
-<mapEntry key="edu.umd.cs.findbugs.plugin.eclipse/debug" value="false"/>
-<mapEntry key="edu.umd.cs.findbugs.plugin.eclipse/debug/builder" value="false"/>
-<mapEntry key="edu.umd.cs.findbugs.plugin.eclipse/debug/content" value="false"/>
-<mapEntry key="edu.umd.cs.findbugs.plugin.eclipse/debug/marker" value="false"/>
-<mapEntry key="edu.umd.cs.findbugs.plugin.eclipse/debug/nature" value="false"/>
-<mapEntry key="edu.umd.cs.findbugs.plugin.eclipse/debug/profiler" value="false"/>
-<mapEntry key="edu.umd.cs.findbugs.plugin.eclipse/debug/properties" value="false"/>
-<mapEntry key="edu.umd.cs.findbugs.plugin.eclipse/debug/reporter" value="false"/>
-<mapEntry key="edu.umd.cs.findbugs.plugin.eclipse/debug/util" value="false"/>
-<mapEntry key="edu.umd.cs.findbugs.plugin.eclipse/debug/visitor" value="false"/>
+<mapEntry key="org.antlr.eclipse.core/builder/debug" value="true"/>
+<mapEntry key="org.antlr.eclipse.core/debug" value="false"/>
+<mapEntry key="org.antlr.eclipse.core/nature/debug" value="true"/>
+<mapEntry key="org.antlr.eclipse.core/tool/debug" value="true"/>
 <mapEntry key="org.eclipse.birt.chart.device.extension/debug" value="false"/>
 <mapEntry key="org.eclipse.birt.chart.device.extension/extension.i18n" value="false"/>
 <mapEntry key="org.eclipse.birt.chart.device.extension/image" value="false"/>
@@ -149,28 +143,6 @@
 <mapEntry key="org.eclipse.birt.chart.engine/trace" value="false"/>
 <mapEntry key="org.eclipse.birt.chart.engine/util" value="false"/>
 <mapEntry key="org.eclipse.birt.core/debug" value="false"/>
-<mapEntry key="org.eclipse.cdt.core/debug" value="false"/>
-<mapEntry key="org.eclipse.cdt.core/debug/ASTCache" value="false"/>
-<mapEntry key="org.eclipse.cdt.core/debug/deltaprocessor" value="false"/>
-<mapEntry key="org.eclipse.cdt.core/debug/formatter" value="false"/>
-<mapEntry key="org.eclipse.cdt.core/debug/index/locks" value="false"/>
-<mapEntry key="org.eclipse.cdt.core/debug/indexer/activity" value="false"/>
-<mapEntry key="org.eclipse.cdt.core/debug/indexer/problems" value="false"/>
-<mapEntry key="org.eclipse.cdt.core/debug/indexer/problems/inclusion" value="false"/>
-<mapEntry key="org.eclipse.cdt.core/debug/indexer/problems/scanner" value="false"/>
-<mapEntry key="org.eclipse.cdt.core/debug/indexer/problems/syntax" value="false"/>
-<mapEntry key="org.eclipse.cdt.core/debug/indexer/statistics" value="false"/>
-<mapEntry key="org.eclipse.cdt.core/debug/matchlocator" value="false"/>
-<mapEntry key="org.eclipse.cdt.core/debug/model" value="false"/>
-<mapEntry key="org.eclipse.cdt.core/debug/parser" value="false"/>
-<mapEntry key="org.eclipse.cdt.core/debug/parser/exceptions" value="false"/>
-<mapEntry key="org.eclipse.cdt.core/debug/scanner" value="false"/>
-<mapEntry key="org.eclipse.cdt.core/debug/search" value="false"/>
-<mapEntry key="org.eclipse.cdt.core/debug/typeresolver" value="false"/>
-<mapEntry key="org.eclipse.cdt.ui/debug" value="false"/>
-<mapEntry key="org.eclipse.cdt.ui/debug/SemanticHighlighting" value="false"/>
-<mapEntry key="org.eclipse.cdt.ui/debug/contentassist" value="false"/>
-<mapEntry key="org.eclipse.cdt.ui/debug/folding" value="false"/>
 <mapEntry key="org.eclipse.core.contenttype/debug" value="false"/>
 <mapEntry key="org.eclipse.core.expressions/debug/TypeExtensionManager" value="true"/>
 <mapEntry key="org.eclipse.core.expressions/tracePropertyResolving" value="true"/>
@@ -237,22 +209,6 @@
 <mapEntry key="org.eclipse.debug.ui/debug/viewers/stateSaveRestore" value="false"/>
 <mapEntry key="org.eclipse.debug.ui/debug/viewers/updateSequence" value="false"/>
 <mapEntry key="org.eclipse.debug.ui/debug/viewers/viewer" value="false"/>
-<mapEntry key="org.eclipse.dltk.core/debug" value="false"/>
-<mapEntry key="org.eclipse.dltk.core/debugCompletion" value="false"/>
-<mapEntry key="org.eclipse.dltk.core/debugIndex" value="false"/>
-<mapEntry key="org.eclipse.dltk.core/debugParser" value="false"/>
-<mapEntry key="org.eclipse.dltk.core/debugPrintModel" value="false"/>
-<mapEntry key="org.eclipse.dltk.core/debugScopes" value="false"/>
-<mapEntry key="org.eclipse.dltk.core/debugScriptBuilder" value="false"/>
-<mapEntry key="org.eclipse.dltk.core/debugSelection" value="false"/>
-<mapEntry key="org.eclipse.dltk.core/show_reindex" value="false"/>
-<mapEntry key="org.eclipse.dltk.core/traceAST/dltk" value="false"/>
-<mapEntry key="org.eclipse.dltk.core/traceAST/jruby" value="false"/>
-<mapEntry key="org.eclipse.dltk.core/traceScriptBuilder" value="false"/>
-<mapEntry key="org.eclipse.dltk.core/typeInferencing/showStatistics" value="false"/>
-<mapEntry key="org.eclipse.dltk.core/typeInferencing/traceGoals" value="false"/>
-<mapEntry key="org.eclipse.dltk.core/typeInferencing/traceTimeLimit" value="false"/>
-<mapEntry key="org.eclipse.dltk.ruby.core/dumpErrorsToConsole" value="false"/>
 <mapEntry key="org.eclipse.emf.mint/debug" value="false"/>
 <mapEntry key="org.eclipse.emf.mint/debug/MemberAnnotationManager" value="false"/>
 <mapEntry key="org.eclipse.emf.mint/debug/MemberAnnotationManager/CacheCleaner" value="false"/>
@@ -508,10 +464,7 @@
 <mapEntry key="org.eclipse.jface.text/debug/FastPartitioner/PositionCache" value="false"/>
 <mapEntry key="org.eclipse.ltk.core.refactoring/perf/participants/checkConditions" value="300"/>
 <mapEntry key="org.eclipse.ltk.core.refactoring/perf/participants/createChanges" value="300"/>
-<mapEntry key="org.eclipse.m2m.qvt.oml.ocl/loglevel" value="Severe"/>
 <mapEntry key="org.eclipse.mat.report/debug" value="false"/>
-<mapEntry key="org.eclipse.ocl.examples.xtext.base/lookup" value="false"/>
-<mapEntry key="org.eclipse.ocl.examples.xtext.base/work" value="false"/>
 <mapEntry key="org.eclipse.ocl/debug" value="true"/>
 <mapEntry key="org.eclipse.ocl/debug/evaluation" value="false"/>
 <mapEntry key="org.eclipse.ocl/debug/exceptions/catching" value="false"/>
@@ -575,8 +528,6 @@
 <mapEntry key="org.eclipse.team.cvs.core/metafiles" value="false"/>
 <mapEntry key="org.eclipse.team.cvs.core/syncchangeevents" value="false"/>
 <mapEntry key="org.eclipse.team.cvs.core/threading" value="false"/>
-<mapEntry key="org.eclipse.team.cvs.ssh/debug" value="false"/>
-<mapEntry key="org.eclipse.team.cvs.ssh/ssh_protocol" value="false"/>
 <mapEntry key="org.eclipse.ui.browser/debug" value="false"/>
 <mapEntry key="org.eclipse.ui.ide/debug" value="false"/>
 <mapEntry key="org.eclipse.ui.ide/debug/gc" value="false"/>
@@ -672,33 +623,12 @@
 <mapEntry key="org.eclipse.wst.common.project.facet.core/delegate/calls" value="false"/>
 <mapEntry key="org.eclipse.wst.common.project.facet.core/events/project" value="false"/>
 <mapEntry key="org.eclipse.wst.common.project.facet.core/events/project/stacktrace" value="false"/>
-<mapEntry key="org.eclipse.wst.common.project.facet.ui/propPage/actionConfigValidation" value="false"/>
-<mapEntry key="org.eclipse.wst.css.core/debug" value="true"/>
-<mapEntry key="org.eclipse.wst.css.core/debug/tracefilter" value=""/>
-<mapEntry key="org.eclipse.wst.css.ui/projectionperf" value="false"/>
 <mapEntry key="org.eclipse.wst.dtd.ui/projectionperf" value="false"/>
-<mapEntry key="org.eclipse.wst.html.core/debug" value="true"/>
-<mapEntry key="org.eclipse.wst.html.core/debug/tracefilter" value=""/>
-<mapEntry key="org.eclipse.wst.internet.monitor.core/debug" value="true"/>
-<mapEntry key="org.eclipse.wst.internet.monitor.core/parsing" value="false"/>
-<mapEntry key="org.eclipse.wst.jsdt.web.core/debug" value="true"/>
-<mapEntry key="org.eclipse.wst.jsdt.web.core/debug/jsindexmanager" value="false"/>
-<mapEntry key="org.eclipse.wst.jsdt.web.core/debug/jsjavamapping" value="false"/>
-<mapEntry key="org.eclipse.wst.jsdt.web.core/debug/jssearch" value="false"/>
-<mapEntry key="org.eclipse.wst.jsdt.web.core/debug/jstranslation" value="false"/>
-<mapEntry key="org.eclipse.wst.jsdt.web.core/debug/jstranslationstodisk" value="false"/>
-<mapEntry key="org.eclipse.wst.jsdt.web.core/debug/jsvalidator" value="false"/>
-<mapEntry key="org.eclipse.wst.jsdt.web.core/debug/tracefilter" value=""/>
-<mapEntry key="org.eclipse.wst.jsdt.web.core/taglib/resolve" value="false"/>
 <mapEntry key="org.eclipse.wst.server.core/debug" value="true"/>
 <mapEntry key="org.eclipse.wst.server.core/extension_point" value="false"/>
 <mapEntry key="org.eclipse.wst.server.core/listeners" value="false"/>
 <mapEntry key="org.eclipse.wst.server.core/performance" value="false"/>
 <mapEntry key="org.eclipse.wst.server.core/resources" value="false"/>
-<mapEntry key="org.eclipse.wst.server.discovery/debug" value="true"/>
-<mapEntry key="org.eclipse.wst.server.ui/debug" value="true"/>
-<mapEntry key="org.eclipse.wst.server.ui/extension_point" value="false"/>
-<mapEntry key="org.eclipse.wst.server.ui/performance" value="false"/>
 <mapEntry key="org.eclipse.wst.sse.core/debug" value="true"/>
 <mapEntry key="org.eclipse.wst.sse.core/dom/adapter/notification/time" value="false"/>
 <mapEntry key="org.eclipse.wst.sse.core/dom/adapter/notification/time/criteria" value="10"/>
@@ -764,7 +694,6 @@
 <mapEntry key="org.eclipse.wtp.common/debug/loglevel" value="WARNING"/>
 <mapEntry key="org.eclipse.wtp.common/debug/logtrace" value="false"/>
 <mapEntry key="org.eclipse.wtp.common/debug/logtracefile" value="false"/>
-<mapEntry key="org.eclipse.xtend.emftools/trace" value="false"/>
 </mapAttribute>
 <booleanAttribute key="useCustomFeatures" value="false"/>
 <booleanAttribute key="useDefaultConfig" value="true"/>

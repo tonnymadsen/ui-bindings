@@ -52,8 +52,6 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IObservableListFactory;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
-import com.rcpcompany.uibindings.IViewerItemCreator;
-import com.rcpcompany.uibindings.IViewerItemDeletor;
 import com.rcpcompany.uibindings.internal.bindingDataTypes.BindingDataTypeFactory;
 import com.rcpcompany.uibindings.units.IUnitBindingSupport;
 import com.rcpcompany.utils.basic.ToStringUtils;
@@ -872,20 +870,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 			try {
 				final ICellEditorFactory factory = (ICellEditorFactory) ce.createExecutableExtension(attributeName);
 				return (ArgumentType) factory;
-			} catch (final CoreException ex) {
-				LogUtils.error(this, ex);
-			}
-		} else if (argumentType == IViewerItemCreator.class) {
-			try {
-				final IViewerItemCreator creator = (IViewerItemCreator) ce.createExecutableExtension(attributeName);
-				return (ArgumentType) creator;
-			} catch (final CoreException ex) {
-				LogUtils.error(this, ex);
-			}
-		} else if (argumentType == IViewerItemDeletor.class) {
-			try {
-				final IViewerItemDeletor deletor = (IViewerItemDeletor) ce.createExecutableExtension(attributeName);
-				return (ArgumentType) deletor;
 			} catch (final CoreException ex) {
 				LogUtils.error(this, ex);
 			}

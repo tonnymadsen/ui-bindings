@@ -1196,15 +1196,20 @@
             class="com.rcpcompany.uibindings.internal.handlers.DeleteHandler"
             commandId="org.eclipse.ui.edit.delete">
          <activeWhen>
-            <and>
-               <with
-                     variable="com.rcpcompany.uibindings.sourceProviders.activeViewerElement#delete">
-                  <equals
-                        value="true">
-                  </equals>
-               </with>
-            </and>
+            <with
+                  variable="com.rcpcompany.uibindings.sourceProviders.activeContainerBinding">
+               <instanceof
+                     value="com.rcpcompany.uibindings.IViewerBinding">
+               </instanceof>
+            </with>
          </activeWhen>
+         <enabledWhen>
+            <with
+                  variable="com.rcpcompany.uibindings.sourceProviders.activeContainerBinding">
+               <test
+                     property="com.rcpcompany.uibindings.canDeleteSelectedObjects">
+               </test>
+            </with></enabledWhen>
       </handler>
       <handler
             class="com.rcpcompany.uibindings.internal.handlers.UseDefaultValueHandler"
@@ -1378,10 +1383,6 @@
                name="com.rcpcompany.uibindings.sourceProviders.activeViewerElement#moveDown"
                priorityLevel="activeSite">
          </variable>
-         <variable
-               name="com.rcpcompany.uibindings.sourceProviders.activeViewerElement#delete"
-               priorityLevel="activeSite">
-         </variable>
          
       </sourceProvider>
       <sourceProvider
@@ -1418,6 +1419,20 @@
             namespace="com.rcpcompany.uibindings"
             properties="canUndo,canRedo"
             type="com.rcpcompany.uibindings.IManager">
+      </propertyTester>
+      <propertyTester
+            class="com.rcpcompany.uibindings.internal.propertyTesters.EObjectPropertyTester"
+            id="com.rcpcompany.uibindings.internal.propertyTesters.EObjectPropertyTester"
+            namespace="com.rcpcompany.uibindings"
+            properties="canDelete"
+            type="org.eclipse.emf.ecore.EObject">
+      </propertyTester>
+      <propertyTester
+            class="com.rcpcompany.uibindings.internal.propertyTesters.IViewerBindingPropertyTester"
+            id="com.rcpcompany.uibindings.internal.propertyTesters.IViewerBindingPropertyTester"
+            namespace="com.rcpcompany.uibindings"
+            properties="canDeleteSelectedObjects"
+            type="com.rcpcompany.uibindings.IViewerBinding">
       </propertyTester>
    </extension>
    <extension
