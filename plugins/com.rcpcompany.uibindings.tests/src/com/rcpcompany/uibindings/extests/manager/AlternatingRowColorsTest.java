@@ -77,8 +77,10 @@ public class AlternatingRowColorsTest {
 
 	@Before
 	public void before() {
+		resetAll();
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 		IManager.Factory.getManager().setAlternateRowColors(myEnable);
+
 		createShop();
 		createView();
 		bindUI();

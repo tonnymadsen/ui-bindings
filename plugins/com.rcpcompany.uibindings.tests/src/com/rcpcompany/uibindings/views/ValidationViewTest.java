@@ -29,7 +29,7 @@ public class ValidationViewTest {
 
 	@Before
 	public void before() {
-
+		resetAll();
 	}
 
 	/**

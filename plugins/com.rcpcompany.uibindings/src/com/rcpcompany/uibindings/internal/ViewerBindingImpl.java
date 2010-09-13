@@ -323,6 +323,7 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 			myValidationLabelDecorator.setPropagationAdapter(new ValidationLabelDecorator.IPropagationAdapter() {
 				@Override
 				public Object getParent(Object object) {
+					if (isDisposed()) return null;
 					return contentProvider.getParent(object);
 				}
 			});
@@ -1113,11 +1114,11 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	public void updateSourceProviderState(ISourceProviderStateContext context) {
 		final ColumnViewer viewer = getViewer();
 
-		context.setSourceValue(Constants.SOURCES_ACTIVE_CONTAINER_BINDING, this);
-		context.setSourceValue(Constants.SOURCES_ACTIVE_CONTAINER_BINDING_NO_CAF,
+		context.putSourceValue(Constants.SOURCES_ACTIVE_CONTAINER_BINDING, this);
+		context.putSourceValue(Constants.SOURCES_ACTIVE_CONTAINER_BINDING_NO_CAF,
 				(viewer.getComparator() == null && viewer.getFilters().length == 0));
 
-		context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_TYPE, getModelType());
+		context.putSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_TYPE, getModelType());
 
 		ViewerCell cell;
 		/*
@@ -1136,10 +1137,10 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 		if (cell != null) {
 			final EObject element = (EObject) cell.getElement();
 			if (element != null) {
-				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT, element);
-				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_UP,
+				context.putSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT, element);
+				context.putSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_UP,
 						UIHandlerUtils.moveElement(this, element, -1, true));
-				context.setSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_DOWN,
+				context.putSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_DOWN,
 						UIHandlerUtils.moveElement(this, element, 1, true));
 			}
 
@@ -1150,20 +1151,21 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 				final Object value = objectValue.getValue();
 
 				final IValueBinding labelBinding = ci.getLabelBinding();
-				context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING, labelBinding);
-				context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_RO, !ci.isChangeable());
-				context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_VALUE, value);
-				context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_TYPE, ""); //$NON-NLS-1$
+				context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING, labelBinding);
+				context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_RO, !ci.isChangeable());
+				context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_VALUE, value);
+				context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_TYPE, ""); //$NON-NLS-1$
 				if (labelBinding != null) {
-					context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_MODEL_OBJECT, labelBinding.getModelObject());
-					context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_FEATURE, labelBinding.getModelFeature());
-					context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_UNSETTABLE, labelBinding.getDataType()
+					context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_MODEL_OBJECT, labelBinding.getModelObject());
+					context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_FEATURE, labelBinding.getModelFeature());
+					context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_UNSETTABLE, labelBinding.getDataType()
 							.isUnsettable());
 				}
-				context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_VALUE_DISPLAY, ci.getDisplayText());
+				context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_VALUE_DISPLAY, ci.getDisplayText());
 
 				context.addObservedValue(ci.getLabelUIAttribute().getCurrentValue());
 			}
+			context.setSelectionProvider(getViewer());
 		}
 	}
 } // ViewerBindingImpl

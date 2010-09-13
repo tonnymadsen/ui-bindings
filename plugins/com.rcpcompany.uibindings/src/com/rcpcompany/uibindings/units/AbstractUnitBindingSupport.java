@@ -3,9 +3,6 @@ package com.rcpcompany.uibindings.units;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.core.runtime.ISafeRunnable;
-import org.eclipse.core.runtime.SafeRunner;
-
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -26,17 +23,12 @@ public abstract class AbstractUnitBindingSupport implements IUnitBindingSupport 
 	public void fireUnitsChanged() {
 		if (myListeners == null) return;
 		for (final IUnitBindingSupportListener l : myListeners) {
-			SafeRunner.run(new ISafeRunnable() {
-				@Override
-				public void run() throws Exception {
-					l.unitsChanged();
-				}
 
-				@Override
-				public void handleException(Throwable ex) {
-					LogUtils.error(l, ex);
-				}
-			});
+			try {
+				l.unitsChanged();
+			} catch (final Exception ex) {
+				LogUtils.error(l, ex);
+			}
 		}
 	}
 

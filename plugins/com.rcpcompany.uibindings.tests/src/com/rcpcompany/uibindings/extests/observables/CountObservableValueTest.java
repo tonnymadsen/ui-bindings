@@ -1,5 +1,6 @@
 package com.rcpcompany.uibindings.extests.observables;
 
+import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.core.databinding.observable.list.IObservableList;
@@ -25,6 +26,7 @@ public class CountObservableValueTest {
 
 	@Before
 	public void before() {
+		resetAll();
 		myShop = ShopFactory.eINSTANCE.createShop();
 	}
 

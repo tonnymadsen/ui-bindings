@@ -27,6 +27,7 @@ public class SpyDialogTest {
 
 	@Before
 	public void before() {
+		resetAll();
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 
 		createModel();

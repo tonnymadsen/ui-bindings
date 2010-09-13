@@ -26,6 +26,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.jface.viewers.ColumnViewerEditorActivationEvent;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.nebula.widgets.grid.Grid;
 import org.eclipse.nebula.widgets.grid.GridColumn;
 import org.eclipse.nebula.widgets.grid.GridItem;
@@ -266,6 +269,54 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 		}
 	};
 
+	private final MySelectionProvider mySelectionProvider = new MySelectionProvider();
+
+	/**
+	 * Dummy {@link ISelectionProvider} for use in
+	 * {@link GridBindingImpl#updateSourceProviderState(ISourceProviderStateContext)}.
+	 * <p>
+	 * Can handle exactly one listener.
+	 */
+	private class MySelectionProvider implements ISelectionProvider {
+		private ISelectionChangedListener myListener = null;
+
+		@Override
+		public void addSelectionChangedListener(ISelectionChangedListener listener) {
+			if (myListener != null) {
+				LogUtils.error(listener, "Multiple listeners added!");
+			}
+			myListener = listener;
+		}
+
+		@Override
+		public void removeSelectionChangedListener(ISelectionChangedListener listener) {
+			if (myListener != listener) {
+				LogUtils.error(listener, "Wrong listener removed!");
+				return;
+			}
+			myListener = null;
+		}
+
+		public void fireSelectionChange() {
+			if (myListener != null) {
+				try {
+					myListener.selectionChanged(null);
+				} catch (final Exception ex) {
+					LogUtils.error(myListener, ex);
+				}
+			}
+		}
+
+		@Override
+		public ISelection getSelection() {
+			return null;
+		}
+
+		@Override
+		public void setSelection(ISelection selection) {
+		}
+	}
+
 	/**
 	 * Updates the focus cell based on the current focus cell of the grid itself.
 	 */
@@ -277,10 +328,12 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 		final IGridBindingCellInformation cell = getCell(p.x, p.y);
 		if (cell == null) return;
 		setFocusCell(cell);
+
+		mySelectionProvider.fireSelectionChange();
 	}
 
 	/**
-	 * Adds a new column at the specified index
+	 * Adds a new column at the specified index.
 	 * 
 	 * @param columnID the ID of the new column
 	 * @param index the index of the new column
@@ -312,7 +365,7 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	}
 
 	/**
-	 * Adds a new row at the specified index
+	 * Adds a new row at the specified index.
 	 * 
 	 * @param rowID the ID of the new row
 	 * @param index the index of the new row
@@ -1108,11 +1161,14 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 
 	@Override
 	public void updateSourceProviderState(ISourceProviderStateContext context) {
-		context.setSourceValue(Constants.SOURCES_ACTIVE_CONTAINER_BINDING, this);
+		context.putSourceValue(Constants.SOURCES_ACTIVE_CONTAINER_BINDING, this);
 		// state.put(Constants.ACTIVE_VIEWER_BINDING_NO_CAF, (viewer.getComparator() == null &&
 		// viewer.getFilters().length == 0));
 
 		// state.put(Constants.ACTIVE_VIEWER_ELEMENT_TYPE, getModelType());
+
+		// TODO: find an ISelectionProvider
+		context.setSelectionProvider(null);
 
 		IGridBindingCellInformation currentCell;
 		/*
@@ -1130,18 +1186,18 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 			final IValueBinding labelBinding = currentCell.getLabelBinding();
 
 			if (labelBinding != null) {
-				context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING, labelBinding);
-				context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_TYPE, labelBinding.getType());
-				context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_MODEL_OBJECT, dataType.getDataType());
-				context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_FEATURE, labelBinding.getModelFeature());
+				context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING, labelBinding);
+				context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_TYPE, labelBinding.getType());
+				context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_MODEL_OBJECT, dataType.getDataType());
+				context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_FEATURE, labelBinding.getModelFeature());
 			}
-			context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_RO, !currentCell.isChangeable());
+			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_RO, !currentCell.isChangeable());
 			if (dataType != null) {
-				context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_UNSETTABLE, dataType.isUnsettable());
-				context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_MODEL_OBJECT, dataType.getDataType());
+				context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_UNSETTABLE, dataType.isUnsettable());
+				context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_MODEL_OBJECT, dataType.getDataType());
 			}
-			context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_VALUE, value);
-			context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_VALUE_DISPLAY, currentCell.getDisplayText());
+			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_VALUE, value);
+			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_VALUE_DISPLAY, currentCell.getDisplayText());
 
 			context.addObservedValue(currentCell.getLabelUIAttribute().getCurrentValue());
 		}

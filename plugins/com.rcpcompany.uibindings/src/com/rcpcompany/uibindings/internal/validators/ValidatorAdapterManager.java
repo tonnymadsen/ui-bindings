@@ -16,8 +16,6 @@ import org.eclipse.core.databinding.observable.list.ListChangeEvent;
 import org.eclipse.core.databinding.observable.list.ListDiffVisitor;
 import org.eclipse.core.databinding.observable.list.WritableList;
 import org.eclipse.core.runtime.Assert;
-import org.eclipse.core.runtime.ISafeRunnable;
-import org.eclipse.core.runtime.SafeRunner;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
@@ -215,16 +213,11 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 				}
 			}
 			for (final Object l : getListeners()) {
-				SafeRunner.run(new ISafeRunnable() {
-					@Override
-					public void run() throws Exception {
-						((IValidationAdapterManagerChangeListener) l).affectedObjectsChanged(myChangeEvent);
-					}
-
-					@Override
-					public void handleException(Throwable exception) {
-					}
-				});
+				try {
+					((IValidationAdapterManagerChangeListener) l).affectedObjectsChanged(myChangeEvent);
+				} catch (final Exception ex) {
+					LogUtils.error(l, ex);
+				}
 			}
 		}
 	}

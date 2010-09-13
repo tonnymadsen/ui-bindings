@@ -49,6 +49,7 @@ public class FormCreatorTest {
 
 	@Before
 	public void before() {
+		resetAll();
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 
 		createModel();
@@ -325,8 +326,8 @@ public class FormCreatorTest {
 				myContext = IBindingContext.Factory.createContext(myBody);
 				myForm = IFormCreator.Factory.createForm(myContext, myShopItem, myToolkit, myBody);
 
-				myField1 = myForm.addField(IMOAOPackage.Literals.NAMED_OBJECT__NAME).arg(Constants.ARG_PREFERRED_CONTROL,
-						StyledText.class.getName());
+				myField1 = myForm.addField(IMOAOPackage.Literals.NAMED_OBJECT__NAME).arg(
+						Constants.ARG_PREFERRED_CONTROL, StyledText.class.getName());
 
 				myForm.finish();
 			}

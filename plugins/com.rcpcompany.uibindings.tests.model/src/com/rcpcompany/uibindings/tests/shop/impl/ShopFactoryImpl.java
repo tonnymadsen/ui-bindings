@@ -5,6 +5,7 @@
  */
 package com.rcpcompany.uibindings.tests.shop.impl;
 
+import java.io.FileNotFoundException;
 import java.net.URL;
 
 import org.eclipse.core.runtime.FileLocator;
@@ -81,8 +82,12 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 			try {
 				resolve = FileLocator.resolve(new URL(
 						"platform:/plugin/com.rcpcompany.uibindings.tests.model/data/TEST.shop"));
+			} catch (final FileNotFoundException ex) {
+				LogUtils.error(this, "test shop does not exist!?!", ex);
+				return null;
 			} catch (final Exception ex) {
 				LogUtils.error(this, ex);
+				return null;
 			}
 			final Resource resource = editingDomain.loadResource(resolve.toString());
 

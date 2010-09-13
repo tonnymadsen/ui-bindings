@@ -18,6 +18,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.ISourceProvider;
+import org.eclipse.ui.ISourceProviderListener;
 import org.eclipse.ui.forms.widgets.TableWrapData;
 import org.eclipse.ui.forms.widgets.TableWrapLayout;
 import org.eclipse.ui.services.IServiceLocator;
@@ -252,6 +253,23 @@ public class BindingSourceProviderTest {
 	}
 
 	/**
+	 * Tests that the {@link ISourceProviderService} return the correct source provider for all the
+	 * sources offered.
+	 */
+	@Test
+	public void testISourceProviderServiceNames() {
+		final Map<String, Object> currentState = myProvider.getCurrentState();
+		final IServiceLocator locator = myContext.getServiceLocator();
+
+		final ISourceProviderService sourceProviders = (ISourceProviderService) locator
+				.getService(ISourceProviderService.class);
+
+		for (final String n : myProvider.getProvidedSourceNames()) {
+			assertEquals("Wrong source provider for " + n, myProvider, sourceProviders.getSourceProvider(n));
+		}
+	}
+
+	/**
 	 * Source values for a non-binding widget
 	 */
 	@Test
@@ -310,6 +328,58 @@ public class BindingSourceProviderTest {
 		assertSource(Constants.SOURCES_ACTIVE_BINDING_FEATURE, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 		assertSource(Constants.SOURCES_ACTIVE_BINDING_VALUE, myContact2.getName());
 		assertSource(Constants.SOURCES_ACTIVE_BINDING_VALUE_DISPLAY, myContact2.getName());
+	}
+
+	/**
+	 * Source values for a column binding for a simple feature after the previous column has been
+	 * deleted.
+	 */
+	@Test
+	public void testSimpleColumnBindingAfterDelete() {
+		postMouse(myTable, 0 + myViewerBinding.getFirstTableColumnOffset(), 0);
+
+		final IColumnBindingCellInformation ci = myViewerBinding.getCell(0, myViewerBinding.getList().get(1));
+		assertNotNull(ci);
+
+		/*
+		 * When the element is deleted, the current selected cell is changed, and this must be
+		 * monitored.
+		 */
+		final MySourceProviderListener listener = new MySourceProviderListener();
+		try {
+			myProvider.addSourceProviderListener(listener);
+			myContact1.setShop(null);
+			yield();
+		} finally {
+			myProvider.removeSourceProviderListener(listener);
+		}
+
+		assertSource(Constants.SOURCES_THE_MANAGER, IManager.Factory.getManager());
+
+		assertSource(Constants.SOURCES_ACTIVE_CONTEXT, myContext);
+
+		assertSource(Constants.SOURCES_ACTIVE_CONTAINER_BINDING, myViewerBinding);
+		assertSource(Constants.SOURCES_ACTIVE_BINDING, ci.getLabelBinding());
+		assertSource(Constants.SOURCES_ACTIVE_BINDING_RO, false);
+		assertSource(Constants.SOURCES_ACTIVE_BINDING_TYPE, "");
+		assertSource(Constants.SOURCES_ACTIVE_BINDING_MODEL_OBJECT, myContact2);
+		assertSource(Constants.SOURCES_ACTIVE_BINDING_FEATURE, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
+		assertSource(Constants.SOURCES_ACTIVE_BINDING_VALUE, myContact2.getName());
+		assertSource(Constants.SOURCES_ACTIVE_BINDING_VALUE_DISPLAY, myContact2.getName());
+	}
+
+	private final class MySourceProviderListener implements ISourceProviderListener {
+		public int changes = 0;
+
+		@Override
+		public void sourceChanged(int sourcePriority, String sourceName, Object sourceValue) {
+			changes++;
+		}
+
+		@Override
+		public void sourceChanged(int sourcePriority, Map sourceValuesByName) {
+			changes++;
+		}
 	}
 
 	/**

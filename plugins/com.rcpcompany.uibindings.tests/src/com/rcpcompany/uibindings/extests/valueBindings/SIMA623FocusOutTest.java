@@ -43,6 +43,7 @@ public class SIMA623FocusOutTest {
 
 	@Before
 	public void before() {
+		resetAll();
 		IManager.Factory.getManager().setTextCommitStrategy(TextCommitStrategy.ON_FOCUS_OUT);
 
 		createModel();

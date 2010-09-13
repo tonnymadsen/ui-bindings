@@ -7,7 +7,8 @@ import java.util.Map;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.commands.IHandler;
+import org.eclipse.core.commands.IHandler2;
+import org.eclipse.core.expressions.IEvaluationContext;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
@@ -33,7 +34,7 @@ import com.rcpcompany.utils.selection.SelectionUtils;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class DeleteHandler extends AbstractHandler implements IHandler {
+public class DeleteHandler extends AbstractHandler implements IHandler2 {
 	@Override
 	public Object execute(ExecutionEvent ee) throws ExecutionException {
 		if (Activator.getDefault().TRACE_HANDLERS) {
@@ -60,9 +61,53 @@ public class DeleteHandler extends AbstractHandler implements IHandler {
 			return null;
 		}
 
+		LogUtils.debug(this, "execute");
+
 		vb.getEditingDomain().getCommandStack().execute(cmd);
 
 		return null;
+	}
+
+	@Override
+	public void setEnabled(Object evaluationContext) {
+		if (!(evaluationContext instanceof IEvaluationContext)) return;
+		final IEvaluationContext context = (IEvaluationContext) evaluationContext;
+
+		// The binding
+		final IBinding bb = (IBinding) context.getVariable(Constants.SOURCES_ACTIVE_CONTAINER_BINDING);
+		if (!(bb instanceof IViewerBinding)) {
+			setBaseEnabled(false);
+			return;
+		}
+		// The viewer
+		final IViewerBinding vb = (IViewerBinding) bb;
+
+		final Command cmd = createCommand(vb);
+		/*
+		 * Execute if possible...
+		 */
+		if (!cmd.canExecute()) {
+			setBaseEnabled(false);
+			return;
+		}
+
+		final ISelection s = vb.getViewer().getSelection();
+
+		final List<EObject> list = SelectionUtils.computeSelection(s, EObject.class);
+		final Map<EObject, Collection<Setting>> references = UIBEcoreUtils.findIncommingRequiredReferences(list);
+		if (references != null) {
+			setBaseEnabled(false);
+			return;
+		}
+
+		setBaseEnabled(true);
+	}
+
+	@Override
+	protected void setBaseEnabled(boolean state) {
+		super.setBaseEnabled(state);
+
+		LogUtils.debug(this, "" + state);
 	}
 
 	/**

@@ -34,6 +34,8 @@ public class ViewerColumnHeaderAlignment {
 
 	@Before
 	public void before() {
+		resetAll();
+
 		createShop();
 		createView();
 

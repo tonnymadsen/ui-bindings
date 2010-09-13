@@ -271,6 +271,7 @@ public class UIAttributeImageDecorationTest<T extends Control> {
 
 	@Before
 	public void before() {
+		resetAll();
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 
 		createView();

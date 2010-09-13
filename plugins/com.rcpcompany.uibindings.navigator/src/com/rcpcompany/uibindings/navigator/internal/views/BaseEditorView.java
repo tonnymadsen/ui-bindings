@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.WritableValue;
-import org.eclipse.core.runtime.ISafeRunnable;
-import org.eclipse.core.runtime.SafeRunner;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
@@ -214,18 +212,11 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 			if (factory != null) {
 				myParent = new Composite(myViewPartParent, SWT.NONE);
 				myParent.setLayout(new FillLayout());
-				SafeRunner.run(new ISafeRunnable() {
-					@Override
-					public void run() throws Exception {
-						myCurrentEditorPart = factory.createEditorPart(myFactoryContext);
-					}
-
-					@Override
-					public void handleException(Throwable ex) {
-						LogUtils.error(factory, "Error detected during editor creation", ex);
-						// TODO: create error view
-					}
-				});
+				try {
+					myCurrentEditorPart = factory.createEditorPart(myFactoryContext);
+				} catch (final Exception ex) {
+					LogUtils.error(factory, "Error detected during editor creation", ex);
+				}
 				myViewPartParent.layout(true);
 			}
 			if (getCurrentDescriptor() == null) {

@@ -40,6 +40,7 @@ public class QuickfixMatchingTest {
 
 	@Before
 	public void before() {
+		resetAll();
 		createShop();
 	}
 

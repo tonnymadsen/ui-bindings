@@ -49,6 +49,7 @@ public class ValueUnsettableTest {
 
 	@Before
 	public void before() {
+		resetAll();
 		IManager.Factory.getManager().setTextCommitStrategy(TextCommitStrategy.ON_MODIFY);
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 
@@ -68,11 +69,6 @@ public class ValueUnsettableTest {
 			fail(ex.getMessage());
 		}
 		assertTrue(myCommand.getCommand().isDefined());
-	}
-
-	@After
-	public void after() {
-		IManager.Factory.getManager().setEditCellSingleClick(true);
 	}
 
 	/**

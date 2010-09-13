@@ -65,6 +65,7 @@ public class OpenCommandViewerEnablementTest {
 
 	@Before
 	public void before() {
+		resetAll();
 		IManager.Factory.getManager().setTextCommitStrategy(TextCommitStrategy.ON_MODIFY);
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 

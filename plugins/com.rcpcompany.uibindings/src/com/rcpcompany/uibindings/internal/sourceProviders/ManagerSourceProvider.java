@@ -108,10 +108,6 @@ public class ManagerSourceProvider extends AbstractSourceProvider {
 	 * @return the resulting map
 	 */
 	public Map<String, Object> reportSourceChanges() {
-		if (Activator.getDefault().TRACE_SOURCE_PROVIDER_VERBOSE) {
-			LogUtils.debug(this, "");
-		}
-
 		final Map<String, Object> newState = getNewState();
 
 		for (final Iterator<Map.Entry<String, Object>> is = newState.entrySet().iterator(); is.hasNext();) {

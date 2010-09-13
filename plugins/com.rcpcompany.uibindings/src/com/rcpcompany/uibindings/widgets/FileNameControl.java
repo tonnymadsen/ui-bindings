@@ -1,7 +1,5 @@
 package com.rcpcompany.uibindings.widgets;
 
-import org.eclipse.core.runtime.ISafeRunnable;
-import org.eclipse.core.runtime.SafeRunner;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.graphics.Image;
@@ -13,6 +11,7 @@ import org.eclipse.swt.widgets.Listener;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.InternalConstants;
 import com.rcpcompany.uibindings.internal.observables.TextObservableValue;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * File and directory name widget.
@@ -67,16 +66,11 @@ public class FileNameControl extends BaseTextButtonWidget implements TextObserva
 		 * Need to provoke the TextObservableValue to accept the text
 		 */
 		for (final Listener l : getListeners(UPDATE_EVENT_ID)) {
-			SafeRunner.run(new ISafeRunnable() {
-				@Override
-				public void run() throws Exception {
-					l.handleEvent(null);
-				}
-
-				@Override
-				public void handleException(Throwable exception) {
-				}
-			});
+			try {
+				l.handleEvent(null);
+			} catch (final Exception ex) {
+				LogUtils.error(l, ex);
+			}
 		}
 	}
 

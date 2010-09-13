@@ -66,6 +66,7 @@ public class ViewerEditCellCommitStrategiesTest {
 
 	@Before
 	public void before() {
+		resetAll();
 		manager.setTextCommitStrategy(TextCommitStrategy.ON_MODIFY);
 		manager.setEditCellAnyKey(false);
 		manager.setEditCellSingleClick(false);

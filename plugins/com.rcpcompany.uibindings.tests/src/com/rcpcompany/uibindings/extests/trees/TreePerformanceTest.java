@@ -83,6 +83,7 @@ public class TreePerformanceTest {
 
 	@Before
 	public void before() {
+		resetAll();
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 
 		try {

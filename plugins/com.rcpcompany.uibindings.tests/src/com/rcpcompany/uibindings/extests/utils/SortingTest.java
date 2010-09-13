@@ -61,6 +61,7 @@ public class SortingTest {
 
 	@Before
 	public void before() {
+		resetAll();
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 
 		createShop();

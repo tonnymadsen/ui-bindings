@@ -15,9 +15,7 @@ import java.util.Dictionary;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.ILog;
 import org.eclipse.core.runtime.ILogListener;
-import org.eclipse.core.runtime.ISafeRunnable;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.SafeRunner;
 import org.eclipse.core.runtime.Status;
 import org.osgi.framework.Constants;
 import org.osgi.service.packageadmin.RequiredBundle;
@@ -161,7 +159,7 @@ public final class LogUtils {
 		/*
 		 * Special case: if the exception is the same as last time!! So don't report it again...
 		 */
-		if (exception != null && exception == lastException) { return; }
+		if (exception != null && exception == lastException) return;
 		lastException = exception;
 		String pluginID = UNKNOWN_PLUGIN;
 		String messagePrefix = null;
@@ -212,18 +210,11 @@ public final class LogUtils {
 		final Status status = new Status(severity, pluginID, message, exception);
 		LOG.log(status);
 		for (final ILogListener listener : listeners) {
-			final ISafeRunnable code = new ISafeRunnable() {
-				@Override
-				public void run() throws Exception {
-					listener.logging(status, status.getPlugin());
-				}
-
-				@Override
-				public void handleException(Throwable e) {
-					// Ignore
-				}
-			};
-			SafeRunner.run(code);
+			try {
+				listener.logging(status, status.getPlugin());
+			} catch (final Exception ex) {
+				LogUtils.error(listener, ex);
+			}
 		}
 	}
 

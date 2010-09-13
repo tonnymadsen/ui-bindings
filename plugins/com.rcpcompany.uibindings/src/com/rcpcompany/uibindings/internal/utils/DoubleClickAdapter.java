@@ -75,7 +75,7 @@ public class DoubleClickAdapter implements Listener, IDisposable {
 		 * 
 		 * Can change the global state...
 		 */
-		final Map<String, Object> currentState = theBindingSourceProvider.reportSourceChanges(event);
+		final Map<String, Object> currentState = theBindingSourceProvider.getCurrentState();
 
 		final Object b = currentState.get(Constants.SOURCES_ACTIVE_BINDING);
 		if (!(b instanceof IValueBinding)) return;

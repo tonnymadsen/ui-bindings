@@ -10,10 +10,15 @@ import org.eclipse.core.databinding.observable.ChangeEvent;
 import org.eclipse.core.databinding.observable.IChangeListener;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.expressions.IEvaluationContext;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.ISelectionProvider;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.Widget;
 import org.eclipse.ui.AbstractSourceProvider;
 import org.eclipse.ui.ISources;
@@ -50,15 +55,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <dt>{@link BindingSourceProvider#reportSourceChanges(Event)}</dt>
  * <dd>Calculates a new state based on the event, <em>and</em> alters the global state.</dd>
  * </dl>
- * The provider uses three SWT events:
- * <dl>
- * <dt>{@link SWT#FocusIn}</dt>
- * <dd>When a new widget gets focus.</dd>
- * <dt>{@link SWT#MouseDown}</dt>
- * <dd>????.</dd>
- * <dt>{@link SWT#KeyUp}</dt>
- * <dd>????.</dd>
- * </dl>
+ * The provider uses a number of SWT events and if the current focus control is a {@link Table} or
+ * {@link Tree}, it also monitors the current selection.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -134,6 +132,29 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 	private Widget myLastWidget = null;
 
 	/**
+	 * The current selection provider.
+	 * <p>
+	 * Changes in the selection prompts for a re-calculation of the sources.
+	 */
+	protected ISelectionProvider myCurrentSelectionProvider = null;
+
+	/**
+	 * The listener used for {@link #myCurrentSelectionProvider}.
+	 */
+	protected ISelectionChangedListener myCurrentSelectionProviderListener = new ISelectionChangedListener() {
+		@Override
+		public void selectionChanged(SelectionChangedEvent event) {
+			if (Activator.getDefault().TRACE_SOURCE_PROVIDER_VERBOSE) {
+				LogUtils.debug(this, "new selection: " + event.getSelection());
+				if (event.getSelection().isEmpty()) {
+					LogUtils.debug(this, "empty");
+				}
+			}
+			reportSourceChanges(myPreviousValueEvent);
+		}
+	};
+
+	/**
 	 * The UI Context service.
 	 */
 	private final IContextService myContextService = (IContextService) PlatformUI.getWorkbench().getService(
@@ -195,7 +216,7 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 	 */
 	public Map<String, Object> reportSourceChanges(Event event) {
 		if (Activator.getDefault().TRACE_SOURCE_PROVIDER_VERBOSE && Activator.getDefault().TRACE_EVENTS_SWT) {
-			LogUtils.debug(this, ToStringUtils.toString(event));
+			LogUtils.debug(this, (event == myPreviousValueEvent ? "REPLAY " : "") + ToStringUtils.toString(event));
 		}
 
 		/*
@@ -250,6 +271,7 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 								.append(ClassUtils.getLastClassName(v)).append("]");
 					}
 				}
+				LogUtils.DEBUG_STRACK_LEVELS = 8;
 				LogUtils.debug(this, sb.toString());
 			}
 
@@ -341,13 +363,25 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 				}
 
 				@Override
-				public void setSourceValue(String name, Object value) {
+				public void putSourceValue(String name, Object value) {
 					map.put(name, value);
 				}
 
 				@Override
 				public void addObservedValue(IObservableValue value) {
 					values.add(value);
+				}
+
+				@Override
+				public void setSelectionProvider(ISelectionProvider provider) {
+					if (provider == myCurrentSelectionProvider) return;
+					if (myCurrentSelectionProvider != null) {
+						myCurrentSelectionProvider.removeSelectionChangedListener(myCurrentSelectionProviderListener);
+					}
+					myCurrentSelectionProvider = provider;
+					if (myCurrentSelectionProvider != null) {
+						myCurrentSelectionProvider.addSelectionChangedListener(myCurrentSelectionProviderListener);
+					}
 				}
 			};
 			try {

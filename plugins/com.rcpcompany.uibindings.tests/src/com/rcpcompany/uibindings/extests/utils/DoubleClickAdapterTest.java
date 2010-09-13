@@ -53,8 +53,10 @@ public class DoubleClickAdapterTest {
 
 	@Before
 	public void before() {
-		theTestObject = this;
+		resetAll();
 		IManager.Factory.getManager().setEditCellSingleClick(false);
+
+		theTestObject = this;
 
 		createShop();
 		createView();

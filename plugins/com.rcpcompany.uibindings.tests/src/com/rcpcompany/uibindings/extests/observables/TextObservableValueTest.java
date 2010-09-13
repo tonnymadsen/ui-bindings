@@ -186,6 +186,7 @@ public class TextObservableValueTest<X extends Control> {
 
 	@Before
 	public void before() {
+		resetAll();
 		w1 = createWidget(myCls, myTextStyle);
 
 		if (w1 instanceof Text) {

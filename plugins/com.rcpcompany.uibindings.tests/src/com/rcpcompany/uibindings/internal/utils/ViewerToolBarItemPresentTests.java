@@ -76,6 +76,8 @@ public class ViewerToolBarItemPresentTests {
 
 	@Before
 	public void before() {
+		resetAll();
+
 		myShop = ShopFactory.eINSTANCE.createShop();
 		myCountry1 = ShopFactory.eINSTANCE.createCountry();
 		myCountry1.setAbbreviation("AB");

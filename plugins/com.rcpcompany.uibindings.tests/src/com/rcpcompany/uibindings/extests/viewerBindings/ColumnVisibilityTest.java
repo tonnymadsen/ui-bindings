@@ -42,6 +42,8 @@ public class ColumnVisibilityTest {
 
 	@Before
 	public void before() {
+		resetAll();
+
 		createShop();
 		createView();
 

@@ -27,7 +27,9 @@ import com.rcpcompany.uibindings.grid.IGridBindingCellInformation;
 import com.rcpcompany.uibindings.grid.extests.models.TestGridGridModel;
 
 /**
- * Test of {@link IGridBinding#getCell(int, int)}.
+ * Test of {@link BindingSourseProvider} for grids
+ * <p>
+ * TODO: test that the change of a grid results in a re-calculation of the binding sources.
  * 
  * @author Tonny Madsen, The RCP Company
  */

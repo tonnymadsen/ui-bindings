@@ -1218,18 +1218,20 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 	@Override
 	public void updateSourceProviderState(ISourceProviderStateContext context) {
-		context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING, this);
+		context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING, this);
+		context.setSelectionProvider(null);
+
 		final IObservableValue v = getModelObservableValue();
 		if (v != null) {
 			final IBindingDataType dataType = getDataType();
-			context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_TYPE, getType());
-			context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_MODEL_OBJECT, getModelObject());
-			context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_FEATURE, getModelFeature());
-			context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_RO, !isChangeable()); // TODO ??
-			context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_UNSETTABLE, dataType.isUnsettable());
+			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_TYPE, getType());
+			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_MODEL_OBJECT, getModelObject());
+			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_FEATURE, getModelFeature());
+			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_RO, !isChangeable()); // TODO ??
+			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_UNSETTABLE, dataType.isUnsettable());
 
-			context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_VALUE, v.getValue());
-			context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_VALUE_DISPLAY, getUIAttribute().getCurrentValue()
+			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_VALUE, v.getValue());
+			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_VALUE_DISPLAY, getUIAttribute().getCurrentValue()
 					.getValue());
 		}
 		context.addObservedValue(getUIAttribute().getCurrentValue());

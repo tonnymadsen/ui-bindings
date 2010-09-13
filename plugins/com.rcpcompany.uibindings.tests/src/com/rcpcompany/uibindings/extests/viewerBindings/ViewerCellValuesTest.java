@@ -37,6 +37,8 @@ public class ViewerCellValuesTest {
 
 	@Before
 	public void before() {
+		resetAll();
+
 		createShop();
 		createView();
 

@@ -43,6 +43,7 @@ public class Issue44ComboTest {
 
 	@Before
 	public void before() {
+		resetAll();
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 
 		myTestView = createTestView(this);

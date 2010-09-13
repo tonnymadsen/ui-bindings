@@ -306,7 +306,7 @@ public class OpenCommandSupport {
 
 			final ParameterizedCommand pc = getCommand(event, context.getState());
 			if (pc == null) return;
-			context.setSourceValue(Constants.SOURCES_ACTIVE_BINDING_OPEN_COMMAND, pc);
+			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_OPEN_COMMAND, pc);
 		}
 
 		/**

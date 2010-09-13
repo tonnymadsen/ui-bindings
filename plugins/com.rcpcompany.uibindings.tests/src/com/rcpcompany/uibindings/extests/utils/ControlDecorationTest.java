@@ -31,6 +31,7 @@ public class ControlDecorationTest {
 
 	@Before
 	public void before() {
+		resetAll();
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 
 		createView();

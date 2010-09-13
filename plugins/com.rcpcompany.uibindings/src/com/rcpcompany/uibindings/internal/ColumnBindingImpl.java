@@ -1746,6 +1746,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 
 	@Override
 	public void updateSourceProviderState(ISourceProviderStateContext context) {
+		LogUtils.error(this, "Called?");
 		// For now this is empty'
 		// Should probably contain some of the stuff from ViewerBindingImpl
 	}

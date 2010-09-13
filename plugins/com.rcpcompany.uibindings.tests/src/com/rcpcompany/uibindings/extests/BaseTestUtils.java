@@ -23,6 +23,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.jface.bindings.keys.KeyStroke;
 import org.eclipse.jface.bindings.keys.ParseException;
@@ -98,10 +99,27 @@ public class BaseTestUtils {
 		mng.eUnset(IUIBindingsPackage.Literals.MANAGER__VALIDATION_ERRORS_ARE_FATAL);
 		mng.eUnset(IUIBindingsPackage.Literals.MANAGER__FORMATTER_PROVIDER);
 
+		/*
+		 * Flush the command stack
+		 */
 		final CommandStack cs = mng.getEditingDomain().getCommandStack();
 		cs.flush();
 		assertEquals(false, cs.canUndo());
 		assertEquals(false, cs.canRedo());
+
+		/*
+		 * Remove all resources...
+		 */
+		final ResourceSet rs = mng.getEditingDomain().getResourceSet();
+		rs.getResources().clear();
+//		for (final Resource r : rs.getResources().toArray(new Resource[rs.getResources().size()])) {
+//			try {
+//				r.delete(null);
+//			} catch (final IOException ex) {
+//				LogUtils.error(r, ex);
+//			}
+//		}
+		assertTrue(rs.getResources().isEmpty());
 
 		IValidatorAdapterManager.Factory.getManager().reset();
 

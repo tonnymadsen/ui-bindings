@@ -3,6 +3,8 @@ package com.rcpcompany.uibindings.extests.viewerBindings;
 import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
+import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.commands.NotEnabledException;
 import org.eclipse.core.commands.ParameterizedCommand;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -18,7 +20,6 @@ import org.junit.Test;
 
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
-import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
@@ -51,8 +52,8 @@ public class ViewerTableDeleteElementTest {
 	@Before
 	public void before() {
 		resetAll();
-		IManager.Factory.getManager().setTextCommitStrategy(TextCommitStrategy.ON_MODIFY);
 		IManager.Factory.getManager().setEditCellSingleClick(false);
+		IManager.Factory.getManager().setEditCellAnyKey(false);
 
 		createShop();
 		createView();
@@ -132,6 +133,7 @@ public class ViewerTableDeleteElementTest {
 		try {
 			IManager.Factory.getManager().setEditCellSingleClick(false);
 			final ICommandService cs = (ICommandService) myView.getSite().getService(ICommandService.class);
+			final IHandlerService hs = (IHandlerService) myView.getSite().getService(IHandlerService.class);
 
 			final ParameterizedCommand deleteCommand = cs.deserialize(ActionFactory.DELETE.getCommandId());
 			assertTrue(deleteCommand.getCommand().isDefined());
@@ -143,14 +145,27 @@ public class ViewerTableDeleteElementTest {
 			yield();
 
 			assertTrue(deleteCommand.getCommand().isHandled());
+			assertTrue(deleteCommand.getCommand().isEnabled());
+
+			try {
+				hs.executeCommand(deleteCommand, null);
+			} catch (final ExecutionException ex) {
+				fail(ex.getMessage());
+			}
+
+			yield();
 
 			/*
 			 * Second country cannot be deleted, but... the command is still enabled...
+			 * 
+			 * Wait a little to void a double click!!
 			 */
-			postMouse((Table) myCountriesVB.getControl(), 0 + myCountriesVB.getFirstTableColumnOffset(), 1);
+			sleep(myCountriesVB.getControl().getDisplay().getDoubleClickTime() + 200);
+			postMouse((Table) myCountriesVB.getControl(), 0 + myCountriesVB.getFirstTableColumnOffset(), 0);
 			yield();
 
 			assertTrue(deleteCommand.getCommand().isHandled());
+			assertTrue(!deleteCommand.getCommand().isEnabled());
 
 			/*
 			 * Shop item can be deleted
@@ -160,6 +175,7 @@ public class ViewerTableDeleteElementTest {
 			yield();
 
 			assertTrue(deleteCommand.getCommand().isHandled());
+			assertTrue(deleteCommand.getCommand().isEnabled());
 		} catch (final Exception ex) {
 			fail(ex.getMessage());
 		}
@@ -205,7 +221,12 @@ public class ViewerTableDeleteElementTest {
 			yield();
 
 			assertEquals(2, myShop.getCountries().size());
-			hs.executeCommand(deleteCommand, null);
+			try {
+				hs.executeCommand(deleteCommand, null);
+				fail("Should not execute command");
+			} catch (final NotEnabledException ex) {
+				// do nothing
+			}
 			assertEquals(2, myShop.getCountries().size());
 		} catch (final Exception ex) {
 			fail(ex.getMessage());

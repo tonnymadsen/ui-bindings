@@ -51,6 +51,7 @@ public class SIMA621ProblemsIncreases {
 
 	@Before
 	public void before() {
+		resetAll();
 		IManager.Factory.getManager().setTextCommitStrategy(TextCommitStrategy.ON_MODIFY);
 		IManager.Factory.getManager().setEditCellAnyKey(false);
 		IManager.Factory.getManager().setEditCellSingleClick(true);

@@ -40,6 +40,7 @@ public class TableCreatorTest {
 
 	@Before
 	public void before() {
+		resetAll();
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 
 		createModel();

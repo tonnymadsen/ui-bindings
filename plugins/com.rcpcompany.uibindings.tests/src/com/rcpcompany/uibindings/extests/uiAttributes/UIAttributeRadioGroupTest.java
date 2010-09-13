@@ -34,6 +34,8 @@ public class UIAttributeRadioGroupTest {
 
 	@Before
 	public void before() {
+		resetAll();
+
 		myValidValues = WritableList.withElementType(String.class);
 		myValidValues.add("a");
 		myValidValues.add("b");

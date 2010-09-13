@@ -89,7 +89,7 @@ public class BindingMessageCollectionTest {
 
 	@Before
 	public void before() {
-		IValidatorAdapterManager.Factory.getManager().reset();
+		resetAll();
 		IManager.Factory.getManager().setTextCommitStrategy(TextCommitStrategy.ON_MODIFY);
 		IManager.Factory.getManager().setValidationErrorsAreFatal(myEIV);
 		IManager.Factory.getManager().setValidationDelay(VD);

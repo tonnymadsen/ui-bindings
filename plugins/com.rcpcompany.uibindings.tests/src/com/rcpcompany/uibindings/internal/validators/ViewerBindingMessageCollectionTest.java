@@ -89,10 +89,10 @@ public class ViewerBindingMessageCollectionTest {
 
 	@Before
 	public void before() {
-		myValidatorManager = IValidatorAdapterManager.Factory.getManager();
-		myValidatorManager.reset();
-
 		resetAll();
+
+		myValidatorManager = IValidatorAdapterManager.Factory.getManager();
+
 		final IManager manager = IManager.Factory.getManager();
 		manager.setTextCommitStrategy(TextCommitStrategy.ON_MODIFY);
 		manager.setValidationErrorsAreFatal(myEIV);

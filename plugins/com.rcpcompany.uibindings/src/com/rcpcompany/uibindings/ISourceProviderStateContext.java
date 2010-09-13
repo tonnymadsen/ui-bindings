@@ -3,6 +3,7 @@ package com.rcpcompany.uibindings;
 import java.util.Map;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.swt.widgets.Event;
 
 import com.rcpcompany.uibindings.internal.sourceProviders.BindingSourceProvider;
@@ -18,7 +19,17 @@ public interface ISourceProviderStateContext {
 	 * 
 	 * @return a map with the current state
 	 */
-	public Map<String, Object> getState();
+	Map<String, Object> getState();
+
+	/**
+	 * Sets the current selection provider.
+	 * <p>
+	 * Used to monitor changes in the selection, which triggers a re-calculation of the current
+	 * sources in {@link BindingSourceProvider}.
+	 * 
+	 * @param provider the new selection provider or <code>null</code>
+	 */
+	void setSelectionProvider(ISelectionProvider provider);
 
 	/**
 	 * Sets the specified source to the specified value.
@@ -26,7 +37,7 @@ public interface ISourceProviderStateContext {
 	 * @param name the name of the source - e.g. {@link Constants#SOURCES_ACTIVE_BINDING_FEATURE}
 	 * @param value the new value
 	 */
-	public void setSourceValue(String name, Object value);
+	void putSourceValue(String name, Object value);
 
 	/**
 	 * The event that triggered the re-evaluatio of the state.
@@ -35,7 +46,7 @@ public interface ISourceProviderStateContext {
 	 * 
 	 * @return the event or <code>null</code>
 	 */
-	public Event getEvent();
+	Event getEvent();
 
 	/**
 	 * Adds a new {@link IObservableValue} which value must be observed. If the observed value
@@ -43,5 +54,5 @@ public interface ISourceProviderStateContext {
 	 * 
 	 * @param value the new observed value
 	 */
-	public void addObservedValue(IObservableValue value);
+	void addObservedValue(IObservableValue value);
 }

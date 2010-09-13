@@ -77,6 +77,7 @@ public class ContextNoCommitTest<C extends Control> implements CommandStackListe
 
 	@Before
 	public void before() {
+		resetAll();
 		IManager.Factory.getManager().setTextCommitStrategy(myStrategy);
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 

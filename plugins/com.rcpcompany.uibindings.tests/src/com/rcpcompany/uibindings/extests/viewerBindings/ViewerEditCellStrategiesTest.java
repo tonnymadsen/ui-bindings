@@ -90,6 +90,7 @@ public class ViewerEditCellStrategiesTest {
 
 	@Before
 	public void before() {
+		resetAll();
 		IManager.Factory.getManager().setTextCommitStrategy(TextCommitStrategy.ON_MODIFY);
 		IManager.Factory.getManager().setEditCellAnyKey(myEditCellAnyKey);
 		IManager.Factory.getManager().setEditCellSingleClick(myEditCellSingleClick);

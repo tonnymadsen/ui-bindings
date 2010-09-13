@@ -22,6 +22,7 @@ public class ManagerFormatterProviderTest {
 
 	@Before
 	public void before() {
+		resetAll();
 		MANAGER = IManager.Factory.getManager();
 		myOrigFormatterProvider = MANAGER.getFormatterProvider();
 	}
