@@ -194,6 +194,20 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public boolean TRACE_VALIDATION_RESULT = false;
 
+	/**
+	 * The bundle context for the UI Bindings plug-in.
+	 */
+	private BundleContext myContext;
+
+	/**
+	 * Returns the bundle context for the UI Bindings plug-in.
+	 * 
+	 * @return the context
+	 */
+	public BundleContext getContext() {
+		return myContext;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -202,6 +216,7 @@ public class Activator extends AbstractUIPlugin {
 	@Override
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
+		myContext = context;
 		plugin = this;
 
 		final IPreferenceStore preferenceStore = getPreferenceStore();

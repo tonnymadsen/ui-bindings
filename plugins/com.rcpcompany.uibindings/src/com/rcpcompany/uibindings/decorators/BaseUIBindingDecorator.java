@@ -758,6 +758,11 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		}
 
 		@Override
+		public void setTooltip(String tooltip) {
+			myTooltip = tooltip;
+		}
+
+		@Override
 		public void setMin(int min) {
 			myMin = min;
 			myMinSet = true;

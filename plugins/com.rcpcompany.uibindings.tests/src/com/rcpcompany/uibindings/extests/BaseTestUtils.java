@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.jface.bindings.keys.KeyStroke;
 import org.eclipse.jface.bindings.keys.ParseException;
+import org.eclipse.osgi.service.resolver.PlatformAdmin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
@@ -56,6 +57,8 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.services.IServiceLocator;
 import org.eclipse.ui.services.ISourceProviderService;
+import org.osgi.service.packageadmin.PackageAdmin;
+import org.osgi.util.tracker.ServiceTracker;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IManager;
@@ -63,6 +66,7 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.extests.views.EmptyView;
 import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.InternalConstants;
 import com.rcpcompany.uibindings.utils.IGlobalNavigationManager;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
@@ -916,4 +920,33 @@ public class BaseTestUtils {
 
 		assertEquals(noExpected, no);
 	}
+
+	private static ServiceTracker bundleTrackerPackageAdmin;
+
+	/**
+	 * Returns the OSGi Package Admin service, if available.
+	 */
+	public static PackageAdmin getPackageAdmin() {
+		if (bundleTrackerPackageAdmin == null) {
+			bundleTrackerPackageAdmin = new ServiceTracker(Activator.getDefault().getContext(),
+					PackageAdmin.class.getName(), null);
+			bundleTrackerPackageAdmin.open();
+		}
+		return (PackageAdmin) bundleTrackerPackageAdmin.getService();
+	}
+
+	private static ServiceTracker bundleTrackerPlatformAdmin;
+
+	/**
+	 * Returns the OSGi Platform Admin service, if available.
+	 */
+	public static PlatformAdmin getPlatformAdmin() {
+		if (bundleTrackerPlatformAdmin == null) {
+			bundleTrackerPlatformAdmin = new ServiceTracker(Activator.getDefault().getContext(),
+					PlatformAdmin.class.getName(), null);
+			bundleTrackerPlatformAdmin.open();
+		}
+		return (PlatformAdmin) bundleTrackerPlatformAdmin.getService();
+	}
+
 }

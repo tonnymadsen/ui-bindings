@@ -1071,19 +1071,8 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 
 	@Override
 	public void updateBindings(Object[] objects) {
-		BIND: for (final IBinding b : getBindings()) {
-			if (b instanceof IValueBinding) {
-				final IValueBinding v = (IValueBinding) b;
-				final EObject mo = v.getModelObject();
-				for (final Object o : objects) {
-					if (o == mo) {
-						b.updateBinding();
-						continue BIND;
-					}
-				}
-				continue BIND;
-			}
-			b.updateBinding();
+		for (final IBinding b : getBindings()) {
+			b.updateBinding(objects);
 		}
 	}
 } // BindingContextImpl

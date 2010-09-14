@@ -137,10 +137,10 @@ import com.rcpcompany.uibindings.extests.viewerBindings.ViewerDisposeTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerEditCellCommitStrategiesTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerEditCellStrategiesTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerEditCheckboxTest;
-import com.rcpcompany.uibindings.extests.viewerBindings.ViewerTableDeleteElementTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerItemMoveTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerReflowTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerSingleSelectionTest;
+import com.rcpcompany.uibindings.extests.viewerBindings.ViewerTableDeleteElementTest;
 import com.rcpcompany.uibindings.extests.widgets.FileNameControlTest;
 import com.rcpcompany.uibindings.internal.ManagerSizesTest;
 import com.rcpcompany.uibindings.internal.decorators.extenders.OpenCommandSupportLowLevelTest;
@@ -170,7 +170,7 @@ NoErrorsDuringInitializationTest.class,
 /*
  * Basic internal tests.
  */
-PluginTest.class, PluginConfTest.class,
+PluginTest.class, PluginConfTest.class, PluginSpecificationTest.class, FragmentTest.class,
 
 /*
  * Various constants

@@ -46,7 +46,7 @@ public interface IUIBindingDecoratorExtenderContext {
 	 * 
 	 * @param min the new minimum value
 	 */
-	public void setMin(int min);
+	void setMin(int min);
 
 	/**
 	 * Sets the new maximum value of this context.
@@ -56,9 +56,16 @@ public interface IUIBindingDecoratorExtenderContext {
 	void setMax(int max);
 
 	/**
-	 * Appends to the tooltip value of this context.
+	 * Sets to the tool tip value of this context.
 	 * 
-	 * @param tooltip text to be appended to any existing tooltip
+	 * @param tooltip the new tool tipo
+	 */
+	void setTooltip(String tooltip);
+
+	/**
+	 * Appends to the tool tip value of this context.
+	 * 
+	 * @param tooltip text to be appended to any existing tool tip
 	 */
 	void appendTooltip(String tooltip);
 
