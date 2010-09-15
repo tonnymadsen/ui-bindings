@@ -16,5 +16,5 @@ public interface IControlFactory {
 	 * 
 	 * @return the created control
 	 */
-	public Control create(IControlFactoryContext context);
+	Control create(IControlFactoryContext context);
 }
