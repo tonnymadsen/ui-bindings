@@ -12,9 +12,50 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface IQuickfixProposalProcessorContext extends EObject {
 	/**
+	 * Returns the value of the '<em><b>Message</b></em>' reference. <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Message</em>' reference isn't clear, there really should be more
+	 * of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Message</em>' reference.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getQuickfixProposalProcessorContext_Message()
+	 * @generated
+	 */
+	IBindingMessage getMessage();
+
+	/**
+	 * Returns the value of the '<em><b>Binding</b></em>' reference. <!-- begin-user-doc -->
+	 * <p>
+	 * The binding for which to find quickfixes.
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Binding</em>' reference.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getQuickfixProposalProcessorContext_Binding()
+	 * @generated
+	 */
+	IValueBinding getBinding();
+
+	/**
+	 * Returns the value of the '<em><b>Text</b></em>' attribute. <!-- begin-user-doc -->
+	 * <p>
+	 * The current text of the control in question if applicable. E.g. for a slider, this will be
+	 * <code>null</code>.
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Text</em>' attribute.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getQuickfixProposalProcessorContext_Text()
+	 * @generated
+	 */
+	String getText();
+
+	/**
 	 * Adds a new proposal to the list of proposals of this context.
 	 * 
 	 * @param proposal the new proposal
 	 */
-	public void addProposal(IQuickfixProposal proposal);
+	void addProposal(IQuickfixProposal proposal);
 } // IQuickfixProposalProcessorContext

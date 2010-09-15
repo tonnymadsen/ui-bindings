@@ -60,6 +60,7 @@ import com.rcpcompany.uibindings.internal.observables.IDelayedChangeListener;
 import com.rcpcompany.uibindings.internal.observables.IDelayedChangeObservable;
 import com.rcpcompany.uibindings.internal.utils.MyEMFUpdateValueStrategy;
 import com.rcpcompany.uibindings.observables.MessageFormatObservableValue;
+import com.rcpcompany.uibindings.utils.CoreRuntimeException;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -235,6 +236,8 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 							converter.convert(value);
 						} catch (final IllegalArgumentException ex) {
 							return ValidationStatus.error(ex.getMessage());
+						} catch (final CoreRuntimeException ex) {
+							return ex.getStatus();
 						}
 						return Status.OK_STATUS;
 					}

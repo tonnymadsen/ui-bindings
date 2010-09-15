@@ -346,7 +346,7 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 		public boolean supersedes(IBindingMessage otherMessage) {
 			if (!matches(getObject(), getFeature(), null, FeatureMatchingAlgorithm.EXACT)) return false;
 			if (otherMessage.getSeverity() != getSeverity()) return false;
-			if (getSource() == null || getSource().equals(otherMessage.getSource())) return false;
+			if (getSource() != null && !getSource().equals(otherMessage.getSource())) return false;
 			if (otherMessage.getCode() != getCode()) return false;
 
 			return true;

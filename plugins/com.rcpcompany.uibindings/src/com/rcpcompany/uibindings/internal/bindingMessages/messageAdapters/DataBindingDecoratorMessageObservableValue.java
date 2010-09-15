@@ -138,5 +138,10 @@ public class DataBindingDecoratorMessageObservableValue extends AbstractObservab
 		public int getCode() {
 			return myStatus.getCode();
 		}
+
+		@Override
+		public String getSource() {
+			return myStatus.getPlugin();
+		}
 	}
 }

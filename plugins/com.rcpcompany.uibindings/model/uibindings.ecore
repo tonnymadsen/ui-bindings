@@ -628,7 +628,14 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="QuickfixProposalProcessor" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="QuickfixProposalProcessorContext" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="QuickfixProposalProcessorContext" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="message" eType="#//BindingMessage"
+        changeable="false" volatile="true" transient="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="binding" eType="#//ValueBinding"
+        changeable="false" volatile="true" transient="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="QuickfixProposalProcessorDescriptor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelType" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

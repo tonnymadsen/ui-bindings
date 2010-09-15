@@ -61,7 +61,7 @@ public class DeleteHandler extends AbstractHandler implements IHandler2 {
 			return null;
 		}
 
-		LogUtils.debug(this, "execute");
+		// LogUtils.debug(this, "execute");
 
 		vb.getEditingDomain().getCommandStack().execute(cmd);
 
@@ -106,8 +106,6 @@ public class DeleteHandler extends AbstractHandler implements IHandler2 {
 	@Override
 	protected void setBaseEnabled(boolean state) {
 		super.setBaseEnabled(state);
-
-		LogUtils.debug(this, "" + state);
 	}
 
 	/**

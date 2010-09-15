@@ -2883,6 +2883,36 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
+	public EReference getQuickfixProposalProcessorContext_Message() {
+		return (EReference) quickfixProposalProcessorContextEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EReference getQuickfixProposalProcessorContext_Binding() {
+		return (EReference) quickfixProposalProcessorContextEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getQuickfixProposalProcessorContext_Text() {
+		return (EAttribute) quickfixProposalProcessorContextEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getQuickfixProposalProcessorDescriptor() {
 		return quickfixProposalProcessorDescriptorEClass;
 	}
@@ -4364,6 +4394,9 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		quickfixProposalProcessorEClass = createEClass(QUICKFIX_PROPOSAL_PROCESSOR);
 
 		quickfixProposalProcessorContextEClass = createEClass(QUICKFIX_PROPOSAL_PROCESSOR_CONTEXT);
+		createEReference(quickfixProposalProcessorContextEClass, QUICKFIX_PROPOSAL_PROCESSOR_CONTEXT__MESSAGE);
+		createEReference(quickfixProposalProcessorContextEClass, QUICKFIX_PROPOSAL_PROCESSOR_CONTEXT__BINDING);
+		createEAttribute(quickfixProposalProcessorContextEClass, QUICKFIX_PROPOSAL_PROCESSOR_CONTEXT__TEXT);
 
 		quickfixProposalProcessorDescriptorEClass = createEClass(QUICKFIX_PROPOSAL_PROCESSOR_DESCRIPTOR);
 		createEAttribute(quickfixProposalProcessorDescriptorEClass, QUICKFIX_PROPOSAL_PROCESSOR_DESCRIPTOR__MODEL_TYPE);
@@ -5397,6 +5430,20 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 
 		initEClass(quickfixProposalProcessorContextEClass, IQuickfixProposalProcessorContext.class,
 				"QuickfixProposalProcessorContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+				getQuickfixProposalProcessorContext_Message(),
+				this.getBindingMessage(),
+				null,
+				"message", null, 0, 1, IQuickfixProposalProcessorContext.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getQuickfixProposalProcessorContext_Binding(),
+				this.getValueBinding(),
+				null,
+				"binding", null, 0, 1, IQuickfixProposalProcessorContext.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getQuickfixProposalProcessorContext_Text(),
+				ecorePackage.getEString(),
+				"text", null, 0, 1, IQuickfixProposalProcessorContext.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(quickfixProposalProcessorDescriptorEClass, IQuickfixProposalProcessorDescriptor.class,
 				"QuickfixProposalProcessorDescriptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

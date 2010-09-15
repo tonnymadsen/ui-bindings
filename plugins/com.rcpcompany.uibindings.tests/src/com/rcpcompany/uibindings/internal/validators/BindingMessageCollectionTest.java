@@ -185,7 +185,7 @@ public class BindingMessageCollectionTest {
 		// Test after the validation delay
 		sleep(300);
 		assertEquals(noUnboundMessage + 1, myValidatorManager.getUnboundMessages().size());
-		// Still just one error, and the two are colapsed into one
+		// Still just one error, and the two are collapsed into one
 		assertEquals(1, messages.size());
 		yield();
 		assertPixelColor(myText, -4, size.y - 6, new RGB(216, 66, 79));

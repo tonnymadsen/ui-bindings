@@ -73,6 +73,7 @@ import com.rcpcompany.uibindings.extests.observables.getset.BasicSetTestValue;
 import com.rcpcompany.uibindings.extests.observables.getset.BasicSetTestViewer;
 import com.rcpcompany.uibindings.extests.preferences.PreferencePageDialogTest;
 import com.rcpcompany.uibindings.extests.quickfixes.BasicQuickfixTest;
+import com.rcpcompany.uibindings.extests.quickfixes.DirectoryNameQuickfixTest;
 import com.rcpcompany.uibindings.extests.quickfixes.NamingQuickfixTest;
 import com.rcpcompany.uibindings.extests.quickfixes.QuickfixMatchingTest;
 import com.rcpcompany.uibindings.extests.services.BasicServiceTest;
@@ -310,7 +311,7 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		 * Quickfixes
 		 */
 		BasicQuickfixTest.class, QuickfixMatchingTest.class, AbstractQuickfixProposalTest.class,
-		NamingQuickfixTest.class,
+		NamingQuickfixTest.class, DirectoryNameQuickfixTest.class,
 
 		/*
 		 * Leaks and other specific issues

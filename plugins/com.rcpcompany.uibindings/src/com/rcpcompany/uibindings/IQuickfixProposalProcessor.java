@@ -18,6 +18,18 @@ public interface IQuickfixProposalProcessor extends EObject {
 	 * 
 	 * @param context the context of the processor
 	 * @param message the message to return proposals for
+	 * 
+	 * @deprecated Use {@link #getProposals(IQuickfixProposalProcessorContext)}
 	 */
-	public void getProposals(IQuickfixProposalProcessorContext context, IBindingMessage message);
+	@Deprecated
+	void getProposals(IQuickfixProposalProcessorContext context, IBindingMessage message);
+
+	/**
+	 * Returns a list of proposals for the specified decorator message
+	 * <p>
+	 * Any returned list is owned by the caller and may be modified.
+	 * 
+	 * @param context the context of the processor
+	 */
+	void getProposals(IQuickfixProposalProcessorContext context);
 } // IQuickfixProposalProcessor

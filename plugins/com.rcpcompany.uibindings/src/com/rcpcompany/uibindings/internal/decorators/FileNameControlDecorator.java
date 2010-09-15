@@ -17,7 +17,6 @@ import org.eclipse.jface.fieldassist.IContentProposalProvider;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingMessage;
-import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIBindingDecorator;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.UIBindingsUtils;
@@ -121,8 +120,7 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 	 */
 	private IStatus validationError(final String m) {
 //		LogUtils.debug(this, "-- " + m);
-		return UIBindingsUtils.error(IManager.Factory.getManager().isValidationErrorsAreFatal(), FILE_NAME_ERROR_CODE,
-				m);
+		return UIBindingsUtils.error(FILE_NAME_ERROR_CODE, m);
 	}
 
 	/**

@@ -1,8 +1,5 @@
 package com.rcpcompany.uibindings.internal.quickfixes;
 
-import org.eclipse.core.databinding.observable.value.IObservableValue;
-
-import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.IQuickfixProposalProcessor;
 import com.rcpcompany.uibindings.IQuickfixProposalProcessorContext;
 import com.rcpcompany.uibindings.quixkfixes.AbstractQuickfixProposalProcessor;
@@ -16,12 +13,10 @@ public class IllegalNumberQuickfixProposalProcessor extends AbstractQuickfixProp
 		IQuickfixProposalProcessor {
 
 	@Override
-	public void getProposals(IQuickfixProposalProcessorContext context, IBindingMessage message) {
-		final IObservableValue observable = message.getBinding().getUIObservable();
-		if (observable.getValueType() != String.class) return;
-
-		addReplacementProposal(context, message, "Remove illegal characters",
-				findReplacementText((String) observable.getValue()));
+	public void getProposals(IQuickfixProposalProcessorContext context) {
+		final String text = context.getText();
+		if (text == null) return;
+		addReplacementProposal(context, "Remove illegal characters", findReplacementText(text));
 	}
 
 	private String findReplacementText(String text) {

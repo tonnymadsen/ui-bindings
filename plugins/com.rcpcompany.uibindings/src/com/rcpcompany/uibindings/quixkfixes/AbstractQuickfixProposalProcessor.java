@@ -21,33 +21,43 @@ import com.rcpcompany.uibindings.quixkfixes.AbstractQuickfixProposal.Type;
  * @since 1.3
  */
 public abstract class AbstractQuickfixProposalProcessor extends QuickfixProposalProcessorImpl {
-	/**
-	 * Constructs and returns a new proposal.
-	 * 
-	 * @param context the context to add to
-	 * @param message the original decorator message
-	 * @param title the title to use
-	 * @param replacementString the replacement string
-	 */
-	public void addReplacementProposal(IQuickfixProposalProcessorContext context, IBindingMessage message,
-			String title, String replacementString) {
-		addReplacementProposal(context, message, Type.CHANGE, IQuickfixProposal.DEFAULT_RELEVANCE, title,
-				replacementString);
+
+	@Override
+	public void getProposals(IQuickfixProposalProcessorContext context) {
+		/*
+		 * Fall back on the original
+		 */
+		getProposals(context, context.getMessage());
+	}
+
+	@Override
+	public void getProposals(IQuickfixProposalProcessorContext context, IBindingMessage message) {
+
 	}
 
 	/**
 	 * Constructs and returns a new proposal.
 	 * 
 	 * @param context the context to add to
-	 * @param message the original decorator message
+	 * @param title the title to use
+	 * @param replacementString the replacement string
+	 */
+	public void addReplacementProposal(IQuickfixProposalProcessorContext context, String title, String replacementString) {
+		addReplacementProposal(context, Type.CHANGE, IQuickfixProposal.DEFAULT_RELEVANCE, title, replacementString);
+	}
+
+	/**
+	 * Constructs and returns a new proposal.
+	 * 
+	 * @param context the context to add to
 	 * @param type the basic type of the proposal
 	 * @param relevance the relevance of the proposal
 	 * @param title the title to use
 	 * @param replacementString the replacement string
 	 */
-	public void addReplacementProposal(IQuickfixProposalProcessorContext context, IBindingMessage message, Type type,
-			int relevance, String title, String replacementString) {
-		context.addProposal(new ReplacementProposal(message, type, relevance, title, replacementString));
+	public void addReplacementProposal(IQuickfixProposalProcessorContext context, Type type, int relevance,
+			String title, String replacementString) {
+		context.addProposal(new ReplacementProposal(context.getMessage(), type, relevance, title, replacementString));
 	}
 
 	/**

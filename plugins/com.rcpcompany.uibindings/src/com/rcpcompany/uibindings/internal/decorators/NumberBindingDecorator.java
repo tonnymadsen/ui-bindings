@@ -31,6 +31,7 @@ import com.rcpcompany.uibindings.decorators.SimpleUIBindingDecorator;
 import com.rcpcompany.uibindings.units.IUnitBindingSupport;
 import com.rcpcompany.uibindings.units.IUnitBindingSupportContext;
 import com.rcpcompany.uibindings.units.IUnitBindingSupportListener;
+import com.rcpcompany.uibindings.utils.CoreRuntimeException;
 import com.rcpcompany.uibindings.validators.ConstraintValidatorAdapter;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -97,7 +98,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		 * A manual parser to ensure the correct conversion of numbers is used
 		 * 
 		 * @param range the range specification
-		 * @throws IllegalArgumentException if the range is malformed
+		 * @throws CoreRuntimeException if the range is malformed
 		 */
 		public void parseRanges(String range) {
 			try {
@@ -466,7 +467,9 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		 * - Check the limits
 		 */
 		final String m = myNativeInterval.checkRange(fromObject, myLastConvertedValue, "native");
-		if (m != null) throw new IllegalArgumentException(m);
+		if (m != null) {
+			UIBindingsUtils.throwError(true, NUMBER_ERROR_CODE, m);
+		}
 
 		/*
 		 * - Convert to the wanted model type
@@ -483,9 +486,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 				 * - Check the limits
 				 */
 				final String m = checkRange(myLastFromObject, myLastConvertedValue);
-				if (m != null)
-					return UIBindingsUtils.error(IManager.Factory.getManager().isValidationErrorsAreFatal(),
-							NUMBER_ERROR_CODE, m);
+				if (m != null) return UIBindingsUtils.error(NUMBER_ERROR_CODE, m);
 				return Status.OK_STATUS;
 			}
 		};
@@ -497,7 +498,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 	 * @param fromObject the object to convert
 	 * @return the corresponding {@link BigDecimal} or <code>null</code>
 	 * 
-	 * @throws IllegalArgumentException if the object is <code>null</code>
+	 * @throws CoreRuntimeException if the object is <code>null</code>
 	 */
 	private BigDecimal convertToBigDecimal(Object fromObject) {
 		if (myAdapter == null) return null;
@@ -513,7 +514,9 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			/*
 			 * - Parse the string
 			 */
-			if (s == null || s.length() == 0) throw new IllegalArgumentException(getLabel() + ": number missing");
+			if (s == null || s.length() == 0) {
+				UIBindingsUtils.throwError(true, NUMBER_ERROR_CODE, "number missing");
+			}
 			final ParsePosition parsePosition = new ParsePosition(0);
 			final boolean formatUsesGroupings = myProvider.getFormat().indexOf(',') >= 0;
 			final NumberFormat format = formatUsesGroupings ? myAdapter.getGroupingParseFormat() : myAdapter
@@ -539,8 +542,8 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 				if (!ok) {
 					final int errorPos = (parsePosition.getErrorIndex() != -1) ? parsePosition.getErrorIndex()
 							: parsePosition.getIndex();
-					throw new IllegalArgumentException(MessageFormat.format(
-							"Illegal {0}: ''{1}'' at position {2}: ''{3}''", getLabel(), fromObject, errorPos + 1,
+					UIBindingsUtils.throwError(true, NUMBER_ERROR_CODE, MessageFormat.format(
+							"Illegal number: ''{1}'' at position {2}: ''{3}''", getLabel(), fromObject, errorPos + 1,
 							s.charAt(errorPos)));
 				}
 			}
@@ -751,8 +754,9 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			try {
 				return Byte.valueOf(source.byteValueExact());
 			} catch (final ArithmeticException ex) {
-				throw new IllegalArgumentException("Fraction not allowed");
+				UIBindingsUtils.throwError(true, NUMBER_ERROR_CODE, "Fraction not allowed");
 			}
+			return null;
 		}
 
 		@Override
@@ -802,8 +806,9 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			try {
 				return Short.valueOf(source.shortValueExact());
 			} catch (final ArithmeticException ex) {
-				throw new IllegalArgumentException("Fraction not allowed");
+				UIBindingsUtils.throwError(true, NUMBER_ERROR_CODE, "Fraction not allowed");
 			}
+			return null;
 		}
 
 		@Override
@@ -853,8 +858,9 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			try {
 				return Integer.valueOf(source.intValueExact());
 			} catch (final ArithmeticException ex) {
-				throw new IllegalArgumentException("Fraction not allowed");
+				UIBindingsUtils.throwError(true, NUMBER_ERROR_CODE, "Fraction not allowed");
 			}
+			return null;
 		}
 
 		@Override
@@ -904,8 +910,9 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			try {
 				return Long.valueOf(source.longValueExact());
 			} catch (final ArithmeticException ex) {
-				throw new IllegalArgumentException("Fraction not allowed");
+				UIBindingsUtils.throwError(true, NUMBER_ERROR_CODE, "Fraction not allowed");
 			}
+			return null;
 		}
 
 		@Override
@@ -1053,8 +1060,9 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			try {
 				return source.toBigIntegerExact();
 			} catch (final ArithmeticException ex) {
-				throw new IllegalArgumentException("Fraction not allowed");
+				UIBindingsUtils.throwError(true, NUMBER_ERROR_CODE, "Fraction not allowed");
 			}
+			return null;
 		}
 
 		@Override

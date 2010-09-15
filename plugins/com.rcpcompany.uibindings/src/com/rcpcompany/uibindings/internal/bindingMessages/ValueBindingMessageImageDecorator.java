@@ -456,8 +456,10 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 
 		/*
 		 * Weed out any superseded messages.
+		 * 
+		 * There has to be at least two messages before there any anything to weed out...
 		 */
-		if (topList.size() > 0) {
+		if (topList.size() > 1) {
 			final IBindingMessage[] ma = topList.toArray(new IBindingMessage[topList.size()]);
 			for (int i = 0; i < ma.length; i++) {
 				final IBindingMessage a = ma[i];

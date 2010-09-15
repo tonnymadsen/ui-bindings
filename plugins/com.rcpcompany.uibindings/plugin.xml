@@ -845,19 +845,25 @@
    <extension
          point="com.rcpcompany.uibindings.uiBindings">
       <quickfixProcessor
-            code="4"
-            modelType="java.lang.Number"
-            messagePattern="^Invalid character for value .*"
-            processor="com.rcpcompany.uibindings.internal.quickfixes.IllegalNumberQuickfixProposalProcessor">
-      </quickfixProcessor>
-      <quickfixProcessor
-            code="4"
-            modelType="int"
-            messagePattern="^Invalid character for value .*"
-            processor="com.rcpcompany.uibindings.internal.quickfixes.IllegalNumberQuickfixProposalProcessor">
+            code="1000"
+            messagePattern="Illegal number: &apos;.*&apos; at position .*"
+            processor="com.rcpcompany.uibindings.internal.quickfixes.IllegalNumberQuickfixProposalProcessor"
+            source="com.rcpcompany.uibindings">
       </quickfixProcessor>
       <quickfixProcessor
             processor="com.rcpcompany.uibindings.internal.quickfixes.NamingQuickfixProposalProcessor">
+      </quickfixProcessor>
+      <quickfixProcessor
+            code="1010"
+            messagePattern="File does not exist"
+            processor="com.rcpcompany.uibindings.internal.quickfixes.FileNameQuickfixProposalProcessor"
+            source="com.rcpcompany.uibindings">
+      </quickfixProcessor>
+      <quickfixProcessor
+            code="1010"
+            messagePattern="Directory expected"
+            processor="com.rcpcompany.uibindings.internal.quickfixes.DirectoryNameQuickfixProposalProcessor"
+            source="com.rcpcompany.uibindings">
       </quickfixProcessor>
    </extension>
    <extension

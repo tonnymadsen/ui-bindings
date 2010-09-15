@@ -19,6 +19,7 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 import org.eclipse.core.databinding.observable.masterdetail.IObservableFactory;
+import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
@@ -81,6 +82,7 @@ import com.rcpcompany.uibindings.IUIBindingDecoratorExtender;
 import com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor;
 import com.rcpcompany.uibindings.IUIBindingsFactory;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
+import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IValueBindingCell;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
@@ -2195,7 +2197,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	}
 
 	@Override
-	public void getQuickfixes(IBindingMessage message, final List<IQuickfixProposal> proposals) {
+	public void getQuickfixes(final IBindingMessage message, final List<IQuickfixProposal> proposals) {
 		final int code = message.getCode();
 		final String source = message.getSource();
 		final String messageMessage = message.getMessage();
@@ -2206,6 +2208,26 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 					LogUtils.debug(proposal, "Added " + proposal); //$NON-NLS-1$
 				}
 				proposals.add(proposal);
+			}
+
+			@Override
+			public IBindingMessage getMessage() {
+				return message;
+			}
+
+			@Override
+			public IValueBinding getBinding() {
+				return message.getBinding();
+			}
+
+			@Override
+			public String getText() {
+				final IValueBinding binding = getBinding();
+				if (binding == null) return null;
+
+				final IObservableValue observable = binding.getUIAttribute().getCurrentValue();
+				if (observable.getValueType() != String.class) return null;
+				return (String) observable.getValue();
 			}
 		};
 		/*
@@ -2270,7 +2292,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			 */
 			final IQuickfixProposalProcessor processor = qi.getProcessor().getObject();
 			if (processor != null) {
-				processor.getProposals(context, message);
+				processor.getProposals(context);
 			}
 		}
 	}

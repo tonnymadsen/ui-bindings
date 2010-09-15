@@ -3080,13 +3080,40 @@ public interface IUIBindingsPackage extends EPackage {
 	int QUICKFIX_PROPOSAL_PROCESSOR_CONTEXT = 38;
 
 	/**
+	 * The feature id for the '<em><b>Message</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int QUICKFIX_PROPOSAL_PROCESSOR_CONTEXT__MESSAGE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Binding</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int QUICKFIX_PROPOSAL_PROCESSOR_CONTEXT__BINDING = 1;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int QUICKFIX_PROPOSAL_PROCESSOR_CONTEXT__TEXT = 2;
+
+	/**
 	 * The number of structural features of the '<em>Quickfix Proposal Processor Context</em>'
 	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int QUICKFIX_PROPOSAL_PROCESSOR_CONTEXT_FEATURE_COUNT = 0;
+	int QUICKFIX_PROPOSAL_PROCESSOR_CONTEXT_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '
@@ -6678,6 +6705,42 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getQuickfixProposalProcessorContext();
 
 	/**
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorContext#getMessage
+	 * <em>Message</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference '<em>Message</em>'.
+	 * @see com.rcpcompany.uibindings.IQuickfixProposalProcessorContext#getMessage()
+	 * @see #getQuickfixProposalProcessorContext()
+	 * @generated
+	 */
+	EReference getQuickfixProposalProcessorContext_Message();
+
+	/**
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorContext#getBinding
+	 * <em>Binding</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference '<em>Binding</em>'.
+	 * @see com.rcpcompany.uibindings.IQuickfixProposalProcessorContext#getBinding()
+	 * @see #getQuickfixProposalProcessorContext()
+	 * @generated
+	 */
+	EReference getQuickfixProposalProcessorContext_Binding();
+
+	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorContext#getText <em>Text</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Text</em>'.
+	 * @see com.rcpcompany.uibindings.IQuickfixProposalProcessorContext#getText()
+	 * @see #getQuickfixProposalProcessorContext()
+	 * @generated
+	 */
+	EAttribute getQuickfixProposalProcessorContext_Text();
+
+	/**
 	 * Returns the meta object for class '
 	 * {@link com.rcpcompany.uibindings.IQuickfixProposalProcessorDescriptor
 	 * <em>Quickfix Proposal Processor Descriptor</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
@@ -9810,6 +9873,32 @@ public interface IUIBindingsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass QUICKFIX_PROPOSAL_PROCESSOR_CONTEXT = eINSTANCE.getQuickfixProposalProcessorContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Message</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference QUICKFIX_PROPOSAL_PROCESSOR_CONTEXT__MESSAGE = eINSTANCE
+				.getQuickfixProposalProcessorContext_Message();
+
+		/**
+		 * The meta object literal for the '<em><b>Binding</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference QUICKFIX_PROPOSAL_PROCESSOR_CONTEXT__BINDING = eINSTANCE
+				.getQuickfixProposalProcessorContext_Binding();
+
+		/**
+		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute QUICKFIX_PROPOSAL_PROCESSOR_CONTEXT__TEXT = eINSTANCE.getQuickfixProposalProcessorContext_Text();
 
 		/**
 		 * The meta object literal for the '

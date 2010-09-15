@@ -942,13 +942,6 @@ Each processor is only envoked if a set of optional restrictions are all fulfill
          </documentation>
       </annotation>
       <complexType>
-         <attribute name="feature" type="string">
-            <annotation>
-               <documentation>
-                  optional restriction based on the feature of the binding from the binding message.
-               </documentation>
-            </annotation>
-         </attribute>
          <attribute name="modelType" type="string">
             <annotation>
                <documentation>
@@ -957,6 +950,13 @@ Each processor is only envoked if a set of optional restrictions are all fulfill
                <appInfo>
                   <meta.attribute kind="java"/>
                </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="feature" type="string">
+            <annotation>
+               <documentation>
+                  optional restriction based on the feature of the binding from the binding message.
+               </documentation>
             </annotation>
          </attribute>
          <attribute name="source" type="string">

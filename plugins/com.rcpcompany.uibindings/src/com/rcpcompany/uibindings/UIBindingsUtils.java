@@ -38,6 +38,7 @@ import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.decorators.GenericEObjectDecorator;
 import com.rcpcompany.uibindings.observables.IObservableListMapper;
 import com.rcpcompany.uibindings.observables.ProxyObservableValue;
+import com.rcpcompany.uibindings.utils.CoreRuntimeException;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -65,6 +66,35 @@ public final class UIBindingsUtils {
 			return new Status(IStatus.ERROR, Activator.ID, code, m, null);
 		else
 			return new MyNonFatalStatus(IStatus.ERROR, Activator.ID, code, m, null);
+	}
+
+	/**
+	 * Creates a new validation error status with the given message.
+	 * <p>
+	 * This error message does <em>not</em> prevent the data binding to set the value
+	 * 
+	 * @param code the code used for the message
+	 * @param m the message for the error
+	 * @return a new error status with the given message
+	 */
+	public static IStatus error(int code, String m) {
+		return error(IManager.Factory.getManager().isValidationErrorsAreFatal(), code, m);
+	}
+
+	/**
+	 * Creates a new validation error status with the given message.
+	 * <p>
+	 * This error message does <em>not</em> prevent the data binding to set the value
+	 * 
+	 * @param isFatal <code>true</code> if this is a fatal error - value should not set in data
+	 *            binding
+	 * @param code the code used for the message
+	 * @param m the message for the error
+	 * 
+	 * @return a new error status with the given message
+	 */
+	public static void throwError(boolean isFatal, int code, String m) {
+		throw new CoreRuntimeException(error(isFatal, code, m));
 	}
 
 	/**

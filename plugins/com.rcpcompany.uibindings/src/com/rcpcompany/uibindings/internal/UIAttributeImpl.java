@@ -474,6 +474,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public Control getFieldAssistControl() {
 		if (getWidget() instanceof Control) return (Control) getWidget();
 		return null;

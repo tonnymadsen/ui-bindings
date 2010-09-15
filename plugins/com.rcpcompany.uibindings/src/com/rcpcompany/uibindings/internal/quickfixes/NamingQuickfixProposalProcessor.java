@@ -2,8 +2,6 @@ package com.rcpcompany.uibindings.internal.quickfixes;
 
 import java.util.List;
 
-import org.eclipse.core.databinding.observable.value.IObservableValue;
-
 import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.IQuickfixProposal;
 import com.rcpcompany.uibindings.IQuickfixProposalProcessor;
@@ -23,16 +21,14 @@ public class NamingQuickfixProposalProcessor extends AbstractQuickfixProposalPro
 		IQuickfixProposalProcessor {
 
 	@Override
-	public void getProposals(IQuickfixProposalProcessorContext context, IBindingMessage message) {
-		final IValueBinding binding = message.getBinding();
+	public void getProposals(IQuickfixProposalProcessorContext context) {
+		final IValueBinding binding = context.getBinding();
 		if (binding == null) return;
 		final IUIBindingDecorator decorator = binding.getDecorator();
 		final List<Object> list = decorator.getValidUIList();
 		if (list == null) return;
 
-		final IObservableValue observable = binding.getUIObservable();
-		if (observable.getValueType() != String.class) return;
-		final String text = (String) observable.getValue();
+		final String text = context.getText();
 		if (text == null) return; // Possible for Lists
 
 		for (final Object e : list) {
@@ -44,7 +40,7 @@ public class NamingQuickfixProposalProcessor extends AbstractQuickfixProposalPro
 				LogUtils.debug(decorator, "decorator returns non-String values in validUIList");
 				continue;
 			}
-			matchOne(context, message, text, (String) e);
+			matchOne(context, context.getMessage(), text, (String) e);
 		}
 	}
 
@@ -56,8 +52,7 @@ public class NamingQuickfixProposalProcessor extends AbstractQuickfixProposalPro
 
 		// Case error, but match
 		if (wantedString.equalsIgnoreCase(gotString)) {
-			addReplacementProposal(context, message, Type.CHANGE, IQuickfixProposal.SURE_PROPOSAL, "Change case",
-					wantedString);
+			addReplacementProposal(context, Type.CHANGE, IQuickfixProposal.SURE_PROPOSAL, "Change case", wantedString);
 		}
 
 		final int wantedLen = wantedString.length();
@@ -68,8 +63,8 @@ public class NamingQuickfixProposalProcessor extends AbstractQuickfixProposalPro
 			// Construct the near miss
 			final String nearWanted = wantedString.substring(0, i) + wantedString.substring(i + 1);
 			if (nearWanted.equals(gotString)) {
-				addReplacementProposal(context, message, Type.CHANGE, IQuickfixProposal.LIKELY_PROPOSAL,
-						"Add missing letter", wantedString);
+				addReplacementProposal(context, Type.CHANGE, IQuickfixProposal.LIKELY_PROPOSAL, "Add missing letter",
+						wantedString);
 			}
 		}
 
@@ -78,8 +73,8 @@ public class NamingQuickfixProposalProcessor extends AbstractQuickfixProposalPro
 			// Construct the near miss
 			final String nearWanted = gotString.substring(0, i) + gotString.substring(i + 1);
 			if (nearWanted.equals(wantedString)) {
-				addReplacementProposal(context, message, Type.CHANGE, IQuickfixProposal.LIKELY_PROPOSAL,
-						"Remove extra letter", wantedString);
+				addReplacementProposal(context, Type.CHANGE, IQuickfixProposal.LIKELY_PROPOSAL, "Remove extra letter",
+						wantedString);
 			}
 		}
 
@@ -89,8 +84,8 @@ public class NamingQuickfixProposalProcessor extends AbstractQuickfixProposalPro
 			final String nearWanted = wantedString.substring(0, i) + wantedString.charAt(i + 1)
 					+ wantedString.charAt(i) + wantedString.substring(i + 2);
 			if (nearWanted.equals(gotString)) {
-				addReplacementProposal(context, message, Type.CHANGE, IQuickfixProposal.LIKELY_PROPOSAL,
-						"Transposed letters", wantedString);
+				addReplacementProposal(context, Type.CHANGE, IQuickfixProposal.LIKELY_PROPOSAL, "Transposed letters",
+						wantedString);
 			}
 		}
 	}
