@@ -2,6 +2,7 @@ package com.rcpcompany.uibindings.internal.uiAttributeFactories;
 
 import org.eclipse.jface.fieldassist.IControlContentAdapter;
 import org.eclipse.jface.fieldassist.TextContentAdapter;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Widget;
 
 import com.rcpcompany.uibindings.IUIAttribute;
@@ -35,6 +36,11 @@ public class FileNameControlDefaultUIAttributeFactory implements IUIAttributeFac
 		@Override
 		public IControlContentAdapter getFieldAssistAdapter() {
 			return myAdapter;
+		}
+
+		@Override
+		public Control getFieldAssistControl() {
+			return ((FileNameControl) getWidget()).getTextControl();
 		}
 	}
 }

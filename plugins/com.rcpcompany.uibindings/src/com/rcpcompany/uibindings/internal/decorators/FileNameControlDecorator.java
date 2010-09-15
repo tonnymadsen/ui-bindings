@@ -1,7 +1,10 @@
 package com.rcpcompany.uibindings.internal.decorators;
 
 import java.io.File;
+import java.io.FilenameFilter;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.eclipse.core.databinding.validation.IValidator;
 import org.eclipse.core.runtime.CoreException;
@@ -9,6 +12,7 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExecutableExtension;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.jface.fieldassist.IContentProposal;
 import org.eclipse.jface.fieldassist.IContentProposalProvider;
 
 import com.rcpcompany.uibindings.Constants;
@@ -46,6 +50,8 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 
 	/**
 	 * Whether directories or files are managed.
+	 * <p>
+	 * <code>true</code> if only directories are acceptable.
 	 */
 	private boolean myDirectoryMode = false;
 
@@ -88,7 +94,6 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 		 * - Check extension
 		 */
 		if (myFilters != null) {
-			final String extString = Arrays.toString(myFilters);
 			// LogUtils.debug(this, "Check '" + v + "' (" + fv + ") against " + extString);
 			boolean f = false;
 			for (final String es : myFilters) {
@@ -102,7 +107,7 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 					break;
 				}
 			}
-			if (!f) return validationError("File should match one of " + extString);
+			if (!f) return validationError("File should match one of " + Arrays.toString(myFilters));
 		}
 
 		return Status.OK_STATUS;
@@ -191,10 +196,143 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 		/*
 		 * Bind field assist
 		 */
-		final IContentProposalProvider proposalProvider = new FileNameContentProposalProvider(myDirectoryMode,
-				myFilters);
+		final IContentProposalProvider proposalProvider = new FileNameContentProposalProvider();
 
 		setupContentProposalProvider(proposalProvider);
+	}
+
+	/**
+	 * {@link IContentProposalProvider} for file and directory names.
+	 */
+	private class FileNameContentProposalProvider implements IContentProposalProvider {
+		/*
+		 * A single file name proposal.
+		 */
+		private final class FileNameContentProposal implements IContentProposal {
+			private final String myNewText;
+
+			private FileNameContentProposal(String existingText) {
+				myNewText = existingText;
+			}
+
+			@Override
+			public String getLabel() {
+				return null;
+			}
+
+			@Override
+			public String getDescription() {
+				return null;
+			}
+
+			@Override
+			public int getCursorPosition() {
+				return myNewText.length();
+			}
+
+			@Override
+			public String getContent() {
+				return myNewText;
+			}
+		}
+
+		private final String separator = "" + File.separatorChar;
+		private List<IContentProposal> myProposals;
+		private String myExistingText;
+
+		@Override
+		public IContentProposal[] getProposals(String contents, int position) {
+			myExistingText = contents.substring(0, position);
+			myProposals = new ArrayList<IContentProposal>();
+
+			calculateProposals();
+
+			return myProposals.toArray(new IContentProposal[myProposals.size()]);
+		}
+
+		private void calculateProposals() {
+			/*
+			 * Test if the current text is a good proposal...
+			 */
+			if (validateValue(myExistingText) == Status.OK_STATUS) {
+				addProposal(myExistingText);
+			}
+
+			/*
+			 * If the current text cannot even be a partial match, then don't bother
+			 */
+			if (!pmatches(myExistingText)) return;
+
+			/*
+			 * Split the current name into a directory name and a last part.
+			 */
+			final int lastSeparator = myExistingText.lastIndexOf(File.separatorChar);
+			final String dirName;
+			final String lastName;
+			if (lastSeparator == -1) {
+				lastName = myExistingText.toLowerCase();
+				dirName = separator;
+			} else {
+				lastName = myExistingText.substring(lastSeparator + 1).toLowerCase();
+				dirName = myExistingText.substring(0, lastSeparator + 1);
+			}
+			final String[] names = new File(dirName).list(new FilenameFilter() {
+				@Override
+				public boolean accept(File dir, String name) {
+					return name.toLowerCase().startsWith(lastName);
+				}
+			});
+			if (names != null) {
+				for (final String n : names) {
+					final String path = dirName + n;
+					if (new File(path).isDirectory() && pmatches(path + separator)) {
+						addProposal(path + separator);
+					} else if (!myDirectoryMode && pmatches(path)) {
+						addProposal(path);
+					}
+				}
+			}
+
+			/*
+			 * See if the existing text is a directory, and than directory could be a valid start of
+			 * a file name...
+			 */
+			if (new File(myExistingText).isDirectory()) {
+				if (myExistingText.endsWith(separator)) {
+					final String[] names2 = new File(myExistingText).list();
+					if (names2 != null) {
+						for (final String n : names2) {
+							final String path = myExistingText + n;
+							if (new File(path).isDirectory() && pmatches(path + separator)) {
+								addProposal(path + separator);
+							} else if (!myDirectoryMode && pmatches(path)) {
+								addProposal(path);
+							}
+						}
+					}
+				} else {
+					addProposal(myExistingText + separator);
+				}
+			}
+		}
+
+		/**
+		 * Adds a new proposal to the list of proposals.
+		 * 
+		 * @param s proposed file name
+		 */
+		private void addProposal(final String s) {
+			myProposals.add(new FileNameContentProposal(s));
+		}
+
+		private boolean pmatches(String path) {
+			for (final String es : myFilters) {
+				for (final String e : es.split(";")) {
+					if (IPathMatcher.Factory.getPathMatcher("glob:" + e).partiallyMatches(path)) return true;
+				}
+			}
+			return false;
+		}
 	}
 
 	@Override

@@ -67,6 +67,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#isChangeable <em>Changeable</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getFieldAssistAdapter <em>Field
  * Assist Adapter</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getFieldAssistControl <em>Field
+ * Assist Control</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.UIAttributeImpl#getImageDecorations <em>Image
  * Decorations</em>}</li>
  * </ul>
@@ -254,6 +256,16 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	 * @ordered
 	 */
 	protected static final IControlContentAdapter FIELD_ASSIST_ADAPTER_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getFieldAssistControl() <em>Field Assist Control</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getFieldAssistControl()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Control FIELD_ASSIST_CONTROL_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getImageDecorations() <em>Image Decorations</em>}'
@@ -456,6 +468,16 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	 */
 	@Override
 	public abstract IControlContentAdapter getFieldAssistAdapter();
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public Control getFieldAssistControl() {
+		if (getWidget() instanceof Control) return (Control) getWidget();
+		return null;
+	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -669,6 +691,8 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 			return isChangeable();
 		case IUIBindingsPackage.UI_ATTRIBUTE__FIELD_ASSIST_ADAPTER:
 			return getFieldAssistAdapter();
+		case IUIBindingsPackage.UI_ATTRIBUTE__FIELD_ASSIST_CONTROL:
+			return getFieldAssistControl();
 		case IUIBindingsPackage.UI_ATTRIBUTE__IMAGE_DECORATIONS:
 			return getImageDecorations();
 		}
@@ -769,6 +793,9 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 		case IUIBindingsPackage.UI_ATTRIBUTE__FIELD_ASSIST_ADAPTER:
 			return FIELD_ASSIST_ADAPTER_EDEFAULT == null ? getFieldAssistAdapter() != null
 					: !FIELD_ASSIST_ADAPTER_EDEFAULT.equals(getFieldAssistAdapter());
+		case IUIBindingsPackage.UI_ATTRIBUTE__FIELD_ASSIST_CONTROL:
+			return FIELD_ASSIST_CONTROL_EDEFAULT == null ? getFieldAssistControl() != null
+					: !FIELD_ASSIST_CONTROL_EDEFAULT.equals(getFieldAssistControl());
 		case IUIBindingsPackage.UI_ATTRIBUTE__IMAGE_DECORATIONS:
 			return imageDecorations != null && !imageDecorations.isEmpty();
 		}

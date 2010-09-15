@@ -825,6 +825,8 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fieldAssistAdapter" eType="#//IControlContentAdapter"
         changeable="false" volatile="true" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fieldAssistControl" eType="#//Control"
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="imageDecorations" upperBound="-1"
         eType="#//UIAttributeImageDecoration" transient="true" containment="true"
         resolveProxies="false" eOpposite="#//UIAttributeImageDecoration/attribute"/>

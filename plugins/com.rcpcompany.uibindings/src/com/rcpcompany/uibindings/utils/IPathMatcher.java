@@ -180,4 +180,18 @@ public interface IPathMatcher {
 	 * @return <code>true</code> if path matches the path matcher
 	 */
 	boolean matches(String path);
+
+	/**
+	 * Returns whether the given path matches this path matcher, or - if the patch had just been
+	 * longer - might have matched.
+	 * <p>
+	 * E.g.
+	 * <code>IPathMatcher.Factory.getPathMatcher("/usr/tmp/*").matches("/usr/tm") == false</code>
+	 * but
+	 * <code>IPathMatcher.Factory.getPathMatcher("/usr/tmp/*").partiallyMatches("/usr/tm") == true</code>.
+	 * 
+	 * @param path the path to match
+	 * @return <code>true</code> if path matches the path matcher or could have
+	 */
+	boolean partiallyMatches(String path);
 }

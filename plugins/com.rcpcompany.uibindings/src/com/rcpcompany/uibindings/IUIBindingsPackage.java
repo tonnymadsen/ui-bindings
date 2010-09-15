@@ -3694,13 +3694,22 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_ATTRIBUTE__FIELD_ASSIST_ADAPTER = IDISPOSABLE_FEATURE_COUNT + 15;
 
 	/**
+	 * The feature id for the '<em><b>Field Assist Control</b></em>' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int UI_ATTRIBUTE__FIELD_ASSIST_CONTROL = IDISPOSABLE_FEATURE_COUNT + 16;
+
+	/**
 	 * The feature id for the '<em><b>Image Decorations</b></em>' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int UI_ATTRIBUTE__IMAGE_DECORATIONS = IDISPOSABLE_FEATURE_COUNT + 16;
+	int UI_ATTRIBUTE__IMAGE_DECORATIONS = IDISPOSABLE_FEATURE_COUNT + 17;
 
 	/**
 	 * The number of structural features of the '<em>UI Attribute</em>' class. <!-- begin-user-doc
@@ -3709,7 +3718,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UI_ATTRIBUTE_FEATURE_COUNT = IDISPOSABLE_FEATURE_COUNT + 17;
+	int UI_ATTRIBUTE_FEATURE_COUNT = IDISPOSABLE_FEATURE_COUNT + 18;
 
 	/**
 	 * The meta object id for the '
@@ -7353,6 +7362,18 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getUIAttribute_FieldAssistAdapter();
 
 	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IUIAttribute#getFieldAssistControl
+	 * <em>Field Assist Control</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Field Assist Control</em>'.
+	 * @see com.rcpcompany.uibindings.IUIAttribute#getFieldAssistControl()
+	 * @see #getUIAttribute()
+	 * @generated
+	 */
+	EAttribute getUIAttribute_FieldAssistControl();
+
+	/**
 	 * Returns the meta object for the containment reference list '
 	 * {@link com.rcpcompany.uibindings.IUIAttribute#getImageDecorations <em>Image Decorations</em>}
 	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -10281,6 +10302,14 @@ public interface IUIBindingsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute UI_ATTRIBUTE__FIELD_ASSIST_ADAPTER = eINSTANCE.getUIAttribute_FieldAssistAdapter();
+
+		/**
+		 * The meta object literal for the '<em><b>Field Assist Control</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute UI_ATTRIBUTE__FIELD_ASSIST_CONTROL = eINSTANCE.getUIAttribute_FieldAssistControl();
 
 		/**
 		 * The meta object literal for the '<em><b>Image Decorations</b></em>' containment reference

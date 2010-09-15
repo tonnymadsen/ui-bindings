@@ -3463,8 +3463,18 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
+	public EAttribute getUIAttribute_FieldAssistControl() {
+		return (EAttribute) uiAttributeEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EReference getUIAttribute_ImageDecorations() {
-		return (EReference) uiAttributeEClass.getEStructuralFeatures().get(16);
+		return (EReference) uiAttributeEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -4420,6 +4430,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		createEAttribute(uiAttributeEClass, UI_ATTRIBUTE__STYLE_RANGE_LIST);
 		createEAttribute(uiAttributeEClass, UI_ATTRIBUTE__CHANGEABLE);
 		createEAttribute(uiAttributeEClass, UI_ATTRIBUTE__FIELD_ASSIST_ADAPTER);
+		createEAttribute(uiAttributeEClass, UI_ATTRIBUTE__FIELD_ASSIST_CONTROL);
 		createEReference(uiAttributeEClass, UI_ATTRIBUTE__IMAGE_DECORATIONS);
 
 		uiAttributeImageDecorationEClass = createEClass(UI_ATTRIBUTE_IMAGE_DECORATION);
@@ -5628,6 +5639,10 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				getUIAttribute_FieldAssistAdapter(),
 				this.getIControlContentAdapter(),
 				"fieldAssistAdapter", null, 0, 1, IUIAttribute.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getUIAttribute_FieldAssistControl(),
+				this.getControl(),
+				"fieldAssistControl", null, 0, 1, IUIAttribute.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(
 				getUIAttribute_ImageDecorations(),
 				this.getUIAttributeImageDecoration(),

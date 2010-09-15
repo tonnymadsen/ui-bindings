@@ -464,8 +464,8 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		final IControlContentAdapter fieldAssistAdapter = attribute.getFieldAssistAdapter();
 		if (fieldAssistAdapter == null) return;
 
-		final ContentProposalAdapter adapter = new ContentAssistCommandAdapter(control, fieldAssistAdapter,
-				proposalProvider, null, null);
+		final ContentProposalAdapter adapter = new ContentAssistCommandAdapter(attribute.getFieldAssistControl(),
+				fieldAssistAdapter, proposalProvider, null, null);
 		// Replace text field contents with accepted proposals
 		adapter.setProposalAcceptanceStyle(ContentProposalAdapter.PROPOSAL_REPLACE);
 	}

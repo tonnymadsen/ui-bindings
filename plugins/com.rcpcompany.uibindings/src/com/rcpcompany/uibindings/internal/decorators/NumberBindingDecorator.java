@@ -755,6 +755,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			}
 		}
 
+		@Override
 		public Object scale(Object fromObject, double factor, boolean viewToUI) {
 			return fromObject;
 		}
@@ -805,6 +806,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			}
 		}
 
+		@Override
 		public Object scale(Object fromObject, double factor, boolean viewToUI) {
 			return fromObject;
 		};
@@ -855,6 +857,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			}
 		}
 
+		@Override
 		public Object scale(Object fromObject, double factor, boolean viewToUI) {
 			return fromObject;
 		};
@@ -905,6 +908,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			}
 		}
 
+		@Override
 		public Object scale(Object fromObject, double factor, boolean viewToUI) {
 			return fromObject;
 		};
@@ -951,6 +955,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			return new Float(source.floatValue());
 		}
 
+		@Override
 		public Object scale(Object fromObject, double factor, boolean viewToUI) {
 			final Float i = (Float) fromObject;
 			if (viewToUI)
@@ -1001,6 +1006,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			return new Double(source.doubleValue());
 		}
 
+		@Override
 		public Object scale(Object fromObject, double factor, boolean viewToUI) {
 			final Double i = (Double) fromObject;
 			if (viewToUI)
@@ -1051,6 +1057,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			}
 		}
 
+		@Override
 		public Object scale(Object fromObject, double factor, boolean viewToUI) {
 			return fromObject;
 		};
@@ -1093,6 +1100,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 			return source;
 		}
 
+		@Override
 		public Object scale(Object fromObject, double factor, boolean viewToUI) {
 			final BigDecimal i = (BigDecimal) fromObject;
 			if (viewToUI)

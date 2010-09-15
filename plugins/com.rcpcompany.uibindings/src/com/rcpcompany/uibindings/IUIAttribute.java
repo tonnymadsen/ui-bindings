@@ -85,6 +85,8 @@ import org.eclipse.swt.widgets.Widget;
  * <li>{@link com.rcpcompany.uibindings.IUIAttribute#isChangeable <em>Changeable</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IUIAttribute#getFieldAssistAdapter <em>Field Assist Adapter
  * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IUIAttribute#getFieldAssistControl <em>Field Assist Control
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IUIAttribute#getImageDecorations <em>Image Decorations</em>}
  * </li>
  * </ul>
@@ -421,6 +423,22 @@ public interface IUIAttribute extends EObject, IDisposable {
 	 * @generated
 	 */
 	IControlContentAdapter getFieldAssistAdapter();
+
+	/**
+	 * Returns the value of the '<em><b>Field Assist Control</b></em>' attribute. <!--
+	 * begin-user-doc -->
+	 * <p>
+	 * The field assist control for an UI attribute is the control on which the
+	 * {@link #getFieldAssistAdapter()} should be installed. It defaults to the widget itself, if
+	 * this is a {@link Control}.
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Field Assist Control</em>' attribute.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getUIAttribute_FieldAssistControl()
+	 * @generated
+	 */
+	Control getFieldAssistControl();
 
 	/**
 	 * Returns the value of the '<em><b>Image Decorations</b></em>' containment reference list. The

@@ -35,8 +35,10 @@ public class IPathMatcherTests {
 		assertTrue(m1.matches("abc.java"));
 		assertTrue(m1.matches("/tmp/abc.java"));
 		assertTrue(m1.matches("c:\\tmp\\abc.java"));
+		assertTrue(m1.partiallyMatches("c:\\tmp\\abc.ja"));
 
 		assertFalse(m1.matches("a.java"));
+		assertFalse(m1.partiallyMatches("a.ja"));
 	}
 
 	/**
@@ -49,6 +51,8 @@ public class IPathMatcherTests {
 		assertTrue(m1.matches("abc.java"));
 		assertTrue(m1.matches("/tmp/a.java"));
 		assertTrue(m1.matches("c:\\tmp\\ccc.java"));
+		assertTrue(m1.partiallyMatches("c:\\tmp\\ccc.java"));
+		assertTrue(m1.partiallyMatches("c:\\tmp\\ccc"));
 
 		assertFalse(m1.matches("a.java.c"));
 	}
@@ -63,6 +67,9 @@ public class IPathMatcherTests {
 		assertTrue(m1.matches("abc.java"));
 		assertTrue(m1.matches("/tmp/a.java2"));
 		assertTrue(m1.matches("c:\\tmp\\ccc.java.c"));
+		assertTrue(m1.partiallyMatches("c:\\tmp\\ccc.java.c"));
+		assertTrue(m1.partiallyMatches("c:\\tmp\\ccc.java.c"));
+		assertTrue(m1.partiallyMatches("c:\\tmp\\c"));
 
 		assertFalse(m1.matches("a.jav.c"));
 	}
@@ -77,6 +84,7 @@ public class IPathMatcherTests {
 		assertTrue(m1.matches("/tmp/t/a.java"));
 		assertTrue(m1.matches("/a/t/a.java"));
 		assertTrue(m1.matches("c:\\a\\t\\ccc.java"));
+		assertTrue(m1.partiallyMatches("c:\\a\\t\\c"));
 
 		assertFalse(m1.matches("abc.java"));
 		assertFalse(m1.matches("/a/b/abc.java"));

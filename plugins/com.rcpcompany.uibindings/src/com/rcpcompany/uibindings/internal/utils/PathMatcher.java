@@ -3,6 +3,7 @@ package com.rcpcompany.uibindings.internal.utils;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.rcpcompany.uibindings.utils.IPathMatcher;
@@ -145,5 +146,11 @@ public class PathMatcher implements IPathMatcher {
 	@Override
 	public boolean matches(String path) {
 		return myPattern.matcher(path).matches();
+	}
+
+	@Override
+	public boolean partiallyMatches(String path) {
+		final Matcher matcher = myPattern.matcher(path);
+		return matcher.matches() || matcher.hitEnd();
 	}
 }
