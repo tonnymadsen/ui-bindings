@@ -10,9 +10,9 @@ import org.eclipse.swt.widgets.Control;
  */
 public interface IControlFactory {
 	/**
-	 * Creates and returns a new Control.
+	 * Creates and returns a new {@link Control}.
 	 * 
-	 * @param context TODO
+	 * @param context the context for the new control
 	 * 
 	 * @return the created control
 	 */
