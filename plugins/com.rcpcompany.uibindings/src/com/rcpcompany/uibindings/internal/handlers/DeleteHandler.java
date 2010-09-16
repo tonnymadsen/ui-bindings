@@ -74,13 +74,13 @@ public class DeleteHandler extends AbstractHandler implements IHandler2 {
 		final IEvaluationContext context = (IEvaluationContext) evaluationContext;
 
 		// The binding
-		final IBinding bb = (IBinding) context.getVariable(Constants.SOURCES_ACTIVE_CONTAINER_BINDING);
-		if (!(bb instanceof IViewerBinding)) {
+		final Object bbo = context.getVariable(Constants.SOURCES_ACTIVE_CONTAINER_BINDING);
+		if (!(bbo instanceof IViewerBinding)) {
 			setBaseEnabled(false);
 			return;
 		}
 		// The viewer
-		final IViewerBinding vb = (IViewerBinding) bb;
+		final IViewerBinding vb = (IViewerBinding) bbo;
 
 		final Command cmd = createCommand(vb);
 		/*
