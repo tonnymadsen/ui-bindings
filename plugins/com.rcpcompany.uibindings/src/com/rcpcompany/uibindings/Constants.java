@@ -681,4 +681,9 @@ public interface Constants {
 	 * The default priority for tree item relations.
 	 */
 	int DEFAULT_TREE_ITEM_RELATION_PRIORITY = 1000;
+
+	/**
+	 * The default priority for decorator extenders.
+	 */
+	int DEFAULT_DECORATOR_EXTENDER_PRIORITY = 100;
 }

@@ -7,7 +7,8 @@
             locationURI="menu:org.eclipse.ui.main.menu">
          <menu
                id="file"
-               label="&amp;File">
+               label="File"
+               mnemonic="F">
             <command
                   commandId="org.eclipse.ui.newWizard"
                   style="push">
@@ -23,7 +24,8 @@
          </menu>
          <menu
                id="edit"
-               label="&amp;Edit">
+               label="Edit"
+               mnemonic="E">
             <command
                   commandId="org.eclipse.ui.edit.undo"
                   style="push">
@@ -43,7 +45,8 @@
          </menu>
          <menu
                id="tools"
-               label="&amp;Tools">
+               label="Tools"
+               mnemonic="T">
             <command
                   commandId="org.eclipse.ui.views.showView"
                   style="push">
@@ -55,7 +58,13 @@
          </menu>
          <menu
                id="navigate"
-               label="&amp;Navigate">
+               label="Navigate"
+               mnemonic="N">
+         </menu>
+         <menu
+               id="debug"
+               label="Debug"
+               mnemonic="D">
          </menu>
          <menu
                id="help"

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<shop:Shop xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:shop="http://rcp-company.com/schemas/shop.ecore" name="IT Shop" uuid="_Lr6VkcBGEd-siJXnD8pfBQ" nextOrderNo="1222" nextCustomerNo="12" tmpDir="C:\Windows\Temp\">
+<shop:Shop xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:shop="http://rcp-company.com/schemas/shop.ecore" name="IT Shop" uuid="_Lr6VkcBGEd-siJXnD8pfBQ" nextOrderNo="1222" nextCustomerNo="12" tmpDir="C:\Windows\Temp\3">
   <countries name="Denmark" uuid="DK" abbreviation="DK"/>
   <countries name="Norway" uuid="NO" abbreviation="NO"/>
   <countries name="Sweden" uuid="SE" abbreviation="SE"/>

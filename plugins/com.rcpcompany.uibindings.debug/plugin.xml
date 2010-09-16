@@ -10,5 +10,30 @@
             restorable="true">
       </view>
    </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="com.rcpcompany.uibindings.debug.commands.PrintCommandHistory"
+            name="Print Command History">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.rcpcompany.uibindings.debug.internals.handlers.PrintCommandHistoryHandler"
+            commandId="com.rcpcompany.uibindings.debug.commands.PrintCommandHistory">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:debug">
+         <command
+               commandId="com.rcpcompany.uibindings.debug.commands.PrintCommandHistory"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
 
 </plugin>

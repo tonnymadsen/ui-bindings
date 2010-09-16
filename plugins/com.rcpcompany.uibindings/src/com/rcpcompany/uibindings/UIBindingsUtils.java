@@ -12,7 +12,6 @@ import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
@@ -39,6 +38,7 @@ import com.rcpcompany.uibindings.internal.decorators.GenericEObjectDecorator;
 import com.rcpcompany.uibindings.observables.IObservableListMapper;
 import com.rcpcompany.uibindings.observables.ProxyObservableValue;
 import com.rcpcompany.uibindings.utils.CoreRuntimeException;
+import com.rcpcompany.uibindings.utils.ExtendedCommandStack;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -311,7 +311,7 @@ public final class UIBindingsUtils {
 	 */
 	public static EditingDomain createEditingDomain() {
 		final EditingDomain newDomain = new AdapterFactoryEditingDomain(new ReflectiveItemProviderAdapterFactory(),
-				new BasicCommandStack());
+				new ExtendedCommandStack());
 		return newDomain;
 	}
 
