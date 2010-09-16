@@ -127,6 +127,9 @@ public class BaseTestUtils {
 
 		IValidatorAdapterManager.Factory.getManager().reset();
 
+		/*
+		 * Dispose all the navigation managers - there can be one for each window...
+		 */
 		IGlobalNavigationManager navMng = null;
 		while ((navMng = mng.getService(IGlobalNavigationManager.class)) != null) {
 			navMng.dispose();
