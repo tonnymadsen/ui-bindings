@@ -18,6 +18,7 @@ public class ManagerDecoratorExtendersSortTest {
 		int p = Integer.MIN_VALUE;
 
 		for (final IUIBindingDecoratorExtenderDescriptor e : IManager.Factory.getManager().getDecoratorExtenders()) {
+			assertTrue("non-positive priority?", e.getPriority() > 0);
 			assertTrue(p <= e.getPriority());
 			p = e.getPriority();
 		}

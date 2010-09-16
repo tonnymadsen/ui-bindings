@@ -888,13 +888,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			} else if (InternalConstants.UI_ATTRIBUTE_FACTORY_TAG.equals(elementName)) {
 				extensionReaderUIAttributeFactory(ce);
 			} else if (InternalConstants.DECORATOR_EXTENDER_TAG.equals(elementName)) {
-				// TODO: check for dups
-				final IUIBindingDecoratorExtenderDescriptor descriptor = IUIBindingsFactory.eINSTANCE
-						.createUIBindingDecoratorExtenderDescriptor();
-				descriptor.setFactory(new CEObjectHolder<IUIBindingDecoratorExtender>(ce));
-
-				getDecoratorExtenders().add(descriptor);
-				readArguments(descriptor, ce);
+				extensionReaderDecoratorExtender(ce);
 			} else if (InternalConstants.MODEL_ARGUMENT_MEDIATOR_TAG.equals(elementName)) {
 				// TODO: check for dups
 				final CEObjectHolder<IModelArgumentMediator> mediator = new CEObjectHolder<IModelArgumentMediator>(ce);
@@ -984,7 +978,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		ECollections.sort(getDecoratorExtenders(), new Comparator<IUIBindingDecoratorExtenderDescriptor>() {
 			@Override
 			public int compare(IUIBindingDecoratorExtenderDescriptor o1, IUIBindingDecoratorExtenderDescriptor o2) {
-				return o2.getPriority() - o1.getPriority();
+				return o1.getPriority() - o2.getPriority();
 			}
 		});
 
@@ -1000,6 +994,31 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		for (final ITreeItemDescriptor tid : getTreeItems()) {
 			ECollections.sort(tid.getChildRelations(), comparator);
 		}
+	}
+
+	/**
+	 * @param ce
+	 */
+	private void extensionReaderDecoratorExtender(final IConfigurationElement ce) {
+		// TODO: check for dups
+		final IUIBindingDecoratorExtenderDescriptor descriptor = IUIBindingsFactory.eINSTANCE
+				.createUIBindingDecoratorExtenderDescriptor();
+		descriptor.setFactory(new CEObjectHolder<IUIBindingDecoratorExtender>(ce));
+
+		final String attr = ce.getAttribute(InternalConstants.PRIORITY_TAG);
+		if (attr != null && attr.length() > 0) {
+			try {
+				descriptor.setPriority(Integer.parseInt(attr));
+			} catch (final NumberFormatException ex) {
+				LogUtils.error(ce, ex);
+				return;
+			}
+		} else {
+			descriptor.setPriority(Constants.DEFAULT_DECORATOR_EXTENDER_PRIORITY);
+		}
+
+		getDecoratorExtenders().add(descriptor);
+		readArguments(descriptor, ce);
 	}
 
 	/**
