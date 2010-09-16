@@ -29,7 +29,7 @@ public class PrintCommandHistoryHandler extends AbstractHandler implements IHand
 
 		final ExtendedCommandStack cs = (ExtendedCommandStack) commandStack;
 
-		System.out.println("Command Stack:");
+		System.out.println("Command History:");
 		for (final Command c : cs.getCommands()) {
 			System.out.println("  " + c);
 		}
