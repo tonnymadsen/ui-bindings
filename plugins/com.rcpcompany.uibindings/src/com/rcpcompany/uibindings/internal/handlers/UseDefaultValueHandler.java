@@ -6,8 +6,10 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.command.ChangeCommand;
 import org.eclipse.ui.ISourceProviderListener;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.commands.ICommandService;
@@ -35,19 +37,19 @@ public class UseDefaultValueHandler extends AbstractHandler implements IHandler,
 	/**
 	 * The binding source provider...
 	 */
-	protected BindingSourceProvider myProvider;
+	private final BindingSourceProvider myProvider;
 
 	/**
-	 * The current "checked" state of the handler
+	 * The current "checked" state of the handler.
 	 */
-	protected boolean myUnset = false;
+	private boolean myUnset = false;
 
 	/**
 	 * Listener that tracks the {@link EObject#eIsSet(org.eclipse.emf.ecore.EStructuralFeature)}
 	 * state of the current binding when {@link Constants#SOURCES_ACTIVE_BINDING_UNSETTABLE} is
 	 * <code>true</code>.
 	 */
-	protected ISourceProviderListener myProviderListener = new ISourceProviderListener() {
+	private final ISourceProviderListener myProviderListener = new ISourceProviderListener() {
 
 		@Override
 		public void sourceChanged(int sourcePriority, String sourceName, Object sourceValue) {
@@ -67,10 +69,10 @@ public class UseDefaultValueHandler extends AbstractHandler implements IHandler,
 	/**
 	 * The global command service.
 	 */
-	protected final ICommandService myCommandService;
+	private final ICommandService myCommandService;
 
 	/**
-	 * Constructs and returns a new handler
+	 * Constructs and returns a new handler.
 	 */
 	public UseDefaultValueHandler() {
 		final IServiceLocator locator = PlatformUI.getWorkbench();
@@ -144,11 +146,17 @@ public class UseDefaultValueHandler extends AbstractHandler implements IHandler,
 		final EStructuralFeature feature = binding.getModelFeature();
 		if (obj == null || feature == null) return null;
 
-		if (obj.eIsSet(feature)) {
-			obj.eUnset(feature);
-		} else {
-			obj.eSet(feature, obj.eGet(feature));
-		}
+		final Command command = new ChangeCommand(obj) {
+			@Override
+			protected void doExecute() {
+				if (obj.eIsSet(feature)) {
+					obj.eUnset(feature);
+				} else {
+					obj.eSet(feature, obj.eGet(feature));
+				}
+			}
+		};
+		binding.getEditingDomain().getCommandStack().execute(command);
 		updateUnset();
 
 		return null;
