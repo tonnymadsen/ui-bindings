@@ -6,6 +6,7 @@
 package com.rcpcompany.uibindings;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Control;
 
 /**
@@ -15,6 +16,30 @@ import org.eclipse.swt.widgets.Control;
  * @author Tonny Madsen, The RCP Company
  */
 public interface IValueBindingCell {
+	/**
+	 * Returns the container for this cell.
+	 * 
+	 * @return the container
+	 */
+	IContainerBinding getContainer();
+
+	/**
+	 * Returns the position of this cell in the parent viewer. Top left cell is <code>(0, 0)</code>.
+	 * <p>
+	 * Thus
+	 * 
+	 * <pre>
+	 * Point position = cell.getPosition(false);
+	 * cell.getContainer().getCell(position.x, position.y, false) == cell
+	 * </pre>
+	 * 
+	 * @param visualModel <code>true</code> if the visual model should be used rather than the
+	 *            logical model
+	 * 
+	 * @return the position
+	 */
+	Point getPosition(boolean visualModel);
+
 	/**
 	 * Sets the focus to the cell.
 	 * 

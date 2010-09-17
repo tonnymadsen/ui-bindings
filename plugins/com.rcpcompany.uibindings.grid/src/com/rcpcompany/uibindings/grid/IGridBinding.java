@@ -12,8 +12,8 @@ import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Display;
 
 import com.rcpcompany.uibindings.IArgumentProvider;
-import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingContext;
+import com.rcpcompany.uibindings.IContainerBinding;
 import com.rcpcompany.uibindings.grid.internal.GridBindingImpl;
 
 /**
@@ -38,7 +38,7 @@ import com.rcpcompany.uibindings.grid.internal.GridBindingImpl;
  * @see com.rcpcompany.uibindings.grid.IGridPackage#getGridBinding()
  * @generated
  */
-public interface IGridBinding extends IBinding, IArgumentProvider {
+public interface IGridBinding extends IContainerBinding, IArgumentProvider {
 	/**
 	 * Returns the value of the '<em><b>No Column Headers</b></em>' attribute. <!-- begin-user-doc
 	 * -->

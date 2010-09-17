@@ -47,6 +47,7 @@ import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.ISourceProviderStateContext;
 import com.rcpcompany.uibindings.IValueBinding;
+import com.rcpcompany.uibindings.IValueBindingCell;
 import com.rcpcompany.uibindings.grid.IGridBinding;
 import com.rcpcompany.uibindings.grid.IGridBindingCellEditor;
 import com.rcpcompany.uibindings.grid.IGridBindingCellInformation;
@@ -55,7 +56,7 @@ import com.rcpcompany.uibindings.grid.IGridBindingRowInformation;
 import com.rcpcompany.uibindings.grid.IGridFactory;
 import com.rcpcompany.uibindings.grid.IGridModel;
 import com.rcpcompany.uibindings.grid.IGridPackage;
-import com.rcpcompany.uibindings.internal.BindingImpl;
+import com.rcpcompany.uibindings.internal.ContainerBindingImpl;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -81,7 +82,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  * 
  * @generated
  */
-public class GridBindingImpl extends BindingImpl implements IGridBinding {
+public class GridBindingImpl extends ContainerBindingImpl implements IGridBinding {
 	/**
 	 * The default value of the '{@link #getNoColumnHeaders() <em>No Column Headers</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1222,6 +1223,7 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 			}
 		}
 		if (ci == null) return null;
+
 		for (final IGridBindingRowInformation r : getRows().values()) {
 			if (r.getId() == rowID) {
 				ri = r;
@@ -1234,6 +1236,11 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 		}
 		LogUtils.throwException(this, "Cell not found - inconsistency", getCreationPoint());
 		return null;
+	}
+
+	@Override
+	public IValueBindingCell getCell(int column, int row, boolean visualModel) {
+		return getCell(column, row);
 	}
 
 	@Override
@@ -1275,7 +1282,7 @@ public class GridBindingImpl extends BindingImpl implements IGridBinding {
 	}
 
 	/**
-	 * Returns the grid cell for the specified grid item and column index
+	 * Returns the grid cell for the specified grid item and column index.
 	 * 
 	 * @param column the column index
 	 * @param item the grid item

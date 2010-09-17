@@ -73,7 +73,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__SERVICES = IUIBindingsPackage.BINDING__SERVICES;
+	int GRID_BINDING__SERVICES = IUIBindingsPackage.CONTAINER_BINDING__SERVICES;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' container reference. <!-- begin-user-doc -->
@@ -82,7 +82,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__CONTEXT = IUIBindingsPackage.BINDING__CONTEXT;
+	int GRID_BINDING__CONTEXT = IUIBindingsPackage.CONTAINER_BINDING__CONTEXT;
 
 	/**
 	 * The feature id for the '<em><b>State</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -91,7 +91,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__STATE = IUIBindingsPackage.BINDING__STATE;
+	int GRID_BINDING__STATE = IUIBindingsPackage.CONTAINER_BINDING__STATE;
 
 	/**
 	 * The feature id for the '<em><b>Changeable</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -100,7 +100,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__CHANGEABLE = IUIBindingsPackage.BINDING__CHANGEABLE;
+	int GRID_BINDING__CHANGEABLE = IUIBindingsPackage.CONTAINER_BINDING__CHANGEABLE;
 
 	/**
 	 * The feature id for the '<em><b>Creation Point</b></em>' attribute. <!-- begin-user-doc -->
@@ -109,7 +109,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__CREATION_POINT = IUIBindingsPackage.BINDING__CREATION_POINT;
+	int GRID_BINDING__CREATION_POINT = IUIBindingsPackage.CONTAINER_BINDING__CREATION_POINT;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -118,7 +118,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__ID = IUIBindingsPackage.BINDING__ID;
+	int GRID_BINDING__ID = IUIBindingsPackage.CONTAINER_BINDING__ID;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -127,7 +127,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__TYPE = IUIBindingsPackage.BINDING__TYPE;
+	int GRID_BINDING__TYPE = IUIBindingsPackage.CONTAINER_BINDING__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -136,7 +136,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__LABEL = IUIBindingsPackage.BINDING__LABEL;
+	int GRID_BINDING__LABEL = IUIBindingsPackage.CONTAINER_BINDING__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Static Data Type</b></em>' reference. <!-- begin-user-doc -->
@@ -145,7 +145,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__STATIC_DATA_TYPE = IUIBindingsPackage.BINDING__STATIC_DATA_TYPE;
+	int GRID_BINDING__STATIC_DATA_TYPE = IUIBindingsPackage.CONTAINER_BINDING__STATIC_DATA_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Data Type</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -154,7 +154,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__DATA_TYPE = IUIBindingsPackage.BINDING__DATA_TYPE;
+	int GRID_BINDING__DATA_TYPE = IUIBindingsPackage.CONTAINER_BINDING__DATA_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Model EType</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -163,7 +163,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__MODEL_ETYPE = IUIBindingsPackage.BINDING__MODEL_ETYPE;
+	int GRID_BINDING__MODEL_ETYPE = IUIBindingsPackage.CONTAINER_BINDING__MODEL_ETYPE;
 
 	/**
 	 * The feature id for the '<em><b>Model Type</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -172,7 +172,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__MODEL_TYPE = IUIBindingsPackage.BINDING__MODEL_TYPE;
+	int GRID_BINDING__MODEL_TYPE = IUIBindingsPackage.CONTAINER_BINDING__MODEL_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>UI Type</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -181,7 +181,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__UI_TYPE = IUIBindingsPackage.BINDING__UI_TYPE;
+	int GRID_BINDING__UI_TYPE = IUIBindingsPackage.CONTAINER_BINDING__UI_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>DB Bindings</b></em>' attribute list. <!-- begin-user-doc -->
@@ -190,7 +190,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__DB_BINDINGS = IUIBindingsPackage.BINDING__DB_BINDINGS;
+	int GRID_BINDING__DB_BINDINGS = IUIBindingsPackage.CONTAINER_BINDING__DB_BINDINGS;
 
 	/**
 	 * The feature id for the '<em><b>Monitored DB Bindings</b></em>' attribute list. <!--
@@ -199,7 +199,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__MONITORED_DB_BINDINGS = IUIBindingsPackage.BINDING__MONITORED_DB_BINDINGS;
+	int GRID_BINDING__MONITORED_DB_BINDINGS = IUIBindingsPackage.CONTAINER_BINDING__MONITORED_DB_BINDINGS;
 
 	/**
 	 * The feature id for the '<em><b>Error Conditions</b></em>' attribute list. <!-- begin-user-doc
@@ -208,7 +208,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__ERROR_CONDITIONS = IUIBindingsPackage.BINDING__ERROR_CONDITIONS;
+	int GRID_BINDING__ERROR_CONDITIONS = IUIBindingsPackage.CONTAINER_BINDING__ERROR_CONDITIONS;
 
 	/**
 	 * The feature id for the '<em><b>Widget</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -217,7 +217,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__WIDGET = IUIBindingsPackage.BINDING__WIDGET;
+	int GRID_BINDING__WIDGET = IUIBindingsPackage.CONTAINER_BINDING__WIDGET;
 
 	/**
 	 * The feature id for the '<em><b>Control</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -226,7 +226,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__CONTROL = IUIBindingsPackage.BINDING__CONTROL;
+	int GRID_BINDING__CONTROL = IUIBindingsPackage.CONTAINER_BINDING__CONTROL;
 
 	/**
 	 * The feature id for the '<em><b>Extra Argument Providers</b></em>' reference list. <!--
@@ -235,7 +235,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__EXTRA_ARGUMENT_PROVIDERS = IUIBindingsPackage.BINDING__EXTRA_ARGUMENT_PROVIDERS;
+	int GRID_BINDING__EXTRA_ARGUMENT_PROVIDERS = IUIBindingsPackage.CONTAINER_BINDING__EXTRA_ARGUMENT_PROVIDERS;
 
 	/**
 	 * The feature id for the '<em><b>No Column Headers</b></em>' attribute. <!-- begin-user-doc -->
@@ -244,7 +244,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__NO_COLUMN_HEADERS = IUIBindingsPackage.BINDING_FEATURE_COUNT + 0;
+	int GRID_BINDING__NO_COLUMN_HEADERS = IUIBindingsPackage.CONTAINER_BINDING_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' map. <!-- begin-user-doc --> <!--
@@ -253,7 +253,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__COLUMNS = IUIBindingsPackage.BINDING_FEATURE_COUNT + 1;
+	int GRID_BINDING__COLUMNS = IUIBindingsPackage.CONTAINER_BINDING_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>No Row Headers</b></em>' attribute. <!-- begin-user-doc -->
@@ -262,7 +262,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__NO_ROW_HEADERS = IUIBindingsPackage.BINDING_FEATURE_COUNT + 2;
+	int GRID_BINDING__NO_ROW_HEADERS = IUIBindingsPackage.CONTAINER_BINDING_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Rows</b></em>' map. <!-- begin-user-doc --> <!-- end-user-doc
@@ -271,7 +271,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__ROWS = IUIBindingsPackage.BINDING_FEATURE_COUNT + 3;
+	int GRID_BINDING__ROWS = IUIBindingsPackage.CONTAINER_BINDING_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Grid</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -280,7 +280,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__GRID = IUIBindingsPackage.BINDING_FEATURE_COUNT + 4;
+	int GRID_BINDING__GRID = IUIBindingsPackage.CONTAINER_BINDING_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -289,7 +289,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__MODEL = IUIBindingsPackage.BINDING_FEATURE_COUNT + 5;
+	int GRID_BINDING__MODEL = IUIBindingsPackage.CONTAINER_BINDING_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Focus Cell</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -298,7 +298,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__FOCUS_CELL = IUIBindingsPackage.BINDING_FEATURE_COUNT + 6;
+	int GRID_BINDING__FOCUS_CELL = IUIBindingsPackage.CONTAINER_BINDING_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Cell Editor</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -307,7 +307,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__CELL_EDITOR = IUIBindingsPackage.BINDING_FEATURE_COUNT + 7;
+	int GRID_BINDING__CELL_EDITOR = IUIBindingsPackage.CONTAINER_BINDING_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Binding</em>' class. <!-- begin-user-doc -->
@@ -316,7 +316,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING_FEATURE_COUNT = IUIBindingsPackage.BINDING_FEATURE_COUNT + 8;
+	int GRID_BINDING_FEATURE_COUNT = IUIBindingsPackage.CONTAINER_BINDING_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '

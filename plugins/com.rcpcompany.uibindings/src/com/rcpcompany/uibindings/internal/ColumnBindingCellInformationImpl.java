@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Control;
 
 import com.rcpcompany.uibindings.Constants;
@@ -25,6 +26,7 @@ import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IColumnBindingCellInformation;
 import com.rcpcompany.uibindings.IConstantTreeItem;
+import com.rcpcompany.uibindings.IContainerBinding;
 import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.IUIBindingDecorator;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
@@ -176,6 +178,17 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 		context.finish(FinishOption.IF_ALREADY_FINISHED);
 
 		attribute.addChangeListener(myAttributeValueListener);
+	}
+
+	@Override
+	public IContainerBinding getContainer() {
+		return getColumnBinding().getViewerBinding();
+	}
+
+	@Override
+	public Point getPosition(boolean visualModel) {
+		// TODO POSITION
+		return null;
 	}
 
 	protected final IChangeListener myAttributeValueListener = new IChangeListener() {

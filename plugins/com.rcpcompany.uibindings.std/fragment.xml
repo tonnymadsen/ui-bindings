@@ -171,6 +171,10 @@
                style="push">
          </command>
          <command
+               commandId="com.rcpcompany.uibindings.commands.SuperPaste"
+               style="push">
+         </command>
+         <command
                commandId="com.rcpcompany.uibindings.commands.UseDefaultValue"
                style="push">
             <visibleWhen

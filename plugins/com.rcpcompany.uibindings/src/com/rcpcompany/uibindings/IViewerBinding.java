@@ -47,7 +47,7 @@ import com.rcpcompany.uibindings.bindingMessages.ValidationLabelDecorator;
  * @see com.rcpcompany.uibindings.IUIBindingsPackage#getViewerBinding()
  * @generated
  */
-public interface IViewerBinding extends IBinding {
+public interface IViewerBinding extends IContainerBinding {
 
 	/**
 	 * Binds the target (UI) side of this binding to the specified viewer.

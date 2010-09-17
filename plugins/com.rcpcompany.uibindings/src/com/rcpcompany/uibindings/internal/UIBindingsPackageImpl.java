@@ -69,6 +69,7 @@ import com.rcpcompany.uibindings.IColumnAdapter;
 import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IColumnBindingCellInformation;
 import com.rcpcompany.uibindings.IConstantTreeItem;
+import com.rcpcompany.uibindings.IContainerBinding;
 import com.rcpcompany.uibindings.IDecoratorProvider;
 import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.IEMFObservableFactory;
@@ -170,6 +171,13 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	private EClass columnBindingCellInformationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass containerBindingEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1835,6 +1843,16 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	@Override
 	public EAttribute getColumnBindingCellInformation_Enabled() {
 		return (EAttribute) columnBindingCellInformationEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EClass getContainerBinding() {
+		return containerBindingEClass;
 	}
 
 	/**
@@ -4260,6 +4278,8 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		createEAttribute(columnBindingCellInformationEClass, COLUMN_BINDING_CELL_INFORMATION__TOOL_TIP_TEXT);
 		createEAttribute(columnBindingCellInformationEClass, COLUMN_BINDING_CELL_INFORMATION__ENABLED);
 
+		containerBindingEClass = createEClass(CONTAINER_BINDING);
+
 		viewerBindingEClass = createEClass(VIEWER_BINDING);
 		createEReference(viewerBindingEClass, VIEWER_BINDING__COLUMNS);
 		createEAttribute(viewerBindingEClass, VIEWER_BINDING__LIST);
@@ -4580,7 +4600,8 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		columnBindingEClass.getESuperTypes().add(this.getBinding());
 		columnBindingCellInformationEClass.getESuperTypes().add(this.getIDisposable());
 		columnBindingCellInformationEClass.getESuperTypes().add(this.getValueBindingCell());
-		viewerBindingEClass.getESuperTypes().add(this.getBinding());
+		containerBindingEClass.getESuperTypes().add(this.getBinding());
+		viewerBindingEClass.getESuperTypes().add(this.getContainerBinding());
 		decoratorProviderEClass.getESuperTypes().add(this.getIArgumentProvider());
 		javaDecoratorProviderEClass.getESuperTypes().add(this.getDecoratorProvider());
 		enumDecoratorProviderEClass.getESuperTypes().add(this.getDecoratorProvider());
@@ -5023,6 +5044,9 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				getColumnBindingCellInformation_Enabled(),
 				ecorePackage.getEBoolean(),
 				"enabled", "true", 1, 1, IColumnBindingCellInformation.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+
+		initEClass(containerBindingEClass, IContainerBinding.class,
+				"ContainerBinding", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		initEClass(viewerBindingEClass, IViewerBinding.class,
 				"ViewerBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

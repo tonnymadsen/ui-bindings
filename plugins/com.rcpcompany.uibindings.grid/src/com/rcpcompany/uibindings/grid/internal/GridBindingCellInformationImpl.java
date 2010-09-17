@@ -28,6 +28,7 @@ import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
@@ -37,6 +38,7 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingContext.FinishOption;
 import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IColumnBinding;
+import com.rcpcompany.uibindings.IContainerBinding;
 import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.IUIBindingDecorator;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
@@ -100,6 +102,11 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	 */
 	public IGridBinding getGrid() {
 		return getColumn().getGrid();
+	}
+
+	@Override
+	public IContainerBinding getContainer() {
+		return getGrid();
 	}
 
 	/**
@@ -1175,5 +1182,13 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	@Override
 	public IColumnBinding getColumnBinding() {
 		return null;
+	}
+
+	@Override
+	public Point getPosition(boolean visualModel) {
+		// No visual model
+		final int x = getColumn().getRowCells().indexOf(this);
+		final int y = getRow().getColumnCells().indexOf(this);
+		return new Point(x, y);
 	}
 } // GridBindingCellInformationImpl

@@ -75,6 +75,7 @@ import com.rcpcompany.uibindings.ISourceProviderStateContext;
 import com.rcpcompany.uibindings.IUIBindingsFactory;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
+import com.rcpcompany.uibindings.IValueBindingCell;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.bindingMessages.ValidationLabelDecorator;
@@ -106,7 +107,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  * 
  * @generated
  */
-public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
+public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBinding {
 	@Override
 	public IViewerBinding viewer(ColumnViewer viewer) {
 		assertTrue(viewer != null, "viewer must be non-null");
@@ -580,6 +581,12 @@ public class ViewerBindingImpl extends BindingImpl implements IViewerBinding {
 	@Override
 	public Control getControl() {
 		return getViewer().getControl();
+	}
+
+	@Override
+	public IValueBindingCell getCell(int column, int row, boolean visualModel) {
+		// TODO POSITION
+		return null;
 	}
 
 	@Override

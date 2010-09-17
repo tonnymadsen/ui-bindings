@@ -3,7 +3,7 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="grid"
     nsURI="http://rcp-company.com/schemas/uibindings/grid" nsPrefix="grid">
-  <eClassifiers xsi:type="ecore:EClass" name="GridBinding" eSuperTypes="../../com.rcpcompany.uibindings/model/uibindings.ecore#//Binding ../../com.rcpcompany.uibindings/model/uibindings.ecore#//IArgumentProvider">
+  <eClassifiers xsi:type="ecore:EClass" name="GridBinding" eSuperTypes="../../com.rcpcompany.uibindings/model/uibindings.ecore#//ContainerBinding ../../com.rcpcompany.uibindings/model/uibindings.ecore#//IArgumentProvider">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="noColumnHeaders" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" changeable="false"
         transient="true"/>

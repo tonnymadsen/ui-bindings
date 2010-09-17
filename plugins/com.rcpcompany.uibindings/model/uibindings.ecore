@@ -302,7 +302,8 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" transient="true"
         defaultValueLiteral="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ViewerBinding" eSuperTypes="#//Binding">
+  <eClassifiers xsi:type="ecore:EClass" name="ContainerBinding" abstract="true" eSuperTypes="#//Binding"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ViewerBinding" eSuperTypes="#//ContainerBinding">
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
         eType="#//ColumnBinding" resolveProxies="false" eOpposite="#//ColumnBinding/viewerBinding">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

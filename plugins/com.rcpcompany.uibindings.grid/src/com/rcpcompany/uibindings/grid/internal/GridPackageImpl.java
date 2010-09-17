@@ -770,7 +770,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		gridBindingEClass.getESuperTypes().add(theUIBindingsPackage.getBinding());
+		gridBindingEClass.getESuperTypes().add(theUIBindingsPackage.getContainerBinding());
 		gridBindingEClass.getESuperTypes().add(theUIBindingsPackage.getIArgumentProvider());
 		gridBindingCellInformationEClass.getESuperTypes().add(theUIBindingsPackage.getIDisposable());
 		gridBindingCellInformationEClass.getESuperTypes().add(theUIBindingsPackage.getValueBindingCell());
