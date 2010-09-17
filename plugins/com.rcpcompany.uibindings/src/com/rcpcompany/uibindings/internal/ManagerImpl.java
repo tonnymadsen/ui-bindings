@@ -2003,6 +2003,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 
 	@Override
 	public IModelClassInfo getModelClassInfo(String className, String type, boolean create) {
+		if (className == null) return null;
 		IModelClassInfo cInfo = getModelInfo().get(className);
 		if (cInfo == null && create) {
 			cInfo = IUIBindingsFactory.eINSTANCE.createModelClassInfo();
