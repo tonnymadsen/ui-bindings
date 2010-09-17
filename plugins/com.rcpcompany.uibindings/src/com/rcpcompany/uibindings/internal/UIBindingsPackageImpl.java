@@ -62,6 +62,7 @@ import com.rcpcompany.uibindings.IArgumentProvider;
 import com.rcpcompany.uibindings.IBaseObject;
 import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingContext;
+import com.rcpcompany.uibindings.IBindingContextFinalizer;
 import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.IBindingMessageTarget;
@@ -521,6 +522,13 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	private EEnum bindingMessageSeverityEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EDataType iBindingContextFinalizerEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1293,6 +1301,16 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	@Override
 	public EAttribute getBindingContext_EditingDomain() {
 		return (EAttribute) bindingContextEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBindingContext_Finalizers() {
+		return (EAttribute) bindingContextEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -3741,6 +3759,16 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
+	public EDataType getIBindingContextFinalizer() {
+		return iBindingContextFinalizerEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EDataType getUIAttributePainter() {
 		return uiAttributePainterEDataType;
 	}
@@ -4217,6 +4245,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		createEAttribute(bindingContextEClass, BINDING_CONTEXT__TEXT_COMMIT_STRATEGY);
 		createEAttribute(bindingContextEClass, BINDING_CONTEXT__TEXT_COMMIT_STRATEGY_CALCULATED);
 		createEAttribute(bindingContextEClass, BINDING_CONTEXT__EDITING_DOMAIN);
+		createEAttribute(bindingContextEClass, BINDING_CONTEXT__FINALIZERS);
 
 		bindingEClass = createEClass(BINDING);
 		createEReference(bindingEClass, BINDING__CONTEXT);
@@ -4516,6 +4545,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		bindingMessageSeverityEEnum = createEEnum(BINDING_MESSAGE_SEVERITY);
 
 		// Create data types
+		iBindingContextFinalizerEDataType = createEDataType(IBINDING_CONTEXT_FINALIZER);
 		uiAttributePainterEDataType = createEDataType(UI_ATTRIBUTE_PAINTER);
 		iemfObservableFactoryEDataType = createEDataType(IEMF_OBSERVABLE_FACTORY);
 		ceObjectHolderEDataType = createEDataType(CE_OBJECT_HOLDER);
@@ -4801,6 +4831,10 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				getBindingContext_EditingDomain(),
 				this.getEditingDomain(),
 				"editingDomain", null, 1, 1, IBindingContext.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getBindingContext_Finalizers(),
+				this.getIBindingContextFinalizer(),
+				"finalizers", null, 0, -1, IBindingContext.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(bindingEClass, IBinding.class, "Binding", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(
@@ -5819,6 +5853,8 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		addEEnumLiteral(bindingMessageSeverityEEnum, BindingMessageSeverity.ERROR);
 
 		// Initialize data types
+		initEDataType(iBindingContextFinalizerEDataType, IBindingContextFinalizer.class,
+				"IBindingContextFinalizer", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEDataType(uiAttributePainterEDataType, UIAttributePainter.class,
 				"UIAttributePainter", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEDataType(iemfObservableFactoryEDataType, IEMFObservableFactory.class,

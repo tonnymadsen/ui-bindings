@@ -11,6 +11,7 @@ import com.rcpcompany.uibindings.extests.bindingMessages.ValidationAdapterManage
 import com.rcpcompany.uibindings.extests.bindingMessages.ValueBindingMessageImageDecoratorImageTest;
 import com.rcpcompany.uibindings.extests.bindings.ArgumentsScopeTest;
 import com.rcpcompany.uibindings.extests.bindings.ArgumentsTypeTest;
+import com.rcpcompany.uibindings.extests.bindings.BindingContextFinalizerTest;
 import com.rcpcompany.uibindings.extests.bindings.BindingDisposeTest;
 import com.rcpcompany.uibindings.extests.bindings.BindingFormatTest;
 import com.rcpcompany.uibindings.extests.bindings.ContextEditingDomainCommitTest;
@@ -144,6 +145,7 @@ import com.rcpcompany.uibindings.extests.viewerBindings.ViewerSingleSelectionTes
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerTableDeleteElementTest;
 import com.rcpcompany.uibindings.extests.widgets.FileNameControlTest;
 import com.rcpcompany.uibindings.internal.ManagerSizesTest;
+import com.rcpcompany.uibindings.internal.decorators.extenders.ExtenderTest;
 import com.rcpcompany.uibindings.internal.decorators.extenders.OpenCommandSupportLowLevelTest;
 import com.rcpcompany.uibindings.internal.utils.GlobalNavigationManagerTest;
 import com.rcpcompany.uibindings.internal.utils.ViewerToolBarBaseTests;
@@ -222,7 +224,7 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		 * 
 		 * TODO
 		 */
-		EnumImageExtenderTest.class,
+		ExtenderTest.class, EnumImageExtenderTest.class,
 
 		/*
 		 * Specific observables
@@ -260,6 +262,8 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		BindingDisposeTest.class, SIMA1070FormattingOfValues.class,
 
 		ContextNoCommitTest.class, ContextEditingDomainTest.class, ContextEditingDomainCommitTest.class,
+
+		BindingContextFinalizerTest.class,
 
 		/*
 		 * Viewer bindings

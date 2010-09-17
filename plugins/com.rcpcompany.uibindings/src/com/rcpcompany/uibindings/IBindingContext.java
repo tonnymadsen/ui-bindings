@@ -70,6 +70,7 @@ import com.rcpcompany.uibindings.internal.InternalConstants;
  * <li>{@link com.rcpcompany.uibindings.IBindingContext#getTextCommitStrategyCalculated <em>Text
  * Commit Strategy Calculated</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IBindingContext#getEditingDomain <em>Editing Domain</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IBindingContext#getFinalizers <em>Finalizers</em>}</li>
  * </ul>
  * </p>
  * 
@@ -510,4 +511,19 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	 * @generated
 	 */
 	void setEditingDomain(EditingDomain value);
+
+	/**
+	 * Returns the value of the '<em><b>Finalizers</b></em>' attribute list. The list contents are
+	 * of type {@link com.rcpcompany.uibindings.IBindingContextFinalizer}. <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Finalizers</em>' attribute list isn't clear, there really should
+	 * be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Finalizers</em>' attribute list.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getBindingContext_Finalizers()
+	 * @generated
+	 */
+	EList<IBindingContextFinalizer> getFinalizers();
 } // IBindingContext

@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -48,6 +49,7 @@ import org.eclipse.ui.services.IServiceLocator;
 import com.rcpcompany.uibindings.BindingState;
 import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingContext;
+import com.rcpcompany.uibindings.IBindingContextFinalizer;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIBindingsFactory;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
@@ -81,6 +83,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <em>Text Commit Strategy Calculated</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingContextImpl#getEditingDomain <em>Editing
  * Domain</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingContextImpl#getFinalizers <em>Finalizers
+ * </em>}</li>
  * </ul>
  * </p>
  * 
@@ -248,6 +252,16 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	 * @ordered
 	 */
 	protected EditingDomain editingDomain = EDITING_DOMAIN_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getFinalizers() <em>Finalizers</em>}' attribute list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getFinalizers()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<IBindingContextFinalizer> finalizers;
 
 	/**
 	 * <!-- begin-user-doc -->Constructs and returns a new emptycontext.<!-- end-user-doc -->
@@ -454,9 +468,30 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setState(BindingState newState) {
+		final boolean runFinalizers = getState() != newState && newState == BindingState.OK;
+		setStateGen(newState);
+
+		if (runFinalizers && eIsSet(IUIBindingsPackage.Literals.BINDING_CONTEXT__FINALIZERS)) {
+			for (final IBindingContextFinalizer f : getFinalizers().toArray(
+					new IBindingContextFinalizer[getFinalizers().size()])) {
+				try {
+					f.run(this);
+				} catch (final Exception ex) {
+					LogUtils.error(f, ex);
+				}
+			}
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public void setStateGen(BindingState newState) {
 		final BindingState oldState = state;
 		state = newState == null ? STATE_EDEFAULT : newState;
 		if (eNotificationRequired()) {
@@ -567,6 +602,20 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	 * 
 	 * @generated
 	 */
+	@Override
+	public EList<IBindingContextFinalizer> getFinalizers() {
+		if (finalizers == null) {
+			finalizers = new EDataTypeUniqueEList<IBindingContextFinalizer>(IBindingContextFinalizer.class, this,
+					IUIBindingsPackage.BINDING_CONTEXT__FINALIZERS);
+		}
+		return finalizers;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -617,6 +666,8 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 			return getTextCommitStrategyCalculated();
 		case IUIBindingsPackage.BINDING_CONTEXT__EDITING_DOMAIN:
 			return getEditingDomain();
+		case IUIBindingsPackage.BINDING_CONTEXT__FINALIZERS:
+			return getFinalizers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -653,6 +704,10 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 		case IUIBindingsPackage.BINDING_CONTEXT__EDITING_DOMAIN:
 			setEditingDomain((EditingDomain) newValue);
 			return;
+		case IUIBindingsPackage.BINDING_CONTEXT__FINALIZERS:
+			getFinalizers().clear();
+			getFinalizers().addAll((Collection<? extends IBindingContextFinalizer>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -686,6 +741,9 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 		case IUIBindingsPackage.BINDING_CONTEXT__EDITING_DOMAIN:
 			setEditingDomain(EDITING_DOMAIN_EDEFAULT);
 			return;
+		case IUIBindingsPackage.BINDING_CONTEXT__FINALIZERS:
+			getFinalizers().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -718,6 +776,8 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 		case IUIBindingsPackage.BINDING_CONTEXT__EDITING_DOMAIN:
 			return EDITING_DOMAIN_EDEFAULT == null ? editingDomain != null : !EDITING_DOMAIN_EDEFAULT
 					.equals(editingDomain);
+		case IUIBindingsPackage.BINDING_CONTEXT__FINALIZERS:
+			return finalizers != null && !finalizers.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -746,6 +806,8 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 		result.append(textCommitStrategyCalculated);
 		result.append(", editingDomain: "); //$NON-NLS-1$
 		result.append(editingDomain);
+		result.append(", finalizers: "); //$NON-NLS-1$
+		result.append(finalizers);
 		result.append(')');
 		return result.toString();
 	}

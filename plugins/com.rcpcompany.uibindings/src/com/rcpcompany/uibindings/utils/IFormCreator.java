@@ -529,6 +529,13 @@ public interface IFormCreator extends IDisposable {
 	void addObjectMessages(IObservableValue value);
 
 	/**
+	 * Adds a {@link Runnable} that will be run <em>after</em> the form has been finalized.
+	 * 
+	 * @param runnable the {@link Runnable} to run
+	 */
+	void addFinalizer(Runnable runnable);
+
+	/**
 	 * Sets the layout data of the specified control to cover a part of this form.
 	 * 
 	 * @param ctl the control

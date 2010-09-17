@@ -20,6 +20,8 @@ import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
+import com.rcpcompany.uibindings.utils.IBindingObjectInformation;
+
 /**
  * Various Ecore oriented utility methods.
  * 
@@ -213,7 +215,7 @@ public final class EcoreExtUtils {
 					}
 
 					if (targetIndex == -1) {
-						addCommand(RemoveCommand.create(getEditingDomain(), target, sf, sourceObject));
+						addCommand(RemoveCommand.create(getEditingDomain(), target, sf, targetObject));
 						targetList.remove(index);
 						done = false;
 						continue;
@@ -252,7 +254,6 @@ public final class EcoreExtUtils {
 		private <T extends EObject> void syncContainmentList(EReference ref, T target, List<T> sourceList) {
 			if (!target.eIsSet(ref) && (sourceList == null || sourceList.isEmpty())) return;
 			final EList<EObject> targetList = new BasicEList<EObject>((EList<EObject>) target.eGet(ref));
-			if (targetList == sourceList) return;
 
 			int sourceListSize = 0;
 			if (sourceList != null) {
@@ -261,12 +262,12 @@ public final class EcoreExtUtils {
 
 			final EAttribute key = findKeyAttribute(ref);
 
-			for (int index = 0; index < sourceListSize; index++) {
-				final EObject sourceObject = sourceList.get(index);
+			for (int sourceIndex = 0; sourceIndex < sourceListSize; sourceIndex++) {
+				final EObject sourceObject = sourceList.get(sourceIndex);
 				/*
 				 * Is targetList long enougth
 				 */
-				if (index >= targetList.size()) {
+				if (sourceIndex >= targetList.size()) {
 					addCommand(AddCommand.create(getEditingDomain(), target, ref, sourceObject));
 					targetList.add(sourceObject);
 					continue;
@@ -278,30 +279,40 @@ public final class EcoreExtUtils {
 					/*
 					 * Does the right element already exist
 					 */
-					final EObject targetObject = targetList.get(index);
+					final EObject targetObject = targetList.get(sourceIndex);
 					if (targetObject == sourceObject) {
 						continue;
 					}
 
+					/*
+					 * An object with the correct key already exist in the correct place. Sync these
+					 * then.
+					 */
 					if (key != null && UIBindingsUtils.equals(targetObject, sourceObject, key)) {
 						sync(targetObject, sourceObject);
 						continue;
 					}
 
-					final int existingTargetIndex = indexOf(targetList, key, sourceObject, index);
-					int targetIndex = indexOf((EList<EObject>) sourceList, key, targetObject, index);
+					/*
+					 * See if the source already exists somewhere in the target list.
+					 * 
+					 * Also see if the target object at the wanted index is found anywhere in the
+					 * source list.
+					 */
+					final int existingTargetIndex = indexOf(targetList, key, sourceObject, sourceIndex);
+					int targetIndex = indexOf((List<EObject>) sourceList, key, targetObject, sourceIndex);
 					if (existingTargetIndex == -1) {
 						/*
-						 * The object does not exist in the target list already, so we have to add
-						 * it or replace the exiting object if it is not needed
+						 * The object does not exist in the target list already, so we have to
+						 * either add it or replace the exiting target object if it is not needed
 						 */
 						if (targetIndex == -1) {
-							addCommand(SetCommand.create(getEditingDomain(), target, ref, sourceObject, index));
+							addCommand(SetCommand.create(getEditingDomain(), target, ref, sourceObject, sourceIndex));
 							addRemovedObject(targetObject);
-							targetList.set(index, sourceObject);
+							targetList.set(sourceIndex, sourceObject);
 						} else {
-							addCommand(AddCommand.create(getEditingDomain(), target, ref, sourceObject, index));
-							targetList.add(index, sourceObject);
+							addCommand(AddCommand.create(getEditingDomain(), target, ref, sourceObject, sourceIndex));
+							targetList.add(sourceIndex, sourceObject);
 						}
 						continue;
 					}
@@ -310,9 +321,9 @@ public final class EcoreExtUtils {
 					 * There are no use for the current target element - just remove it
 					 */
 					if (targetIndex == -1) {
-						addCommand(RemoveCommand.create(getEditingDomain(), target, ref, sourceObject));
+						addCommand(RemoveCommand.create(getEditingDomain(), target, ref, targetObject));
 						addRemovedObject(sourceObject);
-						targetList.remove(index);
+						targetList.remove(sourceIndex);
 						done = false;
 						continue;
 					}
@@ -324,13 +335,13 @@ public final class EcoreExtUtils {
 							targetIndex = targetList.size() - 1;
 						}
 						addCommand(MoveCommand.create(getEditingDomain(), target, ref, sourceObject, targetIndex));
-						targetList.move(targetIndex, index);
+						targetList.move(targetIndex, sourceIndex);
 						done = false;
 						continue;
 					}
-					addCommand(MoveCommand.create(getEditingDomain(), target, ref, sourceObject, index));
-					targetList.move(targetIndex, index);
-					sync(targetList.get(index), sourceObject);
+					addCommand(MoveCommand.create(getEditingDomain(), target, ref, sourceObject, sourceIndex));
+					targetList.move(targetIndex, sourceIndex);
+					sync(targetList.get(sourceIndex), sourceObject);
 				} while (!done);
 			}
 
@@ -392,6 +403,7 @@ public final class EcoreExtUtils {
 				myCompoundCommand = new CompoundCommand();
 			}
 
+			// LogUtils.debug(this, EcoreExtUtils.toString(c));
 			myCompoundCommand.append(c);
 		}
 
@@ -424,6 +436,7 @@ public final class EcoreExtUtils {
 		 * @param source the object synchronized from
 		 */
 		public <T extends EObject> void sync(EList<T> target, EList<T> source) {
+			if (target == source) return;
 			Assert.isTrue(target instanceof EObjectContainmentEList);
 			final EObjectContainmentEList<T> t = (EObjectContainmentEList<T>) target;
 			syncContainmentList((EReference) t.getEStructuralFeature(), (T) t.getEObject(), source);
@@ -446,5 +459,47 @@ public final class EcoreExtUtils {
 		public EditingDomain getEditingDomain() {
 			return myEditingDomain;
 		}
+	}
+
+	/**
+	 * Returns a string that describes the specified command is clear human readable text.
+	 * 
+	 * @param c the command
+	 * @return the clear text description
+	 */
+	public static String toString(Command c) {
+		if (c == null) return "<null>";
+
+		final StringBuilder sb = new StringBuilder();
+
+		sb.append(c.getClass().getSimpleName()).append("(");
+		if (c instanceof AddCommand) {
+			final AddCommand cc = (AddCommand) c;
+
+			sb.append(getEObjectName(cc.getOwner())).append(", ").append(cc.getFeature().getName());
+		} else if (c instanceof RemoveCommand) {
+			final RemoveCommand cc = (RemoveCommand) c;
+
+			sb.append(getEObjectName(cc.getOwner())).append(", ").append(cc.getFeature().getName()).append(", ")
+					.append(cc.getCollection());
+		} else if (c instanceof SetCommand) {
+			final SetCommand cc = (SetCommand) c;
+
+			sb.append(getEObjectName(cc.getOwner())).append(", ").append(cc.getFeature().getName()).append(", ")
+					.append(formatSetCommandArg(cc.getOldValue())).append(", ")
+					.append(formatSetCommandArg(cc.getOldValue()));
+		} else {
+			sb.append("...");
+		}
+		sb.append(")");
+		return sb.toString();
+	}
+
+	private static String formatSetCommandArg(Object oldValue) {
+		return (oldValue == SetCommand.UNSET_VALUE) ? "<default> " : ("" + oldValue);
+	}
+
+	public static String getEObjectName(EObject owner) {
+		return IBindingObjectInformation.Factory.getLongName(owner);
 	}
 }

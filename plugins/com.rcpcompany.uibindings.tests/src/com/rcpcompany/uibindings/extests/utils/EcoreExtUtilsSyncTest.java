@@ -150,6 +150,31 @@ public class EcoreExtUtilsSyncTest {
 	}
 
 	/**
+	 * Test sync of many-attribute
+	 */
+	@Test
+	public void testManyAttributeSync4() {
+		final ShopItem source = ShopFactory.eINSTANCE.createShopItem();
+		source.setName("abc");
+		source.getLocations().add("c");
+		source.getLocations().add("d");
+
+		final ShopItem target = ShopFactory.eINSTANCE.createShopItem();
+		target.setName("abc");
+		target.getLocations().add("a");
+		target.getLocations().add("b");
+		target.getLocations().add("c");
+		target.getLocations().add("d");
+
+		sync(target, source, null, ShopPackage.Literals.SHOP_ITEM__LOCATIONS, ShopPackage.Literals.SHOP_ITEM__LOCATIONS);
+
+		assertEquals("abc", target.getName());
+		assertEquals(2, target.getLocations().size());
+		assertEquals("c", target.getLocations().get(0));
+		assertEquals("d", target.getLocations().get(1));
+	}
+
+	/**
 	 * Test sync of containment reference
 	 */
 	@Test
@@ -241,6 +266,53 @@ public class EcoreExtUtilsSyncTest {
 		assertEquals(target, shopItem1.getShop());
 		assertEquals(target, shopItem2b.getShop());
 		assertEquals(100f, shopItem2b.getPrice(), 0.001f);
+	}
+
+	/**
+	 * Test sync of containment reference (based on problem from 3Dfacto)
+	 */
+	@Test
+	public void testContainmentListSync3() {
+		final Shop source = ShopFactory.eINSTANCE.createShop();
+		source.setName("source");
+		final ShopItem shopItem3a = ShopFactory.eINSTANCE.createShopItem();
+		shopItem3a.setName("3");
+		shopItem3a.setPrice(100f);
+		shopItem3a.setShop(source);
+		final ShopItem shopItem4a = ShopFactory.eINSTANCE.createShopItem();
+		shopItem4a.setName("4");
+		shopItem4a.setPrice(120f);
+		shopItem4a.setShop(source);
+
+		final Shop target = ShopFactory.eINSTANCE.createShop();
+		target.setName("target");
+		final ShopItem shopItem1 = ShopFactory.eINSTANCE.createShopItem();
+		shopItem1.setName("1");
+		shopItem1.setPrice(100f);
+		shopItem1.setShop(target);
+		final ShopItem shopItem2 = ShopFactory.eINSTANCE.createShopItem();
+		shopItem2.setName("2");
+		shopItem2.setPrice(100f);
+		shopItem2.setShop(target);
+		final ShopItem shopItem3b = ShopFactory.eINSTANCE.createShopItem();
+		shopItem3b.setName("3");
+		shopItem3b.setPrice(200f);
+		shopItem3b.setShop(target);
+		final ShopItem shopItem4b = ShopFactory.eINSTANCE.createShopItem();
+		shopItem4b.setName("4");
+		shopItem4b.setPrice(200f);
+		shopItem4b.setShop(target);
+
+		sync(target, target.getShopItems(), source.getShopItems(), new EObject[] { shopItem1, shopItem2 },
+				ShopPackage.Literals.SHOP__SHOP_ITEMS, ShopPackage.Literals.SHOP_ITEM__SHOP,
+				ShopPackage.Literals.SHOP__SHOP_ITEMS, ShopPackage.Literals.SHOP_ITEM__SHOP,
+				ShopPackage.Literals.SHOP_ITEM__PRICE, ShopPackage.Literals.SHOP_ITEM__PRICE);
+
+		assertEquals(2, target.getShopItems().size());
+		assertEquals(target, shopItem3b.getShop());
+		assertEquals(target, shopItem4b.getShop());
+		assertEquals(100f, shopItem3b.getPrice(), 0.001f);
+		assertEquals(120f, shopItem4b.getPrice(), 0.001f);
 	}
 
 	private final List<EStructuralFeature> myChanges = new ArrayList<EStructuralFeature>();

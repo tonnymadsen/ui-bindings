@@ -45,6 +45,7 @@ import org.eclipse.ui.forms.widgets.TableWrapLayout;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingContext.FinishOption;
+import com.rcpcompany.uibindings.IBindingContextFinalizer;
 import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
@@ -1128,5 +1129,19 @@ public class FormCreator implements IFormCreator {
 		myContext.addBinding().model(value).ui(new VirtualUIAttribute(String.class))
 				.arg(Constants.ARG_VALUE_OBJECT_MESSAGES, true);
 		myObjectMessageObjects.add(value);
+	}
+
+	@Override
+	public void addFinalizer(final Runnable runnable) {
+		myTopForm.myContext.getFinalizers().add(new IBindingContextFinalizer() {
+			@Override
+			public void run(IBindingContext context) {
+				try {
+					runnable.run();
+				} finally {
+					myTopForm.myContext.getFinalizers().remove(this);
+				}
+			}
+		});
 	}
 }
