@@ -187,7 +187,7 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 
 	@Override
 	public IContainerBinding getContainer() {
-		return getColumnBinding().getViewerBinding();
+		return getColumn().getViewerBinding();
 	}
 
 	@Override

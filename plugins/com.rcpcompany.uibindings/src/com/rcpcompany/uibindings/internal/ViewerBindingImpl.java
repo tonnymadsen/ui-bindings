@@ -324,8 +324,8 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 					ARG_TREE_ID, String.class, null));
 			final ObservableListTreeContentProvider contentProvider = new ObservableListTreeContentProvider(
 					listFactory, listFactory);
-			myValidationLabelDecorator = new ValidationLabelDecorator();
 			viewer.setContentProvider(contentProvider);
+			myValidationLabelDecorator = new ValidationLabelDecorator();
 			myValidationLabelDecorator.setPropagationAdapter(new ValidationLabelDecorator.IPropagationAdapter() {
 				@Override
 				public Object getParent(Object object) {
@@ -600,6 +600,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		if (columnNo < 0) return null;
 		if (columnNo > cols.size()) return null;
 		if (element == null) return null;
+		// Based on the model column order
 		final IColumnBinding column = cols.get(columnNo);
 		final IColumnBindingCellInformation ci = column.getCellInformation(element);
 		return ci;
