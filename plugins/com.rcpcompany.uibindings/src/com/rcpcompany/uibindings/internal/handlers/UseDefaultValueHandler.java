@@ -19,7 +19,7 @@ import org.eclipse.core.commands.IHandler;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.command.ChangeCommand;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.ui.ISourceProviderListener;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.commands.ICommandService;
@@ -156,16 +156,13 @@ public class UseDefaultValueHandler extends AbstractHandler implements IHandler,
 		final EStructuralFeature feature = binding.getModelFeature();
 		if (obj == null || feature == null) return null;
 
-		final Command command = new ChangeCommand(obj) {
-			@Override
-			protected void doExecute() {
-				if (obj.eIsSet(feature)) {
-					obj.eUnset(feature);
-				} else {
-					obj.eSet(feature, obj.eGet(feature));
-				}
-			}
-		};
+		final Object value;
+		if (obj.eIsSet(feature)) {
+			value = SetCommand.UNSET_VALUE;
+		} else {
+			value = obj.eGet(feature);
+		}
+		final Command command = SetCommand.create(binding.getEditingDomain(), obj, feature, value);
 		binding.getEditingDomain().getCommandStack().execute(command);
 		updateUnset();
 
