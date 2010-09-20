@@ -148,11 +148,15 @@ public class ValueUnsettableTest {
 		myObject.unsetNumber();
 		assertTrue(!myObject.eIsSet(TestModelPackage.Literals.TEST_OBJECT__NUMBER));
 
-		try {
-			myHandlerServer.executeCommand(myCommand, null);
-		} catch (final Exception ex) {
-			fail(ex.getMessage());
-		}
+		assertNoLog(new Runnable() {
+			public void run() {
+				try {
+					myHandlerServer.executeCommand(myCommand, null);
+				} catch (final Exception ex) {
+					fail(ex.getMessage());
+				}
+			}
+		});
 
 		assertTrue(myObject.eIsSet(TestModelPackage.Literals.TEST_OBJECT__NUMBER));
 
