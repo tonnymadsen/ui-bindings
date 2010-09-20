@@ -10,6 +10,9 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings;
 
+import com.rcpcompany.uibindings.bindingMessages.ValidationLabelDecorator;
+import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
+
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Container Binding</b></em>'.
  * <!-- end-user-doc -->
@@ -32,4 +35,13 @@ public interface IContainerBinding extends IBinding {
 	 * @return the cell or <code>null</code>
 	 */
 	IValueBindingCell getCell(int column, int row, boolean visualModel);
+
+	/**
+	 * Returns an {@link ValidationLabelDecorator} (possibly <code>null</code>) for use in the
+	 * container. The decorator decorates according to the current {@link IValidatorAdapterManager}
+	 * validation state and the current element hierarchy of the container.
+	 * 
+	 * @return the label decorator
+	 */
+	ValidationLabelDecorator getValidationLabelDecorator();
 } // IContainerBinding

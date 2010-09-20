@@ -20,14 +20,11 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.viewers.ColumnViewer;
-import org.eclipse.jface.viewers.ILabelDecorator;
 import org.eclipse.jface.viewers.ViewerColumn;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
-
-import com.rcpcompany.uibindings.bindingMessages.ValidationLabelDecorator;
 
 /**
  * <!-- begin-user-doc -->
@@ -367,12 +364,4 @@ public interface IViewerBinding extends IContainerBinding {
 	 * @return the cell
 	 */
 	IColumnBindingCellInformation getCell(int columnNo, Object element);
-
-	/**
-	 * Returns an {@link ILabelDecorator} (possibly <code>null</code>) for use in the viewer. The
-	 * decorator decorates with the current validation state.
-	 * 
-	 * @return the label decorator
-	 */
-	ValidationLabelDecorator getValidationLabelDecorator();
 } // IViewerBinding

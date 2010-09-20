@@ -53,6 +53,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.ISourceProviderStateContext;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IValueBindingCell;
+import com.rcpcompany.uibindings.bindingMessages.ValidationLabelDecorator;
 import com.rcpcompany.uibindings.grid.IGridBinding;
 import com.rcpcompany.uibindings.grid.IGridBindingCellEditor;
 import com.rcpcompany.uibindings.grid.IGridBindingCellInformation;
@@ -1297,6 +1298,11 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 	protected IGridBindingCellInformation getCell(int column, GridItem item) {
 		// TODO there must be a more effective way for this
 		return getCell(column, getGrid().indexOf(item));
+	}
+
+	@Override
+	public ValidationLabelDecorator getValidationLabelDecorator() {
+		return null;
 	}
 
 }

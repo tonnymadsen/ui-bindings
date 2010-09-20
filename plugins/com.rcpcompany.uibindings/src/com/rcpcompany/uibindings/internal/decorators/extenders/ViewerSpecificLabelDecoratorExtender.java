@@ -24,7 +24,7 @@ import org.eclipse.swt.graphics.Image;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.DecorationPosition;
-import com.rcpcompany.uibindings.IColumnBinding;
+import com.rcpcompany.uibindings.IContainerBinding;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIBindingDecoratorExtenderContext;
 import com.rcpcompany.uibindings.IValueBinding;
@@ -76,10 +76,9 @@ public class ViewerSpecificLabelDecoratorExtender extends AbstractUIBindingDecor
 
 		final IValueBindingCell cell = binding.getCell();
 		if (cell == null) return null;
-		final IColumnBinding col = cell.getColumnBinding();
-		if (col == null) return null;
-		final IViewerBinding viewerBinding = col.getViewerBinding();
-		final ValidationLabelDecorator labelDecorator = viewerBinding.getValidationLabelDecorator();
+		final IContainerBinding container = cell.getContainer();
+		if (container == null) return null;
+		final ValidationLabelDecorator labelDecorator = container.getValidationLabelDecorator();
 
 		return labelDecorator;
 	}
