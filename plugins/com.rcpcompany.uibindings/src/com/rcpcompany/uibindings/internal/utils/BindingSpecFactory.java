@@ -107,6 +107,7 @@ public final class BindingSpecFactory {
 		ARGUMENT_TYPES.put(Constants.ARG_LABEL, String.class);
 		ARGUMENT_TYPES.put(Constants.ARG_TYPE, String.class);
 		ARGUMENT_TYPES.put(Constants.ARG_MESSAGE_FORMAT, String.class);
+		ARGUMENT_TYPES.put(Constants.ARG_UNIT, String.class);
 
 		// Compute and store a font metric
 		DISPLAY = Display.getDefault();
