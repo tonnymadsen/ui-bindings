@@ -390,7 +390,8 @@ public interface Constants {
 	/**
 	 * Argument name for the unit of a binding.
 	 * <p>
-	 * The argument is a text string with the base unit type of the binding. E.g. "M"
+	 * The argument is a text string with the base unit type of the binding. E.g. "M". The exact
+	 * formaty of the string depends on the current {@link #ARG_UNIT_SUPPORT}.
 	 */
 	String ARG_UNIT = "unit"; //$NON-NLS-1$
 
