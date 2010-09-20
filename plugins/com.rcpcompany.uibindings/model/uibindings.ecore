@@ -200,8 +200,6 @@
         changeable="false" volatile="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="modelFeature" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStructuralFeature"
         changeable="false" volatile="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="messagePrefix" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="decoratorProvider" eType="#//DecoratorProvider"
         resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="decorator" eType="#//UIBindingDecorator"

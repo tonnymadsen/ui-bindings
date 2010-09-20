@@ -1564,18 +1564,8 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getValueBinding_MessagePrefix() {
-		return (EAttribute) valueBindingEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public EReference getValueBinding_DecoratorProvider() {
-		return (EReference) valueBindingEClass.getEStructuralFeatures().get(5);
+		return (EReference) valueBindingEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1585,7 +1575,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 */
 	@Override
 	public EReference getValueBinding_Decorator() {
-		return (EReference) valueBindingEClass.getEStructuralFeatures().get(6);
+		return (EReference) valueBindingEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1595,7 +1585,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 */
 	@Override
 	public EReference getValueBinding_UIAttribute() {
-		return (EReference) valueBindingEClass.getEStructuralFeatures().get(7);
+		return (EReference) valueBindingEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1605,7 +1595,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 */
 	@Override
 	public EAttribute getValueBinding_UIObservable() {
-		return (EAttribute) valueBindingEClass.getEStructuralFeatures().get(8);
+		return (EAttribute) valueBindingEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1615,7 +1605,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 */
 	@Override
 	public EReference getValueBinding_Cell() {
-		return (EReference) valueBindingEClass.getEStructuralFeatures().get(9);
+		return (EReference) valueBindingEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -4277,7 +4267,6 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		createEAttribute(valueBindingEClass, VALUE_BINDING__MODEL_OBSERVABLE_VALUE);
 		createEReference(valueBindingEClass, VALUE_BINDING__MODEL_OBJECT);
 		createEReference(valueBindingEClass, VALUE_BINDING__MODEL_FEATURE);
-		createEAttribute(valueBindingEClass, VALUE_BINDING__MESSAGE_PREFIX);
 		createEReference(valueBindingEClass, VALUE_BINDING__DECORATOR_PROVIDER);
 		createEReference(valueBindingEClass, VALUE_BINDING__DECORATOR);
 		createEReference(valueBindingEClass, VALUE_BINDING__UI_ATTRIBUTE);
@@ -4946,10 +4935,6 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				ecorePackage.getEStructuralFeature(),
 				null,
 				"modelFeature", null, 0, 1, IValueBinding.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(
-				getValueBinding_MessagePrefix(),
-				ecorePackage.getEString(),
-				"messagePrefix", null, 1, 1, IValueBinding.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(
 				getValueBinding_DecoratorProvider(),
 				this.getDecoratorProvider(),

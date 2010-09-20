@@ -50,7 +50,6 @@ import org.eclipse.swt.widgets.Widget;
  * Value</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IValueBinding#getModelObject <em>Model Object</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IValueBinding#getModelFeature <em>Model Feature</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IValueBinding#getMessagePrefix <em>Message Prefix</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IValueBinding#getDecoratorProvider <em>Decorator Provider
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IValueBinding#getDecorator <em>Decorator</em>}</li>
@@ -344,20 +343,6 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	EStructuralFeature getModelFeature();
 
 	/**
-	 * Returns the value of the '<em><b>Message Prefix</b></em>' attribute. <!-- begin-user-doc -->
-	 * <p>
-	 * The message prefix is used for messages that are bound to this binding. See
-	 * {@link IBindingMessage#getPrefix()} for the constraints.
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Message Prefix</em>' attribute.
-	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getValueBinding_MessagePrefix()
-	 * @generated
-	 */
-	String getMessagePrefix();
-
-	/**
 	 * Returns the value of the '<em><b>Decorator Provider</b></em>' reference. <!-- begin-user-doc
 	 * -->
 	 * <p>
@@ -481,4 +466,11 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 *         <code>null</code>) and feature
 	 */
 	boolean isEClassFeature(Class<? extends EObject> objClass, EStructuralFeature sf);
+
+	/**
+	 * Returns the message prefix to use for all messages related to this binding.
+	 * 
+	 * @return the message prefix
+	 */
+	String getMessagePrefix();
 } // IValueBinding

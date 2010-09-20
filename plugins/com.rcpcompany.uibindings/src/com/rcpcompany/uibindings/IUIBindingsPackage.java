@@ -940,22 +940,13 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__MODEL_FEATURE = BINDING_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Message Prefix</b></em>' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_BINDING__MESSAGE_PREFIX = BINDING_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Decorator Provider</b></em>' reference. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_BINDING__DECORATOR_PROVIDER = BINDING_FEATURE_COUNT + 5;
+	int VALUE_BINDING__DECORATOR_PROVIDER = BINDING_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Decorator</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -964,7 +955,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_BINDING__DECORATOR = BINDING_FEATURE_COUNT + 6;
+	int VALUE_BINDING__DECORATOR = BINDING_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>UI Attribute</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -973,7 +964,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_BINDING__UI_ATTRIBUTE = BINDING_FEATURE_COUNT + 7;
+	int VALUE_BINDING__UI_ATTRIBUTE = BINDING_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>UI Observable</b></em>' attribute. <!-- begin-user-doc -->
@@ -982,7 +973,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_BINDING__UI_OBSERVABLE = BINDING_FEATURE_COUNT + 8;
+	int VALUE_BINDING__UI_OBSERVABLE = BINDING_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Cell</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -991,7 +982,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_BINDING__CELL = BINDING_FEATURE_COUNT + 9;
+	int VALUE_BINDING__CELL = BINDING_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Value Binding</em>' class. <!-- begin-user-doc
@@ -1000,7 +991,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_BINDING_FEATURE_COUNT = BINDING_FEATURE_COUNT + 10;
+	int VALUE_BINDING_FEATURE_COUNT = BINDING_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.IValueBindingCell
@@ -5385,18 +5376,6 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getValueBinding_ModelFeature();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IValueBinding#getMessagePrefix <em>Message Prefix</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Message Prefix</em>'.
-	 * @see com.rcpcompany.uibindings.IValueBinding#getMessagePrefix()
-	 * @see #getValueBinding()
-	 * @generated
-	 */
-	EAttribute getValueBinding_MessagePrefix();
-
-	/**
 	 * Returns the meta object for the reference '
 	 * {@link com.rcpcompany.uibindings.IValueBinding#getDecoratorProvider
 	 * <em>Decorator Provider</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -8926,14 +8905,6 @@ public interface IUIBindingsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference VALUE_BINDING__MODEL_FEATURE = eINSTANCE.getValueBinding_ModelFeature();
-
-		/**
-		 * The meta object literal for the '<em><b>Message Prefix</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute VALUE_BINDING__MESSAGE_PREFIX = eINSTANCE.getValueBinding_MessagePrefix();
 
 		/**
 		 * The meta object literal for the '<em><b>Decorator Provider</b></em>' reference feature.

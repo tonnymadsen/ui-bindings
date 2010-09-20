@@ -89,8 +89,6 @@ import com.rcpcompany.utils.logging.LogUtils;
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getModelFeature <em>Model Feature
  * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getMessagePrefix <em>Message
- * Prefix</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getDecoratorProvider <em>Decorator
  * Provider</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getDecorator <em>Decorator</em>}</li>
@@ -646,26 +644,6 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	};
 
 	/**
-	 * The default value of the '{@link #getMessagePrefix() <em>Message Prefix</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getMessagePrefix()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String MESSAGE_PREFIX_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getMessagePrefix() <em>Message Prefix</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getMessagePrefix()
-	 * @generated
-	 * @ordered
-	 */
-	protected String messagePrefix = MESSAGE_PREFIX_EDEFAULT;
-
-	/**
 	 * The cached value of the '{@link #getDecoratorProvider() <em>Decorator Provider</em>}'
 	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -815,15 +793,9 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		return null;
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
 	@Override
 	public String getMessagePrefix() {
-		if (messagePrefix != null) return messagePrefix;
-
+		String messagePrefix = null;
 		/*
 		 * If this binding has a control, then look for the previous label widget and use the text
 		 * of that
@@ -1038,8 +1010,6 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			return getModelObject();
 		case IUIBindingsPackage.VALUE_BINDING__MODEL_FEATURE:
 			return getModelFeature();
-		case IUIBindingsPackage.VALUE_BINDING__MESSAGE_PREFIX:
-			return getMessagePrefix();
 		case IUIBindingsPackage.VALUE_BINDING__DECORATOR_PROVIDER:
 			return getDecoratorProvider();
 		case IUIBindingsPackage.VALUE_BINDING__DECORATOR:
@@ -1132,9 +1102,6 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			return getModelObject() != null;
 		case IUIBindingsPackage.VALUE_BINDING__MODEL_FEATURE:
 			return getModelFeature() != null;
-		case IUIBindingsPackage.VALUE_BINDING__MESSAGE_PREFIX:
-			return MESSAGE_PREFIX_EDEFAULT == null ? messagePrefix != null : !MESSAGE_PREFIX_EDEFAULT
-					.equals(messagePrefix);
 		case IUIBindingsPackage.VALUE_BINDING__DECORATOR_PROVIDER:
 			return decoratorProvider != null;
 		case IUIBindingsPackage.VALUE_BINDING__DECORATOR:
