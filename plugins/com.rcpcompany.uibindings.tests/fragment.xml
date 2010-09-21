@@ -516,5 +516,13 @@
             priority="1000">
       </treeItemRelation>
    </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            class="com.rcpcompany.uibindings.extests.wizards.FormChooserWizardTest$TestFormChooserWizard"
+            id="com.rcpcompany.uibindings.extests.wizards.FormChooserWizardTest.TestFormChooserWizard"
+            name="FormChooserWizardTest">
+      </wizard>
+   </extension>
 
 </fragment>

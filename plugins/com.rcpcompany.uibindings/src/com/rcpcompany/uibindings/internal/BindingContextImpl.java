@@ -356,19 +356,15 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 			@Override
 			public void reflow() {
 				if (reflowPending) return;
-				// reflowPending = true;
-				// LogUtils.DEBUG_STRACK_LEVELS = 20;
-				// LogUtils.debug(this, "xxxx");
-				// LogUtils.DEBUG_STRACK_LEVELS = 0;
+				if (top.isDisposed()) return;
+				reflowPending = true;
 				top.getDisplay().asyncExec(new Runnable() {
 					@Override
 					public void run() {
 						reflowPending = false;
-						if (!top.isDisposed()) {
-							// LogUtils.debug(this, "layout");
-							top.layout(true, true);
-							top.reflow(true);
-						}
+						if (top.isDisposed()) return;
+						top.layout(true, true);
+						top.reflow(true);
 					}
 				});
 			}
@@ -382,10 +378,32 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	 * 
 	 * @param page the wizard page
 	 */
-	protected void setTop(WizardPage page) {
+	protected void setTop(final WizardPage page) {
 		myContextMessageDecoratorAdapter = new WizardPageContextMessageDecoratorAdapter(page);
 		setTextCommitStrategy(TextCommitStrategy.ON_MODIFY);
-		setTop(page.getWizard().getContainer().getShell());
+		final Shell shell = page.getWizard().getContainer().getShell();
+		myFormReflow = new IFormReflow() {
+			boolean reflowPending = false;
+
+			@Override
+			public void reflow() {
+				if (reflowPending) return;
+				if (page.getControl() == null) return;
+				reflowPending = true;
+				shell.getDisplay().asyncExec(new Runnable() {
+					@Override
+					public void run() {
+						reflowPending = false;
+						if (page.getControl() == null) return;
+						final Composite c = page.getControl().getParent();
+						if (c.isDisposed()) return;
+						c.layout(true, true);
+					}
+				});
+			}
+		};
+
+		setTop(shell);
 	}
 
 	/**
@@ -396,6 +414,27 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	public void setTop(Composite newTop) {
 		setTopGen(newTop);
 		getTop().addDisposeListener(myDisposeListener);
+
+		if (myFormReflow == null) {
+			myFormReflow = new IFormReflow() {
+				boolean reflowPending = false;
+
+				@Override
+				public void reflow() {
+					if (reflowPending) return;
+					if (getTop().isDisposed()) return;
+					reflowPending = true;
+					getTop().getDisplay().asyncExec(new Runnable() {
+						@Override
+						public void run() {
+							reflowPending = false;
+							if (getTop().isDisposed()) return;
+							getTop().layout(true, true);
+						}
+					});
+				}
+			};
+		}
 	}
 
 	/**

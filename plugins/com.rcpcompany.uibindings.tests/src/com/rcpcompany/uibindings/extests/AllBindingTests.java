@@ -154,6 +154,7 @@ import com.rcpcompany.uibindings.extests.viewerBindings.ViewerReflowTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerSingleSelectionTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerTableDeleteElementTest;
 import com.rcpcompany.uibindings.extests.widgets.FileNameControlTest;
+import com.rcpcompany.uibindings.extests.wizards.FormChooserWizardTest;
 import com.rcpcompany.uibindings.internal.ManagerSizesTest;
 import com.rcpcompany.uibindings.internal.decorators.extenders.ExtenderTest;
 import com.rcpcompany.uibindings.internal.decorators.extenders.OpenCommandSupportLowLevelTest;
@@ -339,6 +340,8 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		FilterTest.class, SortingTest.class, FormChooserTest.class, FormCreatorTest.class, TableCreatorTest.class,
 		DoubleClickAdapterTest.class, GlobalNavigationManagerTest.class, MouseDownConverterTest.class,
 		BindingObjectLongNameTest.class,
+
+		FormChooserWizardTest.class,
 
 		/*
 		 * Cut, copy and paste

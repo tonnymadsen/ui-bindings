@@ -28,6 +28,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Layout;
 
+import com.rcpcompany.uibindings.BindingState;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingContext.FinishOption;
 import com.rcpcompany.uibindings.utils.IFormChooser;
@@ -182,7 +183,7 @@ public class FormChooser implements IFormChooser {
 			createEmptyComposite();
 		}
 		myTop.setLayoutDeferred(false);
-		if (myContext != null) {
+		if (myContext != null && myContext.getState() == BindingState.OK) {
 			myContext.reflow();
 		}
 		myTop.update();

@@ -312,6 +312,11 @@
             id="com.rcpcompany.uibindings.shop.wizards.NewContactWizard"
             name="Contact">
       </wizard>
+      <wizard
+            class="com.rcpcompany.uibindings.shop.wizards.TestFormChooser"
+            id="com.rcpcompany.uibindings.shop.wizards.TestFormChooser"
+            name="Test Form Chooser">
+      </wizard>
    </extension>
    <extension
          id="product"
