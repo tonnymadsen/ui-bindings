@@ -35,9 +35,9 @@ import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.IViewerBinding.IElementParentage;
 import com.rcpcompany.uibindings.internal.Activator;
+import com.rcpcompany.uibindings.internal.utils.SelectionUtils;
 import com.rcpcompany.uibindings.utils.UIBEcoreUtils;
 import com.rcpcompany.utils.logging.LogUtils;
-import com.rcpcompany.utils.selection.SelectionUtils;
 
 /**
  * Deletes the current object in a viewer.

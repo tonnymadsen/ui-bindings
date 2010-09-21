@@ -25,9 +25,9 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.part.ISetSelectionTarget;
 import org.eclipse.ui.part.ViewPart;
 
+import com.rcpcompany.uibindings.internal.utils.SelectionUtils;
 import com.rcpcompany.uibindings.utils.IAutoFormCreator;
 import com.rcpcompany.uibindings.utils.IGlobalNavigationManager.IGetSelectionTarget;
-import com.rcpcompany.utils.selection.SelectionUtils;
 
 /**
  * Creates and manages an {@link IAutoFormCreator}.
