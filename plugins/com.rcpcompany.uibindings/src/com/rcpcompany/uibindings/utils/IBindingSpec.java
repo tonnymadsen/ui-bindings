@@ -130,6 +130,11 @@ public interface IBindingSpec {
 	String WIDTH_WEIGHT = "ww";
 
 	/**
+	 * Alias for {@link Constants#ARG_DYNAMIC}.
+	 */
+	String DYNAMIC = "d";
+
+	/**
 	 * The argument name for the alignment of the binding. The value has type {@link String} with
 	 * the possible values "l", "c" and "r".
 	 * <p>

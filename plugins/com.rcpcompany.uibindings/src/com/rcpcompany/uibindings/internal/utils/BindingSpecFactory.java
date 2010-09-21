@@ -92,6 +92,8 @@ public final class BindingSpecFactory {
 		ALIASES.put(IBindingSpec.HEIGHT, Constants.ARG_HEIGHT);
 		ARGUMENT_TYPES.put(Constants.ARG_HEIGHT, Integer.class);
 
+		ALIASES.put(IBindingSpec.DYNAMIC, Constants.ARG_WIDTH);
+
 		ARGUMENT_TYPES.put(IBindingSpec.WIDTH_WEIGHT, Integer.class);
 
 		ALIASES.put(IBindingSpec.ALIGNMENT, Constants.ARG_ALIGNMENT);
@@ -102,6 +104,7 @@ public final class BindingSpecFactory {
 		ARGUMENT_TYPES.put(IBindingSpec.COLLECT_MESSAGES, Boolean.class);
 
 		ARGUMENT_TYPES.put(Constants.ARG_READONLY, Boolean.class);
+		ARGUMENT_TYPES.put(Constants.ARG_DYNAMIC, Boolean.class);
 		ARGUMENT_TYPES.put(Constants.ARG_PASSWORD, Boolean.class);
 		ARGUMENT_TYPES.put(Constants.ARG_TOOL_TIP_TEXT, String.class);
 		ARGUMENT_TYPES.put(Constants.ARG_LABEL, String.class);
