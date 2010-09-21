@@ -73,6 +73,7 @@ public class ValueBindingFocusOutTest {
 
 	@Before
 	public void setup() {
+		resetAll();
 		IManager.Factory.getManager().setTextCommitStrategy(myStrategy);
 		IManager.Factory.getManager().setTextCommitStrategyDelay(DELAY);
 		IManager.Factory.getManager().setEditCellSingleClick(false);

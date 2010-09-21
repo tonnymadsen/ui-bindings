@@ -67,6 +67,7 @@ public class ArgumentsScopeTest {
 
 	@Before
 	public void setup() {
+		resetAll();
 		myView = createTestView(this);
 		myBody = myView.getBody();
 

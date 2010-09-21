@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.manager;
 
+import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
 import java.util.List;
@@ -43,6 +44,7 @@ public class ManagerBasicFunctionalityTest {
 
 	@Before
 	public void setup() {
+		resetAll();
 		m = IManager.Factory.getManager();
 	}
 

@@ -63,6 +63,7 @@ public class ArgumentsTypeTest {
 
 	@Before
 	public void setup() {
+		resetAll();
 		myView = createTestView(this);
 		myBody = myView.getBody();
 

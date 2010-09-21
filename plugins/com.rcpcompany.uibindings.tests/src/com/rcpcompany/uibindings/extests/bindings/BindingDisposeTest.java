@@ -47,6 +47,7 @@ public class BindingDisposeTest {
 
 	@Before
 	public void setup() {
+		resetAll();
 		IManager.Factory.getManager().setTextCommitStrategy(TextCommitStrategy.ON_MODIFY);
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 
@@ -78,7 +79,8 @@ public class BindingDisposeTest {
 
 		final WritableValue ov = new WritableValue("", String.class);
 		final IUIAttribute attribute = new SimpleUIAttribute(null, null, ov, true);
-		final IValueBinding binding = context.addBinding().model(myShop, IMOAOPackage.Literals.NAMED_OBJECT__NAME).ui(attribute);
+		final IValueBinding binding = context.addBinding().model(myShop, IMOAOPackage.Literals.NAMED_OBJECT__NAME)
+				.ui(attribute);
 		context.finish();
 		yield();
 

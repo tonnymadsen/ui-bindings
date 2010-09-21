@@ -40,6 +40,7 @@ import com.rcpcompany.uibindings.utils.ITableCreator;
 public class SIMO302EObjectObservableValueLeakTest {
 	@Before
 	public void setup() {
+		resetAll();
 		IManager.Factory.getManager().setTextCommitStrategy(TextCommitStrategy.ON_MODIFY);
 		IManager.Factory.getManager().setAutoApplySingleQuickfix(true);
 		IManager.Factory.getManager().setEditCellSingleClick(false);

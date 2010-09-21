@@ -62,6 +62,7 @@ public class PreferredCellEditorFactoryTest {
 
 	@Before
 	public void setup() {
+		resetAll();
 		IManager.Factory.getManager().setTextCommitStrategy(TextCommitStrategy.ON_MODIFY);
 		IManager.Factory.getManager().setEditCellAnyKey(true);
 		IManager.Factory.getManager().setEditCellSingleClick(false);

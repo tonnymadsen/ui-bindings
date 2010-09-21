@@ -72,6 +72,7 @@ public abstract class AbstractPreferenceStoreBooleanTest {
 
 	@Before
 	public void setup() {
+		resetAll();
 		m = IManager.Factory.getManager();
 	}
 

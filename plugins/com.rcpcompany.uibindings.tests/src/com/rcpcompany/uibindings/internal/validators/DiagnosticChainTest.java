@@ -68,7 +68,7 @@ public class DiagnosticChainTest {
 	 */
 	@Before
 	public void setup() {
-		IValidatorAdapterManager.Factory.getManager().reset();
+		resetAll();
 		IManager.Factory.getManager().setTextCommitStrategy(TextCommitStrategy.ON_MODIFY);
 		IManager.Factory.getManager().setValidationDelay(VD);
 		IManager.Factory.getManager().setEditCellSingleClick(false);

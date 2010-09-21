@@ -90,6 +90,7 @@ public class ContentAdapterTest<T extends Control> {
 
 	@Before
 	public void setup() {
+		resetAll();
 		IManager.Factory.getManager().setTextCommitStrategy(TextCommitStrategy.ON_MODIFY);
 		IManager.Factory.getManager().setValidationDelay(100);
 		IManager.Factory.getManager().setEditCellSingleClick(false);

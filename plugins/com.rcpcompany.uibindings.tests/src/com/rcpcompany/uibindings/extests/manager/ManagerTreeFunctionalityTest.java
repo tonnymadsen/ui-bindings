@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.manager;
 
+import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.emf.common.util.EList;
@@ -32,6 +33,7 @@ public class ManagerTreeFunctionalityTest {
 
 	@Before
 	public void setup() {
+		resetAll();
 		myManager = IManager.Factory.getManager();
 	}
 

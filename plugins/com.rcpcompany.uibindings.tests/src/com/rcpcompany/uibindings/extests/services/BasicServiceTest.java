@@ -42,6 +42,7 @@ public class BasicServiceTest {
 
 	@Before
 	public void setup() {
+		resetAll();
 		myTestView = createTestView(this);
 	}
 
@@ -88,7 +89,8 @@ public class BasicServiceTest {
 				text.setText("");
 
 				final IBindingContext context = IBindingContext.Factory.createContext(body);
-				final IValueBinding binding = context.addBinding(text, ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain()),
+				final IValueBinding binding = context.addBinding(text,
+						ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain()),
 						IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 
 				testServiceInterface(binding);

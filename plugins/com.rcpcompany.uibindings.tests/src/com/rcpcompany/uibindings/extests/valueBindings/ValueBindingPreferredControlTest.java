@@ -95,6 +95,7 @@ public class ValueBindingPreferredControlTest {
 
 	@Before
 	public void setup() {
+		resetAll();
 		createModel();
 		createView();
 	}

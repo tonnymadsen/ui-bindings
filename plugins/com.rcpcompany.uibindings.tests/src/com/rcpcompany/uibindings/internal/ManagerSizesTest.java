@@ -31,6 +31,7 @@ public class ManagerSizesTest {
 
 	@Before
 	public void setup() {
+		resetAll();
 		m = IManager.Factory.getManager();
 	}
 
