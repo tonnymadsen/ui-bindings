@@ -39,12 +39,14 @@ import org.junit.runners.Parameterized.Parameters;
 import com.rcpcompany.uibinding.tests.model.TestModelFactory;
 import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 import com.rcpcompany.uibinding.tests.model.TestObject;
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.widgets.FileNameControl;
 
 /**
  * Tests that the correct simple cell editor widget is used for the simple data types.
@@ -64,12 +66,15 @@ public class SimplePreferredCellEditorTest {
 	public static Collection<Object[]> data() {
 		return Arrays.asList(new Object[][] {
 
-		{ TestModelPackage.Literals.TEST_OBJECT__TEXT, Text.class },
-				{ TestModelPackage.Literals.TEST_OBJECT__B, null },
-				{ TestModelPackage.Literals.TEST_OBJECT__UNIT, CCombo.class },
-				{ TestModelPackage.Literals.TEST_OBJECT__NUMBER, Text.class },
-				{ TestModelPackage.Literals.TEST_OBJECT__F, Text.class },
-				{ TestModelPackage.Literals.TEST_OBJECT__BIG_DECIMAL, StyledText.class },
+		{ TestModelPackage.Literals.TEST_OBJECT__TEXT, null, Text.class },
+				{ TestModelPackage.Literals.TEST_OBJECT__B, null, null },
+				{ TestModelPackage.Literals.TEST_OBJECT__UNIT, null, CCombo.class },
+				{ TestModelPackage.Literals.TEST_OBJECT__NUMBER, null, Text.class },
+				{ TestModelPackage.Literals.TEST_OBJECT__F, null, Text.class },
+				{ TestModelPackage.Literals.TEST_OBJECT__BIG_DECIMAL, null, StyledText.class },
+
+				{ TestModelPackage.Literals.TEST_OBJECT__TEXT, Constants.TYPE_FILE_NAME, FileNameControl.class },
+				{ TestModelPackage.Literals.TEST_OBJECT__TEXT, Constants.TYPE_DIRECTORY_NAME, FileNameControl.class },
 
 		});
 	}
@@ -85,15 +90,19 @@ public class SimplePreferredCellEditorTest {
 	private IBindingContext myContext;
 	private IViewerBinding myViewerBinding;
 	private final EStructuralFeature myFeature;
+	private final String myType;
 	private final Class<? extends Control> myExpectedCellEditor;
 
-	public SimplePreferredCellEditorTest(EStructuralFeature feature, Class<? extends Control> expectedCellEditor) {
+	public SimplePreferredCellEditorTest(EStructuralFeature feature, String type,
+			Class<? extends Control> expectedCellEditor) {
 		myFeature = feature;
+		myType = type;
 		myExpectedCellEditor = expectedCellEditor;
 	}
 
 	@Before
 	public void setup() {
+		resetAll();
 		IManager.Factory.getManager().setTextCommitStrategy(TextCommitStrategy.ON_MODIFY);
 		IManager.Factory.getManager().setEditCellAnyKey(false);
 		IManager.Factory.getManager().setEditCellSingleClick(false);
@@ -156,7 +165,8 @@ public class SimplePreferredCellEditorTest {
 			final IBinding binding = bindings.get(bindings.size() - 1);
 
 			final Control control = binding.getControl();
-			assertTrue(myExpectedCellEditor.isInstance(control));
+			assertTrue("Expected " + myExpectedCellEditor.getName() + ", got " + control.getClass().getName(),
+					myExpectedCellEditor.isInstance(control));
 		}
 		myViewer.cancelEditing();
 	}
