@@ -1614,6 +1614,16 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
+	public EAttribute getValueBinding_MessagePrefix() {
+		return (EAttribute) valueBindingEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getValueBindingCell() {
 		return valueBindingCellEClass;
 	}
@@ -4272,6 +4282,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		createEReference(valueBindingEClass, VALUE_BINDING__UI_ATTRIBUTE);
 		createEAttribute(valueBindingEClass, VALUE_BINDING__UI_OBSERVABLE);
 		createEReference(valueBindingEClass, VALUE_BINDING__CELL);
+		createEAttribute(valueBindingEClass, VALUE_BINDING__MESSAGE_PREFIX);
 
 		valueBindingCellEClass = createEClass(VALUE_BINDING_CELL);
 
@@ -4959,6 +4970,10 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				this.getValueBindingCell(),
 				null,
 				"cell", null, 0, 1, IValueBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getValueBinding_MessagePrefix(),
+				ecorePackage.getEString(),
+				"messagePrefix", null, 1, 1, IValueBinding.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(valueBindingCellEClass, IValueBindingCell.class,
 				"ValueBindingCell", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

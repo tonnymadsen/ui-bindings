@@ -74,15 +74,21 @@ public class SimpleCellEditorFactory implements ICellEditorFactory {
 
 	@Override
 	public CellEditor create(ICellEditorFactoryContext factoryContext) {
-		final Composite parent = factoryContext.getParent();
 		final IValueBindingCell cell = factoryContext.getCell();
 
 		final IValueBinding labelBinding = cell.getLabelBinding();
 		final IBindingContext context = labelBinding.getContext();
 		final IObservableValue value = cell.getObjectValue();
 
-		final String preferredCellEditor = labelBinding.getArgument(Constants.ARG_PREFERRED_CELL_EDITOR, String.class,
-				InternalConstants.CELL_EDITOR_TYPE_TEXT);
+		String preferredCellEditor = labelBinding.getArgument(Constants.ARG_PREFERRED_CELL_EDITOR, String.class, null);
+
+		if (preferredCellEditor == null) {
+//			final String preferredControl = labelBinding.getArgument(Constants.ARG_PREFERRED_CONTROL, String.class,
+//					null);
+//			if (preferredControl == null) {
+			preferredCellEditor = InternalConstants.CELL_EDITOR_TYPE_TEXT;
+//			}
+		}
 
 		/*
 		 * The original value of the cell - used it the edit is canceled.
@@ -90,7 +96,7 @@ public class SimpleCellEditorFactory implements ICellEditorFactory {
 		final Object originalValue = value.getValue();
 
 		/*
-		 * The simple case: the boolean editor. This case does not have a visible editors...
+		 * The simple case: the boolean editor. This case does not have a visible editor...
 		 */
 		if (InternalConstants.CELL_EDITOR_TYPE_BUTTON.equals(preferredCellEditor)) {
 			final Class<?> valueType = labelBinding.getDataType().getDataType();
@@ -110,7 +116,10 @@ public class SimpleCellEditorFactory implements ICellEditorFactory {
 		 * The general case: the widget-based editors
 		 */
 		CellEditor ce;
-		if (InternalConstants.CELL_EDITOR_TYPE_TEXT.equals(preferredCellEditor)) {
+		final Composite parent = factoryContext.getParent();
+		if (InternalConstants.CELL_EDITOR_TYPE_CCOMBO.equals(preferredCellEditor)) {
+			ce = new ComboBoxCellEditor(parent, NO_ITEMS);
+		} else if (InternalConstants.CELL_EDITOR_TYPE_TEXT.equals(preferredCellEditor)) {
 			ce = new MyTextCellEditor(parent, context);
 		} else if (InternalConstants.CELL_EDITOR_TYPE_STYLED_TEXT.equals(preferredCellEditor)) {
 			ce = new MyStyledTextCellEditor(parent, context);

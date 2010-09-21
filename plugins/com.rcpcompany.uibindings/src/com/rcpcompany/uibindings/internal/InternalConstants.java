@@ -10,12 +10,11 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.internal;
 
-import javax.xml.soap.Text;
-
 import org.eclipse.swt.custom.CCombo;
 import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
+import org.eclipse.swt.widgets.Text;
 
 import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.widgets.FileNameControl;

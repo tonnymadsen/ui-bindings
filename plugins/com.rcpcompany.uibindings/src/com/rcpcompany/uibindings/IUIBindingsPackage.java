@@ -985,13 +985,22 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__CELL = BINDING_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Message Prefix</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_BINDING__MESSAGE_PREFIX = BINDING_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Value Binding</em>' class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_BINDING_FEATURE_COUNT = BINDING_FEATURE_COUNT + 9;
+	int VALUE_BINDING_FEATURE_COUNT = BINDING_FEATURE_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.IValueBindingCell
@@ -5436,6 +5445,18 @@ public interface IUIBindingsPackage extends EPackage {
 	EReference getValueBinding_Cell();
 
 	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IValueBinding#getMessagePrefix <em>Message Prefix</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Message Prefix</em>'.
+	 * @see com.rcpcompany.uibindings.IValueBinding#getMessagePrefix()
+	 * @see #getValueBinding()
+	 * @generated
+	 */
+	EAttribute getValueBinding_MessagePrefix();
+
+	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IValueBindingCell
 	 * <em>Value Binding Cell</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -8945,6 +8966,14 @@ public interface IUIBindingsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference VALUE_BINDING__CELL = eINSTANCE.getValueBinding_Cell();
+
+		/**
+		 * The meta object literal for the '<em><b>Message Prefix</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute VALUE_BINDING__MESSAGE_PREFIX = eINSTANCE.getValueBinding_MessagePrefix();
 
 		/**
 		 * The meta object literal for the '{@link com.rcpcompany.uibindings.IValueBindingCell

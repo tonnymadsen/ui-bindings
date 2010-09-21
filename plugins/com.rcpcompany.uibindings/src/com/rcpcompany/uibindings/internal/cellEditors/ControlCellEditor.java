@@ -34,9 +34,9 @@ import com.rcpcompany.utils.logging.LogUtils;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class FileNameCellEditor extends TextCellEditor {
+public class ControlCellEditor extends TextCellEditor {
 	/**
-	 * The context of the cell editor
+	 * The context of the cell editor.
 	 */
 	protected final IBindingContext myContext;
 	// Used to signal that the text has just been replaced and should not be selected
@@ -56,7 +56,7 @@ public class FileNameCellEditor extends TextCellEditor {
 	 * @param parent the parent composite
 	 * @param context the column of the cell editor
 	 */
-	public FileNameCellEditor(Composite parent, IBindingContext context) {
+	public ControlCellEditor(Composite parent, IBindingContext context) {
 		super(parent, SWT.SINGLE | SWT.LEAD | SWT.BORDER);
 		myContext = context;
 		undoHandler = new AbstractHandler() {

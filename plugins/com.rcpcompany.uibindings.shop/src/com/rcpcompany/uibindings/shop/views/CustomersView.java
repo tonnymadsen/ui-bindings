@@ -50,6 +50,7 @@ public class CustomersView extends ViewPart {
 		table.addColumn("contact.country(w=100)");
 		table.addColumn("contact.newsletter(w=50)");
 		table.addColumn("loyalty(w=100)");
+		table.addColumn("logoFileName(w=200)");
 
 		final IFormCreator detailsSection = myForm.addSection("Details", table.getBinding().getSingleSelection());
 		detailsSection.addObjectMessages();

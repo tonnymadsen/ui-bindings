@@ -56,6 +56,7 @@ import org.eclipse.swt.widgets.Widget;
  * <li>{@link com.rcpcompany.uibindings.IValueBinding#getUIAttribute <em>UI Attribute</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IValueBinding#getUIObservable <em>UI Observable</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IValueBinding#getCell <em>Cell</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IValueBinding#getMessagePrefix <em>Message Prefix</em>}</li>
  * </ul>
  * </p>
  * 
@@ -457,6 +458,19 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	void setCell(IValueBindingCell value);
 
 	/**
+	 * Returns the value of the '<em><b>Message Prefix</b></em>' attribute. <!-- begin-user-doc -->
+	 * <p>
+	 * The message prefix is uses for all messages related to this binding.
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Message Prefix</em>' attribute.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getValueBinding_MessagePrefix()
+	 * @generated
+	 */
+	String getMessagePrefix();
+
+	/**
 	 * Returns whether the current model object of this binding is for the specified class and
 	 * feature.
 	 * 
@@ -466,11 +480,4 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 *         <code>null</code>) and feature
 	 */
 	boolean isEClassFeature(Class<? extends EObject> objClass, EStructuralFeature sf);
-
-	/**
-	 * Returns the message prefix to use for all messages related to this binding.
-	 * 
-	 * @return the message prefix
-	 */
-	String getMessagePrefix();
 } // IValueBinding

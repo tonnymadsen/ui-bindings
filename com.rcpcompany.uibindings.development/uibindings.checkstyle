@@ -7,7 +7,7 @@
 <!--
     Checkstyle-Configuration: UI Bindings
     Description: 
-Slightly modified version of Sun Checks that better matches the default code formatter setting of Eclipse.
+UI Bindings specific check style configuration.  Based on Sun Checks.
 -->
 <module name="Checker">
   <property name="severity" value="warning"/>
@@ -44,7 +44,10 @@ Slightly modified version of Sun Checks that better matches the default code for
     <module name="AvoidStarImport"/>
     <module name="IllegalImport"/>
     <module name="RedundantImport"/>
-    <module name="UnusedImports"/>
+    <module name="UnusedImports">
+      <property name="severity" value="ignore"/>
+      <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
+    </module>
     <module name="LineLength">
       <property name="severity" value="ignore"/>
       <property name="max" value="140"/>
@@ -97,7 +100,10 @@ Slightly modified version of Sun Checks that better matches the default code for
     </module>
     <module name="FinalClass"/>
     <module name="HideUtilityClassConstructor"/>
-    <module name="InterfaceIsType"/>
+    <module name="InterfaceIsType">
+      <property name="severity" value="ignore"/>
+      <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
+    </module>
     <module name="VisibilityModifier"/>
     <module name="ArrayTypeStyle"/>
     <module name="FinalParameters">

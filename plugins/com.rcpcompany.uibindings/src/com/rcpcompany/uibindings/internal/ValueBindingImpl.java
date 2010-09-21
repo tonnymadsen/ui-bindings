@@ -97,6 +97,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getUIObservable <em>UI Observable
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getCell <em>Cell</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getMessagePrefix <em>Message
+ * Prefix</em>}</li>
  * </ul>
  * </p>
  * 
@@ -694,6 +696,16 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	protected IValueBindingCell cell;
 
 	/**
+	 * The default value of the '{@link #getMessagePrefix() <em>Message Prefix</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getMessagePrefix()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MESSAGE_PREFIX_EDEFAULT = null;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -791,57 +803,6 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		final Object valueType = getDataType().getValueType();
 		if (valueType instanceof EStructuralFeature) return (EStructuralFeature) valueType;
 		return null;
-	}
-
-	@Override
-	public String getMessagePrefix() {
-		String messagePrefix = null;
-		/*
-		 * If this binding has a control, then look for the previous label widget and use the text
-		 * of that
-		 */
-		final Control c = getControl();
-		if (c != null) {
-			final Composite parent = c.getParent();
-			final Control[] siblings = parent.getChildren();
-			for (int i = 0; i < siblings.length; i++) {
-				if (siblings[i] == c) {
-					// this is us - go backward until you hit a label-like widget
-					for (int j = i - 1; j >= 0; j--) {
-						final Control label = siblings[j];
-						String ltext = null;
-						if (label instanceof Label) {
-							ltext = ((Label) label).getText();
-						} else if (label instanceof Hyperlink) {
-							ltext = ((Hyperlink) label).getText();
-						} else if (label instanceof CLabel) {
-							ltext = ((CLabel) label).getText();
-						}
-						if (ltext != null) {
-							if (!ltext.endsWith(":")) { //$NON-NLS-1$
-								messagePrefix = ltext + ": "; //$NON-NLS-1$
-							} else {
-								messagePrefix = ltext + " "; //$NON-NLS-1$
-							}
-							return messagePrefix;
-						}
-					}
-					break;
-				}
-			}
-		}
-
-		final IValueBindingCell ci = getCell();
-		if (ci != null) {
-			messagePrefix = ci.getMessagePrefix();
-			if (messagePrefix != null) return messagePrefix;
-		}
-
-		/*
-		 * Fall back on nothing!
-		 */
-		messagePrefix = ""; //$NON-NLS-1$
-		return messagePrefix;
 	}
 
 	/**
@@ -997,6 +958,62 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public String getMessagePrefix() {
+		String messagePrefix = null;
+		/*
+		 * If this binding has a control, then look for the previous label widget and use the text
+		 * of that
+		 */
+		final Control c = getControl();
+		if (c != null) {
+			final Composite parent = c.getParent();
+			final Control[] siblings = parent.getChildren();
+			for (int i = 0; i < siblings.length; i++) {
+				if (siblings[i] == c) {
+					// this is us - go backward until you hit a label-like widget
+					for (int j = i - 1; j >= 0; j--) {
+						final Control label = siblings[j];
+						String ltext = null;
+						if (label instanceof Label) {
+							ltext = ((Label) label).getText();
+						} else if (label instanceof Hyperlink) {
+							ltext = ((Hyperlink) label).getText();
+						} else if (label instanceof CLabel) {
+							ltext = ((CLabel) label).getText();
+						}
+						if (ltext != null) {
+							if (!ltext.endsWith(":")) { //$NON-NLS-1$
+								messagePrefix = ltext + ": "; //$NON-NLS-1$
+							} else {
+								messagePrefix = ltext + " "; //$NON-NLS-1$
+							}
+							return messagePrefix;
+						}
+					}
+					break;
+				}
+			}
+		}
+
+		final IValueBindingCell ci = getCell();
+		if (ci != null) {
+			messagePrefix = ci.getMessagePrefix();
+			if (messagePrefix != null) return messagePrefix;
+		}
+
+		/*
+		 * Fall back on nothing!
+		 */
+		messagePrefix = ""; //$NON-NLS-1$
+		return messagePrefix;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -1020,6 +1037,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			return getUIObservable();
 		case IUIBindingsPackage.VALUE_BINDING__CELL:
 			return getCell();
+		case IUIBindingsPackage.VALUE_BINDING__MESSAGE_PREFIX:
+			return getMessagePrefix();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1113,6 +1132,9 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 					.equals(getUIObservable());
 		case IUIBindingsPackage.VALUE_BINDING__CELL:
 			return cell != null;
+		case IUIBindingsPackage.VALUE_BINDING__MESSAGE_PREFIX:
+			return MESSAGE_PREFIX_EDEFAULT == null ? getMessagePrefix() != null : !MESSAGE_PREFIX_EDEFAULT
+					.equals(getMessagePrefix());
 		}
 		return super.eIsSet(featureID);
 	}
