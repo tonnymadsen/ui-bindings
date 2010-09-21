@@ -125,6 +125,12 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		final IObservableValue ov = getModelObservableValue();
 		if (ov != null) {
 			/*
+			 * Use the real type of the current value... if set...
+			 */
+			final Object v = ov.getValue();
+			if (v != null) return BindingDataTypeFactory.create(v.getClass());
+
+			/*
 			 * If we have a MyDetailObservableValue, then use the the value type of this.
 			 * 
 			 * This will use the value type of the inner observable, if set...
@@ -133,9 +139,6 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 				final Object valueType = ((MyDetailObservableValue) ov).getValueType();
 				if (valueType != null) return BindingDataTypeFactory.create(valueType);
 			}
-			final Object v = ov.getValue();
-			if (v == null) return super.getDataType();
-			return BindingDataTypeFactory.create(v.getClass());
 		}
 
 		/*
