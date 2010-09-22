@@ -117,6 +117,7 @@ import com.rcpcompany.uibindings.extests.uiAttributes.UIAttributeSliderFactoryPr
 import com.rcpcompany.uibindings.extests.uiAttributes.UIAttributeSpinnerFactoryPropertiesTest;
 import com.rcpcompany.uibindings.extests.uiAttributes.UIAttributeStyledTextFactoryPropertiesTest;
 import com.rcpcompany.uibindings.extests.uiAttributes.UIAttributeTextFactoryPropertiesTest;
+import com.rcpcompany.uibindings.extests.utils.BindingEnablerTests;
 import com.rcpcompany.uibindings.extests.utils.BindingObjectLongNameTest;
 import com.rcpcompany.uibindings.extests.utils.BindingSpecTest;
 import com.rcpcompany.uibindings.extests.utils.ControlDecorationTest;
@@ -341,7 +342,7 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		DoubleClickAdapterTest.class, GlobalNavigationManagerTest.class, MouseDownConverterTest.class,
 		BindingObjectLongNameTest.class,
 
-		FormChooserWizardTest.class,
+		FormChooserWizardTest.class, BindingEnablerTests.class,
 
 		/*
 		 * Cut, copy and paste

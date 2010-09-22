@@ -1106,13 +1106,13 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 
 				hasSupportBeenAdded = true;
 			}
-			setState(BindingState.OK);
 		} finally {
 			isInFinish = false;
 			if (Activator.getDefault().TRACE_LIFECYCLE_BINDINGS) {
 				LogUtils.debug(this, "finish end"); //$NON-NLS-1$
 			}
 		}
+		setState(BindingState.OK);
 	}
 
 	/**
