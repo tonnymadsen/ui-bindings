@@ -253,15 +253,20 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	void updateUI();
 
 	/**
-	 * Creates a usable control for this binding based on {@link IBinding#ARG_PREFERRED_CONTROL}.
+	 * Creates a usable control for this binding based on {@link IBinding#ARG_PREFERRED_CONTROL}
+	 * and/or {@link Constants#ARG_PREFERRED_CELL_EDITOR}.
+	 * 
 	 * <p>
-	 * The control is <em>not</em> set as the UI control for the binding!
+	 * The control is <em>not</em> set as the UI control for the binding automatically!
+	 * <p>
+	 * If consult {@link Constants#ARG_PREFERRED_CELL_EDITOR} first if creating a cell editor.
 	 * 
 	 * @param parent the parent composite of the new control
 	 * @param style the style
+	 * @param cellEditor <code>true</code> if for a cell editor, <code>false</code> if not
 	 * @return the new control
 	 */
-	Control createPreferredControl(Composite parent, int style);
+	Control createPreferredControl(Composite parent, int style, boolean cellEditor);
 
 	/**
 	 * Returns the value of the '<em><b>Model Observable</b></em>' attribute. <!-- begin-user-doc

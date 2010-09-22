@@ -20,23 +20,30 @@ import org.eclipse.swt.widgets.Composite;
 public interface IControlFactoryContext {
 
 	/**
-	 * Returns the binding for wehich the control must be created
+	 * Returns the binding for wehich the control must be created.
 	 * 
 	 * @return the binding
 	 */
-	public IValueBinding getBinding();
+	IValueBinding getBinding();
 
 	/**
 	 * Returns the parent composite of the new control.
 	 * 
 	 * @return the parent composite
 	 */
-	public Composite getParent();
+	Composite getParent();
 
 	/**
-	 * Returns the SWT style arguments for the new control
+	 * Returns the SWT style arguments for the new control.
 	 * 
 	 * @return the style
 	 */
-	public int getStyle();
+	int getStyle();
+
+	/**
+	 * Returns whether the control is to be used for a cell editor or not.
+	 * 
+	 * @return <code>true</code> if for a cell editor, and <code>false</code> if not
+	 */
+	boolean isCellEditor();
 }

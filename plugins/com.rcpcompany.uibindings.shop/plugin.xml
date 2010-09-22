@@ -333,6 +333,15 @@
    <extension
          point="com.rcpcompany.uibindings.uiBindings">
       <model
+            class="com.sun.jmx.mbeanserver.NamedObject">
+         <feature
+               name="name">
+            <standardArguments
+                  preferredCellEditor="org.eclipse.swt.widgets.Text">
+            </standardArguments>
+         </feature>
+      </model>
+      <model
             class="com.rcpcompany.uibindings.tests.shop.Shop">
          <feature
                name="tmpDir">
@@ -361,6 +370,12 @@
                openCommand="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.example.application.views.ShopBasicsView)"
                preferredCellEditor="org.eclipse.swt.custom.CCombo">
          </standardArguments>
+         <feature
+               name="name">
+            <standardArguments
+                  preferredCellEditor="org.eclipse.swt.widgets.Text">
+            </standardArguments>
+         </feature>
       </model>
       <model
             class="com.rcpcompany.uibindings.tests.shop.ShopItem">
@@ -385,17 +400,22 @@
                name="validValues"
                value="com.rcpcompany.uibindings.shop.observableListFactories.ContactsObservableListFactory">
          </argument>
+         <standardArguments
+               featureName="name"
+               image="icons/contact_16x16.png"
+               openCommand="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.example.application.views.ContactsView)">
+         </standardArguments>
          <feature
                name="name">
             <standardArguments
                   openCommand="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.example.application.views.ContactsView)">
             </standardArguments>
          </feature>
-         <standardArguments
-               featureName="name"
-               image="icons/contact_16x16.png"
-               openCommand="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.example.application.views.ContactsView)">
-         </standardArguments>
+         <feature
+               name="country">
+            <standardArguments
+                  preferredCellEditor="org.eclipse.swt.widgets.Control"></standardArguments>
+         </feature>
       </model>
       <model
             class="com.rcpcompany.uibindings.tests.shop.Customer">

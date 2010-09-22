@@ -14,8 +14,10 @@ import org.eclipse.swt.custom.CCombo;
 import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Text;
 
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.widgets.FileNameControl;
 
@@ -108,6 +110,11 @@ public interface InternalConstants {
 	 * Cell Editor Type: CCombo.
 	 */
 	String CELL_EDITOR_TYPE_CCOMBO = CCombo.class.getName();
+
+	/**
+	 * Cell Editor Type: Control based on {@link Constants#ARG_PREFERRED_CONTROL}.
+	 */
+	String CELL_EDITOR_TYPE_CONTROL = Control.class.getName();
 
 	/**
 	 * The resource name for the image in {@link FileNameControl} to designate the open dialog

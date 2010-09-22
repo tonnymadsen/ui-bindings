@@ -69,6 +69,12 @@ public class SimplePreferredCellEditorTest {
 		{ TestModelPackage.Literals.TEST_OBJECT__TEXT, null, Text.class },
 				{ TestModelPackage.Literals.TEST_OBJECT__B, null, null },
 				{ TestModelPackage.Literals.TEST_OBJECT__UNIT, null, CCombo.class },
+
+				/*
+				 * Test that preferredCellEditor takes precedence over preferredControl
+				 */
+				{ TestModelPackage.Literals.TEST_OBJECT__UNIT, "simple", Text.class },
+
 				{ TestModelPackage.Literals.TEST_OBJECT__NUMBER, null, Text.class },
 				{ TestModelPackage.Literals.TEST_OBJECT__F, null, Text.class },
 				{ TestModelPackage.Literals.TEST_OBJECT__BIG_DECIMAL, null, StyledText.class },
@@ -92,12 +98,16 @@ public class SimplePreferredCellEditorTest {
 	private final EStructuralFeature myFeature;
 	private final String myType;
 	private final Class<? extends Control> myExpectedCellEditor;
+	private final String what;
 
 	public SimplePreferredCellEditorTest(EStructuralFeature feature, String type,
 			Class<? extends Control> expectedCellEditor) {
 		myFeature = feature;
 		myType = type;
 		myExpectedCellEditor = expectedCellEditor;
+
+		what = myFeature.getName() + "(" + myType + "): "
+				+ (myExpectedCellEditor == null ? "<null>" : myExpectedCellEditor.getSimpleName());
 	}
 
 	@Before
@@ -140,7 +150,7 @@ public class SimplePreferredCellEditorTest {
 		myContext = IBindingContext.Factory.createContext(myView.getScrolledForm());
 
 		myViewerBinding = myContext.addViewer(myViewer, myList);
-		myViewerBinding.addColumn(myColumn, myFeature);
+		myViewerBinding.addColumn(myColumn, myFeature).type(myType);
 
 		myContext.finish();
 		yield();
@@ -157,15 +167,15 @@ public class SimplePreferredCellEditorTest {
 		yield();
 
 		if (myExpectedCellEditor == null) {
-			assertTrue(!myViewer.isCellEditorActive());
+			assertTrue(what, !myViewer.isCellEditorActive());
 		} else {
-			assertTrue(myViewer.isCellEditorActive());
+			assertTrue(what, myViewer.isCellEditorActive());
 
 			final EList<IBinding> bindings = myContext.getBindings();
 			final IBinding binding = bindings.get(bindings.size() - 1);
 
 			final Control control = binding.getControl();
-			assertTrue("Expected " + myExpectedCellEditor.getName() + ", got " + control.getClass().getName(),
+			assertTrue(what + ": Expected " + myExpectedCellEditor.getName() + ", got " + control.getClass().getName(),
 					myExpectedCellEditor.isInstance(control));
 		}
 		myViewer.cancelEditing();

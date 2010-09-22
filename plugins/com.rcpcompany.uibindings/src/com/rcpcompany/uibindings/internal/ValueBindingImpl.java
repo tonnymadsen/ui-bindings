@@ -236,8 +236,14 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		@Override
 		public Control create(IControlFactoryContext context) {
 			int style = context.getStyle();
-			String className;
-			className = context.getBinding().getArgument(Constants.ARG_PREFERRED_CONTROL, String.class, null);
+			String className = null;
+
+			if (context.isCellEditor()) {
+				className = context.getBinding().getArgument(Constants.ARG_PREFERRED_CELL_EDITOR, String.class, null);
+			}
+			if (className == null) {
+				className = context.getBinding().getArgument(Constants.ARG_PREFERRED_CONTROL, String.class, null);
+			}
 			if (className == null) {
 				className = Text.class.getName();
 			}
@@ -290,7 +296,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	};
 
 	@Override
-	public Control createPreferredControl(final Composite parent, final int style) {
+	public Control createPreferredControl(final Composite parent, final int style, final boolean cellEditor) {
 		final IControlFactory factory = getArgument(Constants.ARG_PREFERRED_CONTROL_FACTORY, IControlFactory.class,
 				SIMPLE_CONTROL_FACTORY);
 
@@ -308,6 +314,11 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			@Override
 			public int getStyle() {
 				return style;
+			}
+
+			@Override
+			public boolean isCellEditor() {
+				return cellEditor;
 			}
 		});
 	}
@@ -479,7 +490,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		myPreviousDynamicDataType = newDynamicDataType;
 
 		/*
-		 * Clean up the old decoration
+		 * Clean up the old decoration as well as the old cached argument
 		 */
 		if (getDecorator() != null) {
 			getDecorator().dispose();

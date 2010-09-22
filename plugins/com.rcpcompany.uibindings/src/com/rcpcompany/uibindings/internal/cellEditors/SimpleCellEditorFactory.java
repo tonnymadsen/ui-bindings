@@ -80,15 +80,8 @@ public class SimpleCellEditorFactory implements ICellEditorFactory {
 		final IBindingContext context = labelBinding.getContext();
 		final IObservableValue value = cell.getObjectValue();
 
-		String preferredCellEditor = labelBinding.getArgument(Constants.ARG_PREFERRED_CELL_EDITOR, String.class, null);
-
-		if (preferredCellEditor == null) {
-//			final String preferredControl = labelBinding.getArgument(Constants.ARG_PREFERRED_CONTROL, String.class,
-//					null);
-//			if (preferredControl == null) {
-			preferredCellEditor = InternalConstants.CELL_EDITOR_TYPE_TEXT;
-//			}
-		}
+		String preferredCellEditor = labelBinding.getArgument(Constants.ARG_PREFERRED_CELL_EDITOR, String.class,
+				InternalConstants.CELL_EDITOR_TYPE_CONTROL);
 
 		/*
 		 * The original value of the cell - used it the edit is canceled.
@@ -108,8 +101,9 @@ public class SimpleCellEditorFactory implements ICellEditorFactory {
 				}
 			});
 			LogUtils.error(labelBinding, "modelType '" + value.getValueType()
-					+ "' specifies illegal cell editor type: '" + preferredCellEditor + "'. ignored");
-			return null;
+					+ "' specifies illegal cell editor type: '" + preferredCellEditor + "'. Assumes "
+					+ InternalConstants.CELL_EDITOR_TYPE_TEXT);
+			preferredCellEditor = InternalConstants.CELL_EDITOR_TYPE_TEXT;
 		}
 
 		/*
@@ -117,20 +111,10 @@ public class SimpleCellEditorFactory implements ICellEditorFactory {
 		 */
 		CellEditor ce;
 		final Composite parent = factoryContext.getParent();
-		if (InternalConstants.CELL_EDITOR_TYPE_CCOMBO.equals(preferredCellEditor)) {
-			ce = new ComboBoxCellEditor(parent, NO_ITEMS);
-		} else if (InternalConstants.CELL_EDITOR_TYPE_TEXT.equals(preferredCellEditor)) {
-			ce = new MyTextCellEditor(parent, context);
-		} else if (InternalConstants.CELL_EDITOR_TYPE_STYLED_TEXT.equals(preferredCellEditor)) {
+		if (InternalConstants.CELL_EDITOR_TYPE_STYLED_TEXT.equals(preferredCellEditor)) {
 			ce = new MyStyledTextCellEditor(parent, context);
-		} else if (InternalConstants.CELL_EDITOR_TYPE_COMBO.equals(preferredCellEditor)) {
-			ce = new ComboBoxCellEditor(parent, NO_ITEMS);
-		} else if (InternalConstants.CELL_EDITOR_TYPE_CCOMBO.equals(preferredCellEditor)) {
-			ce = new ComboBoxCellEditor(parent, NO_ITEMS);
 		} else {
-			LogUtils.error(labelBinding, "modelType '" + value.getValueType()
-					+ "' specifies illegal cell editor type: '" + preferredCellEditor + "'. ignored");
-			return null;
+			ce = new ControlCellEditor(parent, cell);
 		}
 
 		/*
@@ -152,6 +136,10 @@ public class SimpleCellEditorFactory implements ICellEditorFactory {
 		final String cellEditorType = labelBinding.getArgument(Constants.ARG_CELL_EDITOR_TYPE, String.class, null);
 		if (cellEditorType != null) {
 			editorBinding.type(cellEditorType);
+		}
+
+		if (ce instanceof ControlCellEditor) {
+			((ControlCellEditor) ce).setEditorBinding(editorBinding);
 		}
 
 		/*

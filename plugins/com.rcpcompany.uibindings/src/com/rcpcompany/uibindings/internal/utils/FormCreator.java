@@ -521,7 +521,7 @@ public class FormCreator implements IFormCreator {
 		final Composite parent = description.placeholderControl.getParent();
 		final Control c;
 
-		c = description.binding.createPreferredControl(parent, style | myToolkit.getBorderStyle());
+		c = description.binding.createPreferredControl(parent, style | myToolkit.getBorderStyle(), false);
 
 		/*
 		 * Figure out the layout to use

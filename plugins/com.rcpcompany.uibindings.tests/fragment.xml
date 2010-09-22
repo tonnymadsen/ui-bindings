@@ -165,6 +165,31 @@
             </standardArguments>
          </feature>
       </model>
+      <model
+            class="com.rcpcompany.uibinding.tests.model.TestObject"
+            targetType="simple">
+         <feature
+               name="unit">
+            <standardArguments
+                  preferredCellEditor="org.eclipse.swt.widgets.Text"></standardArguments>
+         </feature>
+      </model>
+      <bindingDecorator
+            exactModelTypeMatch="false"
+            id="com.rcpcompany.uibinding.tests.model.WeightUnit.simple"
+            type="simple">
+         <enum
+               defaultMappings="false">
+         </enum>
+         <modelType
+               alsoPrimitive="true"
+               class="com.rcpcompany.uibinding.tests.model.WeightUnit">
+         </modelType>
+         <uiType
+               alsoPrimitive="true"
+               class="java.lang.String">
+         </uiType>
+      </bindingDecorator>
    </extension>
    <extension
          point="org.eclipse.ui.views">

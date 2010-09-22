@@ -125,7 +125,7 @@ public class ValueBindingPreferredControlTest {
 
 				myBinding = context.addBinding().model(myObject, myFeature);
 
-				final Control control = myBinding.createPreferredControl(myView.getBody(), SWT.NONE);
+				final Control control = myBinding.createPreferredControl(myView.getBody(), SWT.NONE, false);
 
 				assertNotNull(what, control);
 				assertTrue(what, myControlClass.isInstance(control));
