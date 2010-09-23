@@ -46,7 +46,7 @@ public class BindingEnabler implements IBindingEnabler, IBindingContextFinalizer
 		myValues = values;
 
 		final IBindingContext context = myBinding.getContext();
-		switch (context.getState()) {
+		switch (myBinding.getState()) {
 		case OK:
 			run(context);
 			break;
