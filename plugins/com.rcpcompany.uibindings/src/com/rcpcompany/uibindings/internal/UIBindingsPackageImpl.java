@@ -117,7 +117,9 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 import com.rcpcompany.utils.extensionpoints.CEResourceHolder;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model <b>Package</b>.
+ * 
+ * $codepro.audit.disable <!-- end-user-doc -->
  * 
  * @generated
  */

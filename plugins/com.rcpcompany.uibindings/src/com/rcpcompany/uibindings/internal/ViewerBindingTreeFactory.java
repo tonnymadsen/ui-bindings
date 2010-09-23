@@ -13,6 +13,7 @@ package com.rcpcompany.uibindings.internal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.core.databinding.observable.Observables;
@@ -25,6 +26,7 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Tree;
 
 import com.rcpcompany.uibindings.IConstantTreeItem;
+import com.rcpcompany.uibindings.IElementParentage;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.ITreeItemDescriptor;
 import com.rcpcompany.uibindings.ITreeItemRelation;
@@ -37,6 +39,9 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <p>
  * Note that this list also acts as a {@link TreeStructureAdvisor} - see
  * {@link ObservableListTreeContentProvider} for details.
+ * <p>
+ * This class operates with two types of parent objects: parents in the object model (called
+ * <em>model parents</em>) and parents in the view model (called <em>view parents</em>).
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -58,8 +63,10 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 
 	/**
 	 * Map with all results returned by this factory.
+	 * <p>
+	 * Maps view parents to the list with the children in the parent.
 	 */
-	private final Map<Object, IObservableList> myResults = new HashMap<Object, IObservableList>();
+	private final Map<EObject, IObservableList> myResults = new HashMap<EObject, IObservableList>();
 
 	/**
 	 * The root elements of the tree.
@@ -150,8 +157,23 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 			LogUtils.debug(this, "--> " + result); //$NON-NLS-1$
 		}
 
-		myResults.put(target, result);
+		myResults.put((EObject) target, result);
 		return result;
+	}
+
+	/**
+	 * Returns the view parent object from {@link #myResults} that contains the specified child
+	 * element.
+	 * 
+	 * @param element the element to find
+	 * @return the parent or <code>null</code> if not found
+	 */
+	private EObject findParent(EObject element) {
+		for (final Entry<EObject, IObservableList> e : myResults.entrySet()) {
+			if (e.getValue().contains(element)) return e.getKey();
+		}
+
+		return null;
 	}
 
 	@Override
@@ -223,5 +245,27 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 
 		}
 		return null;
+	}
+
+	/**
+	 * Returns the model parentage for the element in this tree factory.
+	 * 
+	 * @param element the element in question
+	 * @return an object that describes the model parentage or <code>null</code> if the parentage is
+	 *         not known
+	 */
+	public IElementParentage getElementParentage(final EObject element) {
+		/*
+		 * Find the parent (if any) for the list with the element...
+		 */
+		final EObject parent = findParent(element);
+		final IObservableList list = myResults.get(parent);
+
+		/*
+		 * TODO: possibly not support the simplification....
+		 */
+		if (!(list instanceof ViewerBindingTreeFactoryList)) return null;
+		final ViewerBindingTreeFactoryList factoryList = (ViewerBindingTreeFactoryList) list;
+		return factoryList.getElementParentage(element);
 	}
 }

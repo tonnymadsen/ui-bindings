@@ -149,6 +149,7 @@ import com.rcpcompany.uibindings.extests.valueBindings.ValueBindingPreferredCont
 import com.rcpcompany.uibindings.extests.valueBindings.ValueEditCellStrategiesTest;
 import com.rcpcompany.uibindings.extests.valueBindings.ValueUnsettableTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ColumnVisibilityTest;
+import com.rcpcompany.uibindings.extests.viewerBindings.ElementParentageTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerCellNavigationStrategyTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerCellValuesTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerColumnHeaderAlignment;
@@ -292,7 +293,7 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		ViewerDisposeTest.class, ViewerEditCellStrategiesTest.class, ViewerEditCheckboxTest.class,
 		ViewerTableDeleteElementTest.class, ViewerItemMoveEnabledTest.class, ViewerItemMoveTest.class,
 		ViewerSingleSelectionTest.class, ViewerEditCellCommitStrategiesTest.class, ColumnVisibilityTest.class,
-		ViewerEditCellStrategiesTest.class, ViewerColumnHeaderAlignment.class,
+		ViewerEditCellStrategiesTest.class, ViewerColumnHeaderAlignment.class, ElementParentageTest.class,
 
 		/*
 		 * Trees

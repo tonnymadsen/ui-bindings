@@ -26,9 +26,11 @@ import org.eclipse.core.databinding.observable.list.ObservableList;
 import org.eclipse.core.databinding.observable.masterdetail.IObservableFactory;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import com.rcpcompany.uibindings.IConstantTreeItem;
+import com.rcpcompany.uibindings.IElementParentage;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.ITreeItemDescriptor;
 import com.rcpcompany.uibindings.ITreeItemRelation;
@@ -137,6 +139,13 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 	 */
 	protected interface IElement {
 		/**
+		 * Returns the target (parent) for this element.
+		 * 
+		 * @return the target
+		 */
+		EObject getTarget();
+
+		/**
 		 * Add of the generated elements for this element to the specified list.
 		 * 
 		 * @param list the list to add the elements to
@@ -149,6 +158,11 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 		 * @return <code>true</code> if constant
 		 */
 		boolean isConstant();
+
+		/**
+		 * @see ViewerBindingTreeFactoryList#getElementParentage(EObject)
+		 */
+		IElementParentage getElementParentage(final EObject element);
 	}
 
 	/**
@@ -157,6 +171,11 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 	protected class DirectElement implements IElement {
 
 		private final EObject myTarget;
+
+		@Override
+		public EObject getTarget() {
+			return myTarget;
+		}
 
 		/**
 		 * Constructs and returns a new direct element.
@@ -178,6 +197,11 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 		public boolean isConstant() {
 			return true;
 		}
+
+		@Override
+		public IElementParentage getElementParentage(EObject element) {
+			return null;
+		}
 	}
 
 	/**
@@ -185,6 +209,12 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 	 */
 	protected class RelationElement implements IElement {
 		private List<Relation> myRelations = null;
+		private final EObject myTarget;
+
+		@Override
+		public EObject getTarget() {
+			return myTarget;
+		}
 
 		/**
 		 * Constructs and returns new base element.
@@ -193,6 +223,7 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 		 * @param descriptor the descriptor used for the target
 		 */
 		protected RelationElement(EObject target, ITreeItemDescriptor descriptor) {
+			myTarget = target;
 			myElements.add(this);
 
 			/*
@@ -295,9 +326,7 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 				}
 				if (myObservable instanceof IObservableList) {
 					final IObservableList ol = (IObservableList) myObservable;
-					for (final Object value : ol) {
-						newList.add((EObject) value);
-					}
+					newList.addAll(ol);
 					return;
 				}
 			}
@@ -314,6 +343,44 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 				}
 				if (myObservable instanceof IObservableList) return false;
 				return false;
+			}
+
+			/**
+			 * @see ViewerBindingTreeFactoryList#getElementParentage(EObject)
+			 */
+			public IElementParentage getElementParentage(final EObject element) {
+				Object type = null;
+				if (myObservable instanceof IObservableValue) {
+					final IObservableValue ov = (IObservableValue) myObservable;
+					final EObject value = (EObject) ov.getValue();
+					if (value != element) return null;
+					type = ov.getValueType();
+				}
+				if (myObservable instanceof IObservableList) {
+					final IObservableList ol = (IObservableList) myObservable;
+					if (!ol.contains(element)) return null;
+					type = ol.getElementType();
+				}
+				LogUtils.debug(this, "Found " + type + ": " + this);
+				if (!(type instanceof EReference)) return null;
+				final EReference ref = (EReference) type;
+
+				return new IElementParentage() {
+					@Override
+					public EReference getReference() {
+						return ref;
+					}
+
+					@Override
+					public EObject getParent() {
+						return getTarget();
+					}
+
+					@Override
+					public EObject getElement() {
+						return element;
+					}
+				};
 			}
 		}
 
@@ -334,6 +401,17 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 
 			return true;
 		}
+
+		@Override
+		public IElementParentage getElementParentage(EObject element) {
+			if (myRelations == null) return null;
+			for (final Relation rel : myRelations) {
+				final IElementParentage p = rel.getElementParentage(element);
+				if (p != null) return p;
+			}
+
+			return null;
+		}
 	}
 
 	/**
@@ -352,5 +430,21 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 	@Override
 	public String toString() {
 		return super.toString() + "@" + hashCode();
+	}
+
+	/**
+	 * Returns the parentage for the element in this list.
+	 * 
+	 * @param element the element in question
+	 * @return an object that describes the parentage or <code>null</code> if the parentage is not
+	 *         known
+	 */
+	public IElementParentage getElementParentage(final EObject element) {
+		for (final IElement be : myElements) {
+			final IElementParentage p = be.getElementParentage(element);
+			if (p != null) return p;
+		}
+
+		return null;
 	}
 }

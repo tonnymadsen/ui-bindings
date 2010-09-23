@@ -56,7 +56,9 @@ import com.rcpcompany.uibindings.SpecialBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>.
+ * 
+ * $codepro.audit.disable <!-- end-user-doc -->
  * 
  * @generated
  */

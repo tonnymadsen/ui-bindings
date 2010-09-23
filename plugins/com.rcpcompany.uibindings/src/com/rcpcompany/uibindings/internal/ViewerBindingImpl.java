@@ -75,6 +75,7 @@ import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IColumnBindingCellInformation;
+import com.rcpcompany.uibindings.IElementParentage;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.ISourceProviderStateContext;
 import com.rcpcompany.uibindings.IUIBindingsFactory;
@@ -320,10 +321,9 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 			viewer.setContentProvider(contentProvider);
 			setElements(contentProvider.getKnownElements());
 		} else if (viewer instanceof TreeViewer) {
-			final ViewerBindingTreeFactory listFactory = new ViewerBindingTreeFactory(getList(), getArgument(
-					ARG_TREE_ID, String.class, null));
+			myTreeFactory = new ViewerBindingTreeFactory(getList(), getArgument(ARG_TREE_ID, String.class, null));
 			final ObservableListTreeContentProvider contentProvider = new ObservableListTreeContentProvider(
-					listFactory, listFactory);
+					myTreeFactory, myTreeFactory);
 			viewer.setContentProvider(contentProvider);
 			myValidationLabelDecorator = new ValidationLabelDecorator();
 			myValidationLabelDecorator.setPropagationAdapter(new ValidationLabelDecorator.IPropagationAdapter() {
@@ -475,7 +475,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	@Override
 	public IElementParentage getElementParentage(final EObject element) {
 		if (getViewer() instanceof TableViewer) {
-			final IObservableList ol = getList();
+			if (!getList().contains(element)) return null;
 			return new IElementParentage() {
 				@Override
 				public EReference getReference() {
@@ -511,6 +511,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 				}
 			};
 		}
+		if (getViewer() instanceof TreeViewer) return myTreeFactory.getElementParentage(element);
 		return null;
 	};
 
@@ -783,6 +784,8 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 
 	private MyTableViewerFocusCellManager myMyTableViewerFocusCellManager;
 	private MyTreeViewerFocusCellManager myMyTreeViewerFocusCellManager;
+
+	private ViewerBindingTreeFactory myTreeFactory;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

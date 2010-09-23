@@ -32,9 +32,9 @@ import org.eclipse.ui.handlers.HandlerUtil;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBinding;
+import com.rcpcompany.uibindings.IElementParentage;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
-import com.rcpcompany.uibindings.IViewerBinding.IElementParentage;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.utils.SelectionUtils;
 import com.rcpcompany.uibindings.utils.UIBEcoreUtils;
@@ -59,7 +59,9 @@ public class DeleteHandler extends AbstractHandler implements IHandler2 {
 
 		final Command cmd = createCommand(vb);
 		/*
-		 * Execute if possible... TODO return value
+		 * Execute if possible...
+		 * 
+		 * TODO return value
 		 */
 		if (!cmd.canExecute()) return null;
 
@@ -68,7 +70,7 @@ public class DeleteHandler extends AbstractHandler implements IHandler2 {
 		final List<EObject> list = SelectionUtils.computeSelection(s, EObject.class);
 		final Map<EObject, Collection<Setting>> references = UIBEcoreUtils.findIncommingRequiredReferences(list);
 		if (references != null) {
-			UIBEcoreUtils.showErrorDialog("Cannot delete the selected objects", references);
+			UIBEcoreUtils.showErrorDialog("Delete Aborted", "Cannot delete the selected objects", references);
 			return null;
 		}
 
@@ -97,7 +99,7 @@ public class DeleteHandler extends AbstractHandler implements IHandler2 {
 		/*
 		 * Execute if possible...
 		 */
-		if (!cmd.canExecute()) {
+		if (cmd == null || !cmd.canExecute()) {
 			setBaseEnabled(false);
 			return;
 		}

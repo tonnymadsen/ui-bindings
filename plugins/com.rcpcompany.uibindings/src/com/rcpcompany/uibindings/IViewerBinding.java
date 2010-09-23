@@ -311,32 +311,6 @@ public interface IViewerBinding extends IContainerBinding {
 	int getFirstTableColumnOffset();
 
 	/**
-	 * The interface for the return value of {@link IViewerBinding#getElementParentage()}.
-	 */
-	interface IElementParentage {
-		/**
-		 * Returns the element in question.
-		 * 
-		 * @return the element
-		 */
-		EObject getElement();
-
-		/**
-		 * Returns the parent object of the element.
-		 * 
-		 * @return the parent
-		 */
-		EObject getParent();
-
-		/**
-		 * Returns the reference for the element in the parent.
-		 * 
-		 * @return the reference
-		 */
-		EReference getReference();
-	}
-
-	/**
 	 * Returns the parentage for the element in this viewer.
 	 * <p>
 	 * The parentage for an element depends on the type of the viewer. For a {@link Table} based
