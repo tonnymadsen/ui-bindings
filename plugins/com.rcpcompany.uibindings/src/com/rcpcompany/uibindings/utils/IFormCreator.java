@@ -268,6 +268,8 @@ public interface IFormCreator extends IDisposable {
 	 * Creates and returns a new {@link Composite}.
 	 * <p>
 	 * Same as {@link #addComposite(boolean, boolean) <code>addComposite(true, false)</code>}.
+	 * <p>
+	 * The returned composite has a {@link FillLayout}, though this can be changed.
 	 * 
 	 * @return the new composite
 	 */
