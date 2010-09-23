@@ -645,6 +645,9 @@
                class="com.rcpcompany.uibindings.tests.shop.Shop">
          </modelType>
       </editor>
+      <preferenceModelType
+            modelType="com.rcpcompany.uibindings.tests.shop.Shop">
+      </preferenceModelType>
    </extension>
 
 

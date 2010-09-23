@@ -65,7 +65,14 @@ public class PreferredEditorPage extends FieldEditorPreferencePage implements IW
 			 * 
 			 * IBindingObjectInformation
 			 */
-			String name = ToStringUtils.formatHumanReadable(mt.getModelType());
+			String n = mt.getModelType();
+			if (n.lastIndexOf('.') != -1) {
+				n = n.substring(n.lastIndexOf('.') + 1);
+			}
+			if (n.matches("^I[A-Z]")) {
+				n = n.substring(1);
+			}
+			String name = ToStringUtils.formatHumanReadable(n);
 			final IModelClassInfo info = uim.getModelClassInfo(mt.getModelType(), null, false);
 			if (info != null) {
 				final Object l = info.getArguments().get(Constants.ARG_LABEL);
