@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.jface.dialogs.MessageDialog;
 
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -126,10 +127,18 @@ public final class UIBEcoreUtils {
 	/**
 	 * Shows an error dialog.
 	 * 
-	 * @param title
-	 * @param references
+	 * @param title the title for the dialog
+	 * @param description TODO
+	 * @param references the references for the objects that cannot be handled
 	 */
-	public static void showErrorDialog(String title, Map<EObject, Collection<Setting>> references) {
+	public static void showErrorDialog(String title, String description, Map<EObject, Collection<Setting>> references) {
 		LogUtils.debug("", title);
+
+		description += "\n\nThe following references are found:\n";
+		for (final EObject o : references.keySet()) {
+			description += "\n   " + IBindingObjectInformation.Factory.getLongName(o);
+		}
+
+		MessageDialog.openError(null, title, description);
 	}
 }
