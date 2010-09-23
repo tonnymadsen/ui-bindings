@@ -24,6 +24,7 @@ import com.rcpcompany.uibindings.extests.bindings.ArgumentsTypeTest;
 import com.rcpcompany.uibindings.extests.bindings.BindingContextFinalizerTest;
 import com.rcpcompany.uibindings.extests.bindings.BindingDisposeTest;
 import com.rcpcompany.uibindings.extests.bindings.BindingFormatTest;
+import com.rcpcompany.uibindings.extests.bindings.BindingSetFocusTest;
 import com.rcpcompany.uibindings.extests.bindings.ContextEditingDomainCommitTest;
 import com.rcpcompany.uibindings.extests.bindings.ContextEditingDomainTest;
 import com.rcpcompany.uibindings.extests.bindings.ContextNoCommitTest;
@@ -66,6 +67,7 @@ import com.rcpcompany.uibindings.extests.manager.ManagerTextCommitStrategyDelayT
 import com.rcpcompany.uibindings.extests.manager.ManagerTextCommitStrategyTest;
 import com.rcpcompany.uibindings.extests.manager.ManagerTreeFunctionalityTest;
 import com.rcpcompany.uibindings.extests.manager.ManagerValidationDelayTest;
+import com.rcpcompany.uibindings.extests.manager.ManagerValidationDelayWindowTest;
 import com.rcpcompany.uibindings.extests.manager.ManagerValidationErrorsAreFatal;
 import com.rcpcompany.uibindings.extests.manager.ManagerViewNavigationRecorded;
 import com.rcpcompany.uibindings.extests.manager.NoErrorsDuringInitializationTest;
@@ -125,6 +127,8 @@ import com.rcpcompany.uibindings.extests.utils.DoubleClickAdapterTest;
 import com.rcpcompany.uibindings.extests.utils.EcoreExtUtilsSyncTest;
 import com.rcpcompany.uibindings.extests.utils.FilterTest;
 import com.rcpcompany.uibindings.extests.utils.FormChooserTest;
+import com.rcpcompany.uibindings.extests.utils.FormCreatorAlignmentTest;
+import com.rcpcompany.uibindings.extests.utils.FormCreatorObjectMessageCollectionTest;
 import com.rcpcompany.uibindings.extests.utils.FormCreatorTest;
 import com.rcpcompany.uibindings.extests.utils.IPathMatcherTests;
 import com.rcpcompany.uibindings.extests.utils.MouseDownConverterTest;
@@ -144,12 +148,14 @@ import com.rcpcompany.uibindings.extests.valueBindings.ValueBindingPreferredCont
 import com.rcpcompany.uibindings.extests.valueBindings.ValueEditCellStrategiesTest;
 import com.rcpcompany.uibindings.extests.valueBindings.ValueUnsettableTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ColumnVisibilityTest;
+import com.rcpcompany.uibindings.extests.viewerBindings.ViewerCellNavigationStrategyTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerCellValuesTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerColumnHeaderAlignment;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerDisposeTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerEditCellCommitStrategiesTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerEditCellStrategiesTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerEditCheckboxTest;
+import com.rcpcompany.uibindings.extests.viewerBindings.ViewerItemMoveEnabledTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerItemMoveTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerReflowTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerSingleSelectionTest;
@@ -200,9 +206,10 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		ManagerEditCellSingleClickTest.class, ManagerMessageDecorationPositionTest.class,
 		ManagerMessageDecorationMinimumSeverityTest.class, ManagerAlternativeDecorationPositionTest.class,
 		ManagerAutoApplyQuickfixTest.class, ManagerAlternatingRowColors.class, AlternatingRowColorsTest.class,
-		ManagerValidationDelayTest.class, ManagerTreeFunctionalityTest.class, ManagerValidationErrorsAreFatal.class,
-		ValidationErrorsAreFatalTest.class, ManagerRequiredVBIDShown.class, ManagerAssistVBIDShown.class,
-		ManagerQuickfixVBIDShown.class, ManagerViewNavigationRecorded.class, ManagerFormatterProviderTest.class,
+		ManagerValidationDelayTest.class, ManagerValidationDelayWindowTest.class, ManagerTreeFunctionalityTest.class,
+		ManagerValidationErrorsAreFatal.class, ValidationErrorsAreFatalTest.class, ManagerRequiredVBIDShown.class,
+		ManagerAssistVBIDShown.class, ManagerQuickfixVBIDShown.class, ManagerViewNavigationRecorded.class,
+		ManagerFormatterProviderTest.class,
 
 		SimplePreferredCellEditorTest.class, PreferredCellEditorFactoryTest.class,
 
@@ -275,15 +282,16 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 
 		ContextNoCommitTest.class, ContextEditingDomainTest.class, ContextEditingDomainCommitTest.class,
 
-		BindingContextFinalizerTest.class,
+		BindingContextFinalizerTest.class, BindingSetFocusTest.class,
 
 		/*
 		 * Viewer bindings
 		 */
-		ViewerCellValuesTest.class, ViewerReflowTest.class, ViewerDisposeTest.class,
-		ViewerEditCellStrategiesTest.class, ViewerEditCheckboxTest.class, ViewerTableDeleteElementTest.class,
-		ViewerItemMoveTest.class, ViewerSingleSelectionTest.class, ViewerEditCellCommitStrategiesTest.class,
-		ColumnVisibilityTest.class, ViewerEditCellStrategiesTest.class, ViewerColumnHeaderAlignment.class,
+		ViewerCellValuesTest.class, ViewerCellNavigationStrategyTest.class, ViewerReflowTest.class,
+		ViewerDisposeTest.class, ViewerEditCellStrategiesTest.class, ViewerEditCheckboxTest.class,
+		ViewerTableDeleteElementTest.class, ViewerItemMoveEnabledTest.class, ViewerItemMoveTest.class,
+		ViewerSingleSelectionTest.class, ViewerEditCellCommitStrategiesTest.class, ColumnVisibilityTest.class,
+		ViewerEditCellStrategiesTest.class, ViewerColumnHeaderAlignment.class,
 
 		/*
 		 * Trees
@@ -338,7 +346,8 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		/*
 		 * Filters, sorters, creators, etc
 		 */
-		FilterTest.class, SortingTest.class, FormChooserTest.class, FormCreatorTest.class, TableCreatorTest.class,
+		FilterTest.class, SortingTest.class, FormChooserTest.class, FormCreatorTest.class,
+		FormCreatorAlignmentTest.class, FormCreatorObjectMessageCollectionTest.class, TableCreatorTest.class,
 		DoubleClickAdapterTest.class, GlobalNavigationManagerTest.class, MouseDownConverterTest.class,
 		BindingObjectLongNameTest.class,
 

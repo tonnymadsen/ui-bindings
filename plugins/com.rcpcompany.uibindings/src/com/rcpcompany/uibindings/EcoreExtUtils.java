@@ -246,7 +246,7 @@ public final class EcoreExtUtils {
 			/*
 			 * Remove any excess elements
 			 */
-			for (int i = targetList.size() - 1; i > sourceList.size(); i--) {
+			for (int i = targetList.size() - 1; i >= sourceList.size(); i--) {
 				final Object obj = targetList.get(i);
 				addCommand(RemoveCommand.create(getEditingDomain(), target, sf, obj));
 			}
@@ -358,7 +358,7 @@ public final class EcoreExtUtils {
 			/*
 			 * Remove any excess elements in the target list
 			 */
-			for (int i = targetList.size() - 1; i > sourceListSize; i++) {
+			for (int i = targetList.size() - 1; i >= sourceListSize; i--) {
 				final EObject obj = targetList.get(i);
 				addCommand(RemoveCommand.create(getEditingDomain(), target, ref, obj));
 				addRemovedObject(obj);
