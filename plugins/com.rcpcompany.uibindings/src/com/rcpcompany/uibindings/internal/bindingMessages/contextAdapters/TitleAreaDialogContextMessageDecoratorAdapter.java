@@ -29,7 +29,7 @@ import com.rcpcompany.uibindings.internal.bindingMessages.IContextMessageDecorat
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class TitleAreaDialogContextMessageDecoratorAdapter implements IContextMessageDecoratorAdapter { // $codepro.audit.disable questionableName
+public class TitleAreaDialogContextMessageDecoratorAdapter implements IContextMessageDecoratorAdapter {
 	/**
 	 * The form of this context decorator
 	 */
@@ -45,7 +45,7 @@ public class TitleAreaDialogContextMessageDecoratorAdapter implements IContextMe
 	 * 
 	 * @param dialog the wizard page
 	 */
-	public TitleAreaDialogContextMessageDecoratorAdapter(TitleAreaDialog dialog) { // $codepro.audit.disable questionableName
+	public TitleAreaDialogContextMessageDecoratorAdapter(TitleAreaDialog dialog) {
 		myDialog = dialog;
 	}
 
