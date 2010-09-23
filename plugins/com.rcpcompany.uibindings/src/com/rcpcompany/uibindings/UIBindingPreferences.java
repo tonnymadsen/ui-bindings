@@ -159,7 +159,7 @@ public class UIBindingPreferences implements IExecutableExtension, IExecutableEx
 	 * <p>
 	 * <code>true</code> means the enabled state is calculated.
 	 */
-	public static final String PREF_DELETE_HANDLER_CHECK_ENABLED = null;
+	public static final String PREF_DELETE_HANDLER_CHECK_ENABLED = "DeleteHandlerCheckEnabled";
 
 	/**
 	 * The data string to use to create the basic top-level preference page.
