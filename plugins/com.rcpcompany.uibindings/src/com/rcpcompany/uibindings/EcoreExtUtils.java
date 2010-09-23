@@ -11,6 +11,7 @@
 package com.rcpcompany.uibindings;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.core.runtime.Assert;
@@ -486,22 +487,40 @@ public final class EcoreExtUtils {
 		if (c instanceof AddCommand) {
 			final AddCommand cc = (AddCommand) c;
 
-			sb.append(getEObjectName(cc.getOwner())).append(", ").append(cc.getFeature().getName());
+			sb.append(getEObjectName(cc.getOwner())).append(", ").append(cc.getFeature().getName()).append(", ")
+					.append(toString(cc.getCollection()));
 		} else if (c instanceof RemoveCommand) {
 			final RemoveCommand cc = (RemoveCommand) c;
 
 			sb.append(getEObjectName(cc.getOwner())).append(", ").append(cc.getFeature().getName()).append(", ")
-					.append(cc.getCollection());
+					.append(toString(cc.getCollection()));
 		} else if (c instanceof SetCommand) {
 			final SetCommand cc = (SetCommand) c;
 
 			sb.append(getEObjectName(cc.getOwner())).append(", ").append(cc.getFeature().getName()).append(", ")
 					.append(formatSetCommandArg(cc.getOldValue())).append(", ")
-					.append(formatSetCommandArg(cc.getOldValue()));
+					.append(formatSetCommandArg(cc.getValue()));
 		} else {
 			sb.append("...");
 		}
 		sb.append(')');
+		return sb.toString();
+	}
+
+	private static String toString(Collection<?> collection) {
+		final StringBuilder sb = new StringBuilder(200);
+		sb.append('[');
+		for (final Object o : collection) {
+			if (sb.length() > 1) {
+				sb.append(", ");
+			}
+			if (o instanceof EObject) {
+				sb.append(IBindingObjectInformation.Factory.getLongName((EObject) o));
+			} else {
+				sb.append(o);
+			}
+		}
+		sb.append(']');
 		return sb.toString();
 	}
 

@@ -167,6 +167,7 @@ import com.rcpcompany.uibindings.extests.wizards.FormChooserWizardTest;
 import com.rcpcompany.uibindings.internal.ManagerSizesTest;
 import com.rcpcompany.uibindings.internal.decorators.extenders.ExtenderTest;
 import com.rcpcompany.uibindings.internal.decorators.extenders.OpenCommandSupportLowLevelTest;
+import com.rcpcompany.uibindings.internal.utils.CommandToStringTest;
 import com.rcpcompany.uibindings.internal.utils.GlobalNavigationManagerTest;
 import com.rcpcompany.uibindings.internal.utils.ViewerToolBarBaseTests;
 import com.rcpcompany.uibindings.internal.utils.ViewerToolBarFunctionTests;
@@ -369,7 +370,7 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		/*
 		 * Dialogs, Views
 		 */
-		PreferencePageDialogTest.class, SpyDialogTest.class, ValidationViewTest.class
+		PreferencePageDialogTest.class, SpyDialogTest.class, ValidationViewTest.class, CommandToStringTest.class
 
 })
 public class AllBindingTests {
