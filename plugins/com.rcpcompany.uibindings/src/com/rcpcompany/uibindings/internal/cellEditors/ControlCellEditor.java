@@ -60,7 +60,7 @@ public class ControlCellEditor extends CellEditor {
 	private IHandlerActivation myActiveUndoHandler;
 	/* package */IHandler undoHandler = new AbstractHandler() {
 		@Override
-		public Object execute(ExecutionEvent event) throws ExecutionException {
+		public Object execute(ExecutionEvent event) {
 			if (Activator.getDefault().TRACE_HANDLERS) {
 				LogUtils.debug(this, "");
 			}

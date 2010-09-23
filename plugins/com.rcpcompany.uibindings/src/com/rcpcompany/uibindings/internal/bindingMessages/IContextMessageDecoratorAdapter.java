@@ -41,5 +41,5 @@ public interface IContextMessageDecoratorAdapter extends IDisposable {
 	 *            {@link IMessageProvider#INFORMATION}, {@link IMessageProvider#WARNING}, or
 	 *            {@link IMessageProvider#ERROR}
 	 */
-	public void update(List<IBindingMessage> messages, boolean inError, int maxType);
+	void update(List<IBindingMessage> messages, boolean inError, int maxType);
 }

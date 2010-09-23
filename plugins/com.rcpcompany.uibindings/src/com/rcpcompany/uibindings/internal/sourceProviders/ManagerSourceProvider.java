@@ -152,7 +152,7 @@ public class ManagerSourceProvider extends AbstractSourceProvider {
 					} else {
 						sb.append(v.toString());
 					}
-					sb.append("'");
+					sb.append('\'');
 				}
 				LogUtils.debug(this, sb.toString());
 			}

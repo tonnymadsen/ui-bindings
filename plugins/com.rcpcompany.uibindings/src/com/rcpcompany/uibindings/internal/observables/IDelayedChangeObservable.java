@@ -28,7 +28,7 @@ public interface IDelayedChangeObservable {
 	 * 
 	 * @param listener the listener to add
 	 */
-	public void addDelayedChangeListener(IDelayedChangeListener listener);
+	void addDelayedChangeListener(IDelayedChangeListener listener);
 
 	/**
 	 * Removes the given delayed change listener from the list of listeners. Has no effect if the
@@ -36,5 +36,5 @@ public interface IDelayedChangeObservable {
 	 * 
 	 * @param listener the listener to remove
 	 */
-	public void removeDelayedChangeListener(IDelayedChangeListener listener);
+	void removeDelayedChangeListener(IDelayedChangeListener listener);
 }

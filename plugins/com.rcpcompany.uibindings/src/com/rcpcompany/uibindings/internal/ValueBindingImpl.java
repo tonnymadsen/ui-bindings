@@ -221,9 +221,9 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		if (c == null) return;
 
 		final List<String> ecs = getErrorConditions();
-		final StringBuilder sb = new StringBuilder();
+		final StringBuilder sb = new StringBuilder(300);
 		for (final String e : ecs) {
-			sb.append(e).append("\n"); //$NON-NLS-1$
+			sb.append(e).append('\n');
 		}
 		c.setBackground(c.getDisplay().getSystemColor(SWT.COLOR_RED));
 		c.setToolTipText(sb.toString());
@@ -463,7 +463,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 		final Control control = getControl();
 		if (control != null) {
-			control.addDisposeListener(myDisposeListener);
+			control.addDisposeListener(DISPOSE_LISTENER);
 			final String attribute = getUIAttribute().getAttribute();
 			if (attribute == null || attribute.length() == 0) {
 				registerWidget(control);
@@ -578,7 +578,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		final Control control = getControl();
 		if (control != null) {
 			if (!control.isDisposed()) {
-				control.removeDisposeListener(myDisposeListener);
+				control.removeDisposeListener(DISPOSE_LISTENER);
 			}
 			// TODO: move to separate if(widget...)
 			final String attribute = getUIAttribute().getAttribute();
@@ -649,7 +649,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	/**
 	 * Dispose listener for the control of the binding.
 	 */
-	private static final DisposeListener myDisposeListener = new DisposeListener() {
+	private static final DisposeListener DISPOSE_LISTENER = new DisposeListener() {
 		@Override
 		public void widgetDisposed(DisposeEvent e) {
 			final IBinding b = IBindingContext.Factory.getBindingForWidget(e.widget);

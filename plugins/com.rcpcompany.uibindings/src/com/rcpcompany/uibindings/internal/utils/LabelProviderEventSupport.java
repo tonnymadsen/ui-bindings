@@ -58,7 +58,7 @@ public class LabelProviderEventSupport implements IDisposable {
 	};
 
 	public interface ISupportListener {
-		public void objectsChanged(Object[] elements);
+		void objectsChanged(Object[] elements);
 	}
 
 	/**
@@ -124,7 +124,7 @@ public class LabelProviderEventSupport implements IDisposable {
 		 * @param object the object to monitor
 		 * @param features the features to monitor
 		 */
-		public MonitoredObject(EObject object, EStructuralFeature[] features) {
+		private MonitoredObject(EObject object, EStructuralFeature[] features) {
 			myObject = object;
 			final int l = features.length;
 
@@ -179,8 +179,8 @@ public class LabelProviderEventSupport implements IDisposable {
 		}
 
 		public void hookListeners() {
-			EObject next;
-			next = myObjectChain[0] = myObject;
+			myObjectChain[0] = myObject;
+			EObject next = myObjectChain[0];
 			if (next != null) {
 				next.eAdapters().add(this);
 			}

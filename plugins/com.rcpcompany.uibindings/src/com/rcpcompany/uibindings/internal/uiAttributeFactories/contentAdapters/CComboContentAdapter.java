@@ -77,7 +77,7 @@ public class CComboContentAdapter implements IControlContentAdapter, IControlCon
 			sb.append(contents.substring(selection.y, contents.length()));
 		}
 		combo.setText(sb.toString());
-		selection.x = selection.x + cursorPosition;
+		selection.x += cursorPosition;
 		selection.y = selection.x;
 		combo.setSelection(selection);
 	}

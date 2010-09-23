@@ -27,7 +27,7 @@ public class ShellObservableValue extends AbstractSWTObservableValue {
 	 */
 	public ShellObservableValue(Shell widget) {
 		super(widget);
-		this.shell = widget;
+		shell = widget;
 	}
 
 	@Override

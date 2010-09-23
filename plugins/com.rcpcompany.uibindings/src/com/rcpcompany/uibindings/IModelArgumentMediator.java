@@ -32,5 +32,5 @@ public interface IModelArgumentMediator {
 	 * 
 	 * @param classifier the source EClassifier
 	 */
-	public void mediateArguments(EClassifier classifier);
+	void mediateArguments(EClassifier classifier);
 }

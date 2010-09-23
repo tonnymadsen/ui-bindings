@@ -226,7 +226,7 @@ public class ViewerToolBar implements IViewerToolBar, IDisposable {
 			return myItem;
 		}
 
-		public CommandToolItemAdapter(String commandId) {
+		private CommandToolItemAdapter(String commandId) {
 			myCommandId = commandId;
 			myItem = new ToolItem(getToolBar(), SWT.PUSH);
 			try {

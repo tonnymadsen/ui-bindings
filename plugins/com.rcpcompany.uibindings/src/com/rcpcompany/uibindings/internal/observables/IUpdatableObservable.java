@@ -19,5 +19,5 @@ public interface IUpdatableObservable {
 	/**
 	 * Used to force an update of the value. Any change in the value will fire an event.
 	 */
-	public void forceUpdateValue();
+	void forceUpdateValue();
 }

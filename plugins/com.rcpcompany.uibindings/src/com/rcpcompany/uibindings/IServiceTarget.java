@@ -23,14 +23,14 @@ public interface IServiceTarget {
 	 * @param id the ID of the service policy
 	 * @param enabled the new state
 	 */
-	public void setServicePolicyEnablement(String id, boolean enabled);
+	void setServicePolicyEnablement(String id, boolean enabled);
 
 	/**
 	 * Resets any target local enablement of the specified service.
 	 * 
 	 * @param id the ID of the service policy
 	 */
-	public void resetServicePolicyEnablement(String id);
+	void resetServicePolicyEnablement(String id);
 
 	/**
 	 * Returns whether a specific service policy is enabled for this target.
@@ -41,7 +41,7 @@ public interface IServiceTarget {
 	 * @param id the ID of the service policy
 	 * @return whether the service is enabled
 	 */
-	public boolean isServicePolicyEnabled(String id);
+	boolean isServicePolicyEnabled(String id);
 
 	/**
 	 * Returns whether a specific service policy is changed specifically for this target.
@@ -49,5 +49,5 @@ public interface IServiceTarget {
 	 * @param id the ID of the service policy
 	 * @returns whether the service is set specifically
 	 */
-	public void isServicePolicyEnablement(String id);
+	boolean isServicePolicyEnablement(String id);
 }

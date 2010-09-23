@@ -28,7 +28,7 @@ public class LabelImageObservableValue extends AbstractSWTObservableValue {
 	 */
 	public LabelImageObservableValue(Label widget) {
 		super(widget);
-		this.control = widget;
+		control = widget;
 	}
 
 	@Override

@@ -44,7 +44,7 @@ public interface IEMFObservableFactory {
 	 * 
 	 * @return an observable value for the given feature of the object.
 	 */
-	public IObservableValue observeValue(Realm realm, EditingDomain editingDomain, EObject eObject,
+	IObservableValue observeValue(Realm realm, EditingDomain editingDomain, EObject eObject,
 			EStructuralFeature eStructuralFeature);
 
 	/**
@@ -60,6 +60,6 @@ public interface IEMFObservableFactory {
 	 * @param eStructuralFeature the feature of the object to observe.
 	 * @return an observable list for the given multi-valued feature of the object.
 	 */
-	public IObservableList observeList(Realm realm, EditingDomain editingDomain, EObject eObject,
+	IObservableList observeList(Realm realm, EditingDomain editingDomain, EObject eObject,
 			EStructuralFeature eStructuralFeature);
 }

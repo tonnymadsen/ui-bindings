@@ -42,7 +42,7 @@ public class ItemUIAttributeFactory implements IUIAttributeFactory {
 	}
 
 	private static class ItemUIAttribute extends SimpleUIAttribute {
-		public ItemUIAttribute(Widget widget, String attribute) {
+		private ItemUIAttribute(Widget widget, String attribute) {
 			super(widget, attribute, createValue((Item) widget, attribute), true);
 		}
 

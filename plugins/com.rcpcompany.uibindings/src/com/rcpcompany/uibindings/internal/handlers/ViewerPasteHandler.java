@@ -15,7 +15,6 @@ import java.util.Map;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.core.databinding.observable.list.IObservableList;
@@ -29,7 +28,6 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingContext.FinishOption;
-import com.rcpcompany.uibindings.IColumnBindingCellInformation;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
@@ -47,7 +45,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  */
 public class ViewerPasteHandler extends AbstractHandler implements IHandler {
 	@Override
-	public Object execute(ExecutionEvent event) throws ExecutionException {
+	public Object execute(ExecutionEvent event) {
 		if (Activator.getDefault().TRACE_HANDLERS) {
 			LogUtils.debug(this, "");
 		}
@@ -63,7 +61,6 @@ public class ViewerPasteHandler extends AbstractHandler implements IHandler {
 			return null;
 		}
 
-		final IColumnBindingCellInformation ci;
 		final Class<?> dataType = binding.getDataType().getDataType();
 
 		/*

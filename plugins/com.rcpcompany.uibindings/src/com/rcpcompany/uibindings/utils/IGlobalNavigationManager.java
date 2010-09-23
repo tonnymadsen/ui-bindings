@@ -45,7 +45,7 @@ public interface IGlobalNavigationManager extends IDisposable {
 	/**
 	 * The factory methods for {@link IFormCreator}.
 	 */
-	public static final class Factory {
+	final class Factory {
 		private Factory() {
 		}
 
@@ -119,7 +119,7 @@ public interface IGlobalNavigationManager extends IDisposable {
 	 * selection and save the location in the location record. When the location record is later
 	 * shown the save selection is reset using {@link ISetSelectionTarget#selectReveal(ISelection)}.
 	 */
-	public interface IGetSelectionTarget {
+	interface IGetSelectionTarget {
 		/**
 		 * Returns the current selection for the view.
 		 * 
@@ -131,28 +131,28 @@ public interface IGlobalNavigationManager extends IDisposable {
 	/**
 	 * The forwardHistory handler.
 	 */
-	public class ForwardHistoryHandler extends GlobalNavigationManager.ForwardHandler {
+	class ForwardHistoryHandler extends GlobalNavigationManager.ForwardHandler {
 
 	};
 
 	/**
 	 * The backwardHistory handler.
 	 */
-	public static class BackwardHistoryHandler extends GlobalNavigationManager.BackwardHandler {
+	class BackwardHistoryHandler extends GlobalNavigationManager.BackwardHandler {
 
 	};
 
 	/**
 	 * Menu item contributor for the backward history menu.
 	 */
-	public static class BackwardHistoryMenuContributor extends GlobalNavigationManager.BackwardHistoryMenuContributor {
+	class BackwardHistoryMenuContributor extends GlobalNavigationManager.BackwardHistoryMenuContributor {
 
 	};
 
 	/**
 	 * Menu item contributor for the forward history menu.
 	 */
-	public static class ForwardHistoryMenuContributor extends GlobalNavigationManager.ForwardHistoryMenuContributor {
+	class ForwardHistoryMenuContributor extends GlobalNavigationManager.ForwardHistoryMenuContributor {
 
 	};
 

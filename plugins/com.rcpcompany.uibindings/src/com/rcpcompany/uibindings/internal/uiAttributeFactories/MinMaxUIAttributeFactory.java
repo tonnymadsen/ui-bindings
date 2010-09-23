@@ -39,7 +39,7 @@ public class MinMaxUIAttributeFactory implements IUIAttributeFactory {
 
 	private static class MinMaxUIAttribute extends SimpleUIAttribute {
 
-		public MinMaxUIAttribute(Widget widget, String attribute) {
+		private MinMaxUIAttribute(Widget widget, String attribute) {
 			super(widget, attribute, createObservable(widget, attribute), true);
 		}
 

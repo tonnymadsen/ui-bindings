@@ -340,8 +340,10 @@ public class FormCreator implements IFormCreator {
 		mySubForms.add(form);
 
 		final TableWrapLayout layout = (TableWrapLayout) form.getTop().getLayout();
-		layout.leftMargin = layout.rightMargin = indent;
-		layout.topMargin = layout.bottomMargin = 3;
+		layout.leftMargin = indent;
+		layout.rightMargin = indent;
+		layout.topMargin = 3;
+		layout.bottomMargin = 3;
 
 		return form;
 	}
@@ -482,7 +484,8 @@ public class FormCreator implements IFormCreator {
 		final Composite fc = myToolkit.createComposite(myTop, SWT.NONE);
 		fc.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB, TableWrapData.TOP));
 		final GridLayout layout = new GridLayout(2, false);
-		layout.marginHeight = layout.marginWidth = 0;
+		layout.marginHeight = 0;
+		layout.marginWidth = 0;
 		layout.horizontalSpacing = 10;
 		fc.setLayout(layout);
 
@@ -499,7 +502,7 @@ public class FormCreator implements IFormCreator {
 	private void createFieldReally(BindingDescription description) {
 		String label = description.binding.getLabel();
 		if (label.length() > 0 && label.charAt(label.length() - 1) != ':') {
-			label = label + ":";
+			label += ":";
 		}
 
 		description.labelControl.setText(label);
@@ -741,8 +744,10 @@ public class FormCreator implements IFormCreator {
 	protected void setTopLayout(final Composite c) {
 		final TableWrapLayout l = new TableWrapLayout();
 		l.verticalSpacing = 10;
-		l.leftMargin = l.rightMargin = 5;
-		l.topMargin = l.bottomMargin = 5;
+		l.leftMargin = 5;
+		l.rightMargin = 5;
+		l.topMargin = 5;
+		l.bottomMargin = 5;
 		c.setLayout(l);
 	}
 
@@ -847,10 +852,12 @@ public class FormCreator implements IFormCreator {
 	}
 
 	private void dumpControl(Control c, String prefix) {
-		System.out.println(prefix + c + ": " + c.getBounds() + " " + c.getLayoutData());
+		System.out.println(prefix + c + ": " + c.getBounds() + " " + c.getLayoutData()); // $codepro.audit.disable
+																							// debuggingCode
 		if (c instanceof Composite) {
 			final Composite comp = (Composite) c;
-			System.out.println(prefix + "      " + comp.getLayout());
+			System.out.println(prefix + "      " + comp.getLayout()); // $codepro.audit.disable
+																		// debuggingCode
 			for (final Control ch : comp.getChildren()) {
 				dumpControl(ch, prefix + "| ");
 			}
@@ -995,7 +1002,7 @@ public class FormCreator implements IFormCreator {
 	 */
 	private static class BindingDescription {
 
-		public BindingDescription(IValueBinding binding, Label labelControl, Control placeholderControl,
+		private BindingDescription(IValueBinding binding, Label labelControl, Control placeholderControl,
 				int placeholderStyle) {
 			super();
 			this.binding = binding;
@@ -1031,7 +1038,8 @@ public class FormCreator implements IFormCreator {
 
 		final Composite parent = addComposite(true, grabVertical);
 		final GridLayout l = new GridLayout(layoutData.length, false);
-		l.marginHeight = l.marginWidth = 0;
+		l.marginHeight = 0;
+		l.marginWidth = 0;
 		parent.setLayout(l);
 		for (final GridData gd : layoutData) {
 			final Composite child = new Composite(parent, SWT.NONE);

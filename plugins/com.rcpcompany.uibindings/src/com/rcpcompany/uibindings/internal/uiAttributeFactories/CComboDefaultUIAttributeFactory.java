@@ -38,7 +38,7 @@ public class CComboDefaultUIAttributeFactory implements IUIAttributeFactory {
 		private final IObservableList myList;
 		private final IControlContentAdapter myAdapter;
 
-		public Attribute(Widget widget, String attribute) {
+		private Attribute(Widget widget, String attribute) {
 			super(widget, attribute, new TextObservableValue((CCombo) widget), true);
 
 			myList = new CComboObservableList((CCombo) widget);

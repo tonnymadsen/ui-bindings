@@ -35,7 +35,7 @@ import com.rcpcompany.uibindings.internal.utils.FormChooser;
  * @noimplement
  */
 public interface IFormChooser extends IDisposable {
-	public static final class Factory {
+	final class Factory {
 		private Factory() {
 
 		}
@@ -90,7 +90,7 @@ public interface IFormChooser extends IDisposable {
 	 * Interface used by the general
 	 * {@link IFormChooser#addForm(IFormChooserTester, IFormChooserCreator)}.
 	 */
-	public interface IFormChooserTester {
+	interface IFormChooserTester {
 		/**
 		 * Tests whether the specified discriminant value is correct for the form.
 		 * 

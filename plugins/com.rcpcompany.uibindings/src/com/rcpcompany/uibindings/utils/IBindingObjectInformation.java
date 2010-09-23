@@ -28,7 +28,7 @@ public interface IBindingObjectInformation extends IBindingObjectLongName, IDisp
 	/**
 	 * Factory for {@link IBindingObjectInformation}.
 	 */
-	public static final class Factory {
+	final class Factory {
 		private Factory() {
 		}
 
@@ -71,7 +71,7 @@ public interface IBindingObjectInformation extends IBindingObjectLongName, IDisp
 		public static String getLongName(ISelection selection) {
 			if (!(selection instanceof IStructuredSelection)) return "";
 			final IStructuredSelection s = (IStructuredSelection) selection;
-			final StringBuilder sb = new StringBuilder();
+			final StringBuilder sb = new StringBuilder(500);
 			for (final Object o : s.toArray()) {
 				if (!(o instanceof EObject)) {
 					continue;

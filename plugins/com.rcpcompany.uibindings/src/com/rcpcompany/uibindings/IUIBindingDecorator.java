@@ -44,17 +44,17 @@ public interface IUIBindingDecorator extends EObject, IDisposable {
 	 * 
 	 * @param binding the base binding
 	 */
-	public void init(IValueBinding binding);
+	void init(IValueBinding binding);
 
 	/**
 	 * Updates the visuals of this binding.
 	 */
-	public void update();
+	void update();
 
 	/**
 	 * Sets up all needed data bindings for this decorator.
 	 */
-	public void decorate();
+	void decorate();
 
 	/**
 	 * Returns an {@link IObservableValue observable value} that can be used to monitor changes to
@@ -70,7 +70,7 @@ public interface IUIBindingDecorator extends EObject, IDisposable {
 	 * 
 	 * @return the observable value for the display
 	 */
-	public IObservableValue getDisplayObservableValue(IObservableValue value);
+	IObservableValue getDisplayObservableValue(IObservableValue value);
 
 	/**
 	 * Returns the value of the '<em><b>Binding</b></em>' reference. <!-- begin-user-doc -->

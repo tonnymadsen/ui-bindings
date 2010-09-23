@@ -576,7 +576,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 			getMultipleSelection().dispose();
 		}
 
-		for (final IColumnBinding b : getColumns().toArray(new IColumnBinding[0])) {
+		for (final IColumnBinding b : getColumns().toArray(new IColumnBinding[getColumns().size()])) {
 			b.dispose();
 		}
 

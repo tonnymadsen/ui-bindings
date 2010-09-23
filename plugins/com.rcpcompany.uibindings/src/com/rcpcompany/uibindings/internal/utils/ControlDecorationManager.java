@@ -54,7 +54,7 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 	/**
 	 * The size of fuzey match region - see {@link DecorationData#intersects(Rectangle, boolean)}.
 	 */
-	protected static final int FUZZY_SIZE = 15;
+	private static final int FUZZY_SIZE = 15;
 
 	/**
 	 * The shell of this manager
@@ -89,7 +89,7 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 		/*
 		 * Unhook all controls. This is automatically remove all decorations.
 		 */
-		for (final Control c : myHookedControls.toArray(new Control[0])) {
+		for (final Control c : myHookedControls.toArray(new Control[myHookedControls.size()])) {
 			unhookControl(c);
 		}
 		theManagers.remove(getShell());
@@ -112,7 +112,7 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 	/**
 	 * Mapping of all decorations of this manager to internal data for the same decoration
 	 */
-	protected final Map<IControlDecoration, DecorationData> myDecorations = new HashMap<IControlDecoration, DecorationData>();
+	private final Map<IControlDecoration, DecorationData> myDecorations = new HashMap<IControlDecoration, DecorationData>();
 
 	public void addADecoration(IControlDecoration decoration) {
 		DecorationData dd = myDecorations.get(decoration);
@@ -135,14 +135,14 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 	/**
 	 * Map with all defined managers indexed by the shell.
 	 */
-	protected static Map<Shell, ControlDecorationManager> theManagers = new HashMap<Shell, ControlDecorationManager>();
+	private static Map<Shell, ControlDecorationManager> theManagers = new HashMap<Shell, ControlDecorationManager>();
 
 	/**
 	 * Returns the shell of the manager.
 	 * 
 	 * @return the shell
 	 */
-	protected Shell getShell() {
+	private Shell getShell() {
 		return myShell;
 	}
 
@@ -173,7 +173,7 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 	 * <p>
 	 * It is not unhooked until the control or this manager is disposed.
 	 */
-	protected Set<Control> myHookedControls = new HashSet<Control>();
+	private final Set<Control> myHookedControls = new HashSet<Control>();
 
 	/**
 	 * Hooks the specified control into this manager.
@@ -210,7 +210,8 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 			control.removeListener(SWT.MouseHover, this);
 			// control.removeListener(SWT.MouseExit, this);
 		}
-		for (final DecorationData dd : myDecorations.values().toArray(new DecorationData[0])) {
+		for (final DecorationData dd : myDecorations.values()
+				.toArray(new DecorationData[myDecorations.values().size()])) {
 			if (dd.getControl() == control) {
 				dd.dispose();
 			}
@@ -286,21 +287,21 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 	private DecorationData myHoverDecoration = null;
 
 	/**
-	 * Returns the current hover decoration
+	 * Returns the current hover decoration.
 	 * 
 	 * @return the decoration or <code>null</code>
 	 */
-	protected DecorationData getHoverDecoration() {
+	private DecorationData getHoverDecoration() {
 		return myHoverDecoration;
 	}
 
 	/**
-	 * Shows the tooltip of specified decoration as a hover
+	 * Shows the tooltip of specified decoration as a hover.
 	 * 
 	 * @param dd the decoration or <code>null</code>
 	 * @param event the SWT event that resulted in the hover
 	 */
-	protected void setHoverDecoration(DecorationData dd, Event event) {
+	private void setHoverDecoration(DecorationData dd, Event event) {
 		if (dd == getHoverDecoration()) return;
 		/*
 		 * Remove the exiting hover if present
@@ -360,7 +361,7 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 		 * 
 		 * @param decoration he base decoration
 		 */
-		public DecorationData(IControlDecoration decoration) {
+		protected DecorationData(IControlDecoration decoration) {
 			myDecoration = decoration;
 			myDecorations.put(getDecoration(), this);
 			if (Activator.getDefault().TRACE_CONTROL_DECORATIONS) {

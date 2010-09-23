@@ -42,7 +42,7 @@ public interface IValidatorAdapterManager {
 	/**
 	 * The factory methods for {@link IValidatorAdapterManager}.
 	 */
-	public static final class Factory {
+	final class Factory {
 		private Factory() {
 		}
 

@@ -313,7 +313,7 @@ public interface IViewerBinding extends IContainerBinding {
 	/**
 	 * The interface for the return value of {@link IViewerBinding#getElementParentage()}.
 	 */
-	public interface IElementParentage {
+	interface IElementParentage {
 		/**
 		 * Returns the element in question.
 		 * 

@@ -162,7 +162,7 @@ public interface IPathMatcher {
 	/**
 	 * Factory methods for {@link IPathMatcher}.
 	 */
-	public static final class Factory {
+	final class Factory {
 		/**
 		 * Should not be instantiated.
 		 */

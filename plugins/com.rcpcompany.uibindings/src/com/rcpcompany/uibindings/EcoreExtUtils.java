@@ -246,8 +246,8 @@ public final class EcoreExtUtils {
 			/*
 			 * Remove any excess elements
 			 */
-			for (int i = targetList.size(); i > sourceList.size();) {
-				final Object obj = targetList.get(--i);
+			for (int i = targetList.size() - 1; i > sourceList.size(); i--) {
+				final Object obj = targetList.get(i);
 				addCommand(RemoveCommand.create(getEditingDomain(), target, sf, obj));
 			}
 		}
@@ -358,8 +358,8 @@ public final class EcoreExtUtils {
 			/*
 			 * Remove any excess elements in the target list
 			 */
-			for (int i = targetList.size(); i > sourceListSize;) {
-				final EObject obj = targetList.get(--i);
+			for (int i = targetList.size() - 1; i > sourceListSize; i++) {
+				final EObject obj = targetList.get(i);
 				addCommand(RemoveCommand.create(getEditingDomain(), target, ref, obj));
 				addRemovedObject(obj);
 			}
@@ -448,8 +448,8 @@ public final class EcoreExtUtils {
 		public <T extends EObject> void sync(EList<T> target, EList<T> source) {
 			if (target == source) return;
 			Assert.isTrue(target instanceof EObjectContainmentEList);
-			final EObjectContainmentEList<T> t = (EObjectContainmentEList<T>) target;
-			syncContainmentList((EReference) t.getEStructuralFeature(), (T) t.getEObject(), source);
+			final EObjectContainmentEList<T> tEList = (EObjectContainmentEList<T>) target;
+			syncContainmentList((EReference) tEList.getEStructuralFeature(), (T) tEList.getEObject(), source);
 		}
 
 		/**
@@ -480,9 +480,9 @@ public final class EcoreExtUtils {
 	public static String toString(Command c) {
 		if (c == null) return "<null>";
 
-		final StringBuilder sb = new StringBuilder();
+		final StringBuilder sb = new StringBuilder(50);
 
-		sb.append(c.getClass().getSimpleName()).append("(");
+		sb.append(c.getClass().getSimpleName()).append('(');
 		if (c instanceof AddCommand) {
 			final AddCommand cc = (AddCommand) c;
 
@@ -501,7 +501,7 @@ public final class EcoreExtUtils {
 		} else {
 			sb.append("...");
 		}
-		sb.append(")");
+		sb.append(')');
 		return sb.toString();
 	}
 

@@ -26,5 +26,5 @@ public interface IUIAttributeFactory {
 	 * @param attribute the attribute of the widget
 	 * @return the UI Attribute object
 	 */
-	public IUIAttribute create(Widget widget, String attribute);
+	IUIAttribute create(Widget widget, String attribute);
 }

@@ -231,12 +231,12 @@ public interface IColumnAdapter extends EObject {
 	 * 
 	 * @param listener the listener to add
 	 */
-	public void addSelectionListener(SelectionListener listener);
+	void addSelectionListener(SelectionListener listener);
 
 	/**
 	 * Removes a selection listener from this column
 	 * 
 	 * @param listener the listener to remove
 	 */
-	public void removeSelectionListener(SelectionListener listener);
+	void removeSelectionListener(SelectionListener listener);
 } // IColumnAdapter

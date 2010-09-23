@@ -53,7 +53,7 @@ public interface IBindingMessage extends EObject, IMessage {
 	 * @param otherMessage the other messages
 	 * @return <code>true</code> if this message supersedes the other message, false otherwise
 	 */
-	public boolean supersedes(IBindingMessage otherMessage);
+	boolean supersedes(IBindingMessage otherMessage);
 
 	/**
 	 * The possible matching algorithms used in
@@ -88,7 +88,7 @@ public interface IBindingMessage extends EObject, IMessage {
 	 * @param algorithm the feature matching algorithm
 	 * @return <code>true</code> if this message matches the object and feature
 	 */
-	public boolean matches(EObject obj, EStructuralFeature feature, Object key, FeatureMatchingAlgorithm algorithm);
+	boolean matches(EObject obj, EStructuralFeature feature, Object key, FeatureMatchingAlgorithm algorithm);
 
 	/**
 	 * Returns the value of the '<em><b>Binding</b></em>' reference. <!-- begin-user-doc -->

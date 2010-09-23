@@ -37,7 +37,7 @@ public interface ITableCreator extends IDisposable {
 	/**
 	 * Factory methods for {@link ITableCreator}.
 	 */
-	public static final class Factory {
+	final class Factory {
 		private Factory() {
 
 		}

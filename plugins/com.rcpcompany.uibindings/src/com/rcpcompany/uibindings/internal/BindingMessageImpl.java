@@ -155,7 +155,7 @@ public abstract class BindingMessageImpl extends EObjectImpl implements IBinding
 	 * 
 	 * @generated
 	 */
-	public BindingMessageImpl() {
+	protected BindingMessageImpl() {
 		super();
 	}
 

@@ -107,7 +107,8 @@ public class MessageFormatObservableValue extends AbstractObservableValue {
 
 	@Override
 	protected void doSetValue(Object value) {
-		if (myFormat != null) throw new IllegalStateException();
+		if (myFormat != null)
+			throw new IllegalStateException(getClass().getSimpleName() + " has format and can thus not be set");
 		myDecorated.setValue(value);
 	}
 

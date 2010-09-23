@@ -32,7 +32,7 @@ public class StyledTextDefaultUIAttributeFactory implements IUIAttributeFactory 
 	private static class Attribute extends SimpleUIAttribute {
 		private final IControlContentAdapter myAdapter;
 
-		public Attribute(Widget widget, String attribute) {
+		private Attribute(Widget widget, String attribute) {
 			super(widget, attribute, new TextObservableValue((StyledText) widget), true);
 
 			myAdapter = new StyledTextContentAdapter();

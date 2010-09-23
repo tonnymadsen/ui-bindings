@@ -93,7 +93,7 @@ public interface IManager extends IBaseObject {
 	/**
 	 * Factory for a number of objects including the manager itself.
 	 */
-	public static final class Factory {
+	final class Factory {
 		private Factory() {
 		}
 

@@ -64,7 +64,7 @@ public class BindingTransfer extends ByteArrayTransfer {
 	/**
 	 * This creates an instance; typically you get one from {@link #getInstance}.
 	 */
-	protected BindingTransfer() {
+	private BindingTransfer() {
 		super();
 	}
 

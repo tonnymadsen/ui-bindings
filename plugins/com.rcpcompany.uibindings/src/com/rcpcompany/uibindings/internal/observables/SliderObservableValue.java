@@ -40,7 +40,7 @@ public class SliderObservableValue extends AbstractSWTObservableValue {
 	 */
 	public SliderObservableValue(Slider spinner, String attribute) {
 		super(spinner);
-		this.slider = spinner;
+		slider = spinner;
 		this.attribute = attribute;
 		init();
 	}
@@ -52,7 +52,7 @@ public class SliderObservableValue extends AbstractSWTObservableValue {
 	 */
 	public SliderObservableValue(Realm realm, Slider spinner, String attribute) {
 		super(realm, spinner);
-		this.slider = spinner;
+		slider = spinner;
 		this.attribute = attribute;
 		init();
 	}

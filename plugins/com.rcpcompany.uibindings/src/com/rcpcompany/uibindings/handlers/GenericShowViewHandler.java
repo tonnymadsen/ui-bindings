@@ -14,7 +14,6 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExecutableExtension;
 import org.eclipse.jface.viewers.ISelection;
@@ -109,8 +108,7 @@ public class GenericShowViewHandler extends AbstractHandler implements IHandler,
 	private String myViewID;
 
 	@Override
-	public void setInitializationData(IConfigurationElement config, String propertyName, Object data)
-			throws CoreException {
+	public void setInitializationData(IConfigurationElement config, String propertyName, Object data) {
 		myViewID = (String) data;
 	}
 }

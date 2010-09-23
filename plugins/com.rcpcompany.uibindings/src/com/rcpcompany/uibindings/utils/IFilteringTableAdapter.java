@@ -30,7 +30,7 @@ public interface IFilteringTableAdapter extends IDisposable {
 	/**
 	 * Factory for {@link IFilteringTableAdapter}.
 	 */
-	public final class Factory {
+	static final class Factory {
 		private Factory() {
 
 		}

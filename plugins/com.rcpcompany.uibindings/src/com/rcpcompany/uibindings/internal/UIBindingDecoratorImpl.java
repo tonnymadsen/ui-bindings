@@ -144,7 +144,7 @@ public abstract class UIBindingDecoratorImpl extends EObjectImpl implements IUIB
 	 * 
 	 * @generated
 	 */
-	public UIBindingDecoratorImpl() {
+	protected UIBindingDecoratorImpl() {
 		super();
 	}
 

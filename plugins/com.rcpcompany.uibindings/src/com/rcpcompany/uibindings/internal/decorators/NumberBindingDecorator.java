@@ -331,7 +331,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 	public void init(IValueBinding binding) {
 		super.init(binding);
 
-		myBuffer = new StringBuilder();
+		myBuffer = new StringBuilder(40);
 		myFormatter = IManager.Factory.getManager().getFormatterProvider()
 				.getFormatter(myBuffer, myProvider.getFormat());
 
@@ -546,7 +546,8 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 						number = BigDecimal.valueOf(Double.parseDouble(s));
 						ok = true;
 					}
-				} catch (final NumberFormatException ex) {
+				} catch (final NumberFormatException ex) { // $codepro.audit.disable
+															// emptyCatchClause
 					// Do nothing
 				}
 				if (!ok) {

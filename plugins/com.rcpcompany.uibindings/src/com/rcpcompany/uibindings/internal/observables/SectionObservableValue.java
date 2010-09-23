@@ -27,7 +27,7 @@ public class SectionObservableValue extends AbstractSWTObservableValue {
 	 */
 	public SectionObservableValue(Section link) {
 		super(link);
-		this.section = link;
+		section = link;
 	}
 
 	@Override

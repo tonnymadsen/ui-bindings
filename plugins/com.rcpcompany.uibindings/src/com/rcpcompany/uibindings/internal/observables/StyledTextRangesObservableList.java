@@ -42,7 +42,7 @@ public class StyledTextRangesObservableList extends AbstractObservableList {
 	 */
 	public StyledTextRangesObservableList(StyledText styledText) {
 		super(SWTObservables.getRealm(styledText.getDisplay()));
-		this.myText = styledText;
+		myText = styledText;
 		myRanges = myText.getStyleRanges();
 	}
 

@@ -32,7 +32,7 @@ public interface IColumnChooser extends IDisposable {
 	/*
 	 * Factory for the chooser
 	 */
-	public static final class Factory {
+	final class Factory {
 		private Factory() {
 
 		}

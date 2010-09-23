@@ -288,7 +288,7 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 	 * @author Tonny Madsen, The RCP Company
 	 */
 	private static class Message extends AbstractBindingMessage {
-		public Message(EObject object, EStructuralFeature feature, String message, BindingMessageSeverity severity,
+		private Message(EObject object, EStructuralFeature feature, String message, BindingMessageSeverity severity,
 				int code) {
 			super(null);
 			myObject = object;
@@ -299,7 +299,7 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 			addTarget(object, feature, null);
 		}
 
-		public Message(EObject object, EStructuralFeature feature, IStatus status) {
+		private Message(EObject object, EStructuralFeature feature, IStatus status) {
 			super(null);
 			myObject = object;
 			myFeature = feature;

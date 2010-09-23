@@ -24,6 +24,6 @@ public interface IDisposable {
 	 * All resources must be freed. All listeners must be detached. Dispose will only be called once
 	 * during the life cycle of an object.
 	 */
-	public void dispose();
+	void dispose();
 
 }

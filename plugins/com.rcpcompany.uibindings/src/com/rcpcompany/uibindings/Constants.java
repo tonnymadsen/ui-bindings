@@ -19,7 +19,6 @@ import org.eclipse.core.expressions.EvaluationResult;
 import org.eclipse.core.expressions.Expression;
 import org.eclipse.core.expressions.ExpressionInfo;
 import org.eclipse.core.expressions.IEvaluationContext;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -666,7 +665,7 @@ public interface Constants {
 		}
 
 		@Override
-		public EvaluationResult evaluate(IEvaluationContext context) throws CoreException {
+		public EvaluationResult evaluate(IEvaluationContext context) {
 			return EvaluationResult.TRUE;
 		}
 	};

@@ -60,7 +60,7 @@ public class ScrolledFormContextMessageDecoratorAdapter implements IContextMessa
 		if (!myForm.isDisposed()) {
 			try {
 				myForm.getForm().removeMessageHyperlinkListener(myHyperlinkListener);
-			} catch (final SWTException ex) {
+			} catch (final SWTException ex) { // $codepro.audit.disable emptyCatchClause
 				// Ignore: handle exception from hyperlink of the form
 				// TODO solve this problem
 			}

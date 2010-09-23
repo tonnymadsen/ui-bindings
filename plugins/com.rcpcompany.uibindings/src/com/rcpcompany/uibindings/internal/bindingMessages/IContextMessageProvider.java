@@ -27,5 +27,5 @@ public interface IContextMessageProvider {
 	 * 
 	 * @return the list - possibly empty, but always non-<code>null</code>
 	 */
-	public IObservableList getMessages();
+	IObservableList getMessages();
 }

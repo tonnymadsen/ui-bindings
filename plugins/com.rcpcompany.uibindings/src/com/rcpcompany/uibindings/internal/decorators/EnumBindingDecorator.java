@@ -18,7 +18,6 @@ import java.util.Map;
 
 import org.eclipse.core.databinding.observable.Observables;
 import org.eclipse.core.databinding.observable.list.IObservableList;
-import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EEnum;
@@ -113,8 +112,6 @@ public class EnumBindingDecorator extends SimpleUIBindingDecorator implements IU
 		}
 		return myValidUIList;
 	}
-
-	private final IObservableValue myImageOV = null;
 
 	@Override
 	protected Object convertModelToUI(Object fromObject) {

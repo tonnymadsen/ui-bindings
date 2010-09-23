@@ -99,7 +99,7 @@ public class QuickFixHandler extends AbstractHandler implements IHandler {
 
 	protected static class MyContentProposalAdapter extends ContentProposalAdapter {
 
-		public MyContentProposalAdapter(Control control, IControlContentAdapter controlContentAdapter,
+		protected MyContentProposalAdapter(Control control, IControlContentAdapter controlContentAdapter,
 				IContentProposalProvider proposalProvider) {
 			super(control, controlContentAdapter, proposalProvider, null, null);
 		}

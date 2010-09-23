@@ -30,7 +30,7 @@ public class IllegalNumberQuickfixProposalProcessor extends AbstractQuickfixProp
 	}
 
 	private String findReplacementText(String text) {
-		final StringBuilder sb = new StringBuilder();
+		final StringBuilder sb = new StringBuilder(40);
 		for (int i = 0; i < text.length(); i++) {
 			final char ch = text.charAt(i);
 			if (Character.isDigit(ch)) {

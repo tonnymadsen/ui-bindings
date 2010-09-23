@@ -33,7 +33,7 @@ public class RadioGroupObservableList extends AbstractObservableList {
 	 */
 	public RadioGroupObservableList(RadioGroup rg) {
 		super(SWTObservables.getRealm(rg.getDisplay()));
-		this.myRadioGroup = rg;
+		myRadioGroup = rg;
 	}
 
 	@Override

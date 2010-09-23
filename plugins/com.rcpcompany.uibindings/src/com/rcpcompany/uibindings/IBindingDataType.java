@@ -60,7 +60,7 @@ public interface IBindingDataType extends EObject {
 	/**
 	 * The factory methods for {@link IBindingDataType}.
 	 */
-	public static final class Factory {
+	final class Factory {
 		private Factory() {
 		}
 
@@ -286,7 +286,7 @@ public interface IBindingDataType extends EObject {
 			Class<? extends ArgumentType> argumentType, boolean firstOnly);
 
 	/**
-	 * Returns the value of the specified argument
+	 * Returns the value of the specified argument.
 	 * 
 	 * @param <ArgumentType> the argument type
 	 * @param binding the binding

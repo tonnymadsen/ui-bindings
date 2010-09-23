@@ -503,10 +503,10 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 			myMessagesOL.remove(m);
 		}
 
-		final StringBuilder sb = new StringBuilder();
+		final StringBuilder sb = new StringBuilder(100);
 		for (final IBindingMessage message : myMessages) {
 			if (sb.length() > 0) {
-				sb.append("\n"); //$NON-NLS-1$
+				sb.append('\n');
 			}
 			sb.append(message.getMessage());
 		}

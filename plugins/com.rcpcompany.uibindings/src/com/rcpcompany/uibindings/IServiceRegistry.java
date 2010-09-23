@@ -37,7 +37,7 @@ public interface IServiceRegistry extends EObject {
 	 * @param serviceClass the type of the service
 	 * @return the service or <code>null</code>
 	 */
-	public <T> T getService(Class<T> serviceClass);
+	<T> T getService(Class<T> serviceClass);
 
 	/**
 	 * Registers the specified service with the base object.
@@ -47,7 +47,7 @@ public interface IServiceRegistry extends EObject {
 	 * @param <T> the type of the service
 	 * @param serviceObject the service to register
 	 */
-	public <T> void registerService(T serviceObject);
+	<T> void registerService(T serviceObject);
 
 	/**
 	 * Unregisters the specified service from the base object.
@@ -55,7 +55,7 @@ public interface IServiceRegistry extends EObject {
 	 * @param <T> the type of the service
 	 * @param serviceObject the service to deregister
 	 */
-	public <T> void unregisterService(T serviceObject);
+	<T> void unregisterService(T serviceObject);
 
 	/**
 	 * Returns the value of the '<em><b>Services</b></em>' attribute list. The list contents are of

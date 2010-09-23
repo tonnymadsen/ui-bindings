@@ -92,7 +92,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 	 * <code>true</code> while doing forward or backward. Ignores selection changes while this is
 	 * <code>true</code>.
 	 */
-	protected boolean inMovement = false;
+	private boolean inMovement = false;
 
 	/**
 	 * The location stack.
@@ -119,7 +119,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 	/**
 	 * Listener for {@link Constants#SOURCES_ACTIVE_BINDING}.
 	 */
-	protected final MySourceProviderListener myBindingSourceProviderListener;
+	private final MySourceProviderListener myBindingSourceProviderListener;
 
 	/**
 	 * Listener used to dispose the manager when the window is closed.
@@ -190,7 +190,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 		return myWindow;
 	}
 
-	protected void updateHandlers() {
+	private void updateHandlers() {
 		if (theBackwardHandler != null) {
 			theBackwardHandler.setBaseEnabled(isBackwardHistoryEnabled());
 		}
@@ -238,7 +238,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 		updateLocation();
 	}
 
-	protected Runnable updateLocationRunnable = null;
+	private Runnable updateLocationRunnable = null;
 
 	@Override
 	public void updateLocation() {
@@ -361,7 +361,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 		/**
 		 * Constructs and returns a new location
 		 */
-		public Location() {
+		protected Location() {
 		}
 
 		public void update() {
@@ -501,6 +501,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 
 		@Override
 		public boolean equals(Object obj) {
+			if (this == obj) return true;
 			if (!(obj instanceof Location)) return false;
 			final Location other = (Location) obj;
 			return UIBindingsUtils.equals(this.getId(), other.getId())
@@ -610,7 +611,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 			if (selection != null && !selection.isEmpty()) {
 				final String s = IBindingObjectLongName.Factory.getLongName(selection);
 				if (s != null && s.length() > 0) {
-					t = t + " (" + s + ")";
+					t += " (" + s + ")";
 				}
 			}
 			item.setText(t);

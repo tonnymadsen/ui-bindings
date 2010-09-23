@@ -37,7 +37,7 @@ public abstract class AbstractContextMonitor implements IDisposable {
 	 * 
 	 * @param context the context to monitor
 	 */
-	public AbstractContextMonitor(IBindingContext context) {
+	protected AbstractContextMonitor(IBindingContext context) {
 		myContext = context;
 	}
 

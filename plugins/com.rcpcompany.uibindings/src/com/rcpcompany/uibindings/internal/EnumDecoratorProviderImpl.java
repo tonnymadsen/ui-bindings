@@ -265,7 +265,7 @@ public class EnumDecoratorProviderImpl extends DecoratorProviderImpl implements 
 			for (final IEnumDecoratorProviderEntry e : getBaseMappings()) {
 				if (e.getUi().equals(uiValue)) {
 					LogUtils.error(childCE, getId() + ": Duplicate name: '" + uiValue + "'. Ignored."); //$NON-NLS-1$ //$NON-NLS-2$
-					continue MAPPINGS;
+					continue MAPPINGS; // $codepro.audit.disable continueWithLabel
 				}
 			}
 

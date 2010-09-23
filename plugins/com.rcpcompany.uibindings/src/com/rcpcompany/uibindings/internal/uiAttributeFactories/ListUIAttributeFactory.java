@@ -31,7 +31,7 @@ public class ListUIAttributeFactory implements IUIAttributeFactory {
 	class ListUIAttribute extends SimpleUIAttribute {
 		private final IObservableList myList;
 
-		public ListUIAttribute(Widget widget, String attribute) {
+		ListUIAttribute(Widget widget, String attribute) {
 			super(widget, attribute, SWTObservables.observeSelection((Control) widget), true);
 
 			myList = new ListObservableList((List) widget);

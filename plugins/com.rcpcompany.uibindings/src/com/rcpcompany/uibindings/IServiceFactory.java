@@ -22,5 +22,5 @@ public interface IServiceFactory {
 	 * 
 	 * @param target
 	 */
-	public void create(IServiceTarget target);
+	void create(IServiceTarget target);
 }

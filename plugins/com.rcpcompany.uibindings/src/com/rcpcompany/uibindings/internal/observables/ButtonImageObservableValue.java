@@ -28,7 +28,7 @@ public class ButtonImageObservableValue extends AbstractSWTObservableValue {
 	 */
 	public ButtonImageObservableValue(Button widget) {
 		super(widget);
-		this.control = widget;
+		control = widget;
 	}
 
 	@Override

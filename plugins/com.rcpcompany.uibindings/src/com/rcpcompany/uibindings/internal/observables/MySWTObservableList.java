@@ -31,14 +31,14 @@ public abstract class MySWTObservableList extends AbstractObservableList {
 	/**
 	 * 
 	 */
-	public MySWTObservableList() {
+	protected MySWTObservableList() {
 		super();
 	}
 
 	/**
 	 * @param realm
 	 */
-	public MySWTObservableList(Realm realm) {
+	protected MySWTObservableList(Realm realm) {
 		super(realm);
 	}
 

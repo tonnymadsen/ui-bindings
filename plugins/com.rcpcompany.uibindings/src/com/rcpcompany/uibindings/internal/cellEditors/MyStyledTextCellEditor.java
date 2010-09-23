@@ -56,7 +56,7 @@ public class MyStyledTextCellEditor extends StyledTextCellEditor {
 		myContext = context;
 		undoHandler = new AbstractHandler() {
 			@Override
-			public Object execute(ExecutionEvent event) throws ExecutionException {
+			public Object execute(ExecutionEvent event) {
 				if (Activator.getDefault().TRACE_HANDLERS) {
 					LogUtils.debug(this, "");
 				}

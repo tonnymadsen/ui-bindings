@@ -26,7 +26,7 @@ import com.rcpcompany.uibindings.internal.utils.BindingMessagesPopup;
  * @noimplement
  */
 public interface IBindingMessagesPopup extends IDisposable {
-	public static final class Factory {
+	final class Factory {
 		private Factory() {
 
 		}

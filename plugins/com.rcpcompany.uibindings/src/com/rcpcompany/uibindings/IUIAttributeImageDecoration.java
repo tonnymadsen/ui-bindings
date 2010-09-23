@@ -146,10 +146,10 @@ public interface IUIAttributeImageDecoration extends EObject, IDisposable {
 	 * @param innerBounds the bounds of the control
 	 * @param outerBounds TODO
 	 */
-	public void updateImageDecorations(Control control, Rectangle innerBounds, Rectangle outerBounds);
+	void updateImageDecorations(Control control, Rectangle innerBounds, Rectangle outerBounds);
 
 	/**
 	 * The margin for outer decorations
 	 */
-	public static final int OUTER_MARGIN_WIDTH = 1;
+	int OUTER_MARGIN_WIDTH = 1;
 } // IUIAttributeImageDecoration

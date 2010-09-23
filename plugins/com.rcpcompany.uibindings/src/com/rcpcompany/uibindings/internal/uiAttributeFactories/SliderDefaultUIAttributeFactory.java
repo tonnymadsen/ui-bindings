@@ -35,7 +35,7 @@ public class SliderDefaultUIAttributeFactory implements IUIAttributeFactory {
 		private final IObservableValue myMinValue;
 		private final IObservableValue myMaxValue;
 
-		public Attribute(Widget widget, String attribute) {
+		private Attribute(Widget widget, String attribute) {
 			super(widget, attribute, new SliderObservableValue((Slider) widget, Constants.ATTR_SELECTION), true);
 
 			myMinValue = new SliderObservableValue((Slider) widget, Constants.ATTR_MIN);

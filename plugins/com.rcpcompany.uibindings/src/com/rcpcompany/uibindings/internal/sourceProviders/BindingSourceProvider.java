@@ -270,15 +270,15 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 				final StringBuilder sb = new StringBuilder("Binding sources change:");
 				for (final Map.Entry<String, Object> i : newState.entrySet()) {
 					final String s = i.getKey();
-					sb.append("\n  ").append(s).append("=");
+					sb.append("\n  ").append(s).append('=');
 					final Object v = i.getValue();
 					if (v == null) {
 						sb.append("<null>");
 					} else if (v == IEvaluationContext.UNDEFINED_VARIABLE) {
 						sb.append("<undef>");
 					} else {
-						sb.append("'").append(v.toString()).append("'").append(" [")
-								.append(ClassUtils.getLastClassName(v)).append("]");
+						sb.append('\'').append(v.toString()).append('\'').append(" [")
+								.append(ClassUtils.getLastClassName(v)).append(']');
 					}
 				}
 				LogUtils.DEBUG_STRACK_LEVELS = 8;

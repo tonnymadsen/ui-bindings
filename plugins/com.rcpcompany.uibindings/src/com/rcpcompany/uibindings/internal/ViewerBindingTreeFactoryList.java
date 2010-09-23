@@ -163,7 +163,7 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 		 * 
 		 * @param target the target
 		 */
-		public DirectElement(EObject target) {
+		protected DirectElement(EObject target) {
 			myTarget = target;
 			myElements.add(this);
 			recalculateList();
@@ -192,7 +192,7 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 		 * @param target the target
 		 * @param descriptor the descriptor used for the target
 		 */
-		public RelationElement(EObject target, ITreeItemDescriptor descriptor) {
+		protected RelationElement(EObject target, ITreeItemDescriptor descriptor) {
 			myElements.add(this);
 
 			/*
@@ -270,7 +270,7 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 			 * @param observable
 			 * @param childDescriptor TODO
 			 */
-			public Relation(ITreeItemRelation relation, IObservable observable, ITreeItemDescriptor childDescriptor) {
+			protected Relation(ITreeItemRelation relation, IObservable observable, ITreeItemDescriptor childDescriptor) {
 				myRelation = relation;
 				myObservable = observable;
 				myChildDescriptor = childDescriptor;

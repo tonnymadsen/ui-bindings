@@ -1,3 +1,4 @@
+// $codepro.audit.disable instanceFieldNamingConvention
 /*******************************************************************************
  * Copyright (c) 2007, 2010 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
@@ -48,7 +49,7 @@ public class Activator extends AbstractUIPlugin {
 	public static final String ID = "com.rcpcompany.uibindings"; //$NON-NLS-1$
 
 	// The shared instance
-	private static Activator plugin;
+	private static Activator PLUGIN;
 
 	/**
 	 * The constructor.
@@ -227,7 +228,7 @@ public class Activator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		myContext = context;
-		plugin = this;
+		PLUGIN = this;
 
 		final IPreferenceStore preferenceStore = getPreferenceStore();
 
@@ -404,7 +405,7 @@ public class Activator extends AbstractUIPlugin {
 			myResources.dispose();
 			myResources = null;
 		}
-		plugin = null;
+		PLUGIN = null;
 		super.stop(context);
 	}
 
@@ -414,7 +415,7 @@ public class Activator extends AbstractUIPlugin {
 	 * @return the shared instance
 	 */
 	public static Activator getDefault() {
-		return plugin;
+		return PLUGIN;
 	}
 
 	private ResourceManager myResources;

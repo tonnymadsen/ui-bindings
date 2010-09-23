@@ -61,7 +61,7 @@ public class StyledTextCellEditor extends CellEditor {
 	 * Default TextCellEditor style specify no borders on text widget as cell outline in table
 	 * already provides the look of a border.
 	 */
-	private static final int defaultStyle = SWT.SINGLE;
+	private static final int DEFAULT_STYLE = SWT.SINGLE;
 
 	/**
 	 * Creates a new text string cell editor with no control The cell editor value is the string
@@ -69,7 +69,7 @@ public class StyledTextCellEditor extends CellEditor {
 	 * validator.
 	 */
 	public StyledTextCellEditor() {
-		setStyle(defaultStyle);
+		setStyle(DEFAULT_STYLE);
 	}
 
 	/**
@@ -80,7 +80,7 @@ public class StyledTextCellEditor extends CellEditor {
 	 * @param parent the parent control
 	 */
 	public StyledTextCellEditor(Composite parent) {
-		this(parent, defaultStyle);
+		this(parent, DEFAULT_STYLE);
 	}
 
 	/**

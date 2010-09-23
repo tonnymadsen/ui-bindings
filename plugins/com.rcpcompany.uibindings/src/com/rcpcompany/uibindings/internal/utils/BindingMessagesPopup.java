@@ -83,7 +83,7 @@ public class BindingMessagesPopup extends ContentProposalAdapter implements IBin
 		 * 
 		 * @param message the message
 		 */
-		public MyContentProposal(IBindingMessage message) {
+		protected MyContentProposal(IBindingMessage message) {
 			myMessage = message;
 		}
 
@@ -131,7 +131,7 @@ public class BindingMessagesPopup extends ContentProposalAdapter implements IBin
 		 * 
 		 * @param messages the messages of the provider
 		 */
-		public MyContentProposalProvider(List<IBindingMessage> messages) {
+		protected MyContentProposalProvider(List<IBindingMessage> messages) {
 			myMessages = new IContentProposal[messages.size()];
 			for (int i = 0; i < messages.size(); i++) {
 				final IBindingMessage m = messages.get(i);

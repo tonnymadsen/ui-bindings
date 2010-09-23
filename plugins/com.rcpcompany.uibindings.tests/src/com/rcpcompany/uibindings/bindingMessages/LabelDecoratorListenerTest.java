@@ -12,7 +12,7 @@ package com.rcpcompany.uibindings.bindingMessages;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.LabelProviderChangedEvent;
@@ -28,7 +28,7 @@ public class LabelDecoratorListenerTest {
 	@Test
 	public void listenerAbbRemoveTest() {
 		final ValidationLabelDecorator decorator = new ValidationLabelDecorator();
-		final ArrayList<ILabelProviderListener> listeners = decorator.myListeners;
+		final List<ILabelProviderListener> listeners = decorator.myListeners;
 		assertEquals(0, listeners.size());
 
 		final ILabelProviderListener l = new ILabelProviderListener() {

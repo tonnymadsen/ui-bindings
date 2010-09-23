@@ -172,13 +172,12 @@ public class UIBindingPreferences implements IExecutableExtension, IExecutableEx
 	private String myType;
 
 	@Override
-	public void setInitializationData(IConfigurationElement config, String propertyName, Object data)
-			throws CoreException {
+	public void setInitializationData(IConfigurationElement config, String propertyName, Object data) {
 		myType = (String) data;
 	}
 
 	@Override
-	public Object create() throws CoreException {
+	public Object create() {
 		if (TOP_PREF_PAGE.equals(myType)) return new DefaultUIBindingsTopPreferencePage();
 		if (VALIDATION_PREF_PAGE.equals(myType)) return new DefaultUIBindingsValidationPreferencePage();
 		LogUtils.error(this, "Unknown type name specified: " + myType); //$NON-NLS-1$

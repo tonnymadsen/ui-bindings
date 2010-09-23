@@ -38,7 +38,7 @@ public class ComboDefaultUIAttributeFactory implements IUIAttributeFactory {
 		private final IObservableList myList;
 		private final IControlContentAdapter myAdapter;
 
-		public Attribute(Widget widget, String attribute) {
+		private Attribute(Widget widget, String attribute) {
 			super(widget, attribute, new TextObservableValue((Combo) widget), true);
 
 			myList = new ComboObservableList((Combo) widget);

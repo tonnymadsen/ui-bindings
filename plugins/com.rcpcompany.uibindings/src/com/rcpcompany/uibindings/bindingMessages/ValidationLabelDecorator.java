@@ -14,10 +14,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExecutableExtension;
@@ -188,7 +188,7 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 	 * @see #addListener(ILabelProviderListener)
 	 * @see #removeListener(ILabelProviderListener)
 	 */
-	/* package */final ArrayList<ILabelProviderListener> myListeners = new ArrayList<ILabelProviderListener>();
+	/* package */final List<ILabelProviderListener> myListeners = new ArrayList<ILabelProviderListener>();
 
 	/**
 	 * Whether this decorator has been fully initialized.
@@ -301,11 +301,9 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 		final Integer oldSeverity = map.get(o);
 		if (oldSeverity != null && oldSeverity >= severity) return;
 		if (oldSeverity == null) {
-			int oSeverity;
+			int oSeverity = IMessageProvider.NONE;
 			if (o instanceof EObject) {
 				oSeverity = myValidatorManager.getObjectSeverity((EObject) o);
-			} else {
-				oSeverity = IMessageProvider.NONE;
 			}
 			if (severity < oSeverity) {
 				severity = oSeverity;
@@ -325,8 +323,7 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 	}
 
 	@Override
-	public void setInitializationData(IConfigurationElement config, String propertyName, Object data)
-			throws CoreException {
+	public void setInitializationData(IConfigurationElement config, String propertyName, Object data) {
 		if (PROPAGATE.equals(data)
 				|| ((data instanceof Map<?, ?>) && ((Map<String, ?>) data).get(PROPAGATE) == Boolean.TRUE)) {
 			myPropagationAdapter = new WorkbenchAdapterPropagationAdapter();

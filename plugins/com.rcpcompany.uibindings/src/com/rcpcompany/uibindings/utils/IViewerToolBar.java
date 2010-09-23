@@ -27,7 +27,7 @@ public interface IViewerToolBar {
 	/**
 	 * Factory for {@link IViewerToolBar}.
 	 */
-	public static final class Factory {
+	final class Factory {
 		private Factory() {
 		}
 

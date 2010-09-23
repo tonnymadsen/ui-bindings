@@ -42,7 +42,7 @@ public class NumberMinMaxExtender extends AbstractUIBindingDecoratorExtender {
 				final int min = m.intValueExact();
 				context.setMin(min);
 			}
-		} catch (final ArithmeticException ex) {
+		} catch (final ArithmeticException ex) { // $codepro.audit.disable emptyCatchClause
 			// Do nothing
 		}
 		try {
@@ -51,7 +51,7 @@ public class NumberMinMaxExtender extends AbstractUIBindingDecoratorExtender {
 				final int max = m.intValueExact();
 				context.setMax(max);
 			}
-		} catch (final ArithmeticException ex) {
+		} catch (final ArithmeticException ex) { // $codepro.audit.disable emptyCatchClause
 			// Do nothing
 		}
 	}

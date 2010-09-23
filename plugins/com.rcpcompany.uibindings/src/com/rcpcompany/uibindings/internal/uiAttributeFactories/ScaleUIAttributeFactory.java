@@ -30,7 +30,7 @@ public class ScaleUIAttributeFactory implements IUIAttributeFactory {
 		private final IObservableValue myMinValue;
 		private final IObservableValue myMaxValue;
 
-		public Attribute(Widget widget, String attribute) {
+		private Attribute(Widget widget, String attribute) {
 			super(widget, attribute, SWTObservables.observeSelection((Control) widget), true);
 			myMinValue = SWTObservables.observeMin((Control) widget);
 			myMaxValue = SWTObservables.observeMax((Control) widget);

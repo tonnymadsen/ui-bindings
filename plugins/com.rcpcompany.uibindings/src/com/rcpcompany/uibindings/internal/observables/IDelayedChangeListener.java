@@ -35,5 +35,5 @@ public interface IDelayedChangeListener extends IObservablesListener {
 	 * 
 	 * @param event the event
 	 */
-	public void handleDelayedChange(DelayedChangeEvent event);
+	void handleDelayedChange(DelayedChangeEvent event);
 }

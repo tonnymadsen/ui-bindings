@@ -26,7 +26,7 @@ public interface IAutoFormCreator extends IDisposable {
 	/**
 	 * The factory methods for {@link IAutoFormCreator}.
 	 */
-	public static final class Factory {
+	final class Factory {
 		private Factory() {
 		}
 

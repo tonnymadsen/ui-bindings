@@ -95,43 +95,43 @@ public interface IQuickfixProposal extends EObject, IContentProposal {
 	/**
 	 * Relevance used for proposals that are sure corrections for problems.
 	 */
-	public static final int SURE_PROPOSAL = 100;
+	int SURE_PROPOSAL = 100;
 
 	/**
 	 * Relevance used for proposals that are very likely to be correct.
 	 */
-	public static final int LIKELY_PROPOSAL = 90;
+	int LIKELY_PROPOSAL = 90;
 
 	/**
 	 * Relevance used for alternative proposals where there are other proposals that are more likely
 	 * to be correct.
 	 */
-	public static final int ALTERNATIVE_PROPOSAL = 80;
+	int ALTERNATIVE_PROPOSAL = 80;
 
 	/**
 	 * The default relevance used for proposals based on {@link ICompletionProposal}.
 	 */
-	public static final int DEFAULT_RELEVANCE = 50;
+	int DEFAULT_RELEVANCE = 50;
 
 	/**
 	 * The relevance used for template expansions.
 	 */
-	public static final int TEMPLATE = 50;
+	int TEMPLATE = 50;
 
 	/**
 	 * Relevance used for proposals that are very unlikely to be correct.
 	 */
-	public static final int UNLIKELY_PROPOSAL = 0;
+	int UNLIKELY_PROPOSAL = 0;
 
 	/**
 	 * Applies this proposal.
 	 */
-	public void apply();
+	void apply();
 
 	/**
 	 * The image used when a proposal adds stuff.
 	 */
-	static final ImageDescriptor ADD_IMAGE = AbstractUIPlugin.imageDescriptorFromPlugin(Activator.ID,
+	final ImageDescriptor ADD_IMAGE = AbstractUIPlugin.imageDescriptorFromPlugin(Activator.ID,
 			"/images/quickfixes/add_correction.gif"); //$NON-NLS-1$
 
 	/**

@@ -71,7 +71,7 @@ public class EValidatorAdapter extends AbstractValidatorAdapter {
 	private static class Message extends AbstractBindingMessage {
 		private final Diagnostic myDiagnostic;
 
-		public Message(Diagnostic diagnostic) {
+		private Message(Diagnostic diagnostic) {
 			super(null);
 			myDiagnostic = diagnostic;
 			final List<?> data = diagnostic.getData();

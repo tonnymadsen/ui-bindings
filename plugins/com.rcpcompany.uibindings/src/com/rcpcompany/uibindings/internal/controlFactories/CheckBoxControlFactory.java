@@ -35,7 +35,7 @@ public class CheckBoxControlFactory implements IControlFactory {
 		/*
 		 * Remove BORDER as it doesn't look right
 		 */
-		s = s & ~(SWT.BORDER);
+		s &= ~(SWT.BORDER);
 		final Control button = toolkit.createButton(context.getParent(), "", s | SWT.CHECK);
 		if ((context.getStyle() & SWT.READ_ONLY) == SWT.READ_ONLY) {
 			button.setEnabled(false);

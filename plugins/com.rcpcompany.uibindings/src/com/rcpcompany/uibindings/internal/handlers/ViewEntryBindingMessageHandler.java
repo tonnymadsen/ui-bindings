@@ -78,7 +78,7 @@ public class ViewEntryBindingMessageHandler extends AbstractHandler implements I
 		 * @param shell the shell
 		 * @param message the message to show
 		 */
-		public MyDialog(Shell shell, IBindingMessage message) {
+		protected MyDialog(Shell shell, IBindingMessage message) {
 			super(shell, SWT.ON_TOP | SWT.RESIZE, true, true, false, false, false, null, "Press 'Escape' to close");
 			// super(shell);
 			myMessage = message;

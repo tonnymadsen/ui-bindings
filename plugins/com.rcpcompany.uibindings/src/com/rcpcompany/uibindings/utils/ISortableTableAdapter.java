@@ -20,7 +20,7 @@ import com.rcpcompany.uibindings.internal.utils.SortableTableAdapter;
  * @author Tonny Madsen, The RCP Company
  */
 public interface ISortableTableAdapter extends IDisposable {
-	public final class Factory {
+	static final class Factory {
 		private Factory() {
 		}
 

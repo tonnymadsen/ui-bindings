@@ -23,12 +23,12 @@ public interface ICellEditorFactoryContext {
 	 * 
 	 * @return the CI
 	 */
-	public IValueBindingCell getCell();
+	IValueBindingCell getCell();
 
 	/**
 	 * Returns the {@link Composite} parent for the cell editor
 	 * 
 	 * @return the parent
 	 */
-	public Composite getParent();
+	Composite getParent();
 }

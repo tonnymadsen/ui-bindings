@@ -29,7 +29,7 @@ public class DefaultFormatterProvider implements IFormatterProvider {
 	/**
 	 * {@link IFormatter} wrapper for {@link Formatter}.
 	 */
-	public class JavaFormatter implements IFormatter {
+	public static class JavaFormatter implements IFormatter {
 		private final Formatter myFormatter;
 		private final String myFormat;
 

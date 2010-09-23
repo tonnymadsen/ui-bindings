@@ -27,7 +27,7 @@ public abstract class AbstractQuickfixProposal extends QuickfixProposalImpl {
 	 * @param type the basic type of the proposal
 	 * @param rel the wanted relevance
 	 */
-	public AbstractQuickfixProposal(String title, Type type, int rel) {
+	protected AbstractQuickfixProposal(String title, Type type, int rel) {
 		setLabel(title);
 		switch (type) {
 		case ADD:

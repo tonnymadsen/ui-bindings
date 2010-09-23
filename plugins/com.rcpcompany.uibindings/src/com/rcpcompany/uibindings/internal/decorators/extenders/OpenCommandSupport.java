@@ -102,7 +102,7 @@ public class OpenCommandSupport {
 		/**
 		 * Constructs and registers a new support object.
 		 */
-		public ManagerData() {
+		private ManagerData() {
 			final IManager manager = IManager.Factory.getManager();
 			manager.registerService(this);
 
@@ -517,7 +517,7 @@ public class OpenCommandSupport {
 		private final ManagerData myService = ManagerData.getData();
 
 		@Override
-		public Object execute(ExecutionEvent event) throws ExecutionException {
+		public Object execute(ExecutionEvent event) {
 			if (Activator.getDefault().TRACE_HANDLERS) {
 				LogUtils.debug(this, "");
 			}

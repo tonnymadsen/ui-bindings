@@ -147,7 +147,6 @@ public class UIAttributePainter {
 		myPreparedTextBounds = null;
 		myPreparedTotalX = 0;
 
-		final IObservableValue value;
 		/*
 		 * Image
 		 */
@@ -246,7 +245,6 @@ public class UIAttributePainter {
 		final Color oldForeground = gc.getForeground();
 		final Color oldBackground = gc.getBackground();
 
-		final IObservableValue value;
 		/*
 		 * Colors
 		 */
@@ -301,16 +299,16 @@ public class UIAttributePainter {
 		int offsetX = 0;
 
 		switch (getHorizontalAlignment()) {
-		case SWT.NONE:
-		case SWT.LEFT:
-		default:
-			offsetX = MARGIN;
-			break;
 		case SWT.CENTER:
 			offsetX = Math.max(0, (areaBounds.width - myPreparedTotalX) / 2);
 			break;
 		case SWT.RIGHT:
 			offsetX = Math.max(0, areaBounds.width - myPreparedTotalX - MARGIN);
+			break;
+		case SWT.NONE:
+		case SWT.LEFT:
+		default:
+			offsetX = MARGIN;
 			break;
 		}
 
@@ -454,13 +452,20 @@ public class UIAttributePainter {
 
 		shell.setSize(bsize);
 
-		shell.open();
+		final Image image;
+		GC gc = null;
+		try {
+			shell.open();
+			gc = new GC(shell);
 
-		final GC gc = new GC(shell);
-		final Image image = new Image(control.getDisplay(), bsize.x, bsize.y);
-		gc.copyArea(image, 0, 0);
-		gc.dispose();
-		shell.close();
+			image = new Image(control.getDisplay(), bsize.x, bsize.y);
+			gc.copyArea(image, 0, 0);
+		} finally {
+			if (gc != null) {
+				gc.dispose();
+			}
+			shell.close();
+		}
 
 		final ImageData imageData = image.getImageData();
 		imageData.transparentPixel = imageData.palette.getPixel(greenScreen.getRGB());

@@ -86,7 +86,7 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	/**
 	 * The factory used to create and manage binding contexts.
 	 */
-	public static final class Factory {
+	final class Factory {
 		private Factory() {
 		}
 

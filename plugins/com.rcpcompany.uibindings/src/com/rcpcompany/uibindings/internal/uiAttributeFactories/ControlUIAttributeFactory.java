@@ -28,7 +28,7 @@ public class ControlUIAttributeFactory implements IUIAttributeFactory {
 	}
 
 	private static class ControlUIAttribute extends SimpleUIAttribute {
-		public ControlUIAttribute(Widget widget, String attribute) {
+		private ControlUIAttribute(Widget widget, String attribute) {
 			super(widget, attribute, createValue((Control) widget, attribute), true);
 		}
 

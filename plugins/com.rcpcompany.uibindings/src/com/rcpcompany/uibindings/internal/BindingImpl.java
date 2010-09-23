@@ -102,7 +102,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * 
 	 * @generated NOT
 	 */
-	public BindingImpl() {
+	protected BindingImpl() {
 		super();
 
 		if (Activator.getDefault().CREATION_POINT_STACK_LEVELS > 0) {
@@ -854,15 +854,11 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 				}
 			}
 		} else if (argumentType == IUnitBindingSupport.class) {
-			if (this instanceof IValueBinding) {
-				final IValueBinding vb = (IValueBinding) this;
-				try {
-					final IUnitBindingSupport adapter = (IUnitBindingSupport) ce
-							.createExecutableExtension(attributeName);
-					return (ArgumentType) adapter;
-				} catch (final CoreException ex) {
-					LogUtils.error(this, ex);
-				}
+			try {
+				final IUnitBindingSupport adapter = (IUnitBindingSupport) ce.createExecutableExtension(attributeName);
+				return (ArgumentType) adapter;
+			} catch (final CoreException ex) {
+				LogUtils.error(this, ex);
 			}
 		} else if (argumentType == IControlFactory.class) {
 			try {

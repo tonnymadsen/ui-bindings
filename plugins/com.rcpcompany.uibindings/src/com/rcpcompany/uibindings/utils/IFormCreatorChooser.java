@@ -32,7 +32,7 @@ import com.rcpcompany.uibindings.utils.IFormChooser.IFormChooserTester;
  * @noimplement
  */
 public interface IFormCreatorChooser extends IDisposable {
-	public static final class Factory {
+	final class Factory {
 		private Factory() {
 
 		}

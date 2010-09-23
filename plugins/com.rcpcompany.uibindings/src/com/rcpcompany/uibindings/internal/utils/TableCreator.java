@@ -104,7 +104,8 @@ public class TableCreator implements ITableCreator {
 			style &= ~ITableCreator.FILTER;
 			p = manager.getFormToolkit().createComposite(p);
 			final GridLayout l = new GridLayout();
-			l.marginHeight = l.marginWidth = 0;
+			l.marginHeight = 0;
+			l.marginWidth = 0;
 			p.setLayout(l);
 			myFilter = IFilteringTableAdapter.Factory.createFilter(p);
 		}

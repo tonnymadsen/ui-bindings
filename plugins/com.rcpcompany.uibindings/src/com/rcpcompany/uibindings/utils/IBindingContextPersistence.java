@@ -26,7 +26,7 @@ public interface IBindingContextPersistence extends IDisposable {
 	/**
 	 * The factory methods for {@link IBindingContextPersistence}.
 	 */
-	public static final class Factory {
+	final class Factory {
 		private Factory() {
 		}
 

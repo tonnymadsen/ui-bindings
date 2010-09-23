@@ -37,7 +37,7 @@ public interface IBindingContextSelectionProvider extends IDisposable {
 	/**
 	 * Factory...
 	 */
-	public static final class Factory {
+	final class Factory {
 		private Factory() {
 		}
 

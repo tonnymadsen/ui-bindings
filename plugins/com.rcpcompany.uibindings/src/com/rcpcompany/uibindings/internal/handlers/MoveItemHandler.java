@@ -58,8 +58,7 @@ public class MoveItemHandler extends AbstractHandler implements IHandler, IExecu
 	private int delta = 1;
 
 	@Override
-	public void setInitializationData(IConfigurationElement config, String propertyName, Object data)
-			throws CoreException {
+	public void setInitializationData(IConfigurationElement config, String propertyName, Object data) {
 		try {
 			delta = Integer.parseInt((String) data);
 		} catch (final NumberFormatException ex) {

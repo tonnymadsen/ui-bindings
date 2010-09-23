@@ -33,7 +33,7 @@ public abstract class AbstractBindingMessage extends BindingMessageImpl {
 	 * 
 	 * @param binding the binding
 	 */
-	public AbstractBindingMessage(IValueBinding binding) {
+	protected AbstractBindingMessage(IValueBinding binding) {
 		setBinding(binding);
 	}
 
@@ -44,7 +44,7 @@ public abstract class AbstractBindingMessage extends BindingMessageImpl {
 	 * @param obj the object
 	 * @param feature the feature, possibly <code>null</code>
 	 */
-	public AbstractBindingMessage(IValueBinding binding, EObject obj, EStructuralFeature feature) {
+	protected AbstractBindingMessage(IValueBinding binding, EObject obj, EStructuralFeature feature) {
 		this(binding, obj, feature, null);
 	}
 
@@ -56,7 +56,7 @@ public abstract class AbstractBindingMessage extends BindingMessageImpl {
 	 * @param feature the feature, possibly <code>null</code>
 	 * @param key the key, possibly <code>null</code>
 	 */
-	public AbstractBindingMessage(IValueBinding binding, EObject obj, EStructuralFeature feature, Object key) {
+	protected AbstractBindingMessage(IValueBinding binding, EObject obj, EStructuralFeature feature, Object key) {
 		this(binding);
 		addTarget(obj, feature, key);
 	}

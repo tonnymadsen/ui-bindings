@@ -17,7 +17,6 @@ import java.util.Map.Entry;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.databinding.observable.value.WritableValue;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -47,7 +46,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  */
 public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler {
 	@Override
-	public Object execute(ExecutionEvent event) throws ExecutionException {
+	public Object execute(ExecutionEvent event) {
 		if (Activator.getDefault().TRACE_HANDLERS) {
 			LogUtils.debug(this, "");
 		}

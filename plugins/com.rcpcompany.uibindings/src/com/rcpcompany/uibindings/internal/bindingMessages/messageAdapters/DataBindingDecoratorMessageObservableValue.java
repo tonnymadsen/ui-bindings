@@ -112,7 +112,7 @@ public class DataBindingDecoratorMessageObservableValue extends AbstractObservab
 	private class Message extends AbstractBindingMessage {
 		private final IStatus myStatus;
 
-		public Message(IValueBinding binding, IStatus status) {
+		private Message(IValueBinding binding, IStatus status) {
 			super(binding);
 			myStatus = status;
 			addTarget(binding.getModelObject(), binding.getModelFeature(), null);

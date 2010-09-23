@@ -159,7 +159,7 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	 * 
 	 * @generated
 	 */
-	public BindingDataTypeImpl() {
+	protected BindingDataTypeImpl() {
 		super();
 	}
 

@@ -35,7 +35,7 @@ public class TextDefaultUIAttributeFactory implements IUIAttributeFactory {
 	private static class Attribute extends SimpleUIAttribute {
 		private final IControlContentAdapter myAdapter;
 
-		public Attribute(Widget widget, String attribute) {
+		private Attribute(Widget widget, String attribute) {
 			super(widget, attribute, new TextObservableValue((Text) widget), true);
 
 			myAdapter = new TextContentAdapter();

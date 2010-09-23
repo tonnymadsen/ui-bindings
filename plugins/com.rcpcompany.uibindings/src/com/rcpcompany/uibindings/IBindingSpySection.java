@@ -50,5 +50,5 @@ public interface IBindingSpySection {
 	 * @param form the form to add to
 	 * @param event TODO
 	 */
-	public void build(IFormCreator form, ExecutionEvent event);
+	void build(IFormCreator form, ExecutionEvent event);
 }

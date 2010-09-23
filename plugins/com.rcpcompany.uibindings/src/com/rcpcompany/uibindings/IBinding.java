@@ -412,7 +412,7 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * 
 	 * @param <ArgumentType> the wanted argument type
 	 */
-	public interface IArgumentValue<ArgumentType> {
+	interface IArgumentValue<ArgumentType> {
 		/**
 		 * The source of the specific argument value.
 		 * <p>

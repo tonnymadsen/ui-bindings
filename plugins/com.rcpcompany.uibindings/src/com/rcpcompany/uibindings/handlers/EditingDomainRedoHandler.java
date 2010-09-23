@@ -28,7 +28,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  */
 public class EditingDomainRedoHandler extends AbstractHandler implements IHandler {
 	@Override
-	public Object execute(ExecutionEvent event) throws ExecutionException {
+	public Object execute(ExecutionEvent event) {
 		if (Activator.getDefault().TRACE_HANDLERS) {
 			LogUtils.debug(this, ""); //$NON-NLS-1$
 		}

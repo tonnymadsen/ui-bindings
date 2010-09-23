@@ -36,7 +36,7 @@ public class FileNameControlDefaultUIAttributeFactory implements IUIAttributeFac
 	private static class Attribute extends SimpleUIAttribute {
 		private final IControlContentAdapter myAdapter;
 
-		public Attribute(Widget widget, String attribute) {
+		private Attribute(Widget widget, String attribute) {
 			super(widget, attribute, new TextObservableValue(((FileNameControl) widget).getTextControl(),
 					(FileNameControl) widget), true);
 

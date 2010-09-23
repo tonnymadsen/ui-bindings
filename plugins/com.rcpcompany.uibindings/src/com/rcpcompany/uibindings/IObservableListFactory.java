@@ -28,5 +28,5 @@ public interface IObservableListFactory {
 	 * @param binding the binding to return a list for
 	 * @return the list
 	 */
-	public IObservableList createList(IValueBinding binding);
+	IObservableList createList(IValueBinding binding);
 }

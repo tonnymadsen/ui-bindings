@@ -354,8 +354,7 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 	}
 
 	@Override
-	public void setInitializationData(IConfigurationElement config, String propertyName, Object data)
-			throws CoreException {
+	public void setInitializationData(IConfigurationElement config, String propertyName, Object data) {
 		if ("file".equals(data)) {
 			myDirectoryMode = false;
 		} else if ("directory".equals(data)) {

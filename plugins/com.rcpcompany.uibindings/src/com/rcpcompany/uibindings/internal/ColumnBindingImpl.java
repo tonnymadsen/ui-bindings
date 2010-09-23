@@ -473,7 +473,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			getSubColumns().get(0).dispose();
 		}
 		final IColumnBindingCellInformation[] ciArray = getCells().values().toArray(
-				new IColumnBindingCellInformation[0]);
+				new IColumnBindingCellInformation[getCells().values().size()]);
 		for (final IColumnBindingCellInformation ci : ciArray) {
 			ci.dispose();
 		}
@@ -543,7 +543,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	 */
 	private class GeneralLabelProvider extends OwnerDrawLabelProvider {
 
-		public GeneralLabelProvider() {
+		private GeneralLabelProvider() {
 			setOwnerDrawEnabled(getViewer(), getViewerColumn(), true);
 		}
 
@@ -606,9 +606,9 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			if (labelBinding.eIsSet(IUIBindingsPackage.Literals.BINDING__ERROR_CONDITIONS)) {
 				final List<String> errorConditions = labelBinding.getErrorConditions();
 				if (errorConditions.size() > 0) {
-					final StringBuilder sb = new StringBuilder();
+					final StringBuilder sb = new StringBuilder(200);
 					for (final String e : errorConditions) {
-						sb.append(e).append("\n"); //$NON-NLS-1$
+						sb.append(e).append('\n');
 					}
 					cell.setForeground(JFaceColors.getErrorText(Display.getCurrent()));
 					cell.setBackground(JFaceColors.getErrorBackground(Display.getCurrent()));
@@ -876,7 +876,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	private static class TableColumnAdapter extends ColumnAdapterImpl {
 		private final TableColumn myColumn;
 
-		public TableColumnAdapter(TableColumn column) {
+		private TableColumnAdapter(TableColumn column) {
 			myColumn = column;
 		}
 
@@ -975,7 +975,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			return myColumn;
 		}
 
-		public TreeColumnAdapter(TreeColumn column) {
+		private TreeColumnAdapter(TreeColumn column) {
 			myColumn = column;
 		}
 

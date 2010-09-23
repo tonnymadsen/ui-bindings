@@ -125,7 +125,7 @@ public final class BindingSpecFactory {
 	/**
 	 * All calculated specs so far.
 	 */
-	protected static final Map<EClass, Map<String, List<IBindingSpec>>> CALCULATED_SPECS = new HashMap<EClass, Map<String, List<IBindingSpec>>>();
+	private static final Map<EClass, Map<String, List<IBindingSpec>>> CALCULATED_SPECS = new HashMap<EClass, Map<String, List<IBindingSpec>>>();
 
 	/**
 	 * Parses the specified spec based on the specified startType and returns the calculated spec
@@ -361,7 +361,7 @@ public final class BindingSpecFactory {
 
 		private final EStructuralFeature myFeature;
 
-		public MyBindingSpecFeature(EStructuralFeature feature) {
+		protected MyBindingSpecFeature(EStructuralFeature feature) {
 			myFeature = feature;
 		}
 
@@ -380,7 +380,7 @@ public final class BindingSpecFactory {
 
 		private final BaseType myType;
 
-		public MyBindingSpecOther(BaseType type) {
+		protected MyBindingSpecOther(BaseType type) {
 			myType = type;
 		}
 

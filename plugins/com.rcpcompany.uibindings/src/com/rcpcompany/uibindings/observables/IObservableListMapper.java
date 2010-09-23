@@ -24,5 +24,5 @@ public interface IObservableListMapper {
 	 * @param value the original value
 	 * @return the new value
 	 */
-	public Object map(Object value);
+	Object map(Object value);
 }

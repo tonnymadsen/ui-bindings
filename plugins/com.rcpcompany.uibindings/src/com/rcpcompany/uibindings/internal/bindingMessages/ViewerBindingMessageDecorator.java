@@ -241,7 +241,7 @@ public class ViewerBindingMessageDecorator implements IDisposable {
 		 * @param cell the cell in question
 		 * @param position the wanted position of the decoration
 		 */
-		public CellDecoration(IColumnBindingCellInformation cell, int position) {
+		protected CellDecoration(IColumnBindingCellInformation cell, int position) {
 			myCell = cell;
 			myPosition = position;
 			myCellDecorations.add(this);

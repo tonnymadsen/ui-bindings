@@ -27,5 +27,5 @@ public interface ICellEditorFactory {
 	 * 
 	 * @return the created editor
 	 */
-	public CellEditor create(ICellEditorFactoryContext context);
+	CellEditor create(ICellEditorFactoryContext context);
 }

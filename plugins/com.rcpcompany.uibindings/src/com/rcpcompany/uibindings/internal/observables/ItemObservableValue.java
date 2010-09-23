@@ -54,7 +54,7 @@ public class ItemObservableValue extends AbstractSWTObservableValue {
 		}
 		this.attribute = attribute;
 		if (SUPPORTED_ATTRIBUTES.containsKey(attribute)) {
-			this.valueType = SUPPORTED_ATTRIBUTES.get(attribute);
+			valueType = SUPPORTED_ATTRIBUTES.get(attribute);
 		} else
 			throw new IllegalArgumentException("Attribute '" + attribute + "' not supported");
 	}

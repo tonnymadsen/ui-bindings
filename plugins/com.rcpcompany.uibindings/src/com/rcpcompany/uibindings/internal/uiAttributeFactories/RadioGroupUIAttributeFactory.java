@@ -35,7 +35,7 @@ public class RadioGroupUIAttributeFactory implements IUIAttributeFactory {
 	private static class Attribute extends SimpleUIAttribute {
 		private final IObservableList myList;
 
-		public Attribute(Widget widget, String attribute) {
+		private Attribute(Widget widget, String attribute) {
 			super(widget, attribute, new RadioGroupValueObservableValue((RadioGroup) widget), true);
 
 			myList = new RadioGroupObservableList((RadioGroup) widget);

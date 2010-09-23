@@ -236,7 +236,7 @@ public abstract class UITableLayout extends Layout {
 		private final Composite myComposite;
 		private final boolean myFlushCache;
 
-		public LayoutRunner(Composite composite, boolean flushCache) {
+		private LayoutRunner(Composite composite, boolean flushCache) {
 			myComposite = composite;
 			myFlushCache = flushCache;
 		}

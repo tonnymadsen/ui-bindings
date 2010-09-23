@@ -44,5 +44,5 @@ public interface IKeyedObservable {
 	 * 
 	 * @return the key
 	 */
-	public Object getObservableKey();
+	Object getObservableKey();
 }

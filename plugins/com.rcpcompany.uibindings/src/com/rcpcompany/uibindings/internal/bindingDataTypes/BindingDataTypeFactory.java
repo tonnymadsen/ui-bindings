@@ -181,7 +181,7 @@ public final class BindingDataTypeFactory {
 				}
 				dtList.add(BindingDataTypeFactory.create(c));
 			}
-			dts = dtList.toArray(new IBindingDataType[0]);
+			dts = dtList.toArray(new IBindingDataType[dtList.size()]);
 			SUPER_TYPE_MAPPING.put(dt, dts);
 		}
 		return dts;

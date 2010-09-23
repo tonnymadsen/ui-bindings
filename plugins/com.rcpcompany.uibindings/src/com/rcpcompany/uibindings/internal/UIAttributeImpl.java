@@ -287,7 +287,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	 * 
 	 * @generated
 	 */
-	public UIAttributeImpl() {
+	protected UIAttributeImpl() {
 		super();
 	}
 

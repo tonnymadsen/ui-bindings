@@ -1,3 +1,4 @@
+// $codepro.audit.disable numericLiterals
 /*******************************************************************************
  * Copyright (c) 2007, 2010 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
@@ -147,9 +148,9 @@ public final class UIBindingsUtils {
 	}
 
 	/**
-	 * The default alignment for specific types
+	 * The default alignment for specific types.
 	 */
-	protected static final Map<Object, Integer> DEFAULT_ALIGNMENT = new HashMap<Object, Integer>();
+	private static final Map<Object, Integer> DEFAULT_ALIGNMENT = new HashMap<Object, Integer>();
 
 	static {
 		DEFAULT_ALIGNMENT.put(EcorePackage.Literals.EBYTE, SWT.RIGHT);
@@ -275,7 +276,7 @@ public final class UIBindingsUtils {
 
 	protected static class MyNonFatalStatus extends Status {
 
-		public MyNonFatalStatus(int severity, String pluginId, int code, String message, Throwable exception) {
+		protected MyNonFatalStatus(int severity, String pluginId, int code, String message, Throwable exception) {
 			super(severity, pluginId, code, message, exception);
 		}
 
@@ -425,7 +426,7 @@ public final class UIBindingsUtils {
 	/**
 	 * The singleton default mapper.
 	 */
-	public final static DefaultMapper DEFAULT_MAPPER = new DefaultMapper();
+	public static final DefaultMapper DEFAULT_MAPPER = new DefaultMapper();
 
 	public static class DefaultMapper implements IClassIdentiferMapper {
 		@Override
@@ -442,7 +443,7 @@ public final class UIBindingsUtils {
 	protected static class SingleFeatureMapper implements IClassIdentiferMapper {
 		private final EStructuralFeature myFeature;
 
-		public SingleFeatureMapper(EStructuralFeature feature) {
+		protected SingleFeatureMapper(EStructuralFeature feature) {
 			myFeature = feature;
 		}
 
@@ -467,7 +468,7 @@ public final class UIBindingsUtils {
 	protected static class MultipleFeatureMapper implements IClassIdentiferMapper {
 		private final EStructuralFeature[] myFeatures;
 
-		public MultipleFeatureMapper(EStructuralFeature[] features) {
+		protected MultipleFeatureMapper(EStructuralFeature[] features) {
 			myFeatures = features;
 		}
 

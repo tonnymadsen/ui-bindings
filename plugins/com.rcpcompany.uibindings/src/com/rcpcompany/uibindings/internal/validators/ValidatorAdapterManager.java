@@ -88,11 +88,12 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	public void dispose() {
 		THE_MANAGER.unregisterService(this);
 
-		for (final ValidationRoot root : myValidationRoots.toArray(new ValidationRoot[0])) {
+		for (final ValidationRoot root : myValidationRoots.toArray(new ValidationRoot[myValidationRoots.size()])) {
 			removeRoot(root.getRoot(), root.getValidationAdapter());
 		}
 
-		for (final IValidatorAdapterMessageDecorator d : myDecorators.toArray(new IValidatorAdapterMessageDecorator[0])) {
+		for (final IValidatorAdapterMessageDecorator d : myDecorators
+				.toArray(new IValidatorAdapterMessageDecorator[myDecorators.size()])) {
 			removeDecorator(d);
 		}
 
@@ -117,7 +118,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 
 	@Override
 	public void reset() {
-		for (final ValidationRoot root : myValidationRoots.toArray(new ValidationRoot[0])) {
+		for (final ValidationRoot root : myValidationRoots.toArray(new ValidationRoot[myValidationRoots.size()])) {
 			removeRoot(root.getRoot(), root.getValidationAdapter());
 		}
 	}
@@ -209,7 +210,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 			myUnboundMessages.addAll(r.getFoundMessages());
 		}
 		if (Activator.getDefault().TRACE_VALIDATION_RESULT) {
-			final StringBuilder sb = new StringBuilder();
+			final StringBuilder sb = new StringBuilder(200);
 			for (final IBindingMessage m : getUnboundMessages()) {
 				sb.append("\n  " + m);
 			}
@@ -472,7 +473,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 		private final IValidatorAdapter myValidationAdapter;
 		private final IObservableList myFoundMessages = WritableList.withElementType(IBindingMessage.class);
 
-		public ValidationRoot(EObject root, IValidatorAdapter validationAdapter) {
+		protected ValidationRoot(EObject root, IValidatorAdapter validationAdapter) {
 			Assert.isNotNull(root);
 			Assert.isNotNull(validationAdapter);
 			myRoot = root;
@@ -511,7 +512,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 
 		private final IBindingMessage myParentMessage;
 
-		public BoundMessage(IBindingMessage message, IValueBinding binding) {
+		private BoundMessage(IBindingMessage message, IValueBinding binding) {
 			super(binding);
 			myParentMessage = message;
 		}

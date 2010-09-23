@@ -83,8 +83,7 @@ public class GenericCommandHandler extends AbstractHandler implements IHandler, 
 	private String myCommand;
 
 	@Override
-	public void setInitializationData(IConfigurationElement config, String propertyName, Object data)
-			throws CoreException {
+	public void setInitializationData(IConfigurationElement config, String propertyName, Object data) {
 		myCommand = (String) data;
 	}
 }

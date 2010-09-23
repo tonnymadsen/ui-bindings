@@ -29,7 +29,7 @@ public abstract class ContainerBindingImpl extends BindingImpl implements IConta
 	 * 
 	 * @generated
 	 */
-	public ContainerBindingImpl() {
+	protected ContainerBindingImpl() {
 		super();
 	}
 

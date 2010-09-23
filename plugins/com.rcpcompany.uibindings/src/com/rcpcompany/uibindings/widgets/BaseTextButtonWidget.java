@@ -46,7 +46,7 @@ public abstract class BaseTextButtonWidget extends Composite {
 	private Text myText;
 	private Label myDialogButton;
 
-	public BaseTextButtonWidget(Composite parent, int style, Image buttonImage) {
+	protected BaseTextButtonWidget(Composite parent, int style, Image buttonImage) {
 		super(parent, style);
 
 		buildWidget(buttonImage);

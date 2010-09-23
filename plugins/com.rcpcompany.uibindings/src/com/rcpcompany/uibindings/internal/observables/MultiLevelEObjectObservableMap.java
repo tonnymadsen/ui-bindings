@@ -131,8 +131,8 @@ public class MultiLevelEObjectObservableMap extends ComputedObservableMap {
 		}
 
 		public void hookListener(Object domainElement) {
-			EObject next;
-			next = chain[0] = (EObject) domainElement;
+			chain[0] = (EObject) domainElement;
+			EObject next = chain[0];
 			if (next != null) {
 				next.eAdapters().add(this);
 			}

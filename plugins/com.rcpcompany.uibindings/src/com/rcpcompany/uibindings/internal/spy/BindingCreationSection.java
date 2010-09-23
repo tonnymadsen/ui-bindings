@@ -33,7 +33,7 @@ public class BindingCreationSection implements IBindingSpySection {
 
 		final IFormCreator subform = creator.addSection("Location");
 
-		final StringBuilder sb = new StringBuilder();
+		final StringBuilder sb = new StringBuilder(500);
 		sb.append("Creation point (copy to Eclipse Console View)");
 		for (final StackTraceElement e : creationPoint.getStackTrace()) {
 			sb.append("\n\tat ").append(e.getClassName()).append('.').append(e.getMethodName()).append(" (")

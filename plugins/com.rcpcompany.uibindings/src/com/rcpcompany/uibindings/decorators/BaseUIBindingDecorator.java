@@ -500,7 +500,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		final SimpleContentProposalProvider proposalProvider = new SimpleContentProposalProvider(new String[0]) {
 			@Override
 			public IContentProposal[] getProposals(String contents, int position) {
-				setProposals((String[]) getValidUIList().toArray(new String[0]));
+				setProposals((String[]) getValidUIList().toArray(new String[getValidUIList().size()]));
 				return super.getProposals(contents, position);
 			}
 		};
@@ -751,7 +751,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		 * 
 		 * @return the attribute
 		 */
-		protected IUIAttribute getAttribute() {
+		private IUIAttribute getAttribute() {
 			return getBinding().getUIAttribute();
 		}
 
@@ -978,11 +978,11 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		 * @param targetToModel
 		 * @param modelToTarget
 		 */
-		public MyValueBinding(IObservableValue targetObservableValue, IObservableValue modelObservableValue,
+		protected MyValueBinding(IObservableValue targetObservableValue, IObservableValue modelObservableValue,
 				UpdateValueStrategy targetToModel, UpdateValueStrategy modelToTarget) {
 			super(targetObservableValue, modelObservableValue);
-			this.target = targetObservableValue;
-			this.model = modelObservableValue;
+			target = targetObservableValue;
+			model = modelObservableValue;
 			this.targetToModel = targetToModel;
 			this.modelToTarget = modelToTarget;
 			if ((targetToModel.getUpdatePolicy() & (UpdateValueStrategy.POLICY_CONVERT | UpdateValueStrategy.POLICY_UPDATE)) != 0) {

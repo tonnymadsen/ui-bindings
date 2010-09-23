@@ -33,7 +33,7 @@ public abstract class UIBindingDecoratorExtenderImpl extends EObjectImpl impleme
 	 * 
 	 * @generated
 	 */
-	public UIBindingDecoratorExtenderImpl() {
+	protected UIBindingDecoratorExtenderImpl() {
 		super();
 	}
 

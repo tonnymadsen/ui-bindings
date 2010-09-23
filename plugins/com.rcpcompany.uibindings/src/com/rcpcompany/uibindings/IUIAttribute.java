@@ -477,7 +477,7 @@ public interface IUIAttribute extends EObject, IDisposable {
 	 * @return the recoration or <code>null</code> if the widget of the attribute is not a
 	 *         {@link Control}.
 	 */
-	public IUIAttributeImageDecoration getImageDecoration(DecorationPosition position, boolean outside);
+	IUIAttributeImageDecoration getImageDecoration(DecorationPosition position, boolean outside);
 
 	/**
 	 * Updates all current image decorations with the specified control and inner and outer bounds.
@@ -497,5 +497,5 @@ public interface IUIAttribute extends EObject, IDisposable {
 	 * @param innerBounds the inner bounds of the control
 	 * @param outerBounds the outer bounds of the control
 	 */
-	public void updateImageDecorations(Control control, Rectangle innerBounds, Rectangle outerBounds);
+	void updateImageDecorations(Control control, Rectangle innerBounds, Rectangle outerBounds);
 } // IUIAttribute

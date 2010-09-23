@@ -26,7 +26,7 @@ public interface IWidgetDecoration extends IDisposable {
 	 * @return the text to be shown as a description for the decoration, or <code>null</code> if
 	 *         none has been set.
 	 */
-	public String getDescriptionText();
+	String getDescriptionText();
 
 	/**
 	 * Set the image shown in this control decoration. Update the rendered decoration.
@@ -34,7 +34,7 @@ public interface IWidgetDecoration extends IDisposable {
 	 * @param text the text to be shown as a description for the decoration, or <code>null</code> if
 	 *            none has been set.
 	 */
-	public void setDescriptionText(String text);
+	void setDescriptionText(String text);
 
 	/**
 	 * Get the image shown in this control decoration.
@@ -42,7 +42,7 @@ public interface IWidgetDecoration extends IDisposable {
 	 * @return the image to be shown adjacent to the control, or <code>null</code> if one has not
 	 *         been set.
 	 */
-	public Image getImage();
+	Image getImage();
 
 	/**
 	 * Set the image shown in this control decoration. Update the rendered decoration.
@@ -50,18 +50,18 @@ public interface IWidgetDecoration extends IDisposable {
 	 * @param image the image to be shown adjacent to the control. Should never be <code>null</code>
 	 *            .
 	 */
-	public void setImage(Image image);
+	void setImage(Image image);
 
 	/**
 	 * Show the control decoration. This message has no effect if the decoration is already showing.
 	 * If {@link #setShowOnlyOnFocus(boolean)} is set to <code>true</code>, the decoration will only
 	 * be shown if the control has focus.
 	 */
-	public void show();
+	void show();
 
 	/**
 	 * Hide the control decoration and any associated hovers. This message has no effect if the
 	 * decoration is already hidden.
 	 */
-	public void hide();
+	void hide();
 }
