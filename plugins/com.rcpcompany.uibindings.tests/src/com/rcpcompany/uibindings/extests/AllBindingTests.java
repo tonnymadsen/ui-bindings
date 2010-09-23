@@ -56,6 +56,7 @@ import com.rcpcompany.uibindings.extests.manager.ManagerBasicFunctionalityTest;
 import com.rcpcompany.uibindings.extests.manager.ManagerDecoratorExtendersSortTest;
 import com.rcpcompany.uibindings.extests.manager.ManagerDecoratorExtendersTest;
 import com.rcpcompany.uibindings.extests.manager.ManagerDecoratorProvidersTest;
+import com.rcpcompany.uibindings.extests.manager.ManagerDeleteHandlerCheckEnabledTest;
 import com.rcpcompany.uibindings.extests.manager.ManagerEditCellAnyKeyTest;
 import com.rcpcompany.uibindings.extests.manager.ManagerEditCellSingleClickTest;
 import com.rcpcompany.uibindings.extests.manager.ManagerFormatterProviderTest;
@@ -209,7 +210,7 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		ManagerValidationDelayTest.class, ManagerValidationDelayWindowTest.class, ManagerTreeFunctionalityTest.class,
 		ManagerValidationErrorsAreFatal.class, ValidationErrorsAreFatalTest.class, ManagerRequiredVBIDShown.class,
 		ManagerAssistVBIDShown.class, ManagerQuickfixVBIDShown.class, ManagerViewNavigationRecorded.class,
-		ManagerFormatterProviderTest.class,
+		ManagerFormatterProviderTest.class, ManagerDeleteHandlerCheckEnabledTest.class,
 
 		SimplePreferredCellEditorTest.class, PreferredCellEditorFactoryTest.class,
 

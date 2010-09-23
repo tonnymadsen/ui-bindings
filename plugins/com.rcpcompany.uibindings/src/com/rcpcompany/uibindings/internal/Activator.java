@@ -312,6 +312,11 @@ public class Activator extends AbstractUIPlugin {
 			manager.setAutoApplySingleQuickfix(b);
 		}
 
+		b = preferenceStore.getBoolean(UIBindingPreferences.PREF_DELETE_HANDLER_CHECK_ENABLED);
+		if (manager.isDeleteHandlerCheckEnabled() != b) {
+			manager.setDeleteHandlerCheckEnabled(b);
+		}
+
 		b = preferenceStore.getBoolean(UIBindingPreferences.PREF_EDIT_CELL_ANY_KEY);
 		if (manager.isEditCellAnyKey() != b) {
 			manager.setEditCellAnyKey(b);

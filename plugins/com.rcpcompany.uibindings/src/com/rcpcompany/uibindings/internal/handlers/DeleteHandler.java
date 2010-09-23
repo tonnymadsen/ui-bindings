@@ -32,6 +32,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBinding;
+import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.IViewerBinding.IElementParentage;
 import com.rcpcompany.uibindings.internal.Activator;
@@ -101,13 +102,15 @@ public class DeleteHandler extends AbstractHandler implements IHandler2 {
 			return;
 		}
 
-		final ISelection s = vb.getViewer().getSelection();
+		if (IManager.Factory.getManager().isDeleteHandlerCheckEnabled()) {
+			final ISelection s = vb.getViewer().getSelection();
 
-		final List<EObject> list = SelectionUtils.computeSelection(s, EObject.class);
-		final Map<EObject, Collection<Setting>> references = UIBEcoreUtils.findIncommingRequiredReferences(list);
-		if (references != null) {
-			setBaseEnabled(false);
-			return;
+			final List<EObject> list = SelectionUtils.computeSelection(s, EObject.class);
+			final Map<EObject, Collection<Setting>> references = UIBEcoreUtils.findIncommingRequiredReferences(list);
+			if (references != null) {
+				setBaseEnabled(false);
+				return;
+			}
 		}
 
 		setBaseEnabled(true);

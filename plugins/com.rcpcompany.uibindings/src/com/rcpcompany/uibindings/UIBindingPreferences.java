@@ -10,11 +10,11 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings;
 
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExecutableExtension;
 import org.eclipse.core.runtime.IExecutableExtensionFactory;
 
+import com.rcpcompany.uibindings.internal.handlers.DeleteHandler;
 import com.rcpcompany.uibindings.internal.preferencePages.DefaultUIBindingsTopPreferencePage;
 import com.rcpcompany.uibindings.internal.preferencePages.DefaultUIBindingsValidationPreferencePage;
 import com.rcpcompany.uibindings.utils.IGlobalNavigationManager;
@@ -152,6 +152,14 @@ public class UIBindingPreferences implements IExecutableExtension, IExecutableEx
 	 * In milliseconds.
 	 */
 	public static final String PREF_VALIDATION_DELAY_WINDOW = "ValidationDelayWindow"; //$NON-NLS-1$
+
+	/**
+	 * The preference name to specify whether {@link DeleteHandler} should change enabled state
+	 * based on whether the operation can actually be executed.
+	 * <p>
+	 * <code>true</code> means the enabled state is calculated.
+	 */
+	public static final String PREF_DELETE_HANDLER_CHECK_ENABLED = null;
 
 	/**
 	 * The data string to use to create the basic top-level preference page.

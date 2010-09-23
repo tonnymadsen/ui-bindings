@@ -83,6 +83,8 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * Processors</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#getContexts <em>Contexts</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#getFormatterProvider <em>Formatter Provider</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IManager#isDeleteHandlerCheckEnabled <em>Delete Handler
+ * Check Enabled</em>}</li>
  * </ul>
  * </p>
  * 
@@ -797,6 +799,33 @@ public interface IManager extends IBaseObject {
 	 * @generated
 	 */
 	void setFormatterProvider(IFormatterProvider value);
+
+	/**
+	 * Returns the value of the '<em><b>Delete Handler Check Enabled</b></em>' attribute. The
+	 * default value is <code>"false"</code>. <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Delete Handler Check Enabled</em>' attribute isn't clear, there
+	 * really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Delete Handler Check Enabled</em>' attribute.
+	 * @see #setDeleteHandlerCheckEnabled(boolean)
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getManager_DeleteHandlerCheckEnabled()
+	 * @generated
+	 */
+	boolean isDeleteHandlerCheckEnabled();
+
+	/**
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IManager#isDeleteHandlerCheckEnabled
+	 * <em>Delete Handler Check Enabled</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @param value the new value of the '<em>Delete Handler Check Enabled</em>' attribute.
+	 * @see #isDeleteHandlerCheckEnabled()
+	 * @generated
+	 */
+	void setDeleteHandlerCheckEnabled(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Editing Domain</b></em>' attribute. <!-- begin-user-doc -->

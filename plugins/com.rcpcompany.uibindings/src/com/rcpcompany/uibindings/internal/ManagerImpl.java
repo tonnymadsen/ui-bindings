@@ -158,6 +158,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getContexts <em>Contexts</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getFormatterProvider <em>Formatter
  * Provider</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isDeleteHandlerCheckEnabled <em>Delete
+ * Handler Check Enabled</em>}</li>
  * </ul>
  * </p>
  * 
@@ -864,6 +866,28 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * @ordered
 	 */
 	protected IFormatterProvider formatterProvider = FORMATTER_PROVIDER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isDeleteHandlerCheckEnabled()
+	 * <em>Delete Handler Check Enabled</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @see #isDeleteHandlerCheckEnabled()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DELETE_HANDLER_CHECK_ENABLED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isDeleteHandlerCheckEnabled()
+	 * <em>Delete Handler Check Enabled</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @see #isDeleteHandlerCheckEnabled()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean deleteHandlerCheckEnabled = DELETE_HANDLER_CHECK_ENABLED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -2149,6 +2173,43 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean isDeleteHandlerCheckEnabled() {
+		return deleteHandlerCheckEnabled;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setDeleteHandlerCheckEnabledGen(boolean newDeleteHandlerCheckEnabled) {
+		final boolean oldDeleteHandlerCheckEnabled = deleteHandlerCheckEnabled;
+		deleteHandlerCheckEnabled = newDeleteHandlerCheckEnabled;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					IUIBindingsPackage.MANAGER__DELETE_HANDLER_CHECK_ENABLED, oldDeleteHandlerCheckEnabled,
+					deleteHandlerCheckEnabled));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public void setDeleteHandlerCheckEnabled(boolean newDeleteHandlerCheckEnabled) {
+		setDeleteHandlerCheckEnabledGen(newDeleteHandlerCheckEnabled);
+		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
+		ps.setValue(UIBindingPreferences.PREF_DELETE_HANDLER_CHECK_ENABLED, newDeleteHandlerCheckEnabled);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	@Override
@@ -2433,6 +2494,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			return getContexts();
 		case IUIBindingsPackage.MANAGER__FORMATTER_PROVIDER:
 			return getFormatterProvider();
+		case IUIBindingsPackage.MANAGER__DELETE_HANDLER_CHECK_ENABLED:
+			return isDeleteHandlerCheckEnabled();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -2542,6 +2605,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		case IUIBindingsPackage.MANAGER__FORMATTER_PROVIDER:
 			setFormatterProvider((IFormatterProvider) newValue);
 			return;
+		case IUIBindingsPackage.MANAGER__DELETE_HANDLER_CHECK_ENABLED:
+			setDeleteHandlerCheckEnabled((Boolean) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -2641,6 +2707,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		case IUIBindingsPackage.MANAGER__FORMATTER_PROVIDER:
 			setFormatterProvider(FORMATTER_PROVIDER_EDEFAULT);
 			return;
+		case IUIBindingsPackage.MANAGER__DELETE_HANDLER_CHECK_ENABLED:
+			setDeleteHandlerCheckEnabled(DELETE_HANDLER_CHECK_ENABLED_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -2715,6 +2784,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		case IUIBindingsPackage.MANAGER__FORMATTER_PROVIDER:
 			return FORMATTER_PROVIDER_EDEFAULT == null ? formatterProvider != null : !FORMATTER_PROVIDER_EDEFAULT
 					.equals(formatterProvider);
+		case IUIBindingsPackage.MANAGER__DELETE_HANDLER_CHECK_ENABLED:
+			return deleteHandlerCheckEnabled != DELETE_HANDLER_CHECK_ENABLED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -2773,6 +2844,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		result.append(clipboard);
 		result.append(", formatterProvider: "); //$NON-NLS-1$
 		result.append(formatterProvider);
+		result.append(", deleteHandlerCheckEnabled: "); //$NON-NLS-1$
+		result.append(deleteHandlerCheckEnabled);
 		result.append(')');
 		return result.toString();
 	}

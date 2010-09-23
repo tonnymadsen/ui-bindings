@@ -56,5 +56,7 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 				ManagerImpl.QUICKFIX_VB_IMAGE_DECORATION_SHOWN_EDEFAULT);
 		preferenceStore.setDefault(UIBindingPreferences.PREF_VIEW_NAVIGATION_RECORDED,
 				ManagerImpl.VIEW_NAVIGATION_RECORDED_EDEFAULT);
+		preferenceStore.setDefault(UIBindingPreferences.PREF_DELETE_HANDLER_CHECK_ENABLED,
+				ManagerImpl.DELETE_HANDLER_CHECK_ENABLED_EDEFAULT);
 	}
 }

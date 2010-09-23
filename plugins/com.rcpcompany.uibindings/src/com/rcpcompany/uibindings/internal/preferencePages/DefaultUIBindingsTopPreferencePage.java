@@ -78,6 +78,10 @@ public class DefaultUIBindingsTopPreferencePage extends FieldEditorPreferencePag
 		fe = new BooleanFieldEditor(UIBindingPreferences.PREF_VIEW_NAVIGATION_RECORDED,
 				"&Record view navigation in the navigation history", getFieldEditorParent());
 		addField(fe);
+
+		fe = new BooleanFieldEditor(UIBindingPreferences.PREF_DELETE_HANDLER_CHECK_ENABLED,
+				"&Delete Handler enabled state calculated (potentially expensive)", getFieldEditorParent());
+		addField(fe);
 	}
 
 	@Override

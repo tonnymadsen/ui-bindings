@@ -406,13 +406,22 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__FORMATTER_PROVIDER = BASE_OBJECT_FEATURE_COUNT + 29;
 
 	/**
+	 * The feature id for the '<em><b>Delete Handler Check Enabled</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MANAGER__DELETE_HANDLER_CHECK_ENABLED = BASE_OBJECT_FEATURE_COUNT + 30;
+
+	/**
 	 * The number of structural features of the '<em>Manager</em>' class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER_FEATURE_COUNT = BASE_OBJECT_FEATURE_COUNT + 30;
+	int MANAGER_FEATURE_COUNT = BASE_OBJECT_FEATURE_COUNT + 31;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.BindingContextImpl
@@ -4950,6 +4959,18 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IManager#isDeleteHandlerCheckEnabled
+	 * <em>Delete Handler Check Enabled</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Delete Handler Check Enabled</em>'.
+	 * @see com.rcpcompany.uibindings.IManager#isDeleteHandlerCheckEnabled()
+	 * @see #getManager()
+	 * @generated
+	 */
+	EAttribute getManager_DeleteHandlerCheckEnabled();
+
+	/**
+	 * Returns the meta object for the attribute '
 	 * {@link com.rcpcompany.uibindings.IManager#getEditingDomain <em>Editing Domain</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -8621,6 +8642,14 @@ public interface IUIBindingsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MANAGER__FORMATTER_PROVIDER = eINSTANCE.getManager_FormatterProvider();
+
+		/**
+		 * The meta object literal for the '<em><b>Delete Handler Check Enabled</b></em>' attribute
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute MANAGER__DELETE_HANDLER_CHECK_ENABLED = eINSTANCE.getManager_DeleteHandlerCheckEnabled();
 
 		/**
 		 * The meta object literal for the '<em><b>Editing Domain</b></em>' attribute feature. <!--

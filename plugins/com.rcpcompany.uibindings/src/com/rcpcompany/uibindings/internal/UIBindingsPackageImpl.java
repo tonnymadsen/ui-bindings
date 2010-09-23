@@ -1194,6 +1194,16 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
+	public EAttribute getManager_DeleteHandlerCheckEnabled() {
+		return (EAttribute) managerEClass.getEStructuralFeatures().get(30);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EAttribute getManager_EditingDomain() {
 		return (EAttribute) managerEClass.getEStructuralFeatures().get(0);
 	}
@@ -4239,6 +4249,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		createEReference(managerEClass, MANAGER__QUICKFIX_PROPOSAL_PROCESSORS);
 		createEReference(managerEClass, MANAGER__CONTEXTS);
 		createEAttribute(managerEClass, MANAGER__FORMATTER_PROVIDER);
+		createEAttribute(managerEClass, MANAGER__DELETE_HANDLER_CHECK_ENABLED);
 
 		bindingContextEClass = createEClass(BINDING_CONTEXT);
 		createEReference(bindingContextEClass, BINDING_CONTEXT__BINDINGS);
@@ -4795,6 +4806,10 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				getManager_FormatterProvider(),
 				this.getIFormatterProvider(),
 				"formatterProvider", null, 1, 1, IManager.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getManager_DeleteHandlerCheckEnabled(),
+				ecorePackage.getEBoolean(),
+				"deleteHandlerCheckEnabled", "false", 1, 1, IManager.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 
 		initEClass(bindingContextEClass, IBindingContext.class,
 				"BindingContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
