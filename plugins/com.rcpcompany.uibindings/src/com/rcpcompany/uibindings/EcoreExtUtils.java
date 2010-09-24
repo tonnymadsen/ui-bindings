@@ -12,7 +12,9 @@ package com.rcpcompany.uibindings;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.command.Command;
@@ -21,7 +23,11 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EPackage.Registry;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -528,7 +534,45 @@ public final class EcoreExtUtils {
 		return (oldValue == SetCommand.UNSET_VALUE) ? "<default> " : ("" + oldValue);
 	}
 
-	public static String getEObjectName(EObject owner) {
+	private static String getEObjectName(EObject owner) {
 		return IBindingObjectInformation.Factory.getLongName(owner);
+	}
+
+	private static final Map<EClass, Collection<EClass>> SUB_CLASSES = new HashMap<EClass, Collection<EClass>>();
+
+	/**
+	 * Returns a list of all <em>known</em> sub-classes for the specified class.
+	 * 
+	 * @param cls the super-class
+	 * @return list of all sub-classes - possibly <code>null</code>
+	 */
+	public static Collection<EClass> getSubClasses(EClass cls) {
+		if (SUB_CLASSES.containsKey(cls)) return SUB_CLASSES.get(cls);
+
+		Collection<EClass> l = null;
+		final Registry registry = EPackage.Registry.INSTANCE;
+		for (final Object v : registry.values()) {
+			if (!(v instanceof EPackage)) {
+				continue;
+			}
+			final EPackage ep = (EPackage) v;
+
+			for (final EClassifier c : ep.getEClassifiers()) {
+				if (!(c instanceof EClass)) {
+					continue;
+				}
+				final EClass cl = (EClass) c;
+
+				if (cl.getESuperTypes().contains(cls)) {
+					if (l == null) {
+						l = new ArrayList<EClass>();
+					}
+					l.add(cl);
+				}
+			}
+		}
+		SUB_CLASSES.put(cls, l);
+
+		return l;
 	}
 }

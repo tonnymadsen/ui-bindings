@@ -14,6 +14,7 @@ import static org.junit.Assert.*;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -33,6 +34,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.jface.bindings.keys.KeyStroke;
@@ -961,5 +963,19 @@ public class BaseTestUtils {
 		}
 		return (PlatformAdmin) bundleTrackerPlatformAdmin.getService();
 	}
+
+	public static final Comparator<EStructuralFeature> SF_COMPARATOR = new Comparator<EStructuralFeature>() {
+		@Override
+		public int compare(EStructuralFeature sf1, EStructuralFeature sf2) {
+			return System.identityHashCode(sf1) - System.identityHashCode(sf2);
+		}
+	};
+
+	public static final Comparator<Object> OBJECT_COMPARATOR = new Comparator<Object>() {
+		@Override
+		public int compare(Object sf1, Object sf2) {
+			return System.identityHashCode(sf1) - System.identityHashCode(sf2);
+		}
+	};
 
 }

@@ -14,7 +14,6 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -27,6 +26,7 @@ import org.junit.Test;
 
 import com.rcpcompany.uibindings.EcoreExtUtils;
 import com.rcpcompany.uibindings.EcoreExtUtils.SyncController;
+import com.rcpcompany.uibindings.extests.BaseTestUtils;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
@@ -351,8 +351,8 @@ public class EcoreExtUtilsSyncTest {
 		}
 
 		final EStructuralFeature[] actualFeatureChanges = myChanges.toArray(new EStructuralFeature[myChanges.size()]);
-		Arrays.sort(expectedFeatureChanges, SF_COMPARATOR);
-		Arrays.sort(actualFeatureChanges, SF_COMPARATOR);
+		Arrays.sort(expectedFeatureChanges, BaseTestUtils.SF_COMPARATOR);
+		Arrays.sort(actualFeatureChanges, BaseTestUtils.SF_COMPARATOR);
 		assertArrayEquals(expectedFeatureChanges, actualFeatureChanges);
 
 		if (expectedRemovedObjects == null) {
@@ -360,8 +360,8 @@ public class EcoreExtUtilsSyncTest {
 		} else {
 			assertNotNull(controller.getRemovedObjects());
 			final Object[] actualRemovedObjects = controller.getRemovedObjects().toArray(new Object[0]);
-			Arrays.sort(expectedRemovedObjects, OBJECT_COMPARATOR);
-			Arrays.sort(actualRemovedObjects, OBJECT_COMPARATOR);
+			Arrays.sort(expectedRemovedObjects, BaseTestUtils.OBJECT_COMPARATOR);
+			Arrays.sort(actualRemovedObjects, BaseTestUtils.OBJECT_COMPARATOR);
 			assertArrayEquals(expectedFeatureChanges, actualFeatureChanges);
 		}
 	}
@@ -378,31 +378,18 @@ public class EcoreExtUtilsSyncTest {
 		}
 
 		final EStructuralFeature[] actualFeatureChanges = myChanges.toArray(new EStructuralFeature[myChanges.size()]);
-		Arrays.sort(expectedFeatureChanges, SF_COMPARATOR);
-		Arrays.sort(actualFeatureChanges, SF_COMPARATOR);
+		Arrays.sort(expectedFeatureChanges, BaseTestUtils.SF_COMPARATOR);
+		Arrays.sort(actualFeatureChanges, BaseTestUtils.SF_COMPARATOR);
 		assertArrayEquals(expectedFeatureChanges, actualFeatureChanges);
 
 		if (expectedRemovedObjects == null) {
 			assertEquals(null, controller.getRemovedObjects());
 		} else {
 			final Object[] actualRemovedObjects = controller.getRemovedObjects().toArray(new Object[0]);
-			Arrays.sort(expectedRemovedObjects, OBJECT_COMPARATOR);
-			Arrays.sort(actualRemovedObjects, OBJECT_COMPARATOR);
+			Arrays.sort(expectedRemovedObjects, BaseTestUtils.OBJECT_COMPARATOR);
+			Arrays.sort(actualRemovedObjects, BaseTestUtils.OBJECT_COMPARATOR);
 			assertArrayEquals(expectedFeatureChanges, actualFeatureChanges);
 		}
 	}
 
-	private static final Comparator<EStructuralFeature> SF_COMPARATOR = new Comparator<EStructuralFeature>() {
-		@Override
-		public int compare(EStructuralFeature sf1, EStructuralFeature sf2) {
-			return System.identityHashCode(sf1) - System.identityHashCode(sf2);
-		}
-	};
-
-	private static final Comparator<Object> OBJECT_COMPARATOR = new Comparator<Object>() {
-		@Override
-		public int compare(Object sf1, Object sf2) {
-			return System.identityHashCode(sf1) - System.identityHashCode(sf2);
-		}
-	};
 }
