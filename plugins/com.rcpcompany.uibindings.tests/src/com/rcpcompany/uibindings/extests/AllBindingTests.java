@@ -121,7 +121,7 @@ import com.rcpcompany.uibindings.extests.uiAttributes.UIAttributeSpinnerFactoryP
 import com.rcpcompany.uibindings.extests.uiAttributes.UIAttributeStyledTextFactoryPropertiesTest;
 import com.rcpcompany.uibindings.extests.uiAttributes.UIAttributeTextFactoryPropertiesTest;
 import com.rcpcompany.uibindings.extests.utils.BindingEnablerTests;
-import com.rcpcompany.uibindings.extests.utils.BindingObjectLongNameTest;
+import com.rcpcompany.uibindings.extests.utils.BindingObjectInformationTest;
 import com.rcpcompany.uibindings.extests.utils.BindingSpecTest;
 import com.rcpcompany.uibindings.extests.utils.ControlDecorationTest;
 import com.rcpcompany.uibindings.extests.utils.DoubleClickAdapterTest;
@@ -149,6 +149,7 @@ import com.rcpcompany.uibindings.extests.valueBindings.ValueBindingFocusOutTest;
 import com.rcpcompany.uibindings.extests.valueBindings.ValueBindingPreferredControlTest;
 import com.rcpcompany.uibindings.extests.valueBindings.ValueEditCellStrategiesTest;
 import com.rcpcompany.uibindings.extests.valueBindings.ValueUnsettableTest;
+import com.rcpcompany.uibindings.extests.viewerBindings.ChildCreationSpecificationTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ColumnVisibilityTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ElementParentageTest;
 import com.rcpcompany.uibindings.extests.viewerBindings.ViewerCellNavigationStrategyTest;
@@ -296,6 +297,7 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		ViewerTableDeleteElementTest.class, ViewerItemMoveEnabledTest.class, ViewerItemMoveTest.class,
 		ViewerSingleSelectionTest.class, ViewerEditCellCommitStrategiesTest.class, ColumnVisibilityTest.class,
 		ViewerEditCellStrategiesTest.class, ViewerColumnHeaderAlignment.class, ElementParentageTest.class,
+		ChildCreationSpecificationTest.class,
 
 		/*
 		 * Trees
@@ -353,7 +355,7 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		FilterTest.class, SortingTest.class, FormChooserTest.class, FormCreatorTest.class,
 		FormCreatorAlignmentTest.class, FormCreatorObjectMessageCollectionTest.class, TableCreatorTest.class,
 		DoubleClickAdapterTest.class, GlobalNavigationManagerTest.class, MouseDownConverterTest.class,
-		BindingObjectLongNameTest.class,
+		BindingObjectInformationTest.class,
 
 		FormChooserWizardTest.class, BindingEnablerTests.class,
 

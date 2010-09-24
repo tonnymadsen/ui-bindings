@@ -11,11 +11,13 @@
 package com.rcpcompany.uibindings.internal.utils;
 
 import org.eclipse.core.databinding.observable.value.WritableValue;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.swt.graphics.Image;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
+import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
 import com.rcpcompany.uibindings.utils.IBindingObjectInformation;
 
@@ -25,50 +27,57 @@ import com.rcpcompany.uibindings.utils.IBindingObjectInformation;
  * @author Tonny Madsen, The RCP Company
  */
 public class BindingObjectInformation implements IBindingObjectInformation {
-	private final EObject myObj;
-	private IBindingContext myContext;
-	private VirtualUIAttribute myAttribute;
+	private final String myName;
+	private final Image myImage;
+	private final String myLabel;
 
 	/**
 	 * Constructs and returns a new name object for the specified object and binding type.
 	 * 
 	 * @param obj the object
+	 * @param cls the class of the object
 	 * @param type the binding type - defaults to {@link Constants#TYPE_LONG_NAME}
 	 */
-	public BindingObjectInformation(EObject obj, String type) {
-		myObj = obj;
-		if (myObj != null) {
-			if (type == null) {
-				type = Constants.TYPE_LONG_NAME;
-			}
+	public BindingObjectInformation(EObject obj, EClass cls, String type) {
+		IBindingContext context;
+		VirtualUIAttribute attribute;
+		IValueBinding binding;
 
-			myContext = IBindingContext.Factory.createContext();
-
-			myAttribute = new VirtualUIAttribute(String.class);
-			final WritableValue value = new WritableValue(myObj, myObj.eClass());
-			myContext.addBinding().model(value).ui(myAttribute).type(type);
-
-			myContext.finish();
+		if (type == null) {
+			type = Constants.TYPE_LONG_NAME;
 		}
+
+		context = IBindingContext.Factory.createContext();
+
+		attribute = new VirtualUIAttribute(String.class);
+		final WritableValue value = new WritableValue(obj, cls);
+		binding = context.addBinding().model(value).ui(attribute).type(type);
+
+		context.finish();
+
+		myName = (String) attribute.getCurrentValue().getValue();
+		myImage = (Image) attribute.getImageValue().getValue();
+		myLabel = binding.getLabel();
+
+		context.dispose();
 	}
 
 	@Override
 	public String getName() {
-		if (myContext == null) return "<null>";
-		return (String) myAttribute.getCurrentValue().getValue();
+		return myName;
 	}
 
 	@Override
 	public Image getImage() {
-		if (myContext == null) return null;
-		return (Image) myAttribute.getImageValue().getValue();
+		return myImage;
+	}
+
+	@Override
+	public String getLabel() {
+		return myLabel;
 	}
 
 	@Override
 	public void dispose() {
-		if (myContext != null) {
-			myContext.dispose();
-			myContext = null;
-		}
 	}
 }

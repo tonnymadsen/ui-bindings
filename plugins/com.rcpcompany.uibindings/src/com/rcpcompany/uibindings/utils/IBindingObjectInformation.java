@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.utils;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -20,7 +21,7 @@ import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.internal.utils.BindingObjectInformation;
 
 /**
- * Utility class that returns the long name for a specific object using bindings.
+ * Utility class that returns information about a specific object using bindings.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -53,7 +54,21 @@ public interface IBindingObjectInformation extends IBindingObjectLongName, IDisp
 		 * @return long name object
 		 */
 		public static IBindingObjectInformation createObjectInformation(EObject obj, String type) {
-			return new BindingObjectInformation(obj, type);
+			if (obj == null) return NULL_OI;
+			return new BindingObjectInformation(obj, obj.eClass(), type);
+		}
+
+		/**
+		 * Returns the label for the specified class.
+		 * 
+		 * @param cls the class
+		 * @return the name
+		 */
+		public static String getLabel(EClass cls) {
+			final IBindingObjectInformation ln = new BindingObjectInformation(null, cls, Constants.TYPE_LONG_NAME);
+			final String name = ln.getLabel();
+			ln.dispose();
+			return name;
 		}
 
 		/**
@@ -98,9 +113,41 @@ public interface IBindingObjectInformation extends IBindingObjectLongName, IDisp
 	String getName();
 
 	/**
+	 * Returns the label for the class of this object.
+	 * 
+	 * @return the name
+	 */
+	String getLabel();
+
+	/**
 	 * Returns the image for this object.
 	 * 
 	 * @return the image or <code>null</code>
 	 */
 	Image getImage();
+
+	/**
+	 * {@link IBindingObjectInformation} object used for <code>null</code> objects.
+	 */
+	IBindingObjectInformation NULL_OI = new IBindingObjectInformation() {
+		@Override
+		public void dispose() {
+		}
+
+		@Override
+		public String getName() {
+			return "<null>";
+		}
+
+		@Override
+		public String getLabel() {
+			return "<NULL>";
+		}
+
+		@Override
+		public Image getImage() {
+			return null;
+		}
+	};
+
 }

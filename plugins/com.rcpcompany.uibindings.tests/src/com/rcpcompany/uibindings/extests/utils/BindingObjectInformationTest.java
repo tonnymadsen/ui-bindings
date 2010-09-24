@@ -22,14 +22,14 @@ import com.rcpcompany.uibinding.tests.model.TestModelFactory;
 import com.rcpcompany.uibinding.tests.model.TestObject;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
-import com.rcpcompany.uibindings.utils.IBindingObjectLongName;
+import com.rcpcompany.uibindings.utils.IBindingObjectInformation;
 
 /**
- * Test of {@link IBindingObjectLongName}.
+ * Test of {@link IBindingObjectInformation}.
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class BindingObjectLongNameTest {
+public class BindingObjectInformationTest {
 	protected Shop myShop;
 	private TestObject myTO;
 
@@ -44,33 +44,44 @@ public class BindingObjectLongNameTest {
 	}
 
 	@Test
-	public void testLongNameObject() {
-		final IBindingObjectLongName nl = IBindingObjectLongName.Factory.createLongName(myShop, null);
+	public void testLongNameShopObject() {
+		final IBindingObjectInformation nl = IBindingObjectInformation.Factory.createObjectInformation(myShop, null);
 
 		assertEquals("hello", nl.getName());
+		assertEquals("Shop", nl.getLabel());
 
 		myShop.setName("ohh no");
-		assertEquals("ohh no", nl.getName());
+		assertEquals("hello", nl.getName());
+		assertEquals("Shop", nl.getLabel());
 
 		nl.dispose();
-		assertEquals("<null>", nl.getName());
+		assertEquals("hello", nl.getName());
+		assertEquals("Shop", nl.getLabel());
+	}
+
+	@Test
+	public void testLongNameTOObject() {
+		final IBindingObjectInformation nl = IBindingObjectInformation.Factory.createObjectInformation(myTO, null);
+
+		assertEquals("42", nl.getName());
+		assertEquals("Test Object", nl.getLabel());
 	}
 
 	@Test
 	public void testLongNameString() {
-		assertEquals("hello", IBindingObjectLongName.Factory.getLongName(myShop));
-		assertEquals("<null>", IBindingObjectLongName.Factory.getLongName((EObject) null));
+		assertEquals("hello", IBindingObjectInformation.Factory.getLongName(myShop));
+		assertEquals("<null>", IBindingObjectInformation.Factory.getLongName((EObject) null));
 	}
 
 	@Test
 	public void testLongNameSelection() {
 		assertEquals("hello, 42",
-				IBindingObjectLongName.Factory.getLongName(new StructuredSelection(new Object[] { myShop, myTO })));
+				IBindingObjectInformation.Factory.getLongName(new StructuredSelection(new Object[] { myShop, myTO })));
 		// Ignore non-eobjs
 		assertEquals(
 				"hello, 42",
-				IBindingObjectLongName.Factory.getLongName(new StructuredSelection(new Object[] { myShop, myTO,
+				IBindingObjectInformation.Factory.getLongName(new StructuredSelection(new Object[] { myShop, myTO,
 						"no way" })));
-		assertEquals("42", IBindingObjectLongName.Factory.getLongName(new StructuredSelection(myTO)));
+		assertEquals("42", IBindingObjectInformation.Factory.getLongName(new StructuredSelection(myTO)));
 	}
 }
