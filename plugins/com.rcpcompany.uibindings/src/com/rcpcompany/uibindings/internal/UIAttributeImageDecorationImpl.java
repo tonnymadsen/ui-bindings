@@ -163,12 +163,12 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 	/**
 	 * The control of this image decoration. May not change, when set
 	 */
-	protected Control myControl = null;
+	private Control myControl = null;
 
 	/**
 	 * The last location of this image decoration.
 	 */
-	protected Point myLocation = new Point(0, 0);
+	private final Point myLocation = new Point(0, 0);
 
 	@Override
 	public void updateImageDecorations(Control control, Rectangle innerBounds, Rectangle outerBounds) {
@@ -183,7 +183,7 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 		final Object v = getImageValue().getValue();
 		if (v == null) {
 			if (myControlDecoration != null) {
-				IControlDecoration.Factory.addDecoration(myControlDecoration);
+				IControlDecoration.Factory.removeDecoration(myControlDecoration);
 			}
 			return;
 		}
@@ -201,6 +201,10 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 		final Image i = (Image) v;
 		final Rectangle imageBounds = i.getBounds();
 		final Rectangle bounds = isOutside() ? outerBounds : innerBounds;
+		if (bounds.width == 0 || bounds.height == 0) {
+			LogUtils.debug(this, "bound zero size: " + bounds);
+			return;
+		}
 
 		myLocation.x = bounds.x;
 		myLocation.y = bounds.y;
@@ -216,6 +220,9 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 			case BOTTOM_RIGHT:
 				myLocation.x += bounds.width + OUTER_MARGIN_WIDTH;
 				break;
+			default:
+				LogUtils.error(this, "Unknown position: " + getPosition());
+				break;
 			}
 		} else {
 			switch (getPosition()) {
@@ -228,6 +235,9 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 			case CENTER_RIGHT:
 			case BOTTOM_RIGHT:
 				myLocation.x += bounds.width - imageBounds.width;
+				break;
+			default:
+				LogUtils.error(this, "Unknown position: " + getPosition());
 				break;
 			}
 		}
@@ -243,6 +253,9 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 		case BOTTOM_LEFT:
 		case BOTTOM_RIGHT:
 			myLocation.y += bounds.height - imageBounds.height;
+			break;
+		default:
+			LogUtils.error(this, "Unknown position: " + getPosition());
 			break;
 		}
 		if (Activator.getDefault().TRACE_ATTRIBUTE_IMAGE_DECORATORS) {
@@ -262,11 +275,8 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 
 		@Override
 		public Image getImage() {
-			final Object v = getImageValue().getValue();
-			if (v == null) return null;
-			if (!(v instanceof Image)) return null;
-
-			return (Image) v;
+			if (imageValue == null) return null;
+			return (Image) imageValue.getValue();
 		}
 
 		@Override
@@ -276,11 +286,8 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 
 		@Override
 		public String getTooltip() {
-			final Object v = getTooltipValue().getValue();
-			if (v == null) return null;
-			if (!(v instanceof String)) return null;
-
-			return (String) v;
+			if (tooltipValue == null) return null;
+			return (String) tooltipValue.getValue();
 		}
 
 	}
