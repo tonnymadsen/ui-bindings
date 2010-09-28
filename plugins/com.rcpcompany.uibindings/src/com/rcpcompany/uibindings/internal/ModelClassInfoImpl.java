@@ -262,13 +262,7 @@ public class ModelClassInfoImpl extends ModelInfoImpl implements IModelClassInfo
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		final StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (className: "); //$NON-NLS-1$
-		result.append(className);
-		result.append(')');
-		return result.toString();
+		return getClass().getSimpleName() + "[" + getClassName() + "]";
 	}
 
 } // ModelClassInfoImpl
