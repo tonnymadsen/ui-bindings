@@ -24,10 +24,8 @@ import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Control;
 
 import com.rcpcompany.uibindings.Constants;
-import com.rcpcompany.uibindings.IArgumentProvider;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingContext.FinishOption;
-import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IColumnBindingCellInformation;
 import com.rcpcompany.uibindings.IConstantTreeItem;
@@ -37,7 +35,6 @@ import com.rcpcompany.uibindings.IUIBindingDecorator;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
-import com.rcpcompany.uibindings.SpecialBinding;
 import com.rcpcompany.uibindings.internal.observables.MyDetailObservableValue;
 import com.rcpcompany.uibindings.observables.ProxyObservableValue;
 import com.rcpcompany.uibindings.uiAttributes.UIAttributePainter;
@@ -153,29 +150,29 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 		 * 
 		 * This is primary used for the image...
 		 */
-		if (getColumn().getSpecialBindingType() == SpecialBinding.TREE_ITEM) {
-			final IBindingDataType dataType = IBindingDataType.Factory.create(getElement().eClass());
-			if (dataType != null) {
-				final String type = lb.getType();
-				if (type != null && type.length() > 0) {
-					final IArgumentProvider ap = dataType.getArgumentProvider(type);
-					if (ap != null) {
-						if (Activator.getDefault().TRACE_TREE) {
-							LogUtils.debug(this, lb + ": added data type argument provider(binding type: " + type
-									+ "): " + dataType);
-						}
-						lb.getExtraArgumentProviders().add(ap);
-					}
-				}
-				final IArgumentProvider ap = dataType.getArgumentProvider(null);
-				if (ap != null) {
-					if (Activator.getDefault().TRACE_TREE) {
-						LogUtils.debug(this, lb + ": added data type argument provider: " + dataType);
-					}
-					lb.getExtraArgumentProviders().add(ap);
-				}
-			}
-		}
+//		if (getColumn().getSpecialBindingType() == SpecialBinding.TREE_ITEM) {
+//			final IBindingDataType dataType = IBindingDataType.Factory.create(getElement().eClass());
+//			if (dataType != null) {
+//				final String type = lb.getType();
+//				if (type != null && type.length() > 0) {
+//					final IArgumentProvider ap = dataType.getArgumentProvider(type);
+//					if (ap != null) {
+//						if (Activator.getDefault().TRACE_TREE) {
+//							LogUtils.debug(this, lb + ": added data type argument provider(binding type: " + type
+//									+ "): " + dataType);
+//						}
+//						lb.getExtraArgumentProviders().add(ap);
+//					}
+//				}
+//				final IArgumentProvider ap = dataType.getArgumentProvider(null);
+//				if (ap != null) {
+//					if (Activator.getDefault().TRACE_TREE) {
+//						LogUtils.debug(this, lb + ": added data type argument provider: " + dataType);
+//					}
+//					lb.getExtraArgumentProviders().add(ap);
+//				}
+//			}
+//		}
 
 		/*
 		 * We added a new binding so call finish as well...

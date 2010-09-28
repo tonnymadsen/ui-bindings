@@ -134,6 +134,17 @@
          </separator>
       </menuContribution>
       <menuContribution
+            locationURI="popup:org.eclipse.ui.popup.any?after=new">
+         <menu
+               label="New"
+               mnemonic="N">
+            <dynamic
+                  class="com.rcpcompany.uibindings.internal.handlers.NewHandlerMenuContributor"
+                  id="com.rcpcompany.uibindings.std.dynamics.NewMenu">
+            </dynamic>
+         </menu>
+      </menuContribution>
+      <menuContribution
             locationURI="popup:org.eclipse.ui.popup.any?after=undo">
          <command
                commandId="org.eclipse.ui.edit.undo"
@@ -263,22 +274,6 @@
          class="com.rcpcompany.uibindings.utils.IGlobalNavigationManager$ForwardHistoryMenuContributor"
          locationURI="menu:com.rcpcompany.uibindings.forwardHistoryMenu">
    </menuContribution>
-   </extension>
-   <extension
-         point="org.eclipse.ui.menus">
-      <menuContribution
-            locationURI="popup:org.eclipse.ui.popup.any?after=new">
-         <menu
-               id="com.rcpcompany.uibindings.newMenu"
-               label="New"
-               mnemonic="N">
-         </menu>
-      </menuContribution>
-      <menuContribution
-            allPopups="false"
-            class="com.rcpcompany.uibindings.internal.handlers.NewHandlerMenuContributor"
-            locationURI="popup:com.rcpcompany.uibindings.newMenu">
-      </menuContribution>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">

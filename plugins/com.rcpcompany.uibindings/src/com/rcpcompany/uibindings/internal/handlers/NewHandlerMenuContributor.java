@@ -25,8 +25,8 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
-import org.eclipse.ui.menus.ExtensionContributionFactory;
-import org.eclipse.ui.menus.IContributionRoot;
+import org.eclipse.ui.actions.CompoundContributionItem;
+import org.eclipse.ui.menus.IWorkbenchContribution;
 import org.eclipse.ui.services.IEvaluationService;
 import org.eclipse.ui.services.IServiceLocator;
 
@@ -44,12 +44,32 @@ import com.rcpcompany.utils.logging.LogUtils;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class NewHandlerMenuContributor extends ExtensionContributionFactory {
+public class NewHandlerMenuContributor extends CompoundContributionItem implements IWorkbenchContribution {
+
+	private IServiceLocator myServiceLocator;
+
+	public NewHandlerMenuContributor() {
+	}
+
+	public NewHandlerMenuContributor(String id) {
+		super(id);
+	}
+
 	@Override
-	public void createContributionItems(IServiceLocator serviceLocator, IContributionRoot additions) {
-		final IEvaluationService es = (IEvaluationService) serviceLocator.getService(IEvaluationService.class);
+	public void initialize(IServiceLocator serviceLocator) {
+		myServiceLocator = serviceLocator;
+	}
+
+	/**
+	 * Empty set of items.
+	 */
+	private final IContributionItem[] EMPTY_ITEMS = new IContributionItem[0];
+
+	@Override
+	protected IContributionItem[] getContributionItems() {
+		final IEvaluationService es = (IEvaluationService) myServiceLocator.getService(IEvaluationService.class);
 		final IBinding bb = (IBinding) es.getCurrentState().getVariable(Constants.SOURCES_ACTIVE_CONTAINER_BINDING);
-		if (!(bb instanceof IViewerBinding)) return;
+		if (!(bb instanceof IViewerBinding)) return EMPTY_ITEMS;
 		// The viewer
 		final IViewerBinding vb = (IViewerBinding) bb;
 
@@ -59,22 +79,26 @@ public class NewHandlerMenuContributor extends ExtensionContributionFactory {
 		/*
 		 * Only one selection please
 		 */
-		if (list.size() != 1) return;
+		if (list.size() != 1) return EMPTY_ITEMS;
 
 		final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(list.get(0));
 
 		/*
 		 * Less than two specs... no need for an open with menu... Ignore.
 		 */
-		if (specs.size() < 1) return;
+		if (specs.size() < 1) return EMPTY_ITEMS;
 
 		/*
-		 * Create contributions items for all the editors
+		 * Create contributions items for all the specifications
 		 */
-		for (final IChildCreationSpecification sp : specs) {
+		final IContributionItem[] items = new IContributionItem[specs.size()];
+		for (int i = 0; i < items.length; i++) {
+			final IChildCreationSpecification sp = specs.get(i);
 			final IContributionItem item = new NewContributionItem(sp, vb.getEditingDomain());
-			additions.addContributionItem(item, null);
+			items[i] = item;
 		}
+
+		return items;
 	}
 
 	/**
