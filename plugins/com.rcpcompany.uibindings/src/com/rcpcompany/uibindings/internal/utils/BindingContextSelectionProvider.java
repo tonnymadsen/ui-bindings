@@ -17,6 +17,9 @@ import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
 import org.eclipse.core.runtime.ListenerList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.util.SafeRunnable;
@@ -260,8 +263,12 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 			final IValueBinding vb = (IValueBinding) binding;
 			final Control control = vb.getControl();
 			if (control == null) return;
-			if (vb.getModelObservableValue() != null) {
-				addControl(control, vb.getModelObservableValue());
+			final IObservableValue ov = vb.getModelObservableValue();
+			if (ov != null) {
+				final EClassifier type = vb.getModelEType();
+				if (type instanceof EClass) {
+					addControl(control, ov);
+				}
 				return;
 			}
 		} else if (binding instanceof IViewerBinding) {
@@ -389,7 +396,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		@Override
 		public void handleValueChange(ValueChangeEvent event) {
 			final Object value = myValue.getValue();
-			if (value == null) {
+			if (value == null || !(value instanceof EObject)) {
 				selection = myEmptySelection;
 			} else {
 				selection = new StructuredSelection(value);

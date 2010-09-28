@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings;
 
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.databinding.observable.list.IObservableList;
@@ -321,6 +322,17 @@ public interface IViewerBinding extends IContainerBinding {
 	 *         known
 	 */
 	IElementParentage getElementParentage(EObject element);
+
+	/**
+	 * Returns a list of the possible objects that can be created at the specified parent as
+	 * sub-elements.
+	 * <p>
+	 * For {@link Table tables} the element is ignored
+	 * 
+	 * @param parent the view element that should be the parent of the child
+	 * @return a list of possible children
+	 */
+	List<IChildCreationSpecification> getPossibleChildObjects(EObject parent);
 
 	/**
 	 * Focus on the cell identified by the element and column number if possible.

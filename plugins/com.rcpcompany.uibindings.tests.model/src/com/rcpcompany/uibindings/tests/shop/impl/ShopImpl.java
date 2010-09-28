@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -28,6 +29,7 @@ import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Customer;
 import com.rcpcompany.uibindings.tests.shop.Order;
 import com.rcpcompany.uibindings.tests.shop.Shop;
+import com.rcpcompany.uibindings.tests.shop.ShopInformation;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopItemGroup;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
@@ -52,6 +54,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getCustomers <em>Customers</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getShopGroups <em>Shop Groups</em>}
  * </li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getInfos <em>Infos</em>}</li>
  * </ul>
  * </p>
  * 
@@ -177,6 +180,16 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 	 * @ordered
 	 */
 	protected EList<ShopItemGroup> shopGroups;
+
+	/**
+	 * The cached value of the '{@link #getInfos() <em>Infos</em>}' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getInfos()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ShopInformation> infos;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -358,6 +371,19 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
+	 * @generated
+	 */
+	@Override
+	public EList<ShopInformation> getInfos() {
+		if (infos == null) {
+			infos = new EObjectContainmentEList<ShopInformation>(ShopInformation.class, this, ShopPackage.SHOP__INFOS);
+		}
+		return infos;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	@Override
@@ -433,6 +459,8 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 			return ((InternalEList<?>) getCustomers()).basicRemove(otherEnd, msgs);
 		case ShopPackage.SHOP__SHOP_GROUPS:
 			return ((InternalEList<?>) getShopGroups()).basicRemove(otherEnd, msgs);
+		case ShopPackage.SHOP__INFOS:
+			return ((InternalEList<?>) getInfos()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -463,6 +491,8 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 			return getCustomers();
 		case ShopPackage.SHOP__SHOP_GROUPS:
 			return getShopGroups();
+		case ShopPackage.SHOP__INFOS:
+			return getInfos();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -509,6 +539,10 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 			getShopGroups().clear();
 			getShopGroups().addAll((Collection<? extends ShopItemGroup>) newValue);
 			return;
+		case ShopPackage.SHOP__INFOS:
+			getInfos().clear();
+			getInfos().addAll((Collection<? extends ShopInformation>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -548,6 +582,9 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 		case ShopPackage.SHOP__SHOP_GROUPS:
 			getShopGroups().clear();
 			return;
+		case ShopPackage.SHOP__INFOS:
+			getInfos().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -578,6 +615,8 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 			return customers != null && !customers.isEmpty();
 		case ShopPackage.SHOP__SHOP_GROUPS:
 			return shopGroups != null && !shopGroups.isEmpty();
+		case ShopPackage.SHOP__INFOS:
+			return infos != null && !infos.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

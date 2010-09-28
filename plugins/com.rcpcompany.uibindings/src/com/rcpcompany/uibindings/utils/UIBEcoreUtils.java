@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -128,15 +129,19 @@ public final class UIBEcoreUtils {
 	 * Shows an error dialog.
 	 * 
 	 * @param title the title for the dialog
-	 * @param description TODO
+	 * @param description the first line(s) of a description used for the dialog
 	 * @param references the references for the objects that cannot be handled
 	 */
 	public static void showErrorDialog(String title, String description, Map<EObject, Collection<Setting>> references) {
 		LogUtils.debug("", title);
 
 		description += "\n\nThe following references are found:\n";
-		for (final EObject o : references.keySet()) {
-			description += "\n   " + IBindingObjectInformation.Factory.getLongName(o);
+		for (final Entry<EObject, Collection<Setting>> e : references.entrySet()) {
+			description += "\n    " + IBindingObjectInformation.Factory.getQualifiedName(e.getKey()) + ":";
+			for (final Setting s : e.getValue()) {
+				description += "\n       " + s.getEStructuralFeature().getName() + " of "
+						+ IBindingObjectInformation.Factory.getQualifiedName(s.getEObject());
+			}
 		}
 
 		MessageDialog.openError(null, title, description);

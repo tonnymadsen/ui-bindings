@@ -642,6 +642,12 @@ public interface Constants {
 	String TYPE_LONG_NAME = "longName"; //$NON-NLS-1$
 
 	/**
+	 * The {@link IBinding} type used for fields that should have a qualified and human readable
+	 * name with both the type of the object as well as the long name for the object.
+	 */
+	String TYPE_QUALIFIED_NAME = "qualifiedName"; //$NON-NLS-1$
+
+	/**
 	 * The {@link IBinding} type used for fields that contains a file name.
 	 */
 	String TYPE_FILE_NAME = "fileName";

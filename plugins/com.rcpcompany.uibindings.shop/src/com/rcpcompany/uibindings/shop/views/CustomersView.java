@@ -46,7 +46,7 @@ public class CustomersView extends ViewPart {
 		final ITableCreator table = myForm.addTableCreator(ShopPackage.Literals.SHOP__CUSTOMERS, true,
 				ITableCreator.FILTER);
 		table.addColumn(SpecialBinding.ROW_NO, 40);
-		table.addColumn("contact.name(w=100)");
+		table.addColumn("contact(w=100)");
 		table.addColumn("contact.country(w=100)");
 		table.addColumn("contact.newsletter(w=50)");
 		table.addColumn("loyalty(w=100)");

@@ -12,6 +12,9 @@ package com.rcpcompany.uibindings.internal.decorators;
 
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IExecutableExtension;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
@@ -34,7 +37,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements IUIBindingDecorator {
+public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements IUIBindingDecorator,
+		IExecutableExtension {
 
 	/**
 	 * The valid values in this decorator.
@@ -50,6 +54,14 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 	 * The string used for <code>null</code> in the binding.
 	 */
 	private String myNullLabel;
+
+	/**
+	 * Whether the UI name is qualified with the class name.
+	 * <p>
+	 * 
+	 * TODO: Implement!
+	 */
+	private boolean myQualified = false;
 
 	/**
 	 * If the mapper has used any specific attribute from the EObject, then this must be added so we
@@ -129,7 +141,7 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 	protected Object convertModelToUI(Object fromObject) {
 		if (myClassIdentiferMapper == null) return myNullLabel;
 		final Object o = myClassIdentiferMapper.map(fromObject);
-		return o != null ? o.toString() : null;
+		return o != null ? o.toString() : myNullLabel;
 	}
 
 	@Override
@@ -148,6 +160,7 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 	@Override
 	protected Object convertUIToModel(Object fromObject) {
 		if (fromObject == null) return null;
+		if (fromObject.equals("")) return null;
 		if (!isChangeable()) throw new IllegalArgumentException("Value cannot be changed");
 		if (myNullLabel.equals(fromObject)) return null;
 
@@ -156,5 +169,13 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 		}
 		// LogUtils.debug(this, "Unknown value: '" + fromObject + "'");
 		throw new IllegalArgumentException("Unknown value");
+	}
+
+	@Override
+	public void setInitializationData(IConfigurationElement config, String propertyName, Object data)
+			throws CoreException {
+		if ("qualified".equals(data)) {
+			myQualified = true;
+		}
 	}
 }

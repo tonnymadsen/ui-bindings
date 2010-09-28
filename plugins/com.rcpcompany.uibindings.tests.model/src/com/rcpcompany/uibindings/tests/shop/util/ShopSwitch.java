@@ -19,6 +19,8 @@ import com.rcpcompany.uibindings.tests.shop.Customer;
 import com.rcpcompany.uibindings.tests.shop.Order;
 import com.rcpcompany.uibindings.tests.shop.OrderItem;
 import com.rcpcompany.uibindings.tests.shop.Shop;
+import com.rcpcompany.uibindings.tests.shop.ShopAddress;
+import com.rcpcompany.uibindings.tests.shop.ShopInformation;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopItemDescription;
 import com.rcpcompany.uibindings.tests.shop.ShopItemGroup;
@@ -26,6 +28,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopItemInformation;
 import com.rcpcompany.uibindings.tests.shop.ShopItemProperties;
 import com.rcpcompany.uibindings.tests.shop.ShopItemURL;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+import com.rcpcompany.uibindings.tests.shop.ShopURL;
 
 /**
  * <!-- begin-user-doc --> The <b>Switch</b> for the model's inheritance hierarchy. It supports the
@@ -284,6 +287,63 @@ public class ShopSwitch<T> {
 			}
 			return result;
 		}
+		case ShopPackage.SHOP_INFORMATION: {
+			final ShopInformation shopInformation = (ShopInformation) theEObject;
+			T result = caseShopInformation(shopInformation);
+			if (result == null) {
+				result = caseNamedObject(shopInformation);
+			}
+			if (result == null) {
+				result = caseMOAO(shopInformation);
+			}
+			if (result == null) {
+				result = caseIAdaptable(shopInformation);
+			}
+			if (result == null) {
+				result = defaultCase(theEObject);
+			}
+			return result;
+		}
+		case ShopPackage.SHOP_URL: {
+			final ShopURL shopURL = (ShopURL) theEObject;
+			T result = caseShopURL(shopURL);
+			if (result == null) {
+				result = caseShopInformation(shopURL);
+			}
+			if (result == null) {
+				result = caseNamedObject(shopURL);
+			}
+			if (result == null) {
+				result = caseMOAO(shopURL);
+			}
+			if (result == null) {
+				result = caseIAdaptable(shopURL);
+			}
+			if (result == null) {
+				result = defaultCase(theEObject);
+			}
+			return result;
+		}
+		case ShopPackage.SHOP_ADDRESS: {
+			final ShopAddress shopAddress = (ShopAddress) theEObject;
+			T result = caseShopAddress(shopAddress);
+			if (result == null) {
+				result = caseShopInformation(shopAddress);
+			}
+			if (result == null) {
+				result = caseNamedObject(shopAddress);
+			}
+			if (result == null) {
+				result = caseMOAO(shopAddress);
+			}
+			if (result == null) {
+				result = caseIAdaptable(shopAddress);
+			}
+			if (result == null) {
+				result = defaultCase(theEObject);
+			}
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -454,6 +514,48 @@ public class ShopSwitch<T> {
 	 * @generated
 	 */
 	public T caseShopItemURL(ShopItemURL object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Information</em>'. <!--
+	 * begin-user-doc --> This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Information</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseShopInformation(ShopInformation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>URL</em>'. <!--
+	 * begin-user-doc --> This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>URL</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseShopURL(ShopURL object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Address</em>'. <!--
+	 * begin-user-doc --> This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Address</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseShopAddress(ShopAddress object) {
 		return null;
 	}
 

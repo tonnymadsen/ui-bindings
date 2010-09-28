@@ -121,4 +121,14 @@ public interface InternalConstants {
 	 * button.
 	 */
 	String IMG_OPEN_DIALOG = "open-dialog";
+
+	/**
+	 * ID for the new command.
+	 */
+	String NEW_COMMAND = "com.rcpcompany.uibindings.commands.new";
+
+	/**
+	 * ID of the ID parameter of the new command.
+	 */
+	String ID_PARAMETER = "id";
 }

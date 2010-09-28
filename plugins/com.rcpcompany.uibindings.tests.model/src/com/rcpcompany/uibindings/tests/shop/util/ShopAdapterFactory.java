@@ -19,6 +19,8 @@ import com.rcpcompany.uibindings.tests.shop.Customer;
 import com.rcpcompany.uibindings.tests.shop.Order;
 import com.rcpcompany.uibindings.tests.shop.OrderItem;
 import com.rcpcompany.uibindings.tests.shop.Shop;
+import com.rcpcompany.uibindings.tests.shop.ShopAddress;
+import com.rcpcompany.uibindings.tests.shop.ShopInformation;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopItemDescription;
 import com.rcpcompany.uibindings.tests.shop.ShopItemGroup;
@@ -26,6 +28,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopItemInformation;
 import com.rcpcompany.uibindings.tests.shop.ShopItemProperties;
 import com.rcpcompany.uibindings.tests.shop.ShopItemURL;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+import com.rcpcompany.uibindings.tests.shop.ShopURL;
 
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter
@@ -133,6 +136,21 @@ public class ShopAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseShopItemURL(ShopItemURL object) {
 			return createShopItemURLAdapter();
+		}
+
+		@Override
+		public Adapter caseShopInformation(ShopInformation object) {
+			return createShopInformationAdapter();
+		}
+
+		@Override
+		public Adapter caseShopURL(ShopURL object) {
+			return createShopURLAdapter();
+		}
+
+		@Override
+		public Adapter caseShopAddress(ShopAddress object) {
+			return createShopAddressAdapter();
 		}
 
 		@Override
@@ -339,6 +357,50 @@ public class ShopAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createShopItemURLAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '
+	 * {@link com.rcpcompany.uibindings.tests.shop.ShopInformation <em>Information</em>}'. <!--
+	 * begin-user-doc --> This default implementation returns null so that we can easily ignore
+	 * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopInformation
+	 * @generated
+	 */
+	public Adapter createShopInformationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '
+	 * {@link com.rcpcompany.uibindings.tests.shop.ShopURL <em>URL</em>}'. <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases; it's useful to
+	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopURL
+	 * @generated
+	 */
+	public Adapter createShopURLAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '
+	 * {@link com.rcpcompany.uibindings.tests.shop.ShopAddress <em>Address</em>}'. <!--
+	 * begin-user-doc --> This default implementation returns null so that we can easily ignore
+	 * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopAddress
+	 * @generated
+	 */
+	public Adapter createShopAddressAdapter() {
 		return null;
 	}
 

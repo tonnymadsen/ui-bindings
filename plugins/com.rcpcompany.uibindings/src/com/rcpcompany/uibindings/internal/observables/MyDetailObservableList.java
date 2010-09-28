@@ -98,6 +98,11 @@ public class MyDetailObservableList extends ObservableList implements IObserving
 		outerObservableValue.addValueChangeListener(outerChangeListener);
 	}
 
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + "[]";
+	};
+
 	IValueChangeListener outerChangeListener = new IValueChangeListener() {
 		@Override
 		public void handleValueChange(ValueChangeEvent event) {

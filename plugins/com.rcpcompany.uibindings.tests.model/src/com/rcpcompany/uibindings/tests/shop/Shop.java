@@ -29,6 +29,7 @@ import com.rcpcompany.uibindings.moao.INamedObject;
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getOrders <em>Orders</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getCustomers <em>Customers</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getShopGroups <em>Shop Groups</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getInfos <em>Infos</em>}</li>
  * </ul>
  * </p>
  * 
@@ -230,6 +231,22 @@ public interface Shop extends INamedObject {
 	 * @generated
 	 */
 	EList<ShopItemGroup> getShopGroups();
+
+	/**
+	 * Returns the value of the '<em><b>Infos</b></em>' containment reference list. The list
+	 * contents are of type {@link com.rcpcompany.uibindings.tests.shop.ShopItemInformation}. <!--
+	 * begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Infos</em>' containment reference list isn't clear, there really
+	 * should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Infos</em>' containment reference list.
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShop_Infos()
+	 * @generated
+	 */
+	EList<ShopInformation> getInfos();
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

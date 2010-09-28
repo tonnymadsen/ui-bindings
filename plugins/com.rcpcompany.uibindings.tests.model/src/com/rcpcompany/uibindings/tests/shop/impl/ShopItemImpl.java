@@ -145,7 +145,7 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 	 * @generated
 	 * @ordered
 	 */
-	protected ShopItemProperties properties;
+	protected EList<ShopItemProperties> properties;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -427,74 +427,12 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 	 * @generated
 	 */
 	@Override
-	public ShopItemProperties getProperties() {
-		if (properties != null && properties.eIsProxy()) {
-			final InternalEObject oldProperties = (InternalEObject) properties;
-			properties = (ShopItemProperties) eResolveProxy(oldProperties);
-			if (properties != oldProperties) {
-				if (eNotificationRequired()) {
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ShopPackage.SHOP_ITEM__PROPERTIES,
-							oldProperties, properties));
-				}
-			}
+	public EList<ShopItemProperties> getProperties() {
+		if (properties == null) {
+			properties = new EObjectWithInverseEList<ShopItemProperties>(ShopItemProperties.class, this,
+					ShopPackage.SHOP_ITEM__PROPERTIES, ShopPackage.SHOP_ITEM_PROPERTIES__ITEM);
 		}
 		return properties;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public ShopItemProperties basicGetProperties() {
-		return properties;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public NotificationChain basicSetProperties(ShopItemProperties newProperties, NotificationChain msgs) {
-		final ShopItemProperties oldProperties = properties;
-		properties = newProperties;
-		if (eNotificationRequired()) {
-			final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					ShopPackage.SHOP_ITEM__PROPERTIES, oldProperties, newProperties);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void setProperties(ShopItemProperties newProperties) {
-		if (newProperties != properties) {
-			NotificationChain msgs = null;
-			if (properties != null) {
-				msgs = ((InternalEObject) properties).eInverseRemove(this, ShopPackage.SHOP_ITEM_PROPERTIES__ITEM,
-						ShopItemProperties.class, msgs);
-			}
-			if (newProperties != null) {
-				msgs = ((InternalEObject) newProperties).eInverseAdd(this, ShopPackage.SHOP_ITEM_PROPERTIES__ITEM,
-						ShopItemProperties.class, msgs);
-			}
-			msgs = basicSetProperties(newProperties, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_ITEM__PROPERTIES, newProperties,
-					newProperties));
-		}
 	}
 
 	/**
@@ -568,11 +506,7 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 			}
 			return basicSetGroup((ShopItemGroup) otherEnd, msgs);
 		case ShopPackage.SHOP_ITEM__PROPERTIES:
-			if (properties != null) {
-				msgs = ((InternalEObject) properties).eInverseRemove(this, ShopPackage.SHOP_ITEM_PROPERTIES__ITEM,
-						ShopItemProperties.class, msgs);
-			}
-			return basicSetProperties((ShopItemProperties) otherEnd, msgs);
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getProperties()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -594,7 +528,7 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 		case ShopPackage.SHOP_ITEM__GROUP:
 			return basicSetGroup(null, msgs);
 		case ShopPackage.SHOP_ITEM__PROPERTIES:
-			return basicSetProperties(null, msgs);
+			return ((InternalEList<?>) getProperties()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -637,8 +571,7 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 		case ShopPackage.SHOP_ITEM__LOCATIONS:
 			return getLocations();
 		case ShopPackage.SHOP_ITEM__PROPERTIES:
-			if (resolve) return getProperties();
-			return basicGetProperties();
+			return getProperties();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -676,7 +609,8 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 			getLocations().addAll((Collection<? extends String>) newValue);
 			return;
 		case ShopPackage.SHOP_ITEM__PROPERTIES:
-			setProperties((ShopItemProperties) newValue);
+			getProperties().clear();
+			getProperties().addAll((Collection<? extends ShopItemProperties>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -712,7 +646,7 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 			getLocations().clear();
 			return;
 		case ShopPackage.SHOP_ITEM__PROPERTIES:
-			setProperties((ShopItemProperties) null);
+			getProperties().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -741,7 +675,7 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 		case ShopPackage.SHOP_ITEM__LOCATIONS:
 			return locations != null && !locations.isEmpty();
 		case ShopPackage.SHOP_ITEM__PROPERTIES:
-			return properties != null;
+			return properties != null && !properties.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

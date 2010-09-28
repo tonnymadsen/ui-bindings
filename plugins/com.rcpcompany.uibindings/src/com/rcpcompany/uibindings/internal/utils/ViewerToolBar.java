@@ -118,7 +118,7 @@ public class ViewerToolBar implements IViewerToolBar, IDisposable {
 		 * Add standard items
 		 */
 		if ((style & ADD) != 0) {
-			// addItem(ADD, "");
+			// TODO addItem(ADD, "");
 		}
 		if ((style & DELETE) != 0) {
 			addItem(DELETE, "org.eclipse.ui.edit.delete");

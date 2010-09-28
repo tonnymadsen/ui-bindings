@@ -26,6 +26,7 @@ import com.rcpcompany.uibindings.tests.shop.CustomerType;
 import com.rcpcompany.uibindings.tests.shop.Order;
 import com.rcpcompany.uibindings.tests.shop.OrderItem;
 import com.rcpcompany.uibindings.tests.shop.Shop;
+import com.rcpcompany.uibindings.tests.shop.ShopAddress;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopItemDescription;
@@ -34,6 +35,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopItemInformation;
 import com.rcpcompany.uibindings.tests.shop.ShopItemProperties;
 import com.rcpcompany.uibindings.tests.shop.ShopItemURL;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+import com.rcpcompany.uibindings.tests.shop.ShopURL;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -128,6 +130,10 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 			return createShopItemDescription();
 		case ShopPackage.SHOP_ITEM_URL:
 			return createShopItemURL();
+		case ShopPackage.SHOP_URL:
+			return createShopURL();
+		case ShopPackage.SHOP_ADDRESS:
+			return createShopAddress();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -297,6 +303,28 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	public ShopItemURL createShopItemURL() {
 		final ShopItemURLImpl shopItemURL = new ShopItemURLImpl();
 		return shopItemURL;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public ShopURL createShopURL() {
+		final ShopURLImpl shopURL = new ShopURLImpl();
+		return shopURL;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public ShopAddress createShopAddress() {
+		final ShopAddressImpl shopAddress = new ShopAddressImpl();
+		return shopAddress;
 	}
 
 	/**

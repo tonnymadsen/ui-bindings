@@ -10,13 +10,15 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.internal;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.eclipse.core.databinding.observable.DisposeEvent;
+import org.eclipse.core.databinding.observable.IDisposeListener;
 import org.eclipse.core.databinding.observable.IObservable;
-import org.eclipse.core.databinding.observable.Observables;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.masterdetail.IObservableFactory;
 import org.eclipse.emf.ecore.EObject;
@@ -25,6 +27,7 @@ import org.eclipse.jface.databinding.viewers.TreeStructureAdvisor;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Tree;
 
+import com.rcpcompany.uibindings.IChildCreationSpecification;
 import com.rcpcompany.uibindings.IConstantTreeItem;
 import com.rcpcompany.uibindings.IElementParentage;
 import com.rcpcompany.uibindings.IManager;
@@ -66,7 +69,7 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 	 * <p>
 	 * Maps view parents to the list with the children in the parent.
 	 */
-	private final Map<EObject, IObservableList> myResults = new HashMap<EObject, IObservableList>();
+	private final Map<EObject, ViewerBindingTreeFactoryList> myResults = new HashMap<EObject, ViewerBindingTreeFactoryList>();
 
 	/**
 	 * The root elements of the tree.
@@ -144,22 +147,42 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 			return null;
 
 		final ViewerBindingTreeFactoryList l = new ViewerBindingTreeFactoryList(this);
-		IObservableList result = l;
 		l.addChildren(etarget, descriptor);
 		/*
 		 * If the result is a constant list, then we replace it with a better performing version.
+		 * 
+		 * We do not replace with a constant list as this makes in impossible to find the possible
+		 * child objects.
 		 */
-		if (l.isConstant()) {
-			result = Observables.staticObservableList(new ArrayList<Object>(l), l.getElementType());
-			l.dispose();
-		}
+		// if (l.isConstant()) {
+		// result = Observables.staticObservableList(new ArrayList<Object>(l), l.getElementType());
+		// l.dispose();
+		// }
 		if (Activator.getDefault().TRACE_TREE) {
-			LogUtils.debug(this, "--> " + result); //$NON-NLS-1$
+			LogUtils.debug(this, "--> " + l); //$NON-NLS-1$
 		}
 
-		myResults.put((EObject) target, result);
-		return result;
+		l.addDisposeListener(myDisposeListener);
+		myResults.put((EObject) target, l);
+		return l;
 	}
+
+	/**
+	 * Dispose listener used to remove mappings when the lists are disposed...
+	 */
+	private final IDisposeListener myDisposeListener = new IDisposeListener() {
+		@Override
+		public void handleDispose(DisposeEvent event) {
+			final ViewerBindingTreeFactoryList l = (ViewerBindingTreeFactoryList) event.getObservable();
+			for (final Iterator<Entry<EObject, ViewerBindingTreeFactoryList>> i = myResults.entrySet().iterator(); i
+					.hasNext();) {
+				if (i.next().getValue() == l) {
+					i.remove();
+					return;
+				}
+			}
+		}
+	};
 
 	/**
 	 * Returns the view parent object from {@link #myResults} that contains the specified child
@@ -168,8 +191,8 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 	 * @param element the element to find
 	 * @return the parent or <code>null</code> if not found
 	 */
-	private EObject findParent(EObject element) {
-		for (final Entry<EObject, IObservableList> e : myResults.entrySet()) {
+	private EObject findViewParent(EObject element) {
+		for (final Entry<EObject, ViewerBindingTreeFactoryList> e : myResults.entrySet()) {
 			if (e.getValue().contains(element)) return e.getKey();
 		}
 
@@ -258,14 +281,24 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 		/*
 		 * Find the parent (if any) for the list with the element...
 		 */
-		final EObject parent = findParent(element);
-		final IObservableList list = myResults.get(parent);
+		final EObject parent = findViewParent(element);
+		if (parent == null) return null;
 
-		/*
-		 * TODO: possibly not support the simplification....
-		 */
-		if (!(list instanceof ViewerBindingTreeFactoryList)) return null;
-		final ViewerBindingTreeFactoryList factoryList = (ViewerBindingTreeFactoryList) list;
-		return factoryList.getElementParentage(element);
+		final ViewerBindingTreeFactoryList list = myResults.get(parent);
+		return list.getElementParentage(element);
+	}
+
+	/**
+	 * Returns a list of the possible objects that can be created at the specified parent as
+	 * sub-elements.
+	 * 
+	 * @param parent the view element that should be the parent of the child
+	 * @return a list of possible children
+	 */
+	public List<IChildCreationSpecification> getPossibleChildObjects(EObject parent) {
+		final ViewerBindingTreeFactoryList list = myResults.get(parent);
+		if (list == null) return null;
+
+		return list.getPossibleChildObjects();
 	}
 }

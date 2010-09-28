@@ -185,13 +185,22 @@ public interface ShopPackage extends EPackage {
 	int SHOP__SHOP_GROUPS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Infos</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP__INFOS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Shop</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 9;
+	int SHOP_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.impl.CustomerImpl
@@ -376,8 +385,8 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM__LOCATIONS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Properties</b></em>' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Properties</b></em>' reference list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -983,6 +992,190 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM_URL_FEATURE_COUNT = SHOP_ITEM_INFORMATION_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.tests.shop.impl.ShopInformationImpl <em>Information</em>}'
+	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopInformationImpl
+	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getShopInformation()
+	 * @generated
+	 */
+	int SHOP_INFORMATION = 12;
+
+	/**
+	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_INFORMATION__MESSAGES = IMOAOPackage.NAMED_OBJECT__MESSAGES;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_INFORMATION__NAME = IMOAOPackage.NAMED_OBJECT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_INFORMATION__DESCRIPTION = IMOAOPackage.NAMED_OBJECT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_INFORMATION__UUID = IMOAOPackage.NAMED_OBJECT__UUID;
+
+	/**
+	 * The number of structural features of the '<em>Information</em>' class. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_INFORMATION_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.impl.ShopURLImpl
+	 * <em>URL</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopURLImpl
+	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getShopURL()
+	 * @generated
+	 */
+	int SHOP_URL = 13;
+
+	/**
+	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_URL__MESSAGES = SHOP_INFORMATION__MESSAGES;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_URL__NAME = SHOP_INFORMATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_URL__DESCRIPTION = SHOP_INFORMATION__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_URL__UUID = SHOP_INFORMATION__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Url</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_URL__URL = SHOP_INFORMATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>URL</em>' class. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_URL_FEATURE_COUNT = SHOP_INFORMATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.impl.ShopAddressImpl
+	 * <em>Address</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopAddressImpl
+	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getShopAddress()
+	 * @generated
+	 */
+	int SHOP_ADDRESS = 14;
+
+	/**
+	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_ADDRESS__MESSAGES = SHOP_INFORMATION__MESSAGES;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_ADDRESS__NAME = SHOP_INFORMATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_ADDRESS__DESCRIPTION = SHOP_INFORMATION__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_ADDRESS__UUID = SHOP_INFORMATION__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Url</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_ADDRESS__URL = SHOP_INFORMATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Address</em>' class. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_ADDRESS_FEATURE_COUNT = SHOP_INFORMATION_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.CustomerType
 	 * <em>Customer Type</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -990,7 +1183,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getCustomerType()
 	 * @generated
 	 */
-	int CUSTOMER_TYPE = 12;
+	int CUSTOMER_TYPE = 15;
 
 	/**
 	 * The meta object id for the '<em>Diagnostic Chain</em>' data type. <!-- begin-user-doc -->
@@ -1000,7 +1193,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getDiagnosticChain()
 	 * @generated
 	 */
-	int DIAGNOSTIC_CHAIN = 13;
+	int DIAGNOSTIC_CHAIN = 16;
 
 	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.Shop
@@ -1119,6 +1312,18 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getShop_ShopGroups();
+
+	/**
+	 * Returns the meta object for the containment reference list '
+	 * {@link com.rcpcompany.uibindings.tests.shop.Shop#getInfos <em>Infos</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Infos</em>'.
+	 * @see com.rcpcompany.uibindings.tests.shop.Shop#getInfos()
+	 * @see #getShop()
+	 * @generated
+	 */
+	EReference getShop_Infos();
 
 	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.Customer
@@ -1285,11 +1490,11 @@ public interface ShopPackage extends EPackage {
 	EAttribute getShopItem_Locations();
 
 	/**
-	 * Returns the meta object for the reference '
+	 * Returns the meta object for the reference list '
 	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItem#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the reference '<em>Properties</em>'.
+	 * @return the meta object for the reference list '<em>Properties</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopItem#getProperties()
 	 * @see #getShopItem()
 	 * @generated
@@ -1690,6 +1895,61 @@ public interface ShopPackage extends EPackage {
 	EAttribute getShopItemURL_Url();
 
 	/**
+	 * Returns the meta object for class '
+	 * {@link com.rcpcompany.uibindings.tests.shop.ShopInformation <em>Information</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Information</em>'.
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopInformation
+	 * @generated
+	 */
+	EClass getShopInformation();
+
+	/**
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.ShopURL
+	 * <em>URL</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>URL</em>'.
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopURL
+	 * @generated
+	 */
+	EClass getShopURL();
+
+	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.tests.shop.ShopURL#getUrl <em>Url</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Url</em>'.
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopURL#getUrl()
+	 * @see #getShopURL()
+	 * @generated
+	 */
+	EAttribute getShopURL_Url();
+
+	/**
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.ShopAddress
+	 * <em>Address</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Address</em>'.
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopAddress
+	 * @generated
+	 */
+	EClass getShopAddress();
+
+	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.tests.shop.ShopAddress#getUrl <em>Url</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Url</em>'.
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopAddress#getUrl()
+	 * @see #getShopAddress()
+	 * @generated
+	 */
+	EAttribute getShopAddress_Url();
+
+	/**
 	 * Returns the meta object for enum '{@link com.rcpcompany.uibindings.tests.shop.CustomerType
 	 * <em>Customer Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -1813,6 +2073,14 @@ public interface ShopPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SHOP__SHOP_GROUPS = eINSTANCE.getShop_ShopGroups();
+
+		/**
+		 * The meta object literal for the '<em><b>Infos</b></em>' containment reference list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference SHOP__INFOS = eINSTANCE.getShop_Infos();
 
 		/**
 		 * The meta object literal for the '
@@ -2238,6 +2506,55 @@ public interface ShopPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SHOP_ITEM_URL__URL = eINSTANCE.getShopItemURL_Url();
+
+		/**
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.tests.shop.impl.ShopInformationImpl
+		 * <em>Information</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopInformationImpl
+		 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getShopInformation()
+		 * @generated
+		 */
+		EClass SHOP_INFORMATION = eINSTANCE.getShopInformation();
+
+		/**
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.tests.shop.impl.ShopURLImpl <em>URL</em>}' class. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopURLImpl
+		 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getShopURL()
+		 * @generated
+		 */
+		EClass SHOP_URL = eINSTANCE.getShopURL();
+
+		/**
+		 * The meta object literal for the '<em><b>Url</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute SHOP_URL__URL = eINSTANCE.getShopURL_Url();
+
+		/**
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.tests.shop.impl.ShopAddressImpl <em>Address</em>}'
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopAddressImpl
+		 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getShopAddress()
+		 * @generated
+		 */
+		EClass SHOP_ADDRESS = eINSTANCE.getShopAddress();
+
+		/**
+		 * The meta object literal for the '<em><b>Url</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute SHOP_ADDRESS__URL = eINSTANCE.getShopAddress_Url();
 
 		/**
 		 * The meta object literal for the '

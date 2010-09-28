@@ -10,7 +10,9 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.internal;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.databinding.observable.list.IObservableList;
@@ -23,6 +25,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.databinding.EObjectObservableList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -71,8 +74,10 @@ import org.eclipse.swt.widgets.Widget;
 
 import com.rcpcompany.uibindings.BindingState;
 import com.rcpcompany.uibindings.Constants;
+import com.rcpcompany.uibindings.EcoreExtUtils;
 import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingDataType;
+import com.rcpcompany.uibindings.IChildCreationSpecification;
 import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IColumnBindingCellInformation;
 import com.rcpcompany.uibindings.IElementParentage;
@@ -162,17 +167,22 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 
 	@Override
 	public IViewerBinding model(IObservableList list) {
+		assertTrue(list != null, "List must be non-null");
 		return model(list, IBindingDataType.Factory.create(list));
 	}
 
 	@Override
 	public IViewerBinding model(EObject object, EReference reference) {
+		assertTrue(reference != null, "Reference must be non-null");
+		assertTrue(reference.isMany(), "Reference for viewer must be to-many: " + reference.getName());
 		return model(UIBindingsEMFObservables.observeList(null, getEditingDomain(), object, reference),
 				BindingDataTypeFactory.create(reference));
 	}
 
 	@Override
 	public IViewerBinding model(IObservableValue object, EReference reference) {
+		assertTrue(reference != null, "Reference must be non-null");
+		assertTrue(reference.isMany(), "Reference for viewer must be to-many: " + reference.getName());
 		return model(UIBindingsEMFObservables.observeDetailList(object, reference),
 				BindingDataTypeFactory.create(reference));
 	}
@@ -488,6 +498,8 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 					}
 					if (l instanceof MyDetailObservableList)
 						return (EReference) ((MyDetailObservableList) l).getElementType();
+					if (l instanceof EObjectObservableList)
+						return (EReference) ((EObjectObservableList) l).getElementType();
 					return null;
 				}
 
@@ -502,6 +514,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 					}
 					if (l instanceof MyDetailObservableList)
 						return (EObject) ((MyDetailObservableList) l).getObserved();
+					if (l instanceof EObjectObservableList) return (EObject) ((EObjectObservableList) l).getObserved();
 					return null;
 				}
 
@@ -514,6 +527,74 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		if (getViewer() instanceof TreeViewer) return myTreeFactory.getElementParentage(element);
 		return null;
 	};
+
+	@Override
+	public List<IChildCreationSpecification> getPossibleChildObjects(EObject parent) {
+		if (getViewer() instanceof TableViewer) {
+			final List<IChildCreationSpecification> specs = new ArrayList<IChildCreationSpecification>();
+
+			/*
+			 * Figure out the EReference of the elements
+			 */
+			EReference ref = null;
+			final IObservableList l = getList();
+			if (l instanceof EObjectEList<?>) {
+				final EObjectEList<?> el = (EObjectEList<?>) l;
+				final EStructuralFeature sf = el.getEStructuralFeature();
+				if (sf instanceof EReference) {
+					parent = (EObject) el.getNotifier();
+					ref = (EReference) sf;
+				}
+			}
+			if (ref == null && l instanceof MyDetailObservableList) {
+				parent = (EObject) ((MyDetailObservableList) l).getObserved();
+				ref = (EReference) ((MyDetailObservableList) l).getElementType();
+			}
+			if (ref == null && l instanceof EObjectObservableList) {
+				parent = (EObject) ((EObjectObservableList) l).getObserved();
+				ref = (EReference) ((EObjectObservableList) l).getElementType();
+			}
+			if (ref == null) return specs;
+			final EClass childType = ref.getEReferenceType();
+
+			addToChildCreationSpecification(specs, parent, ref, childType);
+
+			/*
+			 * Find all sub-types
+			 */
+			return specs;
+		}
+		if (getViewer() instanceof TreeViewer) return myTreeFactory.getPossibleChildObjects(parent);
+		return null;
+	}
+
+	/**
+	 * Adds to the specified list of {@link IChildCreationSpecification} with the specified
+	 * information.
+	 * <p>
+	 * Also adds any sub-class of child type.
+	 * 
+	 * @param specs the list of specifications to add to
+	 * @param parent the parent object
+	 * @param ref the reference
+	 * @param childType the child type
+	 */
+	public static void addToChildCreationSpecification(final List<IChildCreationSpecification> specs, EObject parent,
+			EReference ref, final EClass childType) {
+		/*
+		 * TODO: allow the user to prevent the addition
+		 */
+		if (!childType.isAbstract() && !childType.isInterface()) {
+			specs.add(new ChildCreationSpecification(parent, ref, childType));
+		}
+
+		final Collection<EClass> subClasses = EcoreExtUtils.getSubClasses(childType);
+		if (subClasses == null) return;
+
+		for (final EClass c : subClasses) {
+			addToChildCreationSpecification(specs, parent, ref, c);
+		}
+	}
 
 	@Override
 	public void setFocus(EObject element, int column) {

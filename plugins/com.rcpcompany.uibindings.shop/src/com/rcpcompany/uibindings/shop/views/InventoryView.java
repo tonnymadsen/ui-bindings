@@ -61,13 +61,13 @@ public class InventoryView extends ViewPart {
 		table.addColumn("forSale(w=2em)");
 		table.addColumn("group(w=10em)");
 		table.addColumn("price(w=10em)");
-		table.addColumn("properties{name='type': value}(w=10em)");
+		// table.addColumn("properties{name='type': value}(w=10em)");
 
 		final IFormCreator pSection = myForm.addSection("Properties", table.getBinding().getSingleSelection());
 		final ITableCreator pTable = pSection.addTableCreator(ShopPackage.Literals.SHOP_ITEM__PROPERTIES, true,
 				ITableCreator.FILTER | ITableCreator.RESIZE);
-		table.addColumn("name(w=20em)");
-		table.addColumn("value(w=20em)");
+		pTable.addColumn("name(w=20em)");
+		pTable.addColumn("value(w=20em)");
 
 		final IObservableFactory usesFactory = new IObservableFactory() {
 			@Override

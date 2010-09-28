@@ -19,6 +19,8 @@ import com.rcpcompany.uibindings.tests.shop.CustomerType;
 import com.rcpcompany.uibindings.tests.shop.Order;
 import com.rcpcompany.uibindings.tests.shop.OrderItem;
 import com.rcpcompany.uibindings.tests.shop.Shop;
+import com.rcpcompany.uibindings.tests.shop.ShopAddress;
+import com.rcpcompany.uibindings.tests.shop.ShopInformation;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopItemDescription;
 import com.rcpcompany.uibindings.tests.shop.ShopItemGroup;
@@ -26,6 +28,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopItemInformation;
 import com.rcpcompany.uibindings.tests.shop.ShopItemProperties;
 import com.rcpcompany.uibindings.tests.shop.ShopItemURL;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+import com.rcpcompany.uibindings.tests.shop.ShopURL;
 
 /**
  * <!-- begin-user-doc --> The <b>Validator</b> for the model. <!-- end-user-doc -->
@@ -160,6 +163,12 @@ public class ShopValidator extends EObjectValidator {
 			return validateShopItemDescription((ShopItemDescription) value, diagnostics, context);
 		case ShopPackage.SHOP_ITEM_URL:
 			return validateShopItemURL((ShopItemURL) value, diagnostics, context);
+		case ShopPackage.SHOP_INFORMATION:
+			return validateShopInformation((ShopInformation) value, diagnostics, context);
+		case ShopPackage.SHOP_URL:
+			return validateShopURL((ShopURL) value, diagnostics, context);
+		case ShopPackage.SHOP_ADDRESS:
+			return validateShopAddress((ShopAddress) value, diagnostics, context);
 		case ShopPackage.CUSTOMER_TYPE:
 			return validateCustomerType((CustomerType) value, diagnostics, context);
 		case ShopPackage.DIAGNOSTIC_CHAIN:
@@ -416,6 +425,34 @@ public class ShopValidator extends EObjectValidator {
 	 */
 	public boolean validateShopItemURL(ShopItemURL shopItemURL, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(shopItemURL, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateShopInformation(ShopInformation shopInformation, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(shopInformation, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateShopURL(ShopURL shopURL, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(shopURL, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateShopAddress(ShopAddress shopAddress, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(shopAddress, diagnostics, context);
 	}
 
 	/**

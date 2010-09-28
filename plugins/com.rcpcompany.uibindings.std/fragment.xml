@@ -104,10 +104,6 @@
                visible="false">
          </separator>
          <separator
-               name="undo"
-               visible="false">
-         </separator>
-         <separator
                name="new"
                visible="false">
          </separator>
@@ -116,9 +112,18 @@
                visible="false">
          </separator>
          <separator
+               name="undo"
+               visible="false">
+         </separator>
+         <separator
                name="navigation"
                visible="false">
          </separator>
+         <menu
+               id="popup.navigate"
+               label="Navigate"
+               mnemonic="N">
+         </menu>
          <separator
                name="additions"
                visible="false">
@@ -141,9 +146,6 @@
                   checkEnabled="true">
             </visibleWhen>
          </command>
-      </menuContribution>
-      <menuContribution
-            locationURI="popup:org.eclipse.ui.popup.any?after=new">
       </menuContribution>
       <menuContribution
             locationURI="popup:org.eclipse.ui.popup.any?after=open">
@@ -197,7 +199,7 @@
          </command>
       </menuContribution>
       <menuContribution
-            locationURI="popup:org.eclipse.ui.popup.any?after=navigation">
+            locationURI="popup:popup.navigate">
          <command
                commandId="com.rcpcompany.uibindings.commands.moveItemToTop"
                style="push">
@@ -261,6 +263,22 @@
          class="com.rcpcompany.uibindings.utils.IGlobalNavigationManager$ForwardHistoryMenuContributor"
          locationURI="menu:com.rcpcompany.uibindings.forwardHistoryMenu">
    </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.popup.any?after=new">
+         <menu
+               id="com.rcpcompany.uibindings.newMenu"
+               label="New"
+               mnemonic="N">
+         </menu>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            class="com.rcpcompany.uibindings.internal.handlers.NewHandlerMenuContributor"
+            locationURI="popup:com.rcpcompany.uibindings.newMenu">
+      </menuContribution>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">

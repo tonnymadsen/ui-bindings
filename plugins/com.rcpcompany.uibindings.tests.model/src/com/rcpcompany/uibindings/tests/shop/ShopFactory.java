@@ -131,6 +131,23 @@ public interface ShopFactory extends EFactory {
 	ShopItemURL createShopItemURL();
 
 	/**
+	 * Returns a new object of class '<em>URL</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>URL</em>'.
+	 * @generated
+	 */
+	ShopURL createShopURL();
+
+	/**
+	 * Returns a new object of class '<em>Address</em>'. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @return a new object of class '<em>Address</em>'.
+	 * @generated
+	 */
+	ShopAddress createShopAddress();
+
+	/**
 	 * Returns the package supported by this factory. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the package supported by this factory.

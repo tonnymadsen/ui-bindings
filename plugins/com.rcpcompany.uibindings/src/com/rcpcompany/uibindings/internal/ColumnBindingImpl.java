@@ -820,7 +820,12 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 				}
 			};
 
-			return factory.create(context);
+			try {
+				return factory.create(context);
+			} catch (final Exception ex) {
+				LogUtils.error(this, ex);
+			}
+			return null;
 		}
 
 		@Override

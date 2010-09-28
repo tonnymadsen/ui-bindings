@@ -13,6 +13,7 @@ package com.rcpcompany.uibindings.internal.handlers;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -23,6 +24,7 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
@@ -70,8 +72,35 @@ public class DeleteHandler extends AbstractHandler implements IHandler2 {
 		final List<EObject> list = SelectionUtils.computeSelection(s, EObject.class);
 		final Map<EObject, Collection<Setting>> references = UIBEcoreUtils.findIncommingRequiredReferences(list);
 		if (references != null) {
-			UIBEcoreUtils.showErrorDialog("Delete Aborted", "Cannot delete the selected objects", references);
-			return null;
+			/*
+			 * Go though the incomming references to filter out any references that cannot be
+			 * removed
+			 */
+			for (final Entry<EObject, Collection<Setting>> e : references.entrySet().toArray(
+					new Entry[references.entrySet().size()])) {
+				for (final Setting st : e.getValue().toArray(new Setting[e.getValue().size()])) {
+					final EStructuralFeature sf = st.getEStructuralFeature();
+					if (sf.isMany()) {
+						final List<?> l = (List<?>) st.get(false);
+						if (l.size() - 1 < sf.getLowerBound()) {
+							continue;
+						}
+					} else {
+						if (sf.isRequired()) {
+							continue;
+						}
+					}
+
+					e.getValue().remove(st);
+				}
+				if (e.getValue().isEmpty()) {
+					references.remove(e.getKey());
+				}
+			}
+			if (!references.isEmpty()) {
+				UIBEcoreUtils.showErrorDialog("Delete Aborted", "Cannot delete the selected objects", references);
+				return null;
+			}
 		}
 
 		// LogUtils.debug(this, "execute");
@@ -130,6 +159,9 @@ public class DeleteHandler extends AbstractHandler implements IHandler2 {
 	 * @return the command that will delete the current objects or <code>null</code>
 	 */
 	public static Command createCommand(IViewerBinding vb) {
+		/*
+		 * TODO: find a way to cache the result - this method is called far too many times!
+		 */
 		// Then find the selected objects
 		final ISelection s = vb.getViewer().getSelection();
 

@@ -284,8 +284,34 @@
          </javaDecorator>
       </bindingDecorator>
       <bindingDecorator
+            id="com.rcpcompany.uibindings.basic.eobject.longName"
+            type="qualifiedName">
+         <modelType
+               class="org.eclipse.emf.ecore.EObject">
+         </modelType>
+         <uiType
+               class="java.lang.String">
+         </uiType>
+         <javaDecorator
+               class="com.rcpcompany.uibindings.internal.decorators.GenericEObjectDecorator:qualified">
+         </javaDecorator>
+      </bindingDecorator>
+      <bindingDecorator
             id="com.rcpcompany.uibindings.basic.string.longName"
             type="longName">
+         <modelType
+               class="java.lang.String">
+         </modelType>
+         <uiType
+               class="java.lang.String">
+         </uiType>
+         <javaDecorator
+               class="com.rcpcompany.uibindings.internal.decorators.TextBindingDecorator">
+         </javaDecorator>
+      </bindingDecorator>
+      <bindingDecorator
+            id="com.rcpcompany.uibindings.basic.string.longName"
+            type="qualifiedName">
          <modelType
                class="java.lang.String">
          </modelType>
@@ -956,6 +982,16 @@
             description="%command.description.2"
             id="com.rcpcompany.uibindings.commands.moveItemToBottom"
             name="%command.name.2">
+      </command>
+      <command
+            categoryId="com.rcpcompany.uibindings.commandCategories.uiBindings"
+            id="com.rcpcompany.uibindings.commands.new"
+            name="New...">
+         <commandParameter
+               id="id"
+               name="id"
+               optional="false">
+         </commandParameter>
       </command>
       <command
             categoryId="com.rcpcompany.uibindings.commandCategories.uiBindings"

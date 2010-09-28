@@ -60,6 +60,7 @@ public class PreferredEditorPage extends FieldEditorPreferencePage implements IW
 				translation[i] = new String[] { d.getName(), d.getId() };
 			}
 
+			// IBindingObjectInformation.Factory.getLabel(mt.g) - upps - no class yet, just a name
 			/*
 			 * TODO: change this to use a proper binding
 			 * 

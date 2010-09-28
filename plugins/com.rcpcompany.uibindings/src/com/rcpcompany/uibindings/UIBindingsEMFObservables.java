@@ -98,6 +98,9 @@ public final class UIBindingsEMFObservables {
 			editingDomain = IManager.Factory.getManager().getEditingDomain();
 		}
 		final IEMFObservableFactory factory = IManager.Factory.getManager().getObservableFactory(eObject);
+		Assert.isTrue(eStructuralFeature.isMany(), "Feature must be to-many: " + eStructuralFeature);
+		final Object eList = eObject.eGet(eStructuralFeature);
+		Assert.isNotNull(eList, "Observed list may NOT be null - check for 'Resolve Proxies' property");
 		final IObservableList list = factory.observeList(realm, editingDomain, eObject, eStructuralFeature);
 		Assert.isTrue(eStructuralFeature == list.getElementType(), "Expected value not of right type. Expected " //$NON-NLS-1$
 				+ eStructuralFeature + ", got " + list.getElementType()); //$NON-NLS-1$

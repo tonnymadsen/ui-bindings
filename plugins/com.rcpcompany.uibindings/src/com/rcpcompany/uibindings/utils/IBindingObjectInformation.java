@@ -47,6 +47,22 @@ public interface IBindingObjectInformation extends IBindingObjectLongName, IDisp
 		}
 
 		/**
+		 * Returns a qualified name for the specified object - or "&lt;null&gt;" if
+		 * <code>null</code>.
+		 * <p>
+		 * A qualified name consists of the type of the object as well as the long name.
+		 * 
+		 * @param obj the object
+		 * @return the name or "&lt;null&gt;"
+		 */
+		public static String getQualifiedName(EObject obj) {
+			final IBindingObjectInformation ln = createObjectInformation(obj, Constants.TYPE_LONG_NAME);
+			final String name = ln.getLabel() + " " + ln.getName();
+			ln.dispose();
+			return name;
+		}
+
+		/**
 		 * Returns a new long name object for the specified object with the specified binding type.
 		 * 
 		 * @param obj the object
@@ -56,6 +72,16 @@ public interface IBindingObjectInformation extends IBindingObjectLongName, IDisp
 		public static IBindingObjectInformation createObjectInformation(EObject obj, String type) {
 			if (obj == null) return NULL_OI;
 			return new BindingObjectInformation(obj, obj.eClass(), type);
+		}
+
+		/**
+		 * Returns a new long name object for the specified class.
+		 * 
+		 * @param cls the class of the information object
+		 * @return long name object
+		 */
+		public static IBindingObjectInformation createObjectInformation(EClass cls) {
+			return new BindingObjectInformation(null, cls, null);
 		}
 
 		/**

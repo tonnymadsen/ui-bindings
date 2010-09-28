@@ -3,13 +3,15 @@
   <countries name="Denmark" uuid="DK" abbreviation="DK"/>
   <countries name="Norway" uuid="NO" abbreviation="NO"/>
   <countries name="Sweden" uuid="SE" abbreviation="SE"/>
+  <countries name="Finland" uuid="_otUH0MrREd-YTtT6Fix4Zw" abbreviation="FI"/>
   <contacts name="Tue Aller" uuid="_LsEGkMBGEd-siJXnD8pfBQ" address="Algade 4" city="Trondheim" zip="3400" country="NO" newsletter="true" birthday="1999-10-10T00:00:00.000+0200"/>
-  <contacts name="Hans Jörgenson" uuid="_L0m-kMBGEd-siJXnD8pfBQ" address="Vasagatan 5" city="Stockholm" zip="21 145" country="NO" customer="//@customers.1" birthday="1976-12-16T00:00:00.000+0100"/>
+  <contacts name="Hans Jörgensen" uuid="_L0m-kMBGEd-siJXnD8pfBQ" address="Vasagatan 5" city="Stockholm" zip="21 145" country="NO" customer="//@customers.1" birthday="1976-12-16T00:00:00.000+0100"/>
   <contacts name="Tonny Madsen" uuid="_L0u6YMBGEd-siJXnD8pfBQ" address="Rued Langgaards Vej 7, 5D12" city="København" zip="2300" country="DK" customer="//@customers.0" newsletter="true" birthday="1964-11-16T00:00:00.000+0100"/>
   <contacts name="Henrik Hansen" uuid="_L0wvkMBGEd-siJXnD8pfBQ" city="Søborg" country="NO" birthday="1964-11-16T00:00:00.000+0100"/>
   <contacts name="Søren Søren" uuid="_L0ykwMBGEd-siJXnD8pfBQ" city="Århus" country="DK" birthday="1964-11-16T00:00:00.000+0100"/>
   <contacts name="Tonny" uuid="_L00Z8MBGEd-siJXnD8pfBQ" city="Køge" country="NO"/>
   <contacts name="Allan" uuid="_L01oEMBGEd-siJXnD8pfBQ" city="Hvidovre" country="NO" newsletter="true"/>
+  <contacts name="Thomas" uuid="_0g5AAMgSEd-Mv9urbjVCgg" city="Turku" country="_otUH0MrREd-YTtT6Fix4Zw" newsletter="true"/>
   <shopItems name="EMF Eclipse Modeling Framework" uuid="_L05ScMBGEd-siJXnD8pfBQ" price="200.0"/>
   <shopItems name="RCP Principles" uuid="_L05SccBGEd-siJXnD8pfBQ" price="210.0"/>
   <shopItems name="Eclipse Plug-ins" uuid="_L05ScsBGEd-siJXnD8pfBQ" price="300.0" group="_L0_ZEMBGEd-siJXnD8pfBQ">
