@@ -116,7 +116,27 @@ public class ViewerSpecificLabelDecoratorExtender extends AbstractUIBindingDecor
 
 			@Override
 			public void addOverlay(ImageDescriptor overlay) {
-				addOverlay(overlay, IDecoration.TOP_LEFT);
+				final DecorationPosition pos = IManager.Factory.getManager().getMessageDecorationPosition();
+				switch (pos) {
+				case TOP_LEFT:
+				case CENTER_LEFT:
+					addOverlay(overlay, IDecoration.TOP_LEFT);
+					break;
+				case BOTTOM_LEFT:
+					addOverlay(overlay, IDecoration.BOTTOM_LEFT);
+					break;
+				case TOP_RIGHT:
+				case CENTER_RIGHT:
+					addOverlay(overlay, IDecoration.TOP_RIGHT);
+					break;
+				case BOTTOM_RIGHT:
+					addOverlay(overlay, IDecoration.BOTTOM_RIGHT);
+					break;
+				default:
+					LogUtils.error(this, "Unknown position: " + pos);
+					addOverlay(overlay, IDecoration.TOP_LEFT);
+					break;
+				}
 			}
 
 			@Override
