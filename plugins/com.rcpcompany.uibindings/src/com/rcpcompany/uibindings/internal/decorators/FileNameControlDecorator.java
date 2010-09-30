@@ -21,6 +21,7 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExecutableExtension;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.fieldassist.IContentProposal;
 import org.eclipse.jface.fieldassist.IContentProposalProvider;
 
@@ -84,6 +85,10 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 		final String fv = file.getAbsolutePath();
 //		LogUtils.debug(this, "f='" + value + "' (" + fv + ")");
 
+		if (v.isEmpty()) {
+			final EStructuralFeature modelFeature = getBinding().getModelFeature();
+			if (!modelFeature.isRequired()) return Status.OK_STATUS;
+		}
 		/*
 		 * - Check existance
 		 */
