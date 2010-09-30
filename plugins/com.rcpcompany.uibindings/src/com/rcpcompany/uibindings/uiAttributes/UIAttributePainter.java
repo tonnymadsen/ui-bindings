@@ -13,6 +13,7 @@ package com.rcpcompany.uibindings.uiAttributes;
 import java.util.List;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.util.Util;
 import org.eclipse.swt.SWT;
@@ -33,6 +34,8 @@ import org.eclipse.ui.forms.FormColors;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIAttribute;
+import com.rcpcompany.uibindings.internal.Activator;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * A painter for {@link IUIAttribute}.
@@ -417,8 +420,28 @@ public class UIAttributePainter {
 	 * @return the image
 	 */
 	private Image makeShot(Control control, boolean type) {
-		// Hopefully no platform uses exactly this color because we'll make
-		// it transparent in the image.
+		/*
+		 * First try to load the image directly from the plugin...
+		 */
+		final String osname = System.getProperty("os.name"); //$NON-NLS-1$
+		final String osversion = System.getProperty("os.version"); //$NON-NLS-1$
+
+		final String imageName = "images/checkbox/" + osname + "-" + osversion + "-" + type + ".png";
+		final ImageDescriptor id = Activator.imageDescriptorFromPlugin(Activator.ID, imageName);
+		if (id != null) {
+			LogUtils.debug("", imageName);
+			final Image i = id.createImage();
+			final Rectangle bounds = i.getBounds();
+			if (bounds.height + EXTRA_CELL_HEIGHT > myMinHeight) {
+				myMinHeight = bounds.height + EXTRA_CELL_HEIGHT;
+			}
+			return i;
+		}
+
+		/*
+		 * Hopefully no platform uses exactly this color because we'll make it transparent in the
+		 * image.
+		 */
 		final Color greenScreen = new Color(control.getDisplay(), 222, 223, 224);
 
 		final Shell shell = new Shell(control.getShell(), SWT.NO_TRIM);
@@ -476,6 +499,11 @@ public class UIAttributePainter {
 		if (bsize.y + EXTRA_CELL_HEIGHT > myMinHeight) {
 			myMinHeight = bsize.y + EXTRA_CELL_HEIGHT;
 		}
+
+//		final ImageLoader imageLoader = new ImageLoader();
+//		imageLoader.data = new ImageData[] { imageData };
+//
+//		imageLoader.save("c:\\Windows\\Temp\\checkbox-" + type + ".png", SWT.IMAGE_PNG);
 
 		return img;
 	}
