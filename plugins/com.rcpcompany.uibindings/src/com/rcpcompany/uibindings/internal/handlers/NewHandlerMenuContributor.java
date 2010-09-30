@@ -37,7 +37,6 @@ import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.internal.utils.SelectionUtils;
 import com.rcpcompany.uibindings.utils.IBindingObjectInformation;
 import com.rcpcompany.uibindings.utils.UIBEcoreUtils;
-import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Adds items to the "New..." sub-menu based on the current element of the current viewer.
@@ -161,6 +160,7 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 			final EObject child;
 			if (mySpec.getReference().isContainment()) {
 				child = EcoreUtil.create(mySpec.getChildType());
+				// TODO: initialize the object
 			} else {
 				child = null;
 				UIBEcoreUtils.showErrorDialog("New Aborted", "Cannot add the selected objects", null);
@@ -173,9 +173,12 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 			 * 
 			 * TODO return value
 			 */
-			if (!cmd.canExecute()) return;
+			if (!cmd.canExecute()) {
+				UIBEcoreUtils.showErrorDialog("New Aborted", "Cannot add the selected objects", null);
+				return;
+			}
 
-			LogUtils.debug(this, "execute");
+			// LogUtils.debug(this, "execute");
 
 			myEditingDomain.getCommandStack().execute(cmd);
 		}
