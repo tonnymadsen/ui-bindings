@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.EEnumLiteral;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -511,6 +512,10 @@ public class FormCreator implements IFormCreator {
 
 		int style = description.placeholderStyle;
 		if (myReadOnly || !description.binding.isChangeable()) {
+			style |= SWT.READ_ONLY;
+		}
+		final EStructuralFeature sf = description.binding.getModelFeature();
+		if (sf != null && (!sf.isChangeable() || EcoreUtil.isSuppressedVisibility(sf, EcoreUtil.SET))) {
 			style |= SWT.READ_ONLY;
 		}
 

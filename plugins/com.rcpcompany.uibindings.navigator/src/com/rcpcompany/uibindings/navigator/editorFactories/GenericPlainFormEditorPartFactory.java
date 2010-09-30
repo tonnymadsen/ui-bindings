@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.navigator.FormEditorPartFactory;
@@ -32,7 +33,6 @@ public class GenericPlainFormEditorPartFactory extends FormEditorPartFactory imp
 	@Override
 	protected void createForm(IEditorPartContext context, IFormCreator form) {
 		final EObject obj = (EObject) context.getCurrentValue().getValue();
-		System.out.println("=== " + obj);
 		final EClass cls = obj.eClass();
 
 		for (final EStructuralFeature sf : cls.getEAllStructuralFeatures()) {
@@ -48,7 +48,10 @@ public class GenericPlainFormEditorPartFactory extends FormEditorPartFactory imp
 
 			String spec = sf.getName();
 			String options = "";
-			if (!sf.isChangeable()) {
+			if (!sf.isChangeable() || EcoreUtil.isSuppressedVisibility(sf, EcoreUtil.SET)) {
+				/*
+				 * TODO: also query model/feature
+				 */
 				options += "," + Constants.ARG_READONLY;
 			}
 			if (options.length() > 0) {

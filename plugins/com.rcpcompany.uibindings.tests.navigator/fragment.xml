@@ -61,6 +61,14 @@
                class="com.rcpcompany.uibindings.tests.shop.ShopItemGroup">
          </modelType>
       </editor>
+      <editor
+            factory="com.rcpcompany.uibindings.navigator.editorFactories.GenericPlainFormEditorPartFactory"
+            id="com.rcpcompany.uibindings.navigator.extests.editors.GenericPlainFormEditorPartFactoryTests"
+            name="Test (GenericPlainFormEditorPartFactoryTests)">
+         <modelType
+               class="com.rcpcompany.uibindings.tests.shop.ShopItemGroup">
+         </modelType>
+      </editor>
       <preferenceModelType
             modelType="com.rcpcompany.uibindings.tests.shop.Shop">
       </preferenceModelType>

@@ -577,6 +577,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			if (widget != null && (!widget.isDisposed() && (widget.getStyle() & SWT.READ_ONLY) == SWT.READ_ONLY))
 				return false;
 		}
+		if (!getStaticDataType().isChangeable()) return false;
+		if (!getDataType().isChangeable()) return false;
 
 		if (getArgument(Constants.ARG_READONLY, Boolean.class, Boolean.FALSE)) return false;
 

@@ -21,13 +21,14 @@ import com.rcpcompany.uibindings.navigator.extests.manager.ManagerUseGenericEdit
 import com.rcpcompany.uibindings.navigator.extests.manager.NavigatorModelManagerTest;
 import com.rcpcompany.uibindings.navigator.extests.manager.PreferenceTests;
 import com.rcpcompany.uibindings.navigator.internal.views.EditorPartFactoryTests;
+import com.rcpcompany.uibindings.navigator.internal.views.GenericPlainFormEditorPartFactoryTests;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
 
-/*
- * All the basic UI Bindings tests
- */
+		/*
+		 * All the basic UI Bindings tests
+		 */
 // AllBindingTests.class,
 
 		/*
@@ -43,8 +44,9 @@ import com.rcpcompany.uibindings.navigator.internal.views.EditorPartFactoryTests
 		/*
 		 * View tests
 		 */
-		ShowViewTests.class, EditorPartLifecycleTests.class, EditorPartFactoryTests.class
+		ShowViewTests.class, EditorPartLifecycleTests.class, EditorPartFactoryTests.class,
+		GenericPlainFormEditorPartFactoryTests.class
 
 })
-public class AllEditorsTests {
+public class AllNavigatorTests {
 }

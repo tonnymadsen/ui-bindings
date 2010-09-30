@@ -33,13 +33,37 @@ public abstract class FormEditorPartFactory extends AbstractEditorPartFactory im
 		 * IBindingContextSelectionProvider is automatically disposed with the context..
 		 */
 		IBindingContextSelectionProvider.Factory.adapt(form.getContext(), context.getWorkbenchPart().getSite());
-		return new IEditorPart() {
-			@Override
-			public void dispose() {
-				form.dispose();
-			}
-		};
+		return new FormEditorPart(form);
+	}
 
+	/**
+	 * {@link IEditorPart} used for {@link FormEditorPartFactory} and sub-classes.
+	 */
+	public final class FormEditorPart implements IEditorPart {
+		private final IFormCreator myForm;
+
+		/**
+		 * Returns the form of this part.
+		 * 
+		 * @return the form
+		 */
+		public IFormCreator getForm() {
+			return myForm;
+		}
+
+		/**
+		 * Constructs and returns a new part for the specified form.
+		 * 
+		 * @param form the form
+		 */
+		public FormEditorPart(IFormCreator form) {
+			myForm = form;
+		}
+
+		@Override
+		public void dispose() {
+			myForm.dispose();
+		}
 	}
 
 	/**

@@ -127,7 +127,7 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 		}
 
 		final Class<?> expectedElementType = dynDataType.getDataType();
-		if (actualElementType != expectedElementType) {
+		if (expectedElementType.isAssignableFrom(actualElementType)) {
 			LogUtils.error(getBinding(), "List of supplied valid type does not match feature of binding: expected "
 					+ expectedElementType.getName() + " got " + actualElementType.getName(), getBinding()
 					.getCreationPoint());
