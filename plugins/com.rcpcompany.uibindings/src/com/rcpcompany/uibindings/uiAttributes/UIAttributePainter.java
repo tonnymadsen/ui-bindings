@@ -35,7 +35,6 @@ import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.internal.Activator;
-import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * A painter for {@link IUIAttribute}.
@@ -429,7 +428,6 @@ public class UIAttributePainter {
 		final String imageName = "images/checkbox/" + osname + "-" + osversion + "-" + type + ".png";
 		final ImageDescriptor id = Activator.imageDescriptorFromPlugin(Activator.ID, imageName);
 		if (id != null) {
-			LogUtils.debug("", imageName);
 			final Image i = id.createImage();
 			final Rectangle bounds = i.getBounds();
 			if (bounds.height + EXTRA_CELL_HEIGHT > myMinHeight) {
