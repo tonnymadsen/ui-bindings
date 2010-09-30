@@ -640,15 +640,10 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 
 			setCursor(labelAttribute.getCursor());
 
-			/*
-			 * Update the image decorations of the label...
-			 */
-			final Rectangle bounds = cell.getBounds();
-			labelAttribute.updateImageDecorations(getViewerBinding().getControl(), bounds, bounds);
-
 			// For testing
 			cell.setText((String) ci.getLabelUIAttribute().getCurrentValue().getValue());
-			cell.setImage(ci.getLabelUIAttribute().getImage());
+			// Removed as Windows behaves strangely!
+			// cell.setImage(ci.getLabelUIAttribute().getImage());
 		}
 
 		/**
@@ -742,6 +737,12 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			} else {
 				cellBounds = null;
 			}
+
+			/*
+			 * Update the image decorations of the label...
+			 */
+			labelBinding.getUIAttribute().updateImageDecorations(getViewerBinding().getControl(), cellBounds,
+					cellBounds);
 
 			painter.paint(event.gc, cellBounds);
 		}
@@ -1718,25 +1719,11 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		final StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (viewerColumn: "); //$NON-NLS-1$
-		result.append(viewerColumn);
-		result.append(", specialBindingType: "); //$NON-NLS-1$
-		result.append(specialBindingType);
-		result.append(", factory: "); //$NON-NLS-1$
-		result.append(factory);
-		result.append(", cursor: "); //$NON-NLS-1$
-		result.append(cursor);
-		result.append(", columnVisibility: "); //$NON-NLS-1$
-		result.append(columnVisibility);
-		result.append(')');
-		return result.toString();
+		return super.toString();
 	}
 
 	@Override

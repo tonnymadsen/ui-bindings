@@ -56,7 +56,6 @@ public class DiagnosticChainTest {
 	private TestView myView;
 	private Composite myBody;
 	private ShopItem myItem;
-	private String myOldName;
 	private IBindingContext myContext;
 	private IValueBinding myBinding;
 	private ValueBindingMessageImageDecorator myMessageDecorator;
@@ -73,9 +72,12 @@ public class DiagnosticChainTest {
 		IManager.Factory.getManager().setValidationDelay(VD);
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 
-		myShop = ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain());
-		myItem = myShop.getShopItems().get(0);
-		myOldName = myItem.getName();
+		myShop = ShopFactory.eINSTANCE.createShop();
+		myShop.setName("NN");
+		myItem = ShopFactory.eINSTANCE.createShopItem();
+		myItem.setName("xxx");
+		myItem.setPrice(10f);
+		myItem.setShop(myShop);
 
 		myView = createTestView(this);
 		myBody = myView.getBody();
@@ -105,7 +107,6 @@ public class DiagnosticChainTest {
 
 	@After
 	public void after() {
-		myItem.setName(myOldName);
 		myValidatorManager.removeRoot(myShop, myValidationAdapter);
 	}
 
@@ -124,11 +125,12 @@ public class DiagnosticChainTest {
 		myItem.setName("x");
 		sleep(2 * VD);
 
+		System.out.println(myValidatorManager.getUnboundMessages());
 		assertEquals(noUnboundMessages + 1, myValidatorManager.getUnboundMessages().size());
 		// Still no messages assigned to the name as the feature of the diagnostic is missing
-		assertEquals(0, messages.size());
+		assertEquals(1, messages.size());
 
-		myItem.setName(myOldName);
+		myItem.setName("xxx");
 		sleep(2 * VD);
 
 		assertEquals(noUnboundMessages, myValidatorManager.getUnboundMessages().size());

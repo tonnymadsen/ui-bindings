@@ -293,8 +293,10 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 
 	@Override
 	public void dispose() {
-		for (final IUIAttributeImageDecoration id : getImageDecorations()) {
-			id.dispose();
+		if (eIsSet(IUIBindingsPackage.Literals.UI_ATTRIBUTE__IMAGE_DECORATIONS)) {
+			for (final IUIAttributeImageDecoration id : getImageDecorations()) {
+				id.dispose();
+			}
 		}
 		setAttribute(ATTRIBUTE_EDEFAULT);
 	}

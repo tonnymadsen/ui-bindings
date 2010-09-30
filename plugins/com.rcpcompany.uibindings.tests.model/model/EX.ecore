@@ -4,18 +4,17 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model"
     nsURI="http://rcp-company.com/schemas/uibindings/testModel" nsPrefix="tm">
   <eClassifiers xsi:type="ecore:EClass" name="TestObject">
+    <eAnnotations source="http://rcp-company.com/schemas/uibindings">
+      <details key="foobar-Sequence" value="TestObject (annotation)"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        unsettable="true">
-      <eAnnotations source="http://rcp-company.com/schemas/uibindings">
-        <details key="foobar" value="b"/>
-      </eAnnotations>
-    </eStructuralFeatures>
+        unsettable="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="d" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="f" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://rcp-company.com/schemas/uibindings">
-        <details key="foobar" value="not used: feature text"/>
+        <details key="foobar-Sequence" value="TestObject.text (annotation)"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//TestContainer"
@@ -31,24 +30,27 @@
         <details key="foobar" value="b"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="long" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
-      <eAnnotations source="http://rcp-company.com/schemas/uibindings">
-        <details key="foobar" value="b"/>
-      </eAnnotations>
-    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="long" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="bigDecimal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="bigInteger" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SubTestObject" eSuperTypes="#//TestObject">
     <eAnnotations source="http://rcp-company.com/schemas/uibindings">
-      <details key="number.foobar" value="b.sub"/>
+      <details key="text.foobar-Sequence" value="SubTestObject (annotation)"/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TestContainer">
+    <eAnnotations source="http://rcp-company.com/schemas/uibindings">
+      <details key="foobar-Sequence" value="TestContainer (annotation)"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
         eType="#//TestObject" containment="true" eOpposite="#//TestObject/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="current" eType="#//TestObject"
-        unsettable="true"/>
+        unsettable="true">
+      <eAnnotations source="http://rcp-company.com/schemas/uibindings">
+        <details key="foobar-Sequence" value="TestContainer.current (annotation)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AmountAndCurrency">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>

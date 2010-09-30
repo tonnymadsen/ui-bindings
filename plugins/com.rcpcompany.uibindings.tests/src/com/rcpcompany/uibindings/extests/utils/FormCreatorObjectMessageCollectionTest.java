@@ -65,6 +65,8 @@ public class FormCreatorObjectMessageCollectionTest {
 		yield();
 		myValidatorManager = IValidatorAdapterManager.Factory.getManager();
 		myValidatorManager.addRoot(myValidationAdapter.getShop(), myValidationAdapter);
+		myValidationAdapter.getItem().setPrice(10f);
+		sleep(VD + 100);
 	}
 
 	@After
@@ -83,9 +85,13 @@ public class FormCreatorObjectMessageCollectionTest {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
+				assertEquals(2, myValidatorManager.getUnboundMessages().size());
+
 				final IBindingContext context = myForm.getContext();
 				final ContextMessageDecorator decorator = context.getService(ContextMessageDecorator.class);
+				assertNotNull(context);
 				final List<IBindingMessage> messages = decorator.getMessages();
+				assertNotNull(messages);
 
 				assertEquals(1, messages.size());
 				final IBindingMessage message = messages.get(0);

@@ -96,6 +96,9 @@ public class ViewerPasteHandler extends AbstractHandler implements IHandler {
 			if (binding.hasArguments()) {
 				pasteBinding.getExtraArgumentProviders().add(binding);
 			}
+			if (binding.getParentBinding() != null) {
+				pasteBinding.getExtraArgumentProviders().add(binding.getParentBinding());
+			}
 			if (binding.eIsSet(IUIBindingsPackage.Literals.BINDING__EXTRA_ARGUMENT_PROVIDERS)) {
 				pasteBinding.getExtraArgumentProviders().addAll(binding.getExtraArgumentProviders());
 			}

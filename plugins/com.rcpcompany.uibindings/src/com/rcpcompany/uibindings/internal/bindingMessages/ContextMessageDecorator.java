@@ -33,11 +33,6 @@ import com.rcpcompany.uibindings.internal.utils.AbstractContextMonitor;
  */
 public class ContextMessageDecorator extends AbstractContextMonitor {
 	/**
-	 * The {@link IBindingContext} of this message decorator.
-	 */
-	private final IBindingContext myContext;
-
-	/**
 	 * The {@link IContextMessageDecoratorAdapter adapter} for this decorator context.
 	 */
 	private IContextMessageDecoratorAdapter myAdapter;
@@ -68,16 +63,15 @@ public class ContextMessageDecorator extends AbstractContextMonitor {
 	 */
 	public ContextMessageDecorator(IBindingContext context, IContextMessageDecoratorAdapter adapter) {
 		super(context);
-		myContext = context;
 		myAdapter = adapter;
 
-		myContext.registerService(this);
+		getContext().registerService(this);
 		init();
 	}
 
 	@Override
 	public void dispose() {
-		myContext.unregisterService(this);
+		getContext().unregisterService(this);
 		super.dispose();
 		if (myAdapter != null) {
 			myAdapter.dispose();

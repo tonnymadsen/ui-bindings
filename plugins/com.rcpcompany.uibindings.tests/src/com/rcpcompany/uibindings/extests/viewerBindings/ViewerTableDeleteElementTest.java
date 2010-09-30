@@ -14,7 +14,6 @@ import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.commands.NotEnabledException;
 import org.eclipse.core.commands.ParameterizedCommand;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -227,14 +226,22 @@ public class ViewerTableDeleteElementTest {
 			final ParameterizedCommand deleteCommand = cs.deserialize(ActionFactory.DELETE.getCommandId());
 
 			// myTableViewer1.getTable().setFocus();
-			postMouse((Table) myCountriesVB.getControl(), 0 + myCountriesVB.getFirstTableColumnOffset(), 1);
+			final Table table = (Table) myCountriesVB.getControl();
+			postMouse(table, 0 + myCountriesVB.getFirstTableColumnOffset(), 1);
 			yield();
 
 			assertEquals(2, myShop.getCountries().size());
 			try {
+				table.getDisplay().timerExec(1000, new Runnable() {
+					@Override
+					public void run() {
+						postKeyStroke(table, "ENTER");
+					}
+				});
 				hs.executeCommand(deleteCommand, null);
+				sleep(1500);
 				fail("Should not execute command");
-			} catch (final NotEnabledException ex) {
+			} catch (final ExecutionException ex) {
 				// do nothing
 			}
 			assertEquals(2, myShop.getCountries().size());

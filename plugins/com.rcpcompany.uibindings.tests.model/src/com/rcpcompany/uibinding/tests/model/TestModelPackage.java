@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * 
  * @see com.rcpcompany.uibinding.tests.model.TestModelFactory
+ * @model kind="package"
  * @generated
  */
 public interface TestModelPackage extends EPackage {
@@ -443,8 +444,8 @@ public interface TestModelPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '
-	 * {@link com.rcpcompany.uibinding.tests.model.internal.TestGridImpl <em>Test Grid</em>} '
-	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibinding.tests.model.internal.TestGridImpl <em>Test Grid</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see com.rcpcompany.uibinding.tests.model.internal.TestGridImpl
 	 * @see com.rcpcompany.uibinding.tests.model.internal.TestModelPackageImpl#getTestGrid()
@@ -734,7 +735,7 @@ public interface TestModelPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibinding.tests.model.TestObject#isB <em>B</em>} '. <!-- begin-user-doc
+	 * {@link com.rcpcompany.uibinding.tests.model.TestObject#isB <em>B</em>}'. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>B</em>'.
@@ -1477,7 +1478,7 @@ public interface TestModelPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link com.rcpcompany.uibinding.tests.model.WeightUnit
-		 * <em>Weight Unit</em>} ' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <em>Weight Unit</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see com.rcpcompany.uibinding.tests.model.WeightUnit
 		 * @see com.rcpcompany.uibinding.tests.model.internal.TestModelPackageImpl#getWeightUnit()

@@ -50,6 +50,7 @@ import com.rcpcompany.uibindings.observables.IObservableListMapper;
 import com.rcpcompany.uibindings.observables.ProxyObservableValue;
 import com.rcpcompany.uibindings.utils.CoreRuntimeException;
 import com.rcpcompany.uibindings.utils.ExtendedCommandStack;
+import com.rcpcompany.utils.basic.ClassUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -428,6 +429,9 @@ public final class UIBindingsUtils {
 	 */
 	public static final DefaultMapper DEFAULT_MAPPER = new DefaultMapper();
 
+	/**
+	 * {@link IClassIdentiferMapper} based on {@link Object#toString()}.
+	 */
 	public static class DefaultMapper implements IClassIdentiferMapper {
 		@Override
 		public Object map(Object value) {
@@ -438,11 +442,24 @@ public final class UIBindingsUtils {
 		public IObservableValue getObservableValue(IObservableValue value, EditingDomain editingDomain) {
 			return value;
 		}
+
+		@Override
+		public String toString() {
+			return ClassUtils.getLastClassName(this) + "[]";
+		}
 	}
 
+	/**
+	 * {@link IClassIdentiferMapper} based on a single {@link EStructuralFeature feature}.
+	 */
 	protected static class SingleFeatureMapper implements IClassIdentiferMapper {
 		private final EStructuralFeature myFeature;
 
+		/**
+		 * Constructs and returns a new mapper based on the specified feature.
+		 * 
+		 * @param feature the feature of the mapper
+		 */
 		protected SingleFeatureMapper(EStructuralFeature feature) {
 			myFeature = feature;
 		}
@@ -463,11 +480,24 @@ public final class UIBindingsUtils {
 			value = new ProxyObservableValue(value);
 			return UIBindingsEMFObservables.observeDetailValue(value.getRealm(), editingDomain, value, myFeature);
 		}
+
+		@Override
+		public String toString() {
+			return ClassUtils.getLastClassName(this) + "[" + myFeature.getName() + "]";
+		}
 	}
 
+	/**
+	 * {@link IClassIdentiferMapper} based on a chain of {@link EStructuralFeature features}.
+	 */
 	protected static class MultipleFeatureMapper implements IClassIdentiferMapper {
 		private final EStructuralFeature[] myFeatures;
 
+		/**
+		 * Constructs and returns a new mapper based on the specified features.
+		 * 
+		 * @param features the features of the mapper
+		 */
 		protected MultipleFeatureMapper(EStructuralFeature[] features) {
 			myFeatures = features;
 		}
@@ -489,6 +519,23 @@ public final class UIBindingsUtils {
 				value = UIBindingsEMFObservables.observeDetailValue(value.getRealm(), editingDomain, value, sf);
 			}
 			return value;
+		}
+
+		@Override
+		public String toString() {
+			final StringBuilder sb = new StringBuilder(50);
+			sb.append(ClassUtils.getLastClassName(this)).append('[');
+			boolean first = true;
+			for (final EStructuralFeature sf : myFeatures) {
+				if (!first) {
+					sb.append('.');
+				}
+				sb.append(sf.getName());
+				first = false;
+			}
+			sb.append(']');
+
+			return sb.toString();
 		}
 	}
 

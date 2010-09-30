@@ -1178,13 +1178,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		final StringBuffer result = new StringBuffer(super.toString());
-		result.append(", viewer: "); //$NON-NLS-1$
-		result.append(viewer);
-		result.append(')');
-		return result.toString();
+		return super.toString();
 	}
 
 	@Override

@@ -180,6 +180,7 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 		if (Activator.getDefault().TRACE_ATTRIBUTE_IMAGE_DECORATORS) {
 			LogUtils.debug(this, this + ": t=" + getTooltipValue().getValue() + ", bounds=" + innerBounds); //$NON-NLS-1$ //$NON-NLS-2$
 		}
+
 		final Object v = getImageValue().getValue();
 		if (v == null) {
 			if (myControlDecoration != null) {
@@ -202,7 +203,7 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 		final Rectangle imageBounds = i.getBounds();
 		final Rectangle bounds = isOutside() ? outerBounds : innerBounds;
 		if (bounds.width == 0 || bounds.height == 0) {
-			LogUtils.debug(this, "bound zero size: " + bounds);
+			LogUtils.debug(this, "zero size bounds: " + bounds);
 			return;
 		}
 

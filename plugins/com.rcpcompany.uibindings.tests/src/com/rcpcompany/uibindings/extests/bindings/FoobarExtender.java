@@ -16,25 +16,17 @@ import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.decorators.extenders.AbstractUIBindingDecoratorExtender;
 
 /**
- * Dummy extender for use in {@link ArgumentsScopeTest#testDecoratorExtender()}.
+ * Dummy extender for use in {@link ArgumentsSequenceTest#testDecoratorExtender()}.
  * 
  * @author Tonny Madsen, The RCP Company
  */
 public class FoobarExtender extends AbstractUIBindingDecoratorExtender implements IUIBindingDecoratorExtender {
-
-	public FoobarExtender() {
-		// TODO Auto-generated constructor stub
-	}
-
 	@Override
 	public boolean isEnabled(IValueBinding binding) {
-		return "foobar".equals(binding.getArgument("extender"));
+		return "foobar".equals(binding.getArgument("extender", String.class, null));
 	}
 
 	@Override
 	public void extend(IUIBindingDecoratorExtenderContext context) {
-		// TODO Auto-generated method stub
-
 	}
-
 }

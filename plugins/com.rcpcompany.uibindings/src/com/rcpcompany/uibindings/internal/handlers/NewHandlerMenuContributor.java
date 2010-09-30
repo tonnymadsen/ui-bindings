@@ -62,8 +62,21 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 
 	/**
 	 * Empty set of items.
+	 * <p>
+	 * Used when no items can be found in {@link #getContributionItems()}.
 	 */
-	private final IContributionItem[] EMPTY_ITEMS = new IContributionItem[0];
+	private final IContributionItem[] EMPTY_ITEMS = new IContributionItem[1];
+	{
+		EMPTY_ITEMS[0] = new ContributionItem() {
+			@Override
+			public void fill(Menu menu, int index) {
+				final MenuItem item = new MenuItem(menu, SWT.NONE);
+
+				item.setText("Nothing to create...");
+				item.setEnabled(false);
+			};
+		};
+	}
 
 	@Override
 	protected IContributionItem[] getContributionItems() {
@@ -86,7 +99,7 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 		/*
 		 * Less than two specs... no need for an open with menu... Ignore.
 		 */
-		if (specs.size() < 1) return EMPTY_ITEMS;
+		if (specs == null || specs.size() < 1) return EMPTY_ITEMS;
 
 		/*
 		 * Create contributions items for all the specifications

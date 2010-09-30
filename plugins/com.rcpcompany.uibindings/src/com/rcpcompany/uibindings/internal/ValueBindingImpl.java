@@ -13,7 +13,6 @@ package com.rcpcompany.uibindings.internal;
 import java.lang.reflect.Constructor;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.observable.ChangeEvent;
@@ -26,7 +25,6 @@ import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -70,7 +68,6 @@ import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IValueBindingCell;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.internal.bindingDataTypes.BindingDataTypeFactory;
-import com.rcpcompany.uibindings.internal.observables.MyDetailObservableValue;
 import com.rcpcompany.uibindings.uiAttributes.SimpleUIAttribute;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -125,20 +122,38 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		final IObservableValue ov = getModelObservableValue();
 		if (ov != null) {
 			/*
-			 * Use the real type of the current value... if set...
-			 */
-			final Object v = ov.getValue();
-			if (v != null) return BindingDataTypeFactory.create(v.getClass());
-
-			/*
-			 * If we have a MyDetailObservableValue, then use the the value type of this.
+			 * Find the data type based on the OV:
 			 * 
 			 * This will use the value type of the inner observable, if set...
 			 */
-			if (ov instanceof MyDetailObservableValue) {
-				final Object valueType = ((MyDetailObservableValue) ov).getValueType();
-				if (valueType != null) return BindingDataTypeFactory.create(valueType);
+			IBindingDataType dt = null;
+			if (ov instanceof IObservableValue) {
+				final Object valueType = (ov).getValueType();
+				dt = BindingDataTypeFactory.create(valueType);
 			}
+
+			/*
+			 * The current value
+			 */
+			final Object v = ov.getValue();
+
+			/*
+			 * If we have both a value and the data type from the OV, AND the two agree exactly,
+			 * then use the data type from the OV, as this is more rich.
+			 * 
+			 * Also automatically used for Strings, etc...
+			 */
+			if (v != null && dt != null && v.getClass() == dt.getDataType()) return dt;
+
+			/*
+			 * Use the real type of the current value... if set...
+			 */
+			if (v != null) return BindingDataTypeFactory.create(v.getClass());
+
+			/*
+			 * If we have the data type, then use this...
+			 */
+			if (dt != null) return dt;
 		}
 
 		/*
@@ -487,8 +502,6 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		final IBindingDataType newDynamicDataType = getDataType();
 		if (myPreviousDynamicDataType == newDynamicDataType) return;
 
-		myPreviousDynamicDataType = newDynamicDataType;
-
 		/*
 		 * Clean up the old decoration as well as the old cached argument
 		 */
@@ -503,6 +516,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 		final IDecoratorProvider provider = IManager.Factory.getManager()
 				.getProvider(modelValueType, uiValueType, type);
+
+		myPreviousDynamicDataType = newDynamicDataType;
 
 		/*
 		 * Add a note about missing support
@@ -844,33 +859,47 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		}
 	}
 
+	/**
+	 * Used to prevent a recursive all to {@link #getArgument(String, Class, Object)}.
+	 * <p>
+	 * Can otherwise happen when {@link IUIBindingDecoratorExtender#isEnabled(IValueBinding)} uses
+	 * {@link #getArgument(String, Class, Object)} to decide whether the extender is enablewd.
+	 */
+	private boolean addDecoratorExtenderArgumentsInvoked = false;
+
 	@Override
 	public <ArgumentType> boolean addDecoratorExtenderArguments(List<IArgumentValue<ArgumentType>> results,
 			String name, Class<? extends ArgumentType> argumentType, boolean firstOnly) {
-		boolean got = false;
+		if (addDecoratorExtenderArgumentsInvoked) return false;
+		try {
+			addDecoratorExtenderArgumentsInvoked = true;
+			boolean got = false;
 
-		for (final IUIBindingDecoratorExtenderDescriptor d : IManager.Factory.getManager().getDecoratorExtenders()) {
-			/*
-			 * Optimalization: not many extenders will have arguments
-			 */
-			if (!d.hasArguments()) {
-				continue;
-			}
-			final CEObjectHolder<IUIBindingDecoratorExtender> factory = d.getFactory();
-			final IUIBindingDecoratorExtender extender = factory.getObject();
-			if (extender == null) {
-				LogUtils.error(factory.getConfigurationElement(), "Cannot create extender"); //$NON-NLS-1$
-				continue;
+			for (final IUIBindingDecoratorExtenderDescriptor d : IManager.Factory.getManager().getDecoratorExtenders()) {
+				/*
+				 * Optimalization: not many extenders will have arguments
+				 */
+				if (!d.hasArguments()) {
+					continue;
+				}
+				final CEObjectHolder<IUIBindingDecoratorExtender> factory = d.getFactory();
+				final IUIBindingDecoratorExtender extender = factory.getObject();
+				if (extender == null) {
+					LogUtils.error(factory.getConfigurationElement(), "Cannot create extender"); //$NON-NLS-1$
+					continue;
+				}
+
+				if (!extender.isEnabled(this)) {
+					continue;
+				}
+				got |= getArgumentProviderArguments(results, name, d, argumentType, firstOnly);
+				if (got && firstOnly) return true;
 			}
 
-			if (!extender.isEnabled(this)) {
-				continue;
-			}
-			got |= getArgumentProviderArguments(results, name, d, argumentType, firstOnly);
-			if (got && firstOnly) return true;
+			return got;
+		} finally {
+			addDecoratorExtenderArgumentsInvoked = false;
 		}
-
-		return got;
 	}
 
 	@Override
@@ -1153,39 +1182,6 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		return super.eIsSet(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public String toString() {
-		String baseType = getBaseType();
-		if (hasArguments()) {
-			for (final Entry<String, Object> e : getArguments().entrySet()) {
-				String s = e.getValue() == null ? Messages.ValueBindingImpl_NullString : e.getValue().toString();
-				if (s.length() > 15) {
-					s = s.substring(0, 15) + "..."; //$NON-NLS-1$
-				}
-				baseType += ", " + e.getKey() + "=" + s; //$NON-NLS-1$ //$NON-NLS-2$
-			}
-		}
-		if (getState() != BindingState.OK) {
-			baseType += ", STATE=" + getState();
-		}
-
-		return getClass().getSimpleName() + "[" + baseType + "]#" + hashCode(); //$NON-NLS-1$ //$NON-NLS-2$
-	}
-
-	private String getBaseType() {
-		final EStructuralFeature feature = getModelFeature();
-		if (feature != null) return feature.getEContainingClass().getName() + "." + feature.getName(); //$NON-NLS-1$
-		final EClassifier modelEType = getModelEType();
-		if (modelEType != null) return modelEType.getName();
-
-		return super.toString();
-	}
-
 	@Override
 	public Widget getWidget() {
 		final IUIAttribute attribute = getUIAttribute();
@@ -1198,6 +1194,14 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		final Widget widget = getWidget();
 		if (widget instanceof Control) return (Control) widget;
 		return null;
+	}
+
+	@Override
+	protected String getBaseType() {
+		final EStructuralFeature feature = getModelFeature();
+		if (feature != null) return feature.getEContainingClass().getName() + "." + feature.getName(); //$NON-NLS-1$
+
+		return super.getBaseType();
 	}
 
 	@Override

@@ -80,7 +80,7 @@ public interface TestGridCell extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Column</b></em>' reference. It is bidirectional and its
-	 * opposite is ' {@link com.rcpcompany.uibinding.tests.model.TestGridColumn#getCells
+	 * opposite is '{@link com.rcpcompany.uibinding.tests.model.TestGridColumn#getCells
 	 * <em>Cells</em>}'. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Column</em>' reference isn't clear, there really should be more of

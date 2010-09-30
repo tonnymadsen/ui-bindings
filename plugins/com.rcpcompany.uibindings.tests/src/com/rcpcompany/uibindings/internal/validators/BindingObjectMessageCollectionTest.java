@@ -122,9 +122,11 @@ public class BindingObjectMessageCollectionTest {
 		assertNotNull(myMessageDecorator);
 
 		final int initNoUnboundMessage = myValidatorManager.getUnboundMessages().size();
+		System.out.println(myValidatorManager.getUnboundMessages());
 		assertEquals(0, initNoUnboundMessage);
 
 		myValidatorManager.addRoot(myValidationAdapter.getShop(), myValidationAdapter);
+		sleep(VD + 100);
 
 		final int noUnboundMessage = myValidatorManager.getUnboundMessages().size();
 		assertTrue(noUnboundMessage >= initNoUnboundMessage);

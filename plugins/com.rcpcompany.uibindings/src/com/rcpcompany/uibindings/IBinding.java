@@ -372,8 +372,20 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	/**
 	 * Returns the named argument or <code>null</code> if not set.
 	 * <p>
-	 * Will look for the argument among the arguments of the binding first and then among the
-	 * annotations (declared arguments) of the data type.
+	 * Will look for the argument in the following places:
+	 * <nl>
+	 * <li>any previously cached result</li>
+	 * <li>declared argument of any enabled decorator extenders ({@link IUIBindingDecoratorExtender}
+	 * )</li>
+	 * <li>any direct argument ({@link #arg(String, Object)} and friends)</li>
+	 * <li>declared argument of the current decorator ({@link IUIBindingDecoratorExtender})</li>
+	 * <li>the current dynamic data type {@link #getDataType()} if the binding is dynamic - this
+	 * leads to model and feature arguments as well as annotations from the Ecore model</li>
+	 * <li>the Java super types of the current dynamic data type</li>
+	 * <li>the static data type</li>
+	 * <li>the Java super types of the static data type</li>
+	 * <li>any extra argument providers</li>
+	 * </nl>
 	 * 
 	 * @param <ArgumentType> the wanted argument type
 	 * 

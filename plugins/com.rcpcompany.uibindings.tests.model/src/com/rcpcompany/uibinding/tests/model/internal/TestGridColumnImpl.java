@@ -32,7 +32,7 @@ import com.rcpcompany.uibinding.tests.model.TestModelPackage;
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridColumnImpl#getName <em>Name
  * </em>}</li>
- * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridColumnImpl#getRows <em>Rows
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridColumnImpl#getCells <em>Cells
  * </em>}</li>
  * </ul>
  * </p>

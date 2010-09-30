@@ -39,56 +39,121 @@
             </argument>
          </feature>
       </model>
+   </extension>
+   <extension
+         point="com.rcpcompany.uibindings.uiBindings">
       <model
             class="com.rcpcompany.uibinding.tests.model.TestObject">
-         <feature
-               name="date">
-            <argument
-                  name="foobar"
-                  value="ui a">
-            </argument>
-         </feature>
-         <feature
-               name="number">
-            <argument
-                  name="foobar"
-                  value="not used: model object.number">
-            </argument>
-         </feature>
-         <argument
-               name="foobar"
-               value="ui b">
-         </argument>
          <feature
                name="bigDecimal">
             <standardArguments
                   preferredCellEditor="org.eclipse.swt.custom.StyledText"></standardArguments>
          </feature>
-         <standardArguments
-               featureName="number">
-         </standardArguments>
+         <argument
+               name="foobar-Sequence"
+               value="TestObject">
+         </argument>
+         <feature
+               name="text">
+            <argument
+                  name="foobar-Sequence"
+                  value="TestObject.text">
+            </argument>
+         </feature>
       </model>
+      <decoratorExtender
+            class="com.rcpcompany.uibindings.extests.bindings.FoobarExtender"
+            priority="100">
+         <argument
+               name="foobar-Sequence"
+               value="extender">
+         </argument>
+      </decoratorExtender>
       <model
-            class="java.util.Date">
+            class="org.eclipse.emf.common.util.Enumerator">
          <argument
                name="foobar"
-               value="not used: Date">
+               value="ui tu">
+         </argument>
+      </model>
+      <bindingDecorator
+            exactModelTypeMatch="false"
+            id="com.rcpcompany.uibindings.extests.bindings.ArgumentsScopeTest.simple"
+            type="argumentScopeTest">
+         <modelType
+               alsoPrimitive="true"
+               class="java.lang.String">
+         </modelType>
+         <uiType
+               alsoPrimitive="true"
+               class="java.lang.String">
+         </uiType>
+         <javaDecorator
+               class="com.rcpcompany.uibindings.internal.decorators.TextBindingDecorator">
+         </javaDecorator>
+         <argument
+               name="foobar-Sequence"
+               value="bindingDecorator.simple">
+         </argument>
+      </bindingDecorator>
+      <bindingDecorator
+            id="com.rcpcompany.uibindings.extests.bindings.ArgumentsScopeTest.eobject"
+            type="argumentScopeTest">
+         <modelType
+               class="org.eclipse.emf.ecore.EObject">
+         </modelType>
+         <uiType
+               class="java.lang.String">
+         </uiType>
+         <javaDecorator
+               class="com.rcpcompany.uibindings.internal.decorators.GenericEObjectDecorator">
+         </javaDecorator>
+         <argument
+               name="foobar-Sequence"
+               value="bindingDecorator.eobject">
+         </argument>
+      </bindingDecorator>
+      <model
+            class="java.lang.String">
+         ment>
+         <argument
+               name="foobar-Sequence"
+               value="java.lang.String">
          </argument>
       </model>
       <model
-            class="boolean">
+            class="java.lang.CharSequence">
+         ment>
          <argument
-               name="foobar"
-               value="boolean">
+               name="foobar-Sequence"
+               value="java.lang.CharSequence">
          </argument>
       </model>
       <model
-            class="com.rcpcompany.uibinding.tests.model.AmountAndCurrency">
+            class="org.eclipse.emf.ecore.EObject">
+         ment>
          <argument
-               name="foobar"
-               value="not used: AmountAndCurrency">
+               name="foobar-Sequence"
+               value="EObject">
          </argument>
       </model>
+      <model
+            class="com.rcpcompany.uibinding.tests.model.TestContainer">
+         <argument
+               name="foobar-Sequence"
+               value="TestContainer">
+         </argument>
+         <feature
+               name="current">
+            <argument
+                  name="foobar-Sequence"
+                  value="TestContainer.current">
+            </argument>
+         </feature>
+      </model>
+   </extension>
+   <extension
+         point="com.rcpcompany.uibindings.uiBindings">
       <model
             class="com.rcpcompany.uibinding.tests.model.TestObject">
          <feature
@@ -134,6 +199,9 @@
                name="foobar-dt-IObservableList-fail1"
                value="com.rcpcompany.uibindings.extests.bindings.TestObjectObservableListFactoryNotExist">
          </argument>
+         <standardArguments
+               featureName="number">
+         </standardArguments>
       </model>
       <model
             class="com.rcpcompany.uibindings.tests.shop.Country">
@@ -141,21 +209,6 @@
                openCommand="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.example.application.views.ShopBasicsView)">
          </standardArguments>
       </model>
-      <model
-            class="org.eclipse.emf.common.util.Enumerator">
-         <argument
-               name="foobar"
-               value="ui tu">
-         </argument>
-      </model>
-      <decoratorExtender
-            class="com.rcpcompany.uibindings.extests.bindings.FoobarExtender"
-            priority="100">
-         <argument
-               name="foobar"
-               value="ex">
-         </argument>
-      </decoratorExtender>
       <model
             class="com.rcpcompany.uibindings.tests.shop.CustomerType">
          <feature
@@ -425,6 +478,7 @@
          </number>
       </bindingDecorator>
       <bindingDecorator
+            id="price-dummy"
             type="price-dummy">
          <modelType
                alsoPrimitive="true"

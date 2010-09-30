@@ -19,7 +19,7 @@ import com.rcpcompany.uibindings.extests.bindingMessages.LabelDecoratorTest;
 import com.rcpcompany.uibindings.extests.bindingMessages.ScrolledFormAdapterTest;
 import com.rcpcompany.uibindings.extests.bindingMessages.ValidationAdapterManagerMasterDetailTest;
 import com.rcpcompany.uibindings.extests.bindingMessages.ValueBindingMessageImageDecoratorImageTest;
-import com.rcpcompany.uibindings.extests.bindings.ArgumentsScopeTest;
+import com.rcpcompany.uibindings.extests.bindings.ArgumentsSequenceTest;
 import com.rcpcompany.uibindings.extests.bindings.ArgumentsTypeTest;
 import com.rcpcompany.uibindings.extests.bindings.BindingContextFinalizerTest;
 import com.rcpcompany.uibindings.extests.bindings.BindingDisposeTest;
@@ -204,7 +204,7 @@ PluginTest.class, PluginConfTest.class, PluginSpecificationTest.class, FragmentT
 ConstantTests.class, ColorsAndFontsTests.class, ManagerSizesTest.class,
 
 /*
- * The manager and its interfaces
+ * The manager and its very basic interfaces (no bindings yet...)
  */
 ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, ManagerTextCommitStrategyTest.class,
 		ManagerTextCommitStrategyDelayTest.class, ManagerEditCellAnyKeyTest.class,
@@ -212,11 +212,21 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		ManagerMessageDecorationMinimumSeverityTest.class, ManagerAlternativeDecorationPositionTest.class,
 		ManagerAutoApplyQuickfixTest.class, ManagerAlternatingRowColors.class, AlternatingRowColorsTest.class,
 		ManagerValidationDelayTest.class, ManagerValidationDelayWindowTest.class, ManagerTreeFunctionalityTest.class,
-		ManagerValidationErrorsAreFatal.class, ValidationErrorsAreFatalTest.class, ManagerRequiredVBIDShown.class,
-		ManagerAssistVBIDShown.class, ManagerQuickfixVBIDShown.class, ManagerViewNavigationRecorded.class,
-		ManagerFormatterProviderTest.class, ManagerDeleteHandlerCheckEnabledTest.class,
+		ManagerValidationErrorsAreFatal.class, ManagerRequiredVBIDShown.class, ManagerAssistVBIDShown.class,
+		ManagerQuickfixVBIDShown.class, ManagerViewNavigationRecorded.class, ManagerFormatterProviderTest.class,
+		ManagerDeleteHandlerCheckEnabledTest.class,
 
-		SimplePreferredCellEditorTest.class, PreferredCellEditorFactoryTest.class,
+		/*
+		 * Services and arguments
+		 */
+		BasicServiceTest.class, ArgumentsSequenceTest.class, ArgumentsTypeTest.class, BindingFormatTest.class,
+
+		BindingDataTypeFactoryTest.class,
+
+		/*
+		 * More advanced but still basic tests...
+		 */
+		ValidationErrorsAreFatalTest.class, SimplePreferredCellEditorTest.class, PreferredCellEditorFactoryTest.class,
 
 		ManagerDecoratorExtendersTest.class, ManagerDecoratorExtendersSortTest.class,
 
@@ -224,13 +234,6 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		 * Some utility functions
 		 */
 		UIBindingsUtilsTest.class, UIBindingsUtilsMapperTest.class, ControlDecorationTest.class,
-
-		/*
-		 * Services and arguments
-		 */
-		BasicServiceTest.class, ArgumentsScopeTest.class, ArgumentsTypeTest.class, BindingFormatTest.class,
-
-		BindingDataTypeFactoryTest.class,
 
 		/*
 		 * Utilities

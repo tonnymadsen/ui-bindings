@@ -821,11 +821,14 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 */
 	protected void createUibindingsAnnotations() {
 		final String source = "http://rcp-company.com/schemas/uibindings";
-		addAnnotation(getTestObject_Number(), source, new String[] { "foobar", "b" });
-		addAnnotation(getTestObject_Text(), source, new String[] { "foobar", "not used: feature text" });
+		addAnnotation(testObjectEClass, source, new String[] { "foobar-Sequence", "TestObject (annotation)" });
+		addAnnotation(getTestObject_Text(), source, new String[] { "foobar-Sequence", "TestObject.text (annotation)" });
 		addAnnotation(getTestObject_Short(), source, new String[] { "foobar", "b" });
-		addAnnotation(getTestObject_Long(), source, new String[] { "foobar", "b" });
-		addAnnotation(subTestObjectEClass, source, new String[] { "number.foobar", "b.sub" });
+		addAnnotation(subTestObjectEClass, source,
+				new String[] { "text.foobar-Sequence", "SubTestObject (annotation)" });
+		addAnnotation(testContainerEClass, source, new String[] { "foobar-Sequence", "TestContainer (annotation)" });
+		addAnnotation(getTestContainer_Current(), source, new String[] { "foobar-Sequence",
+				"TestContainer.current (annotation)" });
 		addAnnotation(amountAndCurrencyStructEDataType, source, new String[] { "foobar", "c" });
 	}
 

@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface TestGridRow extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Grid</b></em>' reference. It is bidirectional and its
-	 * opposite is ' {@link com.rcpcompany.uibinding.tests.model.TestGrid#getRows <em>Rows</em>}'.
+	 * opposite is '{@link com.rcpcompany.uibinding.tests.model.TestGrid#getRows <em>Rows</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Grid</em>' reference isn't clear, there really should be more of a

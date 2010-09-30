@@ -246,20 +246,20 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	protected TimeUnit timeUnit = TIME_UNIT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isByte() <em>Byte</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getByte() <em>Byte</em>}' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
-	 * @see #isByte()
+	 * @see #getByte()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final byte BYTE_EDEFAULT = 0x00;
 
 	/**
-	 * The cached value of the '{@link #isByte() <em>Byte</em>}' attribute. <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getByte() <em>Byte</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see #isByte()
+	 * @see #getByte()
 	 * @generated
 	 * @ordered
 	 */

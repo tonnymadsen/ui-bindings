@@ -18,6 +18,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.UpdateListStrategy;
@@ -59,6 +60,7 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.internal.bindingDataTypes.BindingDataTypeFactory;
 import com.rcpcompany.uibindings.units.IUnitBindingSupport;
+import com.rcpcompany.utils.basic.ClassUtils;
 import com.rcpcompany.utils.basic.ToStringUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -630,39 +632,69 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		if (addDirectArguments(results, name, argumentType, firstOnly) && firstOnly) return results;
 
 		/*
-		 * And then any extra argument providers added to the binding
+		 * Add decorator provider arguments
 		 */
-		if (eIsSet(IUIBindingsPackage.Literals.BINDING__EXTRA_ARGUMENT_PROVIDERS)) {
-			for (final IArgumentProvider ap : getExtraArgumentProviders()) {
-				if (getArgumentProviderArguments(results, name, ap, argumentType, firstOnly) && firstOnly)
-					return results;
+		if (addDecoratorProviderArguments(results, name, argumentType, firstOnly) && firstOnly) return results;
+
+		/*
+		 * Add any arguments from the parent binding: value -> column and column -> viewer
+		 */
+		final IArgumentProvider parentBinding = getParentBinding();
+		if (parentBinding != null
+				&& getArgumentProviderArguments(results, name, parentBinding, argumentType, firstOnly) && firstOnly)
+			return results;
+
+		/*
+		 * Now use the list of IBDT object to look for annotations.
+		 */
+		final Collection<IBindingDataType> visitedDataTypes = new ArrayList<IBindingDataType>();
+		final IBindingDataType dynamicDataType = getDataType();
+		if (dynamicDataType != null) {
+			visitedDataTypes.add(dynamicDataType);
+			// LogUtils.debug(this, this + ": " + getStaticDataType() + "/" + getDataType());
+			if (dynamicDataType.addArguments(results, this, name, argumentType, firstOnly) && firstOnly)
+				return results;
+			for (final IBindingDataType dt : BindingDataTypeFactory.getSuperTypes(dynamicDataType)) {
+				if (dt.addArguments(results, this, name, argumentType, firstOnly) && firstOnly) return results;
+				visitedDataTypes.add(dt);
+			}
+		}
+
+		/*
+		 * Try the (static) model data type...
+		 */
+		final IBindingDataType sDataType = getStaticDataType();
+		if (sDataType != null && !visitedDataTypes.contains(sDataType)
+				&& sDataType.addArguments(results, this, name, argumentType, firstOnly) && firstOnly) return results;
+		visitedDataTypes.add(sDataType);
+		for (final IBindingDataType dt : BindingDataTypeFactory.getSuperTypes(sDataType)) {
+			if (!visitedDataTypes.contains(dt)) {
+				if (dt.addArguments(results, this, name, argumentType, firstOnly) && firstOnly) return results;
+			}
+			visitedDataTypes.add(dt);
+		}
+
+		/*
+		 * Now use the parent IBDTs if they exists
+		 */
+		if (dynamicDataType != null) {
+			final IBindingDataType pDataType = dynamicDataType.getParentDataType();
+			if (pDataType != null && !visitedDataTypes.contains(pDataType)) {
+				if (pDataType.addArguments(results, this, name, argumentType, firstOnly) && firstOnly) return results;
+				visitedDataTypes.add(pDataType);
 			}
 		}
 
 		/*
 		 * Try the model data type...
 		 */
-		if (getStaticDataType() != null
-				&& getStaticDataType().addArguments(results, this, name, argumentType, firstOnly) && firstOnly)
-			return results;
-
-		/*
-		 * Now use the list of IBDT object to look for annotations.
-		 */
-		final IBindingDataType dynamicDataType = getDataType();
-		if (dynamicDataType != null) {
-			for (final IBindingDataType dt : BindingDataTypeFactory.getSuperTypes(dynamicDataType)) {
-				if (dt == getStaticDataType()) {
-					continue;
-				}
-				if (dt.addArguments(results, this, name, argumentType, firstOnly) && firstOnly) return results;
+		if (sDataType != null) {
+			final IBindingDataType pDataType = sDataType.getParentDataType();
+			if (pDataType != null && !visitedDataTypes.contains(pDataType)) {
+				if (pDataType.addArguments(results, this, name, argumentType, firstOnly) && firstOnly) return results;
+				visitedDataTypes.add(pDataType);
 			}
 		}
-
-		/*
-		 * Add decorator provider arguments
-		 */
-		if (addDecoratorProviderArguments(results, name, argumentType, firstOnly) && firstOnly) return results;
 
 		/*
 		 * And lastly parent bindings
@@ -676,6 +708,16 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		// results.addAll(r);
 		// }
 		// }
+
+		/*
+		 * And then any extra argument providers added to the binding
+		 */
+		if (eIsSet(IUIBindingsPackage.Literals.BINDING__EXTRA_ARGUMENT_PROVIDERS)) {
+			for (final IArgumentProvider ap : getExtraArgumentProviders()) {
+				if (getArgumentProviderArguments(results, name, ap, argumentType, firstOnly) && firstOnly)
+					return results;
+			}
+		}
 
 		return results;
 	};
@@ -1300,27 +1342,32 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		String baseType = getBaseType();
+		if (hasArguments()) {
+			for (final Entry<String, Object> e : getArguments().entrySet()) {
+				String s = e.getValue() == null ? Messages.ValueBindingImpl_NullString : e.getValue().toString();
+				if (s.length() > 15) {
+					s = s.substring(0, 15) + "..."; //$NON-NLS-1$
+				}
+				baseType += ", " + e.getKey() + "=" + s; //$NON-NLS-1$ //$NON-NLS-2$
+			}
+		}
+		if (getState() != BindingState.OK) {
+			baseType += ", STATE=" + getState();
+		}
 
-		final StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (state: "); //$NON-NLS-1$
-		result.append(state);
-		result.append(", creationPoint: "); //$NON-NLS-1$
-		result.append(creationPoint);
-		result.append(", id: "); //$NON-NLS-1$
-		result.append(id);
-		result.append(", DBBindings: "); //$NON-NLS-1$
-		result.append(dbBindings);
-		result.append(", MonitoredDBBindings: "); //$NON-NLS-1$
-		result.append(monitoredDBBindings);
-		result.append(", errorConditions: "); //$NON-NLS-1$
-		result.append(errorConditions);
-		result.append(')');
-		return result.toString();
+		return ClassUtils.getLastClassName(this) + "[" + baseType + "]#" + hashCode(); //$NON-NLS-1$ //$NON-NLS-2$
+	}
+
+	protected String getBaseType() {
+		final EClassifier modelEType = getModelEType();
+		if (modelEType != null) return modelEType.getName();
+
+		return "";
 	}
 
 	@Override

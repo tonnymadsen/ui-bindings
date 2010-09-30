@@ -67,11 +67,6 @@ public class JavaClassBindingDataType extends BindingDataTypeImpl {
 	}
 
 	@Override
-	public IBindingDataType getParentDataType() {
-		return null;
-	}
-
-	@Override
 	public boolean isRequired() {
 		return false;
 	}

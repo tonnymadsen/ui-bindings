@@ -11,6 +11,8 @@ package com.rcpcompany.uibinding.tests.model;
  * 
  * 
  * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getSubTestObject()
+ * @model annotation=
+ *        "http://rcp-company.com/schemas/uibindings text.foobar-Sequence='SubTestObject (annotation)'"
  * @generated
  */
 public interface SubTestObject extends TestObject {

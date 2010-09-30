@@ -87,7 +87,10 @@ UI Bindings specific check style configuration.  Based on Sun Checks.
     <module name="IllegalInstantiation"/>
     <module name="InnerAssignment"/>
     <module name="MagicNumber"/>
-    <module name="MissingSwitchDefault"/>
+    <module name="MissingSwitchDefault">
+      <property name="severity" value="ignore"/>
+      <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
+    </module>
     <module name="RedundantThrows">
       <property name="logLoadErrors" value="true"/>
       <property name="suppressLoadErrors" value="true"/>
@@ -104,7 +107,10 @@ UI Bindings specific check style configuration.  Based on Sun Checks.
       <property name="severity" value="ignore"/>
       <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
     </module>
-    <module name="VisibilityModifier"/>
+    <module name="VisibilityModifier">
+      <property name="severity" value="ignore"/>
+      <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
+    </module>
     <module name="ArrayTypeStyle"/>
     <module name="FinalParameters">
       <property name="severity" value="ignore"/>

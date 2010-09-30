@@ -219,7 +219,9 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	 * @generated NOT
 	 */
 	@Override
-	public abstract IBindingDataType getParentDataType();
+	public IBindingDataType getParentDataType() {
+		return null;
+	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

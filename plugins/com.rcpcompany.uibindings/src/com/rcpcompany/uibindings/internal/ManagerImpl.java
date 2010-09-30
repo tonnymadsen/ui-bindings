@@ -1217,7 +1217,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 
 		switch (javaProviders.length + enumProviders.length + numberProviders.length) {
 		case 0:
-			LogUtils.error(ce, id + ": Exactly one type decorator required. Provider ignored. Got none."); //$NON-NLS-1$
+			LogUtils.error(ce, id + ": Exactly one type-specific decorator required. Declaration ignored. Got none."); //$NON-NLS-1$
 			return;
 		case 1:
 			break;

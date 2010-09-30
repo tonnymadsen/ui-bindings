@@ -121,12 +121,13 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 		for (final ValidationRoot root : myValidationRoots.toArray(new ValidationRoot[myValidationRoots.size()])) {
 			removeRoot(root.getRoot(), root.getValidationAdapter());
 		}
+		myUnboundMessages.clear();
 	}
 
 	@Override
 	public void addRoot(EObject root, IValidatorAdapter validationAdapter) {
 		myValidationRoots.add(new ValidationRoot(root, validationAdapter));
-		validate();
+		delayValidation();
 	}
 
 	@Override
@@ -154,8 +155,8 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	private final Adapter myChangeAdapter = new EContentAdapter() {
 		@Override
 		public void notifyChanged(Notification notification) {
-			if (notification.isTouch()) return;
 			super.notifyChanged(notification);
+			if (notification.isTouch()) return;
 			delayValidation();
 		}
 	};

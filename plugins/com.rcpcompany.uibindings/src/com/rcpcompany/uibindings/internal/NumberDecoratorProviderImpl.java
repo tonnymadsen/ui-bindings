@@ -175,11 +175,11 @@ public class NumberDecoratorProviderImpl extends DecoratorProviderImpl implement
 
 	@Override
 	public void providerReader(String id, IConfigurationElement providerCE, IConfigurationElement childCE) {
+		super.providerReader(id, providerCE, childCE);
+
 		String attr;
 		attr = childCE.getAttribute("format"); //$NON-NLS-1$
 		setFormat(attr);
-
-		super.providerReader(id, providerCE, childCE);
 	}
 
 	@Override

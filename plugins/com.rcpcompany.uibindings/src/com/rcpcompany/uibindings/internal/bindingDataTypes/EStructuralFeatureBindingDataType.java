@@ -77,7 +77,7 @@ public class EStructuralFeatureBindingDataType extends BindingDataTypeImpl {
 	@Override
 	public IBindingDataType getParentDataType() {
 		if (myParent == null) {
-			myParent = BindingDataTypeFactory.create(getEType());
+			myParent = BindingDataTypeFactory.create(myStructuralFeature.getEContainingClass());
 		}
 		return myParent;
 	}

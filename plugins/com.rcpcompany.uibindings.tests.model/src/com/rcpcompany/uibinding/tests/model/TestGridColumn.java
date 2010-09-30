@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  * <li>{@link com.rcpcompany.uibinding.tests.model.TestGridColumn#getGrid <em>Grid</em>}</li>
  * <li>{@link com.rcpcompany.uibinding.tests.model.TestGridColumn#getName <em>Name</em>}</li>
- * <li>{@link com.rcpcompany.uibinding.tests.model.TestGridColumn#getRows <em>Rows</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.TestGridColumn#getCells <em>Cells</em>}</li>
  * </ul>
  * </p>
  * 
@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface TestGridColumn extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Grid</b></em>' reference. It is bidirectional and its
-	 * opposite is ' {@link com.rcpcompany.uibinding.tests.model.TestGrid#getColumns
+	 * opposite is '{@link com.rcpcompany.uibinding.tests.model.TestGrid#getColumns
 	 * <em>Columns</em>}'. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Grid</em>' reference isn't clear, there really should be more of a
@@ -84,7 +84,7 @@ public interface TestGridColumn extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Cells</b></em>' reference list. The list contents are of
 	 * type {@link com.rcpcompany.uibinding.tests.model.TestGridCell}. It is bidirectional and its
-	 * opposite is ' {@link com.rcpcompany.uibinding.tests.model.TestGridCell#getColumn
+	 * opposite is '{@link com.rcpcompany.uibinding.tests.model.TestGridCell#getColumn
 	 * <em>Column</em>}'. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Cells</em>' reference list isn't clear, there really should be

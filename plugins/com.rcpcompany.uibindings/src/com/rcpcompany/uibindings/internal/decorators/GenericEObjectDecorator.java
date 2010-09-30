@@ -95,6 +95,11 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 		deduceValidValues();
 	}
 
+	/**
+	 * Calculates the valid values.
+	 * <p>
+	 * Must be called early, as the result is used to determine whether this decorator is r/o.
+	 */
 	private void deduceValidValues() {
 		/*
 		 * If the decoration is read-only, then there are no reason to find the valid values
@@ -147,12 +152,12 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 	@Override
 	public IObservableList getValidUIList() {
 		if (!calculatedValidUIList) {
+			calculatedValidUIList = true;
 			if (!isChangeable()) return null;
 			myValidUIList = new EMFListAttributeList(myValidValues, myClassIdentiferMapper, String.class);
 			if (!getBinding().getDataType().isRequired()) {
 				myValidUIList.add(myNullLabel);
 			}
-			calculatedValidUIList = true;
 		}
 		return myValidUIList;
 	}

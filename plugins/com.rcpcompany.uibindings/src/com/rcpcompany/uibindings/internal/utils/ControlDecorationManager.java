@@ -35,7 +35,6 @@ import org.eclipse.swt.widgets.Shell;
 
 import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.internal.Activator;
-import com.rcpcompany.uibindings.internal.utils.ControlDecorationManager.DecorationData;
 import com.rcpcompany.uibindings.utils.IControlDecoration;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -57,7 +56,7 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 	private static final int FUZZY_SIZE = 15;
 
 	/**
-	 * The shell of this manager
+	 * The shell of this manager.
 	 */
 	private final Shell myShell;
 
@@ -69,7 +68,7 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 	private static boolean MAC = Util.isMac();
 
 	/**
-	 * Constructs and returns a new manager
+	 * Constructs and returns a new manager.
 	 * 
 	 * @param shell the shell of the manager
 	 */
@@ -110,7 +109,7 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 	}
 
 	/**
-	 * Mapping of all decorations of this manager to internal data for the same decoration
+	 * Mapping of all decorations of this manager to internal data for the same decoration.
 	 */
 	private final Map<IControlDecoration, DecorationData> myDecorations = new HashMap<IControlDecoration, DecorationData>();
 
@@ -197,7 +196,7 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 	}
 
 	/**
-	 * Unhooks a specific control from the manager
+	 * Unhooks a specific control from the manager.
 	 * 
 	 * @param control the control
 	 */
@@ -232,11 +231,13 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 		case SWT.MouseExit:
 			handleHover(event);
 			break;
+		default:
+			break;
 		}
 	}
 
 	/**
-	 * Handles the dispose event
+	 * Handles the dispose event.
 	 * 
 	 * @param event the event
 	 */
@@ -249,7 +250,7 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 	}
 
 	/**
-	 * Handles the paint event
+	 * Handles the paint event.
 	 * 
 	 * @param event the event
 	 */
@@ -265,7 +266,7 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 	}
 
 	/**
-	 * Handles the hover event
+	 * Handles the hover event.
 	 * 
 	 * @param event the event
 	 */
@@ -282,7 +283,7 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 	}
 
 	/**
-	 * The current decoration to hover if any
+	 * The current decoration to hover if any.
 	 */
 	private DecorationData myHoverDecoration = null;
 
@@ -544,7 +545,7 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 	private HoverControl myHover = null;
 
 	/**
-	 * The control the hover was last hovering over
+	 * The control the hover was last hovering over.
 	 */
 	private Control myHoverControl = null;
 
@@ -585,7 +586,7 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 		String myLastText = "";
 
 		/**
-		 * The region used to manage the shell shape
+		 * The region used to manage the shell shape.
 		 */
 		Region region;
 

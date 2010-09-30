@@ -21,7 +21,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * 
  * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestContainer()
- * @model
+ * @model annotation=
+ *        "http://rcp-company.com/schemas/uibindings foobar-Sequence='TestContainer (annotation)'"
  * @generated
  */
 public interface TestContainer extends EObject {
@@ -58,7 +59,8 @@ public interface TestContainer extends EObject {
 	 * @see #unsetCurrent()
 	 * @see #setCurrent(TestObject)
 	 * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestContainer_Current()
-	 * @model unsettable="true"
+	 * @model unsettable="true" annotation=
+	 *        "http://rcp-company.com/schemas/uibindings foobar-Sequence='TestContainer.current (annotation)'"
 	 * @generated
 	 */
 	TestObject getCurrent();

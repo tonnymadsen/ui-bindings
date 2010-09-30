@@ -42,7 +42,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  * Test that {@link IBinding#ARG_READONLY} is handled correctly.
  * <p>
  * It does not test whether the different ways of setting arguments works - that is done in
- * {@link ArgumentsScopeTest}.
+ * {@link ArgumentsSequenceTest}.
  * 
  * @author Tonny Madsen, The RCP Company
  */

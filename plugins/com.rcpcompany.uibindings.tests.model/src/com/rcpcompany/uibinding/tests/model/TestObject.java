@@ -37,7 +37,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * 
  * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestObject()
- * @model
+ * @model 
+ *        annotation="http://rcp-company.com/schemas/uibindings foobar-Sequence='TestObject (annotation)'"
  * @generated
  */
 public interface TestObject extends EObject {
@@ -54,7 +55,7 @@ public interface TestObject extends EObject {
 	 * @see #unsetNumber()
 	 * @see #setNumber(int)
 	 * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestObject_Number()
-	 * @model unsettable="true" annotation="http://rcp-company.com/schemas/uibindings foobar='b'"
+	 * @model unsettable="true"
 	 * @generated
 	 */
 	int getNumber();
@@ -184,7 +185,8 @@ public interface TestObject extends EObject {
 	 * @return the value of the '<em>Text</em>' attribute.
 	 * @see #setText(String)
 	 * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestObject_Text()
-	 * @model annotation="http://rcp-company.com/schemas/uibindings foobar='not used: feature text'"
+	 * @model annotation=
+	 *        "http://rcp-company.com/schemas/uibindings foobar-Sequence='TestObject.text (annotation)'"
 	 * @generated
 	 */
 	String getText();
@@ -201,7 +203,7 @@ public interface TestObject extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Parent</b></em>' container reference. It is bidirectional
-	 * and its opposite is ' {@link com.rcpcompany.uibinding.tests.model.TestContainer#getChildren
+	 * and its opposite is '{@link com.rcpcompany.uibinding.tests.model.TestContainer#getChildren
 	 * <em>Children</em>}'. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parent</em>' container reference isn't clear, there really should
@@ -401,7 +403,7 @@ public interface TestObject extends EObject {
 	 * @return the value of the '<em>Long</em>' attribute.
 	 * @see #setLong(long)
 	 * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestObject_Long()
-	 * @model annotation="http://rcp-company.com/schemas/uibindings foobar='b'"
+	 * @model
 	 * @generated
 	 */
 	long getLong();
@@ -434,7 +436,7 @@ public interface TestObject extends EObject {
 
 	/**
 	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getBigDecimal
-	 * <em>Big Decimal</em>} ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <em>Big Decimal</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Big Decimal</em>' attribute.
 	 * @see #getBigDecimal()
@@ -460,7 +462,7 @@ public interface TestObject extends EObject {
 
 	/**
 	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getBigInteger
-	 * <em>Big Integer</em>} ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <em>Big Integer</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Big Integer</em>' attribute.
 	 * @see #getBigInteger()

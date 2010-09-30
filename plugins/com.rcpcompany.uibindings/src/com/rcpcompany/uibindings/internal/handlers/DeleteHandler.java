@@ -99,7 +99,7 @@ public class DeleteHandler extends AbstractHandler implements IHandler2 {
 			}
 			if (!references.isEmpty()) {
 				UIBEcoreUtils.showErrorDialog("Delete Aborted", "Cannot delete the selected objects", references);
-				return null;
+				throw new ExecutionException("Cannot delete selected objects");
 			}
 		}
 
