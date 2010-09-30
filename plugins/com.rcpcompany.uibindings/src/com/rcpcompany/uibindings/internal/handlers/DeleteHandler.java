@@ -65,7 +65,7 @@ public class DeleteHandler extends AbstractHandler implements IHandler2 {
 		 * 
 		 * TODO return value
 		 */
-		if (!cmd.canExecute()) return null;
+		if (!cmd.canExecute()) throw new ExecutionException("Cannot delete selected objects");
 
 		final ISelection s = vb.getViewer().getSelection();
 
