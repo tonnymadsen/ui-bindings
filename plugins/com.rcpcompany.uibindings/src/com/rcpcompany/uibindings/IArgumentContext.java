@@ -11,7 +11,7 @@
 package com.rcpcompany.uibindings;
 
 /**
- * This interface describes the context used when new objects are created in
+ * This interface describes the context used looking up arguments in
  * {@link IManager#convertArgumentValue(String, org.eclipse.core.runtime.IConfigurationElement, String, String, Class, IArgumentValueCreationContext)}
  * .
  * 
@@ -21,8 +21,13 @@ package com.rcpcompany.uibindings;
 public interface IArgumentContext<ArgumentType> {
 	/**
 	 * The binding of this context.
+	 * <p>
+	 * Only set for {@link IBinding#getArgument(String, Class, Object)} and
+	 * {@link IBinding#getArguments(String, Class, boolean)}, but not
+	 * {@link IBindingDataType#getArgument(String, String, Class, Object)}.
 	 * 
-	 * @return the binding
+	 * 
+	 * @return the binding or <code>null</code>
 	 */
 	IBinding getBinding();
 
