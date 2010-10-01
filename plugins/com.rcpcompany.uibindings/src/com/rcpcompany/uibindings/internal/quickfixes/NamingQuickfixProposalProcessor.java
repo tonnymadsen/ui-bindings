@@ -47,7 +47,7 @@ public class NamingQuickfixProposalProcessor extends AbstractQuickfixProposalPro
 				continue;
 			}
 			if (!(e instanceof String)) {
-				LogUtils.debug(decorator, "decorator returns non-String values in validUIList");
+				LogUtils.debug(decorator, "decorator returns non-String values in validUIList: " + e);
 				continue;
 			}
 			matchOne(context, context.getMessage(), text, (String) e);
