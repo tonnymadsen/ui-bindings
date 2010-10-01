@@ -10,8 +10,6 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings;
 
-import java.util.List;
-
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecore.EAnnotation;
@@ -19,7 +17,6 @@ import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import com.rcpcompany.uibindings.IBinding.IArgumentValue;
 import com.rcpcompany.uibindings.internal.bindingDataTypes.BindingDataTypeFactory;
 
 /**
@@ -275,26 +272,26 @@ public interface IBindingDataType extends EObject {
 	 * Handles any additions of arguments from this data type.
 	 * 
 	 * @param <ArgumentType> the argument type
-	 * @param results the result list
-	 * @param binding the binding
-	 * @param name the name of the wanted argument
-	 * @param argumentType the argument type
-	 * @param firstOnly <code>true</code> if only the first result is of interest
-	 * @return <code>true</code> if any results was found
+	 * @param context the argument context
 	 */
-	<ArgumentType> boolean addArguments(List<IArgumentValue<ArgumentType>> results, IBinding binding, String name,
-			Class<? extends ArgumentType> argumentType, boolean firstOnly);
+	<ArgumentType> void addArguments(IArgumentContext<ArgumentType> context);
 
 	/**
-	 * Returns the value of the specified argument.
+	 * Returns the named argument or <code>null</code> if not set.
+	 * <p>
+	 * Will look for the argument among the arguments of the binding first and then among the
+	 * annotations (declared arguments) of the data type.
 	 * 
-	 * @param <ArgumentType> the argument type
-	 * @param binding the binding
-	 * @param name the name of the wanted argument
-	 * @param argumentType the argument type
-	 * @return the value or <code>null</code>
+	 * @param <ArgumentType> the wanted argument type. Currently {@link String}, {@link Boolean} and
+	 *            {@link Integer} is supported.
+	 * 
+	 * @param name the name of the argument
+	 * @param type the binding type
+	 * @param argumentType the argument type of the wanted argument. Class value of
+	 *            &lt;ArgumentType&gt;
+	 * @param defaultValue the default value
+	 * @return the value or <code>null</code> if not set.
 	 */
-	<ArgumentType> ArgumentType getArgument(IValueBinding binding, String name,
-			Class<? extends ArgumentType> argumentType);
-
+	<ArgumentType> ArgumentType getArgument(String name, String type, Class<? extends ArgumentType> argumentType,
+			ArgumentType defaultValue);
 } // IBindingDataType

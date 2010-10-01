@@ -19,12 +19,13 @@ import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import com.rcpcompany.uibindings.Constants;
+import com.rcpcompany.uibindings.IArgumentContext;
 import com.rcpcompany.uibindings.IArgumentProvider;
+import com.rcpcompany.uibindings.IArgumentValue;
 import com.rcpcompany.uibindings.IBinding;
-import com.rcpcompany.uibindings.IBinding.IArgumentValue;
 import com.rcpcompany.uibindings.IBindingDataType;
+import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
-import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.internal.BindingImpl.ArgumentValue;
 
 /**
@@ -58,49 +59,77 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	public abstract IArgumentProvider getArgumentProvider(String type);
 
 	@Override
-	public <ArgumentType> boolean addArguments(List<IArgumentValue<ArgumentType>> results, IBinding binding,
-			String name, Class<? extends ArgumentType> argumentType, boolean firstOnly) {
-		boolean got = false;
-
-		got |= getEAnnotationArguments(results, binding, name, argumentType, firstOnly);
-		if (got && firstOnly) return true;
+	public <ArgumentType> void addArguments(final IArgumentContext<ArgumentType> context) {
+		getEAnnotationArguments(context);
+		if (context.isResultFound()) return;
 
 		/*
 		 * Avoid recursion when resolving the "type" argument!!!
 		 */
-		if (!Constants.ARG_TYPE.equals(name)) {
-			final String type = binding.getType();
+		if (!Constants.ARG_TYPE.equals(context.getName())) {
+			final String type = context.getType();
 			if (type != null && type.length() > 0) {
-				got |= binding.getArgumentProviderArguments(results, name, this.getArgumentProvider(type),
-						argumentType, firstOnly);
-				if (got && firstOnly) return true;
+				IManager.Factory.getManager().getArgumentProviderArguments(this.getArgumentProvider(type), context);
+				if (context.isResultFound()) return;
 			}
 		}
-		got |= binding.getArgumentProviderArguments(results, name, this.getArgumentProvider(null), argumentType,
-				firstOnly);
-		return got;
+		IManager.Factory.getManager().getArgumentProviderArguments(this.getArgumentProvider(null), context);
 	}
 
-	private <ArgumentType> boolean getEAnnotationArguments(List<IArgumentValue<ArgumentType>> results,
-			IBinding binding, String name, Class<? extends ArgumentType> argumentType, boolean firstOnly) {
+	private <ArgumentType> void getEAnnotationArguments(IArgumentContext<ArgumentType> context) {
 		String value = null;
 
 		final EAnnotation annotation = getEAnnotation();
-		if (annotation == null) return false;
-		value = annotation.getDetails().get(name);
-		if (value == null) return false;
+		if (annotation == null) return;
+		value = annotation.getDetails().get(context.getName());
+		if (value == null) return;
 
-		final ArgumentType v = binding.convertArgumentValue(name, null, null, value, argumentType);
-		results.add(new ArgumentValue<ArgumentType>(this, v));
-
-		return true;
+		IManager.Factory.getManager().convertArgumentValue(context, this, null, null, value);
 	}
 
 	@Override
-	public <ArgumentType> ArgumentType getArgument(IValueBinding binding, String name,
-			Class<? extends ArgumentType> argumentType) {
+	public <ArgumentType> ArgumentType getArgument(final String name, final String type,
+			final Class<? extends ArgumentType> argumentType, ArgumentType defaultValue) {
 		final List<IArgumentValue<ArgumentType>> results = new ArrayList<IArgumentValue<ArgumentType>>();
-		if (!addArguments(results, binding, name, argumentType, true)) return null;
+		final IArgumentContext<ArgumentType> context = new IArgumentContext<ArgumentType>() {
+			@Override
+			public IBinding getBinding() {
+				return null;
+			}
+
+			@Override
+			public String getName() {
+				return name;
+			}
+
+			@Override
+			public String getType() {
+				return type;
+			}
+
+			@Override
+			public Class<? extends ArgumentType> getArgumentType() {
+				return argumentType;
+			}
+
+			@Override
+			public boolean firstOnly() {
+				return true;
+			}
+
+			@Override
+			public void addResult(Object source, ArgumentType value) {
+				results.add(new ArgumentValue<ArgumentType>(this, value));
+			}
+
+			@Override
+			public boolean isResultFound() {
+				return !results.isEmpty();
+			}
+		};
+
+		addArguments(context);
+		if (!context.isResultFound()) return defaultValue;
 		return results.get(0).getValue();
 	}
 

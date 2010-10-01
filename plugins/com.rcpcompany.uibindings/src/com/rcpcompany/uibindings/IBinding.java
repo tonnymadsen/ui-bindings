@@ -21,7 +21,6 @@ import org.eclipse.core.databinding.UpdateValueStrategy;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.set.IObservableSet;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
-import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -354,8 +353,7 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	/**
 	 * Returns the named argument or <code>null</code> if not set.
 	 * <p>
-	 * Will look for the argument among the arguments of the binding first and then among the
-	 * annotations (declared arguments) of the data type.
+	 * See {@link #getArguments(String, Class, boolean)} for a description of the lookup sequence.
 	 * 
 	 * @param <ArgumentType> the wanted argument type. Currently {@link String}, {@link Boolean} and
 	 *            {@link Integer} is supported.
@@ -365,6 +363,8 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 *            &lt;ArgumentType&gt;
 	 * @param defaultValue the default value
 	 * @return the value or <code>null</code> if not set.
+	 * 
+	 * @see #getArguments(String, Class, boolean)
 	 */
 	<ArgumentType> ArgumentType getArgument(String name, Class<? extends ArgumentType> argumentType,
 			ArgumentType defaultValue);
@@ -398,63 +398,6 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 */
 	<ArgumentType> List<IArgumentValue<ArgumentType>> getArguments(String name,
 			Class<? extends ArgumentType> argumentType, boolean firstOnly);
-
-	/**
-	 * Returns the named argument or <code>null</code> if not set.
-	 * <p>
-	 * Will look for the argument among the arguments of the binding first and then among the
-	 * annotations (declared arguments) of the data type.
-	 * 
-	 * @param <ArgumentType> the wanted argument type
-	 * 
-	 * @param name the name of the argument
-	 * @param ce the source configuration element or <code>null</code>
-	 * @param attributeName the name of the attribute in ce
-	 * @param value the value
-	 * @param argumentType the argument type of the wanted argument. Class value of
-	 *            &lt;ArgumentType&gt;
-	 * @return the value or <code>null</code> if not set.
-	 */
-	<ArgumentType> ArgumentType convertArgumentValue(String name, IConfigurationElement ce, String attributeName,
-			String value, Class<? extends ArgumentType> argumentType);
-
-	/**
-	 * One argument value record as returned by
-	 * {@link IBinding#getArguments(String, Class, boolean)}.
-	 * 
-	 * @param <ArgumentType> the wanted argument type
-	 */
-	interface IArgumentValue<ArgumentType> {
-		/**
-		 * The source of the specific argument value.
-		 * <p>
-		 * In most cases, this is an {@link IArgumentProvider} object.
-		 * 
-		 * @return the source of the value - possibly in the form of an {@link IArgumentProvider}
-		 */
-		Object getSource();
-
-		/**
-		 * The value returned by the source.
-		 * 
-		 * @return the value
-		 */
-		ArgumentType getValue();
-	}
-
-	/**
-	 * Handles any additions of arguments from {@link IArgumentProvider argument providers}.
-	 * 
-	 * @param <ArgumentType> the argument type
-	 * @param results the result list
-	 * @param name the name of the wanted argument
-	 * @param provider the argument provider
-	 * @param argumentType the argument type
-	 * @param firstOnly <code>true</code> if only the first result is of interest
-	 * @return <code>true</code> if ant results was found
-	 */
-	<ArgumentType> boolean getArgumentProviderArguments(List<IArgumentValue<ArgumentType>> results, String name,
-			IArgumentProvider provider, Class<? extends ArgumentType> argumentType, boolean firstOnly);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute. <!-- begin-user-doc -->

@@ -13,6 +13,7 @@ package com.rcpcompany.uibindings;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClassifier;
@@ -940,4 +941,31 @@ public interface IManager extends IBaseObject {
 	 * @return <code>true</code> if a new editor should be started
 	 */
 	boolean isEditorActivationEvent(ColumnViewerEditorActivationEvent event, IValueBindingCell cell);
+
+	/**
+	 * Handles any additions of arguments from {@link IArgumentProvider argument providers}.
+	 * 
+	 * @param <ArgumentType> the argument type
+	 * @param provider the argument provider
+	 * @param context argument context
+	 */
+	<ArgumentType> void getArgumentProviderArguments(IArgumentProvider provider, IArgumentContext<ArgumentType> context);
+
+	/**
+	 * Returns the named argument or <code>null</code> if not set.
+	 * <p>
+	 * Will look for the argument among the arguments of the binding first and then among the
+	 * annotations (declared arguments) of the data type.
+	 * 
+	 * @param <ArgumentType> the wanted argument type
+	 * 
+	 * @param context the argument context
+	 * @param source the argument source - e.g. an {@link IArgumentProvider}
+	 * @param ce the source configuration element or <code>null</code>
+	 * @param attributeName the name of the attribute in ce
+	 * @param value the value
+	 */
+	<ArgumentType> void convertArgumentValue(IArgumentContext<ArgumentType> context, Object source,
+			IConfigurationElement ce, String attributeName, String value);
+
 } // IManager

@@ -12,7 +12,6 @@ package com.rcpcompany.uibindings.internal;
 
 import static java.lang.Math.*;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -27,8 +26,6 @@ import org.eclipse.core.databinding.UpdateValueStrategy;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.set.IObservableSet;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -40,26 +37,20 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Widget;
-import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 import com.rcpcompany.uibindings.BindingState;
 import com.rcpcompany.uibindings.Constants;
+import com.rcpcompany.uibindings.IArgumentContext;
 import com.rcpcompany.uibindings.IArgumentProvider;
+import com.rcpcompany.uibindings.IArgumentValue;
 import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingDataType;
-import com.rcpcompany.uibindings.ICellEditorFactory;
-import com.rcpcompany.uibindings.IControlFactory;
 import com.rcpcompany.uibindings.IManager;
-import com.rcpcompany.uibindings.IObservableListFactory;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
-import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.internal.bindingDataTypes.BindingDataTypeFactory;
-import com.rcpcompany.uibindings.units.IUnitBindingSupport;
 import com.rcpcompany.utils.basic.ClassUtils;
 import com.rcpcompany.utils.basic.ToStringUtils;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -617,32 +608,84 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	}
 
 	@Override
-	public <ArgumentType> List<IArgumentValue<ArgumentType>> getArguments(String name,
-			Class<? extends ArgumentType> argumentType, boolean firstOnly) {
+	public <ArgumentType> List<IArgumentValue<ArgumentType>> getArguments(final String name,
+			final Class<? extends ArgumentType> argumentType, final boolean firstOnly) {
 		final List<IArgumentValue<ArgumentType>> results = new ArrayList<IArgumentValue<ArgumentType>>();
+
+		final String type;
+		/*
+		 * Prevent recursion
+		 */
+		if (!name.equals(Constants.ARG_TYPE)) {
+			type = getType();
+		} else {
+			type = null;
+		}
+
+		final IArgumentContext<ArgumentType> context = new IArgumentContext<ArgumentType>() {
+			@Override
+			public IBinding getBinding() {
+				return BindingImpl.this;
+			}
+
+			@Override
+			public String getName() {
+				return name;
+			}
+
+			@Override
+			public String getType() {
+				return type;
+			}
+
+			@Override
+			public Class<? extends ArgumentType> getArgumentType() {
+				return argumentType;
+			}
+
+			@Override
+			public boolean firstOnly() {
+				return firstOnly;
+			}
+
+			@Override
+			public void addResult(Object source, ArgumentType value) {
+				results.add(new ArgumentValue<ArgumentType>(this, value));
+			}
+
+			@Override
+			public boolean isResultFound() {
+				return firstOnly && !results.isEmpty();
+			}
+		};
 
 		/*
 		 * Try all enabled extenders
 		 */
-		if (addDecoratorExtenderArguments(results, name, argumentType, firstOnly) && firstOnly) return results;
+		addDecoratorExtenderArguments(context);
+		if (context.isResultFound()) return results;
 
 		/*
 		 * Check direct arguments
 		 */
-		if (addDirectArguments(results, name, argumentType, firstOnly) && firstOnly) return results;
+		addDirectArguments(context);
+		if (context.isResultFound()) return results;
 
 		/*
 		 * Add decorator provider arguments
 		 */
-		if (addDecoratorProviderArguments(results, name, argumentType, firstOnly) && firstOnly) return results;
+		addDecoratorProviderArguments(context);
+		if (context.isResultFound()) return results;
 
 		/*
 		 * Add any arguments from the parent binding: value -> column and column -> viewer
 		 */
+		final IManager manager = IManager.Factory.getManager();
 		final IArgumentProvider parentBinding = getParentBinding();
-		if (parentBinding != null
-				&& getArgumentProviderArguments(results, name, parentBinding, argumentType, firstOnly) && firstOnly)
-			return results;
+		if (parentBinding != null) {
+			manager.getArgumentProviderArguments(parentBinding, context);
+			if (context.isResultFound()) return results;
+		}
 
 		/*
 		 * Now use the list of IBDT object to look for annotations.
@@ -652,10 +695,11 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		if (dynamicDataType != null) {
 			visitedDataTypes.add(dynamicDataType);
 			// LogUtils.debug(this, this + ": " + getStaticDataType() + "/" + getDataType());
-			if (dynamicDataType.addArguments(results, this, name, argumentType, firstOnly) && firstOnly)
-				return results;
+			dynamicDataType.addArguments(context);
+			if (context.isResultFound()) return results;
 			for (final IBindingDataType dt : BindingDataTypeFactory.getSuperTypes(dynamicDataType)) {
-				if (dt.addArguments(results, this, name, argumentType, firstOnly) && firstOnly) return results;
+				dt.addArguments(context);
+				if (context.isResultFound()) return results;
 				visitedDataTypes.add(dt);
 			}
 		}
@@ -664,12 +708,16 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		 * Try the (static) model data type...
 		 */
 		final IBindingDataType sDataType = getStaticDataType();
-		if (sDataType != null && !visitedDataTypes.contains(sDataType)
-				&& sDataType.addArguments(results, this, name, argumentType, firstOnly) && firstOnly) return results;
+		if (sDataType != null && !visitedDataTypes.contains(sDataType)) {
+			sDataType.addArguments(context);
+			if (context.isResultFound()) return results;
+			visitedDataTypes.add(sDataType);
+		}
 		visitedDataTypes.add(sDataType);
 		for (final IBindingDataType dt : BindingDataTypeFactory.getSuperTypes(sDataType)) {
 			if (!visitedDataTypes.contains(dt)) {
-				if (dt.addArguments(results, this, name, argumentType, firstOnly) && firstOnly) return results;
+				dt.addArguments(context);
+				if (context.isResultFound()) return results;
 			}
 			visitedDataTypes.add(dt);
 		}
@@ -680,7 +728,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		if (dynamicDataType != null) {
 			final IBindingDataType pDataType = dynamicDataType.getParentDataType();
 			if (pDataType != null && !visitedDataTypes.contains(pDataType)) {
-				if (pDataType.addArguments(results, this, name, argumentType, firstOnly) && firstOnly) return results;
+				pDataType.addArguments(context);
+				if (context.isResultFound()) return results;
 				visitedDataTypes.add(pDataType);
 			}
 		}
@@ -691,7 +740,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		if (sDataType != null) {
 			final IBindingDataType pDataType = sDataType.getParentDataType();
 			if (pDataType != null && !visitedDataTypes.contains(pDataType)) {
-				if (pDataType.addArguments(results, this, name, argumentType, firstOnly) && firstOnly) return results;
+				pDataType.addArguments(context);
+				if (context.isResultFound()) return results;
 				visitedDataTypes.add(pDataType);
 			}
 		}
@@ -714,8 +764,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		 */
 		if (eIsSet(IUIBindingsPackage.Literals.BINDING__EXTRA_ARGUMENT_PROVIDERS)) {
 			for (final IArgumentProvider ap : getExtraArgumentProviders()) {
-				if (getArgumentProviderArguments(results, name, ap, argumentType, firstOnly) && firstOnly)
-					return results;
+				manager.getArgumentProviderArguments(ap, context);
+				if (context.isResultFound()) return results;
 			}
 		}
 
@@ -732,9 +782,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * @param firstOnly <code>true</code> if only the first result is of interest
 	 * @return <code>true</code> if ant results was found
 	 */
-	public <ArgumentType> boolean addDecoratorExtenderArguments(List<IArgumentValue<ArgumentType>> results,
-			String name, Class<? extends ArgumentType> argumentType, boolean firstOnly) {
-		return false;
+	public <ArgumentType> void addDecoratorExtenderArguments(IArgumentContext<ArgumentType> context) {
 	}
 
 	/**
@@ -747,9 +795,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * @param firstOnly <code>true</code> if only the first result is of interest
 	 * @return <code>true</code> if ant results was found
 	 */
-	public <ArgumentType> boolean addDecoratorProviderArguments(List<IArgumentValue<ArgumentType>> results,
-			String name, Class<? extends ArgumentType> argumentType, boolean firstOnly) {
-		return false;
+	public <ArgumentType> void addDecoratorProviderArguments(IArgumentContext<ArgumentType> context) {
 	}
 
 	/**
@@ -762,57 +808,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * @param firstOnly <code>true</code> if only the first result is of interest
 	 * @return <code>true</code> if ant results was found
 	 */
-	public <ArgumentType> boolean addDirectArguments(List<IArgumentValue<ArgumentType>> results, String name,
-			Class<? extends ArgumentType> argumentType, boolean firstOnly) {
-		if (!hasArguments()) return false;
-		if (!getArguments().containsKey(name)) return false;
-		final Object value = getArguments().get(name);
-
-		if (value != null && !argumentType.isInstance(value)) {
-			LogUtils.error(this, "Argument '" + name + "' value '" + value + "' not of right type (expected " //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-					+ argumentType + ", got " + value.getClass() + "). Ignored.", getCreationPoint()); //$NON-NLS-1$ //$NON-NLS-2$
-			return false;
-		}
-		results.add(new ArgumentValue<ArgumentType>(this, (ArgumentType) value));
-		return true;
-	}
-
-	@Override
-	public <ArgumentType> boolean getArgumentProviderArguments(List<IArgumentValue<ArgumentType>> results, String name,
-			IArgumentProvider provider, Class<? extends ArgumentType> argumentType, boolean firstOnly) {
-		if (provider == null) return false;
-		if (!provider.hasArguments()) return false;
-		final Object val = provider.getArguments().get(name);
-		if (val == null) return false;
-
-		final ArgumentType s;
-		if (val instanceof IConfigurationElement) {
-			final IConfigurationElement ce = (IConfigurationElement) val;
-
-			// SIMA-921
-			String value = ce.getAttribute(name);
-			if (value != null) {
-				s = convertArgumentValue(name, ce, name, value, argumentType);
-			} else {
-				value = ce.getAttribute(InternalConstants.VALUE_TAG);
-				s = convertArgumentValue(name, ce, InternalConstants.VALUE_TAG, value, argumentType);
-			}
-		} else if (argumentType.isInstance(val)) {
-			// OK
-			s = (ArgumentType) val;
-		} else if (val instanceof String) {
-			s = convertArgumentValue(name, null, null, (String) val, argumentType);
-		} else {
-			s = null;
-		}
-		// if (val != s) {
-		// /*
-		// * Just convert once!
-		// */
-		// provider.getDeclaredArguments().put(name, s);
-		// }
-		results.add(new ArgumentValue<ArgumentType>(provider, s));
-		return true;
+	public <ArgumentType> void addDirectArguments(IArgumentContext<ArgumentType> context) {
+		IManager.Factory.getManager().getArgumentProviderArguments(this, context);
 	}
 
 	@Override
@@ -841,85 +838,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		myCachedArguments.put(name, value);
 
 		return value;
-	}
-
-	@Override
-	public <ArgumentType> ArgumentType convertArgumentValue(String name, IConfigurationElement ce,
-			String attributeName, String value, Class<? extends ArgumentType> argumentType) {
-		if (value == null) return null;
-		if (argumentType == String.class)
-			return (ArgumentType) value;
-		else if (argumentType == Boolean.class)
-			return (ArgumentType) Boolean.valueOf(value);
-		else if (argumentType == Integer.class) {
-			/*
-			 * Special case handling:
-			 */
-			if (name.equals(ARG_ALIGNMENT)) {
-				if ("l".equals(value) || "left".equals(value))
-					return (ArgumentType) (Integer) SWT.LEAD;
-				else if ("c".equals(value) || "center".equals(value))
-					return (ArgumentType) (Integer) SWT.CENTER;
-				else if ("r".equals(value) || "right".equals(value))
-					return (ArgumentType) (Integer) SWT.TRAIL;
-				else {
-					LogUtils.error(this, ARG_ALIGNMENT + " must be one of 'l', 'c' or 'r', got '" + value + "'", null); //$NON-NLS-1$ //$NON-NLS-2$
-				}
-			} else {
-				try {
-					return (ArgumentType) Integer.valueOf(value);
-				} catch (final NumberFormatException ex) {
-					LogUtils.error(this, ex);
-				}
-			}
-		} else if (argumentType == BigDecimal.class) {
-			try {
-				return (ArgumentType) new BigDecimal(value);
-			} catch (final NumberFormatException ex) {
-				LogUtils.error(this, ex);
-			}
-		} else if (argumentType == ImageDescriptor.class) {
-			final ImageDescriptor id = AbstractUIPlugin.imageDescriptorFromPlugin(ce.getContributor().getName(), value);
-			if (id == null) {
-				LogUtils.error(this, "Cannot find image for '" + value + "': " + this); //$NON-NLS-1$
-			}
-			return (ArgumentType) id;
-		} else if (argumentType == IObservableList.class) {
-			if (this instanceof IValueBinding) {
-				final IValueBinding vb = (IValueBinding) this;
-				try {
-					final IObservableListFactory factory = (IObservableListFactory) ce
-							.createExecutableExtension(attributeName);
-					return (ArgumentType) factory.createList(vb);
-				} catch (final CoreException ex) {
-					LogUtils.error(this, ex);
-				}
-			}
-		} else if (argumentType == IUnitBindingSupport.class) {
-			try {
-				final IUnitBindingSupport adapter = (IUnitBindingSupport) ce.createExecutableExtension(attributeName);
-				return (ArgumentType) adapter;
-			} catch (final CoreException ex) {
-				LogUtils.error(this, ex);
-			}
-		} else if (argumentType == IControlFactory.class) {
-			try {
-				final IControlFactory factory = (IControlFactory) ce.createExecutableExtension(attributeName);
-				return (ArgumentType) factory;
-			} catch (final CoreException ex) {
-				LogUtils.error(this, ex);
-			}
-		} else if (argumentType == ICellEditorFactory.class) {
-			try {
-				final ICellEditorFactory factory = (ICellEditorFactory) ce.createExecutableExtension(attributeName);
-				return (ArgumentType) factory;
-			} catch (final CoreException ex) {
-				LogUtils.error(this, ex);
-			}
-		} else {
-			LogUtils.error(this, "Unknown argument type: " + argumentType, getCreationPoint()); //$NON-NLS-1$
-		}
-		return null;
 	}
 
 	@Override

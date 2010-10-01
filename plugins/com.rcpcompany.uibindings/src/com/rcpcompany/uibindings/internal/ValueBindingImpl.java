@@ -51,6 +51,7 @@ import org.eclipse.ui.forms.widgets.Section;
 
 import com.rcpcompany.uibindings.BindingState;
 import com.rcpcompany.uibindings.Constants;
+import com.rcpcompany.uibindings.IArgumentContext;
 import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingDataType;
@@ -870,12 +871,10 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	private boolean addDecoratorExtenderArgumentsInvoked = false;
 
 	@Override
-	public <ArgumentType> boolean addDecoratorExtenderArguments(List<IArgumentValue<ArgumentType>> results,
-			String name, Class<? extends ArgumentType> argumentType, boolean firstOnly) {
-		if (addDecoratorExtenderArgumentsInvoked) return false;
+	public <ArgumentType> void addDecoratorExtenderArguments(IArgumentContext<ArgumentType> context) {
+		if (addDecoratorExtenderArgumentsInvoked) return;
 		try {
 			addDecoratorExtenderArgumentsInvoked = true;
-			boolean got = false;
 
 			for (final IUIBindingDecoratorExtenderDescriptor d : IManager.Factory.getManager().getDecoratorExtenders()) {
 				/*
@@ -894,20 +893,18 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 				if (!extender.isEnabled(this)) {
 					continue;
 				}
-				got |= getArgumentProviderArguments(results, name, d, argumentType, firstOnly);
-				if (got && firstOnly) return true;
+				IManager.Factory.getManager().getArgumentProviderArguments(d, context);
+				if (context.isResultFound()) return;
 			}
 
-			return got;
 		} finally {
 			addDecoratorExtenderArgumentsInvoked = false;
 		}
 	}
 
 	@Override
-	public <ArgumentType> boolean addDecoratorProviderArguments(List<IArgumentValue<ArgumentType>> results,
-			String name, Class<? extends ArgumentType> argumentType, boolean firstOnly) {
-		return getArgumentProviderArguments(results, name, getDecoratorProvider(), argumentType, firstOnly);
+	public <ArgumentType> void addDecoratorProviderArguments(IArgumentContext<ArgumentType> context) {
+		IManager.Factory.getManager().getArgumentProviderArguments(getDecoratorProvider(), context);
 	}
 
 	@Override

@@ -25,11 +25,10 @@ import com.rcpcompany.uibindings.internal.BindingDataTypeImpl;
  * @author Tonny Madsen, The RCP Company
  */
 public class EClassifierBindingDataType extends BindingDataTypeImpl {
-
 	private final EClassifier myClass;
 
 	/**
-	 * Constructs and returns a new data type for the specified classifier
+	 * Constructs and returns a new data type for the specified classifier.
 	 * 
 	 * @param cls the classifier
 	 */

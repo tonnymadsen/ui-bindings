@@ -62,7 +62,8 @@ public class EnumImageExtender extends AbstractUIBindingDecoratorExtender {
 			final EEnum e = (EEnum) binding.getDataType().getEType();
 			final EEnumLiteral literal = e.getEEnumLiteralByLiteral(enumValue.getLiteral());
 			final IBindingDataType dataType = BindingDataTypeFactory.create(literal);
-			final ImageDescriptor id = dataType.getArgument(binding, Constants.ARG_IMAGE, ImageDescriptor.class);
+			final ImageDescriptor id = dataType.getArgument(Constants.ARG_IMAGE, binding.getType(),
+					ImageDescriptor.class, null);
 
 			if (id == null) {
 				IMAGE_MAP.put(enumValue, null);

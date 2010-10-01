@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.internal;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -23,9 +24,11 @@ import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
+import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.masterdetail.IObservableFactory;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
@@ -48,6 +51,7 @@ import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ColumnViewerEditorActivationEvent;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
@@ -57,15 +61,19 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Widget;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.forms.widgets.FormToolkit;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 import com.rcpcompany.uibindings.BindingMessageSeverity;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.DecorationPosition;
+import com.rcpcompany.uibindings.IArgumentContext;
 import com.rcpcompany.uibindings.IArgumentProvider;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.IBindingMessageTarget;
+import com.rcpcompany.uibindings.ICellEditorFactory;
 import com.rcpcompany.uibindings.IColumnBinding;
+import com.rcpcompany.uibindings.IControlFactory;
 import com.rcpcompany.uibindings.IDecoratorProvider;
 import com.rcpcompany.uibindings.IEMFObservableFactory;
 import com.rcpcompany.uibindings.IEMFObservableFactoryDescriptor;
@@ -74,6 +82,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IModelArgumentMediator;
 import com.rcpcompany.uibindings.IModelClassInfo;
 import com.rcpcompany.uibindings.IModelFeatureInfo;
+import com.rcpcompany.uibindings.IObservableListFactory;
 import com.rcpcompany.uibindings.IQuickfixProposal;
 import com.rcpcompany.uibindings.IQuickfixProposalProcessor;
 import com.rcpcompany.uibindings.IQuickfixProposalProcessorContext;
@@ -95,6 +104,7 @@ import com.rcpcompany.uibindings.UIBindingPreferences;
 import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.internal.formatters.DefaultFormatterProvider;
 import com.rcpcompany.uibindings.internal.observableFactories.DefaultEMFObservableFactory;
+import com.rcpcompany.uibindings.units.IUnitBindingSupport;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -2028,6 +2038,130 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 					StringToModelClassInfoMapEntryImpl.class, this, IUIBindingsPackage.MANAGER__MODEL_INFO);
 		}
 		return modelInfo;
+	}
+
+	@Override
+	public <ArgumentType> void getArgumentProviderArguments(IArgumentProvider provider,
+			IArgumentContext<ArgumentType> context) {
+		if (provider == null) return;
+		if (!provider.hasArguments()) return;
+
+		final String name = context.getName();
+		final Class<? extends ArgumentType> argumentType = context.getArgumentType();
+
+		final Object val = provider.getArguments().get(name);
+		if (val == null) return;
+
+		if (val instanceof IConfigurationElement) {
+			final IConfigurationElement ce = (IConfigurationElement) val;
+
+			// SIMA-921
+			String value = ce.getAttribute(name);
+			if (value != null) {
+				convertArgumentValue(context, provider, ce, name, value);
+			} else {
+				value = ce.getAttribute(InternalConstants.VALUE_TAG);
+				convertArgumentValue(context, provider, ce, InternalConstants.VALUE_TAG, value);
+			}
+		} else if (argumentType.isInstance(val)) {
+			// OK
+			context.addResult(provider, (ArgumentType) val);
+		} else if (val instanceof String) {
+			convertArgumentValue(context, provider, null, null, (String) val);
+		} else {
+			// TODO
+			context.addResult(provider, null);
+		}
+	}
+
+	@Override
+	public <ArgumentType> void convertArgumentValue(IArgumentContext<ArgumentType> context, Object source,
+			IConfigurationElement ce, String attributeName, String value) {
+		final ArgumentType v = convertArgumentValue(context, ce, attributeName, value);
+		if (v != null) {
+			context.addResult(source, v);
+		}
+	}
+
+	private <ArgumentType> ArgumentType convertArgumentValue(IArgumentContext<ArgumentType> context,
+			IConfigurationElement ce, String attributeName, String value) {
+		if (value == null) return null;
+
+		final Class<? extends ArgumentType> argumentType = context.getArgumentType();
+		if (argumentType == String.class)
+			return (ArgumentType) value;
+		else if (argumentType == Boolean.class)
+			return (ArgumentType) Boolean.valueOf(value);
+		else if (argumentType == Integer.class) {
+			/*
+			 * Special case handling:
+			 */
+			if (context.getName().equals(Constants.ARG_ALIGNMENT)) {
+				if ("l".equals(value) || "left".equals(value))
+					return (ArgumentType) (Integer) SWT.LEAD;
+				else if ("c".equals(value) || "center".equals(value))
+					return (ArgumentType) (Integer) SWT.CENTER;
+				else if ("r".equals(value) || "right".equals(value))
+					return (ArgumentType) (Integer) SWT.TRAIL;
+				else {
+					LogUtils.error(this, Constants.ARG_ALIGNMENT
+							+ " must be one of 'l', 'c' or 'r', got '" + value + "'", null); //$NON-NLS-1$ //$NON-NLS-2$
+				}
+			} else {
+				try {
+					return (ArgumentType) Integer.valueOf(value);
+				} catch (final NumberFormatException ex) {
+					LogUtils.error(this, ex);
+				}
+			}
+		} else if (argumentType == BigDecimal.class) {
+			try {
+				return (ArgumentType) new BigDecimal(value);
+			} catch (final NumberFormatException ex) {
+				LogUtils.error(this, ex);
+			}
+		} else if (argumentType == ImageDescriptor.class) {
+			final ImageDescriptor id = AbstractUIPlugin.imageDescriptorFromPlugin(ce.getContributor().getName(), value);
+			if (id == null) {
+				LogUtils.error(this, "Cannot find image for '" + value + "': " + this); //$NON-NLS-1$
+			}
+			return (ArgumentType) id;
+		} else if (argumentType == IObservableList.class) {
+			if (context.getBinding() instanceof IValueBinding) {
+				final IValueBinding vb = (IValueBinding) context.getBinding();
+				try {
+					final IObservableListFactory factory = (IObservableListFactory) ce
+							.createExecutableExtension(attributeName);
+					return (ArgumentType) factory.createList(vb);
+				} catch (final CoreException ex) {
+					LogUtils.error(this, ex);
+				}
+			}
+		} else if (argumentType == IUnitBindingSupport.class) {
+			try {
+				final IUnitBindingSupport adapter = (IUnitBindingSupport) ce.createExecutableExtension(attributeName);
+				return (ArgumentType) adapter;
+			} catch (final CoreException ex) {
+				LogUtils.error(this, ex);
+			}
+		} else if (argumentType == IControlFactory.class) {
+			try {
+				final IControlFactory factory = (IControlFactory) ce.createExecutableExtension(attributeName);
+				return (ArgumentType) factory;
+			} catch (final CoreException ex) {
+				LogUtils.error(this, ex);
+			}
+		} else if (argumentType == ICellEditorFactory.class) {
+			try {
+				final ICellEditorFactory factory = (ICellEditorFactory) ce.createExecutableExtension(attributeName);
+				return (ArgumentType) factory;
+			} catch (final CoreException ex) {
+				LogUtils.error(this, ex);
+			}
+		} else {
+			LogUtils.error(this, "Unknown argument type: " + argumentType); //$NON-NLS-1$
+		}
+		return null;
 	}
 
 	@Override

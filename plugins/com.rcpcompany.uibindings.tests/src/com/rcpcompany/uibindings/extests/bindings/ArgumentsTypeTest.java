@@ -172,8 +172,8 @@ public class ArgumentsTypeTest {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
-				final T val = (cls == IObservableList.class ? myReferenceBinding : myAttributeBinding).getArgument(
-						name, cls, null);
+				final IValueBinding vb = cls == IObservableList.class ? myReferenceBinding : myAttributeBinding;
+				final T val = vb.getArgument(name, cls, null);
 
 				assertNotNull(what, val);
 				assertTrue(what, cls.isInstance(val));
@@ -182,8 +182,7 @@ public class ArgumentsTypeTest {
 				/*
 				 * Repeat the request - should be the same object
 				 */
-				final T repeat = (cls == IObservableList.class ? myReferenceBinding : myAttributeBinding).getArgument(
-						name, cls, null);
+				final T repeat = vb.getArgument(name, cls, null);
 
 				assertTrue(what, repeat == val);
 			}
