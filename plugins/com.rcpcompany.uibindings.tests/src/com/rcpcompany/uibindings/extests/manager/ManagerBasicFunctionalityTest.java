@@ -37,6 +37,7 @@ import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 public class ManagerBasicFunctionalityTest {
 
@@ -131,7 +132,7 @@ public class ManagerBasicFunctionalityTest {
 		IEMFObservableFactory factory = m.getObservableFactory(to);
 		assertEquals(DefaultEMFObservableFactory.class, factory.getClass());
 
-		final Shop shop = ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain());
+		final Shop shop = ShopFactory.eINSTANCE.getShop(EditingDomainUtils.getEditingDomain());
 
 		factory = m.getObservableFactory(shop);
 		assertEquals(ShopEMFObservableFactory.class, factory.getClass());

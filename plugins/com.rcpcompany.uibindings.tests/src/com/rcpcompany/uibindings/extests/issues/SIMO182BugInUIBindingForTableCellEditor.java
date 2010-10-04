@@ -42,6 +42,7 @@ import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 /**
  * This test tests http://jira.marintek.sintef.no/jira/browse/SIMA-182 according to the recipe:
@@ -81,7 +82,7 @@ public class SIMO182BugInUIBindingForTableCellEditor {
 	public void before() {
 		resetAll();
 		IManager.Factory.getManager().setEditCellSingleClick(false);
-		myShop = ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain());
+		myShop = ShopFactory.eINSTANCE.getShop(EditingDomainUtils.getEditingDomain());
 		myCountries = myShop.getCountries();
 
 		createView();

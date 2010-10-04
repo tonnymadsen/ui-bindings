@@ -36,6 +36,7 @@ import com.rcpcompany.uibindings.tests.shop.CustomerType;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 /**
  * Test for {@link IEnumDecoratorProvider}.
@@ -68,7 +69,7 @@ public class EnumDecoratorProviderTest {
 		IManager.Factory.getManager().setValidationDelay(500);
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 
-		myShop = ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain());
+		myShop = ShopFactory.eINSTANCE.getShop(EditingDomainUtils.getEditingDomain());
 		myCustomer = myShop.getCustomers().get(0);
 		myOldLoyalty = myCustomer.getLoyalty();
 

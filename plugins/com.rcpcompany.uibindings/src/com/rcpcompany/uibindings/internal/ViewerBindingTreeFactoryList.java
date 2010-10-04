@@ -29,6 +29,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import com.rcpcompany.uibindings.Constants;
+import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IChildCreationSpecification;
 import com.rcpcompany.uibindings.IConstantTreeItem;
 import com.rcpcompany.uibindings.IDisposable;
@@ -474,7 +476,11 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 						continue;
 					}
 					final EReference ref = (EReference) sf;
-					ViewerBindingImpl.addToChildCreationSpecification(l, myTarget, ref, ref.getEReferenceType());
+					final IBindingDataType dt = IBindingDataType.Factory.create(ref);
+
+					if (dt.getArgument(Constants.ARG_NEW_ALLOWED, null, Boolean.class, Boolean.TRUE)) {
+						ViewerBindingImpl.addToChildCreationSpecification(l, myTarget, ref, ref.getEReferenceType());
+					}
 				} else {
 					final IConstantTreeItem item = IUIBindingsFactory.eINSTANCE.createConstantTreeItem();
 					item.setDescriptor(rel.getDescriptor());

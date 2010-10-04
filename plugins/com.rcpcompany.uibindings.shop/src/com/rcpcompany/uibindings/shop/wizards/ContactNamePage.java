@@ -15,10 +15,10 @@ import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Text;
 
-import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 
 public class ContactNamePage extends WizardPage implements IWizardPage {
@@ -30,7 +30,7 @@ public class ContactNamePage extends WizardPage implements IWizardPage {
 		myContact = contact;
 	}
 
-	private final Shop myShop = ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain());
+	private final Shop myShop = ShopFactory.eINSTANCE.getShop(EditingDomainUtils.getEditingDomain());
 	private Text myNameText;
 	private Text myCountryText;
 

@@ -149,6 +149,7 @@ public class ValueUnsettableTest {
 		assertTrue(!myObject.eIsSet(TestModelPackage.Literals.TEST_OBJECT__NUMBER));
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					myHandlerServer.executeCommand(myCommand, null);

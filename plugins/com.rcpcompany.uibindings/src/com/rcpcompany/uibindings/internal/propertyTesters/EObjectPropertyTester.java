@@ -17,8 +17,8 @@ import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
 import com.rcpcompany.uibindings.Constants;
-import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.internal.Activator;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -38,7 +38,7 @@ public class EObjectPropertyTester extends PropertyTester {
 		final EObject obj = (EObject) receiver;
 
 		if (Constants.PROPERTY_CAN_DELETE.equals(property)) {
-			final EditingDomain ed = IManager.Factory.getManager().getEditingDomain();
+			final EditingDomain ed = EditingDomainUtils.getEditingDomain();
 			final Command cmd = DeleteCommand.create(ed, obj);
 			return cmd.canExecute();
 		}

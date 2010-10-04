@@ -21,7 +21,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 
 import com.rcpcompany.uibindings.AbstractEMFObservableFactory;
 import com.rcpcompany.uibindings.IEMFObservableFactory;
-import com.rcpcompany.uibindings.IManager;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 /**
  * Default implementation of {@link IEMFObservableFactory} that uses the editing domain of the
@@ -34,7 +34,7 @@ public class DefaultEMFObservableFactory extends AbstractEMFObservableFactory im
 	public IObservableList observeList(Realm realm, EditingDomain editingDomain, EObject object,
 			EStructuralFeature structuralFeature) {
 		if (editingDomain == null) {
-			editingDomain = IManager.Factory.getManager().getEditingDomain();
+			editingDomain = EditingDomainUtils.getEditingDomain();
 		}
 		return new EditingDomainEObjectObservableList(realm, editingDomain, object, structuralFeature);
 	}
@@ -43,7 +43,7 @@ public class DefaultEMFObservableFactory extends AbstractEMFObservableFactory im
 	public IObservableValue observeValue(Realm realm, EditingDomain editingDomain, EObject object,
 			EStructuralFeature structuralFeature) {
 		if (editingDomain == null) {
-			editingDomain = IManager.Factory.getManager().getEditingDomain();
+			editingDomain = EditingDomainUtils.getEditingDomain();
 		}
 		return new MyEditingDomainEObjectObservableValue(realm, editingDomain, object, structuralFeature);
 	}

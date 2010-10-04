@@ -28,12 +28,12 @@ import org.eclipse.ui.part.ViewPart;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IColumnBinding;
-import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.observables.CountObservableValue;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
 import com.rcpcompany.uibindings.utils.IFormChooser;
 import com.rcpcompany.uibindings.utils.IFormChooserCreator;
@@ -53,7 +53,7 @@ public class InventoryView extends ViewPart {
 	@Override
 	public void createPartControl(Composite parent) {
 		myForm = IFormCreator.Factory.createScrolledForm(
-				ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain()), parent, "Inventory");
+				ShopFactory.eINSTANCE.getShop(EditingDomainUtils.getEditingDomain()), parent, "Inventory");
 
 		final ITableCreator table = myForm.addTableCreator(ShopPackage.Literals.SHOP__SHOP_ITEMS, true,
 				ITableCreator.FILTER | ITableCreator.RESIZE);

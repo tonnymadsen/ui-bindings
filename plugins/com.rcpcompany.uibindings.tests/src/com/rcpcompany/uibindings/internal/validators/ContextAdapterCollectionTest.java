@@ -31,6 +31,7 @@ import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 import com.rcpcompany.uibindings.validators.ConstraintValidatorAdapter;
 import com.rcpcompany.uibindings.validators.IValidatorAdapter;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
@@ -68,7 +69,7 @@ public class ContextAdapterCollectionTest {
 		IManager.Factory.getManager().setValidationDelay(VD);
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 
-		myShop = ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain());
+		myShop = ShopFactory.eINSTANCE.getShop(EditingDomainUtils.getEditingDomain());
 		myItem = myShop.getShopItems().get(0);
 		myOldName = myItem.getName();
 		myOldPrice = myItem.getPrice();

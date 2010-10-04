@@ -39,6 +39,7 @@ import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 
 /**
@@ -93,8 +94,7 @@ public class ContextNoCommitTest<C extends Control> implements CommandStackListe
 
 		createShop();
 
-		myCommandStack = IManager.Factory.getManager().getEditingDomain().getCommandStack();
-		myCommandStack.flush();
+		myCommandStack = EditingDomainUtils.getCommandStack();
 		myCommandStack.addCommandStackListener(this);
 
 		myView = createTestView(this);

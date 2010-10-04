@@ -113,6 +113,7 @@ public class ChildCreationSpecificationTest {
 		final IViewerBinding vb = table.getBinding();
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(null);
 
@@ -142,6 +143,7 @@ public class ChildCreationSpecificationTest {
 		final IViewerBinding vb = table.getBinding();
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(null);
 
@@ -171,6 +173,7 @@ public class ChildCreationSpecificationTest {
 		final IViewerBinding vb = table.getBinding();
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(null);
 
@@ -213,6 +216,7 @@ public class ChildCreationSpecificationTest {
 		yield();
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(myShop);
 
@@ -234,6 +238,7 @@ public class ChildCreationSpecificationTest {
 		});
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final TreeViewer tv = (TreeViewer) vb.getViewer();
 				assertNotNull(tv);

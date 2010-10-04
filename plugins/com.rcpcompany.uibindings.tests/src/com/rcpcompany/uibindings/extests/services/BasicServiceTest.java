@@ -28,6 +28,7 @@ import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 /**
  * Tests the basic {@link IServiceRegistry} functionality
@@ -90,7 +91,7 @@ public class BasicServiceTest {
 
 				final IBindingContext context = IBindingContext.Factory.createContext(body);
 				final IValueBinding binding = context.addBinding(text,
-						ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain()),
+						ShopFactory.eINSTANCE.getShop(EditingDomainUtils.getEditingDomain()),
 						IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 
 				testServiceInterface(binding);

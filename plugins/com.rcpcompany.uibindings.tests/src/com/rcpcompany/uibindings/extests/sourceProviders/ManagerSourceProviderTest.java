@@ -38,6 +38,7 @@ import com.rcpcompany.uibindings.internal.sourceProviders.ManagerSourceProvider;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 /**
  * Tests of the defined sources in {@link ManagerSourceProvider} and well as the value of these.
@@ -131,7 +132,7 @@ public class ManagerSourceProviderTest {
 	 */
 	@Test
 	public void testValues() {
-		final EditingDomain ed = IManager.Factory.getManager().getEditingDomain();
+		final EditingDomain ed = EditingDomainUtils.getEditingDomain();
 		final CommandStack cs = ed.getCommandStack();
 
 		testUndoRedo("ABC", false, false);

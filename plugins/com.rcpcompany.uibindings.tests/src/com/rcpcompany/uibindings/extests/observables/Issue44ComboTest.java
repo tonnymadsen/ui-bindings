@@ -33,6 +33,7 @@ import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 /**
  * Test case for http://code.google.com/p/rcp-company-uibindings/issues/detail?id=44: Combo and
@@ -57,7 +58,7 @@ public class Issue44ComboTest {
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 
 		myTestView = createTestView(this);
-		shop = ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain());
+		shop = ShopFactory.eINSTANCE.getShop(EditingDomainUtils.getEditingDomain());
 		contact = shop.getContacts().get(0);
 		contactAbbreviation = contact.getCountry().getAbbreviation();
 		countries = shop.getCountries();

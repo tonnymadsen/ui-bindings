@@ -14,10 +14,10 @@ import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchAdvisor;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
 
-import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.moao.util.MOAOMessageValidatorAdapter;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 import com.rcpcompany.uibindings.utils.IGlobalNavigationManager;
 import com.rcpcompany.uibindings.validators.ConstraintValidatorAdapter;
 import com.rcpcompany.uibindings.validators.EValidatorAdapter;
@@ -54,7 +54,7 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 		super.postStartup();
 
 		final IValidatorAdapterManager vam = IValidatorAdapterManager.Factory.getManager();
-		final Shop theShop = ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain());
+		final Shop theShop = ShopFactory.eINSTANCE.getShop(EditingDomainUtils.getEditingDomain());
 		vam.addRoot(theShop, new EValidatorAdapter());
 		vam.addRoot(theShop, new ConstraintValidatorAdapter());
 		vam.addRoot(theShop, new MOAOMessageValidatorAdapter());

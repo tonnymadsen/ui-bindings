@@ -27,6 +27,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 
 import com.rcpcompany.uibindings.internal.observables.MyDetailObservableList;
 import com.rcpcompany.uibindings.internal.observables.MyDetailObservableValue;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 /**
  * UI Bindings version of {@link EMFObservables}.
@@ -57,7 +58,7 @@ public final class UIBindingsEMFObservables {
 			realm = Realm.getDefault();
 		}
 		if (editingDomain == null) {
-			editingDomain = IManager.Factory.getManager().getEditingDomain();
+			editingDomain = EditingDomainUtils.getEditingDomain();
 		}
 		Assert.isNotNull(obj, "observed object may not be null"); //$NON-NLS-1$
 		final IEMFObservableFactory factory = IManager.Factory.getManager().getObservableFactory(obj);
@@ -95,7 +96,7 @@ public final class UIBindingsEMFObservables {
 			realm = Realm.getDefault();
 		}
 		if (editingDomain == null) {
-			editingDomain = IManager.Factory.getManager().getEditingDomain();
+			editingDomain = EditingDomainUtils.getEditingDomain();
 		}
 		final IEMFObservableFactory factory = IManager.Factory.getManager().getObservableFactory(eObject);
 		Assert.isTrue(eStructuralFeature.isMany(), "Feature must be to-many: " + eStructuralFeature);

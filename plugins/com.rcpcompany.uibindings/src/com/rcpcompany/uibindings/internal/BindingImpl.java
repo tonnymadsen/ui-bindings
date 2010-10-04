@@ -51,6 +51,7 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 import com.rcpcompany.utils.basic.ClassUtils;
 import com.rcpcompany.utils.basic.ToStringUtils;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -374,7 +375,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	@Override
 	public EditingDomain getEditingDomain() {
 		final IBindingContext context = getContext();
-		if (context == null) return IManager.Factory.getManager().getEditingDomain();
+		if (context == null) return EditingDomainUtils.getEditingDomain();
 		return context.getEditingDomain();
 	}
 

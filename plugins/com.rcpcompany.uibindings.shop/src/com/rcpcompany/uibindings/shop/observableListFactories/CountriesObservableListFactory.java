@@ -12,7 +12,6 @@ package com.rcpcompany.uibindings.shop.observableListFactories;
 
 import org.eclipse.core.databinding.observable.list.IObservableList;
 
-import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IObservableListFactory;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
@@ -20,6 +19,7 @@ import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 /**
  * {@link IObservableListFactory} for {@link Country}.
@@ -27,7 +27,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 public class CountriesObservableListFactory implements IObservableListFactory {
 	@Override
 	public IObservableList createList(IValueBinding binding) {
-		final Shop shop = ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain());
+		final Shop shop = ShopFactory.eINSTANCE.getShop(EditingDomainUtils.getEditingDomain());
 		return UIBindingsEMFObservables.observeList(binding.getEditingDomain(), shop,
 				ShopPackage.Literals.SHOP__COUNTRIES);
 	}

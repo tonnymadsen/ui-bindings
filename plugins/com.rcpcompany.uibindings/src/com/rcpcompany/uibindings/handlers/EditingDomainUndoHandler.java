@@ -16,8 +16,8 @@ import org.eclipse.core.commands.IHandler;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
-import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.internal.Activator;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -31,7 +31,7 @@ public class EditingDomainUndoHandler extends AbstractHandler implements IHandle
 		if (Activator.getDefault().TRACE_HANDLERS) {
 			LogUtils.debug(this, ""); //$NON-NLS-1$
 		}
-		final EditingDomain domain = IManager.Factory.getManager().getEditingDomain();
+		final EditingDomain domain = EditingDomainUtils.getEditingDomain();
 		final CommandStack commandStack = domain.getCommandStack();
 		if (commandStack.canUndo()) {
 			commandStack.undo();

@@ -21,13 +21,13 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.observables.EListKeyedElementObservableValue;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 /**
  * Test of {@link EListKeyedElementObservableValue}.
@@ -65,7 +65,7 @@ public class EListKeyedElementObservableValueTest {
 
 	protected int changeCount = 0;
 
-	public EditingDomain myEditingDomain = IManager.Factory.getManager().getEditingDomain();
+	public EditingDomain myEditingDomain = EditingDomainUtils.getEditingDomain();
 
 	@Test
 	public void ovTest() {

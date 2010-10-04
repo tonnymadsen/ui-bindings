@@ -18,13 +18,13 @@ import com.rcpcompany.uibinding.tests.model.TestGridRow;
 import com.rcpcompany.uibinding.tests.model.TestModelFactory;
 import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 import com.rcpcompany.uibindings.IBindingContext;
-import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.grid.IGridBinding;
 import com.rcpcompany.uibindings.grid.IGridBindingCellInformation;
 import com.rcpcompany.uibindings.grid.IGridBindingColumnInformation;
 import com.rcpcompany.uibindings.grid.IGridBindingRowInformation;
 import com.rcpcompany.uibindings.grid.extests.models.TestGridGridModel;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 /**
  * Test of proper handling of changes in the structure of a grid:
@@ -54,7 +54,7 @@ public class GridStructureChangeTest {
 
 	private void createModel() {
 		myTestGrid = createTestGrid();
-		myModel = new TestGridGridModel(IManager.Factory.getManager().getEditingDomain(), myTestGrid,
+		myModel = new TestGridGridModel(EditingDomainUtils.getEditingDomain(), myTestGrid,
 				TestModelPackage.Literals.TEST_GRID_CELL__DETAILS, null);
 	}
 

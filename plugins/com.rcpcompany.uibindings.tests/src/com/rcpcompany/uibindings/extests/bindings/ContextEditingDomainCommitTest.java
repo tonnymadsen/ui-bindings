@@ -34,6 +34,7 @@ import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 
 /**
@@ -76,7 +77,7 @@ public class ContextEditingDomainCommitTest {
 		createShop();
 		createView();
 
-		myCommandStack = IManager.Factory.getManager().getEditingDomain().getCommandStack();
+		myCommandStack = EditingDomainUtils.getCommandStack();
 		myCommandStack.flush();
 
 		myView.getSite().getPage().activate(myView);

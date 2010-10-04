@@ -13,9 +13,9 @@ package com.rcpcompany.uibindings.shop.views;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
-import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 
@@ -30,9 +30,8 @@ public class ShopNumbersView extends ViewPart {
 
 	@Override
 	public void createPartControl(Composite parent) {
-		myForm = IFormCreator.Factory
-				.createScrolledForm(ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain()),
-						parent, "Shop Numbers");
+		myForm = IFormCreator.Factory.createScrolledForm(
+				ShopFactory.eINSTANCE.getShop(EditingDomainUtils.getEditingDomain()), parent, "Shop Numbers");
 
 		myForm.addField("name");
 		myForm.addField("nextOrderNo");

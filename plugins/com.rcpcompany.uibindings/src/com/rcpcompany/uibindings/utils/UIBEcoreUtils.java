@@ -25,7 +25,6 @@ import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.dialogs.MessageDialog;
 
-import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -54,7 +53,7 @@ public final class UIBEcoreUtils {
 		/*
 		 * Find all references into these objects
 		 */
-		final EditingDomain domain = IManager.Factory.getManager().getEditingDomain();
+		final EditingDomain domain = EditingDomainUtils.getEditingDomain();
 		final Map<EObject, Collection<EStructuralFeature.Setting>> usages = EcoreUtil.UsageCrossReferencer.findAll(
 				eObjects, domain.getResourceSet());
 

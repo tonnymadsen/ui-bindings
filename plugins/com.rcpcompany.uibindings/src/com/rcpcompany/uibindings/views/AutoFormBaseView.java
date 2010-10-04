@@ -41,7 +41,6 @@ public class AutoFormBaseView<T extends EObject> extends ViewPart implements ISe
 	private final IObservableValue myCurrentValue;
 	private IAutoFormCreator myForm;
 	private final ISelectionListener mySelectionListener = new ISelectionListener() {
-
 		@Override
 		public void selectionChanged(IWorkbenchPart part, ISelection selection) {
 			selectReveal(selection);

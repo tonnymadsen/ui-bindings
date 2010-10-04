@@ -100,6 +100,7 @@ public class ElementParentageTest {
 		final IViewerBinding vb = table.getBinding();
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final IElementParentage ep = vb.getElementParentage(myShopItem1);
 
@@ -111,6 +112,7 @@ public class ElementParentageTest {
 		});
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final IElementParentage ep = vb.getElementParentage(myShop);
 
@@ -119,6 +121,7 @@ public class ElementParentageTest {
 		});
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final IElementParentage ep = vb.getElementParentage(myContact);
 
@@ -148,6 +151,7 @@ public class ElementParentageTest {
 		yield();
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final IElementParentage ep = vb.getElementParentage(myShopItem1);
 
@@ -159,6 +163,7 @@ public class ElementParentageTest {
 		});
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final IElementParentage ep = vb.getElementParentage(myShop);
 
@@ -167,6 +172,7 @@ public class ElementParentageTest {
 		});
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				final IElementParentage ep = vb.getElementParentage(myContact);
 

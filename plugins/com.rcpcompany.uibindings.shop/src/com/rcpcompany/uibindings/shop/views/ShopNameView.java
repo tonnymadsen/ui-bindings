@@ -24,6 +24,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
 
 public class ShopNameView extends ViewPart {
@@ -51,7 +52,7 @@ public class ShopNameView extends ViewPart {
 	}
 
 	private void bindUI() {
-		final Shop shop = ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain());
+		final Shop shop = ShopFactory.eINSTANCE.getShop(EditingDomainUtils.getEditingDomain());
 
 		final IBindingContext context = IBindingContext.Factory.createContext(myForm);
 

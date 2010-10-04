@@ -25,6 +25,7 @@ import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.grid.IGridBinding;
 import com.rcpcompany.uibindings.grid.IGridBindingCellInformation;
 import com.rcpcompany.uibindings.grid.extests.models.TestGridGridModel;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 /**
  * Test of {@link BindingSourseProvider} for grids
@@ -62,7 +63,7 @@ public class GridBindingSourceProviderTest {
 
 	private void createModel() {
 		myTestGrid = createTestGrid();
-		myModel = new TestGridGridModel(IManager.Factory.getManager().getEditingDomain(), myTestGrid,
+		myModel = new TestGridGridModel(EditingDomainUtils.getEditingDomain(), myTestGrid,
 				TestModelPackage.Literals.TEST_GRID_CELL__DETAILS, null);
 	}
 

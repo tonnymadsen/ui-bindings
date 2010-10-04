@@ -22,11 +22,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.rcpcompany.uibindings.EcoreExtUtils;
-import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 /**
  * Tests {@link EcoreExtUtils#toString(Command)}.
@@ -42,7 +42,7 @@ public class CommandToStringTest {
 		resetAll();
 
 		myShop = ShopFactory.eINSTANCE.createShop();
-		myED = IManager.Factory.getManager().getEditingDomain();
+		myED = EditingDomainUtils.getEditingDomain();
 
 		myShop.setName("SHOP");
 		myShop.setNextCustomerNo(10);
@@ -53,6 +53,7 @@ public class CommandToStringTest {
 		final Command command = SetCommand.create(myED, myShop, ShopPackage.Literals.SHOP__NEXT_CUSTOMER_NO, 1);
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myED.getCommandStack().execute(command);
 
@@ -73,6 +74,7 @@ public class CommandToStringTest {
 		final Command command = AddCommand.create(myED, myShop, ShopPackage.Literals.SHOP__COUNTRIES, c);
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myED.getCommandStack().execute(command);
 
@@ -94,6 +96,7 @@ public class CommandToStringTest {
 		final Command command = RemoveCommand.create(myED, c);
 
 		assertNoLog(new Runnable() {
+			@Override
 			public void run() {
 				myED.getCommandStack().execute(command);
 

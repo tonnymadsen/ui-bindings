@@ -65,6 +65,7 @@ import com.rcpcompany.uibindings.internal.bindingMessages.ContextMessageDecorato
 import com.rcpcompany.uibindings.internal.bindingMessages.IContextMessageDecoratorAdapter;
 import com.rcpcompany.uibindings.internal.bindingMessages.contextAdapters.ScrolledFormContextMessageDecoratorAdapter;
 import com.rcpcompany.uibindings.internal.bindingMessages.contextAdapters.WizardPageContextMessageDecoratorAdapter;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -622,7 +623,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	 */
 	@Override
 	public EditingDomain getEditingDomain() {
-		if (editingDomain == null) return IManager.Factory.getManager().getEditingDomain();
+		if (editingDomain == null) return EditingDomainUtils.getEditingDomain();
 		return editingDomain;
 	}
 

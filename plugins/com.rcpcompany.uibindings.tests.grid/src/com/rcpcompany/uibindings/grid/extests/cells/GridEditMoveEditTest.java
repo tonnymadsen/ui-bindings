@@ -19,6 +19,7 @@ import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.grid.IGridBinding;
 import com.rcpcompany.uibindings.grid.extests.models.TestGridGridModel;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 /**
  * Tests of <a href="http://jira.marintek.sintef.no/jira/browse/SIMA-1049">SIMA-1049: Moving and
@@ -48,7 +49,7 @@ public class GridEditMoveEditTest {
 
 	private void createModel() {
 		myTestGrid = createTestGrid();
-		myModel = new TestGridGridModel(IManager.Factory.getManager().getEditingDomain(), myTestGrid,
+		myModel = new TestGridGridModel(EditingDomainUtils.getEditingDomain(), myTestGrid,
 				TestModelPackage.Literals.TEST_GRID_CELL__DETAILS, null);
 		myCellA1 = myTestGrid.getColumns().get(0).getCells().get(0);
 		myCellB1 = myTestGrid.getColumns().get(1).getCells().get(0);

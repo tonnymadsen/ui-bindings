@@ -36,6 +36,7 @@ import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.utils.ITableCreator;
 
@@ -98,7 +99,7 @@ public class ViewerTableDeleteElementTest {
 		myShopItem1.setName("si1");
 		myShop.getShopItems().add(myShopItem1);
 
-		myResourceSet = IManager.Factory.getManager().getEditingDomain().getResourceSet();
+		myResourceSet = EditingDomainUtils.getEditingDomain().getResourceSet();
 		myResource = new ResourceImpl();
 		myResourceSet.getResources().add(myResource);
 

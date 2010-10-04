@@ -24,7 +24,6 @@ import org.eclipse.ui.part.ViewPart;
 
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IColumnBinding;
-import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.SpecialBinding;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
@@ -33,6 +32,7 @@ import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
 
 public class ShopTreeView extends ViewPart {
@@ -60,7 +60,7 @@ public class ShopTreeView extends ViewPart {
 		myNameColumn.setWidth(100);
 
 		final IObservableList list = WritableList.withElementType(ShopPackage.Literals.SHOP);
-		list.add(ShopFactory.eINSTANCE.getShop(IManager.Factory.getManager().getEditingDomain()));
+		list.add(ShopFactory.eINSTANCE.getShop(EditingDomainUtils.getEditingDomain()));
 		myTreeBinding = myContext.addViewer().viewer(myTree).model(list);
 		myTreeColumnBinding = myTreeBinding.addColumn().column(myTreeColumn).model(SpecialBinding.TREE_ITEM);
 

@@ -19,11 +19,11 @@ import org.junit.Test;
 import com.rcpcompany.uibinding.tests.model.TestGrid;
 import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 import com.rcpcompany.uibindings.IBindingContext;
-import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.grid.IGridBinding;
 import com.rcpcompany.uibindings.grid.extests.models.TestGridGridModel;
 import com.rcpcompany.uibindings.grid.extests.models.TestGridGridModel.Cell;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 /**
  * Simple test to show that a grid can be created and disposed again - multiple times.
@@ -68,8 +68,8 @@ public class GridSimpleCreateDisposeTest {
 		myGridDisposed = 0;
 
 		final TestGrid testGrid = createTestGrid();
-		final TestGridGridModel model = new TestGridGridModel(IManager.Factory.getManager().getEditingDomain(),
-				testGrid, TestModelPackage.Literals.TEST_GRID_CELL__PRICE, new TestGridGridModel.Monitor() {
+		final TestGridGridModel model = new TestGridGridModel(EditingDomainUtils.getEditingDomain(), testGrid,
+				TestModelPackage.Literals.TEST_GRID_CELL__PRICE, new TestGridGridModel.Monitor() {
 
 					@Override
 					public void gridDisposed() {

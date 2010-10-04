@@ -21,6 +21,7 @@ import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
 import com.rcpcompany.uibindings.IManager;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 /**
  * Basic {@link IObservableValue observable value} for an element in an EMF {@link EList}.
@@ -52,7 +53,7 @@ public class EListElementObservableValue extends AbstractObservableValue impleme
 	 * @param index the element of the list
 	 */
 	public EListElementObservableValue(IObservableValue ov, EStructuralFeature sf, int index) {
-		this(IManager.Factory.getManager().getEditingDomain(), ov, sf, index);
+		this(EditingDomainUtils.getEditingDomain(), ov, sf, index);
 	}
 
 	/**

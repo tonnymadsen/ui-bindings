@@ -14,10 +14,10 @@ import org.junit.Test;
 import com.rcpcompany.uibinding.tests.model.TestGrid;
 import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 import com.rcpcompany.uibindings.IBindingContext;
-import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.grid.IGridBinding;
 import com.rcpcompany.uibindings.grid.extests.models.TestGridGridModel;
+import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 /**
  * Simple test to test that the content of cells is correct.
@@ -43,7 +43,7 @@ public class GridSimpleCellContextTest {
 
 	private void createModel() {
 		myTestGrid = createTestGrid();
-		myModel = new TestGridGridModel(IManager.Factory.getManager().getEditingDomain(), myTestGrid,
+		myModel = new TestGridGridModel(EditingDomainUtils.getEditingDomain(), myTestGrid,
 				TestModelPackage.Literals.TEST_GRID_CELL__DETAILS, null);
 	}
 
