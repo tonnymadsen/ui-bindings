@@ -14,16 +14,20 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.viewers.ColumnViewerEditorActivationEvent;
 import org.eclipse.swt.dnd.Clipboard;
 import org.eclipse.swt.widgets.Widget;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 
+import com.rcpcompany.uibindings.initializers.DefaultEObjectInitializer;
 import com.rcpcompany.uibindings.internal.observableFactories.DefaultEMFObservableFactory;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 
@@ -995,4 +999,21 @@ public interface IManager extends IBaseObject {
 	 */
 	<ArgumentType> void addArgumentValue(IArgumentContext<ArgumentType> context, Object source,
 			IConfigurationElement ce, String attributeName, String value);
+
+	/**
+	 * Initializes the specified object by creating a set of {@link Command commands} that will set
+	 * all relevant fields.
+	 * <p>
+	 * The default initilizer for {@link EClass} is {@link DefaultEObjectInitializer}, which will
+	 * initialize all features of the object in question.
+	 * <p>
+	 * Please note that the object is <em>not</em> yet included in the containment tree when this
+	 * method is called.
+	 * 
+	 * @param parent the parent object
+	 * @param child
+	 * @param eReference
+	 * @return
+	 */
+	Command initializeObject(EObject parent, EReference eReference, EObject child);
 } // IManager

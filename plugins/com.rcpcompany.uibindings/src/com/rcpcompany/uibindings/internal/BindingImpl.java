@@ -624,7 +624,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 		final IManager manager = IManager.Factory.getManager();
 		final IArgumentInformation ai = manager.getArgumentInformation(name);
-
 		final IArgumentContext<ArgumentType> context = new IArgumentContext<ArgumentType>() {
 			@Override
 			public IBinding getBinding() {
@@ -663,7 +662,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 			@Override
 			public boolean isResultFound() {
-				return firstOnly && !results.isEmpty();
+				return firstOnly() && !results.isEmpty();
 			}
 		};
 

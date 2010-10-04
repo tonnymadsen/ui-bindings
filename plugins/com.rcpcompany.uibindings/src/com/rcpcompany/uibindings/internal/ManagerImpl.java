@@ -32,6 +32,8 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.ECollections;
@@ -40,6 +42,7 @@ import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -70,6 +73,7 @@ import com.rcpcompany.uibindings.IArgumentContext;
 import com.rcpcompany.uibindings.IArgumentInformation;
 import com.rcpcompany.uibindings.IArgumentProvider;
 import com.rcpcompany.uibindings.IBindingContext;
+import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.IBindingMessageTarget;
 import com.rcpcompany.uibindings.ICellEditorFactory;
@@ -79,6 +83,8 @@ import com.rcpcompany.uibindings.IDecoratorProvider;
 import com.rcpcompany.uibindings.IEMFObservableFactory;
 import com.rcpcompany.uibindings.IEMFObservableFactoryDescriptor;
 import com.rcpcompany.uibindings.IFormatterProvider;
+import com.rcpcompany.uibindings.IInitializer;
+import com.rcpcompany.uibindings.IInitializerContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IModelArgumentMediator;
 import com.rcpcompany.uibindings.IModelClassInfo;
@@ -2200,6 +2206,13 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			} catch (final CoreException ex) {
 				LogUtils.error(this, ex);
 			}
+		} else if (argumentType == IInitializer.class) {
+			try {
+				final IInitializer adapter = (IInitializer) ce.createExecutableExtension(attributeName);
+				return (ArgumentType) adapter;
+			} catch (final CoreException ex) {
+				LogUtils.error(this, ex);
+			}
 		} else if (argumentType == IControlFactory.class) {
 			try {
 				final IControlFactory factory = (IControlFactory) ce.createExecutableExtension(attributeName);
@@ -3204,5 +3217,54 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			if (d.getId().equals(id)) return d;
 		}
 		return null;
+	}
+
+	@Override
+	public Command initializeObject(final EObject parent, final EReference reference, final EObject child) {
+		if (child == null) return null;
+		final EClass eClass = child.eClass();
+		final IBindingDataType dt = IBindingDataType.Factory.create(eClass);
+
+		final IInitializer initializer = dt.getArgument(Constants.ARG_INITIALIZER, null, IInitializer.class, null);
+
+		if (initializer == null) return null;
+
+		final CompoundCommand cc = new CompoundCommand();
+		final IInitializerContext context = new IInitializerContext() {
+			@Override
+			public EObject getParent() {
+				return parent;
+			}
+
+			@Override
+			public EReference getReference() {
+				return reference;
+			}
+
+			@Override
+			public EObject getObject() {
+				return child;
+			}
+
+			@Override
+			public EditingDomain getEditingDomain() {
+				return ManagerImpl.this.getEditingDomain();
+			}
+
+			@Override
+			public void addCommand(Command command) {
+				cc.append(command);
+			}
+		};
+
+		try {
+			initializer.initialize(context, eClass);
+		} catch (final Exception ex) {
+			LogUtils.error(initializer, ex);
+		}
+
+		if (cc.isEmpty()) return null;
+
+		return cc.unwrap();
 	}
 } // ManagerImpl

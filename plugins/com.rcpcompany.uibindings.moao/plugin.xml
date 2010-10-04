@@ -16,5 +16,16 @@
             class="com.rcpcompany.uibindings.moao.moao.IMOAOPackage"
             genModel="model/moao.genmodel"/>
    </extension>
+   <extension
+         point="com.rcpcompany.uibindings.uiBindings">
+      <model
+            class="com.rcpcompany.uibindings.moao.INamedObject">
+         <feature
+               name="name">
+            <standardArguments
+                  initializer="com.rcpcompany.uibindings.moao.internal.initializers.NameInitializer"></standardArguments>
+         </feature>
+      </model>
+   </extension>
 
 </plugin>

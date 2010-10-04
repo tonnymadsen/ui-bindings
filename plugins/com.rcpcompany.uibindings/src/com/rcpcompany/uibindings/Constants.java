@@ -377,6 +377,13 @@ public interface Constants {
 	String ARG_PREFERRED_CELL_EDITOR_FACTORY = "preferredCellEditorFactory"; //$NON-NLS-1$
 
 	/**
+	 * Argument name for an initializer object for an object of structural feature.
+	 * <p>
+	 * The argument value is {@link IInitializer}.
+	 */
+	String ARG_INITIALIZER = "initializer"; //$NON-NLS-1$
+
+	/**
 	 * Argument name for the type of a binding if not specified directly with <code>type(...)</code>
 	 * .
 	 */
@@ -407,7 +414,7 @@ public interface Constants {
 	 * for {@link IArgumentProvider argument providers}.
 	 */
 	String[] EXT_POINT_ATTRIBUTE_NAMES = { ARG_ALIGNMENT, ARG_CELL_EDITOR_TYPE, ARG_DYNAMIC, ARG_EXTENSIONS,
-			ARG_FEATURE_NAME, ARG_HEIGHT, ARG_HELP_ID, ARG_IMAGE, ARG_LABEL, ARG_LABEL_DECORATOR,
+			ARG_FEATURE_NAME, ARG_HEIGHT, ARG_HELP_ID, ARG_IMAGE, ARG_INITIALIZER, ARG_LABEL, ARG_LABEL_DECORATOR,
 			ARG_MODEL_OBJECT_MESSAGES, ARG_NEW_ALLOWED, ARG_NULL_LABEL, ARG_OPEN_COMMAND, ARG_PREFERRED_CELL_EDITOR,
 			ARG_PREFERRED_CELL_EDITOR_FACTORY, ARG_PREFERRED_CONTROL, ARG_PREFERRED_CONTROL_FACTORY, ARG_RANGE,
 			ARG_READONLY, ARG_REQUIRED, ARG_TEXT, ARG_TEXT_COMMIT_STRATEGY, ARG_TOOL_TIP_TEXT, ARG_TYPE, ARG_UNIT,

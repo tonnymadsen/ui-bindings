@@ -11,6 +11,7 @@
 package com.rcpcompany.uibindings;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
@@ -316,4 +317,27 @@ public interface IBindingDataType extends EObject {
 	 */
 	<ArgumentType> ArgumentType getArgument(String name, String type, Class<? extends ArgumentType> argumentType,
 			ArgumentType defaultValue);
+
+	/**
+	 * Returns the named argument or <code>null</code> if not set.
+	 * <p>
+	 * Will look for the argument in the following places:
+	 * <nl>
+	 * <li>this data type - this leads to model and feature arguments as well as annotations from
+	 * the Ecore model</li>
+	 * <li>the Java super types of the current dynamic data type</li>
+	 * </nl>
+	 * 
+	 * @param <ArgumentType> the wanted argument type
+	 * 
+	 * @param name the name of the argument
+	 * @param argumentType the argument type of the wanted argument. Class value of
+	 *            &lt;ArgumentType&gt;
+	 * @param firstOnly if <code>true</code> only return the first found value, otherwise return all
+	 *            found values
+	 * @return the value or <code>null</code> if not set.
+	 */
+
+	<ArgumentType> List<IArgumentValue<ArgumentType>> getArguments(String name, String type,
+			Class<? extends ArgumentType> argumentType, boolean firstOnly);
 } // IBindingDataType

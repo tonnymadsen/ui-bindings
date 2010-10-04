@@ -13,6 +13,7 @@ package com.rcpcompany.uibindings.internal.handlers;
 import java.util.List;
 
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.AddCommand;
@@ -21,8 +22,8 @@ import org.eclipse.jface.action.ContributionItem;
 import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.ui.actions.CompoundContributionItem;
@@ -33,6 +34,7 @@ import org.eclipse.ui.services.IServiceLocator;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IChildCreationSpecification;
+import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.internal.utils.SelectionUtils;
 import com.rcpcompany.uibindings.utils.IBindingObjectInformation;
@@ -118,7 +120,7 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 	 * 
 	 * @author Tonny Madsen, The RCP Company
 	 */
-	public class NewContributionItem extends ContributionItem {
+	public class NewContributionItem extends ContributionItem implements SelectionListener {
 
 		private final IChildCreationSpecification mySpec;
 		private final EditingDomain myEditingDomain;
@@ -139,12 +141,7 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 			myItem.setText(i.getLabel());
 			myItem.setImage(i.getImage());
 
-			myItem.addSelectionListener(new SelectionAdapter() {
-				@Override
-				public void widgetSelected(SelectionEvent e) {
-					createObject();
-				}
-			});
+			myItem.addSelectionListener(this);
 		}
 
 		protected void createObject() {
@@ -158,15 +155,22 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 			 * first to select the object to add
 			 */
 			final EObject child;
+			Command initializeCommand;
 			if (mySpec.getReference().isContainment()) {
 				child = EcoreUtil.create(mySpec.getChildType());
 				// TODO: initialize the object
+				initializeCommand = IManager.Factory.getManager().initializeObject(mySpec.getParent(),
+						mySpec.getReference(), child);
 			} else {
 				child = null;
 				UIBEcoreUtils.showErrorDialog("New Aborted", "Cannot add the selected objects", null);
 				return;
 			}
-			final Command cmd = AddCommand.create(myEditingDomain, mySpec.getParent(), mySpec.getReference(), child);
+			final CompoundCommand cmd = new CompoundCommand();
+			cmd.append(AddCommand.create(myEditingDomain, mySpec.getParent(), mySpec.getReference(), child));
+			if (initializeCommand != null) {
+				cmd.append(initializeCommand);
+			}
 
 			/*
 			 * Execute if possible...
@@ -181,6 +185,16 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 			// LogUtils.debug(this, "execute");
 
 			myEditingDomain.getCommandStack().execute(cmd);
+		}
+
+		@Override
+		public void widgetSelected(SelectionEvent e) {
+			createObject();
+		}
+
+		@Override
+		public void widgetDefaultSelected(SelectionEvent e) {
+			createObject();
 		}
 	}
 }

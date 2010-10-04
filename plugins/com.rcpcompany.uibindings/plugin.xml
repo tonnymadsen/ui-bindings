@@ -608,6 +608,14 @@
             lookupAttributeTargetType="true"
             name="unitSupport">
       </argumentInfo>
+      <argumentInfo
+            lookupAttributeContainingClass="false"
+            lookupAttributeTargetType="true"
+            lookupParent="false"
+            lookupReferenceContainingClass="false"
+            lookupReferenceTargetType="true"
+            name="initializer">
+      </argumentInfo>
    </extension>
    
    <extension
@@ -1048,6 +1056,12 @@
       <modelArgumentMediator
             class="com.rcpcompany.uibindings.internal.StructuralFeatureModelArgumentMediator">
       </modelArgumentMediator>
+      <model
+            class="org.eclipse.emf.ecore.EObject">
+         <standardArguments
+               initializer="com.rcpcompany.uibindings.initializers.DefaultEObjectInitializer">
+         </standardArguments>
+      </model>
    </extension>
    <extension
          point="com.rcpcompany.uibindings.uiBindings">

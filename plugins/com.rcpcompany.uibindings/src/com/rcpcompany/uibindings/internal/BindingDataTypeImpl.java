@@ -117,6 +117,15 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	@Override
 	public <ArgumentType> ArgumentType getArgument(final String name, final String type,
 			final Class<? extends ArgumentType> argumentType, ArgumentType defaultValue) {
+		final List<IArgumentValue<ArgumentType>> results = getArguments(name, type, argumentType, true);
+
+		if (results.isEmpty()) return defaultValue;
+		return results.get(0).getValue();
+	}
+
+	@Override
+	public <ArgumentType> List<IArgumentValue<ArgumentType>> getArguments(final String name, final String type,
+			final Class<? extends ArgumentType> argumentType, final boolean firstOnly) {
 		final List<IArgumentValue<ArgumentType>> results = new ArrayList<IArgumentValue<ArgumentType>>();
 
 		final IArgumentInformation ai = IManager.Factory.getManager().getArgumentInformation(name);
@@ -148,7 +157,7 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 
 			@Override
 			public boolean firstOnly() {
-				return true;
+				return firstOnly;
 			}
 
 			@Override
@@ -158,13 +167,24 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 
 			@Override
 			public boolean isResultFound() {
-				return !results.isEmpty();
+				return firstOnly() && !results.isEmpty();
 			}
 		};
 
+		final Collection<IBindingDataType> visitedDataTypes = new ArrayList<IBindingDataType>();
+		visitedDataTypes.add(this);
+		// LogUtils.debug(this, this + ": " + getStaticDataType() + "/" + getDataType());
+
 		addArguments(context);
-		if (!context.isResultFound()) return defaultValue;
-		return results.get(0).getValue();
+		if (context.isResultFound()) return results;
+
+		addSuperDataTypeArguments(context, visitedDataTypes);
+		if (context.isResultFound()) return results;
+
+		addParentDataTypeArguments(context, visitedDataTypes);
+		if (context.isResultFound()) return results;
+
+		return results;
 	}
 
 	/**
