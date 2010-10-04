@@ -47,6 +47,15 @@
             </standardArguments>
          </feature>
       </model>
+      <model
+            class="com.rcpcompany.uibindings.tests.shop.Country">
+         <feature
+               name="contacts">
+            <standardArguments
+                  newAllowed="false">
+            </standardArguments>
+         </feature>
+      </model>
    </extension>
 
 </plugin>

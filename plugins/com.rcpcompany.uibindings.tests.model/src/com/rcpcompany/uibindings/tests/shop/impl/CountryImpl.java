@@ -5,18 +5,23 @@
  */
 package com.rcpcompany.uibindings.tests.shop.impl;
 
+import java.util.Collection;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import com.rcpcompany.uibindings.moao.internal.NamedObjectImpl;
 import com.rcpcompany.uibindings.model.utils.EValidatorAdapterUtils;
+import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
@@ -31,6 +36,7 @@ import com.rcpcompany.uibindings.tests.shop.util.ShopValidator;
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.CountryImpl#getShop <em>Shop</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.CountryImpl#getAbbreviation <em>Abbreviation
  * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.CountryImpl#getContacts <em>Contacts</em>}</li>
  * </ul>
  * </p>
  * 
@@ -56,6 +62,16 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 	 * @ordered
 	 */
 	protected String abbreviation = ABBREVIATION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getContacts() <em>Contacts</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getContacts()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Contact> contacts;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -99,6 +115,20 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.COUNTRY__ABBREVIATION, oldAbbreviation,
 					abbreviation));
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EList<Contact> getContacts() {
+		if (contacts == null) {
+			contacts = new EObjectWithInverseResolvingEList<Contact>(Contact.class, this,
+					ShopPackage.COUNTRY__CONTACTS, ShopPackage.CONTACT__COUNTRY);
+		}
+		return contacts;
 	}
 
 	/**
@@ -192,6 +222,7 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 	 * 
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -200,6 +231,8 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 				msgs = eBasicRemoveFromContainer(msgs);
 			}
 			return basicSetShop((Shop) otherEnd, msgs);
+		case ShopPackage.COUNTRY__CONTACTS:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getContacts()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -214,6 +247,8 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 		switch (featureID) {
 		case ShopPackage.COUNTRY__SHOP:
 			return basicSetShop(null, msgs);
+		case ShopPackage.COUNTRY__CONTACTS:
+			return ((InternalEList<?>) getContacts()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -244,6 +279,8 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 			return getShop();
 		case ShopPackage.COUNTRY__ABBREVIATION:
 			return getAbbreviation();
+		case ShopPackage.COUNTRY__CONTACTS:
+			return getContacts();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -253,6 +290,7 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 	 * 
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -261,6 +299,10 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 			return;
 		case ShopPackage.COUNTRY__ABBREVIATION:
 			setAbbreviation((String) newValue);
+			return;
+		case ShopPackage.COUNTRY__CONTACTS:
+			getContacts().clear();
+			getContacts().addAll((Collection<? extends Contact>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -280,6 +322,9 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 		case ShopPackage.COUNTRY__ABBREVIATION:
 			setAbbreviation(ABBREVIATION_EDEFAULT);
 			return;
+		case ShopPackage.COUNTRY__CONTACTS:
+			getContacts().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -296,6 +341,8 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 			return getShop() != null;
 		case ShopPackage.COUNTRY__ABBREVIATION:
 			return ABBREVIATION_EDEFAULT == null ? abbreviation != null : !ABBREVIATION_EDEFAULT.equals(abbreviation);
+		case ShopPackage.COUNTRY__CONTACTS:
+			return contacts != null && !contacts.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -557,7 +557,11 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 			if (ref == null) return specs;
 			final EClass childType = ref.getEReferenceType();
 
-			addToChildCreationSpecification(specs, parent, ref, childType);
+			final IBindingDataType dt = IBindingDataType.Factory.create(ref);
+
+			if (dt.getArgument(ARG_NEW_ALLOWED, null, Boolean.class, Boolean.TRUE)) {
+				addToChildCreationSpecification(specs, parent, ref, childType);
+			}
 
 			/*
 			 * Find all sub-types

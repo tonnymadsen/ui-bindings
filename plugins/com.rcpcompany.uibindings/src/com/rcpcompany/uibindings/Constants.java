@@ -131,11 +131,12 @@ public interface Constants {
 	/**
 	 * Argument name for when a "new" value is allowed. Depends on the actual type of the value.
 	 * <ul>
+	 * <li>for an entity, whether new objects can be created</li>
 	 * <li>for a reference, whether new values are allowed apart from the current set</li>
 	 * <li>for file and directory names, whether a file may not exist</li>
 	 * </ul>
 	 * The argument value is either {@link Boolean#TRUE} or {@link Boolean#FALSE}. The default is
-	 * <code>false</code> .
+	 * <code>true</code> .
 	 */
 	String ARG_NEW_ALLOWED = "newAllowed"; //$NON-NLS-1$
 

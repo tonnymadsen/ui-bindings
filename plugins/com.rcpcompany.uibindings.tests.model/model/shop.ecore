@@ -126,7 +126,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="city" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="zip" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="country" lowerBound="1"
-        eType="#//Country" resolveProxies="false"/>
+        eType="#//Country" resolveProxies="false" eOpposite="#//Country/contacts"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="customer" eType="#//Customer"
         resolveProxies="false" eOpposite="#//Customer/contact"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="newsletter" lowerBound="1"
@@ -160,6 +160,8 @@
         resolveProxies="false" eOpposite="#//Shop/countries"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abbreviation" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contacts" upperBound="-1"
+        eType="#//Contact" eOpposite="#//Contact/country"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="CustomerType">
     <eLiterals name="BRONCE" literal="Bronce"/>

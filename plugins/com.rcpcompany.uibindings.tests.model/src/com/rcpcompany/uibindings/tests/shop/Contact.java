@@ -107,7 +107,9 @@ public interface Contact extends INamedObject {
 	void setZip(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Country</b></em>' reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Country</b></em>' reference. It is bidirectional and its
+	 * opposite is '{@link com.rcpcompany.uibindings.tests.shop.Country#getContacts
+	 * <em>Contacts</em>}'. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Country</em>' reference isn't clear, there really should be more
 	 * of a description here...
@@ -117,6 +119,7 @@ public interface Contact extends INamedObject {
 	 * @return the value of the '<em>Country</em>' reference.
 	 * @see #setCountry(Country)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getContact_Country()
+	 * @see com.rcpcompany.uibindings.tests.shop.Country#getContacts
 	 * @generated
 	 */
 	Country getCountry();

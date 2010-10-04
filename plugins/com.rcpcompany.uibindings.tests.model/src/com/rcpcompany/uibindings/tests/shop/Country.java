@@ -8,6 +8,7 @@ package com.rcpcompany.uibindings.tests.shop;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
 
 import com.rcpcompany.uibindings.moao.INamedObject;
 
@@ -20,6 +21,7 @@ import com.rcpcompany.uibindings.moao.INamedObject;
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Country#getShop <em>Shop</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Country#getAbbreviation <em>Abbreviation</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.Country#getContacts <em>Contacts</em>}</li>
  * </ul>
  * </p>
  * 
@@ -51,6 +53,24 @@ public interface Country extends INamedObject {
 	 * @generated
 	 */
 	void setAbbreviation(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Contacts</b></em>' reference list. The list contents are of
+	 * type {@link com.rcpcompany.uibindings.tests.shop.Contact}. It is bidirectional and its
+	 * opposite is '{@link com.rcpcompany.uibindings.tests.shop.Contact#getCountry <em>Country</em>}
+	 * '. <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Contacts</em>' reference isn't clear, there really should be more
+	 * of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Contacts</em>' reference list.
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getCountry_Contacts()
+	 * @see com.rcpcompany.uibindings.tests.shop.Contact#getCountry
+	 * @generated
+	 */
+	EList<Contact> getContacts();
 
 	/**
 	 * Returns the value of the '<em><b>Shop</b></em>' container reference. It is bidirectional and

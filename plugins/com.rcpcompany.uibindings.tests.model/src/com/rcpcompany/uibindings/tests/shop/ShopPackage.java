@@ -888,13 +888,22 @@ public interface ShopPackage extends EPackage {
 	int COUNTRY__ABBREVIATION = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Contacts</b></em>' reference list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int COUNTRY__CONTACTS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Country</em>' class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int COUNTRY_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 2;
+	int COUNTRY_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '
@@ -1839,6 +1848,18 @@ public interface ShopPackage extends EPackage {
 	EAttribute getCountry_Abbreviation();
 
 	/**
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.tests.shop.Country#getContacts <em>Contacts</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference '<em>Contacts</em>'.
+	 * @see com.rcpcompany.uibindings.tests.shop.Country#getContacts()
+	 * @see #getCountry()
+	 * @generated
+	 */
+	EReference getCountry_Contacts();
+
+	/**
 	 * Returns the meta object for the container reference '
 	 * {@link com.rcpcompany.uibindings.tests.shop.Country#getShop <em>Shop</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -2457,6 +2478,14 @@ public interface ShopPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COUNTRY__ABBREVIATION = eINSTANCE.getCountry_Abbreviation();
+
+		/**
+		 * The meta object literal for the '<em><b>Contacts</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference COUNTRY__CONTACTS = eINSTANCE.getCountry_Contacts();
 
 		/**
 		 * The meta object literal for the '<em><b>Shop</b></em>' container reference feature. <!--

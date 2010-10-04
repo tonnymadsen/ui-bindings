@@ -268,12 +268,44 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 	 * 
 	 * @generated
 	 */
-	@Override
-	public void setCountry(Country newCountry) {
+	public NotificationChain basicSetCountry(Country newCountry, NotificationChain msgs) {
 		final Country oldCountry = country;
 		country = newCountry;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.CONTACT__COUNTRY, oldCountry, country));
+			final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					ShopPackage.CONTACT__COUNTRY, oldCountry, newCountry);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setCountry(Country newCountry) {
+		if (newCountry != country) {
+			NotificationChain msgs = null;
+			if (country != null) {
+				msgs = ((InternalEObject) country).eInverseRemove(this, ShopPackage.COUNTRY__CONTACTS, Country.class,
+						msgs);
+			}
+			if (newCountry != null) {
+				msgs = ((InternalEObject) newCountry).eInverseAdd(this, ShopPackage.COUNTRY__CONTACTS, Country.class,
+						msgs);
+			}
+			msgs = basicSetCountry(newCountry, msgs);
+			if (msgs != null) {
+				msgs.dispatch();
+			}
+		} else if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.CONTACT__COUNTRY, newCountry, newCountry));
 		}
 	}
 
@@ -443,6 +475,12 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 				msgs = eBasicRemoveFromContainer(msgs);
 			}
 			return basicSetShop((Shop) otherEnd, msgs);
+		case ShopPackage.CONTACT__COUNTRY:
+			if (country != null) {
+				msgs = ((InternalEObject) country).eInverseRemove(this, ShopPackage.COUNTRY__CONTACTS, Country.class,
+						msgs);
+			}
+			return basicSetCountry((Country) otherEnd, msgs);
 		case ShopPackage.CONTACT__CUSTOMER:
 			if (customer != null) {
 				msgs = ((InternalEObject) customer).eInverseRemove(this, ShopPackage.CUSTOMER__CONTACT, Customer.class,
@@ -463,6 +501,8 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 		switch (featureID) {
 		case ShopPackage.CONTACT__SHOP:
 			return basicSetShop(null, msgs);
+		case ShopPackage.CONTACT__COUNTRY:
+			return basicSetCountry(null, msgs);
 		case ShopPackage.CONTACT__CUSTOMER:
 			return basicSetCustomer(null, msgs);
 		}

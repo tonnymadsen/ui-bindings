@@ -16,6 +16,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IChildCreationSpecification;
 import com.rcpcompany.uibindings.IConstantTreeItem;
 import com.rcpcompany.uibindings.IManager;
@@ -23,6 +24,7 @@ import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.SpecialBinding;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.tests.shop.Contact;
+import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
@@ -53,6 +55,7 @@ public class ChildCreationSpecificationTest {
 	private TestView myView;
 	private IFormCreator myForm;
 	private Contact myContact;
+	private Country myCountry;
 
 	/**
 	 * Creates the shop itself
@@ -64,17 +67,22 @@ public class ChildCreationSpecificationTest {
 		myShopItem1.setName("item 1");
 		myShopItem1.setPrice(1f);
 		myShopItem1.setForSale(true);
+		myShopItem1.setShop(myShop);
 
 		myShopItem2 = ShopFactory.eINSTANCE.createShopItem();
 		myShopItem2.setName("item 2");
 		myShopItem2.setPrice(2f);
 		myShopItem2.setForSale(false);
+		myShopItem2.setShop(myShop);
 
-		myShop.getShopItems().add(myShopItem1);
-		myShop.getShopItems().add(myShopItem2);
+		myCountry = ShopFactory.eINSTANCE.createCountry();
+		myCountry.setName("Denmark");
+		myCountry.setAbbreviation("DK");
+		myCountry.setShop(myShop);
 
 		myContact = ShopFactory.eINSTANCE.createContact();
 		myContact.setName("NN");
+		myContact.setCountry(myCountry);
 		myContact.setShop(myShop);
 	}
 
@@ -114,6 +122,38 @@ public class ChildCreationSpecificationTest {
 				assertEquals(myShop, sp.getParent());
 				assertEquals(ShopPackage.Literals.SHOP__SHOP_ITEMS, sp.getReference());
 				assertEquals(ShopPackage.Literals.SHOP_ITEM, sp.getChildType());
+			}
+		});
+	}
+
+	/**
+	 * Tests that the returned items are filtered by the {@link Constants#ARG_NEW_ALLOWED} argument.
+	 */
+	@Test
+	public void testTableFiltered() {
+		myForm = myView.createFormCreator(myCountry);
+
+		final ITableCreator table = myForm.addTableCreator(ShopPackage.Literals.COUNTRY__CONTACTS, true, SWT.NONE);
+
+		table.addColumn("name(w=200)");
+		myForm.finish();
+		yield();
+
+		final IViewerBinding vb = table.getBinding();
+
+		assertNoLog(new Runnable() {
+			public void run() {
+				final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(null);
+
+				assertNotNull(specs);
+				for (final IChildCreationSpecification s : specs) {
+					System.out.println(s.getReference().getEContainingClass().getName() + "."
+							+ s.getReference().getName());
+				}
+				/*
+				 * contacts should be filtered out
+				 */
+				assertEquals(0, specs.size());
 			}
 		});
 	}

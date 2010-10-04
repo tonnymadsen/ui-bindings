@@ -793,6 +793,16 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getCountry_Contacts() {
+		return (EReference) countryEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EReference getCountry_Shop() {
 		return (EReference) countryEClass.getEStructuralFeatures().get(0);
 	}
@@ -999,6 +1009,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		countryEClass = createEClass(COUNTRY);
 		createEReference(countryEClass, COUNTRY__SHOP);
 		createEAttribute(countryEClass, COUNTRY__ABBREVIATION);
+		createEReference(countryEClass, COUNTRY__CONTACTS);
 
 		shopItemInformationEClass = createEClass(SHOP_ITEM_INFORMATION);
 
@@ -1232,9 +1243,9 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContact_Zip(), ecorePackage.getEString(), "zip", null, 0, 1, Contact.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContact_Country(), this.getCountry(), null, "country", null, 1, 1, Contact.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContact_Country(), this.getCountry(), this.getCountry_Contacts(), "country", null, 1, 1,
+				Contact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContact_Customer(), this.getCustomer(), this.getCustomer_Contact(), "customer", null, 0, 1,
 				Contact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1249,6 +1260,9 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCountry_Abbreviation(), ecorePackage.getEString(), "abbreviation", null, 1, 1, Country.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCountry_Contacts(), this.getContact(), this.getContact_Country(), "contacts", null, 0, -1,
+				Country.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(countryEClass, ecorePackage.getEBoolean(), "abbreviationLengthOK", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
