@@ -317,7 +317,7 @@ public final class UIBindingsUtils {
 	}
 
 	/**
-	 * Constructs and returns a new simple editing domain suitable for wizards.
+	 * Constructs and returns a new simple editing domain suitable for UI Bindings.
 	 * 
 	 * @return the new editing domain
 	 */
