@@ -270,6 +270,11 @@ public final class EcoreExtUtils {
 		 */
 		private <T extends EObject> void syncContainmentList(EReference ref, T target, List<T> sourceList) {
 			if (!target.eIsSet(ref) && (sourceList == null || sourceList.isEmpty())) return;
+			/*
+			 * We create a new basic target list as a copy of the real list and make changes to this
+			 * list - as it is not a "real" EMF list with notifications, and bi-directional
+			 * reference handling, the operations are safe and will not change the original...
+			 */
 			final EList<EObject> targetList = new BasicEList<EObject>((EList<EObject>) target.eGet(ref));
 
 			int sourceListSize = 0;
