@@ -10,6 +10,8 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings;
 
+import java.util.Collection;
+
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecore.EAnnotation;
@@ -275,6 +277,26 @@ public interface IBindingDataType extends EObject {
 	 * @param context the argument context
 	 */
 	<ArgumentType> void addArguments(IArgumentContext<ArgumentType> context);
+
+	/**
+	 * Handles any additions of arguments from the parents of this data type.
+	 * 
+	 * @param <ArgumentType> the argument type
+	 * @param context the argument context
+	 * @param visitedDataTypes collection of all visited data types
+	 */
+	<ArgumentType> void addParentDataTypeArguments(IArgumentContext<ArgumentType> context,
+			Collection<IBindingDataType> visitedDataTypes);
+
+	/**
+	 * Handles any additions of arguments from the Super Types of this data type.
+	 * 
+	 * @param <ArgumentType> the argument type
+	 * @param context the argument context
+	 * @param visitedDataTypes collection of all visited data types
+	 */
+	<ArgumentType> void addSuperDataTypeArguments(IArgumentContext<ArgumentType> context,
+			Collection<IBindingDataType> visitedDataTypes);
 
 	/**
 	 * Returns the named argument or <code>null</code> if not set.

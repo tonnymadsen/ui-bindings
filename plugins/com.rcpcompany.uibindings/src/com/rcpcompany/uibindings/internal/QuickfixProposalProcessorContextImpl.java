@@ -52,7 +52,7 @@ public abstract class QuickfixProposalProcessorContextImpl extends EObjectImpl i
 	 * 
 	 * @generated
 	 */
-	protected QuickfixProposalProcessorContextImpl() {
+	public QuickfixProposalProcessorContextImpl() {
 		super();
 	}
 

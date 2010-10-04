@@ -69,6 +69,22 @@ public class ManagerSizesTest {
 	}
 
 	/**
+	 * Tests for {@link IManager#myQuickfixes}.
+	 */
+	@Test
+	public void testArgumentInfo() {
+		assertNoLog(new Runnable() {
+			@Override
+			public void run() {
+				final List<IConfigurationElement> elements = getElements(InternalConstants.ARGUMENT_INFO_TAG);
+
+				assertTrue(m.getArgumentInformation().size() > 2);
+				assertEquals(elements.size(), m.getArgumentInformation().size());
+			}
+		});
+	}
+
+	/**
 	 * Tests for {@link IManager#getUiAttributeFactories()}.
 	 */
 	@Test

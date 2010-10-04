@@ -12,31 +12,19 @@
          point="com.rcpcompany.uibindings.uiBindings">
       <model
             class="com.rcpcompany.uibindings.tests.shop.Contact">
-         <argument
-               name="hello"
-               value="olleh">
-         </argument>
+         <argument name="hello" value="olleh" />
          <feature
                name="city">
-            <argument
-                  name="foo"
-                  value="bar">
-            </argument>
+            <argument name="foo" value="bar" />
          </feature>
       </model>
       <model
             class="com.rcpcompany.uibindings.tests.shop.Contact"
             targetType="subtype">
-         <argument
-               name="hello"
-               value="ollehsub">
-         </argument>
+         <argument name="hello" value="ollehsub" />
          <feature
                name="city">
-            <argument
-                  name="foo"
-                  value="barsub">
-            </argument>
+            <argument name="foo" value="barsub" />
          </feature>
       </model>
    </extension>
@@ -49,32 +37,32 @@
             <standardArguments
                   preferredCellEditor="org.eclipse.swt.custom.StyledText"></standardArguments>
          </feature>
-         <argument
-               name="foobar-Sequence"
-               value="TestObject">
-         </argument>
+         <argument name="foobar-Sequence-all" value="TestObject" />
+         <argument name="foobar-Sequence-parent" value="TestObject" />
+         <argument name="foobar-Sequence-targetType" value="TestObject" />
+         <argument name="foobar-Sequence-containingClass" value="TestObject" />
+         <argument name="foobar-Sequence-default" value="TestObject" />
          <feature
                name="text">
-            <argument
-                  name="foobar-Sequence"
-                  value="TestObject.text">
-            </argument>
+            <argument name="foobar-Sequence-all" value="TestObject.text" />
+            <argument name="foobar-Sequence-parent" value="TestObject.text" />
+            <argument name="foobar-Sequence-targetType" value="TestObject.text" />
+            <argument name="foobar-Sequence-containingClass" value="TestObject.text" />
+            <argument name="foobar-Sequence-default" value="TestObject.text" />
          </feature>
       </model>
       <decoratorExtender
             class="com.rcpcompany.uibindings.extests.bindings.FoobarExtender"
             priority="100">
-         <argument
-               name="foobar-Sequence"
-               value="extender">
-         </argument>
+         <argument name="foobar-Sequence-all" value="extender" />
+         <argument name="foobar-Sequence-parent" value="extender" />
+         <argument name="foobar-Sequence-targetType" value="extender" />
+         <argument name="foobar-Sequence-containingClass" value="extender" />
+         <argument name="foobar-Sequence-default" value="extender" />
       </decoratorExtender>
       <model
             class="org.eclipse.emf.common.util.Enumerator">
-         <argument
-               name="foobar"
-               value="ui tu">
-         </argument>
+         <argument name="foobar" value="ui tu" />
       </model>
       <bindingDecorator
             exactModelTypeMatch="false"
@@ -91,10 +79,11 @@
          <javaDecorator
                class="com.rcpcompany.uibindings.internal.decorators.TextBindingDecorator">
          </javaDecorator>
-         <argument
-               name="foobar-Sequence"
-               value="bindingDecorator.simple">
-         </argument>
+         <argument name="foobar-Sequence-all" value="bindingDecorator.simple" />
+         <argument name="foobar-Sequence-parent" value="bindingDecorator.simple" />
+         <argument name="foobar-Sequence-targetType" value="bindingDecorator.simple" />
+         <argument name="foobar-Sequence-containingClass" value="bindingDecorator.simple" />
+         <argument name="foobar-Sequence-default" value="bindingDecorator.simple" />
       </bindingDecorator>
       <bindingDecorator
             id="com.rcpcompany.uibindings.extests.bindings.ArgumentsScopeTest.eobject"
@@ -108,47 +97,50 @@
          <javaDecorator
                class="com.rcpcompany.uibindings.internal.decorators.GenericEObjectDecorator">
          </javaDecorator>
-         <argument
-               name="foobar-Sequence"
-               value="bindingDecorator.eobject">
-         </argument>
+         <argument name="foobar-Sequence-all" value="bindingDecorator.eobject" />
+         <argument name="foobar-Sequence-parent" value="bindingDecorator.eobject" />
+         <argument name="foobar-Sequence-targetType" value="bindingDecorator.eobject" />
+         <argument name="foobar-Sequence-containingClass" value="bindingDecorator.eobject" />
+         <argument name="foobar-Sequence-default" value="bindingDecorator.eobject" />
       </bindingDecorator>
       <model
             class="java.lang.String">
-         ment>
-         <argument
-               name="foobar-Sequence"
-               value="java.lang.String">
-         </argument>
+         <argument name="foobar-Sequence-all" value="java.lang.String" />
+         <argument name="foobar-Sequence-parent" value="java.lang.String" />
+         <argument name="foobar-Sequence-targetType" value="java.lang.String" />
+         <argument name="foobar-Sequence-containingClass" value="java.lang.String" />
+         <argument name="foobar-Sequence-default" value="java.lang.String" />
       </model>
       <model
             class="java.lang.CharSequence">
-         ment>
-         <argument
-               name="foobar-Sequence"
-               value="java.lang.CharSequence">
-         </argument>
+         <argument name="foobar-Sequence-all" value="java.lang.CharSequence" />
+         <argument name="foobar-Sequence-parent" value="java.lang.CharSequence" />
+         <argument name="foobar-Sequence-targetType" value="java.lang.CharSequence" />
+         <argument name="foobar-Sequence-containingClass" value="java.lang.CharSequence" />
+         <argument name="foobar-Sequence-default" value="java.lang.CharSequence" />
       </model>
       <model
             class="org.eclipse.emf.ecore.EObject">
-         ment>
-         <argument
-               name="foobar-Sequence"
-               value="EObject">
-         </argument>
+         <argument name="foobar-Sequence-all" value="EObject" />
+         <argument name="foobar-Sequence-parent" value="EObject" />
+         <argument name="foobar-Sequence-targetType" value="EObject" />
+         <argument name="foobar-Sequence-containingClass" value="EObject" />
+         <argument name="foobar-Sequence-default" value="EObject" />
       </model>
       <model
             class="com.rcpcompany.uibinding.tests.model.TestContainer">
-         <argument
-               name="foobar-Sequence"
-               value="TestContainer">
-         </argument>
+         <argument name="foobar-Sequence-all" value="TestContainer" />
+         <argument name="foobar-Sequence-parent" value="TestContainer" />
+         <argument name="foobar-Sequence-targetType" value="TestContainer" />
+         <argument name="foobar-Sequence-containingClass" value="TestContainer" />
+         <argument name="foobar-Sequence-default" value="TestContainer" />
          <feature
                name="current">
-            <argument
-                  name="foobar-Sequence"
-                  value="TestContainer.current">
-            </argument>
+            <argument name="foobar-Sequence-all" value="TestContainer.current" />
+            <argument name="foobar-Sequence-parent" value="TestContainer.current" />
+            <argument name="foobar-Sequence-targetType" value="TestContainer.current" />
+            <argument name="foobar-Sequence-containingClass" value="TestContainer.current" />
+            <argument name="foobar-Sequence-default" value="TestContainer.current" />
          </feature>
       </model>
    </extension>
@@ -158,50 +150,24 @@
             class="com.rcpcompany.uibinding.tests.model.TestObject">
          <feature
                name="text">
-            <argument
-                  name="foobar-dt-Boolean-t"
-                  value="true">
-            </argument>
-            <argument
-                  name="foobar-dt-Boolean-f"
-                  value="false">
-            </argument>
-            <argument
-                  name="foobar-dt-Boolean-f2"
-                  value="--">
-            </argument>
-            <argument
-                  name="foobar-dt-Integer-1"
-                  value="1">
-            </argument>
-            <argument
-                  name="foobar-dt-Integer--1"
-                  value="-1">
-            </argument>
-            <argument
-                  name="foobar-dt-Integer-fail1"
-                  value="abc">
-            </argument>
-            <argument
-                  name="foobar-dt-ImageDescriptor-1"
-                  value="images/quickfixes/add_correction.gif">
-            </argument>
-            <argument
-                  name="foobar-dt-ImageDescriptor-fail1"
-                  value="icons\add_correction.gifxx">
-            </argument>
+            <argument name="foobar-dt-Boolean-t" value="true" />
+            <argument name="foobar-dt-Boolean-f" value="false" />
+            <argument name="foobar-dt-Boolean-f2" value="--" />
+            <argument name="foobar-dt-Integer-1" value="1" />
+            <argument name="foobar-dt-Integer--1" value="-1" />
+            <argument name="foobar-dt-Integer-fail1" value="abc" />
+            <argument name="foobar-dt-ImageDescriptor-1" value="images/quickfixes/add_correction.gif" />
+            <argument name="foobar-dt-ImageDescriptor-fail1" value="icons\add_correction.gifxx" />
          </feature>
-         <argument
-               name="foobar-dt-IObservableList-1"
-               value="com.rcpcompany.uibindings.extests.bindings.TestObjectObservableListFactory">
-         </argument>
-         <argument
-               name="foobar-dt-IObservableList-fail1"
-               value="com.rcpcompany.uibindings.extests.bindings.TestObjectObservableListFactoryNotExist">
-         </argument>
+         <argument name="foobar-dt-IObservableList-1" value="com.rcpcompany.uibindings.extests.bindings.TestObjectObservableListFactory" />
+         <argument name="foobar-dt-IObservableList-fail1" value="com.rcpcompany.uibindings.extests.bindings.TestObjectObservableListFactoryNotExist" />
          <standardArguments
                featureName="number">
          </standardArguments>
+         <feature
+               name="b">
+            <standardArguments></standardArguments>
+         </feature>
       </model>
       <model
             class="com.rcpcompany.uibindings.tests.shop.Country">
@@ -277,10 +243,7 @@
       <bindingDecorator
             id="com.rcpcompany.uibindings.tests.bindingDecorators.foobar"
             type="foobar">
-         <argument
-               name="foobar"
-               value="unit-value">
-         </argument>
+         <argument name="foobar" value="unit-value" />
          <uiType
                class="java.lang.String">
          </uiType>
@@ -413,14 +376,8 @@
          <number
                format="%.2f">
          </number>
-         <argument
-               name="min"
-               value="0">
-         </argument>
-         <argument
-               name="max"
-               value="10">
-         </argument>
+         <argument name="min" value="0" />
+         <argument name="max" value="10" />
       </bindingDecorator>
       <bindingDecorator
             type="limited">
@@ -434,14 +391,8 @@
          <number
                format="%d">
          </number>
-         <argument
-               name="min"
-               value="0">
-         </argument>
-         <argument
-               name="max"
-               value="10">
-         </argument>
+         <argument name="min" value="0" />
+         <argument name="max" value="10" />
       </bindingDecorator>
       <bindingDecorator
             type="range">
@@ -459,10 +410,7 @@
          <number
                format="%d">
          </number>
-         <argument
-               name="range"
-               value="[0;8]">
-         </argument>
+         <argument name="range" value="[0;8]" />
       </bindingDecorator>
       <bindingDecorator
             type="NULL">
@@ -602,6 +550,60 @@
             id="com.rcpcompany.uibindings.extests.wizards.FormChooserWizardTest.TestFormChooserWizard"
             name="FormChooserWizardTest">
       </wizard>
+   </extension>
+   <extension
+         point="com.rcpcompany.uibindings.uiBindings">
+      <argumentInfo name="foobar-dt-Boolean-empty" />
+      <argumentInfo name="foobar-dt-Boolean-t" />
+      <argumentInfo name="foobar-dt-Boolean-f" />
+      <argumentInfo name="foobar-dt-Boolean-f2" />
+      <argumentInfo name="foobar-dt-Integer-empty" />
+      <argumentInfo name="foobar-dt-Integer-1" />
+      <argumentInfo name="foobar-dt-Integer--1" />
+      <argumentInfo name="foobar-dt-Integer-fail1" />
+      <argumentInfo name="foobar-dt-IObservableList-empty" />
+      <argumentInfo name="foobar-dt-IObservableList-1" />
+      <argumentInfo name="foobar-dt-IObservableList-fail1" />
+      <argumentInfo name="foobar-dt-IControlFactory-empty" />
+      <argumentInfo name="foobar-dt-ImageDescriptor-empty" />
+      <argumentInfo name="foobar-dt-ImageDescriptor-1" />
+      <argumentInfo name="foobar-dt-ImageDescriptor-fail1" />
+      <argumentInfo name="extender" />
+      <argumentInfo
+            lookupAttributeContainingClass="true"
+            lookupAttributeTargetType="true"
+            lookupParent="true"
+            lookupReferenceContainingClass="true"
+            lookupReferenceTargetType="true"
+            name="foobar-Sequence-all">
+      </argumentInfo>
+      <argumentInfo
+            lookupAttributeContainingClass="false"
+            lookupAttributeTargetType="false"
+            lookupParent="true"
+            lookupReferenceContainingClass="false"
+            lookupReferenceTargetType="false"
+            name="foobar-Sequence-parent">
+      </argumentInfo>
+      <argumentInfo
+            lookupAttributeContainingClass="false"
+            lookupAttributeTargetType="true"
+            lookupParent="false"
+            lookupReferenceContainingClass="false"
+            lookupReferenceTargetType="true"
+            name="foobar-Sequence-targetType">
+      </argumentInfo>
+      <argumentInfo
+            lookupAttributeContainingClass="true"
+            lookupAttributeTargetType="false"
+            lookupParent="false"
+            lookupReferenceContainingClass="true"
+            lookupReferenceTargetType="false"
+            name="foobar-Sequence-containingClass">
+      </argumentInfo>
+      <argumentInfo
+            name="foobar-Sequence-default">
+      </argumentInfo>
    </extension>
 
 </fragment>

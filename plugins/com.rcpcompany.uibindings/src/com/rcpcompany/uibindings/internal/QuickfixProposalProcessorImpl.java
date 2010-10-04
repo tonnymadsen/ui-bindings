@@ -30,7 +30,7 @@ public abstract class QuickfixProposalProcessorImpl extends EObjectImpl implemen
 	 * 
 	 * @generated
 	 */
-	protected QuickfixProposalProcessorImpl() {
+	public QuickfixProposalProcessorImpl() {
 		super();
 	}
 

@@ -7,6 +7,14 @@
             class="com.rcpcompany.uibindings.financial.FinancialUpDownExtender"
             priority="100">
       </decoratorExtender>
+      <argumentInfo
+            lookupAttributeContainingClass="true"
+            lookupAttributeTargetType="false"
+            lookupParent="true"
+            lookupReferenceContainingClass="false"
+            lookupReferenceTargetType="false"
+            name="financialUpDown">
+      </argumentInfo>
    </extension>
 
 </plugin>

@@ -132,7 +132,7 @@ public abstract class QuickfixProposalImpl extends EObjectImpl implements IQuick
 	 * 
 	 * @generated
 	 */
-	protected QuickfixProposalImpl() {
+	public QuickfixProposalImpl() {
 		super();
 	}
 

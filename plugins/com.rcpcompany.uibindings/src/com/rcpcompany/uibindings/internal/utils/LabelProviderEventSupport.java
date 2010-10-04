@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import com.rcpcompany.uibindings.IDisposable;
-import com.rcpcompany.uibindings.internal.utils.LabelProviderEventSupport.ISupportListener;
 
 /**
  * Support class for {@link ISupportListener label providers} used to handle updates of the labels.

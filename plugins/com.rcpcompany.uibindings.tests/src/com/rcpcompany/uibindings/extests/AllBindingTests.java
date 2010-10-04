@@ -50,6 +50,7 @@ import com.rcpcompany.uibindings.extests.leaks.ViewerEditorLeakTest;
 import com.rcpcompany.uibindings.extests.manager.AlternatingRowColorsTest;
 import com.rcpcompany.uibindings.extests.manager.ManagerAlternatingRowColors;
 import com.rcpcompany.uibindings.extests.manager.ManagerAlternativeDecorationPositionTest;
+import com.rcpcompany.uibindings.extests.manager.ManagerArgumentInformationTest;
 import com.rcpcompany.uibindings.extests.manager.ManagerAssistVBIDShown;
 import com.rcpcompany.uibindings.extests.manager.ManagerAutoApplyQuickfixTest;
 import com.rcpcompany.uibindings.extests.manager.ManagerBasicFunctionalityTest;
@@ -214,7 +215,7 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		ManagerValidationDelayTest.class, ManagerValidationDelayWindowTest.class, ManagerTreeFunctionalityTest.class,
 		ManagerValidationErrorsAreFatal.class, ManagerRequiredVBIDShown.class, ManagerAssistVBIDShown.class,
 		ManagerQuickfixVBIDShown.class, ManagerViewNavigationRecorded.class, ManagerFormatterProviderTest.class,
-		ManagerDeleteHandlerCheckEnabledTest.class,
+		ManagerDeleteHandlerCheckEnabledTest.class, ManagerArgumentInformationTest.class,
 
 		/*
 		 * Services and arguments

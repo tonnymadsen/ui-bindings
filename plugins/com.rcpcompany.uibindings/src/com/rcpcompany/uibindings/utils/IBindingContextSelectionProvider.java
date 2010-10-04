@@ -19,7 +19,6 @@ import org.eclipse.ui.IWorkbenchPartSite;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.internal.utils.BindingContextSelectionProvider;
-import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider.Factory;
 
 /**
  * Selection provider for a binding context.

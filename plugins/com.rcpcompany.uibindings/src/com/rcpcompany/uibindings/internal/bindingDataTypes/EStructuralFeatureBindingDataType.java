@@ -10,13 +10,18 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.internal.bindingDataTypes;
 
+import java.util.Collection;
+
 import org.eclipse.emf.ecore.EAnnotation;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.rcpcompany.uibindings.Constants;
+import com.rcpcompany.uibindings.IArgumentContext;
 import com.rcpcompany.uibindings.IArgumentProvider;
 import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IManager;
@@ -39,6 +44,26 @@ public class EStructuralFeatureBindingDataType extends BindingDataTypeImpl {
 	 */
 	public EStructuralFeatureBindingDataType(EStructuralFeature sf) {
 		myStructuralFeature = sf;
+	}
+
+	@Override
+	public <ArgumentType> void addParentDataTypeArguments(IArgumentContext<ArgumentType> context,
+			Collection<IBindingDataType> visitedDataTypes) {
+		if (myStructuralFeature instanceof EAttribute
+				&& !context.getArgumentInformation().isLookupAttributeContainingClass()) return;
+		if (myStructuralFeature instanceof EReference
+				&& !context.getArgumentInformation().isLookupReferenceContainingClass()) return;
+		super.addParentDataTypeArguments(context, visitedDataTypes);
+	}
+
+	@Override
+	public <ArgumentType> void addSuperDataTypeArguments(IArgumentContext<ArgumentType> context,
+			Collection<IBindingDataType> visitedDataTypes) {
+		if (myStructuralFeature instanceof EAttribute
+				&& !context.getArgumentInformation().isLookupAttributeTargetType()) return;
+		if (myStructuralFeature instanceof EReference
+				&& !context.getArgumentInformation().isLookupReferenceTargetType()) return;
+		super.addSuperDataTypeArguments(context, visitedDataTypes);
 	}
 
 	@Override

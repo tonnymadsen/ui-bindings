@@ -43,6 +43,8 @@ import com.rcpcompany.uibindings.internal.controlFactories.CheckBoxControlFactor
  * <p>
  * Please notice that there are a lot of annotations for "foobar-dt-<datatype>" both in the test EMF
  * model and in the uibindings extension point of this fragment.
+ * <p>
+ * Depends on a number of <code>argumentInfo</code> declarations
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -78,7 +80,8 @@ public class ArgumentsTypeTest {
 
 		myContext = IBindingContext.Factory.createContext(myView.getScrolledForm());
 		myReferenceBinding = myContext.addBinding(myReferenceText, myModel,
-				TestModelPackage.Literals.TEST_CONTAINER__CURRENT).readonly();
+				TestModelPackage.Literals.TEST_CONTAINER__CURRENT).validValues(myModel,
+				TestModelPackage.Literals.TEST_CONTAINER__CHILDREN);
 		myAttributeBinding = myContext.addBinding(myAttributeText, myObject,
 				TestModelPackage.Literals.TEST_OBJECT__TEXT);
 

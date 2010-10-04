@@ -41,6 +41,12 @@ public interface InternalConstants {
 	 */
 	String UIBINDINGS_EXTENSION_POINT = Activator.ID + ".uiBindings"; //$NON-NLS-1$
 
+	String ARGUMENT_INFO_TAG = "argumentInfo"; //$NON-NLS-1$
+	String LOOKUP_PARENT_TAG = "lookupParent"; //$NON-NLS-1$
+	String LOOKUP_ATTRIBUTE_TARGET_TYPE_TAG = "lookupAttributeTargetType"; //$NON-NLS-1$
+	String LOOKUP_ATTRIBUTE_CONTAINING_CLASS_TAG = "lookupAttributeContainingClass"; //$NON-NLS-1$
+	String LOOKUP_REFERENCE_TARGET_TYPE_TAG = "lookupReferenceTargetType"; //$NON-NLS-1$
+	String LOOKUP_REFERENCE_CONTAINING_CLASS_TAG = "lookupReferenceContainingClass"; //$NON-NLS-1$
 	String BINDING_DECORATOR_TAG = "bindingDecorator"; //$NON-NLS-1$
 	String DECORATOR_EXTENDER_TAG = "decoratorExtender"; //$NON-NLS-1$
 	String ARGUMENT_TAG = "argument"; //$NON-NLS-1$

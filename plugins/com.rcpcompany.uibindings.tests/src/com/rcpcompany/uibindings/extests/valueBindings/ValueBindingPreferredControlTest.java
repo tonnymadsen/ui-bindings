@@ -35,6 +35,7 @@ import com.rcpcompany.uibinding.tests.model.TestObject;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.utils.basic.ClassUtils;
 
 /**
  * Tests that when the model is changed, then the widget is changed as well.
@@ -128,7 +129,9 @@ public class ValueBindingPreferredControlTest {
 				final Control control = myBinding.createPreferredControl(myView.getBody(), SWT.NONE, false);
 
 				assertNotNull(what, control);
-				assertTrue(what, myControlClass.isInstance(control));
+				assertTrue(
+						what + ": expected " + ClassUtils.getLastClassName(myControlClass) + " got "
+								+ ClassUtils.getLastClassName(control), myControlClass.isInstance(control));
 
 				final int style = control.getStyle();
 				assertTrue(what, (style & myStyles) == myStyles);

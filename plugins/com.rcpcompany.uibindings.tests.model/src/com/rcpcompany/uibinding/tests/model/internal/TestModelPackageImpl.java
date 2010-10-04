@@ -821,14 +821,28 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 */
 	protected void createUibindingsAnnotations() {
 		final String source = "http://rcp-company.com/schemas/uibindings";
-		addAnnotation(testObjectEClass, source, new String[] { "foobar-Sequence", "TestObject (annotation)" });
-		addAnnotation(getTestObject_Text(), source, new String[] { "foobar-Sequence", "TestObject.text (annotation)" });
+		addAnnotation(testObjectEClass, source, new String[] { "foobar-Sequence-all", "TestObject (annotation)",
+				"foobar-Sequence-parent", "TestObject (annotation)", "foobar-Sequence-targetType",
+				"TestObject (annotation)", "foobar-Sequence-containingClass", "TestObject (annotation)",
+				"foobar-Sequence-default", "TestObject (annotation)" });
+		addAnnotation(getTestObject_Text(), source, new String[] { "foobar-Sequence-all",
+				"TestObject.text (annotation)", "foobar-Sequence-parent", "TestObject.text (annotation)",
+				"foobar-Sequence-targetType", "TestObject.text (annotation)", "foobar-Sequence-containingClass",
+				"TestObject.text (annotation)", "foobar-Sequence-default", "TestObject.text (annotation)" });
 		addAnnotation(getTestObject_Short(), source, new String[] { "foobar", "b" });
-		addAnnotation(subTestObjectEClass, source,
-				new String[] { "text.foobar-Sequence", "SubTestObject (annotation)" });
-		addAnnotation(testContainerEClass, source, new String[] { "foobar-Sequence", "TestContainer (annotation)" });
-		addAnnotation(getTestContainer_Current(), source, new String[] { "foobar-Sequence",
-				"TestContainer.current (annotation)" });
+		addAnnotation(subTestObjectEClass, source, new String[] { "text.foobar-Sequence-all",
+				"SubTestObject (annotation)", "text.foobar-Sequence-parent", "SubTestObject (annotation)",
+				"text.foobar-Sequence-targetType", "SubTestObject (annotation)",
+				"text.foobar-Sequence-containingClass", "SubTestObject (annotation)", "text.foobar-Sequence-default",
+				"SubTestObject (annotation)" });
+		addAnnotation(testContainerEClass, source, new String[] { "foobar-Sequence-all", "TestContainer (annotation)",
+				"foobar-Sequence-parent", "TestContainer (annotation)", "foobar-Sequence-targetType",
+				"TestContainer (annotation)", "foobar-Sequence-containingClass", "TestContainer (annotation)",
+				"foobar-Sequence-default", "TestContainer (annotation)" });
+		addAnnotation(getTestContainer_Current(), source, new String[] { "foobar-Sequence-all",
+				"TestContainer.current (annotation)", "foobar-Sequence-parent", "TestContainer.current (annotation)",
+				"foobar-Sequence-targetType", "TestContainer.current (annotation)", "foobar-Sequence-containingClass",
+				"TestContainer.current (annotation)", "foobar-Sequence-default", "TestContainer.current (annotation)" });
 		addAnnotation(amountAndCurrencyStructEDataType, source, new String[] { "foobar", "c" });
 	}
 

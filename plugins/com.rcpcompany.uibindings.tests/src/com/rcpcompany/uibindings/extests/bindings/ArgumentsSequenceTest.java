@@ -81,72 +81,110 @@ public class ArgumentsSequenceTest {
 	 * Test data: all over EX.ecore, fragment.xml, etc
 	 */
 	@Test
-	public void testAttributeSequence() {
-		final IFormCreator form = myView.createFormCreator(myObject);
-		final IValueBinding binding = form.addField("text").type("argumentScopeTest").arg("extender", "foobar")
-				.arg(ARG, "direct arg");
-		binding.getExtraArgumentProviders().add(new IArgumentProvider() {
-			@Override
-			public boolean hasArguments() {
-				return true;
-			}
+	public void testAttributeAllSequence() {
+		testOneAttributeSequence(ARG + "-all", "extender", null, "bindingDecorator.simple",
+				"TestObject.text (annotation)", "TestObject.text", "java.lang.String", "java.lang.CharSequence",
+				"TestObject (annotation)", "TestObject", "IArgumentProvider1", "IArgumentProvider2");
+		// TODO: missing "SubTestObject (annotation)"
+	}
 
-			@Override
-			public Map<String, Object> getArguments() {
-				final HashMap<String, Object> m = new HashMap<String, Object>();
-				m.put(ARG, "IArgumentProvider1");
+	/**
+	 * Tests the values are fetched in the correct sequence for attributes.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testAttributeDefaultSequence() {
+		testOneAttributeSequence(ARG + "-default", "extender", null, "bindingDecorator.simple",
+				"TestObject.text (annotation)", "TestObject.text", "TestObject (annotation)", "TestObject",
+				"IArgumentProvider1", "IArgumentProvider2");
+	}
 
-				return m;
-			}
-		});
-		binding.getExtraArgumentProviders().add(new IArgumentProvider() {
-			@Override
-			public boolean hasArguments() {
-				return true;
-			}
+	/**
+	 * Tests the values are fetched in the correct sequence for attributes.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testAttributeParentSequence() {
+		testOneAttributeSequence(ARG + "-parent", "extender", null, "bindingDecorator.simple",
+				"TestObject.text (annotation)", "TestObject.text", "IArgumentProvider1", "IArgumentProvider2");
+	}
 
-			@Override
-			public Map<String, Object> getArguments() {
-				final HashMap<String, Object> m = new HashMap<String, Object>();
-				m.put(ARG, "IArgumentProvider2");
+	/**
+	 * Tests the values are fetched in the correct sequence for attributes.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testAttributeTargetTypeSequence() {
+		testOneAttributeSequence(ARG + "-targetType", "extender", null, "bindingDecorator.simple",
+				"TestObject.text (annotation)", "TestObject.text", "java.lang.String", "java.lang.CharSequence",
+				"IArgumentProvider1", "IArgumentProvider2");
+	}
 
-				return m;
-			}
-		});
+	/**
+	 * Tests the values are fetched in the correct sequence for attributes.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testAttributeContainingClassSequence() {
+		testOneAttributeSequence(ARG + "-containingClass", "extender", null, "bindingDecorator.simple",
+				"TestObject.text (annotation)", "TestObject.text", "TestObject (annotation)", "TestObject",
+				"IArgumentProvider1", "IArgumentProvider2");
+	}
 
+	private void testOneAttributeSequence(final String arg, final String... results) {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
+				final IFormCreator form = myView.createFormCreator(myObject);
+				final IValueBinding binding = form.addField("text").type("argumentScopeTest").arg("extender", "foobar")
+						.arg(arg, null);
+				binding.getExtraArgumentProviders().add(new IArgumentProvider() {
+					@Override
+					public boolean hasArguments() {
+						return true;
+					}
+
+					@Override
+					public Map<String, Object> getArguments() {
+						final HashMap<String, Object> m = new HashMap<String, Object>();
+						m.put(arg, "IArgumentProvider1");
+
+						return m;
+					}
+				});
+				binding.getExtraArgumentProviders().add(new IArgumentProvider() {
+					@Override
+					public boolean hasArguments() {
+						return true;
+					}
+
+					@Override
+					public Map<String, Object> getArguments() {
+						final HashMap<String, Object> m = new HashMap<String, Object>();
+						m.put(arg, "IArgumentProvider2");
+
+						return m;
+					}
+				});
+
 				form.finish();
 				yield();
+
+				final List<IArgumentValue<String>> list = binding.getArguments(arg, String.class, false);
+				assertNotNull(list);
+
+				printList(list);
+
+				assertEquals(results.length, list.size());
+				for (int i = 0; i < results.length; i++) {
+					assertEquals(results[i], list.get(i).getValue());
+				}
 			}
 		});
-
-		/*
-		 * Test of getArguments(...)
-		 */
-		final List<IArgumentValue<String>> list = binding.getArguments(ARG, String.class, false);
-		assertNotNull(list);
-
-		System.out.println("Test:");
-		for (final IArgumentValue<String> a : list) {
-			System.out.println("    '" + a.getValue() + "' " + a.getSource());
-		}
-
-		assertEquals(11, list.size());
-		assertEquals("extender", list.get(0).getValue());
-		assertEquals("direct arg", list.get(1).getValue());
-		assertEquals("bindingDecorator.simple", list.get(2).getValue());
-		assertEquals("TestObject.text (annotation)", list.get(3).getValue());
-		assertEquals("TestObject.text", list.get(4).getValue());
-		assertEquals("java.lang.String", list.get(5).getValue());
-		assertEquals("java.lang.CharSequence", list.get(6).getValue());
-		assertEquals("TestObject (annotation)", list.get(7).getValue());
-		assertEquals("TestObject", list.get(8).getValue());
-		assertEquals("IArgumentProvider1", list.get(9).getValue());
-		assertEquals("IArgumentProvider2", list.get(10).getValue());
-
-		// TODO: missing "SubTestObject (annotation)"
 	}
 
 	/**
@@ -155,80 +193,128 @@ public class ArgumentsSequenceTest {
 	 * Test data: all over EX.ecore, fragment.xml, etc
 	 */
 	@Test
-	public void testCellSequence() {
-		final IFormCreator form = myView.createFormCreator(myModel);
-		final ITableCreator table = form.addTableCreator(TestModelPackage.Literals.TEST_CONTAINER__CHILDREN, false,
-				SWT.NONE);
-		final IColumnBinding column = table.addColumn("text(w=200)").type("argumentScopeTest")
-				.arg("extender", "foobar").arg(ARG, "column arg");
-		column.getExtraArgumentProviders().add(new IArgumentProvider() {
-			@Override
-			public boolean hasArguments() {
-				return true;
-			}
+	public void testCellAllSequence() {
+		testOneCellSequence(ARG + "-all", "extender", "bindingDecorator.simple", "column arg",
+				"TestObject.text (annotation)", "TestObject.text", "java.lang.String", "java.lang.CharSequence",
+				"TestObject (annotation)", "TestObject", "IArgumentProvider1", "IArgumentProvider2");
+	}
 
-			@Override
-			public Map<String, Object> getArguments() {
-				final HashMap<String, Object> m = new HashMap<String, Object>();
-				m.put(ARG, "IArgumentProvider1");
+	/**
+	 * Tests the values are fetched in the correct sequence for cells in viewers.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testCellDefaultSequence() {
+		testOneCellSequence(ARG + "-default", "extender", "bindingDecorator.simple", "column arg",
+				"TestObject.text (annotation)", "TestObject.text", "TestObject (annotation)", "TestObject",
+				"IArgumentProvider1", "IArgumentProvider2");
+	}
 
-				return m;
-			}
-		});
-		column.getExtraArgumentProviders().add(new IArgumentProvider() {
-			@Override
-			public boolean hasArguments() {
-				return true;
-			}
+	/**
+	 * Tests the values are fetched in the correct sequence for cells in viewers.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testCellParentSequence() {
+		testOneCellSequence(ARG + "-parent", "extender", "bindingDecorator.simple", "column arg",
+				"TestObject.text (annotation)", "TestObject.text", "IArgumentProvider1", "IArgumentProvider2");
+	}
 
-			@Override
-			public Map<String, Object> getArguments() {
-				final HashMap<String, Object> m = new HashMap<String, Object>();
-				m.put(ARG, "IArgumentProvider2");
+	/**
+	 * Tests the values are fetched in the correct sequence for cells in viewers.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testCellTargetTypeSequence() {
+		testOneCellSequence(ARG + "-targetType", "extender", "bindingDecorator.simple", "TestObject.text (annotation)",
+				"TestObject.text", "java.lang.String", "java.lang.CharSequence", "IArgumentProvider1",
+				"IArgumentProvider2");
+	}
 
-				return m;
-			}
-		});
+	/**
+	 * Tests the values are fetched in the correct sequence for cells in viewers.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testCellContainingClassSequence() {
+		testOneCellSequence(ARG + "-containingClass", "extender", "bindingDecorator.simple",
+				"TestObject.text (annotation)", "TestObject.text", "TestObject (annotation)", "TestObject",
+				"IArgumentProvider1", "IArgumentProvider2");
+	}
 
+	private void testOneCellSequence(final String arg, final String... results) {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
+				final IFormCreator form = myView.createFormCreator(myModel);
+				final ITableCreator table = form.addTableCreator(TestModelPackage.Literals.TEST_CONTAINER__CHILDREN,
+						false, SWT.NONE);
+				final IColumnBinding column = table.addColumn("text(w=200)").type("argumentScopeTest")
+						.arg("extender", "foobar").arg(arg, "column arg");
+				column.getExtraArgumentProviders().add(new IArgumentProvider() {
+					@Override
+					public boolean hasArguments() {
+						return true;
+					}
+
+					@Override
+					public Map<String, Object> getArguments() {
+						final HashMap<String, Object> m = new HashMap<String, Object>();
+						m.put(arg, "IArgumentProvider1");
+
+						return m;
+					}
+				});
+				column.getExtraArgumentProviders().add(new IArgumentProvider() {
+					@Override
+					public boolean hasArguments() {
+						return true;
+					}
+
+					@Override
+					public Map<String, Object> getArguments() {
+						final HashMap<String, Object> m = new HashMap<String, Object>();
+						m.put(arg, "IArgumentProvider2");
+
+						return m;
+					}
+				});
+
 				form.finish();
 				yield();
+
+				final IColumnBindingCellInformation cell = table.getBinding().getCell(0, myModel.getChildren().get(0));
+				assertNotNull(cell);
+				final IValueBinding binding = cell.getLabelBinding();
+				assertNotNull(binding);
+
+				final List<IArgumentValue<String>> list = binding.getArguments(arg, String.class, false);
+				assertNotNull(list);
+
+				printList(list);
+
+				assertEquals(results.length, list.size());
+				for (int i = 0; i < results.length; i++) {
+					assertEquals(results[i], list.get(i).getValue());
+				}
 			}
 		});
+	}
 
-		final IColumnBindingCellInformation cell = table.getBinding().getCell(0, myModel.getChildren().get(0));
-		assertNotNull(cell);
-		final IValueBinding binding = cell.getLabelBinding();
-		assertNotNull(binding);
-
-		/*
-		 * Test of getArguments(...)
-		 */
-		final List<IArgumentValue<String>> list = binding.getArguments(ARG, String.class, false);
-		assertNotNull(list);
-
-		System.out.println("Test:");
-		for (final IArgumentValue<String> a : list) {
-			System.out.println("    '" + a.getValue() + "' " + a.getSource());
-		}
-
-		assertEquals(11, list.size());
-		assertEquals("extender", list.get(0).getValue());
-		// No direct label binding arguments
-		assertEquals("bindingDecorator.simple", list.get(1).getValue());
-		assertEquals("column arg", list.get(2).getValue());
-		assertEquals("TestObject.text (annotation)", list.get(3).getValue());
-		assertEquals("TestObject.text", list.get(4).getValue());
-		assertEquals("java.lang.String", list.get(5).getValue());
-		assertEquals("java.lang.CharSequence", list.get(6).getValue());
-		assertEquals("TestObject (annotation)", list.get(7).getValue());
-		assertEquals("TestObject", list.get(8).getValue());
-		assertEquals("IArgumentProvider1", list.get(9).getValue());
-		assertEquals("IArgumentProvider2", list.get(10).getValue());
-		// assertEquals("", list.get(11).getValue());
-		// assertEquals("", list.get(12).getValue());
+	/**
+	 * Tests the values are fetched in the correct sequence for references.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testReferenceAllSequence() {
+		testOneReferenceSequence(ARG + "-all", "extender", "direct arg", "bindingDecorator.eobject",
+				"TestContainer.current (annotation)", "TestContainer.current", "TestObject (annotation)", "TestObject",
+				"EObject", "TestContainer (annotation)", "TestContainer", "IArgumentProvider1", "IArgumentProvider2");
 
 		// TODO: missing "SubTestObject (annotation)"
 	}
@@ -239,114 +325,117 @@ public class ArgumentsSequenceTest {
 	 * Test data: all over EX.ecore, fragment.xml, etc
 	 */
 	@Test
-	public void testReferenceSequence() {
-		final IFormCreator form = myView.createFormCreator(myModel);
-		final IValueBinding binding = form.addField("current").type("argumentScopeTest").arg("extender", "foobar")
-				.arg(ARG, "direct arg");
-
-		binding.getExtraArgumentProviders().add(new IArgumentProvider() {
-			@Override
-			public boolean hasArguments() {
-				return true;
-			}
-
-			@Override
-			public Map<String, Object> getArguments() {
-				final HashMap<String, Object> m = new HashMap<String, Object>();
-				m.put(ARG, "IArgumentProvider1");
-
-				return m;
-			}
-		});
-		binding.getExtraArgumentProviders().add(new IArgumentProvider() {
-			@Override
-			public boolean hasArguments() {
-				return true;
-			}
-
-			@Override
-			public Map<String, Object> getArguments() {
-				final HashMap<String, Object> m = new HashMap<String, Object>();
-				m.put(ARG, "IArgumentProvider2");
-
-				return m;
-			}
-		});
-
-		assertNoLog(new Runnable() {
-			@Override
-			public void run() {
-				form.finish();
-				yield();
-			}
-		}, new String[] { ".*Binding cannot be changed.*" });
-
-		/*
-		 * Test of getArguments(...)
-		 */
-		final List<IArgumentValue<String>> list = binding.getArguments(ARG, String.class, false);
-		assertNotNull(list);
-
-		System.out.println("Test:");
-		for (final IArgumentValue<String> a : list) {
-			System.out.println("    '" + a.getValue() + "' " + a.getSource());
-		}
-
-		assertEquals(12, list.size());
-		assertEquals("extender", list.get(0).getValue());
-		assertEquals("direct arg", list.get(1).getValue());
-		assertEquals("bindingDecorator.eobject", list.get(2).getValue());
-		assertEquals("TestContainer.current (annotation)", list.get(3).getValue());
-		assertEquals("TestContainer.current", list.get(4).getValue());
-		assertEquals("TestObject (annotation)", list.get(5).getValue());
-		assertEquals("TestObject", list.get(6).getValue());
-		assertEquals("EObject", list.get(7).getValue());
-		assertEquals("TestContainer (annotation)", list.get(8).getValue());
-		assertEquals("TestContainer", list.get(9).getValue());
-		assertEquals("IArgumentProvider1", list.get(10).getValue());
-		assertEquals("IArgumentProvider2", list.get(11).getValue());
+	public void testReferenceDefaultSequence() {
+		testOneReferenceSequence(ARG + "-default", "extender", "direct arg", "bindingDecorator.eobject",
+				"TestContainer.current (annotation)", "TestContainer.current", "TestObject (annotation)", "TestObject",
+				"EObject", "IArgumentProvider1", "IArgumentProvider2");
 
 		// TODO: missing "SubTestObject (annotation)"
 	}
 
 	/**
-	 * Checks that the arguments are correct.
-	 * 
-	 * @param binding the base binding
-	 * @param name the argument name
-	 * @param expectedValue the expected value
-	 * @param expectedSource the class of the source for the primary result
-	 * @param expectedResults the expected number of results
+	 * Tests the values are fetched in the correct sequence for references.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
 	 */
-	public void check(IValueBinding binding, String name, String expectedValue, Class<?> expectedSource,
-			int expectedResults) {
-		assertNotNull(binding);
-		/*
-		 * Test of getArguments(...)
-		 */
-		final List<IArgumentValue<String>> list = binding.getArguments(name, String.class, false);
-		assertNotNull(list);
-		System.out.println("Test: " + expectedValue + ":");
-		for (final IArgumentValue<String> a : list) {
-			System.out.println("    '" + a.getValue() + "' " + a.getSource());
-		}
+	@Test
+	public void testReferenceParentSequence() {
+		testOneReferenceSequence(ARG + "-parent", "extender", "direct arg", "bindingDecorator.eobject",
+				"TestContainer.current (annotation)", "TestContainer.current", "IArgumentProvider1",
+				"IArgumentProvider2");
 
-		assertEquals(expectedResults, list.size());
-		assertEquals(expectedValue, list.get(0).getValue());
+		// TODO: missing "SubTestObject (annotation)"
+	}
 
-		if (expectedSource == null) {
-			assertEquals(expectedSource, list.get(0).getSource());
-		} else {
-			assertTrue(expectedSource.isInstance(list.get(0).getSource()));
-		}
+	/**
+	 * Tests the values are fetched in the correct sequence for references.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testReferenceTargetTypeSequence() {
+		testOneReferenceSequence(ARG + "-targetType", "extender", "direct arg", "bindingDecorator.eobject",
+				"TestContainer.current (annotation)", "TestContainer.current", "TestObject (annotation)", "TestObject",
+				"EObject", "IArgumentProvider1", "IArgumentProvider2");
 
-		for (int i = 1; i < expectedResults; i++) {
-			assertTrue("missing 'not used' prefix", list.get(i).getValue().startsWith("not used"));
-		}
+		// TODO: missing "SubTestObject (annotation)"
+	}
 
-		/*
-		 * Test of getArgument(...)
-		 */
-		assertEquals(expectedValue, binding.getArgument(name, String.class, ""));
+	/**
+	 * Tests the values are fetched in the correct sequence for references.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testReferenceContainingClassSequence() {
+		testOneReferenceSequence(ARG + "-containingClass", "extender", "direct arg", "bindingDecorator.eobject",
+				"TestContainer.current (annotation)", "TestContainer.current", "TestContainer (annotation)",
+				"TestContainer", "IArgumentProvider1", "IArgumentProvider2");
+
+		// TODO: missing "SubTestObject (annotation)"
+	}
+
+	private void testOneReferenceSequence(final String arg, final String... results) {
+		assertNoLog(new Runnable() {
+			@Override
+			public void run() {
+				final IFormCreator form = myView.createFormCreator(myModel);
+				final IValueBinding binding = form.addField("current").type("argumentScopeTest")
+						.arg("extender", "foobar").arg(arg, "direct arg")
+						.validValues(myModel, TestModelPackage.Literals.TEST_CONTAINER__CHILDREN);
+
+				binding.getExtraArgumentProviders().add(new IArgumentProvider() {
+					@Override
+					public boolean hasArguments() {
+						return true;
+					}
+
+					@Override
+					public Map<String, Object> getArguments() {
+						final HashMap<String, Object> m = new HashMap<String, Object>();
+						m.put(arg, "IArgumentProvider1");
+
+						return m;
+					}
+				});
+				binding.getExtraArgumentProviders().add(new IArgumentProvider() {
+					@Override
+					public boolean hasArguments() {
+						return true;
+					}
+
+					@Override
+					public Map<String, Object> getArguments() {
+						final HashMap<String, Object> m = new HashMap<String, Object>();
+						m.put(arg, "IArgumentProvider2");
+
+						return m;
+					}
+				});
+
+				form.finish();
+				yield();
+
+				final List<IArgumentValue<String>> list = binding.getArguments(arg, String.class, false);
+				assertNotNull(list);
+
+				printList(list);
+
+				assertEquals(results.length, list.size());
+				for (int i = 0; i < results.length; i++) {
+					assertEquals(results[i], list.get(i).getValue());
+				}
+			}
+		});
+	}
+
+	/**
+	 * @param list
+	 */
+	private void printList(final List<IArgumentValue<String>> list) {
+//		System.out.println("Test:");
+//		for (final IArgumentValue<String> a : list) {
+//			System.out.println("    '" + a.getValue() + "' " + a.getSource());
+//		}
 	}
 }

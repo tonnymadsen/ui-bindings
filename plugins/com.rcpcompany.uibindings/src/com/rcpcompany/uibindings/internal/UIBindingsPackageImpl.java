@@ -63,6 +63,7 @@ import com.rcpcompany.uibindings.BindingMessageSeverity;
 import com.rcpcompany.uibindings.BindingState;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.DecorationPosition;
+import com.rcpcompany.uibindings.IArgumentInformation;
 import com.rcpcompany.uibindings.IArgumentProvider;
 import com.rcpcompany.uibindings.IBaseObject;
 import com.rcpcompany.uibindings.IBinding;
@@ -193,6 +194,13 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	private EClass viewerBindingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass argumentInformationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -333,6 +341,13 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	private EClass stringToModelFeatureInfoMapEntryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass stringToArgumentInformationMapEntryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -917,16 +932,6 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 */
 	@Override
 	public EReference getManager_Providers() {
-		return (EReference) managerEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public EReference getManager_UiAttributeFactories() {
 		return (EReference) managerEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -936,7 +941,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EReference getManager_DecoratorExtenders() {
+	public EReference getManager_UiAttributeFactories() {
 		return (EReference) managerEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -946,8 +951,8 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getManager_ModelArgumentMediators() {
-		return (EAttribute) managerEClass.getEStructuralFeatures().get(5);
+	public EReference getManager_DecoratorExtenders() {
+		return (EReference) managerEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -956,7 +961,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getManager_ModelArgumentMediatorClasses() {
+	public EAttribute getManager_ModelArgumentMediators() {
 		return (EAttribute) managerEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -966,7 +971,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getManager_TextCommitStrategy() {
+	public EAttribute getManager_ModelArgumentMediatorClasses() {
 		return (EAttribute) managerEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -976,7 +981,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getManager_TextCommitStrategyDelay() {
+	public EAttribute getManager_TextCommitStrategy() {
 		return (EAttribute) managerEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -986,7 +991,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getManager_EditCellAnyKey() {
+	public EAttribute getManager_TextCommitStrategyDelay() {
 		return (EAttribute) managerEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -996,7 +1001,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getManager_EditCellSingleClick() {
+	public EAttribute getManager_EditCellAnyKey() {
 		return (EAttribute) managerEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -1006,7 +1011,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getManager_MessageDecorationPosition() {
+	public EAttribute getManager_EditCellSingleClick() {
 		return (EAttribute) managerEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -1016,7 +1021,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getManager_MessageDecorationMinimumSeverity() {
+	public EAttribute getManager_MessageDecorationPosition() {
 		return (EAttribute) managerEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -1026,7 +1031,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getManager_AlternativeDecorationPosition() {
+	public EAttribute getManager_MessageDecorationMinimumSeverity() {
 		return (EAttribute) managerEClass.getEStructuralFeatures().get(13);
 	}
 
@@ -1036,7 +1041,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getManager_AutoApplySingleQuickfix() {
+	public EAttribute getManager_AlternativeDecorationPosition() {
 		return (EAttribute) managerEClass.getEStructuralFeatures().get(14);
 	}
 
@@ -1046,7 +1051,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getManager_AlternateRowColors() {
+	public EAttribute getManager_AutoApplySingleQuickfix() {
 		return (EAttribute) managerEClass.getEStructuralFeatures().get(15);
 	}
 
@@ -1056,7 +1061,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getManager_ValidationErrorsAreFatal() {
+	public EAttribute getManager_AlternateRowColors() {
 		return (EAttribute) managerEClass.getEStructuralFeatures().get(16);
 	}
 
@@ -1066,7 +1071,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getManager_ValidationDelay() {
+	public EAttribute getManager_ValidationErrorsAreFatal() {
 		return (EAttribute) managerEClass.getEStructuralFeatures().get(17);
 	}
 
@@ -1076,7 +1081,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getManager_ValidationDelayWindow() {
+	public EAttribute getManager_ValidationDelay() {
 		return (EAttribute) managerEClass.getEStructuralFeatures().get(18);
 	}
 
@@ -1086,7 +1091,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getManager_RequiredVBImageDecorationShown() {
+	public EAttribute getManager_ValidationDelayWindow() {
 		return (EAttribute) managerEClass.getEStructuralFeatures().get(19);
 	}
 
@@ -1096,7 +1101,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getManager_AssistVBImageDecorationShown() {
+	public EAttribute getManager_RequiredVBImageDecorationShown() {
 		return (EAttribute) managerEClass.getEStructuralFeatures().get(20);
 	}
 
@@ -1106,7 +1111,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getManager_QuickfixVBImageDecorationShown() {
+	public EAttribute getManager_AssistVBImageDecorationShown() {
 		return (EAttribute) managerEClass.getEStructuralFeatures().get(21);
 	}
 
@@ -1116,7 +1121,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getManager_ViewNavigationRecorded() {
+	public EAttribute getManager_QuickfixVBImageDecorationShown() {
 		return (EAttribute) managerEClass.getEStructuralFeatures().get(22);
 	}
 
@@ -1126,8 +1131,8 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EReference getManager_ModelInfo() {
-		return (EReference) managerEClass.getEStructuralFeatures().get(23);
+	public EAttribute getManager_ViewNavigationRecorded() {
+		return (EAttribute) managerEClass.getEStructuralFeatures().get(23);
 	}
 
 	/**
@@ -1136,7 +1141,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EReference getManager_TreeItems() {
+	public EReference getManager_ModelInfo() {
 		return (EReference) managerEClass.getEStructuralFeatures().get(24);
 	}
 
@@ -1146,8 +1151,18 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
+	public EReference getManager_TreeItems() {
+		return (EReference) managerEClass.getEStructuralFeatures().get(25);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EAttribute getManager_Clipboard() {
-		return (EAttribute) managerEClass.getEStructuralFeatures().get(25);
+		return (EAttribute) managerEClass.getEStructuralFeatures().get(26);
 	}
 
 	/**
@@ -1157,16 +1172,6 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 */
 	@Override
 	public EReference getManager_ObservableFactories() {
-		return (EReference) managerEClass.getEStructuralFeatures().get(26);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public EReference getManager_QuickfixProposalProcessors() {
 		return (EReference) managerEClass.getEStructuralFeatures().get(27);
 	}
 
@@ -1176,7 +1181,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EReference getManager_Contexts() {
+	public EReference getManager_QuickfixProposalProcessors() {
 		return (EReference) managerEClass.getEStructuralFeatures().get(28);
 	}
 
@@ -1186,8 +1191,18 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
+	public EReference getManager_Contexts() {
+		return (EReference) managerEClass.getEStructuralFeatures().get(29);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EAttribute getManager_FormatterProvider() {
-		return (EAttribute) managerEClass.getEStructuralFeatures().get(29);
+		return (EAttribute) managerEClass.getEStructuralFeatures().get(30);
 	}
 
 	/**
@@ -1197,7 +1212,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 */
 	@Override
 	public EAttribute getManager_DeleteHandlerCheckEnabled() {
-		return (EAttribute) managerEClass.getEStructuralFeatures().get(30);
+		return (EAttribute) managerEClass.getEStructuralFeatures().get(31);
 	}
 
 	/**
@@ -1218,6 +1233,16 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	@Override
 	public EAttribute getManager_FormToolkit() {
 		return (EAttribute) managerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EReference getManager_ArgumentInformation() {
+		return (EReference) managerEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1976,6 +2001,76 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
+	public EClass getArgumentInformation() {
+		return argumentInformationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getArgumentInformation_Name() {
+		return (EAttribute) argumentInformationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getArgumentInformation_LookupParent() {
+		return (EAttribute) argumentInformationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getArgumentInformation_LookupAttributeTargetType() {
+		return (EAttribute) argumentInformationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getArgumentInformation_LookupAttributeContainingClass() {
+		return (EAttribute) argumentInformationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getArgumentInformation_LookupReferenceTargetType() {
+		return (EAttribute) argumentInformationEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getArgumentInformation_LookupReferenceContainingClass() {
+		return (EAttribute) argumentInformationEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getDecoratorProvider() {
 		return decoratorProviderEClass;
 	}
@@ -2648,6 +2743,36 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	@Override
 	public EReference getStringToModelFeatureInfoMapEntry_Value() {
 		return (EReference) stringToModelFeatureInfoMapEntryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EClass getStringToArgumentInformationMapEntry() {
+		return stringToArgumentInformationMapEntryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getStringToArgumentInformationMapEntry_Key() {
+		return (EAttribute) stringToArgumentInformationMapEntryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EReference getStringToArgumentInformationMapEntry_Value() {
+		return (EReference) stringToArgumentInformationMapEntryEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -4223,6 +4348,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		managerEClass = createEClass(MANAGER);
 		createEAttribute(managerEClass, MANAGER__EDITING_DOMAIN);
 		createEAttribute(managerEClass, MANAGER__FORM_TOOLKIT);
+		createEReference(managerEClass, MANAGER__ARGUMENT_INFORMATION);
 		createEReference(managerEClass, MANAGER__PROVIDERS);
 		createEReference(managerEClass, MANAGER__UI_ATTRIBUTE_FACTORIES);
 		createEReference(managerEClass, MANAGER__DECORATOR_EXTENDERS);
@@ -4336,6 +4462,14 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		createEAttribute(viewerBindingEClass, VIEWER_BINDING__VIEWER);
 		createEAttribute(viewerBindingEClass, VIEWER_BINDING__FIRST_TABLE_COLUMN_OFFSET);
 
+		argumentInformationEClass = createEClass(ARGUMENT_INFORMATION);
+		createEAttribute(argumentInformationEClass, ARGUMENT_INFORMATION__NAME);
+		createEAttribute(argumentInformationEClass, ARGUMENT_INFORMATION__LOOKUP_PARENT);
+		createEAttribute(argumentInformationEClass, ARGUMENT_INFORMATION__LOOKUP_ATTRIBUTE_TARGET_TYPE);
+		createEAttribute(argumentInformationEClass, ARGUMENT_INFORMATION__LOOKUP_ATTRIBUTE_CONTAINING_CLASS);
+		createEAttribute(argumentInformationEClass, ARGUMENT_INFORMATION__LOOKUP_REFERENCE_TARGET_TYPE);
+		createEAttribute(argumentInformationEClass, ARGUMENT_INFORMATION__LOOKUP_REFERENCE_CONTAINING_CLASS);
+
 		decoratorProviderEClass = createEClass(DECORATOR_PROVIDER);
 		createEReference(decoratorProviderEClass, DECORATOR_PROVIDER__MANAGER);
 		createEAttribute(decoratorProviderEClass, DECORATOR_PROVIDER__ID);
@@ -4423,6 +4557,10 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		stringToModelFeatureInfoMapEntryEClass = createEClass(STRING_TO_MODEL_FEATURE_INFO_MAP_ENTRY);
 		createEAttribute(stringToModelFeatureInfoMapEntryEClass, STRING_TO_MODEL_FEATURE_INFO_MAP_ENTRY__KEY);
 		createEReference(stringToModelFeatureInfoMapEntryEClass, STRING_TO_MODEL_FEATURE_INFO_MAP_ENTRY__VALUE);
+
+		stringToArgumentInformationMapEntryEClass = createEClass(STRING_TO_ARGUMENT_INFORMATION_MAP_ENTRY);
+		createEAttribute(stringToArgumentInformationMapEntryEClass, STRING_TO_ARGUMENT_INFORMATION_MAP_ENTRY__KEY);
+		createEReference(stringToArgumentInformationMapEntryEClass, STRING_TO_ARGUMENT_INFORMATION_MAP_ENTRY__VALUE);
 
 		stringToStringMapEntryEClass = createEClass(STRING_TO_STRING_MAP_ENTRY);
 		createEAttribute(stringToStringMapEntryEClass, STRING_TO_STRING_MAP_ENTRY__KEY);
@@ -4680,6 +4818,11 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				getManager_FormToolkit(),
 				this.getFormToolkit(),
 				"formToolkit", null, 1, 1, IManager.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getManager_ArgumentInformation(),
+				this.getStringToArgumentInformationMapEntry(),
+				null,
+				"argumentInformation", null, 0, -1, IManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(
 				getManager_Providers(),
 				this.getDecoratorProvider(),
@@ -5136,6 +5279,33 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				ecorePackage.getEInt(),
 				"firstTableColumnOffset", null, 0, 1, IViewerBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
+		initEClass(argumentInformationEClass, IArgumentInformation.class,
+				"ArgumentInformation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(
+				getArgumentInformation_Name(),
+				ecorePackage.getEString(),
+				"name", null, 1, 1, IArgumentInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getArgumentInformation_LookupParent(),
+				ecorePackage.getEBoolean(),
+				"lookupParent", "true", 1, 1, IArgumentInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+		initEAttribute(
+				getArgumentInformation_LookupAttributeTargetType(),
+				ecorePackage.getEBoolean(),
+				"lookupAttributeTargetType", "false", 1, 1, IArgumentInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+		initEAttribute(
+				getArgumentInformation_LookupAttributeContainingClass(),
+				ecorePackage.getEBoolean(),
+				"lookupAttributeContainingClass", "true", 1, 1, IArgumentInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+		initEAttribute(
+				getArgumentInformation_LookupReferenceTargetType(),
+				ecorePackage.getEBoolean(),
+				"lookupReferenceTargetType", "true", 1, 1, IArgumentInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+		initEAttribute(
+				getArgumentInformation_LookupReferenceContainingClass(),
+				ecorePackage.getEBoolean(),
+				"lookupReferenceContainingClass", "false", 1, 1, IArgumentInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+
 		initEClass(decoratorProviderEClass, IDecoratorProvider.class,
 				"DecoratorProvider", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(
@@ -5403,6 +5573,18 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEReference(
 				getStringToModelFeatureInfoMapEntry_Value(),
 				this.getModelFeatureInfo(),
+				null,
+				"value", null, 0, 1, Map.Entry.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(stringToArgumentInformationMapEntryEClass, Map.Entry.class,
+				"StringToArgumentInformationMapEntry", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(
+				getStringToArgumentInformationMapEntry_Key(),
+				ecorePackage.getEString(),
+				"key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getStringToArgumentInformationMapEntry_Value(),
+				this.getArgumentInformation(),
 				null,
 				"value", null, 0, 1, Map.Entry.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 

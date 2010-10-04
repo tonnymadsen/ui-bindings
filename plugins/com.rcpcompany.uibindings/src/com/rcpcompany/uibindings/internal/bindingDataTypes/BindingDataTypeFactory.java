@@ -17,7 +17,6 @@ import java.util.Map;
 
 import org.eclipse.core.runtime.IAdapterManager;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EEnumLiteral;
@@ -54,6 +53,7 @@ public final class BindingDataTypeFactory {
 	public static IBindingDataType create(Object element) {
 		if (DATA_TYPE_MAPPING.containsKey(element)) return DATA_TYPE_MAPPING.get(element);
 
+		EClassifier classifier = null;
 		IBindingDataType dt = null;
 		if (element instanceof EClassifier) {
 			dt = new EClassifierBindingDataType((EClassifier) element);
@@ -65,7 +65,7 @@ public final class BindingDataTypeFactory {
 			/*
 			 * Try to look up the instance class to find a proper EClassifier
 			 */
-			final EClassifier classifier = IBindingDataType.Factory.convertToClassifier((Class<?>) element);
+			classifier = IBindingDataType.Factory.convertToClassifier((Class<?>) element);
 			if (classifier != null) {
 				dt = create(classifier);
 			} else {
@@ -78,6 +78,9 @@ public final class BindingDataTypeFactory {
 			dt = null;
 		}
 		DATA_TYPE_MAPPING.put(element, dt);
+		if (classifier != null) {
+			DATA_TYPE_MAPPING.put(classifier, dt);
+		}
 		return dt;
 	}
 
@@ -160,9 +163,7 @@ public final class BindingDataTypeFactory {
 			if (classifier != null) {
 				dtList.add(BindingDataTypeFactory.create(classifier));
 				if (classifier instanceof EClass) {
-					final EClass ec = (EClass) classifier;
-					final EList<EClass> allSuperTypes = ec.getEAllSuperTypes();
-					for (final EClass e : allSuperTypes) {
+					for (final EClass e : ((EClass) classifier).getEAllSuperTypes()) {
 						dtList.add(BindingDataTypeFactory.create(e));
 					}
 				}

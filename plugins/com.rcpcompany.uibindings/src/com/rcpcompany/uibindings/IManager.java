@@ -36,6 +36,8 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.IManager#getEditingDomain <em>Editing Domain</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#getFormToolkit <em>Form Toolkit</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IManager#getArgumentInformation <em>Argument Information
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#getProviders <em>Providers</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#getUiAttributeFactories <em>Ui Attribute Factories
  * </em>}</li>
@@ -877,6 +879,32 @@ public interface IManager extends IBaseObject {
 	void setFormToolkit(FormToolkit value);
 
 	/**
+	 * Returns the value of the '<em><b>Argument Information</b></em>' map. The key is of type
+	 * {@link java.lang.String}, and the value is of type
+	 * {@link com.rcpcompany.uibindings.IArgumentInformation}, <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Argument Information</em>' map isn't clear, there really should be
+	 * more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Argument Information</em>' map.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getManager_ArgumentInformation()
+	 * @generated
+	 */
+	EMap<String, IArgumentInformation> getArgumentInformation();
+
+	/**
+	 * Returns argument information about the specified argument.
+	 * <p>
+	 * Returns a newly created object if it does not already exist.
+	 * 
+	 * @param name the argument name
+	 * @return the argument information
+	 */
+	IArgumentInformation getArgumentInformation(String name);
+
+	/**
 	 * Returns the {@link IEMFObservableFactory observable factory} to used for the specified
 	 * {@link EObject}.
 	 * 
@@ -949,7 +977,7 @@ public interface IManager extends IBaseObject {
 	 * @param provider the argument provider
 	 * @param context argument context
 	 */
-	<ArgumentType> void getArgumentProviderArguments(IArgumentProvider provider, IArgumentContext<ArgumentType> context);
+	<ArgumentType> void addArgumentProviderArguments(IArgumentProvider provider, IArgumentContext<ArgumentType> context);
 
 	/**
 	 * Returns the named argument or <code>null</code> if not set.
@@ -965,7 +993,6 @@ public interface IManager extends IBaseObject {
 	 * @param attributeName the name of the attribute in ce
 	 * @param value the value
 	 */
-	<ArgumentType> void convertArgumentValue(IArgumentContext<ArgumentType> context, Object source,
+	<ArgumentType> void addArgumentValue(IArgumentContext<ArgumentType> context, Object source,
 			IConfigurationElement ce, String attributeName, String value);
-
 } // IManager

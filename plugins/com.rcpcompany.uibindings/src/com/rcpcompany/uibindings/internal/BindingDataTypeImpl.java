@@ -11,6 +11,7 @@
 package com.rcpcompany.uibindings.internal;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EAnnotation;
@@ -20,6 +21,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IArgumentContext;
+import com.rcpcompany.uibindings.IArgumentInformation;
 import com.rcpcompany.uibindings.IArgumentProvider;
 import com.rcpcompany.uibindings.IArgumentValue;
 import com.rcpcompany.uibindings.IBinding;
@@ -27,6 +29,7 @@ import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.internal.BindingImpl.ArgumentValue;
+import com.rcpcompany.uibindings.internal.bindingDataTypes.BindingDataTypeFactory;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Binding Data Type</b></em>
@@ -69,11 +72,35 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 		if (!Constants.ARG_TYPE.equals(context.getName())) {
 			final String type = context.getType();
 			if (type != null && type.length() > 0) {
-				IManager.Factory.getManager().getArgumentProviderArguments(this.getArgumentProvider(type), context);
+				IManager.Factory.getManager().addArgumentProviderArguments(this.getArgumentProvider(type), context);
 				if (context.isResultFound()) return;
 			}
 		}
-		IManager.Factory.getManager().getArgumentProviderArguments(this.getArgumentProvider(null), context);
+		IManager.Factory.getManager().addArgumentProviderArguments(this.getArgumentProvider(null), context);
+	}
+
+	@Override
+	public <ArgumentType> void addParentDataTypeArguments(final IArgumentContext<ArgumentType> context,
+			Collection<IBindingDataType> visitedDataTypes) {
+		final IBindingDataType pDataType = getParentDataType();
+		if (pDataType != null && !visitedDataTypes.contains(pDataType)) {
+			pDataType.addArguments(context);
+			visitedDataTypes.add(pDataType);
+		}
+	}
+
+	@Override
+	public <ArgumentType> void addSuperDataTypeArguments(final IArgumentContext<ArgumentType> context,
+			Collection<IBindingDataType> visitedDataTypes) {
+
+		for (final IBindingDataType dt : BindingDataTypeFactory.getSuperTypes(this)) {
+			if (visitedDataTypes.contains(dt)) {
+				continue;
+			}
+			dt.addArguments(context);
+			visitedDataTypes.add(dt);
+			if (context.isResultFound()) return;
+		}
 	}
 
 	private <ArgumentType> void getEAnnotationArguments(IArgumentContext<ArgumentType> context) {
@@ -84,13 +111,15 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 		value = annotation.getDetails().get(context.getName());
 		if (value == null) return;
 
-		IManager.Factory.getManager().convertArgumentValue(context, this, null, null, value);
+		IManager.Factory.getManager().addArgumentValue(context, this, null, null, value);
 	}
 
 	@Override
 	public <ArgumentType> ArgumentType getArgument(final String name, final String type,
 			final Class<? extends ArgumentType> argumentType, ArgumentType defaultValue) {
 		final List<IArgumentValue<ArgumentType>> results = new ArrayList<IArgumentValue<ArgumentType>>();
+
+		final IArgumentInformation ai = IManager.Factory.getManager().getArgumentInformation(name);
 		final IArgumentContext<ArgumentType> context = new IArgumentContext<ArgumentType>() {
 			@Override
 			public IBinding getBinding() {
@@ -100,6 +129,11 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 			@Override
 			public String getName() {
 				return name;
+			}
+
+			@Override
+			public IArgumentInformation getArgumentInformation() {
+				return ai;
 			}
 
 			@Override
@@ -188,7 +222,7 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	 * 
 	 * @generated
 	 */
-	protected BindingDataTypeImpl() {
+	public BindingDataTypeImpl() {
 		super();
 	}
 

@@ -67,6 +67,7 @@ import com.rcpcompany.uibindings.BindingMessageSeverity;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.DecorationPosition;
 import com.rcpcompany.uibindings.IArgumentContext;
+import com.rcpcompany.uibindings.IArgumentInformation;
 import com.rcpcompany.uibindings.IArgumentProvider;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingMessage;
@@ -117,6 +118,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getEditingDomain <em>Editing Domain
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getFormToolkit <em>Form Toolkit</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getArgumentInformation <em>Argument
+ * Information</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getProviders <em>Providers</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getUiAttributeFactories <em>Ui
  * Attribute Factories</em>}</li>
@@ -179,7 +182,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	/**
 	 * The key information for a binding provider in {@link Manager#myBindingCache}.
 	 */
-	private static class BindingProviderKey {
+	private static final class BindingProviderKey {
 		/**
 		 * Constructs and returns a new key object.
 		 * 
@@ -395,6 +398,16 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * @ordered
 	 */
 	protected FormToolkit formToolkit = FORM_TOOLKIT_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getArgumentInformation() <em>Argument Information</em>}'
+	 * map. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getArgumentInformation()
+	 * @generated
+	 * @ordered
+	 */
+	protected EMap<String, IArgumentInformation> argumentInformation;
 
 	/**
 	 * The cached value of the '{@link #getProviders() <em>Providers</em>}' containment reference
@@ -926,6 +939,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 				extenderReaderBindingDecorator(ce);
 			} else if (InternalConstants.UI_ATTRIBUTE_FACTORY_TAG.equals(elementName)) {
 				extensionReaderUIAttributeFactory(ce);
+			} else if (InternalConstants.ARGUMENT_INFO_TAG.equals(elementName)) {
+				extensionReaderArgumentInfo(ce);
 			} else if (InternalConstants.DECORATOR_EXTENDER_TAG.equals(elementName)) {
 				extensionReaderDecoratorExtender(ce);
 			} else if (InternalConstants.MODEL_ARGUMENT_MEDIATOR_TAG.equals(elementName)) {
@@ -1149,6 +1164,47 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		descriptor.setFactory(new CEObjectHolder<IUIAttributeFactory>(ce));
 
 		getUiAttributeFactories().add(descriptor);
+	}
+
+	/**
+	 * @param ce
+	 */
+	private void extensionReaderArgumentInfo(final IConfigurationElement ce) {
+		// TODO: check for dups
+		final IArgumentInformation descriptor = IUIBindingsFactory.eINSTANCE.createArgumentInformation();
+		descriptor.setName(ce.getAttribute(InternalConstants.NAME_TAG));
+
+		String attr;
+		attr = ce.getAttribute(InternalConstants.LOOKUP_ATTRIBUTE_TARGET_TYPE_TAG);
+		if (attr != null) {
+			descriptor.setLookupAttributeTargetType(Boolean.valueOf(attr).booleanValue());
+		}
+
+		attr = ce.getAttribute(InternalConstants.LOOKUP_PARENT_TAG);
+		if (attr != null) {
+			descriptor.setLookupParent(Boolean.valueOf(attr).booleanValue());
+		}
+
+		attr = ce.getAttribute(InternalConstants.LOOKUP_ATTRIBUTE_CONTAINING_CLASS_TAG);
+		if (attr != null) {
+			descriptor.setLookupAttributeContainingClass(Boolean.valueOf(attr).booleanValue());
+		}
+
+		attr = ce.getAttribute(InternalConstants.LOOKUP_REFERENCE_TARGET_TYPE_TAG);
+		if (attr != null) {
+			descriptor.setLookupReferenceTargetType(Boolean.valueOf(attr).booleanValue());
+		}
+
+		attr = ce.getAttribute(InternalConstants.LOOKUP_REFERENCE_CONTAINING_CLASS_TAG);
+		if (attr != null) {
+			descriptor.setLookupReferenceContainingClass(Boolean.valueOf(attr).booleanValue());
+		}
+
+		if (getArgumentInformation().containsKey(descriptor.getName())) {
+			LogUtils.error(ce, "Duplicate of argument name '" + descriptor.getName() + "'. Ignored.");
+			return;
+		}
+		getArgumentInformation().put(descriptor.getName(), descriptor);
 	}
 
 	/**
@@ -2041,7 +2097,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	}
 
 	@Override
-	public <ArgumentType> void getArgumentProviderArguments(IArgumentProvider provider,
+	public <ArgumentType> void addArgumentProviderArguments(IArgumentProvider provider,
 			IArgumentContext<ArgumentType> context) {
 		if (provider == null) return;
 		if (!provider.hasArguments()) return;
@@ -2049,8 +2105,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		final String name = context.getName();
 		final Class<? extends ArgumentType> argumentType = context.getArgumentType();
 
+		if (!provider.getArguments().containsKey(name)) return;
 		final Object val = provider.getArguments().get(name);
-		if (val == null) return;
 
 		if (val instanceof IConfigurationElement) {
 			final IConfigurationElement ce = (IConfigurationElement) val;
@@ -2058,16 +2114,16 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			// SIMA-921
 			String value = ce.getAttribute(name);
 			if (value != null) {
-				convertArgumentValue(context, provider, ce, name, value);
+				addArgumentValue(context, provider, ce, name, value);
 			} else {
 				value = ce.getAttribute(InternalConstants.VALUE_TAG);
-				convertArgumentValue(context, provider, ce, InternalConstants.VALUE_TAG, value);
+				addArgumentValue(context, provider, ce, InternalConstants.VALUE_TAG, value);
 			}
 		} else if (argumentType.isInstance(val)) {
 			// OK
 			context.addResult(provider, (ArgumentType) val);
 		} else if (val instanceof String) {
-			convertArgumentValue(context, provider, null, null, (String) val);
+			addArgumentValue(context, provider, null, null, (String) val);
 		} else {
 			// TODO
 			context.addResult(provider, null);
@@ -2075,7 +2131,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	}
 
 	@Override
-	public <ArgumentType> void convertArgumentValue(IArgumentContext<ArgumentType> context, Object source,
+	public <ArgumentType> void addArgumentValue(IArgumentContext<ArgumentType> context, Object source,
 			IConfigurationElement ce, String attributeName, String value) {
 		final ArgumentType v = convertArgumentValue(context, ce, attributeName, value);
 		if (v != null) {
@@ -2397,6 +2453,35 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		}
 	}
 
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EMap<String, IArgumentInformation> getArgumentInformation() {
+		if (argumentInformation == null) {
+			argumentInformation = new EcoreEMap<String, IArgumentInformation>(
+					IUIBindingsPackage.Literals.STRING_TO_ARGUMENT_INFORMATION_MAP_ENTRY,
+					StringToArgumentInformationMapEntryImpl.class, this,
+					IUIBindingsPackage.MANAGER__ARGUMENT_INFORMATION);
+		}
+		return argumentInformation;
+	}
+
+	@Override
+	public IArgumentInformation getArgumentInformation(final String name) {
+		IArgumentInformation ai = getArgumentInformation().get(name);
+		if (ai == null) {
+			ai = IUIBindingsFactory.eINSTANCE.createArgumentInformation();
+			ai.setName(name);
+			getArgumentInformation().put(name, ai);
+
+			LogUtils.error(ai, "Argument '" + name + "' not declared. Added with defaults.");
+		}
+		return ai;
+	};
+
 	@Override
 	public IEMFObservableFactory getObservableFactory(EObject object) {
 		Assert.isNotNull(object, "observed object may not be null"); //$NON-NLS-1$
@@ -2541,6 +2626,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+		case IUIBindingsPackage.MANAGER__ARGUMENT_INFORMATION:
+			return ((InternalEList<?>) getArgumentInformation()).basicRemove(otherEnd, msgs);
 		case IUIBindingsPackage.MANAGER__PROVIDERS:
 			return ((InternalEList<?>) getProviders()).basicRemove(otherEnd, msgs);
 		case IUIBindingsPackage.MANAGER__MODEL_INFO:
@@ -2569,6 +2656,11 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			return getEditingDomain();
 		case IUIBindingsPackage.MANAGER__FORM_TOOLKIT:
 			return getFormToolkit();
+		case IUIBindingsPackage.MANAGER__ARGUMENT_INFORMATION:
+			if (coreType)
+				return getArgumentInformation();
+			else
+				return getArgumentInformation().map();
 		case IUIBindingsPackage.MANAGER__PROVIDERS:
 			return getProviders();
 		case IUIBindingsPackage.MANAGER__UI_ATTRIBUTE_FACTORIES:
@@ -2648,6 +2740,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			return;
 		case IUIBindingsPackage.MANAGER__FORM_TOOLKIT:
 			setFormToolkit((FormToolkit) newValue);
+			return;
+		case IUIBindingsPackage.MANAGER__ARGUMENT_INFORMATION:
+			((EStructuralFeature.Setting) getArgumentInformation()).set(newValue);
 			return;
 		case IUIBindingsPackage.MANAGER__PROVIDERS:
 			getProviders().clear();
@@ -2760,6 +2855,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		case IUIBindingsPackage.MANAGER__FORM_TOOLKIT:
 			setFormToolkit(FORM_TOOLKIT_EDEFAULT);
 			return;
+		case IUIBindingsPackage.MANAGER__ARGUMENT_INFORMATION:
+			getArgumentInformation().clear();
+			return;
 		case IUIBindingsPackage.MANAGER__PROVIDERS:
 			getProviders().clear();
 			return;
@@ -2861,6 +2959,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 					.equals(editingDomain);
 		case IUIBindingsPackage.MANAGER__FORM_TOOLKIT:
 			return FORM_TOOLKIT_EDEFAULT == null ? formToolkit != null : !FORM_TOOLKIT_EDEFAULT.equals(formToolkit);
+		case IUIBindingsPackage.MANAGER__ARGUMENT_INFORMATION:
+			return argumentInformation != null && !argumentInformation.isEmpty();
 		case IUIBindingsPackage.MANAGER__PROVIDERS:
 			return providers != null && !providers.isEmpty();
 		case IUIBindingsPackage.MANAGER__UI_ATTRIBUTE_FACTORIES:

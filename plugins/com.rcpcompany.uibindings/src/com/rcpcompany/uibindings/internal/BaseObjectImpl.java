@@ -49,7 +49,7 @@ public abstract class BaseObjectImpl extends EObjectImpl implements IBaseObject 
 	 * 
 	 * @generated
 	 */
-	protected BaseObjectImpl() {
+	public BaseObjectImpl() {
 		super();
 	}
 

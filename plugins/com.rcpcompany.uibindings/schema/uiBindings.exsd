@@ -29,7 +29,7 @@ This framework is based on the concept of decoration of widgets rather than exte
          </appInfo>
       </annotation>
       <complexType>
-         <choice minOccurs="1" maxOccurs="unbounded">
+         <choice minOccurs="0" maxOccurs="unbounded">
             <element ref="bindingDecorator"/>
             <element ref="decoratorExtender"/>
             <element ref="uiAttributeFactory"/>
@@ -39,6 +39,7 @@ This framework is based on the concept of decoration of widgets rather than exte
             <element ref="model"/>
             <element ref="quickfixProcessor"/>
             <element ref="modelArgumentMediator"/>
+            <element ref="argumentInfo"/>
          </choice>
          <attribute name="point" type="string" use="required">
             <annotation>
@@ -583,6 +584,9 @@ Each feature can have a number of arguments for the label binding in the form of
                <documentation>
                   the name of the argument. See &lt;code&gt;IBinding&lt;/code&gt; for a list of the known arguments.
                </documentation>
+               <appInfo>
+                  <meta.attribute kind="identifier" basedOn="com.rcpcompany.uibindings.uiBindings/argumentName/@name"/>
+               </appInfo>
             </annotation>
          </attribute>
          <attribute name="value" type="string">
@@ -1032,6 +1036,60 @@ Per default, all relations are automatically assigned to the &lt;code&gt;&quot;&
             <annotation>
                <documentation>
                   the identification of annavigator that should use this relation
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="argumentInfo">
+      <annotation>
+         <documentation>
+            The declaration of arguments and the handling of these.
+&lt;p&gt;
+This information is used to determine how a specific argument is resolved. E.g for the image for an attribute, the containing class is used, but for a reference, the referenced class is used. But, for the format for an attrbute, the data type is used, but not the containing class.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the name of the argument
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="lookupParent" type="boolean">
+            <annotation>
+               <documentation>
+                  whether to lookup values in any parent binding - e.g. the IColumnBinding is the parent for all editor and label bindings for the cells of the columns - defaults to &lt;code&gt;true&lt;/cod&gt;
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="lookupAttributeTargetType" type="boolean">
+            <annotation>
+               <documentation>
+                  whether to lookup values in the target type of an attribute - defaults to &lt;code&gt;false&lt;/code&gt;
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="lookupAttributeContainingClass" type="boolean">
+            <annotation>
+               <documentation>
+                  whether to lookup values in the containing class of an attribute - defaults to &lt;code&gt;true&lt;/code&gt;
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="lookupReferenceTargetType" type="boolean">
+            <annotation>
+               <documentation>
+                  whether to lookup values in the target type of a reference - defaults to &lt;code&gt;true&lt;/code&gt;
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="lookupReferenceContainingClass" type="boolean">
+            <annotation>
+               <documentation>
+                  whether to lookup values in the containing class of a reference - defaults to &lt;code&gt;false&lt;/code&gt;
                </documentation>
             </annotation>
          </attribute>

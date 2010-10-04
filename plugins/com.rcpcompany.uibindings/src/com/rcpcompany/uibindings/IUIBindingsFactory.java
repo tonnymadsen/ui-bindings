@@ -128,6 +128,15 @@ public interface IUIBindingsFactory extends EFactory {
 	IViewerBinding createViewerBinding();
 
 	/**
+	 * Returns a new object of class '<em>Argument Information</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Argument Information</em>'.
+	 * @generated
+	 */
+	IArgumentInformation createArgumentInformation();
+
+	/**
 	 * Returns a new object of class '<em>Java Decorator Provider</em>'. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

@@ -37,8 +37,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * 
  * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestObject()
- * @model 
- *        annotation="http://rcp-company.com/schemas/uibindings foobar-Sequence='TestObject (annotation)'"
+ * @model annotation=
+ *        "http://rcp-company.com/schemas/uibindings foobar-Sequence-all='TestObject (annotation)' foobar-Sequence-parent='TestObject (annotation)' foobar-Sequence-targetType='TestObject (annotation)' foobar-Sequence-containingClass='TestObject (annotation)' foobar-Sequence-default='TestObject (annotation)'"
  * @generated
  */
 public interface TestObject extends EObject {
@@ -186,7 +186,7 @@ public interface TestObject extends EObject {
 	 * @see #setText(String)
 	 * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestObject_Text()
 	 * @model annotation=
-	 *        "http://rcp-company.com/schemas/uibindings foobar-Sequence='TestObject.text (annotation)'"
+	 *        "http://rcp-company.com/schemas/uibindings foobar-Sequence-all='TestObject.text (annotation)' foobar-Sequence-parent='TestObject.text (annotation)' foobar-Sequence-targetType='TestObject.text (annotation)' foobar-Sequence-containingClass='TestObject.text (annotation)' foobar-Sequence-default='TestObject.text (annotation)'"
 	 * @generated
 	 */
 	String getText();

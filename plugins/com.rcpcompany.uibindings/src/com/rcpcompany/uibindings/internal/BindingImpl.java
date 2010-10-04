@@ -43,6 +43,7 @@ import org.eclipse.swt.widgets.Widget;
 import com.rcpcompany.uibindings.BindingState;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IArgumentContext;
+import com.rcpcompany.uibindings.IArgumentInformation;
 import com.rcpcompany.uibindings.IArgumentProvider;
 import com.rcpcompany.uibindings.IArgumentValue;
 import com.rcpcompany.uibindings.IBinding;
@@ -50,7 +51,6 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
-import com.rcpcompany.uibindings.internal.bindingDataTypes.BindingDataTypeFactory;
 import com.rcpcompany.utils.basic.ClassUtils;
 import com.rcpcompany.utils.basic.ToStringUtils;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -622,6 +622,9 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 			type = null;
 		}
 
+		final IManager manager = IManager.Factory.getManager();
+		final IArgumentInformation ai = manager.getArgumentInformation(name);
+
 		final IArgumentContext<ArgumentType> context = new IArgumentContext<ArgumentType>() {
 			@Override
 			public IBinding getBinding() {
@@ -631,6 +634,11 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 			@Override
 			public String getName() {
 				return name;
+			}
+
+			@Override
+			public IArgumentInformation getArgumentInformation() {
+				return ai;
 			}
 
 			@Override
@@ -680,11 +688,12 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		/*
 		 * Add any arguments from the parent binding: value -> column and column -> viewer
 		 */
-		final IManager manager = IManager.Factory.getManager();
-		final IArgumentProvider parentBinding = getParentBinding();
-		if (parentBinding != null) {
-			manager.getArgumentProviderArguments(parentBinding, context);
-			if (context.isResultFound()) return results;
+		if (context.getArgumentInformation().isLookupParent()) {
+			final IArgumentProvider parentBinding = getParentBinding();
+			if (parentBinding != null) {
+				manager.addArgumentProviderArguments(parentBinding, context);
+				if (context.isResultFound()) return results;
+			}
 		}
 
 		/*
@@ -697,11 +706,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 			// LogUtils.debug(this, this + ": " + getStaticDataType() + "/" + getDataType());
 			dynamicDataType.addArguments(context);
 			if (context.isResultFound()) return results;
-			for (final IBindingDataType dt : BindingDataTypeFactory.getSuperTypes(dynamicDataType)) {
-				dt.addArguments(context);
-				if (context.isResultFound()) return results;
-				visitedDataTypes.add(dt);
-			}
+
+			dynamicDataType.addSuperDataTypeArguments(context, visitedDataTypes);
 		}
 
 		/*
@@ -713,37 +719,20 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 			if (context.isResultFound()) return results;
 			visitedDataTypes.add(sDataType);
 		}
-		visitedDataTypes.add(sDataType);
-		for (final IBindingDataType dt : BindingDataTypeFactory.getSuperTypes(sDataType)) {
-			if (!visitedDataTypes.contains(dt)) {
-				dt.addArguments(context);
-				if (context.isResultFound()) return results;
-			}
-			visitedDataTypes.add(dt);
-		}
+		sDataType.addSuperDataTypeArguments(context, visitedDataTypes);
 
 		/*
 		 * Now use the parent IBDTs if they exists
 		 */
 		if (dynamicDataType != null) {
-			final IBindingDataType pDataType = dynamicDataType.getParentDataType();
-			if (pDataType != null && !visitedDataTypes.contains(pDataType)) {
-				pDataType.addArguments(context);
-				if (context.isResultFound()) return results;
-				visitedDataTypes.add(pDataType);
-			}
+			dynamicDataType.addParentDataTypeArguments(context, visitedDataTypes);
 		}
 
 		/*
 		 * Try the model data type...
 		 */
 		if (sDataType != null) {
-			final IBindingDataType pDataType = sDataType.getParentDataType();
-			if (pDataType != null && !visitedDataTypes.contains(pDataType)) {
-				pDataType.addArguments(context);
-				if (context.isResultFound()) return results;
-				visitedDataTypes.add(pDataType);
-			}
+			sDataType.addParentDataTypeArguments(context, visitedDataTypes);
 		}
 
 		/*
@@ -764,13 +753,13 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		 */
 		if (eIsSet(IUIBindingsPackage.Literals.BINDING__EXTRA_ARGUMENT_PROVIDERS)) {
 			for (final IArgumentProvider ap : getExtraArgumentProviders()) {
-				manager.getArgumentProviderArguments(ap, context);
+				manager.addArgumentProviderArguments(ap, context);
 				if (context.isResultFound()) return results;
 			}
 		}
 
 		return results;
-	};
+	}
 
 	/**
 	 * Handles any additions of arguments from decorator extenders.
@@ -809,7 +798,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 * @return <code>true</code> if ant results was found
 	 */
 	public <ArgumentType> void addDirectArguments(IArgumentContext<ArgumentType> context) {
-		IManager.Factory.getManager().getArgumentProviderArguments(this, context);
+		IManager.Factory.getManager().addArgumentProviderArguments(this, context);
 	}
 
 	@Override

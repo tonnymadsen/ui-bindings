@@ -30,6 +30,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.forms.FormColors;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IManager;
@@ -426,7 +427,7 @@ public class UIAttributePainter {
 		final String osversion = System.getProperty("os.version"); //$NON-NLS-1$
 
 		final String imageName = "images/checkbox/" + osname + "-" + osversion + "-" + type + ".png";
-		final ImageDescriptor id = Activator.imageDescriptorFromPlugin(Activator.ID, imageName);
+		final ImageDescriptor id = AbstractUIPlugin.imageDescriptorFromPlugin(Activator.ID, imageName);
 		if (id != null) {
 			final Image i = id.createImage();
 			final Rectangle bounds = i.getBounds();

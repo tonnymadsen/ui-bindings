@@ -893,7 +893,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 				if (!extender.isEnabled(this)) {
 					continue;
 				}
-				IManager.Factory.getManager().getArgumentProviderArguments(d, context);
+				IManager.Factory.getManager().addArgumentProviderArguments(d, context);
 				if (context.isResultFound()) return;
 			}
 
@@ -904,7 +904,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 	@Override
 	public <ArgumentType> void addDecoratorProviderArguments(IArgumentContext<ArgumentType> context) {
-		IManager.Factory.getManager().getArgumentProviderArguments(getDecoratorProvider(), context);
+		IManager.Factory.getManager().addArgumentProviderArguments(getDecoratorProvider(), context);
 	}
 
 	@Override
@@ -1179,6 +1179,16 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 					.equals(getMessagePrefix());
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public String toString() {
+		return super.toString();
 	}
 
 	@Override

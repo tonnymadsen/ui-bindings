@@ -30,7 +30,7 @@ public abstract class IPersistentPartyImpl extends EObjectImpl implements IPersi
 	 * 
 	 * @generated
 	 */
-	protected IPersistentPartyImpl() {
+	public IPersistentPartyImpl() {
 		super();
 	}
 

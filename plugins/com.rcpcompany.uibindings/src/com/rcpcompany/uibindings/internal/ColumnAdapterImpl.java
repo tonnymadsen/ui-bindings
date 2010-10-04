@@ -124,7 +124,7 @@ public abstract class ColumnAdapterImpl extends EObjectImpl implements IColumnAd
 	 * 
 	 * @generated
 	 */
-	protected ColumnAdapterImpl() {
+	public ColumnAdapterImpl() {
 		super();
 	}
 

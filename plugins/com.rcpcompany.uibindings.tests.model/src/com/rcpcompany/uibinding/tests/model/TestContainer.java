@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * 
  * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestContainer()
  * @model annotation=
- *        "http://rcp-company.com/schemas/uibindings foobar-Sequence='TestContainer (annotation)'"
+ *        "http://rcp-company.com/schemas/uibindings foobar-Sequence-all='TestContainer (annotation)' foobar-Sequence-parent='TestContainer (annotation)' foobar-Sequence-targetType='TestContainer (annotation)' foobar-Sequence-containingClass='TestContainer (annotation)' foobar-Sequence-default='TestContainer (annotation)'"
  * @generated
  */
 public interface TestContainer extends EObject {
@@ -60,7 +60,7 @@ public interface TestContainer extends EObject {
 	 * @see #setCurrent(TestObject)
 	 * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestContainer_Current()
 	 * @model unsettable="true" annotation=
-	 *        "http://rcp-company.com/schemas/uibindings foobar-Sequence='TestContainer.current (annotation)'"
+	 *        "http://rcp-company.com/schemas/uibindings foobar-Sequence-all='TestContainer.current (annotation)' foobar-Sequence-parent='TestContainer.current (annotation)' foobar-Sequence-targetType='TestContainer.current (annotation)' foobar-Sequence-containingClass='TestContainer.current (annotation)' foobar-Sequence-default='TestContainer.current (annotation)'"
 	 * @generated
 	 */
 	TestObject getCurrent();

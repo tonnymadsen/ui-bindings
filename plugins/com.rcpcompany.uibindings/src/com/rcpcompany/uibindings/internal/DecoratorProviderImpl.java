@@ -278,7 +278,7 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	 * 
 	 * @generated
 	 */
-	protected DecoratorProviderImpl() {
+	public DecoratorProviderImpl() {
 		super();
 	}
 

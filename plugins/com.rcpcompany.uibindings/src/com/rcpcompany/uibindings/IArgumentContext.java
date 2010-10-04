@@ -39,6 +39,15 @@ public interface IArgumentContext<ArgumentType> {
 	String getName();
 
 	/**
+	 * Returns the known information about the argument name.
+	 * <p>
+	 * If the argument has not been declared default information is returned.
+	 * 
+	 * @return the argument information
+	 */
+	IArgumentInformation getArgumentInformation();
+
+	/**
 	 * The binding type of the argument.
 	 * 
 	 * @return the type

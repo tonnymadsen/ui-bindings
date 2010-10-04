@@ -28,6 +28,7 @@ import org.eclipse.ui.forms.widgets.ScrolledForm;
 import com.rcpcompany.uibindings.BindingMessageSeverity;
 import com.rcpcompany.uibindings.BindingState;
 import com.rcpcompany.uibindings.DecorationPosition;
+import com.rcpcompany.uibindings.IArgumentInformation;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingMessageTarget;
 import com.rcpcompany.uibindings.IColumnBinding;
@@ -108,6 +109,8 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 			return createColumnBindingCellInformation();
 		case IUIBindingsPackage.VIEWER_BINDING:
 			return createViewerBinding();
+		case IUIBindingsPackage.ARGUMENT_INFORMATION:
+			return createArgumentInformation();
 		case IUIBindingsPackage.JAVA_DECORATOR_PROVIDER:
 			return createJavaDecoratorProvider();
 		case IUIBindingsPackage.ENUM_DECORATOR_PROVIDER:
@@ -128,6 +131,8 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 			return (EObject) createStringToModelClassInfoMapEntry();
 		case IUIBindingsPackage.STRING_TO_MODEL_FEATURE_INFO_MAP_ENTRY:
 			return (EObject) createStringToModelFeatureInfoMapEntry();
+		case IUIBindingsPackage.STRING_TO_ARGUMENT_INFORMATION_MAP_ENTRY:
+			return (EObject) createStringToArgumentInformationMapEntry();
 		case IUIBindingsPackage.STRING_TO_STRING_MAP_ENTRY:
 			return (EObject) createStringToStringMapEntry();
 		case IUIBindingsPackage.STRING_TO_OBJECT_MAP_ENTRY:
@@ -321,6 +326,17 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * @generated
 	 */
 	@Override
+	public IArgumentInformation createArgumentInformation() {
+		final ArgumentInformationImpl argumentInformation = new ArgumentInformationImpl();
+		return argumentInformation;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public IJavaDecoratorProvider createJavaDecoratorProvider() {
 		final JavaDecoratorProviderImpl javaDecoratorProvider = new JavaDecoratorProviderImpl();
 		return javaDecoratorProvider;
@@ -421,6 +437,16 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	public Map.Entry<String, IModelFeatureInfo> createStringToModelFeatureInfoMapEntry() {
 		final StringToModelFeatureInfoMapEntryImpl stringToModelFeatureInfoMapEntry = new StringToModelFeatureInfoMapEntryImpl();
 		return stringToModelFeatureInfoMapEntry;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public Map.Entry<String, IArgumentInformation> createStringToArgumentInformationMapEntry() {
+		final StringToArgumentInformationMapEntryImpl stringToArgumentInformationMapEntry = new StringToArgumentInformationMapEntryImpl();
+		return stringToArgumentInformationMapEntry;
 	}
 
 	/**

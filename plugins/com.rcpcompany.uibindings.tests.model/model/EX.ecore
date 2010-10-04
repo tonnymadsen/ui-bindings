@@ -5,7 +5,11 @@
     nsURI="http://rcp-company.com/schemas/uibindings/testModel" nsPrefix="tm">
   <eClassifiers xsi:type="ecore:EClass" name="TestObject">
     <eAnnotations source="http://rcp-company.com/schemas/uibindings">
-      <details key="foobar-Sequence" value="TestObject (annotation)"/>
+      <details key="foobar-Sequence-all" value="TestObject (annotation)"/>
+      <details key="foobar-Sequence-parent" value="TestObject (annotation)"/>
+      <details key="foobar-Sequence-targetType" value="TestObject (annotation)"/>
+      <details key="foobar-Sequence-containingClass" value="TestObject (annotation)"/>
+      <details key="foobar-Sequence-default" value="TestObject (annotation)"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         unsettable="true"/>
@@ -14,7 +18,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://rcp-company.com/schemas/uibindings">
-        <details key="foobar-Sequence" value="TestObject.text (annotation)"/>
+        <details key="foobar-Sequence-all" value="TestObject.text (annotation)"/>
+        <details key="foobar-Sequence-parent" value="TestObject.text (annotation)"/>
+        <details key="foobar-Sequence-targetType" value="TestObject.text (annotation)"/>
+        <details key="foobar-Sequence-containingClass" value="TestObject.text (annotation)"/>
+        <details key="foobar-Sequence-default" value="TestObject.text (annotation)"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//TestContainer"
@@ -36,19 +44,31 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SubTestObject" eSuperTypes="#//TestObject">
     <eAnnotations source="http://rcp-company.com/schemas/uibindings">
-      <details key="text.foobar-Sequence" value="SubTestObject (annotation)"/>
+      <details key="text.foobar-Sequence-all" value="SubTestObject (annotation)"/>
+      <details key="text.foobar-Sequence-parent" value="SubTestObject (annotation)"/>
+      <details key="text.foobar-Sequence-targetType" value="SubTestObject (annotation)"/>
+      <details key="text.foobar-Sequence-containingClass" value="SubTestObject (annotation)"/>
+      <details key="text.foobar-Sequence-default" value="SubTestObject (annotation)"/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TestContainer">
     <eAnnotations source="http://rcp-company.com/schemas/uibindings">
-      <details key="foobar-Sequence" value="TestContainer (annotation)"/>
+      <details key="foobar-Sequence-all" value="TestContainer (annotation)"/>
+      <details key="foobar-Sequence-parent" value="TestContainer (annotation)"/>
+      <details key="foobar-Sequence-targetType" value="TestContainer (annotation)"/>
+      <details key="foobar-Sequence-containingClass" value="TestContainer (annotation)"/>
+      <details key="foobar-Sequence-default" value="TestContainer (annotation)"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
         eType="#//TestObject" containment="true" eOpposite="#//TestObject/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="current" eType="#//TestObject"
         unsettable="true">
       <eAnnotations source="http://rcp-company.com/schemas/uibindings">
-        <details key="foobar-Sequence" value="TestContainer.current (annotation)"/>
+        <details key="foobar-Sequence-all" value="TestContainer.current (annotation)"/>
+        <details key="foobar-Sequence-parent" value="TestContainer.current (annotation)"/>
+        <details key="foobar-Sequence-targetType" value="TestContainer.current (annotation)"/>
+        <details key="foobar-Sequence-containingClass" value="TestContainer.current (annotation)"/>
+        <details key="foobar-Sequence-default" value="TestContainer.current (annotation)"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
