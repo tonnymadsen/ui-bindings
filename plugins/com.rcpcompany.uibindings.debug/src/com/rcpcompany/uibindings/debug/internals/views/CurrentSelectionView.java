@@ -37,7 +37,6 @@ import com.rcpcompany.uibindings.utils.IBindingSpec.BaseType;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.utils.ITableCreator;
 import com.rcpcompany.utils.basic.ClassUtils;
-import com.rcpcompany.utils.logging.LogUtils;
 
 public class CurrentSelectionView extends ViewPart {
 
@@ -120,7 +119,7 @@ public class CurrentSelectionView extends ViewPart {
 	}
 
 	protected void updateSelection(IWorkbenchPart part, ISelection selection) {
-		LogUtils.debug(this, "part=" + part + "\n" + selection);
+		// LogUtils.debug(this, "part=" + part + "\n" + selection);
 		if (part == this) return;
 		myCurrentPartValue.setValue(part.toString());
 

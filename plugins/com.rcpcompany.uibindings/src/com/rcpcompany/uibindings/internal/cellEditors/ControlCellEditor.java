@@ -142,9 +142,7 @@ public class ControlCellEditor extends CellEditor {
 		final Control c = getControl();
 		final Text t = getTextControl();
 
-		if (t != null) {
-			t.addListener(SWT.DefaultSelection, myListener);
-		}
+		c.addListener(SWT.DefaultSelection, myListener);
 		c.addListener(SWT.KeyDown, myListener);
 		c.addListener(SWT.Traverse, myListener);
 		c.addListener(SWT.FocusOut, myListener);
@@ -181,8 +179,7 @@ public class ControlCellEditor extends CellEditor {
 							endEdit();
 						}
 					} else {
-
-						endEdit();
+//						endEdit();
 					}
 				}
 				break;
