@@ -20,6 +20,7 @@ import org.eclipse.swt.widgets.Listener;
 
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.InternalConstants;
+import com.rcpcompany.uibindings.internal.cellEditors.ControlCellEditor.IControlCellEditorSupport;
 import com.rcpcompany.uibindings.internal.observables.TextObservableValue;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -28,7 +29,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class FileNameControl extends BaseTextButtonWidget implements TextObservableValue.IWidgetUpdated {
+public class FileNameControl extends BaseTextButtonWidget implements TextObservableValue.IWidgetUpdated,
+		IControlCellEditorSupport {
 	private static final int UPDATE_EVENT_ID = 100;
 	private static Image myButtonImage = Activator.getDefault().getImageRegistry()
 			.get(InternalConstants.IMG_OPEN_DIALOG);
@@ -48,6 +50,8 @@ public class FileNameControl extends BaseTextButtonWidget implements TextObserva
 		super(parent, style, myButtonImage);
 	}
 
+	private boolean myDialogOpen = false;
+
 	@Override
 	public void open(MouseEvent e) {
 		getTextControl().setFocus();
@@ -58,7 +62,12 @@ public class FileNameControl extends BaseTextButtonWidget implements TextObserva
 			if (getDialogTitle() != null) {
 				dialog.setText(getDialogTitle());
 			}
-			path = dialog.open();
+			try {
+				myDialogOpen = true;
+				path = dialog.open();
+			} finally {
+				myDialogOpen = false;
+			}
 		} else {
 			final FileDialog dialog = new FileDialog(getShell(), isExistingOnly() ? SWT.OPEN : SWT.SAVE);
 			dialog.setFilterExtensions(myFilterExtensions);
@@ -67,7 +76,12 @@ public class FileNameControl extends BaseTextButtonWidget implements TextObserva
 			if (getDialogTitle() != null) {
 				dialog.setText(getDialogTitle());
 			}
-			path = dialog.open();
+			try {
+				myDialogOpen = true;
+				path = dialog.open();
+			} finally {
+				myDialogOpen = false;
+			}
 		}
 		if (path == null) return;
 		setText(path);
@@ -171,5 +185,10 @@ public class FileNameControl extends BaseTextButtonWidget implements TextObserva
 	@Override
 	public void removeWidgetUpdatedListener(Listener listener) {
 		removeListener(UPDATE_EVENT_ID, listener);
+	}
+
+	@Override
+	public boolean hasOpenDialog() {
+		return myDialogOpen;
 	}
 }

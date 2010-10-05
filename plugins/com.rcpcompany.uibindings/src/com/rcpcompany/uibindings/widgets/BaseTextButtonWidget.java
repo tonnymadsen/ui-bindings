@@ -77,7 +77,7 @@ public abstract class BaseTextButtonWidget extends Composite {
 	}
 
 	/**
-	 * Returns the Text sub-widget of this widget
+	 * Returns the Text sub-widget of this widget.
 	 * 
 	 * @return the Text
 	 */
@@ -86,7 +86,7 @@ public abstract class BaseTextButtonWidget extends Composite {
 	}
 
 	/**
-	 * Returns the current text of the widget
+	 * Returns the current text of the widget.
 	 * 
 	 * @return the current text
 	 */
@@ -95,7 +95,7 @@ public abstract class BaseTextButtonWidget extends Composite {
 	}
 
 	/**
-	 * Sets the text of the widget
+	 * Sets the text of the widget.
 	 * 
 	 * @param text the new text of the widget
 	 */

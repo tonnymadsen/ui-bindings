@@ -41,6 +41,28 @@ import com.rcpcompany.utils.logging.LogUtils;
  */
 public class ControlCellEditor extends CellEditor {
 	/**
+	 * The control of the control cell editor can implement this interface to let the interaction
+	 * with the editor easier.
+	 */
+	public interface IControlCellEditorSupport {
+		/**
+		 * Returns the primary {@link Text} control of the shown control.
+		 * 
+		 * @return the primary {@link Text} control or <code>null</code>
+		 */
+		Text getTextControl();
+
+		/**
+		 * Returns whether the control has opened a popup dialog.
+		 * <p>
+		 * The information is used to determine whether focus lost can be because of an open dialog.
+		 * 
+		 * @return <code>true</code> if the control has opened a dialog
+		 */
+		boolean hasOpenDialog();
+	}
+
+	/**
 	 * The cell of the editor.
 	 */
 	private final IValueBindingCell myCell;
@@ -220,6 +242,8 @@ public class ControlCellEditor extends CellEditor {
 	 */
 	private Text getTextControl() {
 		if (getControl() instanceof Text) return (Text) getControl();
+		if (getControl() instanceof IControlCellEditorSupport)
+			return ((IControlCellEditorSupport) getControl()).getTextControl();
 		final Control c = getEditorBinding().getUIAttribute().getFieldAssistControl();
 		if (c instanceof Text) return (Text) c;
 
@@ -281,6 +305,17 @@ public class ControlCellEditor extends CellEditor {
 				text.selectAll();
 			}
 		}
+	}
+
+	@Override
+	protected void focusLost() {
+		/*
+		 * If the control has opened a dialog, then do nothing...
+		 */
+		if (getControl() instanceof IControlCellEditorSupport
+				&& ((IControlCellEditorSupport) getControl()).hasOpenDialog()) return;
+
+		super.focusLost();
 	}
 
 	/**
