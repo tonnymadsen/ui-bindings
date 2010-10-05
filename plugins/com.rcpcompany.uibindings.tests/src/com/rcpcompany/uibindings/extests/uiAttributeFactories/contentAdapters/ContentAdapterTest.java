@@ -18,7 +18,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CCombo;
 import org.eclipse.swt.custom.StyledText;
@@ -38,7 +37,6 @@ import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
-import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator;
 import com.rcpcompany.uibindings.internal.uiAttributeFactories.contentAdapters.CComboContentAdapter;
@@ -139,11 +137,8 @@ public class ContentAdapterTest<T extends Control> {
 	private void bindUI() {
 		final IBindingContext context = IBindingContext.Factory.createContext(myView.getScrolledForm());
 
-		final IObservableList countries = UIBindingsEMFObservables.observeList(context.getEditingDomain(), myShop,
+		myBinding = context.addBinding(myWidget, myContact, ShopPackage.Literals.CONTACT__COUNTRY).validValues(myShop,
 				ShopPackage.Literals.SHOP__COUNTRIES);
-
-		myBinding = context.addBinding(myWidget, myContact, ShopPackage.Literals.CONTACT__COUNTRY).validValues(
-				countries);
 
 		context.finish();
 		yield();

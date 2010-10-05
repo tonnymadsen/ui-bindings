@@ -13,7 +13,6 @@ package com.rcpcompany.uibindings.extests.utils;
 import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
-import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.graphics.Point;
@@ -29,7 +28,6 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.TextCommitStrategy;
-import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
@@ -117,13 +115,11 @@ public class OpenCommandViewerEnablementTest {
 		myTableCreator = ITableCreator.Factory.create(myContext, myBody, SWT.NONE, myShop,
 				ShopPackage.Literals.SHOP__CONTACTS);
 
-		final IObservableList countries = UIBindingsEMFObservables.observeList(myContext.getEditingDomain(), myShop,
-				ShopPackage.Literals.SHOP__COUNTRIES);
-
 		myTable = myTableCreator.getTable();
 
 		myNameColumnBinding = myTableCreator.addColumn("name(w=100)");
-		myCountryColumnBinding = myTableCreator.addColumn("country(w=100)").validValues(countries);
+		myCountryColumnBinding = myTableCreator.addColumn("country(w=100)").validValues(myShop,
+				ShopPackage.Literals.SHOP__COUNTRIES);
 
 		myContext.finish();
 		yield();

@@ -13,7 +13,6 @@ package com.rcpcompany.uibindings.extests.bindings;
 import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
-import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
@@ -28,7 +27,6 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
-import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
@@ -107,11 +105,10 @@ public class BindingFormatTest {
 
 	private void bindUI() {
 		myContext = IBindingContext.Factory.createContext(myView.getScrolledForm());
-		final IObservableList countries = UIBindingsEMFObservables.observeList(myContext.getEditingDomain(), myShop,
-				ShopPackage.Literals.SHOP__COUNTRIES);
 
 		myBinding = myContext.addBinding(myText, myContact, ShopPackage.Literals.CONTACT__COUNTRY)
-				.arg(Constants.ARG_MESSAGE_FORMAT, "{0} is it").readonly().validValues(countries);
+				.arg(Constants.ARG_MESSAGE_FORMAT, "{0} is it").readonly()
+				.validValues(myShop, ShopPackage.Literals.SHOP__COUNTRIES);
 
 		myContext.finish();
 		yield();

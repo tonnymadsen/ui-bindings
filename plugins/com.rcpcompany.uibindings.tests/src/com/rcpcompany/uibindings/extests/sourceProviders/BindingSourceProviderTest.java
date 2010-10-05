@@ -15,7 +15,6 @@ import static org.junit.Assert.*;
 
 import java.util.Map;
 
-import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.expressions.IEvaluationContext;
 import org.eclipse.core.runtime.IConfigurationElement;
@@ -45,7 +44,6 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
-import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.sourceProviders.BindingSourceProvider;
@@ -194,13 +192,11 @@ public class BindingSourceProviderTest {
 	public void bindUI() {
 		myContext = IBindingContext.Factory.createContext(myView.getScrolledForm());
 
-		final IObservableList countries = UIBindingsEMFObservables.observeList(myContext.getEditingDomain(), myShop,
-				ShopPackage.Literals.SHOP__COUNTRIES);
-
 		myViewerBinding = myContext.addViewer(myTableViewer, myShop, ShopPackage.Literals.SHOP__CONTACTS);
 		myNameColumnBinding = myViewerBinding.addColumn(myNameColumn, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 		myCountryColumnBinding = myViewerBinding.addColumn(myCountryColumn, ShopPackage.Literals.CONTACT__COUNTRY)
-				.arg(Constants.ARG_FEATURE_NAME, "abbreviation").validValues(countries);
+				.arg(Constants.ARG_FEATURE_NAME, "abbreviation")
+				.validValues(myShop, ShopPackage.Literals.SHOP__COUNTRIES);
 		myCountryNameColumnBinding = myCountryColumnBinding.addColumn(myCountryNameColumn,
 				IMOAOPackage.Literals.NAMED_OBJECT__NAME).readonly();
 

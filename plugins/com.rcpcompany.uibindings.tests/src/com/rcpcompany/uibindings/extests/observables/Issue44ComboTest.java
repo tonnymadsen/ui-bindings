@@ -15,7 +15,6 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
-import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Combo;
@@ -26,7 +25,6 @@ import org.junit.Test;
 
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
-import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
@@ -102,10 +100,9 @@ public class Issue44ComboTest {
 
 				// The bindings
 				final IBindingContext context = IBindingContext.Factory.createContext(body);
-				final IObservableList cs = UIBindingsEMFObservables.observeList(context.getEditingDomain(), shop,
-						ShopPackage.Literals.SHOP__COUNTRIES);
 
-				context.addBinding(combo, contact, ShopPackage.Literals.CONTACT__COUNTRY).validValues(cs);
+				context.addBinding(combo, contact, ShopPackage.Literals.CONTACT__COUNTRY).validValues(shop,
+						ShopPackage.Literals.SHOP__COUNTRIES);
 
 				context.finish();
 				yield();

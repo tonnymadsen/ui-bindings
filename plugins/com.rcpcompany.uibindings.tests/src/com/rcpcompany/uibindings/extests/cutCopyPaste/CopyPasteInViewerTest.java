@@ -13,7 +13,6 @@ package com.rcpcompany.uibindings.extests.cutCopyPaste;
 import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
-import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.viewers.ColumnViewerEditor;
 import org.eclipse.jface.viewers.TableViewer;
@@ -33,7 +32,6 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
-import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.handlers.ViewerCopyHandler;
 import com.rcpcompany.uibindings.internal.handlers.ViewerPasteHandler;
@@ -153,13 +151,11 @@ public class CopyPasteInViewerTest {
 	public void bindUI() {
 		myContext = IBindingContext.Factory.createContext(myView.getScrolledForm());
 
-		final IObservableList groups = UIBindingsEMFObservables.observeList(myContext.getEditingDomain(), myShop,
-				ShopPackage.Literals.SHOP__SHOP_GROUPS);
-
 		myViewerBinding = myContext.addViewer(myTableViewer, myShop, ShopPackage.Literals.SHOP__SHOP_ITEMS);
 		myViewerBinding.addColumn(myNameColumn, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 		myViewerBinding.addColumn(myPriceColumn, ShopPackage.Literals.SHOP_ITEM__PRICE).type("##.#");
-		myViewerBinding.addColumn(myGroupColumn, ShopPackage.Literals.SHOP_ITEM__GROUP).validValues(groups);
+		myViewerBinding.addColumn(myGroupColumn, ShopPackage.Literals.SHOP_ITEM__GROUP).validValues(myShop,
+				ShopPackage.Literals.SHOP__SHOP_GROUPS);
 
 		myContext.finish();
 		yield();

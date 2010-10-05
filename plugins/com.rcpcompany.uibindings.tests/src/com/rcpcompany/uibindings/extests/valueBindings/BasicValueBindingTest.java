@@ -17,7 +17,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
@@ -34,7 +33,6 @@ import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
-import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator;
 import com.rcpcompany.uibindings.tests.shop.Contact;
@@ -137,11 +135,8 @@ public class BasicValueBindingTest {
 	private void bindUI() {
 		final IBindingContext context = IBindingContext.Factory.createContext(myView.getScrolledForm());
 
-		final IObservableList countries = UIBindingsEMFObservables.observeList(context.getEditingDomain(), myShop,
-				ShopPackage.Literals.SHOP__COUNTRIES);
-
 		myCountryVB = context.addBinding(myCountryText, myContact, ShopPackage.Literals.CONTACT__COUNTRY).validValues(
-				countries);
+				myShop, ShopPackage.Literals.SHOP__COUNTRIES);
 
 		context.finish();
 		myView.getBody().layout();

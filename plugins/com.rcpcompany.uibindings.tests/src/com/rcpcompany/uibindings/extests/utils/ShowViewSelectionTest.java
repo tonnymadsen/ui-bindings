@@ -14,7 +14,6 @@ import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.core.commands.ParameterizedCommand;
-import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.CellLabelProvider;
 import org.eclipse.jface.viewers.ISelection;
@@ -39,7 +38,6 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
-import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Country;
@@ -190,11 +188,10 @@ public class ShowViewSelectionTest {
 	public void bindUI() {
 		myContext = IBindingContext.Factory.createContext(myView.getScrolledForm());
 
-		final IObservableList countries = UIBindingsEMFObservables.observeList(myContext.getEditingDomain(), myShop,
-				ShopPackage.Literals.SHOP__COUNTRIES);
 		myViewerBinding = myContext.addViewer(myTableViewer1, myShop, ShopPackage.Literals.SHOP__COUNTRIES);
 		myViewerBinding.addColumn(myNameColumn1, IMOAOPackage.Literals.NAMED_OBJECT__NAME)
-				.arg(Constants.ARG_OPEN_COMMAND, SHOW_VIEW_COMMAND).validValues(countries);
+				.arg(Constants.ARG_OPEN_COMMAND, SHOW_VIEW_COMMAND)
+				.validValues(myShop, ShopPackage.Literals.SHOP__COUNTRIES);
 
 		myContext.finish();
 		yield();

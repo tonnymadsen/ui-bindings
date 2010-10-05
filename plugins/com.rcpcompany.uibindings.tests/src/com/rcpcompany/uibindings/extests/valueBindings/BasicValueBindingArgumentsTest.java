@@ -13,7 +13,6 @@ package com.rcpcompany.uibindings.extests.valueBindings;
 import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
-import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
@@ -27,7 +26,6 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
-import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
@@ -105,11 +103,8 @@ public class BasicValueBindingArgumentsTest {
 	private void bindUI() {
 		final IBindingContext context = IBindingContext.Factory.createContext(myView.getScrolledForm());
 
-		final IObservableList countries = UIBindingsEMFObservables.observeList(context.getEditingDomain(), myShop,
-				ShopPackage.Literals.SHOP__COUNTRIES);
-
 		myCountryVB = context.addBinding(myCountryText, myContact, ShopPackage.Literals.CONTACT__COUNTRY)
-				.validValues(countries).arg(Constants.ARG_HELP_ID, MY_HELP_ID)
+				.validValues(myShop, ShopPackage.Literals.SHOP__COUNTRIES).arg(Constants.ARG_HELP_ID, MY_HELP_ID)
 				.arg(Constants.ARG_TOOL_TIP_TEXT, MY_TOOL_TIP);
 
 		context.finish();

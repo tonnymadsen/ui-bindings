@@ -14,7 +14,6 @@ import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.core.commands.common.CommandException;
-import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
@@ -28,7 +27,6 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
-import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator;
 import com.rcpcompany.uibindings.internal.handlers.QuickFixHandler;
@@ -100,10 +98,8 @@ public class BasicQuickfixTest {
 
 	private void bindUI() {
 		myContext = IBindingContext.Factory.createContext(myTestView.getScrolledForm());
-		final IObservableList countryList = UIBindingsEMFObservables.observeList(myContext.getEditingDomain(), myShop,
-				ShopPackage.Literals.SHOP__COUNTRIES);
 		myCountryVB = myContext.addBinding(myBoundText, myContact, ShopPackage.Literals.CONTACT__COUNTRY).validValues(
-				countryList);
+				myShop, ShopPackage.Literals.SHOP__COUNTRIES);
 		myContext.finish();
 		yield();
 	}
