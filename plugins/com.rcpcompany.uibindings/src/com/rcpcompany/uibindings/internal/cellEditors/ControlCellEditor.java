@@ -29,6 +29,7 @@ import org.eclipse.ui.handlers.IHandlerService;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
+import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IValueBindingCell;
 import com.rcpcompany.uibindings.internal.Activator;
@@ -271,12 +272,13 @@ public class ControlCellEditor extends CellEditor {
 			}
 		}
 
+		final String commandID = IManager.Factory.getManager().getCommandIDs()
+				.get(IWorkbenchCommandConstants.EDIT_UNDO);
 		if (Activator.getDefault().TRACE_HANDLERS) {
-			LogUtils.debug(undoHandler, "activating '" + IWorkbenchCommandConstants.EDIT_UNDO + "' handler");
+			LogUtils.debug(undoHandler, "activating '" + commandID + "' handler");
 		}
 		final IHandlerService hs = (IHandlerService) getContext().getServiceLocator().getService(IHandlerService.class);
-		myActiveUndoHandler = hs.activateHandler(IWorkbenchCommandConstants.EDIT_UNDO, undoHandler,
-				Constants.TRUE_EXPRESSION);
+		myActiveUndoHandler = hs.activateHandler(commandID, undoHandler, Constants.TRUE_EXPRESSION);
 	}
 
 	@Override
@@ -284,7 +286,9 @@ public class ControlCellEditor extends CellEditor {
 		super.deactivate();
 		if (myActiveUndoHandler != null) {
 			if (Activator.getDefault().TRACE_HANDLERS) {
-				LogUtils.debug(undoHandler, "deactivating '" + IWorkbenchCommandConstants.EDIT_UNDO + "' handler");
+				final String commandID = IManager.Factory.getManager().getCommandIDs()
+						.get(IWorkbenchCommandConstants.EDIT_UNDO);
+				LogUtils.debug(undoHandler, "deactivating '" + commandID + "' handler");
 			}
 			final IHandlerService hs = (IHandlerService) getContext().getServiceLocator().getService(
 					IHandlerService.class);

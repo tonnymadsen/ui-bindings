@@ -62,6 +62,7 @@ import org.eclipse.swt.dnd.Clipboard;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Widget;
+import org.eclipse.ui.IWorkbenchCommandConstants;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -179,6 +180,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  * Provider</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isDeleteHandlerCheckEnabled <em>Delete
  * Handler Check Enabled</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getCommandIDs <em>Command IDs</em>}</li>
  * </ul>
  * </p>
  * 
@@ -919,12 +921,46 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected boolean deleteHandlerCheckEnabled = DELETE_HANDLER_CHECK_ENABLED_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getCommandIDs() <em>Command IDs</em>}' map. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getCommandIDs()
+	 * @generated
+	 * @ordered
+	 */
+	protected EMap<String, String> commandIDs;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
 	public ManagerImpl() {
 		super();
+
+		getCommandIDs().put(IWorkbenchCommandConstants.FILE_REFRESH, IWorkbenchCommandConstants.FILE_REFRESH);
+		getCommandIDs().put(IWorkbenchCommandConstants.FILE_RENAME, IWorkbenchCommandConstants.FILE_RENAME);
+		getCommandIDs().put(IWorkbenchCommandConstants.FILE_MOVE, IWorkbenchCommandConstants.FILE_MOVE);
+
+		getCommandIDs().put(IWorkbenchCommandConstants.EDIT_UNDO, IWorkbenchCommandConstants.EDIT_UNDO);
+		getCommandIDs().put(IWorkbenchCommandConstants.EDIT_REDO, IWorkbenchCommandConstants.EDIT_REDO);
+
+		getCommandIDs().put(IWorkbenchCommandConstants.EDIT_CUT, IWorkbenchCommandConstants.EDIT_CUT);
+		getCommandIDs().put(IWorkbenchCommandConstants.EDIT_COPY, IWorkbenchCommandConstants.EDIT_COPY);
+		getCommandIDs().put(IWorkbenchCommandConstants.EDIT_PASTE, IWorkbenchCommandConstants.EDIT_PASTE);
+		getCommandIDs().put(IWorkbenchCommandConstants.EDIT_DELETE, IWorkbenchCommandConstants.EDIT_DELETE);
+
+		getCommandIDs().put(IWorkbenchCommandConstants.EDIT_CONTENT_ASSIST,
+				IWorkbenchCommandConstants.EDIT_CONTENT_ASSIST);
+		getCommandIDs().put(IWorkbenchCommandConstants.EDIT_SELECT_ALL, IWorkbenchCommandConstants.EDIT_SELECT_ALL);
+
+		getCommandIDs().put(IWorkbenchCommandConstants.NAVIGATE_BACK, IWorkbenchCommandConstants.NAVIGATE_BACK);
+		getCommandIDs().put(IWorkbenchCommandConstants.NAVIGATE_FORWARD, IWorkbenchCommandConstants.NAVIGATE_FORWARD);
+
+		getCommandIDs().put(IWorkbenchCommandConstants.NAVIGATE_BACKWARD_HISTORY,
+				IWorkbenchCommandConstants.NAVIGATE_BACKWARD_HISTORY);
+		getCommandIDs().put(IWorkbenchCommandConstants.NAVIGATE_FORWARD_HISTORY,
+				IWorkbenchCommandConstants.NAVIGATE_FORWARD_HISTORY);
 
 		extensionReader();
 	}
@@ -2413,6 +2449,20 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
+	 * @generated
+	 */
+	@Override
+	public EMap<String, String> getCommandIDs() {
+		if (commandIDs == null) {
+			commandIDs = new EcoreEMap<String, String>(IUIBindingsPackage.Literals.STRING_TO_STRING_MAP_ENTRY,
+					StringToStringMapEntryImpl.class, this, IUIBindingsPackage.MANAGER__COMMAND_IDS);
+		}
+		return commandIDs;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	@Override
@@ -2653,6 +2703,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			return ((InternalEList<?>) getQuickfixProposalProcessors()).basicRemove(otherEnd, msgs);
 		case IUIBindingsPackage.MANAGER__CONTEXTS:
 			return ((InternalEList<?>) getContexts()).basicRemove(otherEnd, msgs);
+		case IUIBindingsPackage.MANAGER__COMMAND_IDS:
+			return ((InternalEList<?>) getCommandIDs()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -2735,6 +2787,11 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			return getFormatterProvider();
 		case IUIBindingsPackage.MANAGER__DELETE_HANDLER_CHECK_ENABLED:
 			return isDeleteHandlerCheckEnabled();
+		case IUIBindingsPackage.MANAGER__COMMAND_IDS:
+			if (coreType)
+				return getCommandIDs();
+			else
+				return getCommandIDs().map();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -2850,6 +2907,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		case IUIBindingsPackage.MANAGER__DELETE_HANDLER_CHECK_ENABLED:
 			setDeleteHandlerCheckEnabled((Boolean) newValue);
 			return;
+		case IUIBindingsPackage.MANAGER__COMMAND_IDS:
+			((EStructuralFeature.Setting) getCommandIDs()).set(newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -2955,6 +3015,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		case IUIBindingsPackage.MANAGER__DELETE_HANDLER_CHECK_ENABLED:
 			setDeleteHandlerCheckEnabled(DELETE_HANDLER_CHECK_ENABLED_EDEFAULT);
 			return;
+		case IUIBindingsPackage.MANAGER__COMMAND_IDS:
+			getCommandIDs().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -3033,6 +3096,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 					.equals(formatterProvider);
 		case IUIBindingsPackage.MANAGER__DELETE_HANDLER_CHECK_ENABLED:
 			return deleteHandlerCheckEnabled != DELETE_HANDLER_CHECK_ENABLED_EDEFAULT;
+		case IUIBindingsPackage.MANAGER__COMMAND_IDS:
+			return commandIDs != null && !commandIDs.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

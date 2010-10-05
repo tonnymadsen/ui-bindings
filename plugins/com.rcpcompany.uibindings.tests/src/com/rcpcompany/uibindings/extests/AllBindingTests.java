@@ -48,6 +48,7 @@ import com.rcpcompany.uibindings.extests.issues.SIMO182BugInUIBindingForTableCel
 import com.rcpcompany.uibindings.extests.leaks.SIMO302EObjectObservableValueLeakTest;
 import com.rcpcompany.uibindings.extests.leaks.ViewerEditorLeakTest;
 import com.rcpcompany.uibindings.extests.manager.AlternatingRowColorsTest;
+import com.rcpcompany.uibindings.extests.manager.ConstantDefinitionsTest;
 import com.rcpcompany.uibindings.extests.manager.ManagerAlternatingRowColors;
 import com.rcpcompany.uibindings.extests.manager.ManagerAlternativeDecorationPositionTest;
 import com.rcpcompany.uibindings.extests.manager.ManagerArgumentInformationTest;
@@ -217,6 +218,8 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		ManagerValidationErrorsAreFatal.class, ManagerRequiredVBIDShown.class, ManagerAssistVBIDShown.class,
 		ManagerQuickfixVBIDShown.class, ManagerViewNavigationRecorded.class, ManagerFormatterProviderTest.class,
 		ManagerDeleteHandlerCheckEnabledTest.class, ManagerArgumentInformationTest.class,
+
+		ConstantDefinitionsTest.class,
 
 		/*
 		 * Services and arguments

@@ -92,6 +92,7 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * <li>{@link com.rcpcompany.uibindings.IManager#getFormatterProvider <em>Formatter Provider</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#isDeleteHandlerCheckEnabled <em>Delete Handler
  * Check Enabled</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IManager#getCommandIDs <em>Command IDs</em>}</li>
  * </ul>
  * </p>
  * 
@@ -833,6 +834,24 @@ public interface IManager extends IBaseObject {
 	 * @generated
 	 */
 	void setDeleteHandlerCheckEnabled(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Command IDs</b></em>' map. The key is of type
+	 * {@link java.lang.String}, and the value is of type {@link java.lang.String}, <!--
+	 * begin-user-doc -->
+	 * <p>
+	 * This map is used to map between the command IDs defined in <code>org.eclipse.ui</code> and
+	 * this plug-in to any command IDs used in the RCP application. This is relevant in cases, where
+	 * the application uses it own command ID that is extended compared with the "normal" ID - e.g.
+	 * adding a command index to the undo command.
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Command IDs</em>' map.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getManager_CommandIDs()
+	 * @generated
+	 */
+	EMap<String, String> getCommandIDs();
 
 	/**
 	 * Returns the value of the '<em><b>Editing Domain</b></em>' attribute. <!-- begin-user-doc -->

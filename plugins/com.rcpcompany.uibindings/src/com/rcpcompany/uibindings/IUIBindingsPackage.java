@@ -424,13 +424,22 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__DELETE_HANDLER_CHECK_ENABLED = BASE_OBJECT_FEATURE_COUNT + 31;
 
 	/**
+	 * The feature id for the '<em><b>Command IDs</b></em>' map. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MANAGER__COMMAND_IDS = BASE_OBJECT_FEATURE_COUNT + 32;
+
+	/**
 	 * The number of structural features of the '<em>Manager</em>' class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER_FEATURE_COUNT = BASE_OBJECT_FEATURE_COUNT + 32;
+	int MANAGER_FEATURE_COUNT = BASE_OBJECT_FEATURE_COUNT + 33;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.BindingContextImpl
@@ -5092,6 +5101,17 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getManager_DeleteHandlerCheckEnabled();
 
 	/**
+	 * Returns the meta object for the map '{@link com.rcpcompany.uibindings.IManager#getCommandIDs
+	 * <em>Command IDs</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the map '<em>Command IDs</em>'.
+	 * @see com.rcpcompany.uibindings.IManager#getCommandIDs()
+	 * @see #getManager()
+	 * @generated
+	 */
+	EReference getManager_CommandIDs();
+
+	/**
 	 * Returns the meta object for the attribute '
 	 * {@link com.rcpcompany.uibindings.IManager#getEditingDomain <em>Editing Domain</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -8899,6 +8919,14 @@ public interface IUIBindingsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MANAGER__DELETE_HANDLER_CHECK_ENABLED = eINSTANCE.getManager_DeleteHandlerCheckEnabled();
+
+		/**
+		 * The meta object literal for the '<em><b>Command IDs</b></em>' map feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference MANAGER__COMMAND_IDS = eINSTANCE.getManager_CommandIDs();
 
 		/**
 		 * The meta object literal for the '<em><b>Editing Domain</b></em>' attribute feature. <!--

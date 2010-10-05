@@ -33,6 +33,7 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
+import org.eclipse.ui.IWorkbenchCommandConstants;
 import org.eclipse.ui.commands.ICommandImageService;
 import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.forms.widgets.FormToolkit;
@@ -121,7 +122,7 @@ public class ViewerToolBar implements IViewerToolBar, IDisposable {
 			// TODO addItem(ADD, "");
 		}
 		if ((style & DELETE) != 0) {
-			addItem(DELETE, "org.eclipse.ui.edit.delete");
+			addItem(DELETE, IManager.Factory.getManager().getCommandIDs().get(IWorkbenchCommandConstants.EDIT_DELETE));
 		}
 		if ((style & UP) != 0) {
 			addItem(UP, "com.rcpcompany.uibindings.commands.moveItemUp");

@@ -1699,10 +1699,4 @@
             class="com.rcpcompany.uibindings.internal.PreferenceInitializer">
       </initializer>
    </extension>
-   <extension
-         point="org.eclipse.core.expressions.definitions">
-      <definition
-            id="com.rcpcompany.uibindings.definition1">
-      </definition>
-   </extension>
 </plugin>

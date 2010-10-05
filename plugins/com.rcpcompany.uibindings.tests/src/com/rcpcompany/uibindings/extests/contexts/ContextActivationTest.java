@@ -13,6 +13,7 @@ package com.rcpcompany.uibindings.extests.contexts;
 import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
+import java.lang.reflect.Field;
 import java.util.Collection;
 
 import org.eclipse.core.commands.common.NotDefinedException;
@@ -223,4 +224,31 @@ public class ContextActivationTest {
 			}
 		}
 	}
+
+	/**
+	 * Test all of Constants..,.._CONTEXT_ID are present (by reflection)
+	 */
+	@Test
+	public void test_CONTEXT_IDPresent() {
+		final IContextService cs = (IContextService) PlatformUI.getWorkbench().getService(IContextService.class);
+		final Collection<String> definedContextIds = cs.getDefinedContextIds();
+		for (final Field f : Constants.class.getDeclaredFields()) {
+			if (!f.getName().endsWith("_CONTEXT_ID")) {
+				continue;
+			}
+
+			Object v = null;
+			try {
+				v = f.get(null);
+			} catch (final Exception ex) {
+				fail(ex.getMessage());
+			}
+
+			assertNotNull("Value of Constants." + f.getName(), v);
+			assertTrue("Value of Constants." + f.getName(), v instanceof String);
+
+			assertTrue("Declaration for context '" + v + "' missing", definedContextIds.contains(v));
+		}
+	}
+
 }

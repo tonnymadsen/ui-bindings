@@ -95,6 +95,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deleteHandlerCheckEnabled"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         transient="true" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="commandIDs" upperBound="-1"
+        eType="#//StringToStringMapEntry" containment="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BindingContext" eSuperTypes="#//BaseObject #//IDisposable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"

@@ -98,7 +98,7 @@ public class ManagerArgumentInformationTest {
 		assertEquals("image", ai.getName());
 		assertEquals(true, ai.isLookupParent());
 		assertEquals(false, ai.isLookupAttributeTargetType());
-		assertEquals(true, ai.isLookupAttributeContainingClass());
+		assertEquals(false, ai.isLookupAttributeContainingClass());
 		assertEquals(true, ai.isLookupReferenceTargetType());
 		assertEquals(false, ai.isLookupReferenceContainingClass());
 	}
