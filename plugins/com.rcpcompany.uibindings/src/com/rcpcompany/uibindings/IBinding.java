@@ -23,6 +23,8 @@ import org.eclipse.core.databinding.observable.set.IObservableSet;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Widget;
@@ -150,6 +152,16 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * @return <code>this</code>
 	 */
 	IBinding validValues(IObservableList list);
+
+	/**
+	 * Short for <code>arg(IBinding.ARG_VALID_VALUES, list)</code>.
+	 * 
+	 * @param obj the object of the list
+	 * @param reference the reference of the list
+	 * 
+	 * @return <code>this</code>
+	 */
+	IBinding validValues(EObject obj, EReference reference);
 
 	/**
 	 * This is the first phase of the finish process that will make the binding effective.

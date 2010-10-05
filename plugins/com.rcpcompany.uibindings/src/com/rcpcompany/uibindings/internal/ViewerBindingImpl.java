@@ -1206,6 +1206,11 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	}
 
 	@Override
+	public IBinding validValues(EObject obj, EReference reference) {
+		return null;
+	}
+
+	@Override
 	public void updateSourceProviderState(ISourceProviderStateContext context) {
 		final ColumnViewer viewer = getViewer();
 

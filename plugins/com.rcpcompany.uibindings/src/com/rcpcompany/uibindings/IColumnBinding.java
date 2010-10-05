@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.ViewerColumn;
@@ -254,6 +255,16 @@ public interface IColumnBinding extends IBinding {
 	 */
 	@Override
 	IColumnBinding validValues(IObservableList list);
+
+	/**
+	 * Short for <code>arg(IBinding.ARG_VALID_VALUES, list)</code>.
+	 * 
+	 * @param list the list of valid values
+	 * 
+	 * @return <code>this</code>
+	 */
+	@Override
+	IColumnBinding validValues(EObject obj, EReference reference);
 
 	/**
 	 * Returns the value of the '<em><b>Viewer Binding</b></em>' reference. It is bidirectional and

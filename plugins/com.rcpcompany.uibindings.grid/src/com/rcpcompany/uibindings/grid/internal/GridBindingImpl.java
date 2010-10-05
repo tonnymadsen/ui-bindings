@@ -25,6 +25,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -1148,6 +1150,11 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 	@Override
 	public IBinding validValues(IObservableList list) {
 		return this;
+	}
+
+	@Override
+	public IBinding validValues(EObject obj, EReference reference) {
+		return null;
 	}
 
 	@Override

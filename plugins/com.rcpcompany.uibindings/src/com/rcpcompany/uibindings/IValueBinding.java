@@ -237,6 +237,7 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * 
 	 * @return <code>this</code>
 	 */
+	@Override
 	IValueBinding validValues(EObject obj, EReference ref);
 
 	/**

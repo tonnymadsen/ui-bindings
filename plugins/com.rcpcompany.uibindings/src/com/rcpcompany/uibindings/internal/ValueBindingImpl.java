@@ -445,7 +445,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 	@Override
 	public IValueBinding validValues(EObject obj, EReference ref) {
-		return validValues(UIBindingsEMFObservables.observeList(null, getEditingDomain(), obj, ref));
+		return validValues(UIBindingsEMFObservables.observeList(getEditingDomain(), obj, ref));
 	}
 
 	@Override

@@ -13,6 +13,8 @@ import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
+import com.rcpcompany.uibindings.IManager;
+
 /**
  * {@link EditingDomain} utility methods for use in UI Bindings.
  * 
@@ -31,7 +33,7 @@ public class EditingDomainUtils {
 	 * @return the editing domain
 	 */
 	public static EditingDomain getEditingDomain() {
-		return EditingDomainUtils.getEditingDomain();
+		return IManager.Factory.getManager().getEditingDomain();
 	}
 
 	/**

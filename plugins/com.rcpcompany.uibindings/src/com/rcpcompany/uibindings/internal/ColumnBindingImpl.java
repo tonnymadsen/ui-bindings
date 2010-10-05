@@ -34,6 +34,7 @@ import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -308,6 +309,11 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	@Override
 	public IColumnBinding validValues(IObservableList list) {
 		return arg(Constants.ARG_VALID_VALUES, list);
+	}
+
+	@Override
+	public IColumnBinding validValues(EObject obj, EReference reference) {
+		return validValues(UIBindingsEMFObservables.observeList(getEditingDomain(), obj, reference));
 	}
 
 	@Override

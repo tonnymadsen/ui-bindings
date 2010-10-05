@@ -718,8 +718,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 			sDataType.addArguments(context);
 			if (context.isResultFound()) return results;
 			visitedDataTypes.add(sDataType);
+			sDataType.addSuperDataTypeArguments(context, visitedDataTypes);
 		}
-		sDataType.addSuperDataTypeArguments(context, visitedDataTypes);
 
 		/*
 		 * Now use the parent IBDTs if they exists
@@ -734,19 +734,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		if (sDataType != null) {
 			sDataType.addParentDataTypeArguments(context, visitedDataTypes);
 		}
-
-		/*
-		 * And lastly parent bindings
-		 */
-		// final IBinding parent = getParentBinding();
-		// if (parent != null) {
-		// final List<IArgumentValue<ArgumentType>> r = parent.getArguments(name, argumentType,
-		// firstOnly);
-		// if (r.size() > 0) {
-		// if (firstOnly) return r;
-		// results.addAll(r);
-		// }
-		// }
 
 		/*
 		 * And then any extra argument providers added to the binding
