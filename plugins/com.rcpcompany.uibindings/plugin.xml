@@ -465,7 +465,7 @@
             name="labelDecorator">
       </argumentInfo>
       <argumentInfo
-            lookupAttributeContainingClass="true"
+            lookupAttributeContainingClass="false"
             name="image">
       </argumentInfo>
       <argumentInfo
