@@ -140,6 +140,7 @@ import com.rcpcompany.uibindings.extests.utils.OpenCommandTextWidgetEnablementTe
 import com.rcpcompany.uibindings.extests.utils.OpenCommandViewerEnablementTest;
 import com.rcpcompany.uibindings.extests.utils.ShowViewSelectionTest;
 import com.rcpcompany.uibindings.extests.utils.SortingTest;
+import com.rcpcompany.uibindings.extests.utils.StringListTests;
 import com.rcpcompany.uibindings.extests.utils.TableCreatorTest;
 import com.rcpcompany.uibindings.extests.utils.UIBindingsUtilsMapperTest;
 import com.rcpcompany.uibindings.extests.utils.UIBindingsUtilsTest;
@@ -365,7 +366,7 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		DoubleClickAdapterTest.class, GlobalNavigationManagerTest.class, MouseDownConverterTest.class,
 		BindingObjectInformationTest.class,
 
-		FormChooserWizardTest.class, BindingEnablerTests.class,
+		FormChooserWizardTest.class, BindingEnablerTests.class, StringListTests.class,
 
 		/*
 		 * Cut, copy and paste

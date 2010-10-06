@@ -209,6 +209,16 @@
                class="java.lang.String">
          </uiType>
       </bindingDecorator>
+      <model
+            class="com.rcpcompany.uibindings.tests.shop.Contact">
+         <feature
+               name="address">
+            <argument
+                  name="validValues"
+                  value="com.rcpcompany.uibindings.utils.StringList:a:b:c">
+            </argument>
+         </feature>
+      </model>
    </extension>
    <extension
          point="org.eclipse.ui.views">
