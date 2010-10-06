@@ -585,7 +585,7 @@ Each feature can have a number of arguments for the label binding in the form of
                   the name of the argument. See &lt;code&gt;IBinding&lt;/code&gt; for a list of the known arguments.
                </documentation>
                <appInfo>
-                  <meta.attribute kind="identifier" basedOn="com.rcpcompany.uibindings.uiBindings/argumentName/@name"/>
+                  <meta.attribute kind="identifier" basedOn="com.rcpcompany.uibindings.uiBindings/argumentInfo/@name"/>
                </appInfo>
             </annotation>
          </attribute>
