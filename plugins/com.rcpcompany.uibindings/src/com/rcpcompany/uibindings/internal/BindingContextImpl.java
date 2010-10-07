@@ -279,15 +279,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 		dbContext = new DataBindingContext();
 
 		// TODO Use the feature map
-		eAdapters().add(new AdapterImpl() {
-			@Override
-			public void notifyChanged(Notification msg) {
-				if (msg.getEventType() == Notification.ADD
-						&& msg.getFeature() == IUIBindingsPackage.Literals.BINDING_CONTEXT__BINDINGS) {
-					myNewBindings.add((IBinding) msg.getNewValue());
-				}
-			}
-		});
+		eAdapters().add(myAdapter);
 
 		final IManager manager = IManager.Factory.getManager();
 		manager.getContexts().add(this);
@@ -1148,7 +1140,66 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	private final DisposeListener myDisposeListener = new DisposeListener() {
 		@Override
 		public void widgetDisposed(DisposeEvent e) {
-			dispose();
+			if (!(e.getSource() instanceof Control)) return;
+			final Control c = (Control) e.getSource();
+			final IBinding b = IBindingContext.Factory.getBindingForWidget(c);
+			if (b != null && b.getControl() == c) {
+				b.dispose();
+				return;
+			}
+			if (getTop() == c && !getTop().isDisposed()) {
+				dispose();
+				return;
+			}
+		}
+	};
+
+	/**
+	 * Adapter for the state of the bindings of the context.
+	 * <p>
+	 * Two jobs:
+	 * <ul>
+	 * <li>Adds new bindings to {@link #myNewBindings}.</li>
+	 * <li>Adds and removed {@link #myDisposeListener} based on the current state of the binding.</li>
+	 * </ul>
+	 */
+	private final AdapterImpl myAdapter = new AdapterImpl() {
+		@Override
+		public void notifyChanged(Notification msg) {
+			if (msg.isTouch()) return;
+			if (msg.getFeature() == IUIBindingsPackage.Literals.BINDING_CONTEXT__BINDINGS) {
+				IBinding b;
+				switch (msg.getEventType()) {
+				case Notification.ADD:
+					b = (IBinding) msg.getNewValue();
+					myNewBindings.add(b);
+					b.eAdapters().add(this);
+					break;
+				case Notification.REMOVE:
+					b = (IBinding) msg.getOldValue();
+					b.eAdapters().remove(this);
+					break;
+				default:
+					break;
+				}
+				return;
+			}
+			if (msg.getFeature() == IUIBindingsPackage.Literals.BINDING__STATE) {
+				final IBinding b = (IBinding) msg.getNotifier();
+				if (msg.getOldValue() == BindingState.OK) {
+					final Control c = b.getControl();
+					if (c != null && !c.isDisposed()) {
+						c.removeDisposeListener(myDisposeListener);
+					}
+				}
+				if (msg.getNewValue() == BindingState.OK) {
+					final Control c = b.getControl();
+					if (c != null && !c.isDisposed()) {
+						c.addDisposeListener(myDisposeListener);
+					}
+				}
+				return;
+			}
 		}
 	};
 

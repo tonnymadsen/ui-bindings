@@ -143,7 +143,7 @@ public class ControlCellEditorTest {
 	 * Edit the cell by using content assist
 	 */
 	@Test
-	public void testContentAssist() {
+	public void testChooseViaContentAssist() {
 		final ColumnViewer viewer = myTable.getBinding().getViewer();
 		final Table t = myTable.getTable();
 
@@ -169,6 +169,10 @@ public class ControlCellEditorTest {
 		postKeyStroke(t, "B");
 		postKeyStroke(t, "B");
 		yield();
+
+		postKeyStroke(t, "ENTER");
+		yield();
+		assertTrue(viewer.isCellEditorActive());
 
 		postKeyStroke(t, "ENTER");
 		yield();

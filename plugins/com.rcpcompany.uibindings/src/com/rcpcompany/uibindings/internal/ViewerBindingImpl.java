@@ -59,8 +59,6 @@ import org.eclipse.jface.viewers.TreeViewerEditor;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.jface.viewers.ViewerColumn;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.DisposeEvent;
-import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Control;
@@ -246,13 +244,6 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		return true;
 	}
 
-	protected DisposeListener myDisposeListener = new DisposeListener() {
-		@Override
-		public void widgetDisposed(DisposeEvent e) {
-			dispose();
-		}
-	};
-
 	/**
 	 * Adapter for the manager that insures the table is re-drawn when certain changes are made.
 	 */
@@ -349,7 +340,6 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		}
 
 		IManager.Factory.getManager().eAdapters().add(myManagerAdapter);
-		control.addDisposeListener(myDisposeListener);
 		control.addListener(SWT.PaintItem, myPaintItemListener);
 		if ((control.getStyle() & SWT.SINGLE) == SWT.SINGLE) {
 			mySelectionChangedListener = new ISelectionChangedListener() {
@@ -630,12 +620,12 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 
 	@Override
 	public void dispose() {
+		if (isDisposed()) return;
 		setState(BindingState.DISPOSE_PENDING);
 		disposeServices();
 		final Control control = getControl();
 		if (!control.isDisposed()) {
 			unregisterWidget(control);
-			control.removeDisposeListener(myDisposeListener);
 			control.removeListener(SWT.PaintItem, myPaintItemListener);
 		}
 		IManager.Factory.getManager().eAdapters().remove(myManagerAdapter);

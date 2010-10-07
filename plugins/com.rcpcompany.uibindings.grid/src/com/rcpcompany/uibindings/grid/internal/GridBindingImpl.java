@@ -431,6 +431,7 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 
 	@Override
 	public void dispose() {
+		if (isDisposed()) return;
 		setState(BindingState.DISPOSE_PENDING);
 		getGrid().removeListener(SWT.MouseDown, myCellEventListener);
 		getGrid().removeListener(SWT.MouseDoubleClick, myCellEventListener);
@@ -442,8 +443,9 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 					LogUtils.debug(getModel(), "Model[" + getGrid().hashCode() + "]: dispose");
 				}
 				getModel().dispose();
+				setModel(null);
 			} catch (final Exception ex) {
-				// Ignore
+				LogUtils.error(getModel(), ex);
 			}
 		}
 		super.dispose();

@@ -34,8 +34,6 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabItem;
-import org.eclipse.swt.events.DisposeEvent;
-import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
@@ -53,7 +51,6 @@ import com.rcpcompany.uibindings.BindingState;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IArgumentContext;
 import com.rcpcompany.uibindings.IBinding;
-import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IControlFactory;
 import com.rcpcompany.uibindings.IControlFactoryContext;
@@ -479,7 +476,6 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 		final Control control = getControl();
 		if (control != null) {
-			control.addDisposeListener(DISPOSE_LISTENER);
 			final String attribute = getUIAttribute().getAttribute();
 			if (attribute == null || attribute.length() == 0) {
 				registerWidget(control);
@@ -591,13 +587,16 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 	@Override
 	public void dispose() {
+		switch (getState()) {
+		case DISPOSED:
+			return;
+		default:
+			break;
+		}
 		setState(BindingState.DISPOSE_PENDING);
 		disposeServices();
 		final Control control = getControl();
 		if (control != null) {
-			if (!control.isDisposed()) {
-				control.removeDisposeListener(DISPOSE_LISTENER);
-			}
 			// TODO: move to separate if(widget...)
 			final String attribute = getUIAttribute().getAttribute();
 			if (attribute == null || attribute.length() == 0) {
@@ -663,19 +662,6 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 * <code>true</code> if {@link #modelObservable} should be disposed by {@link #dispose()}.
 	 */
 	private boolean myModelObservableDispose = true;
-
-	/**
-	 * Dispose listener for the control of the binding.
-	 */
-	private static final DisposeListener DISPOSE_LISTENER = new DisposeListener() {
-		@Override
-		public void widgetDisposed(DisposeEvent e) {
-			final IBinding b = IBindingContext.Factory.getBindingForWidget(e.widget);
-			if (b != null) {
-				b.dispose();
-			}
-		}
-	};
 
 	/**
 	 * The cached value of the '{@link #getDecoratorProvider() <em>Decorator Provider</em>}'
