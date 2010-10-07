@@ -615,13 +615,22 @@ public interface ShopPackage extends EPackage {
 	int ORDER__ITEMS = IMOAOPackage.MOAO_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Discount</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ORDER__DISCOUNT = IMOAOPackage.MOAO_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Order</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int ORDER_FEATURE_COUNT = IMOAOPackage.MOAO_FEATURE_COUNT + 5;
+	int ORDER_FEATURE_COUNT = IMOAOPackage.MOAO_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.impl.OrderItemImpl
@@ -1650,6 +1659,18 @@ public interface ShopPackage extends EPackage {
 	EReference getOrder_Items();
 
 	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.tests.shop.Order#getDiscount <em>Discount</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Discount</em>'.
+	 * @see com.rcpcompany.uibindings.tests.shop.Order#getDiscount()
+	 * @see #getOrder()
+	 * @generated
+	 */
+	EAttribute getOrder_Discount();
+
+	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.OrderItem
 	 * <em>Order Item</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -2333,6 +2354,14 @@ public interface ShopPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ORDER__ITEMS = eINSTANCE.getOrder_Items();
+
+		/**
+		 * The meta object literal for the '<em><b>Discount</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute ORDER__DISCOUNT = eINSTANCE.getOrder_Discount();
 
 		/**
 		 * The meta object literal for the '

@@ -106,6 +106,8 @@
         transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="2" eType="#//OrderItem"
         containment="true" resolveProxies="false" eOpposite="#//OrderItem/order" eKeys="#//OrderItem/no"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="discount" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"
+        defaultValueLiteral="0.0" unsettable="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OrderItem" eSuperTypes="../../com.rcpcompany.uibindings.moao/model/moao.ecore#//MOAO">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="no" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"

@@ -1126,6 +1126,10 @@
             class="com.rcpcompany.uibindings.internal.decorators.extenders.UnitSupportLabelDecoratorExtender"
             priority="10002">
       </decoratorExtender>
+      <decoratorExtender
+            class="com.rcpcompany.uibindings.internal.decorators.extenders.UnsettableExtender"
+            priority="10003">
+      </decoratorExtender>
    </extension>
    <extension
          point="org.eclipse.ui.contexts">
@@ -1449,21 +1453,11 @@
                <with
                      variable="com.rcpcompany.uibindings.sourceProviders.activeBinding">
                   <instanceof
-                        value="com.rcpcompany.uibindings.IBinding">
+                        value="com.rcpcompany.uibindings.IValueBinding">
                   </instanceof>
                </with>
             </and>
          </activeWhen>
-         <enabledWhen>
-            <and>
-               <with
-                     variable="com.rcpcompany.uibindings.sourceProviders.activeBinding#unsettable">
-                  <equals
-                        value="true">
-                  </equals>
-               </with>
-            </and>
-         </enabledWhen>
       </handler>
       <handler
             class="com.rcpcompany.uibindings.internal.handlers.ViewEntryBindingMessageHandler"

@@ -623,6 +623,16 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getOrder_Discount() {
+		return (EAttribute) orderEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getOrderItem() {
 		return orderItemEClass;
 	}
@@ -988,6 +998,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		createEReference(orderEClass, ORDER__CUSTOMER);
 		createEAttribute(orderEClass, ORDER__PRICE);
 		createEReference(orderEClass, ORDER__ITEMS);
+		createEAttribute(orderEClass, ORDER__DISCOUNT);
 
 		orderItemEClass = createEClass(ORDER_ITEM);
 		createEAttribute(orderItemEClass, ORDER_ITEM__NO);
@@ -1217,6 +1228,8 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 				Order.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getOrder_Items().getEKeys().add(this.getOrderItem_No());
+		initEAttribute(getOrder_Discount(), theEcorePackage.getEFloat(), "discount", "0.0", 0, 1, Order.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(orderItemEClass, OrderItem.class, "OrderItem", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

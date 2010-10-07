@@ -104,7 +104,7 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 		Display.getCurrent().addFilter(SWT.MouseDown, myDisplayFilter);
 		Display.getCurrent().addFilter(SWT.KeyUp, myDisplayFilter);
 
-		resetMap(myOldState);
+		resetMap(myCurrentState);
 	}
 
 	@Override
@@ -134,7 +134,7 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 	/**
 	 * The previous state reported by the provider.
 	 */
-	private final Map<String, Object> myOldState = new HashMap<String, Object>();
+	private final Map<String, Object> myCurrentState = new HashMap<String, Object>();
 
 	/**
 	 * The last widget that was used for {@link #getCurrentState(Event)}.
@@ -234,7 +234,7 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 		 * ignore it... It is seen whenever the current shell is send to front.
 		 */
 		if (event.type == SWT.FocusIn && event.widget == myLastWidget && event.x == 0 && event.y == 0)
-			return myOldState;
+			return myCurrentState;
 
 		/*
 		 * Ignore all key up events, except those that navigate...
@@ -246,16 +246,19 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 		final Map<String, Object> newState = getCurrentState(event);
 		myLastWidget = event.widget;
 
+		/*
+		 * Update the current state with changes - keeping them in newState as well.
+		 */
 		for (final Iterator<Map.Entry<String, Object>> is = newState.entrySet().iterator(); is.hasNext();) {
 			final Map.Entry<String, Object> i = is.next();
 			final String s = i.getKey();
 			final Object n = i.getValue();
 
-			final Object o = myOldState.get(s);
+			final Object o = myCurrentState.get(s);
 			if (o == null ? n == null : o.equals(n)) {
 				is.remove();
 			} else {
-				myOldState.put(s, n);
+				myCurrentState.put(s, n);
 			}
 		}
 
@@ -281,22 +284,43 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 								.append(ClassUtils.getLastClassName(v)).append(']');
 					}
 				}
-				LogUtils.DEBUG_STRACK_LEVELS = 8;
 				LogUtils.debug(this, sb.toString());
 			}
 
 			fireSourceChanged(ISources.ACTIVE_CURRENT_SELECTION, newState);
 
-			final Object activeBindingObject = myOldState.get(Constants.SOURCES_ACTIVE_BINDING);
+			/*
+			 * TODO: describe why
+			 * 
+			 * TODO: only when changing?
+			 */
+			final Object activeBindingObject = myCurrentState.get(Constants.SOURCES_ACTIVE_BINDING);
 			if (activeBindingObject instanceof IValueBinding) {
 				final IValueBinding vb = (IValueBinding) activeBindingObject;
-				vb.updateBinding();
+				/*
+				 * TODO: only update once per binding
+				 * 
+				 * API? theManager.asyncExec("update", vb, new Runnable() {
+				 * 
+				 * @Override public void run() { vb.updateBinding(); } }
+				 * 
+				 * First two args a compound key and only one Runnable per key
+				 */
+				Display.getCurrent().asyncExec(new Runnable() {
+					@Override
+					public void run() {
+						vb.updateBinding();
+					}
+				});
 			}
 
-			handleContextChanges(myOldState);
+			/*
+			 * And lastly, update the active contexts
+			 */
+			handleContextChanges(myCurrentState);
 		}
 
-		return myOldState;
+		return myCurrentState;
 	}
 
 	/**
@@ -342,7 +366,7 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 
 	@Override
 	public Map<String, Object> getCurrentState() {
-		return myOldState;
+		return myCurrentState;
 	}
 
 	/**

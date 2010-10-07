@@ -32,7 +32,6 @@ import org.eclipse.ui.services.IEvaluationService;
 import org.eclipse.ui.services.IServiceLocator;
 
 import com.rcpcompany.uibindings.Constants;
-import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IChildCreationSpecification;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
@@ -82,7 +81,7 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 	@Override
 	protected IContributionItem[] getContributionItems() {
 		final IEvaluationService es = (IEvaluationService) myServiceLocator.getService(IEvaluationService.class);
-		final IBinding bb = (IBinding) es.getCurrentState().getVariable(Constants.SOURCES_ACTIVE_CONTAINER_BINDING);
+		final Object bb = es.getCurrentState().getVariable(Constants.SOURCES_ACTIVE_CONTAINER_BINDING);
 		if (!(bb instanceof IViewerBinding)) return EMPTY_ITEMS;
 		// The viewer
 		final IViewerBinding vb = (IViewerBinding) bb;

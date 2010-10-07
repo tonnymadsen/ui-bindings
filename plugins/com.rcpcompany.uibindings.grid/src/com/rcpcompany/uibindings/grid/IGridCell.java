@@ -23,6 +23,8 @@ import com.rcpcompany.uibindings.IDisposable;
  * A cell is disposed when all needed information has been retrieved from the cell. More than one
  * cell might be in use at any one time.
  * <p>
+ * {@link #getValue()} is always called before {@link #getArguments()}.
+ * <p>
  * The usage of the value of the cell can be monitored - if needed - via the number of listeners:
  * {@link AbstractObservableValue#hasListeners()}.
  * 

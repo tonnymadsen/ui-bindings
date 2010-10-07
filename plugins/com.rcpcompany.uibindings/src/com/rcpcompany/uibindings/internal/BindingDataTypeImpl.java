@@ -312,7 +312,9 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	 * @generated NOT
 	 */
 	@Override
-	public abstract boolean isRequired();
+	public boolean isRequired() {
+		return false;
+	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -320,7 +322,9 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	 * @generated NOT
 	 */
 	@Override
-	public abstract boolean isChangeable();
+	public boolean isChangeable() {
+		return true;
+	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -328,7 +332,9 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	 * @generated NOT
 	 */
 	@Override
-	public abstract boolean isUnsettable();
+	public boolean isUnsettable() {
+		return false;
+	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

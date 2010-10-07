@@ -50,7 +50,7 @@ public class DefaultEMFObservableFactory extends AbstractEMFObservableFactory im
 
 	/**
 	 * Version of {@link EditingDomainEObjectObservableValue} that will shortcut
-	 * {@link #setValue(Object)} if the new value is equal to the current value
+	 * {@link #setValue(Object)} if the new value is equal to the current value.
 	 * 
 	 * @author Tonny Madsen, The RCP Company
 	 */

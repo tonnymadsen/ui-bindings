@@ -36,6 +36,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.OrderImpl#getCustomer <em>Customer</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.OrderImpl#getPrice <em>Price</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.OrderImpl#getItems <em>Items</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.OrderImpl#getDiscount <em>Discount</em>}</li>
  * </ul>
  * </p>
  * 
@@ -101,6 +102,35 @@ public class OrderImpl extends MOAOImpl implements Order {
 	 * @ordered
 	 */
 	protected EList<OrderItem> items;
+
+	/**
+	 * The default value of the '{@link #getDiscount() <em>Discount</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getDiscount()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float DISCOUNT_EDEFAULT = 0.0F;
+
+	/**
+	 * The cached value of the '{@link #getDiscount() <em>Discount</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getDiscount()
+	 * @generated
+	 * @ordered
+	 */
+	protected float discount = DISCOUNT_EDEFAULT;
+
+	/**
+	 * This is true if the Discount attribute has been set. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean discountESet;
 
 	private final AdapterImpl myPriceAdapter;
 
@@ -168,7 +198,7 @@ public class OrderImpl extends MOAOImpl implements Order {
 			}
 		}
 
-		setPrice(p);
+		setPrice(p - getDiscount());
 	}
 
 	/**
@@ -332,6 +362,60 @@ public class OrderImpl extends MOAOImpl implements Order {
 	 * 
 	 * @generated
 	 */
+	@Override
+	public float getDiscount() {
+		return discount;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setDiscount(float newDiscount) {
+		final float oldDiscount = discount;
+		discount = newDiscount;
+		final boolean oldDiscountESet = discountESet;
+		discountESet = true;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.ORDER__DISCOUNT, oldDiscount, discount,
+					!oldDiscountESet));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void unsetDiscount() {
+		final float oldDiscount = discount;
+		final boolean oldDiscountESet = discountESet;
+		discount = DISCOUNT_EDEFAULT;
+		discountESet = false;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ShopPackage.ORDER__DISCOUNT, oldDiscount,
+					DISCOUNT_EDEFAULT, oldDiscountESet));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean isSetDiscount() {
+		return discountESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -403,6 +487,8 @@ public class OrderImpl extends MOAOImpl implements Order {
 			return getPrice();
 		case ShopPackage.ORDER__ITEMS:
 			return getItems();
+		case ShopPackage.ORDER__DISCOUNT:
+			return getDiscount();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -426,6 +512,9 @@ public class OrderImpl extends MOAOImpl implements Order {
 			getItems().clear();
 			getItems().addAll((Collection<? extends OrderItem>) newValue);
 			return;
+		case ShopPackage.ORDER__DISCOUNT:
+			setDiscount((Float) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -446,6 +535,9 @@ public class OrderImpl extends MOAOImpl implements Order {
 			return;
 		case ShopPackage.ORDER__ITEMS:
 			getItems().clear();
+			return;
+		case ShopPackage.ORDER__DISCOUNT:
+			unsetDiscount();
 			return;
 		}
 		super.eUnset(featureID);
@@ -469,6 +561,8 @@ public class OrderImpl extends MOAOImpl implements Order {
 			return price != PRICE_EDEFAULT;
 		case ShopPackage.ORDER__ITEMS:
 			return items != null && !items.isEmpty();
+		case ShopPackage.ORDER__DISCOUNT:
+			return isSetDiscount();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -487,6 +581,12 @@ public class OrderImpl extends MOAOImpl implements Order {
 		result.append(no);
 		result.append(", price: ");
 		result.append(price);
+		result.append(", discount: ");
+		if (discountESet) {
+			result.append(discount);
+		} else {
+			result.append("<unset>");
+		}
 		result.append(')');
 		return result.toString();
 	}

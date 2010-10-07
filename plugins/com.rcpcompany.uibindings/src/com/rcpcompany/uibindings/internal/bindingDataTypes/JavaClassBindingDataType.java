@@ -67,21 +67,6 @@ public class JavaClassBindingDataType extends BindingDataTypeImpl {
 	}
 
 	@Override
-	public boolean isRequired() {
-		return false;
-	}
-
-	@Override
-	public boolean isChangeable() {
-		return true;
-	}
-
-	@Override
-	public boolean isUnsettable() {
-		return false;
-	}
-
-	@Override
 	public String toString() {
 		return this.getClass().getSimpleName() + "[" + myClass.getName() + "]"; //$NON-NLS-1$ //$NON-NLS-2$
 	}

@@ -21,6 +21,7 @@ import com.rcpcompany.uibindings.moao.IMOAO;
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Order#getCustomer <em>Customer</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Order#getPrice <em>Price</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Order#getItems <em>Items</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.Order#getDiscount <em>Discount</em>}</li>
  * </ul>
  * </p>
  * 
@@ -131,5 +132,59 @@ public interface Order extends IMOAO {
 	 * @generated
 	 */
 	EList<OrderItem> getItems();
+
+	/**
+	 * Returns the value of the '<em><b>Discount</b></em>' attribute. The default value is
+	 * <code>"0.0"</code>. <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Discount</em>' attribute isn't clear, there really should be more
+	 * of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Discount</em>' attribute.
+	 * @see #isSetDiscount()
+	 * @see #unsetDiscount()
+	 * @see #setDiscount(float)
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getOrder_Discount()
+	 * @generated
+	 */
+	float getDiscount();
+
+	/**
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Order#getDiscount
+	 * <em>Discount</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value the new value of the '<em>Discount</em>' attribute.
+	 * @see #isSetDiscount()
+	 * @see #unsetDiscount()
+	 * @see #getDiscount()
+	 * @generated
+	 */
+	void setDiscount(float value);
+
+	/**
+	 * Unsets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Order#getDiscount
+	 * <em>Discount</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #isSetDiscount()
+	 * @see #getDiscount()
+	 * @see #setDiscount(float)
+	 * @generated
+	 */
+	void unsetDiscount();
+
+	/**
+	 * Returns whether the value of the '
+	 * {@link com.rcpcompany.uibindings.tests.shop.Order#getDiscount <em>Discount</em>}' attribute
+	 * is set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return whether the value of the '<em>Discount</em>' attribute is set.
+	 * @see #unsetDiscount()
+	 * @see #getDiscount()
+	 * @see #setDiscount(float)
+	 * @generated
+	 */
+	boolean isSetDiscount();
 
 } // Order

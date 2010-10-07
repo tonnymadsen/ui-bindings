@@ -91,11 +91,6 @@ public class EEnumLiteralBindingDataType extends BindingDataTypeImpl {
 	}
 
 	@Override
-	public boolean isUnsettable() {
-		return false;
-	}
-
-	@Override
 	public String toString() {
 		return this.getClass().getSimpleName() + "[" + myLiteral.getEEnum().getName() + "." + myLiteral.getName() + "]"; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 	}

@@ -36,6 +36,7 @@ public class OrderView extends ViewPart {
 		orderTable.addColumn("no(w=40)");
 		orderTable.addColumn("customer(w=150)");
 		orderTable.addColumn("price(w=50)");
+		orderTable.addColumn("discount(w=50)");
 
 		final IFormCreator detailsSection = myForm.addSection("Items", orderTable.getBinding().getSingleSelection(),
 				true);
