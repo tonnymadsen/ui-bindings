@@ -520,46 +520,54 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 
 	@Override
 	public List<IChildCreationSpecification> getPossibleChildObjects(EObject parent) {
-		if (getViewer() instanceof TableViewer) {
-			final List<IChildCreationSpecification> specs = new ArrayList<IChildCreationSpecification>();
-
-			/*
-			 * Figure out the EReference of the elements
-			 */
-			EReference ref = null;
-			final IObservableList l = getList();
-			if (l instanceof EObjectEList<?>) {
-				final EObjectEList<?> el = (EObjectEList<?>) l;
-				final EStructuralFeature sf = el.getEStructuralFeature();
-				if (sf instanceof EReference) {
-					parent = (EObject) el.getNotifier();
-					ref = (EReference) sf;
-				}
-			}
-			if (ref == null && l instanceof MyDetailObservableList) {
-				parent = (EObject) ((MyDetailObservableList) l).getObserved();
-				ref = (EReference) ((MyDetailObservableList) l).getElementType();
-			}
-			if (ref == null && l instanceof EObjectObservableList) {
-				parent = (EObject) ((EObjectObservableList) l).getObserved();
-				ref = (EReference) ((EObjectObservableList) l).getElementType();
-			}
-			if (ref == null) return specs;
-			final EClass childType = ref.getEReferenceType();
-
-			final IBindingDataType dt = IBindingDataType.Factory.create(ref);
-
-			if (dt.getArgument(ARG_NEW_ALLOWED, null, Boolean.class, Boolean.TRUE)) {
-				addToChildCreationSpecification(specs, parent, ref, childType);
-			}
-
-			/*
-			 * Find all sub-types
-			 */
-			return specs;
+		if (getViewer() instanceof TableViewer) return getPossibleTopLevelChildObjects();
+		if (getViewer() instanceof TreeViewer) {
+			if (parent == null) return getPossibleTopLevelChildObjects();
+			return myTreeFactory.getPossibleChildObjects(parent);
 		}
-		if (getViewer() instanceof TreeViewer) return myTreeFactory.getPossibleChildObjects(parent);
 		return null;
+	}
+
+	/**
+	 * Returns {@link IChildCreationSpecification} for top-level children of this viewer.
+	 * 
+	 * @return the possible top-level children
+	 */
+	public List<IChildCreationSpecification> getPossibleTopLevelChildObjects() {
+		final List<IChildCreationSpecification> specs = new ArrayList<IChildCreationSpecification>();
+
+		/*
+		 * Figure out the EReference of the elements
+		 */
+		EObject parent = null;
+		EReference ref = null;
+		final IObservableList l = getList();
+		if (l instanceof EObjectEList<?>) {
+			final EObjectEList<?> el = (EObjectEList<?>) l;
+			final EStructuralFeature sf = el.getEStructuralFeature();
+			if (sf instanceof EReference) {
+				parent = (EObject) el.getNotifier();
+				ref = (EReference) sf;
+			}
+		}
+		if (ref == null && l instanceof MyDetailObservableList) {
+			parent = (EObject) ((MyDetailObservableList) l).getObserved();
+			ref = (EReference) ((MyDetailObservableList) l).getElementType();
+		}
+		if (ref == null && l instanceof EObjectObservableList) {
+			parent = (EObject) ((EObjectObservableList) l).getObserved();
+			ref = (EReference) ((EObjectObservableList) l).getElementType();
+		}
+		if (ref == null) return specs;
+		final EClass childType = ref.getEReferenceType();
+
+		final IBindingDataType dt = IBindingDataType.Factory.create(ref);
+
+		if (dt.getArgument(ARG_NEW_ALLOWED, null, Boolean.class, Boolean.TRUE)) {
+			addToChildCreationSpecification(specs, parent, ref, childType);
+		}
+
+		return specs;
 	}
 
 	/**

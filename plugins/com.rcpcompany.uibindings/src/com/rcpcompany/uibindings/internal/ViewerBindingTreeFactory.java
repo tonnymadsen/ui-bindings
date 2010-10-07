@@ -292,7 +292,8 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 	 * Returns a list of the possible objects that can be created at the specified parent as
 	 * sub-elements.
 	 * 
-	 * @param parent the view element that should be the parent of the child
+	 * @param parent the view element that should be the parent of the child (never
+	 *            <code>null</code>)
 	 * @return a list of possible children
 	 */
 	public List<IChildCreationSpecification> getPossibleChildObjects(EObject parent) {

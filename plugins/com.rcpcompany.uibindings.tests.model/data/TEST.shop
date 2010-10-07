@@ -20,14 +20,14 @@
   <shopItems name="FAQ" uuid="_L06gkMBGEd-siJXnD8pfBQ" price="5.0" forSale="true" group="_L0_ZEMBGEd-siJXnD8pfBQ">
     <information xsi:type="shop:ShopItemURL" url="http://hello"/>
   </shopItems>
-  <orders customer="//@customers.0" discount="40.0">
+  <orders customer="//@customers.1" discount="40.0">
     <items item="_L06gkMBGEd-siJXnD8pfBQ" count="2"/>
     <items item="_L05ScMBGEd-siJXnD8pfBQ"/>
     <items item="_L05SccBGEd-siJXnD8pfBQ" count="3"/>
   </orders>
   <orders customer="//@customers.1"/>
-  <customers contact="_L0u6YMBGEd-siJXnD8pfBQ" orders="//@orders[no='0']" loyalty="Silver"/>
-  <customers contact="_L0m-kMBGEd-siJXnD8pfBQ" orders="//@orders[no='0']" loyalty="Gold"/>
+  <customers contact="_L0u6YMBGEd-siJXnD8pfBQ" loyalty="Silver"/>
+  <customers contact="_L0m-kMBGEd-siJXnD8pfBQ" orders="//@orders[no='0'] //@orders[no='0']" loyalty="Gold"/>
   <shopGroups name="Eclipse" uuid="_L0_ZEMBGEd-siJXnD8pfBQ" items="_L05ScsBGEd-siJXnD8pfBQ _L06gkMBGEd-siJXnD8pfBQ"/>
   <shopGroups name="Fitness" uuid="_L0_ZEcBGEd-siJXnD8pfBQ"/>
   <shopGroups name="Java" uuid="_L0_ZEsBGEd-siJXnD8pfBQ"/>

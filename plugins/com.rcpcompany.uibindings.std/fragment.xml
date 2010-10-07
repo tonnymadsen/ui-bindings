@@ -189,7 +189,7 @@
          </command>
          <command
                commandId="com.rcpcompany.uibindings.commands.UseDefaultValue"
-               style="push">
+               style="toggle">
             <visibleWhen
                   checkEnabled="true">
             </visibleWhen>

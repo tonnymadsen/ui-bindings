@@ -20,7 +20,6 @@ import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.action.ContributionItem;
 import org.eclipse.jface.action.IContributionItem;
-import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
@@ -34,8 +33,8 @@ import org.eclipse.ui.services.IServiceLocator;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IChildCreationSpecification;
 import com.rcpcompany.uibindings.IManager;
+import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
-import com.rcpcompany.uibindings.internal.utils.SelectionUtils;
 import com.rcpcompany.uibindings.utils.IBindingObjectInformation;
 import com.rcpcompany.uibindings.utils.UIBEcoreUtils;
 
@@ -65,7 +64,7 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 	 * <p>
 	 * Used when no items can be found in {@link #getContributionItems()}.
 	 */
-	private final IContributionItem[] EMPTY_ITEMS = new IContributionItem[1];
+	private static final IContributionItem[] EMPTY_ITEMS = new IContributionItem[1];
 	{
 		EMPTY_ITEMS[0] = new ContributionItem() {
 			@Override
@@ -80,21 +79,26 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 
 	@Override
 	protected IContributionItem[] getContributionItems() {
-		final IEvaluationService es = (IEvaluationService) myServiceLocator.getService(IEvaluationService.class);
-		final Object bb = es.getCurrentState().getVariable(Constants.SOURCES_ACTIVE_CONTAINER_BINDING);
+		final IEvaluationService evalService = (IEvaluationService) myServiceLocator
+				.getService(IEvaluationService.class);
+		Object bb = evalService.getCurrentState().getVariable(Constants.SOURCES_ACTIVE_CONTAINER_BINDING);
 		if (!(bb instanceof IViewerBinding)) return EMPTY_ITEMS;
 		// The viewer
-		final IViewerBinding vb = (IViewerBinding) bb;
+		final IViewerBinding container = (IViewerBinding) bb;
 
-		final ISelection s = vb.getViewer().getSelection();
+		bb = evalService.getCurrentState().getVariable(Constants.SOURCES_ACTIVE_BINDING);
+		final EObject obj;
+		if (bb instanceof IValueBinding) {
+			obj = ((IValueBinding) bb).getModelObject();
+		} else {
+			obj = null;
+		}
 
-		final List<EObject> list = SelectionUtils.computeSelection(s, EObject.class);
 		/*
 		 * Only one selection please
 		 */
-		if (list.size() != 1) return EMPTY_ITEMS;
 
-		final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(list.get(0));
+		final List<IChildCreationSpecification> specs = container.getPossibleChildObjects(obj);
 
 		/*
 		 * Less than two specs... no need for an open with menu... Ignore.
@@ -107,7 +111,7 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 		final IContributionItem[] items = new IContributionItem[specs.size()];
 		for (int i = 0; i < items.length; i++) {
 			final IChildCreationSpecification sp = specs.get(i);
-			final IContributionItem item = new NewContributionItem(sp, vb.getEditingDomain());
+			final IContributionItem item = new NewContributionItem(sp, container.getEditingDomain());
 			items[i] = item;
 		}
 
@@ -157,7 +161,9 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 			Command initializeCommand;
 			if (mySpec.getReference().isContainment()) {
 				child = EcoreUtil.create(mySpec.getChildType());
-				// TODO: initialize the object
+				/*
+				 * Initialize the object
+				 */
 				initializeCommand = IManager.Factory.getManager().initializeObject(mySpec.getParent(),
 						mySpec.getReference(), child);
 			} else {

@@ -324,8 +324,10 @@ public interface IViewerBinding extends IContainerBinding {
 	IElementParentage getElementParentage(EObject element);
 
 	/**
-	 * Returns a list of the possible objects that can be created at the specified parent as
-	 * sub-elements.
+	 * Returns a list of the possible objects that can be created as sub-elements of the specified
+	 * parent.
+	 * <p>
+	 * If the parent is <code>null</code> top-level objects are created.
 	 * <p>
 	 * For {@link Table tables} the element is ignored
 	 * 
