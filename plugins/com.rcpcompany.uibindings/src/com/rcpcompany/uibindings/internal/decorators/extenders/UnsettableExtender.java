@@ -19,7 +19,6 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIBindingDecoratorExtenderContext;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.decorators.extenders.AbstractUIBindingDecoratorExtender;
-import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Extender that will mark a binding as "default" if the model attribute is an unsettable primitive.
@@ -47,7 +46,6 @@ public class UnsettableExtender extends AbstractUIBindingDecoratorExtender {
 		if (obj == null || feature == null) return;
 
 		if (!obj.eIsSet(feature)) {
-			LogUtils.debug(this, "obj: " + obj);
 			context.setBackgound(IManager.Factory.getManager().getFormToolkit().getColors()
 					.getColor(IFormColors.H_GRADIENT_START));
 			context.appendTooltip("[Set to Default]");

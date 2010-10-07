@@ -53,6 +53,13 @@ public interface IValueBindingCell {
 	Control setFocus();
 
 	/**
+	 * Returns whether the value of this cell can be changed.
+	 * 
+	 * @return <code>true</code> if it can be changed
+	 */
+	boolean isChangeable();
+
+	/**
 	 * Returns a string that is suitable as a message prefix for any messages of the binding.
 	 * 
 	 * @return the proposed prefix or <code>null</code> if no string can be found

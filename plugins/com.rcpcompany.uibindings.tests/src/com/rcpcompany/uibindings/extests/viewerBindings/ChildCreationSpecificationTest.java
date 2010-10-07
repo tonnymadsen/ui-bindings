@@ -215,6 +215,9 @@ public class ChildCreationSpecificationTest {
 		myForm.finish();
 		yield();
 
+		/*
+		 * Top-level item as parent
+		 */
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
@@ -237,6 +240,34 @@ public class ChildCreationSpecificationTest {
 			}
 		});
 
+		/*
+		 * null as parent
+		 */
+		assertNoLog(new Runnable() {
+			@Override
+			public void run() {
+				final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(null);
+
+				assertNotNull(specs);
+				assertEquals(2, specs.size());
+
+				IChildCreationSpecification sp;
+
+				sp = specs.get(0);
+				assertEquals(myShop, sp.getParent());
+				assertEquals(ShopPackage.Literals.SHOP__CONTACTS, sp.getReference());
+				assertEquals(ShopPackage.Literals.CONTACT, sp.getChildType());
+
+				sp = specs.get(1);
+				assertEquals(myShop, sp.getParent());
+				assertEquals(ShopPackage.Literals.SHOP__SHOP_ITEMS, sp.getReference());
+				assertEquals(ShopPackage.Literals.SHOP_ITEM, sp.getChildType());
+			}
+		});
+
+		/*
+		 * Child as parent
+		 */
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {

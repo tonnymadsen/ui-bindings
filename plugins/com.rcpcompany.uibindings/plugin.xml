@@ -1458,6 +1458,14 @@
                </with>
             </and>
          </activeWhen>
+         <enabledWhen>
+            <with
+                  variable="com.rcpcompany.uibindings.sourceProviders.activeBinding#ro">
+               <equals
+                     value="false">
+               </equals>
+            </with>
+         </enabledWhen>
       </handler>
       <handler
             class="com.rcpcompany.uibindings.internal.handlers.ViewEntryBindingMessageHandler"
