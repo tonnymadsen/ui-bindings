@@ -109,7 +109,7 @@ public class ValidationView extends ViewPart {
 		myTable.addColumn("severity(w=20,ww=0,label='',format='')");
 		myTable.addColumn("__NONE__(w=150,ww=200,label='Object')")
 				.model(new ModelObjectFactory(), EcorePackage.Literals.EJAVA_OBJECT).dynamic()
-				.type(Constants.TYPE_LONG_NAME);
+				.type(Constants.TYPE_LONG_NAME).arg(Constants.ARG_SHOW_IMAGE, true);
 		myTable.addColumn("__NONE__(w=50,ww=100,label='Feature')")
 				.model(new ModelFeatureFactory(), EcorePackage.Literals.EJAVA_OBJECT).dynamic();
 		myTable.addColumn("message(w=200, ww=400)");
