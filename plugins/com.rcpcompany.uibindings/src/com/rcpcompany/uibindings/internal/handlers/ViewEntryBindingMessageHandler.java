@@ -73,7 +73,7 @@ public class ViewEntryBindingMessageHandler extends AbstractHandler implements I
 		private IFormCreator myForm;
 
 		/**
-		 * Constructs and returns a new dialog
+		 * Constructs and returns a new dialog.
 		 * 
 		 * @param shell the shell
 		 * @param message the message to show

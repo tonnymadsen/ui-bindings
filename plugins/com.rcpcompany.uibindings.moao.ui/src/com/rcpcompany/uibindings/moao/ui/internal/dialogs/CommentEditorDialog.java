@@ -12,6 +12,7 @@ package com.rcpcompany.uibindings.moao.ui.internal.dialogs;
 
 import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
+import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -81,10 +82,10 @@ public class CommentEditorDialog extends TitleAreaDialog {
 
 		myForm = IFormCreator.Factory.createForm(context, myComment, null, top);
 
-		// myForm.addField("object").type(UIConstants.MOAO_IDENTITY).readonly().arg(Constants.ARG_PREFERRED_CONTROL,
-		// Text.class.getName());
-		// myForm.addField("feature").type(Constants.TYPE_LONG_NAME).readonly();
-		// myForm.addSeparator();
+		myForm.addField("object").type(Constants.TYPE_LONG_NAME).dynamic().readonly()
+				.arg(Constants.ARG_PREFERRED_CONTROL, CLabel.class.getName());
+		myForm.addField("feature").dynamic().readonly();
+		myForm.addSeparator();
 		myDescriptionBinding = myForm.addField("description (w=30em)");
 		myDetailsBinding = myForm.addField("details(sb=v, h=200, w=30em)").arg(Constants.ARG_PREFERRED_CONTROL,
 				StyledText.class.getName());
