@@ -150,8 +150,10 @@ public class ExtenderTest {
 				context.appendTooltip("xyz");
 			}
 		});
-
-		assertEquals("abc xyz", myUIAttr.getTooltip());
+		/*
+		 * Number is unsettable
+		 */
+		assertEquals("[Set to Default] abc xyz", myUIAttr.getTooltip());
 	}
 
 	/**
