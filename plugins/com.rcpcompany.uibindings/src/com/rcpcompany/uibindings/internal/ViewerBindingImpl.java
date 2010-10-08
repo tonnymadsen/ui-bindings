@@ -93,6 +93,7 @@ import com.rcpcompany.uibindings.internal.observables.MyDetailObservableList;
 import com.rcpcompany.uibindings.internal.observables.properties.MySelectionProviderSingleSelectionProperty;
 import com.rcpcompany.uibindings.internal.utils.DoubleClickAdapter;
 import com.rcpcompany.uibindings.internal.utils.UIHandlerUtils;
+import com.rcpcompany.uibindings.utils.IManagerRunnable;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -252,7 +253,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		public void notifyChanged(Notification msg) {
 			if (msg.isTouch()) return;
 			if (msg.getFeature() == IUIBindingsPackage.Literals.MANAGER__ALTERNATE_ROW_COLORS) {
-				getViewer().getControl().getDisplay().asyncExec(new Runnable() {
+				IManagerRunnable.Factory.asyncExec("refresh", getViewer(), new Runnable() {
 					@Override
 					public void run() {
 						getViewer().refresh();

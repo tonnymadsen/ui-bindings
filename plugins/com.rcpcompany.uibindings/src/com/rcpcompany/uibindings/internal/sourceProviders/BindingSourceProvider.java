@@ -45,6 +45,7 @@ import com.rcpcompany.uibindings.IUIBindingDecoratorExtender;
 import com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.internal.Activator;
+import com.rcpcompany.uibindings.utils.IManagerRunnable;
 import com.rcpcompany.utils.basic.ClassUtils;
 import com.rcpcompany.utils.basic.ToStringUtils;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
@@ -306,7 +307,7 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 				 * 
 				 * First two args a compound key and only one Runnable per key
 				 */
-				Display.getCurrent().asyncExec(new Runnable() {
+				IManagerRunnable.Factory.asyncExec("update", vb, new Runnable() {
 					@Override
 					public void run() {
 						vb.updateBinding();

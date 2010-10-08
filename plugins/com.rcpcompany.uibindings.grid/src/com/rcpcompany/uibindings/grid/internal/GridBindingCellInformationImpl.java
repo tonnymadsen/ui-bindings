@@ -35,7 +35,6 @@ import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 
 import com.rcpcompany.uibindings.Constants;
@@ -58,6 +57,7 @@ import com.rcpcompany.uibindings.grid.IGridModel;
 import com.rcpcompany.uibindings.grid.IGridPackage;
 import com.rcpcompany.uibindings.uiAttributes.UIAttributePainter;
 import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
+import com.rcpcompany.uibindings.utils.IManagerRunnable;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -1036,8 +1036,6 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 		}
 	}
 
-	private boolean updateCellScheduled = false;
-
 	/**
 	 * Updates this cell.
 	 */
@@ -1046,9 +1044,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 			LogUtils.debug(this, "cell disposed! @" + hashCode());
 			return;
 		}
-		if (updateCellScheduled) return;
-		updateCellScheduled = true;
-		Display.getDefault().asyncExec(new Runnable() {
+		IManagerRunnable.Factory.asyncExec("update", this, new Runnable() {
 			@Override
 			public void run() {
 				updateCellValuesDelayed();
@@ -1064,7 +1060,6 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 		 * Check if the cell has been disposed
 		 */
 		if (getColumn() == null) return;
-		updateCellScheduled = false;
 		// LogUtils.debug(GridBindingCellInformationImpl.this, "");
 		final IGridBinding grid = getGrid();
 		final GridColumn gridColumn = getColumn().getGridColumn();

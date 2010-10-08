@@ -76,7 +76,6 @@ public class ManagerRunnableManager implements IManagerRunnableManager {
 					LogUtils.error(r.runnable, ex);
 				}
 			}
-			System.out.println(System.currentTimeMillis() - start);
 
 			if (!isEmpty()) {
 				startDisplayRunnable();

@@ -29,7 +29,6 @@ import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.fieldassist.FieldDecoration;
 import org.eclipse.jface.fieldassist.FieldDecorationRegistry;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.ui.PlatformUI;
 
 import com.rcpcompany.uibindings.BindingMessageSeverity;
 import com.rcpcompany.uibindings.BindingState;
@@ -53,6 +52,7 @@ import com.rcpcompany.uibindings.internal.observables.IDelayedChangeListener;
 import com.rcpcompany.uibindings.internal.observables.IDelayedChangeObservable;
 import com.rcpcompany.uibindings.internal.observables.TextObservableValue;
 import com.rcpcompany.uibindings.observables.IKeyedObservable;
+import com.rcpcompany.uibindings.utils.IManagerRunnable;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterMessageDecorator;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -163,11 +163,7 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	 */
 	@Override
 	public void dispose() {
-		/*
-		 * Cancel any outstanding update...
-		 */
-		updateDecorationScheduled = false;
-
+		IManagerRunnable.Factory.cancelAsyncExec("updateDecorations", this);
 		VALIDATION_MANAGER.removeDecorator(this);
 
 		final IObservableValue observable = getBinding().getUIObservable();
@@ -327,26 +323,16 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	}
 
 	/**
-	 * Whether an update is wanted.
-	 * 
-	 * Set to <code>true</code> in {@link #updateDecoration()}
-	 */
-	private boolean updateDecorationScheduled = false;
-
-	/**
 	 * Updates the message decoration of this decorator.
 	 */
 	protected void updateDecoration() {
 		if (getBinding().getState() != BindingState.OK) return;
-		if (!updateDecorationScheduled) {
-			updateDecorationScheduled = true;
-			PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
-				@Override
-				public void run() {
-					updateDecorationDelayed();
-				}
-			});
-		}
+		IManagerRunnable.Factory.asyncExec("updateDecorations", this, new Runnable() {
+			@Override
+			public void run() {
+				updateDecorationDelayed();
+			}
+		});
 	}
 
 	/**
@@ -400,8 +386,6 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	 * @see #updateDecoration()
 	 */
 	protected void updateDecorationDelayed() {
-		if (!updateDecorationScheduled) return;
-		updateDecorationScheduled = false;
 		/*
 		 * As this operation is delayed, the widget might be disposed in the mean time...
 		 */

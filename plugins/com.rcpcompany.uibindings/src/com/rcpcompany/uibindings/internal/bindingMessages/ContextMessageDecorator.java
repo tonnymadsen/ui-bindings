@@ -17,11 +17,11 @@ import org.eclipse.core.databinding.observable.list.IListChangeListener;
 import org.eclipse.core.databinding.observable.list.ListChangeEvent;
 import org.eclipse.core.databinding.observable.list.ListDiffVisitor;
 import org.eclipse.jface.dialogs.IMessageProvider;
-import org.eclipse.swt.widgets.Display;
 
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.internal.utils.AbstractContextMonitor;
+import com.rcpcompany.uibindings.utils.IManagerRunnable;
 
 /**
  * Message decorator support for a single {@link IBindingContext}.
@@ -200,17 +200,11 @@ public class ContextMessageDecorator extends AbstractContextMonitor {
 	private final List<IBindingMessage> myMessages = new ArrayList<IBindingMessage>();
 
 	/**
-	 * Whether {@link #updateMessages()} has been delayed.
-	 */
-	private boolean updateMessagesDelayed = false;
-
-	/**
 	 * {@link Runnable} for the next delayed update up messages in the adapter.
 	 */
 	private final Runnable myUpdateMessagesRunnable = new Runnable() {
 		@Override
 		public void run() {
-			updateMessagesDelayed = false;
 			if (myAdapter != null) {
 				/*
 				 * Weed out any superseded messages.
@@ -243,8 +237,6 @@ public class ContextMessageDecorator extends AbstractContextMonitor {
 	 * Updates the messages for the context.
 	 */
 	protected void updateMessages() {
-		if (updateMessagesDelayed) return;
-		updateMessagesDelayed = true;
-		Display.getCurrent().asyncExec(myUpdateMessagesRunnable);
+		IManagerRunnable.Factory.asyncExec("update", this, myUpdateMessagesRunnable);
 	}
 }

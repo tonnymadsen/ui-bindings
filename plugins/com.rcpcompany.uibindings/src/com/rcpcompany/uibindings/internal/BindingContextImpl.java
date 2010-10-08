@@ -66,6 +66,7 @@ import com.rcpcompany.uibindings.internal.bindingMessages.IContextMessageDecorat
 import com.rcpcompany.uibindings.internal.bindingMessages.contextAdapters.ScrolledFormContextMessageDecoratorAdapter;
 import com.rcpcompany.uibindings.internal.bindingMessages.contextAdapters.WizardPageContextMessageDecoratorAdapter;
 import com.rcpcompany.uibindings.utils.EditingDomainUtils;
+import com.rcpcompany.uibindings.utils.IManagerRunnable;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -344,17 +345,12 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	protected void setTop(final ScrolledForm top) {
 		myContextMessageDecoratorAdapter = new ScrolledFormContextMessageDecoratorAdapter(top);
 		myFormReflow = new IFormReflow() {
-			boolean reflowPending = false;
-
 			@Override
 			public void reflow() {
-				if (reflowPending) return;
 				if (top.isDisposed()) return;
-				reflowPending = true;
-				top.getDisplay().asyncExec(new Runnable() {
+				IManagerRunnable.Factory.asyncExec("reflow", top, new Runnable() {
 					@Override
 					public void run() {
-						reflowPending = false;
 						if (top.isDisposed()) return;
 						top.layout(true, true);
 						top.reflow(true);
@@ -376,17 +372,12 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 		setTextCommitStrategy(TextCommitStrategy.ON_MODIFY);
 		final Shell shell = page.getWizard().getContainer().getShell();
 		myFormReflow = new IFormReflow() {
-			boolean reflowPending = false;
-
 			@Override
 			public void reflow() {
-				if (reflowPending) return;
 				if (page.getControl() == null) return;
-				reflowPending = true;
-				shell.getDisplay().asyncExec(new Runnable() {
+				IManagerRunnable.Factory.asyncExec("reflow", page.getControl(), new Runnable() {
 					@Override
 					public void run() {
-						reflowPending = false;
 						if (page.getControl() == null) return;
 						final Composite c = page.getControl().getParent();
 						if (c.isDisposed()) return;
@@ -410,17 +401,13 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 
 		if (myFormReflow == null) {
 			myFormReflow = new IFormReflow() {
-				boolean reflowPending = false;
 
 				@Override
 				public void reflow() {
-					if (reflowPending) return;
 					if (getTop().isDisposed()) return;
-					reflowPending = true;
-					getTop().getDisplay().asyncExec(new Runnable() {
+					IManagerRunnable.Factory.asyncExec("reflow", getTop(), new Runnable() {
 						@Override
 						public void run() {
-							reflowPending = false;
 							if (getTop().isDisposed()) return;
 							getTop().layout(true, true);
 						}

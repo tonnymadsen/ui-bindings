@@ -34,7 +34,6 @@ import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
@@ -47,6 +46,7 @@ import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.utils.IFilteringTableAdapter;
+import com.rcpcompany.uibindings.utils.IManagerRunnable;
 
 /**
  * Column filter based on an {@link IViewerBinding}.
@@ -56,7 +56,7 @@ import com.rcpcompany.uibindings.utils.IFilteringTableAdapter;
 public class FilteringTableAdapter implements IFilteringTableAdapter, DisposeListener {
 
 	/**
-	 * Initial text for filter Text widget
+	 * Initial text for filter Text widget.
 	 */
 	public static final String TYPE_FILTER_TEXT = "type filter text";
 
@@ -129,17 +129,17 @@ public class FilteringTableAdapter implements IFilteringTableAdapter, DisposeLis
 	}
 
 	/**
-	 * The binding
+	 * The binding.
 	 */
 	protected final IViewerBinding myViewerBinding;
 
 	/**
-	 * The table viewer in play
+	 * The table viewer in play.
 	 */
 	protected final TableViewer myTableViewer;
 
 	/**
-	 * The table itself
+	 * The table itself.
 	 */
 	protected final Table myTable;
 
@@ -159,7 +159,7 @@ public class FilteringTableAdapter implements IFilteringTableAdapter, DisposeLis
 	protected SearchPattern mySearchPattern = new SearchPattern();
 
 	/**
-	 * Viewer filter used for the table
+	 * Viewer filter used for the table.
 	 */
 	protected ViewerFilter myViewerFilter = new ViewerFilter() {
 		@Override
@@ -173,7 +173,7 @@ public class FilteringTableAdapter implements IFilteringTableAdapter, DisposeLis
 	};
 
 	/**
-	 * Filter Focus listener: selects all text of the filter when it gets focus
+	 * Filter Focus listener: selects all text of the filter when it gets focus.
 	 */
 	protected FocusAdapter myFilterFocusListener = new FocusAdapter() {
 		@Override
@@ -182,8 +182,7 @@ public class FilteringTableAdapter implements IFilteringTableAdapter, DisposeLis
 			 * Running in an asyncExec because the selectAll() does not appear to work when using
 			 * mouse to give focus to text.
 			 */
-			final Display display = myText.getDisplay();
-			display.asyncExec(new Runnable() {
+			IManagerRunnable.Factory.asyncExec(null, this, new Runnable() {
 				@Override
 				public void run() {
 					if (!myText.isDisposed()) {
@@ -212,7 +211,7 @@ public class FilteringTableAdapter implements IFilteringTableAdapter, DisposeLis
 	};
 
 	/**
-	 * Table Key listener: arrow up in the first row should go to the filter
+	 * Table Key listener: arrow up in the first row should go to the filter.
 	 */
 	protected KeyAdapter myTableKeylistener = new KeyAdapter() {
 		@Override

@@ -49,7 +49,6 @@ import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.fieldassist.ContentAssistCommandAdapter;
 
@@ -71,6 +70,7 @@ import com.rcpcompany.uibindings.internal.observables.IDelayedChangeObservable;
 import com.rcpcompany.uibindings.internal.utils.MyEMFUpdateValueStrategy;
 import com.rcpcompany.uibindings.observables.MessageFormatObservableValue;
 import com.rcpcompany.uibindings.utils.CoreRuntimeException;
+import com.rcpcompany.uibindings.utils.IManagerRunnable;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -340,7 +340,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 				myFocusOutListener = new FocusListener() {
 					@Override
 					public void focusLost(FocusEvent e) {
-						control.getDisplay().asyncExec(new Runnable() {
+						IManagerRunnable.Factory.asyncExec("update", binding, new Runnable() {
 							@Override
 							public void run() {
 								if (control.isDisposed()) return;
@@ -420,7 +420,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		decorateMisc();
 		decorateAssist();
 
-		Display.getDefault().asyncExec(new Runnable() {
+		IManagerRunnable.Factory.asyncExec("extenders", getBinding(), new Runnable() {
 			@Override
 			public void run() {
 				runExtenders();

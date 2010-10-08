@@ -37,6 +37,7 @@ import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.internal.Activator;
+import com.rcpcompany.uibindings.utils.IManagerRunnable;
 import com.rcpcompany.uibindings.utils.ISortableTableAdapter;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -374,7 +375,7 @@ public class SortableTableAdapter implements ISortableTableAdapter, DisposeListe
 			 * Have to wait with the update as we otherwise end up adding the same element to the
 			 * viewer twice..
 			 */
-			myTable.getDisplay().asyncExec(new Runnable() {
+			IManagerRunnable.Factory.asyncExec("refresh", myTableViewer, new Runnable() {
 				@Override
 				public void run() {
 					if (!myTableViewer.getTable().isDisposed()) {

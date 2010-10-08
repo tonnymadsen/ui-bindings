@@ -101,6 +101,7 @@ import com.rcpcompany.uibindings.observables.MapperObservableValue;
 import com.rcpcompany.uibindings.uiAttributes.UIAttributePainter;
 import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
 import com.rcpcompany.uibindings.utils.IColumnChooser;
+import com.rcpcompany.uibindings.utils.IManagerRunnable;
 import com.rcpcompany.utils.basic.ToStringUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -565,13 +566,11 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			if (myHasOutstandingFireLabelProviderChangedSet.contains(ci)) return;
 			final Control control = getViewerColumn().getViewer().getControl();
 			if (control.isDisposed()) return;
-			final LabelProviderChangedEvent event = new LabelProviderChangedEvent(GeneralLabelProvider.this,
-					ci.getElement());
 			if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS) {
 				LogUtils.debug(ci.getLabelBinding(), ci.getLabelBinding() + " label changed"); //$NON-NLS-1$
 			}
 			myHasOutstandingFireLabelProviderChangedSet.add(ci);
-			control.getDisplay().asyncExec(new Runnable() {
+			IManagerRunnable.Factory.asyncExec("labels", this, new Runnable() {
 				@Override
 				public void run() {
 					if (control.isDisposed()) return;
@@ -581,6 +580,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 					// LogUtils.debug(this, "!!fire " + element);
 
 					myHasOutstandingFireLabelProviderChangedSet.remove(ci);
+					final LabelProviderChangedEvent event = new LabelProviderChangedEvent(GeneralLabelProvider.this, ci
+							.getElement());
 					fireLabelProviderChanged(event);
 				}
 			});

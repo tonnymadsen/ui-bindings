@@ -55,6 +55,7 @@ import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.utils.IBindingObjectLongName;
 import com.rcpcompany.uibindings.utils.IGlobalNavigationManager;
+import com.rcpcompany.uibindings.utils.IManagerRunnable;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -238,21 +239,17 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 		updateLocation();
 	}
 
-	private Runnable updateLocationRunnable = null;
+	private final Runnable updateLocationRunnable = new Runnable() {
+		@Override
+		public void run() {
+			getCurrentLocation().update();
+		}
+	};
 
 	@Override
 	public void updateLocation() {
 		if (inMovement) return;
-		if (updateLocationRunnable == null) {
-			updateLocationRunnable = new Runnable() {
-				@Override
-				public void run() {
-					updateLocationRunnable = null;
-					getCurrentLocation().update();
-				}
-			};
-			myWindow.getShell().getDisplay().asyncExec(updateLocationRunnable);
-		}
+		IManagerRunnable.Factory.asyncExec("location", this, updateLocationRunnable);
 	}
 
 	public void gotoLocation(int index) {

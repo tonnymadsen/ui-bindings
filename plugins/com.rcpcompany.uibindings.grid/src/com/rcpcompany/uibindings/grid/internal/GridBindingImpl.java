@@ -65,6 +65,7 @@ import com.rcpcompany.uibindings.grid.IGridFactory;
 import com.rcpcompany.uibindings.grid.IGridModel;
 import com.rcpcompany.uibindings.grid.IGridPackage;
 import com.rcpcompany.uibindings.internal.ContainerBindingImpl;
+import com.rcpcompany.uibindings.utils.IManagerRunnable;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -626,7 +627,7 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 
 	@Override
 	public void setFocusCellDelayed(final int column, final int row) {
-		getGrid().getDisplay().asyncExec(new Runnable() {
+		IManagerRunnable.Factory.asyncExec("setFocus", this, new Runnable() {
 			@Override
 			public void run() {
 				int c = column;
@@ -985,7 +986,7 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 			/*
 			 * Create the column and row headers
 			 */
-			grid.getDisplay().asyncExec(new Runnable() {
+			IManagerRunnable.Factory.asyncExec(null, this, new Runnable() {
 				@Override
 				public void run() {
 					addColumn(IGridModel.HEADER1, 0);
@@ -1000,7 +1001,7 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 	}
 
 	/**
-	 * Runnable used to update the structure of a grid
+	 * Runnable used to update the structure of a grid.
 	 */
 	protected final Runnable asyncUpdateGridStructureRunnable = new Runnable() {
 		protected final ListDiffVisitor columnVisitor = new ListDiffVisitor() {
@@ -1066,8 +1067,6 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 			 * 
 			 * 3) set the "old" columns and rows to the copied ones
 			 */
-			asyncUpdateGridStructure = false;
-
 			final List<Object> newColumns = new ArrayList<Object>(myColumnIDs);
 			final List<Object> newRows = new ArrayList<Object>(myRowIDs);
 
@@ -1078,20 +1077,17 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 			myOldRows = newRows;
 		}
 	};
-	protected boolean asyncUpdateGridStructure = false;
 
 	/**
-	 * Asynchronously updates the structure of the grid
+	 * Asynchronously updates the structure of the grid.
 	 */
 	protected void asyncUpdateGridStructure() {
-		if (asyncUpdateGridStructure) return;
-		asyncUpdateGridStructure = true;
 		if (getGrid().isDisposed()) {
 			LogUtils.debug(this, "Grid is disposed");
 			return;
 		}
 
-		getGrid().getDisplay().asyncExec(asyncUpdateGridStructureRunnable);
+		IManagerRunnable.Factory.asyncExec("structure", this, asyncUpdateGridStructureRunnable);
 	}
 
 	@Override
