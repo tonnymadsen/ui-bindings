@@ -41,7 +41,7 @@ public interface IManagerRunnable extends Runnable {
 		 * @param key the key object
 		 * @param runnable the runnable
 		 */
-		void asyncExec(String type, Object key, Runnable runnable) {
+		public static void asyncExec(String type, Object key, Runnable runnable) {
 			IManagerRunnableManager.Factory.getManager().asyncExec(type, key, runnable);
 		}
 
@@ -52,7 +52,7 @@ public interface IManagerRunnable extends Runnable {
 		 * @param type the type of the runnable
 		 * @param key the key object
 		 */
-		void cancelAsyncExec(String type, Object key) {
+		public static void cancelAsyncExec(String type, Object key) {
 			IManagerRunnableManager.Factory.getManager().cancelAsyncExec(type, key);
 		}
 	}

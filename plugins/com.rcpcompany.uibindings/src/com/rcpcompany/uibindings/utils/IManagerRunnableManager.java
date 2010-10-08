@@ -2,7 +2,6 @@ package com.rcpcompany.uibindings.utils;
 
 import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.IManager;
-import com.rcpcompany.uibindings.IManager.Factory;
 import com.rcpcompany.uibindings.internal.utils.ManagerRunnableManager;
 
 /**
@@ -34,16 +33,22 @@ public interface IManagerRunnableManager extends IDisposable {
 	}
 
 	/**
+	 * The max time the manager will execute runnables from the run-queue before.
+	 */
+	public static final int MAX_TIME = 50;
+
+	/**
 	 * Queues a {@link IManagerRunnable} or {@link Runnable} to be run at the first possible moment
-	 * on the event queue of the workbench.
+	 * on the UI event queue of the workbench.
 	 * <p>
 	 * Each Runnable is keyed by a combination of a type (a <code>String</code>) and an object and
 	 * any new addition will replace any older Runnable with the same key. This behavior can be
 	 * disabled by using the type <code>null</code>.
 	 * <p>
-	 * If the runnable is a {@link IManagerRunnable}, the addition can be canceled with
-	 * <code>cancelAsyncExec</code> and operation can be monitored with
-	 * {@link IManagerRunnableListener listeners}.
+	 * The addition to the run-queue can be canceled with <code>cancelAsyncExec</code>.
+	 * <p>
+	 * If the runnable is a {@link IManagerRunnable}, the operations on the runnable can be
+	 * monitored with {@link IManagerRunnableListener listeners}.
 	 * 
 	 * @param type the type of the runnable or <code>null</code>
 	 * @param key the key object
@@ -58,4 +63,11 @@ public interface IManagerRunnableManager extends IDisposable {
 	 * @param key the key object
 	 */
 	void cancelAsyncExec(String type, Object key);
+
+	/**
+	 * Returns whether the run-queue of the manager is empty.
+	 * 
+	 * @return <code>true</code> if the queue is empty
+	 */
+	boolean isEmpty();
 }

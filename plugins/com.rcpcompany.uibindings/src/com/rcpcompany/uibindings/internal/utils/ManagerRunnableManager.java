@@ -46,6 +46,10 @@ public class ManagerRunnableManager implements IManagerRunnableManager {
 		startDisplayRunnable();
 	}
 
+	public boolean isEmpty() {
+		return myRecords.isEmpty();
+	}
+
 	/**
 	 * Starts a new Display runnable if needed.
 	 */
@@ -56,8 +60,6 @@ public class ManagerRunnableManager implements IManagerRunnableManager {
 		PlatformUI.getWorkbench().getDisplay().asyncExec(displayRunnable);
 	}
 
-	protected static final long MAX_TIME = 50;
-
 	boolean displayRunnableAdded = false;
 
 	Runnable displayRunnable = new Runnable() {
@@ -66,12 +68,17 @@ public class ManagerRunnableManager implements IManagerRunnableManager {
 			displayRunnableAdded = false;
 			final long start = System.currentTimeMillis();
 
-			while (!myRecords.isEmpty() && System.currentTimeMillis() - start < MAX_TIME) {
+			while (!isEmpty() && (System.currentTimeMillis() - start < MAX_TIME)) {
 				final Record r = myRecords.get(0);
-				r.run();
+				try {
+					r.run();
+				} catch (final Exception ex) {
+					LogUtils.error(r.runnable, ex);
+				}
 			}
+			System.out.println(System.currentTimeMillis() - start);
 
-			if (!myRecords.isEmpty()) {
+			if (!isEmpty()) {
 				startDisplayRunnable();
 			}
 		}
@@ -158,4 +165,5 @@ public class ManagerRunnableManager implements IManagerRunnableManager {
 			}
 		}
 	}
+
 }
