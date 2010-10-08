@@ -1,4 +1,7 @@
-package com.rcpcompany.uibindings;
+package com.rcpcompany.uibindings.utils;
+
+import com.rcpcompany.uibindings.IManager;
+import com.rcpcompany.uibindings.IUIBindingsFactory;
 
 /**
  * A {@link Runnable} for use with {@link IManager#asyncExec(String, Object, IManagerRunnable)}.

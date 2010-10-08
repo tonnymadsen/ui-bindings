@@ -81,6 +81,7 @@ import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.InternalConstants;
 import com.rcpcompany.uibindings.utils.IGlobalNavigationManager;
+import com.rcpcompany.uibindings.utils.IManagerRunnableManager;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 import com.rcpcompany.utils.basic.ToStringUtils;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -145,6 +146,16 @@ public class BaseTestUtils {
 		IGlobalNavigationManager navMng = null;
 		while ((navMng = mng.getService(IGlobalNavigationManager.class)) != null) {
 			navMng.dispose();
+		}
+
+		/*
+		 * Remove and dispose the IManagerRunnableManager
+		 */
+		final IManagerRunnableManager managerRunnableManager = mng.getService(IManagerRunnableManager.class);
+		if (managerRunnableManager != null) {
+			managerRunnableManager.dispose();
+
+			assertEquals(null, mng.getService(IManagerRunnableManager.class));
 		}
 	}
 

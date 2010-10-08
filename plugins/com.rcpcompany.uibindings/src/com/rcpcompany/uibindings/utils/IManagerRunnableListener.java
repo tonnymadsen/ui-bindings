@@ -1,4 +1,6 @@
-package com.rcpcompany.uibindings;
+package com.rcpcompany.uibindings.utils;
+
+import com.rcpcompany.uibindings.IManager;
 
 /**
  * Listener interface for {@link IManagerRunnable}.

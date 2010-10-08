@@ -1,6 +1,9 @@
-package com.rcpcompany.uibindings;
+package com.rcpcompany.uibindings.utils;
 
-import com.rcpcompany.uibindings.internal.ManagerRunnableManager;
+import com.rcpcompany.uibindings.IDisposable;
+import com.rcpcompany.uibindings.IManager;
+import com.rcpcompany.uibindings.IManager.Factory;
+import com.rcpcompany.uibindings.internal.utils.ManagerRunnableManager;
 
 /**
  * The manager interface for {@link IManagerRunnable}.

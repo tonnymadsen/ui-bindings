@@ -1,4 +1,4 @@
-package com.rcpcompany.uibindings.internal;
+package com.rcpcompany.uibindings.internal.utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.List;
 import org.eclipse.ui.PlatformUI;
 
 import com.rcpcompany.uibindings.IManager;
-import com.rcpcompany.uibindings.IManagerRunnable;
-import com.rcpcompany.uibindings.IManagerRunnableManager;
 import com.rcpcompany.uibindings.UIBindingsUtils;
+import com.rcpcompany.uibindings.utils.IManagerRunnable;
+import com.rcpcompany.uibindings.utils.IManagerRunnableManager;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
