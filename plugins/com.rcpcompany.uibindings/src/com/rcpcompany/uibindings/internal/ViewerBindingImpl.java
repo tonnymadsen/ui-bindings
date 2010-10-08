@@ -584,9 +584,12 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	public static void addToChildCreationSpecification(final List<IChildCreationSpecification> specs, EObject parent,
 			EReference ref, final EClass childType) {
 		/*
-		 * TODO: allow the user to prevent the addition
+		 * Allow the user to prevent the addition
 		 */
-		if (!childType.isAbstract() && !childType.isInterface()) {
+		final IBindingDataType dt = IBindingDataType.Factory.create(childType);
+
+		if (!childType.isAbstract() && !childType.isInterface()
+				&& dt.getArgument(ARG_NEW_ALLOWED, null, Boolean.class, Boolean.TRUE)) {
 			specs.add(new ChildCreationSpecification(parent, ref, childType));
 		}
 

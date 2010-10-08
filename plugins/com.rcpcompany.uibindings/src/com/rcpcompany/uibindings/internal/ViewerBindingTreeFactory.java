@@ -203,7 +203,10 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 	public Boolean hasChildren(Object element) {
 		final IObservableList list = (IObservableList) createObservable(element);
 		if (list == null) return false;
-		return !list.isEmpty();
+		if (list instanceof ViewerBindingTreeFactoryList) {
+			if (((ViewerBindingTreeFactoryList) list).isConstant()) return !list.isEmpty();
+		}
+		return true;
 	}
 
 	@Override
