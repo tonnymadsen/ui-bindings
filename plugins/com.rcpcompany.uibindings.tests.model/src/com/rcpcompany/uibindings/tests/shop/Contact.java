@@ -32,7 +32,8 @@ import com.rcpcompany.uibindings.moao.INamedObject;
  */
 public interface Contact extends INamedObject {
 	/**
-	 * Returns the value of the '<em><b>Address</b></em>' attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Address</b></em>' attribute. The default value is
+	 * <code>"\"\""</code>. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Address</em>' attribute isn't clear, there really should be more
 	 * of a description here...
@@ -191,7 +192,8 @@ public interface Contact extends INamedObject {
 	void setCustomer(Customer value);
 
 	/**
-	 * Returns the value of the '<em><b>Newsletter</b></em>' attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Newsletter</b></em>' attribute. The default value is
+	 * <code>"true"</code>. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Newsletter</em>' attribute isn't clear, there really should be
 	 * more of a description here...

@@ -124,7 +124,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Contact" eSuperTypes="../../com.rcpcompany.uibindings.moao/model/moao.ecore#//NamedObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="shop" lowerBound="1" eType="#//Shop"
         resolveProxies="false" eOpposite="#//Shop/contacts"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="&quot;&quot;"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="city" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="zip" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="country" lowerBound="1"
@@ -132,7 +133,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="customer" eType="#//Customer"
         resolveProxies="false" eOpposite="#//Customer/contact"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="newsletter" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="birthday" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>

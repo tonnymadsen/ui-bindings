@@ -50,7 +50,7 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ADDRESS_EDEFAULT = null;
+	protected static final String ADDRESS_EDEFAULT = "\"\"";
 
 	/**
 	 * The cached value of the '{@link #getAddress() <em>Address</em>}' attribute. <!--
@@ -130,7 +130,7 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean NEWSLETTER_EDEFAULT = false;
+	protected static final boolean NEWSLETTER_EDEFAULT = true;
 
 	/**
 	 * The cached value of the '{@link #isNewsletter() <em>Newsletter</em>}' attribute. <!--

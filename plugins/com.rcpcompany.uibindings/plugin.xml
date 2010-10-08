@@ -1459,12 +1459,19 @@
             </and>
          </activeWhen>
          <enabledWhen>
-            <with
-                  variable="com.rcpcompany.uibindings.sourceProviders.activeBinding#ro">
-               <equals
-                     value="false">
-               </equals>
-            </with>
+            <and>
+               <with
+                     variable="com.rcpcompany.uibindings.sourceProviders.activeBinding#ro">
+                  <equals
+                        value="false">
+                  </equals>
+               </with>
+               <with
+                     variable="com.rcpcompany.uibindings.sourceProviders.activeBinding#feature">
+                  <test
+                        property="com.rcpcompany.uibindings.hasDefaultValue">
+                  </test>
+               </with></and>
          </enabledWhen>
       </handler>
       <handler
@@ -1653,6 +1660,13 @@
             type="com.rcpcompany.uibindings.IManager">
       </propertyTester>
       <propertyTester
+            class="com.rcpcompany.uibindings.internal.propertyTesters.IViewerBindingPropertyTester"
+            id="com.rcpcompany.uibindings.internal.propertyTesters.IViewerBindingPropertyTester"
+            namespace="com.rcpcompany.uibindings"
+            properties="canDeleteSelectedObjects"
+            type="com.rcpcompany.uibindings.IViewerBinding">
+      </propertyTester>
+      <propertyTester
             class="com.rcpcompany.uibindings.internal.propertyTesters.EObjectPropertyTester"
             id="com.rcpcompany.uibindings.internal.propertyTesters.EObjectPropertyTester"
             namespace="com.rcpcompany.uibindings"
@@ -1660,11 +1674,11 @@
             type="org.eclipse.emf.ecore.EObject">
       </propertyTester>
       <propertyTester
-            class="com.rcpcompany.uibindings.internal.propertyTesters.IViewerBindingPropertyTester"
-            id="com.rcpcompany.uibindings.internal.propertyTesters.IViewerBindingPropertyTester"
+            class="com.rcpcompany.uibindings.internal.propertyTesters.EStructuralFeaturePropertyTester"
+            id="com.rcpcompany.uibindings.internal.propertyTesters.EStructuralFeaturePropertyTester"
             namespace="com.rcpcompany.uibindings"
-            properties="canDeleteSelectedObjects"
-            type="com.rcpcompany.uibindings.IViewerBinding">
+            properties="hasDefaultValue"
+            type="org.eclipse.emf.ecore.EStructuralFeature">
       </propertyTester>
    </extension>
    <extension

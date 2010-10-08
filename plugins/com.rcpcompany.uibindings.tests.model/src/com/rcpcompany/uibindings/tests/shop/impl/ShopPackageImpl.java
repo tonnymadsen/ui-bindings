@@ -1250,7 +1250,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		initEReference(getContact_Shop(), this.getShop(), this.getShop_Contacts(), "shop", null, 1, 1, Contact.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getContact_Address(), ecorePackage.getEString(), "address", null, 0, 1, Contact.class,
+		initEAttribute(getContact_Address(), ecorePackage.getEString(), "address", "\"\"", 0, 1, Contact.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContact_City(), ecorePackage.getEString(), "city", null, 1, 1, Contact.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1262,7 +1262,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		initEReference(getContact_Customer(), this.getCustomer(), this.getCustomer_Contact(), "customer", null, 0, 1,
 				Contact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getContact_Newsletter(), ecorePackage.getEBoolean(), "newsletter", null, 1, 1, Contact.class,
+		initEAttribute(getContact_Newsletter(), ecorePackage.getEBoolean(), "newsletter", "true", 1, 1, Contact.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContact_Birthday(), ecorePackage.getEDate(), "birthday", null, 1, 1, Contact.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

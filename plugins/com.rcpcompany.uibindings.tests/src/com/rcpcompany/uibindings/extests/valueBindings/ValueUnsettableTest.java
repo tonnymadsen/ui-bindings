@@ -121,7 +121,8 @@ public class ValueUnsettableTest {
 	}
 
 	/**
-	 * Checks that a normal feature (not unsettable) does not have an enabled command
+	 * Checks that a normal feature (not unsettable) does have a command, but with the text
+	 * "Use Default Value".
 	 */
 	@Test
 	public void testNormal() {
@@ -130,7 +131,7 @@ public class ValueUnsettableTest {
 		yield();
 
 		assertTrue(myCommand.getCommand().isHandled());
-		assertTrue(!myCommand.getCommand().isEnabled());
+		assertTrue(myCommand.getCommand().isEnabled());
 	}
 
 	/**

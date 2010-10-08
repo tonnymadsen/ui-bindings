@@ -29,6 +29,7 @@ import org.eclipse.ui.ISources;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.decorators.NumberBindingDecorator;
 import com.rcpcompany.uibindings.internal.propertyTesters.EObjectPropertyTester;
+import com.rcpcompany.uibindings.internal.propertyTesters.EStructuralFeaturePropertyTester;
 import com.rcpcompany.uibindings.internal.propertyTesters.IViewerBindingPropertyTester;
 import com.rcpcompany.uibindings.internal.propertyTesters.ManagerPropertyTester;
 import com.rcpcompany.uibindings.units.IUnitBindingSupport;
@@ -424,6 +425,11 @@ public interface Constants {
 	 * Property name used in {@link EObjectPropertyTester}.
 	 */
 	String PROPERTY_CAN_DELETE = "canDelete"; //$NON-NLS-1$
+
+	/**
+	 * Property name used in {@link EStructuralFeaturePropertyTester}.
+	 */
+	String PROPERTY_HAS_DEFAULT_VALUE = "hasDefaultValue"; //$NON-NLS-1$
 
 	/**
 	 * Property name used in {@link IViewerBindingPropertyTester}.
