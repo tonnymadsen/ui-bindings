@@ -136,6 +136,7 @@ import com.rcpcompany.uibindings.extests.utils.FormCreatorAlignmentTest;
 import com.rcpcompany.uibindings.extests.utils.FormCreatorObjectMessageCollectionTest;
 import com.rcpcompany.uibindings.extests.utils.FormCreatorTest;
 import com.rcpcompany.uibindings.extests.utils.IPathMatcherTests;
+import com.rcpcompany.uibindings.extests.utils.ManagerRunnableManagerTests;
 import com.rcpcompany.uibindings.extests.utils.MouseDownConverterTest;
 import com.rcpcompany.uibindings.extests.utils.OpenCommandTextWidgetEnablementTest;
 import com.rcpcompany.uibindings.extests.utils.OpenCommandViewerEnablementTest;
@@ -207,6 +208,8 @@ PluginTest.class, PluginConfTest.class, PluginSpecificationTest.class, FragmentT
  * Various constants
  */
 ConstantTests.class, ColorsAndFontsTests.class, ManagerSizesTest.class,
+
+UsedPropertyNamesTest.class,
 
 /*
  * The manager and its very basic interfaces (no bindings yet...)
@@ -368,6 +371,8 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		BindingObjectInformationTest.class,
 
 		FormChooserWizardTest.class, BindingEnablerTests.class, StringListTests.class,
+
+		ManagerRunnableManagerTests.class,
 
 		/*
 		 * Cut, copy and paste
