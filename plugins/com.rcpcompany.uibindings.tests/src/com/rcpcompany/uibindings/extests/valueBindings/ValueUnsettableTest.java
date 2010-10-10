@@ -39,7 +39,8 @@ import com.rcpcompany.uibindings.internal.handlers.UseDefaultValueHandler;
  * <p>
  * Depends on:
  * <ul>
- * <li></li>
+ * <li>TestObject.name having a default value</li>
+ * <li>TestObject.f <em>not</em> having a default value</li>
  * <li></li>
  * </ul>
  * 
@@ -131,7 +132,7 @@ public class ValueUnsettableTest {
 		yield();
 
 		assertTrue(myCommand.getCommand().isHandled());
-		assertTrue(myCommand.getCommand().isEnabled());
+		assertTrue(!myCommand.getCommand().isEnabled());
 	}
 
 	/**
