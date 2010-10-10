@@ -48,8 +48,10 @@ public final class UIHandlerUtils {
 		if (element == null) return false;
 
 		final ColumnViewer viewer = vb.getViewer();
-		// Don't move if there are any sorter or filters installed as these negates the visual
-		// effect
+		/*
+		 * Don't move if there are any sorter or filters installed as these negates the visual
+		 * effect.
+		 */
 		if (viewer.getComparator() != null || viewer.getFilters().length > 0) return false;
 
 		// The list of objects
@@ -78,7 +80,7 @@ public final class UIHandlerUtils {
 
 			list.move(newPosition, oldPosition);
 
-			vb.setFocus(element, oldFocusCell.getColumnIndex());
+			vb.setFocus(oldFocusCell.getColumnIndex(), element);
 			// ((Table) viewer.getControl()).setSelection(newPosition);
 		}
 		return true;

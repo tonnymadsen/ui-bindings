@@ -193,7 +193,7 @@ public class SIMO182BugInUIBindingForTableCellEditor {
 		assertEquals(country.getName(), ci.getDisplayText());
 		assertTrue(ci.isChangeable());
 		// TODO: does not work any more!
-		assertEquals(country.getName(), myTable.getItem(0).getText(0 + myViewerBinding.getFirstTableColumnOffset()));
+		assertEquals(country.getName(), myViewerBinding.getCell(0, 0, true).getDisplayText());
 
 		/*
 		 * - press return to edit

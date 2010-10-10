@@ -551,7 +551,7 @@ public class GridBindingCellEditorImpl extends EObjectImpl implements IGridBindi
 	protected MouseListener myMouseListener;
 
 	/**
-	 * Cell Editor Listener
+	 * Cell Editor Listener.
 	 */
 	protected ICellEditorListener myCellEditorListener = new ICellEditorListener() {
 		@Override

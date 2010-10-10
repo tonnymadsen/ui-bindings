@@ -29,7 +29,6 @@ import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 import com.rcpcompany.uibindings.Constants;
@@ -38,7 +37,6 @@ import com.rcpcompany.uibindings.IElementParentage;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.internal.Activator;
-import com.rcpcompany.uibindings.internal.utils.SelectionUtils;
 import com.rcpcompany.uibindings.utils.UIBEcoreUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -67,9 +65,7 @@ public class DeleteHandler extends AbstractHandler implements IHandler2 {
 		 */
 		if (!cmd.canExecute()) throw new ExecutionException("Cannot delete selected objects");
 
-		final ISelection s = vb.getViewer().getSelection();
-
-		final List<EObject> list = SelectionUtils.computeSelection(s, EObject.class);
+		final Collection<EObject> list = vb.getSelection();
 		final Map<EObject, Collection<Setting>> references = UIBEcoreUtils.findIncommingRequiredReferences(list);
 		if (references != null) {
 			/*
@@ -134,9 +130,8 @@ public class DeleteHandler extends AbstractHandler implements IHandler2 {
 		}
 
 		if (IManager.Factory.getManager().isDeleteHandlerCheckEnabled()) {
-			final ISelection s = vb.getViewer().getSelection();
+			final Collection<EObject> list = vb.getSelection();
 
-			final List<EObject> list = SelectionUtils.computeSelection(s, EObject.class);
 			final Map<EObject, Collection<Setting>> references = UIBEcoreUtils.findIncommingRequiredReferences(list);
 			if (references != null) {
 				setBaseEnabled(false);
@@ -163,9 +158,7 @@ public class DeleteHandler extends AbstractHandler implements IHandler2 {
 		 * TODO: find a way to cache the result - this method is called far too many times!
 		 */
 		// Then find the selected objects
-		final ISelection s = vb.getViewer().getSelection();
-
-		final List<EObject> list = SelectionUtils.computeSelection(s, EObject.class);
+		final Collection<EObject> list = vb.getSelection();
 		if (list.size() == 0) return null;
 
 		final EditingDomain domain = vb.getEditingDomain();

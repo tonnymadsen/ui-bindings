@@ -21,6 +21,8 @@ import com.rcpcompany.uibindings.IViewerBinding;
 /**
  * Common activation strategy used by most viewers.
  * 
+ * TODO SWTB
+ * 
  * @author Tonny Madsen, The RCP Company
  */
 public class CellEditorActivationStrategy extends ColumnViewerEditorActivationStrategy {

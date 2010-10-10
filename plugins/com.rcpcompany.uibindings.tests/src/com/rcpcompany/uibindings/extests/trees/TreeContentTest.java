@@ -120,7 +120,7 @@ public class TreeContentTest {
 		/*
 		 * Make sure the tree is properly shown
 		 */
-		viewer.expandAll();
+		viewer.expandAll(); // TODO SWTB
 		yield();
 
 		TreeItem[] items = myTree.getItems();

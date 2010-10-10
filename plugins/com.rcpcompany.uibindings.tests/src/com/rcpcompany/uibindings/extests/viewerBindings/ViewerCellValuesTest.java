@@ -15,13 +15,12 @@ import static org.junit.Assert.*;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Table;
-import org.eclipse.swt.widgets.TableItem;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.rcpcompany.uibindings.IBindingContext;
+import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
@@ -118,12 +117,24 @@ public class ViewerCellValuesTest {
 		oneCell(1, 1, String.format("%,.3f", myShopItem2.getPrice()));
 	}
 
+	/**
+	 * Tests the value of the specified cell.
+	 * 
+	 * @param rowNo
+	 * @param columnNo
+	 * @param expectedText the expected text of the cell.
+	 */
 	public void oneCell(int rowNo, int columnNo, String expectedText) {
-		final Table table = myCreator.getTable();
-		assertNotNull(table);
-		final TableItem item = table.getItem(rowNo);
-		assertNotNull(item);
+//		final Table table = myCreator.getTable();
+//		assertNotNull(table);
+//		final TableItem item = table.getItem(rowNo);
+//		assertNotNull(item);
+//
+//		assertEquals(expectedText, item.getText(columnNo + viewer.getFirstTableColumnOffset()));
 
-		assertEquals(expectedText, item.getText(columnNo + myCreator.getBinding().getFirstTableColumnOffset()));
+		final IViewerBinding viewer = myCreator.getBinding();
+		assertNotNull(viewer);
+
+		assertEquals(expectedText, viewer.getCell(0, 0, true).getDisplayText());
 	}
 }

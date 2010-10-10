@@ -42,6 +42,8 @@ public interface IContainerBinding extends IBinding {
 	 * validation state and the current element hierarchy of the container.
 	 * 
 	 * @return the label decorator
+	 * @deprecated will be removed
 	 */
+	@Deprecated
 	ValidationLabelDecorator getValidationLabelDecorator();
 } // IContainerBinding

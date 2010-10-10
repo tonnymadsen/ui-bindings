@@ -174,18 +174,10 @@ public class CopyPasteInViewerTest {
 		 * Check initial state
 		 */
 		yield();
-		// TODO: does not work any more!
-		assertEquals("" + myItem1.getName(), myTable.getItem(0)
-				.getText(0 + myViewerBinding.getFirstTableColumnOffset()));
-		// TODO: does not work any more!
-		assertEquals(String.format("%,.2f", myItem1.getPrice()),
-				myTable.getItem(0).getText(1 + myViewerBinding.getFirstTableColumnOffset()));
-		// TODO: does not work any more!
-		assertEquals("" + myItem2.getName(), myTable.getItem(1)
-				.getText(0 + myViewerBinding.getFirstTableColumnOffset()));
-		// TODO: does not work any more!
-		assertEquals(String.format("%,.2f", myItem2.getPrice()),
-				myTable.getItem(1).getText(1 + myViewerBinding.getFirstTableColumnOffset()));
+		assertEquals("" + myItem1.getName(), myViewerBinding.getCell(0, 0, true).getDisplayText());
+		assertEquals(String.format("%,.2f", myItem1.getPrice()), myViewerBinding.getCell(0, 1, true).getDisplayText());
+		assertEquals("" + myItem2.getName(), myViewerBinding.getCell(1, 0, true).getDisplayText());
+		assertEquals(String.format("%,.2f", myItem2.getPrice()), myViewerBinding.getCell(1, 1, true).getDisplayText());
 
 		/*
 		 * - focus on the table
@@ -224,14 +216,10 @@ public class CopyPasteInViewerTest {
 
 		assertEquals(myItem1.getPrice(), myItem2.getPrice(), 0.001);
 
-		assertEquals("" + myItem1.getName(), myTable.getItem(0)
-				.getText(0 + myViewerBinding.getFirstTableColumnOffset()));
-		assertEquals(String.format("%,.2f", myItem1.getPrice()),
-				myTable.getItem(0).getText(1 + myViewerBinding.getFirstTableColumnOffset()));
-		assertEquals("" + myItem2.getName(), myTable.getItem(1)
-				.getText(0 + myViewerBinding.getFirstTableColumnOffset()));
-		assertEquals(String.format("%,.2f", myItem2.getPrice()),
-				myTable.getItem(1).getText(1 + myViewerBinding.getFirstTableColumnOffset()));
+		assertEquals("" + myItem1.getName(), myViewerBinding.getCell(0, 0, true).getDisplayText());
+		assertEquals(String.format("%,.2f", myItem1.getPrice()), myViewerBinding.getCell(1, 0, true).getDisplayText());
+		assertEquals("" + myItem2.getName(), myViewerBinding.getCell(0, 1, true).getDisplayText());
+		assertEquals(String.format("%,.2f", myItem2.getPrice()), myViewerBinding.getCell(1, 1, true).getDisplayText());
 
 		/*
 		 * Copy the the price from item 2 to the name of item 2
@@ -250,14 +238,10 @@ public class CopyPasteInViewerTest {
 
 		assertEquals(String.format("%,.2f", myItem2.getPrice()), myItem2.getName());
 
-		assertEquals("" + myItem1.getName(), myTable.getItem(0)
-				.getText(0 + myViewerBinding.getFirstTableColumnOffset()));
-		assertEquals(String.format("%,.2f", myItem1.getPrice()),
-				myTable.getItem(0).getText(1 + myViewerBinding.getFirstTableColumnOffset()));
-		assertEquals("" + myItem2.getName(), myTable.getItem(1)
-				.getText(0 + myViewerBinding.getFirstTableColumnOffset()));
-		assertEquals(String.format("%,.2f", myItem1.getPrice()),
-				myTable.getItem(1).getText(1 + myViewerBinding.getFirstTableColumnOffset()));
+		assertEquals("" + myItem1.getName(), myViewerBinding.getCell(0, 0, true).getDisplayText());
+		assertEquals(String.format("%,.2f", myItem1.getPrice()), myViewerBinding.getCell(0, 1, true).getDisplayText());
+		assertEquals("" + myItem2.getName(), myViewerBinding.getCell(1, 0, true).getDisplayText());
+		assertEquals(String.format("%,.2f", myItem2.getPrice()), myViewerBinding.getCell(1, 1, true).getDisplayText());
 	}
 
 	/**
@@ -295,7 +279,7 @@ public class CopyPasteInViewerTest {
 		 */
 		yield();
 		// TODO: does not work any more!
-		assertEquals(name, myTable.getItem(0).getText(0 + myViewerBinding.getFirstTableColumnOffset()));
+		assertEquals(name, myViewerBinding.getCell(0, 0, true).getDisplayText());
 
 		/*
 		 * - focus on the table

@@ -146,7 +146,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	 * @return the viewer
 	 */
 	public ColumnViewer getViewer() {
-		return getViewerBinding().getViewer();
+		return getViewerBinding().getViewer(); // TODO SWTB
 	}
 
 	/**
@@ -648,7 +648,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			setCursor(labelAttribute.getCursor());
 
 			// For testing
-			cell.setText((String) ci.getLabelUIAttribute().getCurrentValue().getValue());
+			cell.setText((String) labelAttribute.getCurrentValue().getValue());
 			// Removed as Windows behaves strangely!
 			// cell.setImage(ci.getLabelUIAttribute().getImage());
 		}
@@ -666,6 +666,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			/*
 			 * Figure out whether the cell has focus
 			 */
+			// TODO SVTB
 			final ViewerCell focusCell = getViewerBinding().getViewer().getColumnViewerEditor().getFocusCell();
 			final boolean hasFocus = focusCell != null && focusCell.getItem() == event.item
 					&& focusCell.getColumnIndex() == event.index;

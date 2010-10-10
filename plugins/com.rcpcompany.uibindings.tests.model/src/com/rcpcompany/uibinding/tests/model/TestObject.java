@@ -43,7 +43,8 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface TestObject extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Number</b></em>' attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Number</b></em>' attribute. The default value is
+	 * <code>"0"</code>. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Number</em>' attribute isn't clear, there really should be more of
 	 * a description here...
@@ -55,7 +56,7 @@ public interface TestObject extends EObject {
 	 * @see #unsetNumber()
 	 * @see #setNumber(int)
 	 * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestObject_Number()
-	 * @model unsettable="true"
+	 * @model default="0" unsettable="true"
 	 * @generated
 	 */
 	int getNumber();

@@ -56,11 +56,11 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ColumnViewerEditorActivationEvent;
-import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.Clipboard;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.Widget;
 import org.eclipse.ui.IWorkbenchCommandConstants;
 import org.eclipse.ui.PlatformUI;
@@ -3192,7 +3192,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			final IColumnBinding column = cell.getColumnBinding();
 			if (column != null) {
 				final IViewerBinding vb = column.getViewerBinding();
-				if (vb.getViewer() instanceof TreeViewer && (vb.getColumns().indexOf(column) == 0)) {
+				if (vb.getControl() instanceof Tree && (vb.getColumns().indexOf(column) == 0)) {
 					treeColumn = true;
 				}
 			}

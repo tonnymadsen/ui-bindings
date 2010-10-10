@@ -13,8 +13,6 @@ package com.rcpcompany.uibindings.internal.bindingMessages;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.jface.viewers.ColumnViewer;
-import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Rectangle;
@@ -27,13 +25,15 @@ import org.eclipse.swt.widgets.TableItem;
 import com.rcpcompany.uibindings.BindingState;
 import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IColumnBindingCellInformation;
+import com.rcpcompany.uibindings.IContainerBinding;
 import com.rcpcompany.uibindings.IDisposable;
+import com.rcpcompany.uibindings.IValueBindingCell;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * {@link IWidgetDecoration} handler for a {@link ColumnViewer}.
+ * {@link IWidgetDecoration} handler for a {@link IContainerBinding}.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -42,11 +42,6 @@ public class ViewerBindingMessageDecorator implements IDisposable {
 	 * The viewer binding.
 	 */
 	protected final IViewerBinding myViewerBinding;
-
-	/**
-	 * The viewer of this decoration.
-	 */
-	protected final ColumnViewer myViewer;
 
 	/**
 	 * The control that backs the viewer.
@@ -78,7 +73,6 @@ public class ViewerBindingMessageDecorator implements IDisposable {
 			LogUtils.debug(this, hashCode() + ": " + viewerBinding); //$NON-NLS-1$
 		}
 		myViewerBinding = viewerBinding;
-		myViewer = viewerBinding.getViewer();
 		myControl = viewerBinding.getControl();
 		getViewerBinding().registerService(this);
 
@@ -96,21 +90,12 @@ public class ViewerBindingMessageDecorator implements IDisposable {
 	}
 
 	/**
-	 * Returns the binding of this decorator
+	 * Returns the binding of this decorator.
 	 * 
 	 * @return the binding
 	 */
 	public IViewerBinding getViewerBinding() {
 		return myViewerBinding;
-	}
-
-	/**
-	 * Returns the viewer of the decoration.
-	 * 
-	 * @return the viewer
-	 */
-	public ColumnViewer getViewer() {
-		return myViewer;
 	}
 
 	/**
@@ -150,12 +135,12 @@ public class ViewerBindingMessageDecorator implements IDisposable {
 	}
 
 	/**
-	 * List with all current cell decorations
+	 * List with all current cell decorations.
 	 */
 	protected List<CellDecoration> myCellDecorations = new ArrayList<CellDecoration>();
 
 	/**
-	 * A decoration for a specific {@link ViewerCell}.
+	 * A decoration for a specific {@link IValueBindingCell}.
 	 * <p>
 	 * Note that there can be multiple decorations for a specific cell.
 	 * 
@@ -177,7 +162,7 @@ public class ViewerBindingMessageDecorator implements IDisposable {
 		}
 
 		/**
-		 * The text of this decoration
+		 * The text of this decoration.
 		 */
 		private String myText;
 
@@ -192,7 +177,7 @@ public class ViewerBindingMessageDecorator implements IDisposable {
 		}
 
 		/**
-		 * The image of this decoration
+		 * The image of this decoration.
 		 */
 		private Image myImage;
 
@@ -298,7 +283,7 @@ public class ViewerBindingMessageDecorator implements IDisposable {
 		}
 
 		/**
-		 * Calculates the area of the decoration based on the paint event object
+		 * Calculates the area of the decoration based on the paint event object.
 		 * 
 		 * @param event the paint event object
 		 * @return the new area
@@ -329,7 +314,7 @@ public class ViewerBindingMessageDecorator implements IDisposable {
 		}
 
 		/**
-		 * Requests an update of the area of this cell decoration
+		 * Requests an update of the area of this cell decoration.
 		 */
 		public void update() {
 			Rectangle area = getDecorationArea();

@@ -44,6 +44,8 @@ import com.rcpcompany.utils.logging.LogUtils;
 /**
  * The implementation of {@link ISortableTableAdapter}.
  * 
+ * TODO: SWTB
+ * 
  * @author Tonny Madsen, The RCP Company
  */
 public class SortableTableAdapter implements ISortableTableAdapter, DisposeListener, SelectionListener {

@@ -273,10 +273,10 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 			}
 		} else if (binding instanceof IViewerBinding) {
 			final IViewerBinding vb = (IViewerBinding) binding;
-			addViewer(vb.getViewer());
+			addViewer(vb.getViewer()); // TODO SWTB
 			final IFilteringTableAdapter filtering = vb.getService(IFilteringTableAdapter.class);
 			if (filtering != null) {
-				addControl(filtering.getText(), vb.getViewer());
+				addControl(filtering.getText(), vb.getViewer()); // TODO SWTB
 			}
 			return;
 		}
@@ -284,17 +284,9 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 
 	@Override
 	protected void bindingRemoved(IBinding binding) {
-		if (binding instanceof IValueBinding) {
-			final IValueBinding vb = (IValueBinding) binding;
-			final Control control = vb.getControl();
-			if (control == null) return;
-			removeControl(control);
-			return;
-		} else if (binding instanceof IViewerBinding) {
-			final IViewerBinding vb = (IViewerBinding) binding;
-			removeControl(vb.getViewer().getControl());
-			return;
-		}
+		final Control control = binding.getControl();
+		if (control == null) return;
+		removeControl(control);
 	}
 
 	@Override

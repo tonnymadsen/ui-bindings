@@ -89,7 +89,7 @@ public class ViewerToolBar implements IViewerToolBar, IDisposable {
 		 * 
 		 * Then add the toolbar itself on the correct side of the control
 		 */
-		final Control control = myViewer.getViewer().getControl();
+		final Control control = myViewer.getControl();
 		final Composite parent = control.getParent();
 
 		myComposite = myToolkit.createComposite(parent);

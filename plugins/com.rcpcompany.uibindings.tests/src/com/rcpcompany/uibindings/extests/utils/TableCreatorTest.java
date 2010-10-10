@@ -111,7 +111,7 @@ public class TableCreatorTest {
 
 		assertNotNull(table);
 		assertNotNull(binding);
-		assertEquals(table, binding.getViewer().getControl());
+		assertEquals(table, binding.getControl());
 		assertEquals(items, binding.getList());
 	}
 

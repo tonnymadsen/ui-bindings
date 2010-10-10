@@ -696,7 +696,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 		// Initialize classes and features; add operations and parameters
 		initEClass(testObjectEClass, TestObject.class, "TestObject", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTestObject_Number(), ecorePackage.getEInt(), "number", null, 0, 1, TestObject.class,
+		initEAttribute(getTestObject_Number(), ecorePackage.getEInt(), "number", "0", 0, 1, TestObject.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTestObject_D(), ecorePackage.getEDouble(), "d", null, 0, 1, TestObject.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

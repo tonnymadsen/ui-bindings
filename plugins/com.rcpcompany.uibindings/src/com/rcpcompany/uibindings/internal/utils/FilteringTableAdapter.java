@@ -51,6 +51,8 @@ import com.rcpcompany.uibindings.utils.IManagerRunnable;
 /**
  * Column filter based on an {@link IViewerBinding}.
  * 
+ * TODO: SWTB
+ * 
  * @author Tonny Madsen, The RCP Company
  */
 public class FilteringTableAdapter implements IFilteringTableAdapter, DisposeListener {
@@ -81,7 +83,7 @@ public class FilteringTableAdapter implements IFilteringTableAdapter, DisposeLis
 		myViewerBinding = viewer;
 		myFilter = filter;
 		myText = text;
-		Assert.isLegal(myViewerBinding.getViewer() instanceof TableViewer, "The filter only accepts tables");
+		Assert.isLegal(myViewerBinding.getControl() instanceof Table, "The filter only accepts tables");
 		myTableViewer = (TableViewer) myViewerBinding.getViewer();
 		myTable = myTableViewer.getTable();
 		init();

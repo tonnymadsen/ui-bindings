@@ -91,4 +91,11 @@ public interface IValueBindingCell {
 	 * @return the column or <code>null</code>
 	 */
 	IColumnBinding getColumnBinding();
+
+	/**
+	 * Returns the text of the cell if any.
+	 * 
+	 * @return the text or <code>null</code>
+	 */
+	String getDisplayText();
 }

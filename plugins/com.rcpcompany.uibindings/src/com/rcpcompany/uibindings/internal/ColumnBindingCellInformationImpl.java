@@ -839,7 +839,7 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 		final IViewerBinding viewer = column.getViewerBinding();
 		final Control c = viewer.getControl();
 		c.setFocus();
-		viewer.setFocus(getElement(), viewer.getColumns().indexOf(column) + viewer.getFirstTableColumnOffset());
+		viewer.setFocus(viewer.getColumns().indexOf(column) + viewer.getFirstTableColumnOffset(), getElement());
 
 		return c;
 	}

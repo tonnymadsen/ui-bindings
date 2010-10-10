@@ -356,7 +356,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 		private IValueBinding myBinding;
 
 		/**
-		 * Constructs and returns a new location
+		 * Constructs and returns a new location.
 		 */
 		protected Location() {
 		}
@@ -406,7 +406,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 		}
 
 		/**
-		 * Returns the id of the view
+		 * Returns the id of the view.
 		 * 
 		 * @return the view id
 		 */
@@ -415,7 +415,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 		}
 
 		/**
-		 * Returns the secondary id of the view
+		 * Returns the secondary id of the view.
 		 * 
 		 * @return the view secondary id - possibly <code>null</code>
 		 */
@@ -424,7 +424,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 		}
 
 		/**
-		 * Returns the active selection in the view
+		 * Returns the active selection in the view.
 		 * 
 		 * @return the selection
 		 */
@@ -433,7 +433,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 		}
 
 		/**
-		 * Returns the active binding in the view
+		 * Returns the active binding in the view.
 		 * 
 		 * @return the binding
 		 */
@@ -450,7 +450,7 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 		}
 
 		/**
-		 * Shows the specified position
+		 * Shows the specified position.
 		 */
 		public void show() {
 			if (Activator.getDefault().TRACE_NAVIGATION_GLOBAL) {

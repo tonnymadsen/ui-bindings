@@ -249,19 +249,7 @@ public class ChildCreationSpecificationTest {
 				final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(null);
 
 				assertNotNull(specs);
-				assertEquals(2, specs.size());
-
-				IChildCreationSpecification sp;
-
-				sp = specs.get(0);
-				assertEquals(myShop, sp.getParent());
-				assertEquals(ShopPackage.Literals.SHOP__CONTACTS, sp.getReference());
-				assertEquals(ShopPackage.Literals.CONTACT, sp.getChildType());
-
-				sp = specs.get(1);
-				assertEquals(myShop, sp.getParent());
-				assertEquals(ShopPackage.Literals.SHOP__SHOP_ITEMS, sp.getReference());
-				assertEquals(ShopPackage.Literals.SHOP_ITEM, sp.getChildType());
+				assertEquals(0, specs.size());
 			}
 		});
 
@@ -271,6 +259,7 @@ public class ChildCreationSpecificationTest {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
+				// TODO SVTB
 				final TreeViewer tv = (TreeViewer) vb.getViewer();
 				assertNotNull(tv);
 				tv.expandAll();

@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -279,6 +280,13 @@ public interface IViewerBinding extends IContainerBinding {
 	IObservableList getMultipleSelection();
 
 	/**
+	 * Return a collection of all selected objects in this viewer.
+	 * 
+	 * @return the selected objects
+	 */
+	Collection<EObject> getSelection();
+
+	/**
 	 * Returns the value of the '<em><b>Viewer</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Viewer</em>' attribute isn't clear, there really should be more of
@@ -289,7 +297,9 @@ public interface IViewerBinding extends IContainerBinding {
 	 * @return the value of the '<em>Viewer</em>' attribute.
 	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getViewerBinding_Viewer()
 	 * @generated
+	 * @deprecated willæ be removed
 	 */
+	@Deprecated
 	ColumnViewer getViewer();
 
 	/**
@@ -339,10 +349,10 @@ public interface IViewerBinding extends IContainerBinding {
 	/**
 	 * Focus on the cell identified by the element and column number if possible.
 	 * 
-	 * @param element the element
 	 * @param column the column number
+	 * @param element the element
 	 */
-	void setFocus(EObject element, int column);
+	void setFocus(int column, EObject element);
 
 	/**
 	 * Returns the cell for the specified column and element.

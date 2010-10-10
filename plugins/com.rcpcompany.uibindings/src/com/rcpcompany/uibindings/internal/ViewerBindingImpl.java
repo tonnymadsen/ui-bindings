@@ -12,6 +12,7 @@ package com.rcpcompany.uibindings.internal;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -123,11 +124,11 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		assertTrue(viewer != null, "viewer must be non-null");
 		setViewer(viewer);
 
-		if (getViewer() instanceof TableViewer) {
+		if (getControl() instanceof Table) {
 			/*
 			 * Add an empty first column to the table to avoid alignment problems
 			 */
-			final Table table = ((TableViewer) getViewer()).getTable();
+			final Table table = (Table) getControl();
 			final TableColumn column = new TableColumn(table, SWT.NONE, 0);
 			setFirstTableColumnOffset(1);
 			column.setText("__SPARE__"); //$NON-NLS-1$
@@ -140,15 +141,15 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	}
 
 	@Override
-	public IViewerBinding viewer(Table viewer) {
-		assertTrue(viewer != null, "viewer must be non-null");
-		return viewer(new TableViewer(viewer));
+	public IViewerBinding viewer(Table t) {
+		assertTrue(t != null, "viewer must be non-null");
+		return viewer(new TableViewer(t));
 	}
 
 	@Override
-	public IViewerBinding viewer(Tree viewer) {
-		assertTrue(viewer != null, "viewer must be non-null");
-		return viewer(new TreeViewer(viewer));
+	public IViewerBinding viewer(Tree t) {
+		assertTrue(t != null, "viewer must be non-null");
+		return viewer(new TreeViewer(t));
 	}
 
 	private IViewerBinding model(IObservableList list, IBindingDataType dataType) {
@@ -256,6 +257,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 				IManagerRunnable.Factory.asyncExec("refresh", getViewer(), new Runnable() {
 					@Override
 					public void run() {
+						// TODO SWTB
 						getViewer().refresh();
 					}
 				});
@@ -290,12 +292,6 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	 */
 	private ValidationLabelDecorator myValidationLabelDecorator;
 
-	/**
-	 * Returns an {@link ILabelDecorator} (possibly <code>null</code>) for use in the viewer. The
-	 * decorator decorates with the current validation state.
-	 * 
-	 * @return the label decorator
-	 */
 	@Override
 	public ValidationLabelDecorator getValidationLabelDecorator() {
 		return myValidationLabelDecorator;
@@ -309,7 +305,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 
 	@Override
 	public void finish1() {
-		final ColumnViewer viewer = getViewer();
+		final ColumnViewer viewer = getViewer(); // TODO SWTB
 		assertTrue(viewer != null, "No viewer set"); //$NON-NLS-1$
 		assertTrue(getList() != null, "No model list"); //$NON-NLS-1$
 		assertTrue(!getColumns().isEmpty(), "No columns in viewer"); //$NON-NLS-1$
@@ -407,7 +403,8 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 			if (getViewer().getSelection().isEmpty() && !getList().isDisposed() && getList().size() > 0) {
 				final EObject element = (EObject) getList().get(0);
 				getViewer().setSelection(new StructuredSelection(element), true);
-				setFocus(element, 0 + getFirstTableColumnOffset());
+				setFocus(0 + getFirstTableColumnOffset(), element);
+				// TODO SWTB: setFocusCell(0,0);
 			}
 
 			/*
@@ -427,9 +424,9 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	@Override
 	public void finish3() {
 		if (getViewer() instanceof TreeViewer) {
-			getViewer().setInput(ViewerBindingTreeFactory.ROOT_ELEMENT);
+			getViewer().setInput(ViewerBindingTreeFactory.ROOT_ELEMENT); // TODO SWTB
 		} else {
-			getViewer().setInput(getList());
+			getViewer().setInput(getList()); // TODO SWTB
 		}
 
 		getElements().addSetChangeListener(myElementsListener);
@@ -468,14 +465,14 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 			 * viewer.
 			 */
 			if (mySelectionChangedListener != null && myLastReportedSelectedElement != element) {
-				getViewer().setSelection(new StructuredSelection(element), false);
+				getViewer().setSelection(new StructuredSelection(element), false); // TODO SWTB
 			}
 		}
 	};
 
 	@Override
 	public IElementParentage getElementParentage(final EObject element) {
-		if (getViewer() instanceof TableViewer) {
+		if (getControl() instanceof Table) {
 			if (!getList().contains(element)) return null;
 			return new IElementParentage() {
 				@Override
@@ -515,14 +512,14 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 				}
 			};
 		}
-		if (getViewer() instanceof TreeViewer) return myTreeFactory.getElementParentage(element);
+		if (getControl() instanceof Tree) return myTreeFactory.getElementParentage(element);
 		return null;
 	};
 
 	@Override
 	public List<IChildCreationSpecification> getPossibleChildObjects(EObject parent) {
-		if (getViewer() instanceof TableViewer) return getPossibleTopLevelChildObjects();
-		if (getViewer() instanceof TreeViewer) {
+		if (getControl() instanceof Table) return getPossibleTopLevelChildObjects();
+		if (getControl() instanceof Tree) {
 			if (parent == null) return getPossibleTopLevelChildObjects();
 			return myTreeFactory.getPossibleChildObjects(parent);
 		}
@@ -603,7 +600,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	}
 
 	@Override
-	public void setFocus(EObject element, int column) {
+	public void setFocus(int column, EObject element) {
 		if (getControl().isDisposed()) return;
 		if (myMyTableViewerFocusCellManager != null) {
 			myMyTableViewerFocusCellManager.setFocusCell(element, column);
@@ -642,14 +639,17 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		}
 		IManager.Factory.getManager().eAdapters().remove(myManagerAdapter);
 		if (mySelectionChangedListener != null) {
-			getViewer().removeSelectionChangedListener(mySelectionChangedListener);
+			getViewer().removeSelectionChangedListener(mySelectionChangedListener); // TODO SWTB -
+																					// change to
+																					// widget
+																					// listener
 			mySelectionChangedListener = null;
 		}
 
 		/*
 		 * Let the viewer clean up before we dispose the input list
 		 */
-		if (getViewer().getContentProvider() != null) {
+		if (getViewer().getContentProvider() != null) { // TODO SWTB
 			getViewer().setInput(null);
 		}
 		getList().dispose();
@@ -678,8 +678,8 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 
 	@Override
 	public IValueBindingCell getCell(int column, int row, boolean visualModel) {
-		// TODO POSITION
-		return null;
+		final IColumnBinding cb = getColumns().get(column);
+		return cb.getCellInformation(getList().get(row));
 	}
 
 	@Override
@@ -964,6 +964,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	 */
 	@Override
 	public IObservableValue getSingleSelection() {
+		// TODO SWTB
 		if (singleSelection == null) {
 			final IViewerValueProperty property = new MySelectionProviderSingleSelectionProperty() {
 				@Override
@@ -983,17 +984,34 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	 */
 	@Override
 	public IObservableList getMultipleSelection() {
+		// TODO SWTB
 		if (multipleSelection == null) {
 			multipleSelection = ViewersObservables.observeMultiSelection(getViewer());
 		}
 		return multipleSelection;
 	}
 
+	@Override
+	public Collection<EObject> getSelection() {
+		if (getControl() instanceof Table) {
+			final Table t = (Table) getControl();
+			final Collection<EObject> s = new ArrayList<EObject>(t.getSelectionCount());
+			for (final int i : t.getSelectionIndices()) {
+				s.add((EObject) getList().get(i));
+			}
+
+			return s;
+		}
+		return Collections.EMPTY_LIST;
+	}
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
+	 * @deprecated will be removed
 	 */
+	@Deprecated
 	@Override
 	public ColumnViewer getViewer() {
 		return viewer;
