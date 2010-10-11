@@ -63,7 +63,10 @@ public interface IViewerBinding extends IContainerBinding {
 	 * 
 	 * @param viewer the viewer to bind to
 	 * @return <code>this</code>
+	 * 
+	 * @deprecated will disappear
 	 */
+	@Deprecated
 	IViewerBinding viewer(ColumnViewer viewer);
 
 	/**
@@ -176,7 +179,10 @@ public interface IViewerBinding extends IContainerBinding {
 	 * @param feature the feature of the column
 	 * 
 	 * @return the new column binding
+	 * 
+	 * @deprecated will disappear
 	 */
+	@Deprecated
 	IColumnBinding addColumn(ViewerColumn column, EStructuralFeature feature);
 
 	/**

@@ -175,8 +175,8 @@ public class CopyPasteInViewerTest {
 		 */
 		yield();
 		assertEquals("" + myItem1.getName(), myViewerBinding.getCell(0, 0, true).getDisplayText());
-		assertEquals(String.format("%,.2f", myItem1.getPrice()), myViewerBinding.getCell(0, 1, true).getDisplayText());
-		assertEquals("" + myItem2.getName(), myViewerBinding.getCell(1, 0, true).getDisplayText());
+		assertEquals(String.format("%,.2f", myItem1.getPrice()), myViewerBinding.getCell(1, 0, true).getDisplayText());
+		assertEquals("" + myItem2.getName(), myViewerBinding.getCell(0, 1, true).getDisplayText());
 		assertEquals(String.format("%,.2f", myItem2.getPrice()), myViewerBinding.getCell(1, 1, true).getDisplayText());
 
 		/*

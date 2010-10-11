@@ -105,7 +105,7 @@ public class ViewerCellValuesTest {
 	@Test
 	public void testCellValuesRow0() {
 		oneCell(0, 0, myShopItem1.getName());
-		oneCell(0, 1, String.format("%,.3f", myShopItem1.getPrice()));
+		oneCell(1, 0, String.format("%,.3f", myShopItem1.getPrice()));
 	}
 
 	/**
@@ -113,18 +113,18 @@ public class ViewerCellValuesTest {
 	 */
 	@Test
 	public void testCellValuesRow1() {
-		oneCell(1, 0, myShopItem2.getName());
+		oneCell(0, 1, myShopItem2.getName());
 		oneCell(1, 1, String.format("%,.3f", myShopItem2.getPrice()));
 	}
 
 	/**
 	 * Tests the value of the specified cell.
 	 * 
-	 * @param rowNo
 	 * @param columnNo
+	 * @param rowNo
 	 * @param expectedText the expected text of the cell.
 	 */
-	public void oneCell(int rowNo, int columnNo, String expectedText) {
+	public void oneCell(int columnNo, int rowNo, String expectedText) {
 //		final Table table = myCreator.getTable();
 //		assertNotNull(table);
 //		final TableItem item = table.getItem(rowNo);
@@ -135,6 +135,6 @@ public class ViewerCellValuesTest {
 		final IViewerBinding viewer = myCreator.getBinding();
 		assertNotNull(viewer);
 
-		assertEquals(expectedText, viewer.getCell(0, 0, true).getDisplayText());
+		assertEquals(expectedText, viewer.getCell(columnNo, rowNo, true).getDisplayText());
 	}
 }

@@ -557,31 +557,39 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		/**
 		 * Whether there are an outstanding asyncExec for fireLabelProviderChanged()..
 		 */
-		protected Set<IColumnBindingCellInformation> myHasOutstandingFireLabelProviderChangedSet = new HashSet<IColumnBindingCellInformation>();
+		protected Set<EObject> myHasOutstandingFireLabelProviderChangedSet = new HashSet<EObject>();
 
 		public void fireChanged(final IColumnBindingCellInformation ci) {
 			/*
 			 * No need to do anything more if we already have an outstanding request...
 			 */
-			if (myHasOutstandingFireLabelProviderChangedSet.contains(ci)) return;
+			LogUtils.debug(ci.getLabelBinding(), ci.getLabelBinding() + " label changed (entry)"); //$NON-NLS-1$
 			final Control control = getViewerColumn().getViewer().getControl();
 			if (control.isDisposed()) return;
+			final EObject element = ci.getElement();
+			synchronized (myHasOutstandingFireLabelProviderChangedSet) {
+				if (myHasOutstandingFireLabelProviderChangedSet.contains(element)) return;
+				myHasOutstandingFireLabelProviderChangedSet.add(element);
+			}
 			if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS) {
 				LogUtils.debug(ci.getLabelBinding(), ci.getLabelBinding() + " label changed"); //$NON-NLS-1$
 			}
-			myHasOutstandingFireLabelProviderChangedSet.add(ci);
 			IManagerRunnable.Factory.asyncExec("labels", this, new Runnable() {
 				@Override
 				public void run() {
 					if (control.isDisposed()) return;
 					if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS) {
-						LogUtils.debug(ci.getLabelBinding(), ci.getLabelBinding() + " label changed (fired)"); //$NON-NLS-1$
+						LogUtils.debug(ci.getLabelBinding(), "label changed (fired)"); //$NON-NLS-1$
 					}
 					// LogUtils.debug(this, "!!fire " + element);
 
-					myHasOutstandingFireLabelProviderChangedSet.remove(ci);
-					final LabelProviderChangedEvent event = new LabelProviderChangedEvent(GeneralLabelProvider.this, ci
-							.getElement());
+					Object[] elements;
+					synchronized (myHasOutstandingFireLabelProviderChangedSet) {
+						elements = myHasOutstandingFireLabelProviderChangedSet.toArray();
+						myHasOutstandingFireLabelProviderChangedSet.clear();
+					}
+					final LabelProviderChangedEvent event = new LabelProviderChangedEvent(GeneralLabelProvider.this,
+							elements);
 					fireLabelProviderChanged(event);
 				}
 			});
@@ -645,6 +653,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 				}
 			}
 
+			LogUtils.debug(this, "c=" + labelAttribute.getCursor());
 			setCursor(labelAttribute.getCursor());
 
 			// For testing
@@ -712,8 +721,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			if (ci == null) return;
 			final IValueBinding labelBinding = ci.getLabelBinding();
 			if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS) {
-				final Object v = ci.getLabelUIAttribute().getCurrentValue().getValue();
-				LogUtils.debug(labelBinding, labelBinding + " paint: " + v); //$NON-NLS-1$
+				LogUtils.debug(labelBinding, labelBinding + " paint: " + ci.getDisplayText()); //$NON-NLS-1$
 			}
 			if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS && Activator.getDefault().TRACE_EVENTS_SWT) {
 				LogUtils.debug(labelBinding, ToStringUtils.toString(event));

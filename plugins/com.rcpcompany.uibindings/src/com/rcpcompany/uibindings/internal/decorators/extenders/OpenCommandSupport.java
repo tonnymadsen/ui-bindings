@@ -362,7 +362,7 @@ public class OpenCommandSupport {
 		 * Sets the current active binding.
 		 * 
 		 * @param binding the new active binding or <code>null</code>
-		 * @param show TODO
+		 * @param show whether to show the open state
 		 */
 		protected void setOpenBinding(IValueBinding binding, boolean show) {
 			/*

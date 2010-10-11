@@ -18,6 +18,7 @@ import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Table;
 import org.junit.After;
@@ -35,6 +36,7 @@ import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.utils.ITableCreator;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests the correct selection is used in the "show view" command and handler.
@@ -92,6 +94,7 @@ public class OpenCommandViewerEnablementTest {
 
 		myCountry = ShopFactory.eINSTANCE.createCountry();
 		myCountry.setName("1");
+		myCountry.setAbbreviation("XX");
 		myShop.getCountries().add(myCountry);
 
 		myContact1 = ShopFactory.eINSTANCE.createContact();
@@ -130,6 +133,16 @@ public class OpenCommandViewerEnablementTest {
 		if (myView != null) {
 			myView.getSite().getPage().hideView(myView);
 		}
+
+		Event event;
+		event = new Event();
+		event.type = SWT.KeyUp;
+		event.stateMask = 0;
+		event.keyCode = SWT.CTRL;
+		event.widget = myTable;
+
+		assertTrue(Display.getCurrent().post(event));
+		yield();
 	}
 
 	/**
@@ -183,7 +196,8 @@ public class OpenCommandViewerEnablementTest {
 		postMouseMove(myTable, p);
 		p.x -= 1;
 
-		final Cursor cursor = column.getViewerBinding().getControl().getCursor();
+		final Cursor cursor = myTable.getCursor();
+		LogUtils.debug(this, "");
 		assertEquals(openEnabled, cursor != null);
 
 		event = new Event();

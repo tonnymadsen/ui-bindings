@@ -199,6 +199,7 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	protected final IChangeListener myAttributeValueListener = new IChangeListener() {
 		@Override
 		public void handleChange(ChangeEvent event) {
+			LogUtils.debug(ColumnBindingCellInformationImpl.this, "hC: " + event);
 			getColumn().fireLabelChanged(ColumnBindingCellInformationImpl.this);
 		}
 	};
