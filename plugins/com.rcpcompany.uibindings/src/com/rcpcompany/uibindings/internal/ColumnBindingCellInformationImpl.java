@@ -193,13 +193,13 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	@Override
 	public Point getPosition(boolean visualModel) {
 		// TODO POSITION
+		LogUtils.debug(this, "TODO");
 		return null;
 	}
 
 	protected final IChangeListener myAttributeValueListener = new IChangeListener() {
 		@Override
 		public void handleChange(ChangeEvent event) {
-			LogUtils.debug(ColumnBindingCellInformationImpl.this, "hC: " + event);
 			getColumn().fireLabelChanged(ColumnBindingCellInformationImpl.this);
 		}
 	};

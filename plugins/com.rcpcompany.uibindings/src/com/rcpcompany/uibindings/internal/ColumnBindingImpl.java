@@ -563,7 +563,6 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			/*
 			 * No need to do anything more if we already have an outstanding request...
 			 */
-			LogUtils.debug(ci.getLabelBinding(), ci.getLabelBinding() + " label changed (entry)"); //$NON-NLS-1$
 			final Control control = getViewerColumn().getViewer().getControl();
 			if (control.isDisposed()) return;
 			final EObject element = ci.getElement();
@@ -653,7 +652,6 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 				}
 			}
 
-			LogUtils.debug(this, "c=" + labelAttribute.getCursor());
 			setCursor(labelAttribute.getCursor());
 
 			// For testing

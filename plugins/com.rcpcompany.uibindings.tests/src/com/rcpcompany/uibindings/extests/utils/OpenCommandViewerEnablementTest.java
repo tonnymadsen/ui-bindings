@@ -36,7 +36,6 @@ import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.utils.ITableCreator;
-import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests the correct selection is used in the "show view" command and handler.
@@ -197,7 +196,6 @@ public class OpenCommandViewerEnablementTest {
 		p.x -= 1;
 
 		final Cursor cursor = myTable.getCursor();
-		LogUtils.debug(this, "");
 		assertEquals(openEnabled, cursor != null);
 
 		event = new Event();
