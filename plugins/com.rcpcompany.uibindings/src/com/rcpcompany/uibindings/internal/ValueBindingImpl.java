@@ -12,6 +12,7 @@ package com.rcpcompany.uibindings.internal;
 
 import java.lang.reflect.Constructor;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 
 import org.eclipse.core.databinding.Binding;
@@ -23,7 +24,6 @@ import org.eclipse.core.databinding.observable.Observables;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -171,9 +171,17 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		 * We have to update the values backward to handle the chains set up in
 		 * BaseUIBindingDecorator.decorate()
 		 */
-		final EList<Binding> list = getDBBindings();
-		for (int i = list.size() - 1; i > 0; i--) {
-			list.get(i).updateModelToTarget();
+		final ListIterator<Binding> iterator = getDBBindings().listIterator(getDBBindings().size());
+		while (iterator.hasPrevious()) {
+			final Binding b = iterator.previous();
+			/*
+			 * A binding might have been disposed... we don't see that, so lazily update the list
+			 */
+			if (b.isDisposed()) {
+				iterator.remove();
+				continue;
+			}
+			b.updateModelToTarget();
 		}
 	}
 
