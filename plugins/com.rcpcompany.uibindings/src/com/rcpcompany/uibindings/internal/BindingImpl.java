@@ -803,6 +803,10 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 			myCachedArguments.remove(name);
 		}
 
+		if (name.equals(Constants.ARG_VALID_VALUES)) {
+			LogUtils.debug(this, "");
+		}
+
 		final List<IArgumentValue<ArgumentType>> list = getArguments(name, argumentType, true);
 
 		/*

@@ -52,6 +52,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -3295,6 +3296,10 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		if (initializer == null) return null;
 
 		final CompoundCommand cc = new CompoundCommand();
+		final Map<EStructuralFeature, Object> valueMap = new HashMap<EStructuralFeature, Object>();
+		if (reference.getEOpposite() != null) {
+			valueMap.put(reference.getEOpposite(), parent);
+		}
 		final IInitializerContext context = new IInitializerContext() {
 			@Override
 			public EObject getParent() {
@@ -3319,6 +3324,18 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			@Override
 			public void addCommand(Command command) {
 				cc.append(command);
+			}
+
+			@Override
+			public Map<EStructuralFeature, Object> getValueMap() {
+				return valueMap;
+			}
+
+			@Override
+			public void addSetCommand(EStructuralFeature feature, Object value) {
+				getValueMap().put(feature, value);
+				final Command command = SetCommand.create(getEditingDomain(), getObject(), feature, value);
+				addCommand(command);
 			}
 		};
 

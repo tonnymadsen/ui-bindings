@@ -147,7 +147,7 @@ public class TreePerformanceTest {
 				final Order o = ShopFactory.eINSTANCE.createOrder();
 				myNoShopObjs++;
 				o.setCustomer(cust);
-				o.setPrice(1000f);
+				o.setDiscount(1000f);
 			}
 		}
 

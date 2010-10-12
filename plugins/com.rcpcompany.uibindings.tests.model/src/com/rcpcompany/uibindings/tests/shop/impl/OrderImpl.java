@@ -226,6 +226,19 @@ public class OrderImpl extends MOAOImpl implements Order {
 	 * 
 	 * @generated
 	 */
+	public void setNo(int newNo) {
+		final int oldNo = no;
+		no = newNo;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.ORDER__NO, oldNo, no));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	@Override
 	public Shop getShop() {
 		if (eContainerFeatureID() != ShopPackage.ORDER__SHOP) return null;
@@ -323,7 +336,6 @@ public class OrderImpl extends MOAOImpl implements Order {
 	 * 
 	 * @generated NOT
 	 */
-	@Override
 	public void setPrice(float newPrice) {
 		if (getPrice() != newPrice) {
 			setPriceGen(newPrice);
@@ -502,6 +514,9 @@ public class OrderImpl extends MOAOImpl implements Order {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+		case ShopPackage.ORDER__NO:
+			setNo((Integer) newValue);
+			return;
 		case ShopPackage.ORDER__CUSTOMER:
 			setCustomer((Customer) newValue);
 			return;
@@ -527,6 +542,9 @@ public class OrderImpl extends MOAOImpl implements Order {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+		case ShopPackage.ORDER__NO:
+			setNo(NO_EDEFAULT);
+			return;
 		case ShopPackage.ORDER__CUSTOMER:
 			setCustomer((Customer) null);
 			return;

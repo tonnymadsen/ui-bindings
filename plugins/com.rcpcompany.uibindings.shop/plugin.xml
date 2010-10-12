@@ -447,6 +447,11 @@
                featureName="no"
                image="icons\order-16x16.png">
          </standardArguments>
+         <feature
+               name="no">
+            <standardArguments
+                  initializer="com.rcpcompany.uibindings.shop.initializers.OrderInitializer"></standardArguments>
+         </feature>
       </model>
       <model
             class="com.rcpcompany.uibindings.tests.shop.OrderItem">

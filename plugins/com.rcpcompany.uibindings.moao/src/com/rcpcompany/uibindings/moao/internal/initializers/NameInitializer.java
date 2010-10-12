@@ -1,9 +1,7 @@
 package com.rcpcompany.uibindings.moao.internal.initializers;
 
-import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.command.SetCommand;
 
 import com.rcpcompany.uibindings.IInitializer;
 import com.rcpcompany.uibindings.IInitializerContext;
@@ -26,7 +24,6 @@ public class NameInitializer implements IInitializer {
 
 		// TODO: possibly use validValues to check for exiting objects
 
-		final Command cmd = SetCommand.create(context.getEditingDomain(), obj, sf, label + (lastNo++));
-		context.addCommand(cmd);
+		context.addSetCommand(sf, label + (lastNo++));
 	}
 }
