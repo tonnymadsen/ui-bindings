@@ -89,7 +89,6 @@ import com.rcpcompany.uibindings.IValueBindingCell;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.bindingMessages.ValidationLabelDecorator;
-import com.rcpcompany.uibindings.internal.bindingDataTypes.BindingDataTypeFactory;
 import com.rcpcompany.uibindings.internal.observables.MyDetailObservableList;
 import com.rcpcompany.uibindings.internal.observables.properties.MySelectionProviderSingleSelectionProperty;
 import com.rcpcompany.uibindings.internal.utils.DoubleClickAdapter;
@@ -173,18 +172,20 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 
 	@Override
 	public IViewerBinding model(EObject object, EReference reference) {
+		assertTrue(object != null, "Object must be non-null");
 		assertTrue(reference != null, "Reference must be non-null");
 		assertTrue(reference.isMany(), "Reference for viewer must be to-many: " + reference.getName());
 		return model(UIBindingsEMFObservables.observeList(null, getEditingDomain(), object, reference),
-				BindingDataTypeFactory.create(reference));
+				IBindingDataType.Factory.create(object.eClass(), reference));
 	}
 
 	@Override
-	public IViewerBinding model(IObservableValue object, EReference reference) {
+	public IViewerBinding model(IObservableValue value, EReference reference) {
+		assertTrue(value != null, "Value must be non-null");
 		assertTrue(reference != null, "Reference must be non-null");
 		assertTrue(reference.isMany(), "Reference for viewer must be to-many: " + reference.getName());
-		return model(UIBindingsEMFObservables.observeDetailList(object, reference),
-				BindingDataTypeFactory.create(reference));
+		return model(UIBindingsEMFObservables.observeDetailList(value, reference),
+				IBindingDataType.Factory.create(value, reference));
 	}
 
 	@Override
@@ -559,7 +560,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		if (ref == null) return specs;
 		final EClass childType = ref.getEReferenceType();
 
-		final IBindingDataType dt = IBindingDataType.Factory.create(ref);
+		final IBindingDataType dt = IBindingDataType.Factory.create(parent, ref);
 
 		if (dt.getArgument(ARG_NEW_ALLOWED, null, Boolean.class, Boolean.TRUE)) {
 			addToChildCreationSpecification(specs, parent, ref, childType);
@@ -584,7 +585,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		/*
 		 * Allow the user to prevent the addition
 		 */
-		final IBindingDataType dt = IBindingDataType.Factory.create(childType);
+		final IBindingDataType dt = IBindingDataType.Factory.create(null, childType);
 
 		if (!childType.isAbstract() && !childType.isInterface()
 				&& dt.getArgument(ARG_NEW_ALLOWED, null, Boolean.class, Boolean.TRUE)) {

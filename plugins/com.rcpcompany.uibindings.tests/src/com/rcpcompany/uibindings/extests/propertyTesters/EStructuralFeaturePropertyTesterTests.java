@@ -22,17 +22,18 @@ public class EStructuralFeaturePropertyTesterTests {
 		assertOneLog(new Runnable() {
 			@Override
 			public void run() {
-				assertFalse(tester.test(ShopPackage.ORDER, Constants.PROPERTY_HAS_DEFAULT_VALUE, null, new Object[0]));
+				assertFalse(tester.test(ShopPackage.Literals.ORDER, Constants.PROPERTY_HAS_DEFAULT_VALUE, null,
+						new Object[0]));
 			}
 		});
 
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
-				assertFalse(tester.test(ShopPackage.ORDER__PRICE, Constants.PROPERTY_HAS_DEFAULT_VALUE, null,
+				assertFalse(tester.test(ShopPackage.Literals.ORDER__PRICE, Constants.PROPERTY_HAS_DEFAULT_VALUE, null,
 						new Object[0]));
-				assertTrue(tester.test(ShopPackage.ORDER__DISCOUNT, Constants.PROPERTY_HAS_DEFAULT_VALUE, null,
-						new Object[0]));
+				assertTrue(tester.test(ShopPackage.Literals.ORDER__DISCOUNT, Constants.PROPERTY_HAS_DEFAULT_VALUE,
+						null, new Object[0]));
 			}
 		});
 	}

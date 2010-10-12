@@ -3289,7 +3289,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	public Command initializeObject(final EObject parent, final EReference reference, final EObject child) {
 		if (child == null) return null;
 		final EClass eClass = child.eClass();
-		final IBindingDataType dt = IBindingDataType.Factory.create(eClass);
+		final IBindingDataType dt = IBindingDataType.Factory.create(null, eClass);
 
 		final IInitializer initializer = dt.getArgument(Constants.ARG_INITIALIZER, null, IInitializer.class, null);
 

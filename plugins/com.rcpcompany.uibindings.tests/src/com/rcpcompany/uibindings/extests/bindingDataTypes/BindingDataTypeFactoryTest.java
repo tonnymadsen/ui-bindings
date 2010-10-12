@@ -41,15 +41,15 @@ import com.rcpcompany.uibindings.internal.bindingDataTypes.JavaClassBindingDataT
 public class BindingDataTypeFactoryTest {
 	@Test
 	public void testCreateEClass() {
-		testCreate(TestModelPackage.Literals.TEST_OBJECT, EClassifierBindingDataType.class,
+		testCreate(null, TestModelPackage.Literals.TEST_OBJECT, EClassifierBindingDataType.class,
 				TestModelPackage.Literals.TEST_OBJECT.getName(), TestModelPackage.Literals.TEST_OBJECT,
 				TestObject.class);
 	}
 
 	@Test
 	public void testCreateInteger() {
-		testCreate(Integer.class, EClassifierBindingDataType.class, EcorePackage.Literals.EINTEGER_OBJECT.getName(),
-				EcorePackage.Literals.EINTEGER_OBJECT, Integer.class);
+		testCreate(null, Integer.class, EClassifierBindingDataType.class,
+				EcorePackage.Literals.EINTEGER_OBJECT.getName(), EcorePackage.Literals.EINTEGER_OBJECT, Integer.class);
 	}
 
 	enum COLOR {
@@ -58,26 +58,26 @@ public class BindingDataTypeFactoryTest {
 
 	@Test
 	public void testCreateNativeEnum() {
-		testCreate(COLOR.class, JavaClassBindingDataType.class, COLOR.class.getName(), null, COLOR.class);
+		testCreate(null, COLOR.class, JavaClassBindingDataType.class, COLOR.class.getName(), null, COLOR.class);
 	}
 
 	@Test
 	public void testCreateEnumLiteral() {
 		final EEnumLiteral literal = TestModelPackage.Literals.TIME_UNIT.getEEnumLiteralByLiteral("MIN");
 		assertNotNull(literal);
-		testCreate(literal, EEnumLiteralBindingDataType.class, "MIN", TestModelPackage.Literals.TIME_UNIT,
+		testCreate(null, literal, EEnumLiteralBindingDataType.class, "MIN", TestModelPackage.Literals.TIME_UNIT,
 				TimeUnit.class);
 	}
 
 	@Test
 	public void testCreateFeature() {
-		testCreate(TestModelPackage.Literals.TEST_OBJECT__NUMBER, EStructuralFeatureBindingDataType.class, "number",
-				EcorePackage.Literals.EINT, Integer.TYPE);
+		testCreate(null, TestModelPackage.Literals.TEST_OBJECT__NUMBER, EStructuralFeatureBindingDataType.class,
+				"number", EcorePackage.Literals.EINT, Integer.TYPE);
 	}
 
-	public void testCreate(Object element, Class<? extends IBindingDataType> dtClass, String name,
+	public void testCreate(Object context, Object element, Class<? extends IBindingDataType> dtClass, String name,
 			EClassifier classifier, Class<?> cls) {
-		final IBindingDataType dt = BindingDataTypeFactory.create(element);
+		final IBindingDataType dt = IBindingDataType.Factory.create(context, element);
 
 		assertNotNull(dt);
 		assertTrue(dtClass.isInstance(dt));
@@ -108,10 +108,13 @@ public class BindingDataTypeFactoryTest {
 				Notifier.class);
 	}
 
+	/*
+	 * TODO: add context
+	 */
 	private void testSuperType(EClassifier testClass, Class<?>... memberClasses) {
-		final IBindingDataType dt = BindingDataTypeFactory.create(testClass);
+		final IBindingDataType dt = IBindingDataType.Factory.create(null, testClass);
 		assertEquals(testClass, dt.getEType());
-		final IBindingDataType[] types = BindingDataTypeFactory.getSuperTypes(dt);
+		final IBindingDataType[] types = IBindingDataType.Factory.getSuperTypes(dt);
 		// for (final IBindingDataType t : types) {
 		// System.out.println(testClass.getName() + ": " + t.getDataType().getName());
 		// }

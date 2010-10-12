@@ -13,6 +13,7 @@ package com.rcpcompany.uibindings;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.core.databinding.observable.IObserving;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecore.EAnnotation;
@@ -69,12 +70,17 @@ public interface IBindingDataType extends EObject {
 		 * specified element.
 		 * <p>
 		 * The result is cached and reused.
+		 * <p>
+		 * The context is used to get a more accurate result when the element is a structural
+		 * feature - or something that evaluates to that.
 		 * 
+		 * @param context the context for the element - possibly <code>null</code>
 		 * @param element the element to return a data type for
+		 * 
 		 * @return the data type object or <code>null</code>
 		 */
-		public static IBindingDataType create(Object element) {
-			return BindingDataTypeFactory.create(element);
+		public static IBindingDataType create(Object context, Object element) {
+			return BindingDataTypeFactory.create(context, element);
 		}
 
 		/**
@@ -85,7 +91,8 @@ public interface IBindingDataType extends EObject {
 		 * @return the data type object or <code>null</code>
 		 */
 		public static IBindingDataType create(IObservableList list) {
-			return create(list.getElementType());
+			if (list instanceof IObserving) return create(((IObserving) list).getObserved(), list.getElementType());
+			return create(null, list.getElementType());
 		}
 
 		/**
@@ -96,7 +103,8 @@ public interface IBindingDataType extends EObject {
 		 * @return the data type object or <code>null</code>
 		 */
 		public static IBindingDataType create(IObservableValue value) {
-			return create(value.getValueType());
+			if (value instanceof IObserving) return create(((IObserving) value).getObserved(), value.getValueType());
+			return create(null, value.getValueType());
 		}
 
 		/**

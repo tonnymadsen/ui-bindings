@@ -94,7 +94,6 @@ import com.rcpcompany.uibindings.SpecialBinding;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.UIBindingsUtils.IClassIdentiferMapper;
-import com.rcpcompany.uibindings.internal.bindingDataTypes.BindingDataTypeFactory;
 import com.rcpcompany.uibindings.internal.cellEditors.SimpleCellEditorFactory;
 import com.rcpcompany.uibindings.internal.observables.ListIndexObservableValue;
 import com.rcpcompany.uibindings.observables.MapperObservableValue;
@@ -257,7 +256,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		assertTrue(factory != null, "No factory?"); //$NON-NLS-1$
 		assertTrue(type != null, "No type?"); //$NON-NLS-1$
 
-		return model(factory, BindingDataTypeFactory.create(type));
+		return model(factory, IBindingDataType.Factory.create(null, type));
 	}
 
 	@Override
@@ -265,7 +264,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		assertTrue(factory != null, "No factory?"); //$NON-NLS-1$
 		assertTrue(type != null, "No type?"); //$NON-NLS-1$
 
-		return model(factory, BindingDataTypeFactory.create(type));
+		return model(factory, IBindingDataType.Factory.create(factory, type));
 	}
 
 	@Override

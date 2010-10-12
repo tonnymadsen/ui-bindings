@@ -33,36 +33,39 @@ import com.rcpcompany.uibindings.internal.BindingDataTypeImpl;
  * @author Tonny Madsen, The RCP Company
  */
 public class EStructuralFeatureBindingDataType extends BindingDataTypeImpl {
-
-	private final EStructuralFeature myStructuralFeature;
 	private IBindingDataType myParent = null;
+
+	private final EClass myCls;
+	private final EStructuralFeature mySF;
 
 	/**
 	 * Constructs and returns a new data type for the specified feature.
 	 * 
+	 * @param cls the containing class or a sub-class or this
 	 * @param sf the feature
 	 */
-	public EStructuralFeatureBindingDataType(EStructuralFeature sf) {
-		myStructuralFeature = sf;
+	public EStructuralFeatureBindingDataType(EClass cls, EStructuralFeature sf) {
+		if (cls != null && sf.getEContainingClass().isSuperTypeOf(cls)) {
+			myCls = cls;
+		} else {
+			myCls = sf.getEContainingClass();
+		}
+		mySF = sf;
 	}
 
 	@Override
 	public <ArgumentType> void addParentDataTypeArguments(IArgumentContext<ArgumentType> context,
 			Collection<IBindingDataType> visitedDataTypes) {
-		if (myStructuralFeature instanceof EAttribute
-				&& !context.getArgumentInformation().isLookupAttributeContainingClass()) return;
-		if (myStructuralFeature instanceof EReference
-				&& !context.getArgumentInformation().isLookupReferenceContainingClass()) return;
+		if (mySF instanceof EAttribute && !context.getArgumentInformation().isLookupAttributeContainingClass()) return;
+		if (mySF instanceof EReference && !context.getArgumentInformation().isLookupReferenceContainingClass()) return;
 		super.addParentDataTypeArguments(context, visitedDataTypes);
 	}
 
 	@Override
 	public <ArgumentType> void addSuperDataTypeArguments(IArgumentContext<ArgumentType> context,
 			Collection<IBindingDataType> visitedDataTypes) {
-		if (myStructuralFeature instanceof EAttribute
-				&& !context.getArgumentInformation().isLookupAttributeTargetType()) return;
-		if (myStructuralFeature instanceof EReference
-				&& !context.getArgumentInformation().isLookupReferenceTargetType()) return;
+		if (mySF instanceof EAttribute && !context.getArgumentInformation().isLookupAttributeTargetType()) return;
+		if (mySF instanceof EReference && !context.getArgumentInformation().isLookupReferenceTargetType()) return;
 		super.addSuperDataTypeArguments(context, visitedDataTypes);
 	}
 
@@ -73,59 +76,57 @@ public class EStructuralFeatureBindingDataType extends BindingDataTypeImpl {
 
 	@Override
 	public EAnnotation getEAnnotation() {
-		return myStructuralFeature.getEAnnotation(Constants.EMF_ANNOTATION_SOURCE);
+		return mySF.getEAnnotation(Constants.EMF_ANNOTATION_SOURCE);
 	}
 
 	@Override
 	public IArgumentProvider getArgumentProvider(String type) {
 		final IManager manager = IManager.Factory.getManager();
-		final EClass eClass = myStructuralFeature.getEContainingClass();
-		manager.runModelArgumentMediators(eClass);
-		return manager.getModelFeatureInfo(eClass.getInstanceClassName(), myStructuralFeature.getName(), type, false);
+		manager.runModelArgumentMediators(myCls);
+		return manager.getModelFeatureInfo(myCls.getInstanceClassName(), mySF.getName(), type, false);
 	}
 
 	@Override
 	public Object getValueType() {
-		return myStructuralFeature;
+		return mySF;
 	}
 
 	@Override
 	public EClassifier getEType() {
-		return myStructuralFeature.getEType();
+		return mySF.getEType();
 	}
 
 	@Override
 	public String getName() {
-		return myStructuralFeature.getName();
+		return mySF.getName();
 	}
 
 	@Override
 	public IBindingDataType getParentDataType() {
 		if (myParent == null) {
-			myParent = BindingDataTypeFactory.create(myStructuralFeature.getEContainingClass());
+			myParent = IBindingDataType.Factory.create(null, myCls);
 		}
 		return myParent;
 	}
 
 	@Override
 	public boolean isRequired() {
-		return myStructuralFeature.isRequired();
+		return mySF.isRequired();
 	}
 
 	@Override
 	public boolean isChangeable() {
-		return myStructuralFeature.isChangeable()
-				&& !EcoreUtil.isSuppressedVisibility(myStructuralFeature, EcoreUtil.SET);
+		return mySF.isChangeable() && !EcoreUtil.isSuppressedVisibility(mySF, EcoreUtil.SET);
 	}
 
 	@Override
 	public boolean isUnsettable() {
-		return myStructuralFeature.isUnsettable();
+		return mySF.isUnsettable();
 	}
 
 	@Override
 	public String toString() {
-		return this.getClass().getSimpleName() + "[" + myStructuralFeature.getContainerClass().getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
-				+ myStructuralFeature.getName() + "]"; //$NON-NLS-1$
+		return this.getClass().getSimpleName() + "[" + mySF.getContainerClass().getName() + "." //$NON-NLS-1$ //$NON-NLS-2$
+				+ mySF.getName() + "]"; //$NON-NLS-1$
 	}
 }

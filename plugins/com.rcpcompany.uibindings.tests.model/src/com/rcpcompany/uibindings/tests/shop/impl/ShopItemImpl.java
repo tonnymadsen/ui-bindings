@@ -477,7 +477,8 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 			 * The null feature is on purpose - see DiagnosticChainTest
 			 */
 			EValidatorAdapterUtils.addError(diagnostics, ShopValidator.DIAGNOSTIC_SOURCE,
-					ShopValidator.SHOP_ITEM__NAME_OK, "Name not correct (at least two characters)", this, null);
+					ShopValidator.SHOP_ITEM__NAME_OK, "Name not correct (at least two characters)", this,
+					IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 			return false;
 		}
 		return true;

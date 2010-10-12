@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.runtime.IAdapterManager;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EClass;
@@ -46,42 +47,81 @@ public final class BindingDataTypeFactory {
 	 * specified element.
 	 * <p>
 	 * The result is cached and reused.
+	 * <p>
+	 * The context is used to get a more accurate result when the element is a structural feature -
+	 * or something that evaluates to that.
 	 * 
+	 * @param context the context of the element
 	 * @param element the element to return a data type for
 	 * @return the data type object or <code>null</code>
 	 */
-	public static IBindingDataType create(Object element) {
-		if (DATA_TYPE_MAPPING.containsKey(element)) return DATA_TYPE_MAPPING.get(element);
-
+	public static IBindingDataType create(Object context, Object element) {
 		EClassifier classifier = null;
 		IBindingDataType dt = null;
 		if (element instanceof EClassifier) {
+			if (DATA_TYPE_MAPPING.containsKey(element)) return DATA_TYPE_MAPPING.get(element);
 			dt = new EClassifierBindingDataType((EClassifier) element);
+			DATA_TYPE_MAPPING.put(element, dt);
 		} else if (element instanceof EStructuralFeature) {
-			dt = new EStructuralFeatureBindingDataType((EStructuralFeature) element);
+			final CSF csf = new CSF();
+			csf.eSF = (EStructuralFeature) element;
+			/*
+			 * Features are special: for these we use the context so, you can specify a specific
+			 * sub-classs for the feature.
+			 */
+			if (context instanceof IObservableValue) {
+				context = ((IObservableValue) context).getValue();
+			}
+			if (context instanceof EClass) {
+				csf.eCls = (EClass) context;
+			} else if (context instanceof Class) {
+				final EClassifier c = IBindingDataType.Factory.convertToClassifier((Class<?>) element);
+				if (c instanceof EClass) {
+					csf.eCls = (EClass) c;
+				}
+			} else {
+				csf.eCls = csf.eSF.getEContainingClass();
+			}
+
+			if (DATA_TYPE_MAPPING.containsKey(csf)) return DATA_TYPE_MAPPING.get(element);
+			dt = new EStructuralFeatureBindingDataType(csf.eCls, csf.eSF);
+
+			DATA_TYPE_MAPPING.put(csf, dt);
 		} else if (element instanceof EEnumLiteral) {
+			if (DATA_TYPE_MAPPING.containsKey(element)) return DATA_TYPE_MAPPING.get(element);
 			dt = new EEnumLiteralBindingDataType((EEnumLiteral) element);
+			DATA_TYPE_MAPPING.put(element, dt);
 		} else if (element instanceof Class<?>) {
+			if (DATA_TYPE_MAPPING.containsKey(element)) return DATA_TYPE_MAPPING.get(element);
 			/*
 			 * Try to look up the instance class to find a proper EClassifier
 			 */
 			classifier = IBindingDataType.Factory.convertToClassifier((Class<?>) element);
 			if (classifier != null) {
-				dt = create(classifier);
+				dt = create(null, classifier);
+				DATA_TYPE_MAPPING.put(classifier, dt);
 			} else {
 				dt = new JavaClassBindingDataType((Class<?>) element);
 			}
+			DATA_TYPE_MAPPING.put(element, dt);
 		} else if (element == null) {
-			dt = create(EcorePackage.Literals.EJAVA_OBJECT);
+			if (DATA_TYPE_MAPPING.containsKey(element)) return DATA_TYPE_MAPPING.get(element);
+			dt = create(null, EcorePackage.Literals.EJAVA_OBJECT);
+			DATA_TYPE_MAPPING.put(element, dt);
 		} else {
 			LogUtils.error(element, "No IBindingDataType for " + element); //$NON-NLS-1$
 			dt = null;
 		}
-		DATA_TYPE_MAPPING.put(element, dt);
-		if (classifier != null) {
-			DATA_TYPE_MAPPING.put(classifier, dt);
-		}
 		return dt;
+	}
+
+	/**
+	 * Data object used as key in {@link BindingDataTypeFactory#DATA_TYPE_MAPPING} for structural
+	 * features.
+	 */
+	private static class CSF {
+		public EClass eCls;
+		public EStructuralFeature eSF;
 	}
 
 	/**
@@ -161,10 +201,10 @@ public final class BindingDataTypeFactory {
 			final List<IBindingDataType> dtList = new ArrayList<IBindingDataType>();
 			final EClassifier classifier = dt.getEType();
 			if (classifier != null) {
-				dtList.add(BindingDataTypeFactory.create(classifier));
+				dtList.add(create(null, classifier));
 				if (classifier instanceof EClass) {
 					for (final EClass e : ((EClass) classifier).getEAllSuperTypes()) {
-						dtList.add(BindingDataTypeFactory.create(e));
+						dtList.add(create(null, e));
 					}
 				}
 			}
@@ -180,7 +220,7 @@ public final class BindingDataTypeFactory {
 				if (drop) {
 					continue;
 				}
-				dtList.add(BindingDataTypeFactory.create(c));
+				dtList.add(create(null, c));
 			}
 			dts = dtList.toArray(new IBindingDataType[dtList.size()]);
 			SUPER_TYPE_MAPPING.put(dt, dts);

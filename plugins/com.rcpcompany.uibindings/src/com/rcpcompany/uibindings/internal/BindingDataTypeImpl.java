@@ -29,7 +29,6 @@ import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.internal.BindingImpl.ArgumentValue;
-import com.rcpcompany.uibindings.internal.bindingDataTypes.BindingDataTypeFactory;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Binding Data Type</b></em>
@@ -93,7 +92,7 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	public <ArgumentType> void addSuperDataTypeArguments(final IArgumentContext<ArgumentType> context,
 			Collection<IBindingDataType> visitedDataTypes) {
 
-		for (final IBindingDataType dt : BindingDataTypeFactory.getSuperTypes(this)) {
+		for (final IBindingDataType dt : IBindingDataType.Factory.getSuperTypes(this)) {
 			if (visitedDataTypes.contains(dt)) {
 				continue;
 			}

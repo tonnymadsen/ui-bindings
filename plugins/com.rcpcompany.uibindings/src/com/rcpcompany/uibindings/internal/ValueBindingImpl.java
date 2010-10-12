@@ -65,7 +65,6 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IValueBindingCell;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
-import com.rcpcompany.uibindings.internal.bindingDataTypes.BindingDataTypeFactory;
 import com.rcpcompany.uibindings.uiAttributes.SimpleUIAttribute;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -125,15 +124,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			 * This will use the value type of the inner observable, if set...
 			 */
 			IBindingDataType dt = null;
-			if (ov instanceof IObservableValue) {
-				final Object valueType = (ov).getValueType();
-				dt = BindingDataTypeFactory.create(valueType);
-			}
-
-			/*
-			 * The current value
-			 */
 			final Object v = ov.getValue();
+			dt = IBindingDataType.Factory.create(ov);
 
 			/*
 			 * If we have both a value and the data type from the OV, AND the two agree exactly,
@@ -146,7 +138,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			/*
 			 * Use the real type of the current value... if set...
 			 */
-			if (v != null) return BindingDataTypeFactory.create(v.getClass());
+			if (v != null) return IBindingDataType.Factory.create(null, v.getClass());
 
 			/*
 			 * If we have the data type, then use this...
@@ -359,7 +351,9 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 	@Override
 	public IValueBinding model(EObject object, EStructuralFeature feature) {
-		setStaticDataType(BindingDataTypeFactory.create(feature));
+		assertTrue(object != null, "Object must be non-null");
+		assertTrue(feature != null, "Feature must be non-null");
+		setStaticDataType(IBindingDataType.Factory.create(object.eClass(), feature));
 		if (!feature.isMany()) {
 			setModelObservable(UIBindingsEMFObservables.observeValue(null, getEditingDomain(), object, feature));
 		} else {
@@ -370,11 +364,13 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	}
 
 	@Override
-	public IValueBinding model(IObservableValue modelObject, EStructuralFeature feature) {
-		setStaticDataType(BindingDataTypeFactory.create(feature));
+	public IValueBinding model(IObservableValue value, EStructuralFeature feature) {
+		assertTrue(value != null, "Value must be non-null");
+		assertTrue(feature != null, "Feature must be non-null");
+		setStaticDataType(IBindingDataType.Factory.create(value, feature));
 		if (!feature.isMany()) {
-			setModelObservable(UIBindingsEMFObservables.observeDetailValue(modelObject.getRealm(), getEditingDomain(),
-					modelObject, feature));
+			setModelObservable(UIBindingsEMFObservables.observeDetailValue(value.getRealm(), getEditingDomain(), value,
+					feature));
 		} else {
 			// TODO setModelObservable( UIBindingsEMFObservables.observeDetailList(modelObject,
 			// feature));
