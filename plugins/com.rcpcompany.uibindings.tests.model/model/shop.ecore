@@ -97,13 +97,21 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Order" eSuperTypes="../../com.rcpcompany.uibindings.moao/model/moao.ecore#//MOAO">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="no" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        changeable="false" iD="true"/>
+        iD="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedSetVisibility" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="shop" lowerBound="1" eType="#//Shop"
         changeable="false" derived="true" resolveProxies="false" eOpposite="#//Shop/orders"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="customer" eType="#//Customer"
         resolveProxies="false" eOpposite="#//Customer/orders"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
-        transient="true"/>
+        transient="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedSetVisibility" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="2" eType="#//OrderItem"
         containment="true" resolveProxies="false" eOpposite="#//OrderItem/order" eKeys="#//OrderItem/no"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="discount" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EFloat"

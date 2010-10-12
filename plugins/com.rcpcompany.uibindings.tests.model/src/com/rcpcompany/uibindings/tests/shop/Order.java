@@ -97,21 +97,10 @@ public interface Order extends IMOAO {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the value of the '<em>Price</em>' attribute.
-	 * @see #setPrice(float)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getOrder_Price()
 	 * @generated
 	 */
 	float getPrice();
-
-	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Order#getPrice
-	 * <em>Price</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value the new value of the '<em>Price</em>' attribute.
-	 * @see #getPrice()
-	 * @generated
-	 */
-	void setPrice(float value);
 
 	/**
 	 * Returns the value of the '<em><b>Items</b></em>' containment reference list. The list
