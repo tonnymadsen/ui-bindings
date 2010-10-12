@@ -38,6 +38,8 @@ import com.rcpcompany.utils.extensionpoints.CEResourceHolder;
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorPartDescriptorImpl#getModelTypes
  * <em>Model Types</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorPartDescriptorImpl#getTreeItemIDs
+ * <em>Tree Item IDs</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorPartDescriptorImpl#getPriority <em>
  * Priority</em>}</li>
  * <li>
@@ -105,6 +107,16 @@ public class EditorPartDescriptorImpl extends EObjectImpl implements IEditorPart
 	 * @ordered
 	 */
 	protected EList<String> modelTypes;
+
+	/**
+	 * The cached value of the '{@link #getTreeItemIDs() <em>Tree Item IDs</em>}' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getTreeItemIDs()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> treeItemIDs;
 
 	/**
 	 * The default value of the '{@link #getPriority() <em>Priority</em>}' attribute. <!--
@@ -234,9 +246,10 @@ public class EditorPartDescriptorImpl extends EObjectImpl implements IEditorPart
 	public void setId(String newId) {
 		final String oldId = id;
 		id = newId;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, INavigatorModelPackage.EDITOR_PART_DESCRIPTOR__ID,
 					oldId, id));
+		}
 	}
 
 	/**
@@ -258,9 +271,10 @@ public class EditorPartDescriptorImpl extends EObjectImpl implements IEditorPart
 	public void setName(String newName) {
 		final String oldName = name;
 		name = newName;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, INavigatorModelPackage.EDITOR_PART_DESCRIPTOR__NAME,
 					oldName, name));
+		}
 	}
 
 	/**
@@ -283,6 +297,20 @@ public class EditorPartDescriptorImpl extends EObjectImpl implements IEditorPart
 	 * @generated
 	 */
 	@Override
+	public EList<String> getTreeItemIDs() {
+		if (treeItemIDs == null) {
+			treeItemIDs = new EDataTypeUniqueEList<String>(String.class, this,
+					INavigatorModelPackage.EDITOR_PART_DESCRIPTOR__TREE_ITEM_IDS);
+		}
+		return treeItemIDs;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public int getPriority() {
 		return priority;
 	}
@@ -296,9 +324,10 @@ public class EditorPartDescriptorImpl extends EObjectImpl implements IEditorPart
 	public void setPriority(int newPriority) {
 		final int oldPriority = priority;
 		priority = newPriority;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET,
 					INavigatorModelPackage.EDITOR_PART_DESCRIPTOR__PRIORITY, oldPriority, priority));
+		}
 	}
 
 	/**
@@ -320,9 +349,10 @@ public class EditorPartDescriptorImpl extends EObjectImpl implements IEditorPart
 	public void setFallbackEditor(boolean newFallbackEditor) {
 		final boolean oldFallbackEditor = fallbackEditor;
 		fallbackEditor = newFallbackEditor;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET,
 					INavigatorModelPackage.EDITOR_PART_DESCRIPTOR__FALLBACK_EDITOR, oldFallbackEditor, fallbackEditor));
+		}
 	}
 
 	/**
@@ -344,9 +374,10 @@ public class EditorPartDescriptorImpl extends EObjectImpl implements IEditorPart
 	public void setFactory(CEObjectHolder<IEditorPartFactory> newFactory) {
 		final CEObjectHolder<IEditorPartFactory> oldFactory = factory;
 		factory = newFactory;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET,
 					INavigatorModelPackage.EDITOR_PART_DESCRIPTOR__FACTORY, oldFactory, factory));
+		}
 	}
 
 	/**
@@ -368,9 +399,10 @@ public class EditorPartDescriptorImpl extends EObjectImpl implements IEditorPart
 	public void setImage(CEResourceHolder newImage) {
 		final CEResourceHolder oldImage = image;
 		image = newImage;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, INavigatorModelPackage.EDITOR_PART_DESCRIPTOR__IMAGE,
 					oldImage, image));
+		}
 	}
 
 	/**
@@ -392,10 +424,11 @@ public class EditorPartDescriptorImpl extends EObjectImpl implements IEditorPart
 	public void setEnabledWhenExpression(Expression newEnabledWhenExpression) {
 		final Expression oldEnabledWhenExpression = enabledWhenExpression;
 		enabledWhenExpression = newEnabledWhenExpression;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET,
 					INavigatorModelPackage.EDITOR_PART_DESCRIPTOR__ENABLED_WHEN_EXPRESSION, oldEnabledWhenExpression,
 					enabledWhenExpression));
+		}
 	}
 
 	/**
@@ -412,6 +445,8 @@ public class EditorPartDescriptorImpl extends EObjectImpl implements IEditorPart
 			return getName();
 		case INavigatorModelPackage.EDITOR_PART_DESCRIPTOR__MODEL_TYPES:
 			return getModelTypes();
+		case INavigatorModelPackage.EDITOR_PART_DESCRIPTOR__TREE_ITEM_IDS:
+			return getTreeItemIDs();
 		case INavigatorModelPackage.EDITOR_PART_DESCRIPTOR__PRIORITY:
 			return getPriority();
 		case INavigatorModelPackage.EDITOR_PART_DESCRIPTOR__FALLBACK_EDITOR:
@@ -444,6 +479,10 @@ public class EditorPartDescriptorImpl extends EObjectImpl implements IEditorPart
 		case INavigatorModelPackage.EDITOR_PART_DESCRIPTOR__MODEL_TYPES:
 			getModelTypes().clear();
 			getModelTypes().addAll((Collection<? extends String>) newValue);
+			return;
+		case INavigatorModelPackage.EDITOR_PART_DESCRIPTOR__TREE_ITEM_IDS:
+			getTreeItemIDs().clear();
+			getTreeItemIDs().addAll((Collection<? extends String>) newValue);
 			return;
 		case INavigatorModelPackage.EDITOR_PART_DESCRIPTOR__PRIORITY:
 			setPriority((Integer) newValue);
@@ -481,6 +520,9 @@ public class EditorPartDescriptorImpl extends EObjectImpl implements IEditorPart
 		case INavigatorModelPackage.EDITOR_PART_DESCRIPTOR__MODEL_TYPES:
 			getModelTypes().clear();
 			return;
+		case INavigatorModelPackage.EDITOR_PART_DESCRIPTOR__TREE_ITEM_IDS:
+			getTreeItemIDs().clear();
+			return;
 		case INavigatorModelPackage.EDITOR_PART_DESCRIPTOR__PRIORITY:
 			setPriority(PRIORITY_EDEFAULT);
 			return;
@@ -514,6 +556,8 @@ public class EditorPartDescriptorImpl extends EObjectImpl implements IEditorPart
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case INavigatorModelPackage.EDITOR_PART_DESCRIPTOR__MODEL_TYPES:
 			return modelTypes != null && !modelTypes.isEmpty();
+		case INavigatorModelPackage.EDITOR_PART_DESCRIPTOR__TREE_ITEM_IDS:
+			return treeItemIDs != null && !treeItemIDs.isEmpty();
 		case INavigatorModelPackage.EDITOR_PART_DESCRIPTOR__PRIORITY:
 			return priority != PRIORITY_EDEFAULT;
 		case INavigatorModelPackage.EDITOR_PART_DESCRIPTOR__FALLBACK_EDITOR:
@@ -545,6 +589,8 @@ public class EditorPartDescriptorImpl extends EObjectImpl implements IEditorPart
 		result.append(name);
 		result.append(", modelTypes: ");
 		result.append(modelTypes);
+		result.append(", treeItemIDs: ");
+		result.append(treeItemIDs);
 		result.append(", priority: ");
 		result.append(priority);
 		result.append(", fallbackEditor: ");

@@ -21,7 +21,7 @@ import org.eclipse.ui.IWorkbenchPreferencePage;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IModelClassInfo;
-import com.rcpcompany.uibindings.navigator.IEditorModelType;
+import com.rcpcompany.uibindings.navigator.IEditorInformation;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.internal.Activator;
@@ -52,7 +52,7 @@ public class PreferredEditorPage extends FieldEditorPreferencePage implements IW
 
 		final IManager uim = IManager.Factory.getManager();
 		for (final CEObjectHolder<EObject> pmt : manager.getPreferenceModelTypes()) {
-			final IEditorModelType mt = manager.getModelType(pmt.getObjectClass());
+			final IEditorInformation mt = manager.getEditorInformation(pmt.getObjectClass());
 
 			final String[][] translation = new String[mt.getEditors().size()][];
 			for (int i = 0; i < translation.length; i++) {

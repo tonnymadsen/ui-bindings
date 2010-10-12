@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
-import com.rcpcompany.uibindings.navigator.IEditorModelType;
+import com.rcpcompany.uibindings.navigator.IEditorInformation;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.INavigatorModelPackage;
@@ -41,22 +41,22 @@ public class NavigatorTestUtils {
 		manager.eUnset(INavigatorModelPackage.Literals.NAVIGATOR_MANAGER__USE_GENERIC_EDITOR_PART_FALLBACK);
 
 		manager.closeAllViews();
-		for (final IEditorModelType mt : manager.getModelTypes().toArray(new IEditorModelType[0])) {
+		for (final IEditorInformation mt : manager.getEditorInformations().toArray(new IEditorInformation[0])) {
 			mt.setPreferredEditor(mt.getEditors().get(0));
 		}
 	}
 
 	/**
-	 * Returns the {@link IEditorModelType} for the specified class.
+	 * Returns the {@link IEditorInformation} for the specified class.
 	 * <p>
 	 * May fail.
 	 * 
 	 * @param cls the class of the model object
 	 * @return the model type
 	 */
-	public static IEditorModelType findModelType(Class<?> cls) {
+	public static IEditorInformation findEditorInformation(Class<?> cls) {
 		final INavigatorManager manager = INavigatorManager.Factory.getManager();
-		for (final IEditorModelType mt : manager.getModelTypes()) {
+		for (final IEditorInformation mt : manager.getEditorInformations()) {
 			if (mt.getModelType().equals(cls.getName())) return mt;
 		}
 
@@ -74,7 +74,7 @@ public class NavigatorTestUtils {
 	 * @return the editor part
 	 */
 	public static IEditorPartDescriptor findDescriptor(Class<?> cls, String id) {
-		final IEditorModelType mt = findModelType(cls);
+		final IEditorInformation mt = findEditorInformation(cls);
 		for (final IEditorPartDescriptor d : mt.getEditors()) {
 			if (d.getId().equals(id)) return d;
 		}
@@ -92,18 +92,18 @@ public class NavigatorTestUtils {
 	 * @param id the id of the editor part
 	 */
 	public static void setPreferred(Class<?> cls, String id) {
-		final IEditorModelType mt = findModelType(cls);
+		final IEditorInformation mt = findEditorInformation(cls);
 		final IEditorPartDescriptor d = findDescriptor(cls, id);
 		mt.setPreferredEditor(d);
 	}
 
-	public static IEditorModelType getMultipleEditorModelType() {
+	public static IEditorInformation getMultipleEditorModelType() {
 		final INavigatorManager manager = INavigatorManager.Factory.getManager();
 		for (final CEObjectHolder<EObject> h : manager.getPreferenceModelTypes()) {
-			final IEditorModelType mt = manager.getModelType(h.getObjectClass());
+			final IEditorInformation mt = manager.getEditorInformation(h.getObjectClass());
 			if (mt.getEditors().size() > 1) return mt;
 		}
-		fail("no EditorModelType found with multiple editors");
+		fail("no EditorInformation found with multiple editors");
 		return null;
 	}
 }

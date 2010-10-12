@@ -81,6 +81,14 @@
       <preferenceModelType
             modelType="com.rcpcompany.uibindings.tests.shop.ShopItemGroup">
       </preferenceModelType>
+      <editor
+            factory="com.rcpcompany.uibindings.navigator.editorFactories.GenericPlainFormEditorPartFactory"
+            id="com.rcpcompany.uibindings.navigator.extests.editors.GenericPlainFormEditorPartFactoryTests"
+            name="Test (com.rcpcompany.uibindings.shop.treeItems.contactFolder)">
+         <treeItem
+               id="com.rcpcompany.uibindings.shop.treeItems.contactFolder">
+         </treeItem>
+      </editor>
    </extension>
    <extension
          point="org.eclipse.ui.views">

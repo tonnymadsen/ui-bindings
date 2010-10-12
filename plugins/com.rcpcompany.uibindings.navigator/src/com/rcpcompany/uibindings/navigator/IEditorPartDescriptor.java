@@ -28,6 +28,8 @@ import com.rcpcompany.utils.extensionpoints.CEResourceHolder;
  * <li>{@link com.rcpcompany.uibindings.navigator.IEditorPartDescriptor#getName <em>Name</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.navigator.IEditorPartDescriptor#getModelTypes <em>Model
  * Types</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.navigator.IEditorPartDescriptor#getTreeItemIDs <em>Tree Item
+ * IDs</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.navigator.IEditorPartDescriptor#getPriority <em>Priority
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.navigator.IEditorPartDescriptor#isFallbackEditor <em>
@@ -110,6 +112,21 @@ public interface IEditorPartDescriptor extends EObject {
 	 * @generated
 	 */
 	EList<String> getModelTypes();
+
+	/**
+	 * Returns the value of the '<em><b>Tree Item IDs</b></em>' attribute list. The list contents
+	 * are of type {@link java.lang.String}. <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Tree Item IDs</em>' attribute list isn't clear, there really
+	 * should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Tree Item IDs</em>' attribute list.
+	 * @see com.rcpcompany.uibindings.navigator.INavigatorModelPackage#getEditorPartDescriptor_TreeItemIDs()
+	 * @generated
+	 */
+	EList<String> getTreeItemIDs();
 
 	/**
 	 * Returns the value of the '<em><b>Priority</b></em>' attribute. <!-- begin-user-doc -->

@@ -18,7 +18,7 @@ import org.eclipse.jface.preference.IPreferenceStore;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.rcpcompany.uibindings.navigator.IEditorModelType;
+import com.rcpcompany.uibindings.navigator.IEditorInformation;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.extests.NavigatorTestUtils;
@@ -45,7 +45,7 @@ public class PreferenceTests {
 		final INavigatorManager manager = INavigatorManager.Factory.getManager();
 
 		for (final CEObjectHolder<EObject> pmt : manager.getPreferenceModelTypes()) {
-			final IEditorModelType mt = manager.getModelType(pmt.getObjectClass());
+			final IEditorInformation mt = manager.getEditorInformation(pmt.getObjectClass());
 
 			final String c = mt.getModelType();
 			final String def = ps.getDefaultString(c);
@@ -69,7 +69,7 @@ public class PreferenceTests {
 		/*
 		 * Find the model type with multiple editors.
 		 */
-		final IEditorModelType mt = NavigatorTestUtils.getMultipleEditorModelType();
+		final IEditorInformation mt = NavigatorTestUtils.getMultipleEditorModelType();
 
 		final IEditorPartDescriptor first = mt.getEditors().get(0);
 		final IEditorPartDescriptor second = mt.getEditors().get(1);
@@ -108,7 +108,7 @@ public class PreferenceTests {
 		/*
 		 * Find the model type with multiple editors.
 		 */
-		final IEditorModelType mt = NavigatorTestUtils.getMultipleEditorModelType();
+		final IEditorInformation mt = NavigatorTestUtils.getMultipleEditorModelType();
 
 		final IEditorPartDescriptor first = mt.getEditors().get(0);
 		final IEditorPartDescriptor second = mt.getEditors().get(1);

@@ -21,13 +21,15 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.EList;
 import org.junit.Test;
 
-import com.rcpcompany.uibindings.IConstantTreeItem;
-import com.rcpcompany.uibindings.navigator.IEditorModelType;
+import com.rcpcompany.uibindings.IManager;
+import com.rcpcompany.uibindings.ITreeItemDescriptor;
+import com.rcpcompany.uibindings.navigator.IEditorInformation;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.internal.NavigatorConstants;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests the basic properties of the {@link IEditorManager}.
@@ -68,15 +70,14 @@ public class NavigatorModelManagerTest {
 		assertNotNull(editors);
 		assertEquals(8, editors.size());
 
-		final EList<IEditorModelType> modelTypes = manager.getModelTypes();
-		assertNotNull(modelTypes);
-		assertEquals(5, modelTypes.size());
+		final EList<IEditorInformation> eis = manager.getEditorInformations();
+		assertNotNull(eis);
+		assertEquals(4, eis.size());
 
 		boolean shopSeen = false;
 		boolean countrySeen = false;
-		boolean iConstantTreeItemSeen = false;
 
-		for (final IEditorModelType mt : manager.getModelTypes()) {
+		for (final IEditorInformation mt : manager.getEditorInformations()) {
 			if (mt.getModelType().equals(Shop.class.getName())) {
 				assertEquals(Shop.class.getName(), mt.getModelType());
 				final EList<IEditorPartDescriptor> shopEditors = mt.getEditors();
@@ -92,19 +93,32 @@ public class NavigatorModelManagerTest {
 				assertEquals("Generic Information (country)", countryED.getName());
 				countrySeen = true;
 			}
-			if (mt.getModelType().equals(IConstantTreeItem.class.getName())) {
-				assertEquals(IConstantTreeItem.class.getName(), mt.getModelType());
-				final EList<IEditorPartDescriptor> countryEditors = mt.getEditors();
-				assertEquals(1, countryEditors.size());
-				final IEditorPartDescriptor countryED = countryEditors.get(0);
-				assertNotNull(countryED.getFactory());
-				assertEquals("Empty Container", countryED.getName());
-				iConstantTreeItemSeen = true;
-			}
 		}
 
 		assertTrue(shopSeen);
 		assertTrue(countrySeen);
-		assertTrue(iConstantTreeItemSeen);
+	}
+
+	/**
+	 * Tests {@link INavigatorManager#getEditorInformation(String)}.
+	 */
+	@Test
+	public void testGetInformationContainer() {
+		final IManager manager = IManager.Factory.getManager();
+		final INavigatorManager nmanager = INavigatorManager.Factory.getManager();
+
+		assertNotNull(manager.getTreeItem("com.rcpcompany.uibindings.shop.treeItems.contactFolder"));
+		for (final ITreeItemDescriptor i : manager.getTreeItems()) {
+			LogUtils.debug(this, "i: " + i.getId());
+		}
+
+		final IEditorInformation i = nmanager
+				.getEditorInformation("com.rcpcompany.uibindings.shop.treeItems.contactFolder");
+		assertNotNull(i);
+
+		assertEquals(1, i.getEditors().size());
+
+		final IEditorPartDescriptor desc = i.getEditors().get(0);
+		assertEquals("Test (com.rcpcompany.uibindings.shop.treeItems.contactFolder)", desc.getName());
 	}
 }

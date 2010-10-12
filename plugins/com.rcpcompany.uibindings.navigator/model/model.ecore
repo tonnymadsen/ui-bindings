@@ -6,8 +6,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="NavigatorManager">
     <eStructuralFeatures xsi:type="ecore:EReference" name="descriptors" upperBound="-1"
         eType="#//EditorPartDescriptor" containment="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="modelTypes" upperBound="-1"
-        eType="#//EditorModelType" transient="true" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="editorInformations" upperBound="-1"
+        eType="#//EditorInformation" transient="true" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="useGenericEditorPartFallback"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
@@ -22,18 +22,22 @@
       </eGenericType>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EditorModelType">
+  <eClassifiers xsi:type="ecore:EClass" name="EditorInformation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="editors" upperBound="-1"
         eType="#//EditorPartDescriptor" transient="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="preferredEditor" eType="#//EditorPartDescriptor"
         transient="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelType" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="treeItemID" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EditorPartDescriptor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelTypes" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="treeItemIDs" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -54,9 +58,9 @@
       abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="IEditorPartView" instanceClassName="com.rcpcompany.uibindings.navigator.IEditorPartView"
       abstract="true" interface="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="StringToModelTypeMapEntry" instanceClassName="java.util.Map$Entry">
+  <eClassifiers xsi:type="ecore:EClass" name="StringToEditorInformationMapEntry" instanceClassName="java.util.Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//EditorModelType"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//EditorInformation"
         transient="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Expression" instanceClassName="org.eclipse.core.expressions.Expression"

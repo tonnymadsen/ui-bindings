@@ -54,7 +54,8 @@ public interface NavigatorConstants {
 	String FACTORY_TAG = "factory";
 	String CLASS_TAG = "class";
 	String PREFERENCE_MODEL_TYPE_TAG = "preferenceModelType";
-	String ENABLED_WHEN_TAG = "ENABLEDwHEN";
+	String ENABLED_WHEN_TAG = "enabledWhen";
+	String TREE_ITEM_TAG = "treeItem";
 
 	/**
 	 * Command ID for the "Select Editor..." command.
@@ -65,4 +66,5 @@ public interface NavigatorConstants {
 	 * Parameter ID for the <code>editorID</code> parameter of {@link #SELECT_EDITOR_PART_COMMAND}.
 	 */
 	String EDITOR_ID_PARAMETER = "editorID";
+
 }

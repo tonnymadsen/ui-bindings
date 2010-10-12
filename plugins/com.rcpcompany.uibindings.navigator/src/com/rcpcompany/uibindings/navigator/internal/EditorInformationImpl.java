@@ -29,7 +29,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.services.IEvaluationService;
 
-import com.rcpcompany.uibindings.navigator.IEditorModelType;
+import com.rcpcompany.uibindings.navigator.IEditorInformation;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.INavigatorModelPackage;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -40,18 +40,20 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorModelTypeImpl#getEditors <em>
+ * <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorInformationImpl#getEditors <em>
  * Editors</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorModelTypeImpl#getPreferredEditor
+ * <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorInformationImpl#getPreferredEditor
  * <em>Preferred Editor</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorModelTypeImpl#getModelType <em>
+ * <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorInformationImpl#getModelType <em>
  * Model Type</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.navigator.internal.EditorInformationImpl#getTreeItemID <em>
+ * Tree Item ID</em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType {
+public class EditorInformationImpl extends EObjectImpl implements IEditorInformation {
 	/**
 	 * The cached value of the '{@link #getEditors() <em>Editors</em>}' reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -93,11 +95,31 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 	protected String modelType = MODEL_TYPE_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getTreeItemID() <em>Tree Item ID</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getTreeItemID()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TREE_ITEM_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTreeItemID() <em>Tree Item ID</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getTreeItemID()
+	 * @generated
+	 * @ordered
+	 */
+	protected String treeItemID = TREE_ITEM_ID_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	protected EditorModelTypeImpl() {
+	protected EditorInformationImpl() {
 		super();
 	}
 
@@ -108,7 +130,7 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return INavigatorModelPackage.Literals.EDITOR_MODEL_TYPE;
+		return INavigatorModelPackage.Literals.EDITOR_INFORMATION;
 	}
 
 	/**
@@ -120,7 +142,7 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 	public EList<IEditorPartDescriptor> getEditors() {
 		if (editors == null) {
 			editors = new EObjectEList<IEditorPartDescriptor>(IEditorPartDescriptor.class, this,
-					INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS);
+					INavigatorModelPackage.EDITOR_INFORMATION__EDITORS);
 		}
 		return editors;
 	}
@@ -172,15 +194,24 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 		setPreferredEditorGen(newPreferredEditor);
 
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-		ps.setValue(getModelType(), getPreferredEditor().getId());
+		String key = getModelType();
+		if (key == null) {
+			key = getTreeItemID();
+		}
+		ps.setValue(key, getPreferredEditor().getId());
 	}
 
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public void setPreferredEditorGen(IEditorPartDescriptor newPreferredEditor) {
 		final IEditorPartDescriptor oldPreferredEditor = preferredEditor;
 		preferredEditor = newPreferredEditor;
 		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					INavigatorModelPackage.EDITOR_MODEL_TYPE__PREFERRED_EDITOR, oldPreferredEditor, preferredEditor));
+					INavigatorModelPackage.EDITOR_INFORMATION__PREFERRED_EDITOR, oldPreferredEditor, preferredEditor));
 		}
 	}
 
@@ -204,8 +235,33 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 		final String oldModelType = modelType;
 		modelType = newModelType;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE,
-					oldModelType, modelType));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					INavigatorModelPackage.EDITOR_INFORMATION__MODEL_TYPE, oldModelType, modelType));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String getTreeItemID() {
+		return treeItemID;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setTreeItemID(String newTreeItemID) {
+		final String oldTreeItemID = treeItemID;
+		treeItemID = newTreeItemID;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					INavigatorModelPackage.EDITOR_INFORMATION__TREE_ITEM_ID, oldTreeItemID, treeItemID));
 		}
 	}
 
@@ -217,12 +273,14 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS:
+		case INavigatorModelPackage.EDITOR_INFORMATION__EDITORS:
 			return getEditors();
-		case INavigatorModelPackage.EDITOR_MODEL_TYPE__PREFERRED_EDITOR:
+		case INavigatorModelPackage.EDITOR_INFORMATION__PREFERRED_EDITOR:
 			return getPreferredEditor();
-		case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE:
+		case INavigatorModelPackage.EDITOR_INFORMATION__MODEL_TYPE:
 			return getModelType();
+		case INavigatorModelPackage.EDITOR_INFORMATION__TREE_ITEM_ID:
+			return getTreeItemID();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -236,15 +294,18 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS:
+		case INavigatorModelPackage.EDITOR_INFORMATION__EDITORS:
 			getEditors().clear();
 			getEditors().addAll((Collection<? extends IEditorPartDescriptor>) newValue);
 			return;
-		case INavigatorModelPackage.EDITOR_MODEL_TYPE__PREFERRED_EDITOR:
+		case INavigatorModelPackage.EDITOR_INFORMATION__PREFERRED_EDITOR:
 			setPreferredEditor((IEditorPartDescriptor) newValue);
 			return;
-		case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE:
+		case INavigatorModelPackage.EDITOR_INFORMATION__MODEL_TYPE:
 			setModelType((String) newValue);
+			return;
+		case INavigatorModelPackage.EDITOR_INFORMATION__TREE_ITEM_ID:
+			setTreeItemID((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -258,14 +319,17 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS:
+		case INavigatorModelPackage.EDITOR_INFORMATION__EDITORS:
 			getEditors().clear();
 			return;
-		case INavigatorModelPackage.EDITOR_MODEL_TYPE__PREFERRED_EDITOR:
+		case INavigatorModelPackage.EDITOR_INFORMATION__PREFERRED_EDITOR:
 			setPreferredEditor((IEditorPartDescriptor) null);
 			return;
-		case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE:
+		case INavigatorModelPackage.EDITOR_INFORMATION__MODEL_TYPE:
 			setModelType(MODEL_TYPE_EDEFAULT);
+			return;
+		case INavigatorModelPackage.EDITOR_INFORMATION__TREE_ITEM_ID:
+			setTreeItemID(TREE_ITEM_ID_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -279,12 +343,14 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case INavigatorModelPackage.EDITOR_MODEL_TYPE__EDITORS:
+		case INavigatorModelPackage.EDITOR_INFORMATION__EDITORS:
 			return editors != null && !editors.isEmpty();
-		case INavigatorModelPackage.EDITOR_MODEL_TYPE__PREFERRED_EDITOR:
+		case INavigatorModelPackage.EDITOR_INFORMATION__PREFERRED_EDITOR:
 			return preferredEditor != null;
-		case INavigatorModelPackage.EDITOR_MODEL_TYPE__MODEL_TYPE:
+		case INavigatorModelPackage.EDITOR_INFORMATION__MODEL_TYPE:
 			return MODEL_TYPE_EDEFAULT == null ? modelType != null : !MODEL_TYPE_EDEFAULT.equals(modelType);
+		case INavigatorModelPackage.EDITOR_INFORMATION__TREE_ITEM_ID:
+			return TREE_ITEM_ID_EDEFAULT == null ? treeItemID != null : !TREE_ITEM_ID_EDEFAULT.equals(treeItemID);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -301,6 +367,8 @@ public class EditorModelTypeImpl extends EObjectImpl implements IEditorModelType
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (modelType: ");
 		result.append(modelType);
+		result.append(", treeItemID: ");
+		result.append(treeItemID);
 		result.append(')');
 		return result.toString();
 	}

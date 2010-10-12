@@ -23,7 +23,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import com.rcpcompany.uibindings.navigator.IEditorModelType;
+import com.rcpcompany.uibindings.navigator.IEditorInformation;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.extests.NavigatorTestUtils;
@@ -96,15 +96,15 @@ public class EditorPartDescriptorTest {
 	}
 
 	/**
-	 * Tests {@link IEditorModelType#getPreferredEditor()}.
+	 * Tests {@link IEditorInformation#getPreferredEditor()}.
 	 */
 	@Test
 	public void testPreferred() {
 		/*
 		 * Find the model type with multiple editors.
 		 */
-		IEditorModelType mt = null;
-		for (final IEditorModelType m : myManager.getModelTypes()) {
+		IEditorInformation mt = null;
+		for (final IEditorInformation m : myManager.getEditorInformations()) {
 			if (m.getEditors().size() > 1) {
 				mt = m;
 				break;

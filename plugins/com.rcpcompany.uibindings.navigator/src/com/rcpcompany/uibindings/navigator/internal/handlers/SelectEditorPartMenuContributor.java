@@ -23,7 +23,7 @@ import org.eclipse.ui.menus.ExtensionContributionFactory;
 import org.eclipse.ui.menus.IContributionRoot;
 import org.eclipse.ui.services.IServiceLocator;
 
-import com.rcpcompany.uibindings.navigator.IEditorModelType;
+import com.rcpcompany.uibindings.navigator.IEditorInformation;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.IEditorPartView;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
@@ -46,7 +46,7 @@ public class SelectEditorPartMenuContributor extends ExtensionContributionFactor
 		final EObject obj = view.getCurrentObject();
 		if (obj == null) return;
 
-		final IEditorModelType mt = INavigatorManager.Factory.getManager().getModelType(obj.getClass());
+		final IEditorInformation mt = INavigatorManager.Factory.getManager().getEditorInformation(obj.getClass());
 		final List<IEditorPartDescriptor> editors = mt.getEnabledEditors();
 
 		/*

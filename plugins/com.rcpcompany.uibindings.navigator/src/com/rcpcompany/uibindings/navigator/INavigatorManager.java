@@ -27,8 +27,8 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.navigator.INavigatorManager#getDescriptors <em>Descriptors
  * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.navigator.INavigatorManager#getModelTypes <em>Model Types
- * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.navigator.INavigatorManager#getEditorInformations <em>Editor
+ * Informations</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.navigator.INavigatorManager#isUseGenericEditorPartFallback
  * <em>Use Generic Editor Part Fallback</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.navigator.INavigatorManager#isPinEditorByDefault <em>Pin
@@ -61,6 +61,22 @@ public interface INavigatorManager extends EObject {
 	EList<IEditorPartDescriptor> getDescriptors();
 
 	/**
+	 * Returns the value of the '<em><b>Editor Informations</b></em>' containment reference list.
+	 * The list contents are of type {@link com.rcpcompany.uibindings.navigator.IEditorInformation}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Editor Informations</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Editor Informations</em>' containment reference list.
+	 * @see com.rcpcompany.uibindings.navigator.INavigatorModelPackage#getNavigatorManager_EditorInformations()
+	 * @generated
+	 */
+	EList<IEditorInformation> getEditorInformations();
+
+	/**
 	 * Factory information for {@link INavigatorManager}.
 	 */
 	public static final class Factory {
@@ -81,28 +97,20 @@ public interface INavigatorManager extends EObject {
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Model Types</b></em>' containment reference list. The list
-	 * contents are of type {@link com.rcpcompany.uibindings.navigator.IEditorModelType}. <!--
-	 * begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Model Types</em>' map isn't clear, there really should be more of
-	 * a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
+	 * Finds the {@link IEditorInformation} for the specified object if one exists already.
 	 * 
-	 * @return the value of the '<em>Model Types</em>' containment reference list.
-	 * @see com.rcpcompany.uibindings.navigator.INavigatorModelPackage#getNavigatorManager_ModelTypes()
-	 * @generated
-	 */
-	EList<IEditorModelType> getModelTypes();
-
-	/**
-	 * Finds the {@link IEditorModelType} for the specified object if one exists already.
-	 * 
-	 * @param obj the object to look up
+	 * @param cls the object to look up
 	 * @return the editor mode type or <code>null</code> if none exists
 	 */
-	IEditorModelType getModelType(Class<? extends EObject> cls);
+	IEditorInformation getEditorInformation(Class<? extends EObject> cls);
+
+	/**
+	 * Finds the {@link IEditorInformation} for the specified tree item ID if one exists already.
+	 * 
+	 * @param id the ID to look up
+	 * @return the editor mode type or <code>null</code> if none exists
+	 */
+	IEditorInformation getEditorInformation(String id);
 
 	/**
 	 * Returns the value of the '<em><b>Use Generic Editor Part Fallback</b></em>' attribute. The

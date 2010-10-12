@@ -32,7 +32,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.ui.menus.UIElement;
 import org.eclipse.ui.services.IServiceLocator;
 
-import com.rcpcompany.uibindings.navigator.IEditorModelType;
+import com.rcpcompany.uibindings.navigator.IEditorInformation;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.IEditorPartView;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
@@ -61,7 +61,7 @@ public class SelectEditorPartHandler extends AbstractHandler implements IHandler
 		public void notifyChanged(Notification notification) {
 			super.notifyChanged(notification);
 			if (notification.isTouch()) return;
-			if (notification.getFeature() == INavigatorModelPackage.Literals.EDITOR_MODEL_TYPE__PREFERRED_EDITOR) {
+			if (notification.getFeature() == INavigatorModelPackage.Literals.EDITOR_INFORMATION__PREFERRED_EDITOR) {
 				LogUtils.debug(this, "update " + NavigatorConstants.SELECT_EDITOR_PART_COMMAND);
 				/*
 				 * Make all select editor parts update themselves...
@@ -104,7 +104,7 @@ public class SelectEditorPartHandler extends AbstractHandler implements IHandler
 
 		final EObject currentObject = view.getCurrentObject();
 		if (currentObject == null) return null;
-		final IEditorModelType mt = MANAGER.getModelType(currentObject.getClass());
+		final IEditorInformation mt = MANAGER.getEditorInformation(currentObject.getClass());
 
 		mt.setPreferredEditor(desc);
 		view.setCurrentObject(view.getCurrentObject());

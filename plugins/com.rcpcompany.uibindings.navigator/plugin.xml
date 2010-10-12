@@ -211,19 +211,6 @@
    </page>
 </extension>
 <extension
-      point="com.rcpcompany.uibindings.navigator.editors">
-   <editor
-         factory="com.rcpcompany.uibindings.navigator.editorFactories.EmptyEditorPartFactory"
-         id="com.rcpcompany.uibindings.navigator.internal.com.rcpcompany.uibindings.IConstantTreeItem"
-         image="IMG_ETOOL_CLEAR"
-         name="Empty Container"
-         priority="1">
-      <modelType
-            class="com.rcpcompany.uibindings.IConstantTreeItem">
-      </modelType>
-   </editor>
-</extension>
-<extension
       point="org.eclipse.core.expressions.propertyTesters">
    <propertyTester
          class="com.rcpcompany.uibindings.navigator.internal.propertyTesters.EObjectPropertyTester"

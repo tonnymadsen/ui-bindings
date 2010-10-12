@@ -43,8 +43,8 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 
-import com.rcpcompany.uibindings.UIBindingsUtils;
-import com.rcpcompany.uibindings.navigator.IEditorModelType;
+import com.rcpcompany.uibindings.IConstantTreeItem;
+import com.rcpcompany.uibindings.navigator.IEditorInformation;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.IEditorPartFactory;
 import com.rcpcompany.uibindings.navigator.IEditorPartView;
@@ -65,8 +65,9 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.navigator.internal.NavigatorManagerImpl#getDescriptors <em>
  * Descriptors</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.navigator.internal.NavigatorManagerImpl#getModelTypes <em>
- * Model Types</em>}</li>
+ * <li>
+ * {@link com.rcpcompany.uibindings.navigator.internal.NavigatorManagerImpl#getEditorInformations
+ * <em>Editor Informations</em>}</li>
  * <li>
  * {@link com.rcpcompany.uibindings.navigator.internal.NavigatorManagerImpl#isUseGenericEditorPartFallback
  * <em>Use Generic Editor Part Fallback</em>}</li>
@@ -95,14 +96,14 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	protected EList<IEditorPartDescriptor> descriptors;
 
 	/**
-	 * The cached value of the '{@link #getModelTypes() <em>Model Types</em>}' map. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getEditorInformations() <em>Editor Informations</em>}'
+	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @see #getModelTypes()
+	 * @see #getEditorInformations()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<IEditorModelType> modelTypes;
+	protected EList<IEditorInformation> editorInformations;
 
 	/**
 	 * The default value of the '{@link #isUseGenericEditorPartFallback()
@@ -192,13 +193,99 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 		preferenceReader();
 	}
 
+	@Override
+	public IEditorInformation getEditorInformation(String id) {
+		if (id == null) return null;
+		id = id.intern();
+
+		for (final IEditorInformation mt : getEditorInformations()) {
+			if (mt.getTreeItemID() != null && mt.getTreeItemID().equals(id)) return mt;
+		}
+
+		/*
+		 * No match. Find all the relevant descriptors and create a new editor information object...
+		 */
+		final List<IEditorPartDescriptor> descs = new ArrayList<IEditorPartDescriptor>();
+
+		for (final IEditorPartDescriptor d : getDescriptors()) {
+			if (d.isFallbackEditor()) {
+				continue;
+			}
+			for (final String tiid : d.getTreeItemIDs()) {
+				if (tiid.equals(id)) {
+					descs.add(d);
+				}
+			}
+		}
+
+		/*
+		 * If falling back on the generic factory, then create and install this properly.
+		 */
+		if (descs.size() == 0 && isUseGenericEditorPartFallback()) {
+			descs.add(getFallbackEditor());
+		}
+
+		/*
+		 * No descriptors? Then no model type!
+		 */
+		if (descs.size() == 0) return null;
+
+		/*
+		 * Create the new model type...
+		 */
+		final IEditorInformation ei = INavigatorModelFactory.eINSTANCE.createEditorInformation();
+		ei.setTreeItemID(id);
+		ei.getEditors().addAll(descs);
+
+		/*
+		 * Sort the editors
+		 */
+		final Comparator<IEditorPartDescriptor> comparator = new Comparator<IEditorPartDescriptor>() {
+			@Override
+			public int compare(IEditorPartDescriptor o1, IEditorPartDescriptor o2) {
+				return o2.getPriority() - o1.getPriority();
+			}
+		};
+		ECollections.sort(ei.getEditors(), comparator);
+		setCurrentPreferenceValue(ei);
+
+		getEditorInformations().add(ei);
+
+		return ei;
+	}
+
 	/**
 	 * The descriptor use for fall back...
 	 */
 	private IEditorPartDescriptor myFallbackEditor = null;
 
+	/**
+	 * Returns the fall back editor.
+	 * <p>
+	 * Creates it if needed.
+	 * 
+	 * @return the editor
+	 */
+	private IEditorPartDescriptor getFallbackEditor() {
+		if (myFallbackEditor == null) {
+			// TODO: move to declaration!
+			myFallbackEditor = INavigatorModelFactory.eINSTANCE.createEditorPartDescriptor();
+
+			myFallbackEditor.setFallbackEditor(true);
+			myFallbackEditor.setId(EObject.class.getName() + ".generic");
+			myFallbackEditor
+					.setFactory(new CEObjectHolder<IEditorPartFactory>(new GenericPlainFormEditorPartFactory()));
+			myFallbackEditor.setName("Generic Information");
+			myFallbackEditor.setPriority(10);
+
+			getDescriptors().add(myFallbackEditor);
+		}
+
+		return myFallbackEditor;
+	}
+
 	@Override
-	public IEditorModelType getModelType(Class<? extends EObject> cls) {
+	public IEditorInformation getEditorInformation(Class<? extends EObject> cls) {
 		if (cls == null) return null;
 
 		/*
@@ -212,7 +299,7 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 		}
 
 		final String typeName = cls.getName();
-		for (final IEditorModelType mt : getModelTypes()) {
+		for (final IEditorInformation mt : getEditorInformations()) {
 			if (mt.getModelType().equals(typeName)) return mt;
 		}
 
@@ -221,7 +308,6 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 		 */
 		final List<IEditorPartDescriptor> descs = new ArrayList<IEditorPartDescriptor>();
 
-		// TODO no super classes
 		final Class<?>[] classes = Platform.getAdapterManager().computeClassOrder(cls);
 		for (final Class<?> c : classes) {
 			final String tn = c.getName();
@@ -237,23 +323,10 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 			}
 		}
 		/*
-		 * If falling back on the generic factory, then create and install this properly.
+		 * If falling back on the generic factory.
 		 */
 		if (descs.size() == 0 && isUseGenericEditorPartFallback()) {
-			if (myFallbackEditor == null) {
-				// TODO: move to declaration!
-				myFallbackEditor = INavigatorModelFactory.eINSTANCE.createEditorPartDescriptor();
-
-				myFallbackEditor.setFallbackEditor(true);
-				myFallbackEditor.setId(EObject.class.getName() + ".generic");
-				myFallbackEditor.setFactory(new CEObjectHolder<IEditorPartFactory>(
-						new GenericPlainFormEditorPartFactory()));
-				myFallbackEditor.setName("Generic Information");
-				myFallbackEditor.setPriority(10);
-
-				getDescriptors().add(myFallbackEditor);
-			}
-			descs.add(myFallbackEditor);
+			descs.add(getFallbackEditor());
 		}
 
 		/*
@@ -264,7 +337,7 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 		/*
 		 * Create the new model type...
 		 */
-		final IEditorModelType mt = INavigatorModelFactory.eINSTANCE.createEditorModelType();
+		final IEditorInformation mt = INavigatorModelFactory.eINSTANCE.createEditorInformation();
 		mt.setModelType(cls.getName());
 		mt.getEditors().addAll(descs);
 
@@ -280,7 +353,7 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 		ECollections.sort(mt.getEditors(), comparator);
 		setCurrentPreferenceValue(mt);
 
-		getModelTypes().add(mt);
+		getEditorInformations().add(mt);
 
 		return mt;
 	}
@@ -288,7 +361,13 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	@Override
 	public IEditorPartDescriptor getEditorPartDescriptor(EObject obj) {
 		if (obj == null) return null;
-		final IEditorModelType mt = getModelType(obj.getClass());
+
+		IEditorInformation mt = null;
+		if (obj instanceof IConstantTreeItem) {
+			mt = getEditorInformation(((IConstantTreeItem) obj).getDescriptor().getId());
+		} else {
+			mt = getEditorInformation(obj.getClass());
+		}
 		if (mt == null) return null;
 
 		return mt.getPreferredEditor();
@@ -332,8 +411,22 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 					descriptor.getModelTypes().add(modelType);
 				}
 
-				if (descriptor.getModelTypes().size() == 0) {
-					LogUtils.error(ce, "No model types specified. Ignored"); //$NON-NLS-1$
+				for (final IConfigurationElement mtCE : ce.getChildren(NavigatorConstants.TREE_ITEM_TAG)) {
+					id = mtCE.getAttribute(NavigatorConstants.ID_TAG);
+					if (id == null || id.length() == 0) {
+						LogUtils.error(mtCE, NavigatorConstants.ID_TAG + " must be specified. Ignored"); //$NON-NLS-1$
+						continue;
+					}
+
+					if (descriptor.getTreeItemIDs().contains(id)) {
+						LogUtils.error(mtCE, NavigatorConstants.ID_TAG + " is already added. Ignored"); //$NON-NLS-1$
+						continue;
+					}
+					descriptor.getTreeItemIDs().add(id);
+				}
+
+				if (descriptor.getModelTypes().size() == 0 && descriptor.getTreeItemIDs().size() == 0) {
+					LogUtils.error(ce, "Either model types or tree item ids must be specified. Ignored"); //$NON-NLS-1$
 					continue;
 				}
 
@@ -394,7 +487,7 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 				NavigatorManagerImpl.PIN_EDITOR_BY_DEFAULT_EDEFAULT);
 
 		for (final CEObjectHolder<EObject> pmt : getPreferenceModelTypes()) {
-			final IEditorModelType mt = getModelType(pmt.getObjectClass());
+			final IEditorInformation mt = getEditorInformation(pmt.getObjectClass());
 
 			ps.setDefault(mt.getModelType(), mt.getEditors().get(0).getId());
 		}
@@ -425,7 +518,7 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 			}
 
 			for (final CEObjectHolder<EObject> pmt : getPreferenceModelTypes()) {
-				final IEditorModelType mt = getModelType(pmt.getObjectClass());
+				final IEditorInformation mt = getEditorInformation(pmt.getObjectClass());
 				/*
 				 * Find the current preference - possibly the default we just set in
 				 * preferenceReader...
@@ -465,12 +558,12 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	 * @generated
 	 */
 	@Override
-	public EList<IEditorModelType> getModelTypes() {
-		if (modelTypes == null) {
-			modelTypes = new EObjectContainmentEList<IEditorModelType>(IEditorModelType.class, this,
-					INavigatorModelPackage.NAVIGATOR_MANAGER__MODEL_TYPES);
+	public EList<IEditorInformation> getEditorInformations() {
+		if (editorInformations == null) {
+			editorInformations = new EObjectContainmentEList<IEditorInformation>(IEditorInformation.class, this,
+					INavigatorModelPackage.NAVIGATOR_MANAGER__EDITOR_INFORMATIONS);
 		}
-		return modelTypes;
+		return editorInformations;
 	}
 
 	/**
@@ -491,8 +584,8 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	@Override
 	public void setUseGenericEditorPartFallback(boolean newUseGenericEditorPartFallback) {
 		setUseGenericEditorPartFallbackGen(newUseGenericEditorPartFallback);
-		Activator.getDefault().getPreferenceStore().setValue(NavigatorConstants.PREF_USE_GENERIC_EDITOR_PART_FALLBACK,
-				newUseGenericEditorPartFallback);
+		Activator.getDefault().getPreferenceStore()
+				.setValue(NavigatorConstants.PREF_USE_GENERIC_EDITOR_PART_FALLBACK, newUseGenericEditorPartFallback);
 	}
 
 	/**
@@ -528,8 +621,8 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	@Override
 	public void setPinEditorByDefault(boolean newPinEditorByDefault) {
 		setPinEditorByDefaultGen(newPinEditorByDefault);
-		Activator.getDefault().getPreferenceStore().setValue(NavigatorConstants.PREF_PIN_EDITOR_BY_DEFAULT,
-				newPinEditorByDefault);
+		Activator.getDefault().getPreferenceStore()
+				.setValue(NavigatorConstants.PREF_PIN_EDITOR_BY_DEFAULT, newPinEditorByDefault);
 	}
 
 	/**
@@ -565,8 +658,8 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	@Override
 	public void setOpenMustOpenNew(boolean newOpenMustOpenNew) {
 		setOpenMustOpenNewGen(newOpenMustOpenNew);
-		Activator.getDefault().getPreferenceStore().setValue(NavigatorConstants.PREF_OPEN_MUST_OPEN_NEW,
-				newOpenMustOpenNew);
+		Activator.getDefault().getPreferenceStore()
+				.setValue(NavigatorConstants.PREF_OPEN_MUST_OPEN_NEW, newOpenMustOpenNew);
 	}
 
 	/**
@@ -607,8 +700,8 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 		switch (featureID) {
 		case INavigatorModelPackage.NAVIGATOR_MANAGER__DESCRIPTORS:
 			return ((InternalEList<?>) getDescriptors()).basicRemove(otherEnd, msgs);
-		case INavigatorModelPackage.NAVIGATOR_MANAGER__MODEL_TYPES:
-			return ((InternalEList<?>) getModelTypes()).basicRemove(otherEnd, msgs);
+		case INavigatorModelPackage.NAVIGATOR_MANAGER__EDITOR_INFORMATIONS:
+			return ((InternalEList<?>) getEditorInformations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -623,8 +716,8 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 		switch (featureID) {
 		case INavigatorModelPackage.NAVIGATOR_MANAGER__DESCRIPTORS:
 			return getDescriptors();
-		case INavigatorModelPackage.NAVIGATOR_MANAGER__MODEL_TYPES:
-			return getModelTypes();
+		case INavigatorModelPackage.NAVIGATOR_MANAGER__EDITOR_INFORMATIONS:
+			return getEditorInformations();
 		case INavigatorModelPackage.NAVIGATOR_MANAGER__USE_GENERIC_EDITOR_PART_FALLBACK:
 			return isUseGenericEditorPartFallback();
 		case INavigatorModelPackage.NAVIGATOR_MANAGER__PIN_EDITOR_BY_DEFAULT:
@@ -650,9 +743,9 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 			getDescriptors().clear();
 			getDescriptors().addAll((Collection<? extends IEditorPartDescriptor>) newValue);
 			return;
-		case INavigatorModelPackage.NAVIGATOR_MANAGER__MODEL_TYPES:
-			getModelTypes().clear();
-			getModelTypes().addAll((Collection<? extends IEditorModelType>) newValue);
+		case INavigatorModelPackage.NAVIGATOR_MANAGER__EDITOR_INFORMATIONS:
+			getEditorInformations().clear();
+			getEditorInformations().addAll((Collection<? extends IEditorInformation>) newValue);
 			return;
 		case INavigatorModelPackage.NAVIGATOR_MANAGER__USE_GENERIC_EDITOR_PART_FALLBACK:
 			setUseGenericEditorPartFallback((Boolean) newValue);
@@ -682,8 +775,8 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 		case INavigatorModelPackage.NAVIGATOR_MANAGER__DESCRIPTORS:
 			getDescriptors().clear();
 			return;
-		case INavigatorModelPackage.NAVIGATOR_MANAGER__MODEL_TYPES:
-			getModelTypes().clear();
+		case INavigatorModelPackage.NAVIGATOR_MANAGER__EDITOR_INFORMATIONS:
+			getEditorInformations().clear();
 			return;
 		case INavigatorModelPackage.NAVIGATOR_MANAGER__USE_GENERIC_EDITOR_PART_FALLBACK:
 			setUseGenericEditorPartFallback(USE_GENERIC_EDITOR_PART_FALLBACK_EDEFAULT);
@@ -711,8 +804,8 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 		switch (featureID) {
 		case INavigatorModelPackage.NAVIGATOR_MANAGER__DESCRIPTORS:
 			return descriptors != null && !descriptors.isEmpty();
-		case INavigatorModelPackage.NAVIGATOR_MANAGER__MODEL_TYPES:
-			return modelTypes != null && !modelTypes.isEmpty();
+		case INavigatorModelPackage.NAVIGATOR_MANAGER__EDITOR_INFORMATIONS:
+			return editorInformations != null && !editorInformations.isEmpty();
 		case INavigatorModelPackage.NAVIGATOR_MANAGER__USE_GENERIC_EDITOR_PART_FALLBACK:
 			return useGenericEditorPartFallback != USE_GENERIC_EDITOR_PART_FALLBACK_EDEFAULT;
 		case INavigatorModelPackage.NAVIGATOR_MANAGER__PIN_EDITOR_BY_DEFAULT:
@@ -788,8 +881,11 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 		 */
 		IViewPart view = null;
 		try {
-			view = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView(
-					NavigatorConstants.EDITOR_VIEW_ID, "" + myNextSecondaryId++, IWorkbenchPage.VIEW_ACTIVATE);
+			view = PlatformUI
+					.getWorkbench()
+					.getActiveWorkbenchWindow()
+					.getActivePage()
+					.showView(NavigatorConstants.EDITOR_VIEW_ID, "" + myNextSecondaryId++, IWorkbenchPage.VIEW_ACTIVATE);
 		} catch (final PartInitException ex) {
 			LogUtils.error(this, ex);
 			return null;
@@ -836,17 +932,21 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	/**
 	 * Finds the current preference value and sets the default editor.
 	 * 
-	 * @param mt the model type to set the default editor for
+	 * @param ei the model type to set the default editor for
 	 */
-	protected void setCurrentPreferenceValue(final IEditorModelType mt) {
+	protected void setCurrentPreferenceValue(final IEditorInformation ei) {
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-		final String id = ps.getString(mt.getModelType());
+		String key = ei.getModelType();
+		if (key == null) {
+			key = ei.getTreeItemID();
+		}
+		final String id = ps.getString(key);
 
 		IEditorPartDescriptor pref = null;
 		/*
 		 * Try to lookup the editor id
 		 */
-		for (final IEditorPartDescriptor e : mt.getEditors()) {
+		for (final IEditorPartDescriptor e : ei.getEditors()) {
 			if (e.getId().equals(id)) {
 				pref = e;
 				break;
@@ -856,18 +956,18 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 		 * Use the default (the editor with the highest priority)
 		 */
 		if (pref == null && (id == null || id.length() == 0)) {
-			pref = mt.getEditors().get(0);
+			pref = ei.getEditors().get(0);
 		}
 		if (pref == null) {
 			/*
 			 * The preference was not found. Can happen if a newer version of the application does
 			 * not support the editor any more... or if somebody have changed the id by mistake.
 			 */
-			LogUtils.error(this, "Preference not found for " + mt.getModelType() + ": '" + id + "'. Reset to default.");
-			pref = mt.getEditors().get(0);
+			LogUtils.error(this, "Preference not found for " + key + ": '" + id + "'. Reset to default.");
+			pref = ei.getEditors().get(0);
 		}
-		if (pref != mt.getPreferredEditor()) {
-			mt.setPreferredEditor(pref);
+		if (pref != ei.getPreferredEditor()) {
+			ei.setPreferredEditor(pref);
 		}
 	}
 } // NavigatorManagerImpl

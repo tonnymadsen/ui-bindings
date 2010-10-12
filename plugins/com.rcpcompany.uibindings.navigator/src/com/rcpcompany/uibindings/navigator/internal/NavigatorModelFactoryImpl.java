@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import com.rcpcompany.uibindings.navigator.IEditorModelType;
+import com.rcpcompany.uibindings.navigator.IEditorInformation;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
@@ -40,7 +40,7 @@ public class NavigatorModelFactoryImpl extends EFactoryImpl implements INavigato
 		try {
 			final INavigatorModelFactory theNavigatorModelFactory = (INavigatorModelFactory) EPackage.Registry.INSTANCE
 					.getEFactory("http://rcpcompany.com/schemas/uibindings/navigator");
-			if (theNavigatorModelFactory != null) { return theNavigatorModelFactory; }
+			if (theNavigatorModelFactory != null) return theNavigatorModelFactory;
 		} catch (final Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
@@ -66,12 +66,12 @@ public class NavigatorModelFactoryImpl extends EFactoryImpl implements INavigato
 		switch (eClass.getClassifierID()) {
 		case INavigatorModelPackage.NAVIGATOR_MANAGER:
 			return createNavigatorManager();
-		case INavigatorModelPackage.EDITOR_MODEL_TYPE:
-			return createEditorModelType();
+		case INavigatorModelPackage.EDITOR_INFORMATION:
+			return createEditorInformation();
 		case INavigatorModelPackage.EDITOR_PART_DESCRIPTOR:
 			return createEditorPartDescriptor();
-		case INavigatorModelPackage.STRING_TO_MODEL_TYPE_MAP_ENTRY:
-			return (EObject) createStringToModelTypeMapEntry();
+		case INavigatorModelPackage.STRING_TO_EDITOR_INFORMATION_MAP_ENTRY:
+			return (EObject) createStringToEditorInformationMapEntry();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -132,9 +132,9 @@ public class NavigatorModelFactoryImpl extends EFactoryImpl implements INavigato
 	 * @generated
 	 */
 	@Override
-	public IEditorModelType createEditorModelType() {
-		final EditorModelTypeImpl editorModelType = new EditorModelTypeImpl();
-		return editorModelType;
+	public IEditorInformation createEditorInformation() {
+		final EditorInformationImpl editorInformation = new EditorInformationImpl();
+		return editorInformation;
 	}
 
 	/**
@@ -153,9 +153,9 @@ public class NavigatorModelFactoryImpl extends EFactoryImpl implements INavigato
 	 * 
 	 * @generated
 	 */
-	public Map.Entry<String, IEditorModelType> createStringToModelTypeMapEntry() {
-		final StringToModelTypeMapEntryImpl stringToModelTypeMapEntry = new StringToModelTypeMapEntryImpl();
-		return stringToModelTypeMapEntry;
+	public Map.Entry<String, IEditorInformation> createStringToEditorInformationMapEntry() {
+		final StringToEditorInformationMapEntryImpl stringToEditorInformationMapEntry = new StringToEditorInformationMapEntryImpl();
+		return stringToEditorInformationMapEntry;
 	}
 
 	/**

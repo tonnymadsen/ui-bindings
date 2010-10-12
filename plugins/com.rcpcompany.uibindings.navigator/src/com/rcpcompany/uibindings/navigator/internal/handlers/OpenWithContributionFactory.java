@@ -25,7 +25,7 @@ import org.eclipse.ui.menus.ExtensionContributionFactory;
 import org.eclipse.ui.menus.IContributionRoot;
 import org.eclipse.ui.services.IServiceLocator;
 
-import com.rcpcompany.uibindings.navigator.IEditorModelType;
+import com.rcpcompany.uibindings.navigator.IEditorInformation;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.utils.extensionpoints.CEResourceHolder;
@@ -49,7 +49,7 @@ public class OpenWithContributionFactory extends ExtensionContributionFactory {
 		if (list.size() != 1) return;
 		final EObject obj = list.get(0);
 
-		final IEditorModelType mt = INavigatorManager.Factory.getManager().getModelType(obj.getClass());
+		final IEditorInformation mt = INavigatorManager.Factory.getManager().getEditorInformation(obj.getClass());
 		final List<IEditorPartDescriptor> editors = mt.getEnabledEditors();
 
 		/*

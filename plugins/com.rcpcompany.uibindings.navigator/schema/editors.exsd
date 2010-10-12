@@ -8,9 +8,12 @@
       <documentation>
          This extension point is used to define editor parts for use with the Open and double-click commands of the navigator.
 &lt;p&gt;
-Each editor part is defined for a specific set of model types (sub-classes of &lt;code&gt;EObject&lt;/code&gt;) and is used when an object of the specified type is &quot;opened&quot;.
 &lt;p&gt;
-There can be multiple editor parts for a specific model type, in which case an &quot;Open With&quot; command be used to open the specific model object with the wanted editor part. The defined editor parts for a specific model type is sorted by a priority. The selected editor part for a specific model type is saved as a preference.
+The possible editor part for a specific tree node in the navigator can be defined in one of two ways:
+&lt;p&gt;
+Either based on a specific set of model types (sub-classes of &lt;code&gt;EObject&lt;/code&gt;) - so a specific editor part is enabled when the object of the current node subclasses a defined model type - or alternatively based on the ID of the tree item - so a specific editor part is enabled for a specific tree item.
+&lt;p&gt;
+There can be multiple editor parts for a specific model type or tree item, in which case an &quot;Open With&quot; command be used to open the specific model object with the wanted editor part. The defined editor parts for a specific model type is sorted by a priority. The selected editor part for a specific model type is saved as a preference.
       </documentation>
    </annotation>
 
@@ -57,18 +60,23 @@ There can be multiple editor parts for a specific model type, in which case an &
    <element name="editor">
       <annotation>
          <documentation>
-            Definition of a new editor for a specific model type.
+            Definition of a new editor for a specific model type or tree item.
 &lt;p&gt;
 The editor is offered for an object in the navigator iff:
 &lt;ul&gt;
-&lt;li&gt;one of the interfaces specified in the &lt;code&gt;modelType&lt;/code&gt; sub-elements is a super class or super interface of the object, and&lt;/li&gt;
-&lt;li&gt;the specified &lt;code&gt;enabledWhen&lt;/code&gt; expression evaluates to &lt;code&gt;true&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;either
+&lt;ul&gt;
+&lt;li&gt;one of the interfaces specified in the &lt;code&gt;modelType&lt;/code&gt; sub-elements is a super class or super interface of the object, or&lt;/li&gt;
+&lt;li&gt;one of the tree item IDs specified in the &lt;code&gt;treeItem&lt;/code&gt; sub-elements matches the current tree ID&lt;/li&gt;
+&lt;/ul&gt;
+&lt;li&gt;the specified &lt;code&gt;enabledWhen&lt;/code&gt; expression - if present - evaluates to &lt;code&gt;true&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
          </documentation>
       </annotation>
       <complexType>
          <choice minOccurs="0" maxOccurs="unbounded">
             <element ref="modelType"/>
+            <element ref="treeItem"/>
             <element ref="enabledWhen"/>
          </choice>
          <attribute name="id" type="string" use="required">
@@ -119,6 +127,13 @@ The editor is offered for an object in the navigator iff:
    </element>
 
    <element name="modelType">
+      <annotation>
+         <documentation>
+            Used to specific a set of model classes for an editor.
+&lt;p&gt;
+The editor will be enabled if any of the declared model types is a sub-class of the object of the current tree item.
+         </documentation>
+      </annotation>
       <complexType>
          <attribute name="class" type="string" use="required">
             <annotation>
@@ -127,6 +142,28 @@ The editor is offered for an object in the navigator iff:
                </documentation>
                <appinfo>
                   <meta.attribute kind="java" basedOn=":org.eclipse.emf.ecore.EObject"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="treeItem">
+      <annotation>
+         <documentation>
+            Used to specific a set of tree item IDs for an editor.
+&lt;p&gt;
+The editor will be enabled if any of the declared IDs match the current tree item.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  tree item ID for this editor
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="identifier" basedOn="com.rcpcompany.uibindings.uiBindings/treeItem/@id"/>
                </appinfo>
             </annotation>
          </attribute>
@@ -228,6 +265,8 @@ Note that if a specific object is shown in the navigator, it is automatically in
       </appinfo>
       <documentation>
          The factory of an editor part must implement the interface &lt;code&gt;com.rcpcompany.uibindings.navigator.IEditorPartFactory&lt;/code&gt; as well as the abstract class &lt;code&gt;com.rcpcompany.uibindings.navigator.AbstractEditorPartFactory&lt;/code&gt;.
+&lt;p&gt;
+A special &lt;code&gt;com.rcpcompany.uibindings.navigator.FormEditorPartFactory&lt;/code&gt; base class can be used for editor parts based on &lt;code&gt;IFormCreator&lt;/code&gt;.
       </documentation>
    </annotation>
 

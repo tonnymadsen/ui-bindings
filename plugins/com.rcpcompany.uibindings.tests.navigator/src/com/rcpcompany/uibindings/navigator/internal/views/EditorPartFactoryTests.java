@@ -17,7 +17,7 @@ import org.junit.Test;
 
 import com.rcpcompany.uibindings.navigator.AbstractEditorPartFactory;
 import com.rcpcompany.uibindings.navigator.FormEditorPartFactory;
-import com.rcpcompany.uibindings.navigator.IEditorModelType;
+import com.rcpcompany.uibindings.navigator.IEditorInformation;
 import com.rcpcompany.uibindings.navigator.IEditorPart;
 import com.rcpcompany.uibindings.navigator.IEditorPartContext;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
@@ -84,10 +84,10 @@ public class EditorPartFactoryTests {
 			assertEquals(myGroup.eClass(), context.getCurrentValue().getValueType());
 
 			IEditorPartDescriptor desc = null;
-			for (final IEditorModelType mt : myManager.getModelTypes()) {
+			for (final IEditorInformation mt : myManager.getEditorInformations()) {
 				if (mt.getModelType().equals(ShopItemGroup.class.getName())) {
-					assertEquals(2, mt.getEditors().size());
-					assertEquals(2, mt.getEnabledEditors().size());
+					assertEquals(3, mt.getEditors().size());
+					assertEquals(3, mt.getEnabledEditors().size());
 					desc = mt.getEditors().get(0);
 				}
 			}

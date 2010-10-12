@@ -316,6 +316,7 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 	 * 
 	 * @return the current descriptor
 	 */
+	@Override
 	public IEditorPartDescriptor getCurrentDescriptor() {
 		return myCurrentDescriptor;
 	}
