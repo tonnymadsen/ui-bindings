@@ -15,6 +15,7 @@ import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
 import com.rcpcompany.uibindings.Constants;
+import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -32,6 +33,11 @@ public class ManagerPropertyTester extends PropertyTester {
 		if (Activator.getDefault().TRACE_PROPERTY_TESTERS) {
 			LogUtils.debug(this, Constants.PREFIX + property + "(" + receiver + ")");
 		}
+		if (!(receiver instanceof IManager)) {
+			LogUtils.error(this, "Receiver not IManager: " + receiver);
+			return false;
+		}
+
 		if (Constants.PROPERTY_CAN_UNDO.equals(property)) {
 			final EditingDomain ed = EditingDomainUtils.getEditingDomain();
 			final CommandStack cs = ed.getCommandStack();
