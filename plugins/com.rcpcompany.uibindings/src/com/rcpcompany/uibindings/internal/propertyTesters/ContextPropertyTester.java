@@ -36,7 +36,10 @@ public class ContextPropertyTester extends PropertyTester {
 		if (Activator.getDefault().TRACE_PROPERTY_TESTERS) {
 			LogUtils.debug(this, Constants.PREFIX + property + "(" + receiver + ")");
 		}
-		if (!(receiver instanceof IBindingContext)) return false;
+		if (!(receiver instanceof IBindingContext)) {
+			LogUtils.error(this, "Receiver not IBindingContext: " + receiver);
+			return false;
+		}
 		final IBindingContext context = (IBindingContext) receiver;
 
 		if ("state".equals(property)) {

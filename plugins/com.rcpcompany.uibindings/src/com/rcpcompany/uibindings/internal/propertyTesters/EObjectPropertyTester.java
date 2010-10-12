@@ -34,7 +34,10 @@ public class EObjectPropertyTester extends PropertyTester {
 		if (Activator.getDefault().TRACE_PROPERTY_TESTERS) {
 			LogUtils.debug(this, Constants.PREFIX + property + "(" + receiver + ")");
 		}
-		if (!(receiver instanceof EObject)) return false;
+		if (!(receiver instanceof EObject)) {
+			LogUtils.error(this, "Receiver not EObject: " + receiver);
+			return false;
+		}
 		final EObject obj = (EObject) receiver;
 
 		if (Constants.PROPERTY_CAN_DELETE.equals(property)) {

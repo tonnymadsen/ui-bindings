@@ -30,7 +30,10 @@ public class EStructuralFeaturePropertyTester extends PropertyTester {
 		if (Activator.getDefault().TRACE_PROPERTY_TESTERS) {
 			LogUtils.debug(this, Constants.PREFIX + property + "(" + receiver + ")");
 		}
-		if (!(receiver instanceof EStructuralFeature)) return false;
+		if (!(receiver instanceof EStructuralFeature)) {
+			LogUtils.error(this, "Receiver not EStructuralFeature: " + receiver);
+			return false;
+		}
 		final EStructuralFeature sf = (EStructuralFeature) receiver;
 
 		if (Constants.PROPERTY_HAS_DEFAULT_VALUE.equals(property)) return sf.getDefaultValueLiteral() != null;

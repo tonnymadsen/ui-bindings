@@ -430,194 +430,45 @@
    </extension>
    <extension
          point="com.rcpcompany.uibindings.uiBindings">
-      <argumentInfo
-            lookupAttributeContainingClass="false"
-            lookupAttributeTargetType="true"
-            lookupReferenceTargetType="false"
-            name="format">
-      </argumentInfo>
-      <argumentInfo
-            lookupAttributeContainingClass="false"
-            lookupParent="false"
-            name="label">
-      </argumentInfo>
-      <argumentInfo
-            lookupAttributeContainingClass="false"
-            name="text">
-      </argumentInfo>
-      <argumentInfo
-            lookupAttributeContainingClass="false"
-            name="nullLabel">
-      </argumentInfo>
-      <argumentInfo
-            lookupAttributeContainingClass="false"
-            name="width">
-      </argumentInfo>
-      <argumentInfo
-            lookupAttributeContainingClass="false"
-            name="height">
-      </argumentInfo>
-      <argumentInfo
-            lookupAttributeContainingClass="false"
-            name="dynamic">
-      </argumentInfo>
-      <argumentInfo
-            name="labelDecorator">
-      </argumentInfo>
-      <argumentInfo
-            lookupAttributeContainingClass="false"
-            name="image">
-      </argumentInfo>
-      <argumentInfo
-            lookupAttributeContainingClass="false"
-            lookupReferenceTargetType="false"
-            name="showImage">
-      </argumentInfo>
-      <argumentInfo
-            lookupAttributeContainingClass="false"
-            lookupReferenceTargetType="false"
-            name="newAllowed">
-      </argumentInfo>
-      <argumentInfo
-            name="modelObjectMessages">
-      </argumentInfo>
-      <argumentInfo
-            name="valueObjectMessages">
-      </argumentInfo>
-      <argumentInfo
-            name="filter">
-      </argumentInfo>
-      <argumentInfo
-            lookupAttributeContainingClass="false"
-            lookupAttributeTargetType="true"
-            lookupParent="true"
-            lookupReferenceContainingClass="false"
-            lookupReferenceTargetType="true"
-            name="validValues">
-      </argumentInfo>
-      <argumentInfo
-            name="treeID">
-      </argumentInfo>
-      <argumentInfo
-            lookupAttributeContainingClass="true"
-            lookupAttributeTargetType="true"
-            lookupParent="true"
-            lookupReferenceContainingClass="true"
-            lookupReferenceTargetType="true"
-            name="readonly">
-      </argumentInfo>
-      <argumentInfo
-            name="password">
-      </argumentInfo>
-      <argumentInfo
-            lookupAttributeContainingClass="false"
-            lookupReferenceContainingClass="false"
-            name="toolTipText">
-      </argumentInfo>
-      <argumentInfo
-            name="helpID">
-      </argumentInfo>
-      <argumentInfo
-            name="min">
-      </argumentInfo>
-      <argumentInfo
-            name="max">
-      </argumentInfo>
-      <argumentInfo
-            name="range">
-      </argumentInfo>
-      <argumentInfo
-            lookupAttributeContainingClass="false"
-            lookupAttributeTargetType="false"
-            lookupParent="true"
-            name="featureName">
-      </argumentInfo>
-      <argumentInfo
-            name="extensions">
-      </argumentInfo>
-      <argumentInfo
-            name="required">
-      </argumentInfo>
-      <argumentInfo
-            lookupAttributeContainingClass="false"
-            name="openCommand">
-      </argumentInfo>
-      <argumentInfo
-            name="alignment">
-      </argumentInfo>
-      <argumentInfo
-            name="doubleClickCommand">
-      </argumentInfo>
-      <argumentInfo
-            name="textCommitStrategy">
-      </argumentInfo>
-      <argumentInfo
-            lookupAttributeContainingClass="false"
-            lookupAttributeTargetType="true"
-            lookupParent="true"
-            lookupReferenceContainingClass="false"
-            lookupReferenceTargetType="true"
-            name="preferredControl">
-      </argumentInfo>
-      <argumentInfo
-            lookupAttributeContainingClass="false"
-            lookupAttributeTargetType="true"
-            lookupParent="true"
-            lookupReferenceContainingClass="false"
-            lookupReferenceTargetType="true"
-            name="preferredControlFactory">
-      </argumentInfo>
-      <argumentInfo
-            lookupAttributeContainingClass="false"
-            lookupAttributeTargetType="true"
-            lookupParent="true"
-            lookupReferenceContainingClass="false"
-            lookupReferenceTargetType="true"
-            name="preferredCellEditor">
-      </argumentInfo>
-      <argumentInfo
-            lookupAttributeContainingClass="false"
-            lookupAttributeTargetType="true"
-            lookupParent="true"
-            lookupReferenceContainingClass="false"
-            lookupReferenceTargetType="true"
-            name="preferredCellEditorFactory">
-      </argumentInfo>
-      <argumentInfo
-            lookupAttributeContainingClass="false"
-            lookupAttributeTargetType="true"
-            lookupParent="true"
-            lookupReferenceContainingClass="false"
-            lookupReferenceTargetType="true"
-            name="type">
-      </argumentInfo>
-      <argumentInfo
-            lookupAttributeContainingClass="false"
-            lookupAttributeTargetType="true"
-            lookupParent="true"
-            lookupReferenceContainingClass="false"
-            lookupReferenceTargetType="true"
-            name="cellEditorType">
-      </argumentInfo>
-      <argumentInfo
-            lookupAttributeContainingClass="false"
-            lookupAttributeTargetType="true"
-            name="unit">
-      </argumentInfo>
-      <argumentInfo
-            lookupAttributeContainingClass="false"
-            lookupAttributeTargetType="true"
-            name="unitSupport">
-      </argumentInfo>
-      <argumentInfo
-            lookupAttributeContainingClass="false"
-            lookupAttributeTargetType="true"
-            lookupParent="false"
-            lookupReferenceContainingClass="false"
-            lookupReferenceTargetType="true"
-            name="initializer">
-      </argumentInfo>
-   </extension>
+<argumentInfo name="alignment"> </argumentInfo> 
+<argumentInfo name="cellEditorType" lookupAttributeContainingClass="false" lookupAttributeTargetType="true" lookupParent="true" lookupReferenceContainingClass="false" lookupReferenceTargetType="true"> </argumentInfo> 
+<argumentInfo name="doubleClickCommand"> </argumentInfo> 
+<argumentInfo name="dynamic" lookupAttributeContainingClass="false"> </argumentInfo> 
+<argumentInfo name="extensions"> </argumentInfo> 
+<argumentInfo name="featureName" lookupAttributeContainingClass="false" lookupAttributeTargetType="false" lookupParent="true"> </argumentInfo> 
+<argumentInfo name="filter"> </argumentInfo> 
+<argumentInfo name="format" lookupAttributeContainingClass="false" lookupAttributeTargetType="true" lookupReferenceTargetType="false" > </argumentInfo> 
+<argumentInfo name="height" lookupAttributeContainingClass="false"> </argumentInfo> 
+<argumentInfo name="helpID"> </argumentInfo> 
+<argumentInfo name="image" lookupAttributeContainingClass="false"> </argumentInfo> 
+<argumentInfo name="initializer" lookupAttributeContainingClass="false" lookupAttributeTargetType="true" lookupParent="false" lookupReferenceContainingClass="false" lookupReferenceTargetType="true"> </argumentInfo> 
+<argumentInfo name="label" lookupAttributeContainingClass="false" lookupParent="false"> </argumentInfo> 
+<argumentInfo name="labelDecorator"> </argumentInfo> 
+<argumentInfo name="max"> </argumentInfo> 
+<argumentInfo name="min"> </argumentInfo> 
+<argumentInfo name="modelObjectMessages"> </argumentInfo> 
+<argumentInfo name="newAllowed" lookupAttributeContainingClass="false" lookupReferenceTargetType="false"> </argumentInfo> 
+<argumentInfo name="nullLabel" lookupAttributeContainingClass="false"> </argumentInfo> 
+<argumentInfo name="openCommand" lookupAttributeContainingClass="false"> </argumentInfo> 
+<argumentInfo name="password"> </argumentInfo> 
+<argumentInfo name="preferredCellEditor" lookupAttributeContainingClass="false" lookupAttributeTargetType="true" lookupParent="true" lookupReferenceContainingClass="false" lookupReferenceTargetType="true"> </argumentInfo> 
+<argumentInfo name="preferredCellEditorFactory" lookupAttributeContainingClass="false" lookupAttributeTargetType="true" lookupParent="true" lookupReferenceContainingClass="false" lookupReferenceTargetType="true"> </argumentInfo> 
+<argumentInfo name="preferredControl" lookupAttributeContainingClass="false" lookupAttributeTargetType="true" lookupParent="true" lookupReferenceContainingClass="false" lookupReferenceTargetType="true"> </argumentInfo> 
+<argumentInfo name="preferredControlFactory" lookupAttributeContainingClass="false" lookupAttributeTargetType="true" lookupParent="true" lookupReferenceContainingClass="false" lookupReferenceTargetType="true"> </argumentInfo> 
+<argumentInfo name="range"> </argumentInfo> 
+<argumentInfo name="readonly" lookupAttributeContainingClass="true" lookupAttributeTargetType="true" lookupParent="true" lookupReferenceContainingClass="true" lookupReferenceTargetType="true"> </argumentInfo> 
+<argumentInfo name="required"> </argumentInfo> 
+<argumentInfo name="showImage" lookupAttributeContainingClass="false" lookupReferenceTargetType="false"> </argumentInfo> 
+<argumentInfo name="text" lookupAttributeContainingClass="false"> </argumentInfo> 
+<argumentInfo name="textCommitStrategy"> </argumentInfo> 
+<argumentInfo name="toolTipText" lookupAttributeContainingClass="false" lookupReferenceContainingClass="false"> </argumentInfo> 
+<argumentInfo name="treeID"> </argumentInfo> 
+<argumentInfo name="type" lookupAttributeContainingClass="false" lookupAttributeTargetType="true" lookupParent="true" lookupReferenceContainingClass="false" lookupReferenceTargetType="true"> </argumentInfo> 
+<argumentInfo name="unit" lookupAttributeContainingClass="false" lookupAttributeTargetType="true"> </argumentInfo> 
+<argumentInfo name="unitSupport" lookupAttributeContainingClass="false" lookupAttributeTargetType="true"> </argumentInfo> 
+<argumentInfo name="validValues" lookupAttributeContainingClass="true" lookupAttributeTargetType="false" lookupParent="true" lookupReferenceContainingClass="false" lookupReferenceTargetType="true"> </argumentInfo> 
+<argumentInfo name="valueObjectMessages"> </argumentInfo> 
+<argumentInfo name="width" lookupAttributeContainingClass="false"> </argumentInfo>    </extension>
    
    <extension
          point="com.rcpcompany.uibindings.uiBindings">
@@ -1646,13 +1497,6 @@
             type="com.rcpcompany.uibindings.IBindingContext">
       </propertyTester>
       <propertyTester
-            class="com.rcpcompany.uibindings.internal.propertyTesters.ViewerBindingPropertyTester"
-            id="com.rcpcompany.uibindings.internal.propertyTesters.ViewerBindingPropertyTester"
-            namespace="com.rcpcompany.uibindings"
-            properties="state"
-            type="com.rcpcompany.uibindings.IViewerBinding">
-      </propertyTester>
-      <propertyTester
             class="com.rcpcompany.uibindings.internal.propertyTesters.ManagerPropertyTester"
             id="com.rcpcompany.uibindings.internal.propertyTesters.ManagerPropertyTester"
             namespace="com.rcpcompany.uibindings"
@@ -1663,7 +1507,7 @@
             class="com.rcpcompany.uibindings.internal.propertyTesters.IViewerBindingPropertyTester"
             id="com.rcpcompany.uibindings.internal.propertyTesters.IViewerBindingPropertyTester"
             namespace="com.rcpcompany.uibindings"
-            properties="canDeleteSelectedObjects"
+            properties="canDeleteSelectedObjects, state"
             type="com.rcpcompany.uibindings.IViewerBinding">
       </propertyTester>
       <propertyTester

@@ -13,6 +13,7 @@ package com.rcpcompany.uibindings.internal.propertyTesters;
 import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.emf.common.command.Command;
 
+import com.rcpcompany.uibindings.BindingState;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.internal.Activator;
@@ -32,7 +33,10 @@ public class IViewerBindingPropertyTester extends PropertyTester {
 		if (Activator.getDefault().TRACE_PROPERTY_TESTERS) {
 			LogUtils.debug(this, Constants.PREFIX + property + "(" + receiver + ")");
 		}
-		if (!(receiver instanceof IViewerBinding)) return false;
+		if (!(receiver instanceof IViewerBinding)) {
+			LogUtils.error(this, "Receiver not IViewerBinding: " + receiver);
+			return false;
+		}
 		final IViewerBinding vb = (IViewerBinding) receiver;
 
 		if (Constants.PROPERTY_CAN_DELETE_SELECTED_OBJECTS.equals(property)) {
@@ -42,6 +46,14 @@ public class IViewerBindingPropertyTester extends PropertyTester {
 				LogUtils.debug(this, "->> " + res);
 			}
 			return res;
+		}
+		if ("state".equals(property)) {
+			final BindingState bindingState = BindingState.get((String) expectedValue);
+			if (bindingState == null) {
+				LogUtils.error(this, "Unknown state: '" + expectedValue + "'");
+				return false;
+			}
+			return vb.getState() == bindingState;
 		}
 
 		return false;

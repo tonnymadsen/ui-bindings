@@ -89,6 +89,7 @@ import com.rcpcompany.uibindings.extests.observables.ViewerBindingTreeFactoryTes
 import com.rcpcompany.uibindings.extests.observables.getset.BasicSetTestValue;
 import com.rcpcompany.uibindings.extests.observables.getset.BasicSetTestViewer;
 import com.rcpcompany.uibindings.extests.preferences.PreferencePageDialogTest;
+import com.rcpcompany.uibindings.extests.propertyTesters.EStructuralFeaturePropertyTesterTests;
 import com.rcpcompany.uibindings.extests.quickfixes.BasicQuickfixTest;
 import com.rcpcompany.uibindings.extests.quickfixes.DirectoryNameQuickfixTest;
 import com.rcpcompany.uibindings.extests.quickfixes.NamingQuickfixTest;
@@ -262,6 +263,13 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		 * TODO
 		 */
 		ExtenderTest.class, EnumImageExtenderTest.class,
+
+		/*
+		 * PropertyTesters
+		 * 
+		 * TODO
+		 */
+		EStructuralFeaturePropertyTesterTests.class,
 
 		/*
 		 * Specific observables
