@@ -52,7 +52,7 @@ public class MOAOIdentBD extends SimpleUIBindingDecorator implements IUIBindingD
 		final Class<? extends Object> cls = o.getClass();
 
 		// TODO: use IBindingObjectInformation
-		final IBindingDataType dataType = IBindingDataType.Factory.create(cls);
+		final IBindingDataType dataType = IBindingDataType.Factory.create(null, cls);
 		if (dataType != null) {
 			final String l = dataType.getArgument(Constants.ARG_LABEL, getBinding().getType(), String.class, null);
 			if (l != null) return l;

@@ -476,7 +476,7 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 						continue;
 					}
 					final EReference ref = (EReference) sf;
-					final IBindingDataType dt = IBindingDataType.Factory.create(ref);
+					final IBindingDataType dt = IBindingDataType.Factory.create(myTarget, ref);
 
 					if (dt.getArgument(Constants.ARG_NEW_ALLOWED, null, Boolean.class, Boolean.TRUE)) {
 						ViewerBindingImpl.addToChildCreationSpecification(l, myTarget, ref, ref.getEReferenceType());

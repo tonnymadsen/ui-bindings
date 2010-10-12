@@ -154,7 +154,7 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 		 * This is primary used for the image...
 		 */
 		if (getColumn().getSpecialBindingType() == SpecialBinding.TREE_ITEM) {
-			final IBindingDataType dataType = IBindingDataType.Factory.create(getElement().eClass());
+			final IBindingDataType dataType = IBindingDataType.Factory.create(null, getElement().eClass());
 			if (dataType != null) {
 				final String type = lb.getType();
 				if (type != null && type.length() > 0) {

@@ -27,7 +27,6 @@ import com.rcpcompany.uibindings.IUIBindingDecoratorExtenderContext;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.decorators.extenders.AbstractUIBindingDecoratorExtender;
 import com.rcpcompany.uibindings.internal.Activator;
-import com.rcpcompany.uibindings.internal.bindingDataTypes.BindingDataTypeFactory;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -61,7 +60,7 @@ public class EnumImageExtender extends AbstractUIBindingDecoratorExtender {
 		if (!IMAGE_MAP.containsKey(enumValue)) {
 			final EEnum e = (EEnum) binding.getDataType().getEType();
 			final EEnumLiteral literal = e.getEEnumLiteralByLiteral(enumValue.getLiteral());
-			final IBindingDataType dataType = BindingDataTypeFactory.create(literal);
+			final IBindingDataType dataType = IBindingDataType.Factory.create(null, literal);
 			final ImageDescriptor id = dataType.getArgument(Constants.ARG_IMAGE, binding.getType(),
 					ImageDescriptor.class, null);
 

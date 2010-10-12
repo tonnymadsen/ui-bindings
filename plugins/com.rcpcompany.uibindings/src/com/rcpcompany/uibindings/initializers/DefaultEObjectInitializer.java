@@ -23,7 +23,7 @@ public class DefaultEObjectInitializer implements IInitializer {
 		final EClass cls = (EClass) facet;
 
 		for (final EStructuralFeature sf : cls.getEAllStructuralFeatures()) {
-			final IBindingDataType dt = IBindingDataType.Factory.create(sf);
+			final IBindingDataType dt = IBindingDataType.Factory.create(context.getObject().eClass(), sf);
 
 			final IInitializer initializer = dt.getArgument(Constants.ARG_INITIALIZER, null, IInitializer.class, null);
 			if (initializer != null) {

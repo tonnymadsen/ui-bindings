@@ -985,7 +985,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 
 			// TODO: set the renderer: final item.s
 
-			setDataType(IBindingDataType.Factory.create(value.getValueType()));
+			setDataType(IBindingDataType.Factory.create(value.getValue(), value.getValueType()));
 
 			/*
 			 * We will use a UI binding to convert from myValue to myLabelUIAttribute...

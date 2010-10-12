@@ -75,7 +75,7 @@ public class EEnumLiteralBindingDataType extends BindingDataTypeImpl {
 	@Override
 	public IBindingDataType getParentDataType() {
 		if (myParent == null) {
-			myParent = BindingDataTypeFactory.create(getEType());
+			myParent = IBindingDataType.Factory.create(null, getEType());
 		}
 		return myParent;
 	}
