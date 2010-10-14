@@ -82,4 +82,13 @@ public interface IArgumentContext<ArgumentType> {
 	 * @return <code>true</code> if enough results have been found so far
 	 */
 	boolean isResultFound();
+
+	/**
+	 * Adds the specified data type to set of visited data types and returns whether this is first
+	 * time.
+	 * 
+	 * @param dataType the data type to add
+	 * @return <code>true</code> if this is first time
+	 */
+	boolean addDataType(IBindingDataType dataType);
 }

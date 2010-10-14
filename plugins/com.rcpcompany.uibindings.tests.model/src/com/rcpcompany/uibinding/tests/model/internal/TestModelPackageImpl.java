@@ -830,11 +830,14 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 				"foobar-Sequence-targetType", "TestObject.text (annotation)", "foobar-Sequence-containingClass",
 				"TestObject.text (annotation)", "foobar-Sequence-default", "TestObject.text (annotation)" });
 		addAnnotation(getTestObject_Short(), source, new String[] { "foobar", "b" });
-		addAnnotation(subTestObjectEClass, source, new String[] { "text.foobar-Sequence-all",
-				"SubTestObject (annotation)", "text.foobar-Sequence-parent", "SubTestObject (annotation)",
-				"text.foobar-Sequence-targetType", "SubTestObject (annotation)",
-				"text.foobar-Sequence-containingClass", "SubTestObject (annotation)", "text.foobar-Sequence-default",
-				"SubTestObject (annotation)" });
+		addAnnotation(subTestObjectEClass, source, new String[] { "foobar-Sequence-all", "SubTestObject (annotation)",
+				"foobar-Sequence-parent", "SubTestObject (annotation)", "foobar-Sequence-targetType",
+				"SubTestObject (annotation)", "foobar-Sequence-containingClass", "SubTestObject (annotation)",
+				"foobar-Sequence-default", "SubTestObject (annotation)", "text.foobar-Sequence-all",
+				"SubTestObject.text (annotation)", "text.foobar-Sequence-parent", "SubTestObject.text (annotation)",
+				"text.foobar-Sequence-targetType", "SubTestObject.text (annotation)",
+				"text.foobar-Sequence-containingClass", "SubTestObject.text (annotation)",
+				"text.foobar-Sequence-default", "SubTestObject.text (annotation)" });
 		addAnnotation(testContainerEClass, source, new String[] { "foobar-Sequence-all", "TestContainer (annotation)",
 				"foobar-Sequence-parent", "TestContainer (annotation)", "foobar-Sequence-targetType",
 				"TestContainer (annotation)", "foobar-Sequence-containingClass", "TestContainer (annotation)",

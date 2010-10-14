@@ -2371,6 +2371,16 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
+	public EAttribute getBindingDataType_BaseType() {
+		return (EAttribute) bindingDataTypeEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getColumnAdapter() {
 		return columnAdapterEClass;
 	}
@@ -4515,6 +4525,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		createEAttribute(bindingDataTypeEClass, BINDING_DATA_TYPE__REQUIRED);
 		createEAttribute(bindingDataTypeEClass, BINDING_DATA_TYPE__CHANGEABLE);
 		createEAttribute(bindingDataTypeEClass, BINDING_DATA_TYPE__UNSETTABLE);
+		createEAttribute(bindingDataTypeEClass, BINDING_DATA_TYPE__BASE_TYPE);
 
 		columnAdapterEClass = createEClass(COLUMN_ADAPTER);
 		createEAttribute(columnAdapterEClass, COLUMN_ADAPTER__WIDGET);
@@ -5440,6 +5451,10 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				getBindingDataType_Unsettable(),
 				ecorePackage.getEBoolean(),
 				"unsettable", null, 1, 1, IBindingDataType.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getBindingDataType_BaseType(),
+				ecorePackage.getEString(),
+				"baseType", null, 1, 1, IBindingDataType.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(columnAdapterEClass, IColumnAdapter.class,
 				"ColumnAdapter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

@@ -198,6 +198,7 @@ public interface IColumnBindingCellInformation extends EObject, IDisposable, IVa
 	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getColumnBindingCellInformation_DisplayText()
 	 * @generated
 	 */
+	@Override
 	String getDisplayText();
 
 	/**

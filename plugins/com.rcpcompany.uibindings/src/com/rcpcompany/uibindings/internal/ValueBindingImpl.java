@@ -1197,10 +1197,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 	@Override
 	protected String getBaseType() {
-		final EStructuralFeature feature = getModelFeature();
-		if (feature != null) return feature.getEContainingClass().getName() + "." + feature.getName(); //$NON-NLS-1$
-
-		return super.getBaseType();
+		return getDataType().getBaseType();
 	}
 
 	@Override

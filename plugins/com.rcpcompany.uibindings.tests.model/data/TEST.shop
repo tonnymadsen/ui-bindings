@@ -26,9 +26,11 @@
     <items item="_L05SccBGEd-siJXnD8pfBQ" count="3"/>
   </orders>
   <orders no="1" customer="//@customers.2">
-    <items/>
+    <items item="_L05ScsBGEd-siJXnD8pfBQ"/>
   </orders>
-  <orders no="1222" customer="//@customers.0"/>
+  <orders no="1222" customer="//@customers.0">
+    <items item="_L05ScsBGEd-siJXnD8pfBQ"/>
+  </orders>
   <customers contact="_L0u6YMBGEd-siJXnD8pfBQ" orders="1222" loyalty="Silver"/>
   <customers contact="_L0m-kMBGEd-siJXnD8pfBQ" orders="//@orders[no='0']" loyalty="Gold"/>
   <customers contact="_L0wvkMBGEd-siJXnD8pfBQ" orders="1"/>

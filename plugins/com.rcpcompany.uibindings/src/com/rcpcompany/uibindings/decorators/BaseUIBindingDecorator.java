@@ -34,6 +34,8 @@ import org.eclipse.core.internal.databinding.BindingStatus;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.fieldassist.ContentProposalAdapter;
 import org.eclipse.jface.fieldassist.IContentProposal;
 import org.eclipse.jface.fieldassist.IContentProposalProvider;
@@ -193,6 +195,19 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		if (getBinding() == null) return null;
 		if (!calculatedValidUIList) {
 			myValidUIList = getBinding().getArgument(Constants.ARG_VALID_VALUES, IObservableList.class, null);
+			if (myValidUIList != null) {
+				Object elementType = myValidUIList.getElementType();
+				if (elementType instanceof EStructuralFeature) {
+					elementType = ((EStructuralFeature) elementType).getEType();
+				}
+				if (elementType instanceof EClass) {
+					elementType = ((EClass) elementType).getInstanceClass();
+				}
+				if (elementType != String.class) {
+					LogUtils.error(myValidUIList, "Element type must be String, but was " + elementType);
+					myValidUIList = null;
+				}
+			}
 			calculatedValidUIList = true;
 		}
 
@@ -500,7 +515,8 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		final SimpleContentProposalProvider proposalProvider = new SimpleContentProposalProvider(new String[0]) {
 			@Override
 			public IContentProposal[] getProposals(String contents, int position) {
-				setProposals((String[]) getValidUIList().toArray(new String[getValidUIList().size()]));
+				final IObservableList list = getValidUIList();
+				setProposals((String[]) list.toArray(new String[list.size()]));
 				return super.getProposals(contents, position);
 			}
 		};

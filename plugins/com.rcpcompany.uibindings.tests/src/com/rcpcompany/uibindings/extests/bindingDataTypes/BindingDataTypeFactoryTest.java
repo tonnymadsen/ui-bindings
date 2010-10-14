@@ -23,6 +23,8 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.junit.Test;
 
 import com.rcpcompany.uibinding.tests.model.AmountAndCurrency;
+import com.rcpcompany.uibinding.tests.model.SubTestObject;
+import com.rcpcompany.uibinding.tests.model.TestModelFactory;
 import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 import com.rcpcompany.uibinding.tests.model.TestObject;
 import com.rcpcompany.uibinding.tests.model.TimeUnit;
@@ -43,13 +45,14 @@ public class BindingDataTypeFactoryTest {
 	public void testCreateEClass() {
 		testCreate(null, TestModelPackage.Literals.TEST_OBJECT, EClassifierBindingDataType.class,
 				TestModelPackage.Literals.TEST_OBJECT.getName(), TestModelPackage.Literals.TEST_OBJECT,
-				TestObject.class);
+				TestObject.class, null);
 	}
 
 	@Test
 	public void testCreateInteger() {
 		testCreate(null, Integer.class, EClassifierBindingDataType.class,
-				EcorePackage.Literals.EINTEGER_OBJECT.getName(), EcorePackage.Literals.EINTEGER_OBJECT, Integer.class);
+				EcorePackage.Literals.EINTEGER_OBJECT.getName(), EcorePackage.Literals.EINTEGER_OBJECT, Integer.class,
+				null);
 	}
 
 	enum COLOR {
@@ -58,7 +61,7 @@ public class BindingDataTypeFactoryTest {
 
 	@Test
 	public void testCreateNativeEnum() {
-		testCreate(null, COLOR.class, JavaClassBindingDataType.class, COLOR.class.getName(), null, COLOR.class);
+		testCreate(null, COLOR.class, JavaClassBindingDataType.class, COLOR.class.getName(), null, COLOR.class, null);
 	}
 
 	@Test
@@ -66,17 +69,31 @@ public class BindingDataTypeFactoryTest {
 		final EEnumLiteral literal = TestModelPackage.Literals.TIME_UNIT.getEEnumLiteralByLiteral("MIN");
 		assertNotNull(literal);
 		testCreate(null, literal, EEnumLiteralBindingDataType.class, "MIN", TestModelPackage.Literals.TIME_UNIT,
-				TimeUnit.class);
+				TimeUnit.class, TestModelPackage.Literals.TIME_UNIT);
 	}
 
 	@Test
 	public void testCreateFeature() {
 		testCreate(null, TestModelPackage.Literals.TEST_OBJECT__NUMBER, EStructuralFeatureBindingDataType.class,
-				"number", EcorePackage.Literals.EINT, Integer.TYPE);
+				"number", EcorePackage.Literals.EINT, Integer.TYPE, TestModelPackage.Literals.TEST_OBJECT);
+	}
+
+	@Test
+	public void testCreateSubObjectFeature() {
+		testCreate(SubTestObject.class, TestModelPackage.Literals.TEST_OBJECT__TEXT,
+				EStructuralFeatureBindingDataType.class, "text", EcorePackage.Literals.ESTRING, String.class,
+				TestModelPackage.Literals.SUB_TEST_OBJECT);
+	}
+
+	@Test
+	public void testCreateSubObjectObjFeature() {
+		final SubTestObject o = TestModelFactory.eINSTANCE.createSubTestObject();
+		testCreate(o, TestModelPackage.Literals.TEST_OBJECT__TEXT, EStructuralFeatureBindingDataType.class, "text",
+				EcorePackage.Literals.ESTRING, String.class, TestModelPackage.Literals.SUB_TEST_OBJECT);
 	}
 
 	public void testCreate(Object context, Object element, Class<? extends IBindingDataType> dtClass, String name,
-			EClassifier classifier, Class<?> cls) {
+			EClassifier classifier, Class<?> cls, EClassifier parentClassifier) {
 		final IBindingDataType dt = IBindingDataType.Factory.create(context, element);
 
 		assertNotNull(dt);
@@ -87,6 +104,12 @@ public class BindingDataTypeFactoryTest {
 		assertEquals(classifier, dt.getEType());
 		assertEquals(name, dt.getName());
 		assertEquals(cls, dt.getDataType());
+		final IBindingDataType parentDT = dt.getParentDataType();
+		if (parentClassifier != null) {
+			assertEquals(parentClassifier, parentDT.getEType());
+		} else {
+			assertEquals(null, parentDT);
+		}
 	}
 
 	/* =================================================================== */

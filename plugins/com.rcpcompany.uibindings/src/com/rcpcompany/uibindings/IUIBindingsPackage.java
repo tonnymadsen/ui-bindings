@@ -2622,13 +2622,22 @@ public interface IUIBindingsPackage extends EPackage {
 	int BINDING_DATA_TYPE__UNSETTABLE = 8;
 
 	/**
+	 * The feature id for the '<em><b>Base Type</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_DATA_TYPE__BASE_TYPE = 9;
+
+	/**
 	 * The number of structural features of the '<em>Binding Data Type</em>' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING_DATA_TYPE_FEATURE_COUNT = 9;
+	int BINDING_DATA_TYPE_FEATURE_COUNT = 10;
 
 	/**
 	 * The feature id for the '<em><b>Widget</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -6450,6 +6459,18 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getBindingDataType_Unsettable();
 
 	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IBindingDataType#getBaseType <em>Base Type</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Base Type</em>'.
+	 * @see com.rcpcompany.uibindings.IBindingDataType#getBaseType()
+	 * @see #getBindingDataType()
+	 * @generated
+	 */
+	EAttribute getBindingDataType_BaseType();
+
+	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IColumnAdapter
 	 * <em>Column Adapter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -9897,6 +9918,14 @@ public interface IUIBindingsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BINDING_DATA_TYPE__UNSETTABLE = eINSTANCE.getBindingDataType_Unsettable();
+
+		/**
+		 * The meta object literal for the '<em><b>Base Type</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute BINDING_DATA_TYPE__BASE_TYPE = eINSTANCE.getBindingDataType_BaseType();
 
 		/**
 		 * The meta object literal for the '

@@ -10,7 +10,6 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings;
 
-import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.core.databinding.observable.IObserving;
@@ -51,6 +50,7 @@ import com.rcpcompany.uibindings.internal.bindingDataTypes.BindingDataTypeFactor
  * <li>{@link com.rcpcompany.uibindings.IBindingDataType#isRequired <em>Required</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IBindingDataType#isChangeable <em>Changeable</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IBindingDataType#isUnsettable <em>Unsettable</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IBindingDataType#getBaseType <em>Base Type</em>}</li>
  * </ul>
  * </p>
  * 
@@ -271,6 +271,20 @@ public interface IBindingDataType extends EObject {
 	boolean isUnsettable();
 
 	/**
+	 * Returns the value of the '<em><b>Base Type</b></em>' attribute. <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Base Type</em>' attribute isn't clear, there really should be more
+	 * of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Base Type</em>' attribute.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getBindingDataType_BaseType()
+	 * @generated
+	 */
+	String getBaseType();
+
+	/**
 	 * Returns an {@link IArgumentProvider argument provider} with all arguments for this data type
 	 * and the specified binding type.
 	 * 
@@ -292,20 +306,25 @@ public interface IBindingDataType extends EObject {
 	 * 
 	 * @param <ArgumentType> the argument type
 	 * @param context the argument context
-	 * @param visitedDataTypes collection of all visited data types
 	 */
-	<ArgumentType> void addParentDataTypeArguments(IArgumentContext<ArgumentType> context,
-			Collection<IBindingDataType> visitedDataTypes);
+	<ArgumentType> void addParentDataTypeArguments(IArgumentContext<ArgumentType> context);
 
 	/**
 	 * Handles any additions of arguments from the Super Types of this data type.
 	 * 
 	 * @param <ArgumentType> the argument type
 	 * @param context the argument context
-	 * @param visitedDataTypes collection of all visited data types
 	 */
-	<ArgumentType> void addSuperDataTypeArguments(IArgumentContext<ArgumentType> context,
-			Collection<IBindingDataType> visitedDataTypes);
+	<ArgumentType> void addSuperDataTypeArguments(IArgumentContext<ArgumentType> context);
+
+	/**
+	 * Handles any additions of arguments from sub-classes if this data type if for a structural
+	 * feature.
+	 * 
+	 * @param <ArgumentType> the argument type
+	 * @param context the argument context
+	 */
+	<ArgumentType> void addSFSuperContainingClassArguments(IArgumentContext<ArgumentType> context);
 
 	/**
 	 * Returns the named argument or <code>null</code> if not set.

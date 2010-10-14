@@ -44,11 +44,16 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SubTestObject" eSuperTypes="#//TestObject">
     <eAnnotations source="http://rcp-company.com/schemas/uibindings">
-      <details key="text.foobar-Sequence-all" value="SubTestObject (annotation)"/>
-      <details key="text.foobar-Sequence-parent" value="SubTestObject (annotation)"/>
-      <details key="text.foobar-Sequence-targetType" value="SubTestObject (annotation)"/>
-      <details key="text.foobar-Sequence-containingClass" value="SubTestObject (annotation)"/>
-      <details key="text.foobar-Sequence-default" value="SubTestObject (annotation)"/>
+      <details key="foobar-Sequence-all" value="SubTestObject (annotation)"/>
+      <details key="foobar-Sequence-parent" value="SubTestObject (annotation)"/>
+      <details key="foobar-Sequence-targetType" value="SubTestObject (annotation)"/>
+      <details key="foobar-Sequence-containingClass" value="SubTestObject (annotation)"/>
+      <details key="foobar-Sequence-default" value="SubTestObject (annotation)"/>
+      <details key="text.foobar-Sequence-all" value="SubTestObject.text (annotation)"/>
+      <details key="text.foobar-Sequence-parent" value="SubTestObject.text (annotation)"/>
+      <details key="text.foobar-Sequence-targetType" value="SubTestObject.text (annotation)"/>
+      <details key="text.foobar-Sequence-containingClass" value="SubTestObject.text (annotation)"/>
+      <details key="text.foobar-Sequence-default" value="SubTestObject.text (annotation)"/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TestContainer">

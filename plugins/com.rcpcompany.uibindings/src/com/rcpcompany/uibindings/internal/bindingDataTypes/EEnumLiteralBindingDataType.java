@@ -91,7 +91,7 @@ public class EEnumLiteralBindingDataType extends BindingDataTypeImpl {
 	}
 
 	@Override
-	public String toString() {
-		return this.getClass().getSimpleName() + "[" + myLiteral.getEEnum().getName() + "." + myLiteral.getName() + "]"; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+	public String getBaseType() {
+		return myLiteral.getEEnum().getName() + "." + myLiteral.getName();
 	}
 }

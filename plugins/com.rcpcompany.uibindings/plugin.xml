@@ -466,7 +466,7 @@
 <argumentInfo name="type" lookupAttributeContainingClass="false" lookupAttributeTargetType="true" lookupParent="true" lookupReferenceContainingClass="false" lookupReferenceTargetType="true"> </argumentInfo> 
 <argumentInfo name="unit" lookupAttributeContainingClass="false" lookupAttributeTargetType="true"> </argumentInfo> 
 <argumentInfo name="unitSupport" lookupAttributeContainingClass="false" lookupAttributeTargetType="true"> </argumentInfo> 
-<argumentInfo name="validValues" lookupAttributeContainingClass="true" lookupAttributeTargetType="false" lookupParent="true" lookupReferenceContainingClass="false" lookupReferenceTargetType="true"> </argumentInfo> 
+<argumentInfo name="validValues" lookupAttributeContainingClass="false" lookupAttributeTargetType="false" lookupParent="true" lookupReferenceContainingClass="false" lookupReferenceTargetType="true"> </argumentInfo> 
 <argumentInfo name="valueObjectMessages"> </argumentInfo> 
 <argumentInfo name="width" lookupAttributeContainingClass="false"> </argumentInfo>    </extension>
    
@@ -905,9 +905,6 @@
 	<standardArguments
             preferredControl="com.rcpcompany.uibindings.widgets.FileNameControl" />
       </model>
-      <modelArgumentMediator
-            class="com.rcpcompany.uibindings.internal.StructuralFeatureModelArgumentMediator">
-      </modelArgumentMediator>
       <model
             class="org.eclipse.emf.ecore.EObject">
          <standardArguments

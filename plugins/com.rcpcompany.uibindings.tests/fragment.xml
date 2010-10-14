@@ -143,6 +143,52 @@
             <argument name="foobar-Sequence-default" value="TestContainer.current" />
          </feature>
       </model>
+      <model
+            class="com.rcpcompany.uibinding.tests.model.SubTestObject">
+         <argument
+               name="foobar-Sequence-all"
+               value="SubTestObject">
+         </argument>
+         <argument
+               name="foobar-Sequence-parent"
+               value="SubTestObject">
+         </argument>
+         <argument
+               name="foobar-Sequence-targetType"
+               value="SubTestObject">
+         </argument>
+         <argument
+               name="foobar-Sequence-containingClass"
+               value="SubTestObject">
+         </argument>
+         <argument
+               name="foobar-Sequence-default"
+               value="SubTestObject">
+         </argument>
+         <feature
+               name="text">
+            <argument
+                  name="foobar-Sequence-all"
+                  value="SubTestObject.text">
+            </argument>
+            <argument
+                  name="foobar-Sequence-parent"
+                  value="SubTestObject.text">
+            </argument>
+            <argument
+                  name="foobar-Sequence-targetType"
+                  value="SubTestObject.text">
+            </argument>
+            <argument
+                  name="foobar-Sequence-containingClass"
+                  value="SubTestObject.text">
+            </argument>
+            <argument
+                  name="foobar-Sequence-default"
+                  value="SubTestObject.text">
+            </argument>
+         </feature>
+      </model>
    </extension>
    <extension
          point="com.rcpcompany.uibindings.uiBindings">

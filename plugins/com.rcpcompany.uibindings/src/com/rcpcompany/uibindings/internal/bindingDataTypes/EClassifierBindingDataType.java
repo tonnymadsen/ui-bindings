@@ -69,7 +69,7 @@ public class EClassifierBindingDataType extends BindingDataTypeImpl {
 	}
 
 	@Override
-	public String toString() {
-		return this.getClass().getSimpleName() + "[" + myClass.getName() + "]"; //$NON-NLS-1$ //$NON-NLS-2$
+	public String getBaseType() {
+		return myClass.getName();
 	}
 }

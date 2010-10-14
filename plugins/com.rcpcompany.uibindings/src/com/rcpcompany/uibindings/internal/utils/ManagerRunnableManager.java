@@ -46,6 +46,7 @@ public class ManagerRunnableManager implements IManagerRunnableManager {
 		startDisplayRunnable();
 	}
 
+	@Override
 	public boolean isEmpty() {
 		return myRecords.isEmpty();
 	}

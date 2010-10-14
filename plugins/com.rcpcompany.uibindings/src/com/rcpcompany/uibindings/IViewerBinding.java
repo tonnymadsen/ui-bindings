@@ -303,7 +303,6 @@ public interface IViewerBinding extends IContainerBinding {
 	 * @return the value of the '<em>Viewer</em>' attribute.
 	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getViewerBinding_Viewer()
 	 * @generated
-	 * @deprecated willæ be removed
 	 */
 	@Deprecated
 	ColumnViewer getViewer();

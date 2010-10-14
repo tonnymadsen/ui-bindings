@@ -11,8 +11,9 @@
 package com.rcpcompany.uibindings.internal;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EClass;
@@ -51,6 +52,8 @@ import com.rcpcompany.uibindings.internal.BindingImpl.ArgumentValue;
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl#isUnsettable <em>Unsettable
  * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.BindingDataTypeImpl#getBaseType <em>Base Type</em>}
+ * </li>
  * </ul>
  * </p>
  * 
@@ -62,7 +65,9 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 
 	@Override
 	public <ArgumentType> void addArguments(final IArgumentContext<ArgumentType> context) {
-		getEAnnotationArguments(context);
+		if (!context.addDataType(this)) return;
+
+		addEAnnotationArguments(context);
 		if (context.isResultFound()) return;
 
 		/*
@@ -79,35 +84,36 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	}
 
 	@Override
-	public <ArgumentType> void addParentDataTypeArguments(final IArgumentContext<ArgumentType> context,
-			Collection<IBindingDataType> visitedDataTypes) {
+	public <ArgumentType> void addParentDataTypeArguments(final IArgumentContext<ArgumentType> context) {
 		final IBindingDataType pDataType = getParentDataType();
-		if (pDataType != null && !visitedDataTypes.contains(pDataType)) {
+		if (pDataType != null) {
 			pDataType.addArguments(context);
-			visitedDataTypes.add(pDataType);
 		}
 	}
 
 	@Override
-	public <ArgumentType> void addSuperDataTypeArguments(final IArgumentContext<ArgumentType> context,
-			Collection<IBindingDataType> visitedDataTypes) {
+	public <ArgumentType> void addSuperDataTypeArguments(final IArgumentContext<ArgumentType> context) {
 
 		for (final IBindingDataType dt : IBindingDataType.Factory.getSuperTypes(this)) {
-			if (visitedDataTypes.contains(dt)) {
-				continue;
-			}
 			dt.addArguments(context);
-			visitedDataTypes.add(dt);
 			if (context.isResultFound()) return;
 		}
 	}
 
-	private <ArgumentType> void getEAnnotationArguments(IArgumentContext<ArgumentType> context) {
-		String value = null;
+	@Override
+	public <ArgumentType> void addSFSuperContainingClassArguments(IArgumentContext<ArgumentType> context) {
+	}
 
+	/**
+	 * Adds any arguments from annotations.
+	 * 
+	 * @param <ArgumentType> the argument type
+	 * @param context the argument context
+	 */
+	protected <ArgumentType> void addEAnnotationArguments(IArgumentContext<ArgumentType> context) {
 		final EAnnotation annotation = getEAnnotation();
 		if (annotation == null) return;
-		value = annotation.getDetails().get(context.getName());
+		final String value = annotation.getDetails().get(context.getName());
 		if (value == null) return;
 
 		IManager.Factory.getManager().addArgumentValue(context, this, null, null, value);
@@ -128,6 +134,8 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 		final List<IArgumentValue<ArgumentType>> results = new ArrayList<IArgumentValue<ArgumentType>>();
 
 		final IArgumentInformation ai = IManager.Factory.getManager().getArgumentInformation(name);
+		final Set<IBindingDataType> visitedDataTypes = new HashSet<IBindingDataType>();
+
 		final IArgumentContext<ArgumentType> context = new IArgumentContext<ArgumentType>() {
 			@Override
 			public IBinding getBinding() {
@@ -168,19 +176,20 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 			public boolean isResultFound() {
 				return firstOnly() && !results.isEmpty();
 			}
-		};
 
-		final Collection<IBindingDataType> visitedDataTypes = new ArrayList<IBindingDataType>();
-		visitedDataTypes.add(this);
-		// LogUtils.debug(this, this + ": " + getStaticDataType() + "/" + getDataType());
+			@Override
+			public boolean addDataType(IBindingDataType dataType) {
+				return visitedDataTypes.add(dataType);
+			}
+		};
 
 		addArguments(context);
 		if (context.isResultFound()) return results;
 
-		addSuperDataTypeArguments(context, visitedDataTypes);
+		addSuperDataTypeArguments(context);
 		if (context.isResultFound()) return results;
 
-		addParentDataTypeArguments(context, visitedDataTypes);
+		addParentDataTypeArguments(context);
 		if (context.isResultFound()) return results;
 
 		return results;
@@ -235,6 +244,16 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	 * @ordered
 	 */
 	protected static final boolean UNSETTABLE_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #getBaseType() <em>Base Type</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getBaseType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String BASE_TYPE_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -338,6 +357,14 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public abstract String getBaseType();
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -361,6 +388,8 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 			return isChangeable();
 		case IUIBindingsPackage.BINDING_DATA_TYPE__UNSETTABLE:
 			return isUnsettable();
+		case IUIBindingsPackage.BINDING_DATA_TYPE__BASE_TYPE:
+			return getBaseType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -391,8 +420,14 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 			return isChangeable() != CHANGEABLE_EDEFAULT;
 		case IUIBindingsPackage.BINDING_DATA_TYPE__UNSETTABLE:
 			return isUnsettable() != UNSETTABLE_EDEFAULT;
+		case IUIBindingsPackage.BINDING_DATA_TYPE__BASE_TYPE:
+			return BASE_TYPE_EDEFAULT == null ? getBaseType() != null : !BASE_TYPE_EDEFAULT.equals(getBaseType());
 		}
 		return super.eIsSet(featureID);
 	}
 
+	@Override
+	public String toString() {
+		return this.getClass().getSimpleName() + "[" + getBaseType() + "]"; //$NON-NLS-1$ //$NON-NLS-2$ 
+	}
 } // BindingDataTypeImpl

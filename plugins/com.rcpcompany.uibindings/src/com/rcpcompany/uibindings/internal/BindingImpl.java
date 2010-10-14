@@ -15,9 +15,11 @@ import static java.lang.Math.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.UpdateListStrategy;
@@ -625,6 +627,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 		final IManager manager = IManager.Factory.getManager();
 		final IArgumentInformation ai = manager.getArgumentInformation(name);
+		final Set<IBindingDataType> visitedDataTypes = new HashSet<IBindingDataType>();
+
 		final IArgumentContext<ArgumentType> context = new IArgumentContext<ArgumentType>() {
 			@Override
 			public IBinding getBinding() {
@@ -658,12 +662,17 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 			@Override
 			public void addResult(Object source, ArgumentType value) {
-				results.add(new ArgumentValue<ArgumentType>(this, value));
+				results.add(new ArgumentValue<ArgumentType>(source, value));
 			}
 
 			@Override
 			public boolean isResultFound() {
 				return firstOnly() && !results.isEmpty();
+			}
+
+			@Override
+			public boolean addDataType(IBindingDataType dataType) {
+				return visitedDataTypes.add(dataType);
 			}
 		};
 
@@ -699,40 +708,48 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		/*
 		 * Now use the list of IBDT object to look for annotations.
 		 */
-		final Collection<IBindingDataType> visitedDataTypes = new ArrayList<IBindingDataType>();
 		final IBindingDataType dynamicDataType = getDataType();
 		if (dynamicDataType != null) {
-			visitedDataTypes.add(dynamicDataType);
 			// LogUtils.debug(this, this + ": " + getStaticDataType() + "/" + getDataType());
 			dynamicDataType.addArguments(context);
 			if (context.isResultFound()) return results;
 
-			dynamicDataType.addSuperDataTypeArguments(context, visitedDataTypes);
+			dynamicDataType.addSFSuperContainingClassArguments(context);
+			if (context.isResultFound()) return results;
+
+			dynamicDataType.addSuperDataTypeArguments(context);
+			if (context.isResultFound()) return results;
 		}
 
 		/*
 		 * Try the (static) model data type...
 		 */
 		final IBindingDataType sDataType = getStaticDataType();
-		if (sDataType != null && !visitedDataTypes.contains(sDataType)) {
+		if (sDataType != null) {
 			sDataType.addArguments(context);
 			if (context.isResultFound()) return results;
-			visitedDataTypes.add(sDataType);
-			sDataType.addSuperDataTypeArguments(context, visitedDataTypes);
+
+			sDataType.addSFSuperContainingClassArguments(context);
+			if (context.isResultFound()) return results;
+
+			sDataType.addSuperDataTypeArguments(context);
+			if (context.isResultFound()) return results;
 		}
 
 		/*
 		 * Now use the parent IBDTs if they exists
 		 */
 		if (dynamicDataType != null) {
-			dynamicDataType.addParentDataTypeArguments(context, visitedDataTypes);
+			dynamicDataType.addParentDataTypeArguments(context);
+			if (context.isResultFound()) return results;
 		}
 
 		/*
 		 * Try the model data type...
 		 */
 		if (sDataType != null) {
-			sDataType.addParentDataTypeArguments(context, visitedDataTypes);
+			sDataType.addParentDataTypeArguments(context);
+			if (context.isResultFound()) return results;
 		}
 
 		/*

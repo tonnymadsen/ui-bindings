@@ -50,8 +50,8 @@ public class OrderView extends ViewPart {
 
 		detailsTable.addColumn("no(w=40)");
 		detailsTable.addColumn("count(w=40)");
-		detailsTable.addColumn("item.name(w=200)");
-		detailsTable.addColumn("item.price(w=100)");
+		detailsTable.addColumn("item(w=200)");
+		detailsTable.addColumn("item.price(w=100)").readonly();
 
 		myForm.finish();
 		IBindingContextSelectionProvider.Factory.adapt(myForm.getContext(), getSite());

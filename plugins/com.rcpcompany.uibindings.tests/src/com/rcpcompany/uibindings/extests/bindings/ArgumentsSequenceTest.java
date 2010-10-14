@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.swt.SWT;
 import org.junit.After;
 import org.junit.Before;
@@ -81,8 +82,8 @@ public class ArgumentsSequenceTest {
 	 * Test data: all over EX.ecore, fragment.xml, etc
 	 */
 	@Test
-	public void testAttributeAllSequence() {
-		testOneAttributeSequence(ARG + "-all", "extender", null, "bindingDecorator.simple",
+	public void testObjectAttributeAllSequence() {
+		testOneAttributeSequence(ARG + "-all", myObject, "extender", null, "bindingDecorator.simple",
 				"TestObject.text (annotation)", "TestObject.text", "java.lang.String", "java.lang.CharSequence",
 				"TestObject (annotation)", "TestObject", "IArgumentProvider1", "IArgumentProvider2");
 		// TODO: missing "SubTestObject (annotation)"
@@ -94,8 +95,8 @@ public class ArgumentsSequenceTest {
 	 * Test data: all over EX.ecore, fragment.xml, etc
 	 */
 	@Test
-	public void testAttributeDefaultSequence() {
-		testOneAttributeSequence(ARG + "-default", "extender", null, "bindingDecorator.simple",
+	public void testObjectAttributeDefaultSequence() {
+		testOneAttributeSequence(ARG + "-default", myObject, "extender", null, "bindingDecorator.simple",
 				"TestObject.text (annotation)", "TestObject.text", "TestObject (annotation)", "TestObject",
 				"IArgumentProvider1", "IArgumentProvider2");
 	}
@@ -106,8 +107,8 @@ public class ArgumentsSequenceTest {
 	 * Test data: all over EX.ecore, fragment.xml, etc
 	 */
 	@Test
-	public void testAttributeParentSequence() {
-		testOneAttributeSequence(ARG + "-parent", "extender", null, "bindingDecorator.simple",
+	public void testObjectAttributeParentSequence() {
+		testOneAttributeSequence(ARG + "-parent", myObject, "extender", null, "bindingDecorator.simple",
 				"TestObject.text (annotation)", "TestObject.text", "IArgumentProvider1", "IArgumentProvider2");
 	}
 
@@ -117,8 +118,8 @@ public class ArgumentsSequenceTest {
 	 * Test data: all over EX.ecore, fragment.xml, etc
 	 */
 	@Test
-	public void testAttributeTargetTypeSequence() {
-		testOneAttributeSequence(ARG + "-targetType", "extender", null, "bindingDecorator.simple",
+	public void testObjectAttributeTargetTypeSequence() {
+		testOneAttributeSequence(ARG + "-targetType", myObject, "extender", null, "bindingDecorator.simple",
 				"TestObject.text (annotation)", "TestObject.text", "java.lang.String", "java.lang.CharSequence",
 				"IArgumentProvider1", "IArgumentProvider2");
 	}
@@ -129,17 +130,82 @@ public class ArgumentsSequenceTest {
 	 * Test data: all over EX.ecore, fragment.xml, etc
 	 */
 	@Test
-	public void testAttributeContainingClassSequence() {
-		testOneAttributeSequence(ARG + "-containingClass", "extender", null, "bindingDecorator.simple",
+	public void testObjectAttributeContainingClassSequence() {
+		testOneAttributeSequence(ARG + "-containingClass", myObject, "extender", null, "bindingDecorator.simple",
 				"TestObject.text (annotation)", "TestObject.text", "TestObject (annotation)", "TestObject",
 				"IArgumentProvider1", "IArgumentProvider2");
 	}
 
-	private void testOneAttributeSequence(final String arg, final String... results) {
+	/**
+	 * Tests the values are fetched in the correct sequence for attributes.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testSubObjectAttributeAllSequence() {
+		testOneAttributeSequence(ARG + "-all", mySubObject, "extender", null, "bindingDecorator.simple",
+				"SubTestObject.text (annotation)", "SubTestObject.text", "TestObject.text (annotation)",
+				"TestObject.text", "java.lang.String", "java.lang.CharSequence", "SubTestObject (annotation)",
+				"SubTestObject", "IArgumentProvider1", "IArgumentProvider2");
+		// TODO: missing "SubTestObject (annotation)"
+	}
+
+	/**
+	 * Tests the values are fetched in the correct sequence for attributes.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testSubObjectAttributeDefaultSequence() {
+		testOneAttributeSequence(ARG + "-default", mySubObject, "extender", null, "bindingDecorator.simple",
+				"SubTestObject.text (annotation)", "SubTestObject.text", "TestObject.text (annotation)",
+				"TestObject.text", "SubTestObject (annotation)", "SubTestObject", "IArgumentProvider1",
+				"IArgumentProvider2");
+	}
+
+	/**
+	 * Tests the values are fetched in the correct sequence for attributes.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testSubObjectAttributeParentSequence() {
+		testOneAttributeSequence(ARG + "-parent", mySubObject, "extender", null, "bindingDecorator.simple",
+				"SubTestObject.text (annotation)", "SubTestObject.text", "TestObject.text (annotation)",
+				"TestObject.text", "IArgumentProvider1", "IArgumentProvider2");
+	}
+
+	/**
+	 * Tests the values are fetched in the correct sequence for attributes.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testSubObjectAttributeTargetTypeSequence() {
+		testOneAttributeSequence(ARG + "-targetType", mySubObject, "extender", null, "bindingDecorator.simple",
+				"SubTestObject.text (annotation)", "SubTestObject.text", "TestObject.text (annotation)",
+				"TestObject.text", "java.lang.String", "java.lang.CharSequence", "IArgumentProvider1",
+				"IArgumentProvider2");
+	}
+
+	/**
+	 * Tests the values are fetched in the correct sequence for attributes.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testSubObjectAttributeContainingClassSequence() {
+		testOneAttributeSequence(ARG + "-containingClass", mySubObject, "extender", null, "bindingDecorator.simple",
+				"SubTestObject.text (annotation)", "SubTestObject.text", "TestObject.text (annotation)",
+				"TestObject.text", "SubTestObject (annotation)", "SubTestObject", "IArgumentProvider1",
+				"IArgumentProvider2");
+	}
+
+	private void testOneAttributeSequence(final String arg, final EObject obj, final String... results) {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
-				final IFormCreator form = myView.createFormCreator(myObject);
+				final IFormCreator form = myView.createFormCreator(obj);
 				final IValueBinding binding = form.addField("text").type("argumentScopeTest").arg("extender", "foobar")
 						.arg(arg, null);
 				binding.getExtraArgumentProviders().add(new IArgumentProvider() {

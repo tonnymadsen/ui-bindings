@@ -21,6 +21,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EEnumLiteral;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EPackage.Registry;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -67,15 +68,28 @@ public final class BindingDataTypeFactory {
 			csf.eSF = (EStructuralFeature) element;
 			/*
 			 * Features are special: for these we use the context so, you can specify a specific
-			 * sub-classs for the feature.
+			 * sub-class for the feature.
 			 */
 			if (context instanceof IObservableValue) {
 				context = ((IObservableValue) context).getValue();
 			}
+
+			/*
+			 * Convert EObject to EClasses and Object to Classes
+			 */
+			if (context instanceof EClass) {
+				// Do nothing
+			} else if (context instanceof EObject) {
+				context = ((EObject) context).eClass();
+			} else if (context instanceof Class) {
+				// Do nothing
+			} else if (context instanceof Object) {
+				context = context.getClass();
+			}
 			if (context instanceof EClass) {
 				csf.eCls = (EClass) context;
 			} else if (context instanceof Class) {
-				final EClassifier c = IBindingDataType.Factory.convertToClassifier((Class<?>) element);
+				final EClassifier c = IBindingDataType.Factory.convertToClassifier((Class<?>) context);
 				if (c instanceof EClass) {
 					csf.eCls = (EClass) c;
 				}
