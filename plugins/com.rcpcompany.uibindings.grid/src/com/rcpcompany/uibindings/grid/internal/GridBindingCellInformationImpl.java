@@ -44,7 +44,6 @@ import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IContainerBinding;
 import com.rcpcompany.uibindings.IUIAttribute;
-import com.rcpcompany.uibindings.IUIBindingDecorator;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IValueBindingCell;
@@ -539,13 +538,12 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 		if (!isEnabled()) return false;
 		final IValueBinding b = getLabelBinding();
 		if (b == null) return false;
+		if (!b.isChangeable()) return false;
 		if (b.eIsSet(IUIBindingsPackage.Literals.BINDING__ERROR_CONDITIONS) && b.getErrorConditions().size() > 0)
 			return false;
-		if (b.getArgument(Constants.ARG_READONLY, Boolean.class, Boolean.FALSE) == Boolean.TRUE) return false;
 		if (!getGrid().isChangeable()) return false;
-		final IUIBindingDecorator decorator = b.getDecorator();
-		if (decorator == null) return false;
-		return decorator.isChangeable();
+
+		return true;
 	}
 
 	/**

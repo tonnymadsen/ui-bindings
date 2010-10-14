@@ -15,6 +15,7 @@ import org.eclipse.ui.application.WorkbenchAdvisor;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
 
 import com.rcpcompany.uibindings.moao.util.MOAOMessageValidatorAdapter;
+import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.utils.EditingDomainUtils;
@@ -60,5 +61,7 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 		vam.addRoot(theShop, new MOAOMessageValidatorAdapter());
 
 		IGlobalNavigationManager.Factory.installMouseHandling();
+
+		INavigatorManager.Factory.getManager().setUseGenericEditorPartFallback(false);
 	}
 }

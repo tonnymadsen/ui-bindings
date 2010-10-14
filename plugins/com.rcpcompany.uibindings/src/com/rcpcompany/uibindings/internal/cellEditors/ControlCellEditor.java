@@ -92,6 +92,11 @@ public class ControlCellEditor extends CellEditor {
 	};
 
 	/**
+	 * The context - cached to handle when the binding is disposed...
+	 */
+	private final IBindingContext myContext;
+
+	/**
 	 * Constructs and returns a new cell editors for the specified cell.
 	 * 
 	 * @param parent the parent composite
@@ -100,6 +105,7 @@ public class ControlCellEditor extends CellEditor {
 	public ControlCellEditor(Composite parent, IValueBindingCell cell) {
 		super(parent, SWT.SINGLE | SWT.LEAD);
 		myCell = cell;
+		myContext = myCell.getLabelBinding().getContext();
 
 		/*
 		 * Call create again... this time myCell is set.
@@ -232,7 +238,7 @@ public class ControlCellEditor extends CellEditor {
 	 * @return the context
 	 */
 	private IBindingContext getContext() {
-		return getLabelBinding().getContext();
+		return myContext;
 	}
 
 	/**

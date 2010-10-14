@@ -23,6 +23,8 @@ import org.eclipse.core.databinding.observable.IObserving;
 import org.eclipse.core.databinding.observable.Observables;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.core.internal.databinding.observable.ConstantObservableValue;
+import org.eclipse.core.internal.databinding.observable.UnmodifiableObservableValue;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -580,6 +582,13 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		}
 		if (!getStaticDataType().isChangeable()) return false;
 		if (!getDataType().isChangeable()) return false;
+
+		/*
+		 * If the model observable is a constant IOV, then this binding must be constant.
+		 */
+		final IObservableValue ov = getModelObservableValue();
+		if (ov instanceof ConstantObservableValue) return false;
+		if (ov instanceof UnmodifiableObservableValue) return false;
 
 		if (getArgument(Constants.ARG_READONLY, Boolean.class, Boolean.FALSE)) return false;
 

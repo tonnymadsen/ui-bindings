@@ -66,6 +66,7 @@ public class VirtualUIAttribute extends AbstractUIAttribute {
 	 */
 	public VirtualUIAttribute(Object valueType) {
 		myValue = addObservable(WritableValue.withValueType(valueType));
+		setChangeable(true);
 	}
 
 	@Override

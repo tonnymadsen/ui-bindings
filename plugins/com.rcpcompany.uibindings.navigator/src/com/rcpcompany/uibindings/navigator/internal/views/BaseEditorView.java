@@ -306,7 +306,6 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 		/*
 		 * Make all select editor parts update themselves...
 		 */
-		LogUtils.debug(this, "update " + NavigatorConstants.SELECT_EDITOR_PART_COMMAND);
 		final ICommandService commandService = (ICommandService) getSite().getService(ICommandService.class);
 		commandService.refreshElements(NavigatorConstants.SELECT_EDITOR_PART_COMMAND, null);
 	}

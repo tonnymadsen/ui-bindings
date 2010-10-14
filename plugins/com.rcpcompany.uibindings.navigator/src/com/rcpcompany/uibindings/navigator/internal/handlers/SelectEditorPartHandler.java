@@ -138,7 +138,6 @@ public class SelectEditorPartHandler extends AbstractHandler implements IHandler
 				LogUtils.error(this, "No editor with ID '" + editorID + "'");
 			}
 		}
-		LogUtils.debug(this, "update " + desc + "\n" + parameters.keySet());
 
 		final boolean enabled = desc != null;
 		ImageDescriptor descriptor = myFallBackImage;

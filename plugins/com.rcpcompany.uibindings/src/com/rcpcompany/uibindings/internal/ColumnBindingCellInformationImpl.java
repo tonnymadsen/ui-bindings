@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Control;
 
-import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IArgumentProvider;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingContext.FinishOption;
@@ -33,7 +32,6 @@ import com.rcpcompany.uibindings.IColumnBindingCellInformation;
 import com.rcpcompany.uibindings.IConstantTreeItem;
 import com.rcpcompany.uibindings.IContainerBinding;
 import com.rcpcompany.uibindings.IUIAttribute;
-import com.rcpcompany.uibindings.IUIBindingDecorator;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
@@ -563,14 +561,12 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 		if (!isEnabled()) return false;
 		final IValueBinding b = getLabelBinding();
 		if (b == null) return false;
+		if (!b.isChangeable()) return false;
 		if (b.eIsSet(IUIBindingsPackage.Literals.BINDING__ERROR_CONDITIONS) && b.getErrorConditions().size() > 0)
 			return false;
-		if (getColumn().getArgument(Constants.ARG_READONLY, Boolean.class, Boolean.FALSE) == Boolean.TRUE)
-			return false;
 		if (!getColumn().getViewerBinding().isChangeable()) return false;
-		final IUIBindingDecorator decorator = b.getDecorator();
-		if (decorator == null) return false;
-		return decorator.isChangeable();
+
+		return true;
 	}
 
 	/**

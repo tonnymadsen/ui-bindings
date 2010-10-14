@@ -112,6 +112,7 @@ public class OrdersShopItemsGridView extends ViewPart {
 				return Observables.constantObservableValue(getRowItem(), getRowItem().eClass());
 			case DATA:
 				// Both myItem and myCustomer non-null!!!
+				// TODO: make this dynamic with new IOV
 				for (final OrderItem oi : getRowItem().getItems()) {
 					if (oi.getItem() == getColumnItem())
 						return UIBindingsEMFObservables.observeValue(null, myForm.getContext().getEditingDomain(), oi,
