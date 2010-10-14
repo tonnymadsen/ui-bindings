@@ -57,6 +57,7 @@ import org.eclipse.swt.widgets.Widget;
  * <li>{@link com.rcpcompany.uibindings.IValueBinding#getUIObservable <em>UI Observable</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IValueBinding#getCell <em>Cell</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IValueBinding#getMessagePrefix <em>Message Prefix</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IValueBinding#isDynamic <em>Dynamic</em>}</li>
  * </ul>
  * </p>
  * 
@@ -475,6 +476,19 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 * @generated
 	 */
 	String getMessagePrefix();
+
+	/**
+	 * Returns the value of the '<em><b>Dynamic</b></em>' attribute. <!-- begin-user-doc -->
+	 * <p>
+	 * Returns whether this is a dynamic binding or not.
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Dynamic</em>' attribute.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getValueBinding_Dynamic()
+	 * @generated
+	 */
+	boolean isDynamic();
 
 	/**
 	 * Returns whether the current model object of this binding is for the specified class and

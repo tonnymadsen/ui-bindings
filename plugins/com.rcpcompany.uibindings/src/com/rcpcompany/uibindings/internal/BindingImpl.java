@@ -1262,7 +1262,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 			for (final Entry<String, Object> e : getArguments().entrySet()) {
 				String s = e.getValue() == null ? Messages.ValueBindingImpl_NullString : e.getValue().toString();
 				if (s.length() > 15) {
-					s = s.substring(0, 15) + "..."; //$NON-NLS-1$
+					s = s.substring(0, 3) + "..." + s.substring(s.length() - 3); //$NON-NLS-1$
 				}
 				baseType += ", " + e.getKey() + "=" + s; //$NON-NLS-1$ //$NON-NLS-2$
 			}

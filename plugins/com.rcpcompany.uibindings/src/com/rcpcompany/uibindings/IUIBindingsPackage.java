@@ -1021,13 +1021,22 @@ public interface IUIBindingsPackage extends EPackage {
 	int VALUE_BINDING__MESSAGE_PREFIX = BINDING_FEATURE_COUNT + 9;
 
 	/**
+	 * The feature id for the '<em><b>Dynamic</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_BINDING__DYNAMIC = BINDING_FEATURE_COUNT + 10;
+
+	/**
 	 * The number of structural features of the '<em>Value Binding</em>' class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_BINDING_FEATURE_COUNT = BINDING_FEATURE_COUNT + 10;
+	int VALUE_BINDING_FEATURE_COUNT = BINDING_FEATURE_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.IValueBindingCell
@@ -5641,6 +5650,18 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getValueBinding_MessagePrefix();
 
 	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IValueBinding#isDynamic <em>Dynamic</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Dynamic</em>'.
+	 * @see com.rcpcompany.uibindings.IValueBinding#isDynamic()
+	 * @see #getValueBinding()
+	 * @generated
+	 */
+	EAttribute getValueBinding_Dynamic();
+
+	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IValueBindingCell
 	 * <em>Value Binding Cell</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -9309,6 +9330,14 @@ public interface IUIBindingsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VALUE_BINDING__MESSAGE_PREFIX = eINSTANCE.getValueBinding_MessagePrefix();
+
+		/**
+		 * The meta object literal for the '<em><b>Dynamic</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute VALUE_BINDING__DYNAMIC = eINSTANCE.getValueBinding_Dynamic();
 
 		/**
 		 * The meta object literal for the '{@link com.rcpcompany.uibindings.IValueBindingCell

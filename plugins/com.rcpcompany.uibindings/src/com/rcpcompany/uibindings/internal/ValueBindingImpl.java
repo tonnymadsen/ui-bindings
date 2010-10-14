@@ -95,6 +95,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getCell <em>Cell</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getMessagePrefix <em>Message
  * Prefix</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#isDynamic <em>Dynamic</em>}</li>
  * </ul>
  * </p>
  * 
@@ -106,11 +107,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 */
 	private boolean isDynamic = false;
 
-	/**
-	 * Returns whether this is a dynamic binding or not.
-	 * 
-	 * @return <code>true</code> if it is dynamic
-	 */
+	@Override
 	public boolean isDynamic() {
 		return isDynamic;
 	}
@@ -737,6 +734,16 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	protected static final String MESSAGE_PREFIX_EDEFAULT = null;
 
 	/**
+	 * The default value of the '{@link #isDynamic() <em>Dynamic</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #isDynamic()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DYNAMIC_EDEFAULT = false;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -1080,6 +1087,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			return getCell();
 		case IUIBindingsPackage.VALUE_BINDING__MESSAGE_PREFIX:
 			return getMessagePrefix();
+		case IUIBindingsPackage.VALUE_BINDING__DYNAMIC:
+			return isDynamic();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1176,6 +1185,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		case IUIBindingsPackage.VALUE_BINDING__MESSAGE_PREFIX:
 			return MESSAGE_PREFIX_EDEFAULT == null ? getMessagePrefix() != null : !MESSAGE_PREFIX_EDEFAULT
 					.equals(getMessagePrefix());
+		case IUIBindingsPackage.VALUE_BINDING__DYNAMIC:
+			return isDynamic() != DYNAMIC_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

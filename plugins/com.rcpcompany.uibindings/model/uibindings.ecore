@@ -220,6 +220,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="messagePrefix" unique="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dynamic" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" changeable="false"
+        volatile="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ValueBindingCell" instanceClassName="com.rcpcompany.uibindings.IValueBindingCell"
       abstract="true" interface="true"/>
