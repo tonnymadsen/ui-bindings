@@ -13,6 +13,8 @@ package com.rcpcompany.uibindings.internal.decorators;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.core.databinding.observable.ChangeEvent;
+import org.eclipse.core.databinding.observable.IChangeListener;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.list.WritableList;
 import org.eclipse.emf.ecore.EClass;
@@ -21,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.rcpcompany.uibindings.Constants;
+import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIBindingDecorator;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.decorators.SimpleUIBindingDecorator;
@@ -58,6 +61,13 @@ public class EObjectCreatorDecorator extends SimpleUIBindingDecorator implements
 	 * Matching is based on an exact match
 	 */
 	protected final Map<EClass, String> modelToUIClassMappings = new HashMap<EClass, String>();
+
+	private final IChangeListener myModelObjectChangeListener = new IChangeListener() {
+		@Override
+		public void handleChange(ChangeEvent event) {
+			uiToModelObjectMappings.clear();
+		}
+	};
 
 	@Override
 	public void init(IValueBinding binding) {
@@ -105,6 +115,14 @@ public class EObjectCreatorDecorator extends SimpleUIBindingDecorator implements
 		if (!getBinding().getDataType().isRequired()) {
 			myValidUIList.add(myNullLabel);
 		}
+
+		getBinding().getModelObservableValue().addChangeListener(myModelObjectChangeListener);
+	}
+
+	@Override
+	public void dispose() {
+		getBinding().getModelObservableValue().removeChangeListener(myModelObjectChangeListener);
+		super.dispose();
 	}
 
 	@Override
@@ -143,7 +161,11 @@ public class EObjectCreatorDecorator extends SimpleUIBindingDecorator implements
 			LogUtils.error(this, "Name not mapped: " + name);
 			return null;
 		}
+		/*
+		 * Crate and initialize the object
+		 */
 		final EObject e = EcoreUtil.create(ec);
+		IManager.Factory.getManager().initializeObject(null, null, e);
 		uiToModelObjectMappings.put(name, e);
 		return e;
 	}
