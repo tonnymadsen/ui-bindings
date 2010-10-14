@@ -91,6 +91,8 @@ public class UIPainterCellRenderer extends GridCellRenderer implements IRenderer
 	public void paint(GC gc, Object value) {
 		final UIAttributePainter painter = getPainter(value);
 		if (painter == null) return;
+		gc.setForeground(myColumn.getGrid().getControl().getForeground());
+
 		painter.paint(gc, getBounds());
 	}
 }
