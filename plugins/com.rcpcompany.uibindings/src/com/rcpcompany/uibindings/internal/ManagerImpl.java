@@ -3297,7 +3297,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 
 		final CompoundCommand cc = new CompoundCommand();
 		final Map<EStructuralFeature, Object> valueMap = new HashMap<EStructuralFeature, Object>();
-		if (reference.getEOpposite() != null) {
+		if (parent != null && reference != null && reference.getEOpposite() != null) {
 			valueMap.put(reference.getEOpposite(), parent);
 		}
 		final IInitializerContext context = new IInitializerContext() {
