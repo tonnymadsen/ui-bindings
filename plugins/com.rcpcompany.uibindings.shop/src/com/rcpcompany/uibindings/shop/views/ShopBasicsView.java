@@ -36,6 +36,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
+import com.rcpcompany.uibindings.utils.IDnDSupport;
 import com.rcpcompany.uibindings.utils.ISortableTableAdapter;
 import com.rcpcompany.uibindings.utils.IViewerToolBar;
 
@@ -116,6 +117,8 @@ public class ShopBasicsView extends ViewPart {
 		ISortableTableAdapter.Factory.adapt(viewer);
 		IBindingContextSelectionProvider.Factory.adapt(context, getSite());
 		IViewerToolBar.Factory.addToolBar(viewer, IViewerToolBar.HORIZONTAL | IViewerToolBar.STANDARD_ITEMS);
+
+		IDnDSupport.Factory.adapt(viewer);
 
 		mySaveButton.addSelectionListener(new SelectionAdapter() {
 			@Override

@@ -34,6 +34,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
+import com.rcpcompany.uibindings.utils.IDnDSupport;
 
 public class ShopTreeView extends ViewPart {
 
@@ -82,6 +83,8 @@ public class ShopTreeView extends ViewPart {
 				.model(factory, EcorePackage.Literals.EJAVA_OBJECT);
 
 		myContext.finish();
+
+		IDnDSupport.Factory.adapt(myTreeBinding);
 		IBindingContextSelectionProvider.Factory.adapt(myContext, getSite());
 	}
 
