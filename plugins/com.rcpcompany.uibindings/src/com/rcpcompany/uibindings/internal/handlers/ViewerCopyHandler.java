@@ -23,7 +23,7 @@ import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.internal.Activator;
-import com.rcpcompany.uibindings.internal.utils.BindingTransfer;
+import com.rcpcompany.uibindings.internal.utils.dnd.BindingTransfer;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**

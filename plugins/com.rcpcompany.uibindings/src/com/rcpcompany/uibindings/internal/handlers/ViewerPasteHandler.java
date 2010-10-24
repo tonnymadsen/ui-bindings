@@ -34,7 +34,7 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.internal.Activator;
-import com.rcpcompany.uibindings.internal.utils.BindingTransfer;
+import com.rcpcompany.uibindings.internal.utils.dnd.BindingTransfer;
 import com.rcpcompany.uibindings.uiAttributes.SimpleUIAttribute;
 import com.rcpcompany.utils.logging.LogUtils;
 
