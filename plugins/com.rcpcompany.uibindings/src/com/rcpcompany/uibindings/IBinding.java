@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -177,6 +178,13 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * This is the third phase of the finish process that will make the binding effective.
 	 */
 	void finish3();
+
+	/**
+	 * Return a collection of all selected objects in this binding.
+	 * 
+	 * @return the selected objects
+	 */
+	Collection<EObject> getSelection();
 
 	/**
 	 * Adds a new data bind to the set of bindings for this bound binding.

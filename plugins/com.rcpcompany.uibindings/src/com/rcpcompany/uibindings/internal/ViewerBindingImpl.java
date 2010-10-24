@@ -518,11 +518,17 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	};
 
 	@Override
-	public List<IChildCreationSpecification> getPossibleChildObjects(EObject parent) {
-		if (getControl() instanceof Table) return getPossibleTopLevelChildObjects();
+	public List<IChildCreationSpecification> getPossibleChildObjects(EObject parent, EObject sibling) {
+		if (getControl() instanceof Table) return getPossibleTopLevelChildObjects(sibling);
 		if (getControl() instanceof Tree) {
-			if (parent == null) return getPossibleTopLevelChildObjects();
-			return myTreeFactory.getPossibleChildObjects(parent);
+			if (parent == null && sibling != null) {
+				final IElementParentage parentage = getElementParentage(sibling);
+				if (parentage != null) {
+					parent = parentage.getParent();
+				}
+			}
+			if (parent == null) return getPossibleTopLevelChildObjects(sibling);
+			return myTreeFactory.getPossibleChildObjects(parent, sibling);
 		}
 		return null;
 	}
@@ -530,9 +536,11 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	/**
 	 * Returns {@link IChildCreationSpecification} for top-level children of this viewer.
 	 * 
+	 * @param sibling TODO
+	 * 
 	 * @return the possible top-level children
 	 */
-	public List<IChildCreationSpecification> getPossibleTopLevelChildObjects() {
+	public List<IChildCreationSpecification> getPossibleTopLevelChildObjects(EObject sibling) {
 		final List<IChildCreationSpecification> specs = new ArrayList<IChildCreationSpecification>();
 
 		/*
@@ -559,13 +567,13 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		}
 		if (ref == null) return specs;
 		final EClass childType = ref.getEReferenceType();
-
-		final IBindingDataType dt = IBindingDataType.Factory.create(parent, ref);
-
-		if (dt.getArgument(ARG_NEW_ALLOWED, null, Boolean.class, Boolean.TRUE)) {
-			addToChildCreationSpecification(specs, parent, ref, childType);
+		int index = -1;
+		if (sibling != null) {
+			index = l.indexOf(sibling);
+			if (index == -1) return specs;
 		}
 
+		addToChildCreationSpecification(specs, parent, ref, childType, index);
 		return specs;
 	}
 
@@ -579,24 +587,25 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	 * @param parent the parent object
 	 * @param ref the reference
 	 * @param childType the child type
+	 * @param index TODO
 	 */
 	public static void addToChildCreationSpecification(final List<IChildCreationSpecification> specs, EObject parent,
-			EReference ref, final EClass childType) {
+			EReference ref, final EClass childType, int index) {
 		/*
 		 * Allow the user to prevent the addition
 		 */
-		final IBindingDataType dt = IBindingDataType.Factory.create(null, childType);
+		final IBindingDataType dt = IBindingDataType.Factory.create(parent, ref);
 
 		if (!childType.isAbstract() && !childType.isInterface()
 				&& dt.getArgument(ARG_NEW_ALLOWED, null, Boolean.class, Boolean.TRUE)) {
-			specs.add(new ChildCreationSpecification(parent, ref, childType));
+			specs.add(new ChildCreationSpecification(parent, ref, childType, index));
 		}
 
 		final Collection<EClass> subClasses = EcoreExtUtils.getSubClasses(childType);
 		if (subClasses == null) return;
 
 		for (final EClass c : subClasses) {
-			addToChildCreationSpecification(specs, parent, ref, c);
+			addToChildCreationSpecification(specs, parent, ref, c, index);
 		}
 	}
 

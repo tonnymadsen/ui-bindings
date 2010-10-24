@@ -11,6 +11,7 @@
 package com.rcpcompany.uibindings.grid.internal;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -1310,4 +1311,8 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 		return null;
 	}
 
+	@Override
+	public Collection<EObject> getSelection() {
+		return null;
+	}
 }

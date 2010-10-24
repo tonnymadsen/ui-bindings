@@ -11,6 +11,8 @@
 package com.rcpcompany.uibindings.internal;
 
 import java.lang.reflect.Constructor;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
@@ -253,10 +255,10 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			if (context.isCellEditor()) {
 				className = context.getBinding().getArgument(Constants.ARG_PREFERRED_CELL_EDITOR, String.class, null);
 			}
-			if (className == null) {
+			if (className == null || className.equals(Control.class.getName())) {
 				className = context.getBinding().getArgument(Constants.ARG_PREFERRED_CONTROL, String.class, null);
 			}
-			if (className == null) {
+			if (className == null || className.equals(Control.class.getName())) {
 				className = Text.class.getName();
 			}
 			Class<?> controlClass = null;
@@ -300,7 +302,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 				formToolkit.adapt(c, true, true);
 				return c;
 			} catch (final Exception ex) {
-				LogUtils.throwException(this, ex.getMessage() + ": '" + className + "'", context.getBinding() //$NON-NLS-1$ //$NON-NLS-2$
+				LogUtils.throwException(this, ex.getClass().getSimpleName()
+						+ ": " + ex.getMessage() + ": '" + className + "'", context.getBinding() //$NON-NLS-1$ //$NON-NLS-2$
 						.getCreationPoint());
 			}
 			return null;
@@ -1272,4 +1275,10 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		return true;
 	}
 
+	@Override
+	public Collection<EObject> getSelection() {
+		final EObject object = getModelObject();
+		if (object == null) return Collections.emptyList();
+		return Collections.singletonList(object);
+	}
 } // ValueBindingImpl

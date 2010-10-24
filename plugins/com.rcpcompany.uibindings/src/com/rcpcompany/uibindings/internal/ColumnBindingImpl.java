@@ -11,6 +11,7 @@
 package com.rcpcompany.uibindings.internal;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -1759,5 +1760,10 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		LogUtils.error(this, "Called?");
 		// For now this is empty'
 		// Should probably contain some of the stuff from ViewerBindingImpl
+	}
+
+	@Override
+	public Collection<EObject> getSelection() {
+		return Collections.emptyList();
 	}
 } // ColumnBindingImpl
