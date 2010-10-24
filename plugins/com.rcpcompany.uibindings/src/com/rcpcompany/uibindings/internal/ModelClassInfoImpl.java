@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import com.rcpcompany.uibindings.IModelClassInfo;
 import com.rcpcompany.uibindings.IModelFeatureInfo;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
+import com.rcpcompany.utils.basic.ClassUtils;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Model Class Info</b></em>'.
@@ -258,17 +259,11 @@ public class ModelClassInfoImpl extends ModelInfoImpl implements IModelClassInfo
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		final StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (className: "); //$NON-NLS-1$
-		result.append(className);
-		result.append(')');
-		return result.toString();
+		return ClassUtils.getLastClassName(this) + "[" + getClassName() + "]#" + System.identityHashCode(this); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 } // ModelClassInfoImpl

@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import com.rcpcompany.uibindings.IModelClassInfo;
 import com.rcpcompany.uibindings.IModelFeatureInfo;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
+import com.rcpcompany.utils.basic.ClassUtils;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Model Feature Info</b></em>
@@ -228,13 +229,9 @@ public class ModelFeatureInfoImpl extends ModelInfoImpl implements IModelFeature
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		final StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (featureName: "); //$NON-NLS-1$
-		result.append(featureName);
-		result.append(')');
-		return result.toString();
+		final String cinfo = getClass_() != null ? getClass_().getClassName() : "<no class>";
+		return ClassUtils.getLastClassName(this)
+				+ "[" + cinfo + "." + getFeatureName() + "]#" + System.identityHashCode(this); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 } // ModelFeatureInfoImpl
