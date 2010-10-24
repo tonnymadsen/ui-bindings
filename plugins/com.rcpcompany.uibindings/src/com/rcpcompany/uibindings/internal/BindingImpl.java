@@ -676,93 +676,108 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 			}
 		};
 
-		/*
-		 * Try all enabled extenders
-		 */
-		addDecoratorExtenderArguments(context);
-		if (context.isResultFound()) return results;
+		try {
+			/*
+			 * Try all enabled extenders
+			 */
+			addDecoratorExtenderArguments(context);
+			if (context.isResultFound()) return results;
 
-		/*
-		 * Check direct arguments
-		 */
-		addDirectArguments(context);
-		if (context.isResultFound()) return results;
+			/*
+			 * Check direct arguments
+			 */
+			addDirectArguments(context);
+			if (context.isResultFound()) return results;
 
-		/*
-		 * Add decorator provider arguments
-		 */
-		addDecoratorProviderArguments(context);
-		if (context.isResultFound()) return results;
+			/*
+			 * Add decorator provider arguments
+			 */
+			addDecoratorProviderArguments(context);
+			if (context.isResultFound()) return results;
 
-		/*
-		 * Add any arguments from the parent binding: value -> column and column -> viewer
-		 */
-		if (context.getArgumentInformation().isLookupParent()) {
-			final IArgumentProvider parentBinding = getParentBinding();
-			if (parentBinding != null) {
-				manager.addArgumentProviderArguments(parentBinding, context);
+			/*
+			 * Add any arguments from the parent binding: value -> column and column -> viewer
+			 */
+			if (context.getArgumentInformation().isLookupParent()) {
+				final IArgumentProvider parentBinding = getParentBinding();
+				if (parentBinding != null) {
+					manager.addArgumentProviderArguments(parentBinding, context);
+					if (context.isResultFound()) return results;
+				}
+			}
+
+			/*
+			 * Now use the list of IBDT object to look for annotations.
+			 */
+			final IBindingDataType dynamicDataType = getDataType();
+			if (dynamicDataType != null) {
+				// LogUtils.debug(this, this + ": " + getStaticDataType() + "/" + getDataType());
+				dynamicDataType.addArguments(context);
+				if (context.isResultFound()) return results;
+
+				dynamicDataType.addSFSuperContainingClassArguments(context);
+				if (context.isResultFound()) return results;
+
+				dynamicDataType.addSuperDataTypeArguments(context);
 				if (context.isResultFound()) return results;
 			}
-		}
 
-		/*
-		 * Now use the list of IBDT object to look for annotations.
-		 */
-		final IBindingDataType dynamicDataType = getDataType();
-		if (dynamicDataType != null) {
-			// LogUtils.debug(this, this + ": " + getStaticDataType() + "/" + getDataType());
-			dynamicDataType.addArguments(context);
-			if (context.isResultFound()) return results;
+			/*
+			 * Try the (static) model data type...
+			 */
+			final IBindingDataType sDataType = getStaticDataType();
+			if (sDataType != null) {
+				sDataType.addArguments(context);
+				if (context.isResultFound()) return results;
 
-			dynamicDataType.addSFSuperContainingClassArguments(context);
-			if (context.isResultFound()) return results;
+				sDataType.addSFSuperContainingClassArguments(context);
+				if (context.isResultFound()) return results;
 
-			dynamicDataType.addSuperDataTypeArguments(context);
-			if (context.isResultFound()) return results;
-		}
-
-		/*
-		 * Try the (static) model data type...
-		 */
-		final IBindingDataType sDataType = getStaticDataType();
-		if (sDataType != null) {
-			sDataType.addArguments(context);
-			if (context.isResultFound()) return results;
-
-			sDataType.addSFSuperContainingClassArguments(context);
-			if (context.isResultFound()) return results;
-
-			sDataType.addSuperDataTypeArguments(context);
-			if (context.isResultFound()) return results;
-		}
-
-		/*
-		 * Now use the parent IBDTs if they exists
-		 */
-		if (dynamicDataType != null) {
-			dynamicDataType.addParentDataTypeArguments(context);
-			if (context.isResultFound()) return results;
-		}
-
-		/*
-		 * Try the model data type...
-		 */
-		if (sDataType != null) {
-			sDataType.addParentDataTypeArguments(context);
-			if (context.isResultFound()) return results;
-		}
-
-		/*
-		 * And then any extra argument providers added to the binding
-		 */
-		if (eIsSet(IUIBindingsPackage.Literals.BINDING__EXTRA_ARGUMENT_PROVIDERS)) {
-			for (final IArgumentProvider ap : getExtraArgumentProviders()) {
-				manager.addArgumentProviderArguments(ap, context);
+				sDataType.addSuperDataTypeArguments(context);
 				if (context.isResultFound()) return results;
 			}
-		}
 
-		return results;
+			/*
+			 * Now use the parent IBDTs if they exists
+			 */
+			if (dynamicDataType != null) {
+				dynamicDataType.addParentDataTypeArguments(context);
+				if (context.isResultFound()) return results;
+			}
+
+			/*
+			 * Try the model data type...
+			 */
+			if (sDataType != null) {
+				sDataType.addParentDataTypeArguments(context);
+				if (context.isResultFound()) return results;
+			}
+
+			/*
+			 * And then any extra argument providers added to the binding
+			 */
+			if (eIsSet(IUIBindingsPackage.Literals.BINDING__EXTRA_ARGUMENT_PROVIDERS)) {
+				for (final IArgumentProvider ap : getExtraArgumentProviders()) {
+					manager.addArgumentProviderArguments(ap, context);
+					if (context.isResultFound()) return results;
+				}
+			}
+
+			return results;
+		} finally {
+			if (Activator.getDefault().TRACE_ARGUMENTS
+					&& (Activator.getDefault().TRACE_ARGUMENT_TYPES == null || Activator.getDefault().TRACE_ARGUMENT_TYPES
+							.contains(name))
+					&& (Activator.getDefault().TRACE_ARGUMENT_BINDINGS == null || Activator.getDefault().TRACE_ARGUMENT_TYPES
+							.contains(getBaseType()))) {
+				final StringBuilder sb = new StringBuilder(400);
+				sb.append(this).append("(").append(name).append(") [firstOnly=").append(firstOnly).append("]");
+				for (final IArgumentValue<ArgumentType> a : results) {
+					sb.append("\n    '").append(a.getValue()).append("': ").append(a.getSource());
+				}
+				LogUtils.debug(this, sb.toString());
+			}
+		}
 	}
 
 	/**
@@ -814,7 +829,16 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		if (myCachedArguments.containsKey(name)) {
 			final Object value = myCachedArguments.get(name);
 			if (value == null) return null;
-			if (argumentType.isInstance(value)) return (ArgumentType) value;
+			if (argumentType.isInstance(value)) {
+				if (Activator.getDefault().TRACE_ARGUMENT
+						&& (Activator.getDefault().TRACE_ARGUMENT_TYPES == null || Activator.getDefault().TRACE_ARGUMENT_TYPES
+								.contains(name))
+						&& (Activator.getDefault().TRACE_ARGUMENT_BINDINGS == null || Activator.getDefault().TRACE_ARGUMENT_TYPES
+								.contains(getBaseType()))) {
+					LogUtils.debug(this, this + "(" + name + ") [cached]=" + value);
+				}
+				return (ArgumentType) value;
+			}
 			LogUtils.error(this, "Cached argument '" + name + "' value '" + value + "' not of right type (expected " //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 					+ argumentType + ", got " + value.getClass() + "). Ignored.", getCreationPoint()); //$NON-NLS-1$ //$NON-NLS-2$
 			myCachedArguments.remove(name);
@@ -825,10 +849,27 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		/*
 		 * If no results was found, then use the default value
 		 */
-		if (list == null || list.size() == 0) return defaultValue;
+		if (list == null || list.size() == 0) {
+			if (Activator.getDefault().TRACE_ARGUMENT
+					&& (Activator.getDefault().TRACE_ARGUMENT_TYPES == null || Activator.getDefault().TRACE_ARGUMENT_TYPES
+							.contains(name))
+					&& (Activator.getDefault().TRACE_ARGUMENT_BINDINGS == null || Activator.getDefault().TRACE_ARGUMENT_TYPES
+							.contains(getBaseType()))) {
+				LogUtils.debug(this, this + "(" + name + ") [default]=" + defaultValue);
+			}
+			myCachedArguments.put(name, defaultValue);
+			return defaultValue;
+		}
 
 		final ArgumentType value = list.get(0).getValue();
 		myCachedArguments.put(name, value);
+		if (Activator.getDefault().TRACE_ARGUMENT
+				&& (Activator.getDefault().TRACE_ARGUMENT_TYPES == null || Activator.getDefault().TRACE_ARGUMENT_TYPES
+						.contains(name))
+				&& (Activator.getDefault().TRACE_ARGUMENT_BINDINGS == null || Activator.getDefault().TRACE_ARGUMENT_TYPES
+						.contains(getBaseType()))) {
+			LogUtils.debug(this, this + "(" + name + ") [calc]=" + value + "\nsource: " + list.get(0).getSource());
+		}
 
 		return value;
 	}
@@ -926,7 +967,9 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 */
 	@Override
 	public EClassifier getModelEType() {
-		return getDataType().getEType();
+		final IBindingDataType dt = getDataType();
+		if (dt == null) return null;
+		return dt.getEType();
 	}
 
 	/**
@@ -936,7 +979,9 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 */
 	@Override
 	public Class<?> getModelType() {
-		return getDataType().getDataType();
+		final IBindingDataType dt = getDataType();
+		if (dt == null) return null;
+		return dt.getDataType();
 	}
 
 	/**
@@ -1271,7 +1316,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 			baseType += ", STATE=" + getState();
 		}
 
-		return ClassUtils.getLastClassName(this) + "[" + baseType + "]#" + hashCode(); //$NON-NLS-1$ //$NON-NLS-2$
+		return ClassUtils.getLastClassName(this) + "[" + baseType + "]#" + System.identityHashCode(this); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	protected String getBaseType() {

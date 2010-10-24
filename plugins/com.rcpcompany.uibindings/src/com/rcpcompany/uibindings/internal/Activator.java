@@ -11,6 +11,9 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.internal;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.preference.IPreferenceStore;
@@ -91,6 +94,30 @@ public class Activator extends AbstractUIPlugin {
 	 * <code>true</code> if tracing global navigation.
 	 */
 	public boolean TRACE_NAVIGATION_GLOBAL = false;
+
+	/**
+	 * <code>true</code> if tracing {@link IBinding#getArgument(String, Class, Object)}.
+	 */
+	public boolean TRACE_ARGUMENT = false;
+
+	/**
+	 * If non-empty, a list of the traced types in
+	 * {@link IBinding#getArgument(String, Class, Object)} and
+	 * {@link IBinding#getArguments(String, Class, boolean)}.
+	 */
+	public List<String> TRACE_ARGUMENT_TYPES = null;
+
+	/**
+	 * If non-empty, a list of the traced bindings (base-type) in
+	 * {@link IBinding#getArgument(String, Class, Object)} and
+	 * {@link IBinding#getArguments(String, Class, boolean)}.
+	 */
+	public List<String> TRACE_ARGUMENT_BINDINGS = null;
+
+	/**
+	 * <code>true</code> if tracing {@link IBinding#getArguments(String, Class, boolean)}.
+	 */
+	public boolean TRACE_ARGUMENTS = false;
 
 	/**
 	 * <code>true</code> if tracing "open" command.
@@ -219,11 +246,6 @@ public class Activator extends AbstractUIPlugin {
 		return myContext;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
-	 */
 	@Override
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
@@ -241,6 +263,13 @@ public class Activator extends AbstractUIPlugin {
 		preferenceStore.addPropertyChangeListener(myListener);
 		myListener.propertyChange(null);
 
+		initTrace();
+	}
+
+	/**
+	 * Initializes traces
+	 */
+	private void initTrace() {
 		if (isDebugging()) {
 			CREATION_POINT_STACK_LEVELS = Integer.parseInt(Platform.getDebugOption(ID
 					+ "/conf/CreationPoint/StackLevels")); //$NON-NLS-1$
@@ -249,6 +278,16 @@ public class Activator extends AbstractUIPlugin {
 					+ "/trace/SourceProvider/Verbose")); //$NON-NLS-1$
 			TRACE_NAVIGATION_VIEWER = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/Navigation/viewer")); //$NON-NLS-1$
 			TRACE_NAVIGATION_GLOBAL = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/Navigation/global")); //$NON-NLS-1$
+			TRACE_ARGUMENT = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/Argument")); //$NON-NLS-1$
+			TRACE_ARGUMENTS = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/Arguments")); //$NON-NLS-1$
+			String s = Platform.getDebugOption(ID + "/trace/Argument/Types");
+			if (s != null && s.length() != 0) {
+				TRACE_ARGUMENT_TYPES = Arrays.asList(s.split(","));
+			}
+			s = Platform.getDebugOption(ID + "/trace/Argument/Bindings");
+			if (s != null && s.length() != 0) {
+				TRACE_ARGUMENT_BINDINGS = Arrays.asList(s.split(","));
+			}
 			TRACE_OPEN_COMMAND = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/OpenCommand")); //$NON-NLS-1$
 			TRACE_CONTEXTS = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/Contexts")); //$NON-NLS-1$
 			TRACE_HANDLERS = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/Handlers")); //$NON-NLS-1$
