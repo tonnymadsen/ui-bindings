@@ -50,6 +50,7 @@ import com.rcpcompany.uibindings.SpecialBinding;
 import com.rcpcompany.uibindings.navigator.IEditorPartView;
 import com.rcpcompany.uibindings.navigator.internal.Activator;
 import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
+import com.rcpcompany.uibindings.utils.IDnDSupport;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -119,6 +120,8 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 				.arg(Constants.ARG_TREE_ID, myAdvisor.getTreeID());
 
 		myContext.finish();
+
+		IDnDSupport.Factory.adapt(myTreeBinding);
 
 		IBindingContextSelectionProvider.Factory.adapt(myContext, getSite());
 
