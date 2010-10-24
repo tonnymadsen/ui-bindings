@@ -42,4 +42,11 @@ public interface IChildCreationSpecification {
 	 * @return the element type
 	 */
 	EClass getChildType();
+
+	/**
+	 * The index in the references where the new item should be inserted.
+	 * 
+	 * @return the index of the new item or <code>-1</code> if unknown
+	 */
+	int getIndex();
 }

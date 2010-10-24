@@ -297,12 +297,13 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 	 * 
 	 * @param parent the view element that should be the parent of the child (never
 	 *            <code>null</code>)
+	 * @param sibling the wanted sibling or <code>null</code>
 	 * @return a list of possible children
 	 */
-	public List<IChildCreationSpecification> getPossibleChildObjects(EObject parent) {
+	public List<IChildCreationSpecification> getPossibleChildObjects(EObject parent, EObject sibling) {
 		final ViewerBindingTreeFactoryList list = myResults.get(parent);
 		if (list == null) return null;
 
-		return list.getPossibleChildObjects();
+		return list.getPossibleChildObjects(sibling);
 	}
 }

@@ -115,7 +115,7 @@ public class ChildCreationSpecificationTest {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
-				final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(null);
+				final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(null, null);
 
 				assertNotNull(specs);
 				assertEquals(1, specs.size());
@@ -123,6 +123,35 @@ public class ChildCreationSpecificationTest {
 				assertEquals(myShop, sp.getParent());
 				assertEquals(ShopPackage.Literals.SHOP__SHOP_ITEMS, sp.getReference());
 				assertEquals(ShopPackage.Literals.SHOP_ITEM, sp.getChildType());
+				assertEquals(-1, sp.getIndex());
+			}
+		});
+	}
+
+	@Test
+	public void testTableSibling() {
+		myForm = myView.createFormCreator(myShop);
+
+		final ITableCreator table = myForm.addTableCreator(ShopPackage.Literals.SHOP__SHOP_ITEMS, true, SWT.NONE);
+
+		table.addColumn("name(w=200)");
+		myForm.finish();
+		yield();
+
+		final IViewerBinding vb = table.getBinding();
+
+		assertNoLog(new Runnable() {
+			@Override
+			public void run() {
+				final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(null, myShopItem1);
+
+				assertNotNull(specs);
+				assertEquals(1, specs.size());
+				final IChildCreationSpecification sp = specs.get(0);
+				assertEquals(myShop, sp.getParent());
+				assertEquals(ShopPackage.Literals.SHOP__SHOP_ITEMS, sp.getReference());
+				assertEquals(ShopPackage.Literals.SHOP_ITEM, sp.getChildType());
+				assertEquals(0, sp.getIndex());
 			}
 		});
 	}
@@ -131,7 +160,7 @@ public class ChildCreationSpecificationTest {
 	 * Tests that the returned items are filtered by the {@link Constants#ARG_NEW_ALLOWED} argument.
 	 */
 	@Test
-	public void testTableFiltered() {
+	public void testTableFilteredNEW_ALLOWED() {
 		myForm = myView.createFormCreator(myCountry);
 
 		final ITableCreator table = myForm.addTableCreator(ShopPackage.Literals.COUNTRY__CONTACTS, true, SWT.NONE);
@@ -145,7 +174,7 @@ public class ChildCreationSpecificationTest {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
-				final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(null);
+				final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(null, null);
 
 				assertNotNull(specs);
 				for (final IChildCreationSpecification s : specs) {
@@ -175,7 +204,7 @@ public class ChildCreationSpecificationTest {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
-				final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(null);
+				final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(null, null);
 
 				assertNotNull(specs);
 				assertEquals(2, specs.size());
@@ -191,6 +220,34 @@ public class ChildCreationSpecificationTest {
 				assertEquals(myShop, sp.getParent());
 				assertEquals(ShopPackage.Literals.SHOP__INFOS, sp.getReference());
 				assertEquals(ShopPackage.Literals.SHOP_ADDRESS, sp.getChildType());
+				assertEquals(-1, sp.getIndex());
+			}
+		});
+	}
+
+	/**
+	 * Tests that when a sibling is specified, then only the specification where the sibling is
+	 * present is reported.
+	 */
+	@Test
+	public void testTableMultipleSibling() {
+		myForm = myView.createFormCreator(myShop);
+
+		final ITableCreator table = myForm.addTableCreator(ShopPackage.Literals.SHOP__INFOS, true, SWT.NONE);
+
+		table.addColumn("name(w=200)");
+		myForm.finish();
+		yield();
+
+		final IViewerBinding vb = table.getBinding();
+
+		assertNoLog(new Runnable() {
+			@Override
+			public void run() {
+				final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(null, myShopItem1);
+
+				assertNotNull(specs);
+				assertEquals(0, specs.size());
 			}
 		});
 	}
@@ -221,7 +278,7 @@ public class ChildCreationSpecificationTest {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
-				final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(myShop);
+				final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(myShop, null);
 
 				assertNotNull(specs);
 				assertEquals(2, specs.size());
@@ -232,11 +289,34 @@ public class ChildCreationSpecificationTest {
 				assertEquals(myShop, sp.getParent());
 				assertEquals(ShopPackage.Literals.SHOP__CONTACTS, sp.getReference());
 				assertEquals(ShopPackage.Literals.CONTACT, sp.getChildType());
+				assertEquals(-1, sp.getIndex());
 
 				sp = specs.get(1);
 				assertEquals(myShop, sp.getParent());
 				assertEquals(ShopPackage.Literals.SHOP__SHOP_ITEMS, sp.getReference());
 				assertEquals(ShopPackage.Literals.SHOP_ITEM, sp.getChildType());
+				assertEquals(-1, sp.getIndex());
+			}
+		});
+
+		/*
+		 * Top-level item as parent and sibling
+		 */
+		assertNoLog(new Runnable() {
+			@Override
+			public void run() {
+				final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(myShop, myShopItem2);
+
+				assertNotNull(specs);
+				assertEquals(1, specs.size());
+
+				IChildCreationSpecification sp;
+
+				sp = specs.get(0);
+				assertEquals(myShop, sp.getParent());
+				assertEquals(ShopPackage.Literals.SHOP__SHOP_ITEMS, sp.getReference());
+				assertEquals(ShopPackage.Literals.SHOP_ITEM, sp.getChildType());
+				assertEquals(1, sp.getIndex());
 			}
 		});
 
@@ -246,10 +326,31 @@ public class ChildCreationSpecificationTest {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
-				final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(null);
+				final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(null, null);
 
 				assertNotNull(specs);
 				assertEquals(0, specs.size());
+			}
+		});
+
+		/*
+		 * null as parent and non-null sibling
+		 */
+		assertNoLog(new Runnable() {
+			@Override
+			public void run() {
+				final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(null, myShopItem2);
+
+				assertNotNull(specs);
+				assertEquals(1, specs.size());
+
+				IChildCreationSpecification sp;
+
+				sp = specs.get(0);
+				assertEquals(myShop, sp.getParent());
+				assertEquals(ShopPackage.Literals.SHOP__SHOP_ITEMS, sp.getReference());
+				assertEquals(ShopPackage.Literals.SHOP_ITEM, sp.getChildType());
+				assertEquals(1, sp.getIndex());
 			}
 		});
 
@@ -277,7 +378,7 @@ public class ChildCreationSpecificationTest {
 				assertTrue(data instanceof IConstantTreeItem);
 				final IConstantTreeItem i = (IConstantTreeItem) data;
 
-				final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(i);
+				final List<IChildCreationSpecification> specs = vb.getPossibleChildObjects(i, null);
 
 				assertNotNull(specs);
 				assertEquals(1, specs.size());
@@ -288,6 +389,7 @@ public class ChildCreationSpecificationTest {
 				assertEquals(myShop, sp.getParent());
 				assertEquals(ShopPackage.Literals.SHOP__CONTACTS, sp.getReference());
 				assertEquals(ShopPackage.Literals.CONTACT, sp.getChildType());
+				assertEquals(-1, sp.getIndex());
 			}
 		});
 	}

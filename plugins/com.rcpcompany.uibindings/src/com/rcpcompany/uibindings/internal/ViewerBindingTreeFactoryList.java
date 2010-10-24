@@ -29,8 +29,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import com.rcpcompany.uibindings.Constants;
-import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IChildCreationSpecification;
 import com.rcpcompany.uibindings.IConstantTreeItem;
 import com.rcpcompany.uibindings.IDisposable;
@@ -39,6 +37,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.ITreeItemDescriptor;
 import com.rcpcompany.uibindings.ITreeItemRelation;
 import com.rcpcompany.uibindings.IUIBindingsFactory;
+import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -177,9 +176,10 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 		IElementParentage getElementParentage(final EObject element);
 
 		/**
+		 * @param sibling TODO
 		 * @see ViewerBindingTreeFactoryList#getPossibleChildObjects()
 		 */
-		void getPossibleChildObjects(List<IChildCreationSpecification> l);
+		void getPossibleChildObjects(List<IChildCreationSpecification> l, EObject sibling);
 	}
 
 	/**
@@ -225,7 +225,7 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 		}
 
 		@Override
-		public void getPossibleChildObjects(List<IChildCreationSpecification> l) {
+		public void getPossibleChildObjects(List<IChildCreationSpecification> l, EObject sibling) {
 		}
 	}
 
@@ -425,6 +425,34 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 					}
 				};
 			}
+
+			public void getPossibleChildObjects(List<IChildCreationSpecification> l, EObject sibling) {
+				if (myRelation.getProcessor() != null) {
+					/*
+					 * Cannot handle processors...
+					 */
+				} else if (myRelation.getFeatureName() != null) {
+					final String sfName = myRelation.getFeatureName();
+					final EStructuralFeature sf = myTarget.eClass().getEStructuralFeature(sfName);
+					if (sf == null || !(sf instanceof EReference) || !sf.isMany()) return;
+					final EReference ref = (EReference) sf;
+					final IObservableList ol = (IObservableList) myObservable;
+					int index = -1;
+					if (sibling != null) {
+						index = ol.indexOf(sibling);
+						if (index == -1) return;
+					}
+					IViewerBinding.Factory.addToChildCreationSpecification(l, myTarget, ref, ref.getEReferenceType(),
+							index);
+				} else {
+					final IConstantTreeItem item = IUIBindingsFactory.eINSTANCE.createConstantTreeItem();
+					item.setDescriptor(myRelation.getDescriptor());
+					item.setTarget(myTarget);
+					final ViewerBindingTreeFactoryList list = (ViewerBindingTreeFactoryList) myFactory
+							.createObservable(item);
+					l.addAll(list.getPossibleChildObjects(sibling));
+				}
+			}
 		}
 
 		@Override
@@ -457,38 +485,10 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 		}
 
 		@Override
-		public void getPossibleChildObjects(List<IChildCreationSpecification> l) {
-			for (final ITreeItemRelation rel : myDescriptor.getChildRelations()) {
-				final String treeID = myFactory.getTreeID();
-				if (treeID != null && treeID.length() > 0) {
-					if (!rel.getTreeIDs().contains(treeID)) {
-						continue;
-					}
-				}
-				if (rel.getProcessor() != null) {
-					/*
-					 * Cannot handle processors...
-					 */
-				} else if (rel.getFeatureName() != null) {
-					final String sfName = rel.getFeatureName();
-					final EStructuralFeature sf = myTarget.eClass().getEStructuralFeature(sfName);
-					if (sf == null || !(sf instanceof EReference) || !sf.isMany()) {
-						continue;
-					}
-					final EReference ref = (EReference) sf;
-					final IBindingDataType dt = IBindingDataType.Factory.create(myTarget, ref);
-
-					if (dt.getArgument(Constants.ARG_NEW_ALLOWED, null, Boolean.class, Boolean.TRUE)) {
-						ViewerBindingImpl.addToChildCreationSpecification(l, myTarget, ref, ref.getEReferenceType());
-					}
-				} else {
-					final IConstantTreeItem item = IUIBindingsFactory.eINSTANCE.createConstantTreeItem();
-					item.setDescriptor(rel.getDescriptor());
-					item.setTarget(myTarget);
-					final ViewerBindingTreeFactoryList list = (ViewerBindingTreeFactoryList) myFactory
-							.createObservable(item);
-					l.addAll(list.getPossibleChildObjects());
-				}
+		public void getPossibleChildObjects(List<IChildCreationSpecification> l, EObject sibling) {
+			if (myRelations == null) return;
+			for (final Relation rel : myRelations) {
+				rel.getPossibleChildObjects(l, sibling);
 			}
 		}
 	}
@@ -530,12 +530,13 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 	/**
 	 * Returns a list of the possible objects that can be created as sub-elements of this list.
 	 * 
+	 * @param sibling the wanted sibling or <code>null</code>
 	 * @return a list of possible children
 	 */
-	public List<IChildCreationSpecification> getPossibleChildObjects() {
+	public List<IChildCreationSpecification> getPossibleChildObjects(EObject sibling) {
 		final List<IChildCreationSpecification> l = new ArrayList<IChildCreationSpecification>();
 		for (final IElement be : myElements) {
-			be.getPossibleChildObjects(l);
+			be.getPossibleChildObjects(l, sibling);
 		}
 
 		return l;

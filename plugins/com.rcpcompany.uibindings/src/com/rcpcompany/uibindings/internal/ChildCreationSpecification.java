@@ -15,6 +15,7 @@ public class ChildCreationSpecification implements IChildCreationSpecification {
 	private final EObject myParent;
 	private final EReference myReference;
 	private final EClass myChildType;
+	private final int myIndex;
 
 	/**
 	 * Creates and returns a new specification.
@@ -22,11 +23,13 @@ public class ChildCreationSpecification implements IChildCreationSpecification {
 	 * @param parent the parent of the specification
 	 * @param reference the reference of the specification
 	 * @param childType the child type of the specification
+	 * @param index index of object in parent or -1
 	 */
-	public ChildCreationSpecification(EObject parent, EReference reference, EClass childType) {
+	public ChildCreationSpecification(EObject parent, EReference reference, EClass childType, int index) {
 		myParent = parent;
 		myReference = reference;
 		myChildType = childType;
+		myIndex = index;
 	}
 
 	@Override
@@ -47,5 +50,10 @@ public class ChildCreationSpecification implements IChildCreationSpecification {
 	@Override
 	public String getId() {
 		return System.identityHashCode(getParent()) + ":" + getReference().getName() + ":" + getChildType().getName();
+	}
+
+	@Override
+	public int getIndex() {
+		return myIndex;
 	}
 }
