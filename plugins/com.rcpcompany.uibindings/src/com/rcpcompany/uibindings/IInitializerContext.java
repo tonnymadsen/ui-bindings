@@ -69,5 +69,14 @@ public interface IInitializerContext {
 	 * @param feature the feature to set of {@link #getObject()}
 	 * @param value the value to set
 	 */
-	void addSetCommand(EStructuralFeature feature, Object value);
+	void setStructuralFeature(EStructuralFeature feature, Object value);
+
+	/**
+	 * Returns the value of specified structural feature of {@link #getObject()} taking into account
+	 * any present {@link #setStructuralFeature(EStructuralFeature, Object)}.
+	 * 
+	 * @param feature the feature to set of {@link #getObject()}
+	 * @return the value
+	 */
+	Object getStructuralFeature(EStructuralFeature feature);
 }

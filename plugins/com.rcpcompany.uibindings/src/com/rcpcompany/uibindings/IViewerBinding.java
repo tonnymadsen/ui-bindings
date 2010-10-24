@@ -10,7 +10,6 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +17,7 @@ import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.set.IObservableSet;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -27,6 +27,8 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
+
+import com.rcpcompany.uibindings.internal.ViewerBindingImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,6 +59,31 @@ import org.eclipse.swt.widgets.TreeColumn;
  * @generated
  */
 public interface IViewerBinding extends IContainerBinding {
+	/**
+	 * Factory methods for {@link IViewerBinding}.
+	 */
+	static final class Factory {
+		private Factory() {
+
+		}
+
+		/**
+		 * Adds to the specified list of {@link IChildCreationSpecification} with the specified
+		 * information.
+		 * <p>
+		 * Also adds any sub-class of child type.
+		 * 
+		 * @param specs the list of specifications to add to
+		 * @param parent the parent object
+		 * @param ref the reference
+		 * @param childType the child type
+		 * @param index the index for a new child - <code>-1</code> if not known
+		 */
+		public static void addToChildCreationSpecification(final List<IChildCreationSpecification> specs,
+				EObject parent, EReference ref, final EClass childType, int index) {
+			ViewerBindingImpl.addToChildCreationSpecification(specs, parent, ref, childType, index);
+		}
+	}
 
 	/**
 	 * Binds the target (UI) side of this binding to the specified viewer.
@@ -286,13 +313,6 @@ public interface IViewerBinding extends IContainerBinding {
 	IObservableList getMultipleSelection();
 
 	/**
-	 * Return a collection of all selected objects in this viewer.
-	 * 
-	 * @return the selected objects
-	 */
-	Collection<EObject> getSelection();
-
-	/**
 	 * Returns the value of the '<em><b>Viewer</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Viewer</em>' attribute isn't clear, there really should be more of
@@ -344,12 +364,16 @@ public interface IViewerBinding extends IContainerBinding {
 	 * <p>
 	 * If the parent is <code>null</code> top-level objects are created.
 	 * <p>
+	 * If a sibling is non-<code>null</code>, the children should be as close to immediately
+	 * following that sibling as possible.
+	 * <p>
 	 * For {@link Table tables} the element is ignored
 	 * 
 	 * @param parent the view element that should be the parent of the child
+	 * @param sibling if non-<code>null</code> the wanted sibling
 	 * @return a list of possible children
 	 */
-	List<IChildCreationSpecification> getPossibleChildObjects(EObject parent);
+	List<IChildCreationSpecification> getPossibleChildObjects(EObject parent, EObject sibling);
 
 	/**
 	 * Focus on the cell identified by the element and column number if possible.
@@ -367,4 +391,5 @@ public interface IViewerBinding extends IContainerBinding {
 	 * @return the cell
 	 */
 	IColumnBindingCellInformation getCell(int columnNo, Object element);
+
 } // IViewerBinding

@@ -24,7 +24,7 @@ public class OrderInitializer implements IInitializer {
 				shop.setNextOrderNo(no + 1);
 			}
 
-			context.addSetCommand(ShopPackage.Literals.ORDER__NO, no);
+			context.setStructuralFeature(ShopPackage.Literals.ORDER__NO, no);
 		}
 	}
 }

@@ -3332,10 +3332,16 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			}
 
 			@Override
-			public void addSetCommand(EStructuralFeature feature, Object value) {
+			public void setStructuralFeature(EStructuralFeature feature, Object value) {
 				getValueMap().put(feature, value);
 				final Command command = SetCommand.create(getEditingDomain(), getObject(), feature, value);
 				addCommand(command);
+			}
+
+			@Override
+			public Object getStructuralFeature(EStructuralFeature feature) {
+				if (getValueMap().containsKey(feature)) return getValueMap().get(feature);
+				return getObject().eGet(feature);
 			}
 		};
 

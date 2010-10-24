@@ -24,6 +24,6 @@ public class NameInitializer implements IInitializer {
 
 		// TODO: possibly use validValues to check for exiting objects
 
-		context.addSetCommand(sf, label + (lastNo++));
+		context.setStructuralFeature(sf, label + (lastNo++));
 	}
 }
