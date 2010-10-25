@@ -13,10 +13,12 @@ package com.rcpcompany.uibindings.internal.decorators;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.core.databinding.observable.ChangeEvent;
-import org.eclipse.core.databinding.observable.IChangeListener;
+import org.eclipse.core.databinding.observable.IObserving;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.list.WritableList;
+import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.core.databinding.observable.value.IValueChangeListener;
+import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
@@ -62,12 +64,7 @@ public class EObjectCreatorDecorator extends SimpleUIBindingDecorator implements
 	 */
 	protected final Map<EClass, String> modelToUIClassMappings = new HashMap<EClass, String>();
 
-	private final IChangeListener myModelObjectChangeListener = new IChangeListener() {
-		@Override
-		public void handleChange(ChangeEvent event) {
-			uiToModelObjectMappings.clear();
-		}
-	};
+	private IValueChangeListener myModelObjectChangeListener = null;
 
 	@Override
 	public void init(IValueBinding binding) {
@@ -116,12 +113,31 @@ public class EObjectCreatorDecorator extends SimpleUIBindingDecorator implements
 			myValidUIList.add(myNullLabel);
 		}
 
-		getBinding().getModelObservableValue().addChangeListener(myModelObjectChangeListener);
+		final IObservableValue ov = getBinding().getModelObservableValue();
+		if (ov instanceof IObserving) {
+			final IObserving observing = (IObserving) ov;
+			myModelObjectChangeListener = new IValueChangeListener() {
+				Object currentObserved = observing.getObserved();
+
+				@Override
+				public void handleValueChange(ValueChangeEvent event) {
+					final Object newObserved = observing.getObserved();
+
+					if (currentObserved == newObserved) return;
+					currentObserved = newObserved;
+
+					uiToModelObjectMappings.clear();
+				}
+			};
+			ov.addValueChangeListener(myModelObjectChangeListener);
+		}
 	}
 
 	@Override
 	public void dispose() {
-		getBinding().getModelObservableValue().removeChangeListener(myModelObjectChangeListener);
+		if (myModelObjectChangeListener != null) {
+			getBinding().getModelObservableValue().removeValueChangeListener(myModelObjectChangeListener);
+		}
 		super.dispose();
 	}
 
