@@ -265,6 +265,15 @@
             </argument>
          </feature>
       </model>
+      <model
+            class="com.rcpcompany.uibindings.tests.shop.Shop">
+         <feature
+               name="nextOrderNo">
+            <standardArguments
+                  range="[0;]">
+            </standardArguments>
+         </feature>
+      </model>
    </extension>
    <extension
          point="org.eclipse.ui.views">

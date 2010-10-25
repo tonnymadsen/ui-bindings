@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.rcpcompany.uibindings.BindingMessageSeverity;
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.IDecoratorProvider;
 import com.rcpcompany.uibindings.IJavaDecoratorProvider;
@@ -137,6 +138,13 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 			final IValueBinding vb = IUIBindingsFactory.eINSTANCE.createValueBinding();
 			vb.model(obj, sf).ui(new VirtualUIAttribute(String.class));
 
+			/*
+			 * Allow the user to turn off validation for specified feature
+			 */
+			if (!vb.getArgument(Constants.ARG_CONSTRAINTS_VALIDATE, Boolean.class, true)) {
+				continue;
+			}
+
 			final IDecoratorProvider provider = manager.getProvider(vb.getModelType(), String.class, vb.getType());
 			vb.setDecoratorProvider(provider);
 			if (provider instanceof INumberDecoratorProvider) {
@@ -158,6 +166,9 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 					cs.add(new FileNameConstraint(sf, fnw));
 				}
 			}
+			/*
+			 * TODO Handle binding with ARG_VALID_VALUES
+			 */
 		}
 
 		if (cs.size() == 0) {

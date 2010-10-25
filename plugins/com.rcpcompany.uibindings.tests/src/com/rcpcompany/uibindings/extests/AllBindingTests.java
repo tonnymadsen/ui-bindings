@@ -184,6 +184,7 @@ import com.rcpcompany.uibindings.internal.utils.ViewerToolBarItemPresentTests;
 import com.rcpcompany.uibindings.internal.validators.BasicMessageCollectionTest;
 import com.rcpcompany.uibindings.internal.validators.BindingMessageCollectionTest;
 import com.rcpcompany.uibindings.internal.validators.BindingObjectMessageCollectionTest;
+import com.rcpcompany.uibindings.internal.validators.ConstraintValidationAdapterCollectionTest;
 import com.rcpcompany.uibindings.internal.validators.ContextAdapterCollectionTest;
 import com.rcpcompany.uibindings.internal.validators.DiagnosticChainTest;
 import com.rcpcompany.uibindings.internal.validators.MessageDecorationMinimumSeverityTest;
@@ -351,7 +352,7 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		ValidationAdapterManagerTest.class, BasicMessageCollectionTest.class,
 		MessageDecorationMinimumSeverityTest.class, DiagnosticChainTest.class, BindingMessageCollectionTest.class,
 		BindingObjectMessageCollectionTest.class, ValidationAdapterManagerMasterDetailTest.class,
-		LabelDecoratorTest.class, LabelDecoratorListenerTest.class,
+		LabelDecoratorTest.class, LabelDecoratorListenerTest.class, ConstraintValidationAdapterCollectionTest.class,
 
 		/*
 		 * Forms.

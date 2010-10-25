@@ -33,6 +33,7 @@ import com.rcpcompany.uibindings.internal.propertyTesters.EStructuralFeatureProp
 import com.rcpcompany.uibindings.internal.propertyTesters.IViewerBindingPropertyTester;
 import com.rcpcompany.uibindings.internal.propertyTesters.ManagerPropertyTester;
 import com.rcpcompany.uibindings.units.IUnitBindingSupport;
+import com.rcpcompany.uibindings.validators.ConstraintValidatorAdapter;
 
 /**
  * Various constants that does not belong anywhere else.
@@ -87,6 +88,13 @@ public interface Constants {
 	 * The argument value is {@link Integer}.
 	 */
 	String ARG_WIDTH = "width"; //$NON-NLS-1$
+
+	/**
+	 * Argument name for whether to validate a feature in {@link ConstraintValidatorAdapter}.
+	 * <p>
+	 * The argument value is {@link Boolean} and defaults to <code>true</code>.
+	 */
+	String ARG_CONSTRAINTS_VALIDATE = ConstraintValidatorAdapter.class.getSimpleName();
 
 	/**
 	 * Argument name for the height of the binding.
