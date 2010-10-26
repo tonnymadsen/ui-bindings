@@ -90,7 +90,7 @@
     <eLiterals name="SEC"/>
     <eLiterals name="MIN" value="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="AmountAndCurrencyStruct" instanceClassName="com.rcpcompany.uibinding.tests.model.AmountAndCurrency">
+  <eClassifiers xsi:type="ecore:EDataType" name="AmountAndCurrencyStruct" instanceClassName="com.rcpcompany.uibinding.tests.model.AmountAndCurrencyOld">
     <eAnnotations source="http://rcp-company.com/schemas/uibindings">
       <details key="foobar" value="c"/>
     </eAnnotations>

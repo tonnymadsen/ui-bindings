@@ -1115,12 +1115,12 @@ public interface TestModelPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for data type '
-	 * {@link com.rcpcompany.uibinding.tests.model.AmountAndCurrency
+	 * {@link com.rcpcompany.uibinding.tests.model.AmountAndCurrencyOld
 	 * <em>Amount And Currency Struct</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for data type '<em>Amount And Currency Struct</em>'.
-	 * @see com.rcpcompany.uibinding.tests.model.AmountAndCurrency
-	 * @model instanceClass="com.rcpcompany.uibinding.tests.model.AmountAndCurrency"
+	 * @see com.rcpcompany.uibinding.tests.model.AmountAndCurrencyOld
+	 * @model instanceClass="com.rcpcompany.uibinding.tests.model.AmountAndCurrencyOld"
 	 *        annotation="http://rcp-company.com/schemas/uibindings foobar='c'"
 	 * @generated
 	 */

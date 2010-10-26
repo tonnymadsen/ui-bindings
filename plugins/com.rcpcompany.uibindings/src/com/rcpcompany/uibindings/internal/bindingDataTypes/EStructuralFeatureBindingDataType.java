@@ -110,7 +110,8 @@ public class EStructuralFeatureBindingDataType extends BindingDataTypeImpl {
 				if (dt == clsDT) {
 					continue;
 				}
-				if (dt.getEType() == null) {
+
+				if (!(dt.getEType() instanceof EClass)) {
 					continue;
 				}
 				final EClass stype = (EClass) dt.getEType();

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import com.rcpcompany.uibinding.tests.model.AmountAndCurrency;
+import com.rcpcompany.uibinding.tests.model.AmountAndCurrencyOld;
 import com.rcpcompany.uibinding.tests.model.SubTestObject;
 import com.rcpcompany.uibinding.tests.model.TestContainer;
 import com.rcpcompany.uibinding.tests.model.TestGrid;
@@ -802,7 +803,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 		addEEnumLiteral(timeUnitEEnum, TimeUnit.MIN);
 
 		// Initialize data types
-		initEDataType(amountAndCurrencyStructEDataType, AmountAndCurrency.class, "AmountAndCurrencyStruct",
+		initEDataType(amountAndCurrencyStructEDataType, AmountAndCurrencyOld.class, "AmountAndCurrencyStruct",
 				IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource

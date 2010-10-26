@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
-import com.rcpcompany.uibinding.tests.model.AmountAndCurrency;
+import com.rcpcompany.uibinding.tests.model.AmountAndCurrencyOld;
 import com.rcpcompany.uibinding.tests.model.TestContainer;
 import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 import com.rcpcompany.uibinding.tests.model.TestObject;
@@ -193,7 +193,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final AmountAndCurrency AC_EDEFAULT = null;
+	protected static final AmountAndCurrencyOld AC_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getAc() <em>Ac</em>}' attribute. <!-- begin-user-doc -->
@@ -203,7 +203,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * @generated
 	 * @ordered
 	 */
-	protected AmountAndCurrency ac = AC_EDEFAULT;
+	protected AmountAndCurrencyOld ac = AC_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getUnit() <em>Unit</em>}' attribute. <!-- begin-user-doc
@@ -594,7 +594,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * @generated
 	 */
 	@Override
-	public AmountAndCurrency getAc() {
+	public AmountAndCurrencyOld getAc() {
 		return ac;
 	}
 
@@ -604,8 +604,8 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 	 * @generated
 	 */
 	@Override
-	public void setAc(AmountAndCurrency newAc) {
-		final AmountAndCurrency oldAc = ac;
+	public void setAc(AmountAndCurrencyOld newAc) {
+		final AmountAndCurrencyOld oldAc = ac;
 		ac = newAc;
 		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__AC, oldAc, ac));
@@ -901,7 +901,7 @@ public class TestObjectImpl extends EObjectImpl implements TestObject {
 			setB((Boolean) newValue);
 			return;
 		case TestModelPackage.TEST_OBJECT__AC:
-			setAc((AmountAndCurrency) newValue);
+			setAc((AmountAndCurrencyOld) newValue);
 			return;
 		case TestModelPackage.TEST_OBJECT__UNIT:
 			setUnit((WeightUnit) newValue);

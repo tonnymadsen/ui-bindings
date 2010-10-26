@@ -217,24 +217,28 @@ public final class BindingDataTypeFactory {
 			if (classifier != null) {
 				dtList.add(create(null, classifier));
 				if (classifier instanceof EClass) {
-					for (final EClass e : ((EClass) classifier).getEAllSuperTypes()) {
-						dtList.add(create(null, e));
+					/*
+					 * getEAllSuperTypes() returns the reverse list with the grand-father super-type
+					 * first...
+					 */
+					final List<EClass> superTypes = ((EClass) classifier).getEAllSuperTypes();
+					for (int i = superTypes.size() - 1; i >= 0; i--) {
+						final EClass e = superTypes.get(i);
+						final IBindingDataType d = create(null, e);
+						if (dtList.contains(d)) {
+							continue;
+						}
+						dtList.add(d);
 					}
 				}
 			}
 			final Class<?>[] superClasses = Platform.getAdapterManager().computeClassOrder(dt.getDataType());
 			for (final Class<?> c : superClasses) {
-				boolean drop = false;
-				for (final IBindingDataType d : dtList) {
-					if (d.getDataType() == c) {
-						drop = true;
-						break;
-					}
-				}
-				if (drop) {
+				final IBindingDataType d = create(null, c);
+				if (dtList.contains(d)) {
 					continue;
 				}
-				dtList.add(create(null, c));
+				dtList.add(d);
 			}
 			dts = dtList.toArray(new IBindingDataType[dtList.size()]);
 			SUPER_TYPE_MAPPING.put(dt, dts);

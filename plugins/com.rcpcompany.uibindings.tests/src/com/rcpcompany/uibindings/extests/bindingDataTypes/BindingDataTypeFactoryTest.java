@@ -22,14 +22,13 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.junit.Test;
 
-import com.rcpcompany.uibinding.tests.model.AmountAndCurrency;
+import com.rcpcompany.uibinding.tests.model.AmountAndCurrencyOld;
 import com.rcpcompany.uibinding.tests.model.SubTestObject;
 import com.rcpcompany.uibinding.tests.model.TestModelFactory;
 import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 import com.rcpcompany.uibinding.tests.model.TestObject;
 import com.rcpcompany.uibinding.tests.model.TimeUnit;
 import com.rcpcompany.uibindings.IBindingDataType;
-import com.rcpcompany.uibindings.internal.bindingDataTypes.BindingDataTypeFactory;
 import com.rcpcompany.uibindings.internal.bindingDataTypes.EClassifierBindingDataType;
 import com.rcpcompany.uibindings.internal.bindingDataTypes.EEnumLiteralBindingDataType;
 import com.rcpcompany.uibindings.internal.bindingDataTypes.EStructuralFeatureBindingDataType;
@@ -121,14 +120,13 @@ public class BindingDataTypeFactoryTest {
 
 	@Test
 	public void testSuperTypesEnum() {
-		testSuperType(TestModelPackage.Literals.TIME_UNIT, TimeUnit.class, Enum.class, Object.class, Enumerator.class,
+		testSuperType(TestModelPackage.Literals.TIME_UNIT, TimeUnit.class, Enumerator.class, Enum.class, Object.class,
 				Comparable.class, Serializable.class);
 	}
 
 	@Test
 	public void testSuperTypesDT() {
-		testSuperType(TestModelPackage.Literals.AMOUNT_AND_CURRENCY_STRUCT, AmountAndCurrency.class, EObject.class,
-				Notifier.class);
+		testSuperType(TestModelPackage.Literals.AMOUNT_AND_CURRENCY_STRUCT, AmountAndCurrencyOld.class, Object.class);
 	}
 
 	/*
@@ -143,7 +141,9 @@ public class BindingDataTypeFactoryTest {
 		// }
 		assertEquals(memberClasses.length, types.length);
 		for (int i = 0; i < memberClasses.length; i++) {
-			assertEquals(memberClasses[i], types[i].getDataType());
+			final IBindingDataType d = types[i];
+			// System.out.println(d.getDataType().getSimpleName() + ": " + d.getEType());
+			assertEquals(memberClasses[i], d.getDataType());
 		}
 	}
 }

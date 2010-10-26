@@ -266,12 +266,12 @@ public interface TestObject extends EObject {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the value of the '<em>Ac</em>' attribute.
-	 * @see #setAc(AmountAndCurrency)
+	 * @see #setAc(AmountAndCurrencyOld)
 	 * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestObject_Ac()
 	 * @model dataType="com.rcpcompany.uibinding.tests.model.AmountAndCurrencyStruct"
 	 * @generated
 	 */
-	AmountAndCurrency getAc();
+	AmountAndCurrencyOld getAc();
 
 	/**
 	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getAc
@@ -281,7 +281,7 @@ public interface TestObject extends EObject {
 	 * @see #getAc()
 	 * @generated
 	 */
-	void setAc(AmountAndCurrency value);
+	void setAc(AmountAndCurrencyOld value);
 
 	/**
 	 * Returns the value of the '<em><b>Unit</b></em>' attribute. The literals are from the

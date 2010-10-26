@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import com.rcpcompany.uibinding.tests.model.AmountAndCurrency;
+import com.rcpcompany.uibinding.tests.model.AmountAndCurrencyOld;
 import com.rcpcompany.uibinding.tests.model.SubTestObject;
 import com.rcpcompany.uibinding.tests.model.TestContainer;
 import com.rcpcompany.uibinding.tests.model.TestGrid;
@@ -260,8 +261,8 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	 * 
 	 * @generated
 	 */
-	public AmountAndCurrency createAmountAndCurrencyStructFromString(EDataType eDataType, String initialValue) {
-		return (AmountAndCurrency) super.createFromString(eDataType, initialValue);
+	public AmountAndCurrencyOld createAmountAndCurrencyStructFromString(EDataType eDataType, String initialValue) {
+		return (AmountAndCurrencyOld) super.createFromString(eDataType, initialValue);
 	}
 
 	/**
