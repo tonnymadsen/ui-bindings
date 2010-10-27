@@ -17,6 +17,7 @@ import org.eclipse.core.commands.IHandler;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 
+import com.rcpcompany.uibindings.EcoreExtUtils;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.utils.ExtendedCommandStack;
 
@@ -41,7 +42,7 @@ public class PrintCommandHistoryHandler extends AbstractHandler implements IHand
 
 		System.out.println("Command History (reverse order):");
 		for (final Command c : cs.getCommands()) {
-			System.out.println("  " + c);
+			System.out.println("  " + EcoreExtUtils.toString(c));
 		}
 		System.out.println(".");
 
