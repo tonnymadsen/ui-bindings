@@ -50,6 +50,7 @@ public class OpenWithContributionFactory extends ExtensionContributionFactory {
 		final EObject obj = list.get(0);
 
 		final IEditorInformation mt = INavigatorManager.Factory.getManager().getEditorInformation(obj.getClass());
+		if (mt == null) return;
 		final List<IEditorPartDescriptor> editors = mt.getEnabledEditors();
 
 		/*
