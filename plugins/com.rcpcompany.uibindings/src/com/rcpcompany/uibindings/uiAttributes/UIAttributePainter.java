@@ -36,7 +36,6 @@ import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.internal.Activator;
-import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * A painter for {@link IUIAttribute}.
@@ -260,9 +259,9 @@ public class UIAttributePainter {
 		if (getAttribute().isEnabled() == Boolean.FALSE) {
 			foreground = Display.getCurrent().getSystemColor(SWT.COLOR_GRAY);
 		}
-		if (!foreground.equals(Display.getCurrent().getSystemColor(SWT.COLOR_BLACK))) {
-			LogUtils.debug(this, "foreground not black, but" + foreground.getRGB());
-		}
+		// if (!foreground.equals(Display.getCurrent().getSystemColor(SWT.COLOR_BLACK))) {
+		// LogUtils.debug(this, "TODO foreground not black, but" + foreground.getRGB());
+		// }
 
 		Color background = getDefaultBackground();
 		final Color b = getAttribute().getBackground();
@@ -503,10 +502,10 @@ public class UIAttributePainter {
 			myMinHeight = bsize.y + EXTRA_CELL_HEIGHT;
 		}
 
-//		final ImageLoader imageLoader = new ImageLoader();
-//		imageLoader.data = new ImageData[] { imageData };
-//
-//		imageLoader.save("c:\\Windows\\Temp\\checkbox-" + type + ".png", SWT.IMAGE_PNG);
+		// final ImageLoader imageLoader = new ImageLoader();
+		// imageLoader.data = new ImageData[] { imageData };
+		//
+		// imageLoader.save("c:\\Windows\\Temp\\checkbox-" + type + ".png", SWT.IMAGE_PNG);
 
 		return img;
 	}

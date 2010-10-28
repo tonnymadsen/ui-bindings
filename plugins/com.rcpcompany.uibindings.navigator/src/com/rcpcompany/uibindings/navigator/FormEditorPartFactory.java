@@ -12,6 +12,7 @@ package com.rcpcompany.uibindings.navigator;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
+import com.rcpcompany.uibindings.utils.IDnDSupport;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 
 /**
@@ -33,6 +34,7 @@ public abstract class FormEditorPartFactory extends AbstractEditorPartFactory im
 		 * IBindingContextSelectionProvider is automatically disposed with the context..
 		 */
 		IBindingContextSelectionProvider.Factory.adapt(form.getContext(), context.getWorkbenchPart().getSite());
+		IDnDSupport.Factory.installOn(form.getContext());
 		return new FormEditorPart(form);
 	}
 

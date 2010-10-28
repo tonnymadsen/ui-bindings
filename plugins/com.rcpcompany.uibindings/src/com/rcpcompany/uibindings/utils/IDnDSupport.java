@@ -10,12 +10,12 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.utils;
 
+import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IDisposable;
-import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.internal.utils.dnd.DnDSupport;
 
 /**
- * Drag 'n drop support for {@link IViewerBinding}.
+ * Drag 'n drop support for {@link IBindingContext}.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -29,17 +29,13 @@ public interface IDnDSupport extends IDisposable {
 		}
 
 		/**
-		 * Adapt the specified viewer for drag 'n drop.
+		 * Install drag 'n drop support for the specified context
 		 * 
-		 * @param viewer the viewer
+		 * @param context the context
 		 * @return the support object
 		 */
-		public static IDnDSupport adapt(IViewerBinding viewer) {
-			IDnDSupport adapter = viewer.getService(IDnDSupport.class);
-			if (adapter == null) {
-				adapter = new DnDSupport(viewer);
-			}
-			return adapter;
+		public static IDnDSupport installOn(IBindingContext context) {
+			return DnDSupport.installOn(context);
 		}
 	}
 }

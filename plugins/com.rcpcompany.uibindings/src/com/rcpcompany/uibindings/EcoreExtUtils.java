@@ -19,6 +19,8 @@ import java.util.Map;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.common.command.IdentityCommand;
+import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
@@ -37,6 +39,7 @@ import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
+import com.rcpcompany.uibindings.internal.utils.dnd.ViewerDragAndDropCommand;
 import com.rcpcompany.uibindings.utils.IBindingObjectInformation;
 
 /**
@@ -495,22 +498,37 @@ public final class EcoreExtUtils {
 		final StringBuilder sb = new StringBuilder(50);
 
 		sb.append(c.getClass().getSimpleName()).append('(');
-		if (c instanceof AddCommand) {
+		if (c instanceof IdentityCommand) {
+		} else if (c instanceof UnexecutableCommand) {
+		} else if (c instanceof AddCommand) {
 			final AddCommand cc = (AddCommand) c;
 
 			sb.append(getEObjectName(cc.getOwner())).append(", ").append(cc.getFeature().getName()).append(", ")
-					.append(toString(cc.getCollection()));
+					.append(toString(cc.getCollection())).append(", ").append(cc.getIndex());
 		} else if (c instanceof RemoveCommand) {
 			final RemoveCommand cc = (RemoveCommand) c;
 
 			sb.append(getEObjectName(cc.getOwner())).append(", ").append(cc.getFeature().getName()).append(", ")
 					.append(toString(cc.getCollection()));
+		} else if (c instanceof MoveCommand) {
+			final MoveCommand cc = (MoveCommand) c;
+
+			sb.append(getEObjectName(cc.getOwner())).append(", ").append(cc.getFeature().getName()).append(", ")
+					.append(cc.getValue()).append(", ").append(cc.getIndex());
 		} else if (c instanceof SetCommand) {
 			final SetCommand cc = (SetCommand) c;
 
 			sb.append(getEObjectName(cc.getOwner())).append(", ").append(cc.getFeature().getName()).append(", ")
 					.append(formatSetCommandArg(cc.getOldValue())).append(", ")
-					.append(formatSetCommandArg(cc.getValue()));
+					.append(formatSetCommandArg(cc.getValue())).append(", ").append(cc.getIndex());
+		} else if (c instanceof CompoundCommand) {
+			final CompoundCommand cc = (CompoundCommand) c;
+			for (final Command ic : cc.getCommandList()) {
+				sb.append(toString(ic));
+			}
+		} else if (c instanceof ViewerDragAndDropCommand) {
+			final ViewerDragAndDropCommand cc = (ViewerDragAndDropCommand) c;
+			sb.append(toString(cc.getDragCommand())).append(", ").append(toString(cc.getDropCommand()));
 		} else {
 			sb.append("...");
 		}

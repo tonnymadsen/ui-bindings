@@ -28,6 +28,7 @@ import org.eclipse.ui.IWorkbenchPart;
 
 import com.rcpcompany.uibindings.utils.IAutoFormCreator;
 import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
+import com.rcpcompany.uibindings.utils.IDnDSupport;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 
 /**
@@ -104,6 +105,7 @@ public class AutoFormCreator implements IAutoFormCreator {
 		myOptionalSection = myForm.addSection("Optional");
 
 		IBindingContextSelectionProvider.Factory.adapt(myForm.getContext(), part.getSite());
+		IDnDSupport.Factory.installOn(myForm.getContext());
 
 		myValue.addValueChangeListener(myValueChangeListener);
 		if (myValue.getValue() != null) {

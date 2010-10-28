@@ -43,7 +43,6 @@ import com.rcpcompany.uibindings.SpecialBinding;
 import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.utils.IBindingSpec;
 import com.rcpcompany.uibindings.utils.IBindingSpec.BaseType;
-import com.rcpcompany.uibindings.utils.IDnDSupport;
 import com.rcpcompany.uibindings.utils.IFilteringTableAdapter;
 import com.rcpcompany.uibindings.utils.ISortableTableAdapter;
 import com.rcpcompany.uibindings.utils.ITableCreator;
@@ -134,8 +133,6 @@ public class TableCreator implements ITableCreator {
 		if (myFilter != null) {
 			IFilteringTableAdapter.Factory.adapt(getBinding(), myFilter);
 		}
-
-		IDnDSupport.Factory.adapt(myViewerBinding);
 	}
 
 	@Override

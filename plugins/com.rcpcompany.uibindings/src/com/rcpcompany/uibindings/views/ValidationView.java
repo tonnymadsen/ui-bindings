@@ -29,6 +29,7 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.IBindingMessageTarget;
 import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
+import com.rcpcompany.uibindings.utils.IDnDSupport;
 import com.rcpcompany.uibindings.utils.ITableCreator;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 
@@ -117,6 +118,7 @@ public class ValidationView extends ViewPart {
 		myContext.finish();
 
 		IBindingContextSelectionProvider.Factory.adapt(myContext, getSite());
+		IDnDSupport.Factory.installOn(myContext);
 		updateViewTooltip();
 	}
 

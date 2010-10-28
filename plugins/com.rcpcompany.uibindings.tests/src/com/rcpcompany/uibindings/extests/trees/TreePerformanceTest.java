@@ -44,6 +44,7 @@ import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
+import com.rcpcompany.uibindings.utils.IDnDSupport;
 
 /**
  * Performance tests for trees using {@link TreeViewer#expandAll()}.
@@ -186,6 +187,7 @@ public class TreePerformanceTest {
 		myContext.finish();
 
 		IBindingContextSelectionProvider.Factory.adapt(myContext, myView.getSite());
+		IDnDSupport.Factory.installOn(myContext);
 
 		myView.getBody().layout();
 	}

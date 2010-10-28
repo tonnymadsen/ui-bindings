@@ -121,9 +121,10 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 
 		myContext.finish();
 
-		IDnDSupport.Factory.adapt(myTreeBinding);
+		IDnDSupport.Factory.installOn(myContext);
 
 		IBindingContextSelectionProvider.Factory.adapt(myContext, getSite());
+		IDnDSupport.Factory.installOn(myContext);
 
 		addToolbarItems();
 		listenToSelection();

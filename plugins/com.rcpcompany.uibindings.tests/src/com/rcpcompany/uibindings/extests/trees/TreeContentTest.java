@@ -37,6 +37,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
+import com.rcpcompany.uibindings.utils.IDnDSupport;
 
 public class TreeContentTest {
 	private Shop myShop;
@@ -102,6 +103,7 @@ public class TreeContentTest {
 		myContext.finish();
 
 		IBindingContextSelectionProvider.Factory.adapt(myContext, myView.getSite());
+		IDnDSupport.Factory.installOn(myContext);
 
 		myView.getBody().layout();
 	}

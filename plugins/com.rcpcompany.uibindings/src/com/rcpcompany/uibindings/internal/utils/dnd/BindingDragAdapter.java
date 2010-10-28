@@ -3,8 +3,10 @@ package com.rcpcompany.uibindings.internal.utils.dnd;
 import java.util.Collection;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.swt.dnd.DragSource;
 import org.eclipse.swt.dnd.DragSourceEvent;
 import org.eclipse.swt.dnd.DragSourceListener;
+import org.eclipse.swt.widgets.Widget;
 
 import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingContext;
@@ -30,7 +32,12 @@ public class BindingDragAdapter implements DragSourceListener {
 
 	@Override
 	public void dragStart(DragSourceEvent event) {
-		final IBinding binding = IBindingContext.Factory.getBindingForWidget(event.widget);
+		Widget widget = event.widget;
+		if (widget instanceof DragSource) {
+			final DragSource ds = (DragSource) widget;
+			widget = ds.getControl();
+		}
+		final IBinding binding = IBindingContext.Factory.getBindingForWidget(widget);
 		if (binding == null) {
 			event.doit = false;
 			return;
