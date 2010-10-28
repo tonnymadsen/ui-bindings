@@ -8,7 +8,7 @@
  * Contributors:
  *     The RCP Company - initial API and implementation
  *******************************************************************************/
-package com.rcpcompany.uibindings.internal.utils;
+package com.rcpcompany.uibindings.utils;
 
 import java.util.ArrayList;
 import java.util.Iterator;

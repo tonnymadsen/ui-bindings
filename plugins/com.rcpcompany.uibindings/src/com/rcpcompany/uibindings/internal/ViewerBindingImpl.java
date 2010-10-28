@@ -69,6 +69,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
+import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.swt.widgets.Widget;
 
 import com.rcpcompany.uibindings.BindingState;
@@ -1008,6 +1009,15 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 			final Collection<EObject> s = new ArrayList<EObject>(t.getSelectionCount());
 			for (final int i : t.getSelectionIndices()) {
 				s.add((EObject) getList().get(i));
+			}
+
+			return s;
+		}
+		if (getControl() instanceof Tree) {
+			final Tree t = (Tree) getControl();
+			final Collection<EObject> s = new ArrayList<EObject>(t.getSelectionCount());
+			for (final TreeItem i : t.getSelection()) {
+				s.add((EObject) i.getData());
 			}
 
 			return s;
