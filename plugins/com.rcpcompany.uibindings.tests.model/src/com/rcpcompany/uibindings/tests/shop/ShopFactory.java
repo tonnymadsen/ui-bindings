@@ -43,6 +43,15 @@ public interface ShopFactory extends EFactory {
 	Customer createCustomer();
 
 	/**
+	 * Returns a new object of class '<em>Customer Group</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Customer Group</em>'.
+	 * @generated
+	 */
+	CustomerGroup createCustomerGroup();
+
+	/**
 	 * Returns a new object of class '<em>Item</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return a new object of class '<em>Item</em>'.

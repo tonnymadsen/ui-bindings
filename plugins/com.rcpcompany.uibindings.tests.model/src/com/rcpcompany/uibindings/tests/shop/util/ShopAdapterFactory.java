@@ -16,6 +16,7 @@ import com.rcpcompany.uibindings.moao.INamedObject;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Customer;
+import com.rcpcompany.uibindings.tests.shop.CustomerGroup;
 import com.rcpcompany.uibindings.tests.shop.Order;
 import com.rcpcompany.uibindings.tests.shop.OrderItem;
 import com.rcpcompany.uibindings.tests.shop.Shop;
@@ -86,6 +87,11 @@ public class ShopAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseCustomer(Customer object) {
 			return createCustomerAdapter();
+		}
+
+		@Override
+		public Adapter caseCustomerGroup(CustomerGroup object) {
+			return createCustomerGroupAdapter();
 		}
 
 		@Override
@@ -211,6 +217,21 @@ public class ShopAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCustomerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '
+	 * {@link com.rcpcompany.uibindings.tests.shop.CustomerGroup <em>Customer Group</em>}'. <!--
+	 * begin-user-doc --> This default implementation returns null so that we can easily ignore
+	 * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.rcpcompany.uibindings.tests.shop.CustomerGroup
+	 * @generated
+	 */
+	public Adapter createCustomerGroupAdapter() {
 		return null;
 	}
 

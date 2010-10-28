@@ -4,13 +4,13 @@
   <countries name="Norway" uuid="NO" abbreviation="NO"/>
   <countries name="Sweden" uuid="SE" abbreviation="SE"/>
   <countries name="Finland" uuid="_otUH0MrREd-YTtT6Fix4Zw" abbreviation="FI"/>
-  <contacts name="Tue Aller" uuid="_LsEGkMBGEd-siJXnD8pfBQ" address="Algade 4" city="Trondheim" zip="3400" country="NO" birthday="1999-10-10T00:00:00.000+0200"/>
-  <contacts name="Hans Jörgensen" uuid="_L0m-kMBGEd-siJXnD8pfBQ" address="Vasagatan 5" city="Stockholm" zip="21 145" country="NO" customer="//@customers.1" birthday="1976-12-16T00:00:00.000+0100"/>
   <contacts name="Tonny Madsen" uuid="_L0u6YMBGEd-siJXnD8pfBQ" address="Rued Langgaards Vej 7, 5D12" city="København" zip="2300" country="DK" customer="//@customers.0" birthday="1964-11-16T00:00:00.000+0100"/>
   <contacts name="Henrik Hansen" uuid="_L0wvkMBGEd-siJXnD8pfBQ" city="Søborg" country="NO" customer="//@customers.2" birthday="1964-11-16T00:00:00.000+0100"/>
-  <contacts name="Søren Søren" uuid="_L0ykwMBGEd-siJXnD8pfBQ" city="Århus" country="DK" birthday="1964-11-16T00:00:00.000+0100"/>
   <contacts name="Brian" uuid="_L00Z8MBGEd-siJXnD8pfBQ" city="Køge" country="NO"/>
+  <contacts name="Tue Aller" uuid="_LsEGkMBGEd-siJXnD8pfBQ" address="Algade 4" city="Trondheim" zip="3400" country="NO" birthday="1999-10-10T00:00:00.000+0200"/>
+  <contacts name="Hans Jörgensen" uuid="_L0m-kMBGEd-siJXnD8pfBQ" address="Vasagatan 5" city="Stockholm" zip="21 145" country="NO" customer="//@customers.1" birthday="1976-12-16T00:00:00.000+0100"/>
   <contacts name="Allan" uuid="_L01oEMBGEd-siJXnD8pfBQ" city="Hvidovre" country="NO"/>
+  <contacts name="Søren Søren" uuid="_L0ykwMBGEd-siJXnD8pfBQ" city="Århus" country="DK" birthday="1964-11-16T00:00:00.000+0100"/>
   <contacts name="Thomas" uuid="_0g5AAMgSEd-Mv9urbjVCgg" city="Turku" country="_otUH0MrREd-YTtT6Fix4Zw"/>
   <shopItems name="EMF Eclipse Modeling Framework" uuid="_L05ScMBGEd-siJXnD8pfBQ" price="200.0"/>
   <shopItems name="RCP Principles" uuid="_L05SccBGEd-siJXnD8pfBQ" price="210.0"/>
@@ -25,15 +25,16 @@
     <items item="_L05ScMBGEd-siJXnD8pfBQ"/>
     <items item="_L05SccBGEd-siJXnD8pfBQ" count="3"/>
   </orders>
-  <orders no="1" customer="//@customers.2">
+  <orders no="1" customer="//@customers.0">
+    <items item="_L05ScsBGEd-siJXnD8pfBQ" count="2"/>
+  </orders>
+  <orders no="1222" customer="//@customers.1">
     <items item="_L05ScsBGEd-siJXnD8pfBQ"/>
   </orders>
-  <orders no="1222" customer="//@customers.0">
-    <items item="_L05ScsBGEd-siJXnD8pfBQ"/>
-  </orders>
-  <customers contact="_L0u6YMBGEd-siJXnD8pfBQ" orders="1222" loyalty="Silver"/>
-  <customers contact="_L0m-kMBGEd-siJXnD8pfBQ" orders="//@orders[no='0']" loyalty="Gold"/>
-  <customers contact="_L0wvkMBGEd-siJXnD8pfBQ" orders="1"/>
+  <customers contact="_L0u6YMBGEd-siJXnD8pfBQ" orders="1" loyalty="Silver"/>
+  <customers contact="_L0m-kMBGEd-siJXnD8pfBQ" orders="//@orders[no='0'] 1222" loyalty="Gold"/>
+  <customers contact="_L0wvkMBGEd-siJXnD8pfBQ"/>
+  <customerGroups name="Danes" uuid="_ZVS-YOJeEd-ufo4VJo3Xqw"/>
   <shopGroups name="Eclipse" uuid="_L0_ZEMBGEd-siJXnD8pfBQ" items="_L05ScsBGEd-siJXnD8pfBQ _L06gkMBGEd-siJXnD8pfBQ"/>
   <shopGroups name="Fitness" uuid="_L0_ZEcBGEd-siJXnD8pfBQ"/>
   <shopGroups name="Java" uuid="_L0_ZEsBGEd-siJXnD8pfBQ"/>

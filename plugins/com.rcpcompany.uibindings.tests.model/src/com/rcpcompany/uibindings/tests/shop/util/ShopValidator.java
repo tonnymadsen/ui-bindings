@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Customer;
+import com.rcpcompany.uibindings.tests.shop.CustomerGroup;
 import com.rcpcompany.uibindings.tests.shop.CustomerType;
 import com.rcpcompany.uibindings.tests.shop.Order;
 import com.rcpcompany.uibindings.tests.shop.OrderItem;
@@ -143,6 +144,8 @@ public class ShopValidator extends EObjectValidator {
 			return validateShop((Shop) value, diagnostics, context);
 		case ShopPackage.CUSTOMER:
 			return validateCustomer((Customer) value, diagnostics, context);
+		case ShopPackage.CUSTOMER_GROUP:
+			return validateCustomerGroup((CustomerGroup) value, diagnostics, context);
 		case ShopPackage.SHOP_ITEM:
 			return validateShopItem((ShopItem) value, diagnostics, context);
 		case ShopPackage.SHOP_ITEM_PROPERTIES:
@@ -230,6 +233,16 @@ public class ShopValidator extends EObjectValidator {
 	 */
 	public boolean validateCustomer(Customer customer, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(customer, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateCustomerGroup(CustomerGroup customerGroup, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(customerGroup, diagnostics, context);
 	}
 
 	/**

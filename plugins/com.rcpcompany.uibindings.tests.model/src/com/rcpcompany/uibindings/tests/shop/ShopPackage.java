@@ -176,13 +176,22 @@ public interface ShopPackage extends EPackage {
 	int SHOP__CUSTOMERS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Customer Groups</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP__CUSTOMER_GROUPS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 8;
+
+	/**
 	 * The feature id for the '<em><b>Shop Groups</b></em>' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP__SHOP_GROUPS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 8;
+	int SHOP__SHOP_GROUPS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Infos</b></em>' containment reference list. <!--
@@ -191,7 +200,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP__INFOS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 9;
+	int SHOP__INFOS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of structural features of the '<em>Shop</em>' class. <!-- begin-user-doc --> <!--
@@ -200,7 +209,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 10;
+	int SHOP_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.impl.CustomerImpl
@@ -276,6 +285,71 @@ public interface ShopPackage extends EPackage {
 	int CUSTOMER_FEATURE_COUNT = IMOAOPackage.MOAO_FEATURE_COUNT + 5;
 
 	/**
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.tests.shop.impl.CustomerGroupImpl <em>Customer Group</em>}'
+	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see com.rcpcompany.uibindings.tests.shop.impl.CustomerGroupImpl
+	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getCustomerGroup()
+	 * @generated
+	 */
+	int CUSTOMER_GROUP = 2;
+
+	/**
+	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOMER_GROUP__MESSAGES = IMOAOPackage.NAMED_OBJECT__MESSAGES;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOMER_GROUP__NAME = IMOAOPackage.NAMED_OBJECT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOMER_GROUP__DESCRIPTION = IMOAOPackage.NAMED_OBJECT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOMER_GROUP__UUID = IMOAOPackage.NAMED_OBJECT__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Customers</b></em>' reference list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOMER_GROUP__CUSTOMERS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Customer Group</em>' class. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOMER_GROUP_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemImpl
 	 * <em>Item</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -283,7 +357,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getShopItem()
 	 * @generated
 	 */
-	int SHOP_ITEM = 2;
+	int SHOP_ITEM = 3;
 
 	/**
 	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
@@ -411,7 +485,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getShopItemProperties()
 	 * @generated
 	 */
-	int SHOP_ITEM_PROPERTIES = 3;
+	int SHOP_ITEM_PROPERTIES = 4;
 
 	/**
 	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
@@ -485,7 +559,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getShopItemGroup()
 	 * @generated
 	 */
-	int SHOP_ITEM_GROUP = 4;
+	int SHOP_ITEM_GROUP = 5;
 
 	/**
 	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
@@ -558,7 +632,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getOrder()
 	 * @generated
 	 */
-	int ORDER = 5;
+	int ORDER = 6;
 
 	/**
 	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
@@ -640,7 +714,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getOrderItem()
 	 * @generated
 	 */
-	int ORDER_ITEM = 6;
+	int ORDER_ITEM = 7;
 
 	/**
 	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
@@ -713,7 +787,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getContact()
 	 * @generated
 	 */
-	int CONTACT = 7;
+	int CONTACT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
@@ -840,7 +914,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getCountry()
 	 * @generated
 	 */
-	int COUNTRY = 8;
+	int COUNTRY = 9;
 
 	/**
 	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
@@ -923,7 +997,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getShopItemInformation()
 	 * @generated
 	 */
-	int SHOP_ITEM_INFORMATION = 9;
+	int SHOP_ITEM_INFORMATION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
@@ -952,7 +1026,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getShopItemDescription()
 	 * @generated
 	 */
-	int SHOP_ITEM_DESCRIPTION = 10;
+	int SHOP_ITEM_DESCRIPTION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
@@ -980,7 +1054,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getShopItemURL()
 	 * @generated
 	 */
-	int SHOP_ITEM_URL = 11;
+	int SHOP_ITEM_URL = 12;
 
 	/**
 	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
@@ -1018,7 +1092,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getShopInformation()
 	 * @generated
 	 */
-	int SHOP_INFORMATION = 12;
+	int SHOP_INFORMATION = 13;
 
 	/**
 	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
@@ -1073,7 +1147,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getShopURL()
 	 * @generated
 	 */
-	int SHOP_URL = 13;
+	int SHOP_URL = 14;
 
 	/**
 	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
@@ -1137,7 +1211,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getShopAddress()
 	 * @generated
 	 */
-	int SHOP_ADDRESS = 14;
+	int SHOP_ADDRESS = 15;
 
 	/**
 	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
@@ -1201,7 +1275,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getCustomerType()
 	 * @generated
 	 */
-	int CUSTOMER_TYPE = 15;
+	int CUSTOMER_TYPE = 16;
 
 	/**
 	 * The meta object id for the '<em>Diagnostic Chain</em>' data type. <!-- begin-user-doc -->
@@ -1211,7 +1285,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getDiagnosticChain()
 	 * @generated
 	 */
-	int DIAGNOSTIC_CHAIN = 16;
+	int DIAGNOSTIC_CHAIN = 17;
 
 	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.Shop
@@ -1321,6 +1395,18 @@ public interface ShopPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the containment reference list '
+	 * {@link com.rcpcompany.uibindings.tests.shop.Shop#getCustomerGroups <em>Customer Groups</em>}
+	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Customer Groups</em>'.
+	 * @see com.rcpcompany.uibindings.tests.shop.Shop#getCustomerGroups()
+	 * @see #getShop()
+	 * @generated
+	 */
+	EReference getShop_CustomerGroups();
+
+	/**
+	 * Returns the meta object for the containment reference list '
 	 * {@link com.rcpcompany.uibindings.tests.shop.Shop#getShopGroups <em>Shop Groups</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -1412,6 +1498,28 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCustomer_LogoFileName();
+
+	/**
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.CustomerGroup
+	 * <em>Customer Group</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Customer Group</em>'.
+	 * @see com.rcpcompany.uibindings.tests.shop.CustomerGroup
+	 * @generated
+	 */
+	EClass getCustomerGroup();
+
+	/**
+	 * Returns the meta object for the reference list '
+	 * {@link com.rcpcompany.uibindings.tests.shop.CustomerGroup#getCustomers <em>Customers</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference list '<em>Customers</em>'.
+	 * @see com.rcpcompany.uibindings.tests.shop.CustomerGroup#getCustomers()
+	 * @see #getCustomerGroup()
+	 * @generated
+	 */
+	EReference getCustomerGroup_Customers();
 
 	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.ShopItem
@@ -2109,6 +2217,14 @@ public interface ShopPackage extends EPackage {
 		EReference SHOP__CUSTOMERS = eINSTANCE.getShop_Customers();
 
 		/**
+		 * The meta object literal for the '<em><b>Customer Groups</b></em>' containment reference
+		 * list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference SHOP__CUSTOMER_GROUPS = eINSTANCE.getShop_CustomerGroups();
+
+		/**
 		 * The meta object literal for the '<em><b>Shop Groups</b></em>' containment reference list
 		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -2174,6 +2290,25 @@ public interface ShopPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CUSTOMER__LOGO_FILE_NAME = eINSTANCE.getCustomer_LogoFileName();
+
+		/**
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.tests.shop.impl.CustomerGroupImpl
+		 * <em>Customer Group</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see com.rcpcompany.uibindings.tests.shop.impl.CustomerGroupImpl
+		 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getCustomerGroup()
+		 * @generated
+		 */
+		EClass CUSTOMER_GROUP = eINSTANCE.getCustomerGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Customers</b></em>' reference list feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference CUSTOMER_GROUP__CUSTOMERS = eINSTANCE.getCustomerGroup_Customers();
 
 		/**
 		 * The meta object literal for the '

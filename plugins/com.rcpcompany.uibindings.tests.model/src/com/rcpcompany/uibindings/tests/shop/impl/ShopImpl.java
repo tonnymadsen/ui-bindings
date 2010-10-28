@@ -27,6 +27,7 @@ import com.rcpcompany.uibindings.moao.internal.NamedObjectImpl;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Customer;
+import com.rcpcompany.uibindings.tests.shop.CustomerGroup;
 import com.rcpcompany.uibindings.tests.shop.Order;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopInformation;
@@ -52,6 +53,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getShopItems <em>Shop Items</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getOrders <em>Orders</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getCustomers <em>Customers</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getCustomerGroups <em>Customer
+ * Groups</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getShopGroups <em>Shop Groups</em>}
  * </li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopImpl#getInfos <em>Infos</em>}</li>
@@ -170,6 +173,16 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 	 * @ordered
 	 */
 	protected EList<Customer> customers;
+
+	/**
+	 * The cached value of the '{@link #getCustomerGroups() <em>Customer Groups</em>}' containment
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getCustomerGroups()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CustomerGroup> customerGroups;
 
 	/**
 	 * The cached value of the '{@link #getShopGroups() <em>Shop Groups</em>}' containment reference
@@ -360,6 +373,20 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 	 * @generated
 	 */
 	@Override
+	public EList<CustomerGroup> getCustomerGroups() {
+		if (customerGroups == null) {
+			customerGroups = new EObjectContainmentEList<CustomerGroup>(CustomerGroup.class, this,
+					ShopPackage.SHOP__CUSTOMER_GROUPS);
+		}
+		return customerGroups;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EList<ShopItemGroup> getShopGroups() {
 		if (shopGroups == null) {
 			shopGroups = new EObjectContainmentWithInverseEList<ShopItemGroup>(ShopItemGroup.class, this,
@@ -457,6 +484,8 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 			return ((InternalEList<?>) getOrders()).basicRemove(otherEnd, msgs);
 		case ShopPackage.SHOP__CUSTOMERS:
 			return ((InternalEList<?>) getCustomers()).basicRemove(otherEnd, msgs);
+		case ShopPackage.SHOP__CUSTOMER_GROUPS:
+			return ((InternalEList<?>) getCustomerGroups()).basicRemove(otherEnd, msgs);
 		case ShopPackage.SHOP__SHOP_GROUPS:
 			return ((InternalEList<?>) getShopGroups()).basicRemove(otherEnd, msgs);
 		case ShopPackage.SHOP__INFOS:
@@ -489,6 +518,8 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 			return getOrders();
 		case ShopPackage.SHOP__CUSTOMERS:
 			return getCustomers();
+		case ShopPackage.SHOP__CUSTOMER_GROUPS:
+			return getCustomerGroups();
 		case ShopPackage.SHOP__SHOP_GROUPS:
 			return getShopGroups();
 		case ShopPackage.SHOP__INFOS:
@@ -535,6 +566,10 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 			getCustomers().clear();
 			getCustomers().addAll((Collection<? extends Customer>) newValue);
 			return;
+		case ShopPackage.SHOP__CUSTOMER_GROUPS:
+			getCustomerGroups().clear();
+			getCustomerGroups().addAll((Collection<? extends CustomerGroup>) newValue);
+			return;
 		case ShopPackage.SHOP__SHOP_GROUPS:
 			getShopGroups().clear();
 			getShopGroups().addAll((Collection<? extends ShopItemGroup>) newValue);
@@ -579,6 +614,9 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 		case ShopPackage.SHOP__CUSTOMERS:
 			getCustomers().clear();
 			return;
+		case ShopPackage.SHOP__CUSTOMER_GROUPS:
+			getCustomerGroups().clear();
+			return;
 		case ShopPackage.SHOP__SHOP_GROUPS:
 			getShopGroups().clear();
 			return;
@@ -613,6 +651,8 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 			return orders != null && !orders.isEmpty();
 		case ShopPackage.SHOP__CUSTOMERS:
 			return customers != null && !customers.isEmpty();
+		case ShopPackage.SHOP__CUSTOMER_GROUPS:
+			return customerGroups != null && !customerGroups.isEmpty();
 		case ShopPackage.SHOP__SHOP_GROUPS:
 			return shopGroups != null && !shopGroups.isEmpty();
 		case ShopPackage.SHOP__INFOS:

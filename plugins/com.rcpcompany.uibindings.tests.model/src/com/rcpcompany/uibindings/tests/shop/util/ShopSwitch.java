@@ -16,6 +16,7 @@ import com.rcpcompany.uibindings.moao.INamedObject;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Customer;
+import com.rcpcompany.uibindings.tests.shop.CustomerGroup;
 import com.rcpcompany.uibindings.tests.shop.Order;
 import com.rcpcompany.uibindings.tests.shop.OrderItem;
 import com.rcpcompany.uibindings.tests.shop.Shop;
@@ -120,6 +121,23 @@ public class ShopSwitch<T> {
 			}
 			if (result == null) {
 				result = caseIAdaptable(customer);
+			}
+			if (result == null) {
+				result = defaultCase(theEObject);
+			}
+			return result;
+		}
+		case ShopPackage.CUSTOMER_GROUP: {
+			final CustomerGroup customerGroup = (CustomerGroup) theEObject;
+			T result = caseCustomerGroup(customerGroup);
+			if (result == null) {
+				result = caseNamedObject(customerGroup);
+			}
+			if (result == null) {
+				result = caseMOAO(customerGroup);
+			}
+			if (result == null) {
+				result = caseIAdaptable(customerGroup);
 			}
 			if (result == null) {
 				result = defaultCase(theEObject);
@@ -374,6 +392,20 @@ public class ShopSwitch<T> {
 	 * @generated
 	 */
 	public T caseCustomer(Customer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Customer Group</em>'.
+	 * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Customer Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCustomerGroup(CustomerGroup object) {
 		return null;
 	}
 

@@ -22,6 +22,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Customer;
+import com.rcpcompany.uibindings.tests.shop.CustomerGroup;
 import com.rcpcompany.uibindings.tests.shop.CustomerType;
 import com.rcpcompany.uibindings.tests.shop.Order;
 import com.rcpcompany.uibindings.tests.shop.OrderItem;
@@ -110,6 +111,8 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 			return createShop();
 		case ShopPackage.CUSTOMER:
 			return createCustomer();
+		case ShopPackage.CUSTOMER_GROUP:
+			return createCustomerGroup();
 		case ShopPackage.SHOP_ITEM:
 			return createShopItem();
 		case ShopPackage.SHOP_ITEM_PROPERTIES:
@@ -193,6 +196,17 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	public Customer createCustomer() {
 		final CustomerImpl customer = new CustomerImpl();
 		return customer;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public CustomerGroup createCustomerGroup() {
+		final CustomerGroupImpl customerGroup = new CustomerGroupImpl();
+		return customerGroup;
 	}
 
 	/**

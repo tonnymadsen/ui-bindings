@@ -28,6 +28,7 @@ import com.rcpcompany.uibindings.moao.INamedObject;
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getShopItems <em>Shop Items</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getOrders <em>Orders</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getCustomers <em>Customers</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getCustomerGroups <em>Customer Groups</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getShopGroups <em>Shop Groups</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getInfos <em>Infos</em>}</li>
  * </ul>
@@ -211,6 +212,22 @@ public interface Shop extends INamedObject {
 	 * @generated
 	 */
 	EList<Customer> getCustomers();
+
+	/**
+	 * Returns the value of the '<em><b>Customer Groups</b></em>' containment reference list. The
+	 * list contents are of type {@link com.rcpcompany.uibindings.tests.shop.CustomerGroup}. <!--
+	 * begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Customer Groups</em>' reference list isn't clear, there really
+	 * should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Customer Groups</em>' containment reference list.
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShop_CustomerGroups()
+	 * @generated
+	 */
+	EList<CustomerGroup> getCustomerGroups();
 
 	/**
 	 * Returns the value of the '<em><b>Shop Groups</b></em>' containment reference list. The list

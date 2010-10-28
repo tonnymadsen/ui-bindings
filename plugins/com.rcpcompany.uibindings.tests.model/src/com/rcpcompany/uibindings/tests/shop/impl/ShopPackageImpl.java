@@ -22,6 +22,7 @@ import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Customer;
+import com.rcpcompany.uibindings.tests.shop.CustomerGroup;
 import com.rcpcompany.uibindings.tests.shop.CustomerType;
 import com.rcpcompany.uibindings.tests.shop.Order;
 import com.rcpcompany.uibindings.tests.shop.OrderItem;
@@ -58,6 +59,13 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	private EClass customerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass customerGroupEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -333,7 +341,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getShop_ShopGroups() {
+	public EReference getShop_CustomerGroups() {
 		return (EReference) shopEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -343,8 +351,18 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getShop_Infos() {
+	public EReference getShop_ShopGroups() {
 		return (EReference) shopEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EReference getShop_Infos() {
+		return (EReference) shopEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -405,6 +423,26 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	@Override
 	public EAttribute getCustomer_LogoFileName() {
 		return (EAttribute) customerEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EClass getCustomerGroup() {
+		return customerGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EReference getCustomerGroup_Customers() {
+		return (EReference) customerGroupEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -964,6 +1002,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		createEReference(shopEClass, SHOP__SHOP_ITEMS);
 		createEReference(shopEClass, SHOP__ORDERS);
 		createEReference(shopEClass, SHOP__CUSTOMERS);
+		createEReference(shopEClass, SHOP__CUSTOMER_GROUPS);
 		createEReference(shopEClass, SHOP__SHOP_GROUPS);
 		createEReference(shopEClass, SHOP__INFOS);
 
@@ -973,6 +1012,9 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		createEReference(customerEClass, CUSTOMER__ORDERS);
 		createEAttribute(customerEClass, CUSTOMER__LOYALTY);
 		createEAttribute(customerEClass, CUSTOMER__LOGO_FILE_NAME);
+
+		customerGroupEClass = createEClass(CUSTOMER_GROUP);
+		createEReference(customerGroupEClass, CUSTOMER_GROUP__CUSTOMERS);
 
 		shopItemEClass = createEClass(SHOP_ITEM);
 		createEReference(shopItemEClass, SHOP_ITEM__SHOP);
@@ -1078,6 +1120,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		// Add supertypes to classes
 		shopEClass.getESuperTypes().add(theMOAOPackage.getNamedObject());
 		customerEClass.getESuperTypes().add(theMOAOPackage.getMOAO());
+		customerGroupEClass.getESuperTypes().add(theMOAOPackage.getNamedObject());
 		shopItemEClass.getESuperTypes().add(theMOAOPackage.getNamedObject());
 		shopItemPropertiesEClass.getESuperTypes().add(theMOAOPackage.getNamedObject());
 		shopItemGroupEClass.getESuperTypes().add(theMOAOPackage.getNamedObject());
@@ -1118,6 +1161,9 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		initEReference(getShop_Customers(), this.getCustomer(), this.getCustomer_Shop(), "customers", null, 0, -1,
 				Shop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getShop_CustomerGroups(), this.getCustomerGroup(), null, "customerGroups", null, 0, -1,
+				Shop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getShop_ShopGroups(), this.getShopItemGroup(), this.getShopItemGroup_Shop(), "shopGroups", null,
 				0, -1, Shop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1152,6 +1198,12 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		initEAttribute(getCustomer_LogoFileName(), ecorePackage.getEString(), "logoFileName", null, 0, 1,
 				Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(customerGroupEClass, CustomerGroup.class, "CustomerGroup", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCustomerGroup_Customers(), this.getCustomer(), null, "customers", null, 0, -1,
+				CustomerGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(shopItemEClass, ShopItem.class, "ShopItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getShopItem_Shop(), this.getShop(), this.getShop_ShopItems(), "shop", null, 1, 1,
@@ -1219,12 +1271,12 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		initEReference(getOrder_Shop(), this.getShop(), this.getShop_Orders(), "shop", null, 1, 1, Order.class,
 				!IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getOrder_Customer(), this.getCustomer(), this.getCustomer_Orders(), "customer", null, 0, 1,
+		initEReference(getOrder_Customer(), this.getCustomer(), this.getCustomer_Orders(), "customer", null, 1, 1,
 				Order.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOrder_Price(), ecorePackage.getEFloat(), "price", null, 1, 1, Order.class, IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOrder_Items(), this.getOrderItem(), this.getOrderItem_Order(), "items", null, 0, 2,
+		initEReference(getOrder_Items(), this.getOrderItem(), this.getOrderItem_Order(), "items", null, 0, -1,
 				Order.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getOrder_Items().getEKeys().add(this.getOrderItem_No());
