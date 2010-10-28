@@ -634,9 +634,11 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 				&& operation == myOperation && UIBindingsUtils.equals(collection, myDraggedSources))
 			return isExecutable;
 
-		LogUtils.debug(this, "\nowner=" + owner + "\nmyTarget=" + myTarget + "\nlocation=" + location + " ["
-				+ myLowerLocationBound + "," + myUpperLocationBound + "]\noperation=" + operation + ", myOperation="
-				+ myOperation);
+		// LogUtils.debug(this, "\nowner=" + owner + "\nmyTarget=" + myTarget + "\nlocation=" +
+		// location + " ["
+		// + myLowerLocationBound + "," + myUpperLocationBound + "]\noperation=" + operation +
+		// ", myOperation="
+		// + myOperation);
 
 		reset();
 
