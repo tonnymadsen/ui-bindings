@@ -100,6 +100,13 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 
 		final List<IChildCreationSpecification> specs = container.getPossibleChildObjects(obj, null);
 
+		// TODO Temporary
+		for (final IChildCreationSpecification sp : specs.toArray(new IChildCreationSpecification[specs.size()])) {
+			if (!sp.getReference().isContainment()) {
+				specs.remove(sp);
+			}
+		}
+
 		/*
 		 * Less than two specs... no need for an open with menu... Ignore.
 		 */
