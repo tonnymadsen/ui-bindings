@@ -186,6 +186,9 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 		addArguments(context);
 		if (context.isResultFound()) return results;
 
+		addSFSuperContainingClassArguments(context);
+		if (context.isResultFound()) return results;
+
 		addSuperDataTypeArguments(context);
 		if (context.isResultFound()) return results;
 
