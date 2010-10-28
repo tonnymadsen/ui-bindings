@@ -30,7 +30,7 @@ import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 import com.rcpcompany.uibinding.tests.model.TestObject;
 import com.rcpcompany.uibindings.IArgumentProvider;
 import com.rcpcompany.uibindings.IArgumentValue;
-import com.rcpcompany.uibindings.IBinding;
+import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IColumnBindingCellInformation;
 import com.rcpcompany.uibindings.IValueBinding;
@@ -147,7 +147,6 @@ public class ArgumentsSequenceTest {
 				"SubTestObject.text (annotation)", "SubTestObject.text", "TestObject.text (annotation)",
 				"TestObject.text", "java.lang.String", "java.lang.CharSequence", "SubTestObject (annotation)",
 				"SubTestObject", "IArgumentProvider1", "IArgumentProvider2");
-		// TODO: missing "SubTestObject (annotation)"
 	}
 
 	/**
@@ -381,8 +380,6 @@ public class ArgumentsSequenceTest {
 		testOneReferenceSequence(ARG + "-all", "extender", "direct arg", "bindingDecorator.eobject",
 				"TestContainer.current (annotation)", "TestContainer.current", "TestObject (annotation)", "TestObject",
 				"EObject", "TestContainer (annotation)", "TestContainer", "IArgumentProvider1", "IArgumentProvider2");
-
-		// TODO: missing "SubTestObject (annotation)"
 	}
 
 	/**
@@ -395,8 +392,6 @@ public class ArgumentsSequenceTest {
 		testOneReferenceSequence(ARG + "-default", "extender", "direct arg", "bindingDecorator.eobject",
 				"TestContainer.current (annotation)", "TestContainer.current", "TestObject (annotation)", "TestObject",
 				"EObject", "IArgumentProvider1", "IArgumentProvider2");
-
-		// TODO: missing "SubTestObject (annotation)"
 	}
 
 	/**
@@ -409,8 +404,6 @@ public class ArgumentsSequenceTest {
 		testOneReferenceSequence(ARG + "-parent", "extender", "direct arg", "bindingDecorator.eobject",
 				"TestContainer.current (annotation)", "TestContainer.current", "IArgumentProvider1",
 				"IArgumentProvider2");
-
-		// TODO: missing "SubTestObject (annotation)"
 	}
 
 	/**
@@ -423,8 +416,6 @@ public class ArgumentsSequenceTest {
 		testOneReferenceSequence(ARG + "-targetType", "extender", "direct arg", "bindingDecorator.eobject",
 				"TestContainer.current (annotation)", "TestContainer.current", "TestObject (annotation)", "TestObject",
 				"EObject", "IArgumentProvider1", "IArgumentProvider2");
-
-		// TODO: missing "SubTestObject (annotation)"
 	}
 
 	/**
@@ -437,8 +428,6 @@ public class ArgumentsSequenceTest {
 		testOneReferenceSequence(ARG + "-containingClass", "extender", "direct arg", "bindingDecorator.eobject",
 				"TestContainer.current (annotation)", "TestContainer.current", "TestContainer (annotation)",
 				"TestContainer", "IArgumentProvider1", "IArgumentProvider2");
-
-		// TODO: missing "SubTestObject (annotation)"
 	}
 
 	private void testOneReferenceSequence(final String arg, final String... results) {
@@ -496,12 +485,149 @@ public class ArgumentsSequenceTest {
 	}
 
 	/**
+	 * Tests the values are fetched in the correct sequence for attributes.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testDTAllSequence() {
+		testOneDTSequence(ARG + "-all", null, TestModelPackage.Literals.TEST_OBJECT__TEXT,
+				"TestObject.text (annotation)", "TestObject.text", "java.lang.String", "java.lang.CharSequence",
+				"TestObject (annotation)", "TestObject");
+	}
+
+	/**
+	 * Tests the values are fetched in the correct sequence for attributes.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testDTDefaultSequence() {
+		testOneDTSequence(ARG + "-default", null, TestModelPackage.Literals.TEST_OBJECT__TEXT,
+				"TestObject.text (annotation)", "TestObject.text", "TestObject (annotation)", "TestObject");
+	}
+
+	/**
+	 * Tests the values are fetched in the correct sequence for attributes.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testDTParentSequence() {
+		testOneDTSequence(ARG + "-parent", null, TestModelPackage.Literals.TEST_OBJECT__TEXT,
+				"TestObject.text (annotation)", "TestObject.text");
+	}
+
+	/**
+	 * Tests the values are fetched in the correct sequence for attributes.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testDTTargetTypeSequence() {
+		testOneDTSequence(ARG + "-targetType", null, TestModelPackage.Literals.TEST_OBJECT__TEXT,
+				"TestObject.text (annotation)", "TestObject.text", "java.lang.String", "java.lang.CharSequence");
+	}
+
+	/**
+	 * Tests the values are fetched in the correct sequence for attributes.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testDTContainingClassSequence() {
+		testOneDTSequence(ARG + "-containingClass", null, TestModelPackage.Literals.TEST_OBJECT__TEXT,
+				"TestObject.text (annotation)", "TestObject.text", "TestObject (annotation)", "TestObject");
+	}
+
+	/**
+	 * Tests the values are fetched in the correct sequence for attributes.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testSubDTAllSequence() {
+		testOneDTSequence(ARG + "-all", TestModelPackage.Literals.SUB_TEST_OBJECT,
+				TestModelPackage.Literals.TEST_OBJECT__TEXT, "SubTestObject.text (annotation)", "SubTestObject.text",
+				"TestObject.text (annotation)", "TestObject.text", "java.lang.String", "java.lang.CharSequence",
+				"SubTestObject (annotation)", "SubTestObject");
+	}
+
+	/**
+	 * Tests the values are fetched in the correct sequence for attributes.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testSubDTDefaultSequence() {
+		testOneDTSequence(ARG + "-default", TestModelPackage.Literals.SUB_TEST_OBJECT,
+				TestModelPackage.Literals.TEST_OBJECT__TEXT, "SubTestObject.text (annotation)", "SubTestObject.text",
+				"TestObject.text (annotation)", "TestObject.text", "SubTestObject (annotation)", "SubTestObject");
+	}
+
+	/**
+	 * Tests the values are fetched in the correct sequence for attributes.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testSubDTParentSequence() {
+		testOneDTSequence(ARG + "-parent", TestModelPackage.Literals.SUB_TEST_OBJECT,
+				TestModelPackage.Literals.TEST_OBJECT__TEXT, "SubTestObject.text (annotation)", "SubTestObject.text",
+				"TestObject.text (annotation)", "TestObject.text");
+	}
+
+	/**
+	 * Tests the values are fetched in the correct sequence for attributes.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testSubDTTargetTypeSequence() {
+		testOneDTSequence(ARG + "-targetType", TestModelPackage.Literals.SUB_TEST_OBJECT,
+				TestModelPackage.Literals.TEST_OBJECT__TEXT, "SubTestObject.text (annotation)", "SubTestObject.text",
+				"TestObject.text (annotation)", "TestObject.text", "java.lang.String", "java.lang.CharSequence");
+	}
+
+	/**
+	 * Tests the values are fetched in the correct sequence for attributes.
+	 * <p>
+	 * Test data: all over EX.ecore, fragment.xml, etc
+	 */
+	@Test
+	public void testSubDTContainingClassSequence() {
+		testOneDTSequence(ARG + "-containingClass", TestModelPackage.Literals.SUB_TEST_OBJECT,
+				TestModelPackage.Literals.TEST_OBJECT__TEXT, "SubTestObject.text (annotation)", "SubTestObject.text",
+				"TestObject.text (annotation)", "TestObject.text", "SubTestObject (annotation)", "SubTestObject");
+	}
+
+	private void testOneDTSequence(final String arg, final Object context, final Object element,
+			final String... results) {
+		assertNoLog(new Runnable() {
+			@Override
+			public void run() {
+				final IBindingDataType dt = IBindingDataType.Factory.create(context, element);
+
+				final List<IArgumentValue<String>> list = dt.getArguments(arg, null, String.class, false);
+				assertNotNull(list);
+
+				printList(list);
+
+				assertEquals(results.length, list.size());
+				for (int i = 0; i < results.length; i++) {
+					assertEquals(results[i], list.get(i).getValue());
+				}
+			}
+		});
+	}
+
+	/**
 	 * @param list
 	 */
 	private void printList(final List<IArgumentValue<String>> list) {
-//		System.out.println("Test:");
-//		for (final IArgumentValue<String> a : list) {
-//			System.out.println("    '" + a.getValue() + "' " + a.getSource());
-//		}
+		System.out.println("Test:");
+		for (final IArgumentValue<String> a : list) {
+			System.out.println("    '" + a.getValue() + "' " + a.getSource());
+		}
 	}
 }
