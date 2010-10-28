@@ -237,6 +237,13 @@
             name="Shop Navigator (Contact Information)"
             restorable="true">
       </view>
+      <view
+            category="com.rcpcompany.uibindings.example.application.viewCategories.shop"
+            class="com.rcpcompany.uibindings.shop.views.CustomerGroupsView"
+            id="com.rcpcompany.uibindings.example.application.views.CustomerGroupsView"
+            name="Customer Groups"
+            restorable="true">
+      </view>
    </extension>
    <extension
          point="org.eclipse.ui.preferencePages">

@@ -37,6 +37,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
+import com.rcpcompany.uibindings.utils.IDnDSupport;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 
 /**
@@ -69,6 +70,7 @@ public class OrdersShopItemsGridView extends ViewPart {
 
 		myForm.finish();
 		IBindingContextSelectionProvider.Factory.adapt(myForm.getContext(), getSite());
+		IDnDSupport.Factory.installOn(myForm.getContext());
 	}
 
 	@Override

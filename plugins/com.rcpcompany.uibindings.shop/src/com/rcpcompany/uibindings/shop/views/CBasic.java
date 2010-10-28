@@ -29,6 +29,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
+import com.rcpcompany.uibindings.utils.IDnDSupport;
 
 public class CBasic extends ViewPart {
 
@@ -70,6 +71,7 @@ public class CBasic extends ViewPart {
 
 		context.finish();
 		IBindingContextSelectionProvider.Factory.adapt(context, getSite());
+		IDnDSupport.Factory.installOn(context);
 	}
 
 	@Override

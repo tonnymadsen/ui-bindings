@@ -117,8 +117,7 @@ public class ShopBasicsView extends ViewPart {
 		ISortableTableAdapter.Factory.adapt(viewer);
 		IBindingContextSelectionProvider.Factory.adapt(context, getSite());
 		IViewerToolBar.Factory.addToolBar(viewer, IViewerToolBar.HORIZONTAL | IViewerToolBar.STANDARD_ITEMS);
-
-		IDnDSupport.Factory.adapt(viewer);
+		IDnDSupport.Factory.installOn(context);
 
 		mySaveButton.addSelectionListener(new SelectionAdapter() {
 			@Override

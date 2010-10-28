@@ -84,8 +84,9 @@ public class ShopTreeView extends ViewPart {
 
 		myContext.finish();
 
-		IDnDSupport.Factory.adapt(myTreeBinding);
+		IDnDSupport.Factory.installOn(myContext);
 		IBindingContextSelectionProvider.Factory.adapt(myContext, getSite());
+		IDnDSupport.Factory.installOn(myContext);
 	}
 
 	@Override

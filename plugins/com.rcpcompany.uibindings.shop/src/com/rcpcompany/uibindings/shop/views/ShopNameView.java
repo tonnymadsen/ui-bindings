@@ -26,6 +26,7 @@ import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
+import com.rcpcompany.uibindings.utils.IDnDSupport;
 
 public class ShopNameView extends ViewPart {
 
@@ -60,6 +61,7 @@ public class ShopNameView extends ViewPart {
 
 		context.finish();
 		IBindingContextSelectionProvider.Factory.adapt(context, getSite());
+		IDnDSupport.Factory.installOn(context);
 	}
 
 	@Override
