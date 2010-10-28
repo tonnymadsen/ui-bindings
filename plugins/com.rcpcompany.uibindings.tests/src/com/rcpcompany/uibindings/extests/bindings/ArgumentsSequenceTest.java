@@ -625,9 +625,9 @@ public class ArgumentsSequenceTest {
 	 * @param list
 	 */
 	private void printList(final List<IArgumentValue<String>> list) {
-		System.out.println("Test:");
-		for (final IArgumentValue<String> a : list) {
-			System.out.println("    '" + a.getValue() + "' " + a.getSource());
-		}
+		// System.out.println("Test:");
+		// for (final IArgumentValue<String> a : list) {
+		// System.out.println("    '" + a.getValue() + "' " + a.getSource());
+		// }
 	}
 }
