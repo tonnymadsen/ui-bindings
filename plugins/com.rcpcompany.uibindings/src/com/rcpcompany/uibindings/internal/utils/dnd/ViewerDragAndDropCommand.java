@@ -119,6 +119,8 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 	 */
 	private final IViewerBinding myViewer;
 
+	private boolean isDragCommandExecuted;
+
 	/**
 	 * Creates an instance in the given domain and for the given information. The location should be
 	 * in the range of 0.0 to 1.0, indicating the relative vertical location of the drag operation,
@@ -455,8 +457,12 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 		 * Copy the collection
 		 */
 		myDragCommand = CopyCommand.create(myDomain, myDraggedSources);
-		myDropCommand = AddCommand.create(myDomain, spec.getParent(), spec.getReference(), myDragCommand.getResult(),
-				index);
+		if (myDragCommand.canExecute() && myDragCommand.canUndo()) {
+			myDragCommand.execute();
+			isDragCommandExecuted = true;
+			myDropCommand = AddCommand.create(myDomain, spec.getParent(), spec.getReference(),
+					myDragCommand.getResult(), index);
+		}
 		return myDragCommand.canExecute() && myDropCommand.canExecute();
 	}
 
@@ -569,7 +575,6 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 	 */
 	protected boolean prepareDropCopyOn(IChildCreationSpecification spec) {
 		LogUtils.debug(this, "");
-		myDragCommand = CopyCommand.create(myDomain, myDraggedSources);
 
 		/*
 		 * We need containment to copy
@@ -577,8 +582,12 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 		if (!spec.getReference().isContainment()) return false;
 
 		myDragCommand = CopyCommand.create(myDomain, myDraggedSources);
-		myDropCommand = AddCommand.create(myDomain, spec.getParent(), spec.getReference(), myDragCommand.getResult());
-
+		if (myDragCommand.canExecute() && myDragCommand.canUndo()) {
+			myDragCommand.execute();
+			isDragCommandExecuted = true;
+			myDropCommand = AddCommand.create(myDomain, spec.getParent(), spec.getReference(),
+					myDragCommand.getResult());
+		}
 		return myDragCommand.canExecute() && myDropCommand.canExecute();
 	}
 
@@ -610,6 +619,10 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 	 * have been contained.
 	 */
 	protected void reset() {
+		if (isDragCommandExecuted) {
+			myDragCommand.undo();
+			isDragCommandExecuted = false;
+		}
 		myDragCommand.dispose();
 
 		myDropCommand.dispose();
@@ -666,9 +679,10 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 		LogUtils.debug(this,
 				"\ndrag=" + EcoreExtUtils.toString(myDragCommand) + "\ndrop=" + EcoreExtUtils.toString(myDropCommand));
 
-		if (myDropCommand.canExecute()) {
+		if (myDropCommand.canExecute() && !isDragCommandExecuted) {
 			myDragCommand.execute();
 		}
+		isDragCommandExecuted = false;
 
 		if (myDropCommand.canExecute()) {
 			myDropCommand.execute();
@@ -692,8 +706,7 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 
 	@Override
 	public void dispose() {
-		myDragCommand.dispose();
-		myDropCommand.dispose();
+		reset();
 	}
 
 	@Override
