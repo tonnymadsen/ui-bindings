@@ -26,7 +26,6 @@ import org.eclipse.core.databinding.observable.list.ListChangeEvent;
 import org.eclipse.core.databinding.observable.list.ListDiffVisitor;
 import org.eclipse.core.databinding.observable.list.WritableList;
 import org.eclipse.core.runtime.Assert;
-import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -50,6 +49,7 @@ import com.rcpcompany.uibindings.validators.IValidationAdapterManagerChangeListe
 import com.rcpcompany.uibindings.validators.IValidatorAdapter;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterMessageDecorator;
+import com.rcpcompany.utils.basic.ToStringUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -88,9 +88,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	public void dispose() {
 		THE_MANAGER.unregisterService(this);
 
-		for (final ValidationRoot root : myValidationRoots.toArray(new ValidationRoot[myValidationRoots.size()])) {
-			removeRoot(root.getRoot(), root.getValidationAdapter());
-		}
+		reset();
 
 		for (final IValidatorAdapterMessageDecorator d : myDecorators
 				.toArray(new IValidatorAdapterMessageDecorator[myDecorators.size()])) {
@@ -112,32 +110,53 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	}
 
 	/**
-	 * List of all the current validation roots.
+	 * Map of all the current validation roots indexed by their object roots.
 	 */
-	/* package */final List<ValidationRoot> myValidationRoots = new ArrayList<ValidationRoot>();
+	/* package */final Map<EObject, ValidationRoot> myValidationRoots = new HashMap<EObject, ValidatorAdapterManager.ValidationRoot>();
 
 	@Override
 	public void reset() {
-		for (final ValidationRoot root : myValidationRoots.toArray(new ValidationRoot[myValidationRoots.size()])) {
-			removeRoot(root.getRoot(), root.getValidationAdapter());
+		for (final ValidationRoot root : myValidationRoots.keySet().toArray(
+				new ValidationRoot[myValidationRoots.size()])) {
+			for (final ValidationRootAdapter a : root.getAdapters().toArray(
+					new ValidationRootAdapter[root.getAdapters().size()])) {
+				removeRoot(root.getRoot(), a.getValidationAdapter());
+			}
 		}
 		myUnboundMessages.clear();
 	}
 
 	@Override
 	public void addRoot(EObject root, IValidatorAdapter validationAdapter) {
-		myValidationRoots.add(new ValidationRoot(root, validationAdapter));
+		Assert.isNotNull(root);
+		Assert.isNotNull(validationAdapter);
+
+		ValidationRoot vr = myValidationRoots.get(root);
+		if (vr == null) {
+			vr = new ValidationRoot(root);
+		}
+		final ValidationRootAdapter vra = new ValidationRootAdapter(vr, validationAdapter);
+		vr.notifyChanged(null);
 		delayValidation();
 	}
 
 	@Override
 	public void removeRoot(EObject root, IValidatorAdapter validationAdapter) {
-		for (final ValidationRoot r : myValidationRoots) {
-			if (r.getRoot() == root && r.getValidationAdapter() == validationAdapter) {
-				myValidationRoots.remove(r);
-				r.dispose();
-				break;
+		Assert.isNotNull(root);
+		Assert.isNotNull(validationAdapter);
+
+		final ValidationRoot vr = myValidationRoots.get(root);
+		if (vr == null) return;
+		for (final ValidationRootAdapter vra : vr.getAdapters().toArray(
+				new ValidationRootAdapter[vr.getAdapters().size()])) {
+			if (vra.getValidationAdapter() != validationAdapter) {
+				continue;
 			}
+			vra.dispose();
+			break;
+		}
+		if (vr.getAdapters().isEmpty()) {
+			vr.dispose();
 		}
 		validate();
 	}
@@ -151,15 +170,6 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	public IObservableList getUnboundMessagesOL() {
 		return myUnboundMessagesOLUnmodifiable;
 	}
-
-	private final Adapter myChangeAdapter = new EContentAdapter() {
-		@Override
-		public void notifyChanged(Notification notification) {
-			super.notifyChanged(notification);
-			if (notification.isTouch()) return;
-			delayValidation();
-		}
-	};
 
 	/**
 	 * The time when the next validation will be performed.
@@ -202,13 +212,10 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 		if (validationPaused) return;
 		myChangedObjects.clear();
 		myUnboundMessages.clear();
-		for (final ValidationRoot r : myValidationRoots) {
-			try {
-				r.myValidationAdapter.validateObjectTree(r.getRoot(), r.getFoundMessages());
-			} catch (final Exception ex) {
-				LogUtils.error(r.myValidationAdapter, ex);
+		for (final ValidationRoot r : myValidationRoots.values()) {
+			for (final ValidationRootAdapter vra : r.getAdapters()) {
+				vra.validate();
 			}
-			myUnboundMessages.addAll(r.getFoundMessages());
 		}
 		if (Activator.getDefault().TRACE_VALIDATION_RESULT) {
 			final StringBuilder sb = new StringBuilder(200);
@@ -303,10 +310,12 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	@Override
 	public void addDecorator(IValidatorAdapterMessageDecorator decorator) {
 		myDecorators.add(decorator);
-		for (final ValidationRoot r : myValidationRoots) {
-			for (final Object o : r.myFoundMessages) {
-				final IBindingMessage message = (IBindingMessage) o;
-				createMessageIfNeeded(message, decorator);
+		for (final ValidationRoot r : myValidationRoots.values()) {
+			for (final ValidationRootAdapter vra : r.getAdapters()) {
+				for (final Object o : vra.getFoundMessages()) {
+					final IBindingMessage message = (IBindingMessage) o;
+					createMessageIfNeeded(message, decorator);
+				}
 			}
 		}
 	}
@@ -453,15 +462,58 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	};
 
 	/**
-	 * The record of one root added via
+	 * The record of one object root added via
 	 * {@link ValidatorAdapterManager#addRoot(EObject, IValidatorAdapter)}.
+	 * <p>
+	 * Each of these roots have its own adapter - the object itself...
 	 */
-	protected class ValidationRoot implements IDisposable {
+	private class ValidationRoot extends EContentAdapter implements IDisposable {
+		private final EObject myRoot;
+		private final List<ValidationRootAdapter> myAdapters = new ArrayList<ValidatorAdapterManager.ValidationRootAdapter>();
+
+		protected ValidationRoot(EObject root) {
+			Assert.isNotNull(root);
+			myRoot = root;
+			myValidationRoots.put(root, this);
+			myRoot.eAdapters().add(this);
+		}
+
+		@Override
+		public void dispose() {
+			myValidationRoots.remove(getRoot());
+			myRoot.eAdapters().remove(this);
+		}
 
 		public EObject getRoot() {
 			return myRoot;
 		}
 
+		public List<ValidationRootAdapter> getAdapters() {
+			return myAdapters;
+		}
+
+		@Override
+		public void notifyChanged(Notification msg) {
+			super.notifyChanged(msg);
+			if (msg.isTouch()) return;
+			LogUtils.debug(this, ToStringUtils.toString(msg));
+			markForValidation();
+		}
+
+		private boolean validationNeeded;
+
+		public void markForValidation() {
+			if (validationNeeded) return;
+			validationNeeded = true;
+			delayValidation();
+		}
+	}
+
+	/**
+	 * The record of one root added via
+	 * {@link ValidatorAdapterManager#addRoot(EObject, IValidatorAdapter)}.
+	 */
+	private class ValidationRootAdapter implements IDisposable {
 		public IValidatorAdapter getValidationAdapter() {
 			return myValidationAdapter;
 		}
@@ -470,16 +522,19 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 			return myFoundMessages;
 		}
 
-		private final EObject myRoot;
+		private final ValidationRoot myRoot;
+
+		public ValidationRoot getRoot() {
+			return myRoot;
+		}
+
 		private final IValidatorAdapter myValidationAdapter;
 		private final IObservableList myFoundMessages = WritableList.withElementType(IBindingMessage.class);
 
-		protected ValidationRoot(EObject root, IValidatorAdapter validationAdapter) {
-			Assert.isNotNull(root);
-			Assert.isNotNull(validationAdapter);
+		protected ValidationRootAdapter(ValidationRoot root, IValidatorAdapter validationAdapter) {
 			myRoot = root;
+			myRoot.getAdapters().add(this);
 			myValidationAdapter = validationAdapter;
-			myRoot.eAdapters().add(myChangeAdapter);
 			myFoundMessages.addListChangeListener(myFoundMessageChangeListener);
 		}
 
@@ -487,7 +542,16 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 		public void dispose() {
 			myFoundMessages.clear();
 			myFoundMessages.removeListChangeListener(myFoundMessageChangeListener);
-			myRoot.eAdapters().remove(myChangeAdapter);
+			myRoot.getAdapters().remove(this);
+		}
+
+		public void validate() {
+			try {
+				myValidationAdapter.validateObjectTree(myRoot.getRoot(), myFoundMessages);
+			} catch (final Exception ex) {
+				LogUtils.error(myValidationAdapter, ex);
+			}
+			myUnboundMessages.addAll(myFoundMessages);
 		}
 	}
 
