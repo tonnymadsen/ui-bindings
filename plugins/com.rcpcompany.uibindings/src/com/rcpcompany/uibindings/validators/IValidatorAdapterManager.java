@@ -74,7 +74,7 @@ public interface IValidatorAdapterManager {
 	 * Adds a new root object to the set of objects for which validation is done.
 	 * 
 	 * @param root the new root
-	 * @param validationAdapter TODO
+	 * @param validationAdapter the validation adapter to use for the root
 	 */
 	void addRoot(EObject root, IValidatorAdapter validationAdapter);
 
@@ -102,12 +102,12 @@ public interface IValidatorAdapterManager {
 	IObservableList getUnboundMessagesOL();
 
 	/**
-	 * Delay the next validation of all objects.
+	 * Delayed validation of all changed object roots.
 	 */
 	void delayValidation();
 
 	/**
-	 * Immediately validate all root objects...
+	 * Immediately validate all changed object roots.
 	 */
 	void validate();
 
@@ -147,7 +147,7 @@ public interface IValidatorAdapterManager {
 	int getObjectSeverity(EObject object);
 
 	/**
-	 * Executes the the specified runnable with a pause to the validation.
+	 * Executes the the specified runnable with a pause in the validation.
 	 * 
 	 * @param runnable the runnable to run
 	 */
