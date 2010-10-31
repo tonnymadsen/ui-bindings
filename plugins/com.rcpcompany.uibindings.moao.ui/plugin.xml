@@ -97,6 +97,17 @@
       </decoratorExtender>
    </extension>
    <extension
+         point="com.rcpcompany.uibindings.uiBindings">
+      <model
+            class="com.rcpcompany.uibindings.moao.INamedObject">
+         <feature
+               name="name">
+            <standardArguments
+                  initializer="com.rcpcompany.uibindings.moao.ui.internal.initializers.NameInitializer"></standardArguments>
+         </feature>
+      </model>
+   </extension>
+   <extension
          point="org.eclipse.ui.menus">
       <menuContribution
             locationURI="popup:org.eclipse.ui.popup.any">

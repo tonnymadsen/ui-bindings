@@ -116,12 +116,13 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 
 	@Override
 	public void reset() {
-		for (final ValidationRoot root : myValidationRoots.keySet().toArray(
-				new ValidationRoot[myValidationRoots.size()])) {
-			for (final ValidationRootAdapter a : root.getAdapters().toArray(
-					new ValidationRootAdapter[root.getAdapters().size()])) {
-				removeRoot(root.getRoot(), a.getValidationAdapter());
-			}
+		final List<ValidationRootAdapter> as = new ArrayList<ValidatorAdapterManager.ValidationRootAdapter>();
+		for (final ValidationRoot root : myValidationRoots.values()) {
+			as.addAll(root.getAdapters());
+		}
+
+		for (final ValidationRootAdapter a : as) {
+			removeRoot(a.getRoot().getRoot(), a.getValidationAdapter());
 		}
 		myUnboundMessages.clear();
 	}
@@ -136,7 +137,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 			vr = new ValidationRoot(root);
 		}
 		final ValidationRootAdapter vra = new ValidationRootAdapter(vr, validationAdapter);
-		vr.notifyChanged(null);
+		vr.markForValidation();
 		delayValidation();
 	}
 
@@ -147,8 +148,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 
 		final ValidationRoot vr = myValidationRoots.get(root);
 		if (vr == null) return;
-		for (final ValidationRootAdapter vra : vr.getAdapters().toArray(
-				new ValidationRootAdapter[vr.getAdapters().size()])) {
+		for (final ValidationRootAdapter vra : vr.getAdapters()) {
 			if (vra.getValidationAdapter() != validationAdapter) {
 				continue;
 			}
@@ -213,6 +213,10 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 		myChangedObjects.clear();
 		myUnboundMessages.clear();
 		for (final ValidationRoot r : myValidationRoots.values()) {
+			if (!r.isValidationNeeded()) {
+				continue;
+			}
+			r.markValidationDone();
 			for (final ValidationRootAdapter vra : r.getAdapters()) {
 				vra.validate();
 			}
@@ -478,6 +482,10 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 			myRoot.eAdapters().add(this);
 		}
 
+		public boolean isValidationNeeded() {
+			return validationNeeded;
+		}
+
 		@Override
 		public void dispose() {
 			myValidationRoots.remove(getRoot());
@@ -507,6 +515,11 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 			validationNeeded = true;
 			delayValidation();
 		}
+
+		public void markValidationDone() {
+			validationNeeded = false;
+		}
+
 	}
 
 	/**

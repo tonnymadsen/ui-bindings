@@ -6,11 +6,19 @@ Bundle-Version: 1.2.0.qualifier
 Bundle-Activator: com.rcpcompany.uibindings.tests.application.Activator
 Bundle-Vendor: The RCP Company
 Require-Bundle: org.eclipse.ui;bundle-version="[3.0.0,4.0.0)",
- org.eclipse.core.runtime;bundle-version="[3.0.0,4.0.0)",
- org.eclipse.ui.forms;bundle-version="[3.0.0,4.0.0)",
- com.rcpcompany.uibindings.tests.model;bundle-version="[1.0.0,2.0.0)",
- com.rcpcompany.uibindings;bundle-version="[2.0.0,3.0.0)",
- org.eclipse.emf.databinding;bundle-version="1.0.0"
+ org.eclipse.core.runtime;bundle-version="[3.0.0,4.0.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
-Import-Package: com.rcpcompany.utils.databinding
+Import-Package: com.rcpcompany.uibinding.tests.model,
+ com.rcpcompany.uibindings,
+ com.rcpcompany.uibindings.decorators,
+ com.rcpcompany.utils.databinding,
+ org.eclipse.core.databinding,
+ org.eclipse.core.databinding.observable.list,
+ org.eclipse.core.databinding.observable.value,
+ org.eclipse.emf.common.notify,
+ org.eclipse.emf.common.notify.impl,
+ org.eclipse.emf.databinding,
+ org.eclipse.emf.ecore,
+ org.eclipse.jface.databinding.swt,
+ org.eclipse.ui.forms.widgets

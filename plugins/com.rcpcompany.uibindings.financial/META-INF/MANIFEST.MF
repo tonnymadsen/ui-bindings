@@ -5,8 +5,12 @@ Bundle-SymbolicName: com.rcpcompany.uibindings.financial;singleton:=true
 Bundle-Version: 1.1.0.qualifier
 Bundle-Activator: com.rcpcompany.uibindings.financial.internal.Activator
 Bundle-Vendor: %Bundle-Vendor
-Require-Bundle: org.eclipse.core.runtime,
- com.rcpcompany.uibindings;bundle-version="[2.1.0,3.0.0)",
- com.rcpcompany.utils.logging;bundle-version="[1.2.0,2.0.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
+Import-Package: com.rcpcompany.uibindings,
+ com.rcpcompany.uibindings.decorators.extenders,
+ com.rcpcompany.utils.logging,
+ org.eclipse.core.databinding.observable.value,
+ org.osgi.framework;version="1.5.0"
+Require-Bundle: org.eclipse.ui;bundle-version="[3.5.0,4.0.0)",
+ org.eclipse.core.runtime;bundle-version="[3.5.0,4.0.0)"

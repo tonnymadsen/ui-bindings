@@ -6,5 +6,23 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Tonny Madsen, The RCP Company
 Fragment-Host: com.rcpcompany.uibindings.navigator;bundle-version="[1.1.0,2.0.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Require-Bundle: org.junit4,
- com.rcpcompany.uibindings.tests.model
+Require-Bundle: org.junit4
+Import-Package: com.rcpcompany.uibindings,
+ com.rcpcompany.uibindings.moao,
+ com.rcpcompany.uibindings.tests.shop,
+ com.rcpcompany.uibindings.utils,
+ com.rcpcompany.utils.logging,
+ org.eclipse.core.commands,
+ org.eclipse.core.databinding.observable.list,
+ org.eclipse.emf.common.notify,
+ org.eclipse.emf.common.notify.impl,
+ org.eclipse.emf.common.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.jface.action,
+ org.eclipse.jface.preference,
+ org.eclipse.jface.viewers,
+ org.eclipse.swt,
+ org.eclipse.swt.widgets,
+ org.eclipse.ui,
+ org.eclipse.ui.commands,
+ org.eclipse.ui.handlers
