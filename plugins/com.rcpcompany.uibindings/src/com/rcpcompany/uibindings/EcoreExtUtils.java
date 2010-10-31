@@ -504,7 +504,10 @@ public final class EcoreExtUtils {
 			final AddCommand cc = (AddCommand) c;
 
 			sb.append(getEObjectName(cc.getOwner())).append(", ").append(cc.getFeature().getName()).append(", ")
-					.append(toString(cc.getCollection())).append(", ").append(cc.getIndex());
+					.append(toString(cc.getCollection()));
+			if (cc.getFeature().isMany() && cc.getIndex() != -1) {
+				sb.append(", ").append(cc.getIndex());
+			}
 		} else if (c instanceof RemoveCommand) {
 			final RemoveCommand cc = (RemoveCommand) c;
 
@@ -514,13 +517,16 @@ public final class EcoreExtUtils {
 			final MoveCommand cc = (MoveCommand) c;
 
 			sb.append(getEObjectName(cc.getOwner())).append(", ").append(cc.getFeature().getName()).append(", ")
-					.append(cc.getValue()).append(", ").append(cc.getIndex());
+					.append(toString(cc.getValue())).append(", ").append(cc.getIndex());
 		} else if (c instanceof SetCommand) {
 			final SetCommand cc = (SetCommand) c;
 
 			sb.append(getEObjectName(cc.getOwner())).append(", ").append(cc.getFeature().getName()).append(", ")
 					.append(formatSetCommandArg(cc.getOldValue())).append(", ")
-					.append(formatSetCommandArg(cc.getValue())).append(", ").append(cc.getIndex());
+					.append(formatSetCommandArg(cc.getValue()));
+			if (cc.getFeature().isMany()) {
+				sb.append(", ").append(cc.getIndex());
+			}
 		} else if (c instanceof CompoundCommand) {
 			final CompoundCommand cc = (CompoundCommand) c;
 			for (final Command ic : cc.getCommandList()) {
@@ -536,6 +542,16 @@ public final class EcoreExtUtils {
 		return sb.toString();
 	}
 
+	private static String toString(Object o) {
+		final StringBuilder sb = new StringBuilder(200);
+		if (o instanceof EObject) {
+			sb.append(IBindingObjectInformation.Factory.getLongName((EObject) o));
+		} else {
+			sb.append(o);
+		}
+		return sb.toString();
+	}
+
 	private static String toString(Collection<?> collection) {
 		final StringBuilder sb = new StringBuilder(200);
 		sb.append('[');
@@ -543,11 +559,7 @@ public final class EcoreExtUtils {
 			if (sb.length() > 1) {
 				sb.append(", ");
 			}
-			if (o instanceof EObject) {
-				sb.append(IBindingObjectInformation.Factory.getLongName((EObject) o));
-			} else {
-				sb.append(o);
-			}
+			sb.append(toString(o));
 		}
 		sb.append(']');
 		return sb.toString();

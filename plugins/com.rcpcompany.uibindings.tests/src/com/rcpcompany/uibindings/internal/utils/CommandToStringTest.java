@@ -14,7 +14,10 @@ import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.IdentityCommand;
+import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.MoveCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -46,6 +49,20 @@ public class CommandToStringTest {
 
 		myShop.setName("SHOP");
 		myShop.setNextCustomerNo(10);
+	}
+
+	@Test
+	public void testIdentityCommand() {
+		final Command command = IdentityCommand.INSTANCE;
+
+		assertEquals("IdentityCommand()", EcoreExtUtils.toString(command));
+	}
+
+	@Test
+	public void testUnexecutableCommand() {
+		final Command command = UnexecutableCommand.INSTANCE;
+
+		assertEquals("UnexecutableCommand()", EcoreExtUtils.toString(command));
 	}
 
 	@Test
@@ -81,6 +98,32 @@ public class CommandToStringTest {
 				assertTrue(myShop.getCountries().contains(c));
 
 				assertEquals("AddCommand(SHOP, countries, [DK])", EcoreExtUtils.toString(command));
+			}
+		});
+	}
+
+	@Test
+	public void testMoveCommand() {
+		final Country c1 = ShopFactory.eINSTANCE.createCountry();
+		c1.setAbbreviation("DK");
+		c1.setName("Denmark");
+		c1.setShop(myShop);
+
+		final Country c2 = ShopFactory.eINSTANCE.createCountry();
+		c2.setAbbreviation("SE");
+		c2.setName("Sweden");
+		c2.setShop(myShop);
+
+		final Command command = MoveCommand.create(myED, myShop, ShopPackage.Literals.SHOP__COUNTRIES, c2, 0);
+
+		assertNoLog(new Runnable() {
+			@Override
+			public void run() {
+				myED.getCommandStack().execute(command);
+
+				assertTrue(myShop.getCountries().get(0) == c2);
+
+				assertEquals("MoveCommand(SHOP, countries, SE, 0)", EcoreExtUtils.toString(command));
 			}
 		});
 	}
