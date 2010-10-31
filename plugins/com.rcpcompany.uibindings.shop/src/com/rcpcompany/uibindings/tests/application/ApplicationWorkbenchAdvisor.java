@@ -14,7 +14,7 @@ import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchAdvisor;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
 
-import com.rcpcompany.uibindings.moao.util.MOAOMessageValidatorAdapter;
+import com.rcpcompany.uibindings.moao.ui.validation.MOAOMessageValidatorAdapter;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
