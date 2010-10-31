@@ -8,7 +8,7 @@
  * Contributors:
  *     The RCP Company - initial API and implementation
  *******************************************************************************/
-package com.rcpcompany.uibindings.moao.ui.internal;
+package com.rcpcompany.uibindings.moao.ui.validation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +63,7 @@ public class MOAOMessageValidatorAdapter extends AbstractValidatorAdapter {
 	}
 
 	/**
-	 * Collects all status objects from the root down
+	 * Collects all status objects from the root down.
 	 * 
 	 * @param root the root of the tree
 	 * @param foundStatus the list to be updated
@@ -79,7 +79,6 @@ public class MOAOMessageValidatorAdapter extends AbstractValidatorAdapter {
 				foundStatus.addAll(m.getMessages());
 			}
 		}
-
 	}
 
 	/**

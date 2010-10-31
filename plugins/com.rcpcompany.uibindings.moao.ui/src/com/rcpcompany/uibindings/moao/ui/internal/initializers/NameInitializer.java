@@ -1,4 +1,4 @@
-package com.rcpcompany.uibindings.moao.internal.initializers;
+package com.rcpcompany.uibindings.moao.ui.internal.initializers;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
