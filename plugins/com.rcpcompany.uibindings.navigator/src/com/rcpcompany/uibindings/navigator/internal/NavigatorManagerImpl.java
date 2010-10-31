@@ -300,7 +300,7 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 
 		final String typeName = cls.getName();
 		for (final IEditorInformation mt : getEditorInformations()) {
-			if (mt.getModelType().equals(typeName)) return mt;
+			if (mt.getModelType() != null && mt.getModelType().equals(typeName)) return mt;
 		}
 
 		/*
