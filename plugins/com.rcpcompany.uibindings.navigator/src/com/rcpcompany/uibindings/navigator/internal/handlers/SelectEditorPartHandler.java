@@ -58,10 +58,11 @@ public class SelectEditorPartHandler extends AbstractHandler implements IHandler
 	 */
 	private final Adapter myAdapter = new EContentAdapter() {
 		@Override
-		public void notifyChanged(Notification notification) {
-			super.notifyChanged(notification);
-			if (notification.isTouch()) return;
-			if (notification.getFeature() == INavigatorModelPackage.Literals.EDITOR_INFORMATION__PREFERRED_EDITOR) {
+		public void notifyChanged(Notification msg) {
+			super.notifyChanged(msg);
+			if (msg.isTouch()) return;
+			if (msg.getEventType() == Notification.MOVE) return;
+			if (msg.getFeature() == INavigatorModelPackage.Literals.EDITOR_INFORMATION__PREFERRED_EDITOR) {
 				LogUtils.debug(this, "update " + NavigatorConstants.SELECT_EDITOR_PART_COMMAND);
 				/*
 				 * Make all select editor parts update themselves...
