@@ -47,7 +47,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageDecorationPosition"
         lowerBound="1" eType="#//DecorationPosition" transient="true" defaultValueLiteral="BOTTOM_LEFT"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageDecorationMinimumSeverity"
-        eType="#//BindingMessageSeverity" defaultValueLiteral="WARNING"/>
+        lowerBound="1" eType="#//BindingMessageSeverity" defaultValueLiteral="WARNING"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="alternativeDecorationPosition"
         lowerBound="1" eType="#//DecorationPosition" transient="true" defaultValueLiteral="TOP_LEFT"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="autoApplySingleQuickfix"
@@ -103,16 +103,15 @@
         eType="#//Binding" containment="true" resolveProxies="false" eOpposite="#//Binding/context"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="okBindings" upperBound="-1"
         eType="#//Binding" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="top" eType="#//Composite"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="top" lowerBound="1" eType="#//Composite"
         transient="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="suppressedSetVisibility" value="true"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dbContext" eType="#//DBContext"
-        changeable="false" transient="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dbContext" lowerBound="1"
+        eType="#//DBContext" changeable="false" transient="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The Data binding context used by this UI Binding context"/>
         <details key="suppressedSetVisibility" value="true"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -121,7 +120,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" lowerBound="1" eType="#//BindingState"
         defaultValueLiteral="INIT">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The current state of this context."/>
         <details key="suppressedSetVisibility" value="true"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -229,14 +227,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="ColumnBinding" eSuperTypes="#//Binding">
     <eStructuralFeatures xsi:type="ecore:EReference" name="viewerBinding" lowerBound="1"
         eType="#//ViewerBinding" resolveProxies="false" eOpposite="#//ViewerBinding/columns"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="viewerColumn" eType="#//ViewerColumn"
-        transient="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="viewerColumn" lowerBound="1"
+        eType="#//ViewerColumn" transient="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="suppressedSetVisibility" value="true"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="columnAdapter" eType="#//ColumnAdapter"
-        transient="true" resolveProxies="false">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="columnAdapter" lowerBound="1"
+        eType="#//ColumnAdapter" transient="true" resolveProxies="false">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="suppressedSetVisibility" value="true"/>
       </eAnnotations>
@@ -247,7 +245,8 @@
         eType="#//ColumnBinding" resolveProxies="false" eOpposite="#//ColumnBinding/baseColumn"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cells" upperBound="-1"
         eType="#//ObjectToCIMapEntry" containment="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="specialBindingType" eType="#//SpecialBinding"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="specialBindingType" lowerBound="1"
+        eType="#//SpecialBinding"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="factory" lowerBound="1"
         eType="#//IObservableFactory" changeable="false" transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cursor" eType="#//Cursor"
@@ -354,7 +353,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="firstTableColumnOffset"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="suppressedSetVisibility" value="true"/>
       </eAnnotations>
@@ -393,10 +392,10 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uiTypes" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" transient="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="providerCE" eType="#//IConfigurationElement"
-        transient="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="childCE" eType="#//IConfigurationElement"
-        transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="providerCE" lowerBound="1"
+        eType="#//IConfigurationElement" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="childCE" lowerBound="1"
+        eType="#//IConfigurationElement" transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="decorator" lowerBound="1"
         eType="#//UIBindingDecorator" changeable="false" volatile="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="exactModelTypeMatch" lowerBound="1"
@@ -411,8 +410,8 @@
         eType="#//EnumDecoratorProviderEntry" containment="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumDecoratorProviderEntry">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="model" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ui" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="model" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ui" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NumberDecoratorProvider" eSuperTypes="#//DecoratorProvider">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" lowerBound="1"
@@ -521,8 +520,9 @@
         eType="#//StringToModelClassInfoMapEntry" containment="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelFeatureInfo" eSuperTypes="#//ModelInfo">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="featureName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="class" eType="#//ModelClassInfo"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="featureName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="class" lowerBound="1" eType="#//ModelClassInfo"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UIBindingDecorator" abstract="true"
       eSuperTypes="#//IDisposable">
@@ -531,14 +531,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="changeable" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" changeable="false"
         volatile="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelToUIConverter" eType="#//IConverter"
-        changeable="false" transient="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="UIToModelConverter" eType="#//IConverter"
-        changeable="false" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelToUIConverter" lowerBound="1"
+        eType="#//IConverter" changeable="false" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="UIToModelConverter" lowerBound="1"
+        eType="#//IConverter" changeable="false" transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="UIToModelAfterConvertValidator"
-        eType="#//IValidator" changeable="false" transient="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validUIList" eType="#//IObservableList"
-        changeable="false" volatile="true" transient="true"/>
+        lowerBound="1" eType="#//IValidator" changeable="false" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validUIList" lowerBound="1"
+        eType="#//IObservableList" changeable="false" volatile="true" transient="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UIBindingDecoratorExtender" abstract="true"
       eSuperTypes="#//IDisposable"/>
@@ -599,48 +599,48 @@
     <eLiterals name="Error" value="3" literal="ERROR"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringToModelClassInfoMapEntry" instanceClassName="java.util.Map$Entry">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ModelClassInfo"
         transient="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringToModelFeatureInfoMapEntry" instanceClassName="java.util.Map$Entry">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ModelFeatureInfo"
         transient="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringToArgumentInformationMapEntry"
       instanceClassName="java.util.Map$Entry">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ArgumentInformation"
         transient="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringToStringMapEntry" instanceClassName="java.util.Map$Entry">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
         eType="#//StringToObjectMapEntry" containment="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringToObjectMapEntry" instanceClassName="java.util.Map$Entry">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringToImageDescriptorMapEntry" instanceClassName="java.util.Map$Entry">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//ImageDescriptor"
         transient="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringToIConfigurationElementMapEntry"
       instanceClassName="java.util.Map$Entry">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//IConfigurationElement"
         transient="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringToBooleanMapEntry" instanceClassName="java.util.Map$Entry">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ObjectToCIMapEntry" instanceClassName="java.util.Map$Entry">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="key" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="key" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         transient="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ColumnBindingCellInformation"
         resolveProxies="false"/>
@@ -676,11 +676,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="QuickfixProposalProcessor" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="QuickfixProposalProcessorContext" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="message" eType="#//BindingMessage"
-        changeable="false" volatile="true" transient="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="binding" eType="#//ValueBinding"
-        changeable="false" volatile="true" transient="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="message" lowerBound="1"
+        eType="#//BindingMessage" changeable="false" volatile="true" transient="true"
+        resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="binding" lowerBound="1"
+        eType="#//ValueBinding" changeable="false" volatile="true" transient="true"
+        resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="QuickfixProposalProcessorDescriptor">
@@ -726,13 +728,13 @@
         transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelTypes" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" transient="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="newWizardID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentRelations" upperBound="-1"
         eType="#//TreeItemRelation" resolveProxies="false" eOpposite="#//TreeItemRelation/descriptor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="primaryParent" eType="#//TreeItemDescriptor"
         transient="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emptyFolderHidden" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        transient="true" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emptyFolderHidden" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" transient="true"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConstantTreeItem" eSuperTypes="#//IArgumentProvider">
     <eStructuralFeatures xsi:type="ecore:EReference" name="descriptor" lowerBound="1"
@@ -744,15 +746,17 @@
   <eClassifiers xsi:type="ecore:EClass" name="BindingMessage" abstract="true" eSuperTypes="#//IMessage">
     <eStructuralFeatures xsi:type="ecore:EReference" name="binding" eType="#//ValueBinding"
         resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false" volatile="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
+        volatile="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="severity" lowerBound="1"
         eType="#//BindingMessageSeverity" changeable="false" volatile="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageType" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" changeable="false"
         volatile="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false" volatile="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
+        volatile="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="targets" upperBound="-1"
         eType="#//BindingMessageTarget" changeable="false" transient="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="data" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
@@ -760,7 +764,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         volatile="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         changeable="false" volatile="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="details" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true"/>
@@ -793,8 +797,8 @@
         <details key="suppressedSetVisibility" value="true"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attribute" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="suppressedSetVisibility" value="true"/>
       </eAnnotations>
@@ -878,12 +882,24 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fieldAssistAdapter" eType="#//IControlContentAdapter"
-        changeable="false" volatile="true" transient="true"/>
+        changeable="false" volatile="true" transient="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedSetVisibility" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fieldAssistControl" eType="#//Control"
-        changeable="false" volatile="true" transient="true" derived="true"/>
+        changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedSetVisibility" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="imageDecorations" upperBound="-1"
         eType="#//UIAttributeImageDecoration" transient="true" containment="true"
-        resolveProxies="false" eOpposite="#//UIAttributeImageDecoration/attribute"/>
+        resolveProxies="false" eOpposite="#//UIAttributeImageDecoration/attribute">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedSetVisibility" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="UIAttributePainter" instanceClassName="com.rcpcompany.uibindings.uiAttributes.UIAttributePainter"
       serializable="false"/>
@@ -897,8 +913,8 @@
         eType="#//IObservableValue" changeable="false" transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" lowerBound="1"
         eType="#//DecorationPosition" transient="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="#//UIAttribute"
-        resolveProxies="false" eOpposite="#//UIAttribute/imageDecorations">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" lowerBound="1"
+        eType="#//UIAttribute" resolveProxies="false" eOpposite="#//UIAttribute/imageDecorations">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="suppressedSetVisibility" value="true"/>
       </eAnnotations>
@@ -921,8 +937,10 @@
   <eClassifiers xsi:type="ecore:EDataType" name="IEMFObservableFactory" instanceClassName="com.rcpcompany.uibindings.IEMFObservableFactory"
       serializable="false"/>
   <eClassifiers xsi:type="ecore:EClass" name="EMFObservableFactoryDescriptor">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="packagePrefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="factory" transient="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="packagePrefix" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="factory" lowerBound="1"
+        transient="true">
       <eGenericType eClassifier="#//CEObjectHolder">
         <eTypeArguments eClassifier="#//IEMFObservableFactory"/>
       </eGenericType>
