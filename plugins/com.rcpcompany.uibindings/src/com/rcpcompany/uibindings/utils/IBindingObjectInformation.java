@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.utils;
 
+import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;
@@ -71,6 +72,7 @@ public interface IBindingObjectInformation extends IBindingObjectLongName, IDisp
 		 */
 		public static IBindingObjectInformation createObjectInformation(EObject obj, String type) {
 			if (obj == null) return NULL_OI;
+			if (Realm.getDefault() == null) return UNKNOWN_OI;
 			return new BindingObjectInformation(obj, obj.eClass(), type);
 		}
 
@@ -167,7 +169,33 @@ public interface IBindingObjectInformation extends IBindingObjectLongName, IDisp
 
 		@Override
 		public String getLabel() {
-			return "<NULL>";
+			return "<null>";
+		}
+
+		@Override
+		public Image getImage() {
+			return null;
+		}
+	};
+
+	/**
+	 * {@link IBindingObjectInformation} object used for <code>unknown</code> objects.
+	 * <p>
+	 * Also used in thread that does not have a Realm.
+	 */
+	IBindingObjectInformation UNKNOWN_OI = new IBindingObjectInformation() {
+		@Override
+		public void dispose() {
+		}
+
+		@Override
+		public String getName() {
+			return "<unknown>";
+		}
+
+		@Override
+		public String getLabel() {
+			return "<unknown>";
 		}
 
 		@Override
