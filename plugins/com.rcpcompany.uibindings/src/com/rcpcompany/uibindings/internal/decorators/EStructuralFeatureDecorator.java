@@ -25,13 +25,14 @@ public class EStructuralFeatureDecorator extends SimpleUIBindingDecorator implem
 	@Override
 	protected Object convertModelToUI(Object fromObject) {
 		final EStructuralFeature sf = (EStructuralFeature) fromObject;
+		if (sf == null) return "<null>";
 		String s = sf.getEContainingClass().getName() + "." + sf.getName() + ": " + sf.getEType().getName();
 
 		switch (sf.getUpperBound()) {
 		case 1:
 			break;
 		case -1:
-			s += "[]";
+			s += "[*]";
 			break;
 		default:
 			s += "[" + sf.getUpperBound() + "]";
