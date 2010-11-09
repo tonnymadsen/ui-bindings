@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.jface.viewers.ColumnViewer;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -277,7 +278,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	 */
 	public BindingContextImpl() {
 		super();
-		dbContext = new DataBindingContext();
+		dbContext = new DataBindingContext(SWTObservables.getRealm(PlatformUI.getWorkbench().getDisplay()));
 
 		// TODO Use the feature map
 		eAdapters().add(myAdapter);
