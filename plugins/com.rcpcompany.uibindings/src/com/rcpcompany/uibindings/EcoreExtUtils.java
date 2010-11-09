@@ -103,6 +103,15 @@ public final class EcoreExtUtils {
 		private CompoundCommand myCompoundCommand;
 
 		/**
+		 * Returns the compound command that collects all the created commands.
+		 * 
+		 * @return the command
+		 */
+		public CompoundCommand getCompoundCommand() {
+			return myCompoundCommand;
+		}
+
+		/**
 		 * A list of objects that have been removed in the synchronization from the target.
 		 */
 		private List<EObject> myRemovedObjects = null;
@@ -341,6 +350,7 @@ public final class EcoreExtUtils {
 						}
 						continue;
 					}
+					final EObject existingTargetObject = targetList.get(existingTargetIndex);
 
 					/*
 					 * There are no use for the current target element - just remove it
@@ -364,7 +374,7 @@ public final class EcoreExtUtils {
 						done = false;
 						continue;
 					}
-					addCommand(MoveCommand.create(getEditingDomain(), target, ref, sourceObject, sourceIndex));
+					addCommand(MoveCommand.create(getEditingDomain(), target, ref, existingTargetObject, sourceIndex));
 					targetList.move(targetIndex, sourceIndex);
 					sync(targetList.get(sourceIndex), sourceObject);
 				} while (!done);
@@ -423,7 +433,7 @@ public final class EcoreExtUtils {
 		 * 
 		 * @param c the new command to add
 		 */
-		private void addCommand(Command c) {
+		public void addCommand(Command c) {
 			if (myCompoundCommand == null) {
 				myCompoundCommand = new CompoundCommand();
 			}
@@ -432,7 +442,13 @@ public final class EcoreExtUtils {
 			myCompoundCommand.append(c);
 		}
 
-		private void addRemovedObject(EObject obj) {
+		/**
+		 * Adds an object that is scheduled for removal by this controller if {@link #commit()
+		 * committed}.
+		 * 
+		 * @param obj the object that will be removed
+		 */
+		public void addRemovedObject(EObject obj) {
 			if (myRemovedObjects == null) {
 				myRemovedObjects = new ArrayList<EObject>();
 			}
