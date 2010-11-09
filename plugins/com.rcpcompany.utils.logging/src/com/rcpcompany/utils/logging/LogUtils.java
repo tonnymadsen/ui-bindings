@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Dictionary;
 
 import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IExtension;
 import org.eclipse.core.runtime.ILog;
 import org.eclipse.core.runtime.ILogListener;
 import org.eclipse.core.runtime.IStatus;
@@ -168,8 +169,9 @@ public final class LogUtils {
 			final IConfigurationElement ce = (IConfigurationElement) context;
 			pluginID = ce.getContributor().getName();
 			IConfigurationElement c = null;
+			Object o = null;
 
-			for (Object o = ce; o instanceof IConfigurationElement; o = c.getParent()) {
+			for (o = ce; o instanceof IConfigurationElement; o = c.getParent()) {
 				c = (IConfigurationElement) o;
 				String m = c.getName();
 				for (final String a : ID_ATTRIBUTES) {
@@ -184,6 +186,16 @@ public final class LogUtils {
 				} else {
 					messagePrefix = m + "/" + messagePrefix;
 				}
+			}
+			if (o instanceof IExtension) {
+				final IExtension e = (IExtension) o;
+				String m = e.getExtensionPointUniqueIdentifier();
+				if (e.getLabel().length() > 0) {
+					m = m + "[label=" + e.getLabel() + "]";
+				} else if (e.getSimpleIdentifier() != null) {
+					m = m + "[id=" + e.getSimpleIdentifier() + "]";
+				}
+				messagePrefix = m + "/" + messagePrefix;
 			}
 			messagePrefix = "{" + ce.getContributor().getName() + "/" + messagePrefix + "}";
 		} else if (context instanceof String) {
