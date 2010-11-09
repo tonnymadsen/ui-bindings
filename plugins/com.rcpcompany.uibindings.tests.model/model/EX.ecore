@@ -83,8 +83,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="WeightUnit">
     <eLiterals name="G"/>
-    <eLiterals name="KG"/>
-    <eLiterals name="Tonne" literal="TONNE"/>
+    <eLiterals name="KG" value="1"/>
+    <eLiterals name="Tonne" value="2" literal="TONNE"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TimeUnit">
     <eLiterals name="SEC"/>
