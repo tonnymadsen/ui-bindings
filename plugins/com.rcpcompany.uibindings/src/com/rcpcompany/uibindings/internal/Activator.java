@@ -145,6 +145,11 @@ public class Activator extends AbstractUIPlugin {
 	public boolean TRACE_DECORATORS = false;
 
 	/**
+	 * <code>true</code> if tracing drag 'n drop.
+	 */
+	public boolean TRACE_DND = false;
+
+	/**
 	 * <code>true</code> if tracing attribute images.
 	 */
 	public boolean TRACE_ATTRIBUTE_IMAGE_DECORATORS = false;
@@ -293,6 +298,7 @@ public class Activator extends AbstractUIPlugin {
 			TRACE_HANDLERS = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/Handlers")); //$NON-NLS-1$
 			TRACE_PROPERTY_TESTERS = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/PropertyTesters")); //$NON-NLS-1$
 			TRACE_DECORATORS = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/Decorators")); //$NON-NLS-1$
+			TRACE_DND = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/DnD")); //$NON-NLS-1$
 			TRACE_ATTRIBUTE_IMAGE_DECORATORS = Boolean.parseBoolean(Platform.getDebugOption(ID
 					+ "/trace/Attributes/ImagesDecorators")); //$NON-NLS-1$
 			TRACE_LIFECYCLE_BINDINGS = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/Lifecycle/Bindings")); //$NON-NLS-1$

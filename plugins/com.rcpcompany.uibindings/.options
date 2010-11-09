@@ -9,6 +9,7 @@ com.rcpcompany.uibindings/trace/Contexts=false
 com.rcpcompany.uibindings/trace/ControlDecorations/Verbose=false
 com.rcpcompany.uibindings/trace/ControlDecorations=false
 com.rcpcompany.uibindings/trace/Decorators=false
+com.rcpcompany.uibindings/trace/DnD=false
 com.rcpcompany.uibindings/trace/Events/CellEditorActivation=false
 com.rcpcompany.uibindings/trace/Events/LabelProviders=false
 com.rcpcompany.uibindings/trace/Events/SWT=false

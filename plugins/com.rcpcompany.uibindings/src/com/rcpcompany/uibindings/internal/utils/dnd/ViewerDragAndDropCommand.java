@@ -26,6 +26,7 @@ import com.rcpcompany.uibindings.EcoreExtUtils;
 import com.rcpcompany.uibindings.IChildCreationSpecification;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.UIBindingsUtils;
+import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -354,7 +355,6 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 	 * This attempts to prepare a drop move insert operation.
 	 */
 	protected boolean prepareDropMoveInsert(IChildCreationSpecification spec, int index) {
-		LogUtils.debug(this, "");
 		if (isCrossDomain()) return false;
 
 		/*
@@ -442,7 +442,6 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 	 * This attempts to prepare a drop copy insert operation.
 	 */
 	protected boolean prepareDropCopyInsert(final IChildCreationSpecification spec, final int index) {
-		LogUtils.debug(this, "");
 		/*
 		 * We need containment to copy
 		 */
@@ -470,7 +469,6 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 	 * This attempts to prepare a drop link insert operation.
 	 */
 	protected boolean prepareDropLinkInsert(IChildCreationSpecification spec, int index) {
-		LogUtils.debug(this, "");
 		/*
 		 * We need NON-containment to link
 		 */
@@ -554,7 +552,6 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 	 * @param spec
 	 */
 	protected boolean prepareDropMoveOn(IChildCreationSpecification spec) {
-		LogUtils.debug(this, "");
 		if (isCrossDomain()) return false;
 
 		/*
@@ -574,7 +571,6 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 	 * @param spec
 	 */
 	protected boolean prepareDropCopyOn(IChildCreationSpecification spec) {
-		LogUtils.debug(this, "");
 
 		/*
 		 * We need containment to copy
@@ -597,7 +593,6 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 	 * @param spec
 	 */
 	protected boolean prepareDropLinkOn(IChildCreationSpecification spec) {
-		LogUtils.debug(this, "");
 		/*
 		 * We need NON-containment to copy
 		 */
@@ -676,13 +671,17 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 
 	@Override
 	public void execute() {
-		LogUtils.debug(this,
-				"\ndrag=" + EcoreExtUtils.toString(myDragCommand) + "\ndrop=" + EcoreExtUtils.toString(myDropCommand));
+		if (Activator.getDefault().TRACE_DND) {
+			LogUtils.debug(
+					this,
+					"\ndrag=" + EcoreExtUtils.toString(myDragCommand) + "\ndrop="
+							+ EcoreExtUtils.toString(myDropCommand));
+		}
 
 		if (myDropCommand.canExecute() && !isDragCommandExecuted) {
 			myDragCommand.execute();
 		}
-		isDragCommandExecuted = false;
+		isDragCommandExecuted = true;
 
 		if (myDropCommand.canExecute()) {
 			myDropCommand.execute();
