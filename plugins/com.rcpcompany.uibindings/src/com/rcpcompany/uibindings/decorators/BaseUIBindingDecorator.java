@@ -141,6 +141,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 			LogUtils.debug(this, "Already disposed?");
 			return;
 		}
+		IManagerRunnable.Factory.cancelAsyncExec("extenders", getBinding());
 		if (myDisposeDisplayChangeListener != null) {
 			myDisplayValue.removeChangeListener(myDisposeDisplayChangeListener);
 			myDisposeDisplayChangeListener = null;
