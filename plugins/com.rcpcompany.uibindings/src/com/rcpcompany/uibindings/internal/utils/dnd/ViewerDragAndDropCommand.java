@@ -26,7 +26,6 @@ import com.rcpcompany.uibindings.EcoreExtUtils;
 import com.rcpcompany.uibindings.IChildCreationSpecification;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.UIBindingsUtils;
-import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -258,6 +257,7 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 	private IChildCreationSpecification findBestChildCreationSpecification(EObject parent, EObject sibling) {
 		final List<IChildCreationSpecification> possibleChildObjects = myViewer
 				.getPossibleChildObjects(parent, sibling);
+		if (possibleChildObjects == null) return null;
 		OUTER: for (final IChildCreationSpecification pcs : possibleChildObjects) {
 			final EClass childType = pcs.getChildType();
 			if (childType == null) {
@@ -571,7 +571,6 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 	 * @param spec
 	 */
 	protected boolean prepareDropCopyOn(IChildCreationSpecification spec) {
-
 		/*
 		 * We need containment to copy
 		 */
@@ -671,12 +670,8 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 
 	@Override
 	public void execute() {
-		if (Activator.getDefault().TRACE_DND) {
-			LogUtils.debug(
-					this,
-					"\ndrag=" + EcoreExtUtils.toString(myDragCommand) + "\ndrop="
-							+ EcoreExtUtils.toString(myDropCommand));
-		}
+		LogUtils.debug(this,
+				"\ndrag=" + EcoreExtUtils.toString(myDragCommand) + "\ndrop=" + EcoreExtUtils.toString(myDropCommand));
 
 		if (myDropCommand.canExecute() && !isDragCommandExecuted) {
 			myDragCommand.execute();
