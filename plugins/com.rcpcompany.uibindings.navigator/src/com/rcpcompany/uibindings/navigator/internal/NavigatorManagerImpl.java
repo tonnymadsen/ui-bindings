@@ -475,6 +475,7 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	 * Reads the current preferences and updates the defaults
 	 */
 	public void preferenceReader() {
+
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
 
 		/*
@@ -487,7 +488,16 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 				NavigatorManagerImpl.PIN_EDITOR_BY_DEFAULT_EDEFAULT);
 
 		for (final CEObjectHolder<EObject> pmt : getPreferenceModelTypes()) {
-			final IEditorInformation mt = getEditorInformation(pmt.getObjectClass());
+			final Class<EObject> objectClass = pmt.getObjectClass();
+			if (objectClass == null) {
+				continue;
+			}
+			final IEditorInformation mt = getEditorInformation(objectClass);
+			if (mt == null) {
+				LogUtils.error(pmt.getConfigurationElement(),
+						"Preference model type does not have editor information. Ignored.");
+				continue;
+			}
 
 			ps.setDefault(mt.getModelType(), mt.getEditors().get(0).getId());
 		}
@@ -518,7 +528,16 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 			}
 
 			for (final CEObjectHolder<EObject> pmt : getPreferenceModelTypes()) {
-				final IEditorInformation mt = getEditorInformation(pmt.getObjectClass());
+				final Class<EObject> objectClass = pmt.getObjectClass();
+				if (objectClass == null) {
+					continue;
+				}
+				final IEditorInformation mt = getEditorInformation(objectClass);
+				if (mt == null) {
+					LogUtils.error(pmt.getConfigurationElement(),
+							"Preference model type does not have editor information. Ignored.");
+					continue;
+				}
 				/*
 				 * Find the current preference - possibly the default we just set in
 				 * preferenceReader...

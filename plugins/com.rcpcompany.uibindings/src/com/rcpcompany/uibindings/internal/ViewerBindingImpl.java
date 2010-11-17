@@ -520,8 +520,9 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 
 	@Override
 	public List<IChildCreationSpecification> getPossibleChildObjects(EObject parent, EObject sibling) {
-		if (getControl() instanceof Table) return getPossibleTopLevelChildObjects(sibling);
-		if (getControl() instanceof Tree) {
+		Control control = getControl();
+		if (control instanceof Table) return getPossibleTopLevelChildObjects(sibling);
+		if (control instanceof Tree) {
 			if (parent == null && sibling != null) {
 				final IElementParentage parentage = getElementParentage(sibling);
 				if (parentage != null) {

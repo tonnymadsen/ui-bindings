@@ -99,6 +99,7 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 		 */
 
 		final List<IChildCreationSpecification> specs = container.getPossibleChildObjects(obj, null);
+		if (specs == null) return EMPTY_ITEMS;
 
 		// TODO Temporary
 		for (final IChildCreationSpecification sp : specs.toArray(new IChildCreationSpecification[specs.size()])) {

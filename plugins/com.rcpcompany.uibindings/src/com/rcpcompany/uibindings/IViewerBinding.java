@@ -367,11 +367,11 @@ public interface IViewerBinding extends IContainerBinding {
 	 * If a sibling is non-<code>null</code>, the children should be as close to immediately
 	 * following that sibling as possible.
 	 * <p>
-	 * For {@link Table tables} the element is ignored
+	 * For {@link Table tables} the element is ignored.
 	 * 
 	 * @param parent the view element that should be the parent of the child
 	 * @param sibling if non-<code>null</code> the wanted sibling
-	 * @return a list of possible children
+	 * @return a list of possible children or <code>null</code> if no children a found
 	 */
 	List<IChildCreationSpecification> getPossibleChildObjects(EObject parent, EObject sibling);
 
