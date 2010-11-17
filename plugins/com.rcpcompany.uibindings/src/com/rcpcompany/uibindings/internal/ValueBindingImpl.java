@@ -1220,7 +1220,12 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 	@Override
 	protected String getBaseType() {
-		return getDataType().getBaseType();
+		String baseType = getDataType().getBaseType();
+		final Widget w = getWidget();
+		if (w != null) {
+			baseType += "<=>" + w;
+		}
+		return baseType;
 	}
 
 	@Override
