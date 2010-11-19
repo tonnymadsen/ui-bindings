@@ -190,7 +190,7 @@ public final class LogUtils {
 			if (o instanceof IExtension) {
 				final IExtension e = (IExtension) o;
 				String m = e.getExtensionPointUniqueIdentifier();
-				if (e.getLabel().length() > 0) {
+				if (e.getLabel() != null && e.getLabel().length() > 0) {
 					m = m + "[label=" + e.getLabel() + "]";
 				} else if (e.getSimpleIdentifier() != null) {
 					m = m + "[id=" + e.getSimpleIdentifier() + "]";
