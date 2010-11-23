@@ -35,7 +35,6 @@ import org.eclipse.emf.ecore.EObject;
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getCe <em>Ce</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getModelTypes <em>Model Types</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getNewWizardID <em>New Wizard ID</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getParentRelations <em>Parent Relations
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getPrimaryParent <em>Primary Parent
@@ -131,31 +130,6 @@ public interface ITreeItemDescriptor extends EObject, IArgumentProvider {
 	 * @generated
 	 */
 	EList<String> getModelTypes();
-
-	/**
-	 * Returns the value of the '<em><b>New Wizard ID</b></em>' attribute. <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>New Wizard ID</em>' attribute isn't clear, there really should be
-	 * more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>New Wizard ID</em>' attribute.
-	 * @see #setNewWizardID(String)
-	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getTreeItemDescriptor_NewWizardID()
-	 * @generated
-	 */
-	String getNewWizardID();
-
-	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.ITreeItemDescriptor#getNewWizardID
-	 * <em>New Wizard ID</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value the new value of the '<em>New Wizard ID</em>' attribute.
-	 * @see #getNewWizardID()
-	 * @generated
-	 */
-	void setNewWizardID(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Parent Relations</b></em>' reference list. The list contents

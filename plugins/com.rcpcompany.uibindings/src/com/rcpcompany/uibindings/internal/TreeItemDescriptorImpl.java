@@ -42,8 +42,6 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
  * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getCe <em>Ce</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getModelTypes <em>Model
  * Types</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getNewWizardID <em>New
- * Wizard ID</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getParentRelations <em>
  * Parent Relations</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.TreeItemDescriptorImpl#getPrimaryParent <em>Primary
@@ -115,26 +113,6 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	 * @ordered
 	 */
 	protected EList<String> modelTypes;
-
-	/**
-	 * The default value of the '{@link #getNewWizardID() <em>New Wizard ID</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getNewWizardID()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NEW_WIZARD_ID_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getNewWizardID() <em>New Wizard ID</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getNewWizardID()
-	 * @generated
-	 * @ordered
-	 */
-	protected String newWizardID = NEW_WIZARD_ID_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getParentRelations() <em>Parent Relations</em>}' reference
@@ -295,31 +273,6 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 	 * @generated
 	 */
 	@Override
-	public String getNewWizardID() {
-		return newWizardID;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void setNewWizardID(String newNewWizardID) {
-		final String oldNewWizardID = newWizardID;
-		newWizardID = newNewWizardID;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__NEW_WIZARD_ID, oldNewWizardID, newWizardID));
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public EList<ITreeItemRelation> getParentRelations() {
 		if (parentRelations == null) {
 			parentRelations = new EObjectWithInverseEList<ITreeItemRelation>(ITreeItemRelation.class, this,
@@ -429,8 +382,6 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 			return getCe();
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__MODEL_TYPES:
 			return getModelTypes();
-		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__NEW_WIZARD_ID:
-			return getNewWizardID();
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__PARENT_RELATIONS:
 			return getParentRelations();
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__PRIMARY_PARENT:
@@ -463,9 +414,6 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__MODEL_TYPES:
 			getModelTypes().clear();
 			getModelTypes().addAll((Collection<? extends String>) newValue);
-			return;
-		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__NEW_WIZARD_ID:
-			setNewWizardID((String) newValue);
 			return;
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__PARENT_RELATIONS:
 			getParentRelations().clear();
@@ -501,9 +449,6 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__MODEL_TYPES:
 			getModelTypes().clear();
 			return;
-		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__NEW_WIZARD_ID:
-			setNewWizardID(NEW_WIZARD_ID_EDEFAULT);
-			return;
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__PARENT_RELATIONS:
 			getParentRelations().clear();
 			return;
@@ -533,8 +478,6 @@ public class TreeItemDescriptorImpl extends EObjectImpl implements ITreeItemDesc
 			return CE_EDEFAULT == null ? ce != null : !CE_EDEFAULT.equals(ce);
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__MODEL_TYPES:
 			return modelTypes != null && !modelTypes.isEmpty();
-		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__NEW_WIZARD_ID:
-			return NEW_WIZARD_ID_EDEFAULT == null ? newWizardID != null : !NEW_WIZARD_ID_EDEFAULT.equals(newWizardID);
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__PARENT_RELATIONS:
 			return parentRelations != null && !parentRelations.isEmpty();
 		case IUIBindingsPackage.TREE_ITEM_DESCRIPTOR__PRIMARY_PARENT:
