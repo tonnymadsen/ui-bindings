@@ -225,7 +225,7 @@ public class ModelFeatureInfoImpl extends ModelInfoImpl implements IModelFeature
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String toString() {
