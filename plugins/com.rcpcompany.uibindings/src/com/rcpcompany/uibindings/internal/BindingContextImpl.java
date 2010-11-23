@@ -1194,6 +1194,8 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	@Override
 	public void dispose() {
 		setState(BindingState.DISPOSED);
+		IManagerRunnable.Factory.cancelAsyncExec("reflow", getTop());
+
 		final IManager manager = IManager.Factory.getManager();
 		manager.getContexts().remove(this);
 		manager.eAdapters().remove(myTextCommitStrategyAdapter);
