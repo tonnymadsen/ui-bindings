@@ -2222,7 +2222,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		} else if (argumentType == ImageDescriptor.class) {
 			final ImageDescriptor id = AbstractUIPlugin.imageDescriptorFromPlugin(ce.getContributor().getName(), value);
 			if (id == null) {
-				LogUtils.error(this, "Cannot find image for '" + value + "': " + this); //$NON-NLS-1$
+				LogUtils.error(ce, "Cannot find image for '" + value + "': " + this); //$NON-NLS-1$
 			}
 			return (ArgumentType) id;
 		} else if (argumentType == IObservableList.class) {
@@ -2241,28 +2241,28 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 				final IUnitBindingSupport adapter = (IUnitBindingSupport) ce.createExecutableExtension(attributeName);
 				return (ArgumentType) adapter;
 			} catch (final CoreException ex) {
-				LogUtils.error(this, ex);
+				LogUtils.error(ce, ex);
 			}
 		} else if (argumentType == IInitializer.class) {
 			try {
 				final IInitializer adapter = (IInitializer) ce.createExecutableExtension(attributeName);
 				return (ArgumentType) adapter;
 			} catch (final CoreException ex) {
-				LogUtils.error(this, ex);
+				LogUtils.error(ce, ex);
 			}
 		} else if (argumentType == IControlFactory.class) {
 			try {
 				final IControlFactory factory = (IControlFactory) ce.createExecutableExtension(attributeName);
 				return (ArgumentType) factory;
 			} catch (final CoreException ex) {
-				LogUtils.error(this, ex);
+				LogUtils.error(ce, ex);
 			}
 		} else if (argumentType == ICellEditorFactory.class) {
 			try {
 				final ICellEditorFactory factory = (ICellEditorFactory) ce.createExecutableExtension(attributeName);
 				return (ArgumentType) factory;
 			} catch (final CoreException ex) {
-				LogUtils.error(this, ex);
+				LogUtils.error(ce, ex);
 			}
 		} else {
 			LogUtils.error(this, "Unknown argument type: " + argumentType); //$NON-NLS-1$
