@@ -124,7 +124,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="textCommitStrategy" lowerBound="1"
-        eType="#//TextCommitStrategy" transient="true" defaultValueLiteral=""/>
+        eType="#//TextCommitStrategy" transient="true" defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="textCommitStrategyCalculated"
         lowerBound="1" eType="#//TextCommitStrategy" changeable="false" transient="true"
         derived="true">

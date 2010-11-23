@@ -238,19 +238,19 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 		/*
 		 * Look at the parents TODO
 		 */
-//		final ITreeItemDescriptor parentDesc = childDescriptor.getPrimaryParent();
-//		EObject parent = null;
-//		if (parentDesc != null) {
-//			parent = findParent(echild, childDescriptor, parentDesc, null);
-//			if (parent != null) return parent;
-//
-//			LogUtils.error(parentDesc, "Parent Descriptor is not a parent of " + echild);
-//		}
-//
-//		for (final ITreeItemRelation parentRel : childDescriptor.getParentRelations()) {
-//			parent = findParent(echild, childDescriptor, parentRel.getParent(), parentRel);
-//			if (parent != null) return parent;
-//		}
+		// final ITreeItemDescriptor parentDesc = childDescriptor.getPrimaryParent();
+		// EObject parent = null;
+		// if (parentDesc != null) {
+		// parent = findParent(echild, childDescriptor, parentDesc, null);
+		// if (parent != null) return parent;
+		//
+		// LogUtils.error(parentDesc, "Parent Descriptor is not a parent of " + echild);
+		// }
+		//
+		// for (final ITreeItemRelation parentRel : childDescriptor.getParentRelations()) {
+		// parent = findParent(echild, childDescriptor, parentRel.getParent(), parentRel);
+		// if (parent != null) return parent;
+		// }
 
 		return null;
 	}

@@ -3311,18 +3311,8 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTreeItemDescriptor_NewWizardID() {
-		return (EAttribute) treeItemDescriptorEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public EReference getTreeItemDescriptor_ParentRelations() {
-		return (EReference) treeItemDescriptorEClass.getEStructuralFeatures().get(5);
+		return (EReference) treeItemDescriptorEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -3332,7 +3322,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 */
 	@Override
 	public EReference getTreeItemDescriptor_PrimaryParent() {
-		return (EReference) treeItemDescriptorEClass.getEStructuralFeatures().get(6);
+		return (EReference) treeItemDescriptorEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -3342,7 +3332,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 */
 	@Override
 	public EAttribute getTreeItemDescriptor_EmptyFolderHidden() {
-		return (EAttribute) treeItemDescriptorEClass.getEStructuralFeatures().get(7);
+		return (EAttribute) treeItemDescriptorEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -4658,7 +4648,6 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		createEReference(treeItemDescriptorEClass, TREE_ITEM_DESCRIPTOR__CHILD_RELATIONS);
 		createEAttribute(treeItemDescriptorEClass, TREE_ITEM_DESCRIPTOR__CE);
 		createEAttribute(treeItemDescriptorEClass, TREE_ITEM_DESCRIPTOR__MODEL_TYPES);
-		createEAttribute(treeItemDescriptorEClass, TREE_ITEM_DESCRIPTOR__NEW_WIZARD_ID);
 		createEReference(treeItemDescriptorEClass, TREE_ITEM_DESCRIPTOR__PARENT_RELATIONS);
 		createEReference(treeItemDescriptorEClass, TREE_ITEM_DESCRIPTOR__PRIMARY_PARENT);
 		createEAttribute(treeItemDescriptorEClass, TREE_ITEM_DESCRIPTOR__EMPTY_FOLDER_HIDDEN);
@@ -4910,7 +4899,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getManager_MessageDecorationMinimumSeverity(),
 				this.getBindingMessageSeverity(),
-				"messageDecorationMinimumSeverity", "WARNING", 0, 1, IManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+				"messageDecorationMinimumSeverity", "WARNING", 1, 1, IManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(
 				getManager_AlternativeDecorationPosition(),
 				this.getDecorationPosition(),
@@ -5009,11 +4998,11 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getBindingContext_Top(),
 				this.getComposite(),
-				"top", null, 0, 1, IBindingContext.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"top", null, 1, 1, IBindingContext.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getBindingContext_DbContext(),
 				this.getDBContext(),
-				"dbContext", null, 0, 1, IBindingContext.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"dbContext", null, 1, 1, IBindingContext.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getBindingContext_ServiceLocator(),
 				this.getIServiceLocator(),
@@ -5025,7 +5014,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getBindingContext_TextCommitStrategy(),
 				this.getTextCommitStrategy(),
-				"textCommitStrategy", "", 1, 1, IBindingContext.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+				"textCommitStrategy", "true", 1, 1, IBindingContext.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(
 				getBindingContext_TextCommitStrategyCalculated(),
 				this.getTextCommitStrategy(),
@@ -5190,12 +5179,12 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getColumnBinding_ViewerColumn(),
 				this.getViewerColumn(),
-				"viewerColumn", null, 0, 1, IColumnBinding.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"viewerColumn", null, 1, 1, IColumnBinding.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(
 				getColumnBinding_ColumnAdapter(),
 				this.getColumnAdapter(),
 				null,
-				"columnAdapter", null, 0, 1, IColumnBinding.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"columnAdapter", null, 1, 1, IColumnBinding.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(
 				getColumnBinding_BaseColumn(),
 				this.getColumnBinding(),
@@ -5214,7 +5203,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getColumnBinding_SpecialBindingType(),
 				this.getSpecialBinding(),
-				"specialBindingType", null, 0, 1, IColumnBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"specialBindingType", null, 1, 1, IColumnBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getColumnBinding_Factory(),
 				this.getIObservableFactory(),
@@ -5319,7 +5308,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getViewerBinding_FirstTableColumnOffset(),
 				ecorePackage.getEInt(),
-				"firstTableColumnOffset", null, 0, 1, IViewerBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"firstTableColumnOffset", null, 1, 1, IViewerBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(argumentInformationEClass, IArgumentInformation.class,
 				"ArgumentInformation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -5374,11 +5363,11 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getDecoratorProvider_ProviderCE(),
 				this.getIConfigurationElement(),
-				"providerCE", null, 0, 1, IDecoratorProvider.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"providerCE", null, 1, 1, IDecoratorProvider.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getDecoratorProvider_ChildCE(),
 				this.getIConfigurationElement(),
-				"childCE", null, 0, 1, IDecoratorProvider.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"childCE", null, 1, 1, IDecoratorProvider.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(
 				getDecoratorProvider_Decorator(),
 				this.getUIBindingDecorator(),
@@ -5409,11 +5398,11 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getEnumDecoratorProviderEntry_Model(),
 				ecorePackage.getEString(),
-				"model", null, 0, 1, IEnumDecoratorProviderEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"model", null, 1, 1, IEnumDecoratorProviderEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getEnumDecoratorProviderEntry_Ui(),
 				ecorePackage.getEString(),
-				"ui", null, 0, 1, IEnumDecoratorProviderEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"ui", null, 1, 1, IEnumDecoratorProviderEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(numberDecoratorProviderEClass, INumberDecoratorProvider.class,
 				"NumberDecoratorProvider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -5531,12 +5520,12 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getModelFeatureInfo_FeatureName(),
 				ecorePackage.getEString(),
-				"featureName", null, 0, 1, IModelFeatureInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"featureName", null, 1, 1, IModelFeatureInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(
 				getModelFeatureInfo_Class(),
 				this.getModelClassInfo(),
 				null,
-				"class", null, 0, 1, IModelFeatureInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"class", null, 1, 1, IModelFeatureInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(uiBindingDecoratorEClass, IUIBindingDecorator.class,
 				"UIBindingDecorator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -5552,19 +5541,19 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getUIBindingDecorator_ModelToUIConverter(),
 				this.getIConverter(),
-				"modelToUIConverter", null, 0, 1, IUIBindingDecorator.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"modelToUIConverter", null, 1, 1, IUIBindingDecorator.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getUIBindingDecorator_UIToModelConverter(),
 				this.getIConverter(),
-				"UIToModelConverter", null, 0, 1, IUIBindingDecorator.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"UIToModelConverter", null, 1, 1, IUIBindingDecorator.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getUIBindingDecorator_UIToModelAfterConvertValidator(),
 				this.getIValidator(),
-				"UIToModelAfterConvertValidator", null, 0, 1, IUIBindingDecorator.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"UIToModelAfterConvertValidator", null, 1, 1, IUIBindingDecorator.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getUIBindingDecorator_ValidUIList(),
 				this.getIObservableList(),
-				"validUIList", null, 0, 1, IUIBindingDecorator.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"validUIList", null, 1, 1, IUIBindingDecorator.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(uiBindingDecoratorExtenderEClass, IUIBindingDecoratorExtender.class,
 				"UIBindingDecoratorExtender", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -5603,7 +5592,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getStringToModelClassInfoMapEntry_Key(),
 				ecorePackage.getEString(),
-				"key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(
 				getStringToModelClassInfoMapEntry_Value(),
 				this.getModelClassInfo(),
@@ -5615,7 +5604,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getStringToModelFeatureInfoMapEntry_Key(),
 				ecorePackage.getEString(),
-				"key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(
 				getStringToModelFeatureInfoMapEntry_Value(),
 				this.getModelFeatureInfo(),
@@ -5627,7 +5616,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getStringToArgumentInformationMapEntry_Key(),
 				ecorePackage.getEString(),
-				"key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(
 				getStringToArgumentInformationMapEntry_Value(),
 				this.getArgumentInformation(),
@@ -5639,7 +5628,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getStringToStringMapEntry_Key(),
 				ecorePackage.getEString(),
-				"key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getStringToStringMapEntry_Value(),
 				ecorePackage.getEString(),
@@ -5655,7 +5644,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getStringToObjectMapEntry_Key(),
 				ecorePackage.getEString(),
-				"key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getStringToObjectMapEntry_Value(),
 				ecorePackage.getEJavaObject(),
@@ -5666,7 +5655,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getStringToImageDescriptorMapEntry_Key(),
 				ecorePackage.getEString(),
-				"key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getStringToImageDescriptorMapEntry_Value(),
 				this.getImageDescriptor(),
@@ -5677,7 +5666,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getStringToIConfigurationElementMapEntry_Key(),
 				ecorePackage.getEString(),
-				"key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getStringToIConfigurationElementMapEntry_Value(),
 				this.getIConfigurationElement(),
@@ -5688,7 +5677,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getStringToBooleanMapEntry_Key(),
 				ecorePackage.getEString(),
-				"key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getStringToBooleanMapEntry_Value(),
 				ecorePackage.getEBoolean(),
@@ -5700,7 +5689,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				getObjectToCIMapEntry_Key(),
 				ecorePackage.getEObject(),
 				null,
-				"key", null, 0, 1, Map.Entry.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"key", null, 1, 1, Map.Entry.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(
 				getObjectToCIMapEntry_Value(),
 				this.getColumnBindingCellInformation(),
@@ -5742,16 +5731,16 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				getQuickfixProposalProcessorContext_Message(),
 				this.getBindingMessage(),
 				null,
-				"message", null, 0, 1, IQuickfixProposalProcessorContext.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"message", null, 1, 1, IQuickfixProposalProcessorContext.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(
 				getQuickfixProposalProcessorContext_Binding(),
 				this.getValueBinding(),
 				null,
-				"binding", null, 0, 1, IQuickfixProposalProcessorContext.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"binding", null, 1, 1, IQuickfixProposalProcessorContext.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getQuickfixProposalProcessorContext_Text(),
 				ecorePackage.getEString(),
-				"text", null, 0, 1, IQuickfixProposalProcessorContext.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"text", null, 1, 1, IQuickfixProposalProcessorContext.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(quickfixProposalProcessorDescriptorEClass, IQuickfixProposalProcessorDescriptor.class,
 				"QuickfixProposalProcessorDescriptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -5834,10 +5823,6 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				getTreeItemDescriptor_ModelTypes(),
 				ecorePackage.getEString(),
 				"modelTypes", null, 0, -1, ITreeItemDescriptor.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(
-				getTreeItemDescriptor_NewWizardID(),
-				ecorePackage.getEString(),
-				"newWizardID", null, 0, 1, ITreeItemDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(
 				getTreeItemDescriptor_ParentRelations(),
 				this.getTreeItemRelation(),
@@ -5851,7 +5836,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getTreeItemDescriptor_EmptyFolderHidden(),
 				ecorePackage.getEBoolean(),
-				"emptyFolderHidden", "false", 0, 1, ITreeItemDescriptor.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+				"emptyFolderHidden", "false", 1, 1, ITreeItemDescriptor.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 
 		initEClass(constantTreeItemEClass, IConstantTreeItem.class,
 				"ConstantTreeItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -5876,7 +5861,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getBindingMessage_Message(),
 				ecorePackage.getEString(),
-				"message", null, 0, 1, IBindingMessage.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"message", null, 1, 1, IBindingMessage.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getBindingMessage_Severity(),
 				this.getBindingMessageSeverity(),
@@ -5888,7 +5873,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getBindingMessage_Prefix(),
 				ecorePackage.getEString(),
-				"prefix", null, 0, 1, IBindingMessage.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"prefix", null, 1, 1, IBindingMessage.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(
 				getBindingMessage_Targets(),
 				this.getBindingMessageTarget(),
@@ -5905,7 +5890,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getBindingMessage_Code(),
 				ecorePackage.getEInt(),
-				"code", null, 0, 1, IBindingMessage.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"code", null, 1, 1, IBindingMessage.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getBindingMessage_Details(),
 				ecorePackage.getEString(),
@@ -5937,7 +5922,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getUIAttribute_Attribute(),
 				ecorePackage.getEString(),
-				"attribute", "", 0, 1, IUIAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+				"attribute", "", 1, 1, IUIAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(
 				getUIAttribute_CurrentValue(),
 				this.getIObservableValue(),
@@ -6026,7 +6011,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				getUIAttributeImageDecoration_Attribute(),
 				this.getUIAttribute(),
 				this.getUIAttribute_ImageDecorations(),
-				"attribute", null, 0, 1, IUIAttributeImageDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"attribute", null, 1, 1, IUIAttributeImageDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(uiAttributeFactoryEClass, IUIAttributeFactory.class,
 				"UIAttributeFactory", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -6054,14 +6039,14 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEAttribute(
 				getEMFObservableFactoryDescriptor_PackagePrefix(),
 				ecorePackage.getEString(),
-				"packagePrefix", null, 0, 1, IEMFObservableFactoryDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"packagePrefix", null, 1, 1, IEMFObservableFactoryDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		g1 = createEGenericType(this.getCEObjectHolder());
 		g2 = createEGenericType(this.getIEMFObservableFactory());
 		g1.getETypeArguments().add(g2);
 		initEAttribute(
 				getEMFObservableFactoryDescriptor_Factory(),
 				g1,
-				"factory", null, 0, 1, IEMFObservableFactoryDescriptor.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"factory", null, 1, 1, IEMFObservableFactoryDescriptor.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(iMessageEClass, IMessage.class, "IMessage", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 

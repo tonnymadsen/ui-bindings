@@ -3672,22 +3672,13 @@ public interface IUIBindingsPackage extends EPackage {
 	int TREE_ITEM_DESCRIPTOR__MODEL_TYPES = IARGUMENT_PROVIDER_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>New Wizard ID</b></em>' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int TREE_ITEM_DESCRIPTOR__NEW_WIZARD_ID = IARGUMENT_PROVIDER_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Parent Relations</b></em>' reference list. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_ITEM_DESCRIPTOR__PARENT_RELATIONS = IARGUMENT_PROVIDER_FEATURE_COUNT + 5;
+	int TREE_ITEM_DESCRIPTOR__PARENT_RELATIONS = IARGUMENT_PROVIDER_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Primary Parent</b></em>' reference. <!-- begin-user-doc -->
@@ -3696,7 +3687,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_ITEM_DESCRIPTOR__PRIMARY_PARENT = IARGUMENT_PROVIDER_FEATURE_COUNT + 6;
+	int TREE_ITEM_DESCRIPTOR__PRIMARY_PARENT = IARGUMENT_PROVIDER_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Empty Folder Hidden</b></em>' attribute. <!-- begin-user-doc
@@ -3705,7 +3696,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_ITEM_DESCRIPTOR__EMPTY_FOLDER_HIDDEN = IARGUMENT_PROVIDER_FEATURE_COUNT + 7;
+	int TREE_ITEM_DESCRIPTOR__EMPTY_FOLDER_HIDDEN = IARGUMENT_PROVIDER_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Tree Item Descriptor</em>' class. <!--
@@ -3714,7 +3705,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_ITEM_DESCRIPTOR_FEATURE_COUNT = IARGUMENT_PROVIDER_FEATURE_COUNT + 8;
+	int TREE_ITEM_DESCRIPTOR_FEATURE_COUNT = IARGUMENT_PROVIDER_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.ConstantTreeItemImpl
@@ -7533,18 +7524,6 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getTreeItemDescriptor_ModelTypes();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.ITreeItemDescriptor#getNewWizardID <em>New Wizard ID</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>New Wizard ID</em>'.
-	 * @see com.rcpcompany.uibindings.ITreeItemDescriptor#getNewWizardID()
-	 * @see #getTreeItemDescriptor()
-	 * @generated
-	 */
-	EAttribute getTreeItemDescriptor_NewWizardID();
-
-	/**
 	 * Returns the meta object for the reference list '
 	 * {@link com.rcpcompany.uibindings.ITreeItemDescriptor#getParentRelations
 	 * <em>Parent Relations</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -10798,14 +10777,6 @@ public interface IUIBindingsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TREE_ITEM_DESCRIPTOR__MODEL_TYPES = eINSTANCE.getTreeItemDescriptor_ModelTypes();
-
-		/**
-		 * The meta object literal for the '<em><b>New Wizard ID</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute TREE_ITEM_DESCRIPTOR__NEW_WIZARD_ID = eINSTANCE.getTreeItemDescriptor_NewWizardID();
 
 		/**
 		 * The meta object literal for the '<em><b>Parent Relations</b></em>' reference list

@@ -434,8 +434,7 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	/**
 	 * Returns the value of the '<em><b>State</b></em>' attribute. The default value is
 	 * <code>"INIT"</code>. The literals are from the enumeration
-	 * {@link com.rcpcompany.uibindings.BindingState}. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * <!-- begin-model-doc --> The current state of this context. <!-- end-model-doc -->
+	 * {@link com.rcpcompany.uibindings.BindingState}. <!-- begin-user-doc --> The current state of this context. <!-- end-user-doc -->
 	 * 
 	 * @return the value of the '<em>State</em>' attribute.
 	 * @see com.rcpcompany.uibindings.BindingState
@@ -446,7 +445,7 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 
 	/**
 	 * Returns the value of the '<em><b>Text Commit Strategy</b></em>' attribute. The default value
-	 * is <code>""</code>. The literals are from the enumeration
+	 * is <code>"true"</code>. The literals are from the enumeration
 	 * {@link com.rcpcompany.uibindings.TextCommitStrategy}. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Text Commit Strategy</em>' attribute isn't clear, there really

@@ -316,7 +316,7 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 */
 	@Override
 	public IViewerBinding createViewerBinding() {
-		final IViewerBinding viewerBinding = new ViewerBindingImpl();
+		final ViewerBindingImpl viewerBinding = new ViewerBindingImpl();
 		return viewerBinding;
 	}
 
