@@ -49,8 +49,8 @@ public class UnsettableExtender extends AbstractUIBindingDecoratorExtender {
 			context.setBackgound(IManager.Factory.getManager().getFormToolkit().getColors()
 					.getColor(IFormColors.H_GRADIENT_START));
 			context.appendTooltip("[Set to Default]");
-//			context.setEnabled(false);
-//			context.setMessageFormat("Default");
+			// context.setEnabled(false);
+			// context.setMessageFormat("Default");
 		}
 	}
 }

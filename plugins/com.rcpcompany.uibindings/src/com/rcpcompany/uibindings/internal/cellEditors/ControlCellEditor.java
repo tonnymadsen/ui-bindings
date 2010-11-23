@@ -208,7 +208,7 @@ public class ControlCellEditor extends CellEditor {
 							endEdit();
 						}
 					} else {
-//						endEdit();
+						// endEdit();
 					}
 				}
 				break;

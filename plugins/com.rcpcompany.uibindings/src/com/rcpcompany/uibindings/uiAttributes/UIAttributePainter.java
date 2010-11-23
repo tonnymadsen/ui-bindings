@@ -260,7 +260,7 @@ public class UIAttributePainter {
 			foreground = Display.getCurrent().getSystemColor(SWT.COLOR_GRAY);
 		}
 		// if (!foreground.equals(Display.getCurrent().getSystemColor(SWT.COLOR_BLACK))) {
-		// LogUtils.debug(this, "TODO foreground not black, but" + foreground.getRGB());
+		// LogUtils.debug(this, "TODO foreground not black, but " + foreground.getRGB());
 		// }
 
 		Color background = getDefaultBackground();

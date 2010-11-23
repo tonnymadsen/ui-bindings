@@ -114,8 +114,8 @@ public class PathMatcher implements IPathMatcher {
 		/*
 		 * "{...,...}" -> "(...|...)" - not suported yet
 		 */
-//		if (pattern.matches(pattern))
-//		pattern.replaceAll("\\*", ".*");
+		// if (pattern.matches(pattern))
+		// pattern.replaceAll("\\*", ".*");
 
 		/*
 		 * No start separator: then we match both a file name and a path name with a matching last

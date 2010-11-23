@@ -83,7 +83,7 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 		final String v = (String) value;
 		final File file = new File(v);
 		final String fv = file.getAbsolutePath();
-//		LogUtils.debug(this, "f='" + value + "' (" + fv + ")");
+		// LogUtils.debug(this, "f='" + value + "' (" + fv + ")");
 
 		if (v.isEmpty()) {
 			final EStructuralFeature modelFeature = getBinding().getModelFeature();
@@ -133,7 +133,7 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 	 * @return the status object
 	 */
 	private IStatus validationError(final String m) {
-//		LogUtils.debug(this, "-- " + m);
+		// LogUtils.debug(this, "-- " + m);
 		return UIBindingsUtils.error(FILE_NAME_ERROR_CODE, m);
 	}
 

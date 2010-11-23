@@ -59,7 +59,7 @@ public class WorkbenchLabelDecoratorExtender extends AbstractUIBindingDecoratorE
 	@Override
 	public void extend(IUIBindingDecoratorExtenderContext context) {
 		final EObject element = context.getBinding().getModelObject();
-//		final Object element = context.getDecoratedValue().getValue();
+		// final Object element = context.getDecoratedValue().getValue();
 
 		// Text
 

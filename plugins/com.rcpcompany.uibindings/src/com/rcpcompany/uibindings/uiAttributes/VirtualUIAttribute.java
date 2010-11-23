@@ -52,12 +52,12 @@ public class VirtualUIAttribute extends AbstractUIAttribute {
 	private IObservableValue myMaxValue;
 	private IObservableList myStyleRangeList;
 
-//	private final IDisposeListener myDisposeListener = new IDisposeListener() {
-//		@Override
-//		public void handleDispose(DisposeEvent event) {
-//			LogUtils.debug(event.getSource(), "disposed");
-//		}
-//	};
+	// private final IDisposeListener myDisposeListener = new IDisposeListener() {
+	// @Override
+	// public void handleDispose(DisposeEvent event) {
+	// LogUtils.debug(event.getSource(), "disposed");
+	// }
+	// };
 
 	/**
 	 * Constructs and returns a new UI Attribute.
@@ -78,7 +78,7 @@ public class VirtualUIAttribute extends AbstractUIAttribute {
 	@Override
 	public final void dispose() {
 		for (final IObservable v : myObservables) {
-//			v.removeDisposeListener(myDisposeListener);
+			// v.removeDisposeListener(myDisposeListener);
 			v.dispose();
 			if (myListeners != null) {
 				for (final IChangeListener myListener : myListeners) {
@@ -155,7 +155,7 @@ public class VirtualUIAttribute extends AbstractUIAttribute {
 	 */
 	protected final IObservableValue addObservable(IObservableValue observable) {
 		myObservables.add(observable);
-//		observable.addDisposeListener(myDisposeListener);
+		// observable.addDisposeListener(myDisposeListener);
 		if (myListeners != null) {
 			for (final IChangeListener myListener : myListeners) {
 				if (myListener != null) {
