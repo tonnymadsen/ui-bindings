@@ -417,16 +417,6 @@ Each item can have a number of arguments for the label binding in the form of &l
                </documentation>
             </annotation>
          </attribute>
-         <attribute name="newWizardID" type="string">
-            <annotation>
-               <documentation>
-                  an optional ID for a &quot;new&quot; wizard that will create objects of this type. Only usable for tree items with a single specific modelType element.
-               </documentation>
-               <appInfo>
-                  <meta.attribute kind="identifier" basedOn="org.eclipse.ui.newWizards/wizard/@id"/>
-               </appInfo>
-            </annotation>
-         </attribute>
          <attribute name="primaryParent" type="string">
             <annotation>
                <documentation>
