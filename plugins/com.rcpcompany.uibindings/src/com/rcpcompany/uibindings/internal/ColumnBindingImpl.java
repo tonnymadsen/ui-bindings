@@ -66,9 +66,11 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
 import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.swt.widgets.Widget;
@@ -1765,5 +1767,49 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	@Override
 	public Collection<EObject> getSelection() {
 		return Collections.emptyList();
+	}
+
+	@Override
+	public int getIndex(boolean visualModel) {
+		final Widget columnItem = getColumnAdapter().getWidget();
+		final IViewerBinding viewer = getViewerBinding();
+		final Control c = viewer.getControl();
+
+		/*
+		 * Find the columns and the column order
+		 */
+		Widget[] columns = null;
+		int[] columnOrder = null;
+		if (c instanceof Table) {
+			final Table t = (Table) c;
+			columns = t.getColumns();
+			if (visualModel) {
+				columnOrder = t.getColumnOrder();
+			}
+		} else if (c instanceof Tree) {
+			final Tree t = (Tree) c;
+			columns = t.getColumns();
+			if (visualModel) {
+				columnOrder = t.getColumnOrder();
+			}
+		} else
+			return -1;
+
+		/*
+		 * Search for the column
+		 */
+		int columnNo = 0;
+		for (columnNo = 0; columnNo < columns.length; columnNo++) {
+			if (columns[columnNo] == columnItem) {
+				break;
+			}
+		}
+		if (columnNo == columns.length) return -1;
+
+		if (visualModel) {
+			columnNo = columnOrder[columnNo];
+		}
+
+		return columnNo - viewer.getFirstTableColumnOffset();
 	}
 } // ColumnBindingImpl

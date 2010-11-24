@@ -514,4 +514,15 @@ public interface IColumnBinding extends IBinding {
 	 * @param element the element
 	 */
 	void fireLabelChanged(IColumnBindingCellInformation element);
+
+	/**
+	 * Returns the index of this column in the parent viewer. Top column is <code>0</code>.
+	 * <p>
+	 * 
+	 * @param visualModel <code>true</code> if the visual model should be used rather than the
+	 *            creation model
+	 * 
+	 * @return the index or <code>-1</code> if the column cannot be found
+	 */
+	int getIndex(boolean visualModel);
 } // IColumnBinding

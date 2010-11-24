@@ -28,6 +28,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
+import com.rcpcompany.uibindings.IBindingContext.FinishOption;
 import com.rcpcompany.uibindings.IContainerBinding;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIAttribute;
@@ -57,6 +58,8 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 
 		LogUtils.debug(this, "Available Types: " + Arrays.toString(clipboard.getAvailableTypeNames()));
 		String[][] result = null;
+		// TODO Add support for "Csv"
+		// TODO Add support for "Rich Text Format"
 		if (result == null) {
 			result = convertHTML((String) clipboard.getContents(HTMLTransfer.getInstance()));
 		}
@@ -95,15 +98,25 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 		final Map<IValueBinding, String> assignmentMap = new HashMap<IValueBinding, String>();
 		try {
 			for (int r = 0; r < rows; r++) {
+				/*
+				 * The index of the column to copy into - needed as some columns can be zero width
+				 * and must be ignored
+				 */
+				int ci = p.x;
 				for (int c = 0; c < columns; c++) {
 					final String data = result[r][c];
 
-					final IValueBindingCell cell = container.getCell(p.x + c, p.y + r, true);
-					if (cell == null) {
-						MessageDialog.openError(HandlerUtil.getActiveShell(event), "Cannot paste data",
-								"No room for data");
-						return null;
-					}
+					IValueBindingCell cell;
+					do {
+						cell = container.getCell(ci, p.y + r, true);
+						ci++;
+						if (cell == null) {
+							MessageDialog.openError(HandlerUtil.getActiveShell(event), "Cannot paste data",
+									"No room for data");
+							return null;
+						}
+					} while (cell.getColumnBinding() != null
+							&& cell.getColumnBinding().getColumnAdapter().getWidth() == 0);
 					final IValueBinding b = cell.getLabelBinding();
 					if (!b.isChangeable()) {
 						MessageDialog.openError(HandlerUtil.getActiveShell(event), "Cannot paste data",
@@ -122,6 +135,9 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 					if (binding.hasArguments()) {
 						pasteBinding.getExtraArgumentProviders().add(b);
 					}
+					if (binding.getParentBinding() != null) {
+						pasteBinding.getExtraArgumentProviders().add(binding.getParentBinding());
+					}
 					if (binding.eIsSet(IUIBindingsPackage.Literals.BINDING__EXTRA_ARGUMENT_PROVIDERS)) {
 						pasteBinding.getExtraArgumentProviders().addAll(b.getExtraArgumentProviders());
 					}
@@ -133,10 +149,14 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 			/*
 			 * Assign all values
 			 */
+			context.finish(FinishOption.FORCE);
 			for (final Entry<IValueBinding, String> d : assignmentMap.entrySet()) {
 				d.getKey().getUIAttribute().getCurrentValue().setValue(d.getValue());
 			}
 		} finally {
+			for (final Entry<IValueBinding, String> d : assignmentMap.entrySet()) {
+				d.getKey().dispose();
+			}
 		}
 
 		return null;

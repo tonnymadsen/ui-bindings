@@ -190,9 +190,13 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 
 	@Override
 	public Point getPosition(boolean visualModel) {
-		// TODO POSITION
-		LogUtils.debug(this, "TODO");
-		return null;
+		final IColumnBinding col = getColumn();
+		final IViewerBinding viewer = col.getViewerBinding();
+
+		final int columnNo = col.getIndex(visualModel);
+		final int rowNo = viewer.getList().indexOf(getElement());
+
+		return new Point(columnNo, rowNo);
 	}
 
 	protected final IChangeListener myAttributeValueListener = new IChangeListener() {
