@@ -441,7 +441,7 @@
 <argumentInfo name="format" lookupAttributeContainingClass="false" lookupAttributeTargetType="true" lookupReferenceTargetType="false" > </argumentInfo> 
 <argumentInfo name="height" lookupAttributeContainingClass="false"> </argumentInfo> 
 <argumentInfo name="helpID"> </argumentInfo> 
-<argumentInfo name="image" lookupAttributeContainingClass="false"> </argumentInfo> 
+<argumentInfo name="image"> </argumentInfo> 
 <argumentInfo name="initializer" lookupAttributeContainingClass="false" lookupAttributeTargetType="true" lookupParent="false" lookupReferenceContainingClass="false" lookupReferenceTargetType="true"> </argumentInfo> 
 <argumentInfo name="label" lookupAttributeContainingClass="false" lookupParent="false"> </argumentInfo> 
 <argumentInfo name="labelDecorator"> </argumentInfo> 
