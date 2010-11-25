@@ -100,6 +100,11 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 
 	@Override
 	public void createPartControl(Composite parent) {
+		try {
+			myAdvisor.setSite(getViewSite());
+		} catch (final Exception ex) {
+			LogUtils.error(myAdvisor, ex);
+		}
 		myContext = IBindingContext.Factory.createContext(parent);
 
 		final PatternFilter patternFilter = new TreePatternFilter();
@@ -110,24 +115,37 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 		myTree.setHeaderVisible(false);
 		final TreeColumn column = new TreeColumn(myTree, SWT.LEAD);
 		column.setWidth(300);
-		// TODO: use layout to make this column 100%
 
-		final IObservableList list = myAdvisor.getRootElements();
+		IObservableList list = null;
+		try {
+			list = myAdvisor.getRootElements();
+		} catch (final Exception ex) {
+			LogUtils.error(myAdvisor, ex);
+		}
 		myTreeBinding = myContext.addViewer().viewer(myTreeViewer).model(list)
-				.arg(Constants.ARG_DOUBLE_CLICK_COMMAND, Constants.DEFAULT_OPEN_COMMAND);
-		myTreeColumnBinding = myTreeBinding.addColumn().column(column).model(SpecialBinding.TREE_ITEM)
-				.arg(Constants.ARG_LABEL_DECORATOR, true).arg(Constants.ARG_SHOW_IMAGE, true)
+				.arg(Constants.ARG_DOUBLE_CLICK_COMMAND, Constants.DEFAULT_OPEN_COMMAND)
 				.arg(Constants.ARG_TREE_ID, myAdvisor.getTreeID());
+		myTreeColumnBinding = myTreeBinding.addColumn().column(column).model(SpecialBinding.TREE_ITEM)
+				.arg(Constants.ARG_LABEL_DECORATOR, true).arg(Constants.ARG_SHOW_IMAGE, true);
 
 		myContext.finish();
-
-		IDnDSupport.Factory.installOn(myContext);
 
 		IBindingContextSelectionProvider.Factory.adapt(myContext, getSite());
 		IDnDSupport.Factory.installOn(myContext);
 
 		addToolbarItems();
 		listenToSelection();
+	}
+
+	@Override
+	public void dispose() {
+		super.dispose();
+
+		try {
+			myAdvisor.dispose();
+		} catch (final Exception ex) {
+			LogUtils.error(myAdvisor, ex);
+		}
 	}
 
 	/**

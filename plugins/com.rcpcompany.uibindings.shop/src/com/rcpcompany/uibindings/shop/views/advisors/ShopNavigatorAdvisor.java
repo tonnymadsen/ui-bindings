@@ -31,9 +31,4 @@ public class ShopNavigatorAdvisor extends AbstractNavigatorBaseViewAdvisor imple
 		list.add(ShopFactory.eINSTANCE.getShop(EditingDomainUtils.getEditingDomain()));
 		return list;
 	}
-
-	@Override
-	public String getTreeID() {
-		return "contacts";
-	}
 }

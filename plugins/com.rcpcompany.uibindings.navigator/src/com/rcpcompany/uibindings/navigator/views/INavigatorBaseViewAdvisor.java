@@ -11,13 +11,25 @@
 package com.rcpcompany.uibindings.navigator.views;
 
 import org.eclipse.core.databinding.observable.list.IObservableList;
+import org.eclipse.ui.IViewSite;
+
+import com.rcpcompany.uibindings.IDisposable;
 
 /**
  * Advisor for {@link NavigatorBaseView}
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public interface INavigatorBaseViewAdvisor {
+public interface INavigatorBaseViewAdvisor extends IDisposable {
+	/**
+	 * Sets the site of the view on this advisor.
+	 * <p>
+	 * Can be used to monitor the selection or other view based services.
+	 * 
+	 * @param site the view site
+	 */
+	void setSite(IViewSite site);
+
 	/**
 	 * Returns the root elements of the navigator
 	 * 

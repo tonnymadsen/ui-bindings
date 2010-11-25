@@ -32,4 +32,8 @@ public class ShopNavigatorContactsAdvisor extends AbstractNavigatorBaseViewAdvis
 		return list;
 	}
 
+	@Override
+	public String getTreeID() {
+		return "contacts";
+	}
 }

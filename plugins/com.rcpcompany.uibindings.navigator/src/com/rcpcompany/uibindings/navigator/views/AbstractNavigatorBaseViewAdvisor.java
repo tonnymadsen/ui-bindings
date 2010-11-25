@@ -11,6 +11,7 @@
 package com.rcpcompany.uibindings.navigator.views;
 
 import org.eclipse.core.databinding.observable.list.IObservableList;
+import org.eclipse.ui.IViewSite;
 
 /**
  * Abstract base class for {@link INavigatorBaseViewAdvisor}.
@@ -21,6 +22,14 @@ public abstract class AbstractNavigatorBaseViewAdvisor implements INavigatorBase
 
 	@Override
 	public abstract IObservableList getRootElements();
+
+	@Override
+	public void dispose() {
+	}
+
+	@Override
+	public void setSite(IViewSite site) {
+	}
 
 	@Override
 	public String getTreeID() {

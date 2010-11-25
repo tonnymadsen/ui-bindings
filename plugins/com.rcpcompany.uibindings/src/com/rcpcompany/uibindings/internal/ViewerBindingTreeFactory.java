@@ -84,7 +84,7 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 	/**
 	 * Returns the ID of the tree.
 	 * 
-	 * @return the tree ID
+	 * @return the tree ID - never <code>null</code>
 	 */
 	public String getTreeID() {
 		return myTreeID;
@@ -98,7 +98,7 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 	 */
 	public ViewerBindingTreeFactory(IObservableList rootList, String treeID) {
 		myRootList = rootList;
-		myTreeID = treeID;
+		myTreeID = treeID != null ? treeID : "";
 	}
 
 	@Override

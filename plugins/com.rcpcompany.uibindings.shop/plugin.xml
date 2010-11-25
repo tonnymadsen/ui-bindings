@@ -233,8 +233,17 @@
             category="com.rcpcompany.uibindings.example.application.viewCategories.shop"
             class="com.rcpcompany.uibindings.navigator.views.NavigatorBaseView"
             icon="platform:/plugin/com.rcpcompany.uibindings/images/views/navigator_view.gif"
-            id="com.rcpcompany.uibindings.shop.views.ShopNavigationView"
+            id="com.rcpcompany.uibindings.shop.views.ShopNavigationContactsView"
             name="Shop Navigator (Contact Information)"
+            restorable="true">
+      </view>
+      <view
+            advisor="com.rcpcompany.uibindings.shop.views.advisors.ShopNavigatorOrderAdvisor"
+            category="com.rcpcompany.uibindings.example.application.viewCategories.shop"
+            class="com.rcpcompany.uibindings.navigator.views.NavigatorBaseView"
+            icon="platform:/plugin/com.rcpcompany.uibindings/images/views/navigator_view.gif"
+            id="com.rcpcompany.uibindings.shop.views.ShopNavigationOrderView"
+            name="Customer outline (Orders)"
             restorable="true">
       </view>
       <view
@@ -601,6 +610,8 @@
          <navigator
                id="contacts">
          </navigator>
+         <navigator>
+         </navigator>
       </treeItemRelation>
       <treeItemRelation
             featureName="shopItems"
@@ -630,6 +641,13 @@
       <treeItemRelation
             featureName="orders"
             parent="com.rcpcompany.uibindings.shop.treeItems.orderFolder">
+      </treeItemRelation>
+      <treeItemRelation
+            featureName="orders"
+            parent="com.rcpcompany.uibindings.shop.treeItems.customer">
+         <navigator
+               id="orders">
+         </navigator>
       </treeItemRelation>
    </extension>
    <extension

@@ -37,6 +37,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.ITreeItemDescriptor;
 import com.rcpcompany.uibindings.ITreeItemRelation;
 import com.rcpcompany.uibindings.IUIBindingsFactory;
+import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -261,8 +262,24 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 			 */
 			for (final ITreeItemRelation rel : descriptor.getChildRelations()) {
 				final String treeID = myFactory.getTreeID();
-				if (treeID != null && treeID.length() > 0) {
+				if (treeID.length() > 0) {
 					if (!rel.getTreeIDs().contains(treeID)) {
+						continue;
+					}
+				} else {
+					/*
+					 * There are two cases if there are no tree id:
+					 * 
+					 * - if the relation has no associated tree ids, then use the relation
+					 * 
+					 * - if the relation has a tree id list, then only use the relation iff "" is a
+					 * member of the list
+					 * 
+					 * [The first part of this condition is for optimizations as most relation will
+					 * probably not have an associated tree id list...]
+					 */
+					if (rel.eIsSet(IUIBindingsPackage.Literals.TREE_ITEM_RELATION__TREE_IDS)
+							&& rel.getTreeIDs().size() > 0 && !rel.getTreeIDs().contains("")) {
 						continue;
 					}
 				}
