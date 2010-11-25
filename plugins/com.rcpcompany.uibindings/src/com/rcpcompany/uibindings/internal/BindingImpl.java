@@ -107,15 +107,11 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 			final StackTraceElement[] stackTrace = cp.getStackTrace();
 			int i = 0;
 			for (i = 0; i < stackTrace.length; i++) {
-				final StackTraceElement element = stackTrace[i];
-				if (element.getClassName().startsWith(SPY_PACKAGE_NAME)) {
+				if (stackTrace[i].getMethodName().equals("addBinding")) {
+					// Ignore this frame as well
+					i++;
 					break;
 				}
-				if (element.getClassName().startsWith(INTERNAL_PACKAGE_NAME)) {
-					continue;
-				}
-
-				break;
 			}
 			final StackTraceElement[] newStackTrace = new StackTraceElement[min(stackTrace.length - i,
 					Activator.getDefault().CREATION_POINT_STACK_LEVELS)];
