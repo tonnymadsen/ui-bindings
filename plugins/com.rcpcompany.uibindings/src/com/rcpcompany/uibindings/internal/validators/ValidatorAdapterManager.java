@@ -49,7 +49,6 @@ import com.rcpcompany.uibindings.validators.IValidationAdapterManagerChangeListe
 import com.rcpcompany.uibindings.validators.IValidatorAdapter;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterMessageDecorator;
-import com.rcpcompany.utils.basic.ToStringUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -504,7 +503,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 		public void notifyChanged(Notification msg) {
 			super.notifyChanged(msg);
 			if (msg.isTouch()) return;
-			LogUtils.debug(this, ToStringUtils.toString(msg));
+			// LogUtils.debug(this, ToStringUtils.toString(msg));
 			markForValidation();
 		}
 
