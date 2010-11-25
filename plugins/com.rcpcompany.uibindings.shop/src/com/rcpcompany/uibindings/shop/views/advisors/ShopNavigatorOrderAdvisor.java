@@ -22,6 +22,7 @@ import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.IWorkbenchPart;
 
+import com.rcpcompany.uibindings.IConstantTreeItem;
 import com.rcpcompany.uibindings.navigator.views.AbstractNavigatorBaseViewAdvisor;
 import com.rcpcompany.uibindings.navigator.views.INavigatorBaseViewAdvisor;
 import com.rcpcompany.uibindings.tests.shop.Contact;
@@ -88,6 +89,12 @@ public class ShopNavigatorOrderAdvisor extends AbstractNavigatorBaseViewAdvisor 
 
 					final List<Customer> newCustomers = new ArrayList<Customer>();
 					EObject o = l.get(0);
+					/*
+					 * Virtual containers...
+					 */
+					if (o instanceof IConstantTreeItem) {
+						o = ((IConstantTreeItem) o).getTarget();
+					}
 					do {
 						if (o instanceof Customer) {
 							final Customer c = (Customer) o;
