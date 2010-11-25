@@ -205,7 +205,8 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 					elementType = ((EClass) elementType).getInstanceClass();
 				}
 				if (elementType != String.class) {
-					LogUtils.error(myValidUIList, "Element type must be String, but was " + elementType);
+					LogUtils.error(myValidUIList, getBinding() + ": Element type must be String, but was "
+							+ elementType);
 					myValidUIList = null;
 				}
 			}
@@ -554,7 +555,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 			final CEObjectHolder<IUIBindingDecoratorExtender> factory = d.getFactory();
 			final IUIBindingDecoratorExtender extender = factory.getObject();
 			if (extender == null) {
-				LogUtils.error(factory.getConfigurationElement(), "Cannot create extender"); //$NON-NLS-1$
+				LogUtils.error(factory.getConfigurationElement(), getBinding() + ": Cannot create extender"); //$NON-NLS-1$
 				continue;
 			}
 
