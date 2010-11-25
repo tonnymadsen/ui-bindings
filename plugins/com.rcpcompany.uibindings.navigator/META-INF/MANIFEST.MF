@@ -27,4 +27,5 @@ Import-Package: com.rcpcompany.uibindings,
  org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.impl,
  org.eclipse.emf.ecore.plugin,
- org.eclipse.emf.ecore.util
+ org.eclipse.emf.ecore.util,
+ org.eclipse.ui.forms.widgets
