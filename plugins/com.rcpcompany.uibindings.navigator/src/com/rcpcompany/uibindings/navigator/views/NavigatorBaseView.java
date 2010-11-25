@@ -26,15 +26,19 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
+import org.eclipse.ui.IMemento;
 import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.ISharedImages;
+import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.FilteredTree;
 import org.eclipse.ui.dialogs.PatternFilter;
@@ -58,6 +62,9 @@ import com.rcpcompany.utils.logging.LogUtils;
  * 
  * TODO: add follow selection
  * 
+ * TODO: replace FilterTree, to only add ViewerFilter to viewer when needed - otherwise problems
+ * with move item
+ * 
  * @author Tonny Madsen, The RCP Company
  */
 public class NavigatorBaseView extends ViewPart implements IExecutableExtension, ISetSelectionTarget {
@@ -78,7 +85,41 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 	 */
 	private boolean myIsLinkedWithEditors = false;
 
-	private FilteredTree myFilteredTree;
+	/**
+	 * Whether this the filter text is shown for this navigator...
+	 */
+	private boolean myShowFilterText = true;
+
+	public boolean isShowFilterText() {
+		return myShowFilterText;
+	}
+
+	public void setShowFilterText(boolean showFilterText) {
+		myShowFilterText = showFilterText;
+
+		if (myFilteredTree != null) {
+			myFilteredTree.showFilterText(myShowFilterText);
+		}
+	}
+
+	private MyFilteredTree myFilteredTree;
+
+	private IMemento myMemento;
+
+	@Override
+	public void init(IViewSite site, IMemento memento) throws PartInitException {
+		myMemento = memento;
+		super.init(site, memento);
+	}
+
+	@Override
+	public void saveState(IMemento memento) {
+		super.saveState(memento);
+
+		memento.putBoolean("IsLinkedWithEditors", isLinkedWithEditors());
+		memento.putBoolean("ShowFilterText", isShowFilterText());
+		memento.putBoolean("ConfSet", true);
+	}
 
 	/**
 	 * Sets whether this navigator is linked to the editors or not...
@@ -105,12 +146,21 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 		} catch (final Exception ex) {
 			LogUtils.error(myAdvisor, ex);
 		}
+		if (myMemento != null && myMemento.getBoolean("ConfSet")) {
+			setLinkedWithEditors(myMemento.getBoolean("LinkedWithEditors"));
+			setShowFilterText(myMemento.getBoolean("ShowFilterText"));
+		} else {
+			/*
+			 * Defaults from the advisor
+			 */
+		}
 		myContext = IBindingContext.Factory.createContext(parent);
 
 		final PatternFilter patternFilter = new TreePatternFilter();
-		myFilteredTree = new FilteredTree(parent, SWT.FULL_SELECTION | SWT.SINGLE | SWT.H_SCROLL | SWT.V_SCROLL
+		myFilteredTree = new MyFilteredTree(parent, SWT.FULL_SELECTION | SWT.SINGLE | SWT.H_SCROLL | SWT.V_SCROLL
 				| SWT.BORDER, patternFilter, true);
 		myTreeViewer = myFilteredTree.getViewer();
+		myFilteredTree.showFilterText(isShowFilterText());
 		myTree = myTreeViewer.getTree();
 		myTree.setHeaderVisible(false);
 		final TreeColumn column = new TreeColumn(myTree, SWT.LEAD);
@@ -155,6 +205,7 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 		final IToolBarManager toolbar = getViewSite().getActionBars().getToolBarManager();
 
 		toolbar.add(new LinkWithEditorContributionItem());
+		toolbar.add(new ShowFilterTextContributionItem());
 	}
 
 	/**
@@ -259,6 +310,78 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 		@Override
 		public void update() {
 			myItem.setSelection(isLinkedWithEditors());
+		}
+	}
+
+	/**
+	 * {@link IContributionItem} for "ShowFilterText".
+	 */
+	public class ShowFilterTextContributionItem extends ContributionItem {
+		private ToolItem myItem;
+
+		@Override
+		public void fill(ToolBar parent, int index) {
+			myItem = new ToolItem(parent, SWT.CHECK, index);
+			final ISharedImages sharedImages = PlatformUI.getWorkbench().getSharedImages();
+			// images from IWorkbenchGraphicConstants
+			final ImageRegistry imageRegistry = Activator.getDefault().getImageRegistry();
+			if (imageRegistry.getDescriptor("ShowFilterText") == null) {
+				imageRegistry.put("ShowFilterText",
+						AbstractUIPlugin.imageDescriptorFromPlugin(Activator.ID, "images/filter_16x16.gif"));
+			}
+			myItem.setImage(imageRegistry.get("ShowFilterText"));
+
+			myItem.setToolTipText("Show the tree filter");
+
+			myItem.addSelectionListener(new SelectionAdapter() {
+				@Override
+				public void widgetSelected(SelectionEvent e) {
+					setShowFilterText(!isShowFilterText());
+					update();
+				}
+			});
+		}
+
+		@Override
+		public void update() {
+			myItem.setSelection(isShowFilterText());
+		}
+	}
+
+	/**
+	 * Version of {@link FilteredTree} that allows the filter text to be shown/hidden
+	 */
+	public class MyFilteredTree extends FilteredTree {
+		/**
+		 * Constructs and returns a new filtered tree...
+		 * 
+		 * @param parent
+		 * @param treeStyle
+		 * @param filter
+		 * @param useNewLook
+		 */
+		public MyFilteredTree(Composite parent, int treeStyle, PatternFilter filter, boolean useNewLook) {
+			super(parent, treeStyle, filter, useNewLook);
+		}
+
+		/**
+		 * Whether to show the filter text of not.
+		 * 
+		 * @param show <code>true</code> if the filter text should be shown - <code>false</code>
+		 *            otherwise
+		 */
+		public void showFilterText(boolean show) {
+			if (!showFilterControls) return;
+
+			if (show == filterComposite.getVisible()) return;
+
+			/*
+			 * This is NOT pretty... but for now it works
+			 */
+			clearText();
+			filterComposite.setVisible(show);
+			((GridData) filterComposite.getLayoutData()).exclude = !show;
+			layout(true);
 		}
 	}
 
