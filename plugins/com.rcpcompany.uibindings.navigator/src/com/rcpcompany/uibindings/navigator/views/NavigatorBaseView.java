@@ -118,7 +118,6 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 
 		memento.putBoolean("IsLinkedWithEditors", isLinkedWithEditors());
 		memento.putBoolean("ShowFilterText", isShowFilterText());
-		memento.putBoolean("ConfSet", true);
 	}
 
 	/**
@@ -146,12 +145,19 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 		} catch (final Exception ex) {
 			LogUtils.error(myAdvisor, ex);
 		}
-		if (myMemento != null && myMemento.getBoolean("ConfSet")) {
-			setLinkedWithEditors(myMemento.getBoolean("LinkedWithEditors"));
-			setShowFilterText(myMemento.getBoolean("ShowFilterText"));
+		if (myMemento != null) {
+			Boolean b;
+			b = myMemento.getBoolean("LinkedWithEditors");
+			if (b != null) {
+				setLinkedWithEditors(b);
+			}
+			b = myMemento.getBoolean("ShowFilterText");
+			if (b != null) {
+				setShowFilterText(b);
+			}
 		} else {
 			/*
-			 * Defaults from the advisor
+			 * TODO Defaults from the advisor
 			 */
 		}
 		myContext = IBindingContext.Factory.createContext(parent);
