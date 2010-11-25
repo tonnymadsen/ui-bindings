@@ -552,6 +552,7 @@
       <treeItem
             id="com.rcpcompany.uibindings.shop.treeItems.shopItemGroups">
          <standardArguments
+               image="icons\group-16x16.gif"
                text="Groups"></standardArguments>
       </treeItem>
       <treeItem
