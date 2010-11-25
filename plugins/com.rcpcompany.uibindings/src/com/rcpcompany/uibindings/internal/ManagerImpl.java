@@ -1177,9 +1177,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		 */
 		for (final IConfigurationElement child : ce.getChildren(InternalConstants.NAVIGATOR_TAG)) {
 			attr = child.getAttribute(InternalConstants.ID_TAG);
-			if (attr == null || attr.length() == 0) {
-				LogUtils.error(child, "Required attribute '" + InternalConstants.ID_TAG + "' is empty. Ignored."); //$NON-NLS-1$
-				return;
+			if (attr == null) {
+				attr = "";
 			}
 			if (rel.getTreeIDs().contains(attr)) {
 				LogUtils.error(child, "Duplicate ID: '" + attr + "'. Ignored."); //$NON-NLS-1$ //$NON-NLS-2$
