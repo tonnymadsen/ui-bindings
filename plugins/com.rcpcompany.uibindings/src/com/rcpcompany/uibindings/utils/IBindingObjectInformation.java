@@ -58,7 +58,7 @@ public interface IBindingObjectInformation extends IBindingObjectLongName, IDisp
 		 */
 		public static String getQualifiedName(EObject obj) {
 			final IBindingObjectInformation ln = createObjectInformation(obj, Constants.TYPE_LONG_NAME);
-			final String name = ln.getLabel() + " " + ln.getName();
+			final String name = ln.getName() + " (" + ln.getLabel() + ")";
 			ln.dispose();
 			return name;
 		}
