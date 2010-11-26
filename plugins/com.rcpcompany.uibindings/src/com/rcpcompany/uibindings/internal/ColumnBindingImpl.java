@@ -166,9 +166,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	public IColumnBinding model(IColumnBinding baseCol, EStructuralFeature feature) {
 		assertTrue(baseCol != null, "No base column?"); //$NON-NLS-1$
 		assertTrue(baseCol.getViewerBinding() == getViewerBinding(), "Not same viewer"); //$NON-NLS-1$
-		assertTrue(feature != null, "No feature?"); //$NON-NLS-1$
 		setBaseColumn(baseCol);
-		return model(UIBindingsEMFObservables.valueFactory(Realm.getDefault(), getEditingDomain(), feature), feature);
+		return model(feature);
 	}
 
 	@Override
@@ -263,11 +262,19 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	}
 
 	@Override
-	public IColumnBinding model(IObservableFactory factory, EStructuralFeature type) {
+	public IColumnBinding model(IObservableFactory factory, EStructuralFeature feature) {
 		assertTrue(factory != null, "No factory?"); //$NON-NLS-1$
-		assertTrue(type != null, "No type?"); //$NON-NLS-1$
+		assertTrue(feature != null, "No type?"); //$NON-NLS-1$
 
-		return model(factory, IBindingDataType.Factory.create(factory, type));
+		return model(factory, IBindingDataType.Factory.create(factory, feature));
+	}
+
+	@Override
+	public IColumnBinding model(IColumnBinding baseColumn, IObservableFactory factory, EStructuralFeature feature) {
+		assertTrue(baseColumn != null, "No base column?"); //$NON-NLS-1$
+		assertTrue(baseColumn.getViewerBinding() == getViewerBinding(), "Not same viewer"); //$NON-NLS-1$
+		setBaseColumn(baseColumn);
+		return model(factory, feature);
 	}
 
 	@Override

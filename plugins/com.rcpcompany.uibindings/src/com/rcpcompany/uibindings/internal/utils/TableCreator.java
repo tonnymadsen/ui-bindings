@@ -15,7 +15,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.core.databinding.observable.list.IObservableList;
+import org.eclipse.core.databinding.observable.masterdetail.IObservableFactory;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EClass;
@@ -41,6 +43,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.SpecialBinding;
 import com.rcpcompany.uibindings.UIBindingsUtils;
+import com.rcpcompany.uibindings.observables.EListKeyedElementObservableValue;
 import com.rcpcompany.uibindings.utils.IBindingSpec;
 import com.rcpcompany.uibindings.utils.IBindingSpec.BaseType;
 import com.rcpcompany.uibindings.utils.IFilteringTableAdapter;
@@ -212,6 +215,7 @@ public class TableCreator implements ITableCreator {
 			 * Firste create the new column
 			 */
 			IColumnBinding foundColumn = null;
+			final EStructuralFeature feature;
 			switch (s.getType()) {
 			case NONE:
 				final TableColumn column = createColumn(0, SWT.NONE);
@@ -228,7 +232,7 @@ public class TableCreator implements ITableCreator {
 				/*
 				 * See if a column already exists for the feature
 				 */
-				final EStructuralFeature feature = s.getFeature();
+				feature = s.getFeature();
 				for (final IColumnBinding c : subColumns) {
 					if (feature == c.getDataType().getValueType()) {
 						foundColumn = c;
@@ -240,6 +244,41 @@ public class TableCreator implements ITableCreator {
 						foundColumn = addColumn(feature, 0);
 					} else {
 						foundColumn = addColumn(parentColumn, feature, 0);
+					}
+					foundColumn.getColumnAdapter().setResizable(false);
+					final int alignment = UIBindingsUtils.defaultAlignment(foundColumn.getDataType().getValueType());
+					if (alignment != SWT.NONE) {
+						foundColumn.getColumnAdapter().setAlignment(alignment);
+					}
+				}
+				break;
+			case KEY_VALUE:
+				/*
+				 * TODO See if a column already exists for the feature
+				 */
+				feature = s.getFeature();
+				// for (final IColumnBinding c : subColumns) {
+				// if (feature == c.getDataType().getValueType()) {
+				// foundColumn = c;
+				// break;
+				// }
+				// }
+				if (foundColumn == null) {
+					final IObservableFactory factory = new IObservableFactory() {
+						@Override
+						public IObservable createObservable(Object target) {
+							return new EListKeyedElementObservableValue<EObject>(getBinding().getContext()
+									.getEditingDomain(), (EObject) target, (EReference) feature, s.getKeyFeature(),
+									s.getKeyValue(), s.getValueFeature());
+						}
+					};
+					Assert.isNotNull(myViewerBinding);
+					final TableColumn newColumn = createColumn(0, SWT.RIGHT);
+					if (parentColumn == null) {
+						foundColumn = myViewerBinding.addColumn().column(newColumn).model(factory, s.getValueFeature());
+					} else {
+						foundColumn = myViewerBinding.addColumn().column(newColumn)
+								.model(parentColumn, factory, s.getValueFeature());
 					}
 					foundColumn.getColumnAdapter().setResizable(false);
 					final int alignment = UIBindingsUtils.defaultAlignment(foundColumn.getDataType().getValueType());

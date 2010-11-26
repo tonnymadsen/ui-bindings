@@ -50,8 +50,8 @@ public interface ShopItemProperties extends INamedObject {
 	void setValue(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Item</b></em>' reference. It is bidirectional and its
-	 * opposite is '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getProperties
+	 * Returns the value of the '<em><b>Item</b></em>' container reference. It is bidirectional and
+	 * its opposite is '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getProperties
 	 * <em>Properties</em>}'. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Item</em>' reference isn't clear, there really should be more of a
@@ -59,7 +59,7 @@ public interface ShopItemProperties extends INamedObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Item</em>' reference.
+	 * @return the value of the '<em>Item</em>' container reference.
 	 * @see #setItem(ShopItem)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItemProperties_Item()
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopItem#getProperties
@@ -70,9 +70,9 @@ public interface ShopItemProperties extends INamedObject {
 	/**
 	 * Sets the value of the '
 	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItemProperties#getItem <em>Item</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @param value the new value of the '<em>Item</em>' reference.
+	 * @param value the new value of the '<em>Item</em>' container reference.
 	 * @see #getItem()
 	 * @generated
 	 */

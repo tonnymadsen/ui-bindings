@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.swt.graphics.Font;
@@ -153,6 +154,7 @@ public final class BindingSpecFactory {
 
 			while (st.ttype == StreamTokenizer.TT_WORD) {
 				final String featureName = st.sval;
+				st.nextToken();
 				final IBindingSpec s;
 				if (type == null) {
 					LogUtils.throwException(startType, "In spec: '" + spec + "': Composite '" + featureName
@@ -168,32 +170,145 @@ public final class BindingSpecFactory {
 					s = new MyBindingSpecOther(BaseType.ROW_ELEMENT);
 					type = null;
 				} else {
-					EStructuralFeature feature = type.getEStructuralFeature(featureName);
+					final EStructuralFeature feature = findFeature(spec, type, featureName);
 					/*
-					 * No direct match... Try ignoring case!
+					 * PARSE: optional keyValueSpec:=***'('<name>'='<value>':'<name>'}'
 					 */
-					if (feature == null) {
-						for (final EStructuralFeature f : type.getEAllStructuralFeatures()) {
-							if (f.getName().equalsIgnoreCase(featureName)) {
-								feature = f;
-								break;
-							}
+					if (st.ttype == '{') {
+						st.nextToken();
+
+						/*
+						 * Feature must be to-many reference
+						 */
+						if (!(feature instanceof EReference)) {
+							LogUtils.throwException(startType, "In spec: '" + spec + "': Feature "
+									+ feature.getContainerClass().getName() + "." + feature.getName()
+									+ " is not reference", null);
 						}
-					}
-					if (feature == null) {
-						LogUtils.throwException(startType, "In spec: '" + spec + "': " + startType.getName() + "#"
-								+ featureName + " does not exist", null);
-						// Not reached!
-					}
-					s = new MyBindingSpecFeature(feature);
-					if (feature.getEType() instanceof EClass) {
+						if (!feature.isMany()) {
+							LogUtils.throwException(startType, "In spec: '" + spec + "': Feature "
+									+ feature.getContainerClass().getName() + "." + feature.getName() + "."
+									+ " must be to-many", null);
+						}
+						/*
+						 * Type of detail
+						 */
 						type = (EClass) feature.getEType();
+
+						/*
+						 * PARSE: keyValueSpec:='('***<name>'='<value>':'<name>'}'
+						 */
+						if (st.ttype != StreamTokenizer.TT_WORD) {
+							LogUtils.throwException(
+									type,
+									"In spec: '"
+											+ spec
+											+ "': In keyValueSpec:='(***'<name>'='<value>':'<name>'}': expected '<name>', got '"
+											+ st.toString() + "'", null);
+						}
+						final EStructuralFeature keyFeature = findFeature(spec, type, st.sval);
+						st.nextToken();
+
+						/*
+						 * PARSE: keyValueSpec:='('<name>***'='<value>':'<name>'}'
+						 */
+						if (st.ttype == '=') {
+							st.nextToken();
+						} else {
+							LogUtils.throwException(type, "In spec: '" + spec
+									+ "': In keyValueSpec:='('<name>***'='<value>':'<name>'}': expected '=', got '"
+									+ st.toString() + "'", null);
+						}
+
+						/*
+						 * PARSE: keyValueSpec:='('***<name>'='<value>':'<name>'}'
+						 */
+						Object keyValue = null;
+						switch (st.ttype) {
+						case StreamTokenizer.TT_NUMBER:
+							keyValue = (int) (st.nval);
+							st.nextToken();
+							break;
+						case StreamTokenizer.TT_WORD:
+							keyValue = st.sval;
+							st.nextToken();
+							break;
+						case '"':
+						case '\'':
+							keyValue = st.sval;
+							st.nextToken();
+							break;
+						default:
+							LogUtils.throwException(startType, "In spec: '" + spec
+									+ "': In keyValueSpec:='('<name>'='***<value>':'<name>'}': "
+									+ "expected one of integer, string or word, got '" + st.toString() + "'", null);
+						}
+
+						/*
+						 * PARSE: keyValueSpec:='('<name>'='<value>':'<name>***'}'
+						 */
+						if (st.ttype == ':') {
+							st.nextToken();
+						} else {
+							LogUtils.throwException(type, "In spec: '" + spec
+									+ "': In keyValueSpec:='('<name>'='<value>***':'<name>'}': expected ':', got '"
+									+ st.toString() + "'", null);
+						}
+
+						/*
+						 * PARSE: keyValueSpec:='('<name>'='<value>':'***<name>'}'
+						 */
+						if (st.ttype != StreamTokenizer.TT_WORD) {
+							LogUtils.throwException(
+									type,
+									"In spec: '"
+											+ spec
+											+ "': In keyValueSpec:='('<name>'='<value>':***'<name>'}': expected '<name>', got '"
+											+ st.toString() + "'", null);
+						}
+						final EStructuralFeature valueFeature = findFeature(spec, type, st.sval);
+						st.nextToken();
+
+						if (keyFeature == valueFeature) {
+							LogUtils.throwException(startType, "In spec: '" + spec
+									+ "': key and value features identical: "
+									+ keyFeature.getContainerClass().getName() + "." + keyFeature.getName(), null);
+						}
+
+						if (valueFeature.getEType() instanceof EClass) {
+							type = (EClass) feature.getEType();
+						} else {
+							type = null;
+						}
+
+						/*
+						 * PARSE: keyValueSpec:='('<name>'='<value>':'<name>***'}'
+						 */
+						if (st.ttype == '}') {
+							st.nextToken();
+						} else {
+							LogUtils.throwException(
+									type,
+									"In spec: '"
+											+ spec
+											+ "': In keyValueSpec:='('<name>'='<value>':'<name>'}': expected '}', got '"
+											+ st.toString() + "'", null);
+						}
+						s = new MyBindingSpecFeatureKeyValue(feature, keyFeature, keyValue, valueFeature);
 					} else {
-						type = null;
+						s = new MyBindingSpecFeature(feature);
+						if (feature.getEType() instanceof EClass) {
+							type = (EClass) feature.getEType();
+						} else {
+							type = null;
+						}
 					}
 				}
 				sl.add(s);
-				st.nextToken();
+
+				/*
+				 * PARSE: arguments:='('<name>{'='<value>}','++')'
+				 */
 				if (st.ttype == '(') {
 					st.nextToken();
 					final Map<String, Object> arguments = s.getArguments();
@@ -337,6 +452,33 @@ public final class BindingSpecFactory {
 	}
 
 	/**
+	 * @param spec
+	 * @param type
+	 * @param featureName
+	 * @return
+	 */
+	private static EStructuralFeature findFeature(String spec, EClass type, final String featureName) {
+		EStructuralFeature feature = type.getEStructuralFeature(featureName);
+		/*
+		 * No direct match... Try ignoring case!
+		 */
+		if (feature == null) {
+			for (final EStructuralFeature f : type.getEAllStructuralFeatures()) {
+				if (f.getName().equalsIgnoreCase(featureName)) {
+					feature = f;
+					break;
+				}
+			}
+		}
+		if (feature == null) {
+			LogUtils.throwException(type, "In spec: '" + spec + "': " + type.getName() + "#" + featureName
+					+ " does not exist", null);
+			// Not reached!
+		}
+		return feature;
+	}
+
+	/**
 	 * Creates and returns a new tokenizer for the specified string.
 	 * 
 	 * @param spec the specification string
@@ -358,7 +500,6 @@ public final class BindingSpecFactory {
 	}
 
 	protected static class MyBindingSpecFeature extends MyBindingSpecBase {
-
 		private final EStructuralFeature myFeature;
 
 		protected MyBindingSpecFeature(EStructuralFeature feature) {
@@ -373,6 +514,46 @@ public final class BindingSpecFactory {
 		@Override
 		public EStructuralFeature getFeature() {
 			return myFeature;
+		}
+	}
+
+	protected static class MyBindingSpecFeatureKeyValue extends MyBindingSpecBase {
+		private final EStructuralFeature myFeature;
+		private final EStructuralFeature myKeyFeature;
+		private final Object myKeyValue;
+		private final EStructuralFeature myValueFeature;
+
+		protected MyBindingSpecFeatureKeyValue(EStructuralFeature feature, EStructuralFeature keyFeature,
+				Object keyValue, EStructuralFeature valueFeature) {
+			myFeature = feature;
+			myKeyFeature = keyFeature;
+			myKeyValue = keyValue;
+			myValueFeature = valueFeature;
+		}
+
+		@Override
+		public BaseType getType() {
+			return BaseType.KEY_VALUE;
+		}
+
+		@Override
+		public EStructuralFeature getFeature() {
+			return myFeature;
+		}
+
+		@Override
+		public EStructuralFeature getKeyFeature() {
+			return myKeyFeature;
+		}
+
+		@Override
+		public Object getKeyValue() {
+			return myKeyValue;
+		}
+
+		@Override
+		public EStructuralFeature getValueFeature() {
+			return myValueFeature;
 		}
 	}
 
@@ -405,6 +586,21 @@ public final class BindingSpecFactory {
 				myArguments = new HashMap<String, Object>();
 			}
 			return myArguments;
+		}
+
+		@Override
+		public EStructuralFeature getKeyFeature() {
+			return null;
+		}
+
+		@Override
+		public Object getKeyValue() {
+			return null;
+		}
+
+		@Override
+		public EStructuralFeature getValueFeature() {
+			return null;
 		}
 	}
 }

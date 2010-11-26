@@ -154,7 +154,7 @@ public class EListKeyedElementObservableValue<T extends EObject> extends Abstrac
 
 	@Override
 	public EObject getObserved() {
-		return (EObject) mySourceOV.getValue();
+		return mySourceOV != null ? (EObject) mySourceOV.getValue() : mySource;
 	}
 
 	@Override

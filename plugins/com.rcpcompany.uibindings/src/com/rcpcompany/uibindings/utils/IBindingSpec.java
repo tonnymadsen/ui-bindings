@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.internal.utils.BindingSpecFactory;
+import com.rcpcompany.uibindings.observables.EListKeyedElementObservableValue;
 
 /**
  * This interface is used to parse a text string that describes a binding target in terms of a
@@ -73,7 +74,18 @@ public interface IBindingSpec {
 		 * 
 		 * @see IBindingSpec#getFeature()
 		 */
-		FEATURE("");
+		FEATURE(""),
+
+		/**
+		 * Spec is based on to-many feature with a key-value type.
+		 * 
+		 * @see IBindingSpec#getFeature()
+		 * @see IBindingSpec#getKeyFeature()
+		 * @see IBindingSpec#getKeyValue()
+		 * @see IBindingSpec#getValueFeature()
+		 * @see EListKeyedElementObservableValue
+		 */
+		KEY_VALUE("");
 
 		private final String myName;
 
@@ -96,10 +108,40 @@ public interface IBindingSpec {
 
 	/**
 	 * Returns the feature of this spec.
+	 * <p>
+	 * Only relevant for {@link #getType()}<code> == </code>{@link BaseType#FEATURE} or
+	 * {@link BaseType#KEY_VALUE}
 	 * 
 	 * @return the feature
 	 */
 	EStructuralFeature getFeature();
+
+	/**
+	 * Returns the key feature of this spec.
+	 * <p>
+	 * Only relevant for {@link #getType()}<code> == </code>{@link BaseType#KEY_VALUE}
+	 * 
+	 * @return the key feature
+	 */
+	EStructuralFeature getKeyFeature();
+
+	/**
+	 * Returns the key value of this spec.
+	 * <p>
+	 * Only relevant for {@link #getType()}<code> == </code>{@link BaseType#KEY_VALUE}
+	 * 
+	 * @return the key value
+	 */
+	Object getKeyValue();
+
+	/**
+	 * Returns the value feature of this spec.
+	 * <p>
+	 * Only relevant for {@link #getType()}<code> == </code>{@link BaseType#KEY_VALUE}
+	 * 
+	 * @return the value feature
+	 */
+	EStructuralFeature getValueFeature();
 
 	/**
 	 * Returns the associated arguments for the feature.

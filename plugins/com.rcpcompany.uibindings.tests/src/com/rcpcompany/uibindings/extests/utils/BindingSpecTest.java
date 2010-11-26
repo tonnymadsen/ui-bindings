@@ -16,6 +16,7 @@ import static org.junit.Assert.*;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.swt.graphics.Font;
@@ -94,6 +95,15 @@ public class BindingSpecTest {
 	}
 
 	@Test
+	public void testSimpleSpecKV() {
+		final List<IBindingSpec> spec = IBindingSpec.Factory.parseSingleSpec(ShopPackage.Literals.SHOP_ITEM,
+				"properties{name=here:value}(toolTipText=hello)");
+		assertEquals(1, spec.size());
+		specTestKV(spec.get(0), ShopPackage.Literals.SHOP_ITEM__PROPERTIES, IMOAOPackage.Literals.NAMED_OBJECT__NAME,
+				"here", ShopPackage.Literals.SHOP_ITEM_PROPERTIES__VALUE, IBindingSpec.TOOLTIP, "hello");
+	}
+
+	@Test
 	public void testSimpleSpecMapUnit1() {
 		final Display d = Display.getDefault();
 		final GC gc = new GC(d);
@@ -148,6 +158,12 @@ public class BindingSpecTest {
 		assertEquals(feature, s.getFeature());
 	}
 
+	public void specTestKV(IBindingSpec s, EStructuralFeature feature, EStructuralFeature keyFeature, Object key,
+			EStructuralFeature valueFeature, Object... vars) {
+		specTestOther(s, BaseType.KEY_VALUE, vars);
+		assertEquals(feature, s.getFeature());
+	}
+
 	public void specTestOther(IBindingSpec s, BaseType type, Object... vars) {
 		assertEquals(type, s.getType());
 
@@ -163,12 +179,12 @@ public class BindingSpecTest {
 		assertEquals(vars.length / 2, args.size());
 	}
 
-	public void testSimpleSpecSyntaxError(final String spec) {
+	public void testSimpleSpecSyntaxError(final EClass startType, final String spec) {
 		assertOneLog(new Runnable() {
 			@Override
 			public void run() {
 				try {
-					IBindingSpec.Factory.parseSingleSpec(ShopPackage.Literals.CONTACT, spec);
+					IBindingSpec.Factory.parseSingleSpec(startType, spec);
 					fail("Spec '" + spec + "' does not fail");
 				} catch (final RuntimeException ex) {
 					assertTrue(ex.getClass() == RuntimeException.class);
@@ -179,7 +195,7 @@ public class BindingSpecTest {
 
 	@Test
 	public void testSimpleSpecSyntaxError1() {
-		testSimpleSpecSyntaxError("country((");
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country((");
 	}
 
 	/**
@@ -192,12 +208,12 @@ public class BindingSpecTest {
 
 	@Test
 	public void testSimpleSpecSyntaxError3() {
-		testSimpleSpecSyntaxError("country..name");
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country..name");
 	}
 
 	@Test
 	public void testSimpleSpecSyntaxError4() {
-		testSimpleSpecSyntaxError("country#");
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country#");
 	}
 
 	/**
@@ -205,67 +221,113 @@ public class BindingSpecTest {
 	 */
 	@Test
 	public void testSimpleSpecSyntaxError5() {
-		testSimpleSpecSyntaxError("country(w)");
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country(w)");
 	}
 
 	@Test
 	public void testSimpleSpecSyntaxError6() {
-		testSimpleSpecSyntaxError("country(w=)");
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country(w=)");
+	}
+
+	@Test
+	public void testSimpleSpecSyntaxErrorKV1() {
+		testSimpleSpecSyntaxError(ShopPackage.Literals.SHOP_ITEM, "properties{name=here:value(toolTipText=hello)");
+	}
+
+	@Test
+	public void testSimpleSpecSyntaxErrorKV2() {
+		testSimpleSpecSyntaxError(ShopPackage.Literals.SHOP_ITEM, "properties{name=here:}(toolTipText=hello)");
+	}
+
+	@Test
+	public void testSimpleSpecSyntaxErrorKV3() {
+		testSimpleSpecSyntaxError(ShopPackage.Literals.SHOP_ITEM, "properties{name=here value}(toolTipText=hello)");
+	}
+
+	@Test
+	public void testSimpleSpecSyntaxErrorKV4() {
+		testSimpleSpecSyntaxError(ShopPackage.Literals.SHOP_ITEM,
+				"properties{name=here there:value}(toolTipText=hello)");
+	}
+
+	@Test
+	public void testSimpleSpecSyntaxErrorKV5() {
+		testSimpleSpecSyntaxError(ShopPackage.Literals.SHOP_ITEM, "properties{name= :value}(toolTipText=hello)");
+	}
+
+	@Test
+	public void testSimpleSpecSyntaxErrorKV6() {
+		testSimpleSpecSyntaxError(ShopPackage.Literals.SHOP_ITEM, "properties{name here:value}(toolTipText=hello)");
+	}
+
+	@Test
+	public void testSimpleSpecSyntaxErrorKV7() {
+		testSimpleSpecSyntaxError(ShopPackage.Literals.SHOP_ITEM, "properties{ =here:value}(toolTipText=hello)");
 	}
 
 	@Test
 	public void testSimpleSpecOther__NONE__MultiLevel() {
-		testSimpleSpecSyntaxError("__NONE__.name)");
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "__NONE__.name)");
 	}
 
 	@Test
 	public void testSimpleSpecOther__ROW_NO__MultiLevel() {
-		testSimpleSpecSyntaxError("__ROW_NO__.name)");
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "__ROW_NO__.name)");
 	}
 
 	@Test
 	public void testSimpleSpecOther__ROW_ELEMENT__MultiLevel() {
-		testSimpleSpecSyntaxError("__ROW_ELEMENT__.name)");
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "__ROW_ELEMENT__.name)");
 	}
 
 	@Test
 	public void testSimpleSpecUnitError1() {
-		testSimpleSpecSyntaxError("country(w=1 xx)");
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country(w=1 xx)");
 	}
 
 	@Test
 	public void testSimpleSpecUnitError2() {
-		testSimpleSpecSyntaxError("country(a=1 em)");
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country(a=1 em)");
 	}
 
 	@Test
 	public void testSimpleSpecTypeError1() {
-		testSimpleSpecSyntaxError("country.country");
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country.country");
 	}
 
 	@Test
 	public void testSimpleSpecTypeError2() {
-		testSimpleSpecSyntaxError("country.name.name");
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country.name.name");
 	}
 
 	@Test
 	public void testSimpleSpecTypeError3() {
-		testSimpleSpecSyntaxError("country2");
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country2");
 	}
 
 	@Test
 	public void testSimpleSpecTypeError4() {
-		testSimpleSpecSyntaxError("country(w=w)");
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country(w=w)");
 	}
 
 	@Test
 	public void testSimpleSpecTypeError5() {
-		testSimpleSpecSyntaxError("country(w2=2)");
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country(w2=2)");
 	}
 
 	@Test
 	public void testSimpleSpecTypeError6() {
-		testSimpleSpecSyntaxError("country(tooltiptext=2)");
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country(tooltiptext=2)");
+	}
+
+	@Test
+	public void testSimpleSpecTypeError7() {
+		testSimpleSpecSyntaxError(ShopPackage.Literals.SHOP_ITEM, "properties{name2=here:value}(toolTipText=hello)");
+	}
+
+	@Test
+	public void testSimpleSpecTypeError8() {
+		testSimpleSpecSyntaxError(ShopPackage.Literals.SHOP_ITEM, "properties{name=here:value2}(toolTipText=hello)");
 	}
 
 }

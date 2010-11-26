@@ -911,6 +911,16 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getShopInformation_Value() {
+		return (EAttribute) shopInformationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getShopURL() {
 		return shopURLEClass;
 	}
@@ -1072,6 +1082,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		createEAttribute(shopItemURLEClass, SHOP_ITEM_URL__URL);
 
 		shopInformationEClass = createEClass(SHOP_INFORMATION);
+		createEAttribute(shopInformationEClass, SHOP_INFORMATION__VALUE);
 
 		shopURLEClass = createEClass(SHOP_URL);
 		createEAttribute(shopURLEClass, SHOP_URL__URL);
@@ -1225,7 +1236,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		initEAttribute(getShopItem_Locations(), ecorePackage.getEString(), "locations", null, 0, -1, ShopItem.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getShopItem_Properties(), this.getShopItemProperties(), this.getShopItemProperties_Item(),
-				"properties", null, 0, -1, ShopItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				"properties", null, 0, -1, ShopItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(shopItemEClass, ecorePackage.getEBoolean(), "namePriceOK", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1253,7 +1264,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getShopItemProperties_Item(), this.getShopItem(), this.getShopItem_Properties(), "item", null,
 				0, 1, ShopItemProperties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getShopItemProperties_Item().getEKeys().add(theMOAOPackage.getNamedObject_Name());
 
 		initEClass(shopItemGroupEClass, ShopItemGroup.class, "ShopItemGroup", !IS_ABSTRACT, !IS_INTERFACE,
@@ -1361,6 +1372,9 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 		initEClass(shopInformationEClass, ShopInformation.class, "ShopInformation", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getShopInformation_Value(), theEcorePackage.getEString(), "value", null, 0, 1,
+				ShopInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(shopURLEClass, ShopURL.class, "ShopURL", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getShopURL_Url(), ecorePackage.getEString(), "url", null, 0, 1, ShopURL.class, !IS_TRANSIENT,

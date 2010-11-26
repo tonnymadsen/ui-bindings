@@ -459,8 +459,8 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM__LOCATIONS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Properties</b></em>' reference list. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -533,8 +533,8 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM_PROPERTIES__VALUE = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Item</b></em>' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Item</b></em>' container reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1131,13 +1131,22 @@ public interface ShopPackage extends EPackage {
 	int SHOP_INFORMATION__UUID = IMOAOPackage.NAMED_OBJECT__UUID;
 
 	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_INFORMATION__VALUE = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Information</em>' class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_INFORMATION_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 0;
+	int SHOP_INFORMATION_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.impl.ShopURLImpl
@@ -1184,6 +1193,15 @@ public interface ShopPackage extends EPackage {
 	 * @ordered
 	 */
 	int SHOP_URL__UUID = SHOP_INFORMATION__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_URL__VALUE = SHOP_INFORMATION__VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Url</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -1248,6 +1266,15 @@ public interface ShopPackage extends EPackage {
 	 * @ordered
 	 */
 	int SHOP_ADDRESS__UUID = SHOP_INFORMATION__UUID;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_ADDRESS__VALUE = SHOP_INFORMATION__VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Url</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -1616,11 +1643,11 @@ public interface ShopPackage extends EPackage {
 	EAttribute getShopItem_Locations();
 
 	/**
-	 * Returns the meta object for the reference list '
+	 * Returns the meta object for the containment reference list '
 	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItem#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the reference list '<em>Properties</em>'.
+	 * @return the meta object for the containment reference list '<em>Properties</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopItem#getProperties()
 	 * @see #getShopItem()
 	 * @generated
@@ -2054,6 +2081,18 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getShopInformation();
+
+	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.tests.shop.ShopInformation#getValue <em>Value</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopInformation#getValue()
+	 * @see #getShopInformation()
+	 * @generated
+	 */
+	EAttribute getShopInformation_Value();
 
 	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.ShopURL
@@ -2710,6 +2749,14 @@ public interface ShopPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SHOP_INFORMATION = eINSTANCE.getShopInformation();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute SHOP_INFORMATION__VALUE = eINSTANCE.getShopInformation_Value();
 
 		/**
 		 * The meta object literal for the '

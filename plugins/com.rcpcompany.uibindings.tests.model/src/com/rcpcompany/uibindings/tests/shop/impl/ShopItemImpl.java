@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -429,7 +430,7 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 	@Override
 	public EList<ShopItemProperties> getProperties() {
 		if (properties == null) {
-			properties = new EObjectWithInverseEList<ShopItemProperties>(ShopItemProperties.class, this,
+			properties = new EObjectContainmentWithInverseEList<ShopItemProperties>(ShopItemProperties.class, this,
 					ShopPackage.SHOP_ITEM__PROPERTIES, ShopPackage.SHOP_ITEM_PROPERTIES__ITEM);
 		}
 		return properties;

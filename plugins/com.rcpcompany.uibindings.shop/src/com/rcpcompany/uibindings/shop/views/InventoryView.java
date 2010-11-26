@@ -62,7 +62,7 @@ public class InventoryView extends ViewPart {
 		table.addColumn("forSale(w=2em)");
 		table.addColumn("group(w=10em)");
 		table.addColumn("price(w=10em)");
-		// table.addColumn("properties{name='type': value}(w=10em)");
+		table.addColumn("properties{name='type': value}(w=10em,label='Type')");
 
 		final IFormCreator pSection = myForm.addSection("Properties", table.getBinding().getSingleSelection());
 		final ITableCreator pTable = pSection.addTableCreator(ShopPackage.Literals.SHOP_ITEM__PROPERTIES, true,
@@ -91,6 +91,7 @@ public class InventoryView extends ViewPart {
 		details.addField("forSale(w=4em)");
 		details.addField("group(w=10em)");
 		details.addField("price(w=10em)");
+		details.addField("properties{name='type': value}(w=10em,label='Type')");
 
 		final IObservableList list = WritableList.withElementType(EClass.class);
 		list.add(ShopPackage.Literals.SHOP_ITEM_DESCRIPTION);

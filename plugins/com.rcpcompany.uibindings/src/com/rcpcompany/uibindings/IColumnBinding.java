@@ -162,12 +162,12 @@ public interface IColumnBinding extends IBinding {
 	 * Binds this binding via a observable value factory.
 	 * 
 	 * @param factory the factory
-	 * @param type the result type of the factory - e.g.
+	 * @param feature the result type of the factory - e.g.
 	 *            <code>factory.createObservable(...).getValueType()</code>
 	 * 
 	 * @return <code>this</code>
 	 */
-	IColumnBinding model(IObservableFactory factory, EStructuralFeature type);
+	IColumnBinding model(IObservableFactory factory, EStructuralFeature feature);
 
 	/**
 	 * Binds this binding to the specified EMF features based on the result of another column.
@@ -181,6 +181,18 @@ public interface IColumnBinding extends IBinding {
 	 * @return <code>this</code>
 	 */
 	IColumnBinding model(IColumnBinding baseColumn, EStructuralFeature feature);
+
+	/**
+	 * Binds this binding via a observable value factory based on the result of another column.
+	 * 
+	 * @param baseColumn base column
+	 * @param factory the factory
+	 * @param feature the result type of the factory - e.g.
+	 *            <code>factory.createObservable(...).getValueType()</code>
+	 * 
+	 * @return <code>this</code>
+	 */
+	IColumnBinding model(IColumnBinding baseColumn, IObservableFactory factory, EStructuralFeature feature);
 
 	/**
 	 * Sets the type of the binding. Defaults to "<code>basic</code>".

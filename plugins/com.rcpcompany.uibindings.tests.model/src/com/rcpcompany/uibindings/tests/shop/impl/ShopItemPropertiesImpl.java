@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.rcpcompany.uibindings.moao.internal.NamedObjectImpl;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
@@ -51,16 +52,6 @@ public class ShopItemPropertiesImpl extends NamedObjectImpl implements ShopItemP
 	 * @ordered
 	 */
 	protected String value = VALUE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getItem() <em>Item</em>}' reference. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getItem()
-	 * @generated
-	 * @ordered
-	 */
-	protected ShopItem item;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -113,26 +104,8 @@ public class ShopItemPropertiesImpl extends NamedObjectImpl implements ShopItemP
 	 */
 	@Override
 	public ShopItem getItem() {
-		if (item != null && item.eIsProxy()) {
-			final InternalEObject oldItem = (InternalEObject) item;
-			item = (ShopItem) eResolveProxy(oldItem);
-			if (item != oldItem) {
-				if (eNotificationRequired()) {
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ShopPackage.SHOP_ITEM_PROPERTIES__ITEM,
-							oldItem, item));
-				}
-			}
-		}
-		return item;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public ShopItem basicGetItem() {
-		return item;
+		if (eContainerFeatureID() != ShopPackage.SHOP_ITEM_PROPERTIES__ITEM) return null;
+		return (ShopItem) eContainer();
 	}
 
 	/**
@@ -141,17 +114,7 @@ public class ShopItemPropertiesImpl extends NamedObjectImpl implements ShopItemP
 	 * @generated
 	 */
 	public NotificationChain basicSetItem(ShopItem newItem, NotificationChain msgs) {
-		final ShopItem oldItem = item;
-		item = newItem;
-		if (eNotificationRequired()) {
-			final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					ShopPackage.SHOP_ITEM_PROPERTIES__ITEM, oldItem, newItem);
-			if (msgs == null) {
-				msgs = notification;
-			} else {
-				msgs.add(notification);
-			}
-		}
+		msgs = eBasicSetContainer((InternalEObject) newItem, ShopPackage.SHOP_ITEM_PROPERTIES__ITEM, msgs);
 		return msgs;
 	}
 
@@ -162,11 +125,13 @@ public class ShopItemPropertiesImpl extends NamedObjectImpl implements ShopItemP
 	 */
 	@Override
 	public void setItem(ShopItem newItem) {
-		if (newItem != item) {
+		if (newItem != eInternalContainer()
+				|| (eContainerFeatureID() != ShopPackage.SHOP_ITEM_PROPERTIES__ITEM && newItem != null)) {
+			if (EcoreUtil.isAncestor(this, newItem))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
-			if (item != null) {
-				msgs = ((InternalEObject) item).eInverseRemove(this, ShopPackage.SHOP_ITEM__PROPERTIES, ShopItem.class,
-						msgs);
+			if (eInternalContainer() != null) {
+				msgs = eBasicRemoveFromContainer(msgs);
 			}
 			if (newItem != null) {
 				msgs = ((InternalEObject) newItem).eInverseAdd(this, ShopPackage.SHOP_ITEM__PROPERTIES, ShopItem.class,
@@ -191,9 +156,8 @@ public class ShopItemPropertiesImpl extends NamedObjectImpl implements ShopItemP
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case ShopPackage.SHOP_ITEM_PROPERTIES__ITEM:
-			if (item != null) {
-				msgs = ((InternalEObject) item).eInverseRemove(this, ShopPackage.SHOP_ITEM__PROPERTIES, ShopItem.class,
-						msgs);
+			if (eInternalContainer() != null) {
+				msgs = eBasicRemoveFromContainer(msgs);
 			}
 			return basicSetItem((ShopItem) otherEnd, msgs);
 		}
@@ -220,13 +184,26 @@ public class ShopItemPropertiesImpl extends NamedObjectImpl implements ShopItemP
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+		case ShopPackage.SHOP_ITEM_PROPERTIES__ITEM:
+			return eInternalContainer().eInverseRemove(this, ShopPackage.SHOP_ITEM__PROPERTIES, ShopItem.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case ShopPackage.SHOP_ITEM_PROPERTIES__VALUE:
 			return getValue();
 		case ShopPackage.SHOP_ITEM_PROPERTIES__ITEM:
-			if (resolve) return getItem();
-			return basicGetItem();
+			return getItem();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -278,7 +255,7 @@ public class ShopItemPropertiesImpl extends NamedObjectImpl implements ShopItemP
 		case ShopPackage.SHOP_ITEM_PROPERTIES__VALUE:
 			return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		case ShopPackage.SHOP_ITEM_PROPERTIES__ITEM:
-			return item != null;
+			return getItem() != null;
 		}
 		return super.eIsSet(featureID);
 	}

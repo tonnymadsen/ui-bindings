@@ -63,6 +63,7 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.UIBindingsUtils;
+import com.rcpcompany.uibindings.observables.EListKeyedElementObservableValue;
 import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
 import com.rcpcompany.uibindings.utils.IBindingSpec;
 import com.rcpcompany.uibindings.utils.IFormChooser;
@@ -1096,11 +1097,31 @@ public class FormCreator implements IFormCreator {
 				myObservables.put(currentValue, features);
 			}
 
+			switch (s.getType()) {
+			case NONE:
+			case ROW_NO:
+			case ROW_ELEMENT:
+				LogUtils.throwException(this, "Spec element type not supported in form: '" + s.getType() + "'", null);
+				return null;
+			case FEATURE:
+			case KEY_VALUE:
+				break;
+			}
 			final EStructuralFeature feature = s.getFeature();
 			IObservableValue value = features.get(feature);
 			if (value == null) {
-				value = UIBindingsEMFObservables.observeDetailValue(getContext().getEditingDomain(), currentValue,
-						feature);
+				switch (s.getType()) {
+				default:
+					break;
+				case FEATURE:
+					value = UIBindingsEMFObservables.observeDetailValue(getContext().getEditingDomain(), currentValue,
+							feature);
+					break;
+				case KEY_VALUE:
+					value = new EListKeyedElementObservableValue<EObject>(getContext().getEditingDomain(),
+							currentValue, (EReference) feature, s.getKeyFeature(), s.getKeyValue(), s.getValueFeature());
+					break;
+				}
 				features.put(feature, value);
 			}
 
