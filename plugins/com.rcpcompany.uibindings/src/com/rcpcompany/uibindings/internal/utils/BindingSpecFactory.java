@@ -190,6 +190,12 @@ public final class BindingSpecFactory {
 									+ feature.getContainerClass().getName() + "." + feature.getName() + "."
 									+ " must be to-many", null);
 						}
+						if (!((EReference) feature).isContainment()) {
+							LogUtils.throwException(startType, "In spec: '" + spec + "': Feature "
+									+ feature.getContainerClass().getName() + "." + feature.getName()
+									+ " must be containment", null);
+						}
+
 						/*
 						 * Type of detail
 						 */
@@ -287,12 +293,9 @@ public final class BindingSpecFactory {
 						if (st.ttype == '}') {
 							st.nextToken();
 						} else {
-							LogUtils.throwException(
-									type,
-									"In spec: '"
-											+ spec
-											+ "': In keyValueSpec:='('<name>'='<value>':'<name>'}': expected '}', got '"
-											+ st.toString() + "'", null);
+							LogUtils.throwException(type, "In spec: '" + spec
+									+ "': In keyValueSpec:='('<name>'='<value>':'<name>***'}': expected '}', got '"
+									+ st.toString() + "'", null);
 						}
 						s = new MyBindingSpecFeatureKeyValue(feature, keyFeature, keyValue, valueFeature);
 					} else {
