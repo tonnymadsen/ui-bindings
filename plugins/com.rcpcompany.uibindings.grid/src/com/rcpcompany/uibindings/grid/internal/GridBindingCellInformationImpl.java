@@ -1012,7 +1012,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 			 */
 			if (rowID == IGridModel.HEADER1) {
 				final GridColumn gridColumn = column.getGridColumn();
-				gridColumn.setWidth(lb.getArgument(Constants.ARG_WIDTH, Integer.class, 100));
+				gridColumn.setWidth(lb.getArgument(Constants.ARG_WIDTH, Integer.class, 60));
 
 				// TODO: cell renderer
 				// TODO: alignment

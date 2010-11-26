@@ -409,7 +409,7 @@ public class GridBindingColumnInformationImpl extends EObjectImpl implements IGr
 	}
 
 	/**
-	 * Initializes the column object
+	 * Initializes the column object.
 	 * 
 	 * @param grid the grind binding
 	 * @param columnID the column ID object
@@ -426,7 +426,6 @@ public class GridBindingColumnInformationImpl extends EObjectImpl implements IGr
 			gridColumn.setMoveable(true);
 			gridColumn.setResizeable(true);
 			// TODO gridColumn.setVisible(false);
-			// TODO gridColumn.setWidth(index);
 			gridColumn.setCellRenderer(new UIPainterCellRenderer(this));
 		}
 
