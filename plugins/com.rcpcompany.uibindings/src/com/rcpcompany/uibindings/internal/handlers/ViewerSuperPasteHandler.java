@@ -10,7 +10,6 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.internal.handlers;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -56,7 +55,8 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 
 		final Clipboard clipboard = IManager.Factory.getManager().getClipboard();
 
-		LogUtils.debug(this, "Available Types: " + Arrays.toString(clipboard.getAvailableTypeNames()));
+		// LogUtils.debug(this, "Available Types: " +
+		// Arrays.toString(clipboard.getAvailableTypeNames()));
 		String[][] result = null;
 		// TODO Add support for "Csv"
 		// TODO Add support for "Rich Text Format"
@@ -77,9 +77,9 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 			return null;
 		}
 
-		for (final String[] l : result) {
-			LogUtils.debug(this, "line: " + Arrays.toString(l));
-		}
+		// for (final String[] l : result) {
+		// LogUtils.debug(this, "line: " + Arrays.toString(l));
+		// }
 
 		final int rows = result.length;
 		final int columns = result[0].length;
@@ -174,10 +174,10 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 			contents = contents.substring(0, contents.length() - 1);
 		}
 		contents = contents.replace("\r", "");
-		LogUtils.debug(this, "s='" + contents + "'");
+		// LogUtils.debug(this, "s='" + contents + "'");
 		final String[] lines = contents.split("\n");
 		final int noLines = lines.length;
-		LogUtils.debug(this, "# " + noLines);
+		// LogUtils.debug(this, "# " + noLines);
 		final String[][] result = new String[noLines][0];
 		for (int i = 0; i < lines.length; i++) {
 			result[i] = lines[i].split("\t");
