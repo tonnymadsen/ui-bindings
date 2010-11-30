@@ -41,6 +41,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Layout;
@@ -63,7 +64,6 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.UIBindingsUtils;
-import com.rcpcompany.uibindings.observables.EListKeyedElementObservableValue;
 import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
 import com.rcpcompany.uibindings.utils.IBindingSpec;
 import com.rcpcompany.uibindings.utils.IFormChooser;
@@ -71,6 +71,7 @@ import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.utils.ITableCreator;
 import com.rcpcompany.uibindings.validators.EValidatorAdapter;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
+import com.rcpcompany.utils.basic.ToStringUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -206,13 +207,6 @@ public class FormCreator implements IFormCreator {
 		myToolkit = toolkit;
 		if (topForm == null) {
 			myTopForm = this;
-
-			myFocusListener = new Listener() {
-				@Override
-				public void handleEvent(Event event) {
-					myLastFocusControl = (Control) event.widget;
-				}
-			};
 		} else {
 			myTopForm = topForm;
 			setReadOnly(myTopForm.isReadOnly());
@@ -245,12 +239,6 @@ public class FormCreator implements IFormCreator {
 		myToolkit = toolkit;
 		myTopForm = this;
 
-		myFocusListener = new Listener() {
-			@Override
-			public void handleEvent(Event event) {
-				myLastFocusControl = (Control) event.widget;
-			}
-		};
 		myContext = IBindingContext.Factory.createContext(page);
 		myObservableValue = createIOV(parent, obj);
 		myTop = createTopComposite(parent);
@@ -528,9 +516,7 @@ public class FormCreator implements IFormCreator {
 		 * Create the real control/controls
 		 */
 		final Composite parent = description.placeholderControl.getParent();
-		final Control c;
-
-		c = description.binding.createPreferredControl(parent, style | myToolkit.getBorderStyle(), false);
+		final Control c = description.binding.createPreferredControl(parent, style | myToolkit.getBorderStyle(), false);
 
 		/*
 		 * Figure out the layout to use
@@ -565,8 +551,47 @@ public class FormCreator implements IFormCreator {
 		description.placeholderControl = c;
 	}
 
+	private Set<Control> myDecoratedControls = null;
+
+	private Listener myDisposeListener;
+
+	/**
+	 * Adds any extra needed decoration to the specified control.
+	 * 
+	 * @param c the control to decorate
+	 */
 	protected void decorateControl(Control c) {
+		if (myDecoratedControls == null) {
+			myDecoratedControls = new HashSet<Control>();
+		}
+
+		if (myDecoratedControls.contains(c)) return;
+
+		if (myDisposeListener == null) {
+			myDisposeListener = new Listener() {
+				@Override
+				public void handleEvent(Event event) {
+					myDecoratedControls.remove(event.widget);
+				}
+			};
+		}
+		c.addListener(SWT.Dispose, myDisposeListener);
+
+		if (myFocusListener == null) {
+			myFocusListener = new Listener() {
+				@Override
+				public void handleEvent(Event event) {
+					if (myLastFocusControl == (Control) event.widget) return;
+					myLastFocusControl = (Control) event.widget;
+					// LogUtils.debug(FormCreator.this, ToStringUtils.toPath(myLastFocusControl));
+				}
+			};
+		}
 		c.addListener(SWT.FocusIn, myFocusListener);
+
+		if (c != getContext().getTop()) {
+			decorateControl(c.getParent());
+		}
 	}
 
 	@Override
@@ -593,8 +618,12 @@ public class FormCreator implements IFormCreator {
 		/*
 		 * Set the focus to the first focusable widget of the top composite
 		 */
-		if (myLastFocusControl != null && !myLastFocusControl.isDisposed()) {
-			myLastFocusControl.setFocus();
+		final Control focusControl = Display.getCurrent().getFocusControl();
+		final String ws = ToStringUtils.toPath(focusControl);
+		final String is = ToStringUtils.toPath(myLastFocusControl);
+		// LogUtils.debug(this, "FOCUS\nwas: " + ws + "\nlast: " + is);
+		if (myLastFocusControl != null && !myLastFocusControl.isDisposed() && myLastFocusControl != focusControl) {
+			myLastFocusControl.forceFocus();
 		} else {
 			getTop().setFocus();
 		}
@@ -1097,31 +1126,11 @@ public class FormCreator implements IFormCreator {
 				myObservables.put(currentValue, features);
 			}
 
-			switch (s.getType()) {
-			case NONE:
-			case ROW_NO:
-			case ROW_ELEMENT:
-				LogUtils.throwException(this, "Spec element type not supported in form: '" + s.getType() + "'", null);
-				return null;
-			case FEATURE:
-			case KEY_VALUE:
-				break;
-			}
 			final EStructuralFeature feature = s.getFeature();
 			IObservableValue value = features.get(feature);
 			if (value == null) {
-				switch (s.getType()) {
-				default:
-					break;
-				case FEATURE:
-					value = UIBindingsEMFObservables.observeDetailValue(getContext().getEditingDomain(), currentValue,
-							feature);
-					break;
-				case KEY_VALUE:
-					value = new EListKeyedElementObservableValue<EObject>(getContext().getEditingDomain(),
-							currentValue, (EReference) feature, s.getKeyFeature(), s.getKeyValue(), s.getValueFeature());
-					break;
-				}
+				value = UIBindingsEMFObservables.observeDetailValue(getContext().getEditingDomain(), currentValue,
+						feature);
 				features.put(feature, value);
 			}
 
