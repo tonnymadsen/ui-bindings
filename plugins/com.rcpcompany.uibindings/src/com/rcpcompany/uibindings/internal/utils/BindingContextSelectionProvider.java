@@ -138,7 +138,9 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	@Override
 	public void removeControl(Control control) {
 		myProviders.remove(control);
-		control.setMenu(null);
+		if (!control.isDisposed()) {
+			control.setMenu(null);
+		}
 		checkFocus();
 	}
 
