@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: com.rcpcompany.utils.basic
-Bundle-Version: 1.1.0.qualifier
+Bundle-Version: 1.1.1.qualifier
 Bundle-Vendor: %Bundle-Vendor
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: com.rcpcompany.utils.basic,
@@ -13,3 +13,4 @@ Import-Package: org.eclipse.emf.common.notify,
  org.eclipse.swt,
  org.eclipse.swt.events,
  org.eclipse.swt.widgets
+Bundle-ActivationPolicy: lazy
