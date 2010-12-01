@@ -68,7 +68,7 @@ public interface IMOAOPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.moao.internal.MOAOPackageImpl#getIAdaptable()
 	 * @generated
 	 */
-	int IADAPTABLE = 2;
+	int IADAPTABLE = 3;
 
 	/**
 	 * The number of structural features of the '<em>IAdaptable</em>' class. <!-- begin-user-doc -->
@@ -90,13 +90,13 @@ public interface IMOAOPackage extends EPackage {
 	int MOAO = 0;
 
 	/**
-	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int MOAO__MESSAGES = IADAPTABLE_FEATURE_COUNT + 0;
+	int MOAO__FACETS = IADAPTABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>MOAO</em>' class. <!-- begin-user-doc --> <!--
@@ -108,6 +108,43 @@ public interface IMOAOPackage extends EPackage {
 	int MOAO_FEATURE_COUNT = IADAPTABLE_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.moao.internal.MOAOFacetImpl
+	 * <em>Facet</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see com.rcpcompany.uibindings.moao.internal.MOAOFacetImpl
+	 * @see com.rcpcompany.uibindings.moao.internal.MOAOPackageImpl#getMOAOFacet()
+	 * @generated
+	 */
+	int MOAO_FACET = 1;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MOAO_FACET__FACETS = MOAO__FACETS;
+
+	/**
+	 * The feature id for the '<em><b>Object</b></em>' container reference. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MOAO_FACET__OBJECT = MOAO_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Facet</em>' class. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MOAO_FACET_FEATURE_COUNT = MOAO_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.moao.internal.NamedObjectImpl
 	 * <em>Named Object</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -115,16 +152,16 @@ public interface IMOAOPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.moao.internal.MOAOPackageImpl#getNamedObject()
 	 * @generated
 	 */
-	int NAMED_OBJECT = 1;
+	int NAMED_OBJECT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_OBJECT__MESSAGES = MOAO__MESSAGES;
+	int NAMED_OBJECT__FACETS = MOAO__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -170,16 +207,16 @@ public interface IMOAOPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.moao.internal.MOAOPackageImpl#getMOAOMessage()
 	 * @generated
 	 */
-	int MOAO_MESSAGE = 3;
+	int MOAO_MESSAGE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Owner</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int MOAO_MESSAGE__OWNER = 0;
+	int MOAO_MESSAGE__FACETS = MOAO_FACET__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Object</b></em>' container reference. <!-- begin-user-doc -->
@@ -188,7 +225,16 @@ public interface IMOAOPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOAO_MESSAGE__OBJECT = 1;
+	int MOAO_MESSAGE__OBJECT = MOAO_FACET__OBJECT;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MOAO_MESSAGE__OWNER = MOAO_FACET_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Feature</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -197,7 +243,7 @@ public interface IMOAOPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOAO_MESSAGE__FEATURE = 2;
+	int MOAO_MESSAGE__FEATURE = MOAO_FACET_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -206,7 +252,7 @@ public interface IMOAOPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOAO_MESSAGE__DESCRIPTION = 3;
+	int MOAO_MESSAGE__DESCRIPTION = MOAO_FACET_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Severity</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -215,7 +261,7 @@ public interface IMOAOPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOAO_MESSAGE__SEVERITY = 4;
+	int MOAO_MESSAGE__SEVERITY = MOAO_FACET_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Details</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -224,7 +270,7 @@ public interface IMOAOPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOAO_MESSAGE__DETAILS = 5;
+	int MOAO_MESSAGE__DETAILS = MOAO_FACET_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Message</em>' class. <!-- begin-user-doc -->
@@ -233,7 +279,7 @@ public interface IMOAOPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOAO_MESSAGE_FEATURE_COUNT = 6;
+	int MOAO_MESSAGE_FEATURE_COUNT = MOAO_FACET_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecore.EStructuralFeature
@@ -243,7 +289,7 @@ public interface IMOAOPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.moao.internal.MOAOPackageImpl#getEStructuralFeature()
 	 * @generated
 	 */
-	int ESTRUCTURAL_FEATURE = 4;
+	int ESTRUCTURAL_FEATURE = 5;
 
 	/**
 	 * The number of structural features of the '<em>EStructural Feature</em>' class. <!--
@@ -262,7 +308,7 @@ public interface IMOAOPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.moao.internal.MOAOPackageImpl#getSeverity()
 	 * @generated
 	 */
-	int SEVERITY = 5;
+	int SEVERITY = 6;
 
 	/**
 	 * The meta object id for the '<em>Diagnostic Chain</em>' data type. <!-- begin-user-doc -->
@@ -272,7 +318,7 @@ public interface IMOAOPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.moao.internal.MOAOPackageImpl#getDiagnosticChain()
 	 * @generated
 	 */
-	int DIAGNOSTIC_CHAIN = 6;
+	int DIAGNOSTIC_CHAIN = 7;
 
 	/**
 	 * The meta object id for the '<em>Map</em>' data type. <!-- begin-user-doc --> <!--
@@ -282,7 +328,7 @@ public interface IMOAOPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.moao.internal.MOAOPackageImpl#getMap()
 	 * @generated
 	 */
-	int MAP = 7;
+	int MAP = 8;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type. <!-- begin-user-doc --> <!--
@@ -292,7 +338,7 @@ public interface IMOAOPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.moao.internal.MOAOPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 8;
+	int EXCEPTION = 9;
 
 	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.moao.IMOAO <em>MOAO</em>}
@@ -306,15 +352,37 @@ public interface IMOAOPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the containment reference list '
-	 * {@link com.rcpcompany.uibindings.moao.IMOAO#getMessages <em>Messages</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.moao.IMOAO#getFacets <em>Facets</em>}'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the containment reference list '<em>Messages</em>'.
-	 * @see com.rcpcompany.uibindings.moao.IMOAO#getMessages()
+	 * @return the meta object for the containment reference list '<em>Facets</em>'.
+	 * @see com.rcpcompany.uibindings.moao.IMOAO#getFacets()
 	 * @see #getMOAO()
 	 * @generated
 	 */
-	EReference getMOAO_Messages();
+	EReference getMOAO_Facets();
+
+	/**
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.moao.IMOAOFacet
+	 * <em>Facet</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Facet</em>'.
+	 * @see com.rcpcompany.uibindings.moao.IMOAOFacet
+	 * @generated
+	 */
+	EClass getMOAOFacet();
+
+	/**
+	 * Returns the meta object for the container reference '
+	 * {@link com.rcpcompany.uibindings.moao.IMOAOFacet#getObject <em>Object</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the container reference '<em>Object</em>'.
+	 * @see com.rcpcompany.uibindings.moao.IMOAOFacet#getObject()
+	 * @see #getMOAOFacet()
+	 * @generated
+	 */
+	EReference getMOAOFacet_Object();
 
 	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.moao.INamedObject
@@ -393,18 +461,6 @@ public interface IMOAOPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMOAOMessage_Owner();
-
-	/**
-	 * Returns the meta object for the container reference '
-	 * {@link com.rcpcompany.uibindings.moao.IMOAOMessage#getObject <em>Object</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the container reference '<em>Object</em>'.
-	 * @see com.rcpcompany.uibindings.moao.IMOAOMessage#getObject()
-	 * @see #getMOAOMessage()
-	 * @generated
-	 */
-	EReference getMOAOMessage_Object();
 
 	/**
 	 * Returns the meta object for the reference '
@@ -537,12 +593,31 @@ public interface IMOAOPackage extends EPackage {
 		EClass MOAO = eINSTANCE.getMOAO();
 
 		/**
-		 * The meta object literal for the '<em><b>Messages</b></em>' containment reference list
+		 * The meta object literal for the '<em><b>Facets</b></em>' containment reference list
 		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		EReference MOAO__MESSAGES = eINSTANCE.getMOAO_Messages();
+		EReference MOAO__FACETS = eINSTANCE.getMOAO_Facets();
+
+		/**
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.moao.internal.MOAOFacetImpl <em>Facet</em>}' class. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see com.rcpcompany.uibindings.moao.internal.MOAOFacetImpl
+		 * @see com.rcpcompany.uibindings.moao.internal.MOAOPackageImpl#getMOAOFacet()
+		 * @generated
+		 */
+		EClass MOAO_FACET = eINSTANCE.getMOAOFacet();
+
+		/**
+		 * The meta object literal for the '<em><b>Object</b></em>' container reference feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference MOAO_FACET__OBJECT = eINSTANCE.getMOAOFacet_Object();
 
 		/**
 		 * The meta object literal for the '
@@ -607,14 +682,6 @@ public interface IMOAOPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MOAO_MESSAGE__OWNER = eINSTANCE.getMOAOMessage_Owner();
-
-		/**
-		 * The meta object literal for the '<em><b>Object</b></em>' container reference feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference MOAO_MESSAGE__OBJECT = eINSTANCE.getMOAOMessage_Object();
 
 		/**
 		 * The meta object literal for the '<em><b>Feature</b></em>' reference feature. <!--

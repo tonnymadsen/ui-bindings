@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.moao.IMOAO#getMessages <em>Messages</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.moao.IMOAO#getFacets <em>Facets</em>}</li>
  * </ul>
  * </p>
  * 
@@ -33,22 +33,22 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface IMOAO extends EObject, IAdaptable {
 	/**
-	 * Returns the value of the '<em><b>Messages</b></em>' containment reference list. The list
-	 * contents are of type {@link com.rcpcompany.uibindings.moao.IMOAOMessage}. It is bidirectional
-	 * and its opposite is '{@link com.rcpcompany.uibindings.moao.IMOAOMessage#getObject
+	 * Returns the value of the '<em><b>Facets</b></em>' containment reference list. The list
+	 * contents are of type {@link com.rcpcompany.uibindings.moao.IMOAOFacet}. It is bidirectional
+	 * and its opposite is '{@link com.rcpcompany.uibindings.moao.IMOAOFacet#getObject
 	 * <em>Object</em>}'. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Messages</em>' containment reference list isn't clear, there
-	 * really should be more of a description here...
+	 * If the meaning of the '<em>Facets</em>' containment reference list isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Messages</em>' containment reference list.
-	 * @see com.rcpcompany.uibindings.moao.IMOAOPackage#getMOAO_Messages()
-	 * @see com.rcpcompany.uibindings.moao.IMOAOMessage#getObject
+	 * @return the value of the '<em>Facets</em>' containment reference list.
+	 * @see com.rcpcompany.uibindings.moao.IMOAOPackage#getMOAO_Facets()
+	 * @see com.rcpcompany.uibindings.moao.IMOAOFacet#getObject
 	 * @generated
 	 */
-	EList<IMOAOMessage> getMessages();
+	EList<IMOAOFacet> getFacets();
 
 	/**
 	 * Removes all messages from this object and all contained objects (using reflection) given by

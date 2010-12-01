@@ -11,16 +11,12 @@
 package com.rcpcompany.uibindings.moao.internal;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
-import com.rcpcompany.uibindings.moao.IMOAO;
 import com.rcpcompany.uibindings.moao.IMOAOMessage;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.moao.Severity;
@@ -32,7 +28,6 @@ import com.rcpcompany.uibindings.moao.Severity;
  * The following features are implemented:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.moao.internal.MOAOMessageImpl#getOwner <em>Owner</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.moao.internal.MOAOMessageImpl#getObject <em>Object</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.moao.internal.MOAOMessageImpl#getFeature <em>Feature</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.moao.internal.MOAOMessageImpl#getDescription <em>Description
  * </em>}</li>
@@ -44,7 +39,7 @@ import com.rcpcompany.uibindings.moao.Severity;
  * 
  * @generated
  */
-public class MOAOMessageImpl extends EObjectImpl implements IMOAOMessage {
+public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 	/**
 	 * The default value of the '{@link #getOwner() <em>Owner</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
@@ -184,55 +179,6 @@ public class MOAOMessageImpl extends EObjectImpl implements IMOAOMessage {
 	 * @generated
 	 */
 	@Override
-	public IMOAO getObject() {
-		if (eContainerFeatureID() != IMOAOPackage.MOAO_MESSAGE__OBJECT) return null;
-		return (IMOAO) eContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public NotificationChain basicSetObject(IMOAO newObject, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newObject, IMOAOPackage.MOAO_MESSAGE__OBJECT, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void setObject(IMOAO newObject) {
-		if (newObject != eInternalContainer()
-				|| (eContainerFeatureID() != IMOAOPackage.MOAO_MESSAGE__OBJECT && newObject != null)) {
-			if (EcoreUtil.isAncestor(this, newObject))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null) {
-				msgs = eBasicRemoveFromContainer(msgs);
-			}
-			if (newObject != null) {
-				msgs = ((InternalEObject) newObject).eInverseAdd(this, IMOAOPackage.MOAO__MESSAGES, IMOAO.class, msgs);
-			}
-			msgs = basicSetObject(newObject, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, IMOAOPackage.MOAO_MESSAGE__OBJECT, newObject,
-					newObject));
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public EStructuralFeature getFeature() {
 		if (feature != null && ((EObject) feature).eIsProxy()) {
 			final InternalEObject oldFeature = (InternalEObject) feature;
@@ -352,57 +298,10 @@ public class MOAOMessageImpl extends EObjectImpl implements IMOAOMessage {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case IMOAOPackage.MOAO_MESSAGE__OBJECT:
-			if (eInternalContainer() != null) {
-				msgs = eBasicRemoveFromContainer(msgs);
-			}
-			return basicSetObject((IMOAO) otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case IMOAOPackage.MOAO_MESSAGE__OBJECT:
-			return basicSetObject(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-		case IMOAOPackage.MOAO_MESSAGE__OBJECT:
-			return eInternalContainer().eInverseRemove(this, IMOAOPackage.MOAO__MESSAGES, IMOAO.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case IMOAOPackage.MOAO_MESSAGE__OWNER:
 			return getOwner();
-		case IMOAOPackage.MOAO_MESSAGE__OBJECT:
-			return getObject();
 		case IMOAOPackage.MOAO_MESSAGE__FEATURE:
 			if (resolve) return getFeature();
 			return basicGetFeature();
@@ -426,9 +325,6 @@ public class MOAOMessageImpl extends EObjectImpl implements IMOAOMessage {
 		switch (featureID) {
 		case IMOAOPackage.MOAO_MESSAGE__OWNER:
 			setOwner((String) newValue);
-			return;
-		case IMOAOPackage.MOAO_MESSAGE__OBJECT:
-			setObject((IMOAO) newValue);
 			return;
 		case IMOAOPackage.MOAO_MESSAGE__FEATURE:
 			setFeature((EStructuralFeature) newValue);
@@ -457,9 +353,6 @@ public class MOAOMessageImpl extends EObjectImpl implements IMOAOMessage {
 		case IMOAOPackage.MOAO_MESSAGE__OWNER:
 			setOwner(OWNER_EDEFAULT);
 			return;
-		case IMOAOPackage.MOAO_MESSAGE__OBJECT:
-			setObject((IMOAO) null);
-			return;
 		case IMOAOPackage.MOAO_MESSAGE__FEATURE:
 			setFeature((EStructuralFeature) null);
 			return;
@@ -486,8 +379,6 @@ public class MOAOMessageImpl extends EObjectImpl implements IMOAOMessage {
 		switch (featureID) {
 		case IMOAOPackage.MOAO_MESSAGE__OWNER:
 			return OWNER_EDEFAULT == null ? owner != null : !OWNER_EDEFAULT.equals(owner);
-		case IMOAOPackage.MOAO_MESSAGE__OBJECT:
-			return getObject() != null;
 		case IMOAOPackage.MOAO_MESSAGE__FEATURE:
 			return feature != null;
 		case IMOAOPackage.MOAO_MESSAGE__DESCRIPTION:

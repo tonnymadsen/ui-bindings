@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import com.rcpcompany.uibindings.moao.IMOAO;
+import com.rcpcompany.uibindings.moao.IMOAOFacet;
 import com.rcpcompany.uibindings.moao.IMOAOMessage;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.moao.INamedObject;
@@ -98,6 +99,20 @@ public class MOAOSwitch<T> {
 			}
 			return result;
 		}
+		case IMOAOPackage.MOAO_FACET: {
+			final IMOAOFacet moaoFacet = (IMOAOFacet) theEObject;
+			T result = caseMOAOFacet(moaoFacet);
+			if (result == null) {
+				result = caseMOAO(moaoFacet);
+			}
+			if (result == null) {
+				result = caseIAdaptable(moaoFacet);
+			}
+			if (result == null) {
+				result = defaultCase(theEObject);
+			}
+			return result;
+		}
 		case IMOAOPackage.NAMED_OBJECT: {
 			final INamedObject namedObject = (INamedObject) theEObject;
 			T result = caseNamedObject(namedObject);
@@ -115,6 +130,15 @@ public class MOAOSwitch<T> {
 		case IMOAOPackage.MOAO_MESSAGE: {
 			final IMOAOMessage moaoMessage = (IMOAOMessage) theEObject;
 			T result = caseMOAOMessage(moaoMessage);
+			if (result == null) {
+				result = caseMOAOFacet(moaoMessage);
+			}
+			if (result == null) {
+				result = caseMOAO(moaoMessage);
+			}
+			if (result == null) {
+				result = caseIAdaptable(moaoMessage);
+			}
 			if (result == null) {
 				result = defaultCase(theEObject);
 			}
@@ -136,6 +160,20 @@ public class MOAOSwitch<T> {
 	 * @generated
 	 */
 	public T caseMOAO(IMOAO object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Facet</em>'. <!--
+	 * begin-user-doc --> This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Facet</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMOAOFacet(IMOAOFacet object) {
 		return null;
 	}
 

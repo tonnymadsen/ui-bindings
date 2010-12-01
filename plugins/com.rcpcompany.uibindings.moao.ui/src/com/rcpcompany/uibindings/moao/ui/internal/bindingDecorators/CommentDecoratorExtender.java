@@ -10,46 +10,53 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.moao.ui.internal.bindingDecorators;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.RGB;
 
-import org.eclipse.emf.ecore.*;
-import org.eclipse.swt.graphics.*;
-
-import com.rcpcompany.uibindings.*;
-import com.rcpcompany.uibindings.decorators.extenders.*;
-import com.rcpcompany.uibindings.moao.*;
+import com.rcpcompany.uibindings.DecorationPosition;
+import com.rcpcompany.uibindings.IUIBindingDecoratorExtender;
+import com.rcpcompany.uibindings.IUIBindingDecoratorExtenderContext;
+import com.rcpcompany.uibindings.IValueBinding;
+import com.rcpcompany.uibindings.UIBindingsUtils;
+import com.rcpcompany.uibindings.decorators.extenders.AbstractUIBindingDecoratorExtender;
+import com.rcpcompany.uibindings.moao.IMOAO;
+import com.rcpcompany.uibindings.moao.IMOAOFacet;
+import com.rcpcompany.uibindings.moao.IMOAOMessage;
+import com.rcpcompany.uibindings.moao.Severity;
 
 /**
- * {@link IUIBindingDecoratorExtender} that decorates all fields with comments with a small corner image.
+ * {@link IUIBindingDecoratorExtender} that decorates all fields with comments with a small corner
+ * image.
  */
 public class CommentDecoratorExtender extends AbstractUIBindingDecoratorExtender implements IUIBindingDecoratorExtender {
-  /**
-   * The image to use for fields
-   */
-  public final Image cornerImage = UIBindingsUtils.getCornerImage(DecorationPosition.TOP_RIGHT, new RGB(0, 0, 255));
+	/**
+	 * The image to use for fields.
+	 */
+	public final Image cornerImage = UIBindingsUtils.getCornerImage(DecorationPosition.TOP_RIGHT, new RGB(0, 0, 255));
 
-  @Override
-  public boolean isEnabled(IValueBinding binding) {
-    final EObject modelObject = binding.getModelObject();
-    if (!(modelObject instanceof IMOAO)) {
-      return false;
-    }
-    final IMOAO moao = (IMOAO) modelObject;
+	@Override
+	public boolean isEnabled(IValueBinding binding) {
+		final EObject modelObject = binding.getModelObject();
+		if (!(modelObject instanceof IMOAO)) return false;
+		final IMOAO moao = (IMOAO) modelObject;
 
-    final EStructuralFeature sf = binding.getModelFeature();
-    if (sf == null) {
-      return false;
-    }
+		final EStructuralFeature sf = binding.getModelFeature();
+		if (sf == null) return false;
 
-    for (final IMOAOMessage s : moao.getMessages()) {
-      if (s.getSeverity() == Severity.COMMENT && s.getFeature() == sf) {
-        return true;
-      }
-    }
-    return false;
-  }
+		for (final IMOAOFacet f : moao.getFacets()) {
+			if (!(f instanceof IMOAOMessage)) {
+				continue;
+			}
+			final IMOAOMessage s = (IMOAOMessage) f;
+			if (s.getSeverity() == Severity.COMMENT && s.getFeature() == sf) return true;
+		}
+		return false;
+	}
 
-  @Override
-  public void extend(IUIBindingDecoratorExtenderContext context) {
-    context.setDecoratingImage(DecorationPosition.TOP_RIGHT, false, cornerImage, null);
-  }
+	@Override
+	public void extend(IUIBindingDecoratorExtenderContext context) {
+		context.setDecoratingImage(DecorationPosition.TOP_RIGHT, false, cornerImage, null);
+	}
 }

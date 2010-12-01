@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import com.rcpcompany.uibindings.moao.IMOAO;
+import com.rcpcompany.uibindings.moao.IMOAOFacet;
 import com.rcpcompany.uibindings.moao.IMOAOMessage;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.moao.INamedObject;
@@ -76,6 +77,11 @@ public class MOAOAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseMOAOFacet(IMOAOFacet object) {
+			return createMOAOFacetAdapter();
+		}
+
+		@Override
 		public Adapter caseNamedObject(INamedObject object) {
 			return createNamedObjectAdapter();
 		}
@@ -124,6 +130,20 @@ public class MOAOAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMOAOAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '
+	 * {@link com.rcpcompany.uibindings.moao.IMOAOFacet <em>Facet</em>}'. <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases; it's useful to
+	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.rcpcompany.uibindings.moao.IMOAOFacet
+	 * @generated
+	 */
+	public Adapter createMOAOFacetAdapter() {
 		return null;
 	}
 

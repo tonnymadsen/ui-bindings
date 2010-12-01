@@ -10,7 +10,6 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.moao;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 /**
@@ -21,7 +20,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  * The following features are supported:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.moao.IMOAOMessage#getOwner <em>Owner</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.moao.IMOAOMessage#getObject <em>Object</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.moao.IMOAOMessage#getFeature <em>Feature</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.moao.IMOAOMessage#getDescription <em>Description</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.moao.IMOAOMessage#getSeverity <em>Severity</em>}</li>
@@ -32,7 +30,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  * @see com.rcpcompany.uibindings.moao.IMOAOPackage#getMOAOMessage()
  * @generated
  */
-public interface IMOAOMessage extends EObject {
+public interface IMOAOMessage extends IMOAOFacet {
 	/**
 	 * Returns the value of the '<em><b>Owner</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
@@ -57,34 +55,6 @@ public interface IMOAOMessage extends EObject {
 	 * @generated
 	 */
 	void setOwner(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Object</b></em>' container reference. It is bidirectional
-	 * and its opposite is '{@link com.rcpcompany.uibindings.moao.IMOAO#getMessages
-	 * <em>Messages</em>}'. <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Object</em>' container reference isn't clear, there really should
-	 * be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Object</em>' container reference.
-	 * @see #setObject(IMOAO)
-	 * @see com.rcpcompany.uibindings.moao.IMOAOPackage#getMOAOMessage_Object()
-	 * @see com.rcpcompany.uibindings.moao.IMOAO#getMessages
-	 * @generated
-	 */
-	IMOAO getObject();
-
-	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.moao.IMOAOMessage#getObject
-	 * <em>Object</em>}' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value the new value of the '<em>Object</em>' container reference.
-	 * @see #getObject()
-	 * @generated
-	 */
-	void setObject(IMOAO value);
 
 	/**
 	 * Returns the value of the '<em><b>Feature</b></em>' reference. <!-- begin-user-doc -->

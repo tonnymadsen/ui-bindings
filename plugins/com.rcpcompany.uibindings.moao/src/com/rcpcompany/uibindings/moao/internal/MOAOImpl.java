@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import com.rcpcompany.uibindings.moao.IMOAO;
+import com.rcpcompany.uibindings.moao.IMOAOFacet;
 import com.rcpcompany.uibindings.moao.IMOAOMessage;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 
@@ -35,7 +36,7 @@ import com.rcpcompany.uibindings.moao.IMOAOPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.moao.internal.MOAOImpl#getMessages <em>Messages</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.moao.internal.MOAOImpl#getFacets <em>Facets</em>}</li>
  * </ul>
  * </p>
  * 
@@ -43,14 +44,14 @@ import com.rcpcompany.uibindings.moao.IMOAOPackage;
  */
 public class MOAOImpl extends EObjectImpl implements IMOAO {
 	/**
-	 * The cached value of the '{@link #getMessages() <em>Messages</em>}' containment reference
-	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getFacets() <em>Facets</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @see #getMessages()
+	 * @see #getFacets()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<IMOAOMessage> messages;
+	protected EList<IMOAOFacet> facets;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -77,12 +78,12 @@ public class MOAOImpl extends EObjectImpl implements IMOAO {
 	 * @generated
 	 */
 	@Override
-	public EList<IMOAOMessage> getMessages() {
-		if (messages == null) {
-			messages = new EObjectContainmentWithInverseEList<IMOAOMessage>(IMOAOMessage.class, this,
-					IMOAOPackage.MOAO__MESSAGES, IMOAOPackage.MOAO_MESSAGE__OBJECT);
+	public EList<IMOAOFacet> getFacets() {
+		if (facets == null) {
+			facets = new EObjectContainmentWithInverseEList<IMOAOFacet>(IMOAOFacet.class, this,
+					IMOAOPackage.MOAO__FACETS, IMOAOPackage.MOAO_FACET__OBJECT);
 		}
-		return messages;
+		return facets;
 	}
 
 	/**
@@ -94,8 +95,8 @@ public class MOAOImpl extends EObjectImpl implements IMOAO {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case IMOAOPackage.MOAO__MESSAGES:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getMessages()).basicAdd(otherEnd, msgs);
+		case IMOAOPackage.MOAO__FACETS:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getFacets()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -108,8 +109,8 @@ public class MOAOImpl extends EObjectImpl implements IMOAO {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case IMOAOPackage.MOAO__MESSAGES:
-			return ((InternalEList<?>) getMessages()).basicRemove(otherEnd, msgs);
+		case IMOAOPackage.MOAO__FACETS:
+			return ((InternalEList<?>) getFacets()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -122,8 +123,8 @@ public class MOAOImpl extends EObjectImpl implements IMOAO {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case IMOAOPackage.MOAO__MESSAGES:
-			return getMessages();
+		case IMOAOPackage.MOAO__FACETS:
+			return getFacets();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -137,9 +138,9 @@ public class MOAOImpl extends EObjectImpl implements IMOAO {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case IMOAOPackage.MOAO__MESSAGES:
-			getMessages().clear();
-			getMessages().addAll((Collection<? extends IMOAOMessage>) newValue);
+		case IMOAOPackage.MOAO__FACETS:
+			getFacets().clear();
+			getFacets().addAll((Collection<? extends IMOAOFacet>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -153,8 +154,8 @@ public class MOAOImpl extends EObjectImpl implements IMOAO {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case IMOAOPackage.MOAO__MESSAGES:
-			getMessages().clear();
+		case IMOAOPackage.MOAO__FACETS:
+			getFacets().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -168,8 +169,8 @@ public class MOAOImpl extends EObjectImpl implements IMOAO {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case IMOAOPackage.MOAO__MESSAGES:
-			return messages != null && !messages.isEmpty();
+		case IMOAOPackage.MOAO__FACETS:
+			return facets != null && !facets.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -194,13 +195,18 @@ public class MOAOImpl extends EObjectImpl implements IMOAO {
 			}
 
 			final IMOAO mo = (IMOAO) next;
-			if (!mo.eIsSet(IMOAOPackage.Literals.MOAO__MESSAGES)) {
+			if (!mo.eIsSet(IMOAOPackage.Literals.MOAO__FACETS)) {
 				continue;
 			}
 
-			for (final IMOAOMessage m : mo.getMessages().toArray(new IMOAOMessage[mo.getMessages().size()])) {
+			for (final IMOAOFacet f : mo.getFacets().toArray(new IMOAOFacet[mo.getFacets().size()])) {
+				if (!(f instanceof IMOAOMessage)) {
+					continue;
+				}
+				final IMOAOMessage m = (IMOAOMessage) f;
+
 				if (owner.equals(m.getOwner())) {
-					mo.getMessages().remove(m);
+					mo.getFacets().remove(f);
 				}
 			}
 		}

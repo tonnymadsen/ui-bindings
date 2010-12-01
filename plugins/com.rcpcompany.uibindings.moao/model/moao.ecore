@@ -4,8 +4,12 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="moao"
     nsURI="http://com.rcpcompany/schemas/moao.ecore" nsPrefix="moao">
   <eClassifiers xsi:type="ecore:EClass" name="MOAO" eSuperTypes="#//IAdaptable">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="messages" upperBound="-1"
-        eType="#//MOAOMessage" containment="true" resolveProxies="false" eOpposite="#//MOAOMessage/object"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="facets" upperBound="-1"
+        eType="#//MOAOFacet" containment="true" resolveProxies="false" eOpposite="#//MOAOFacet/object"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MOAOFacet" abstract="true" eSuperTypes="#//MOAO">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="object" eType="#//MOAO"
+        resolveProxies="false" eOpposite="#//MOAO/facets"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedObject" eSuperTypes="#//MOAO">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -24,10 +28,8 @@
     <eTypeParameters name="K"/>
     <eTypeParameters name="V"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MOAOMessage">
+  <eClassifiers xsi:type="ecore:EClass" name="MOAOMessage" eSuperTypes="#//MOAOFacet">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="owner" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="object" eType="#//MOAO"
-        resolveProxies="false" eOpposite="#//MOAO/messages"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="feature" eType="#//EStructuralFeature"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="severity" eType="#//Severity"/>

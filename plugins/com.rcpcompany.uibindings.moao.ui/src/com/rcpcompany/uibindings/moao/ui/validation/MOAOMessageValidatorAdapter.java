@@ -22,6 +22,7 @@ import com.rcpcompany.uibindings.BindingMessageSeverity;
 import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.bindingMessages.AbstractBindingMessage;
 import com.rcpcompany.uibindings.moao.IMOAO;
+import com.rcpcompany.uibindings.moao.IMOAOFacet;
 import com.rcpcompany.uibindings.moao.IMOAOMessage;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.validators.AbstractValidatorAdapter;
@@ -76,7 +77,11 @@ public class MOAOMessageValidatorAdapter extends AbstractValidatorAdapter {
 			if (c instanceof IMOAO) {
 				final IMOAO m = (IMOAO) c;
 
-				foundStatus.addAll(m.getMessages());
+				for (final IMOAOFacet f : m.getFacets()) {
+					if (f instanceof IMOAOMessage) {
+						foundStatus.add((IMOAOMessage) f);
+					}
+				}
 			}
 		}
 	}

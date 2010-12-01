@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import com.rcpcompany.uibindings.moao.IMOAO;
+import com.rcpcompany.uibindings.moao.IMOAOFacet;
 import com.rcpcompany.uibindings.moao.IMOAOFactory;
 import com.rcpcompany.uibindings.moao.IMOAOMessage;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
@@ -43,6 +44,13 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 	 * @generated
 	 */
 	private EClass moaoEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass moaoFacetEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -181,8 +189,28 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getMOAO_Messages() {
+	public EReference getMOAO_Facets() {
 		return (EReference) moaoEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EClass getMOAOFacet() {
+		return moaoFacetEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EReference getMOAOFacet_Object() {
+		return (EReference) moaoFacetEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -261,7 +289,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getMOAOMessage_Object() {
+	public EReference getMOAOMessage_Feature() {
 		return (EReference) moaoMessageEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -271,18 +299,8 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getMOAOMessage_Feature() {
-		return (EReference) moaoMessageEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public EAttribute getMOAOMessage_Description() {
-		return (EAttribute) moaoMessageEClass.getEStructuralFeatures().get(3);
+		return (EAttribute) moaoMessageEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -292,7 +310,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 	 */
 	@Override
 	public EAttribute getMOAOMessage_Severity() {
-		return (EAttribute) moaoMessageEClass.getEStructuralFeatures().get(4);
+		return (EAttribute) moaoMessageEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -302,7 +320,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 	 */
 	@Override
 	public EAttribute getMOAOMessage_Details() {
-		return (EAttribute) moaoMessageEClass.getEStructuralFeatures().get(5);
+		return (EAttribute) moaoMessageEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -384,7 +402,10 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 
 		// Create classes and their features
 		moaoEClass = createEClass(MOAO);
-		createEReference(moaoEClass, MOAO__MESSAGES);
+		createEReference(moaoEClass, MOAO__FACETS);
+
+		moaoFacetEClass = createEClass(MOAO_FACET);
+		createEReference(moaoFacetEClass, MOAO_FACET__OBJECT);
 
 		namedObjectEClass = createEClass(NAMED_OBJECT);
 		createEAttribute(namedObjectEClass, NAMED_OBJECT__NAME);
@@ -395,7 +416,6 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 
 		moaoMessageEClass = createEClass(MOAO_MESSAGE);
 		createEAttribute(moaoMessageEClass, MOAO_MESSAGE__OWNER);
-		createEReference(moaoMessageEClass, MOAO_MESSAGE__OBJECT);
 		createEReference(moaoMessageEClass, MOAO_MESSAGE__FEATURE);
 		createEAttribute(moaoMessageEClass, MOAO_MESSAGE__DESCRIPTION);
 		createEAttribute(moaoMessageEClass, MOAO_MESSAGE__SEVERITY);
@@ -446,12 +466,20 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 
 		// Add supertypes to classes
 		moaoEClass.getESuperTypes().add(this.getIAdaptable());
+		moaoFacetEClass.getESuperTypes().add(this.getMOAO());
 		namedObjectEClass.getESuperTypes().add(this.getMOAO());
+		moaoMessageEClass.getESuperTypes().add(this.getMOAOFacet());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(moaoEClass, IMOAO.class, "MOAO", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMOAO_Messages(), this.getMOAOMessage(), this.getMOAOMessage_Object(), "messages", null, 0,
-				-1, IMOAO.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+		initEReference(getMOAO_Facets(), this.getMOAOFacet(), this.getMOAOFacet_Object(), "facets", null, 0, -1,
+				IMOAO.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(moaoFacetEClass, IMOAOFacet.class, "MOAOFacet", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMOAOFacet_Object(), this.getMOAO(), this.getMOAO_Facets(), "object", null, 0, 1,
+				IMOAOFacet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namedObjectEClass, INamedObject.class, "NamedObject", !IS_ABSTRACT, !IS_INTERFACE,
@@ -471,9 +499,6 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMOAOMessage_Owner(), theEcorePackage.getEString(), "owner", null, 0, 1, IMOAOMessage.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMOAOMessage_Object(), this.getMOAO(), this.getMOAO_Messages(), "object", null, 0, 1,
-				IMOAOMessage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMOAOMessage_Feature(), this.getEStructuralFeature(), null, "feature", null, 0, 1,
 				IMOAOMessage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
