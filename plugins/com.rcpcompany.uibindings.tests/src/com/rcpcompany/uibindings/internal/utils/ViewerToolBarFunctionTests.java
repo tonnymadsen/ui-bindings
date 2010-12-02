@@ -14,7 +14,6 @@ import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 import org.junit.Before;
 import org.junit.Test;
