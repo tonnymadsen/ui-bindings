@@ -28,7 +28,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.fieldassist.FieldDecoration;
 import org.eclipse.jface.fieldassist.FieldDecorationRegistry;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Control;
 
 import com.rcpcompany.uibindings.BindingMessageSeverity;
 import com.rcpcompany.uibindings.BindingState;
@@ -526,7 +529,14 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 		if (getBinding().isChangeable()) {
 			final IManager manager = IManager.Factory.getManager();
 
-			final boolean showAlternativeDecorations = getBinding().getControl() != null;
+			/*
+			 * Only show the alternative decorations for controls - but not for checkboxes
+			 */
+			final Control control = getBinding().getControl();
+			boolean showAlternativeDecorations = control != null;
+			if (control instanceof Button && (control.getStyle() & SWT.CHECK) == SWT.CHECK) {
+				showAlternativeDecorations = false;
+			}
 
 			// TODO TMTM add key bindings
 			if (getQuickfixes().size() > 0 && manager.isQuickfixVBImageDecorationShown()) {
