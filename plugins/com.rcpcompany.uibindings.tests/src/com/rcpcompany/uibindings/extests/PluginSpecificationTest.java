@@ -73,7 +73,7 @@ public class PluginSpecificationTest {
 		for (final BundleSpecification bs : b.getRequiredBundles()) {
 			final String bsName = bs.getName();
 			assertNotSame("org.eclipse.ui", bsName);
-			if ("org.junit4".equals(bsName)) {
+			if ("org.junit".equals(bsName)) {
 				assertTrue(!bs.isOptional());
 			}
 
