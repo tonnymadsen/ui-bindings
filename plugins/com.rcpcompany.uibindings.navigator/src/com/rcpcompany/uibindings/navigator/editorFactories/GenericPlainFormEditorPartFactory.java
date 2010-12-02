@@ -60,4 +60,9 @@ public class GenericPlainFormEditorPartFactory extends FormEditorPartFactory imp
 			form.addField(spec);
 		}
 	}
+
+	@Override
+	public boolean canAcceptObjectChanges() {
+		return false;
+	}
 }

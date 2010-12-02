@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.navigator.editorFactories;
 
+import com.rcpcompany.uibindings.navigator.AbstractEditorPart;
 import com.rcpcompany.uibindings.navigator.AbstractEditorPartFactory;
 import com.rcpcompany.uibindings.navigator.IEditorPart;
 import com.rcpcompany.uibindings.navigator.IEditorPartContext;
@@ -26,10 +27,15 @@ public class GenericAutoFormEditorPartFactory extends AbstractEditorPartFactory 
 	public IEditorPart createEditorPart(IEditorPartContext context) {
 		final IAutoFormCreator form = IAutoFormCreator.Factory.createForm(context.getCurrentValue(), context
 				.getDescriptor().getName(), context.getParent(), context.getWorkbenchPart());
-		return new IEditorPart() {
+		return new AbstractEditorPart() {
 			@Override
 			public void dispose() {
 				form.dispose();
+			}
+
+			@Override
+			public boolean canAcceptObjectChanges() {
+				return false;
 			}
 		};
 	}

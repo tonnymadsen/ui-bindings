@@ -178,7 +178,12 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 		if (Activator.getDefault().TRACE_EDITOR_PARTS_LIFECYCLE) {
 			LogUtils.debug(this, "Descriptor found: " + obj + "\n-> " + desc);
 		}
-		if (desc == myCurrentDescriptor) {
+		/*
+		 * Iff we have the same descriptor and the current editor can accept changes in the object,
+		 * then just change the object without re-creating the editor part... Otherwise go the long
+		 * route and first dispose and then re-create the editor part.
+		 */
+		if (desc == myCurrentDescriptor && myCurrentEditorPart != null && myCurrentEditorPart.canAcceptObjectChanges()) {
 			/*
 			 * The editor part itself did not change... just update the observable value.
 			 */

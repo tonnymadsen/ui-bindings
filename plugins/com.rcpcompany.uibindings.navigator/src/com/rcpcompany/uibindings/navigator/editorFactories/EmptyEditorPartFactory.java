@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.navigator.editorFactories;
 
+import com.rcpcompany.uibindings.navigator.AbstractEditorPart;
 import com.rcpcompany.uibindings.navigator.AbstractEditorPartFactory;
 import com.rcpcompany.uibindings.navigator.IEditorPart;
 import com.rcpcompany.uibindings.navigator.IEditorPartContext;
@@ -24,10 +25,7 @@ public class EmptyEditorPartFactory extends AbstractEditorPartFactory implements
 
 	@Override
 	public IEditorPart createEditorPart(IEditorPartContext context) {
-		return new IEditorPart() {
-			@Override
-			public void dispose() {
-			}
+		return new AbstractEditorPart() {
 		};
 	}
 }

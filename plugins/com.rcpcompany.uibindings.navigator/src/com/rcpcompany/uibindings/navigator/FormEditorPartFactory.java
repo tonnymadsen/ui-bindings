@@ -41,7 +41,7 @@ public abstract class FormEditorPartFactory extends AbstractEditorPartFactory im
 	/**
 	 * {@link IEditorPart} used for {@link FormEditorPartFactory} and sub-classes.
 	 */
-	public final class FormEditorPart implements IEditorPart {
+	public final class FormEditorPart extends AbstractEditorPart {
 		private final IFormCreator myForm;
 
 		/**
@@ -66,6 +66,11 @@ public abstract class FormEditorPartFactory extends AbstractEditorPartFactory im
 		public void dispose() {
 			myForm.dispose();
 		}
+
+		@Override
+		public boolean canAcceptObjectChanges() {
+			return FormEditorPartFactory.this.canAcceptObjectChanges();
+		}
 	}
 
 	/**
@@ -75,4 +80,18 @@ public abstract class FormEditorPartFactory extends AbstractEditorPartFactory im
 	 * @param form the form
 	 */
 	protected abstract void createForm(IEditorPartContext context, IFormCreator form);
+
+	/**
+	 * Returns whether this editor can accept changes in the object of the editor without
+	 * re-creating the editor.
+	 * <p>
+	 * Some editors - e.g. the generic one - build the UI based on the current object and these
+	 * cannot easily accept changes in the object as the UI is not changed in the same moment.
+	 * 
+	 * @return <code>true</code> if the object can be changed
+	 */
+	public boolean canAcceptObjectChanges() {
+		return true;
+	}
+
 }

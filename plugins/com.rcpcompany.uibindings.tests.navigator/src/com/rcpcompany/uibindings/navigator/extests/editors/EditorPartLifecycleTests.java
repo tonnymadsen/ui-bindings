@@ -17,6 +17,7 @@ import org.eclipse.swt.widgets.Text;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.rcpcompany.uibindings.navigator.AbstractEditorPart;
 import com.rcpcompany.uibindings.navigator.AbstractEditorPartFactory;
 import com.rcpcompany.uibindings.navigator.IEditorPart;
 import com.rcpcompany.uibindings.navigator.IEditorPartContext;
@@ -92,7 +93,7 @@ public class EditorPartLifecycleTests {
 			myText = new Text(context.getParent(), SWT.SINGLE | SWT.LEAD | SWT.BORDER);
 			myText.setText("Hello world");
 
-			return new IEditorPart() {
+			return new AbstractEditorPart() {
 				@Override
 				public void dispose() {
 					constructed = false;
