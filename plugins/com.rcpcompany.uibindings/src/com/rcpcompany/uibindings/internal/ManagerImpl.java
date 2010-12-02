@@ -82,6 +82,7 @@ import com.rcpcompany.uibindings.ICellEditorFactory;
 import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IControlFactory;
 import com.rcpcompany.uibindings.IDecoratorProvider;
+import com.rcpcompany.uibindings.IDeleteParticipant;
 import com.rcpcompany.uibindings.IEMFObservableFactory;
 import com.rcpcompany.uibindings.IEMFObservableFactoryDescriptor;
 import com.rcpcompany.uibindings.IFormatterProvider;
@@ -2239,6 +2240,13 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			try {
 				final IUnitBindingSupport adapter = (IUnitBindingSupport) ce.createExecutableExtension(attributeName);
 				return (ArgumentType) adapter;
+			} catch (final CoreException ex) {
+				LogUtils.error(ce, ex);
+			}
+		} else if (argumentType == IDeleteParticipant.class) {
+			try {
+				final IDeleteParticipant participant = (IDeleteParticipant) ce.createExecutableExtension(attributeName);
+				return (ArgumentType) participant;
 			} catch (final CoreException ex) {
 				LogUtils.error(ce, ex);
 			}

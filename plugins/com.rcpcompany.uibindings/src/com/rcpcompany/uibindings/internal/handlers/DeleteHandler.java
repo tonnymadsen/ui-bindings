@@ -22,6 +22,7 @@ import org.eclipse.core.commands.IHandler2;
 import org.eclipse.core.expressions.IEvaluationContext;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -37,6 +38,7 @@ import com.rcpcompany.uibindings.IElementParentage;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.internal.Activator;
+import com.rcpcompany.uibindings.utils.ParticipantUtils;
 import com.rcpcompany.uibindings.utils.UIBEcoreUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -179,6 +181,18 @@ public class DeleteHandler extends AbstractHandler implements IHandler2 {
 
 			Command cmd = null;
 			if (ref.isContainment()) {
+				/*
+				 * Check whether this element and all children can be deleted according the the
+				 * delete participants
+				 */
+				if (!ParticipantUtils.canDeleteAccordingToParticipants(element)) {
+					continue;
+				}
+				for (final TreeIterator<EObject> i = element.eAllContents(); i.hasNext();) {
+					if (!ParticipantUtils.canDeleteAccordingToParticipants(i.next())) {
+						continue;
+					}
+				}
 				cmd = DeleteCommand.create(domain, element);
 			} else {
 				cmd = RemoveCommand.create(domain, parent, ref, element);

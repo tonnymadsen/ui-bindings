@@ -67,7 +67,7 @@ public final class BindingDataTypeFactory {
 			final CSF csf = new CSF();
 			csf.eSF = (EStructuralFeature) element;
 			/*
-			 * Features are special: for these we use the context so, you can specify a specific
+			 * Features are special: for these we use the context so you can specify a specific
 			 * sub-class for the feature.
 			 */
 			if (context instanceof IObservableValue) {

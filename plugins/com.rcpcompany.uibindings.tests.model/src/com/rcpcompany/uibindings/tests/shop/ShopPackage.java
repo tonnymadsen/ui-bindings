@@ -68,13 +68,13 @@ public interface ShopPackage extends EPackage {
 	int SHOP = 0;
 
 	/**
-	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP__MESSAGES = IMOAOPackage.NAMED_OBJECT__MESSAGES;
+	int SHOP__FACETS = IMOAOPackage.NAMED_OBJECT__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -222,13 +222,13 @@ public interface ShopPackage extends EPackage {
 	int CUSTOMER = 1;
 
 	/**
-	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOMER__MESSAGES = IMOAOPackage.MOAO__MESSAGES;
+	int CUSTOMER__FACETS = IMOAOPackage.MOAO__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Shop</b></em>' container reference. <!-- begin-user-doc -->
@@ -296,13 +296,13 @@ public interface ShopPackage extends EPackage {
 	int CUSTOMER_GROUP = 2;
 
 	/**
-	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOMER_GROUP__MESSAGES = IMOAOPackage.NAMED_OBJECT__MESSAGES;
+	int CUSTOMER_GROUP__FACETS = IMOAOPackage.NAMED_OBJECT__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -360,13 +360,13 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM = 3;
 
 	/**
-	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM__MESSAGES = IMOAOPackage.NAMED_OBJECT__MESSAGES;
+	int SHOP_ITEM__FACETS = IMOAOPackage.NAMED_OBJECT__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -488,13 +488,13 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM_PROPERTIES = 4;
 
 	/**
-	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM_PROPERTIES__MESSAGES = IMOAOPackage.NAMED_OBJECT__MESSAGES;
+	int SHOP_ITEM_PROPERTIES__FACETS = IMOAOPackage.NAMED_OBJECT__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -562,13 +562,13 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM_GROUP = 5;
 
 	/**
-	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM_GROUP__MESSAGES = IMOAOPackage.NAMED_OBJECT__MESSAGES;
+	int SHOP_ITEM_GROUP__FACETS = IMOAOPackage.NAMED_OBJECT__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -635,13 +635,13 @@ public interface ShopPackage extends EPackage {
 	int ORDER = 6;
 
 	/**
-	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int ORDER__MESSAGES = IMOAOPackage.MOAO__MESSAGES;
+	int ORDER__FACETS = IMOAOPackage.MOAO__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>No</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -717,13 +717,13 @@ public interface ShopPackage extends EPackage {
 	int ORDER_ITEM = 7;
 
 	/**
-	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int ORDER_ITEM__MESSAGES = IMOAOPackage.MOAO__MESSAGES;
+	int ORDER_ITEM__FACETS = IMOAOPackage.MOAO__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>No</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -790,13 +790,13 @@ public interface ShopPackage extends EPackage {
 	int CONTACT = 8;
 
 	/**
-	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CONTACT__MESSAGES = IMOAOPackage.NAMED_OBJECT__MESSAGES;
+	int CONTACT__FACETS = IMOAOPackage.NAMED_OBJECT__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -917,13 +917,13 @@ public interface ShopPackage extends EPackage {
 	int COUNTRY = 9;
 
 	/**
-	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int COUNTRY__MESSAGES = IMOAOPackage.NAMED_OBJECT__MESSAGES;
+	int COUNTRY__FACETS = IMOAOPackage.NAMED_OBJECT__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -1000,13 +1000,13 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM_INFORMATION = 10;
 
 	/**
-	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM_INFORMATION__MESSAGES = IMOAOPackage.MOAO__MESSAGES;
+	int SHOP_ITEM_INFORMATION__FACETS = IMOAOPackage.MOAO__FACETS;
 
 	/**
 	 * The number of structural features of the '<em>Item Information</em>' class. <!--
@@ -1029,13 +1029,13 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM_DESCRIPTION = 11;
 
 	/**
-	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM_DESCRIPTION__MESSAGES = SHOP_ITEM_INFORMATION__MESSAGES;
+	int SHOP_ITEM_DESCRIPTION__FACETS = SHOP_ITEM_INFORMATION__FACETS;
 
 	/**
 	 * The number of structural features of the '<em>Item Description</em>' class. <!--
@@ -1057,13 +1057,13 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM_URL = 12;
 
 	/**
-	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM_URL__MESSAGES = SHOP_ITEM_INFORMATION__MESSAGES;
+	int SHOP_ITEM_URL__FACETS = SHOP_ITEM_INFORMATION__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Url</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -1095,13 +1095,13 @@ public interface ShopPackage extends EPackage {
 	int SHOP_INFORMATION = 13;
 
 	/**
-	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_INFORMATION__MESSAGES = IMOAOPackage.NAMED_OBJECT__MESSAGES;
+	int SHOP_INFORMATION__FACETS = IMOAOPackage.NAMED_OBJECT__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -1159,13 +1159,13 @@ public interface ShopPackage extends EPackage {
 	int SHOP_URL = 14;
 
 	/**
-	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_URL__MESSAGES = SHOP_INFORMATION__MESSAGES;
+	int SHOP_URL__FACETS = SHOP_INFORMATION__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -1232,13 +1232,13 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ADDRESS = 15;
 
 	/**
-	 * The feature id for the '<em><b>Messages</b></em>' containment reference list. <!--
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ADDRESS__MESSAGES = SHOP_INFORMATION__MESSAGES;
+	int SHOP_ADDRESS__FACETS = SHOP_INFORMATION__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--

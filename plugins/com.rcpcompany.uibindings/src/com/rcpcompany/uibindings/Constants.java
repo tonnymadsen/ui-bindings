@@ -388,9 +388,20 @@ public interface Constants {
 	/**
 	 * Argument name for an initializer object for an object of structural feature.
 	 * <p>
+	 * The argument does not make sense directly in bindings.
+	 * <p>
 	 * The argument value is {@link IInitializer}.
 	 */
 	String ARG_INITIALIZER = "initializer"; //$NON-NLS-1$
+
+	/**
+	 * Argument name for a delete participant for a delete operation.
+	 * <p>
+	 * The argument does not make sense directly in bindings.
+	 * <p>
+	 * The argument value is {@link IDeleteParticipant}.
+	 */
+	String ARG_DELETE_PARTICIPANT = "deleteParticipant";
 
 	/**
 	 * Argument name for the type of a binding if not specified directly with <code>type(...)</code>

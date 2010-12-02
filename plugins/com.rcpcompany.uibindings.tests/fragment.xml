@@ -670,5 +670,22 @@
             name="foobar-Sequence-default">
       </argumentInfo>
    </extension>
+   <extension
+         point="com.rcpcompany.uibindings.uiBindings">
+      <model
+            class="com.rcpcompany.uibinding.tests.model.TestObject">
+         <argument
+               name="deleteParticipant"
+               value="com.rcpcompany.uibindings.extests.utils.DeleteParticipantTest$TestObjectDeleteParticipant">
+         </argument>
+     </model>
+      <model
+            class="com.rcpcompany.uibinding.tests.model.SubTestObject">
+         <argument
+               name="deleteParticipant"
+               value="com.rcpcompany.uibindings.extests.utils.DeleteParticipantTest$SubTestObjectDeleteParticipant">
+         </argument>
+       </model>
+   </extension>
 
 </fragment>

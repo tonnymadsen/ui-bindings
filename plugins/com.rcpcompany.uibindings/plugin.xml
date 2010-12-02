@@ -432,7 +432,15 @@
          point="com.rcpcompany.uibindings.uiBindings">
 <argumentInfo name="alignment"> </argumentInfo> 
 <argumentInfo name="cellEditorType" lookupAttributeContainingClass="false" lookupAttributeTargetType="true" lookupParent="true" lookupReferenceContainingClass="false" lookupReferenceTargetType="true"> </argumentInfo>
-<argumentInfo name="ConstraintValidatorAdapter" lookupParent="false"> </argumentInfo> 
+<argumentInfo name="ConstraintValidatorAdapter" lookupParent="false"> </argumentInfo>
+<argumentInfo
+      lookupAttributeContainingClass="false"
+      lookupAttributeTargetType="false"
+      lookupParent="false"
+      lookupReferenceContainingClass="false"
+      lookupReferenceTargetType="false"
+      name="deleteParticipant">
+</argumentInfo> 
 <argumentInfo name="doubleClickCommand"> </argumentInfo> 
 <argumentInfo name="dynamic" lookupAttributeContainingClass="false"> </argumentInfo> 
 <argumentInfo name="extensions"> </argumentInfo> 
