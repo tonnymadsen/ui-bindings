@@ -7,7 +7,7 @@ Bundle-Vendor: %Bundle-Vendor
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: com.rcpcompany.utils.basic,
  com.rcpcompany.utils.basic.tests
-Require-Bundle: org.junit4
+Require-Bundle: org.junit;bundle-version="[4.0.0,5.0.0)"
 Import-Package: org.eclipse.emf.common.notify,
  org.eclipse.emf.ecore,
  org.eclipse.swt,
