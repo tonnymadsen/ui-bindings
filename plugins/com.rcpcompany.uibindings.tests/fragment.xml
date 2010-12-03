@@ -585,14 +585,15 @@
             parent="com.rcpcompany.uibindings.shop.treeItems.shop"
             id="com.rcpcompany.uibindings.shop.treeItems.contactFolder">
          <navigator
-               id="contacts">
-         </navigator>
+               id="contacts" />
+         <navigator id="" />
       </treeItemRelation>
       <treeItemRelation
             parent="com.rcpcompany.uibindings.shop.treeItems.contactFolder" featureName="contacts">
          <navigator
                id="contacts">
          </navigator>
+         <navigator id="" />
       </treeItemRelation>
       <treeItemRelation
             featureName="customer"
