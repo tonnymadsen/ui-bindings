@@ -113,7 +113,7 @@ public class ManagerSizesTest {
 				assertTrue(m.getModelInfo().size() > 1);
 				// Some elements can refer to the same model class and thus collapse the number of
 				// model class records.
-				assertTrue(elements.size() - 12 < m.getModelInfo().size());
+				assertTrue(elements.size() - 15 < m.getModelInfo().size());
 			}
 		});
 	}
