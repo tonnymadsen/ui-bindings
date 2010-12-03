@@ -170,7 +170,10 @@ public class EListKeyedElementObservableValue<T extends EObject> extends Abstrac
 		 * If based on the an IOV for the base object, then first resolve this.
 		 */
 		if (mySourceOV != null) {
-			final Object o = mySourceOV.getValue();
+			Object o = null;
+			if (!mySourceOV.isDisposed()) {
+				o = mySourceOV.getValue();
+			}
 			if (o instanceof EObject) {
 				mySource = (EObject) o;
 			} else {
