@@ -51,6 +51,7 @@ import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.fieldassist.ContentAssistCommandAdapter;
 
@@ -290,6 +291,12 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 					if (control.isEnabled()) {
 						getBinding().addErrorCondition("Binding cannot be changed, but widget is enabled"); //$NON-NLS-1$
 						control.setEnabled(false);
+					}
+				} else if (control instanceof Text) {
+					final Text t = (Text) control;
+					if (t.getEditable()) {
+						t.setEditable(false);
+						LogUtils.debug(getBinding(), getBinding() + ": set to not editable");
 					}
 				} else {
 					if ((control.getStyle() & SWT.READ_ONLY) != SWT.READ_ONLY) {
