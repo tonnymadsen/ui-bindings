@@ -63,7 +63,7 @@ public class SelectEditorPartHandler extends AbstractHandler implements IHandler
 			if (msg.isTouch()) return;
 			if (msg.getEventType() == Notification.MOVE) return;
 			if (msg.getFeature() == INavigatorModelPackage.Literals.EDITOR_INFORMATION__PREFERRED_EDITOR) {
-				LogUtils.debug(this, "update " + NavigatorConstants.SELECT_EDITOR_PART_COMMAND);
+				// LogUtils.debug(this, "update " + NavigatorConstants.SELECT_EDITOR_PART_COMMAND);
 				/*
 				 * Make all select editor parts update themselves...
 				 */
