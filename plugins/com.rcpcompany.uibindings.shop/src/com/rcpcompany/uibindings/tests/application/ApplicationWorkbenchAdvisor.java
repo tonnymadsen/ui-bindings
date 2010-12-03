@@ -10,10 +10,19 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.tests.application;
 
+import org.eclipse.core.commands.ParameterizedCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.ui.IWorkbenchCommandConstants;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchAdvisor;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
+import org.eclipse.ui.commands.ICommandService;
+import org.eclipse.ui.handlers.IHandlerService;
 
+import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.moao.ui.validation.MOAOMessageValidatorAdapter;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.tests.shop.Shop;
@@ -23,6 +32,7 @@ import com.rcpcompany.uibindings.utils.IGlobalNavigationManager;
 import com.rcpcompany.uibindings.validators.ConstraintValidatorAdapter;
 import com.rcpcompany.uibindings.validators.EValidatorAdapter;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * The workbench advisor.
@@ -63,5 +73,32 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 		IGlobalNavigationManager.Factory.installMouseHandling();
 
 		INavigatorManager.Factory.getManager().setUseGenericEditorPartFallback(false);
+	}
+
+	@Override
+	public boolean preShutdown() {
+		final IManager manager = IManager.Factory.getManager();
+		final EditingDomain editingDomain = manager.getEditingDomain();
+		int res = 1; // == NO
+		if (editingDomain.getCommandStack().canUndo()) {
+			final IWorkbenchWindow window = getWorkbenchConfigurer().getWorkbench().getActiveWorkbenchWindow();
+			final MessageDialog dialog = new MessageDialog(window.getShell(), "Save Shop?", null,
+					"Changes has been made to the shop. Save these?", MessageDialog.QUESTION, new String[] {
+							IDialogConstants.YES_LABEL, IDialogConstants.NO_LABEL, IDialogConstants.CANCEL_LABEL }, 0);
+			res = dialog.open();
+			if (res == 0) {
+				final ICommandService cs = (ICommandService) window.getService(ICommandService.class);
+				final IHandlerService hs = (IHandlerService) window.getService(IHandlerService.class);
+
+				try {
+					final String c = manager.getCommandIDs().get(IWorkbenchCommandConstants.FILE_SAVE);
+					final ParameterizedCommand command = cs.deserialize(c);
+					hs.executeCommand(command, null);
+				} catch (final Exception ex) {
+					LogUtils.error(this, ex);
+				}
+			}
+		}
+		return res != 2;
 	}
 }
