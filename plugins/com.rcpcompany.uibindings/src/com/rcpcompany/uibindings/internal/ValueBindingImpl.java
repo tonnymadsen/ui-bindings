@@ -561,41 +561,89 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 	@Override
 	public boolean isChangeable() {
-		/*
-		 * Can now be called before in state OK - e.g. from the form creator
-		 */
-		// assertTrue(getDecorator() != null, "Called before in OK state"); //$NON-NLS-1$
+		String sb = null;
+		boolean res = false;
+		try {
+			/*
+			 * Can now be called before in state OK - e.g. from the form creator
+			 */
+			// assertTrue(getDecorator() != null, "Called before in OK state"); //$NON-NLS-1$
 
-		/*
-		 * TODO Not sure about this! In general, the reaction to non-changeable fields stinks!
-		 */
-		// if (eIsSet(IUIBindingsPackage.Literals.BINDING__ERROR_CONDITIONS) &&
-		// getErrorConditions().size() > 0)
-		// return false;
+			/*
+			 * TODO Not sure about this! In general, the reaction to non-changeable fields stinks!
+			 */
+			// if (eIsSet(IUIBindingsPackage.Literals.BINDING__ERROR_CONDITIONS) &&
+			// getErrorConditions().size() > 0)
+			// return false;
 
-		final IUIAttribute attribute = getUIAttribute();
-		if (attribute != null) {
-			if (!attribute.isChangeable()) return false;
-			final Widget widget = attribute.getWidget();
-			if (widget != null && (!widget.isDisposed() && (widget.getStyle() & SWT.READ_ONLY) == SWT.READ_ONLY))
+			final IUIAttribute attribute = getUIAttribute();
+			if (attribute != null) {
+				if (!attribute.isChangeable()) {
+					if (Activator.getDefault().TRACE_ISCHANGEABLE) {
+						sb = attribute + ": not changeable";
+					}
+					return false;
+				}
+				final Widget widget = attribute.getWidget();
+				if (widget != null && (!widget.isDisposed() && (widget.getStyle() & SWT.READ_ONLY) == SWT.READ_ONLY)) {
+					if (Activator.getDefault().TRACE_ISCHANGEABLE) {
+						sb = widget + " r/o";
+					}
+					return false;
+				}
+			}
+			if (!getStaticDataType().isChangeable()) {
+				if (Activator.getDefault().TRACE_ISCHANGEABLE) {
+					sb = getStaticDataType() + ": not changeable";
+				}
 				return false;
+			}
+			if (!getDataType().isChangeable()) {
+				if (Activator.getDefault().TRACE_ISCHANGEABLE) {
+					sb = getDataType() + ": not changeable";
+				}
+				return false;
+			}
+
+			/*
+			 * If the model observable is a constant IOV, then this binding must be constant.
+			 */
+			final IObservableValue ov = getModelObservableValue();
+			if (ov instanceof ConstantObservableValue) {
+				if (Activator.getDefault().TRACE_ISCHANGEABLE) {
+					sb = ov + ": constant";
+				}
+				return false;
+			}
+			if (ov instanceof UnmodifiableObservableValue) {
+				if (Activator.getDefault().TRACE_ISCHANGEABLE) {
+					sb = ov + ": unmodifiable";
+				}
+				return false;
+			}
+
+			if (getArgument(Constants.ARG_READONLY, Boolean.class, Boolean.FALSE)) {
+				if (Activator.getDefault().TRACE_ISCHANGEABLE) {
+					sb = "READONLY";
+				}
+				return false;
+			}
+
+			final IUIBindingDecorator d = getDecorator();
+			if (d != null && !d.isChangeable()) {
+				if (Activator.getDefault().TRACE_ISCHANGEABLE) {
+					sb = d + ": not changeable";
+				}
+				return false;
+			}
+
+			res = true;
+			return res;
+		} finally {
+			if (Activator.getDefault().TRACE_ISCHANGEABLE) {
+				LogUtils.debug(this, this + "=" + res + (sb != null ? (": " + sb) : ""));
+			}
 		}
-		if (!getStaticDataType().isChangeable()) return false;
-		if (!getDataType().isChangeable()) return false;
-
-		/*
-		 * If the model observable is a constant IOV, then this binding must be constant.
-		 */
-		final IObservableValue ov = getModelObservableValue();
-		if (ov instanceof ConstantObservableValue) return false;
-		if (ov instanceof UnmodifiableObservableValue) return false;
-
-		if (getArgument(Constants.ARG_READONLY, Boolean.class, Boolean.FALSE)) return false;
-
-		final IUIBindingDecorator d = getDecorator();
-		if (d != null && !d.isChangeable()) return false;
-
-		return true;
 	}
 
 	@Override

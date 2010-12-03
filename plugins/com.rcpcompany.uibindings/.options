@@ -14,6 +14,7 @@ com.rcpcompany.uibindings/trace/Events/CellEditorActivation=false
 com.rcpcompany.uibindings/trace/Events/LabelProviders=false
 com.rcpcompany.uibindings/trace/Events/SWT=false
 com.rcpcompany.uibindings/trace/Handlers=false
+com.rcpcompany.uibindings/trace/isChangeable=false
 com.rcpcompany.uibindings/trace/LabelDecorator=false
 com.rcpcompany.uibindings/trace/Lifecycle/Bindings=false
 com.rcpcompany.uibindings/trace/Lifecycle/CI=false

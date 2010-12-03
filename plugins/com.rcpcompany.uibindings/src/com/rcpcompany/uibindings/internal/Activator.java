@@ -81,6 +81,11 @@ public class Activator extends AbstractUIPlugin {
 	public boolean TRACE_SOURCE_PROVIDER = false;
 
 	/**
+	 * <code>true</code> if tracing {@link IBinding#isChangeable()}.
+	 */
+	public boolean TRACE_ISCHANGEABLE = false;
+
+	/**
 	 * <code>true</code> if verbose tracing the built-in source providers.
 	 */
 	public boolean TRACE_SOURCE_PROVIDER_VERBOSE = false;
@@ -279,6 +284,7 @@ public class Activator extends AbstractUIPlugin {
 			CREATION_POINT_STACK_LEVELS = Integer.parseInt(Platform.getDebugOption(ID
 					+ "/conf/CreationPoint/StackLevels")); //$NON-NLS-1$
 			TRACE_SOURCE_PROVIDER = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/SourceProvider")); //$NON-NLS-1$
+			TRACE_ISCHANGEABLE = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/isChangeable")); //$NON-NLS-1$
 			TRACE_SOURCE_PROVIDER_VERBOSE = Boolean.parseBoolean(Platform.getDebugOption(ID
 					+ "/trace/SourceProvider/Verbose")); //$NON-NLS-1$
 			TRACE_NAVIGATION_VIEWER = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/Navigation/viewer")); //$NON-NLS-1$
