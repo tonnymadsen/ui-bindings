@@ -50,17 +50,25 @@ public class NavigatorModelManagerTest {
 
 	@Test
 	public void testExtensionReader() {
-		final List<IConfigurationElement> list = new ArrayList<IConfigurationElement>();
+		final List<IConfigurationElement> editorList = new ArrayList<IConfigurationElement>();
+		final List<IConfigurationElement> navigatorList = new ArrayList<IConfigurationElement>();
 
 		final IExtensionRegistry extensionRegistry = Platform.getExtensionRegistry();
 		for (final IConfigurationElement element : extensionRegistry
 				.getConfigurationElementsFor(NavigatorConstants.EDITORS_EXTENSION_POINT)) {
 			if (element.getName().equals(NavigatorConstants.EDITOR_TAG)) {
-				list.add(element);
+				editorList.add(element);
+			} else if (element.getName().equals(NavigatorConstants.NAVIGATOR_TAG)) {
+				navigatorList.add(element);
+			} else if (element.getName().equals(NavigatorConstants.PREFERENCE_MODEL_TYPE_TAG)) {
+				// navigatorList.add(element);
+			} else {
+				fail("Unknown element " + element.getName());
 			}
 		}
 
-		assertEquals(8, list.size());
+		assertEquals(9, editorList.size());
+		assertEquals(2, navigatorList.size());
 
 		final INavigatorManager manager = INavigatorManager.Factory.getManager();
 
@@ -68,7 +76,7 @@ public class NavigatorModelManagerTest {
 
 		final EList<IEditorPartDescriptor> editors = manager.getDescriptors();
 		assertNotNull(editors);
-		assertEquals(8, editors.size());
+		assertEquals(9, editors.size());
 
 		final EList<IEditorInformation> eis = manager.getEditorInformations();
 		assertNotNull(eis);

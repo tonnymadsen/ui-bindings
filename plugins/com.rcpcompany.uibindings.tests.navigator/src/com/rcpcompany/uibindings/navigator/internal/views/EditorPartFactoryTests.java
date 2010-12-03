@@ -85,7 +85,7 @@ public class EditorPartFactoryTests {
 
 			IEditorPartDescriptor desc = null;
 			for (final IEditorInformation mt : myManager.getEditorInformations()) {
-				if (mt.getModelType().equals(ShopItemGroup.class.getName())) {
+				if (ShopItemGroup.class.getName().equals(mt.getModelType())) {
 					assertEquals(3, mt.getEditors().size());
 					assertEquals(3, mt.getEnabledEditors().size());
 					desc = mt.getEditors().get(0);

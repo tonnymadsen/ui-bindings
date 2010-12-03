@@ -8,6 +8,7 @@ Fragment-Host: com.rcpcompany.uibindings.navigator;bundle-version="[1.1.0,2.0.0)
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.junit;bundle-version="[4.0.0,5.0.0)"
 Import-Package: com.rcpcompany.uibindings,
+ com.rcpcompany.uibindings.extests,
  com.rcpcompany.uibindings.moao,
  com.rcpcompany.uibindings.tests.shop,
  com.rcpcompany.uibindings.utils,
@@ -23,6 +24,5 @@ Import-Package: com.rcpcompany.uibindings,
  org.eclipse.jface.viewers,
  org.eclipse.swt,
  org.eclipse.swt.widgets,
- org.eclipse.ui,
  org.eclipse.ui.commands,
  org.eclipse.ui.handlers

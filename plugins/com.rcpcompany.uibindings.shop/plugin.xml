@@ -679,7 +679,7 @@
       </navigator>
       <navigator
             class="com.rcpcompany.uibindings.shop.views.advisors.ShopNavigatorContactsAdvisor"
-            id="com.rcpcompany.uibindings.shop.views.ShopNavigationView">
+            id="com.rcpcompany.uibindings.shop.views.ShopNavigationContactsView">
       </navigator>
       <navigator
             class="com.rcpcompany.uibindings.shop.views.advisors.ShopNavigatorOrderAdvisor"
