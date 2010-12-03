@@ -11,7 +11,10 @@
 package com.rcpcompany.uibindings.internal.decorators.extenders;
 
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Control;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IUIBindingDecoratorExtenderContext;
@@ -31,6 +34,13 @@ public class ArgumentImageExtender extends AbstractUIBindingDecoratorExtender {
 	public boolean isEnabled(IValueBinding binding) {
 		if (binding.getParentBinding() != null && !binding.getArgument(Constants.ARG_SHOW_IMAGE, Boolean.class, false))
 			return false;
+		final Control control = binding.getControl();
+		/*
+		 * Forget about checkboxes and toggles, etc
+		 */
+		if (control instanceof Button) {
+			if ((control.getStyle() & SWT.CHECK | SWT.TOGGLE | SWT.RADIO) != 0) return false;
+		}
 		final ImageDescriptor id = binding.getArgument(Constants.ARG_IMAGE, ImageDescriptor.class, null);
 		return id != null;
 	}
