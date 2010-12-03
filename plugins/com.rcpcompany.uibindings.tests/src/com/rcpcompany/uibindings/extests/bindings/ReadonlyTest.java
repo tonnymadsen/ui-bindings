@@ -26,7 +26,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
@@ -141,7 +140,7 @@ public class ReadonlyTest {
 	 * Binds the UI
 	 */
 	public void bindUI() {
-		assertOneLog(new Runnable() {
+		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
 				final IBindingContext context = IBindingContext.Factory.createContext(myView.getScrolledForm());
