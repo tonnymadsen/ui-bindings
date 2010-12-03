@@ -29,6 +29,7 @@ There can be multiple editor parts for a specific model type or tree item, in wh
          <choice minOccurs="0" maxOccurs="unbounded">
             <element ref="editor"/>
             <element ref="preferenceModelType"/>
+            <element ref="navigator"/>
          </choice>
          <attribute name="point" type="string" use="required">
             <annotation>
@@ -214,6 +215,31 @@ Note that if a specific object is shown in the navigator, it is automatically in
             <element ref="iterate"/>
             <element ref="reference"/>
          </choice>
+      </complexType>
+   </element>
+
+   <element name="navigator">
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the view ID for the navigator
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="identifier" basedOn="org.eclipse.ui.views/view/@id"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the advisor class associated with the navigator
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="com.rcpcompany.uibindings.navigator.views.AbstractNavigatorBaseViewAdvisor:com.rcpcompany.uibindings.navigator.views.INavigatorBaseViewAdvisor"/>
+               </appinfo>
+            </annotation>
+         </attribute>
       </complexType>
    </element>
 

@@ -220,7 +220,6 @@
             restorable="true">
       </view>
       <view
-            advisor="com.rcpcompany.uibindings.shop.views.advisors.ShopNavigatorAdvisor"
             category="com.rcpcompany.uibindings.example.application.viewCategories.shop"
             class="com.rcpcompany.uibindings.navigator.views.NavigatorBaseView"
             icon="platform:/plugin/com.rcpcompany.uibindings/images/views/navigator_view.gif"
@@ -229,7 +228,6 @@
             restorable="true">
       </view>
       <view
-            advisor="com.rcpcompany.uibindings.shop.views.advisors.ShopNavigatorContactsAdvisor"
             category="com.rcpcompany.uibindings.example.application.viewCategories.shop"
             class="com.rcpcompany.uibindings.navigator.views.NavigatorBaseView"
             icon="platform:/plugin/com.rcpcompany.uibindings/images/views/navigator_view.gif"
@@ -238,7 +236,6 @@
             restorable="true">
       </view>
       <view
-            advisor="com.rcpcompany.uibindings.shop.views.advisors.ShopNavigatorOrderAdvisor"
             category="com.rcpcompany.uibindings.example.application.viewCategories.shop"
             class="com.rcpcompany.uibindings.navigator.views.NavigatorBaseView"
             icon="platform:/plugin/com.rcpcompany.uibindings/images/views/navigator_view.gif"
@@ -673,6 +670,21 @@
       <preferenceModelType
             modelType="com.rcpcompany.uibindings.tests.shop.Shop">
       </preferenceModelType>
+   </extension>
+   <extension
+         point="com.rcpcompany.uibindings.navigator.editors">
+      <navigator
+            class="com.rcpcompany.uibindings.shop.views.advisors.ShopNavigatorAdvisor"
+            id="com.rcpcompany.uibindings.shop.views.ShopNavigationView">
+      </navigator>
+      <navigator
+            class="com.rcpcompany.uibindings.shop.views.advisors.ShopNavigatorContactsAdvisor"
+            id="com.rcpcompany.uibindings.shop.views.ShopNavigationView">
+      </navigator>
+      <navigator
+            class="com.rcpcompany.uibindings.shop.views.advisors.ShopNavigatorOrderAdvisor"
+            id="com.rcpcompany.uibindings.shop.views.ShopNavigationOrderView">
+      </navigator>
    </extension>
 
 

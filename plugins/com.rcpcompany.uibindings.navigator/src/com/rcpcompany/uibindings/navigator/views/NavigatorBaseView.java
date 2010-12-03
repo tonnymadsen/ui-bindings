@@ -52,7 +52,10 @@ import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.SpecialBinding;
 import com.rcpcompany.uibindings.navigator.IEditorPartView;
+import com.rcpcompany.uibindings.navigator.INavigatorDescriptor;
+import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.internal.Activator;
+import com.rcpcompany.uibindings.navigator.internal.NavigatorConstants;
 import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
 import com.rcpcompany.uibindings.utils.IDnDSupport;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -266,10 +269,30 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 	public void setInitializationData(IConfigurationElement ce, String propertyName, Object data) {
 		super.setInitializationData(ce, propertyName, data);
 
-		try {
-			myAdvisor = (INavigatorBaseViewAdvisor) ce.createExecutableExtension("advisor");
-		} catch (final CoreException ex) {
-			LogUtils.error(this, ex);
+		/*
+		 * The advisor can come from either the advisor attribute of the view element or from the
+		 * editors extension point...
+		 */
+		if (ce.getAttribute(NavigatorConstants.ADVISOR_TAG) != null) {
+			try {
+				myAdvisor = (INavigatorBaseViewAdvisor) ce.createExecutableExtension(NavigatorConstants.ADVISOR_TAG);
+			} catch (final CoreException ex) {
+				LogUtils.error(this, ex);
+			}
+		} else {
+			final String id = ce.getAttribute(NavigatorConstants.ID_TAG);
+			for (final INavigatorDescriptor n : INavigatorManager.Factory.getManager().getNavigators()) {
+				if (n.getId().equals(id)) {
+					myAdvisor = n.getAdvisor().getObject();
+					break;
+				}
+			}
+			if (myAdvisor == null) {
+				LogUtils.error(this, "No advisor found for view ID: " + id);
+			}
+		}
+
+		if (myAdvisor == null) {
 			myAdvisor = new DummyAdvisor();
 		}
 	}

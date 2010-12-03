@@ -4,6 +4,8 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="navigator"
     nsURI="http://rcpcompany.com/schemas/uibindings/navigator" nsPrefix="navigator">
   <eClassifiers xsi:type="ecore:EClass" name="NavigatorManager">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="navigators" upperBound="-1"
+        eType="#//NavigatorDescriptor" transient="true" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="descriptors" upperBound="-1"
         eType="#//EditorPartDescriptor" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="editorInformations" upperBound="-1"
@@ -19,6 +21,15 @@
         transient="true">
       <eGenericType eClassifier="ecore:EDataType ../../com.rcpcompany.uibindings/model/uibindings.ecore#//CEObjectHolder">
         <eTypeArguments eClassifier="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NavigatorDescriptor">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="advisor" lowerBound="1"
+        transient="true">
+      <eGenericType eClassifier="ecore:EDataType ../../com.rcpcompany.uibindings/model/uibindings.ecore#//CEObjectHolder">
+        <eTypeArguments eClassifier="#//INavigatorBaseViewAdvisor"/>
       </eGenericType>
     </eStructuralFeatures>
   </eClassifiers>
@@ -55,6 +66,8 @@
         eType="#//Expression" transient="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IEditorPartFactory" instanceClassName="com.rcpcompany.uibindings.navigator.IEditorPartFactory"
+      abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="INavigatorBaseViewAdvisor" instanceClassName="com.rcpcompany.uibindings.navigator.views.INavigatorBaseViewAdvisor"
       abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="IEditorPartView" instanceClassName="com.rcpcompany.uibindings.navigator.IEditorPartView"
       abstract="true" interface="true"/>

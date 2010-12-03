@@ -48,10 +48,12 @@ import com.rcpcompany.uibindings.navigator.IEditorInformation;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.IEditorPartFactory;
 import com.rcpcompany.uibindings.navigator.IEditorPartView;
+import com.rcpcompany.uibindings.navigator.INavigatorDescriptor;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
 import com.rcpcompany.uibindings.navigator.INavigatorModelPackage;
 import com.rcpcompany.uibindings.navigator.editorFactories.GenericPlainFormEditorPartFactory;
+import com.rcpcompany.uibindings.navigator.views.INavigatorBaseViewAdvisor;
 import com.rcpcompany.uibindings.utils.IGlobalNavigationManager;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 import com.rcpcompany.utils.extensionpoints.CEResourceHolder;
@@ -63,6 +65,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <p>
  * The following features are implemented:
  * <ul>
+ * <li>{@link com.rcpcompany.uibindings.navigator.internal.NavigatorManagerImpl#getNavigators <em>
+ * Navigators</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.navigator.internal.NavigatorManagerImpl#getDescriptors <em>
  * Descriptors</em>}</li>
  * <li>
@@ -85,6 +89,16 @@ import com.rcpcompany.utils.logging.LogUtils;
  * @generated
  */
 public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManager {
+	/**
+	 * The cached value of the '{@link #getNavigators() <em>Navigators</em>}' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getNavigators()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<INavigatorDescriptor> navigators;
+
 	/**
 	 * The cached value of the '{@link #getDescriptors() <em>Descriptors</em>}' containment
 	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -379,7 +393,25 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 		for (final IConfigurationElement ce : registry
 				.getConfigurationElementsFor(NavigatorConstants.EDITORS_EXTENSION_POINT)) {
 			final String elementName = ce.getName();
-			if (NavigatorConstants.EDITOR_TAG.equals(elementName)) {
+			if (NavigatorConstants.NAVIGATOR_TAG.equals(elementName)) {
+				final String id = ce.getAttribute(NavigatorConstants.ID_TAG);
+				if (id == null || id.length() == 0) {
+					LogUtils.error(ce, NavigatorConstants.ID_TAG + " must be specified. Ignored"); //$NON-NLS-1$
+					continue;
+				}
+
+				final INavigatorDescriptor descriptor = INavigatorModelFactory.eINSTANCE.createNavigatorDescriptor();
+				descriptor.setId(id);
+				descriptor.setAdvisor(new CEObjectHolder<INavigatorBaseViewAdvisor>(ce, NavigatorConstants.CLASS_TAG));
+				for (final INavigatorDescriptor d : getNavigators()) {
+					if (d.getId().equals(descriptor.getId())) {
+						LogUtils.error(ce, NavigatorConstants.ID_TAG
+								+ " '" + descriptor.getId() + "' repeated. Ignored"); //$NON-NLS-1$
+						continue;
+					}
+				}
+				getNavigators().add(descriptor);
+			} else if (NavigatorConstants.EDITOR_TAG.equals(elementName)) {
 				String id = ce.getAttribute(NavigatorConstants.ID_TAG);
 				if (id == null || id.length() == 0) {
 					id = "<unspecified>"; //$NON-NLS-1$
@@ -563,6 +595,20 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	 * @generated
 	 */
 	@Override
+	public EList<INavigatorDescriptor> getNavigators() {
+		if (navigators == null) {
+			navigators = new EObjectContainmentEList<INavigatorDescriptor>(INavigatorDescriptor.class, this,
+					INavigatorModelPackage.NAVIGATOR_MANAGER__NAVIGATORS);
+		}
+		return navigators;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EList<IEditorPartDescriptor> getDescriptors() {
 		if (descriptors == null) {
 			descriptors = new EObjectContainmentEList<IEditorPartDescriptor>(IEditorPartDescriptor.class, this,
@@ -717,6 +763,8 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+		case INavigatorModelPackage.NAVIGATOR_MANAGER__NAVIGATORS:
+			return ((InternalEList<?>) getNavigators()).basicRemove(otherEnd, msgs);
 		case INavigatorModelPackage.NAVIGATOR_MANAGER__DESCRIPTORS:
 			return ((InternalEList<?>) getDescriptors()).basicRemove(otherEnd, msgs);
 		case INavigatorModelPackage.NAVIGATOR_MANAGER__EDITOR_INFORMATIONS:
@@ -733,6 +781,8 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+		case INavigatorModelPackage.NAVIGATOR_MANAGER__NAVIGATORS:
+			return getNavigators();
 		case INavigatorModelPackage.NAVIGATOR_MANAGER__DESCRIPTORS:
 			return getDescriptors();
 		case INavigatorModelPackage.NAVIGATOR_MANAGER__EDITOR_INFORMATIONS:
@@ -758,6 +808,10 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+		case INavigatorModelPackage.NAVIGATOR_MANAGER__NAVIGATORS:
+			getNavigators().clear();
+			getNavigators().addAll((Collection<? extends INavigatorDescriptor>) newValue);
+			return;
 		case INavigatorModelPackage.NAVIGATOR_MANAGER__DESCRIPTORS:
 			getDescriptors().clear();
 			getDescriptors().addAll((Collection<? extends IEditorPartDescriptor>) newValue);
@@ -791,6 +845,9 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+		case INavigatorModelPackage.NAVIGATOR_MANAGER__NAVIGATORS:
+			getNavigators().clear();
+			return;
 		case INavigatorModelPackage.NAVIGATOR_MANAGER__DESCRIPTORS:
 			getDescriptors().clear();
 			return;
@@ -821,6 +878,8 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+		case INavigatorModelPackage.NAVIGATOR_MANAGER__NAVIGATORS:
+			return navigators != null && !navigators.isEmpty();
 		case INavigatorModelPackage.NAVIGATOR_MANAGER__DESCRIPTORS:
 			return descriptors != null && !descriptors.isEmpty();
 		case INavigatorModelPackage.NAVIGATOR_MANAGER__EDITOR_INFORMATIONS:

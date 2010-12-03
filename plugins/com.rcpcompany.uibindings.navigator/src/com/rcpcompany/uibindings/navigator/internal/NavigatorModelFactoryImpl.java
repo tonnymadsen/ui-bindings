@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import com.rcpcompany.uibindings.navigator.IEditorInformation;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
+import com.rcpcompany.uibindings.navigator.INavigatorDescriptor;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
 import com.rcpcompany.uibindings.navigator.INavigatorModelPackage;
@@ -66,6 +67,8 @@ public class NavigatorModelFactoryImpl extends EFactoryImpl implements INavigato
 		switch (eClass.getClassifierID()) {
 		case INavigatorModelPackage.NAVIGATOR_MANAGER:
 			return createNavigatorManager();
+		case INavigatorModelPackage.NAVIGATOR_DESCRIPTOR:
+			return createNavigatorDescriptor();
 		case INavigatorModelPackage.EDITOR_INFORMATION:
 			return createEditorInformation();
 		case INavigatorModelPackage.EDITOR_PART_DESCRIPTOR:
@@ -124,6 +127,17 @@ public class NavigatorModelFactoryImpl extends EFactoryImpl implements INavigato
 		theManager = navigatorManager;
 		navigatorManager.init();
 		return navigatorManager;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public INavigatorDescriptor createNavigatorDescriptor() {
+		final NavigatorDescriptorImpl navigatorDescriptor = new NavigatorDescriptorImpl();
+		return navigatorDescriptor;
 	}
 
 	/**

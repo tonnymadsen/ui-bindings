@@ -26,9 +26,11 @@ import com.rcpcompany.uibindings.navigator.IEditorInformation;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.IEditorPartFactory;
 import com.rcpcompany.uibindings.navigator.IEditorPartView;
+import com.rcpcompany.uibindings.navigator.INavigatorDescriptor;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.INavigatorModelFactory;
 import com.rcpcompany.uibindings.navigator.INavigatorModelPackage;
+import com.rcpcompany.uibindings.navigator.views.INavigatorBaseViewAdvisor;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
@@ -42,6 +44,13 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 	 * @generated
 	 */
 	private EClass navigatorManagerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass navigatorDescriptorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -63,6 +72,13 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 	 * @generated
 	 */
 	private EClass iEditorPartFactoryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass iNavigatorBaseViewAdvisorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -168,7 +184,7 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 	 * @generated
 	 */
 	@Override
-	public EReference getNavigatorManager_Descriptors() {
+	public EReference getNavigatorManager_Navigators() {
 		return (EReference) navigatorManagerEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -178,7 +194,7 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 	 * @generated
 	 */
 	@Override
-	public EReference getNavigatorManager_EditorInformations() {
+	public EReference getNavigatorManager_Descriptors() {
 		return (EReference) navigatorManagerEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -188,8 +204,8 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNavigatorManager_UseGenericEditorPartFallback() {
-		return (EAttribute) navigatorManagerEClass.getEStructuralFeatures().get(2);
+	public EReference getNavigatorManager_EditorInformations() {
+		return (EReference) navigatorManagerEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -198,7 +214,7 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNavigatorManager_PinEditorByDefault() {
+	public EAttribute getNavigatorManager_UseGenericEditorPartFallback() {
 		return (EAttribute) navigatorManagerEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -208,7 +224,7 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNavigatorManager_OpenMustOpenNew() {
+	public EAttribute getNavigatorManager_PinEditorByDefault() {
 		return (EAttribute) navigatorManagerEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -218,8 +234,48 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNavigatorManager_PreferenceModelTypes() {
+	public EAttribute getNavigatorManager_OpenMustOpenNew() {
 		return (EAttribute) navigatorManagerEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNavigatorManager_PreferenceModelTypes() {
+		return (EAttribute) navigatorManagerEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EClass getNavigatorDescriptor() {
+		return navigatorDescriptorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNavigatorDescriptor_Id() {
+		return (EAttribute) navigatorDescriptorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNavigatorDescriptor_Advisor() {
+		return (EAttribute) navigatorDescriptorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -388,6 +444,16 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 	 * @generated
 	 */
 	@Override
+	public EClass getINavigatorBaseViewAdvisor() {
+		return iNavigatorBaseViewAdvisorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getIEditorPartView() {
 		return iEditorPartViewEClass;
 	}
@@ -461,12 +527,17 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 
 		// Create classes and their features
 		navigatorManagerEClass = createEClass(NAVIGATOR_MANAGER);
+		createEReference(navigatorManagerEClass, NAVIGATOR_MANAGER__NAVIGATORS);
 		createEReference(navigatorManagerEClass, NAVIGATOR_MANAGER__DESCRIPTORS);
 		createEReference(navigatorManagerEClass, NAVIGATOR_MANAGER__EDITOR_INFORMATIONS);
 		createEAttribute(navigatorManagerEClass, NAVIGATOR_MANAGER__USE_GENERIC_EDITOR_PART_FALLBACK);
 		createEAttribute(navigatorManagerEClass, NAVIGATOR_MANAGER__PIN_EDITOR_BY_DEFAULT);
 		createEAttribute(navigatorManagerEClass, NAVIGATOR_MANAGER__OPEN_MUST_OPEN_NEW);
 		createEAttribute(navigatorManagerEClass, NAVIGATOR_MANAGER__PREFERENCE_MODEL_TYPES);
+
+		navigatorDescriptorEClass = createEClass(NAVIGATOR_DESCRIPTOR);
+		createEAttribute(navigatorDescriptorEClass, NAVIGATOR_DESCRIPTOR__ID);
+		createEAttribute(navigatorDescriptorEClass, NAVIGATOR_DESCRIPTOR__ADVISOR);
 
 		editorInformationEClass = createEClass(EDITOR_INFORMATION);
 		createEReference(editorInformationEClass, EDITOR_INFORMATION__EDITORS);
@@ -486,6 +557,8 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 		createEAttribute(editorPartDescriptorEClass, EDITOR_PART_DESCRIPTOR__ENABLED_WHEN_EXPRESSION);
 
 		iEditorPartFactoryEClass = createEClass(IEDITOR_PART_FACTORY);
+
+		iNavigatorBaseViewAdvisorEClass = createEClass(INAVIGATOR_BASE_VIEW_ADVISOR);
 
 		iEditorPartViewEClass = createEClass(IEDITOR_PART_VIEW);
 
@@ -532,6 +605,9 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 		// Initialize classes and features; add operations and parameters
 		initEClass(navigatorManagerEClass, INavigatorManager.class, "NavigatorManager", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNavigatorManager_Navigators(), this.getNavigatorDescriptor(), null, "navigators", null, 0,
+				-1, INavigatorManager.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNavigatorManager_Descriptors(), this.getEditorPartDescriptor(), null, "descriptors", null, 0,
 				-1, INavigatorManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -553,6 +629,17 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 		initEAttribute(getNavigatorManager_PreferenceModelTypes(), g1, "preferenceModelTypes", null, 0, -1,
 				INavigatorManager.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(navigatorDescriptorEClass, INavigatorDescriptor.class, "NavigatorDescriptor", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNavigatorDescriptor_Id(), ecorePackage.getEString(), "id", null, 1, 1,
+				INavigatorDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(theUIBindingsPackage.getCEObjectHolder());
+		g2 = createEGenericType(this.getINavigatorBaseViewAdvisor());
+		g1.getETypeArguments().add(g2);
+		initEAttribute(getNavigatorDescriptor_Advisor(), g1, "advisor", null, 1, 1, INavigatorDescriptor.class,
+				IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(editorInformationEClass, IEditorInformation.class, "EditorInformation", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -603,6 +690,9 @@ public class NavigatorModelPackageImpl extends EPackageImpl implements INavigato
 
 		initEClass(iEditorPartFactoryEClass, IEditorPartFactory.class, "IEditorPartFactory", IS_ABSTRACT, IS_INTERFACE,
 				!IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(iNavigatorBaseViewAdvisorEClass, INavigatorBaseViewAdvisor.class, "INavigatorBaseViewAdvisor",
+				IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(iEditorPartViewEClass, IEditorPartView.class, "IEditorPartView", IS_ABSTRACT, IS_INTERFACE,
 				!IS_GENERATED_INSTANCE_CLASS);

@@ -71,13 +71,22 @@ public interface INavigatorModelPackage extends EPackage {
 	int NAVIGATOR_MANAGER = 0;
 
 	/**
+	 * The feature id for the '<em><b>Navigators</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATOR_MANAGER__NAVIGATORS = 0;
+
+	/**
 	 * The feature id for the '<em><b>Descriptors</b></em>' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATOR_MANAGER__DESCRIPTORS = 0;
+	int NAVIGATOR_MANAGER__DESCRIPTORS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Editor Informations</b></em>' containment reference list. <!--
@@ -86,7 +95,7 @@ public interface INavigatorModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATOR_MANAGER__EDITOR_INFORMATIONS = 1;
+	int NAVIGATOR_MANAGER__EDITOR_INFORMATIONS = 2;
 
 	/**
 	 * The feature id for the '<em><b>Use Generic Editor Part Fallback</b></em>' attribute. <!--
@@ -95,7 +104,7 @@ public interface INavigatorModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATOR_MANAGER__USE_GENERIC_EDITOR_PART_FALLBACK = 2;
+	int NAVIGATOR_MANAGER__USE_GENERIC_EDITOR_PART_FALLBACK = 3;
 
 	/**
 	 * The feature id for the '<em><b>Pin Editor By Default</b></em>' attribute. <!-- begin-user-doc
@@ -104,7 +113,7 @@ public interface INavigatorModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATOR_MANAGER__PIN_EDITOR_BY_DEFAULT = 3;
+	int NAVIGATOR_MANAGER__PIN_EDITOR_BY_DEFAULT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Open Must Open New</b></em>' attribute. <!-- begin-user-doc
@@ -113,7 +122,7 @@ public interface INavigatorModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATOR_MANAGER__OPEN_MUST_OPEN_NEW = 4;
+	int NAVIGATOR_MANAGER__OPEN_MUST_OPEN_NEW = 5;
 
 	/**
 	 * The feature id for the '<em><b>Preference Model Types</b></em>' attribute list. <!--
@@ -122,7 +131,7 @@ public interface INavigatorModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATOR_MANAGER__PREFERENCE_MODEL_TYPES = 5;
+	int NAVIGATOR_MANAGER__PREFERENCE_MODEL_TYPES = 6;
 
 	/**
 	 * The number of structural features of the '<em>Navigator Manager</em>' class. <!--
@@ -131,7 +140,45 @@ public interface INavigatorModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATOR_MANAGER_FEATURE_COUNT = 6;
+	int NAVIGATOR_MANAGER_FEATURE_COUNT = 7;
+
+	/**
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.navigator.internal.NavigatorDescriptorImpl
+	 * <em>Navigator Descriptor</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see com.rcpcompany.uibindings.navigator.internal.NavigatorDescriptorImpl
+	 * @see com.rcpcompany.uibindings.navigator.internal.NavigatorModelPackageImpl#getNavigatorDescriptor()
+	 * @generated
+	 */
+	int NAVIGATOR_DESCRIPTOR = 1;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATOR_DESCRIPTOR__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Advisor</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATOR_DESCRIPTOR__ADVISOR = 1;
+
+	/**
+	 * The number of structural features of the '<em>Navigator Descriptor</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATOR_DESCRIPTOR_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '
@@ -142,7 +189,7 @@ public interface INavigatorModelPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.navigator.internal.NavigatorModelPackageImpl#getEditorInformation()
 	 * @generated
 	 */
-	int EDITOR_INFORMATION = 1;
+	int EDITOR_INFORMATION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Editors</b></em>' reference list. <!-- begin-user-doc --> <!--
@@ -198,7 +245,7 @@ public interface INavigatorModelPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.navigator.internal.NavigatorModelPackageImpl#getEditorPartDescriptor()
 	 * @generated
 	 */
-	int EDITOR_PART_DESCRIPTOR = 2;
+	int EDITOR_PART_DESCRIPTOR = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -298,7 +345,7 @@ public interface INavigatorModelPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.navigator.internal.NavigatorModelPackageImpl#getIEditorPartFactory()
 	 * @generated
 	 */
-	int IEDITOR_PART_FACTORY = 3;
+	int IEDITOR_PART_FACTORY = 4;
 
 	/**
 	 * The number of structural features of the '<em>IEditor Part Factory</em>' class. <!--
@@ -310,6 +357,26 @@ public interface INavigatorModelPackage extends EPackage {
 	int IEDITOR_PART_FACTORY_FEATURE_COUNT = 0;
 
 	/**
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.navigator.views.INavigatorBaseViewAdvisor
+	 * <em>INavigator Base View Advisor</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see com.rcpcompany.uibindings.navigator.views.INavigatorBaseViewAdvisor
+	 * @see com.rcpcompany.uibindings.navigator.internal.NavigatorModelPackageImpl#getINavigatorBaseViewAdvisor()
+	 * @generated
+	 */
+	int INAVIGATOR_BASE_VIEW_ADVISOR = 5;
+
+	/**
+	 * The number of structural features of the '<em>INavigator Base View Advisor</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INAVIGATOR_BASE_VIEW_ADVISOR_FEATURE_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.navigator.IEditorPartView
 	 * <em>IEditor Part View</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -317,7 +384,7 @@ public interface INavigatorModelPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.navigator.internal.NavigatorModelPackageImpl#getIEditorPartView()
 	 * @generated
 	 */
-	int IEDITOR_PART_VIEW = 4;
+	int IEDITOR_PART_VIEW = 6;
 
 	/**
 	 * The number of structural features of the '<em>IEditor Part View</em>' class. <!--
@@ -338,7 +405,7 @@ public interface INavigatorModelPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.navigator.internal.NavigatorModelPackageImpl#getStringToEditorInformationMapEntry()
 	 * @generated
 	 */
-	int STRING_TO_EDITOR_INFORMATION_MAP_ENTRY = 5;
+	int STRING_TO_EDITOR_INFORMATION_MAP_ENTRY = 7;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -375,7 +442,7 @@ public interface INavigatorModelPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.navigator.internal.NavigatorModelPackageImpl#getExpression()
 	 * @generated
 	 */
-	int EXPRESSION = 6;
+	int EXPRESSION = 8;
 
 	/**
 	 * Returns the meta object for class '
@@ -387,6 +454,18 @@ public interface INavigatorModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getNavigatorManager();
+
+	/**
+	 * Returns the meta object for the containment reference list '
+	 * {@link com.rcpcompany.uibindings.navigator.INavigatorManager#getNavigators
+	 * <em>Navigators</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Navigators</em>'.
+	 * @see com.rcpcompany.uibindings.navigator.INavigatorManager#getNavigators()
+	 * @see #getNavigatorManager()
+	 * @generated
+	 */
+	EReference getNavigatorManager_Navigators();
 
 	/**
 	 * Returns the meta object for the containment reference list '
@@ -459,6 +538,41 @@ public interface INavigatorModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getNavigatorManager_PreferenceModelTypes();
+
+	/**
+	 * Returns the meta object for class '
+	 * {@link com.rcpcompany.uibindings.navigator.INavigatorDescriptor
+	 * <em>Navigator Descriptor</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Navigator Descriptor</em>'.
+	 * @see com.rcpcompany.uibindings.navigator.INavigatorDescriptor
+	 * @generated
+	 */
+	EClass getNavigatorDescriptor();
+
+	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.navigator.INavigatorDescriptor#getId <em>Id</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see com.rcpcompany.uibindings.navigator.INavigatorDescriptor#getId()
+	 * @see #getNavigatorDescriptor()
+	 * @generated
+	 */
+	EAttribute getNavigatorDescriptor_Id();
+
+	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.navigator.INavigatorDescriptor#getAdvisor <em>Advisor</em>}
+	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Advisor</em>'.
+	 * @see com.rcpcompany.uibindings.navigator.INavigatorDescriptor#getAdvisor()
+	 * @see #getNavigatorDescriptor()
+	 * @generated
+	 */
+	EAttribute getNavigatorDescriptor_Advisor();
 
 	/**
 	 * Returns the meta object for class '
@@ -651,6 +765,17 @@ public interface INavigatorModelPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for class '
+	 * {@link com.rcpcompany.uibindings.navigator.views.INavigatorBaseViewAdvisor
+	 * <em>INavigator Base View Advisor</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>INavigator Base View Advisor</em>'.
+	 * @see com.rcpcompany.uibindings.navigator.views.INavigatorBaseViewAdvisor
+	 * @generated
+	 */
+	EClass getINavigatorBaseViewAdvisor();
+
+	/**
+	 * Returns the meta object for class '
 	 * {@link com.rcpcompany.uibindings.navigator.IEditorPartView <em>IEditor Part View</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -737,6 +862,14 @@ public interface INavigatorModelPackage extends EPackage {
 		EClass NAVIGATOR_MANAGER = eINSTANCE.getNavigatorManager();
 
 		/**
+		 * The meta object literal for the '<em><b>Navigators</b></em>' containment reference list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference NAVIGATOR_MANAGER__NAVIGATORS = eINSTANCE.getNavigatorManager_Navigators();
+
+		/**
 		 * The meta object literal for the '<em><b>Descriptors</b></em>' containment reference list
 		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -784,6 +917,33 @@ public interface INavigatorModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NAVIGATOR_MANAGER__PREFERENCE_MODEL_TYPES = eINSTANCE.getNavigatorManager_PreferenceModelTypes();
+
+		/**
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.navigator.internal.NavigatorDescriptorImpl
+		 * <em>Navigator Descriptor</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see com.rcpcompany.uibindings.navigator.internal.NavigatorDescriptorImpl
+		 * @see com.rcpcompany.uibindings.navigator.internal.NavigatorModelPackageImpl#getNavigatorDescriptor()
+		 * @generated
+		 */
+		EClass NAVIGATOR_DESCRIPTOR = eINSTANCE.getNavigatorDescriptor();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute NAVIGATOR_DESCRIPTOR__ID = eINSTANCE.getNavigatorDescriptor_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Advisor</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute NAVIGATOR_DESCRIPTOR__ADVISOR = eINSTANCE.getNavigatorDescriptor_Advisor();
 
 		/**
 		 * The meta object literal for the '
@@ -922,6 +1082,18 @@ public interface INavigatorModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass IEDITOR_PART_FACTORY = eINSTANCE.getIEditorPartFactory();
+
+		/**
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.navigator.views.INavigatorBaseViewAdvisor
+		 * <em>INavigator Base View Advisor</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
+		 * -->
+		 * 
+		 * @see com.rcpcompany.uibindings.navigator.views.INavigatorBaseViewAdvisor
+		 * @see com.rcpcompany.uibindings.navigator.internal.NavigatorModelPackageImpl#getINavigatorBaseViewAdvisor()
+		 * @generated
+		 */
+		EClass INAVIGATOR_BASE_VIEW_ADVISOR = eINSTANCE.getINavigatorBaseViewAdvisor();
 
 		/**
 		 * The meta object literal for the '

@@ -41,7 +41,7 @@ public interface NavigatorConstants {
 	String PREF_OPEN_MUST_OPEN_NEW = "PREF_OPEN_MUST_OPEN_NEW";
 
 	/**
-	 * Preference name for {@link INavigatorManager#isPinEditorByDefault()()}.
+	 * Preference name for {@link INavigatorManager#isPinEditorByDefault()}.
 	 */
 	String PREF_PIN_EDITOR_BY_DEFAULT = "PREF_PIN_EDITOR_BY_DEFAULT";
 
@@ -56,6 +56,8 @@ public interface NavigatorConstants {
 	String PREFERENCE_MODEL_TYPE_TAG = "preferenceModelType";
 	String ENABLED_WHEN_TAG = "enabledWhen";
 	String TREE_ITEM_TAG = "treeItem";
+	String NAVIGATOR_TAG = "navigator";
+	String ADVISOR_TAG = "advisor";
 
 	/**
 	 * Command ID for the "Select Editor..." command.

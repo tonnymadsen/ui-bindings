@@ -25,6 +25,8 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * <p>
  * The following features are supported:
  * <ul>
+ * <li>{@link com.rcpcompany.uibindings.navigator.INavigatorManager#getNavigators <em>Navigators
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.navigator.INavigatorManager#getDescriptors <em>Descriptors
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.navigator.INavigatorManager#getEditorInformations <em>Editor
@@ -44,6 +46,22 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * @generated
  */
 public interface INavigatorManager extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Navigators</b></em>' containment reference list. The list
+	 * contents are of type {@link com.rcpcompany.uibindings.navigator.INavigatorDescriptor}. <!--
+	 * begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Navigators</em>' containment reference list isn't clear, there
+	 * really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Navigators</em>' containment reference list.
+	 * @see com.rcpcompany.uibindings.navigator.INavigatorModelPackage#getNavigatorManager_Navigators()
+	 * @generated
+	 */
+	EList<INavigatorDescriptor> getNavigators();
+
 	/**
 	 * Returns the value of the '<em><b>Descriptors</b></em>' containment reference list. The list
 	 * contents are of type {@link com.rcpcompany.uibindings.navigator.IEditorPartDescriptor}. <!--

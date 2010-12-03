@@ -37,6 +37,15 @@ public interface INavigatorModelFactory extends EFactory {
 	INavigatorManager createNavigatorManager();
 
 	/**
+	 * Returns a new object of class '<em>Navigator Descriptor</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Navigator Descriptor</em>'.
+	 * @generated
+	 */
+	INavigatorDescriptor createNavigatorDescriptor();
+
+	/**
 	 * Returns a new object of class '<em>Editor Information</em>'. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
