@@ -53,6 +53,9 @@ public class ManagerTreeFunctionalityTest {
 				assertEquals("com.rcpcompany.uibindings.shop.treeItems.contactFolder", relation.getDescriptor().getId());
 				assertEquals(null, relation.getFeatureName());
 				assertEquals(null, relation.getProcessor());
+				assertEquals(2, relation.getTreeIDs().size());
+				assertEquals("contacts", relation.getTreeIDs().get(0));
+				assertEquals("", relation.getTreeIDs().get(1));
 			} else if (i.getId().equals("com.rcpcompany.uibindings.shop.treeItems.contactFolder")) {
 				assertEquals(0, i.getModelTypes().size());
 				assertEquals(1, i.getChildRelations().size());
