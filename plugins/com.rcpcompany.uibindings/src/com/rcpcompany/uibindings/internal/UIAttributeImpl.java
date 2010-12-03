@@ -817,7 +817,6 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 	 */
 	@Override
 	public String toString() {
-		return ClassUtils.getLastClassName(this) + "[" + getWidget() + ", " + getAttribute() + "]@" + hashCode(); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+		return ClassUtils.getLastClassName(this) + "[" + getWidget() + ", '" + getAttribute() + "']@" + hashCode(); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 	}
-
 } // UIAttributeImpl
