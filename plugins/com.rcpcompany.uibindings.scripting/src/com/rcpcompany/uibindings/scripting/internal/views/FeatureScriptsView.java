@@ -14,7 +14,6 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.part.ViewPart;
 
 import com.rcpcompany.uibindings.Constants;
-import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.moao.IMOAO;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
@@ -49,7 +48,7 @@ public class FeatureScriptsView extends ViewPart {
 	public void createPartControl(Composite parent) {
 		myForm = IFormCreator.Factory.createScrolledForm(myObject, parent, "Scripts");
 		myForm.getContext().addBinding().ui(myForm.getScrolledForm()).model(myObject)
-				.arg(IBinding.ARG_MESSAGE_FORMAT, "Scripts in {0}").type(Constants.TYPE_QUALIFIED_NAME);
+				.arg(Constants.ARG_MESSAGE_FORMAT, "Scripts in {0}").type(Constants.TYPE_QUALIFIED_NAME);
 
 		final IObservableList facets = UIBindingsEMFObservables.observeDetailList(myObject,
 				IMOAOPackage.Literals.MOAO__FACETS);

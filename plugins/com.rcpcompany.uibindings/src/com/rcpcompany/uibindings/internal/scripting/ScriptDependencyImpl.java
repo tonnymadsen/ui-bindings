@@ -30,19 +30,22 @@ import com.rcpcompany.uibindings.scripting.IScriptExpression;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.internal.scripting.ScriptDependencyImpl#getObject <em>Object</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.internal.scripting.ScriptDependencyImpl#getFeature <em>Feature</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.internal.scripting.ScriptDependencyImpl#getExpressions <em>Expressions</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.scripting.ScriptDependencyImpl#getObject <em>Object
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.scripting.ScriptDependencyImpl#getFeature <em>
+ * Feature</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.scripting.ScriptDependencyImpl#getExpressions <em>
+ * Expressions</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ScriptDependencyImpl extends EObjectImpl implements IScriptDependency {
 	/**
-	 * The cached value of the '{@link #getObject() <em>Object</em>}' reference.
-	 * <!-- begin-user-doc
+	 * The cached value of the '{@link #getObject() <em>Object</em>}' reference. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getObject()
 	 * @generated
 	 * @ordered
@@ -60,9 +63,9 @@ public class ScriptDependencyImpl extends EObjectImpl implements IScriptDependen
 	protected EStructuralFeature feature;
 
 	/**
-	 * The cached value of the '{@link #getExpressions() <em>Expressions</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getExpressions() <em>Expressions</em>}' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getExpressions()
 	 * @generated
 	 * @ordered
@@ -71,6 +74,7 @@ public class ScriptDependencyImpl extends EObjectImpl implements IScriptDependen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ScriptDependencyImpl() {
@@ -79,6 +83,7 @@ public class ScriptDependencyImpl extends EObjectImpl implements IScriptDependen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -88,6 +93,7 @@ public class ScriptDependencyImpl extends EObjectImpl implements IScriptDependen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -97,18 +103,22 @@ public class ScriptDependencyImpl extends EObjectImpl implements IScriptDependen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setObject(EObject newObject) {
-		EObject oldObject = object;
+		final EObject oldObject = object;
 		object = newObject;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IScriptEnginePackage.SCRIPT_DEPENDENCY__OBJECT, oldObject, object));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, IScriptEnginePackage.SCRIPT_DEPENDENCY__OBJECT,
+					oldObject, object));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -118,127 +128,139 @@ public class ScriptDependencyImpl extends EObjectImpl implements IScriptDependen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setFeature(EStructuralFeature newFeature) {
-		EStructuralFeature oldFeature = feature;
+		final EStructuralFeature oldFeature = feature;
 		feature = newFeature;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IScriptEnginePackage.SCRIPT_DEPENDENCY__FEATURE, oldFeature, feature));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, IScriptEnginePackage.SCRIPT_DEPENDENCY__FEATURE,
+					oldFeature, feature));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<IScriptExpression> getExpressions() {
 		if (expressions == null) {
-			expressions = new EObjectWithInverseEList.ManyInverse<IScriptExpression>(IScriptExpression.class, this, IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS, IScriptEnginePackage.SCRIPT_EXPRESSION__DEPENDENCIES);
+			expressions = new EObjectWithInverseEList.ManyInverse<IScriptExpression>(IScriptExpression.class, this,
+					IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS,
+					IScriptEnginePackage.SCRIPT_EXPRESSION__DEPENDENCIES);
 		}
 		return expressions;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getExpressions()).basicAdd(otherEnd, msgs);
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getExpressions()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS:
-				return ((InternalEList<?>)getExpressions()).basicRemove(otherEnd, msgs);
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS:
+			return ((InternalEList<?>) getExpressions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__OBJECT:
-				return getObject();
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__FEATURE:
-				return getFeature();
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS:
-				return getExpressions();
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__OBJECT:
+			return getObject();
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__FEATURE:
+			return getFeature();
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS:
+			return getExpressions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__OBJECT:
-				setObject((EObject)newValue);
-				return;
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__FEATURE:
-				setFeature((EStructuralFeature)newValue);
-				return;
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS:
-				getExpressions().clear();
-				getExpressions().addAll((Collection<? extends IScriptExpression>)newValue);
-				return;
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__OBJECT:
+			setObject((EObject) newValue);
+			return;
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__FEATURE:
+			setFeature((EStructuralFeature) newValue);
+			return;
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS:
+			getExpressions().clear();
+			getExpressions().addAll((Collection<? extends IScriptExpression>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__OBJECT:
-				setObject((EObject)null);
-				return;
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__FEATURE:
-				setFeature((EStructuralFeature)null);
-				return;
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS:
-				getExpressions().clear();
-				return;
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__OBJECT:
+			setObject((EObject) null);
+			return;
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__FEATURE:
+			setFeature((EStructuralFeature) null);
+			return;
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS:
+			getExpressions().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__OBJECT:
-				return object != null;
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__FEATURE:
-				return feature != null;
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS:
-				return expressions != null && !expressions.isEmpty();
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__OBJECT:
+			return object != null;
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__FEATURE:
+			return feature != null;
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS:
+			return expressions != null && !expressions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

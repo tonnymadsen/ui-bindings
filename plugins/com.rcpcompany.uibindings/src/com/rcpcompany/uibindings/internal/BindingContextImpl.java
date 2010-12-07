@@ -201,7 +201,8 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 
 	/**
 	 * The default value of the '{@link #getTextCommitStrategy() <em>Text Commit Strategy</em>}'
-	 * attribute. <!-- begin-user-doc --> Default is <code>null</code> meaning the value should be taken from the manager. <!-- end-user-doc -->
+	 * attribute. <!-- begin-user-doc --> Default is <code>null</code> meaning the value should be
+	 * taken from the manager. <!-- end-user-doc -->
 	 * 
 	 * @see #getTextCommitStrategy()
 	 * @generated NOT

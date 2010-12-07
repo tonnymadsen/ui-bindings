@@ -24,19 +24,23 @@ import com.rcpcompany.uibindings.scripting.IScriptEvaluationContext;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.internal.scripting.EObjectToScriptEngineMapEntryImpl#getTypedKey <em>Key</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.internal.scripting.EObjectToScriptEngineMapEntryImpl#getTypedValue <em>Value</em>}</li>
+ * <li>
+ * {@link com.rcpcompany.uibindings.internal.scripting.EObjectToScriptEngineMapEntryImpl#getTypedKey
+ * <em>Key</em>}</li>
+ * <li>
+ * {@link com.rcpcompany.uibindings.internal.scripting.EObjectToScriptEngineMapEntryImpl#getTypedValue
+ * <em>Value</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class EObjectToScriptEngineMapEntryImpl extends EObjectImpl implements
-		BasicEMap.Entry<EObject,IScriptEvaluationContext> {
+		BasicEMap.Entry<EObject, IScriptEvaluationContext> {
 	/**
-	 * The cached value of the '{@link #getTypedKey() <em>Key</em>}' reference.
-	 * <!-- begin-user-doc
+	 * The cached value of the '{@link #getTypedKey() <em>Key</em>}' reference. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getTypedKey()
 	 * @generated
 	 * @ordered
@@ -55,6 +59,7 @@ public class EObjectToScriptEngineMapEntryImpl extends EObjectImpl implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected EObjectToScriptEngineMapEntryImpl() {
@@ -63,6 +68,7 @@ public class EObjectToScriptEngineMapEntryImpl extends EObjectImpl implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -72,6 +78,7 @@ public class EObjectToScriptEngineMapEntryImpl extends EObjectImpl implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EObject getTypedKey() {
@@ -80,26 +87,32 @@ public class EObjectToScriptEngineMapEntryImpl extends EObjectImpl implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setTypedKey(EObject newKey) {
-		EObject oldKey = key;
+		final EObject oldKey = key;
 		key = newKey;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IScriptEnginePackage.EOBJECT_TO_SCRIPT_ENGINE_MAP_ENTRY__KEY, oldKey, key));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					IScriptEnginePackage.EOBJECT_TO_SCRIPT_ENGINE_MAP_ENTRY__KEY, oldKey, key));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IScriptEvaluationContext getTypedValue() {
 		if (value != null && value.eIsProxy()) {
-			InternalEObject oldValue = (InternalEObject)value;
-			value = (IScriptEvaluationContext)eResolveProxy(oldValue);
+			final InternalEObject oldValue = (InternalEObject) value;
+			value = (IScriptEvaluationContext) eResolveProxy(oldValue);
 			if (value != oldValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, IScriptEnginePackage.EOBJECT_TO_SCRIPT_ENGINE_MAP_ENTRY__VALUE, oldValue, value));
+				if (eNotificationRequired()) {
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							IScriptEnginePackage.EOBJECT_TO_SCRIPT_ENGINE_MAP_ENTRY__VALUE, oldValue, value));
+				}
 			}
 		}
 		return value;
@@ -107,6 +120,7 @@ public class EObjectToScriptEngineMapEntryImpl extends EObjectImpl implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IScriptEvaluationContext basicGetTypedValue() {
@@ -115,94 +129,103 @@ public class EObjectToScriptEngineMapEntryImpl extends EObjectImpl implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setTypedValue(IScriptEvaluationContext newValue) {
-		IScriptEvaluationContext oldValue = value;
+		final IScriptEvaluationContext oldValue = value;
 		value = newValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IScriptEnginePackage.EOBJECT_TO_SCRIPT_ENGINE_MAP_ENTRY__VALUE, oldValue, value));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					IScriptEnginePackage.EOBJECT_TO_SCRIPT_ENGINE_MAP_ENTRY__VALUE, oldValue, value));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case IScriptEnginePackage.EOBJECT_TO_SCRIPT_ENGINE_MAP_ENTRY__KEY:
-				return getTypedKey();
-			case IScriptEnginePackage.EOBJECT_TO_SCRIPT_ENGINE_MAP_ENTRY__VALUE:
-				if (resolve) return getTypedValue();
-				return basicGetTypedValue();
+		case IScriptEnginePackage.EOBJECT_TO_SCRIPT_ENGINE_MAP_ENTRY__KEY:
+			return getTypedKey();
+		case IScriptEnginePackage.EOBJECT_TO_SCRIPT_ENGINE_MAP_ENTRY__VALUE:
+			if (resolve) return getTypedValue();
+			return basicGetTypedValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case IScriptEnginePackage.EOBJECT_TO_SCRIPT_ENGINE_MAP_ENTRY__KEY:
-				setTypedKey((EObject)newValue);
-				return;
-			case IScriptEnginePackage.EOBJECT_TO_SCRIPT_ENGINE_MAP_ENTRY__VALUE:
-				setTypedValue((IScriptEvaluationContext)newValue);
-				return;
+		case IScriptEnginePackage.EOBJECT_TO_SCRIPT_ENGINE_MAP_ENTRY__KEY:
+			setTypedKey((EObject) newValue);
+			return;
+		case IScriptEnginePackage.EOBJECT_TO_SCRIPT_ENGINE_MAP_ENTRY__VALUE:
+			setTypedValue((IScriptEvaluationContext) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case IScriptEnginePackage.EOBJECT_TO_SCRIPT_ENGINE_MAP_ENTRY__KEY:
-				setTypedKey((EObject)null);
-				return;
-			case IScriptEnginePackage.EOBJECT_TO_SCRIPT_ENGINE_MAP_ENTRY__VALUE:
-				setTypedValue((IScriptEvaluationContext)null);
-				return;
+		case IScriptEnginePackage.EOBJECT_TO_SCRIPT_ENGINE_MAP_ENTRY__KEY:
+			setTypedKey((EObject) null);
+			return;
+		case IScriptEnginePackage.EOBJECT_TO_SCRIPT_ENGINE_MAP_ENTRY__VALUE:
+			setTypedValue((IScriptEvaluationContext) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case IScriptEnginePackage.EOBJECT_TO_SCRIPT_ENGINE_MAP_ENTRY__KEY:
-				return key != null;
-			case IScriptEnginePackage.EOBJECT_TO_SCRIPT_ENGINE_MAP_ENTRY__VALUE:
-				return value != null;
+		case IScriptEnginePackage.EOBJECT_TO_SCRIPT_ENGINE_MAP_ENTRY__KEY:
+			return key != null;
+		case IScriptEnginePackage.EOBJECT_TO_SCRIPT_ENGINE_MAP_ENTRY__VALUE:
+			return value != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected int hash = -1;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public int getHash() {
 		if (hash == -1) {
-			Object theKey = getKey();
+			final Object theKey = getKey();
 			hash = (theKey == null ? 0 : theKey.hashCode());
 		}
 		return hash;
@@ -210,6 +233,7 @@ public class EObjectToScriptEngineMapEntryImpl extends EObjectImpl implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -219,6 +243,7 @@ public class EObjectToScriptEngineMapEntryImpl extends EObjectImpl implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -228,6 +253,7 @@ public class EObjectToScriptEngineMapEntryImpl extends EObjectImpl implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -237,6 +263,7 @@ public class EObjectToScriptEngineMapEntryImpl extends EObjectImpl implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -246,23 +273,26 @@ public class EObjectToScriptEngineMapEntryImpl extends EObjectImpl implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public IScriptEvaluationContext setValue(IScriptEvaluationContext value) {
-		IScriptEvaluationContext oldValue = getValue();
+		final IScriptEvaluationContext oldValue = getValue();
 		setTypedValue(value);
 		return oldValue;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	public EMap<EObject, IScriptEvaluationContext> getEMap() {
-		EObject container = eContainer();
-		return container == null ? null : (EMap<EObject, IScriptEvaluationContext>)container.eGet(eContainmentFeature());
+		final EObject container = eContainer();
+		return container == null ? null : (EMap<EObject, IScriptEvaluationContext>) container
+				.eGet(eContainmentFeature());
 	}
 
 } // EObjectToScriptEngineMapEntryImpl

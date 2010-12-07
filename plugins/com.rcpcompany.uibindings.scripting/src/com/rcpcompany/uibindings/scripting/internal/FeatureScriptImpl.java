@@ -31,13 +31,17 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.scripting.internal.FeatureScriptImpl#getFeature <em>Feature</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.scripting.internal.FeatureScriptImpl#getLanguage <em>Language</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.scripting.internal.FeatureScriptImpl#getScript <em>Script</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.scripting.internal.FeatureScriptImpl#getExpression <em>Expression</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.scripting.internal.FeatureScriptImpl#getFeature <em>Feature
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.scripting.internal.FeatureScriptImpl#getLanguage <em>
+ * Language</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.scripting.internal.FeatureScriptImpl#getScript <em>Script
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.scripting.internal.FeatureScriptImpl#getExpression <em>
+ * Expression</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class FeatureScriptImpl extends MOAOFacetImpl implements IFeatureScript {
@@ -82,9 +86,9 @@ public class FeatureScriptImpl extends MOAOFacetImpl implements IFeatureScript {
 	protected static final String SCRIPT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getScript() <em>Script</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The cached value of the '{@link #getScript() <em>Script</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getScript()
 	 * @generated
 	 * @ordered
@@ -190,6 +194,7 @@ public class FeatureScriptImpl extends MOAOFacetImpl implements IFeatureScript {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -199,24 +204,27 @@ public class FeatureScriptImpl extends MOAOFacetImpl implements IFeatureScript {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EStructuralFeature getFeature() {
 		if (feature != null && feature.eIsProxy()) {
-			InternalEObject oldFeature = (InternalEObject)feature;
-			feature = (EStructuralFeature)eResolveProxy(oldFeature);
+			final InternalEObject oldFeature = (InternalEObject) feature;
+			feature = (EStructuralFeature) eResolveProxy(oldFeature);
 			if (feature != oldFeature) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, IScriptingPackage.FEATURE_SCRIPT__FEATURE, oldFeature, feature));
+				if (eNotificationRequired()) {
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							IScriptingPackage.FEATURE_SCRIPT__FEATURE, oldFeature, feature));
+				}
 			}
 		}
 		return feature;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EStructuralFeature basicGetFeature() {
@@ -225,18 +233,22 @@ public class FeatureScriptImpl extends MOAOFacetImpl implements IFeatureScript {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setFeature(EStructuralFeature newFeature) {
-		EStructuralFeature oldFeature = feature;
+		final EStructuralFeature oldFeature = feature;
 		feature = newFeature;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IScriptingPackage.FEATURE_SCRIPT__FEATURE, oldFeature, feature));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, IScriptingPackage.FEATURE_SCRIPT__FEATURE,
+					oldFeature, feature));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -246,18 +258,22 @@ public class FeatureScriptImpl extends MOAOFacetImpl implements IFeatureScript {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setLanguage(String newLanguage) {
-		String oldLanguage = language;
+		final String oldLanguage = language;
 		language = newLanguage;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IScriptingPackage.FEATURE_SCRIPT__LANGUAGE, oldLanguage, language));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, IScriptingPackage.FEATURE_SCRIPT__LANGUAGE,
+					oldLanguage, language));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -267,129 +283,143 @@ public class FeatureScriptImpl extends MOAOFacetImpl implements IFeatureScript {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setScript(String newScript) {
-		String oldScript = script;
+		final String oldScript = script;
 		script = newScript;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IScriptingPackage.FEATURE_SCRIPT__SCRIPT, oldScript, script));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, IScriptingPackage.FEATURE_SCRIPT__SCRIPT, oldScript,
+					script));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public IScriptExpression getExpression() {
 		return expression;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public void setExpression(IScriptExpression newExpression) {
-		IScriptExpression oldExpression = expression;
+		final IScriptExpression oldExpression = expression;
 		expression = newExpression;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IScriptingPackage.FEATURE_SCRIPT__EXPRESSION, oldExpression, expression));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, IScriptingPackage.FEATURE_SCRIPT__EXPRESSION,
+					oldExpression, expression));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case IScriptingPackage.FEATURE_SCRIPT__FEATURE:
-				if (resolve) return getFeature();
-				return basicGetFeature();
-			case IScriptingPackage.FEATURE_SCRIPT__LANGUAGE:
-				return getLanguage();
-			case IScriptingPackage.FEATURE_SCRIPT__SCRIPT:
-				return getScript();
-			case IScriptingPackage.FEATURE_SCRIPT__EXPRESSION:
-				return getExpression();
+		case IScriptingPackage.FEATURE_SCRIPT__FEATURE:
+			if (resolve) return getFeature();
+			return basicGetFeature();
+		case IScriptingPackage.FEATURE_SCRIPT__LANGUAGE:
+			return getLanguage();
+		case IScriptingPackage.FEATURE_SCRIPT__SCRIPT:
+			return getScript();
+		case IScriptingPackage.FEATURE_SCRIPT__EXPRESSION:
+			return getExpression();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case IScriptingPackage.FEATURE_SCRIPT__FEATURE:
-				setFeature((EStructuralFeature)newValue);
-				return;
-			case IScriptingPackage.FEATURE_SCRIPT__LANGUAGE:
-				setLanguage((String)newValue);
-				return;
-			case IScriptingPackage.FEATURE_SCRIPT__SCRIPT:
-				setScript((String)newValue);
-				return;
-			case IScriptingPackage.FEATURE_SCRIPT__EXPRESSION:
-				setExpression((IScriptExpression)newValue);
-				return;
+		case IScriptingPackage.FEATURE_SCRIPT__FEATURE:
+			setFeature((EStructuralFeature) newValue);
+			return;
+		case IScriptingPackage.FEATURE_SCRIPT__LANGUAGE:
+			setLanguage((String) newValue);
+			return;
+		case IScriptingPackage.FEATURE_SCRIPT__SCRIPT:
+			setScript((String) newValue);
+			return;
+		case IScriptingPackage.FEATURE_SCRIPT__EXPRESSION:
+			setExpression((IScriptExpression) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case IScriptingPackage.FEATURE_SCRIPT__FEATURE:
-				setFeature((EStructuralFeature)null);
-				return;
-			case IScriptingPackage.FEATURE_SCRIPT__LANGUAGE:
-				setLanguage(LANGUAGE_EDEFAULT);
-				return;
-			case IScriptingPackage.FEATURE_SCRIPT__SCRIPT:
-				setScript(SCRIPT_EDEFAULT);
-				return;
-			case IScriptingPackage.FEATURE_SCRIPT__EXPRESSION:
-				setExpression((IScriptExpression)null);
-				return;
+		case IScriptingPackage.FEATURE_SCRIPT__FEATURE:
+			setFeature((EStructuralFeature) null);
+			return;
+		case IScriptingPackage.FEATURE_SCRIPT__LANGUAGE:
+			setLanguage(LANGUAGE_EDEFAULT);
+			return;
+		case IScriptingPackage.FEATURE_SCRIPT__SCRIPT:
+			setScript(SCRIPT_EDEFAULT);
+			return;
+		case IScriptingPackage.FEATURE_SCRIPT__EXPRESSION:
+			setExpression((IScriptExpression) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case IScriptingPackage.FEATURE_SCRIPT__FEATURE:
-				return feature != null;
-			case IScriptingPackage.FEATURE_SCRIPT__LANGUAGE:
-				return LANGUAGE_EDEFAULT == null ? language != null : !LANGUAGE_EDEFAULT.equals(language);
-			case IScriptingPackage.FEATURE_SCRIPT__SCRIPT:
-				return SCRIPT_EDEFAULT == null ? script != null : !SCRIPT_EDEFAULT.equals(script);
-			case IScriptingPackage.FEATURE_SCRIPT__EXPRESSION:
-				return expression != null;
+		case IScriptingPackage.FEATURE_SCRIPT__FEATURE:
+			return feature != null;
+		case IScriptingPackage.FEATURE_SCRIPT__LANGUAGE:
+			return LANGUAGE_EDEFAULT == null ? language != null : !LANGUAGE_EDEFAULT.equals(language);
+		case IScriptingPackage.FEATURE_SCRIPT__SCRIPT:
+			return SCRIPT_EDEFAULT == null ? script != null : !SCRIPT_EDEFAULT.equals(script);
+		case IScriptingPackage.FEATURE_SCRIPT__EXPRESSION:
+			return expression != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (language: ");
 		result.append(language);
 		result.append(", script: ");

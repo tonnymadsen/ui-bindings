@@ -18,34 +18,42 @@ import com.rcpcompany.uibindings.IDisposable;
  * The expression for a single script as created by {@link IScriptEngineDescriptor}
  * 
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.scripting.IScriptExpression#getEngine <em>Engine</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.scripting.IScriptExpression#getEvaluationContext <em>Evaluation Context</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.scripting.IScriptExpression#getScript <em>Script</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.scripting.IScriptExpression#getDependencies <em>Dependencies</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.scripting.IScriptExpression#getExpectedValueClass <em>Expected Value Class</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.scripting.IScriptExpression#getCurrentValue <em>Current Value</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.scripting.IScriptExpression#getObservableValue <em>Observable Value</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.scripting.IScriptExpression#getErrorMessage <em>Error Message</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.scripting.IScriptExpression#getEngine <em>Engine</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.scripting.IScriptExpression#getEvaluationContext <em>
+ * Evaluation Context</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.scripting.IScriptExpression#getScript <em>Script</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.scripting.IScriptExpression#getDependencies <em>Dependencies
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.scripting.IScriptExpression#getExpectedValueClass <em>
+ * Expected Value Class</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.scripting.IScriptExpression#getCurrentValue <em>Current
+ * Value</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.scripting.IScriptExpression#getObservableValue <em>
+ * Observable Value</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.scripting.IScriptExpression#getErrorMessage <em>Error
+ * Message</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see com.rcpcompany.uibindings.scripting.IScriptEnginePackage#getScriptExpression()
  * @generated
  */
 public interface IScriptExpression extends EObject, IDisposable {
 	/**
-	 * Returns the value of the '<em><b>Engine</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link com.rcpcompany.uibindings.scripting.IScriptEngineDescriptor#getExpressions <em>Expressions</em>}'.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Engine</b></em>' container reference. It is bidirectional
+	 * and its opposite is '
+	 * {@link com.rcpcompany.uibindings.scripting.IScriptEngineDescriptor#getExpressions
+	 * <em>Expressions</em>}'. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Engine</em>' container reference isn't clear, there really should
 	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Engine</em>' container reference.
 	 * @see #setEngine(IScriptEngineDescriptor)
 	 * @see com.rcpcompany.uibindings.scripting.IScriptEnginePackage#getScriptExpression_Engine()
@@ -55,8 +63,10 @@ public interface IScriptExpression extends EObject, IDisposable {
 	IScriptEngineDescriptor getEngine();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.scripting.IScriptExpression#getEngine <em>Engine</em>}' container reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.scripting.IScriptExpression#getEngine <em>Engine</em>}'
+	 * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Engine</em>' container reference.
 	 * @see #getEngine()
 	 * @generated
@@ -64,14 +74,16 @@ public interface IScriptExpression extends EObject, IDisposable {
 	void setEngine(IScriptEngineDescriptor value);
 
 	/**
-	 * Returns the value of the '<em><b>Evaluation Context</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link com.rcpcompany.uibindings.scripting.IScriptEvaluationContext#getExpressions <em>Expressions</em>}'.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Evaluation Context</b></em>' reference. It is bidirectional
+	 * and its opposite is '
+	 * {@link com.rcpcompany.uibindings.scripting.IScriptEvaluationContext#getExpressions
+	 * <em>Expressions</em>}'. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Evaluation Context</em>' reference isn't clear, there really
 	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Evaluation Context</em>' reference.
 	 * @see #setEvaluationContext(IScriptEvaluationContext)
 	 * @see com.rcpcompany.uibindings.scripting.IScriptEnginePackage#getScriptExpression_EvaluationContext()
@@ -81,8 +93,10 @@ public interface IScriptExpression extends EObject, IDisposable {
 	IScriptEvaluationContext getEvaluationContext();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.scripting.IScriptExpression#getEvaluationContext <em>Evaluation Context</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.scripting.IScriptExpression#getEvaluationContext
+	 * <em>Evaluation Context</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Evaluation Context</em>' reference.
 	 * @see #getEvaluationContext()
 	 * @generated
@@ -90,13 +104,13 @@ public interface IScriptExpression extends EObject, IDisposable {
 	void setEvaluationContext(IScriptEvaluationContext value);
 
 	/**
-	 * Returns the value of the '<em><b>Script</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Script</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Script</em>' attribute isn't clear, there really should be more of
 	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Script</em>' attribute.
 	 * @see #setScript(String)
 	 * @see com.rcpcompany.uibindings.scripting.IScriptEnginePackage#getScriptExpression_Script()
@@ -105,8 +119,10 @@ public interface IScriptExpression extends EObject, IDisposable {
 	String getScript();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.scripting.IScriptExpression#getScript <em>Script</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.scripting.IScriptExpression#getScript <em>Script</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Script</em>' attribute.
 	 * @see #getScript()
 	 * @generated
@@ -146,8 +162,10 @@ public interface IScriptExpression extends EObject, IDisposable {
 	Class<?> getExpectedValueClass();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.scripting.IScriptExpression#getExpectedValueClass <em>Expected Value Class</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.scripting.IScriptExpression#getExpectedValueClass
+	 * <em>Expected Value Class</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Expected Value Class</em>' attribute.
 	 * @see #getExpectedValueClass()
 	 * @generated
@@ -155,13 +173,13 @@ public interface IScriptExpression extends EObject, IDisposable {
 	void setExpectedValueClass(Class<?> value);
 
 	/**
-	 * Returns the value of the '<em><b>Current Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Current Value</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Current Value</em>' attribute isn't clear, there really should be
 	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Current Value</em>' attribute.
 	 * @see #setCurrentValue(Object)
 	 * @see com.rcpcompany.uibindings.scripting.IScriptEnginePackage#getScriptExpression_CurrentValue()
@@ -170,8 +188,10 @@ public interface IScriptExpression extends EObject, IDisposable {
 	Object getCurrentValue();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.scripting.IScriptExpression#getCurrentValue <em>Current Value</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.scripting.IScriptExpression#getCurrentValue
+	 * <em>Current Value</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Current Value</em>' attribute.
 	 * @see #getCurrentValue()
 	 * @generated
@@ -179,14 +199,14 @@ public interface IScriptExpression extends EObject, IDisposable {
 	void setCurrentValue(Object value);
 
 	/**
-	 * Returns the value of the '<em><b>Observable Value</b></em>' attribute.
-	 * <!-- begin-user-doc
+	 * Returns the value of the '<em><b>Observable Value</b></em>' attribute. <!-- begin-user-doc
 	 * -->
 	 * <p>
 	 * If the meaning of the '<em>Observable Value</em>' attribute isn't clear, there really should
 	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Observable Value</em>' attribute.
 	 * @see com.rcpcompany.uibindings.scripting.IScriptEnginePackage#getScriptExpression_ObservableValue()
 	 * @generated
@@ -194,13 +214,13 @@ public interface IScriptExpression extends EObject, IDisposable {
 	IObservableValue getObservableValue();
 
 	/**
-	 * Returns the value of the '<em><b>Error Message</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Error Message</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Error Message</em>' attribute isn't clear, there really should be
 	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Error Message</em>' attribute.
 	 * @see #setErrorMessage(String)
 	 * @see com.rcpcompany.uibindings.scripting.IScriptEnginePackage#getScriptExpression_ErrorMessage()
@@ -209,8 +229,10 @@ public interface IScriptExpression extends EObject, IDisposable {
 	String getErrorMessage();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.scripting.IScriptExpression#getErrorMessage <em>Error Message</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.scripting.IScriptExpression#getErrorMessage
+	 * <em>Error Message</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Error Message</em>' attribute.
 	 * @see #getErrorMessage()
 	 * @generated

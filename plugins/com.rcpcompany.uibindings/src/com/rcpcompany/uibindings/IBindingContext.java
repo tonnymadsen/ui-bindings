@@ -434,7 +434,8 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 	/**
 	 * Returns the value of the '<em><b>State</b></em>' attribute. The default value is
 	 * <code>"INIT"</code>. The literals are from the enumeration
-	 * {@link com.rcpcompany.uibindings.BindingState}. <!-- begin-user-doc --> The current state of this context. <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.BindingState}. <!-- begin-user-doc --> The current state of
+	 * this context. <!-- end-user-doc -->
 	 * 
 	 * @return the value of the '<em>State</em>' attribute.
 	 * @see com.rcpcompany.uibindings.BindingState

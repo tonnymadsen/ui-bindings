@@ -6,7 +6,6 @@
  */
 package com.rcpcompany.uibindings.scripting.internal;
 
-import com.rcpcompany.uibindings.scripting.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -19,30 +18,29 @@ import com.rcpcompany.uibindings.scripting.IScriptingPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class ScriptingFactoryImpl extends EFactoryImpl implements IScriptingFactory {
 	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static IScriptingFactory init() {
 		try {
-			IScriptingFactory theScriptingFactory = (IScriptingFactory)EPackage.Registry.INSTANCE.getEFactory("http://rcp-company.com/schemas/uibindings/scripting.ecore"); 
-			if (theScriptingFactory != null) {
-				return theScriptingFactory;
-			}
-		}
-		catch (Exception exception) {
+			final IScriptingFactory theScriptingFactory = (IScriptingFactory) EPackage.Registry.INSTANCE
+					.getEFactory("http://rcp-company.com/schemas/uibindings/scripting.ecore");
+			if (theScriptingFactory != null) return theScriptingFactory;
+		} catch (final Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new ScriptingFactoryImpl();
 	}
 
 	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ScriptingFactoryImpl() {
@@ -51,38 +49,43 @@ public class ScriptingFactoryImpl extends EFactoryImpl implements IScriptingFact
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case IScriptingPackage.FEATURE_SCRIPT: return createFeatureScript();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		case IScriptingPackage.FEATURE_SCRIPT:
+			return createFeatureScript();
+		default:
+			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public IFeatureScript createFeatureScript() {
-		FeatureScriptImpl featureScript = new FeatureScriptImpl();
+		final FeatureScriptImpl featureScript = new FeatureScriptImpl();
 		return featureScript;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public IScriptingPackage getScriptingPackage() {
-		return (IScriptingPackage)getEPackage();
+		return (IScriptingPackage) getEPackage();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @deprecated
 	 * @generated
 	 */

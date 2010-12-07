@@ -17,12 +17,13 @@ import com.rcpcompany.uibindings.scripting.IScriptEnginePackage;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public abstract class ScriptEngineImpl extends EObjectImpl implements IScriptEngine {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ScriptEngineImpl() {
@@ -31,6 +32,7 @@ public abstract class ScriptEngineImpl extends EObjectImpl implements IScriptEng
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

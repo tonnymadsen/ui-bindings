@@ -256,6 +256,7 @@ public class ScriptEvaluationContextImpl extends EObjectImpl implements IScriptE
 	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<IScriptExpression> getExpressions() {
 		if (expressions == null) {
 			expressions = new EObjectWithInverseEList<IScriptExpression>(IScriptExpression.class, this,
