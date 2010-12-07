@@ -207,7 +207,6 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 					if (!(target instanceof EObject)) return null;
 					final EObject eobj = (EObject) target;
 					final EClass ec = eobj.eClass();
-					final IObservableValue ov = Observables.constantObservableValue(eobj, ec);
 
 					/*
 					 * This is not pretty - or efficient!
@@ -220,12 +219,23 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 					 * correct value and is then asked for the argument :-/
 					 */
 					dummyOV.setValue(target);
+
+					/*
+					 * Any constant string is used first of all...
+					 */
+					final String constantText = dummyBinding.getArgument(ARG_TEXT, String.class, null);
+					if (constantText != null)
+						return Observables.constantObservableValue(constantText, EcorePackage.Literals.ESTRING);
+
+					/*
+					 * Check for a mapper...
+					 */
 					final IClassIdentiferMapper mapper = UIBindingsUtils.createClassIdentiferMapper(dummyBinding, ec);
 
 					if (mapper instanceof UIBindingsUtils.DefaultMapper) {
-						// LogUtils.debug(ColumnBindingImpl.this, "Default mapper for '" + target +
-						// "'");
+						LogUtils.debug(ColumnBindingImpl.this, "Default mapper for '" + target + "'");
 					}
+					final IObservableValue ov = Observables.constantObservableValue(eobj, ec);
 					return new MapperObservableValue(ov, getContext().getEditingDomain(), mapper);
 				}
 			};

@@ -381,21 +381,6 @@
                class="com.rcpcompany.uibindings.internal.decorators.BuiltinBindingDecorator">
          </javaDecorator>
       </bindingDecorator>
-      <bindingDecorator type=""
-            exactModelTypeMatch="false"
-            id="com.rcpcompany.uibindings.basic.IConstantTreeItem">
-         <modelType
-               alsoPrimitive="true"
-               class="com.rcpcompany.uibindings.IConstantTreeItem">
-         </modelType>
-         <uiType
-               alsoPrimitive="true"
-               class="java.lang.String">
-         </uiType>
-         <javaDecorator
-               class="com.rcpcompany.uibindings.internal.decorators.ConstantTreeItemDecorator">
-         </javaDecorator>
-      </bindingDecorator>
       <bindingDecorator
             exactModelTypeMatch="false"
             id="com.rcpcompany.uibindings.basic.FileNameControl.file"
@@ -997,6 +982,42 @@
       </decoratorExtender>
    </extension>
    <extension
+         point="com.rcpcompany.uibindings.uiBindings">
+      <bindingDecorator
+            exactModelTypeMatch="false"
+            type="script">
+         <modelType
+               alsoPrimitive="true"
+               class="java.lang.String">
+         </modelType>
+         <uiType
+               alsoPrimitive="true"
+               class="java.lang.String">
+         </uiType>
+         <javaDecorator
+               class="com.rcpcompany.uibindings.internal.decorators.TextBindingDecorator">
+         </javaDecorator>
+         <standardArguments
+               readonly="true">
+         </standardArguments>
+      </bindingDecorator>
+      <bindingDecorator
+            exactModelTypeMatch="false"
+            type="script-simple">
+         <modelType
+               alsoPrimitive="true"
+               class="java.lang.String">
+         </modelType>
+         <uiType
+               alsoPrimitive="true"
+               class="java.lang.String">
+         </uiType>
+         <javaDecorator
+               class="com.rcpcompany.uibindings.internal.decorators.TextBindingDecorator">
+         </javaDecorator>
+      </bindingDecorator>
+   </extension>
+   <extension
          point="org.eclipse.ui.contexts">
       <context
             description="%context.description"
@@ -1579,41 +1600,5 @@
             engine="com.rcpcompany.uibindings.internal.scripting.simple.SimpleScriptEngine"
             language="simple">
       </engine>
-   </extension>
-   <extension
-         point="com.rcpcompany.uibindings.uiBindings">
-      <bindingDecorator
-            exactModelTypeMatch="false"
-            type="script">
-         <modelType
-               alsoPrimitive="true"
-               class="java.lang.String">
-         </modelType>
-         <uiType
-               alsoPrimitive="true"
-               class="java.lang.String">
-         </uiType>
-         <javaDecorator
-               class="com.rcpcompany.uibindings.internal.decorators.TextBindingDecorator">
-         </javaDecorator>
-         <standardArguments
-               readonly="true">
-         </standardArguments>
-      </bindingDecorator>
-      <bindingDecorator
-            exactModelTypeMatch="false"
-            type="script-simple">
-         <modelType
-               alsoPrimitive="true"
-               class="java.lang.String">
-         </modelType>
-         <uiType
-               alsoPrimitive="true"
-               class="java.lang.String">
-         </uiType>
-         <javaDecorator
-               class="com.rcpcompany.uibindings.internal.decorators.TextBindingDecorator">
-         </javaDecorator>
-      </bindingDecorator>
    </extension>
 </plugin>
