@@ -19,6 +19,7 @@ import org.eclipse.swt.widgets.Text;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBinding;
+import com.rcpcompany.uibindings.internal.scripting.ScriptManagerImpl;
 import com.rcpcompany.uibindings.widgets.FileNameControl;
 
 /**
@@ -40,6 +41,13 @@ public interface InternalConstants {
 	 * @see ManagerImpl#extensionReader()
 	 */
 	String UIBINDINGS_EXTENSION_POINT = Activator.ID + ".uiBindings"; //$NON-NLS-1$
+
+	/**
+	 * The script engines extension point.
+	 * 
+	 * @see ScriptManagerImpl#extensionReader()
+	 */
+	String SCRIPT_ENGINES_EXTENSION_POINT = Activator.ID + ".scriptEngines"; //$NON-NLS-1$
 
 	String ARGUMENT_INFO_TAG = "argumentInfo"; //$NON-NLS-1$
 	String LOOKUP_PARENT_TAG = "lookupParent"; //$NON-NLS-1$
@@ -91,6 +99,8 @@ public interface InternalConstants {
 	String MODEL_ARGUMENT_MEDIATOR_TAG = "modelArgumentMediator"; //$NON-NLS-1$
 	String EMPTY_FOLDER_HIDDEN_TAG = "emptyFolderHidden"; //$NON-NLS-1$
 	String NAVIGATOR_TAG = "navigator"; //$NON-NLS-1$
+	String ENGINE_TAG = "engine"; //$NON-NLS-1$
+	String LANGUAGE_TAG = "language"; //$NON-NLS-1$
 
 	/**
 	 * Cell Editor Type: Text.

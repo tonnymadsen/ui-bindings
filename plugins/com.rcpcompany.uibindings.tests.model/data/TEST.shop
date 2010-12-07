@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<shop:Shop xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:moao="http://com.rcpcompany/schemas/moao.ecore" xmlns:shop="http://rcp-company.com/schemas/shop.ecore" name="IT Shop" uuid="_Lr6VkcBGEd-siJXnD8pfBQ" nextOrderNo="1223" nextCustomerNo="12" tmpDir="C:\Windows\Temp\3">
+<shop:Shop xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:scripting="http://rcp-company.com/schemas/uibindings/scripting.ecore" xmlns:shop="http://rcp-company.com/schemas/shop.ecore" name="IT Shop" uuid="_Lr6VkcBGEd-siJXnD8pfBQ" nextOrderNo="1223" nextCustomerNo="12" tmpDir="C:\Windows\Temp\3">
   <countries name="Denmark" uuid="DK" abbreviation="DK"/>
-  <countries name="Norway" uuid="NO" abbreviation="NO"/>
+  <countries name="Norway" uuid="NO" abbreviation="IT Shop">
+    <facets xsi:type="scripting:FeatureScript" language="simple" script="shopName">
+      <feature xsi:type="ecore:EAttribute" href="http://rcp-company.com/schemas/shop.ecore#//Country/abbreviation"/>
+    </facets>
+  </countries>
   <countries name="Sweden" uuid="SE" abbreviation="SE"/>
   <countries name="Finland" uuid="_otUH0MrREd-YTtT6Fix4Zw" abbreviation="FI"/>
   <contacts name="Thomas" uuid="_0g5AAMgSEd-Mv9urbjVCgg" city="Turku" country="_otUH0MrREd-YTtT6Fix4Zw" birthday="1964-11-16T00:00:00.000+0100"/>
-  <contacts name="Tonny Madsen" uuid="_L0u6YMBGEd-siJXnD8pfBQ" address="Rued Langgaards Vej 7, 5D12" city="København" zip="2300" country="DK" customer="//@customers.0" birthday="1964-11-16T00:00:00.000+0100"/>
-  <contacts name="Henrik Hansen" uuid="_L0wvkMBGEd-siJXnD8pfBQ" city="Søborg" country="NO" customer="//@customers.2" birthday="1964-11-16T00:00:00.000+0100">
-    <facets xsi:type="moao:MOAOMessage" owner="TODO" description="Comment by Tonny" severity="Comment" details="Hmm, is this really right">
-      <feature xsi:type="ecore:EAttribute" href="http://com.rcpcompany/schemas/moao.ecore#//NamedObject/name"/>
-    </facets>
-  </contacts>
+  <contacts name="Anders Jensen" uuid="_L0u6YMBGEd-siJXnD8pfBQ" address="Rued Langgaards Vej 7, 5D12" city="København" zip="2300" country="DK" customer="//@customers.0" birthday="1964-11-16T00:00:00.000+0100"/>
+  <contacts name="Henrik Hansen" uuid="_L0wvkMBGEd-siJXnD8pfBQ" city="Søborg" country="NO" customer="//@customers.2" birthday="1964-11-16T00:00:00.000+0100"/>
   <contacts name="Brian" uuid="_L00Z8MBGEd-siJXnD8pfBQ" city="Køge" country="NO" birthday="1964-11-16T00:00:00.000+0100"/>
   <contacts name="Tue Aller" uuid="_LsEGkMBGEd-siJXnD8pfBQ" address="Algade 4" city="Trondheim" zip="3400" country="NO" birthday="1999-10-10T00:00:00.000+0200"/>
   <contacts name="Hans Jörgensen" uuid="_L0m-kMBGEd-siJXnD8pfBQ" address="Vasagatan 5" city="Stockholm" zip="21 145" country="NO" customer="//@customers.1" birthday="1976-12-16T00:00:00.000+0100"/>

@@ -1,0 +1,108 @@
+package no.marintek.sima.script.tests;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import java.util.List;
+
+import no.marintek.sima.Body;
+import no.marintek.sima.Dependency;
+import no.marintek.sima.Point3;
+import no.marintek.sima.SIMAFactory;
+import no.marintek.sima.ScriptableValue;
+import no.marintek.sima.impl.BodyImpl;
+import no.marintek.sima.model.utility.ScriptDependencyEvaluator;
+import no.marintek.sima.model.utility.ScriptEvaluator;
+
+import org.junit.Test;
+
+public class ScriptingTest {
+
+	@Test
+	public void testThatScriptEvaluatorWorks() throws Exception {
+		ScriptEvaluator evaluator = new ScriptEvaluator();
+
+		Point3 point1 = SIMAFactory.eINSTANCE.createPoint3();
+		evaluator.insertVariable("point1", point1);
+		point1.setX(100.0);
+
+		String script = "point1.x+100";
+		final Object val = evaluator.getEngine().eval(script);
+		assertEquals(200.0, val);
+	}
+	
+	@Test
+	public void testComposedDependencyEvalution(){
+		ScriptEvaluator ev = new ScriptEvaluator();
+		Body b1 = new BodyImpl(){};
+		b1.setName("b1");
+		Body b2 = new BodyImpl(){};
+		b2.setName("b2");
+		ev.insertVariable(b1.getName(),b1);
+		ev.insertVariable(b2.getName(),b2);
+		
+		ScriptDependencyEvaluator depEv = new ScriptDependencyEvaluator(ev.getEngine());
+		List<Dependency> dependencies = depEv.findDependencies("b1.initialPosition.x+b2.initialPosition.y");
+		assertEquals(2, dependencies.size());
+		
+		Dependency d1 = dependencies.get(0);
+		assertEquals(b1.getInitialPosition(), d1.getObject());
+		assertEquals("x", d1.getFeature());
+
+		Dependency d2 = dependencies.get(1);
+		assertEquals(b2.getInitialPosition(), d2.getObject());
+		assertEquals("y", d2.getFeature());
+	}
+	
+	
+	@Test
+	public void testFunctionDependencyEvalution(){
+		ScriptEvaluator ev = new ScriptEvaluator();
+		Body b1 = new BodyImpl(){};
+		b1.setName("b1");
+		ev.insertVariable(b1.getName(),b1);
+		ScriptDependencyEvaluator depEv = new ScriptDependencyEvaluator(ev.getEngine());
+		List<Dependency> dependencies = depEv.findDependencies("func(b1.initialPosition,10)");
+		assertEquals(1, dependencies.size());
+		Dependency d1 = dependencies.get(0);
+		assertTrue(b1== d1.getObject());
+		assertEquals("initialPosition", d1.getFeature());
+	}
+	
+	@Test
+	public void testConstantDependencyEvalution(){
+		ScriptEvaluator ev = new ScriptEvaluator();
+		Body b1 = new BodyImpl(){};
+		b1.setName("b1");
+		ev.insertVariable(b1.getName(),b1);
+		
+		ScriptDependencyEvaluator depEv = new ScriptDependencyEvaluator(ev.getEngine());
+		List<Dependency> dependencies = depEv.findDependencies("b1.x+100.0");
+		assertEquals(1, dependencies.size());
+		
+		Dependency d1 = dependencies.get(0);
+		assertEquals(b1, d1.getObject());
+		assertEquals("x", d1.getFeature());
+	}
+	
+	@Test
+	public void testScriptableValueCreation(){
+		ScriptEvaluator ev = new ScriptEvaluator();
+		Body b1 = new BodyImpl(){};
+		b1.setName("b1");
+		ev.insertVariable(b1.getName(),b1);
+		Body b2 = new BodyImpl(){};
+		b2.setName("p2");
+		ev.insertVariable(b2.getName(),b2);
+		
+		String assignment="p1.x";
+		
+		ScriptableValue value = SIMAFactory.eINSTANCE.createScriptableValue("x");
+		value.setScript(assignment);
+		
+		assertNotNull(value);
+	}
+
+	
+}

@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/!svn/ver/5966/SIMA/trunk/no.marintek.sima.script/src/no/marintek/sima/script
+END
+ScriptContentProposal.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/!svn/ver/2127/SIMA/trunk/no.marintek.sima.script/src/no/marintek/sima/script/ScriptContentProposal.java
+END
+CommandStack.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/!svn/ver/665/SIMA/trunk/no.marintek.sima.script/src/no/marintek/sima/script/CommandStack.java
+END
+ScriptOutputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/!svn/ver/613/SIMA/trunk/no.marintek.sima.script/src/no/marintek/sima/script/ScriptOutputStream.java
+END
+ScriptDecorationProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/repos/!svn/ver/3921/SIMA/trunk/no.marintek.sima.script/src/no/marintek/sima/script/ScriptDecorationProvider.java
+END
+ScriptDecoration.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/repos/!svn/ver/3921/SIMA/trunk/no.marintek.sima.script/src/no/marintek/sima/script/ScriptDecoration.java
+END
+ScriptVariableProposalProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/repos/!svn/ver/3872/SIMA/trunk/no.marintek.sima.script/src/no/marintek/sima/script/ScriptVariableProposalProvider.java
+END
+StyledTextContentAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/repos/!svn/ver/3117/SIMA/trunk/no.marintek.sima.script/src/no/marintek/sima/script/StyledTextContentAdapter.java
+END
+AssignmentScriptContentProposalProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/repos/!svn/ver/4414/SIMA/trunk/no.marintek.sima.script/src/no/marintek/sima/script/AssignmentScriptContentProposalProvider.java
+END
+TextContentProposalAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/repos/!svn/ver/5426/SIMA/trunk/no.marintek.sima.script/src/no/marintek/sima/script/TextContentProposalAdapter.java
+END
+ScriptContentProposalProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/repos/!svn/ver/2127/SIMA/trunk/no.marintek.sima.script/src/no/marintek/sima/script/ScriptContentProposalProvider.java
+END

@@ -199,6 +199,9 @@ public class MOAOImpl extends EObjectImpl implements IMOAO {
 				continue;
 			}
 
+			/*
+			 * We know there must be at least one facet...
+			 */
 			for (final IMOAOFacet f : mo.getFacets().toArray(new IMOAOFacet[mo.getFacets().size()])) {
 				if (!(f instanceof IMOAOMessage)) {
 					continue;

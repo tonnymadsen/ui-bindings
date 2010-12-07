@@ -885,6 +885,16 @@ The argument is a text string with the base unit type of the binding. E.g. &quot
                </documentation>
             </annotation>
          </attribute>
+         <attribute name="validValues" type="string">
+            <annotation>
+               <documentation>
+                  a factory that will provide the valid values for the binding in the form of an &lt;code&gt;IObservableList&lt;/code&gt;.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":com.rcpcompany.uibindings.IObservableListFactory"/>
+               </appInfo>
+            </annotation>
+         </attribute>
          <attribute name="valueObjectMessages" type="boolean">
             <annotation>
                <documentation>

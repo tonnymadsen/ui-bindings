@@ -112,6 +112,10 @@
                visible="false">
          </separator>
          <separator
+               name="edit"
+               visible="false">
+         </separator>
+         <separator
                name="undo"
                visible="false">
          </separator>

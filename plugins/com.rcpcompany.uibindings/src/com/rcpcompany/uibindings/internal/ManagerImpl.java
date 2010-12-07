@@ -940,6 +940,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	public ManagerImpl() {
 		super();
 
+		getCommandIDs().put(IWorkbenchCommandConstants.FILE_SAVE, IWorkbenchCommandConstants.FILE_SAVE);
+		getCommandIDs().put(IWorkbenchCommandConstants.FILE_SAVE_ALL, IWorkbenchCommandConstants.FILE_SAVE_ALL);
+		getCommandIDs().put(IWorkbenchCommandConstants.FILE_SAVE_AS, IWorkbenchCommandConstants.FILE_SAVE_AS);
 		getCommandIDs().put(IWorkbenchCommandConstants.FILE_REFRESH, IWorkbenchCommandConstants.FILE_REFRESH);
 		getCommandIDs().put(IWorkbenchCommandConstants.FILE_RENAME, IWorkbenchCommandConstants.FILE_RENAME);
 		getCommandIDs().put(IWorkbenchCommandConstants.FILE_MOVE, IWorkbenchCommandConstants.FILE_MOVE);

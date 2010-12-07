@@ -8,7 +8,7 @@
  * Contributors:
  *     The RCP Company - initial API and implementation
  *******************************************************************************/
-package com.rcpcompany.uibindings.internal.handlers;
+package com.rcpcompany.uibindings.handlers;
 
 import java.util.List;
 

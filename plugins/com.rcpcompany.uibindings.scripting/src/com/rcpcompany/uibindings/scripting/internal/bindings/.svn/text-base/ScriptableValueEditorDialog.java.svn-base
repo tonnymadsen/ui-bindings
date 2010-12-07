@@ -1,0 +1,225 @@
+package no.marintek.sima.script.bindings;
+
+
+import javax.script.ScriptEngine;
+import javax.script.ScriptException;
+
+import no.marintek.sima.ScriptableValue;
+import no.marintek.sima.Task;
+import no.marintek.sima.model.ui.UIConstants;
+import no.marintek.sima.model.utility.MOAOUtil;
+import no.marintek.sima.model.utility.SIMALogUtils;
+import no.marintek.sima.script.internal.Activator;
+
+import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.core.databinding.observable.value.WritableValue;
+import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.jface.dialogs.IDialogSettings;
+import org.eclipse.jface.dialogs.TitleAreaDialog;
+import org.eclipse.jface.resource.JFaceColors;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Text;
+
+import com.rcpcompany.uibindings.Constants;
+import com.rcpcompany.uibindings.IBinding;
+import com.rcpcompany.uibindings.IBindingContext;
+import com.rcpcompany.uibindings.IControlFactory;
+import com.rcpcompany.uibindings.IValueBinding;
+import com.rcpcompany.uibindings.utils.IFormCreator;
+
+/**
+ * The editor dialog itself...
+ */
+public class ScriptableValueEditorDialog extends TitleAreaDialog {
+	/**
+	 * The button ID for the 'use value' button
+	 */
+	public static final int USE_VALUE = 10;
+
+	/**
+	 * The scriptable value that is the subject of this editor
+	 */
+	protected final ScriptableValue myScript;
+
+	/**
+	 * The form
+	 */
+	protected IFormCreator myForm;
+	/**
+	 * The binding for the script itself
+	 */
+	protected IValueBinding myScriptBinding;
+	/**
+	 * The {@link StyledText} widget for the script
+	 */
+	protected StyledText myText;
+
+	/**
+	 * The result text
+	 */
+	protected IObservableValue myResultText = WritableValue.withValueType(EcorePackage.Literals.ESTRING);
+
+	/**
+	 * The result color
+	 */
+	protected IObservableValue myResultColor = WritableValue.withValueType(Color.class);
+
+	/**
+	 * The scripting engine
+	 */
+	protected final ScriptEngine myEngine;
+
+	private IValueBinding myResultBinding;
+
+	/**
+	 * Returns the styled text widget that is used for the text of the scriptable value
+	 * 
+	 * @return the text widget
+	 */
+	public StyledText getText() {
+		return myText;
+	}
+
+	/**
+	 * Constructs and returns a new editor dialog for a scriptable value.
+	 * 
+	 * @param shell
+	 *            the parent shell
+	 * @param value
+	 *            the scriptable value to edit
+	 */
+	public ScriptableValueEditorDialog(Shell shell, ScriptableValue value) {
+		super(shell);
+		// super(shell, SWT.ON_TOP | SWT.RESIZE, true, true, false, false, false, null,
+		// "Press 'Return' or 'Escape' to continue");
+		myScript = value;
+
+		final Task task = MOAOUtil.findTaskOfObject(myScript.getParent());
+		myEngine = task.getScriptManager().getEvaluator().getEngine();
+	}
+
+	@Override
+	protected boolean isResizable() {
+		return true;
+	}
+
+	@Override
+	protected Control createDialogArea(Composite parent) {
+		final Composite top = (Composite) super.createDialogArea(parent);
+
+		final IBindingContext context = IBindingContext.Factory.createContext(this);
+
+		setTitle("Editing script...");
+		setMessage("Press 'OK' to set script, 'Cancel' to reject change and 'Use Value' to use the current value");
+
+		myForm = IFormCreator.Factory.createForm(context, myScript, null, top);
+
+		myForm.addField("parent").type(UIConstants.MOAO_IDENTITY).readonly().arg(Constants.ARG_PREFERRED_CONTROL, Text.class.getName());
+		myForm.addField("feature").readonly();
+		myScriptBinding = myForm.addField("script(sb=v)");
+		IControlFactory controlFactory = new ScriptableValueControlFactory();
+		myScriptBinding.arg(Constants.ARG_PREFERRED_CONTROL_FACTORY, controlFactory);
+		myForm.addSeparator();
+		myResultBinding = myForm.addField(myResultText, SWT.NONE).arg(IBinding.ARG_LABEL, "Current Value").readonly();
+
+		myForm.finish();
+
+		context.addBinding().ui(myResultBinding.getControl(), Constants.ATTR_FOREGROUND).model(myResultColor);
+		context.finish();
+
+		/*
+		 * Connect the result to the current script...
+		 * 
+		 * Really should be done via bindings :-)
+		 */
+		myText = (StyledText) myScriptBinding.getControl();
+		myText.addModifyListener(new ModifyListener() {
+			@Override
+			public void modifyText(ModifyEvent e) {
+				updateResult();
+			}
+		});
+		updateResult();
+
+		applyDialogFont(top);
+
+		myText.setFocus();
+		return top;
+	}
+
+	@Override
+	protected void configureShell(Shell newShell) {
+		super.configureShell(newShell);
+		newShell.setText("Edit SIMA Script");
+	}
+
+	@Override
+	protected void createButtonsForButtonBar(Composite parent) {
+		super.createButtonsForButtonBar(parent);
+
+		Button button;
+		button = createButton(parent, USE_VALUE, "&Use value", false);
+		button.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				setReturnCode(USE_VALUE);
+				close();
+			}
+		});
+	}
+
+	/**
+	 * Updates the result based on the current value of the script text widget
+	 */
+	protected void updateResult() {
+		final String script = myText.getText();
+		try {
+			myResultText.setValue("" + myEngine.eval(script));
+			myResultColor.setValue(null);
+		} catch (final ScriptException ex) {
+			String m = ex.getLocalizedMessage();
+
+			if (m.startsWith("sun.org.mozilla.javascript.internal.EcmaError: ")) {
+				m = m.substring("sun.org.mozilla.javascript.internal.EcmaError: ".length());
+			}
+			if (m.startsWith("sun.org.mozilla.javascript.internal.EvaluatorException: ")) {
+				m = m.substring("sun.org.mozilla.javascript.internal.EvaluatorException: ".length());
+			}
+
+			final int i = m.indexOf(" (<Unknown source>#1");
+			if (i != -1) {
+				m = m.substring(0, i);
+			}
+
+			myResultText.setValue(m);
+			myResultColor.setValue(JFaceColors.getErrorText(null));
+		} catch (final Exception ex) {
+			SIMALogUtils.error(this, ex);
+		}
+	}
+
+	/**
+	 * ID used for the {@link IDialogSettings} of this dialog.
+	 */
+	public final String ID = ScriptableValueEditorDialog.class.getName();
+
+	@Override
+	protected IDialogSettings getDialogBoundsSettings() {
+		final IDialogSettings settings = Activator.getDefault().getDialogSettings();
+		IDialogSettings result = settings.getSection(ID);
+		if (result == null) {
+			result = settings.addNewSection(ID);
+		}
+		return result;
+	}
+}

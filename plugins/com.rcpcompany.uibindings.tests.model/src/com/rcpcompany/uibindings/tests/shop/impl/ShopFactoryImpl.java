@@ -75,6 +75,9 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	@Override
 	public Shop getShop(EditingDomain editingDomain) {
 		if (theShop == null) {
+			/*
+			 * Make sure the shop package is properly initialized
+			 */
 			final ShopPackage shopPackage = ShopPackage.eINSTANCE;
 
 			/*

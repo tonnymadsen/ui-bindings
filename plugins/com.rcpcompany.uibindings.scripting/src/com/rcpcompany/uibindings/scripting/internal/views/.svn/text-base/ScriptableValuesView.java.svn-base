@@ -1,0 +1,77 @@
+package no.marintek.sima.script.views;
+
+import no.marintek.sima.MOAO;
+import no.marintek.sima.SIMAPackage;
+import no.marintek.sima.Task;
+import no.marintek.sima.model.ui.SelectionUtil;
+import no.marintek.sima.model.utility.MOAOUtil;
+
+import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.core.databinding.observable.value.WritableValue;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.ISelectionListener;
+import org.eclipse.ui.ISelectionService;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.part.ViewPart;
+
+import com.rcpcompany.uibindings.utils.IFormCreator;
+import com.rcpcompany.uibindings.utils.ITableCreator;
+
+/**
+ * Simple view that will show the current scriptable values of the current task.
+ * 
+ * @author Tonny Madsen, The RCP Company
+ */
+public class ScriptableValuesView extends ViewPart {
+
+	private ITableCreator myTable;
+	private IFormCreator myForm;
+	private final IObservableValue myTask = WritableValue.withValueType(SIMAPackage.Literals.TASK);
+
+	private final ISelectionListener mySelectionListener = new ISelectionListener() {
+		@Override
+		public void selectionChanged(IWorkbenchPart part, ISelection selection) {
+			final Object first = SelectionUtil.getFirst(selection);
+			if (!(first instanceof MOAO)) {
+				return;
+			}
+
+			final Task task = MOAOUtil.findTaskOfObject((MOAO) first);
+			if (task != null) {
+				myTask.setValue(task);
+			}
+		}
+	};
+
+	@Override
+	public void createPartControl(Composite parent) {
+//		final IObservableValue mng = UIBindingsEMFObservables.observeDetailValue(myTask,
+//				SIMAPackage.Literals.TASK__SCRIPT_MANAGER);
+//		myForm = IFormCreator.Factory.createScrolledForm(mng, parent, "Scriptable Values");
+//		myForm.getContext().addBinding().ui(myForm.getScrolledForm()).model(myTask).arg(IBinding.ARG_MESSAGE_FORMAT,
+//				"Scriptable Values in {0}").type(UIConstants.MOAO_IDENTITY);
+////		myTable = myForm.addTableCreator(SIMAPackage.Literals.SCRIPT_MANAGER__ALL_SCRIPTABLE_VALUES, true, ITableCreator.FILTER);
+//		myTable.addColumn("object(w=20em, readonly)");
+//		myTable.addColumn("feature(w=5em, readonly)");
+//		myTable.addColumn("script(w=30em, sc=v, readonly)");
+//
+//		myForm.finish();
+//
+//		final ISelectionService ss = getSite().getWorkbenchWindow().getSelectionService();
+//		ss.addSelectionListener(mySelectionListener);
+//		mySelectionListener.selectionChanged(this, ss.getSelection());
+	}
+
+	@Override
+	public void dispose() {
+		final ISelectionService ss = getSite().getWorkbenchWindow().getSelectionService();
+		ss.removeSelectionListener(mySelectionListener);
+		super.dispose();
+	}
+
+	@Override
+	public void setFocus() {
+		myForm.setFocus();
+	}
+}

@@ -1,0 +1,45 @@
+package no.marintek.sima.script;
+
+import javax.script.ScriptEngine;
+
+import org.eclipse.jface.fieldassist.IContentProposal;
+
+public class AssignmentScriptContentProposalProvider extends ScriptContentProposalProvider {
+
+	public AssignmentScriptContentProposalProvider(ScriptEngine engine) {
+		super(engine);
+	}
+
+	@Override
+	public IContentProposal[] getProposals(String contents, int position) {
+		int eqIdx = contents.indexOf("=");
+		if (eqIdx == -1) {
+			return super.getProposals(contents, position);
+		} else {
+			String[] scontents = contents.split("=");
+			if (position < eqIdx) {
+				IContentProposal[] proposals = super.getProposals(scontents[0], position);
+				for (IContentProposal iproposal : proposals) {
+					ScriptContentProposal proposal = (ScriptContentProposal) iproposal;
+					String newProposal = proposal.getContent() + "=" + scontents[1];
+					proposal.setContent(newProposal);
+				}
+				return proposals;
+			} else if (position > eqIdx) {
+				String contents2 = "";
+				if(scontents.length>1){
+					contents2=scontents[1];
+				}
+				position=position-eqIdx-1;
+				IContentProposal[] proposals = super.getProposals(contents2, position);
+				for (IContentProposal iproposal : proposals) {
+					ScriptContentProposal proposal = (ScriptContentProposal) iproposal;
+					String newProposal = scontents[0] + "=" + proposal.getContent();
+					proposal.setContent(newProposal);
+				}
+				return proposals;
+			}
+			return new IContentProposal[0];
+		}
+	}
+}

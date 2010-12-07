@@ -24,6 +24,7 @@ import com.rcpcompany.uibindings.moao.IMOAO;
 import com.rcpcompany.uibindings.moao.IMOAOFacet;
 import com.rcpcompany.uibindings.moao.IMOAOFactory;
 import com.rcpcompany.uibindings.moao.IMOAOMessage;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.moao.Severity;
 import com.rcpcompany.uibindings.moao.ui.internal.dialogs.CommentEditorDialog;
 
@@ -50,14 +51,16 @@ public class EditCommentHandler extends AbstractHandler {
 		 * Find the comments Status Object or create a new
 		 */
 		IMOAOMessage comment = null;
-		for (final IMOAOFacet f : moao.getFacets()) {
-			if (!(f instanceof IMOAOMessage)) {
-				continue;
-			}
-			final IMOAOMessage s = (IMOAOMessage) f;
-			if (s.getSeverity() == Severity.COMMENT && s.getFeature() == feature) {
-				comment = s;
-				break;
+		if (moao.eIsSet(IMOAOPackage.Literals.MOAO__FACETS)) {
+			for (final IMOAOFacet f : moao.getFacets()) {
+				if (!(f instanceof IMOAOMessage)) {
+					continue;
+				}
+				final IMOAOMessage s = (IMOAOMessage) f;
+				if (s.getSeverity() == Severity.COMMENT && s.getFeature() == feature) {
+					comment = s;
+					break;
+				}
 			}
 		}
 		if (comment == null) {

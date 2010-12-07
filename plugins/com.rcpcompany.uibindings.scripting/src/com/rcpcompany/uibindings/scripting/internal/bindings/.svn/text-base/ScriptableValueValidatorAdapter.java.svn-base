@@ -1,0 +1,145 @@
+package no.marintek.sima.script.bindings;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import no.marintek.sima.SIMAPackage;
+import no.marintek.sima.ScriptableValue;
+
+import org.eclipse.core.databinding.observable.list.IObservableList;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+
+import com.rcpcompany.uibindings.BindingMessageSeverity;
+import com.rcpcompany.uibindings.IBindingMessage;
+import com.rcpcompany.uibindings.bindingMessages.AbstractBindingMessage;
+import com.rcpcompany.uibindings.validators.AbstractValidatorAdapter;
+
+/**
+ * This validation adaptor will handle {@link ScriptableValue} objects.
+ * 
+ * @author Tonny Madsen, The RCP Company
+ */
+public class ScriptableValueValidatorAdapter extends AbstractValidatorAdapter {
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public void validateObjectTree(EObject root, IObservableList messages) {
+		final List<ScriptableValue> foundValue = new ArrayList<ScriptableValue>();
+
+		collectValues(root, foundValue);
+
+		final List<Message> toRemoveList = new ArrayList<Message>(messages);
+		final List<Message> toAddList = new ArrayList<Message>();
+
+		for (final ScriptableValue s : foundValue) {
+			boolean old = false;
+			for (final Object o : messages) {
+				final Message f = (Message) o;
+				if (f.getValue().equals(s)) {
+					old = true;
+					toRemoveList.remove(f);
+				}
+			}
+			if (old) {
+				continue;
+			}
+			toAddList.add(new Message(s));
+		}
+
+		messages.removeAll(toRemoveList);
+		messages.addAll(toAddList);
+	}
+
+	/**
+	 * Collects all scriptable values from the root down with a non-null exception
+	 * 
+	 * @param root
+	 *            the root of the tree
+	 * @param foundValues
+	 *            the list to be updated
+	 */
+	private void collectValues(EObject root, List<ScriptableValue> foundValues) {
+		final TreeIterator<Object> allContents = EcoreUtil.getAllContents(root, false);
+
+		while (allContents.hasNext()) {
+			final Object c = allContents.next();
+			if (c instanceof ScriptableValue) {
+				final ScriptableValue sv = (ScriptableValue) c;
+				if (sv.getLastEvaluationException() != null) {
+					foundValues.add(sv);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Adaption from {@link ScriptableValue} to {@link IBindingMessage}.
+	 */
+	private static class Message extends AbstractBindingMessage {
+
+		private final ScriptableValue myValue;
+
+		public Message(ScriptableValue sv) {
+			super(null);
+			myValue = sv;
+			EStructuralFeature sf = myValue.getParent().eClass().getEStructuralFeature(myValue.getFeature());
+			addTarget(myValue.getParent(), sf);
+		}
+
+		@Override
+		public String getSource() {
+			return SIMAPackage.eNS_URI;
+		}
+
+		@Override
+		public int getCode() {
+			return 0;
+		}
+
+		@Override
+		public Object getData() {
+			return myValue;
+		}
+
+		/*
+		 * Simplify:
+		 * 
+		 * - "sun.org.mozilla.javascript.internal.EcmaError: xxxx" -> "xxxx" -
+		 * "sun.org.mozilla.javascript.internal.EvaluatorException: xxxx" -> "xxxx" -
+		 * "xxxx (<Unknown source>#1) in <Unknown source> at line number 1" -> "xxxx"
+		 */
+		@Override
+		public String getMessage() {
+			Exception ex = myValue.getLastEvaluationException();
+			if (ex == null)
+				return "";
+			String m = ex.getLocalizedMessage();
+
+			if (m.startsWith("sun.org.mozilla.javascript.internal.EcmaError: ")) {
+				m = m.substring("sun.org.mozilla.javascript.internal.EcmaError: ".length());
+			}
+			if (m.startsWith("sun.org.mozilla.javascript.internal.EvaluatorException: ")) {
+				m = m.substring("sun.org.mozilla.javascript.internal.EvaluatorException: ".length());
+			}
+
+			final int i = m.indexOf(" (<Unknown source>#1");
+			if (i != -1) {
+				m = m.substring(0, i);
+			}
+
+			return m;
+		}
+
+		@Override
+		public BindingMessageSeverity getSeverity() {
+			return BindingMessageSeverity.ERROR;
+		}
+
+		public ScriptableValue getValue() {
+			return myValue;
+		}
+	}
+}

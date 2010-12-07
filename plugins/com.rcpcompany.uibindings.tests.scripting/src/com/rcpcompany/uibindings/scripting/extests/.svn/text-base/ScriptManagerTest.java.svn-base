@@ -1,0 +1,340 @@
+package no.marintek.sima.script.tests;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+import java.io.File;
+import java.util.List;
+
+import javax.script.ScriptEngine;
+
+import no.marintek.sima.Dependency;
+import no.marintek.sima.Point3;
+import no.marintek.sima.SIMAFactory;
+import no.marintek.sima.ScriptManager;
+import no.marintek.sima.ScriptableValue;
+import no.marintek.sima.model.utility.MOAOUtil;
+import no.marintek.sima.model.utility.ResourceUtil;
+import no.marintek.sima.script.mock.MockBody;
+import no.marintek.sima.script.mock.MockFactory;
+import no.marintek.sima.script.mock.MockTask;
+
+import org.eclipse.emf.common.util.EList;
+import org.junit.Test;
+
+public class ScriptManagerTest {
+
+	@Test
+	public void testGetCreateSV(){
+		MockFactory f = MockFactory.eINSTANCE;
+		MockTask task = f.createMockTask();
+		task.setName("mock");
+		
+		ScriptManager manager = task.getScriptManager();
+		assertNotNull(manager);
+		
+		MockBody b1 = f.createMockBody();
+		b1.setName("b1");
+		b1.setX(10);
+		task.getBodies().add(b1);
+		
+		
+		MockBody b2 = f.createMockBody();
+		b2.setName("b2");
+		b2.setX(1);
+		task.getBodies().add(b2);
+		
+		assertNull(manager.getScriptableValue(b1, "x"));
+		ScriptableValue sv = manager.getCreateScriptableValue(b1, "x");
+		assertNotNull(sv);
+		assertEquals(sv,manager.getScriptableValue(b1, "x"));
+		sv.setScript("b2.x+1");
+		
+		assertEquals(2, b1.getX(),0);
+		b2.setX(100);
+		assertEquals(101, b1.getX(),0);
+		
+		
+	}
+	
+	@Test
+	public void testIntegerSV(){
+		MockFactory f = MockFactory.eINSTANCE;
+		MockTask task = f.createMockTask();
+		task.setName("mock");
+		
+		ScriptManager manager = task.getScriptManager();
+		assertNotNull(manager);
+		
+		MockBody b1 = f.createMockBody();
+		b1.setName("b1");
+		b1.setNumber(4);
+		task.getBodies().add(b1);
+		
+		
+		MockBody b2 = f.createMockBody();
+		b2.setName("b2");
+		b2.setNumber(5);
+		task.getBodies().add(b2);
+		
+		assertNull(manager.getScriptableValue(b1, "number"));
+		ScriptableValue sv = manager.getCreateScriptableValue(b1, "number");
+		assertNotNull(sv);
+		assertEquals(sv,manager.getScriptableValue(b1, "number"));
+		sv.setScript("b2.number+1");
+		
+		assertEquals(6, b1.getNumber(),0);
+	}
+	
+
+	@Test
+	public void testManager() throws Exception {
+		MockFactory f = MockFactory.eINSTANCE;
+		MockTask task = f.createMockTask();
+		task.setName("mock");
+		
+		ScriptManager manager = task.getScriptManager();
+		assertNotNull(manager);
+		
+		MockBody b1 = f.createMockBody();
+		b1.setName("b1");
+		b1.setX(10);
+		task.getBodies().add(b1);
+		
+		MockBody b2 = f.createMockBody();
+		b2.setName("b2");
+		b2.setX(1);
+		task.getBodies().add(b2);
+		
+		String feature = "x";
+		String script = "b2.x+10";
+		manager.setScript(b1,"x",script);
+		assertEquals(b2.getX()+10,b1.getX(),0);
+		
+		assertEquals(script, manager.getScript(b1,"x"));
+		
+		b2.setX(100);
+		assertEquals("b1.x should have changed when b2.x changed",b2.getX()+10,b1.getX(),0);
+		assertEquals(110, b1.getX(),0);
+		
+		manager.deleteScript(b1,feature);
+		assertNull(manager.getScript(b1, feature));
+		
+		
+		manager.setScript(b1,feature,script);
+		assertEquals(script,manager.getScript(b1, feature));
+		
+		String filename = new File(getUserDir(),"script.sima").getAbsolutePath();
+		ResourceUtil.saveToResource(filename, task);
+		
+		System.out.println(filename);
+		
+		MockTask reloadedTask = (MockTask) ResourceUtil.openResource(filename);
+		assertNotNull(reloadedTask);
+		
+		checkReloadedtask(reloadedTask);
+		
+//		new File(filename).delete();
+	}
+	
+	@Test
+	public void testCycledScript(){
+		MockFactory f = MockFactory.eINSTANCE;
+		MockTask task = f.createMockTask();
+		task.setName("mock");
+		
+		ScriptManager manager = task.getScriptManager();
+		assertNotNull(manager);
+		
+		MockBody b1 = f.createMockBody();
+		b1.setName("b1");
+		b1.setX(10);
+		task.getBodies().add(b1);
+		
+		String feature = "x";
+		String script = "b1.x+10";
+		manager.setScript(b1,feature,script);
+		ScriptableValue sv = manager.getScriptableValue(b1, feature);
+		assertTrue(sv.isCyclic());
+		
+	}
+	
+	@Test
+	public void testCycledScript2(){
+		MockFactory f = MockFactory.eINSTANCE;
+		MockTask task = f.createMockTask();
+		task.setName("mock");
+		
+		ScriptManager manager = task.getScriptManager();
+		assertNotNull(manager);
+		
+		MockBody b1 = f.createMockBody();
+		b1.setName("b1");
+		b1.setX(10);
+		task.getBodies().add(b1);
+		
+		MockBody b2 = f.createMockBody();
+		b2.setName("b2");
+		b2.setX(20);
+		task.getBodies().add(b2);
+		
+		//make b2.x depend on b1.x and b1.x depend on b2.x
+		String feature = "x";
+		String script = "b1.x+10";
+		manager.setScript(b2,feature,script);
+		
+		String script2 = "b2.x+10";
+		manager.setScript(b1,feature,script2);
+		
+		ScriptableValue sv = manager.getScriptableValue(b1, feature);
+		assertTrue(sv.isCyclic());
+	}
+	
+	/**
+	 *  b1.x = b2.y
+	 *  b2.y = b1.y
+	 *  b1.y = b1.x
+	 * 
+	 */
+	@Test
+	public void testCycledScript3(){
+		MockFactory f = MockFactory.eINSTANCE;
+		MockTask task = f.createMockTask();
+		task.setName("mock");
+		
+		ScriptManager manager = task.getScriptManager();
+		assertNotNull(manager);
+		
+		MockBody b1 = f.createMockBody();
+		b1.setName("b1");
+		task.getBodies().add(b1);
+		
+		MockBody b2 = f.createMockBody();
+		b2.setName("b2");
+		task.getBodies().add(b2);
+		
+		manager.setScript(b1,"x","b2.y");
+		
+		manager.setScript(b2,"y","b1.y");
+		
+		manager.setScript(b1,"y","b1.x");
+		
+		ScriptableValue sv = manager.getScriptableValue(b1, "y");
+		assertTrue(sv.isCyclic());
+	}
+	
+	/**
+	 *  b1.x = b2.y + b1.y
+	 *  b2.y = b1.y
+	 *  b1.y = b1.x + b2.y
+	 * 
+	 */
+	@Test
+	public void testCycledScript4(){
+		MockFactory f = MockFactory.eINSTANCE;
+		MockTask task = f.createMockTask();
+		task.setName("mock");
+		
+		ScriptManager manager = task.getScriptManager();
+		assertNotNull(manager);
+		
+		MockBody b1 = f.createMockBody();
+		b1.setName("b1");
+		task.getBodies().add(b1);
+		
+		MockBody b2 = f.createMockBody();
+		b2.setName("b2");
+		task.getBodies().add(b2);
+		
+		manager.setScript(b1,"x","b2.y + b1.y");
+		
+		manager.setScript(b2,"y","b1.y");
+		
+		manager.setScript(b1,"y","b1.x + b2.y");
+		
+		ScriptableValue sv = manager.getScriptableValue(b1, "y");
+		assertTrue(sv.isCyclic());
+	}
+	
+	private void checkReloadedtask(MockTask task) {
+		ScriptManager manager = task.getScriptManager();
+		assertNotNull(manager);
+		
+		
+		EList<MockBody> bodies = task.getBodies();
+		assertEquals(2, bodies.size());
+		
+		MockBody b1 = bodies.get(0);
+		MockBody b2 = bodies.get(1);
+
+		List<ScriptableValue> scriptableValues = MOAOUtil.findMOAOSofClass(task, ScriptableValue.class);
+		assertEquals(1,scriptableValues.size());
+		ScriptableValue sv = scriptableValues.get(0);
+		assertEquals("x", sv.getFeature());
+		assertEquals(b1, sv.getParent());
+		String script = "b2.x+10";
+		assertEquals(script, sv.getScript());
+
+		String feature = "x";
+		assertEquals("Script should have been rewired on deserialization:",script,manager.getScript(b1, feature));
+		
+		EList<Dependency> dependencies = sv.getDependencies();
+		assertEquals(1,dependencies.size());
+		Dependency dependency = dependencies.get(0);
+		assertEquals(b2, dependency.getObject());
+		assertEquals("x", dependency.getFeature());
+		
+		
+		b2.setX(-10);
+		assertEquals("The scripted value was not updated:",b2.getX()+10, b1.getX(),0);
+		
+		//change the script..
+		
+		script = "b2.x-10";
+		manager.setScript(b1,feature,script);
+		assertEquals("The scripted value was not updated:",b2.getX()-10, b1.getX(),0);
+		
+		
+	}
+
+	private String getUserDir() {
+		String userDir = System.getProperty("user.home");
+		if(userDir.charAt(userDir.length() - 1) != File.separatorChar) {
+			userDir = userDir + File.separatorChar;
+		}
+		return userDir;
+	}
+	
+	@Test
+	public void testFunctions(){
+		MockFactory f = MockFactory.eINSTANCE;
+		MockTask task = f.createMockTask();
+		task.setName("mock");
+		
+		ScriptManager manager = task.getScriptManager();
+		
+		MockBody b1 = f.createMockBody();
+		b1.setName("b1");
+		b1.setX(1);
+		task.getBodies().add(b1);
+		
+		Point3 p1 = SIMAFactory.eINSTANCE.createPoint3(0,1.1,2);
+		Point3 p2 = SIMAFactory.eINSTANCE.createPoint3(-3,1.2,-2);
+		
+		ScriptEngine engine = manager.getEvaluator().getEngine();
+		engine.put("p1", p1);
+		engine.put("p2", p2);
+		manager.setScript(b1,"x","distance(p1,p2)");
+		
+		ScriptableValue sv = manager.getScriptableValue(b1, "x");
+		assertNull(sv.getLastEvaluationException());
+		
+		//TODO: STILL MISSING update!
+//		p1.setX(2);
+//		assertEquals(p1.distance(p2), b1.getX(),0.0);
+	}
+	
+	
+}

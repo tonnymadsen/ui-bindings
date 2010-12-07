@@ -34,7 +34,7 @@ import org.eclipse.core.internal.databinding.BindingStatus;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.fieldassist.ContentProposalAdapter;
 import org.eclipse.jface.fieldassist.IContentProposal;
@@ -202,8 +202,8 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 				if (elementType instanceof EStructuralFeature) {
 					elementType = ((EStructuralFeature) elementType).getEType();
 				}
-				if (elementType instanceof EClass) {
-					elementType = ((EClass) elementType).getInstanceClass();
+				if (elementType instanceof EClassifier) {
+					elementType = ((EClassifier) elementType).getInstanceClass();
 				}
 				if (elementType != String.class) {
 					LogUtils.error(myValidUIList, getBinding() + ": Element type must be String, but was "

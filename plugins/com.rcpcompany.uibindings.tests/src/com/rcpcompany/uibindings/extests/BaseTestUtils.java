@@ -15,9 +15,10 @@ import static org.junit.Assert.*;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Pattern;
+import java.util.Set;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -80,6 +81,9 @@ import com.rcpcompany.uibindings.extests.views.EmptyView;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.InternalConstants;
+import com.rcpcompany.uibindings.scripting.IScriptEvaluationContext;
+import com.rcpcompany.uibindings.scripting.IScriptExpression;
+import com.rcpcompany.uibindings.scripting.IScriptManager;
 import com.rcpcompany.uibindings.utils.IGlobalNavigationManager;
 import com.rcpcompany.uibindings.utils.IManagerRunnableManager;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
@@ -129,13 +133,14 @@ public class BaseTestUtils {
 		 */
 		final ResourceSet rs = mng.getEditingDomain().getResourceSet();
 		rs.getResources().clear();
-//		for (final Resource r : rs.getResources().toArray(new Resource[rs.getResources().size()])) {
-//			try {
-//				r.delete(null);
-//			} catch (final IOException ex) {
-//				LogUtils.error(r, ex);
-//			}
-//		}
+		// for (final Resource r : rs.getResources().toArray(new
+		// Resource[rs.getResources().size()])) {
+		// try {
+		// r.delete(null);
+		// } catch (final IOException ex) {
+		// LogUtils.error(r, ex);
+		// }
+		// }
 		assertTrue(rs.getResources().isEmpty());
 
 		IValidatorAdapterManager.Factory.getManager().reset();
@@ -157,6 +162,32 @@ public class BaseTestUtils {
 
 			assertEquals(null, mng.getService(IManagerRunnableManager.class));
 		}
+
+		/*
+		 * Script engine
+		 */
+		final IScriptManager manager = IScriptManager.Factory.getManager();
+
+		final IScriptEvaluationContext globalEvaluationContext = manager.getGlobalEvaluationContext();
+		globalEvaluationContext.getVariables().clear();
+
+		final Set<IScriptEvaluationContext> contexts = new HashSet<IScriptEvaluationContext>();
+		contexts.add(globalEvaluationContext);
+
+		while (!contexts.isEmpty()) {
+			final IScriptEvaluationContext ec = contexts.iterator().next();
+			contexts.remove(ec);
+
+			contexts.addAll(ec.getChildren());
+			ec.setParent(null);
+			for (final IScriptExpression sc : ec.getExpressions().toArray(
+					new IScriptExpression[ec.getExpressions().size()])) {
+				sc.dispose();
+			}
+		}
+
+		manager.getRegisteredEvaluationContexts().clear();
+		manager.getDependencies().clear();
 	}
 
 	/**

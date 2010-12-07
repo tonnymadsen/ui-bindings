@@ -1,0 +1,57 @@
+/**
+ * 
+ */
+package no.marintek.sima.script;
+
+import no.marintek.sima.model.utility.SIMALogUtils;
+
+import org.eclipse.jface.bindings.keys.KeyStroke;
+import org.eclipse.jface.bindings.keys.ParseException;
+import org.eclipse.jface.fieldassist.ContentProposalAdapter;
+import org.eclipse.jface.fieldassist.IContentProposalProvider;
+import org.eclipse.jface.fieldassist.IControlContentAdapter;
+import org.eclipse.jface.fieldassist.TextContentAdapter;
+import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Text;
+
+
+/**
+ *
+ */
+public class TextContentProposalAdapter extends ContentProposalAdapter {
+	/**
+	 * 
+	 * @param control
+	 * @param proposal
+	 */
+	public TextContentProposalAdapter(Control control, IContentProposalProvider provider) {
+		super(control, createControlContentAdapter(control), provider, getControlKeyStroke(), null);
+		setProposalAcceptanceStyle(ContentProposalAdapter.PROPOSAL_REPLACE);
+		setPopupSize(new Point(150, 200));
+	}
+
+	private static IControlContentAdapter createControlContentAdapter(Control control) {
+		IControlContentAdapter contentAdapter = null;
+		if (control instanceof Text) {
+			contentAdapter = new TextContentAdapter();
+		} else if (control instanceof StyledText) {
+			contentAdapter = new StyledTextContentAdapter();
+		} else {
+			contentAdapter = new TextContentAdapter();
+		}
+		return contentAdapter;
+	}
+
+	private static KeyStroke getControlKeyStroke() {
+		KeyStroke keyStroke = null;
+		try {
+			keyStroke = KeyStroke.getInstance("Ctrl+Space");
+		} catch (ParseException e) {
+			SIMALogUtils.error("Ctrl+Space", e);
+		}
+		return keyStroke;
+	}
+
+}

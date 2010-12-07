@@ -42,7 +42,17 @@ public class FilteredObservableList extends ObservableList {
 	 * @param filter the filter
 	 */
 	public FilteredObservableList(IObservableList masterList, IFilter filter) {
-		super(masterList.getRealm(), new ArrayList<Object>(), masterList.getElementType());
+		this(masterList, filter, masterList.getElementType());
+	}
+
+	/**
+	 * Constructs and returns a new list for the specified master list and filter.
+	 * 
+	 * @param masterList the master list
+	 * @param filter the filter
+	 */
+	public FilteredObservableList(IObservableList masterList, IFilter filter, Object elementType) {
+		super(masterList.getRealm(), new ArrayList<Object>(), elementType);
 		myMasterList = masterList;
 		myFilter = filter;
 
@@ -57,7 +67,12 @@ public class FilteredObservableList extends ObservableList {
 	 * @param cls the class of the included elements
 	 */
 	public FilteredObservableList(IObservableList masterList, final EClass cls) {
-		this(masterList, cls.getInstanceClass());
+		this(masterList, new IFilter() {
+			@Override
+			public boolean isIncluded(Object element) {
+				return cls.getInstanceClass().isInstance(element);
+			}
+		}, cls);
 	}
 
 	/**

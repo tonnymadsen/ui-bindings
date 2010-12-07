@@ -24,6 +24,7 @@ import com.rcpcompany.uibindings.decorators.extenders.AbstractUIBindingDecorator
 import com.rcpcompany.uibindings.moao.IMOAO;
 import com.rcpcompany.uibindings.moao.IMOAOFacet;
 import com.rcpcompany.uibindings.moao.IMOAOMessage;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.moao.Severity;
 
 /**
@@ -45,6 +46,7 @@ public class CommentDecoratorExtender extends AbstractUIBindingDecoratorExtender
 		final EStructuralFeature sf = binding.getModelFeature();
 		if (sf == null) return false;
 
+		if (!moao.eIsSet(IMOAOPackage.Literals.MOAO__FACETS)) return false;
 		for (final IMOAOFacet f : moao.getFacets()) {
 			if (!(f instanceof IMOAOMessage)) {
 				continue;

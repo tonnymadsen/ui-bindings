@@ -2,6 +2,7 @@
 <?eclipse version="3.2"?>
 <plugin>
    <extension-point id="uiBindings" name="%extension-point.name" schema="schema/uiBindings.exsd"/>
+   <extension-point id="scriptEngines" name="Scripting Engines" schema="schema/scriptEngines.exsd"/>
    
    <extension
          point="com.rcpcompany.uibindings.uiBindings">
@@ -920,6 +921,13 @@
                initializer="com.rcpcompany.uibindings.initializers.DefaultEObjectInitializer">
          </standardArguments>
       </model>
+      <model
+            class="com.rcpcompany.uibindings.scripting.IScriptEngineDescriptor">
+         <standardArguments
+               featureName="language"
+               image="images/language_16x16.png">
+         </standardArguments>
+      </model>
    </extension>
    <extension
          point="com.rcpcompany.uibindings.uiBindings">
@@ -1564,5 +1572,48 @@
       <initializer
             class="com.rcpcompany.uibindings.internal.PreferenceInitializer">
       </initializer>
+   </extension>
+   <extension
+         point="com.rcpcompany.uibindings.scriptEngines">
+      <engine
+            engine="com.rcpcompany.uibindings.internal.scripting.simple.SimpleScriptEngine"
+            language="simple">
+      </engine>
+   </extension>
+   <extension
+         point="com.rcpcompany.uibindings.uiBindings">
+      <bindingDecorator
+            exactModelTypeMatch="false"
+            type="script">
+         <modelType
+               alsoPrimitive="true"
+               class="java.lang.String">
+         </modelType>
+         <uiType
+               alsoPrimitive="true"
+               class="java.lang.String">
+         </uiType>
+         <javaDecorator
+               class="com.rcpcompany.uibindings.internal.decorators.TextBindingDecorator">
+         </javaDecorator>
+         <standardArguments
+               readonly="true">
+         </standardArguments>
+      </bindingDecorator>
+      <bindingDecorator
+            exactModelTypeMatch="false"
+            type="script-simple">
+         <modelType
+               alsoPrimitive="true"
+               class="java.lang.String">
+         </modelType>
+         <uiType
+               alsoPrimitive="true"
+               class="java.lang.String">
+         </uiType>
+         <javaDecorator
+               class="com.rcpcompany.uibindings.internal.decorators.TextBindingDecorator">
+         </javaDecorator>
+      </bindingDecorator>
    </extension>
 </plugin>

@@ -1,0 +1,399 @@
+package no.marintek.sima.script.views;
+
+import java.io.PrintWriter;
+import java.util.List;
+
+import javax.script.Bindings;
+import javax.script.ScriptContext;
+import javax.script.ScriptEngine;
+import javax.script.ScriptException;
+
+import no.marintek.sima.MOAO;
+import no.marintek.sima.NamedObject;
+import no.marintek.sima.ScriptManager;
+import no.marintek.sima.Task;
+import no.marintek.sima.model.edit.SimaEditingDomain;
+import no.marintek.sima.model.ui.SelectionUtil;
+import no.marintek.sima.model.utility.MOAOUtil;
+import no.marintek.sima.model.utility.NamedObjectWatcher;
+import no.marintek.sima.model.utility.SIMALogUtils;
+import no.marintek.sima.model.utility.ScriptEvaluator;
+import no.marintek.sima.script.AssignmentScriptContentProposalProvider;
+import no.marintek.sima.script.CommandStack;
+import no.marintek.sima.script.ScriptOutputStream;
+import no.marintek.sima.script.TextContentProposalAdapter;
+
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.command.ChangeCommand;
+import org.eclipse.jface.fieldassist.IContentProposalProvider;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.StyleRange;
+import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.KeyListener;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.ISelectionListener;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.part.ViewPart;
+
+
+public class ScriptView extends ViewPart {
+
+	private Text input;
+	private StyledText output;
+	private ScriptEngine engine;
+	private CommandStack commands = new CommandStack();
+	private Task task;
+
+	/**
+	 * Listen to changes in active task Active task is the scripting engine's
+	 * scope
+	 */
+	public ScriptView() {
+		
+	}
+
+	private void configureScriptingEngine() {
+		if(task==null) return;
+		ScriptManager manager = task.getScriptManager();
+		ScriptEvaluator evaluator = manager.getEvaluator();
+		engine = evaluator.getEngine();
+//		evaluateInternalScripts();
+		
+		engine.getContext().setWriter(new PrintWriter(out));
+		IContentProposalProvider provider = new AssignmentScriptContentProposalProvider(engine);
+		new TextContentProposalAdapter(input, provider);
+	}
+
+//	private void evaluateInternalScripts() {
+//		File folder = findFolder("scripts");
+//		FilenameFilter filter = new FilenameFilter() {
+//			@Override
+//			public boolean accept(File dir, String name) {
+//				return name.endsWith(".js");
+//			}
+//		};
+//
+//		for (File file : folder.listFiles(filter)) {
+//			try {
+//				engine.eval(new FileReader(file));
+//			} catch (Exception e) {
+//				LogUtils.error(this, e);
+//			}
+//		}
+//	}
+
+	@Override
+	public void createPartControl(Composite parent) {
+		Composite top = new Composite(parent, SWT.FILL);
+		red = top.getDisplay().getSystemColor(SWT.COLOR_RED);
+		GridLayout layout = new GridLayout();
+		layout.numColumns = 1;
+		top.setLayout(layout);
+		top.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+
+		output = new StyledText(top, SWT.BORDER | SWT.MULTI | SWT.VERTICAL | SWT.READ_ONLY);
+		out = new ScriptOutputStream(output);
+		GridData data = new GridData(SWT.FILL, SWT.FILL, true, true);
+		output.setLayoutData(data);
+		input = new Text(top, SWT.SINGLE);
+		data = new GridData(SWT.FILL, 15, true, false);
+		data.heightHint = 15;
+		input.setLayoutData(data);
+		input.addKeyListener(keyListener);
+
+		getSite().getPage().addSelectionListener(selectionListener);
+	}
+
+	@Override
+	public void dispose() {
+		getSite().getPage().removeSelectionListener(selectionListener);
+	};
+	
+	ISelectionListener selectionListener = new ISelectionListener() {
+		@Override
+		public void selectionChanged(IWorkbenchPart part, ISelection selection) {
+			List<MOAO> moaos = SelectionUtil.computeSelection(selection, MOAO.class);
+			if(moaos.size()!=1) return;
+			MOAO moao = moaos.get(0);
+			
+			Task selectedTask = MOAOUtil.findTaskOfObject(moao);
+			if(selectedTask!=null && selectedTask!=task) {
+				task=selectedTask;
+				configureScriptingEngine();
+			}
+			
+		}
+	};
+	
+	private void setInputText(String output) {
+		input.setText(output);
+	}
+
+	boolean contentAssist;
+
+	KeyListener keyListener = new KeyListener() {
+
+		//Added code to prevent the script from evaluating
+		//when enter is pressed in content assist mode
+		@Override
+		public void keyReleased(KeyEvent e) {
+			if(task==null){
+				output.setText("No task.. (Select a task from the navigator)");
+				input.setText("");
+				return;
+			}
+			if(isContentAssist(e)) {
+				contentAssist = true;
+				return;
+			}
+			if(e.keyCode == SWT.KEYPAD_CR) {
+				contentAssist= false;
+			}
+			switch (e.keyCode) {
+			case SWT.CR:
+				if(contentAssist) {
+					contentAssist=false;
+					return;
+				}
+				String line = input.getText();
+				commands.add(line);
+				evaluateLine(line);
+				clearInput();
+				break;
+			case SWT.ARROW_UP:
+				if(contentAssist) {
+					return;
+				}
+				outputPreviousCommand();
+				break;
+			case SWT.ARROW_DOWN:
+				if(contentAssist) {
+					return;
+				}
+				outputNextCommand();
+				break;
+			}
+		}
+
+		private void clearInput() {
+			setInputText("");
+		}
+
+		private void outputNextCommand() {
+			String nextCommand = commands.getNext();
+			setInputText(nextCommand);
+		}
+
+		private void outputPreviousCommand() {
+			String previousCommand = commands.getPrevious();
+			setInputText(previousCommand);
+		}
+
+		@Override
+		public void keyPressed(KeyEvent e) {
+			
+		}
+
+		private boolean isContentAssist(KeyEvent e) {
+			return e.stateMask == SWT.MOD1 && e.character== ' ';
+		}
+	};
+	private Color red;
+	private ScriptOutputStream out;
+
+	private void printVariables() {
+		Bindings bindings = engine.getBindings(ScriptContext.ENGINE_SCOPE);
+		for (String var : bindings.keySet()) {
+			Object object = bindings.get(var);
+			output.append(var + " : " + object.getClass().getSimpleName() + "\n");
+		}
+	}
+
+	public void evaluateLine(final String line) {
+		if (line.startsWith("clc")) {
+			output.setText("");
+			return;
+		} else if (line.startsWith("which")) {
+			printVariables();
+			return;
+		} else if (line.startsWith("clear")) {
+			clearVariables();
+			return;
+		} else {
+			evaluateScript(line);
+		}
+	}
+
+	private void evaluateScript(final String line) {
+		Runnable runnable = new Runnable() {
+			public void run() {
+				try {
+					if("EXIT".equals(line.toUpperCase())) {
+						System.exit(0);
+					}
+					if(isSetAssignment(line)) {
+						String setLine = line.substring(4).trim();
+						evaluateSetAssignment(setLine);
+					}else if (isAssignment(line)) {
+						String variable = findAssignmentVariable(line);
+						NamedObject namedObject = findNamedObjectWithinVariable(variable);
+						if (namedObject != null) {
+							evaluateNamedObjectScript(line, namedObject);
+							return;
+						}
+						engine.eval(line);
+						printResults(variable);
+					}else {
+						engine.eval(line);
+					}
+				} catch (ScriptException e) {
+					outputError(line);
+					SIMALogUtils.error(this, e);
+				}
+			}
+
+			private void evaluateSetAssignment(String setLine) throws ScriptException {
+				int eqIdx = setLine .indexOf("=");
+				if(eqIdx==-1) {
+					System.err.println("INCOMPLETE SET");
+					return;
+				}
+				
+				String assignmentVariable = setLine.substring(0,eqIdx);
+				Object obj = findObject(assignmentVariable);
+				if(!(obj instanceof MOAO)) return;
+				MOAO moao = (MOAO) obj;
+				
+				EStructuralFeature feature = findFeature(assignmentVariable, moao);
+				if(feature instanceof EAttribute) {
+					String script = setLine.substring(eqIdx+1).trim();
+					addScriptableValue(moao, feature, script);
+				}
+			}
+
+			private void addScriptableValue(MOAO moao, EStructuralFeature feature, String script) {
+				ScriptManager scriptManager = task.getScriptManager();
+				scriptManager.setScript(moao, feature.getName(), script);
+			}
+
+			private EStructuralFeature findFeature(String assignmentVariable, EObject eObject) {
+				int featureIdx = assignmentVariable.lastIndexOf(".");
+				String featureName = assignmentVariable.substring(featureIdx+1);
+				EStructuralFeature feature = eObject.eClass().getEStructuralFeature(featureName);
+				return feature;
+			}
+
+			private Object findObject(String assignmentVariable) throws ScriptException {
+				int featureIdx = assignmentVariable.lastIndexOf(".");
+				String objectName = assignmentVariable.substring(0,featureIdx);
+				Object obj = engine.eval(objectName);
+				if(!(obj instanceof EObject)) {
+					System.err.format("Object not found: %s",objectName);
+					return null;
+				}
+				return obj;
+			}
+
+			private boolean isSetAssignment(String line) {
+				return line.startsWith("SET ");
+			}
+
+			private void printResults(String variable) throws ScriptException {
+				String output = "print(\"" + variable + "=\"+" + variable + ")";
+				engine.eval(output);
+			}
+
+			private void outputError(final String line) {
+				String errorString = "Error in script: " + line + "\n";
+				int offset = output.getText().length() - 1;
+				if (offset == -1)
+					offset = 0;
+				StyleRange range = new StyleRange(offset, errorString.length(), red, null);
+				output.append(errorString);
+				output.setStyleRange(range);
+			}
+
+			/**
+			 * Hook into editing domain to achieve undo/redo
+			 * 
+			 * @param line
+			 * @param namedObject
+			 */
+			private void evaluateNamedObjectScript(final String line, NamedObject namedObject) {
+				ChangeCommand cmd = new ChangeCommand(namedObject) {
+					@Override
+					protected void doExecute() {
+						try {
+							engine.eval(line);
+						} catch (ScriptException e) {
+							outputError(line);
+							SIMALogUtils.error(this, e);
+						}
+					}
+
+				};
+				SimaEditingDomain.getEditingDomain().getCommandStack().execute(cmd);
+			}
+
+		};
+		PlatformUI.getWorkbench().getDisplay().asyncExec(runnable);
+	}
+
+	/**
+	 * @param line
+	 * @return
+	 */
+	protected String findAssignmentVariable(String line) {
+		String variable = line.split("=")[0].trim();
+		return variable;
+	}
+
+	private boolean isAssignment(String line) {
+		return line.contains("=");
+	}
+
+	private NamedObject findNamedObjectWithinVariable(String variable) {
+		NamedObjectWatcher watcher = task.getNamedObjectWatcher();
+		if (watcher == null)
+			return null;
+		for (NamedObject var : watcher.getAll()) {
+			if (variable.contains(var.getName()))
+				return var;
+		}
+		return null;
+	}
+
+	private void clearVariables() {
+		Bindings bindings = engine.getBindings(ScriptContext.ENGINE_SCOPE);
+		bindings.clear();
+	}
+
+	@Override
+	public void setFocus() {
+		input.setFocus();
+	}
+
+//	private File findFolder(String fileName) {
+//		Activator activator = Activator.getDefault();
+//		Bundle bundle = activator.getBundle();
+//		Path path = new Path(fileName);
+//		URL url = FileLocator.find(bundle, path, Collections.EMPTY_MAP);
+//		URL fileUrl = null;
+//		try {
+//			fileUrl = FileLocator.toFileURL(url);
+//		} catch (IOException e) {
+//			// Will happen if the file cannot be read for some reason
+//			LogUtils.error(this, e);
+//		}
+//		return new File(fileUrl.getPath());
+//	}
+}

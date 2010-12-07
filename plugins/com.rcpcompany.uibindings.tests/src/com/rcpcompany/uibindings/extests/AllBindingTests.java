@@ -95,6 +95,7 @@ import com.rcpcompany.uibindings.extests.quickfixes.BasicQuickfixTest;
 import com.rcpcompany.uibindings.extests.quickfixes.DirectoryNameQuickfixTest;
 import com.rcpcompany.uibindings.extests.quickfixes.NamingQuickfixTest;
 import com.rcpcompany.uibindings.extests.quickfixes.QuickfixMatchingTest;
+import com.rcpcompany.uibindings.extests.scripting.AllScriptEngineTests;
 import com.rcpcompany.uibindings.extests.services.BasicServiceTest;
 import com.rcpcompany.uibindings.extests.sourceProviders.BindingSourceProviderTest;
 import com.rcpcompany.uibindings.extests.sourceProviders.CommonSourceProviderTest;
@@ -402,7 +403,12 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		/*
 		 * Dialogs, Views
 		 */
-		PreferencePageDialogTest.class, SpyDialogTest.class, ValidationViewTest.class, CommandToStringTest.class
+		PreferencePageDialogTest.class, SpyDialogTest.class, ValidationViewTest.class, CommandToStringTest.class,
+
+		/*
+		 * Script Engine
+		 */
+		AllScriptEngineTests.class
 
 })
 public class AllBindingTests {

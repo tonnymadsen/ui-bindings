@@ -1,0 +1,43 @@
+package no.marintek.sima.script.tests;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import java.util.List;
+
+import no.marintek.sima.script.ScriptDecoration;
+import no.marintek.sima.script.ScriptDecorationProvider;
+
+import org.junit.Test;
+
+public class ScriptDecorationTest {
+
+	@Test
+	public void testSimpleVariableDecoration() {
+		ScriptDecorationProvider prov = new ScriptDecorationProvider();
+		String script = "point.x.y";
+		List<ScriptDecoration> decorations = prov.getDecorations(script);
+		assertNotNull(decorations);
+		assertEquals(1,decorations.size());
+		ScriptDecoration decoration = decorations.get(0);
+		assertEquals(0, decoration.getStart());
+		assertEquals(5, decoration.getLength());
+	}
+	
+	@Test
+	public void testDoubleSimpleDecoration() {
+		ScriptDecorationProvider prov = new ScriptDecorationProvider();
+		String script = "point.x+point2.y";
+		List<ScriptDecoration> decorations = prov.getDecorations(script);
+		assertNotNull(decorations);
+		assertEquals(2,decorations.size());
+		
+		ScriptDecoration dec1 = decorations.get(0);
+		assertEquals(0, dec1.getStart());
+		assertEquals(5, dec1.getLength());
+
+		ScriptDecoration dec2 = decorations.get(1);
+		assertEquals(8, dec2.getStart());
+		assertEquals(6, dec2.getLength());
+	}
+}

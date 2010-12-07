@@ -21,8 +21,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import com.rcpcompany.uibindings.BindingMessageSeverity;
 import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.bindingMessages.AbstractBindingMessage;
-import com.rcpcompany.uibindings.moao.IMOAO;
-import com.rcpcompany.uibindings.moao.IMOAOFacet;
 import com.rcpcompany.uibindings.moao.IMOAOMessage;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.validators.AbstractValidatorAdapter;
@@ -39,7 +37,7 @@ public class MOAOMessageValidatorAdapter extends AbstractValidatorAdapter {
 	public void validateObjectTree(EObject root, IObservableList messages) {
 		final List<IMOAOMessage> foundStatus = new ArrayList<IMOAOMessage>();
 
-		collectStatus(root, foundStatus);
+		collectObjects(root, foundStatus);
 
 		final List<Message> toRemoveList = new ArrayList<Message>(messages);
 		final List<Message> toAddList = new ArrayList<Message>();
@@ -67,22 +65,17 @@ public class MOAOMessageValidatorAdapter extends AbstractValidatorAdapter {
 	 * Collects all status objects from the root down.
 	 * 
 	 * @param root the root of the tree
-	 * @param foundStatus the list to be updated
+	 * @param foundObjects the list to be updated
 	 */
-	private void collectStatus(EObject root, List<IMOAOMessage> foundStatus) {
+	private void collectObjects(EObject root, List<IMOAOMessage> foundObjects) {
 		final TreeIterator<Object> allContents = EcoreUtil.getAllContents(root, false);
 
 		while (allContents.hasNext()) {
 			final Object c = allContents.next();
-			if (c instanceof IMOAO) {
-				final IMOAO m = (IMOAO) c;
-
-				for (final IMOAOFacet f : m.getFacets()) {
-					if (f instanceof IMOAOMessage) {
-						foundStatus.add((IMOAOMessage) f);
-					}
-				}
+			if (!(c instanceof IMOAOMessage)) {
+				continue;
 			}
+			foundObjects.add((IMOAOMessage) c);
 		}
 	}
 

@@ -11,6 +11,8 @@
 package com.rcpcompany.uibindings.tests.application;
 
 import org.eclipse.core.commands.ParameterizedCommand;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -23,8 +25,12 @@ import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.handlers.IHandlerService;
 
 import com.rcpcompany.uibindings.IManager;
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.moao.ui.validation.MOAOMessageValidatorAdapter;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
+import com.rcpcompany.uibindings.scripting.IScriptEvaluationContext;
+import com.rcpcompany.uibindings.scripting.IScriptManager;
+import com.rcpcompany.uibindings.scripting.util.FeatureScriptValidatorAdapter;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.utils.EditingDomainUtils;
@@ -42,6 +48,8 @@ import com.rcpcompany.utils.logging.LogUtils;
 public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 
 	private static final String PERSPECTIVE_ID = "com.rcpcompany.uibindings.example.application.perspectives.Shop";
+	private Shop theShop;
+	private IScriptEvaluationContext myGlobalScriptingContext;
 
 	@Override
 	public WorkbenchWindowAdvisor createWorkbenchWindowAdvisor(IWorkbenchWindowConfigurer configurer) {
@@ -64,15 +72,35 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 	public void postStartup() {
 		super.postStartup();
 
+		myGlobalScriptingContext = IScriptManager.Factory.getManager().getGlobalEvaluationContext();
+		theShop = ShopFactory.eINSTANCE.getShop(EditingDomainUtils.getEditingDomain());
+
 		final IValidatorAdapterManager vam = IValidatorAdapterManager.Factory.getManager();
-		final Shop theShop = ShopFactory.eINSTANCE.getShop(EditingDomainUtils.getEditingDomain());
 		vam.addRoot(theShop, new EValidatorAdapter());
 		vam.addRoot(theShop, new ConstraintValidatorAdapter());
 		vam.addRoot(theShop, new MOAOMessageValidatorAdapter());
+		vam.addRoot(theShop, new FeatureScriptValidatorAdapter());
 
 		IGlobalNavigationManager.Factory.installMouseHandling();
 
 		INavigatorManager.Factory.getManager().setUseGenericEditorPartFallback(false);
+
+		theShop.eAdapters().add(new AdapterImpl() {
+			@Override
+			public void notifyChanged(Notification msg) {
+				if (msg.isTouch()) return;
+
+				if (msg.getFeature() == IMOAOPackage.Literals.NAMED_OBJECT__NAME) {
+					updateScriptingVariables();
+				}
+			}
+		});
+		updateScriptingVariables();
+	}
+
+	protected void updateScriptingVariables() {
+		myGlobalScriptingContext.getVariables().put("shop", theShop);
+		myGlobalScriptingContext.getVariables().put("shopName", theShop.getName());
 	}
 
 	@Override

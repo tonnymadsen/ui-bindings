@@ -1,0 +1,113 @@
+package no.marintek.sima.script.bindings;
+
+import no.marintek.sima.MOAO;
+import no.marintek.sima.ScriptableValue;
+import no.marintek.sima.script.internal.Activator;
+
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.jface.util.IPropertyChangeListener;
+import org.eclipse.jface.util.PropertyChangeEvent;
+import org.eclipse.ui.forms.IFormColors;
+
+import com.rcpcompany.uibindings.IManager;
+import com.rcpcompany.uibindings.IUIBindingDecoratorExtender;
+import com.rcpcompany.uibindings.IUIBindingDecoratorExtenderContext;
+import com.rcpcompany.uibindings.IValueBinding;
+import com.rcpcompany.uibindings.decorators.extenders.AbstractUIBindingDecoratorExtender;
+
+/**
+ * Extender for Scriptable values.
+ * 
+ * @author Tonny Madsen, The RCP Company
+ */
+public class ScriptableValueDecorationExtender extends AbstractUIBindingDecoratorExtender implements
+		IUIBindingDecoratorExtender {
+
+	/**
+	 * Whether to show any script instead of the value.
+	 */
+	protected boolean myShowScript = false;
+
+	private boolean firstTime = true;
+
+	private final IPropertyChangeListener myPropListener = new IPropertyChangeListener() {
+
+		@Override
+		public void propertyChange(PropertyChangeEvent event) {
+			final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
+			final boolean b = ps.getBoolean(Activator.SHOW_SCRIPT_PREFERENCE);
+			if (b != myShowScript) {
+				myShowScript = b;
+				IManager.Factory.getManager().updateBindings(null);
+			}
+		}
+	};
+
+	private ScriptableValue mySV;
+
+	public ScriptableValueDecorationExtender() {
+		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
+		ps.addPropertyChangeListener(myPropListener);
+	}
+
+	@Override
+	public void dispose() {
+		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
+		ps.removePropertyChangeListener(myPropListener);
+	}
+
+	@Override
+	public boolean isEnabled(IValueBinding binding) {
+		if (binding.getModelObservableValue().isDisposed()) {
+			return false;
+		}
+		if (!(binding.getModelObject() instanceof MOAO)) {
+			return false;
+		}
+		final MOAO moao = (MOAO) binding.getModelObject();
+		final EStructuralFeature feature = binding.getModelFeature();
+		if (feature == null) {
+			return false;
+		}
+
+		if (moao.getScriptableValues().isEmpty()) {
+			return false;
+		}
+
+		mySV = findScriptableValue(moao, feature.getName());
+
+		if (mySV == null) {
+			return false;
+		}
+
+		return true;
+	}
+
+	private ScriptableValue findScriptableValue(MOAO moao, String featureName) {
+		final EList<ScriptableValue> svals = moao.getScriptableValues();
+		for (final ScriptableValue sval : svals) {
+			if (featureName.equals(sval.getFeature())) {
+				return sval;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public void extend(IUIBindingDecoratorExtenderContext context) {
+		if (firstTime) {
+			firstTime = false;
+			myPropListener.propertyChange(null);
+		}
+
+		context.setBackgound(IManager.Factory.getManager().getFormToolkit().getColors().getColor(
+				IFormColors.H_GRADIENT_START));
+		if (myShowScript) {
+			context.setMessageFormat("=" + mySV.getScript());
+		} else {
+			context.setTooltip("=" + mySV.getScript());
+		}
+	}
+}

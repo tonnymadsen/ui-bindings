@@ -1,0 +1,61 @@
+/**
+ * 
+ */
+package no.marintek.sima.script.bindings;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import no.marintek.sima.script.ScriptDecoration;
+import no.marintek.sima.script.ScriptDecorationProvider;
+
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.StyleRange;
+import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
+
+import com.rcpcompany.uibindings.ICellEditorFactory;
+import com.rcpcompany.uibindings.IControlFactory;
+import com.rcpcompany.uibindings.IControlFactoryContext;
+
+/**
+ * {@link ICellEditorFactory} for scriptable values.
+ * 
+ * @author Tonny Madsen, The RCP Company
+ */
+public class ScriptableValueControlFactory implements IControlFactory {
+	@Override
+	public Control create(final IControlFactoryContext context) {
+		final StyledText txt = new StyledText(context.getParent(), SWT.BORDER|SWT.SINGLE);
+		final ScriptDecorationProvider decProv = new ScriptDecorationProvider();
+		txt.addModifyListener(new ModifyListener() {
+			@Override
+			public void modifyText(ModifyEvent e) {
+				String script = txt.getText();
+				List<ScriptDecoration> decorations = decProv.getDecorations(script);
+				StyleRange[] ranges = getRanges(decorations);
+				txt.setStyleRanges(ranges);
+			}
+
+			private StyleRange[] getRanges(List<ScriptDecoration> decorations) {
+				List<StyleRange> ranges = new ArrayList<StyleRange>(decorations.size());
+				for (ScriptDecoration dec : decorations) {
+					StyleRange range = new StyleRange();
+					range.start = dec.getStart();
+					range.length = dec.getLength();
+					Display display = context.getParent().getDisplay();
+					range.foreground = display.getSystemColor(SWT.COLOR_BLUE);
+					range.background = txt.getBackground();
+					range.fontStyle = SWT.BOLD;
+					ranges.add(range);
+				}
+
+				return ranges.toArray(new StyleRange[] {});
+			}
+		});
+		return txt;
+	}
+}
