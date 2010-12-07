@@ -4,5 +4,5 @@ Bundle-Name: Test Helper Plug-in
 Bundle-SymbolicName: com.rcpcompany.tests.utils.logging.helper
 Bundle-Version: 1.1.0.qualifier
 Bundle-Vendor: The RCP Company
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: com.rcpcompany.tests.utils.logging.helper
