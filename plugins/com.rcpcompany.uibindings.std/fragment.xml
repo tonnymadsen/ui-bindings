@@ -143,7 +143,7 @@
                label="New"
                mnemonic="N">
             <dynamic
-                  class="com.rcpcompany.uibindings.internal.handlers.NewHandlerMenuContributor"
+                  class="com.rcpcompany.uibindings.handlers.NewHandlerMenuContributor"
                   id="com.rcpcompany.uibindings.std.dynamics.NewMenu">
             </dynamic>
          </menu>
