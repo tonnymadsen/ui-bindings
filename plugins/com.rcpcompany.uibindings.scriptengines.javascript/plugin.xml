@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="com.rcpcompany.uibindings.scriptEngines">
+      <engine
+            engine="com.rcpcompany.uibindings.scriptengines.javascript.JSScriptEngine"
+            language="js">
+      </engine>
+   </extension>
+
+</plugin>
