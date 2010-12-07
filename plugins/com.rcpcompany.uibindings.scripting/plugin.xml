@@ -74,7 +74,8 @@
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
-            class="com.rcpcompany.uibindings.scripting.internal.pages.ScriptingPreferencePage"
+            category="com.rcpcompany.uibindings.example.application.pages.basic"
+            class="com.rcpcompany.uibindings.scripting.internal.preferencePages.ScriptingPreferencePage"
             id="com.rcpcompany.uibindings.scripting.internal.pages.ScriptingPreferencePage"
             name="Scripting">
       </page>

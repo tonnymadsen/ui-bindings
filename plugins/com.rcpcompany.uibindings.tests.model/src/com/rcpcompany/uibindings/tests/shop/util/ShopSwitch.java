@@ -15,6 +15,7 @@ import com.rcpcompany.uibindings.moao.IMOAO;
 import com.rcpcompany.uibindings.moao.INamedObject;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
+import com.rcpcompany.uibindings.tests.shop.CountryInfo;
 import com.rcpcompany.uibindings.tests.shop.Customer;
 import com.rcpcompany.uibindings.tests.shop.CustomerGroup;
 import com.rcpcompany.uibindings.tests.shop.Order;
@@ -251,6 +252,20 @@ public class ShopSwitch<T> {
 			}
 			if (result == null) {
 				result = caseIAdaptable(country);
+			}
+			if (result == null) {
+				result = defaultCase(theEObject);
+			}
+			return result;
+		}
+		case ShopPackage.COUNTRY_INFO: {
+			final CountryInfo countryInfo = (CountryInfo) theEObject;
+			T result = caseCountryInfo(countryInfo);
+			if (result == null) {
+				result = caseMOAO(countryInfo);
+			}
+			if (result == null) {
+				result = caseIAdaptable(countryInfo);
 			}
 			if (result == null) {
 				result = defaultCase(theEObject);
@@ -504,6 +519,20 @@ public class ShopSwitch<T> {
 	 * @generated
 	 */
 	public T caseCountry(Country object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Country Info</em>'. <!--
+	 * begin-user-doc --> This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Country Info</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCountryInfo(CountryInfo object) {
 		return null;
 	}
 

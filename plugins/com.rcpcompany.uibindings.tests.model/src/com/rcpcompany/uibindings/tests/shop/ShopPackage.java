@@ -980,13 +980,68 @@ public interface ShopPackage extends EPackage {
 	int COUNTRY__CONTACTS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Information</b></em>' containment reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int COUNTRY__INFORMATION = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Country</em>' class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int COUNTRY_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 3;
+	int COUNTRY_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.impl.CountryInfoImpl
+	 * <em>Country Info</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see com.rcpcompany.uibindings.tests.shop.impl.CountryInfoImpl
+	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getCountryInfo()
+	 * @generated
+	 */
+	int COUNTRY_INFO = 10;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int COUNTRY_INFO__FACETS = IMOAOPackage.MOAO__FACETS;
+
+	/**
+	 * The feature id for the '<em><b>Population</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int COUNTRY_INFO__POPULATION = IMOAOPackage.MOAO_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Currency</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int COUNTRY_INFO__CURRENCY = IMOAOPackage.MOAO_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Country Info</em>' class. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int COUNTRY_INFO_FEATURE_COUNT = IMOAOPackage.MOAO_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '
@@ -997,7 +1052,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getShopItemInformation()
 	 * @generated
 	 */
-	int SHOP_ITEM_INFORMATION = 10;
+	int SHOP_ITEM_INFORMATION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
@@ -1026,7 +1081,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getShopItemDescription()
 	 * @generated
 	 */
-	int SHOP_ITEM_DESCRIPTION = 11;
+	int SHOP_ITEM_DESCRIPTION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
@@ -1054,7 +1109,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getShopItemURL()
 	 * @generated
 	 */
-	int SHOP_ITEM_URL = 12;
+	int SHOP_ITEM_URL = 13;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
@@ -1092,7 +1147,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getShopInformation()
 	 * @generated
 	 */
-	int SHOP_INFORMATION = 13;
+	int SHOP_INFORMATION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
@@ -1156,7 +1211,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getShopURL()
 	 * @generated
 	 */
-	int SHOP_URL = 14;
+	int SHOP_URL = 15;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
@@ -1229,7 +1284,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getShopAddress()
 	 * @generated
 	 */
-	int SHOP_ADDRESS = 15;
+	int SHOP_ADDRESS = 16;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list. <!--
@@ -1302,7 +1357,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getCustomerType()
 	 * @generated
 	 */
-	int CUSTOMER_TYPE = 16;
+	int CUSTOMER_TYPE = 17;
 
 	/**
 	 * The meta object id for the '<em>Diagnostic Chain</em>' data type. <!-- begin-user-doc -->
@@ -1312,7 +1367,7 @@ public interface ShopPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getDiagnosticChain()
 	 * @generated
 	 */
-	int DIAGNOSTIC_CHAIN = 17;
+	int DIAGNOSTIC_CHAIN = 18;
 
 	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.Shop
@@ -2016,6 +2071,52 @@ public interface ShopPackage extends EPackage {
 	EReference getCountry_Contacts();
 
 	/**
+	 * Returns the meta object for the containment reference '
+	 * {@link com.rcpcompany.uibindings.tests.shop.Country#getInformation <em>Information</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference '<em>Information</em>'.
+	 * @see com.rcpcompany.uibindings.tests.shop.Country#getInformation()
+	 * @see #getCountry()
+	 * @generated
+	 */
+	EReference getCountry_Information();
+
+	/**
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.CountryInfo
+	 * <em>Country Info</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Country Info</em>'.
+	 * @see com.rcpcompany.uibindings.tests.shop.CountryInfo
+	 * @generated
+	 */
+	EClass getCountryInfo();
+
+	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.tests.shop.CountryInfo#getPopulation <em>Population</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Population</em>'.
+	 * @see com.rcpcompany.uibindings.tests.shop.CountryInfo#getPopulation()
+	 * @see #getCountryInfo()
+	 * @generated
+	 */
+	EAttribute getCountryInfo_Population();
+
+	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.tests.shop.CountryInfo#getCurrency <em>Currency</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Currency</em>'.
+	 * @see com.rcpcompany.uibindings.tests.shop.CountryInfo#getCurrency()
+	 * @see #getCountryInfo()
+	 * @generated
+	 */
+	EAttribute getCountryInfo_Currency();
+
+	/**
 	 * Returns the meta object for the container reference '
 	 * {@link com.rcpcompany.uibindings.tests.shop.Country#getShop <em>Shop</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -2689,6 +2790,41 @@ public interface ShopPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COUNTRY__CONTACTS = eINSTANCE.getCountry_Contacts();
+
+		/**
+		 * The meta object literal for the '<em><b>Information</b></em>' containment reference
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference COUNTRY__INFORMATION = eINSTANCE.getCountry_Information();
+
+		/**
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.tests.shop.impl.CountryInfoImpl <em>Country Info</em>}'
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see com.rcpcompany.uibindings.tests.shop.impl.CountryInfoImpl
+		 * @see com.rcpcompany.uibindings.tests.shop.impl.ShopPackageImpl#getCountryInfo()
+		 * @generated
+		 */
+		EClass COUNTRY_INFO = eINSTANCE.getCountryInfo();
+
+		/**
+		 * The meta object literal for the '<em><b>Population</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute COUNTRY_INFO__POPULATION = eINSTANCE.getCountryInfo_Population();
+
+		/**
+		 * The meta object literal for the '<em><b>Currency</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute COUNTRY_INFO__CURRENCY = eINSTANCE.getCountryInfo_Currency();
 
 		/**
 		 * The meta object literal for the '<em><b>Shop</b></em>' container reference feature. <!--

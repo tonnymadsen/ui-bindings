@@ -451,13 +451,24 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 				} else if (myRelation.getFeatureName() != null) {
 					final String sfName = myRelation.getFeatureName();
 					final EStructuralFeature sf = myTarget.eClass().getEStructuralFeature(sfName);
-					if (sf == null || !(sf instanceof EReference) || !sf.isMany()) return;
+					if (sf == null || !(sf instanceof EReference)) return;
 					final EReference ref = (EReference) sf;
-					final IObservableList ol = (IObservableList) myObservable;
 					int index = -1;
-					if (sibling != null) {
-						index = ol.indexOf(sibling);
-						if (index == -1) return;
+					if (sf.isMany()) {
+						/*
+						 * If we seek a sibling, then look for it
+						 */
+						if (sibling != null) {
+							final IObservableList ol = (IObservableList) myObservable;
+							index = ol.indexOf(sibling);
+							if (index == -1) return;
+						}
+					} else {
+						/*
+						 * to-one reference: can only be added if not already present
+						 */
+						final IObservableValue value = (IObservableValue) myObservable;
+						if (value.getValue() != null) return;
 					}
 					IViewerBinding.Factory.addToChildCreationSpecification(l, myTarget, ref, ref.getEReferenceType(),
 							index);

@@ -17,6 +17,7 @@ import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.action.ContributionItem;
 import org.eclipse.jface.action.IContributionItem;
@@ -180,7 +181,11 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 				return;
 			}
 			final CompoundCommand cmd = new CompoundCommand();
-			cmd.append(AddCommand.create(myEditingDomain, mySpec.getParent(), mySpec.getReference(), child));
+			if (mySpec.getReference().isMany()) {
+				cmd.append(AddCommand.create(myEditingDomain, mySpec.getParent(), mySpec.getReference(), child));
+			} else {
+				cmd.append(SetCommand.create(myEditingDomain, mySpec.getParent(), mySpec.getReference(), child));
+			}
 			if (initializeCommand != null) {
 				cmd.append(initializeCommand);
 			}

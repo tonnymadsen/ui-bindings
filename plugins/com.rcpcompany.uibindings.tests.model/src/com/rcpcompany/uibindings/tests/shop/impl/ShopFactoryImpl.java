@@ -21,6 +21,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
+import com.rcpcompany.uibindings.tests.shop.CountryInfo;
 import com.rcpcompany.uibindings.tests.shop.Customer;
 import com.rcpcompany.uibindings.tests.shop.CustomerGroup;
 import com.rcpcompany.uibindings.tests.shop.CustomerType;
@@ -130,6 +131,8 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 			return createContact();
 		case ShopPackage.COUNTRY:
 			return createCountry();
+		case ShopPackage.COUNTRY_INFO:
+			return createCountryInfo();
 		case ShopPackage.SHOP_ITEM_INFORMATION:
 			return createShopItemInformation();
 		case ShopPackage.SHOP_ITEM_DESCRIPTION:
@@ -287,6 +290,17 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	public Country createCountry() {
 		final CountryImpl country = new CountryImpl();
 		return country;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public CountryInfo createCountryInfo() {
+		final CountryInfoImpl countryInfo = new CountryInfoImpl();
+		return countryInfo;
 	}
 
 	/**

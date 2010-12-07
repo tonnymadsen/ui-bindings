@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
+import com.rcpcompany.uibindings.tests.shop.CountryInfo;
 import com.rcpcompany.uibindings.tests.shop.Customer;
 import com.rcpcompany.uibindings.tests.shop.CustomerGroup;
 import com.rcpcompany.uibindings.tests.shop.CustomerType;
@@ -115,6 +116,13 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	private EClass countryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass countryInfoEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -231,7 +239,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put(theShopPackage, new EValidator.Descriptor() {
-			@Override
 			public EValidator getEValidator() {
 				return ShopValidator.INSTANCE;
 			}
@@ -850,6 +857,42 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * 
 	 * @generated
 	 */
+	public EReference getCountry_Information() {
+		return (EReference) countryEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getCountryInfo() {
+		return countryInfoEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getCountryInfo_Population() {
+		return (EAttribute) countryInfoEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getCountryInfo_Currency() {
+		return (EAttribute) countryInfoEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	@Override
 	public EReference getCountry_Shop() {
 		return (EReference) countryEClass.getEStructuralFeatures().get(0);
@@ -1073,6 +1116,11 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		createEReference(countryEClass, COUNTRY__SHOP);
 		createEAttribute(countryEClass, COUNTRY__ABBREVIATION);
 		createEReference(countryEClass, COUNTRY__CONTACTS);
+		createEReference(countryEClass, COUNTRY__INFORMATION);
+
+		countryInfoEClass = createEClass(COUNTRY_INFO);
+		createEAttribute(countryInfoEClass, COUNTRY_INFO__POPULATION);
+		createEAttribute(countryInfoEClass, COUNTRY_INFO__CURRENCY);
 
 		shopItemInformationEClass = createEClass(SHOP_ITEM_INFORMATION);
 
@@ -1139,6 +1187,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		orderItemEClass.getESuperTypes().add(theMOAOPackage.getMOAO());
 		contactEClass.getESuperTypes().add(theMOAOPackage.getNamedObject());
 		countryEClass.getESuperTypes().add(theMOAOPackage.getNamedObject());
+		countryInfoEClass.getESuperTypes().add(theMOAOPackage.getMOAO());
 		shopItemInformationEClass.getESuperTypes().add(theMOAOPackage.getMOAO());
 		shopItemDescriptionEClass.getESuperTypes().add(this.getShopItemInformation());
 		shopItemURLEClass.getESuperTypes().add(this.getShopItemInformation());
@@ -1339,6 +1388,9 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		initEReference(getCountry_Contacts(), this.getContact(), this.getContact_Country(), "contacts", null, 0, -1,
 				Country.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCountry_Information(), this.getCountryInfo(), null, "information", null, 0, 1, Country.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(countryEClass, ecorePackage.getEBoolean(), "abbreviationLengthOK", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
@@ -1358,6 +1410,15 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(countryInfoEClass, CountryInfo.class, "CountryInfo", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCountryInfo_Population(), theEcorePackage.getEInt(), "population", null, 0, 1,
+				CountryInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCountryInfo_Currency(), theEcorePackage.getEString(), "currency", null, 0, 1,
+				CountryInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(shopItemInformationEClass, ShopItemInformation.class, "ShopItemInformation", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

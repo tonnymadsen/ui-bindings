@@ -15,6 +15,7 @@ import com.rcpcompany.uibindings.moao.IMOAO;
 import com.rcpcompany.uibindings.moao.INamedObject;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
+import com.rcpcompany.uibindings.tests.shop.CountryInfo;
 import com.rcpcompany.uibindings.tests.shop.Customer;
 import com.rcpcompany.uibindings.tests.shop.CustomerGroup;
 import com.rcpcompany.uibindings.tests.shop.Order;
@@ -127,6 +128,11 @@ public class ShopAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseCountry(Country object) {
 			return createCountryAdapter();
+		}
+
+		@Override
+		public Adapter caseCountryInfo(CountryInfo object) {
+			return createCountryInfoAdapter();
 		}
 
 		@Override
@@ -333,6 +339,21 @@ public class ShopAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCountryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '
+	 * {@link com.rcpcompany.uibindings.tests.shop.CountryInfo <em>Country Info</em>}'. <!--
+	 * begin-user-doc --> This default implementation returns null so that we can easily ignore
+	 * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.rcpcompany.uibindings.tests.shop.CountryInfo
+	 * @generated
+	 */
+	public Adapter createCountryInfoAdapter() {
 		return null;
 	}
 

@@ -391,6 +391,12 @@
          </feature>
       </model>
       <model
+            class="com.rcpcompany.uibindings.tests.shop.CountryInfo">
+         <standardArguments
+               text="Information">
+         </standardArguments>
+      </model>
+      <model
             class="com.rcpcompany.uibindings.tests.shop.ShopItem">
          <argument
                name="validValues"
@@ -588,6 +594,30 @@
                class="com.rcpcompany.uibindings.tests.shop.Customer">
          </modelType>
       </treeItem>
+      <treeItem
+            id="com.rcpcompany.uibindings.shop.treeItems.countryFolder">
+         <standardArguments
+               image="icons/country_16x16.png"
+               text="Countries">
+         </standardArguments>
+      </treeItem>
+      <treeItem
+            id="com.rcpcompany.uibindings.shop.treeItems.country">
+         <modelType
+               alsoPrimitive="true"
+               class="com.rcpcompany.uibindings.tests.shop.Country">
+         </modelType>
+      </treeItem>
+      <treeItem
+            id="com.rcpcompany.uibindings.shop.treeItems.countryinfo">
+         <modelType
+               alsoPrimitive="true"
+               class="com.rcpcompany.uibindings.tests.shop.CountryInfo">
+         </modelType>
+      </treeItem>
+   </extension>
+   <extension
+         point="com.rcpcompany.uibindings.uiBindings">
       <treeItemRelation
             parent="com.rcpcompany.uibindings.shop.treeItems.shop"
             id="com.rcpcompany.uibindings.shop.treeItems.contactFolder">
@@ -646,6 +676,20 @@
                id="orders">
          </navigator>
       </treeItemRelation>
+      <treeItemRelation
+            id="com.rcpcompany.uibindings.shop.treeItems.countryFolder"
+            parent="com.rcpcompany.uibindings.shop.treeItems.shop">
+      </treeItemRelation>
+      <treeItemRelation
+            featureName="countries"
+            parent="com.rcpcompany.uibindings.shop.treeItems.countryFolder"
+            priority="1000">
+      </treeItemRelation>
+      <treeItemRelation
+            featureName="information"
+            parent="com.rcpcompany.uibindings.shop.treeItems.country"
+            priority="1000">
+      </treeItemRelation>
    </extension>
    <extension
          point="com.rcpcompany.uibindings.navigator.editors">
@@ -670,6 +714,15 @@
       <preferenceModelType
             modelType="com.rcpcompany.uibindings.tests.shop.Shop">
       </preferenceModelType>
+      <editor
+            factory="com.rcpcompany.uibindings.shop.editorPartFactories.CountryInfo"
+            id="com.rcpcompany.uibindings.shop.editorPartFactories.CountryInfo"
+            image="icons/country_16x16.png"
+            name="Country">
+         <modelType
+               class="com.rcpcompany.uibindings.tests.shop.Country">
+         </modelType>
+      </editor>
    </extension>
    <extension
          point="com.rcpcompany.uibindings.navigator.editors">

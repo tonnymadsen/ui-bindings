@@ -22,6 +22,7 @@ import com.rcpcompany.uibindings.moao.INamedObject;
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Country#getShop <em>Shop</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Country#getAbbreviation <em>Abbreviation</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.Country#getContacts <em>Contacts</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.Country#getInformation <em>Information</em>}</li>
  * </ul>
  * </p>
  * 
@@ -71,6 +72,32 @@ public interface Country extends INamedObject {
 	 * @generated
 	 */
 	EList<Contact> getContacts();
+
+	/**
+	 * Returns the value of the '<em><b>Information</b></em>' containment reference. <!--
+	 * begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Information</em>' containment reference isn't clear, there really
+	 * should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Information</em>' containment reference.
+	 * @see #setInformation(CountryInfo)
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getCountry_Information()
+	 * @generated
+	 */
+	CountryInfo getInformation();
+
+	/**
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Country#getInformation
+	 * <em>Information</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value the new value of the '<em>Information</em>' containment reference.
+	 * @see #getInformation()
+	 * @generated
+	 */
+	void setInformation(CountryInfo value);
 
 	/**
 	 * Returns the value of the '<em><b>Shop</b></em>' container reference. It is bidirectional and

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
 
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
+import com.rcpcompany.uibindings.tests.shop.CountryInfo;
 import com.rcpcompany.uibindings.tests.shop.Customer;
 import com.rcpcompany.uibindings.tests.shop.CustomerGroup;
 import com.rcpcompany.uibindings.tests.shop.CustomerType;
@@ -160,6 +161,8 @@ public class ShopValidator extends EObjectValidator {
 			return validateContact((Contact) value, diagnostics, context);
 		case ShopPackage.COUNTRY:
 			return validateCountry((Country) value, diagnostics, context);
+		case ShopPackage.COUNTRY_INFO:
+			return validateCountryInfo((CountryInfo) value, diagnostics, context);
 		case ShopPackage.SHOP_ITEM_INFORMATION:
 			return validateShopItemInformation((ShopItemInformation) value, diagnostics, context);
 		case ShopPackage.SHOP_ITEM_DESCRIPTION:
@@ -409,6 +412,15 @@ public class ShopValidator extends EObjectValidator {
 	public boolean validateCountry_abbreviationCaseOK(Country country, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return country.abbreviationCaseOK(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateCountryInfo(CountryInfo countryInfo, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(countryInfo, diagnostics, context);
 	}
 
 	/**

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <shop:Shop xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:scripting="http://rcp-company.com/schemas/uibindings/scripting.ecore" xmlns:shop="http://rcp-company.com/schemas/shop.ecore" name="IT Shop" uuid="_Lr6VkcBGEd-siJXnD8pfBQ" nextOrderNo="1223" nextCustomerNo="12" tmpDir="C:\Windows\Temp\3">
-  <countries name="Denmark" uuid="DK" abbreviation="DK"/>
+  <countries name="Denmark" uuid="DK" abbreviation="DK">
+    <information currency="DKK"/>
+  </countries>
   <countries name="Norway" uuid="NO" abbreviation="IT Shop">
     <facets xsi:type="scripting:FeatureScript" language="simple" script="shopName">
       <feature xsi:type="ecore:EAttribute" href="http://rcp-company.com/schemas/shop.ecore#//Country/abbreviation"/>

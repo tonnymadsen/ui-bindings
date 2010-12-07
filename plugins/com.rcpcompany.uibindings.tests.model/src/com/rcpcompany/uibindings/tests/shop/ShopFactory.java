@@ -113,6 +113,15 @@ public interface ShopFactory extends EFactory {
 	Country createCountry();
 
 	/**
+	 * Returns a new object of class '<em>Country Info</em>'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Country Info</em>'.
+	 * @generated
+	 */
+	CountryInfo createCountryInfo();
+
+	/**
 	 * Returns a new object of class '<em>Item Information</em>'. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 

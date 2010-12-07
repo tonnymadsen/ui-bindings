@@ -23,6 +23,7 @@ import com.rcpcompany.uibindings.moao.internal.NamedObjectImpl;
 import com.rcpcompany.uibindings.model.utils.EValidatorAdapterUtils;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
+import com.rcpcompany.uibindings.tests.shop.CountryInfo;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.tests.shop.util.ShopValidator;
@@ -37,6 +38,8 @@ import com.rcpcompany.uibindings.tests.shop.util.ShopValidator;
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.CountryImpl#getAbbreviation <em>Abbreviation
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.CountryImpl#getContacts <em>Contacts</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.CountryImpl#getInformation <em>Information
+ * </em>}</li>
  * </ul>
  * </p>
  * 
@@ -72,6 +75,16 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 	 * @ordered
 	 */
 	protected EList<Contact> contacts;
+
+	/**
+	 * The cached value of the '{@link #getInformation() <em>Information</em>}' containment
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getInformation()
+	 * @generated
+	 * @ordered
+	 */
+	protected CountryInfo information;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -129,6 +142,63 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 					ShopPackage.COUNTRY__CONTACTS, ShopPackage.CONTACT__COUNTRY);
 		}
 		return contacts;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public CountryInfo getInformation() {
+		return information;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public NotificationChain basicSetInformation(CountryInfo newInformation, NotificationChain msgs) {
+		final CountryInfo oldInformation = information;
+		information = newInformation;
+		if (eNotificationRequired()) {
+			final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					ShopPackage.COUNTRY__INFORMATION, oldInformation, newInformation);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setInformation(CountryInfo newInformation) {
+		if (newInformation != information) {
+			NotificationChain msgs = null;
+			if (information != null) {
+				msgs = ((InternalEObject) information).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- ShopPackage.COUNTRY__INFORMATION, null, msgs);
+			}
+			if (newInformation != null) {
+				msgs = ((InternalEObject) newInformation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- ShopPackage.COUNTRY__INFORMATION, null, msgs);
+			}
+			msgs = basicSetInformation(newInformation, msgs);
+			if (msgs != null) {
+				msgs.dispatch();
+			}
+		} else if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.COUNTRY__INFORMATION, newInformation,
+					newInformation));
+		}
 	}
 
 	/**
@@ -249,6 +319,8 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 			return basicSetShop(null, msgs);
 		case ShopPackage.COUNTRY__CONTACTS:
 			return ((InternalEList<?>) getContacts()).basicRemove(otherEnd, msgs);
+		case ShopPackage.COUNTRY__INFORMATION:
+			return basicSetInformation(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -281,6 +353,8 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 			return getAbbreviation();
 		case ShopPackage.COUNTRY__CONTACTS:
 			return getContacts();
+		case ShopPackage.COUNTRY__INFORMATION:
+			return getInformation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -304,6 +378,9 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 			getContacts().clear();
 			getContacts().addAll((Collection<? extends Contact>) newValue);
 			return;
+		case ShopPackage.COUNTRY__INFORMATION:
+			setInformation((CountryInfo) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -325,6 +402,9 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 		case ShopPackage.COUNTRY__CONTACTS:
 			getContacts().clear();
 			return;
+		case ShopPackage.COUNTRY__INFORMATION:
+			setInformation((CountryInfo) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -343,6 +423,8 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 			return ABBREVIATION_EDEFAULT == null ? abbreviation != null : !ABBREVIATION_EDEFAULT.equals(abbreviation);
 		case ShopPackage.COUNTRY__CONTACTS:
 			return contacts != null && !contacts.isEmpty();
+		case ShopPackage.COUNTRY__INFORMATION:
+			return information != null;
 		}
 		return super.eIsSet(featureID);
 	}
