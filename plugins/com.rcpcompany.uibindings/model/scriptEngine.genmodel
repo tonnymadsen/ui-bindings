@@ -9,33 +9,47 @@
   <foreignModel>scriptEngine.ecore</foreignModel>
   <genPackages prefix="ScriptEngine" basePackage="com.rcpcompany" disposableProviderFactory="true"
       interfacePackageSuffix="scripting" metaDataPackageSuffix="scripting" classPackageSuffix="internal.scripting"
-      ecorePackage="scriptEngine.ecore#/">
+      utilityPackageSuffix="scripting.utils" ecorePackage="scriptEngine.ecore#/">
     <genClasses ecoreClass="scriptEngine.ecore#//ScriptManager">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scriptEngine.ecore#//ScriptManager/engines"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scriptEngine.ecore#//ScriptManager/globalVariables"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference scriptEngine.ecore#//ScriptManager/globalEvaluationContext"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scriptEngine.ecore#//ScriptManager/registeredEvaluationContexts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scriptEngine.ecore#//ScriptManager/dependencies"/>
     </genClasses>
-    <genClasses ecoreClass="scriptEngine.ecore#//ScriptEngine">
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute scriptEngine.ecore#//ScriptEngine/language"/>
-      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference scriptEngine.ecore#//ScriptEngine/contexts"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scriptEngine.ecore#//ScriptEngine/globalVariables"/>
+    <genClasses ecoreClass="scriptEngine.ecore#//ScriptEngineDescriptor">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute scriptEngine.ecore#//ScriptEngineDescriptor/language"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference scriptEngine.ecore#//ScriptEngineDescriptor/expressions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scriptEngine.ecore#//ScriptEngineDescriptor/engine"/>
     </genClasses>
-    <genClasses ecoreClass="scriptEngine.ecore#//ScriptContext">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference scriptEngine.ecore#//ScriptContext/engine"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scriptEngine.ecore#//ScriptContext/script"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scriptEngine.ecore#//ScriptContext/localVariables"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scriptEngine.ecore#//ScriptContext/dependencies"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scriptEngine.ecore#//ScriptContext/ëxpectedValueClass"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scriptEngine.ecore#//ScriptContext/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scriptEngine.ecore#//ScriptContext/errorMessage"/>
-      <genOperations ecoreOperation="scriptEngine.ecore#//ScriptContext/update"/>
+    <genClasses ecoreClass="scriptEngine.ecore#//ScriptEngine"/>
+    <genClasses ecoreClass="scriptEngine.ecore#//ScriptEvaluationContext">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scriptEngine.ecore#//ScriptEvaluationContext/parent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scriptEngine.ecore#//ScriptEvaluationContext/children"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scriptEngine.ecore#//ScriptEvaluationContext/variables"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scriptEngine.ecore#//ScriptEvaluationContext/expressions"/>
+    </genClasses>
+    <genClasses ecoreClass="scriptEngine.ecore#//ScriptExpression">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference scriptEngine.ecore#//ScriptExpression/engine"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scriptEngine.ecore#//ScriptExpression/evaluationContext"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scriptEngine.ecore#//ScriptExpression/script"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scriptEngine.ecore#//ScriptExpression/dependencies"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scriptEngine.ecore#//ScriptExpression/expectedValueClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scriptEngine.ecore#//ScriptExpression/currentValue"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute scriptEngine.ecore#//ScriptExpression/observableValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scriptEngine.ecore#//ScriptExpression/errorMessage"/>
     </genClasses>
     <genClasses ecoreClass="scriptEngine.ecore#//ScriptDependency">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scriptEngine.ecore#//ScriptDependency/object"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scriptEngine.ecore#//ScriptDependency/feature"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scriptEngine.ecore#//ScriptDependency/expressions"/>
     </genClasses>
     <genClasses ecoreClass="scriptEngine.ecore#//StringToScriptEngineMapEntry">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scriptEngine.ecore#//StringToScriptEngineMapEntry/key"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scriptEngine.ecore#//StringToScriptEngineMapEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="scriptEngine.ecore#//EObjectToScriptEngineMapEntry">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scriptEngine.ecore#//EObjectToScriptEngineMapEntry/key"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scriptEngine.ecore#//EObjectToScriptEngineMapEntry/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package com.rcpcompany.uibindings.util;
+package com.rcpcompany.uibindings.scripting.utils;
 
 import java.util.Map;
 
