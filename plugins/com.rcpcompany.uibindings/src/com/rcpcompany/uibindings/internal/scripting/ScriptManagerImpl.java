@@ -195,6 +195,10 @@ public class ScriptManagerImpl extends EObjectImpl implements IScriptManager {
 			final String elementName = ce.getName();
 			if (elementName.equals(InternalConstants.ENGINE_TAG)) {
 				final String language = ce.getAttribute(InternalConstants.LANGUAGE_TAG);
+				if (language == null || language.length() == 0) {
+					LogUtils.error(ce, InternalConstants.LANGUAGE_TAG + " must be specified. Ignored"); //$NON-NLS-1$
+					continue;
+				}
 
 				if (getEngines().get(language) != null) {
 					LogUtils.error(ce, "Duplicate declaration of language '" + language + "'. Ignored.");
@@ -204,6 +208,8 @@ public class ScriptManagerImpl extends EObjectImpl implements IScriptManager {
 				final IScriptEngineDescriptor engine = IScriptEngineFactory.eINSTANCE.createScriptEngineDescriptor();
 				engine.init(language, ce);
 				getEngines().put(language, engine);
+			} else {
+				LogUtils.error(ce, "Unknown tag: '" + ce.getName() + "'");
 			}
 		}
 	}
