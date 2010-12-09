@@ -152,7 +152,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		return viewer(new TreeViewer(t));
 	}
 
-	private IViewerBinding model(IObservableList list, IBindingDataType dataType) {
+	private IViewerBinding model(IObservableList list, IBindingDataType dataType, boolean disposeList) {
 		assertTrue(list != null, "The list must be non-null");
 		assertTrue(dataType != null, "The data type must be non-null");
 		setList(list);
@@ -162,13 +162,14 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		}
 		assertTrue(getModelEType() instanceof EClass, "The data type must be an EClass (and not an EDataType): "
 				+ getModelEType());
+		myListDispose = disposeList;
 		return this;
 	}
 
 	@Override
 	public IViewerBinding model(IObservableList list) {
 		assertTrue(list != null, "List must be non-null");
-		return model(list, IBindingDataType.Factory.create(list));
+		return model(list, IBindingDataType.Factory.create(list), false);
 	}
 
 	@Override
@@ -177,7 +178,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		assertTrue(reference != null, "Reference must be non-null");
 		assertTrue(reference.isMany(), "Reference for viewer must be to-many: " + reference.getName());
 		return model(UIBindingsEMFObservables.observeList(null, getEditingDomain(), object, reference),
-				IBindingDataType.Factory.create(object.eClass(), reference));
+				IBindingDataType.Factory.create(object.eClass(), reference), true);
 	}
 
 	@Override
@@ -186,7 +187,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		assertTrue(reference != null, "Reference must be non-null");
 		assertTrue(reference.isMany(), "Reference for viewer must be to-many: " + reference.getName());
 		return model(UIBindingsEMFObservables.observeDetailList(value, reference),
-				IBindingDataType.Factory.create(value, reference));
+				IBindingDataType.Factory.create(value, reference), true);
 	}
 
 	@Override
@@ -664,7 +665,9 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		if (getViewer().getContentProvider() != null) { // TODO SWTB
 			getViewer().setInput(null);
 		}
-		getList().dispose();
+		if (myListDispose) {
+			getList().dispose();
+		}
 
 		if (getElements() != null) {
 			getElements().dispose();
@@ -735,6 +738,10 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	 * @ordered
 	 */
 	protected IObservableList list = LIST_EDEFAULT;
+	/**
+	 * <code>true</code> if {@link #list} should be disposed by {@link #dispose()}.
+	 */
+	private boolean myListDispose = true;
 
 	/**
 	 * The default value of the '{@link #getElements() <em>Elements</em>}' attribute. <!--
