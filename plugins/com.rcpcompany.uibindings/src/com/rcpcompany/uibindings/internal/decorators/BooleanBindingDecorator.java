@@ -72,6 +72,7 @@ public class BooleanBindingDecorator extends SimpleUIBindingDecorator implements
 
 	@Override
 	protected Object convertUIToModel(Object fromObject) {
+		fromObject = ("" + fromObject).toLowerCase();
 		if (!UI_TO_MODEL_MAP.containsKey(fromObject))
 			throw new IllegalArgumentException(MessageFormat.format("Illegal value ''{0}''", fromObject));
 		return UI_TO_MODEL_MAP.get(fromObject);
