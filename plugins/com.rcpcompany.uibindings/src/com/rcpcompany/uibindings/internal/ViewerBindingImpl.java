@@ -694,6 +694,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	@Override
 	public IValueBindingCell getCell(int column, int row, boolean visualModel) {
 		if (getList().size() <= row) return null;
+		if (getColumns().size() <= column) return null;
 		final IColumnBinding cb = getColumns().get(column);
 		return cb.getCellInformation(getList().get(row));
 	}
