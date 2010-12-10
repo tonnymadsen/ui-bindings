@@ -129,6 +129,7 @@ import com.rcpcompany.uibindings.extests.uiAttributes.UIAttributeTextFactoryProp
 import com.rcpcompany.uibindings.extests.utils.BindingEnablerTests;
 import com.rcpcompany.uibindings.extests.utils.BindingObjectInformationTest;
 import com.rcpcompany.uibindings.extests.utils.BindingSpecTest;
+import com.rcpcompany.uibindings.extests.utils.ClipboardConverterManagerTests;
 import com.rcpcompany.uibindings.extests.utils.ControlDecorationTest;
 import com.rcpcompany.uibindings.extests.utils.DeleteParticipantTest;
 import com.rcpcompany.uibindings.extests.utils.DoubleClickAdapterTest;
@@ -387,7 +388,7 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 
 		FormChooserWizardTest.class, BindingEnablerTests.class, StringListTests.class,
 
-		ManagerRunnableManagerTests.class,
+		ManagerRunnableManagerTests.class, ClipboardConverterManagerTests.class,
 
 		/*
 		 * Cut, copy and paste

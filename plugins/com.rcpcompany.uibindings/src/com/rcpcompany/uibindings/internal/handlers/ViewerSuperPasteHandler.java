@@ -11,6 +11,7 @@
 package com.rcpcompany.uibindings.internal.handlers;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -19,9 +20,6 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.databinding.observable.value.WritableValue;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.swt.dnd.Clipboard;
-import org.eclipse.swt.dnd.HTMLTransfer;
-import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.ui.handlers.HandlerUtil;
 
@@ -29,7 +27,6 @@ import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingContext.FinishOption;
 import com.rcpcompany.uibindings.IContainerBinding;
-import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
@@ -37,6 +34,8 @@ import com.rcpcompany.uibindings.IValueBindingCell;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.uiAttributes.SimpleUIAttribute;
+import com.rcpcompany.uibindings.utils.IClipboardConverterManager;
+import com.rcpcompany.uibindings.utils.IClipboardConverterManager.IResult;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -51,38 +50,30 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 			LogUtils.debug(this, "");
 		}
 		final IValueBinding binding = (IValueBinding) HandlerUtil.getVariable(event, Constants.SOURCES_ACTIVE_BINDING);
+		if (binding == null) return null;
 		final IBindingContext context = binding.getContext();
 
-		final Clipboard clipboard = IManager.Factory.getManager().getClipboard();
+		final List<IResult> conversions = IClipboardConverterManager.Factory.getManager().getClipboardConversions();
 
-		// LogUtils.debug(this, "Available Types: " +
-		// Arrays.toString(clipboard.getAvailableTypeNames()));
-		String[][] result = null;
-		// TODO Add support for "Csv"
-		// TODO Add support for "Rich Text Format"
-		if (result == null) {
-			result = convertHTML((String) clipboard.getContents(HTMLTransfer.getInstance()));
-		}
-		if (result == null) {
-			result = convertTSV((String) clipboard.getContents(TextTransfer.getInstance()));
-		}
-
-		if (result == null) {
+		if (conversions.size() == 0) {
 			MessageDialog.openError(HandlerUtil.getActiveShell(event), "Cannot paste data",
 					"Data format of the pasted data is not supported");
 			return null;
 		}
-		if (result.length == 0) {
-			MessageDialog.openError(HandlerUtil.getActiveShell(event), "Cannot paste data", "No data to paste");
-			return null;
-		}
+		/*
+		 * Just select the first
+		 */
+		final IResult result = conversions.get(0);
 
 		// for (final String[] l : result) {
 		// LogUtils.debug(this, "line: " + Arrays.toString(l));
 		// }
 
-		final int rows = result.length;
-		final int columns = result[0].length;
+		// LogUtils.debug(this, result.getConverterNames() + ": " + result.getColumns() + "x" +
+		// result.getRows());
+		final int rows = result.getRows();
+		final int columns = result.getColumns();
+		final String[][] table = result.getTable();
 
 		/*
 		 * Check that we have room for the paste...
@@ -104,7 +95,7 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 				 */
 				int ci = p.x;
 				for (int c = 0; c < columns; c++) {
-					final String data = result[r][c];
+					final String data = table[r][c];
 
 					IValueBindingCell cell;
 					do {
@@ -119,9 +110,9 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 							&& cell.getColumnBinding().getColumnAdapter().getWidth() == 0);
 					final IValueBinding b = cell.getLabelBinding();
 					if (!b.isChangeable()) {
+						cell.setFocus();
 						MessageDialog.openError(HandlerUtil.getActiveShell(event), "Cannot paste data",
 								"Target cell is not changeable");
-						cell.setFocus();
 						return null;
 					}
 
@@ -142,6 +133,7 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 						pasteBinding.getExtraArgumentProviders().addAll(b.getExtraArgumentProviders());
 					}
 
+					pasteBinding.setCell(cell);
 					assignmentMap.put(pasteBinding, data);
 				}
 			}
@@ -150,8 +142,19 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 			 * Assign all values
 			 */
 			context.finish(FinishOption.FORCE);
+
 			for (final Entry<IValueBinding, String> d : assignmentMap.entrySet()) {
-				d.getKey().getUIAttribute().getCurrentValue().setValue(d.getValue());
+				final IValueBinding b = d.getKey();
+				b.getUIAttribute().getCurrentValue().setValue(d.getValue());
+				/*
+				 * Check for errors in the binding
+				 */
+				final List<String> errors = b.getErrors();
+				if (errors != null && errors.size() > 0) {
+					b.getCell().setFocus();
+					// TODO Should concat to gewt all errors
+					MessageDialog.openError(HandlerUtil.getActiveShell(event), "Cannot paste data", errors.get(0));
+				}
 			}
 		} finally {
 			for (final Entry<IValueBinding, String> d : assignmentMap.entrySet()) {

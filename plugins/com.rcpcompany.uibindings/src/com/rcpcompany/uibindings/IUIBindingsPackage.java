@@ -4592,6 +4592,16 @@ public interface IUIBindingsPackage extends EPackage {
 	int FORM_TOOLKIT = 86;
 
 	/**
+	 * The meta object id for the '<em>Form Creator</em>' data type. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @see com.rcpcompany.uibindings.utils.IFormCreator
+	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getFormCreator()
+	 * @generated
+	 */
+	int FORM_CREATOR = 87;
+
+	/**
 	 * The meta object id for the '<em>Control</em>' data type. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
@@ -4599,7 +4609,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getControl()
 	 * @generated
 	 */
-	int CONTROL = 87;
+	int CONTROL = 88;
 
 	/**
 	 * The meta object id for the '<em>Composite</em>' data type. <!-- begin-user-doc --> <!--
@@ -4609,7 +4619,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getComposite()
 	 * @generated
 	 */
-	int COMPOSITE = 88;
+	int COMPOSITE = 89;
 
 	/**
 	 * The meta object id for the '<em>Table</em>' data type. <!-- begin-user-doc --> <!--
@@ -4619,7 +4629,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getTable()
 	 * @generated
 	 */
-	int TABLE = 89;
+	int TABLE = 90;
 
 	/**
 	 * The meta object id for the '<em>Table Column</em>' data type. <!-- begin-user-doc --> <!--
@@ -4629,7 +4639,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getTableColumn()
 	 * @generated
 	 */
-	int TABLE_COLUMN = 90;
+	int TABLE_COLUMN = 91;
 
 	/**
 	 * The meta object id for the '<em>Tree</em>' data type. <!-- begin-user-doc --> <!--
@@ -4639,7 +4649,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getTree()
 	 * @generated
 	 */
-	int TREE = 91;
+	int TREE = 92;
 
 	/**
 	 * The meta object id for the '<em>Tree Column</em>' data type. <!-- begin-user-doc --> <!--
@@ -4649,7 +4659,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getTreeColumn()
 	 * @generated
 	 */
-	int TREE_COLUMN = 92;
+	int TREE_COLUMN = 93;
 
 	/**
 	 * The meta object id for the '<em>Clipboard</em>' data type. <!-- begin-user-doc --> <!--
@@ -4659,7 +4669,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getClipboard()
 	 * @generated
 	 */
-	int CLIPBOARD = 93;
+	int CLIPBOARD = 94;
 
 	/**
 	 * The meta object id for the '<em>Image</em>' data type. <!-- begin-user-doc --> <!--
@@ -4669,7 +4679,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getImage()
 	 * @generated
 	 */
-	int IMAGE = 94;
+	int IMAGE = 95;
 
 	/**
 	 * The meta object id for the '<em>Color</em>' data type. <!-- begin-user-doc --> <!--
@@ -4679,7 +4689,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getColor()
 	 * @generated
 	 */
-	int COLOR = 95;
+	int COLOR = 96;
 
 	/**
 	 * The meta object id for the '<em>Cursor</em>' data type. <!-- begin-user-doc --> <!--
@@ -4689,7 +4699,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getCursor()
 	 * @generated
 	 */
-	int CURSOR = 96;
+	int CURSOR = 97;
 
 	/**
 	 * The meta object id for the '<em>Selection Listener</em>' data type. <!-- begin-user-doc -->
@@ -4699,7 +4709,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getSelectionListener()
 	 * @generated
 	 */
-	int SELECTION_LISTENER = 97;
+	int SELECTION_LISTENER = 98;
 
 	/**
 	 * The meta object id for the '<em>Update Value Strategy</em>' data type. <!-- begin-user-doc
@@ -4709,7 +4719,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUpdateValueStrategy()
 	 * @generated
 	 */
-	int UPDATE_VALUE_STRATEGY = 98;
+	int UPDATE_VALUE_STRATEGY = 99;
 
 	/**
 	 * The meta object id for the '<em>Update List Strategy</em>' data type. <!-- begin-user-doc -->
@@ -4719,7 +4729,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUpdateListStrategy()
 	 * @generated
 	 */
-	int UPDATE_LIST_STRATEGY = 99;
+	int UPDATE_LIST_STRATEGY = 100;
 
 	/**
 	 * The meta object id for the '<em>Update Set Strategy</em>' data type. <!-- begin-user-doc -->
@@ -4729,7 +4739,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUpdateSetStrategy()
 	 * @generated
 	 */
-	int UPDATE_SET_STRATEGY = 100;
+	int UPDATE_SET_STRATEGY = 101;
 
 	/**
 	 * The meta object id for the '<em>Number Format</em>' data type. <!-- begin-user-doc --> <!--
@@ -4739,7 +4749,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getNumberFormat()
 	 * @generated
 	 */
-	int NUMBER_FORMAT = 101;
+	int NUMBER_FORMAT = 102;
 
 	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IBaseObject
@@ -8514,6 +8524,16 @@ public interface IUIBindingsPackage extends EPackage {
 	EDataType getFormToolkit();
 
 	/**
+	 * Returns the meta object for data type '{@link com.rcpcompany.uibindings.utils.IFormCreator
+	 * <em>Form Creator</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '<em>Form Creator</em>'.
+	 * @see com.rcpcompany.uibindings.utils.IFormCreator
+	 * @generated
+	 */
+	EDataType getFormCreator();
+
+	/**
 	 * Returns the meta object for data type '{@link org.eclipse.swt.widgets.Control
 	 * <em>Control</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -11577,6 +11597,16 @@ public interface IUIBindingsPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType FORM_TOOLKIT = eINSTANCE.getFormToolkit();
+
+		/**
+		 * The meta object literal for the '<em>Form Creator</em>' data type. <!-- begin-user-doc
+		 * --> <!-- end-user-doc -->
+		 * 
+		 * @see com.rcpcompany.uibindings.utils.IFormCreator
+		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getFormCreator()
+		 * @generated
+		 */
+		EDataType FORM_CREATOR = eINSTANCE.getFormCreator();
 
 		/**
 		 * The meta object literal for the '<em>Control</em>' data type. <!-- begin-user-doc -->

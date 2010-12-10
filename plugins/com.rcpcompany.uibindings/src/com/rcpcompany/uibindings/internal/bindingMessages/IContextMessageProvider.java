@@ -15,7 +15,7 @@ import org.eclipse.core.databinding.observable.list.IObservableList;
 import com.rcpcompany.uibindings.IBindingMessage;
 
 /**
- * Interface used by {@link ContextMessageDecorator} when retriving messages to show for a context
+ * Interface used by {@link ContextMessageDecorator} when retriving messages to show for a context.
  * 
  * @author Tonny Madsen, The RCP Company
  */

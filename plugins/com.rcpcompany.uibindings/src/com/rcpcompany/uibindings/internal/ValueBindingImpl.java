@@ -11,6 +11,7 @@
 package com.rcpcompany.uibindings.internal;
 
 import java.lang.reflect.Constructor;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -27,6 +28,7 @@ import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.internal.databinding.observable.ConstantObservableValue;
 import org.eclipse.core.internal.databinding.observable.UnmodifiableObservableValue;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -51,11 +53,13 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Hyperlink;
 import org.eclipse.ui.forms.widgets.Section;
 
+import com.rcpcompany.uibindings.BindingMessageSeverity;
 import com.rcpcompany.uibindings.BindingState;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IArgumentContext;
 import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingDataType;
+import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.IControlFactory;
 import com.rcpcompany.uibindings.IControlFactoryContext;
 import com.rcpcompany.uibindings.IDecoratorProvider;
@@ -69,6 +73,7 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IValueBindingCell;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
+import com.rcpcompany.uibindings.internal.bindingMessages.IContextMessageProvider;
 import com.rcpcompany.uibindings.uiAttributes.SimpleUIAttribute;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -1333,5 +1338,29 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		final EObject object = getModelObject();
 		if (object == null) return Collections.emptyList();
 		return Collections.singletonList(object);
+	}
+
+	@Override
+	public List<String> getErrors() {
+		final IContextMessageProvider messageProvider = getService(IContextMessageProvider.class);
+		final List<String> errors = new ArrayList<String>();
+		if (messageProvider != null) {
+			for (final Object mo : messageProvider.getMessages()) {
+				final IBindingMessage m = (IBindingMessage) mo;
+				if (m.getSeverity() != BindingMessageSeverity.ERROR) {
+					continue;
+				}
+				errors.add(m.getMessage());
+			}
+		} else {
+			for (final Binding b : getDBBindings()) {
+				final IStatus status = (IStatus) b.getValidationStatus().getValue();
+				if (status.getSeverity() != IStatus.ERROR) {
+					continue;
+				}
+				errors.add(status.getMessage());
+			}
+		}
+		return errors;
 	}
 } // ValueBindingImpl

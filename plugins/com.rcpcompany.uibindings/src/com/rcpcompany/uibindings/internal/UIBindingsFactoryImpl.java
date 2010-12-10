@@ -55,6 +55,7 @@ import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.SpecialBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
+import com.rcpcompany.uibindings.utils.IFormCreator;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>.
@@ -186,6 +187,8 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 			return createBindingMessageSeverityFromString(eDataType, initialValue);
 		case IUIBindingsPackage.FORM_TOOLKIT:
 			return createFormToolkitFromString(eDataType, initialValue);
+		case IUIBindingsPackage.FORM_CREATOR:
+			return createFormCreatorFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
@@ -211,6 +214,8 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 			return convertBindingMessageSeverityToString(eDataType, instanceValue);
 		case IUIBindingsPackage.FORM_TOOLKIT:
 			return convertFormToolkitToString(eDataType, instanceValue);
+		case IUIBindingsPackage.FORM_CREATOR:
+			return convertFormCreatorToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
@@ -722,6 +727,24 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * @generated
 	 */
 	public String convertFormToolkitToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public IFormCreator createFormCreatorFromString(EDataType eDataType, String initialValue) {
+		return (IFormCreator) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String convertFormCreatorToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

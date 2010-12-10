@@ -113,6 +113,7 @@ import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.SpecialBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.uiAttributes.UIAttributePainter;
+import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.utils.IPersistentParty;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 import com.rcpcompany.utils.extensionpoints.CEResourceHolder;
@@ -733,6 +734,13 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	private EDataType formToolkitEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EDataType formCreatorEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -4191,6 +4199,16 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
+	public EDataType getFormCreator() {
+		return formCreatorEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EDataType getControl() {
 		return controlEDataType;
 	}
@@ -4750,6 +4768,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		editingDomainEDataType = createEDataType(EDITING_DOMAIN);
 		widgetEDataType = createEDataType(WIDGET);
 		formToolkitEDataType = createEDataType(FORM_TOOLKIT);
+		formCreatorEDataType = createEDataType(FORM_CREATOR);
 		controlEDataType = createEDataType(CONTROL);
 		compositeEDataType = createEDataType(COMPOSITE);
 		tableEDataType = createEDataType(TABLE);
@@ -6138,6 +6157,8 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		initEDataType(widgetEDataType, Widget.class, "Widget", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEDataType(formToolkitEDataType, FormToolkit.class,
 				"FormToolkit", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(formCreatorEDataType, IFormCreator.class,
+				"FormCreator", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEDataType(controlEDataType, Control.class, "Control", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEDataType(compositeEDataType, Composite.class, "Composite", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEDataType(tableEDataType, Table.class, "Table", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

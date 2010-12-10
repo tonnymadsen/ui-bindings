@@ -19,6 +19,8 @@ import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.core.commands.common.EventManager;
+import org.eclipse.core.databinding.observable.DisposeEvent;
+import org.eclipse.core.databinding.observable.IDisposeListener;
 import org.eclipse.core.databinding.observable.Observables;
 import org.eclipse.core.databinding.observable.list.IListChangeListener;
 import org.eclipse.core.databinding.observable.list.IObservableList;
@@ -76,11 +78,23 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 		return mng;
 	}
 
+	private final IDisposeListener myDisposeListener = new IDisposeListener() {
+		@Override
+		public void handleDispose(DisposeEvent event) {
+			LogUtils.DEBUG_STRACK_LEVELS = 10;
+			LogUtils.debug(event.getObservable(), "DISPOSED");
+			LogUtils.DEBUG_STRACK_LEVELS = 0;
+		}
+	};
+
 	/**
 	 * Contructs and returns a new manager.
 	 */
 	protected ValidatorAdapterManager() {
 		THE_MANAGER.registerService(this);
+
+		myUnboundMessagesOLUnmodifiable.addDisposeListener(myDisposeListener);
+		myUnboundMessagesOL.addDisposeListener(myDisposeListener);
 	}
 
 	@Override
@@ -93,6 +107,9 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 				.toArray(new IValidatorAdapterMessageDecorator[myDecorators.size()])) {
 			removeDecorator(d);
 		}
+
+		myUnboundMessagesOLUnmodifiable.removeDisposeListener(myDisposeListener);
+		myUnboundMessagesOL.removeDisposeListener(myDisposeListener);
 
 		myUnboundMessagesOLUnmodifiable.dispose();
 		myUnboundMessagesOL.dispose();

@@ -28,6 +28,8 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Widget;
 
+import com.rcpcompany.uibindings.internal.bindingMessages.IContextMessageProvider;
+
 /**
  * <!-- begin-user-doc -->
  * <p>
@@ -500,4 +502,14 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	 *         <code>null</code>) and feature
 	 */
 	boolean isEClassFeature(Class<? extends EObject> objClass, EStructuralFeature sf);
+
+	/**
+	 * Returns a list of all known errors for this binding.
+	 * <p>
+	 * If a {@link IContextMessageProvider} service is found for this binding, the messages from
+	 * this is used. Otherwise the data binding validation status is used.
+	 * 
+	 * @return a list of the current errors for this binding
+	 */
+	List<String> getErrors();
 } // IValueBinding

@@ -3,11 +3,11 @@
   <countries name="Denmark" uuid="DK" abbreviation="DK">
     <information currency="DKK"/>
   </countries>
-  <countries name="Norway" uuid="NO" abbreviation="IT Shop"/>
+  <countries name="Norway" uuid="NO" abbreviation="NO"/>
   <countries name="Sweden" uuid="SE" abbreviation="SE"/>
   <countries name="Finland" uuid="_otUH0MrREd-YTtT6Fix4Zw" abbreviation="FI"/>
-  <contacts name="Thomas" uuid="_0g5AAMgSEd-Mv9urbjVCgg" city="Turku" country="_otUH0MrREd-YTtT6Fix4Zw" birthday="1964-11-16T00:00:00.000+0100"/>
-  <contacts name="Anders Jensen" uuid="_L0u6YMBGEd-siJXnD8pfBQ" address="Rued Langgaards Vej 7, 5D12" city="København" zip="2300" country="DK" customer="//@customers.0" birthday="1964-11-16T00:00:00.000+0100"/>
+  <contacts name="Thomas" uuid="_0g5AAMgSEd-Mv9urbjVCgg" city="Turku" country="DK" birthday="1964-11-16T00:00:00.000+0100"/>
+  <contacts name="Anders Jensen" uuid="_L0u6YMBGEd-siJXnD8pfBQ" address="Rued Langgaards Vej 7, 5D12" city="København" zip="2300" country="SE" customer="//@customers.0" newsletter="false" birthday="1964-11-16T00:00:00.000+0100"/>
   <contacts name="Henrik Hansen" uuid="_L0wvkMBGEd-siJXnD8pfBQ" city="Søborg" country="NO" customer="//@customers.2" birthday="1964-11-16T00:00:00.000+0100"/>
   <contacts name="Brian" uuid="_L00Z8MBGEd-siJXnD8pfBQ" city="Køge" country="NO" birthday="1964-11-16T00:00:00.000+0100"/>
   <contacts name="Tue Aller" uuid="_LsEGkMBGEd-siJXnD8pfBQ" address="Algade 4" city="Trondheim" zip="3400" country="NO" birthday="1999-10-10T00:00:00.000+0200"/>

@@ -4,5 +4,6 @@
 <target name="Base RCP with Source">
 <locations>
 <location path="${eclipse_home}" type="Profile"/>
+<location path="C:\Users\Tonny\Desktop" type="Directory"/>
 </locations>
 </target>
