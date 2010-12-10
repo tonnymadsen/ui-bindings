@@ -995,6 +995,7 @@
   <eClassifiers xsi:type="ecore:EDataType" name="Widget" instanceClassName="org.eclipse.swt.widgets.Widget"
       serializable="false"/>
   <eClassifiers xsi:type="ecore:EDataType" name="FormToolkit" instanceClassName="org.eclipse.ui.forms.widgets.FormToolkit"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="FormCreator" instanceClassName="com.rcpcompany.uibindings.utils.IFormCreator"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Control" instanceClassName="org.eclipse.swt.widgets.Control"
       serializable="false"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Composite" instanceClassName="org.eclipse.swt.widgets.Composite"

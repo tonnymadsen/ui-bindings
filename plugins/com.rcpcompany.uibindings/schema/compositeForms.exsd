@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.rcpcompany.uibindings" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="com.rcpcompany.uibindings" id="compositeForms" name="Composite Forms"/>
+      </appInfo>
+      <documentation>
+         This extension point is used to declare the parts that makes up a composite form.
+&lt;p&gt;
+The idea with a composite form is:
+
+- new parts can be added to the form over time from different plug-ins
+- a part can be have one of a number of states
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
+      <complexType>
+         <choice minOccurs="0" maxOccurs="unbounded">
+            <element ref="form"/>
+            <element ref="part"/>
+         </choice>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="form">
+      <annotation>
+         <documentation>
+            The declaration of a specific composite form. Each form has a unique ID.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the globally unique ID of the form
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="part">
+      <complexType>
+         <attribute name="formID" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the ID of the form for this part
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="identifier" basedOn="com.rcpcompany.uibindings.compositeForms/form/@id"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="priority" type="string">
+            <annotation>
+               <documentation>
+                  the priority of this part compared to other parts. Used to define the order ot the parts in the form.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="title" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the title for the part
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="image" type="string">
+            <annotation>
+               <documentation>
+                  the image to use for the part
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="resource"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="factory" type="string">
+            <annotation>
+               <documentation>
+                  factory for new parts for the form
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":com.rcpcompany.uibindings.compositeform.ICompositeFormPartFactory"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         [Enter the first release in which this extension point appears.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiinfo"/>
+      </appInfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+
+</schema>
