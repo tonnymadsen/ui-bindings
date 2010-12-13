@@ -30,18 +30,17 @@ public class ClipboardConverterManager implements IClipboardConverterManager {
 
 	private final IClipboardConverter[] myConverters = new IClipboardConverter[] {
 
-	new TSVConverter(), new CSVConverter(),
+	new CSVConverter("Comma Separated Values", ","), new CSVConverter("Tab Separated Values", "\t"),
+			new CSVConverter("Semicolon Separated Values", ";"), new CSVConverter("Space Separated Values", " "),
 
-	new HTMLTableConverter(), new WordTableConverter(), new PDFTableConverter(),
-
-	new SpaceSVConverter()
+			new HTMLTableConverter(), new WordTableConverter(), new PDFTableConverter(),
 
 	};
 
 	@Override
 	public List<IResult> getClipboardConversions() {
 		final Clipboard clipboard = IManager.Factory.getManager().getClipboard();
-		LogUtils.debug(this, Arrays.toString(clipboard.getAvailableTypeNames()));
+		// LogUtils.debug(this, Arrays.toString(clipboard.getAvailableTypeNames()));
 		final List<IResult> results = new ArrayList<IResult>();
 
 		CC: for (final IClipboardConverter cc : myConverters) {

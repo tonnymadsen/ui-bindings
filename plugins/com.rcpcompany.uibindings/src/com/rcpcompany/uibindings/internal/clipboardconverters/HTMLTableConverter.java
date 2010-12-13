@@ -2,13 +2,11 @@ package com.rcpcompany.uibindings.internal.clipboardconverters;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.eclipse.swt.dnd.Clipboard;
-import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
-
-import com.rcpcompany.utils.logging.LogUtils;
+import org.eclipse.swt.dnd.HTMLTransfer;
 
 /**
  * {@link IClipboardConverter} for HTML Table.
@@ -19,6 +17,11 @@ import com.rcpcompany.utils.logging.LogUtils;
  */
 public class HTMLTableConverter implements IClipboardConverter {
 
+	/**
+	 * The pattern used to decode the HTML
+	 */
+	private static final Pattern myPattern = Pattern.compile("(<[^>]+>|[^<>]+)");
+
 	@Override
 	public String getName() {
 		return "HTML Table";
@@ -26,97 +29,63 @@ public class HTMLTableConverter implements IClipboardConverter {
 
 	@Override
 	public String[][] convert(Clipboard clipboard) {
-		return null;
-		// String content = (String) clipboard.getContents(HTMLTransfer.getInstance());
-		// if (content == null) return null;
-		//
-		// /*
-		// * Massage the content a little to get rid of a few bad eggs...
-		// *
-		// * - remove all attributes!!!
-		// *
-		// * - remove all visual tags except p, as these often does not match
-		// *
-		// * - replace <p> with newline
-		// */
-		// content = content.replaceAll("<(/?[a-z:.]+) [^>]*>", "<$1>");
-		// if (!content.contains("<td>")) return null;
-		// content = content.replaceAll(">[\t \r\n]+<", "><");
-		// content = content.replaceAll("</?(br|span|a|div|font|col) *>", "");
-		// content = content.replaceAll("<p *>", "\n");
-		// content = content.replaceAll("</p *>", "");
-		//
-		// final InputStream is = new StringBufferInputStream(content);
-		//
-		// try {
-		// final SAXParserFactory factory = SAXParserFactory.newInstance();
-		// final SAXParser p = factory.newSAXParser();
-		//
-		// //
-		// p.getXMLReader().setFeature("http://apache.org/xml/features/continue-after-fatal-error",
-		// // true);
-		//
-		// final DefaultHandler handler = new TableHandleBase();
-		// myElements.clear();
-		// LogUtils.debug(this, "Test:\n" + content + "\n<<<<");
-		// p.parse(is, handler);
-		// } catch (final SAXException ex) {
-		// // TODO Auto-generated catch block
-		// LogUtils.error(this, ex);
-		// } catch (final IOException ex) {
-		// // Should never happen
-		// LogUtils.error(this, ex);
-		// return null;
-		// } catch (final ParserConfigurationException ex) {
-		// // TODO Auto-generated catch block
-		// LogUtils.error(this, ex);
-		// return null;
-		// }
-		//
-		// final String[][] result = new String[myElements.size()][];
-		// for (int i = 0; i < result.length; i++) {
-		// result[i] = myElements.get(i).toArray(new String[0]);
-		// }
-		// return result;
-	}
+		String content = (String) clipboard.getContents(HTMLTransfer.getInstance());
+		if (content == null) return null;
 
-	public final List<List<String>> myElements = new ArrayList<List<String>>();
-	public String myNextElement = null;
+		/*
+		 * Massage the content a little to get rid of a few bad eggs...
+		 * 
+		 * - remove all attributes!!!
+		 * 
+		 * - remove all visual tags except p, as these often does not match
+		 * 
+		 * - replace <p> with newline
+		 */
+		content = content.replaceAll("<(/?[a-z:.]+) [^>]*>", "<$1>");
+		if (!content.contains("<td>")) return null;
+		content = content.replaceAll(">[\t \r\n]+<", "><");
 
-	/**
-	 * SAX Parser node handler for HTML tables.
-	 * 
-	 * @author Tonny Madsen, The RCP Company
-	 */
-	public class TableHandleBase extends DefaultHandler {
-		@Override
-		public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-			LogUtils.debug(this, "uri=" + uri + ", localName=" + localName + ", qName=" + qName);
-			if ("tr".equals(qName)) {
-				myElements.add(new ArrayList<String>());
-			} else if ("td".equals(qName)) {
-				myNextElement = "";
-			} else if ("p".equals(qName)) {
-				myNextElement += "\n";
-			}
-		}
+		final List<List<String>> elements = new ArrayList<List<String>>();
+		String nextElement = null;
 
-		@Override
-		public void endElement(String uri, String localName, String qName) throws SAXException {
-			LogUtils.debug(this, "uri=" + uri + ", localName=" + localName + ", qName=" + qName);
-			if ("td".equals(qName)) {
-				if (myNextElement.startsWith("\n")) {
-					myNextElement = myNextElement.substring(1);
+		/*
+		 * The following loop is not very pretty, but it does the job...
+		 */
+		final Matcher matcher = myPattern.matcher(content);
+		while (matcher.find()) {
+			final String s = matcher.group();
+			// LogUtils.debug(this, "s='" + s + "'");
+			if ("<tr>".equals(s)) {
+				elements.add(new ArrayList<String>());
+			} else if ("<td>".equals(s)) {
+				nextElement = "";
+			} else if ("<p>".equals(s)) {
+				nextElement += "\n";
+			} else if ("</td>".equals(s)) {
+				if (nextElement.startsWith("\n")) {
+					nextElement = nextElement.substring(1);
 				}
-				myElements.get(myElements.size() - 1).add(myNextElement);
+				if (elements.size() == 0) {
+					elements.add(new ArrayList<String>());
+				}
+				elements.get(elements.size() - 1).add(nextElement);
+			} else if (s.startsWith("<")) {
+				// Ignore
+			} else if ("<p>".equals(s)) {
+				nextElement += "\n";
+			} else {
+				// TODO handle &...; constructs
+				nextElement += s;
 			}
 		}
 
-		@Override
-		public void characters(char[] ch, int start, int length) throws SAXException {
-			final String s = new String(ch, start, length);
-			myNextElement += s;
-			LogUtils.debug(this, "s=" + s);
+		/*
+		 * Convert to String[][]
+		 */
+		final String[][] result = new String[elements.size()][];
+		for (int i = 0; i < result.length; i++) {
+			result[i] = elements.get(i).toArray(new String[0]);
 		}
+		return result;
 	}
 }

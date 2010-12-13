@@ -11,10 +11,18 @@ import org.eclipse.swt.dnd.TextTransfer;
  * @author Tonny Madsen, The RCP Company
  */
 public class CSVConverter implements IClipboardConverter {
+	private final String myName;
+	private final String mySeparator;
+
+	public CSVConverter(String name, String separator) {
+		myName = name;
+		mySeparator = separator;
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public String getName() {
-		return "Comma separated values";
+		return myName;
 	}
 
 	@Override
@@ -29,7 +37,7 @@ public class CSVConverter implements IClipboardConverter {
 		final int noLines = lines.length;
 		final String[][] result = new String[noLines][0];
 		for (int i = 0; i < lines.length; i++) {
-			result[i] = lines[i].split(",");
+			result[i] = lines[i].split(mySeparator);
 		}
 		return result;
 	}

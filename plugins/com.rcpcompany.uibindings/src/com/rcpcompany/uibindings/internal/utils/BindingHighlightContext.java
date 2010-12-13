@@ -211,7 +211,6 @@ public class BindingHighlightContext implements IBindingHighlightContext {
 	 * Updates this context.
 	 */
 	public void update() {
-		LogUtils.debug(this, "");
 		/*
 		 * Check if the previous stage is over.
 		 * 

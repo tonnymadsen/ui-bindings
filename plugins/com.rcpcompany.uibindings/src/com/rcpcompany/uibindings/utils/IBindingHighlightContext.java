@@ -109,11 +109,6 @@ public interface IBindingHighlightContext extends IDisposable {
 	int DEFAULT_FADE_OUT_TIME = 1000;
 
 	/**
-	 * The length of each "tick" when fading in or out.
-	 */
-	int FADE_TICK = 50;
-
-	/**
 	 * The default fade-in time.
 	 */
 	int DEFAULT_FADE_IN_TIME = 500;
@@ -121,7 +116,12 @@ public interface IBindingHighlightContext extends IDisposable {
 	/**
 	 * The default active time.
 	 */
-	int DEFAULT_ACTIVE_TIME = 3500;
+	int DEFAULT_ACTIVE_TIME = 2000;
+
+	/**
+	 * The length of each "tick" when fading in or out.
+	 */
+	int FADE_TICK = 50;
 
 	/**
 	 * Sets the time it should take to fade in in milli-seconds.
