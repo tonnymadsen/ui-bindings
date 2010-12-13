@@ -304,7 +304,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			try {
 				final Control c = (Control) constructor.newInstance(context.getParent(), style);
 				final FormToolkit formToolkit = IManager.Factory.getManager().getFormToolkit();
-				formToolkit.adapt(c, true, true);
+				formToolkit.adapt(c, false, true);
 				return c;
 			} catch (final Exception ex) {
 				LogUtils.throwException(this, ex.getClass().getSimpleName()
