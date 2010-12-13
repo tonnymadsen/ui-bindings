@@ -31,6 +31,7 @@ public class HTMLTableConverter implements IClipboardConverter {
 	public String[][] convert(Clipboard clipboard) {
 		String content = (String) clipboard.getContents(HTMLTransfer.getInstance());
 		if (content == null) return null;
+		// LogUtils.debug(this, ">>>\n" + content + "\n<<<");
 
 		/*
 		 * Massage the content a little to get rid of a few bad eggs...
