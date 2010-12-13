@@ -81,6 +81,11 @@ public class Activator extends AbstractUIPlugin {
 	public boolean TRACE_SOURCE_PROVIDER = false;
 
 	/**
+	 * <code>true</code> if adding special asserts for different control related problems.
+	 */
+	public boolean ASSERTS_CONTROLS = false;
+
+	/**
 	 * <code>true</code> if tracing {@link IBinding#isChangeable()}.
 	 */
 	public boolean TRACE_ISCHANGEABLE = false;
@@ -277,7 +282,7 @@ public class Activator extends AbstractUIPlugin {
 	}
 
 	/**
-	 * Initializes traces
+	 * Initializes traces.
 	 */
 	private void initTrace() {
 		if (isDebugging()) {
@@ -285,6 +290,7 @@ public class Activator extends AbstractUIPlugin {
 					+ "/conf/CreationPoint/StackLevels")); //$NON-NLS-1$
 			TRACE_SOURCE_PROVIDER = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/SourceProvider")); //$NON-NLS-1$
 			TRACE_ISCHANGEABLE = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/isChangeable")); //$NON-NLS-1$
+			ASSERTS_CONTROLS = Boolean.parseBoolean(Platform.getDebugOption(ID + "/assserts/Controls")); //$NON-NLS-1$
 			TRACE_SOURCE_PROVIDER_VERBOSE = Boolean.parseBoolean(Platform.getDebugOption(ID
 					+ "/trace/SourceProvider/Verbose")); //$NON-NLS-1$
 			TRACE_NAVIGATION_VIEWER = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/Navigation/viewer")); //$NON-NLS-1$

@@ -40,6 +40,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabItem;
+import org.eclipse.swt.events.DisposeEvent;
+import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
@@ -490,6 +492,24 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			final String attribute = getUIAttribute().getAttribute();
 			if (attribute == null || attribute.length() == 0) {
 				registerWidget(control);
+			}
+
+			if (Activator.getDefault().ASSERTS_CONTROLS) {
+				control.addDisposeListener(new DisposeListener() {
+					@Override
+					public void widgetDisposed(DisposeEvent e) {
+						control.removeDisposeListener(this);
+
+						switch (getState()) {
+						case DISPOSE_PENDING:
+						case DISPOSED:
+							break;
+						default:
+							LogUtils.debug(ValueBindingImpl.this, ValueBindingImpl.this + ": control disposed");
+							break;
+						}
+					}
+				});
 			}
 		}
 

@@ -32,3 +32,4 @@ com.rcpcompany.uibindings/trace/SourceProvider/Verbose=false
 com.rcpcompany.uibindings/trace/SourceProvider=false
 com.rcpcompany.uibindings/trace/Tree=false
 com.rcpcompany.uibindings/trace/ValidationResults=false
+com.rcpcompany.uibindings/assserts/Controls=false
