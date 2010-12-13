@@ -33,6 +33,7 @@ import com.rcpcompany.uibindings.internal.propertyTesters.EStructuralFeatureProp
 import com.rcpcompany.uibindings.internal.propertyTesters.IViewerBindingPropertyTester;
 import com.rcpcompany.uibindings.internal.propertyTesters.ManagerPropertyTester;
 import com.rcpcompany.uibindings.units.IUnitBindingSupport;
+import com.rcpcompany.uibindings.utils.IBindingHighlightContext;
 import com.rcpcompany.uibindings.validators.ConstraintValidatorAdapter;
 
 /**
@@ -719,12 +720,18 @@ public interface Constants {
 	/**
 	 * The color definition used for cells that have focus when the control have focus.
 	 */
-	String COLOR_SELECTION_FOCUS_BACKGROUND = PREFIX + "colorDefinitions.SelectionFocusBackground"; //$NON-NLS-1$
+	String COLOR_DEFINITIONS_SELECTION_FOCUS_BACKGROUND = PREFIX + "colorDefinitions.SelectionFocusBackground"; //$NON-NLS-1$
 
 	/**
 	 * The color definition used for cells that have focus when the control does not have focus.
 	 */
-	String COLOR_SELECTION_NO_FOCUS_BACKGROUND = PREFIX + "colorDefinitions.SelectionNoFocusBackground"; //$NON-NLS-1$
+	String COLOR_DEFINITIONS_SELECTION_NO_FOCUS_BACKGROUND = PREFIX + "colorDefinitions.SelectionNoFocusBackground"; //$NON-NLS-1$
+
+	/**
+	 * The color definition used for the background color of controls with the
+	 * {@link IBindingHighlightContext}.
+	 */
+	String COLOR_DEFINITIONS_DEFAULT_HIGHLIGHT_BACKGROUND = PREFIX + "colorDefinitions.DefaultHighlightBackground"; //$NON-NLS-1$
 
 	/**
 	 * The default priority for tree item relations.

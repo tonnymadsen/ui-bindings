@@ -624,6 +624,9 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		private List<StyleRange> myStyleRanges;
 		private IObservableList myStyleRangesList;
 
+		/**
+		 * One image descriptor..
+		 */
 		protected class ID {
 			public DecorationPosition position;
 			public boolean outside;
@@ -829,9 +832,29 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		}
 
 		@Override
+		public Color getForeground() {
+			if (myForegroundSet) return myForeground;
+			if (myForegroundValue == null) {
+				myForegroundValue = getAttribute().getForegroundValue();
+			}
+			if (myForegroundValue != null) return (Color) myForegroundValue.getValue();
+			return null;
+		}
+
+		@Override
 		public void setForegound(Color color) {
 			myForeground = color;
 			myForegroundSet = true;
+		}
+
+		@Override
+		public Color getBackground() {
+			if (myBackgroundSet) return myBackground;
+			if (myBackgroundValue == null) {
+				myBackgroundValue = getAttribute().getBackgroundValue();
+			}
+			if (myBackgroundValue != null) return (Color) myBackgroundValue.getValue();
+			return null;
 		}
 
 		@Override

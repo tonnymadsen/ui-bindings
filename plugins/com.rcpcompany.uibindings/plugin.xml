@@ -981,6 +981,10 @@
             class="com.rcpcompany.uibindings.internal.decorators.extenders.UnsettableExtender"
             priority="10003">
       </decoratorExtender>
+      <decoratorExtender
+            class="com.rcpcompany.uibindings.internal.utils.BindingHighlightContext$Extender"
+            priority="100000">
+      </decoratorExtender>
    </extension>
    <extension
          point="com.rcpcompany.uibindings.uiBindings">
@@ -1587,6 +1591,13 @@
             isEditable="true"
             label="%colorDefinition.label.2"
             value="227, 236, 246">
+      </colorDefinition>
+      <colorDefinition
+            categoryId="com.rcpcompany.uibindings.themeElementCategory"
+            id="com.rcpcompany.uibindings.colorDefinitions.DefaultHighlightBackground"
+            isEditable="true"
+            label="Default highlight background color"
+            value="177, 211, 243">
       </colorDefinition>
    </extension>
    <extension

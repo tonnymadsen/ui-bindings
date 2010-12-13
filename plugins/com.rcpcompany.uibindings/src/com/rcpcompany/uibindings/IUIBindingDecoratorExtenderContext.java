@@ -111,11 +111,25 @@ public interface IUIBindingDecoratorExtenderContext {
 	void setCursor(Cursor cursor);
 
 	/**
+	 * Returns the foreground value of this context.
+	 * 
+	 * @return the current foreground of the context
+	 */
+	Color getForeground();
+
+	/**
 	 * Sets the new foreground color value of this context.
 	 * 
 	 * @param color the new foreground color
 	 */
 	void setForegound(Color color);
+
+	/**
+	 * Returns the background value of this context.
+	 * 
+	 * @return the current background of the context
+	 */
+	Color getBackground();
 
 	/**
 	 * Sets the new background color value of this context.

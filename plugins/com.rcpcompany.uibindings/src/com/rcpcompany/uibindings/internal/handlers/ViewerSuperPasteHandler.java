@@ -34,6 +34,8 @@ import com.rcpcompany.uibindings.IValueBindingCell;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.uiAttributes.SimpleUIAttribute;
+import com.rcpcompany.uibindings.utils.IBindingHighlightContext;
+import com.rcpcompany.uibindings.utils.IBindingHighlightContext.STAGE;
 import com.rcpcompany.uibindings.utils.IClipboardConverterManager;
 import com.rcpcompany.uibindings.utils.IClipboardConverterManager.IResult;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -86,6 +88,8 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 			return null;
 		}
 
+		final IBindingHighlightContext successHighlightContext = IBindingHighlightContext.Factory.createContext();
+
 		final Map<IValueBinding, String> assignmentMap = new HashMap<IValueBinding, String>();
 		try {
 			for (int r = 0; r < rows; r++) {
@@ -115,6 +119,7 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 								"Target cell is not changeable");
 						return null;
 					}
+					successHighlightContext.add(b);
 
 					/*
 					 * Make a new paste binding and add this to the assignmentMap...
@@ -152,51 +157,33 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 				final List<String> errors = b.getErrors();
 				if (errors != null && errors.size() > 0) {
 					b.getCell().setFocus();
-					// TODO Should concat to gewt all errors
+					// TODO Should concat to get all errors
+					// TODO highlight error bindings
+
+					/*
+					 * Not really correct... Will allow the first set of changes...
+					 */
 					MessageDialog.openError(HandlerUtil.getActiveShell(event), "Cannot paste data", errors.get(0));
+					return null;
 				}
 			}
+			successHighlightContext.activate();
 		} finally {
+			/*
+			 * If we did not succeed, the dispose the highlight context...
+			 */
+			if (successHighlightContext.getStage() == STAGE.INIT) {
+				successHighlightContext.dispose();
+			}
+
+			/*
+			 * Dispose all the created bindings
+			 */
 			for (final Entry<IValueBinding, String> d : assignmentMap.entrySet()) {
 				d.getKey().dispose();
 			}
 		}
 
-		return null;
-	}
-
-	/**
-	 * Converts Tab-Separated-Values to String[][].
-	 * 
-	 * @param contents the String to convert
-	 * @return the result or <code>null</code>
-	 */
-	private String[][] convertTSV(String contents) {
-		if (contents == null) return null;
-		while (contents.endsWith("\n")) {
-			contents = contents.substring(0, contents.length() - 1);
-		}
-		contents = contents.replace("\r", "");
-		// LogUtils.debug(this, "s='" + contents + "'");
-		final String[] lines = contents.split("\n");
-		final int noLines = lines.length;
-		// LogUtils.debug(this, "# " + noLines);
-		final String[][] result = new String[noLines][0];
-		for (int i = 0; i < lines.length; i++) {
-			result[i] = lines[i].split("\t");
-		}
-		return result;
-	}
-
-	/**
-	 * Converts HTML to String[][].
-	 * 
-	 * @param contents the String to convert
-	 * @return the result or <code>null</code>
-	 */
-	private String[][] convertHTML(String contents) {
-		if (contents == null) return null;
-		LogUtils.debug(this, "s='" + contents + "'");
 		return null;
 	}
 }
