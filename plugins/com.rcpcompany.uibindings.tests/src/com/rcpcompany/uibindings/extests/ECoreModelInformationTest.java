@@ -14,8 +14,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import com.rcpcompany.utils.logging.LogUtils;
-
 @RunWith(Parameterized.class)
 public class ECoreModelInformationTest {
 
@@ -57,7 +55,7 @@ public class ECoreModelInformationTest {
 			fail(ex.getMessage());
 		}
 		assertNotNull(ePackage);
-		LogUtils.debug(pluginName, "checking " + ePackage.getName() + " from " + pluginName);
+		// LogUtils.debug(pluginName, "checking " + ePackage.getName() + " from " + pluginName);
 		assertTrue("Inconsistent URI: " + nsURI, nsURI.startsWith("http://rcp-company.com/schemas/uibindings/"));
 	}
 }
