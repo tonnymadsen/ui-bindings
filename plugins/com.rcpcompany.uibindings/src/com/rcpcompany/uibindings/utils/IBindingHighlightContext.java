@@ -72,7 +72,7 @@ public interface IBindingHighlightContext extends IDisposable {
 	 * 
 	 * @param detail the detail description
 	 */
-	void add(IDetail detail);
+	void add(IBindingSelector detail);
 
 	/**
 	 * Adds the specified binding to the affected set of bindings.
@@ -174,9 +174,10 @@ public interface IBindingHighlightContext extends IDisposable {
 	}
 
 	/**
-	 * The description of a single detail to be highlighted by this highlight context.
+	 * The description of a single binding selector used to saelect the bindings to be highlighted
+	 * by this highlight context.
 	 */
-	public interface IDetail {
+	public interface IBindingSelector {
 		/**
 		 * Returns whether the specified binding should be highlighted.
 		 * 

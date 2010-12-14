@@ -115,7 +115,7 @@ public class BindingHighlightContext implements IBindingHighlightContext {
 					continue;
 				}
 				final IValueBinding vb = (IValueBinding) b;
-				for (final IDetail d : myDetails) {
+				for (final IBindingSelector d : myDetails) {
 					if (d.isAffected(vb)) {
 						myBindings.add(vb);
 						vb.eAdapters().add(myAdapter);
@@ -288,7 +288,7 @@ public class BindingHighlightContext implements IBindingHighlightContext {
 	/**
 	 * The list of details that are affected by this context.
 	 */
-	private final List<IDetail> myDetails = new ArrayList<IDetail>();
+	private final List<IBindingSelector> myDetails = new ArrayList<IBindingSelector>();
 	private IEffect myEffect = null;
 	private DEACTIVATION_POLICY myDeactivationPolicy = DEACTIVATION_POLICY.TIMED;
 	private int myFadeInTime = DEFAULT_FADE_IN_TIME;
@@ -318,14 +318,14 @@ public class BindingHighlightContext implements IBindingHighlightContext {
 	}
 
 	@Override
-	public void add(IDetail detail) {
+	public void add(IBindingSelector detail) {
 		if (myStage != STAGE.INIT) throw new IllegalStateException("Not in initialization state");
 		myDetails.add(detail);
 	}
 
 	@Override
 	public void add(final IValueBinding binding) {
-		add(new IDetail() {
+		add(new IBindingSelector() {
 			@Override
 			public boolean isAffected(IValueBinding b) {
 				return binding == b;
@@ -335,7 +335,7 @@ public class BindingHighlightContext implements IBindingHighlightContext {
 
 	@Override
 	public void add(final EObject obj, final EStructuralFeature feature) {
-		add(new IDetail() {
+		add(new IBindingSelector() {
 			@Override
 			public boolean isAffected(IValueBinding b) {
 				return (b.getModelObject() == obj && b.getModelFeature() == feature);
