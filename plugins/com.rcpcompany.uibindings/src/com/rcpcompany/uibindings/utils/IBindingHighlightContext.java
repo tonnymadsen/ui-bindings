@@ -174,8 +174,8 @@ public interface IBindingHighlightContext extends IDisposable {
 	}
 
 	/**
-	 * The description of a single binding selector used to saelect the bindings to be highlighted
-	 * by this highlight context.
+	 * The description of a single binding selector used to select the bindings to be highlighted by
+	 * this highlight context.
 	 */
 	public interface IBindingSelector {
 		/**
