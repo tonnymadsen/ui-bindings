@@ -136,6 +136,7 @@ import com.rcpcompany.uibindings.extests.utils.DeleteParticipantTest;
 import com.rcpcompany.uibindings.extests.utils.DoubleClickAdapterTest;
 import com.rcpcompany.uibindings.extests.utils.EcoreExtUtilsSubclassesTest;
 import com.rcpcompany.uibindings.extests.utils.EcoreExtUtilsSyncTest;
+import com.rcpcompany.uibindings.extests.utils.ExtendedCommandStackTests;
 import com.rcpcompany.uibindings.extests.utils.FilterTest;
 import com.rcpcompany.uibindings.extests.utils.FormChooserTest;
 import com.rcpcompany.uibindings.extests.utils.FormCreatorAlignmentTest;
@@ -391,6 +392,8 @@ PluginTest.class, PluginConfTest.class, PluginSpecificationTest.class, FragmentT
 		FormChooserWizardTest.class, BindingEnablerTests.class, StringListTests.class,
 
 		ManagerRunnableManagerTests.class, ClipboardConverterManagerTests.class,
+
+		ExtendedCommandStackTests.class,
 
 		/*
 		 * Cut, copy and paste

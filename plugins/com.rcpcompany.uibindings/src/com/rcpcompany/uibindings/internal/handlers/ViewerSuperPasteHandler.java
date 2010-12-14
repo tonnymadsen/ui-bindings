@@ -19,6 +19,7 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.databinding.observable.value.WritableValue;
+import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.ui.handlers.HandlerUtil;
@@ -27,6 +28,7 @@ import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingContext.FinishOption;
 import com.rcpcompany.uibindings.IContainerBinding;
+import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
@@ -34,6 +36,7 @@ import com.rcpcompany.uibindings.IValueBindingCell;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.uiAttributes.SimpleUIAttribute;
+import com.rcpcompany.uibindings.utils.ExtendedCommandStack;
 import com.rcpcompany.uibindings.utils.IBindingHighlightContext;
 import com.rcpcompany.uibindings.utils.IBindingHighlightContext.STAGE;
 import com.rcpcompany.uibindings.utils.IClipboardConverterManager;
@@ -91,7 +94,11 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 		final IBindingHighlightContext successHighlightContext = IBindingHighlightContext.Factory.createContext();
 
 		final Map<IValueBinding, String> assignmentMap = new HashMap<IValueBinding, String>();
+		final CommandStack commandStack = IManager.Factory.getManager().getEditingDomain().getCommandStack();
 		try {
+			if (commandStack instanceof ExtendedCommandStack) {
+				((ExtendedCommandStack) commandStack).setCollectCommandMode(true);
+			}
 			for (int r = 0; r < rows; r++) {
 				/*
 				 * The index of the column to copy into - needed as some columns can be zero width
@@ -169,6 +176,9 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 			}
 			successHighlightContext.activate();
 		} finally {
+			if (commandStack instanceof ExtendedCommandStack) {
+				((ExtendedCommandStack) commandStack).setCollectCommandMode(false);
+			}
 			/*
 			 * If we did not succeed, the dispose the highlight context...
 			 */

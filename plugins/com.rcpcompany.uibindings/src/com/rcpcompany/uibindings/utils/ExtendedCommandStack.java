@@ -16,13 +16,30 @@ import java.util.List;
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
+import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.common.command.IdentityCommand;
 
 /**
- * Extended command stack that supports a number of extra methods...
+ * Extended command stack that supports a number of extra methods plus the ability to collect a
+ * number of commands in a new compound command that will be at the top of the stack
  * 
  * @author Tonny Madsen, The RCP Company
  */
 public class ExtendedCommandStack extends BasicCommandStack implements CommandStack {
+	/**
+	 * Whether commands are collected.
+	 * 
+	 * @see #setCollectCommandMode(boolean)
+	 */
+	private boolean myCollectCommandMode = false;
+
+	/**
+	 * {@link CompoundCommand} used when in collect mode.
+	 * 
+	 * @see #setCollectCommandMode(boolean)
+	 */
+	private CompoundCommand myCollectCompoundCommand = null;
+
 	/**
 	 * Returns an unmodifiable list of commands from this stack.
 	 * 
@@ -30,5 +47,46 @@ public class ExtendedCommandStack extends BasicCommandStack implements CommandSt
 	 */
 	public List<Command> getCommands() {
 		return Collections.unmodifiableList(commandList);
+	}
+
+	/**
+	 * Sets whether the executed commands should be collected in a single {@link CompoundCommand
+	 * compound command} that can be collectively undone and redone.
+	 * 
+	 * @param collect <code>true</code> if collecting commands
+	 */
+	public void setCollectCommandMode(boolean collect) {
+		myCollectCommandMode = collect;
+
+		if (!myCollectCommandMode && myCollectCompoundCommand != null) {
+			myCollectCompoundCommand = null;
+		}
+	}
+
+	@Override
+	public void execute(Command command) {
+		if (!myCollectCommandMode) {
+			super.execute(command);
+			return;
+		}
+
+		if (myCollectCompoundCommand == null) {
+			myCollectCompoundCommand = new CompoundCommand();
+			myCollectCompoundCommand.append(IdentityCommand.INSTANCE);
+			super.execute(myCollectCompoundCommand);
+		}
+		myCollectCompoundCommand.appendAndExecute(command);
+	}
+
+	@Override
+	public void undo() {
+		setCollectCommandMode(false);
+		super.undo();
+	}
+
+	@Override
+	public void redo() {
+		setCollectCommandMode(false);
+		super.redo();
 	}
 }
