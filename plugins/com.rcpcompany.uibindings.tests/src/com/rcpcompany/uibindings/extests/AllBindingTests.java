@@ -211,18 +211,19 @@ NoErrorsDuringInitializationTest.class,
  * Basic internal tests.
  */
 PluginTest.class, PluginConfTest.class, PluginSpecificationTest.class, FragmentTest.class,
+		ECoreModelInformationTest.class,
 
-/*
- * Various constants
- */
-ConstantTests.class, ColorsAndFontsTests.class, ManagerSizesTest.class,
+		/*
+		 * Various constants
+		 */
+		ConstantTests.class, ColorsAndFontsTests.class, ManagerSizesTest.class,
 
-UsedPropertyNamesTest.class,
+		UsedPropertyNamesTest.class,
 
-/*
- * The manager and its very basic interfaces (no bindings yet...)
- */
-ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, ManagerTextCommitStrategyTest.class,
+		/*
+		 * The manager and its very basic interfaces (no bindings yet...)
+		 */
+		ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, ManagerTextCommitStrategyTest.class,
 		ManagerTextCommitStrategyDelayTest.class, ManagerEditCellAnyKeyTest.class,
 		ManagerEditCellSingleClickTest.class, ManagerMessageDecorationPositionTest.class,
 		ManagerMessageDecorationMinimumSeverityTest.class, ManagerAlternativeDecorationPositionTest.class,

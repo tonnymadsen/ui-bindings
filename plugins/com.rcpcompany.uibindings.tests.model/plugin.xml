@@ -15,6 +15,11 @@
             uri="http://rcp-company.com/schemas/uibindings/testModel"
             class="com.rcpcompany.uibinding.tests.model.TestModelPackage"
             genModel="model/EX.genmodel"/>
+      <package
+            class="com.rcpcompany.uibindings.tests.shop.ShopPackage"
+            genModel="model/Shop.genmodel"
+            uri="http://rcp-company.com/schemas/uibindings/shop.ecore">
+      </package>
    </extension>
    <extension
          point="com.rcpcompany.uibindings.uiBindings">

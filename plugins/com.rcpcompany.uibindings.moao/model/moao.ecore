@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="moao"
-    nsURI="http://com.rcpcompany/schemas/moao.ecore" nsPrefix="moao">
+    nsURI="http://rcp-company.com/schemas/uibindings/moao.ecore" nsPrefix="moao">
   <eClassifiers xsi:type="ecore:EClass" name="MOAO" eSuperTypes="#//IAdaptable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="facets" upperBound="-1"
         eType="#//MOAOFacet" containment="true" resolveProxies="false" eOpposite="#//MOAOFacet/object"/>

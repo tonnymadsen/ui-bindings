@@ -9,11 +9,10 @@
 -->
 
 <plugin>
-
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://com.rcpcompany/schemas/moao.ecore"
-            class="com.rcpcompany.uibindings.moao.moao.IMOAOPackage"
+            uri="http://rcp-company.com/schemas/uibindings/moao.ecore"
+            class="com.rcpcompany.uibindings.moao.IMOAOPackage"
             genModel="model/moao.genmodel"/>
    </extension>
 </plugin>

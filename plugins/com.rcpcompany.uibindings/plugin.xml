@@ -5,6 +5,23 @@
    <extension-point id="scriptEngines" name="Scripting Engines" schema="schema/scriptEngines.exsd"/>
    <extension-point id="compositeForms" name="Composite Forms" schema="schema/compositeForms.exsd"/>
    
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://rcp-company.com/schemas/uibindings/model.ecore"
+            class="com.rcpcompany.uibindings.IUIBindingsPackage"
+            genModel="model/uibindings.genmodel"/>
+      <package
+            class="com.rcpcompany.uibindings.scripting.IScriptEnginePackage"
+            genModel="model/scriptEngine.genmodel"
+            uri="http://rcp-company.com/schemas/uibindings/scriptEngine.ecore">
+      </package>
+      <package
+            class="com.rcpcompany.uibindings.compositeform.ICompositeFormPackage"
+            genModel="model/compositeForm.genmodel"
+            uri="http://rcp-company.com/schemas/uibindings/compositeForm.ecore">
+      </package>
+   </extension>
+   
    <extension
          point="com.rcpcompany.uibindings.uiBindings">
       <bindingDecorator

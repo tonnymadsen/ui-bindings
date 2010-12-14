@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="shop"
-    nsURI="http://rcp-company.com/schemas/shop.ecore" nsPrefix="shop">
+    nsURI="http://rcp-company.com/schemas/uibindings/shop.ecore" nsPrefix="shop">
   <eClassifiers xsi:type="ecore:EClass" name="Shop" eSuperTypes="../../com.rcpcompany.uibindings.moao/model/moao.ecore#//NamedObject">
     <eOperations name="save"/>
     <eOperations name="nameLengthOK" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
