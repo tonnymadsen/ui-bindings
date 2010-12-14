@@ -31,6 +31,43 @@
          </standardArguments>
       </decoratorExtender>
    </extension>
+   
+      <extension
+         point="com.rcpcompany.uibindings.uiBindings">
+      <bindingDecorator
+            exactModelTypeMatch="false"
+            type="script">
+         <modelType
+               alsoPrimitive="true"
+               class="java.lang.String">
+         </modelType>
+         <uiType
+               alsoPrimitive="true"
+               class="java.lang.String">
+         </uiType>
+         <javaDecorator
+               class="com.rcpcompany.uibindings.internal.decorators.TextBindingDecorator">
+         </javaDecorator>
+         <standardArguments
+               readonly="true">
+         </standardArguments>
+      </bindingDecorator>
+      <bindingDecorator
+            exactModelTypeMatch="false"
+            type="script-simple">
+         <modelType
+               alsoPrimitive="true"
+               class="java.lang.String">
+         </modelType>
+         <uiType
+               alsoPrimitive="true"
+               class="java.lang.String">
+         </uiType>
+         <javaDecorator
+               class="com.rcpcompany.uibindings.internal.decorators.TextBindingDecorator">
+         </javaDecorator>
+      </bindingDecorator>
+   </extension>
 
    <extension
          point="com.rcpcompany.uibindings.uiBindings">

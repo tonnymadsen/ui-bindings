@@ -915,7 +915,7 @@
       <model
             class="java.lang.String"
             targetType="directoryName">
-	<standardArguments
+		<standardArguments
             preferredControl="com.rcpcompany.uibindings.widgets.FileNameControl" />
       </model>
       <model
@@ -1002,42 +1002,6 @@
             class="com.rcpcompany.uibindings.internal.utils.BindingHighlightContext$Extender"
             priority="100000">
       </decoratorExtender>
-   </extension>
-   <extension
-         point="com.rcpcompany.uibindings.uiBindings">
-      <bindingDecorator
-            exactModelTypeMatch="false"
-            type="script">
-         <modelType
-               alsoPrimitive="true"
-               class="java.lang.String">
-         </modelType>
-         <uiType
-               alsoPrimitive="true"
-               class="java.lang.String">
-         </uiType>
-         <javaDecorator
-               class="com.rcpcompany.uibindings.internal.decorators.TextBindingDecorator">
-         </javaDecorator>
-         <standardArguments
-               readonly="true">
-         </standardArguments>
-      </bindingDecorator>
-      <bindingDecorator
-            exactModelTypeMatch="false"
-            type="script-simple">
-         <modelType
-               alsoPrimitive="true"
-               class="java.lang.String">
-         </modelType>
-         <uiType
-               alsoPrimitive="true"
-               class="java.lang.String">
-         </uiType>
-         <javaDecorator
-               class="com.rcpcompany.uibindings.internal.decorators.TextBindingDecorator">
-         </javaDecorator>
-      </bindingDecorator>
    </extension>
    <extension
          point="org.eclipse.ui.contexts">
