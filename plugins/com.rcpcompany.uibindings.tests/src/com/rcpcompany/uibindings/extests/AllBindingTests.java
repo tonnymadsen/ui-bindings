@@ -22,6 +22,7 @@ import com.rcpcompany.uibindings.extests.bindingMessages.ValueBindingMessageImag
 import com.rcpcompany.uibindings.extests.bindings.ArgumentsSequenceTest;
 import com.rcpcompany.uibindings.extests.bindings.ArgumentsTypeTest;
 import com.rcpcompany.uibindings.extests.bindings.BindingContextFinalizerTest;
+import com.rcpcompany.uibindings.extests.bindings.BindingControlDisposeTest;
 import com.rcpcompany.uibindings.extests.bindings.BindingDisposeTest;
 import com.rcpcompany.uibindings.extests.bindings.BindingFormatTest;
 import com.rcpcompany.uibindings.extests.bindings.BindingSetFocusTest;
@@ -312,7 +313,7 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		BasicValueBindingTest.class, BasicValueBindingArgumentsTest.class, BasicSetTestValue.class,
 		BasicSetTestViewer.class, ReadonlyTest.class, CreationPointTest.class, ValueEditCellStrategiesTest.class,
 		ValueUnsettableTest.class, ValueBindingPreferredControlTest.class, ValueBindingFocusOutTest.class,
-		BindingDisposeTest.class, SIMA1070FormattingOfValues.class,
+		BindingDisposeTest.class, BindingControlDisposeTest.class, SIMA1070FormattingOfValues.class,
 
 		ContextNoCommitTest.class, ContextEditingDomainTest.class, ContextEditingDomainCommitTest.class,
 

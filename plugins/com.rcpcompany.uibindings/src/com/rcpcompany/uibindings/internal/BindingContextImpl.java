@@ -1131,10 +1131,18 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 		public void widgetDisposed(DisposeEvent e) {
 			if (!(e.getSource() instanceof Control)) return;
 			final Control c = (Control) e.getSource();
-			final IBinding b = IBindingContext.Factory.getBindingForWidget(c);
-			if (b != null && b.getControl() == c) {
+			/*
+			 * There can be multiple bindings associated with a specific control and
+			 * IBindingContext.Factory.getBindingForWidget(c) will only return the primary binding
+			 * (with no attribute), if one exists.
+			 * 
+			 * Here we want to find all the bindings that refer to the control...
+			 */
+			for (final IBinding b : getBindings().toArray(new IBinding[getBindings().size()])) {
+				if (b.getControl() != c) {
+					continue;
+				}
 				b.dispose();
-				return;
 			}
 			if (getTop() == c && !getTop().isDisposed()) {
 				dispose();

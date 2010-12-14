@@ -566,9 +566,7 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	 */
 	private static final String SPY_PACKAGE_NAME = INTERNAL_PACKAGE_NAME + ".spy"; //$NON-NLS-1$
 
-	/**
-	 * Clears all previously cached arguments.
-	 */
+	@Override
 	public void clearCachedArguments() {
 		myCachedArguments.clear();
 	}

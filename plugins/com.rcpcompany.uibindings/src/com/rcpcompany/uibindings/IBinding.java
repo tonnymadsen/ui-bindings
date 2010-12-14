@@ -420,6 +420,11 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 			Class<? extends ArgumentType> argumentType, boolean firstOnly);
 
 	/**
+	 * Clears all previously cached arguments.
+	 */
+	void clearCachedArguments();
+
+	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Type</em>' attribute isn't clear, there really should be more of a
@@ -649,4 +654,5 @@ public interface IBinding extends IBaseObject, IArgumentProvider, IDisposable, C
 	 * @param widget the widget
 	 */
 	void unregisterWidget(Widget widget);
+
 } // IBinding

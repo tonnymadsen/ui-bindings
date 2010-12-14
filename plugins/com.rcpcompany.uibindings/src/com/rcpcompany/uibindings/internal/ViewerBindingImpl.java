@@ -452,8 +452,6 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	 * <p>
 	 * See <a href="http://jira.marintek.sintef.no/jira/browse/SIMA-582">SIMA-582</a>: Selection is
 	 * not displayed properly in tables
-	 * 
-	 * TODO: combine with {@link #myDisposeListener}.
 	 */
 	private final Listener myPaintItemListener = new Listener() {
 		@Override

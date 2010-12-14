@@ -178,7 +178,7 @@ public class FilteredObservableListTest {
 		assertEquals(2, l0.size());
 		assertEquals(d0, l0.get(0));
 		assertEquals(d4, l0.get(1));
-		assertEquals(ShopPackage.Literals.SHOP_INFORMATION, l0.getElementType());
+		assertEquals(ShopPackage.Literals.SHOP_ITEM_DESCRIPTION, l0.getElementType());
 
 		final FilteredObservableList l1 = new FilteredObservableList(master, ShopPackage.Literals.SHOP_ITEM_INFORMATION);
 		assertEquals(5, l1.size());
@@ -187,6 +187,6 @@ public class FilteredObservableListTest {
 		assertEquals(d2, l1.get(2));
 		assertEquals(d3, l1.get(3));
 		assertEquals(d4, l1.get(4));
-		assertEquals(ShopPackage.Literals.SHOP_INFORMATION, l1.getElementType());
+		assertEquals(ShopPackage.Literals.SHOP_ITEM_INFORMATION, l1.getElementType());
 	}
 }

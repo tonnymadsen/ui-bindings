@@ -208,6 +208,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 					final EObject eobj = (EObject) target;
 					final EClass ec = eobj.eClass();
 
+					dummyBinding.getExtraArgumentProviders().clear();
+					dummyBinding.clearCachedArguments();
 					/*
 					 * This is not pretty - or efficient!
 					 * 
@@ -218,7 +220,15 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 					 * The solution - for now: to have an extra dynamic binding which gets the
 					 * correct value and is then asked for the argument :-/
 					 */
-					dummyOV.setValue(target);
+					dummyOV.setValue(eobj);
+
+					/*
+					 * Special case: for ConstantTreeItem, we use the description as an extra
+					 * argument provider
+					 */
+					if (eobj instanceof IConstantTreeItem) {
+						dummyBinding.getExtraArgumentProviders().add(((IConstantTreeItem) eobj).getDescriptor());
+					}
 
 					/*
 					 * Any constant string is used first of all...

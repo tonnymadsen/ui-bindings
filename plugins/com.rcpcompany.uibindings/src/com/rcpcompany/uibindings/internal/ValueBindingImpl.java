@@ -1297,6 +1297,10 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		final Widget w = getWidget();
 		if (w != null) {
 			baseType += "<=>" + w;
+			final String attribute = getUIAttribute().getAttribute();
+			if (attribute != null && attribute.length() > 0) {
+				baseType += "(" + attribute + ")";
+			}
 		}
 		return baseType;
 	}

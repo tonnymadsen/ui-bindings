@@ -15,8 +15,12 @@
   <contacts name="Allan" uuid="_L01oEMBGEd-siJXnD8pfBQ" city="Hvidovre" country="NO" birthday="1964-11-16T00:00:00.000+0100"/>
   <contacts name="Søren Søren" uuid="_L0ykwMBGEd-siJXnD8pfBQ" city="Århus" country="DK" birthday="1964-11-16T00:00:00.000+0100"/>
   <contacts name="Rene Mortensen" uuid="__6y28P1ZEd-3CYRhWm1Dsg" city="Malmö" country="SE" newsletter="false"/>
-  <shopItems name="EMF Eclipse Modeling Framework" uuid="_L05ScMBGEd-siJXnD8pfBQ" price="200.0"/>
-  <shopItems name="RCP Principles" uuid="_L05SccBGEd-siJXnD8pfBQ" price="210.0"/>
+  <shopItems name="EMF Eclipse Modeling Framework" uuid="_L05ScMBGEd-siJXnD8pfBQ" price="1.0">
+    <properties name="type" uuid="_nDc2cAa7EeC_n9ThbP5loA" value="a"/>
+  </shopItems>
+  <shopItems name="RCP Principles" uuid="_L05SccBGEd-siJXnD8pfBQ" price="2.0">
+    <properties name="type" uuid="_nDeroAa7EeC_n9ThbP5loA" value="b"/>
+  </shopItems>
   <shopItems name="Eclipse Plug-ins" uuid="_L05ScsBGEd-siJXnD8pfBQ" price="300.0" group="_L0_ZEMBGEd-siJXnD8pfBQ">
     <information xsi:type="shop:ShopItemURL" url="hhh"/>
   </shopItems>
