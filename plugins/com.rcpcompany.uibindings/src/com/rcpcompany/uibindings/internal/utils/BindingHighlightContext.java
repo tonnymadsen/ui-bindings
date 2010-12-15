@@ -77,7 +77,7 @@ public class BindingHighlightContext implements IBindingHighlightContext {
 	/**
 	 * The default color to use.
 	 */
-	private final Color myBackgroundColor = Display.getDefault().getSystemColor(SWT.COLOR_WHITE);
+	private final Color myBackgroundColor = Display.getDefault().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND);
 
 	/**
 	 * The bindings of this context, when it is active...
