@@ -137,6 +137,7 @@ import com.rcpcompany.uibindings.extests.utils.DoubleClickAdapterTest;
 import com.rcpcompany.uibindings.extests.utils.EcoreExtUtilsSubclassesTest;
 import com.rcpcompany.uibindings.extests.utils.EcoreExtUtilsSyncTest;
 import com.rcpcompany.uibindings.extests.utils.ExtendedCommandStackTests;
+import com.rcpcompany.uibindings.extests.utils.FeatureListMonitorTests;
 import com.rcpcompany.uibindings.extests.utils.FilterTest;
 import com.rcpcompany.uibindings.extests.utils.FormChooserTest;
 import com.rcpcompany.uibindings.extests.utils.FormCreatorAlignmentTest;
@@ -393,7 +394,7 @@ PluginTest.class, PluginConfTest.class, PluginSpecificationTest.class, FragmentT
 
 		ManagerRunnableManagerTests.class, ClipboardConverterManagerTests.class,
 
-		ExtendedCommandStackTests.class,
+		ExtendedCommandStackTests.class, FeatureListMonitorTests.class,
 
 		/*
 		 * Cut, copy and paste
