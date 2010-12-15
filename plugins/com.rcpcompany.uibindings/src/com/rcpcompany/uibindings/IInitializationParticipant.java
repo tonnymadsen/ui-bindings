@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 /**
  * Interface used to initialize an object or a feature of an object when objects are created.
  * <p>
- * When an object is initialized, it is very important thatg all changes to the object as well as to
+ * When an object is initialized, it is very important that all changes to the object as well as to
  * other object in the system, is made as {@link Command commands}. All needed commands must be
  * added with {IInitializerContext#addCommand(Command)}.
  * <p>
@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public interface IInitializer {
+public interface IInitializationParticipant {
 	/**
 	 * Initializes the object according to the specified context and facet.
 	 * <p>
@@ -24,6 +24,7 @@ public interface IInitializer {
 	 * {@link EStructuralFeature} for a feature-specific initialization.
 	 * 
 	 * @param context a context with the
+	 * @param facet the facet - either {@link EClass} or {@link EStructuralFeature}
 	 */
-	void initialize(IInitializerContext context, Object facet);
+	void initialize(IInitializationParticipantContext context, Object facet);
 }

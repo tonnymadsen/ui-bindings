@@ -387,11 +387,11 @@ public interface Constants {
 	String ARG_PREFERRED_CELL_EDITOR_FACTORY = "preferredCellEditorFactory"; //$NON-NLS-1$
 
 	/**
-	 * Argument name for an initializer object for an object of structural feature.
+	 * Argument name for an initialization participant object for an object of structural feature.
 	 * <p>
 	 * The argument does not make sense directly in bindings.
 	 * <p>
-	 * The argument value is {@link IInitializer}.
+	 * The argument value is {@link IInitializationParticipant}.
 	 */
 	String ARG_INITIALIZER = "initializer"; //$NON-NLS-1$
 

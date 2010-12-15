@@ -10,11 +10,12 @@ import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
 /**
- * Context used with {@link IInitializer#initialize(IInitializerContext, Object)}.
+ * Context used with
+ * {@link IInitializationParticipant#initialize(IInitializationParticipantContext, Object)}.
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public interface IInitializerContext {
+public interface IInitializationParticipantContext {
 	/**
 	 * Returns the parent object.
 	 * 
@@ -32,7 +33,8 @@ public interface IInitializerContext {
 	/**
 	 * Returns the object to initialize.
 	 * <p>
-	 * Note that the specified facet of {@link IInitializer#initialize(IInitializerContext, Object)}
+	 * Note that the specified facet of
+	 * {@link IInitializationParticipant#initialize(IInitializationParticipantContext, Object)}
 	 * describes which part of the object to initialize.
 	 * 
 	 * @return the object

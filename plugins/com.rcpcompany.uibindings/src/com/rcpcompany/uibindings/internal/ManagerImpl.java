@@ -86,8 +86,8 @@ import com.rcpcompany.uibindings.IDeleteParticipant;
 import com.rcpcompany.uibindings.IEMFObservableFactory;
 import com.rcpcompany.uibindings.IEMFObservableFactoryDescriptor;
 import com.rcpcompany.uibindings.IFormatterProvider;
-import com.rcpcompany.uibindings.IInitializer;
-import com.rcpcompany.uibindings.IInitializerContext;
+import com.rcpcompany.uibindings.IInitializationParticipant;
+import com.rcpcompany.uibindings.IInitializationParticipantContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IModelArgumentMediator;
 import com.rcpcompany.uibindings.IModelClassInfo;
@@ -2253,9 +2253,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			} catch (final CoreException ex) {
 				LogUtils.error(ce, ex);
 			}
-		} else if (argumentType == IInitializer.class) {
+		} else if (argumentType == IInitializationParticipant.class) {
 			try {
-				final IInitializer adapter = (IInitializer) ce.createExecutableExtension(attributeName);
+				final IInitializationParticipant adapter = (IInitializationParticipant) ce.createExecutableExtension(attributeName);
 				return (ArgumentType) adapter;
 			} catch (final CoreException ex) {
 				LogUtils.error(ce, ex);
@@ -3301,7 +3301,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		final EClass eClass = child.eClass();
 		final IBindingDataType dt = IBindingDataType.Factory.create(null, eClass);
 
-		final IInitializer initializer = dt.getArgument(Constants.ARG_INITIALIZER, null, IInitializer.class, null);
+		final IInitializationParticipant initializer = dt.getArgument(Constants.ARG_INITIALIZER, null, IInitializationParticipant.class, null);
 
 		if (initializer == null) return null;
 
@@ -3310,7 +3310,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		if (parent != null && reference != null && reference.getEOpposite() != null) {
 			valueMap.put(reference.getEOpposite(), parent);
 		}
-		final IInitializerContext context = new IInitializerContext() {
+		final IInitializationParticipantContext context = new IInitializationParticipantContext() {
 			@Override
 			public EObject getParent() {
 				return parent;
