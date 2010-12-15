@@ -3,4 +3,4 @@ Bundle-ManifestVersion: 2
 Bundle-Name: com.rcpcompany.utils.databinding.nl1 Fragment
 Bundle-SymbolicName: com.rcpcompany.utils.databinding.nl1
 Bundle-Version: 1.0.0.qualifier
-Fragment-Host: com.rcpcompany.utils.databinding;bundle-version="[1.0.4,1.1.0)"
+Fragment-Host: com.rcpcompany.utils.databinding;bundle-version="[1.0.4,2)"

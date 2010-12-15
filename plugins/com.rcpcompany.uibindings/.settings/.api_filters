@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<component id="com.rcpcompany.uibindings" version="2">
+    <resource path="src/com/rcpcompany/uibindings/bindingMessages/AbstractBindingMessage.java" type="com.rcpcompany.uibindings.bindingMessages.AbstractBindingMessage">
+        <filter comment="Abstract public version of EMF" id="576720909">
+            <message_arguments>
+                <message_argument value="BindingMessageImpl"/>
+                <message_argument value="AbstractBindingMessage"/>
+            </message_arguments>
+        </filter>
+    </resource>
+    <resource path="src/com/rcpcompany/uibindings/compositeform/AbstractCompositeFormPart.java" type="com.rcpcompany.uibindings.compositeform.AbstractCompositeFormPart">
+        <filter comment="Abstract public version of EMF" id="576720909">
+            <message_arguments>
+                <message_argument value="CompositeFormPartImpl"/>
+                <message_argument value="AbstractCompositeFormPart"/>
+            </message_arguments>
+        </filter>
+    </resource>
+    <resource path="src/com/rcpcompany/uibindings/decorators/BaseUIBindingDecorator.java" type="com.rcpcompany.uibindings.decorators.BaseUIBindingDecorator">
+        <filter comment="Abstract public version of EMF" id="576720909">
+            <message_arguments>
+                <message_argument value="UIBindingDecoratorImpl"/>
+                <message_argument value="BaseUIBindingDecorator"/>
+            </message_arguments>
+        </filter>
+        <filter id="627060751">
+            <message_arguments>
+                <message_argument value="IDelayedChangeListener"/>
+                <message_argument value="BaseUIBindingDecorator"/>
+                <message_argument value="myDelayedChangeListener"/>
+            </message_arguments>
+        </filter>
+    </resource>
+    <resource path="src/com/rcpcompany/uibindings/decorators/BaseUIBindingDecorator.java" type="com.rcpcompany.uibindings.decorators.BaseUIBindingDecorator$AbstractModelToUIConverter">
+        <filter comment="OK - Converter is a waste" id="574619656">
+            <message_arguments>
+                <message_argument value="IConverter"/>
+                <message_argument value="AbstractModelToUIConverter"/>
+            </message_arguments>
+        </filter>
+    </resource>
+    <resource path="src/com/rcpcompany/uibindings/decorators/BaseUIBindingDecorator.java" type="com.rcpcompany.uibindings.decorators.BaseUIBindingDecorator$AbstractUIToModelConverter">
+        <filter comment="OK - Converter is a waste" id="574619656">
+            <message_arguments>
+                <message_argument value="IConverter"/>
+                <message_argument value="AbstractUIToModelConverter"/>
+            </message_arguments>
+        </filter>
+    </resource>
+    <resource path="src/com/rcpcompany/uibindings/internal/observables/IDelayedChangeListener.java" type="com.rcpcompany.uibindings.internal.observables.IDelayedChangeListener">
+        <filter comment="Needed to fit in with the data binding listeners" id="571473929">
+            <message_arguments>
+                <message_argument value="IObservablesListener"/>
+                <message_argument value="IDelayedChangeListener"/>
+            </message_arguments>
+        </filter>
+    </resource>
+    <resource path="src/com/rcpcompany/uibindings/quixkfixes/AbstractQuickfixProposal.java" type="com.rcpcompany.uibindings.quixkfixes.AbstractQuickfixProposal">
+        <filter comment="Abstract public version of EMF" id="576720909">
+            <message_arguments>
+                <message_argument value="QuickfixProposalImpl"/>
+                <message_argument value="AbstractQuickfixProposal"/>
+            </message_arguments>
+        </filter>
+    </resource>
+    <resource path="src/com/rcpcompany/uibindings/uiAttributes/AbstractUIAttribute.java" type="com.rcpcompany.uibindings.uiAttributes.AbstractUIAttribute">
+        <filter comment="Abstract public version of EMF" id="576720909">
+            <message_arguments>
+                <message_argument value="UIAttributeImpl"/>
+                <message_argument value="AbstractUIAttribute"/>
+            </message_arguments>
+        </filter>
+    </resource>
+    <resource path="src/com/rcpcompany/uibindings/validators/ConstraintValidatorAdapter.java" type="com.rcpcompany.uibindings.validators.ConstraintValidatorAdapter$FileNameConstraint">
+        <filter id="643850349">
+            <message_arguments>
+                <message_argument value="FileNameControlDecorator"/>
+                <message_argument value="FileNameConstraint"/>
+                <message_argument value="FileNameConstraint(EStructuralFeature, FileNameControlDecorator)"/>
+            </message_arguments>
+        </filter>
+    </resource>
+    <resource path="src/com/rcpcompany/uibindings/validators/ConstraintValidatorAdapter.java" type="com.rcpcompany.uibindings.validators.ConstraintValidatorAdapter$NumberConstraint">
+        <filter id="643850349">
+            <message_arguments>
+                <message_argument value="NumberBindingDecorator"/>
+                <message_argument value="NumberConstraint"/>
+                <message_argument value="NumberConstraint(EStructuralFeature, NumberBindingDecorator)"/>
+            </message_arguments>
+        </filter>
+    </resource>
+    <resource path="src/com/rcpcompany/uibindings/widgets/FileNameControl.java" type="com.rcpcompany.uibindings.widgets.FileNameControl">
+        <filter id="576725006">
+            <message_arguments>
+                <message_argument value="IControlCellEditorSupport"/>
+                <message_argument value="FileNameControl"/>
+            </message_arguments>
+        </filter>
+        <filter id="576725006">
+            <message_arguments>
+                <message_argument value="IWidgetUpdated"/>
+                <message_argument value="FileNameControl"/>
+            </message_arguments>
+        </filter>
+    </resource>
+</component>

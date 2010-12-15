@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Selection Utility Classes
 Bundle-SymbolicName: com.rcpcompany.utils.selection
-Bundle-Version: 1.0.1.qualifier
+Bundle-Version: 1.1.0.qualifier
 Bundle-Vendor: The RCP Company
 Require-Bundle: org.eclipse.jface,
  org.eclipse.core.runtime,

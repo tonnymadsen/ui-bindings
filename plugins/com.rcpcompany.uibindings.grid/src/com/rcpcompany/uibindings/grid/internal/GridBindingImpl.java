@@ -92,6 +92,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  * 
  * @generated
  */
+@SuppressWarnings("restriction")
 public class GridBindingImpl extends ContainerBindingImpl implements IGridBinding {
 	/**
 	 * The default value of the '{@link #getNoColumnHeaders() <em>No Column Headers</em>}'
