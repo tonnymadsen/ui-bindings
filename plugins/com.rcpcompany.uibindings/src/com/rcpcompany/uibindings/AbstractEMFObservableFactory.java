@@ -21,7 +21,6 @@ import org.eclipse.emf.edit.domain.EditingDomain;
  * The abstract common implementation of {@link IEMFObservableFactory}.
  * 
  * @author Tonny Madsen, The RCP Company
- * @since 1.3
  */
 public abstract class AbstractEMFObservableFactory implements IEMFObservableFactory {
 	@Override

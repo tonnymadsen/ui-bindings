@@ -16,7 +16,6 @@ import com.rcpcompany.uibindings.internal.QuickfixProposalImpl;
  * Abstract quick fix implementation
  * 
  * @author Tonny Madsen, The RCP Company
- * @since 1.3
  */
 public abstract class AbstractQuickfixProposal extends QuickfixProposalImpl {
 

@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  * The event report via {@link IValidationAdapterManagerChangeListener}.
  * 
  * @author Tonny Madsen, The RCP Company
- * @since 1.3
  */
 public interface IValidationAdapterManagerChangeEvent {
 	/**

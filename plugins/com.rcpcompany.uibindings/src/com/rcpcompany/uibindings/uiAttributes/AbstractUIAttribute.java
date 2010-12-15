@@ -30,7 +30,6 @@ import com.rcpcompany.uibindings.internal.UIAttributeImpl;
  * implementations from trivial changes in the interface.
  * 
  * @author Tonny Madsen, The RCP Company
- * @since 1.3
  */
 public abstract class AbstractUIAttribute extends UIAttributeImpl {
 

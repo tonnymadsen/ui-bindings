@@ -17,7 +17,6 @@ import org.eclipse.core.databinding.observable.list.IObservableList;
  * argument argument.
  * 
  * @author Tonny Madsen, The RCP Company
- * @since 1.3
  */
 public interface IObservableListFactory {
 	/**

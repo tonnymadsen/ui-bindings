@@ -28,7 +28,6 @@ import com.rcpcompany.uibindings.quixkfixes.AbstractQuickfixProposal.Type;
  * Abstract base class for all quick fix proposal processors.
  * 
  * @author Tonny Madsen, The RCP Company
- * @since 1.3
  */
 public abstract class AbstractQuickfixProposalProcessor extends QuickfixProposalProcessorImpl {
 

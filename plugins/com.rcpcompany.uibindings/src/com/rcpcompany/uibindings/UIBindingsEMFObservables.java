@@ -34,8 +34,6 @@ import com.rcpcompany.uibindings.utils.EditingDomainUtils;
  * <p>
  * This version uses the registered {@link IEMFObservableFactory observables factories} to create
  * the different observables.
- * 
- * @since 1.3
  */
 public final class UIBindingsEMFObservables {
 	private UIBindingsEMFObservables() {

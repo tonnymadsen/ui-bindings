@@ -28,7 +28,6 @@ import com.rcpcompany.uibindings.IManager;
  * Validator adapters are normally created via the service interface with the target Manager.
  * 
  * @author Tonny Madsen, The RCP Company
- * @since 1.3
  */
 public interface IValidatorAdapter extends IDisposable {
 

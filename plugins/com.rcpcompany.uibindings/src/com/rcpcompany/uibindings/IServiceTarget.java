@@ -14,7 +14,6 @@ package com.rcpcompany.uibindings;
  * The target of a service.
  * 
  * @author Tonny Madsen, The RCP Company
- * @since 1.3
  */
 public interface IServiceTarget {
 	/**

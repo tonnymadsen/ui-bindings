@@ -34,13 +34,13 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class EMFListAttributeList extends WritableList implements IObservableList, IObserving {
+public class EMFListAttributeList extends WritableList implements IObserving {
 
 	private final IObservableList myObjectList;
 	private final IObservableListMapper myMapper;
 
 	/**
-	 * Constructs and returns a new list for the specified list and mapper object
+	 * Constructs and returns a new list for the specified list and mapper object.
 	 * 
 	 * @param objectList the observed list
 	 * @param mapper the mapper object
@@ -55,7 +55,7 @@ public class EMFListAttributeList extends WritableList implements IObservableLis
 	}
 
 	/**
-	 * Constructs and returns a new list for the specified EMF list and feature
+	 * Constructs and returns a new list for the specified EMF list and feature.
 	 * 
 	 * @param objectList the EMF list to monitor
 	 * @param structuralfeature the structural feature to retrieve

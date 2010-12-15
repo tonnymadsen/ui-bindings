@@ -14,7 +14,6 @@ package com.rcpcompany.uibindings.validators;
  * Listener interface for changes in {@link IValidatorAdapterManager}.
  * 
  * @author Tonny Madsen, The RCP Company
- * @since 1.3
  */
 public interface IValidationAdapterManagerChangeListener {
 	/**

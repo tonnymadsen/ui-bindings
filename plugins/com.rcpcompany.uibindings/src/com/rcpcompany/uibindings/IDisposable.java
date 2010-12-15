@@ -14,7 +14,6 @@ package com.rcpcompany.uibindings;
  * Interface supported by all objects that must be disposed.
  * 
  * @author Tonny Madsen, The RCP Company
- * @since 1.3
  */
 public interface IDisposable {
 

@@ -31,7 +31,6 @@ import com.rcpcompany.uibindings.internal.utils.TableCreator;
  * This helper class is used to ease the creating of tables in applications.
  * 
  * @author Tonny Madsen, The RCP Company
- * @since 1.3
  */
 public interface ITableCreator extends IDisposable {
 	/**

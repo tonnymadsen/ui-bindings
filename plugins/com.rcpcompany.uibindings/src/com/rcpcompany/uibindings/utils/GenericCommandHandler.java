@@ -50,7 +50,6 @@ import com.rcpcompany.utils.logging.LogUtils;
  * </pre>
  * 
  * @author Tonny Madsen, The RCP Company
- * @since 1.3
  */
 public class GenericCommandHandler extends AbstractHandler implements IHandler, IExecutableExtension {
 

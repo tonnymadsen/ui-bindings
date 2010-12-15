@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 /**
- * @since 1.3
+ * 
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({ PluginTest.class })

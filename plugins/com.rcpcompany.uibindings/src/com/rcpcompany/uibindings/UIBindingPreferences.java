@@ -25,7 +25,6 @@ import com.rcpcompany.utils.logging.LogUtils;
  * themselves.
  * 
  * @author Tonny Madsen, The RCP Company
- * @since 1.3
  */
 public class UIBindingPreferences implements IExecutableExtension, IExecutableExtensionFactory {
 	/**

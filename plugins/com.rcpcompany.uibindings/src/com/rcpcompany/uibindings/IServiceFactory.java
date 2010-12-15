@@ -14,7 +14,6 @@ package com.rcpcompany.uibindings;
  * Factory that creates a service for the specified service target.
  * 
  * @author Tonny Madsen, The RCP Company
- * @since 1.3
  */
 public interface IServiceFactory {
 	/**

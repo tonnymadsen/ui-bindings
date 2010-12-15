@@ -16,7 +16,6 @@ import org.eclipse.swt.widgets.Widget;
  * Factory that can create an {@link IUIAttribute} from a specific {@link Widget} and attribute.
  * 
  * @author Tonny Madsen, The RCP Company
- * @since 1.3
  */
 public interface IUIAttributeFactory {
 	/**

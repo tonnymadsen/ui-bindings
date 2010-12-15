@@ -118,7 +118,7 @@ public final class BindingSpecFactory {
 		DISPLAY = Display.getDefault();
 		final GC gc = new GC(DISPLAY);
 		final Font f = JFaceResources.getDefaultFont();
-		theFontHeight = f.getFontData()[0].height;
+		theFontHeight = f.getFontData()[0].getHeight();
 		gc.setFont(f);
 		theFontMetrics = gc.getFontMetrics();
 		gc.dispose();

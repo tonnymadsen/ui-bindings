@@ -27,7 +27,6 @@ import org.eclipse.emf.edit.domain.EditingDomain;
  * The default implementation just delegates the creation to {@link EMFObservables}.
  * 
  * @author Tonny Madsen, The RCP Company
- * @since 1.3
  */
 public interface IEMFObservableFactory {
 	/**

@@ -36,7 +36,6 @@ import com.rcpcompany.uibindings.internal.validators.ValidatorAdapterManager;
  * Also the manager must be created before any binding that wants to use the service.
  * 
  * @author Tonny Madsen, The RCP Company
- * @since 1.3
  */
 public interface IValidatorAdapterManager {
 	/**
