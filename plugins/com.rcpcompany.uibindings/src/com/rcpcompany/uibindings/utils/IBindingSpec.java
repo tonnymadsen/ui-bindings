@@ -13,6 +13,7 @@ package com.rcpcompany.uibindings.utils;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
@@ -41,13 +42,38 @@ public interface IBindingSpec {
 		 * Parses and returns a new binding specification for the specified specification.
 		 * 
 		 * @param startType the starting type
-		 * @param spec the spec to parse
-		 * 
+		 * @param spec the specification to parse
+		 * @param context the context for the specification
 		 * @return the returned specification
+		 * 
+		 * @throws IllegalArgumentException if the specification cannot be parsed
 		 */
-		public static List<IBindingSpec> parseSingleSpec(EClass startType, String spec) {
-			return BindingSpecFactory.parseSingleSpec(startType, spec);
+		public static List<IBindingSpec> parseSingleSpec(EClass startType, String spec, Context context) {
+			return BindingSpecFactory.parseSingleSpec(startType, spec, context);
 		}
+	}
+
+	/**
+	 * The possible contexts for the parse operation.
+	 * <p>
+	 * The different values specifies which features will be available in the specification
+	 * language.
+	 */
+	public enum Context {
+		/**
+		 * Specification for table column.
+		 */
+		TABLE_COLUMN,
+
+		/**
+		 * Specification for form.
+		 */
+		FORM_FIELD,
+
+		/**
+		 * Specification for an {@link IObservable observable} without UI aspects.
+		 */
+		OBSERVABLE
 	}
 
 	/**
@@ -107,6 +133,13 @@ public interface IBindingSpec {
 	BaseType getType();
 
 	/**
+	 * Returns whether this specification is the last in the list.
+	 * 
+	 * @return <code>true</code> if last
+	 */
+	boolean isLast();
+
+	/**
 	 * Returns the feature of this spec.
 	 * <p>
 	 * Only relevant for {@link #getType()}<code> == </code>{@link BaseType#FEATURE} or
@@ -115,6 +148,17 @@ public interface IBindingSpec {
 	 * @return the feature
 	 */
 	EStructuralFeature getFeature();
+
+	/**
+	 * Returns the result feature of this spec.
+	 * <ul>
+	 * <li>For #getType() == BaseType.FEATURE this is getFeature().</li>
+	 * <li>For #getType() == BaseType.KEY_VALUE this is getValueFeature().</li>
+	 * </ul>
+	 * 
+	 * @return the feature
+	 */
+	EStructuralFeature getResultFeature();
 
 	/**
 	 * Returns the key feature of this spec.

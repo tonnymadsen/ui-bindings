@@ -1161,12 +1161,12 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			rel.setDescriptor(desc);
 		}
 
-		final String c = ce.getAttribute(InternalConstants.CLASS_TAG);
+		final String c = ce.getAttribute(InternalConstants.FACTORY_TAG);
 		final String f = ce.getAttribute(InternalConstants.FEATURE_NAME_TAG);
 		if (c != null && c.length() > 0) {
-			rel.setProcessor(new CEObjectHolder<IObservableFactory>(ce, InternalConstants.CLASS_TAG));
+			rel.setFactory(new CEObjectHolder<IObservableFactory>(ce, InternalConstants.FACTORY_TAG));
 			if (f != null && f.length() > 0) {
-				LogUtils.error(ce, "Both " + InternalConstants.CLASS_TAG + " " + InternalConstants.FEATURE_NAME_TAG //$NON-NLS-1$ //$NON-NLS-2$
+				LogUtils.error(ce, "Both " + InternalConstants.FACTORY_TAG + " " + InternalConstants.FEATURE_NAME_TAG //$NON-NLS-1$ //$NON-NLS-2$
 						+ " may not by specified. Ignored."); //$NON-NLS-1$
 				return;
 			}

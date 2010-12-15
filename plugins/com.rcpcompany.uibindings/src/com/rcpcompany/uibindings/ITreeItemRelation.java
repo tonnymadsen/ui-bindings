@@ -29,7 +29,7 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.ITreeItemRelation#getParent <em>Parent</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.ITreeItemRelation#getDescriptor <em>Descriptor</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.ITreeItemRelation#getProcessor <em>Processor</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.ITreeItemRelation#getFactory <em>Factory</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.ITreeItemRelation#getFeatureName <em>Feature Name</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.ITreeItemRelation#getPriority <em>Priority</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.ITreeItemRelation#getTreeIDs <em>Tree IDs</em>}</li>
@@ -97,29 +97,29 @@ public interface ITreeItemRelation extends EObject {
 	void setDescriptor(ITreeItemDescriptor value);
 
 	/**
-	 * Returns the value of the '<em><b>Processor</b></em>' attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Factory</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Processor</em>' attribute isn't clear, there really should be more
+	 * If the meaning of the '<em>Factory</em>' attribute isn't clear, there really should be more
 	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Processor</em>' attribute.
-	 * @see #setProcessor(CEObjectHolder)
-	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getTreeItemRelation_Processor()
+	 * @return the value of the '<em>Factory</em>' attribute.
+	 * @see #setFactory(CEObjectHolder)
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getTreeItemRelation_Factory()
 	 * @generated
 	 */
-	CEObjectHolder<IObservableFactory> getProcessor();
+	CEObjectHolder<IObservableFactory> getFactory();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.ITreeItemRelation#getProcessor
-	 * <em>Processor</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.ITreeItemRelation#getFactory
+	 * <em>Factory</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @param value the new value of the '<em>Processor</em>' attribute.
-	 * @see #getProcessor()
+	 * @param value the new value of the '<em>Factory</em>' attribute.
+	 * @see #getFactory()
 	 * @generated
 	 */
-	void setProcessor(CEObjectHolder<IObservableFactory> value);
+	void setFactory(CEObjectHolder<IObservableFactory> value);
 
 	/**
 	 * Returns the value of the '<em><b>Feature Name</b></em>' attribute. <!-- begin-user-doc -->

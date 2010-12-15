@@ -3581,13 +3581,13 @@ public interface IUIBindingsPackage extends EPackage {
 	int TREE_ITEM_RELATION__DESCRIPTOR = 1;
 
 	/**
-	 * The feature id for the '<em><b>Processor</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Factory</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_ITEM_RELATION__PROCESSOR = 2;
+	int TREE_ITEM_RELATION__FACTORY = 2;
 
 	/**
 	 * The feature id for the '<em><b>Feature Name</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -7429,15 +7429,15 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.ITreeItemRelation#getProcessor <em>Processor</em>}'. <!--
+	 * {@link com.rcpcompany.uibindings.ITreeItemRelation#getFactory <em>Factory</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the attribute '<em>Processor</em>'.
-	 * @see com.rcpcompany.uibindings.ITreeItemRelation#getProcessor()
+	 * @return the meta object for the attribute '<em>Factory</em>'.
+	 * @see com.rcpcompany.uibindings.ITreeItemRelation#getFactory()
 	 * @see #getTreeItemRelation()
 	 * @generated
 	 */
-	EAttribute getTreeItemRelation_Processor();
+	EAttribute getTreeItemRelation_Factory();
 
 	/**
 	 * Returns the meta object for the attribute '
@@ -10724,12 +10724,12 @@ public interface IUIBindingsPackage extends EPackage {
 		EReference TREE_ITEM_RELATION__DESCRIPTOR = eINSTANCE.getTreeItemRelation_Descriptor();
 
 		/**
-		 * The meta object literal for the '<em><b>Processor</b></em>' attribute feature. <!--
+		 * The meta object literal for the '<em><b>Factory</b></em>' attribute feature. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		EAttribute TREE_ITEM_RELATION__PROCESSOR = eINSTANCE.getTreeItemRelation_Processor();
+		EAttribute TREE_ITEM_RELATION__FACTORY = eINSTANCE.getTreeItemRelation_Factory();
 
 		/**
 		 * The meta object literal for the '<em><b>Feature Name</b></em>' attribute feature. <!--

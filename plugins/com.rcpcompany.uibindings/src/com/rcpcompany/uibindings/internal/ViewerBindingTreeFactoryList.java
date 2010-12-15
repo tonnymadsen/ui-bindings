@@ -17,6 +17,7 @@ import java.util.List;
 import org.eclipse.core.databinding.observable.ChangeEvent;
 import org.eclipse.core.databinding.observable.IChangeListener;
 import org.eclipse.core.databinding.observable.IObservable;
+import org.eclipse.core.databinding.observable.IObserving;
 import org.eclipse.core.databinding.observable.Observables;
 import org.eclipse.core.databinding.observable.list.IListChangeListener;
 import org.eclipse.core.databinding.observable.list.IObservableList;
@@ -25,6 +26,7 @@ import org.eclipse.core.databinding.observable.list.ListDiffVisitor;
 import org.eclipse.core.databinding.observable.list.ObservableList;
 import org.eclipse.core.databinding.observable.masterdetail.IObservableFactory;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.core.databinding.observable.value.WritableValue;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -40,6 +42,9 @@ import com.rcpcompany.uibindings.IUIBindingsFactory;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
+import com.rcpcompany.uibindings.observables.EListKeyedElementObservableValue;
+import com.rcpcompany.uibindings.utils.IBindingSpec;
+import com.rcpcompany.uibindings.utils.IBindingSpec.Context;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -283,32 +288,80 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 						continue;
 					}
 				}
-				if (rel.getProcessor() != null) {
-					final IObservableFactory processor = rel.getProcessor().getObject();
-					if (processor != null) {
-						addRelation(rel, processor.createObservable(target), null);
+				if (rel.getFactory() != null) {
+					final IObservableFactory factory = rel.getFactory().getObject();
+					if (factory == null) {
+						continue;
+					}
+					try {
+						final IObservable res = factory.createObservable(target);
+						if (res == null) {
+							LogUtils.error(rel.getFactory().getConfigurationElement(), "Factory returns null. Ignored");
+							continue;
+						}
+						addRelation(rel, res, null, null);
+					} catch (final Exception ex) {
+						LogUtils.error(rel.getFactory().getConfigurationElement(), ex);
 					}
 				} else if (rel.getFeatureName() != null) {
 					final String sfName = rel.getFeatureName();
-					final EStructuralFeature sf = target.eClass().getEStructuralFeature(sfName);
-					if (sf == null) {
-						LogUtils.error(target, target + " does not support feature " + sfName + ", ignored"); //$NON-NLS-1$
+
+					List<IBindingSpec> specList = null;
+					try {
+						specList = IBindingSpec.Factory.parseSingleSpec(target.eClass(), sfName, Context.OBSERVABLE);
+					} catch (final IllegalArgumentException ex) {
+						LogUtils.error(target.eClass(), ex);
 						continue;
 					}
-					if (!(sf instanceof EReference)) {
-						LogUtils.error(target, sfName + " is not a reference, ignored"); //$NON-NLS-1$
-						continue;
+
+					IObservableValue parentValue = WritableValue.withValueType(target.eClass());
+					parentValue.setValue(target);
+					IObservable nextValue = null;
+					EStructuralFeature lastFeature = null;
+					for (final IBindingSpec s : specList) {
+						if (nextValue != null) {
+							parentValue = (IObservableValue) nextValue;
+						}
+						final EStructuralFeature feature = s.getFeature();
+						lastFeature = s.getResultFeature();
+						switch (s.getType()) {
+						default:
+							break;
+						case FEATURE:
+							if (feature.isMany()) {
+								if (!s.isLast()) {
+									LogUtils.error(feature, "Only last feature can be to-many");
+								}
+								nextValue = UIBindingsEMFObservables.observeDetailList(parentValue, feature);
+							} else {
+								nextValue = UIBindingsEMFObservables.observeDetailValue(parentValue, feature);
+							}
+							break;
+						case KEY_VALUE:
+							if (feature.isMany()) {
+								LogUtils.error(feature, "Key/Value spec must be to-one");
+							} else {
+								nextValue = new EListKeyedElementObservableValue<EObject>(null, parentValue,
+										(EReference) feature, s.getKeyFeature(), s.getKeyValue(), s.getValueFeature());
+							}
+							break;
+						}
+
 					}
-					if (sf.isMany()) {
-						addRelation(rel, UIBindingsEMFObservables.observeList(null, null, target, sf), null);
-					} else {
-						addRelation(rel, UIBindingsEMFObservables.observeValue(null, null, target, sf), null);
-					}
+
+					/*
+					 * At this point we have
+					 * 
+					 * parentValue - non-null - the parent of the last node
+					 * 
+					 * nextValue - non-null - the current values for this relation
+					 */
+					addRelation(rel, nextValue, null, lastFeature);
 				} else {
 					final IConstantTreeItem item = IUIBindingsFactory.eINSTANCE.createConstantTreeItem();
 					item.setDescriptor(rel.getDescriptor());
 					item.setTarget(target);
-					addRelation(rel, Observables.constantObservableValue(item), rel.getDescriptor());
+					addRelation(rel, Observables.constantObservableValue(item), rel.getDescriptor(), null);
 				}
 			}
 
@@ -316,7 +369,7 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 		}
 
 		private void addRelation(final ITreeItemRelation rel, IObservable observable,
-				ITreeItemDescriptor childDescriptor) {
+				ITreeItemDescriptor childDescriptor, EStructuralFeature feature) {
 			if (Activator.getDefault().TRACE_TREE) {
 				observable.addChangeListener(new IChangeListener() {
 					@Override
@@ -329,7 +382,7 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 			if (myRelations == null) {
 				myRelations = new ArrayList<Relation>();
 			}
-			myRelations.add(new Relation(rel, observable, childDescriptor));
+			myRelations.add(new Relation(rel, observable, childDescriptor, feature));
 		}
 
 		@Override
@@ -349,6 +402,7 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 			private final ITreeItemRelation myRelation;
 			private final IObservable myObservable;
 			private final ITreeItemDescriptor myChildDescriptor;
+			private final EStructuralFeature myFeature;
 
 			/**
 			 * Constructs and returns new base element.
@@ -356,11 +410,14 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 			 * @param relation
 			 * @param observable
 			 * @param childDescriptor TODO
+			 * @param feature TODO
 			 */
-			protected Relation(ITreeItemRelation relation, IObservable observable, ITreeItemDescriptor childDescriptor) {
+			private Relation(ITreeItemRelation relation, IObservable observable, ITreeItemDescriptor childDescriptor,
+					EStructuralFeature feature) {
 				myRelation = relation;
 				myObservable = observable;
 				myChildDescriptor = childDescriptor;
+				myFeature = feature;
 
 				myObservable.addChangeListener(myRelationChangeListener);
 			}
@@ -411,19 +468,27 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 			 */
 			public IElementParentage getElementParentage(final EObject element) {
 				Object type = null;
+				EObject parent = null;
 				if (myObservable instanceof IObservableValue) {
 					final IObservableValue ov = (IObservableValue) myObservable;
 					final EObject value = (EObject) ov.getValue();
 					if (value != element) return null;
+					if (ov instanceof IObserving) {
+						parent = (EObject) ((IObserving) ov).getObserved();
+					}
 					type = ov.getValueType();
 				}
 				if (myObservable instanceof IObservableList) {
 					final IObservableList ol = (IObservableList) myObservable;
 					if (!ol.contains(element)) return null;
+					if (ol instanceof IObserving) {
+						parent = (EObject) ((IObserving) ol).getObserved();
+					}
 					type = ol.getElementType();
 				}
 				if (!(type instanceof EReference)) return null;
 				final EReference ref = (EReference) type;
+				final EObject target = parent;
 
 				return new IElementParentage() {
 					@Override
@@ -433,7 +498,7 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 
 					@Override
 					public EObject getParent() {
-						return getTarget();
+						return target;
 					}
 
 					@Override
@@ -444,19 +509,16 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 			}
 
 			public void getPossibleChildObjects(List<IChildCreationSpecification> l, EObject sibling) {
-				if (myRelation.getProcessor() != null) {
+				if (myRelation.getFactory() != null) {
 					/*
 					 * Cannot handle processors...
 					 */
 				} else if (myRelation.getFeatureName() != null) {
-					final String sfName = myRelation.getFeatureName();
-					final EStructuralFeature sf = myTarget.eClass().getEStructuralFeature(sfName);
-					if (sf == null || !(sf instanceof EReference)) return;
-					final EReference ref = (EReference) sf;
+					final EReference ref = (EReference) myFeature;
 					int index = -1;
-					if (sf.isMany()) {
+					if (myFeature.isMany()) {
 						/*
-						 * If we seek a sibling, then look for it
+						 * If we seek a sibling, then look for it in the existing list
 						 */
 						if (sibling != null) {
 							final IObservableList ol = (IObservableList) myObservable;
@@ -470,12 +532,14 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 						final IObservableValue value = (IObservableValue) myObservable;
 						if (value.getValue() != null) return;
 					}
-					IViewerBinding.Factory.addToChildCreationSpecification(l, myTarget, ref, ref.getEReferenceType(),
+					final EObject target = (EObject) ((IObserving) myObservable).getObserved();
+					if (target == null) return;
+					IViewerBinding.Factory.addToChildCreationSpecification(l, target, ref, ref.getEReferenceType(),
 							index);
 				} else {
 					final IConstantTreeItem item = IUIBindingsFactory.eINSTANCE.createConstantTreeItem();
 					item.setDescriptor(myRelation.getDescriptor());
-					item.setTarget(myTarget);
+					item.setTarget(getTarget());
 					final ViewerBindingTreeFactoryList list = (ViewerBindingTreeFactoryList) myFactory
 							.createObservable(item);
 					l.addAll(list.getPossibleChildObjects(sibling));

@@ -16,6 +16,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.databinding.observable.IObserving;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.set.IObservableSet;
 import org.eclipse.core.databinding.observable.set.ISetChangeListener;
@@ -479,31 +480,14 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 				@Override
 				public EReference getReference() {
 					final IObservableList l = getList();
-					if (l instanceof EObjectEList<?>) {
-						final EObjectEList<?> el = (EObjectEList<?>) l;
-						final EStructuralFeature sf = el.getEStructuralFeature();
-						if (!(sf instanceof EReference)) return null;
-						return (EReference) sf;
-					}
-					if (l instanceof MyDetailObservableList)
-						return (EReference) ((MyDetailObservableList) l).getElementType();
-					if (l instanceof EObjectObservableList)
-						return (EReference) ((EObjectObservableList) l).getElementType();
+					if (l.getElementType() instanceof EReference) return (EReference) l.getElementType();
 					return null;
 				}
 
 				@Override
 				public EObject getParent() {
 					final IObservableList l = getList();
-					if (l instanceof EObjectEList<?>) {
-						final EObjectEList<?> el = (EObjectEList<?>) l;
-						final Object notifier = el.getNotifier();
-						if (!(notifier instanceof EObject)) return null;
-						return (EObject) notifier;
-					}
-					if (l instanceof MyDetailObservableList)
-						return (EObject) ((MyDetailObservableList) l).getObserved();
-					if (l instanceof EObjectObservableList) return (EObject) ((EObjectObservableList) l).getObserved();
+					if (l instanceof IObserving) return (EObject) ((IObserving) l).getObserved();
 					return null;
 				}
 

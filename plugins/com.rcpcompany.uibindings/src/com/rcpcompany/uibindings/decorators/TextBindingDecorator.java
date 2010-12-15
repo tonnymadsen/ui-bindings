@@ -8,10 +8,9 @@
  * Contributors:
  *     The RCP Company - initial API and implementation
  *******************************************************************************/
-package com.rcpcompany.uibindings.internal.decorators;
+package com.rcpcompany.uibindings.decorators;
 
 import com.rcpcompany.uibindings.IUIBindingDecorator;
-import com.rcpcompany.uibindings.decorators.BaseUIBindingDecorator;
 
 /**
  * This is a binding decorator for Strings.

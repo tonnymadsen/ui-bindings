@@ -36,8 +36,7 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * <li>{@link com.rcpcompany.uibindings.internal.TreeItemRelationImpl#getParent <em>Parent</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.TreeItemRelationImpl#getDescriptor <em>Descriptor
  * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.TreeItemRelationImpl#getProcessor <em>Processor
- * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.TreeItemRelationImpl#getFactory <em>Factory</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.TreeItemRelationImpl#getFeatureName <em>Feature
  * Name</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.TreeItemRelationImpl#getPriority <em>Priority</em>}
@@ -70,14 +69,14 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 	protected ITreeItemDescriptor descriptor;
 
 	/**
-	 * The cached value of the '{@link #getProcessor() <em>Processor</em>}' attribute. <!--
+	 * The cached value of the '{@link #getFactory() <em>Factory</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @see #getProcessor()
+	 * @see #getFactory()
 	 * @generated
 	 * @ordered
 	 */
-	protected CEObjectHolder<IObservableFactory> processor;
+	protected CEObjectHolder<IObservableFactory> factory;
 
 	/**
 	 * The default value of the '{@link #getFeatureName() <em>Feature Name</em>}' attribute. <!--
@@ -268,8 +267,8 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 	 * @generated
 	 */
 	@Override
-	public CEObjectHolder<IObservableFactory> getProcessor() {
-		return processor;
+	public CEObjectHolder<IObservableFactory> getFactory() {
+		return factory;
 	}
 
 	/**
@@ -278,12 +277,12 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 	 * @generated
 	 */
 	@Override
-	public void setProcessor(CEObjectHolder<IObservableFactory> newProcessor) {
-		final CEObjectHolder<IObservableFactory> oldProcessor = processor;
-		processor = newProcessor;
+	public void setFactory(CEObjectHolder<IObservableFactory> newFactory) {
+		final CEObjectHolder<IObservableFactory> oldFactory = factory;
+		factory = newFactory;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, IUIBindingsPackage.TREE_ITEM_RELATION__PROCESSOR,
-					oldProcessor, processor));
+			eNotify(new ENotificationImpl(this, Notification.SET, IUIBindingsPackage.TREE_ITEM_RELATION__FACTORY,
+					oldFactory, factory));
 		}
 	}
 
@@ -404,8 +403,8 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 			return getParent();
 		case IUIBindingsPackage.TREE_ITEM_RELATION__DESCRIPTOR:
 			return getDescriptor();
-		case IUIBindingsPackage.TREE_ITEM_RELATION__PROCESSOR:
-			return getProcessor();
+		case IUIBindingsPackage.TREE_ITEM_RELATION__FACTORY:
+			return getFactory();
 		case IUIBindingsPackage.TREE_ITEM_RELATION__FEATURE_NAME:
 			return getFeatureName();
 		case IUIBindingsPackage.TREE_ITEM_RELATION__PRIORITY:
@@ -431,8 +430,8 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 		case IUIBindingsPackage.TREE_ITEM_RELATION__DESCRIPTOR:
 			setDescriptor((ITreeItemDescriptor) newValue);
 			return;
-		case IUIBindingsPackage.TREE_ITEM_RELATION__PROCESSOR:
-			setProcessor((CEObjectHolder<IObservableFactory>) newValue);
+		case IUIBindingsPackage.TREE_ITEM_RELATION__FACTORY:
+			setFactory((CEObjectHolder<IObservableFactory>) newValue);
 			return;
 		case IUIBindingsPackage.TREE_ITEM_RELATION__FEATURE_NAME:
 			setFeatureName((String) newValue);
@@ -462,8 +461,8 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 		case IUIBindingsPackage.TREE_ITEM_RELATION__DESCRIPTOR:
 			setDescriptor((ITreeItemDescriptor) null);
 			return;
-		case IUIBindingsPackage.TREE_ITEM_RELATION__PROCESSOR:
-			setProcessor((CEObjectHolder<IObservableFactory>) null);
+		case IUIBindingsPackage.TREE_ITEM_RELATION__FACTORY:
+			setFactory((CEObjectHolder<IObservableFactory>) null);
 			return;
 		case IUIBindingsPackage.TREE_ITEM_RELATION__FEATURE_NAME:
 			setFeatureName(FEATURE_NAME_EDEFAULT);
@@ -490,8 +489,8 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 			return parent != null;
 		case IUIBindingsPackage.TREE_ITEM_RELATION__DESCRIPTOR:
 			return descriptor != null;
-		case IUIBindingsPackage.TREE_ITEM_RELATION__PROCESSOR:
-			return processor != null;
+		case IUIBindingsPackage.TREE_ITEM_RELATION__FACTORY:
+			return factory != null;
 		case IUIBindingsPackage.TREE_ITEM_RELATION__FEATURE_NAME:
 			return FEATURE_NAME_EDEFAULT == null ? featureName != null : !FEATURE_NAME_EDEFAULT.equals(featureName);
 		case IUIBindingsPackage.TREE_ITEM_RELATION__PRIORITY:
@@ -512,8 +511,8 @@ public class TreeItemRelationImpl extends EObjectImpl implements ITreeItemRelati
 		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (processor: "); //$NON-NLS-1$
-		result.append(processor);
+		result.append(" (factory: "); //$NON-NLS-1$
+		result.append(factory);
 		result.append(", featureName: "); //$NON-NLS-1$
 		result.append(featureName);
 		result.append(", priority: "); //$NON-NLS-1$

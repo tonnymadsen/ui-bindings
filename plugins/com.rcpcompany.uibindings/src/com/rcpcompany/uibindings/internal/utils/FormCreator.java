@@ -67,6 +67,7 @@ import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.observables.EListKeyedElementObservableValue;
 import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
 import com.rcpcompany.uibindings.utils.IBindingSpec;
+import com.rcpcompany.uibindings.utils.IBindingSpec.Context;
 import com.rcpcompany.uibindings.utils.IFormChooser;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.utils.ITableCreator;
@@ -959,7 +960,7 @@ public class FormCreator implements IFormCreator {
 			LogUtils.throwException(this, "The current value type must be a class or a reference to one: '" + valueType
 					+ "'", null);
 		}
-		final List<IBindingSpec> specList = IBindingSpec.Factory.parseSingleSpec(valueEClass, spec);
+		final List<IBindingSpec> specList = IBindingSpec.Factory.parseSingleSpec(valueEClass, spec, Context.FORM_FIELD);
 		final Map<String, Object> arguments = specList.get(specList.size() - 1).getArguments();
 
 		/*
@@ -1114,7 +1115,7 @@ public class FormCreator implements IFormCreator {
 			LogUtils.throwException(this, "The current value type must be a class or a reference to one: '" + valueType
 					+ "'", null);
 		}
-		final List<IBindingSpec> specList = IBindingSpec.Factory.parseSingleSpec(valueEClass, spec);
+		final List<IBindingSpec> specList = IBindingSpec.Factory.parseSingleSpec(valueEClass, spec, Context.FORM_FIELD);
 
 		if (myObservables == null) {
 			myObservables = new HashMap<IObservableValue, Map<EStructuralFeature, IObservableValue>>();

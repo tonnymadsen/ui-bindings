@@ -37,7 +37,7 @@
                class="java.lang.String">
          </uiType>
          <javaDecorator
-               class="com.rcpcompany.uibindings.internal.decorators.TextBindingDecorator">
+               class="com.rcpcompany.uibindings.decorators.TextBindingDecorator">
          </javaDecorator>
       </bindingDecorator>
       <bindingDecorator
@@ -52,7 +52,7 @@
                class="java.lang.String">
          </uiType>
          <javaDecorator
-               class="com.rcpcompany.uibindings.internal.decorators.TextBindingDecorator">
+               class="com.rcpcompany.uibindings.decorators.TextBindingDecorator">
          </javaDecorator>
       </bindingDecorator>
       <bindingDecorator
@@ -325,7 +325,7 @@
                class="java.lang.String">
          </uiType>
          <javaDecorator
-               class="com.rcpcompany.uibindings.internal.decorators.TextBindingDecorator">
+               class="com.rcpcompany.uibindings.decorators.TextBindingDecorator">
          </javaDecorator>
       </bindingDecorator>
       <bindingDecorator
@@ -338,7 +338,7 @@
                class="java.lang.String">
          </uiType>
          <javaDecorator
-               class="com.rcpcompany.uibindings.internal.decorators.TextBindingDecorator">
+               class="com.rcpcompany.uibindings.decorators.TextBindingDecorator">
          </javaDecorator>
       </bindingDecorator>
       <bindingDecorator

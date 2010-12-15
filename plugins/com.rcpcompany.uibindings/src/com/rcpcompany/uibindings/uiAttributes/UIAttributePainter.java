@@ -101,7 +101,8 @@ public class UIAttributePainter {
 		}
 		final FormColors colors = IManager.Factory.getManager().getFormToolkit().getColors();
 
-		mySelectionBackground = JFaceResources.getColorRegistry().get(Constants.COLOR_DEFINITIONS_SELECTION_FOCUS_BACKGROUND);
+		mySelectionBackground = JFaceResources.getColorRegistry().get(
+				Constants.COLOR_DEFINITIONS_SELECTION_FOCUS_BACKGROUND);
 		mySelectionNoFocusBackground = JFaceResources.getColorRegistry().get(
 				Constants.COLOR_DEFINITIONS_SELECTION_NO_FOCUS_BACKGROUND);
 		mySelectionForeground = myParentControl.getDisplay().getSystemColor(SWT.COLOR_LIST_SELECTION_TEXT);

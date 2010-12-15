@@ -3229,7 +3229,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTreeItemRelation_Processor() {
+	public EAttribute getTreeItemRelation_Factory() {
 		return (EAttribute) treeItemRelationEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -4656,7 +4656,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		treeItemRelationEClass = createEClass(TREE_ITEM_RELATION);
 		createEReference(treeItemRelationEClass, TREE_ITEM_RELATION__PARENT);
 		createEReference(treeItemRelationEClass, TREE_ITEM_RELATION__DESCRIPTOR);
-		createEAttribute(treeItemRelationEClass, TREE_ITEM_RELATION__PROCESSOR);
+		createEAttribute(treeItemRelationEClass, TREE_ITEM_RELATION__FACTORY);
 		createEAttribute(treeItemRelationEClass, TREE_ITEM_RELATION__FEATURE_NAME);
 		createEAttribute(treeItemRelationEClass, TREE_ITEM_RELATION__PRIORITY);
 		createEAttribute(treeItemRelationEClass, TREE_ITEM_RELATION__TREE_IDS);
@@ -5807,9 +5807,9 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		g2 = createEGenericType(this.getIObservableFactory());
 		g1.getETypeArguments().add(g2);
 		initEAttribute(
-				getTreeItemRelation_Processor(),
+				getTreeItemRelation_Factory(),
 				g1,
-				"processor", null, 1, 1, ITreeItemRelation.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"factory", null, 1, 1, ITreeItemRelation.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getTreeItemRelation_FeatureName(),
 				ecorePackage.getEString(),

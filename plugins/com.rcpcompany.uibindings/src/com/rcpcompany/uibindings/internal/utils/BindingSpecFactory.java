@@ -30,6 +30,7 @@ import org.eclipse.swt.widgets.Display;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.utils.IBindingSpec;
 import com.rcpcompany.uibindings.utils.IBindingSpec.BaseType;
+import com.rcpcompany.uibindings.utils.IBindingSpec.Context;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -134,9 +135,10 @@ public final class BindingSpecFactory {
 	 * 
 	 * @param startType the start type
 	 * @param spec the specification
+	 * @param context the context for the specification
 	 * @return the spec list
 	 */
-	public static List<IBindingSpec> parseSingleSpec(EClass startType, String spec) {
+	public static List<IBindingSpec> parseSingleSpec(EClass startType, String spec, Context context) {
 		Map<String, List<IBindingSpec>> typeSpecs = CALCULATED_SPECS.get(startType);
 		if (typeSpecs == null) {
 			typeSpecs = new HashMap<String, List<IBindingSpec>>();
@@ -152,23 +154,47 @@ public final class BindingSpecFactory {
 			final StreamTokenizer st = createTokenizer(spec);
 			st.nextToken();
 
+			MyBindingSpecBase currentSpec = null;
 			while (st.ttype == StreamTokenizer.TT_WORD) {
 				final String featureName = st.sval;
 				st.nextToken();
-				final IBindingSpec s;
 				if (type == null) {
 					LogUtils.throwException(startType, "In spec: '" + spec + "': Composite '" + featureName
 							+ "' not allowed unless previous feature has a EClass type", null);
 				}
 				if (featureName.equals(BaseType.NONE.toString())) {
-					s = new MyBindingSpecOther(BaseType.NONE);
+					switch (context) {
+					case OBSERVABLE:
+					case FORM_FIELD:
+						LogUtils.throwException(startType, "In spec: '" + spec + "': Feature " + featureName
+								+ " is not supported", null);
+					case TABLE_COLUMN:
+						break;
+					}
+					currentSpec = new MyBindingSpecOther(BaseType.NONE);
 					type = null;
 				} else if (featureName.equals(BaseType.ROW_NO.toString())) {
-					s = new MyBindingSpecOther(BaseType.ROW_NO);
+					switch (context) {
+					case OBSERVABLE:
+					case FORM_FIELD:
+						LogUtils.throwException(startType, "In spec: '" + spec + "': Feature " + featureName
+								+ " is not supported", null);
+					case TABLE_COLUMN:
+						break;
+					}
+					currentSpec = new MyBindingSpecOther(BaseType.ROW_NO);
 					type = null;
 				} else if (featureName.equals(BaseType.ROW_ELEMENT.toString())) {
-					s = new MyBindingSpecOther(BaseType.ROW_ELEMENT);
-					type = null;
+					switch (context) {
+					case OBSERVABLE:
+					case FORM_FIELD:
+						LogUtils.throwException(startType, "In spec: '" + spec + "': Feature " + featureName
+								+ " is not supported", null);
+					case TABLE_COLUMN:
+						break;
+					}
+					currentSpec = new MyBindingSpecOther(BaseType.ROW_ELEMENT);
+					type = null; // TODO ??
 				} else {
 					final EStructuralFeature feature = findFeature(spec, type, featureName);
 					/*
@@ -297,9 +323,9 @@ public final class BindingSpecFactory {
 									+ "': In keyValueSpec:='('<name>'='<value>':'<name>***'}': expected '}', got '"
 									+ st.toString() + "'", null);
 						}
-						s = new MyBindingSpecFeatureKeyValue(feature, keyFeature, keyValue, valueFeature);
+						currentSpec = new MyBindingSpecFeatureKeyValue(feature, keyFeature, keyValue, valueFeature);
 					} else {
-						s = new MyBindingSpecFeature(feature);
+						currentSpec = new MyBindingSpecFeature(feature);
 						if (feature.getEType() instanceof EClass) {
 							type = (EClass) feature.getEType();
 						} else {
@@ -307,14 +333,21 @@ public final class BindingSpecFactory {
 						}
 					}
 				}
-				sl.add(s);
+				sl.add(currentSpec);
 
 				/*
 				 * PARSE: arguments:='('<name>{'='<value>}','++')'
 				 */
 				if (st.ttype == '(') {
+					switch (context) {
+					case OBSERVABLE:
+						LogUtils.throwException(startType, "In spec: '" + spec + "': Arguments are not supported", null);
+					case FORM_FIELD:
+					case TABLE_COLUMN:
+						break;
+					}
 					st.nextToken();
-					final Map<String, Object> arguments = s.getArguments();
+					final Map<String, Object> arguments = currentSpec.getArguments();
 
 					while (st.ttype == StreamTokenizer.TT_WORD) {
 						String argName = st.sval;
@@ -447,9 +480,35 @@ public final class BindingSpecFactory {
 				LogUtils.throwException(startType, "In spec: '" + spec
 						+ "': In spec:=<feature><arguments>?: expected '<feature>', got '" + st.toString() + "'", null);
 			}
+
+			if (currentSpec != null) {
+				currentSpec.setLast(true);
+			}
+			/*
+			 * All but the last spec must be a to-one
+			 */
+			for (final IBindingSpec s : sl) {
+				final EStructuralFeature resultFeature = s.getResultFeature();
+
+				if (s.isLast() && context == Context.OBSERVABLE) {
+					if (!(resultFeature instanceof EReference)) {
+						LogUtils.throwException(startType, "In spec: '" + spec + "': Last feature "
+								+ resultFeature.getContainerClass().getName() + "." + resultFeature.getName()
+								+ " is not reference", null);
+					}
+					break;
+				}
+
+				if (resultFeature != null && resultFeature.isMany()) {
+					LogUtils.throwException(startType, "In spec: '" + spec + "': Feature "
+							+ resultFeature.getContainerClass().getName() + "." + resultFeature.getName() + "."
+							+ " must be to-one", null);
+				}
+			}
 		} catch (final IOException ex) {
 			LogUtils.throwException(startType, "", ex);
 		}
+
 		typeSpecs.put(spec, sl);
 		return sl;
 	}
@@ -518,6 +577,11 @@ public final class BindingSpecFactory {
 		public EStructuralFeature getFeature() {
 			return myFeature;
 		}
+
+		@Override
+		public EStructuralFeature getResultFeature() {
+			return getFeature();
+		}
 	}
 
 	protected static class MyBindingSpecFeatureKeyValue extends MyBindingSpecBase {
@@ -558,6 +622,11 @@ public final class BindingSpecFactory {
 		public EStructuralFeature getValueFeature() {
 			return myValueFeature;
 		}
+
+		@Override
+		public EStructuralFeature getResultFeature() {
+			return super.getValueFeature();
+		}
 	}
 
 	protected static class MyBindingSpecOther extends MyBindingSpecBase {
@@ -582,6 +651,7 @@ public final class BindingSpecFactory {
 	protected abstract static class MyBindingSpecBase implements IBindingSpec {
 
 		private Map<String, Object> myArguments;
+		private boolean myLast = false;
 
 		@Override
 		public Map<String, Object> getArguments() {
@@ -589,6 +659,11 @@ public final class BindingSpecFactory {
 				myArguments = new HashMap<String, Object>();
 			}
 			return myArguments;
+		}
+
+		@Override
+		public EStructuralFeature getResultFeature() {
+			return null;
 		}
 
 		@Override
@@ -604,6 +679,15 @@ public final class BindingSpecFactory {
 		@Override
 		public EStructuralFeature getValueFeature() {
 			return null;
+		}
+
+		@Override
+		public boolean isLast() {
+			return myLast;
+		}
+
+		public void setLast(boolean last) {
+			myLast = last;
 		}
 	}
 }

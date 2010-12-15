@@ -480,10 +480,10 @@ If &lt;code&gt;id&lt;/code&gt; is set it specified the ID of the description for
                </appInfo>
             </annotation>
          </attribute>
-         <attribute name="class" type="string">
+         <attribute name="factory" type="string">
             <annotation>
                <documentation>
-                  the class name of a factory that will return an observable value or list with the children of the parent. Only one of &lt;code&gt;class&lt;/class&gt; and &lt;code&gt;featureName&lt;/class&gt; may be set.
+                  the class name of a factory - &lt;code&gt;IObservableFactory&lt;/code&gt; - that will return an observable value or list with the children of the parent. Only one of &lt;code&gt;factory&lt;/class&gt; or &lt;code&gt;featureName&lt;/class&gt; may be set.
                </documentation>
                <appInfo>
                   <meta.attribute kind="java" basedOn=":org.eclipse.core.databinding.observable.masterdetail.IObservableFactory"/>
