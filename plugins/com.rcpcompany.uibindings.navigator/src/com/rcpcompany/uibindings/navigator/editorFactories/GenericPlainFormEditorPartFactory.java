@@ -15,8 +15,11 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Text;
 
 import com.rcpcompany.uibindings.Constants;
+import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.navigator.FormEditorPartFactory;
 import com.rcpcompany.uibindings.navigator.IEditorPartContext;
 import com.rcpcompany.uibindings.navigator.IEditorPartFactory;
@@ -36,19 +39,35 @@ public class GenericPlainFormEditorPartFactory extends FormEditorPartFactory imp
 		final EClass cls = obj.eClass();
 
 		for (final EStructuralFeature sf : cls.getEAllStructuralFeatures()) {
+			boolean ro = false;
+			Class<? extends Control> preferredControl = null;
 			if (sf instanceof EReference) {
 				final EReference ref = (EReference) sf;
 				if (ref.isContainer()) {
 					continue;
 				}
+				if (ref.isContainment()) {
+					/*
+					 * Containment references cannot be changed
+					 */
+					ro = true;
+					preferredControl = Text.class;
+				}
 			}
-			if (sf.getUpperBound() != 1) {
+			if (sf.isMany()) {
 				continue;
+			}
+
+			if (!sf.isChangeable()) {
+				ro = true;
+			}
+			if (EcoreUtil.isSuppressedVisibility(sf, EcoreUtil.SET)) {
+				ro = true;
 			}
 
 			String spec = sf.getName();
 			String options = "";
-			if (!sf.isChangeable() || EcoreUtil.isSuppressedVisibility(sf, EcoreUtil.SET)) {
+			if (ro) {
 				/*
 				 * TODO: also query model/feature
 				 */
@@ -57,7 +76,10 @@ public class GenericPlainFormEditorPartFactory extends FormEditorPartFactory imp
 			if (options.length() > 0) {
 				spec += "(" + options.substring(1) + ")";
 			}
-			form.addField(spec);
+			final IValueBinding binding = form.addField(spec);
+			if (preferredControl != null) {
+				binding.arg(Constants.ARG_PREFERRED_CONTROL, preferredControl.getName());
+			}
 		}
 	}
 
