@@ -68,7 +68,7 @@ public class FormChooser implements IFormChooser {
 	};
 
 	/**
-	 * The current creator
+	 * The current creator.
 	 */
 	protected IFormChooserCreator myCurrentCreator = theDummyCreator;
 
@@ -78,7 +78,7 @@ public class FormChooser implements IFormChooser {
 	private final Map<IFormChooserTester, IFormChooserCreator> myMap = new HashMap<IFormChooserTester, IFormChooserCreator>();
 
 	/**
-	 * Dispose listener
+	 * Dispose listener.
 	 */
 	private final DisposeListener myDisposeListener = new DisposeListener() {
 		@Override
@@ -88,7 +88,7 @@ public class FormChooser implements IFormChooser {
 	};
 
 	/**
-	 * Constructs and returns a new form creator
+	 * Constructs and returns a new form creator.
 	 * 
 	 * @param context the context
 	 * @param discriminant the discriminant used to decide on the chosen form
