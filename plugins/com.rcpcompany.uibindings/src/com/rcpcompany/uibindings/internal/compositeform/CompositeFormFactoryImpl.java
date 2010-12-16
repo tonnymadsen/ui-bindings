@@ -18,6 +18,7 @@ import com.rcpcompany.uibindings.compositeform.ICompositeFormDescriptor;
 import com.rcpcompany.uibindings.compositeform.ICompositeFormFactory;
 import com.rcpcompany.uibindings.compositeform.ICompositeFormManager;
 import com.rcpcompany.uibindings.compositeform.ICompositeFormPackage;
+import com.rcpcompany.uibindings.compositeform.ICompositeFormPart;
 import com.rcpcompany.uibindings.compositeform.ICompositeFormPartDescriptor;
 
 /**
@@ -63,10 +64,12 @@ public class CompositeFormFactoryImpl extends EFactoryImpl implements IComposite
 			return createCompositeFormManager();
 		case ICompositeFormPackage.COMPOSITE_FORM_DESCRIPTOR:
 			return createCompositeFormDescriptor();
-		case ICompositeFormPackage.COMPOSITE_FORM:
-			return createCompositeForm();
 		case ICompositeFormPackage.COMPOSITE_FORM_PART_DESCRIPTOR:
 			return createCompositeFormPartDescriptor();
+		case ICompositeFormPackage.COMPOSITE_FORM:
+			return createCompositeForm();
+		case ICompositeFormPackage.COMPOSITE_FORM_PART:
+			return createCompositeFormPart();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -140,6 +143,17 @@ public class CompositeFormFactoryImpl extends EFactoryImpl implements IComposite
 	public ICompositeFormPartDescriptor createCompositeFormPartDescriptor() {
 		final CompositeFormPartDescriptorImpl compositeFormPartDescriptor = new CompositeFormPartDescriptorImpl();
 		return compositeFormPartDescriptor;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public ICompositeFormPart createCompositeFormPart() {
+		final CompositeFormPartImpl compositeFormPart = new CompositeFormPartImpl();
+		return compositeFormPart;
 	}
 
 	/**

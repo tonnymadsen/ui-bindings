@@ -77,13 +77,13 @@ public class CompositeFormAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseCompositeForm(ICompositeForm object) {
-			return createCompositeFormAdapter();
+		public Adapter caseCompositeFormPartDescriptor(ICompositeFormPartDescriptor object) {
+			return createCompositeFormPartDescriptorAdapter();
 		}
 
 		@Override
-		public Adapter caseCompositeFormPartDescriptor(ICompositeFormPartDescriptor object) {
-			return createCompositeFormPartDescriptorAdapter();
+		public Adapter caseCompositeForm(ICompositeForm object) {
+			return createCompositeFormAdapter();
 		}
 
 		@Override

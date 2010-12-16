@@ -94,6 +94,9 @@ The idea with a composite form is:
                <documentation>
                   the title for the part
                </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
             </annotation>
          </attribute>
          <attribute name="image" type="string">
@@ -106,13 +109,13 @@ The idea with a composite form is:
                </appInfo>
             </annotation>
          </attribute>
-         <attribute name="factory" type="string">
+         <attribute name="factory" type="string" use="required">
             <annotation>
                <documentation>
                   factory for new parts for the form
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java" basedOn=":com.rcpcompany.uibindings.compositeform.ICompositeFormPartFactory"/>
+                  <meta.attribute kind="java" basedOn="com.rcpcompany.uibindings.compositeform.AbstractCompositeFormPartFactory:com.rcpcompany.uibindings.compositeform.ICompositeFormPartFactory"/>
                </appInfo>
             </annotation>
          </attribute>

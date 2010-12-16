@@ -140,43 +140,7 @@ public interface ICompositeFormPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.compositeform.CompositeFormPackageImpl#getCompositeForm()
 	 * @generated
 	 */
-	int COMPOSITE_FORM = 2;
-
-	/**
-	 * The feature id for the '<em><b>Descriptor</b></em>' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_FORM__DESCRIPTOR = 0;
-
-	/**
-	 * The feature id for the '<em><b>Form</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_FORM__FORM = 1;
-
-	/**
-	 * The feature id for the '<em><b>Parts</b></em>' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_FORM__PARTS = 2;
-
-	/**
-	 * The number of structural features of the '<em>Composite Form</em>' class. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_FORM_FEATURE_COUNT = 3;
+	int COMPOSITE_FORM = 3;
 
 	/**
 	 * The meta object id for the '
@@ -187,7 +151,7 @@ public interface ICompositeFormPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.compositeform.CompositeFormPackageImpl#getCompositeFormPartDescriptor()
 	 * @generated
 	 */
-	int COMPOSITE_FORM_PART_DESCRIPTOR = 3;
+	int COMPOSITE_FORM_PART_DESCRIPTOR = 2;
 
 	/**
 	 * The feature id for the '<em><b>Form</b></em>' container reference. <!-- begin-user-doc -->
@@ -244,6 +208,42 @@ public interface ICompositeFormPackage extends EPackage {
 	int COMPOSITE_FORM_PART_DESCRIPTOR_FEATURE_COUNT = 5;
 
 	/**
+	 * The feature id for the '<em><b>Descriptor</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_FORM__DESCRIPTOR = 0;
+
+	/**
+	 * The feature id for the '<em><b>Form Creator</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_FORM__FORM_CREATOR = 1;
+
+	/**
+	 * The feature id for the '<em><b>Parts</b></em>' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_FORM__PARTS = 2;
+
+	/**
+	 * The number of structural features of the '<em>Composite Form</em>' class. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_FORM_FEATURE_COUNT = 3;
+
+	/**
 	 * The meta object id for the '
 	 * {@link com.rcpcompany.uibindings.internal.compositeform.CompositeFormPartImpl <em>Part</em>}'
 	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -273,13 +273,58 @@ public interface ICompositeFormPackage extends EPackage {
 	int COMPOSITE_FORM_PART__DESCRIPTOR = 1;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_FORM_PART__TITLE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Image</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_FORM_PART__IMAGE = 3;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_FORM_PART__ENABLED = 2;
+	int COMPOSITE_FORM_PART__ENABLED = 4;
+
+	/**
+	 * The feature id for the '<em><b>Open</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_FORM_PART__OPEN = 5;
+
+	/**
+	 * The feature id for the '<em><b>Operations</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_FORM_PART__OPERATIONS = 6;
+
+	/**
+	 * The feature id for the '<em><b>Form Creator</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_FORM_PART__FORM_CREATOR = 7;
 
 	/**
 	 * The number of structural features of the '<em>Part</em>' class. <!-- begin-user-doc --> <!--
@@ -288,7 +333,7 @@ public interface ICompositeFormPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_FORM_PART_FEATURE_COUNT = 3;
+	int COMPOSITE_FORM_PART_FEATURE_COUNT = 8;
 
 	/**
 	 * The meta object id for the '<em>IComposite Form Part Factory</em>' data type. <!--
@@ -299,6 +344,16 @@ public interface ICompositeFormPackage extends EPackage {
 	 * @generated
 	 */
 	int ICOMPOSITE_FORM_PART_FACTORY = 5;
+
+	/**
+	 * The meta object id for the '<em>IComposite Form Part Operations</em>' data type. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see com.rcpcompany.uibindings.compositeform.ICompositeFormPartOperations
+	 * @see com.rcpcompany.uibindings.internal.compositeform.CompositeFormPackageImpl#getICompositeFormPartOperations()
+	 * @generated
+	 */
+	int ICOMPOSITE_FORM_PART_OPERATIONS = 6;
 
 	/**
 	 * Returns the meta object for class '
@@ -395,15 +450,15 @@ public interface ICompositeFormPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.compositeform.ICompositeForm#getForm <em>Form</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.compositeform.ICompositeForm#getFormCreator
+	 * <em>Form Creator</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the attribute '<em>Form</em>'.
-	 * @see com.rcpcompany.uibindings.compositeform.ICompositeForm#getForm()
+	 * @return the meta object for the attribute '<em>Form Creator</em>'.
+	 * @see com.rcpcompany.uibindings.compositeform.ICompositeForm#getFormCreator()
 	 * @see #getCompositeForm()
 	 * @generated
 	 */
-	EAttribute getCompositeForm_Form();
+	EAttribute getCompositeForm_FormCreator();
 
 	/**
 	 * Returns the meta object for the containment reference list '
@@ -525,6 +580,30 @@ public interface ICompositeFormPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.compositeform.ICompositeFormPart#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see com.rcpcompany.uibindings.compositeform.ICompositeFormPart#getTitle()
+	 * @see #getCompositeFormPart()
+	 * @generated
+	 */
+	EAttribute getCompositeFormPart_Title();
+
+	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.compositeform.ICompositeFormPart#getImage <em>Image</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Image</em>'.
+	 * @see com.rcpcompany.uibindings.compositeform.ICompositeFormPart#getImage()
+	 * @see #getCompositeFormPart()
+	 * @generated
+	 */
+	EAttribute getCompositeFormPart_Image();
+
+	/**
+	 * Returns the meta object for the attribute '
 	 * {@link com.rcpcompany.uibindings.compositeform.ICompositeFormPart#isEnabled <em>Enabled</em>}
 	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -536,6 +615,42 @@ public interface ICompositeFormPackage extends EPackage {
 	EAttribute getCompositeFormPart_Enabled();
 
 	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.compositeform.ICompositeFormPart#isOpen <em>Open</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Open</em>'.
+	 * @see com.rcpcompany.uibindings.compositeform.ICompositeFormPart#isOpen()
+	 * @see #getCompositeFormPart()
+	 * @generated
+	 */
+	EAttribute getCompositeFormPart_Open();
+
+	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.compositeform.ICompositeFormPart#getOperations
+	 * <em>Operations</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Operations</em>'.
+	 * @see com.rcpcompany.uibindings.compositeform.ICompositeFormPart#getOperations()
+	 * @see #getCompositeFormPart()
+	 * @generated
+	 */
+	EAttribute getCompositeFormPart_Operations();
+
+	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.compositeform.ICompositeFormPart#getFormCreator
+	 * <em>Form Creator</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Form Creator</em>'.
+	 * @see com.rcpcompany.uibindings.compositeform.ICompositeFormPart#getFormCreator()
+	 * @see #getCompositeFormPart()
+	 * @generated
+	 */
+	EAttribute getCompositeFormPart_FormCreator();
+
+	/**
 	 * Returns the meta object for data type '
 	 * {@link com.rcpcompany.uibindings.compositeform.ICompositeFormPartFactory
 	 * <em>IComposite Form Part Factory</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -545,6 +660,17 @@ public interface ICompositeFormPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getICompositeFormPartFactory();
+
+	/**
+	 * Returns the meta object for data type '
+	 * {@link com.rcpcompany.uibindings.compositeform.ICompositeFormPartOperations
+	 * <em>IComposite Form Part Operations</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '<em>IComposite Form Part Operations</em>'.
+	 * @see com.rcpcompany.uibindings.compositeform.ICompositeFormPartOperations
+	 * @generated
+	 */
+	EDataType getICompositeFormPartOperations();
 
 	/**
 	 * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!--
@@ -642,12 +768,12 @@ public interface ICompositeFormPackage extends EPackage {
 		EReference COMPOSITE_FORM__DESCRIPTOR = eINSTANCE.getCompositeForm_Descriptor();
 
 		/**
-		 * The meta object literal for the '<em><b>Form</b></em>' attribute feature. <!--
+		 * The meta object literal for the '<em><b>Form Creator</b></em>' attribute feature. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		EAttribute COMPOSITE_FORM__FORM = eINSTANCE.getCompositeForm_Form();
+		EAttribute COMPOSITE_FORM__FORM_CREATOR = eINSTANCE.getCompositeForm_FormCreator();
 
 		/**
 		 * The meta object literal for the '<em><b>Parts</b></em>' containment reference list
@@ -736,12 +862,52 @@ public interface ICompositeFormPackage extends EPackage {
 		EReference COMPOSITE_FORM_PART__DESCRIPTOR = eINSTANCE.getCompositeFormPart_Descriptor();
 
 		/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute COMPOSITE_FORM_PART__TITLE = eINSTANCE.getCompositeFormPart_Title();
+
+		/**
+		 * The meta object literal for the '<em><b>Image</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute COMPOSITE_FORM_PART__IMAGE = eINSTANCE.getCompositeFormPart_Image();
+
+		/**
 		 * The meta object literal for the '<em><b>Enabled</b></em>' attribute feature. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
 		EAttribute COMPOSITE_FORM_PART__ENABLED = eINSTANCE.getCompositeFormPart_Enabled();
+
+		/**
+		 * The meta object literal for the '<em><b>Open</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute COMPOSITE_FORM_PART__OPEN = eINSTANCE.getCompositeFormPart_Open();
+
+		/**
+		 * The meta object literal for the '<em><b>Operations</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute COMPOSITE_FORM_PART__OPERATIONS = eINSTANCE.getCompositeFormPart_Operations();
+
+		/**
+		 * The meta object literal for the '<em><b>Form Creator</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute COMPOSITE_FORM_PART__FORM_CREATOR = eINSTANCE.getCompositeFormPart_FormCreator();
 
 		/**
 		 * The meta object literal for the '<em>IComposite Form Part Factory</em>' data type. <!--
@@ -752,6 +918,16 @@ public interface ICompositeFormPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType ICOMPOSITE_FORM_PART_FACTORY = eINSTANCE.getICompositeFormPartFactory();
+
+		/**
+		 * The meta object literal for the '<em>IComposite Form Part Operations</em>' data type.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see com.rcpcompany.uibindings.compositeform.ICompositeFormPartOperations
+		 * @see com.rcpcompany.uibindings.internal.compositeform.CompositeFormPackageImpl#getICompositeFormPartOperations()
+		 * @generated
+		 */
+		EDataType ICOMPOSITE_FORM_PART_OPERATIONS = eINSTANCE.getICompositeFormPartOperations();
 
 	}
 

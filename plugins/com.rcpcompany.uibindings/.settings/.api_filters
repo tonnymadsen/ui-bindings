@@ -8,14 +8,6 @@
             </message_arguments>
         </filter>
     </resource>
-    <resource path="src/com/rcpcompany/uibindings/compositeform/AbstractCompositeFormPart.java" type="com.rcpcompany.uibindings.compositeform.AbstractCompositeFormPart">
-        <filter comment="Abstract public version of EMF" id="576720909">
-            <message_arguments>
-                <message_argument value="CompositeFormPartImpl"/>
-                <message_argument value="AbstractCompositeFormPart"/>
-            </message_arguments>
-        </filter>
-    </resource>
     <resource path="src/com/rcpcompany/uibindings/decorators/BaseUIBindingDecorator.java" type="com.rcpcompany.uibindings.decorators.BaseUIBindingDecorator">
         <filter comment="Abstract public version of EMF" id="576720909">
             <message_arguments>

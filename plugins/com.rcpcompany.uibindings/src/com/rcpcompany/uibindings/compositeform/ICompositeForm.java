@@ -20,7 +20,8 @@ import com.rcpcompany.uibindings.utils.IFormCreator;
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.compositeform.ICompositeForm#getDescriptor <em>Descriptor
  * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.compositeform.ICompositeForm#getForm <em>Form</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.compositeform.ICompositeForm#getFormCreator <em>Form Creator
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.compositeform.ICompositeForm#getParts <em>Parts</em>}</li>
  * </ul>
  * </p>
@@ -56,29 +57,30 @@ public interface ICompositeForm extends EObject {
 	void setDescriptor(ICompositeFormDescriptor value);
 
 	/**
-	 * Returns the value of the '<em><b>Form</b></em>' attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Form Creator</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Form</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Form Creator</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Form</em>' attribute.
-	 * @see #setForm(IFormCreator)
-	 * @see com.rcpcompany.uibindings.compositeform.ICompositeFormPackage#getCompositeForm_Form()
+	 * @return the value of the '<em>Form Creator</em>' attribute.
+	 * @see #setFormCreator(IFormCreator)
+	 * @see com.rcpcompany.uibindings.compositeform.ICompositeFormPackage#getCompositeForm_FormCreator()
 	 * @generated
 	 */
-	IFormCreator getForm();
+	IFormCreator getFormCreator();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.compositeform.ICompositeForm#getForm
-	 * <em>Form</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '
+	 * {@link com.rcpcompany.uibindings.compositeform.ICompositeForm#getFormCreator
+	 * <em>Form Creator</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @param value the new value of the '<em>Form</em>' attribute.
-	 * @see #getForm()
+	 * @param value the new value of the '<em>Form Creator</em>' attribute.
+	 * @see #getFormCreator()
 	 * @generated
 	 */
-	void setForm(IFormCreator value);
+	void setFormCreator(IFormCreator value);
 
 	/**
 	 * Returns the value of the '<em><b>Parts</b></em>' containment reference list. The list

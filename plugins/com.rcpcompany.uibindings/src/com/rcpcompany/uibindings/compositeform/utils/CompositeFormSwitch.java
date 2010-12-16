@@ -99,17 +99,17 @@ public class CompositeFormSwitch<T> {
 			}
 			return result;
 		}
-		case ICompositeFormPackage.COMPOSITE_FORM: {
-			final ICompositeForm compositeForm = (ICompositeForm) theEObject;
-			T result = caseCompositeForm(compositeForm);
+		case ICompositeFormPackage.COMPOSITE_FORM_PART_DESCRIPTOR: {
+			final ICompositeFormPartDescriptor compositeFormPartDescriptor = (ICompositeFormPartDescriptor) theEObject;
+			T result = caseCompositeFormPartDescriptor(compositeFormPartDescriptor);
 			if (result == null) {
 				result = defaultCase(theEObject);
 			}
 			return result;
 		}
-		case ICompositeFormPackage.COMPOSITE_FORM_PART_DESCRIPTOR: {
-			final ICompositeFormPartDescriptor compositeFormPartDescriptor = (ICompositeFormPartDescriptor) theEObject;
-			T result = caseCompositeFormPartDescriptor(compositeFormPartDescriptor);
+		case ICompositeFormPackage.COMPOSITE_FORM: {
+			final ICompositeForm compositeForm = (ICompositeForm) theEObject;
+			T result = caseCompositeForm(compositeForm);
 			if (result == null) {
 				result = defaultCase(theEObject);
 			}

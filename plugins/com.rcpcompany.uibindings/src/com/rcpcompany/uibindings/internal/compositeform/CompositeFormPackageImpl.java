@@ -23,6 +23,7 @@ import com.rcpcompany.uibindings.compositeform.ICompositeFormPackage;
 import com.rcpcompany.uibindings.compositeform.ICompositeFormPart;
 import com.rcpcompany.uibindings.compositeform.ICompositeFormPartDescriptor;
 import com.rcpcompany.uibindings.compositeform.ICompositeFormPartFactory;
+import com.rcpcompany.uibindings.compositeform.ICompositeFormPartOperations;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
@@ -71,6 +72,13 @@ public class CompositeFormPackageImpl extends EPackageImpl implements IComposite
 	 * @generated
 	 */
 	private EDataType iCompositeFormPartFactoryEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EDataType iCompositeFormPartOperationsEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -225,7 +233,7 @@ public class CompositeFormPackageImpl extends EPackageImpl implements IComposite
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCompositeForm_Form() {
+	public EAttribute getCompositeForm_FormCreator() {
 		return (EAttribute) compositeFormEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -335,8 +343,58 @@ public class CompositeFormPackageImpl extends EPackageImpl implements IComposite
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCompositeFormPart_Enabled() {
+	public EAttribute getCompositeFormPart_Title() {
 		return (EAttribute) compositeFormPartEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCompositeFormPart_Image() {
+		return (EAttribute) compositeFormPartEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCompositeFormPart_Enabled() {
+		return (EAttribute) compositeFormPartEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCompositeFormPart_Open() {
+		return (EAttribute) compositeFormPartEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCompositeFormPart_Operations() {
+		return (EAttribute) compositeFormPartEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCompositeFormPart_FormCreator() {
+		return (EAttribute) compositeFormPartEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -347,6 +405,16 @@ public class CompositeFormPackageImpl extends EPackageImpl implements IComposite
 	@Override
 	public EDataType getICompositeFormPartFactory() {
 		return iCompositeFormPartFactoryEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EDataType getICompositeFormPartOperations() {
+		return iCompositeFormPartOperationsEDataType;
 	}
 
 	/**
@@ -385,11 +453,6 @@ public class CompositeFormPackageImpl extends EPackageImpl implements IComposite
 		createEAttribute(compositeFormDescriptorEClass, COMPOSITE_FORM_DESCRIPTOR__ID);
 		createEReference(compositeFormDescriptorEClass, COMPOSITE_FORM_DESCRIPTOR__PARTS);
 
-		compositeFormEClass = createEClass(COMPOSITE_FORM);
-		createEReference(compositeFormEClass, COMPOSITE_FORM__DESCRIPTOR);
-		createEAttribute(compositeFormEClass, COMPOSITE_FORM__FORM);
-		createEReference(compositeFormEClass, COMPOSITE_FORM__PARTS);
-
 		compositeFormPartDescriptorEClass = createEClass(COMPOSITE_FORM_PART_DESCRIPTOR);
 		createEReference(compositeFormPartDescriptorEClass, COMPOSITE_FORM_PART_DESCRIPTOR__FORM);
 		createEAttribute(compositeFormPartDescriptorEClass, COMPOSITE_FORM_PART_DESCRIPTOR__PRIORITY);
@@ -397,13 +460,24 @@ public class CompositeFormPackageImpl extends EPackageImpl implements IComposite
 		createEAttribute(compositeFormPartDescriptorEClass, COMPOSITE_FORM_PART_DESCRIPTOR__IMAGE);
 		createEAttribute(compositeFormPartDescriptorEClass, COMPOSITE_FORM_PART_DESCRIPTOR__FACTORY);
 
+		compositeFormEClass = createEClass(COMPOSITE_FORM);
+		createEReference(compositeFormEClass, COMPOSITE_FORM__DESCRIPTOR);
+		createEAttribute(compositeFormEClass, COMPOSITE_FORM__FORM_CREATOR);
+		createEReference(compositeFormEClass, COMPOSITE_FORM__PARTS);
+
 		compositeFormPartEClass = createEClass(COMPOSITE_FORM_PART);
 		createEReference(compositeFormPartEClass, COMPOSITE_FORM_PART__FORM);
 		createEReference(compositeFormPartEClass, COMPOSITE_FORM_PART__DESCRIPTOR);
+		createEAttribute(compositeFormPartEClass, COMPOSITE_FORM_PART__TITLE);
+		createEAttribute(compositeFormPartEClass, COMPOSITE_FORM_PART__IMAGE);
 		createEAttribute(compositeFormPartEClass, COMPOSITE_FORM_PART__ENABLED);
+		createEAttribute(compositeFormPartEClass, COMPOSITE_FORM_PART__OPEN);
+		createEAttribute(compositeFormPartEClass, COMPOSITE_FORM_PART__OPERATIONS);
+		createEAttribute(compositeFormPartEClass, COMPOSITE_FORM_PART__FORM_CREATOR);
 
 		// Create data types
 		iCompositeFormPartFactoryEDataType = createEDataType(ICOMPOSITE_FORM_PART_FACTORY);
+		iCompositeFormPartOperationsEDataType = createEDataType(ICOMPOSITE_FORM_PART_OPERATIONS);
 	}
 
 	/**
@@ -460,18 +534,6 @@ public class CompositeFormPackageImpl extends EPackageImpl implements IComposite
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(compositeFormEClass, ICompositeForm.class, "CompositeForm", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCompositeForm_Descriptor(), this.getCompositeFormDescriptor(), null, "descriptor", null, 1,
-				1, ICompositeForm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCompositeForm_Form(), theUIBindingsPackage.getFormCreator(), "form", null, 0, 1,
-				ICompositeForm.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEReference(getCompositeForm_Parts(), this.getCompositeFormPart(), this.getCompositeFormPart_Form(),
-				"parts", null, 0, -1, ICompositeForm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(compositeFormPartDescriptorEClass, ICompositeFormPartDescriptor.class,
 				"CompositeFormPartDescriptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCompositeFormPartDescriptor_Form(), this.getCompositeFormDescriptor(),
@@ -494,7 +556,19 @@ public class CompositeFormPackageImpl extends EPackageImpl implements IComposite
 				ICompositeFormPartDescriptor.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(compositeFormPartEClass, ICompositeFormPart.class, "CompositeFormPart", IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(compositeFormEClass, ICompositeForm.class, "CompositeForm", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCompositeForm_Descriptor(), this.getCompositeFormDescriptor(), null, "descriptor", null, 1,
+				1, ICompositeForm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCompositeForm_FormCreator(), theUIBindingsPackage.getFormCreator(), "formCreator", null, 1,
+				1, ICompositeForm.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getCompositeForm_Parts(), this.getCompositeFormPart(), this.getCompositeFormPart_Form(),
+				"parts", null, 0, -1, ICompositeForm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(compositeFormPartEClass, ICompositeFormPart.class, "CompositeFormPart", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCompositeFormPart_Form(), this.getCompositeForm(), this.getCompositeForm_Parts(), "form",
 				null, 1, 1, ICompositeFormPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
@@ -502,13 +576,30 @@ public class CompositeFormPackageImpl extends EPackageImpl implements IComposite
 		initEReference(getCompositeFormPart_Descriptor(), this.getCompositeFormPartDescriptor(), null, "descriptor",
 				null, 1, 1, ICompositeFormPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCompositeFormPart_Enabled(), ecorePackage.getEBoolean(), "enabled", null, 1, 1,
+		initEAttribute(getCompositeFormPart_Title(), ecorePackage.getEString(), "title", null, 1, 1,
+				ICompositeFormPart.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCompositeFormPart_Image(), theUIBindingsPackage.getImage(), "image", null, 0, 1,
+				ICompositeFormPart.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCompositeFormPart_Enabled(), ecorePackage.getEBoolean(), "enabled", "true", 1, 1,
 				ICompositeFormPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCompositeFormPart_Open(), ecorePackage.getEBoolean(), "open", "true", 1, 1,
+				ICompositeFormPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCompositeFormPart_Operations(), this.getICompositeFormPartOperations(), "operations", null,
+				1, 1, ICompositeFormPart.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCompositeFormPart_FormCreator(), theUIBindingsPackage.getFormCreator(), "formCreator", null,
+				1, 1, ICompositeFormPart.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(iCompositeFormPartFactoryEDataType, ICompositeFormPartFactory.class, "ICompositeFormPartFactory",
 				!IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(iCompositeFormPartOperationsEDataType, ICompositeFormPartOperations.class,
+				"ICompositeFormPartOperations", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

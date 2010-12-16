@@ -25,7 +25,8 @@ public class DefaultEObjectInitializer implements IInitializationParticipant {
 		for (final EStructuralFeature sf : cls.getEAllStructuralFeatures()) {
 			final IBindingDataType dt = IBindingDataType.Factory.create(context.getObject().eClass(), sf);
 
-			final IInitializationParticipant initializer = dt.getArgument(Constants.ARG_INITIALIZER, null, IInitializationParticipant.class, null);
+			final IInitializationParticipant initializer = dt.getArgument(Constants.ARG_INITIALIZER, null,
+					IInitializationParticipant.class, null);
 			if (initializer != null) {
 				try {
 					initializer.initialize(context, sf);

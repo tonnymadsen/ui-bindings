@@ -2255,7 +2255,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			}
 		} else if (argumentType == IInitializationParticipant.class) {
 			try {
-				final IInitializationParticipant adapter = (IInitializationParticipant) ce.createExecutableExtension(attributeName);
+				final IInitializationParticipant adapter = (IInitializationParticipant) ce
+						.createExecutableExtension(attributeName);
 				return (ArgumentType) adapter;
 			} catch (final CoreException ex) {
 				LogUtils.error(ce, ex);
@@ -3301,7 +3302,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		final EClass eClass = child.eClass();
 		final IBindingDataType dt = IBindingDataType.Factory.create(null, eClass);
 
-		final IInitializationParticipant initializer = dt.getArgument(Constants.ARG_INITIALIZER, null, IInitializationParticipant.class, null);
+		final IInitializationParticipant initializer = dt.getArgument(Constants.ARG_INITIALIZER, null,
+				IInitializationParticipant.class, null);
 
 		if (initializer == null) return null;
 
