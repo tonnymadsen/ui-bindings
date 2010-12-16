@@ -7,11 +7,13 @@
 package com.rcpcompany.uibindings.internal.compositeform;
 
 import java.util.Collection;
+import java.util.Comparator;
 
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -70,7 +72,7 @@ public class CompositeFormManagerImpl extends EObjectImpl implements ICompositeF
 		for (final ICompositeFormDescriptor fd : getManager().getForms()) {
 			if (fd.getId().equals(id)) {
 				final ICompositeForm cform = ICompositeFormFactory.eINSTANCE.createCompositeForm();
-				cform.setForm(form);
+				cform.setFormCreator(form);
 				cform.setDescriptor(fd);
 				cform.create();
 
@@ -172,6 +174,20 @@ public class CompositeFormManagerImpl extends EObjectImpl implements ICompositeF
 				LogUtils.error(ce, "Unknown tag: '" + ce.getName() + "'");
 			}
 		}
+
+		/*
+		 * Sort the parts of the forms
+		 */
+		final Comparator<ICompositeFormPartDescriptor> comparator = new Comparator<ICompositeFormPartDescriptor>() {
+			@Override
+			public int compare(ICompositeFormPartDescriptor o1, ICompositeFormPartDescriptor o2) {
+				return o2.getPriority() - o1.getPriority();
+			}
+		};
+		for (final ICompositeFormDescriptor form : getForms()) {
+			ECollections.sort(form.getParts(), comparator);
+		}
+
 	}
 
 	/**

@@ -7,11 +7,9 @@
 package com.rcpcompany.uibindings.internal.compositeform;
 
 import java.util.Collection;
-import java.util.Comparator;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -22,10 +20,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import com.rcpcompany.uibindings.compositeform.ICompositeForm;
 import com.rcpcompany.uibindings.compositeform.ICompositeFormDescriptor;
+import com.rcpcompany.uibindings.compositeform.ICompositeFormFactory;
 import com.rcpcompany.uibindings.compositeform.ICompositeFormPackage;
 import com.rcpcompany.uibindings.compositeform.ICompositeFormPart;
 import com.rcpcompany.uibindings.compositeform.ICompositeFormPartDescriptor;
 import com.rcpcompany.uibindings.compositeform.ICompositeFormPartFactory;
+import com.rcpcompany.uibindings.compositeform.ICompositeFormPartOperations;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -37,8 +37,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.internal.compositeform.CompositeFormImpl#getDescriptor <em>
  * Descriptor</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.compositeform.CompositeFormImpl#getForm <em>Form
- * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.compositeform.CompositeFormImpl#getFormCreator <em>
+ * Form Creator</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.compositeform.CompositeFormImpl#getParts <em>Parts
  * </em>}</li>
  * </ul>
@@ -58,24 +58,24 @@ public class CompositeFormImpl extends EObjectImpl implements ICompositeForm {
 	protected ICompositeFormDescriptor descriptor;
 
 	/**
-	 * The default value of the '{@link #getForm() <em>Form</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getFormCreator() <em>Form Creator</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @see #getForm()
+	 * @see #getFormCreator()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final IFormCreator FORM_EDEFAULT = null;
+	protected static final IFormCreator FORM_CREATOR_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getForm() <em>Form</em>}' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getFormCreator() <em>Form Creator</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @see #getForm()
+	 * @see #getFormCreator()
 	 * @generated
 	 * @ordered
 	 */
-	protected IFormCreator form = FORM_EDEFAULT;
+	protected IFormCreator formCreator = FORM_CREATOR_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getParts() <em>Parts</em>}' containment reference list. <!--
@@ -102,31 +102,40 @@ public class CompositeFormImpl extends EObjectImpl implements ICompositeForm {
 		 * First create all parts of the form
 		 */
 		for (final ICompositeFormPartDescriptor pd : getDescriptor().getParts()) {
-			final ICompositeFormPartFactory factory = pd.getFactory().getObject();
-			ICompositeFormPart part = null;
+			ICompositeFormPartFactory factory = null;
+			try {
+				factory = pd.getFactory().getObject();
+			} catch (final Exception ex) {
+				continue;
+			}
+			final ICompositeFormPart part = ICompositeFormFactory.eINSTANCE.createCompositeFormPart();
+			part.setDescriptor(pd);
+			part.setForm(this);
+			part.setTitle(pd.getTitle());
+			part.setImage(pd.getImage().getImage());
+			part.setFormCreator(getFormCreator().subForm(getFormCreator().addComposite()));
 
 			try {
-				part = factory.create(this);
+				final ICompositeFormPartOperations operations = factory.create(part);
+				if (operations == null) {
+					LogUtils.error(pd.getFactory().getConfigurationElement(), "Factory returns null... Part ignored.");
+					continue;
+				}
+				part.setOperations(operations);
 			} catch (final Exception ex) {
 				LogUtils.error(pd.getFactory().getConfigurationElement(), ex);
 				continue;
 			}
-			part.setDescriptor(pd);
 
 			getParts().add(part);
 		}
 
-		/**
-		 * Sort the parts...
+		/*
+		 * Now create the parts as needed
 		 */
-		ECollections.sort(getParts(), new Comparator<ICompositeFormPart>() {
-			@Override
-			public int compare(ICompositeFormPart o1, ICompositeFormPart o2) {
-				return o1.getDescriptor().getPriority() - o2.getDescriptor().getPriority();
-			}
-		});
-
-		// TODO
+		for (final ICompositeFormPart p : getParts()) {
+			p.updateUI();
+		}
 	}
 
 	/**
@@ -170,8 +179,8 @@ public class CompositeFormImpl extends EObjectImpl implements ICompositeForm {
 	 * @generated
 	 */
 	@Override
-	public IFormCreator getForm() {
-		return form;
+	public IFormCreator getFormCreator() {
+		return formCreator;
 	}
 
 	/**
@@ -180,12 +189,12 @@ public class CompositeFormImpl extends EObjectImpl implements ICompositeForm {
 	 * @generated
 	 */
 	@Override
-	public void setForm(IFormCreator newForm) {
-		final IFormCreator oldForm = form;
-		form = newForm;
+	public void setFormCreator(IFormCreator newFormCreator) {
+		final IFormCreator oldFormCreator = formCreator;
+		formCreator = newFormCreator;
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, ICompositeFormPackage.COMPOSITE_FORM__FORM, oldForm,
-					form));
+			eNotify(new ENotificationImpl(this, Notification.SET, ICompositeFormPackage.COMPOSITE_FORM__FORM_CREATOR,
+					oldFormCreator, formCreator));
 		}
 	}
 
@@ -242,8 +251,8 @@ public class CompositeFormImpl extends EObjectImpl implements ICompositeForm {
 		switch (featureID) {
 		case ICompositeFormPackage.COMPOSITE_FORM__DESCRIPTOR:
 			return getDescriptor();
-		case ICompositeFormPackage.COMPOSITE_FORM__FORM:
-			return getForm();
+		case ICompositeFormPackage.COMPOSITE_FORM__FORM_CREATOR:
+			return getFormCreator();
 		case ICompositeFormPackage.COMPOSITE_FORM__PARTS:
 			return getParts();
 		}
@@ -262,8 +271,8 @@ public class CompositeFormImpl extends EObjectImpl implements ICompositeForm {
 		case ICompositeFormPackage.COMPOSITE_FORM__DESCRIPTOR:
 			setDescriptor((ICompositeFormDescriptor) newValue);
 			return;
-		case ICompositeFormPackage.COMPOSITE_FORM__FORM:
-			setForm((IFormCreator) newValue);
+		case ICompositeFormPackage.COMPOSITE_FORM__FORM_CREATOR:
+			setFormCreator((IFormCreator) newValue);
 			return;
 		case ICompositeFormPackage.COMPOSITE_FORM__PARTS:
 			getParts().clear();
@@ -284,8 +293,8 @@ public class CompositeFormImpl extends EObjectImpl implements ICompositeForm {
 		case ICompositeFormPackage.COMPOSITE_FORM__DESCRIPTOR:
 			setDescriptor((ICompositeFormDescriptor) null);
 			return;
-		case ICompositeFormPackage.COMPOSITE_FORM__FORM:
-			setForm(FORM_EDEFAULT);
+		case ICompositeFormPackage.COMPOSITE_FORM__FORM_CREATOR:
+			setFormCreator(FORM_CREATOR_EDEFAULT);
 			return;
 		case ICompositeFormPackage.COMPOSITE_FORM__PARTS:
 			getParts().clear();
@@ -304,8 +313,8 @@ public class CompositeFormImpl extends EObjectImpl implements ICompositeForm {
 		switch (featureID) {
 		case ICompositeFormPackage.COMPOSITE_FORM__DESCRIPTOR:
 			return descriptor != null;
-		case ICompositeFormPackage.COMPOSITE_FORM__FORM:
-			return FORM_EDEFAULT == null ? form != null : !FORM_EDEFAULT.equals(form);
+		case ICompositeFormPackage.COMPOSITE_FORM__FORM_CREATOR:
+			return FORM_CREATOR_EDEFAULT == null ? formCreator != null : !FORM_CREATOR_EDEFAULT.equals(formCreator);
 		case ICompositeFormPackage.COMPOSITE_FORM__PARTS:
 			return parts != null && !parts.isEmpty();
 		}
@@ -322,8 +331,8 @@ public class CompositeFormImpl extends EObjectImpl implements ICompositeForm {
 		if (eIsProxy()) return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (form: ");
-		result.append(form);
+		result.append(" (formCreator: ");
+		result.append(formCreator);
 		result.append(')');
 		return result.toString();
 	}

@@ -688,5 +688,55 @@
          </argument>
        </model>
    </extension>
+   <extension
+         point="com.rcpcompany.uibindings.compositeForms">
+      <form
+            id="com.rcpcompany.uibindings.tests.compositeForms.form1">
+      </form>
+      <part
+            factory="com.rcpcompany.uibindings.extests.compositeForms.CompositeFormBasicTests$TopFactory"
+            formID="com.rcpcompany.uibindings.tests.compositeForms.form1"
+            image="icons/add_correction.gif"
+            priority="1000"
+            title="Top"/>
+      <part
+            factory="com.rcpcompany.uibindings.extests.compositeForms.CompositeFormBasicTests$BottonFactory"
+            formID="com.rcpcompany.uibindings.tests.compositeForms.form1"
+            image="icons/add_correction.gif"
+            priority="1"
+            title="Botton">
+      </part>
+  
+      <part
+            factory="com.rcpcompany.uibindings.extests.compositeForms.CompositeFormBasicTests$MiddleFactory"
+            formID="com.rcpcompany.uibindings.tests.compositeForms.form1"
+            image="icons/add_correction.gif"
+            priority="100"
+            title="Middle"/>
+
+      <form
+            id="com.rcpcompany.uibindings.tests.compositeForms.create">
+      </form>
+      <part
+            factory="com.rcpcompany.uibindings.extests.compositeForms.CompositeFormCreateTests$Factory1"
+            formID="com.rcpcompany.uibindings.tests.compositeForms.create"
+            image="icons/add_correction.gif"
+            priority="1000"
+            title="1"/>
+      <part
+            factory="com.rcpcompany.uibindings.extests.compositeForms.CompositeFormCreateTests$Factory3"
+            formID="com.rcpcompany.uibindings.tests.compositeForms.create"
+            image="icons/add_correction.gif"
+            priority="1"
+            title="3">
+      </part>
+  
+      <part
+            factory="com.rcpcompany.uibindings.extests.compositeForms.CompositeFormCreateTests$Factory2"
+            formID="com.rcpcompany.uibindings.tests.compositeForms.create"
+            image="icons/add_correction.gif"
+            priority="100"
+            title="2"/>
+   </extension>
 
 </fragment>

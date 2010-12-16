@@ -13,12 +13,12 @@ package com.rcpcompany.uibindings.compositeform;
  */
 public interface ICompositeFormPartFactory {
 	/**
-	 * Creates and returns a new part for the specified form.
+	 * Creates and returns a new set of operations for the specified part.
 	 * <p>
-	 * the part will be added to the part automatically.
+	 * The operations will be set on the part automatically.
 	 * 
-	 * @param form the form of the new part
-	 * @return the created part
+	 * @param part the part
+	 * @return the created operations
 	 */
-	ICompositeFormPart create(ICompositeForm form);
+	ICompositeFormPartOperations create(ICompositeFormPart part);
 }

@@ -34,6 +34,8 @@ import com.rcpcompany.uibindings.extests.bindings.PreferredCellEditorFactoryTest
 import com.rcpcompany.uibindings.extests.bindings.ReadonlyTest;
 import com.rcpcompany.uibindings.extests.bindings.SimplePreferredCellEditorTest;
 import com.rcpcompany.uibindings.extests.bindings.extenders.EnumImageExtenderTest;
+import com.rcpcompany.uibindings.extests.compositeForms.CompositeFormBasicTests;
+import com.rcpcompany.uibindings.extests.compositeForms.CompositeFormCreateTests;
 import com.rcpcompany.uibindings.extests.contexts.ContextActivationTest;
 import com.rcpcompany.uibindings.extests.cutCopyPaste.CopyPasteInViewerTest;
 import com.rcpcompany.uibindings.extests.decoratorProviders.DecoratorProviderTest;
@@ -395,6 +397,11 @@ PluginTest.class, PluginConfTest.class, PluginSpecificationTest.class, FragmentT
 		ManagerRunnableManagerTests.class, ClipboardConverterManagerTests.class,
 
 		ExtendedCommandStackTests.class, FeatureListMonitorTests.class,
+
+		/*
+		 * Composite Forms
+		 */
+		CompositeFormBasicTests.class, CompositeFormCreateTests.class,
 
 		/*
 		 * Cut, copy and paste
