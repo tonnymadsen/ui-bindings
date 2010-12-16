@@ -236,9 +236,14 @@ public class FormChooser implements IFormChooser {
 	 * Removes all children from the top composite.
 	 */
 	protected void removeChild() {
-		final Control[] children = myTop.getChildren();
-		for (int i = children.length - 1; i >= 0; i--) {
-			children[i].dispose();
+		try {
+			myTop.setRedraw(false);
+			final Control[] children = myTop.getChildren();
+			for (int i = children.length - 1; i >= 0; i--) {
+				children[i].dispose();
+			}
+		} finally {
+			myTop.setRedraw(true);
 		}
 		myCurrentCreator = null;
 		if (myChildDiscriminant != null) {
