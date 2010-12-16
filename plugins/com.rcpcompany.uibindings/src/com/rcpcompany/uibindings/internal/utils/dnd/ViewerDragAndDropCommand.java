@@ -22,11 +22,9 @@ import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
-import com.rcpcompany.uibindings.EcoreExtUtils;
 import com.rcpcompany.uibindings.IChildCreationSpecification;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.UIBindingsUtils;
-import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Implementation of a drag 'n drop command.
@@ -670,8 +668,9 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 
 	@Override
 	public void execute() {
-		LogUtils.debug(this,
-				"\ndrag=" + EcoreExtUtils.toString(myDragCommand) + "\ndrop=" + EcoreExtUtils.toString(myDropCommand));
+		// LogUtils.debug(this,
+		// "\ndrag=" + EcoreExtUtils.toString(myDragCommand) + "\ndrop=" +
+		// EcoreExtUtils.toString(myDropCommand));
 
 		if (myDropCommand.canExecute() && !isDragCommandExecuted) {
 			myDragCommand.execute();
