@@ -359,6 +359,12 @@
          id="com.rcpcompany.uibindings.example.application.pages.editors"
          name="Editors">
    </page>
+   <page
+         category="com.rcpcompany.uibindings.example.application.pages.basic"
+         class="com.rcpcompany.uibindings.UIBindingPreferences:highlightPreferencePage"
+         id="com.rcpcompany.uibindings.example.application.pages.highlight"
+         name="High Lighting">
+   </page>
 </extension>
 
 </fragment>
