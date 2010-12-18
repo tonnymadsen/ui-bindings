@@ -291,9 +291,12 @@ public class BindingHighlightContext implements IBindingHighlightContext {
 	private final List<IBindingSelector> myDetails = new ArrayList<IBindingSelector>();
 	private IEffect myEffect = null;
 	private DEACTIVATION_POLICY myDeactivationPolicy = DEACTIVATION_POLICY.TIMED;
-	private int myFadeInTime = DEFAULT_FADE_IN_TIME;
-	private int myFadeOutTime = DEFAULT_FADE_OUT_TIME;
-	private int myDeactivationTime = DEFAULT_ACTIVE_TIME;
+	private int myFadeInTime = Activator.getDefault().getPreferenceStore()
+			.getInt(Constants.PREF_HIGHLIGHT_FADE_IN_TIME);
+	private int myFadeOutTime = Activator.getDefault().getPreferenceStore()
+			.getInt(Constants.PREF_HIGHLIGHT_FADE_OUT_TIME);
+	private int myDeactivationTime = Activator.getDefault().getPreferenceStore()
+			.getInt(Constants.PREF_HIGHLIGHT_ACTIVE_TIME);
 
 	private Runnable myDeactivationRunnable;
 

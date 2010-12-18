@@ -37,7 +37,7 @@ public class CompositeFormBasicTests {
 
 		final EList<ICompositeFormDescriptor> forms = m.getForms();
 		assertNotNull(forms);
-		assertEquals(1, forms.size());
+		assertEquals(2, forms.size());
 
 		ICompositeFormDescriptor fd = null;
 

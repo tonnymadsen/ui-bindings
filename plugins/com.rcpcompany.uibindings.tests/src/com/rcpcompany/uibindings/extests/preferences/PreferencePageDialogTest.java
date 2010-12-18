@@ -23,13 +23,27 @@ import org.junit.Test;
 
 public class PreferencePageDialogTest {
 	@Test
-	public void testPage() {
+	public void testPageBasic() {
+		test("com.rcpcompany.uibindings.example.application.pages.basic");
+	}
+
+	@Test
+	public void testPageValidation() {
+		test("com.rcpcompany.uibindings.example.application.pages.validation");
+	}
+
+	@Test
+	public void testPageHighlight() {
+		test("com.rcpcompany.uibindings.example.application.pages.highlight");
+	}
+
+	public void test(String pageId) {
 		try {
 			final IWorkbench workbench = PlatformUI.getWorkbench();
 			final Shell[] shells = workbench.getDisplay().getShells();
 			final ICommandService cs = (ICommandService) workbench.getService(ICommandService.class);
-			final ParameterizedCommand command = cs
-					.deserialize("org.eclipse.ui.window.preferences(preferencePageId=com.rcpcompany.uibindings.example.application.pages.basic)");
+			final ParameterizedCommand command = cs.deserialize("org.eclipse.ui.window.preferences(preferencePageId="
+					+ pageId + ")");
 			assertNotNull(command);
 
 			final IHandlerService hs = (IHandlerService) workbench.getService(IHandlerService.class);

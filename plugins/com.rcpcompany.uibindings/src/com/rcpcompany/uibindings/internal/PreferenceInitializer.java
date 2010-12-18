@@ -14,6 +14,7 @@ import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.jface.preference.IPreferenceStore;
 
 import com.rcpcompany.uibindings.UIBindingPreferences;
+import com.rcpcompany.uibindings.utils.IBindingHighlightContext;
 
 /**
  * Setup of the preference defaults...
@@ -58,5 +59,12 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 				ManagerImpl.VIEW_NAVIGATION_RECORDED_EDEFAULT);
 		preferenceStore.setDefault(UIBindingPreferences.PREF_DELETE_HANDLER_CHECK_ENABLED,
 				ManagerImpl.DELETE_HANDLER_CHECK_ENABLED_EDEFAULT);
+
+		preferenceStore.setDefault(UIBindingPreferences.PREF_HIGHLIGHT_FADE_IN_TIME,
+				IBindingHighlightContext.DEFAULT_FADE_IN_TIME);
+		preferenceStore.setDefault(UIBindingPreferences.PREF_HIGHLIGHT_FADE_OUT_TIME,
+				IBindingHighlightContext.DEFAULT_FADE_OUT_TIME);
+		preferenceStore.setDefault(UIBindingPreferences.PREF_HIGHLIGHT_ACTIVE_TIME,
+				IBindingHighlightContext.DEFAULT_ACTIVE_TIME);
 	}
 }

@@ -93,6 +93,7 @@ import com.rcpcompany.uibindings.extests.observables.ViewerBindingTreeFactoryTes
 import com.rcpcompany.uibindings.extests.observables.getset.BasicSetTestValue;
 import com.rcpcompany.uibindings.extests.observables.getset.BasicSetTestViewer;
 import com.rcpcompany.uibindings.extests.preferences.PreferencePageDialogTest;
+import com.rcpcompany.uibindings.extests.preferences.UIBindingPreferencesTest;
 import com.rcpcompany.uibindings.extests.propertyTesters.EStructuralFeaturePropertyTesterTests;
 import com.rcpcompany.uibindings.extests.quickfixes.BasicQuickfixTest;
 import com.rcpcompany.uibindings.extests.quickfixes.DirectoryNameQuickfixTest;
@@ -417,7 +418,9 @@ PluginTest.class, PluginConfTest.class, PluginSpecificationTest.class, FragmentT
 		/*
 		 * Dialogs, Views
 		 */
-		PreferencePageDialogTest.class, SpyDialogTest.class, ValidationViewTest.class, CommandToStringTest.class,
+		PreferencePageDialogTest.class, UIBindingPreferencesTest.class,
+
+		SpyDialogTest.class, ValidationViewTest.class, CommandToStringTest.class,
 
 		/*
 		 * Script Engine
