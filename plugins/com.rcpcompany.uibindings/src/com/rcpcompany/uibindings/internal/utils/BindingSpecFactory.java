@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EReference;
@@ -30,7 +31,7 @@ import org.eclipse.swt.widgets.Display;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.utils.IBindingSpec;
 import com.rcpcompany.uibindings.utils.IBindingSpec.BaseType;
-import com.rcpcompany.uibindings.utils.IBindingSpec.Context;
+import com.rcpcompany.uibindings.utils.IBindingSpec.SpecContext;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -136,381 +137,366 @@ public final class BindingSpecFactory {
 	 * @param startType the start type
 	 * @param spec the specification
 	 * @param context the context for the specification
-	 * @return the spec list
+	 * @return the spec list or <code>null</code> if the specification cannot be parsed
 	 */
-	public static List<IBindingSpec> parseSingleSpec(EClass startType, String spec, Context context) {
+	public static List<IBindingSpec> parseSingleSpec(final EClass startType, final String spec,
+			final SpecContext context) {
 		Map<String, List<IBindingSpec>> typeSpecs = CALCULATED_SPECS.get(startType);
 		if (typeSpecs == null) {
 			typeSpecs = new HashMap<String, List<IBindingSpec>>();
 			CALCULATED_SPECS.put(startType, typeSpecs);
 		}
-		List<IBindingSpec> sl = typeSpecs.get(spec);
-		if (sl != null) return sl;
+		final List<IBindingSpec> oldSL = typeSpecs.get(spec);
+		if (oldSL != null) return oldSL;
 
-		sl = new ArrayList<IBindingSpec>();
+		final List<IBindingSpec> newSL = new ArrayList<IBindingSpec>();
 
-		EClass type = startType;
 		try {
-			final StreamTokenizer st = createTokenizer(spec);
-			st.nextToken();
+			final IBindingSpecParserContext pc = new MyBindingSpecParserContext(newSL, context, spec, startType);
 
-			MyBindingSpecBase currentSpec = null;
-			while (st.ttype == StreamTokenizer.TT_WORD) {
-				final String featureName = st.sval;
-				st.nextToken();
-				if (type == null) {
-					LogUtils.throwException(startType, "In spec: '" + spec + "': Composite '" + featureName
-							+ "' not allowed unless previous feature has a EClass type", null);
+			pc.nextToken();
+			while (!pc.isTokenType(StreamTokenizer.TT_EOF)) {
+				parseBaseSpec(pc);
+
+				if (pc.isTokenType('(')) {
+					parseSpecArguments(pc);
 				}
-				if (featureName.equals(BaseType.NONE.toString())) {
-					switch (context) {
-					case OBSERVABLE:
-					case FORM_FIELD:
-						LogUtils.throwException(startType, "In spec: '" + spec + "': Feature " + featureName
-								+ " is not supported", null);
-					case TABLE_COLUMN:
-						break;
-					}
-					currentSpec = new MyBindingSpecOther(BaseType.NONE);
-					type = null;
-				} else if (featureName.equals(BaseType.ROW_NO.toString())) {
-					switch (context) {
-					case OBSERVABLE:
-					case FORM_FIELD:
-						LogUtils.throwException(startType, "In spec: '" + spec + "': Feature " + featureName
-								+ " is not supported", null);
-					case TABLE_COLUMN:
-						break;
-					}
-					currentSpec = new MyBindingSpecOther(BaseType.ROW_NO);
-					type = null;
-				} else if (featureName.equals(BaseType.ROW_ELEMENT.toString())) {
-					switch (context) {
-					case OBSERVABLE:
-					case FORM_FIELD:
-						LogUtils.throwException(startType, "In spec: '" + spec + "': Feature " + featureName
-								+ " is not supported", null);
-					case TABLE_COLUMN:
-						break;
-					}
-					currentSpec = new MyBindingSpecOther(BaseType.ROW_ELEMENT);
-					type = null; // TODO ??
-				} else {
-					final EStructuralFeature feature = findFeature(spec, type, featureName);
-					/*
-					 * PARSE: optional keyValueSpec:=***'('<name>'='<value>':'<name>'}'
-					 */
-					if (st.ttype == '{') {
-						st.nextToken();
-
-						/*
-						 * Feature must be to-many reference
-						 */
-						if (!(feature instanceof EReference)) {
-							LogUtils.throwException(startType, "In spec: '" + spec + "': Feature "
-									+ feature.getContainerClass().getName() + "." + feature.getName()
-									+ " is not reference", null);
-						}
-						if (!feature.isMany()) {
-							LogUtils.throwException(startType, "In spec: '" + spec + "': Feature "
-									+ feature.getContainerClass().getName() + "." + feature.getName() + "."
-									+ " must be to-many", null);
-						}
-						if (!((EReference) feature).isContainment()) {
-							LogUtils.throwException(startType, "In spec: '" + spec + "': Feature "
-									+ feature.getContainerClass().getName() + "." + feature.getName()
-									+ " must be containment", null);
-						}
-
-						/*
-						 * Type of detail
-						 */
-						type = (EClass) feature.getEType();
-
-						/*
-						 * PARSE: keyValueSpec:='('***<name>'='<value>':'<name>'}'
-						 */
-						if (st.ttype != StreamTokenizer.TT_WORD) {
-							LogUtils.throwException(
-									type,
-									"In spec: '"
-											+ spec
-											+ "': In keyValueSpec:='(***'<name>'='<value>':'<name>'}': expected '<name>', got '"
-											+ st.toString() + "'", null);
-						}
-						final EStructuralFeature keyFeature = findFeature(spec, type, st.sval);
-						st.nextToken();
-
-						/*
-						 * PARSE: keyValueSpec:='('<name>***'='<value>':'<name>'}'
-						 */
-						if (st.ttype == '=') {
-							st.nextToken();
-						} else {
-							LogUtils.throwException(type, "In spec: '" + spec
-									+ "': In keyValueSpec:='('<name>***'='<value>':'<name>'}': expected '=', got '"
-									+ st.toString() + "'", null);
-						}
-
-						/*
-						 * PARSE: keyValueSpec:='('***<name>'='<value>':'<name>'}'
-						 */
-						Object keyValue = null;
-						switch (st.ttype) {
-						case StreamTokenizer.TT_NUMBER:
-							keyValue = (int) (st.nval);
-							st.nextToken();
-							break;
-						case StreamTokenizer.TT_WORD:
-							keyValue = st.sval;
-							st.nextToken();
-							break;
-						case '"':
-						case '\'':
-							keyValue = st.sval;
-							st.nextToken();
-							break;
-						default:
-							LogUtils.throwException(startType, "In spec: '" + spec
-									+ "': In keyValueSpec:='('<name>'='***<value>':'<name>'}': "
-									+ "expected one of integer, string or word, got '" + st.toString() + "'", null);
-						}
-
-						/*
-						 * PARSE: keyValueSpec:='('<name>'='<value>':'<name>***'}'
-						 */
-						if (st.ttype == ':') {
-							st.nextToken();
-						} else {
-							LogUtils.throwException(type, "In spec: '" + spec
-									+ "': In keyValueSpec:='('<name>'='<value>***':'<name>'}': expected ':', got '"
-									+ st.toString() + "'", null);
-						}
-
-						/*
-						 * PARSE: keyValueSpec:='('<name>'='<value>':'***<name>'}'
-						 */
-						if (st.ttype != StreamTokenizer.TT_WORD) {
-							LogUtils.throwException(
-									type,
-									"In spec: '"
-											+ spec
-											+ "': In keyValueSpec:='('<name>'='<value>':***'<name>'}': expected '<name>', got '"
-											+ st.toString() + "'", null);
-						}
-						final EStructuralFeature valueFeature = findFeature(spec, type, st.sval);
-						st.nextToken();
-
-						if (keyFeature == valueFeature) {
-							LogUtils.throwException(startType, "In spec: '" + spec
-									+ "': key and value features identical: "
-									+ keyFeature.getContainerClass().getName() + "." + keyFeature.getName(), null);
-						}
-
-						if (valueFeature.getEType() instanceof EClass) {
-							type = (EClass) feature.getEType();
-						} else {
-							type = null;
-						}
-
-						/*
-						 * PARSE: keyValueSpec:='('<name>'='<value>':'<name>***'}'
-						 */
-						if (st.ttype == '}') {
-							st.nextToken();
-						} else {
-							LogUtils.throwException(type, "In spec: '" + spec
-									+ "': In keyValueSpec:='('<name>'='<value>':'<name>***'}': expected '}', got '"
-									+ st.toString() + "'", null);
-						}
-						currentSpec = new MyBindingSpecFeatureKeyValue(feature, keyFeature, keyValue, valueFeature);
-					} else {
-						currentSpec = new MyBindingSpecFeature(feature);
-						if (feature.getEType() instanceof EClass) {
-							type = (EClass) feature.getEType();
-						} else {
-							type = null;
-						}
-					}
-				}
-				sl.add(currentSpec);
-
-				/*
-				 * PARSE: arguments:='('<name>{'='<value>}','++')'
-				 */
-				if (st.ttype == '(') {
-					switch (context) {
-					case OBSERVABLE:
-						LogUtils.throwException(startType, "In spec: '" + spec + "': Arguments are not supported", null);
-					case FORM_FIELD:
-					case TABLE_COLUMN:
-						break;
-					}
-					st.nextToken();
-					final Map<String, Object> arguments = currentSpec.getArguments();
-
-					while (st.ttype == StreamTokenizer.TT_WORD) {
-						String argName = st.sval;
-						if (ALIASES.containsKey(argName)) {
-							argName = ALIASES.get(argName);
-						}
-						Object argValue = null;
-						String argUnit = null;
-						st.nextToken();
-						if (st.ttype == '=') {
-							st.nextToken();
-							switch (st.ttype) {
-							case StreamTokenizer.TT_NUMBER:
-								argValue = (int) (st.nval);
-								st.nextToken();
-								break;
-							case StreamTokenizer.TT_WORD:
-								argValue = st.sval;
-								st.nextToken();
-								break;
-							case '"':
-							case '\'':
-								argValue = st.sval;
-								st.nextToken();
-								break;
-							default:
-								LogUtils.throwException(startType, "In spec: '" + spec
-										+ "': In arguments:='('<name>{=}: "
-										+ "expected one of integer, string or word, got '" + st.toString() + "'", null);
-							}
-							if (st.ttype == StreamTokenizer.TT_WORD) {
-								argUnit = st.sval;
-								st.nextToken();
-							}
-						} else if ((st.ttype == ',') || (st.ttype == ')')) {
-							argValue = "true";
-						} else {
-							LogUtils.throwException(startType,
-									"In spec: '" + spec
-											+ "': In arguments:='('<name>{'='<value>}','++')': expected '=', got '"
-											+ st.toString() + "'", null);
-						}
-						// Check the argument names and values
-						if (!ARGUMENT_TYPES.containsKey(argName)) {
-							for (final String nn : ARGUMENT_TYPES.keySet()) {
-								if (nn.equalsIgnoreCase(argName)) {
-									argName = nn;
-									break;
-								}
-							}
-						}
-						if (!ARGUMENT_TYPES.containsKey(argName)) {
-							LogUtils.throwException(startType, "In spec: '" + spec + "': Unknown argument '" + argName
-									+ "'", null);
-						}
-						final Class<?> argClass = ARGUMENT_TYPES.get(argName);
-						if (argClass == Boolean.class) {
-							argValue = Boolean.parseBoolean("" + argValue);
-						} else if (!(argClass.isInstance(argValue))) {
-							LogUtils.throwException(
-									startType,
-									"In spec: '" + spec + "': Argument '" + argName + "' takes an "
-											+ argClass.getSimpleName() + " as argument, got '" + argValue + "'", null);
-						}
-						if (ARGUMENTS_WITH_UNITS.get(argName) == Boolean.TRUE) {
-							final float factor;
-							if (argUnit == null) {
-								factor = 1;
-							} else if (argUnit.equals("px")) {
-								factor = 1;
-							} else if (argUnit.equals("em")) {
-								factor = theFontHeight;
-							} else if (argUnit.equals("mm")) {
-								factor = DISPLAY.getDPI().x / 25.4f;
-							} else if (argUnit.equals("dlu")) {
-								factor = theFontHeight / 4.0f;
-							} else {
-								factor = 0;
-								LogUtils.throwException(startType, "In spec: '" + spec + "': Unit of argument '"
-										+ argName + "' can be 'em', 'dlu' or 'mm', got '" + argUnit + "'", null);
-							}
-							argValue = Math.round(((Integer) argValue) * factor);
-						} else {
-							if (argUnit != null) {
-								LogUtils.throwException(startType, "In spec: '" + spec + "': Argument '" + argName
-										+ "' does not support units, got unit '" + argUnit + "'", null);
-							}
-						}
-						if (arguments.containsKey(argName)) {
-							LogUtils.throwException(startType, "In spec: '" + spec + "': Argument '" + argName
-									+ "' specified multiple times", null);
-						}
-						arguments.put(argName, argValue);
-
-						// More arguments?
-						if (st.ttype == ',') {
-							st.nextToken();
-						} else if (st.ttype == ')') {
-							break;
-						} else {
-							LogUtils.throwException(
-									startType,
-									"In spec: '"
-											+ spec
-											+ "': In arguments:='('<name>{'='<value>}','++')': expected one of ',' or ')', got '"
-											+ st.toString() + "'", null);
-						}
-					}
-					// End of arguments
-					if (st.ttype == ')') {
-						st.nextToken();
-					} else {
-						LogUtils.throwException(
-								startType,
-								"In spec: '"
-										+ spec
-										+ "': In arguments:='('<name>{'='<value>}','++')': expected <name> or ')', got '"
-										+ st.toString() + "'", null);
-					}
-				}
-				if (st.ttype == '.') {
-					st.nextToken();
+				if (pc.isTokenType('.')) {
+					pc.nextToken();
 					continue;
 				}
-				if (st.ttype == StreamTokenizer.TT_EOF) {
+				if (pc.isTokenType(StreamTokenizer.TT_EOF)) {
 					break;
 				}
 			}
-			if (st.ttype != StreamTokenizer.TT_EOF) {
-				LogUtils.throwException(startType, "In spec: '" + spec
-						+ "': In spec:=<feature><arguments>?: expected '<feature>', got '" + st.toString() + "'", null);
+			if (!pc.isTokenType(StreamTokenizer.TT_EOF)) {
+				pc.syntaxError("Spec ::= BaseSpec Arguments?", "<feature>");
 			}
 
-			if (currentSpec != null) {
-				currentSpec.setLast(true);
+			if (pc.getLastSpec() != null) {
+				pc.getLastSpec().setLast(true);
 			}
 			/*
 			 * All but the last spec must be a to-one
 			 */
-			for (final IBindingSpec s : sl) {
+			for (final IBindingSpec s : newSL) {
 				final EStructuralFeature resultFeature = s.getResultFeature();
 
-				if (s.isLast() && context == Context.OBSERVABLE) {
+				if (s.isLast() && pc.getSpecContext() == SpecContext.OBSERVABLE) {
 					if (!(resultFeature instanceof EReference)) {
-						LogUtils.throwException(startType, "In spec: '" + spec + "': Last feature "
-								+ resultFeature.getContainerClass().getName() + "." + resultFeature.getName()
-								+ " is not reference", null);
+						pc.error("Last feature " + resultFeature.getContainerClass().getName() + "."
+								+ resultFeature.getName() + " is not reference");
 					}
 					break;
 				}
 
 				if (resultFeature != null && resultFeature.isMany()) {
-					LogUtils.throwException(startType, "In spec: '" + spec + "': Feature "
-							+ resultFeature.getContainerClass().getName() + "." + resultFeature.getName() + "."
-							+ " must be to-one", null);
+					pc.error("Feature " + resultFeature.getContainerClass().getName() + "." + resultFeature.getName()
+							+ "." + " must be to-one");
 				}
 			}
 		} catch (final IOException ex) {
-			LogUtils.throwException(startType, "", ex);
+			LogUtils.error(startType, "", ex);
+			return null;
+		} catch (final RuntimeException ex) {
+			return null;
 		}
 
-		typeSpecs.put(spec, sl);
-		return sl;
+		typeSpecs.put(spec, newSL);
+		return newSL;
+	}
+
+	/**
+	 * Parses the base part of a specification.
+	 * <p>
+	 * Spec ::= BaseSpec Arguments?
+	 * 
+	 * BaseSpec ::= ( Feature | Feature | ContainerSpec )
+	 * 
+	 * @param pc the parse context
+	 * @throws IOException from {@link StringTokenizer}
+	 */
+	private static void parseBaseSpec(final IBindingSpecParserContext pc) throws IOException {
+		pc.newSpecLevel();
+		if (pc.getSpecClass() == null) {
+			pc.error("New level not allowed unless previous level has a EClass type");
+		}
+
+		String featureName = null;
+		if (pc.isTokenType(StreamTokenizer.TT_WORD)) {
+			featureName = pc.getTokenString();
+			pc.nextToken();
+
+			final BaseType bt = BaseType.parse(featureName);
+			if (bt != null) {
+				pc.checkContext("Virtual feature " + bt + " only supported for tables", SpecContext.TABLE_COLUMN);
+				pc.addSpec(new MyBindingSpecVirtual(bt), null);
+			} else {
+				final EStructuralFeature feature = findFeature(pc.getSpec(), pc.getSpecClass(), featureName);
+				/*
+				 * PARSE: optional MapSpec:=***'('<name>'='<value>':'<name>'}'
+				 */
+				if (pc.isTokenType('{')) {
+					parseMapSpec(pc, feature);
+				} else {
+					if (feature.getEType() instanceof EClass) {
+						pc.addSpec(new MyBindingSpecFeature(feature), (EClass) feature.getEType());
+					} else {
+						pc.addSpec(new MyBindingSpecFeature(feature), null);
+					}
+				}
+			}
+		} else if (pc.isTokenType('^')) {
+			parseContainerSpec(pc);
+		} else {
+			pc.syntaxError("BaseSpec ::= ( Feature | Feature | ContainerSpec )", "one of word or '^'");
+		}
+	}
+
+	/**
+	 * Parses container.
+	 * <p>
+	 * Container ::= '^' ( | '^' '=' EClass )
+	 * 
+	 * @param pc the parse context
+	 * @throws IOException from {@link StreamTokenizer}
+	 */
+	private static void parseContainerSpec(IBindingSpecParserContext pc) throws IOException {
+		pc.nextToken();
+
+		if (pc.isTokenType('^')) {
+			pc.nextToken();
+			if (!pc.isTokenType('=')) {
+				pc.syntaxError("Container ::= '^' ( | '^'***'=' EClass )", "'='");
+			}
+			pc.nextToken();
+			if (!pc.isTokenType(StreamTokenizer.TT_WORD)) {
+				pc.syntaxError("Container ::= '^' ( | '^' '=' *** EClass )", "<EClass>");
+			}
+			final String containerClass = pc.getTokenString();
+			pc.nextToken();
+
+			pc.error("Not implemented");
+		} else {
+			for (final EReference ref : pc.getSpecClass().getEReferences()) {
+				if (ref.isContainer()) {
+					pc.addSpec(new MyBindingSpecFeature(ref), ref.getEReferenceType());
+					return;
+				}
+			}
+			pc.error(pc.getSpecClass() + " does not have a container.");
+		}
+	}
+
+	/**
+	 * Parses MapSpec.
+	 * <p>
+	 * MapSpec ::= '('<name>'='<value>':'<name>'}'
+	 * 
+	 * @param pc the parse context
+	 * @param feature the feature
+	 * @throws IOException
+	 */
+	private static void parseMapSpec(final IBindingSpecParserContext pc, final EStructuralFeature feature)
+			throws IOException {
+		pc.nextToken();
+
+		/*
+		 * Feature must be to-many reference
+		 */
+		if (!(feature instanceof EReference)) {
+			pc.error("Feature " + feature.getContainerClass().getName() + "." + feature.getName() + " is not reference");
+		}
+		if (!feature.isMany()) {
+			pc.error("Feature " + feature.getContainerClass().getName() + "." + feature.getName() + " must be to-many");
+		}
+		if (!((EReference) feature).isContainment()) {
+			pc.error("Feature " + feature.getContainerClass().getName() + "." + feature.getName()
+					+ " must be containment");
+		}
+
+		/*
+		 * Type of detail
+		 */
+		final EClass defailClass = (EClass) feature.getEType();
+
+		/*
+		 * PARSE: MapSpec:='('***<name>'='<value>':'<name>'}'
+		 */
+		if (!pc.isTokenType(StreamTokenizer.TT_WORD)) {
+			pc.syntaxError("MapSpec:='('***<name>'='<value>':'<name>'}'", "<name>");
+		}
+		final EStructuralFeature keyFeature = findFeature(pc.getSpec(), defailClass, pc.getTokenString());
+		pc.nextToken();
+
+		/*
+		 * PARSE: MapSpec:='('<name>***'='<value>':'<name>'}'
+		 */
+		if (pc.isTokenType('=')) {
+			pc.nextToken();
+		} else {
+			pc.syntaxError("MapSpec:='('<name>***'='<value>':'<name>'}'", "=");
+		}
+
+		/*
+		 * PARSE: MapSpec:='('***<name>'='<value>':'<name>'}'
+		 */
+		Object keyValue = null;
+		switch (pc.getTokenType()) {
+		case StreamTokenizer.TT_NUMBER:
+			keyValue = pc.getTokenInteger();
+			pc.nextToken();
+			break;
+		case StreamTokenizer.TT_WORD:
+			keyValue = pc.getTokenString();
+			pc.nextToken();
+			break;
+		case '"':
+		case '\'':
+			keyValue = pc.getTokenString();
+			pc.nextToken();
+			break;
+		default:
+			pc.syntaxError("MapSpec:='('<name>'='***<value>':'<name>'}'", "one of integer, string or word");
+		}
+
+		/*
+		 * PARSE: MapSpec:='('<name>'='<value>':'<name>***'}'
+		 */
+		if (pc.isTokenType(':')) {
+			pc.nextToken();
+		} else {
+			pc.syntaxError("MapSpec:='('<name>'='<value>***':'<name>'}'", "':'");
+		}
+
+		/*
+		 * PARSE: MapSpec:='('<name>'='<value>':'***<name>'}'
+		 */
+		if (!pc.isTokenType(StreamTokenizer.TT_WORD)) {
+			pc.syntaxError("MapSpec:='('<name>'='<value>':***'<name>'}'", "'<name>'");
+		}
+		final EStructuralFeature valueFeature = findFeature(pc.getSpec(), defailClass, pc.getTokenString());
+		pc.nextToken();
+
+		if (keyFeature == valueFeature) {
+			pc.error("key and value features identical: " + keyFeature.getContainerClass().getName() + "."
+					+ keyFeature.getName());
+		}
+
+		if (valueFeature.getEType() instanceof EClass) {
+			pc.addSpec(new MyBindingSpecFeatureKeyValue(feature, keyFeature, keyValue, valueFeature),
+					(EClass) feature.getEType());
+		} else {
+			pc.addSpec(new MyBindingSpecFeatureKeyValue(feature, keyFeature, keyValue, valueFeature), null);
+		}
+
+		/*
+		 * PARSE: MapSpec:='('<name>'='<value>':'<name>***'}'
+		 */
+		if (pc.isTokenType('}')) {
+			pc.nextToken();
+		} else {
+			pc.syntaxError("MapSpec:='('<name>'='<value>':'<name>***'}'", "'}'");
+		}
+	}
+
+	/**
+	 * Parses an argument.
+	 * <p>
+	 * Arguments ::= '(' Argument ( ',' Argument )+ ')' Argument ::= Name ( '=' Value Unit? )?
+	 * 
+	 * @param pc the parse context
+	 * @throws IOException from {@link StreamTokenizer}
+	 */
+	private static void parseSpecArguments(final IBindingSpecParserContext pc) throws IOException {
+		pc.checkContext("Arguments are not supported", SpecContext.FORM_FIELD, SpecContext.TABLE_COLUMN);
+		pc.nextToken();
+		final Map<String, Object> arguments = pc.getLastSpec().getArguments();
+
+		while (pc.isTokenType(StreamTokenizer.TT_WORD)) {
+			String argName = pc.getTokenString();
+			pc.nextToken();
+			if (ALIASES.containsKey(argName)) {
+				argName = ALIASES.get(argName);
+			}
+			Object argValue = null;
+			String argUnit = null;
+			if (pc.isTokenType('=')) {
+				pc.nextToken();
+				argValue = pc.getTokenArgumentValue();
+				if (argValue == null) {
+					pc.syntaxError("Argument ::= Name ( '=' *** Value Unit? )?", "one of integer, string or word");
+				}
+				if (pc.isTokenType(StreamTokenizer.TT_WORD)) {
+					argUnit = pc.getTokenString();
+					pc.nextToken();
+				}
+			} else if ((pc.isTokenType(',')) || (pc.isTokenType(')'))) {
+				argValue = "true";
+			} else {
+				pc.syntaxError("Argument ::= Name ( *** '=' Value Unit? )?", "'='");
+			}
+			// Check the argument names and values
+			if (!ARGUMENT_TYPES.containsKey(argName)) {
+				for (final String nn : ARGUMENT_TYPES.keySet()) {
+					if (nn.equalsIgnoreCase(argName)) {
+						argName = nn;
+						break;
+					}
+				}
+			}
+			if (!ARGUMENT_TYPES.containsKey(argName)) {
+				pc.error("Unknown argument '" + argName + "'");
+			}
+			final Class<?> argClass = ARGUMENT_TYPES.get(argName);
+			if (argClass == Boolean.class) {
+				argValue = Boolean.parseBoolean("" + argValue);
+			} else if (!(argClass.isInstance(argValue))) {
+				pc.error("Argument '" + argName + "' takes an " + argClass.getSimpleName() + " as argument, got '"
+						+ argValue + "'");
+			}
+			if (ARGUMENTS_WITH_UNITS.get(argName) == Boolean.TRUE) {
+				final float factor;
+				if (argUnit == null) {
+					factor = 1;
+				} else if (argUnit.equals("px")) {
+					factor = 1;
+				} else if (argUnit.equals("em")) {
+					factor = theFontHeight;
+				} else if (argUnit.equals("mm")) {
+					factor = DISPLAY.getDPI().x / 25.4f;
+				} else if (argUnit.equals("dlu")) {
+					factor = theFontHeight / 4.0f;
+				} else {
+					factor = 0;
+					pc.error("Unit of argument '" + argName + "' can be 'em', 'dlu' or 'mm', got '" + argUnit + "'");
+				}
+				argValue = Math.round(((Integer) argValue) * factor);
+			} else {
+				if (argUnit != null) {
+					pc.error("Argument '" + argName + "' does not support units, got unit '" + argUnit + "'");
+				}
+			}
+			if (arguments.containsKey(argName)) {
+				pc.error("Argument '" + argName + "' specified multiple times");
+			}
+			arguments.put(argName, argValue);
+
+			// More arguments?
+			if (pc.isTokenType(',')) {
+				pc.nextToken();
+			} else if (pc.isTokenType(')')) {
+				break;
+			} else {
+				pc.syntaxError("Arguments ::= '(' Argument *** ( ',' Argument )+ ')'", "one of ',' or ')'");
+			}
+		}
+		// End of arguments
+		if (pc.isTokenType(')')) {
+			pc.nextToken();
+		} else {
+			pc.syntaxError("Arguments ::= '(' Argument ( ',' Argument )+ *** ')'", "<name> or ')'");
+		}
 	}
 
 	/**
@@ -559,6 +545,136 @@ public final class BindingSpecFactory {
 		st.wordChars('_', '_');
 
 		return st;
+	}
+
+	/**
+	 * Implementation of {@link IBindingSpecParserContext} used in
+	 * {@link BindingSpecFactory#parseSingleSpec(EClass, String, SpecContext)}.
+	 */
+	private static final class MyBindingSpecParserContext implements IBindingSpecParserContext {
+		private final List<IBindingSpec> myNewSL;
+		private final SpecContext myContext;
+		private final String mySpec;
+		private final EClass myStartType;
+		final StreamTokenizer st;
+		private MyBindingSpecBase myLastSpec = null;
+		private EClass mySpecClass;
+
+		private MyBindingSpecParserContext(List<IBindingSpec> newSL, SpecContext context, String spec, EClass startType) {
+			myNewSL = newSL;
+			myContext = context;
+			mySpec = spec;
+			myStartType = startType;
+			st = createTokenizer(mySpec);
+			mySpecClass = myStartType;
+		}
+
+		@Override
+		public void newSpecLevel() {
+			myLastSpec = null;
+		}
+
+		@Override
+		public void addSpec(MyBindingSpecBase spec, EClass newSpecClass) {
+			myNewSL.add(spec);
+			myLastSpec = spec;
+			mySpecClass = newSpecClass;
+		}
+
+		@Override
+		public MyBindingSpecBase getLastSpec() {
+			return myLastSpec;
+		}
+
+		@Override
+		public EClass getSpecClass() {
+			return mySpecClass;
+		}
+
+		@Override
+		public void nextToken() throws IOException {
+			st.nextToken();
+		}
+
+		@Override
+		public int getTokenType() {
+			return st.ttype;
+		}
+
+		@Override
+		public String getTokenString() {
+			switch (st.ttype) {
+			case '"':
+			case '\'':
+			case StreamTokenizer.TT_WORD:
+				return st.sval;
+			default:
+				throw new IllegalArgumentException("Not a string token!");
+			}
+		}
+
+		@Override
+		public int getTokenInteger() {
+			if (st.ttype != StreamTokenizer.TT_NUMBER) throw new IllegalArgumentException("Not a number !");
+			return (int) st.nval;
+		}
+
+		@Override
+		public Object getTokenArgumentValue() throws IOException {
+			Object value = null;
+			switch (getTokenType()) {
+			case StreamTokenizer.TT_NUMBER:
+				value = getTokenInteger();
+				nextToken();
+				break;
+			case StreamTokenizer.TT_WORD:
+				value = getTokenString();
+				nextToken();
+				break;
+			case '"':
+			case '\'':
+				value = getTokenString();
+				nextToken();
+				break;
+			default:
+				break;
+			}
+
+			return value;
+		}
+
+		@Override
+		public boolean isTokenType(int token) {
+			return getTokenType() == token;
+		}
+
+		@Override
+		public String getSpec() {
+			return mySpec;
+		}
+
+		@Override
+		public SpecContext getSpecContext() {
+			return myContext;
+		}
+
+		@Override
+		public void checkContext(String message, SpecContext... legalContexts) {
+			for (final SpecContext c : legalContexts) {
+				if (c == getSpecContext()) return;
+			}
+			error(message);
+		}
+
+		@Override
+		public void error(String message) {
+			LogUtils.throwException(myStartType, "In spec: '" + getSpec() + "': " + message, null);
+		}
+
+		@Override
+		public void syntaxError(String bnf, String expectedToken) {
+			error("In " + bnf + ": expected " + expectedToken + ", got '" + st.toString() + "'");
+		}
 	}
 
 	protected static class MyBindingSpecFeature extends MyBindingSpecBase {
@@ -629,11 +745,11 @@ public final class BindingSpecFactory {
 		}
 	}
 
-	protected static class MyBindingSpecOther extends MyBindingSpecBase {
+	protected static class MyBindingSpecVirtual extends MyBindingSpecBase {
 
 		private final BaseType myType;
 
-		protected MyBindingSpecOther(BaseType type) {
+		protected MyBindingSpecVirtual(BaseType type) {
 			myType = type;
 		}
 
@@ -689,5 +805,126 @@ public final class BindingSpecFactory {
 		public void setLast(boolean last) {
 			myLast = last;
 		}
+	}
+
+	/**
+	 * Context used during parsing of a binding specification.
+	 */
+	public interface IBindingSpecParserContext {
+
+		/**
+		 * Returns the context specified to
+		 * {@link IBindingSpec.Factory#parseSingleSpec(EClass, String, SpecContext)}.
+		 * 
+		 * @return the context
+		 */
+		SpecContext getSpecContext();
+
+		/**
+		 * Adds a new specification record to the list of records for this current specification
+		 * string
+		 * 
+		 * @param spec the new record
+		 * @param newSpecClass the resulting {@link EClass}
+		 */
+		void addSpec(MyBindingSpecBase spec, EClass newSpecClass);
+
+		/**
+		 * Returns the class at the start of this spec record.
+		 * 
+		 * @return the current class
+		 */
+		EClass getSpecClass();
+
+		/**
+		 * Tests whether the next token is of the specified type.
+		 * <p>
+		 * See {@link StreamTokenizer#ttype} for further information.
+		 * 
+		 * @param token the token to test
+		 * @return <code>true</code> if the next token is the specified
+		 */
+		boolean isTokenType(int token);
+
+		/**
+		 * The integer value of the current token if relevant.
+		 * 
+		 * @return the integer value
+		 */
+		int getTokenInteger();
+
+		/**
+		 * The string value of the current token if relevant.
+		 * 
+		 * @return the string value
+		 */
+		String getTokenString();
+
+		/**
+		 * The value of the current token if understood as an argument value.
+		 * 
+		 * @return the value ({@link String} or {@link Integer}) or <code>null</code> if not found
+		 */
+		Object getTokenArgumentValue() throws IOException;
+
+		/**
+		 * Starts a new specification level.
+		 */
+		void newSpecLevel();
+
+		/**
+		 * The last specification record added.
+		 * 
+		 * @return the last record
+		 */
+		MyBindingSpecBase getLastSpec();
+
+		/**
+		 * Issues an error and returns null from
+		 * {@link IBindingSpec.Factory#parseSingleSpec(EClass, String, SpecContext)}.
+		 * 
+		 * @param message the messages of the error
+		 */
+		void error(String message);
+
+		/**
+		 * Issues a syntax error and returns null from
+		 * {@link IBindingSpec.Factory#parseSingleSpec(EClass, String, SpecContext)}.
+		 * 
+		 * @param bnf the BNF currently being parsed
+		 * @param expectedToken the expected token or tokens "one of..."
+		 */
+		void syntaxError(String bnf, String expectedToken);
+
+		/**
+		 * Checks the the specification context is one of the specified...
+		 * 
+		 * @param message the message to use for the error if not one of the specified contexts
+		 * @param legalContexts the legal contexts
+		 */
+		void checkContext(String message, SpecContext... legalContexts);
+
+		/**
+		 * Returns the current token type.
+		 * <p>
+		 * See {@link StreamTokenizer#ttype} for further information.
+		 * 
+		 * @return the current token
+		 */
+		int getTokenType();
+
+		/**
+		 * Moves to the next token.
+		 * 
+		 * @throws IOException from {@link StringTokenizer}
+		 */
+		void nextToken() throws IOException;
+
+		/**
+		 * The specification string being parsed.
+		 * 
+		 * @return the specification string
+		 */
+		String getSpec();
 	}
 }

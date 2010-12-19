@@ -46,7 +46,7 @@ import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.observables.EListKeyedElementObservableValue;
 import com.rcpcompany.uibindings.utils.IBindingSpec;
 import com.rcpcompany.uibindings.utils.IBindingSpec.BaseType;
-import com.rcpcompany.uibindings.utils.IBindingSpec.Context;
+import com.rcpcompany.uibindings.utils.IBindingSpec.SpecContext;
 import com.rcpcompany.uibindings.utils.IFilteringTableAdapter;
 import com.rcpcompany.uibindings.utils.ISortableTableAdapter;
 import com.rcpcompany.uibindings.utils.ITableCreator;
@@ -199,7 +199,8 @@ public class TableCreator implements ITableCreator {
 	@Override
 	public IColumnBinding addColumn(String spec) {
 		final List<IBindingSpec> bspecs = IBindingSpec.Factory.parseSingleSpec(
-				(EClass) myViewerBinding.getModelEType(), spec, Context.TABLE_COLUMN);
+				(EClass) myViewerBinding.getModelEType(), spec, SpecContext.TABLE_COLUMN);
+		if (bspecs == null) return null;
 		/*
 		 * Construct a list of all top-level columns
 		 */

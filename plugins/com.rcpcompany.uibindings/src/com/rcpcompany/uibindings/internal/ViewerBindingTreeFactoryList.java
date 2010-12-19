@@ -44,7 +44,7 @@ import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.observables.EListKeyedElementObservableValue;
 import com.rcpcompany.uibindings.utils.IBindingSpec;
-import com.rcpcompany.uibindings.utils.IBindingSpec.Context;
+import com.rcpcompany.uibindings.utils.IBindingSpec.SpecContext;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -306,11 +306,9 @@ public class ViewerBindingTreeFactoryList extends ObservableList {
 				} else if (rel.getFeatureName() != null) {
 					final String sfName = rel.getFeatureName();
 
-					List<IBindingSpec> specList = null;
-					try {
-						specList = IBindingSpec.Factory.parseSingleSpec(target.eClass(), sfName, Context.OBSERVABLE);
-					} catch (final IllegalArgumentException ex) {
-						LogUtils.error(target.eClass(), ex);
+					final List<IBindingSpec> specList = IBindingSpec.Factory.parseSingleSpec(target.eClass(), sfName,
+							SpecContext.OBSERVABLE);
+					if (specList == null) {
 						continue;
 					}
 

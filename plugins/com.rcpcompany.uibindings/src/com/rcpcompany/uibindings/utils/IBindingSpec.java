@@ -48,7 +48,7 @@ public interface IBindingSpec {
 		 * 
 		 * @throws IllegalArgumentException if the specification cannot be parsed
 		 */
-		public static List<IBindingSpec> parseSingleSpec(EClass startType, String spec, Context context) {
+		public static List<IBindingSpec> parseSingleSpec(EClass startType, String spec, SpecContext context) {
 			return BindingSpecFactory.parseSingleSpec(startType, spec, context);
 		}
 	}
@@ -59,7 +59,7 @@ public interface IBindingSpec {
 	 * The different values specifies which features will be available in the specification
 	 * language.
 	 */
-	public enum Context {
+	public enum SpecContext {
 		/**
 		 * Specification for table column.
 		 */
@@ -122,6 +122,14 @@ public interface IBindingSpec {
 		@Override
 		public String toString() {
 			return myName;
+		}
+
+		public static BaseType parse(String name) {
+			for (final BaseType bt : values()) {
+				final String n = bt.toString();
+				if (n.length() > 0 && n.equals(name)) return bt;
+			}
+			return null;
 		}
 	};
 

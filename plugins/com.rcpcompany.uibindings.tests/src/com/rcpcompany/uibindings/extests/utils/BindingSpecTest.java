@@ -30,7 +30,7 @@ import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.utils.IBindingSpec;
 import com.rcpcompany.uibindings.utils.IBindingSpec.BaseType;
-import com.rcpcompany.uibindings.utils.IBindingSpec.Context;
+import com.rcpcompany.uibindings.utils.IBindingSpec.SpecContext;
 
 /**
  * Test of {@link IBindingSpec}.
@@ -41,7 +41,8 @@ public class BindingSpecTest {
 	@Test
 	public void testSimpleSpecFeature() {
 		final List<IBindingSpec> spec = IBindingSpec.Factory.parseSingleSpec(ShopPackage.Literals.CONTACT, "name",
-				Context.FORM_FIELD);
+				SpecContext.FORM_FIELD);
+		assertNotNull(spec);
 		assertEquals(1, spec.size());
 		specTest(spec.get(0), IMOAOPackage.Literals.NAMED_OBJECT__NAME);
 	}
@@ -49,7 +50,8 @@ public class BindingSpecTest {
 	@Test
 	public void testSimpleSpecRef() {
 		final List<IBindingSpec> spec = IBindingSpec.Factory.parseSingleSpec(ShopPackage.Literals.CONTACT, "country",
-				Context.FORM_FIELD);
+				SpecContext.FORM_FIELD);
+		assertNotNull(spec);
 		assertEquals(1, spec.size());
 		specTest(spec.get(0), ShopPackage.Literals.CONTACT__COUNTRY);
 	}
@@ -57,7 +59,8 @@ public class BindingSpecTest {
 	@Test
 	public void testSimpleSpecRefFeature() {
 		final List<IBindingSpec> spec = IBindingSpec.Factory.parseSingleSpec(ShopPackage.Literals.CONTACT,
-				"country.name", Context.FORM_FIELD);
+				"country.name", SpecContext.FORM_FIELD);
+		assertNotNull(spec);
 		assertEquals(2, spec.size());
 		specTest(spec.get(0), ShopPackage.Literals.CONTACT__COUNTRY);
 		specTest(spec.get(1), IMOAOPackage.Literals.NAMED_OBJECT__NAME);
@@ -66,7 +69,8 @@ public class BindingSpecTest {
 	@Test
 	public void testSimpleSpecMapW() {
 		final List<IBindingSpec> spec = IBindingSpec.Factory.parseSingleSpec(ShopPackage.Literals.CONTACT,
-				"name(w=100)", Context.FORM_FIELD);
+				"name(w=100)", SpecContext.FORM_FIELD);
+		assertNotNull(spec);
 		assertEquals(1, spec.size());
 		specTest(spec.get(0), IMOAOPackage.Literals.NAMED_OBJECT__NAME, Constants.ARG_WIDTH, 100);
 	}
@@ -74,7 +78,8 @@ public class BindingSpecTest {
 	@Test
 	public void testSimpleSpecMap__NONE__() {
 		final List<IBindingSpec> spec = IBindingSpec.Factory.parseSingleSpec(ShopPackage.Literals.CONTACT,
-				"__NONE__(toolTipText=hello)", Context.TABLE_COLUMN);
+				"__NONE__(toolTipText=hello)", SpecContext.TABLE_COLUMN);
+		assertNotNull(spec);
 		assertEquals(1, spec.size());
 		specTestOther(spec.get(0), BaseType.NONE, IBindingSpec.TOOLTIP, "hello");
 	}
@@ -82,7 +87,8 @@ public class BindingSpecTest {
 	@Test
 	public void testSimpleSpecMap__ROW_NO__() {
 		final List<IBindingSpec> spec = IBindingSpec.Factory.parseSingleSpec(ShopPackage.Literals.CONTACT,
-				"__ROW_NO__(toolTipText=hello)", Context.TABLE_COLUMN);
+				"__ROW_NO__(toolTipText=hello)", SpecContext.TABLE_COLUMN);
+		assertNotNull(spec);
 		assertEquals(1, spec.size());
 		specTestOther(spec.get(0), BaseType.ROW_NO, IBindingSpec.TOOLTIP, "hello");
 	}
@@ -90,7 +96,8 @@ public class BindingSpecTest {
 	@Test
 	public void testSimpleSpecMap__ROW_ELEMENT__() {
 		final List<IBindingSpec> spec = IBindingSpec.Factory.parseSingleSpec(ShopPackage.Literals.CONTACT,
-				"__ROW_ELEMENT__(toolTipText=hello)", Context.TABLE_COLUMN);
+				"__ROW_ELEMENT__(toolTipText=hello)", SpecContext.TABLE_COLUMN);
+		assertNotNull(spec);
 		assertEquals(1, spec.size());
 		specTestOther(spec.get(0), BaseType.ROW_ELEMENT, IBindingSpec.TOOLTIP, "hello");
 	}
@@ -98,7 +105,8 @@ public class BindingSpecTest {
 	@Test
 	public void testSimpleSpecMapWTT() {
 		final List<IBindingSpec> spec = IBindingSpec.Factory.parseSingleSpec(ShopPackage.Literals.CONTACT,
-				"country(toolTipText=hello).name(w=100,toolTipText='hello world',multi)", Context.FORM_FIELD);
+				"country(toolTipText=hello).name(w=100,toolTipText='hello world',multi)", SpecContext.FORM_FIELD);
+		assertNotNull(spec);
 		assertEquals(2, spec.size());
 		specTest(spec.get(0), ShopPackage.Literals.CONTACT__COUNTRY, Constants.ARG_TOOL_TIP_TEXT, "hello");
 		specTest(spec.get(1), IMOAOPackage.Literals.NAMED_OBJECT__NAME, Constants.ARG_WIDTH, 100, IBindingSpec.TOOLTIP,
@@ -108,7 +116,8 @@ public class BindingSpecTest {
 	@Test
 	public void testSimpleSpecKV() {
 		final List<IBindingSpec> spec = IBindingSpec.Factory.parseSingleSpec(ShopPackage.Literals.SHOP_ITEM,
-				"properties{name=here:value}(toolTipText=hello)", Context.FORM_FIELD);
+				"properties{name=here:value}(toolTipText=hello)", SpecContext.FORM_FIELD);
+		assertNotNull(spec);
 		assertEquals(1, spec.size());
 		specTestKV(spec.get(0), ShopPackage.Literals.SHOP_ITEM__PROPERTIES, IMOAOPackage.Literals.NAMED_OBJECT__NAME,
 				"here", ShopPackage.Literals.SHOP_ITEM_PROPERTIES__VALUE, IBindingSpec.TOOLTIP, "hello");
@@ -127,7 +136,8 @@ public class BindingSpecTest {
 		assertTrue("Font size range, got " + fh, 8.0f < fh && fh < 18.0f);
 
 		final List<IBindingSpec> spec = IBindingSpec.Factory.parseSingleSpec(ShopPackage.Literals.CONTACT,
-				"country(w=10em).name(w=10dlu)", Context.FORM_FIELD);
+				"country(w=10em).name(w=10dlu)", SpecContext.FORM_FIELD);
+		assertNotNull(spec);
 		assertEquals(2, spec.size());
 		specTest(spec.get(0), ShopPackage.Literals.CONTACT__COUNTRY, Constants.ARG_WIDTH, Math.round(10 * fh));
 		specTest(spec.get(1), IMOAOPackage.Literals.NAMED_OBJECT__NAME, Constants.ARG_WIDTH, Math.round(10 / 4.0f * fh));
@@ -140,7 +150,8 @@ public class BindingSpecTest {
 		assertEquals(96, d.getDPI().x);
 
 		final List<IBindingSpec> spec = IBindingSpec.Factory.parseSingleSpec(ShopPackage.Literals.CONTACT,
-				"country(w=10mm).name(width=10px)", Context.FORM_FIELD);
+				"country(w=10mm).name(width=10px)", SpecContext.FORM_FIELD);
+		assertNotNull(spec);
 		assertEquals(2, spec.size());
 		specTest(spec.get(0), ShopPackage.Literals.CONTACT__COUNTRY, Constants.ARG_WIDTH, 10 * 96 / 25);
 		specTest(spec.get(1), IMOAOPackage.Literals.NAMED_OBJECT__NAME, Constants.ARG_WIDTH, 10);
@@ -149,7 +160,8 @@ public class BindingSpecTest {
 	@Test
 	public void testSimpleSpecMapMore() {
 		final List<IBindingSpec> spec = IBindingSpec.Factory.parseSingleSpec(ShopPackage.Literals.CONTACT,
-				"name(tooltiptext=hello, type=number,label='abc')", Context.FORM_FIELD);
+				"name(tooltiptext=hello, type=number,label='abc')", SpecContext.FORM_FIELD);
+		assertNotNull(spec);
 		assertEquals(1, spec.size());
 		specTest(spec.get(0), IMOAOPackage.Literals.NAMED_OBJECT__NAME, IBindingSpec.TOOLTIP, "hello",
 				Constants.ARG_TYPE, "number", Constants.ARG_LABEL, "abc");
@@ -158,7 +170,8 @@ public class BindingSpecTest {
 	@Test
 	public void testSimpleSpecOK1() {
 		final List<IBindingSpec> spec = IBindingSpec.Factory.parseSingleSpec(ShopPackage.Literals.CONTACT,
-				"country().name", Context.FORM_FIELD);
+				"country().name", SpecContext.FORM_FIELD);
+		assertNotNull(spec);
 		assertEquals(2, spec.size());
 		specTest(spec.get(0), ShopPackage.Literals.CONTACT__COUNTRY);
 		specTest(spec.get(1), IMOAOPackage.Literals.NAMED_OBJECT__NAME);
@@ -190,15 +203,15 @@ public class BindingSpecTest {
 		assertEquals(vars.length / 2, args.size());
 	}
 
-	public void testSimpleSpecSyntaxError(final EClass startType, final String spec, final Context context) {
+	public void testSimpleSpecSyntaxError(final EClass startType, final String spec, final SpecContext context) {
 		assertOneLog(new Runnable() {
 			@Override
 			public void run() {
 				try {
-					IBindingSpec.Factory.parseSingleSpec(startType, spec, context);
-					fail("Spec '" + spec + "' does not fail");
-				} catch (final RuntimeException ex) {
-					assertTrue(ex.getClass() == RuntimeException.class);
+					final List<IBindingSpec> specList = IBindingSpec.Factory.parseSingleSpec(startType, spec, context);
+					assertEquals(null, specList);
+				} catch (final Exception ex) {
+					fail(ex.getMessage());
 				}
 			}
 		});
@@ -206,7 +219,7 @@ public class BindingSpecTest {
 
 	@Test
 	public void testSimpleSpecSyntaxError1() {
-		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country((", Context.FORM_FIELD);
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country((", SpecContext.FORM_FIELD);
 	}
 
 	/**
@@ -219,12 +232,12 @@ public class BindingSpecTest {
 
 	@Test
 	public void testSimpleSpecSyntaxError3() {
-		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country..name", Context.FORM_FIELD);
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country..name", SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecSyntaxError4() {
-		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country#", Context.FORM_FIELD);
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country#", SpecContext.FORM_FIELD);
 	}
 
 	/**
@@ -232,156 +245,156 @@ public class BindingSpecTest {
 	 */
 	@Test
 	public void testSimpleSpecSyntaxError5() {
-		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country(w)", Context.FORM_FIELD);
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country(w)", SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecSyntaxError6() {
-		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country(w=)", Context.FORM_FIELD);
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country(w=)", SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecSyntaxErrorKV1() {
 		testSimpleSpecSyntaxError(ShopPackage.Literals.SHOP_ITEM, "properties{name=here:value(toolTipText=hello)",
-				Context.FORM_FIELD);
+				SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecSyntaxErrorKV2() {
 		testSimpleSpecSyntaxError(ShopPackage.Literals.SHOP_ITEM, "properties{name=here:}(toolTipText=hello)",
-				Context.FORM_FIELD);
+				SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecSyntaxErrorKV3() {
 		testSimpleSpecSyntaxError(ShopPackage.Literals.SHOP_ITEM, "properties{name=here value}(toolTipText=hello)",
-				Context.FORM_FIELD);
+				SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecSyntaxErrorKV4() {
 		testSimpleSpecSyntaxError(ShopPackage.Literals.SHOP_ITEM,
-				"properties{name=here there:value}(toolTipText=hello)", Context.FORM_FIELD);
+				"properties{name=here there:value}(toolTipText=hello)", SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecSyntaxErrorKV5() {
 		testSimpleSpecSyntaxError(ShopPackage.Literals.SHOP_ITEM, "properties{name= :value}(toolTipText=hello)",
-				Context.FORM_FIELD);
+				SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecSyntaxErrorKV6() {
 		testSimpleSpecSyntaxError(ShopPackage.Literals.SHOP_ITEM, "properties{name here:value}(toolTipText=hello)",
-				Context.FORM_FIELD);
+				SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecSyntaxErrorKV7() {
 		testSimpleSpecSyntaxError(ShopPackage.Literals.SHOP_ITEM, "properties{ =here:value}(toolTipText=hello)",
-				Context.FORM_FIELD);
+				SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecOther__NONE__MultiLevel() {
-		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "__NONE__.name", Context.FORM_FIELD);
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "__NONE__.name", SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecOther__ROW_NO__MultiLevel() {
-		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "__ROW_NO__.name", Context.FORM_FIELD);
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "__ROW_NO__.name", SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecOther__ROW_ELEMENT__MultiLevel() {
-		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "__ROW_ELEMENT__.name", Context.FORM_FIELD);
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "__ROW_ELEMENT__.name", SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecErrorField__NONE__() {
-		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "__NONE__", Context.FORM_FIELD);
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "__NONE__", SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecErrorField__ROW_NO__() {
-		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "__ROW_NO__", Context.FORM_FIELD);
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "__ROW_NO__", SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecErrorField__ROW_ELEMENT__() {
-		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "__ROW_ELEMENT__", Context.FORM_FIELD);
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "__ROW_ELEMENT__", SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecErrorObsNoArgs() {
-		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "name(w=10)", Context.OBSERVABLE);
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "name(w=10)", SpecContext.OBSERVABLE);
 	}
 
 	@Test
 	public void testSimpleSpecErrorObs__NONE__() {
-		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "__NONE__", Context.OBSERVABLE);
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "__NONE__", SpecContext.OBSERVABLE);
 	}
 
 	@Test
 	public void testSimpleSpecErrorObs__ROW_NO__() {
-		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "__ROW_NO__", Context.OBSERVABLE);
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "__ROW_NO__", SpecContext.OBSERVABLE);
 	}
 
 	@Test
 	public void testSimpleSpecErrorObs__ROW_ELEMENT__() {
-		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "__ROW_ELEMENT__", Context.OBSERVABLE);
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "__ROW_ELEMENT__", SpecContext.OBSERVABLE);
 	}
 
 	@Test
 	public void testSimpleSpecUnitError1() {
-		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country(w=1 xx)", Context.FORM_FIELD);
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country(w=1 xx)", SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecUnitError2() {
-		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country(a=1 em)", Context.FORM_FIELD);
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country(a=1 em)", SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecTypeError1() {
-		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country.country", Context.FORM_FIELD);
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country.country", SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecTypeError2() {
-		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country.name.name", Context.FORM_FIELD);
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country.name.name", SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecTypeError3() {
-		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country2", Context.FORM_FIELD);
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country2", SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecTypeError4() {
-		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country(w=w)", Context.FORM_FIELD);
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country(w=w)", SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecTypeError5() {
-		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country(w2=2)", Context.FORM_FIELD);
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country(w2=2)", SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecTypeError6() {
-		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country(tooltiptext=2)", Context.FORM_FIELD);
+		testSimpleSpecSyntaxError(ShopPackage.Literals.CONTACT, "country(tooltiptext=2)", SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecTypeError7() {
 		testSimpleSpecSyntaxError(ShopPackage.Literals.SHOP_ITEM, "properties{name2=here:value}(toolTipText=hello)",
-				Context.FORM_FIELD);
+				SpecContext.FORM_FIELD);
 	}
 
 	@Test
 	public void testSimpleSpecTypeError8() {
 		testSimpleSpecSyntaxError(ShopPackage.Literals.SHOP_ITEM, "properties{name=here:value2}(toolTipText=hello)",
-				Context.FORM_FIELD);
+				SpecContext.FORM_FIELD);
 	}
 
 }
