@@ -129,7 +129,7 @@ public final class LogUtils {
 	}
 
 	/**
-	 * Logs and <em>throws</em> the specified error message as an {@link IllegalArgumentException}.
+	 * Logs and <em>throws</em> the specified error message as an {@link RuntimeException}.
 	 * 
 	 * @param context the context related to the message
 	 * @param message the message
