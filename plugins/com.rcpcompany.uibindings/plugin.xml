@@ -303,7 +303,7 @@
          </javaDecorator>
       </bindingDecorator>
       <bindingDecorator
-            id="com.rcpcompany.uibindings.basic.eobject.longName"
+            id="com.rcpcompany.uibindings.basic.eobject.qualifiedName"
             type="qualifiedName">
          <modelType
                class="org.eclipse.emf.ecore.EObject">
