@@ -327,7 +327,7 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 				myHover = new HoverControl();
 			}
 			myHover.setDecoration(myHoverDecoration);
-			myHover.setVisible(true);
+			myHover.setVisible(myHover.hasText());
 
 			myHoverControl = (Control) event.widget;
 			myHoverControl.addListener(SWT.MouseExit, this);
@@ -583,7 +583,7 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 		/**
 		 * The info hover text.
 		 */
-		String myLastText = "";
+		String myLastText = null;
 
 		/**
 		 * The region used to manage the shell shape.
@@ -620,6 +620,10 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 					setVisible(false);
 				}
 			});
+		}
+
+		public boolean hasText() {
+			return myLastText != null && myLastText.length() > 0;
 		}
 
 		/*

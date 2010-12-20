@@ -30,7 +30,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  */
 public class DataBindingDecoratorMessageObservableValue extends AbstractObservableValue {
 	/**
-	 * The binding of this object
+	 * The binding of this object.
 	 */
 	protected final IValueBinding myValueBinding;
 	/**

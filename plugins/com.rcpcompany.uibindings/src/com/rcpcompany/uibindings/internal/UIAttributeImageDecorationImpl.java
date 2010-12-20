@@ -290,7 +290,6 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 			if (tooltipValue == null) return null;
 			return (String) tooltipValue.getValue();
 		}
-
 	}
 
 	/**

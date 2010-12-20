@@ -15,7 +15,7 @@ import org.eclipse.swt.graphics.Image;
 import com.rcpcompany.uibindings.IDisposable;
 
 /**
- * Base interface used for showing a decoration for a widget
+ * Base interface used for showing a decoration for a widget.
  * 
  * @author Tonny Madsen, The RCP Company
  */
