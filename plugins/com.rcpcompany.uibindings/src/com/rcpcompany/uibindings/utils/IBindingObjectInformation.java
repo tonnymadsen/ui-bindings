@@ -42,7 +42,10 @@ public interface IBindingObjectInformation extends IBindingObjectLongName, IDisp
 		 */
 		public static String getLongName(EObject obj) {
 			final IBindingObjectInformation ln = createObjectInformation(obj, Constants.TYPE_LONG_NAME);
-			final String name = ln.getName();
+			String name = ln.getName();
+			if (name == null || name.length() == 0) {
+				name = "<no name>";
+			}
 			ln.dispose();
 			return name;
 		}
@@ -58,7 +61,11 @@ public interface IBindingObjectInformation extends IBindingObjectLongName, IDisp
 		 */
 		public static String getQualifiedName(EObject obj) {
 			final IBindingObjectInformation ln = createObjectInformation(obj, Constants.TYPE_LONG_NAME);
-			final String name = ln.getName() + " (" + ln.getLabel() + ")";
+			String name = ln.getName();
+			if (name == null || name.length() == 0) {
+				name = "<no name>";
+			}
+			name += " (" + ln.getLabel() + ")";
 			ln.dispose();
 			return name;
 		}
