@@ -26,7 +26,6 @@ import org.junit.Test;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.extests.views.TestView;
-import com.rcpcompany.uibindings.internal.cellEditors.ControlCellEditor;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;

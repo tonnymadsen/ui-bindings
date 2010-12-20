@@ -23,7 +23,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.rcpcompany.uibindings.IBindingContext;
-import com.rcpcompany.uibindings.IEnumDecoratorProvider;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIBindingDecorator;
 import com.rcpcompany.uibindings.IValueBinding;

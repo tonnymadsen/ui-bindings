@@ -28,7 +28,6 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.extests.views.TestView;
-import com.rcpcompany.uibindings.internal.utils.DoubleClickAdapter;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;

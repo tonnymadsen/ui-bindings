@@ -27,9 +27,7 @@ import org.eclipse.ui.themes.IThemeManager;
 import org.junit.Test;
 
 import com.rcpcompany.uibindings.Constants;
-import com.rcpcompany.uibindings.extests.contexts.ContextActivationTest;
 import com.rcpcompany.uibindings.internal.Activator;
-import com.rcpcompany.uibindings.internal.InternalConstants;
 
 /**
  * Tests that constants from {@link Constants} and {@link InternalConstants} are correct.

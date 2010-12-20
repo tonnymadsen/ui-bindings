@@ -110,7 +110,6 @@ import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IValueBindingCell;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
-import com.rcpcompany.uibindings.UIBindingPreferences;
 import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.internal.formatters.DefaultFormatterProvider;
 import com.rcpcompany.uibindings.internal.observableFactories.DefaultEMFObservableFactory;
@@ -1550,7 +1549,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	public void setTextCommitStrategy(TextCommitStrategy newTextCommitStrategy) {
 		setTextCommitStrategyGen(newTextCommitStrategy);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-		ps.setValue(UIBindingPreferences.PREF_TEXT_COMMIT_STRATEGY, newTextCommitStrategy.name());
+		ps.setValue(Constants.PREF_TEXT_COMMIT_STRATEGY, newTextCommitStrategy.name());
 	}
 
 	/**
@@ -1588,7 +1587,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			throw new IllegalArgumentException("delay " + newTextCommitStrategyDelay + " must be in range [1;1000000["); //$NON-NLS-1$ //$NON-NLS-2$
 		setTextCommitStrategyDelayGen(newTextCommitStrategyDelay);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-		ps.setValue(UIBindingPreferences.PREF_TEXT_COMMIT_STRATEGY_DELAY, newTextCommitStrategyDelay);
+		ps.setValue(Constants.PREF_TEXT_COMMIT_STRATEGY_DELAY, newTextCommitStrategyDelay);
 	}
 
 	/**
@@ -1625,7 +1624,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	public void setEditCellAnyKey(boolean newEditCellAnyKey) {
 		setEditCellAnyKeyGen(newEditCellAnyKey);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-		ps.setValue(UIBindingPreferences.PREF_EDIT_CELL_ANY_KEY, newEditCellAnyKey);
+		ps.setValue(Constants.PREF_EDIT_CELL_ANY_KEY, newEditCellAnyKey);
 	}
 
 	/**
@@ -1661,7 +1660,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	public void setEditCellSingleClick(boolean newEditCellSingleClick) {
 		setEditCellSingleClickGen(newEditCellSingleClick);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-		ps.setValue(UIBindingPreferences.PREF_EDIT_CELL_SINGLE_CLICK, newEditCellSingleClick);
+		ps.setValue(Constants.PREF_EDIT_CELL_SINGLE_CLICK, newEditCellSingleClick);
 
 	}
 
@@ -1698,7 +1697,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	public void setMessageDecorationPosition(DecorationPosition newMessageDecorationPosition) {
 		setMessageDecorationPositionGen(newMessageDecorationPosition);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-		ps.setValue(UIBindingPreferences.PREF_MESSAGE_DECORATION_POSITION, newMessageDecorationPosition.name());
+		ps.setValue(Constants.PREF_MESSAGE_DECORATION_POSITION, newMessageDecorationPosition.name());
 	}
 
 	/**
@@ -1736,8 +1735,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	public void setMessageDecorationMinimumSeverity(BindingMessageSeverity newMessageDecorationMinimumSeverity) {
 		setMessageDecorationMinimumSeverityGen(newMessageDecorationMinimumSeverity);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-		ps.setValue(UIBindingPreferences.PREF_MESSAGE_DECORATION_MINIMUM_SEVERITY,
-				newMessageDecorationMinimumSeverity.name());
+		ps.setValue(Constants.PREF_MESSAGE_DECORATION_MINIMUM_SEVERITY, newMessageDecorationMinimumSeverity.name());
 	}
 
 	/**
@@ -1775,7 +1773,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	public void setAlternativeDecorationPosition(DecorationPosition newAlternativeDecorationPosition) {
 		setAlternativeDecorationPositionGen(newAlternativeDecorationPosition);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-		ps.setValue(UIBindingPreferences.PREF_ALTERNATIVE_DECORATION_POSITION, newAlternativeDecorationPosition.name());
+		ps.setValue(Constants.PREF_ALTERNATIVE_DECORATION_POSITION, newAlternativeDecorationPosition.name());
 	}
 
 	/**
@@ -1813,7 +1811,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	public void setAutoApplySingleQuickfix(boolean newAutoApplySingleQuickfix) {
 		setAutoApplySingleQuickfixGen(newAutoApplySingleQuickfix);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-		ps.setValue(UIBindingPreferences.PREF_AUTO_APPLY_QUICKFIX, newAutoApplySingleQuickfix);
+		ps.setValue(Constants.PREF_AUTO_APPLY_QUICKFIX, newAutoApplySingleQuickfix);
 	}
 
 	/**
@@ -1850,7 +1848,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	public void setAlternateRowColors(boolean newAlternateRowColors) {
 		setAlternateRowColorsGen(newAlternateRowColors);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-		ps.setValue(UIBindingPreferences.PREF_ALTERNATE_ROW_COLORS, newAlternateRowColors);
+		ps.setValue(Constants.PREF_ALTERNATE_ROW_COLORS, newAlternateRowColors);
 	}
 
 	/**
@@ -1886,7 +1884,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	public void setValidationErrorsAreFatal(boolean newValidationErrorsAreFatal) {
 		setValidationErrorsAreFatalGen(newValidationErrorsAreFatal);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-		ps.setValue(UIBindingPreferences.PREF_VALIDATION_ERRORS_ARE_FATAL, newValidationErrorsAreFatal);
+		ps.setValue(Constants.PREF_VALIDATION_ERRORS_ARE_FATAL, newValidationErrorsAreFatal);
 	}
 
 	/**
@@ -1925,7 +1923,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			throw new IllegalArgumentException("delay must be in range [1;1000000["); //$NON-NLS-1$
 		setValidationDelayGen(newValidationDelay);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-		ps.setValue(UIBindingPreferences.PREF_VALIDATION_DELAY, newValidationDelay);
+		ps.setValue(Constants.PREF_VALIDATION_DELAY, newValidationDelay);
 	}
 
 	/**
@@ -1963,7 +1961,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			throw new IllegalArgumentException("delay must be in range [1;1000000["); //$NON-NLS-1$
 		setValidationDelayWindowGen(newValidationDelayWindow);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-		ps.setValue(UIBindingPreferences.PREF_VALIDATION_DELAY_WINDOW, newValidationDelayWindow);
+		ps.setValue(Constants.PREF_VALIDATION_DELAY_WINDOW, newValidationDelayWindow);
 	}
 
 	/**
@@ -1999,7 +1997,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	public void setRequiredVBImageDecorationShown(boolean newRequiredVBImageDecorationShown) {
 		setRequiredVBImageDecorationShownGen(newRequiredVBImageDecorationShown);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-		ps.setValue(UIBindingPreferences.PREF_REQUIRED_VBID_SHOWN, newRequiredVBImageDecorationShown);
+		ps.setValue(Constants.PREF_REQUIRED_VBID_SHOWN, newRequiredVBImageDecorationShown);
 	}
 
 	/**
@@ -2036,7 +2034,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	public void setAssistVBImageDecorationShown(boolean newAssistVBImageDecorationShown) {
 		setAssistVBImageDecorationShownGen(newAssistVBImageDecorationShown);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-		ps.setValue(UIBindingPreferences.PREF_ASSIST_VBID_SHOWN, newAssistVBImageDecorationShown);
+		ps.setValue(Constants.PREF_ASSIST_VBID_SHOWN, newAssistVBImageDecorationShown);
 	}
 
 	/**
@@ -2073,7 +2071,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	public void setQuickfixVBImageDecorationShown(boolean newQuickfixVBImageDecorationShown) {
 		setQuickfixVBImageDecorationShownGen(newQuickfixVBImageDecorationShown);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-		ps.setValue(UIBindingPreferences.PREF_QUICKFIX_VBID_SHOWN, newQuickfixVBImageDecorationShown);
+		ps.setValue(Constants.PREF_QUICKFIX_VBID_SHOWN, newQuickfixVBImageDecorationShown);
 	}
 
 	/**
@@ -2110,7 +2108,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	public void setViewNavigationRecorded(boolean newViewNavigationRecorded) {
 		setViewNavigationRecordedGen(newViewNavigationRecorded);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-		ps.setValue(UIBindingPreferences.PREF_VIEW_NAVIGATION_RECORDED, newViewNavigationRecorded);
+		ps.setValue(Constants.PREF_VIEW_NAVIGATION_RECORDED, newViewNavigationRecorded);
 	}
 
 	/**
@@ -2455,7 +2453,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	public void setDeleteHandlerCheckEnabled(boolean newDeleteHandlerCheckEnabled) {
 		setDeleteHandlerCheckEnabledGen(newDeleteHandlerCheckEnabled);
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-		ps.setValue(UIBindingPreferences.PREF_DELETE_HANDLER_CHECK_ENABLED, newDeleteHandlerCheckEnabled);
+		ps.setValue(Constants.PREF_DELETE_HANDLER_CHECK_ENABLED, newDeleteHandlerCheckEnabled);
 	}
 
 	/**

@@ -30,7 +30,6 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IFormatter;
 import com.rcpcompany.uibindings.IFormatterProvider;
 import com.rcpcompany.uibindings.IManager;
-import com.rcpcompany.uibindings.INumberDecoratorProvider;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.views.TestView;

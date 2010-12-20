@@ -12,8 +12,8 @@ package com.rcpcompany.uibindings.extests.manager;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
-import com.rcpcompany.uibindings.UIBindingPreferences;
 
 public class ManagerDeleteHandlerCheckEnabledTest extends AbstractPreferenceStoreBooleanTest {
 
@@ -29,6 +29,6 @@ public class ManagerDeleteHandlerCheckEnabledTest extends AbstractPreferenceStor
 
 	@Override
 	public String getPreferenceName() {
-		return UIBindingPreferences.PREF_DELETE_HANDLER_CHECK_ENABLED;
+		return Constants.PREF_DELETE_HANDLER_CHECK_ENABLED;
 	}
 }

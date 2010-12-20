@@ -12,8 +12,8 @@ package com.rcpcompany.uibindings.extests.manager;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
-import com.rcpcompany.uibindings.UIBindingPreferences;
 
 public class ManagerEditCellSingleClickTest extends AbstractPreferenceStoreBooleanTest {
 
@@ -29,6 +29,6 @@ public class ManagerEditCellSingleClickTest extends AbstractPreferenceStoreBoole
 
 	@Override
 	public String getPreferenceName() {
-		return UIBindingPreferences.PREF_EDIT_CELL_SINGLE_CLICK;
+		return Constants.PREF_EDIT_CELL_SINGLE_CLICK;
 	}
 }

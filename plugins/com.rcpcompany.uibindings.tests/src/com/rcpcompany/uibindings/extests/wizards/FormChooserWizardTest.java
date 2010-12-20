@@ -22,7 +22,6 @@ import org.junit.Test;
 import com.rcpcompany.uibinding.tests.model.TestModelFactory;
 import com.rcpcompany.uibinding.tests.model.TestObject;
 import com.rcpcompany.uibindings.IValueBinding;
-import com.rcpcompany.uibindings.utils.IFormChooser;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.utils.IFormCreatorChooser;
 import com.rcpcompany.uibindings.utils.IFormCreatorChooserCreator;

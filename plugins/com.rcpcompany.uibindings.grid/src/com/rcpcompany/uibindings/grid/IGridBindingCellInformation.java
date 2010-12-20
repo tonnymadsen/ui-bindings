@@ -162,6 +162,7 @@ public interface IGridBindingCellInformation extends EObject, IDisposable, IValu
 	 * @see com.rcpcompany.uibindings.grid.IGridPackage#getGridBindingCellInformation_Changeable()
 	 * @generated
 	 */
+	@Override
 	boolean isChangeable();
 
 	/**
@@ -176,6 +177,7 @@ public interface IGridBindingCellInformation extends EObject, IDisposable, IValu
 	 * @see com.rcpcompany.uibindings.grid.IGridPackage#getGridBindingCellInformation_DisplayText()
 	 * @generated
 	 */
+	@Override
 	String getDisplayText();
 
 	/**

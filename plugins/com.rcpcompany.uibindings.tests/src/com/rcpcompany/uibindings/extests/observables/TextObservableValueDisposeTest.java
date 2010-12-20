@@ -30,7 +30,6 @@ import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.views.TestView;
-import com.rcpcompany.uibindings.internal.observables.TextObservableValue;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;

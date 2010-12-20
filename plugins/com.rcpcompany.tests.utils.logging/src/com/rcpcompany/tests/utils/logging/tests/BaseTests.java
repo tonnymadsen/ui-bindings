@@ -37,27 +37,32 @@ public class BaseTests {
 	}
 
 	public void assertLastStatus(int severity, String pluginId, int code, String message, boolean hasException) {
-		IStatus lastStatus = getLastStatus();
+		final IStatus lastStatus = getLastStatus();
 		assertNotNull(lastStatus);
 
-		if (severity != -1)
+		if (severity != -1) {
 			assertEquals(severity, lastStatus.getSeverity());
-		if (pluginId != null)
+		}
+		if (pluginId != null) {
 			assertEquals(pluginId, lastStatus.getPlugin());
-		if (code != -1)
+		}
+		if (code != -1) {
 			assertEquals(code, lastStatus.getCode());
+		}
 		if (message != null) {
 			String m = lastStatus.getMessage();
-			if (m.indexOf("] ") > 0)
-				m = m.substring(m.indexOf("] ")+2);
+			if (m.indexOf("] ") > 0) {
+				m = m.substring(m.indexOf("] ") + 2);
+			}
 			assertEquals(message, m);
 		}
-		if (hasException)
+		if (hasException) {
 			assertNotNull(lastStatus.getException());
+		}
 	}
 
 	public void assertNoStatus() {
-		IStatus lastStatus = getLastStatus();
+		final IStatus lastStatus = getLastStatus();
 		assertNull(lastStatus);
 	}
 

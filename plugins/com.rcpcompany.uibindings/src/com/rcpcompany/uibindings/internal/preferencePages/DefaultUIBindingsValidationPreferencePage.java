@@ -19,8 +19,8 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
 import com.rcpcompany.uibindings.BindingMessageSeverity;
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.DecorationPosition;
-import com.rcpcompany.uibindings.UIBindingPreferences;
 import com.rcpcompany.uibindings.internal.Activator;
 
 /**
@@ -53,11 +53,11 @@ public class DefaultUIBindingsValidationPreferencePage extends FieldEditorPrefer
 				{ "center right", DecorationPosition.CENTER_RIGHT.getLiteral() },
 				{ "bottom right", DecorationPosition.BOTTOM_RIGHT.getLiteral() }, };
 
-		fe = new ComboFieldEditor(UIBindingPreferences.PREF_MESSAGE_DECORATION_POSITION,
-				"&Position of message decorations", decorationsPositions, getFieldEditorParent());
+		fe = new ComboFieldEditor(Constants.PREF_MESSAGE_DECORATION_POSITION, "&Position of message decorations",
+				decorationsPositions, getFieldEditorParent());
 		addField(fe);
 
-		fe = new ComboFieldEditor(UIBindingPreferences.PREF_ALTERNATIVE_DECORATION_POSITION,
+		fe = new ComboFieldEditor(Constants.PREF_ALTERNATIVE_DECORATION_POSITION,
 				"Position of alternative &decorations", decorationsPositions, getFieldEditorParent());
 		addField(fe);
 
@@ -66,32 +66,31 @@ public class DefaultUIBindingsValidationPreferencePage extends FieldEditorPrefer
 				{ BindingMessageSeverity.WARNING.getName(), BindingMessageSeverity.WARNING.getLiteral() },
 				{ BindingMessageSeverity.ERROR.getName(), BindingMessageSeverity.ERROR.getLiteral() }, };
 
-		fe = new ComboFieldEditor(UIBindingPreferences.PREF_MESSAGE_DECORATION_MINIMUM_SEVERITY,
+		fe = new ComboFieldEditor(Constants.PREF_MESSAGE_DECORATION_MINIMUM_SEVERITY,
 				"&Minimum severity for message decorations", severities, getFieldEditorParent());
 		addField(fe);
 
-		fe = new IntegerFieldEditor(UIBindingPreferences.PREF_VALIDATION_DELAY, "Delay for &validation",
+		fe = new IntegerFieldEditor(Constants.PREF_VALIDATION_DELAY, "Delay for &validation", getFieldEditorParent());
+		addField(fe);
+
+		fe = new IntegerFieldEditor(Constants.PREF_VALIDATION_DELAY_WINDOW, "Delay &window for validation",
 				getFieldEditorParent());
 		addField(fe);
 
-		fe = new IntegerFieldEditor(UIBindingPreferences.PREF_VALIDATION_DELAY_WINDOW, "Delay &window for validation",
+		fe = new BooleanFieldEditor(Constants.PREF_VALIDATION_ERRORS_ARE_FATAL, "Validation errors are &fatal",
 				getFieldEditorParent());
 		addField(fe);
 
-		fe = new BooleanFieldEditor(UIBindingPreferences.PREF_VALIDATION_ERRORS_ARE_FATAL,
-				"Validation errors are &fatal", getFieldEditorParent());
+		fe = new BooleanFieldEditor(Constants.PREF_REQUIRED_VBID_SHOWN, "Show \"required\" control decorations",
+				getFieldEditorParent());
 		addField(fe);
 
-		fe = new BooleanFieldEditor(UIBindingPreferences.PREF_REQUIRED_VBID_SHOWN,
-				"Show \"required\" control decorations", getFieldEditorParent());
+		fe = new BooleanFieldEditor(Constants.PREF_ASSIST_VBID_SHOWN, "Show \"quick assist\" control decorations",
+				getFieldEditorParent());
 		addField(fe);
 
-		fe = new BooleanFieldEditor(UIBindingPreferences.PREF_ASSIST_VBID_SHOWN,
-				"Show \"quick assist\" control decorations", getFieldEditorParent());
-		addField(fe);
-
-		fe = new BooleanFieldEditor(UIBindingPreferences.PREF_QUICKFIX_VBID_SHOWN,
-				"Show \"quickfix\" control decorations", getFieldEditorParent());
+		fe = new BooleanFieldEditor(Constants.PREF_QUICKFIX_VBID_SHOWN, "Show \"quickfix\" control decorations",
+				getFieldEditorParent());
 		addField(fe);
 	}
 

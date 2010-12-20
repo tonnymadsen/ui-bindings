@@ -105,9 +105,9 @@ public class Activator extends Plugin {
 	 * @return the build ID or <code>null</code>
 	 */
 	public String getBundleId(Object object) {
-		if (object == null) { return null; }
+		if (object == null) return null;
 
-		if (object instanceof String) { return (String) object; }
+		if (object instanceof String) return (String) object;
 
 		return getBundleId(object.getClass());
 	}
@@ -120,13 +120,13 @@ public class Activator extends Plugin {
 	 * @return the build ID or <code>null</code>
 	 */
 	public String getBundleId(Class<? extends Object> clazz) {
-		if (clazz == null) { return null; }
+		if (clazz == null) return null;
 
 		final PackageAdmin packageAdmin = getBundleAdmin();
-		if (packageAdmin == null) { return null; }
+		if (packageAdmin == null) return null;
 
 		final Bundle source = packageAdmin.getBundle(clazz);
-		if (source == null || source.getSymbolicName() == null) { return null; }
+		if (source == null || source.getSymbolicName() == null) return null;
 
 		return source.getSymbolicName();
 	}

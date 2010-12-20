@@ -12,8 +12,8 @@ package com.rcpcompany.uibindings.extests.manager;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
-import com.rcpcompany.uibindings.UIBindingPreferences;
 
 public class ManagerAlternatingRowColors extends AbstractPreferenceStoreBooleanTest {
 
@@ -29,6 +29,6 @@ public class ManagerAlternatingRowColors extends AbstractPreferenceStoreBooleanT
 
 	@Override
 	public String getPreferenceName() {
-		return UIBindingPreferences.PREF_ALTERNATE_ROW_COLORS;
+		return Constants.PREF_ALTERNATE_ROW_COLORS;
 	}
 }

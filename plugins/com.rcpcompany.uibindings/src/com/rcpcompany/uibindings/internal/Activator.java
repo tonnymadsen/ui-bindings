@@ -27,12 +27,12 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 import com.rcpcompany.uibindings.BindingMessageSeverity;
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.DecorationPosition;
 import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IColumnBindingCellInformation;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.TextCommitStrategy;
-import com.rcpcompany.uibindings.UIBindingPreferences;
 import com.rcpcompany.uibindings.bindingMessages.ValidationLabelDecorator;
 import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator;
 import com.rcpcompany.uibindings.internal.bindingMessages.ViewerBindingMessageDecorator;
@@ -349,7 +349,7 @@ public class Activator extends AbstractUIPlugin {
 		int i;
 		String s;
 
-		s = preferenceStore.getString(UIBindingPreferences.PREF_TEXT_COMMIT_STRATEGY);
+		s = preferenceStore.getString(Constants.PREF_TEXT_COMMIT_STRATEGY);
 		try {
 			final TextCommitStrategy cs = TextCommitStrategy.valueOf(s);
 			if (manager.getTextCommitStrategy() != cs) {
@@ -359,42 +359,42 @@ public class Activator extends AbstractUIPlugin {
 			LogUtils.error(this, "Unknown text commit strategy: '" + s + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
-		i = preferenceStore.getInt(UIBindingPreferences.PREF_TEXT_COMMIT_STRATEGY_DELAY);
+		i = preferenceStore.getInt(Constants.PREF_TEXT_COMMIT_STRATEGY_DELAY);
 		if (manager.getTextCommitStrategyDelay() != i) {
 			manager.setTextCommitStrategyDelay(i);
 		}
 
-		b = preferenceStore.getBoolean(UIBindingPreferences.PREF_AUTO_APPLY_QUICKFIX);
+		b = preferenceStore.getBoolean(Constants.PREF_AUTO_APPLY_QUICKFIX);
 		if (manager.isAutoApplySingleQuickfix() != b) {
 			manager.setAutoApplySingleQuickfix(b);
 		}
 
-		b = preferenceStore.getBoolean(UIBindingPreferences.PREF_DELETE_HANDLER_CHECK_ENABLED);
+		b = preferenceStore.getBoolean(Constants.PREF_DELETE_HANDLER_CHECK_ENABLED);
 		if (manager.isDeleteHandlerCheckEnabled() != b) {
 			manager.setDeleteHandlerCheckEnabled(b);
 		}
 
-		b = preferenceStore.getBoolean(UIBindingPreferences.PREF_EDIT_CELL_ANY_KEY);
+		b = preferenceStore.getBoolean(Constants.PREF_EDIT_CELL_ANY_KEY);
 		if (manager.isEditCellAnyKey() != b) {
 			manager.setEditCellAnyKey(b);
 		}
 
-		b = preferenceStore.getBoolean(UIBindingPreferences.PREF_EDIT_CELL_SINGLE_CLICK);
+		b = preferenceStore.getBoolean(Constants.PREF_EDIT_CELL_SINGLE_CLICK);
 		if (manager.isEditCellSingleClick() != b) {
 			manager.setEditCellSingleClick(b);
 		}
 
-		b = preferenceStore.getBoolean(UIBindingPreferences.PREF_ALTERNATE_ROW_COLORS);
+		b = preferenceStore.getBoolean(Constants.PREF_ALTERNATE_ROW_COLORS);
 		if (manager.isAlternateRowColors() != b) {
 			manager.setAlternateRowColors(b);
 		}
 
-		b = preferenceStore.getBoolean(UIBindingPreferences.PREF_VALIDATION_ERRORS_ARE_FATAL);
+		b = preferenceStore.getBoolean(Constants.PREF_VALIDATION_ERRORS_ARE_FATAL);
 		if (manager.isValidationErrorsAreFatal() != b) {
 			manager.setValidationErrorsAreFatal(b);
 		}
 
-		s = preferenceStore.getString(UIBindingPreferences.PREF_MESSAGE_DECORATION_POSITION);
+		s = preferenceStore.getString(Constants.PREF_MESSAGE_DECORATION_POSITION);
 		final DecorationPosition mdp = DecorationPosition.get(s);
 		if (mdp != null) {
 			if (manager.getMessageDecorationPosition() != mdp) {
@@ -404,7 +404,7 @@ public class Activator extends AbstractUIPlugin {
 			LogUtils.error(this, "Unknown message decoration position: '" + s + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
-		s = preferenceStore.getString(UIBindingPreferences.PREF_MESSAGE_DECORATION_MINIMUM_SEVERITY);
+		s = preferenceStore.getString(Constants.PREF_MESSAGE_DECORATION_MINIMUM_SEVERITY);
 		final BindingMessageSeverity ms = BindingMessageSeverity.get(s);
 		if (ms != null) {
 			if (manager.getMessageDecorationMinimumSeverity() != ms) {
@@ -414,7 +414,7 @@ public class Activator extends AbstractUIPlugin {
 			LogUtils.error(this, "Unknown message decoration minimum severity: '" + s + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
-		s = preferenceStore.getString(UIBindingPreferences.PREF_ALTERNATIVE_DECORATION_POSITION);
+		s = preferenceStore.getString(Constants.PREF_ALTERNATIVE_DECORATION_POSITION);
 		final DecorationPosition adp = DecorationPosition.get(s);
 		if (adp != null) {
 			if (manager.getAlternativeDecorationPosition() != adp) {
@@ -424,32 +424,32 @@ public class Activator extends AbstractUIPlugin {
 			LogUtils.error(this, "Unknown alternative decoration position: '" + s + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
-		i = preferenceStore.getInt(UIBindingPreferences.PREF_VALIDATION_DELAY);
+		i = preferenceStore.getInt(Constants.PREF_VALIDATION_DELAY);
 		if (manager.getValidationDelay() != i) {
 			manager.setValidationDelay(i);
 		}
 
-		i = preferenceStore.getInt(UIBindingPreferences.PREF_VALIDATION_DELAY_WINDOW);
+		i = preferenceStore.getInt(Constants.PREF_VALIDATION_DELAY_WINDOW);
 		if (manager.getValidationDelayWindow() != i) {
 			manager.setValidationDelayWindow(i);
 		}
 
-		b = preferenceStore.getBoolean(UIBindingPreferences.PREF_REQUIRED_VBID_SHOWN);
+		b = preferenceStore.getBoolean(Constants.PREF_REQUIRED_VBID_SHOWN);
 		if (manager.isRequiredVBImageDecorationShown() != b) {
 			manager.setRequiredVBImageDecorationShown(b);
 		}
 
-		b = preferenceStore.getBoolean(UIBindingPreferences.PREF_QUICKFIX_VBID_SHOWN);
+		b = preferenceStore.getBoolean(Constants.PREF_QUICKFIX_VBID_SHOWN);
 		if (manager.isQuickfixVBImageDecorationShown() != b) {
 			manager.setQuickfixVBImageDecorationShown(b);
 		}
 
-		b = preferenceStore.getBoolean(UIBindingPreferences.PREF_ASSIST_VBID_SHOWN);
+		b = preferenceStore.getBoolean(Constants.PREF_ASSIST_VBID_SHOWN);
 		if (manager.isAssistVBImageDecorationShown() != b) {
 			manager.setAssistVBImageDecorationShown(b);
 		}
 
-		b = preferenceStore.getBoolean(UIBindingPreferences.PREF_VIEW_NAVIGATION_RECORDED);
+		b = preferenceStore.getBoolean(Constants.PREF_VIEW_NAVIGATION_RECORDED);
 		if (manager.isViewNavigationRecorded() != b) {
 			manager.setViewNavigationRecorded(b);
 		}

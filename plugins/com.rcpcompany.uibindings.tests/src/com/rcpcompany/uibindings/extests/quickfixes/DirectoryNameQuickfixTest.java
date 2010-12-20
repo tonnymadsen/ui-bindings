@@ -91,17 +91,17 @@ public class DirectoryNameQuickfixTest {
 		assertNotNull(myMessageDecorator.getMessages());
 		assertEquals(0, myMessageDecorator.getMessages().size());
 
-//		// No messages or quickfixes
-//		t.setText("c:\\Windows\\");
-//		sleep(VD + 200);
-//		assertEquals(0, myMessageDecorator.getMessages().size());
-//		assertEquals(0, myMessageDecorator.getQuickfixes().size());
-//
-//		// No quickfixes
-//		t.setText("n");
-//		sleep(VD + 200);
-//		assertEquals(1, myMessageDecorator.getMessages().size());
-//		assertEquals(0, myMessageDecorator.getQuickfixes().size());
+		// // No messages or quickfixes
+		// t.setText("c:\\Windows\\");
+		// sleep(VD + 200);
+		// assertEquals(0, myMessageDecorator.getMessages().size());
+		// assertEquals(0, myMessageDecorator.getQuickfixes().size());
+		//
+		// // No quickfixes
+		// t.setText("n");
+		// sleep(VD + 200);
+		// assertEquals(1, myMessageDecorator.getMessages().size());
+		// assertEquals(0, myMessageDecorator.getQuickfixes().size());
 
 		// Remove part of name for file that exist
 		t.setText("c:/Windows/notepad.exe");

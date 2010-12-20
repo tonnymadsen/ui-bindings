@@ -12,8 +12,8 @@ package com.rcpcompany.uibindings.extests.manager;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
-import com.rcpcompany.uibindings.UIBindingPreferences;
 
 public class ManagerValidationErrorsAreFatal extends AbstractPreferenceStoreBooleanTest {
 
@@ -29,6 +29,6 @@ public class ManagerValidationErrorsAreFatal extends AbstractPreferenceStoreBool
 
 	@Override
 	public String getPreferenceName() {
-		return UIBindingPreferences.PREF_VALIDATION_ERRORS_ARE_FATAL;
+		return Constants.PREF_VALIDATION_ERRORS_ARE_FATAL;
 	}
 }

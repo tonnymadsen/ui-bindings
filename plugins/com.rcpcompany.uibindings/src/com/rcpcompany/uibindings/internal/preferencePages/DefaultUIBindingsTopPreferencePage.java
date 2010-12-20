@@ -18,8 +18,8 @@ import org.eclipse.jface.preference.IntegerFieldEditor;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.TextCommitStrategy;
-import com.rcpcompany.uibindings.UIBindingPreferences;
 import com.rcpcompany.uibindings.internal.Activator;
 
 /**
@@ -48,38 +48,38 @@ public class DefaultUIBindingsTopPreferencePage extends FieldEditorPreferencePag
 	@Override
 	protected void createFieldEditors() {
 		FieldEditor fe = null;
-		fe = new ComboFieldEditor(UIBindingPreferences.PREF_TEXT_COMMIT_STRATEGY, "&Commit strategy for text fields",
+		fe = new ComboFieldEditor(Constants.PREF_TEXT_COMMIT_STRATEGY, "&Commit strategy for text fields",
 				new String[][] { { "modify", TextCommitStrategy.ON_MODIFY.name() },
 						{ "focus out", TextCommitStrategy.ON_FOCUS_OUT.name() },
 						{ "delayed modify", TextCommitStrategy.ON_MODIFY_DELAY.name() }, }, getFieldEditorParent());
 		addField(fe);
 
 		// TODO add enable/disable based on strategy field
-		fe = new IntegerFieldEditor(UIBindingPreferences.PREF_TEXT_COMMIT_STRATEGY_DELAY,
-				"&Delay for 'delayed modify'", getFieldEditorParent());
-		addField(fe);
-
-		fe = new BooleanFieldEditor(UIBindingPreferences.PREF_EDIT_CELL_ANY_KEY, "&Any key will start cell editing",
+		fe = new IntegerFieldEditor(Constants.PREF_TEXT_COMMIT_STRATEGY_DELAY, "&Delay for 'delayed modify'",
 				getFieldEditorParent());
 		addField(fe);
 
-		fe = new BooleanFieldEditor(UIBindingPreferences.PREF_EDIT_CELL_SINGLE_CLICK,
-				"&Single click will start cell editing", getFieldEditorParent());
-		addField(fe);
-
-		fe = new BooleanFieldEditor(UIBindingPreferences.PREF_ALTERNATE_ROW_COLORS, "Alternate &row colors in tables",
+		fe = new BooleanFieldEditor(Constants.PREF_EDIT_CELL_ANY_KEY, "&Any key will start cell editing",
 				getFieldEditorParent());
 		addField(fe);
 
-		fe = new BooleanFieldEditor(UIBindingPreferences.PREF_AUTO_APPLY_QUICKFIX, "Auto-apply lone &quick fix",
+		fe = new BooleanFieldEditor(Constants.PREF_EDIT_CELL_SINGLE_CLICK, "&Single click will start cell editing",
 				getFieldEditorParent());
 		addField(fe);
 
-		fe = new BooleanFieldEditor(UIBindingPreferences.PREF_VIEW_NAVIGATION_RECORDED,
+		fe = new BooleanFieldEditor(Constants.PREF_ALTERNATE_ROW_COLORS, "Alternate &row colors in tables",
+				getFieldEditorParent());
+		addField(fe);
+
+		fe = new BooleanFieldEditor(Constants.PREF_AUTO_APPLY_QUICKFIX, "Auto-apply lone &quick fix",
+				getFieldEditorParent());
+		addField(fe);
+
+		fe = new BooleanFieldEditor(Constants.PREF_VIEW_NAVIGATION_RECORDED,
 				"&Record view navigation in the navigation history", getFieldEditorParent());
 		addField(fe);
 
-		fe = new BooleanFieldEditor(UIBindingPreferences.PREF_DELETE_HANDLER_CHECK_ENABLED,
+		fe = new BooleanFieldEditor(Constants.PREF_DELETE_HANDLER_CHECK_ENABLED,
 				"&Delete Handler enabled state calculated (potentially expensive)", getFieldEditorParent());
 		addField(fe);
 	}

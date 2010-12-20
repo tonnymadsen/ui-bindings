@@ -19,7 +19,6 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
 import com.rcpcompany.uibindings.Constants;
-import com.rcpcompany.uibindings.UIBindingPreferences;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.utils.IBindingHighlightContext;
 
@@ -49,16 +48,16 @@ public class DefaultUIBindingsHighlightPreferencePage extends FieldEditorPrefere
 				getFieldEditorParent());
 		addField(fe);
 
-		fe = new IntegerFieldEditor(UIBindingPreferences.PREF_REQUIRED_VBID_SHOWN,
-				"Show \"required\" control decorations", getFieldEditorParent());
+		fe = new IntegerFieldEditor(Constants.PREF_REQUIRED_VBID_SHOWN, "Show \"required\" control decorations",
+				getFieldEditorParent());
 		addField(fe);
 
-		fe = new BooleanFieldEditor(UIBindingPreferences.PREF_ASSIST_VBID_SHOWN,
-				"Show \"quick assist\" control decorations", getFieldEditorParent());
+		fe = new BooleanFieldEditor(Constants.PREF_ASSIST_VBID_SHOWN, "Show \"quick assist\" control decorations",
+				getFieldEditorParent());
 		addField(fe);
 
-		fe = new BooleanFieldEditor(UIBindingPreferences.PREF_QUICKFIX_VBID_SHOWN,
-				"Show \"quickfix\" control decorations", getFieldEditorParent());
+		fe = new BooleanFieldEditor(Constants.PREF_QUICKFIX_VBID_SHOWN, "Show \"quickfix\" control decorations",
+				getFieldEditorParent());
 		addField(fe);
 	}
 

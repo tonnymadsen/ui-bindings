@@ -148,35 +148,40 @@ public class MyTableViewerEditor extends ColumnViewerEditor {
 		}
 	}
 
-//	@Override
-//	protected void processTraverseEvent(int columnIndex, ViewerRow row, TraverseEvent event) {
-//
-//		ViewerCell cell2edit = null;
-//
-//		if (event.detail == SWT.TRAVERSE_TAB_PREVIOUS) {
-//			event.doit = false;
-//
-//			if ((event.stateMask & SWT.CTRL) == SWT.CTRL && (myFeature & TABBING_VERTICAL) == TABBING_VERTICAL) {
-//				cell2edit = searchCellAboveBelow(row, myViewer, columnIndex, true);
-//			} else if ((myFeature & TABBING_HORIZONTAL) == TABBING_HORIZONTAL) {
-//				cell2edit = searchPreviousCell(row, row.getCell(columnIndex), row.getCell(columnIndex), myViewer);
-//			}
-//		} else if (event.detail == SWT.TRAVERSE_TAB_NEXT) {
-//			event.doit = false;
-//
-//			if ((event.stateMask & SWT.CTRL) == SWT.CTRL && (myFeature & TABBING_VERTICAL) == TABBING_VERTICAL) {
-//				cell2edit = searchCellAboveBelow(row, myViewer, columnIndex, false);
-//			} else if ((myFeature & TABBING_HORIZONTAL) == TABBING_HORIZONTAL) {
-//				cell2edit = searchNextCell(row, row.getCell(columnIndex), row.getCell(columnIndex), myViewer);
-//			}
-//		}
-//
-//		if (cell2edit != null) {
-//
-//			myViewer.getControl().setRedraw(false);
-//			final ColumnViewerEditorActivationEvent acEvent = new ColumnViewerEditorActivationEvent(cell2edit, event);
-//			myViewer.triggerEditorActivationEvent(acEvent);
-//			myViewer.getControl().setRedraw(true);
-//		}
-//	}
+	// @Override
+	// protected void processTraverseEvent(int columnIndex, ViewerRow row, TraverseEvent event) {
+	//
+	// ViewerCell cell2edit = null;
+	//
+	// if (event.detail == SWT.TRAVERSE_TAB_PREVIOUS) {
+	// event.doit = false;
+	//
+	// if ((event.stateMask & SWT.CTRL) == SWT.CTRL && (myFeature & TABBING_VERTICAL) ==
+	// TABBING_VERTICAL) {
+	// cell2edit = searchCellAboveBelow(row, myViewer, columnIndex, true);
+	// } else if ((myFeature & TABBING_HORIZONTAL) == TABBING_HORIZONTAL) {
+	// cell2edit = searchPreviousCell(row, row.getCell(columnIndex), row.getCell(columnIndex),
+	// myViewer);
+	// }
+	// } else if (event.detail == SWT.TRAVERSE_TAB_NEXT) {
+	// event.doit = false;
+	//
+	// if ((event.stateMask & SWT.CTRL) == SWT.CTRL && (myFeature & TABBING_VERTICAL) ==
+	// TABBING_VERTICAL) {
+	// cell2edit = searchCellAboveBelow(row, myViewer, columnIndex, false);
+	// } else if ((myFeature & TABBING_HORIZONTAL) == TABBING_HORIZONTAL) {
+	// cell2edit = searchNextCell(row, row.getCell(columnIndex), row.getCell(columnIndex),
+	// myViewer);
+	// }
+	// }
+	//
+	// if (cell2edit != null) {
+	//
+	// myViewer.getControl().setRedraw(false);
+	// final ColumnViewerEditorActivationEvent acEvent = new
+	// ColumnViewerEditorActivationEvent(cell2edit, event);
+	// myViewer.triggerEditorActivationEvent(acEvent);
+	// myViewer.getControl().setRedraw(true);
+	// }
+	// }
 }

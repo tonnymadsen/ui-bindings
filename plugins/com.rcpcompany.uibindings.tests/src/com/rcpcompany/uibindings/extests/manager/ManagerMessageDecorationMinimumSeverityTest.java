@@ -13,8 +13,8 @@ package com.rcpcompany.uibindings.extests.manager;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import com.rcpcompany.uibindings.BindingMessageSeverity;
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
-import com.rcpcompany.uibindings.UIBindingPreferences;
 
 public class ManagerMessageDecorationMinimumSeverityTest extends
 		AbstractPreferenceStoreEnumTest<BindingMessageSeverity> {
@@ -36,6 +36,6 @@ public class ManagerMessageDecorationMinimumSeverityTest extends
 
 	@Override
 	public String getPreferenceName() {
-		return UIBindingPreferences.PREF_MESSAGE_DECORATION_MINIMUM_SEVERITY;
+		return Constants.PREF_MESSAGE_DECORATION_MINIMUM_SEVERITY;
 	}
 }

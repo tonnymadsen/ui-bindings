@@ -28,8 +28,6 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.extests.TestObjectValidatorAdapter;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.bindingMessages.ContextMessageDecorator;
-import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator;
-import com.rcpcompany.uibindings.internal.validators.BindingMessageCollectionTest;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 

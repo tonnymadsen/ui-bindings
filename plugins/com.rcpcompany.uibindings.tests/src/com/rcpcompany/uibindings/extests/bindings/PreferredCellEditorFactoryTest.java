@@ -28,7 +28,6 @@ import org.junit.Test;
 import com.rcpcompany.uibinding.tests.model.TestModelFactory;
 import com.rcpcompany.uibinding.tests.model.TestObject;
 import com.rcpcompany.uibindings.Constants;
-import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.ICellEditorFactory;
 import com.rcpcompany.uibindings.ICellEditorFactoryContext;

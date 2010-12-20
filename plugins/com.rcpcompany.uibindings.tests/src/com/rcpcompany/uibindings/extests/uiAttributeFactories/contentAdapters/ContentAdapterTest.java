@@ -39,8 +39,6 @@ import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator;
-import com.rcpcompany.uibindings.internal.uiAttributeFactories.contentAdapters.CComboContentAdapter;
-import com.rcpcompany.uibindings.internal.uiAttributeFactories.contentAdapters.StyledTextContentAdapter;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;

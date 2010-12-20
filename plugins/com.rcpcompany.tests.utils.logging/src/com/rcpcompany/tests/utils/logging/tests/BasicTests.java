@@ -63,10 +63,10 @@ public class BasicTests extends BaseTests {
 
 	@Test
 	public void testCEContext() {
-		IExtensionRegistry er = Platform.getExtensionRegistry();
-		IConfigurationElement[] elements = er.getConfigurationElementsFor("org.eclipse.ui.views");
+		final IExtensionRegistry er = Platform.getExtensionRegistry();
+		final IConfigurationElement[] elements = er.getConfigurationElementsFor("org.eclipse.ui.views");
 		assertTrue(elements.length > 0);
-		IConfigurationElement ce = elements[0];
+		final IConfigurationElement ce = elements[0];
 
 		String message = "Hello registry";
 		LogUtils.debug(ce, message);
@@ -82,7 +82,7 @@ public class BasicTests extends BaseTests {
 
 	@Test
 	public void testErrorObjectThrowable() {
-		Throwable ex = new Exception("Ex occured");
+		final Throwable ex = new Exception("Ex occured");
 		LogUtils.error(null, ex);
 		assertLastStatus(IStatus.ERROR, LogUtils.UNKNOWN_PLUGIN, -1, "Ex occured", true);
 	}
@@ -91,44 +91,44 @@ public class BasicTests extends BaseTests {
 	public void testLogPluginVersions() {
 		LogUtils.logPluginVersions();
 		assertLastStatus(IStatus.INFO, "com.rcpcompany.utils.logging", -1, null, false);
-		IStatus lastStatus = getLastStatus();
-		String m = lastStatus.getMessage();
+		final IStatus lastStatus = getLastStatus();
+		final String m = lastStatus.getMessage();
 		// A sample of the strings that should be present!
-		String[] ss = { "Plugin versions", "com.rcpcompany.utils.logging", "com.rcpcompany.tests.utils.logging",
+		final String[] ss = { "Plugin versions", "com.rcpcompany.utils.logging", "com.rcpcompany.tests.utils.logging",
 				"org.eclipse.core.runtime", "org.eclipse.osgi" };
-		for (String s : ss) {
+		for (final String s : ss) {
 			assertTrue("Contains '" + s + "'", m.contains(s));
 		}
 	}
 
 	@Test
 	public void testLogMessage() {
-		Exception ex = new Exception();
+		final Exception ex = new Exception();
 
 		// The following two lines must follow exactly after one another
 		ex.fillInStackTrace();
-		String message = LogUtils.logMessage("");
+		final String message = LogUtils.logMessage("");
 		// Section end
 
 		System.out.println(">>>" + message + "<<<");
 
-		Pattern p = Pattern.compile("\\[(.*) +- +(.*) +- +(.*)\\.(.*) +\\((.*):(.*)\\)] +");
-		Matcher matcher = p.matcher(message);
+		final Pattern p = Pattern.compile("\\[(.*) +- +(.*) +- +(.*)\\.(.*) +\\((.*):(.*)\\)] +");
+		final Matcher matcher = p.matcher(message);
 		assertTrue("Basic structure", matcher.matches());
 
-		String date = matcher.group(1);
-		String threadName = matcher.group(2);
-		String className = matcher.group(3);
-		String methodName = matcher.group(4);
-		String fileName = matcher.group(5);
-		String lineNo = matcher.group(6);
+		final String date = matcher.group(1);
+		final String threadName = matcher.group(2);
+		final String className = matcher.group(3);
+		final String methodName = matcher.group(4);
+		final String fileName = matcher.group(5);
+		final String lineNo = matcher.group(6);
 
-		StackTraceElement stackTraceElement = ex.getStackTrace()[0];
+		final StackTraceElement stackTraceElement = ex.getStackTrace()[0];
 
 		assertEquals("Thread name", Thread.currentThread().getName(), threadName);
 		String c = stackTraceElement.getClassName();
 		if (c.lastIndexOf('.') >= 0) {
-			c = c.substring(c.lastIndexOf('.')+1);
+			c = c.substring(c.lastIndexOf('.') + 1);
 		}
 		assertEquals("Class name", c, className);
 		assertEquals("Method name", stackTraceElement.getMethodName(), methodName);

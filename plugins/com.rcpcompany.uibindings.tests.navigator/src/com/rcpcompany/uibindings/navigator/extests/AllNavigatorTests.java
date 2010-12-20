@@ -29,7 +29,7 @@ import com.rcpcompany.uibindings.navigator.internal.views.GenericPlainFormEditor
 		/*
 		 * All the basic UI Bindings tests
 		 */
-// AllBindingTests.class,
+		// AllBindingTests.class,
 
 		/*
 		 * Simple manager tests

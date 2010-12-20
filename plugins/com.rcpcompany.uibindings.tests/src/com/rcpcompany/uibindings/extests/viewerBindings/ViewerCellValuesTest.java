@@ -125,12 +125,12 @@ public class ViewerCellValuesTest {
 	 * @param expectedText the expected text of the cell.
 	 */
 	public void oneCell(int columnNo, int rowNo, String expectedText) {
-//		final Table table = myCreator.getTable();
-//		assertNotNull(table);
-//		final TableItem item = table.getItem(rowNo);
-//		assertNotNull(item);
-//
-//		assertEquals(expectedText, item.getText(columnNo + viewer.getFirstTableColumnOffset()));
+		// final Table table = myCreator.getTable();
+		// assertNotNull(table);
+		// final TableItem item = table.getItem(rowNo);
+		// assertNotNull(item);
+		//
+		// assertEquals(expectedText, item.getText(columnNo + viewer.getFirstTableColumnOffset()));
 
 		final IViewerBinding viewer = myCreator.getBinding();
 		assertNotNull(viewer);

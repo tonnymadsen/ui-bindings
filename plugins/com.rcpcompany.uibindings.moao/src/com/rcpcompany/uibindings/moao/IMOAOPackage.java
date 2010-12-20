@@ -44,7 +44,7 @@ public interface IMOAOPackage extends EPackage {
 	 * 
 	 * @generated
 	 */
-	String eNS_URI = "http://com.rcpcompany/schemas/moao.ecore";
+	String eNS_URI = "http://rcp-company.com/schemas/uibindings/moao.ecore";
 
 	/**
 	 * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->

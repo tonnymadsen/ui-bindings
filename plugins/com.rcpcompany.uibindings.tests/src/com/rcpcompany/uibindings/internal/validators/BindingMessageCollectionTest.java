@@ -36,7 +36,6 @@ import com.rcpcompany.uibindings.BindingMessageSeverity;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.IBindingMessage.FeatureMatchingAlgorithm;
-import com.rcpcompany.uibindings.IBindingMessageTarget;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;

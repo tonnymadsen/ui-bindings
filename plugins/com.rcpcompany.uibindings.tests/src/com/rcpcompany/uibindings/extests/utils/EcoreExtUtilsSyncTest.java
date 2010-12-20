@@ -34,7 +34,6 @@ import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
-import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests of {@link EcoreExtUtils#sync(EObject, EObject)} and friends.
@@ -355,8 +354,8 @@ public class EcoreExtUtilsSyncTest {
 		final EStructuralFeature[] actualFeatureChanges = myChanges.toArray(new EStructuralFeature[myChanges.size()]);
 		Arrays.sort(expectedFeatureChanges, BaseTestUtils.SF_COMPARATOR);
 		Arrays.sort(actualFeatureChanges, BaseTestUtils.SF_COMPARATOR);
-//		System.out.println("exp: " + Arrays.toString(expectedFeatureChanges));
-//		System.out.println("act: " + Arrays.toString(actualFeatureChanges));
+		// System.out.println("exp: " + Arrays.toString(expectedFeatureChanges));
+		// System.out.println("act: " + Arrays.toString(actualFeatureChanges));
 		assertArrayEquals(expectedFeatureChanges, actualFeatureChanges);
 
 		if (expectedRemovedObjects == null) {

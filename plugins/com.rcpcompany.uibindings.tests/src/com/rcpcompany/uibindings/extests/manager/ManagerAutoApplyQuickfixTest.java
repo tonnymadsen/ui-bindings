@@ -12,8 +12,8 @@ package com.rcpcompany.uibindings.extests.manager;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
-import com.rcpcompany.uibindings.UIBindingPreferences;
 
 public class ManagerAutoApplyQuickfixTest extends AbstractPreferenceStoreBooleanTest {
 
@@ -29,6 +29,6 @@ public class ManagerAutoApplyQuickfixTest extends AbstractPreferenceStoreBoolean
 
 	@Override
 	public String getPreferenceName() {
-		return UIBindingPreferences.PREF_AUTO_APPLY_QUICKFIX;
+		return Constants.PREF_AUTO_APPLY_QUICKFIX;
 	}
 }

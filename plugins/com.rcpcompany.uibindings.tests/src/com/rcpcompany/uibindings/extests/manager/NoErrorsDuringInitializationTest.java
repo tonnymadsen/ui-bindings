@@ -14,7 +14,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.rcpcompany.uibindings.tests.application.Activator;
 import com.rcpcompany.uibindings.tests.application.Application;
 
 /**

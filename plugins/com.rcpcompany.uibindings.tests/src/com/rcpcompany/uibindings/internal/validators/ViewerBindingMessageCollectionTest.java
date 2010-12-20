@@ -32,7 +32,6 @@ import org.junit.runners.Parameterized.Parameters;
 import com.rcpcompany.uibindings.BindingMessageSeverity;
 import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.IBindingMessage.FeatureMatchingAlgorithm;
-import com.rcpcompany.uibindings.IBindingMessageTarget;
 import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IColumnBindingCellInformation;
 import com.rcpcompany.uibindings.IManager;

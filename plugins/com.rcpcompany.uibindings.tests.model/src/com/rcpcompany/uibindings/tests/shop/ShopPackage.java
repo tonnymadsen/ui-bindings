@@ -41,7 +41,7 @@ public interface ShopPackage extends EPackage {
 	 * 
 	 * @generated
 	 */
-	String eNS_URI = "http://rcp-company.com/schemas/shop.ecore";
+	String eNS_URI = "http://rcp-company.com/schemas/uibindings/shop.ecore";
 
 	/**
 	 * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->

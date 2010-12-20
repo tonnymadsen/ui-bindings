@@ -12,8 +12,8 @@ package com.rcpcompany.uibindings.extests.manager;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
-import com.rcpcompany.uibindings.UIBindingPreferences;
 
 public class ManagerRequiredVBIDShown extends AbstractPreferenceStoreBooleanTest {
 
@@ -29,6 +29,6 @@ public class ManagerRequiredVBIDShown extends AbstractPreferenceStoreBooleanTest
 
 	@Override
 	public String getPreferenceName() {
-		return UIBindingPreferences.PREF_REQUIRED_VBID_SHOWN;
+		return Constants.PREF_REQUIRED_VBID_SHOWN;
 	}
 }

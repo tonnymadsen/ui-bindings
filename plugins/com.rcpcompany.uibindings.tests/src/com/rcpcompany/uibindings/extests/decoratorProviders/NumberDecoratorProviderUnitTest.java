@@ -26,9 +26,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.views.TestView;
-import com.rcpcompany.uibindings.internal.decorators.NumberBindingDecorator;
 import com.rcpcompany.uibindings.units.AbstractUnitBindingSupport;
-import com.rcpcompany.uibindings.units.IUnitBindingSupport;
 import com.rcpcompany.uibindings.units.IUnitBindingSupportContext;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 

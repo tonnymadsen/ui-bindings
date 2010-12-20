@@ -11,7 +11,6 @@ import com.rcpcompany.uibinding.tests.model.TestModelFactory;
 import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 import com.rcpcompany.uibinding.tests.model.TestObject;
 import com.rcpcompany.uibinding.tests.model.WeightUnit;
-import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.utils.IBindingEnabler;

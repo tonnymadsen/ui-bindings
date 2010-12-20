@@ -56,7 +56,7 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	public static ShopFactory init() {
 		try {
 			final ShopFactory theShopFactory = (ShopFactory) EPackage.Registry.INSTANCE
-					.getEFactory("http://rcp-company.com/schemas/shop.ecore");
+					.getEFactory("http://rcp-company.com/schemas/uibindings/shop.ecore");
 			if (theShopFactory != null) return theShopFactory;
 		} catch (final Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);

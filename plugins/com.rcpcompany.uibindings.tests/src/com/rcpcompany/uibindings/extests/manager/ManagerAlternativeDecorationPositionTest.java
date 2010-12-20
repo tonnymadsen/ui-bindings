@@ -12,9 +12,9 @@ package com.rcpcompany.uibindings.extests.manager;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.DecorationPosition;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
-import com.rcpcompany.uibindings.UIBindingPreferences;
 
 public class ManagerAlternativeDecorationPositionTest extends AbstractPreferenceStoreEnumTest<DecorationPosition> {
 
@@ -35,6 +35,6 @@ public class ManagerAlternativeDecorationPositionTest extends AbstractPreference
 
 	@Override
 	public String getPreferenceName() {
-		return UIBindingPreferences.PREF_ALTERNATIVE_DECORATION_POSITION;
+		return Constants.PREF_ALTERNATIVE_DECORATION_POSITION;
 	}
 }

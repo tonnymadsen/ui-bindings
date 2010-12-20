@@ -64,32 +64,27 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getContext <em>Context</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getState <em>State</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#isChangeable <em>Changeable</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getCreationPoint <em>Creation Point
- * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getId <em>Id</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getType <em>Type</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getLabel <em>Label</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getStaticDataType <em>Static Data Type
- * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getDataType <em>Data Type</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getModelEType <em>Model EType</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getModelType <em>Model Type</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getUIType <em>UI Type</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getDBBindings <em>DB Bindings</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getMonitoredDBBindings <em>Monitored DB
- * Bindings</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getErrorConditions <em>Error Conditions
- * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getWidget <em>Widget</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getControl <em>Control</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getExtraArgumentProviders <em>Extra
- * Argument Providers</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getState <em>State</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#isChangeable <em>Changeable</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getCreationPoint <em>Creation Point</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getId <em>Id</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getType <em>Type</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getLabel <em>Label</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getStaticDataType <em>Static Data Type</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getDataType <em>Data Type</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getModelEType <em>Model EType</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getModelType <em>Model Type</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getUIType <em>UI Type</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getDBBindings <em>DB Bindings</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getMonitoredDBBindings <em>Monitored DB Bindings</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getErrorConditions <em>Error Conditions</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getWidget <em>Widget</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getControl <em>Control</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.internal.BindingImpl#getExtraArgumentProviders <em>Extra Argument Providers</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
@@ -189,9 +184,9 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	}
 
 	/**
-	 * The default value of the '{@link #getState() <em>State</em>}' attribute. <!-- begin-user-doc
+	 * The default value of the '{@link #getState() <em>State</em>}' attribute.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @see #getState()
 	 * @generated
 	 * @ordered
@@ -199,9 +194,9 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	protected static final BindingState STATE_EDEFAULT = BindingState.INIT;
 
 	/**
-	 * The cached value of the '{@link #getState() <em>State</em>}' attribute. <!-- begin-user-doc
+	 * The cached value of the '{@link #getState() <em>State</em>}' attribute.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @see #getState()
 	 * @generated
 	 * @ordered
@@ -221,7 +216,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	/**
 	 * The default value of the '{@link #getCreationPoint() <em>Creation Point</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #getCreationPoint()
 	 * @generated
 	 * @ordered
@@ -239,9 +233,9 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	protected Throwable creationPoint = CREATION_POINT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -249,9 +243,9 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -259,9 +253,9 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	protected String id = ID_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -269,9 +263,9 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	protected static final String TYPE_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute. <!-- begin-user-doc
+	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
@@ -281,7 +275,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	/**
 	 * The cached value of the '{@link #getStaticDataType() <em>Static Data Type</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #getStaticDataType()
 	 * @generated
 	 * @ordered
@@ -299,9 +292,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	protected EList<Binding> dbBindings;
 
 	/**
-	 * The cached value of the '{@link #getMonitoredDBBindings() <em>Monitored DB Bindings</em>}'
-	 * attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getMonitoredDBBindings() <em>Monitored DB Bindings</em>}' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getMonitoredDBBindings()
 	 * @generated
 	 * @ordered
@@ -309,9 +301,8 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 	protected EList<Binding> monitoredDBBindings;
 
 	/**
-	 * The cached value of the '{@link #getErrorConditions() <em>Error Conditions</em>}' attribute
-	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getErrorConditions() <em>Error Conditions</em>}' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getErrorConditions()
 	 * @generated
 	 * @ordered
@@ -351,7 +342,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -361,7 +351,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -379,7 +368,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetContext(IBindingContext newContext, NotificationChain msgs) {
@@ -389,7 +377,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -399,26 +386,19 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 			if (EcoreUtil.isAncestor(this, newContext))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
-			if (eInternalContainer() != null) {
-				msgs = eBasicRemoveFromContainer(msgs);
-			}
-			if (newContext != null) {
+			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
+			if (newContext != null)
 				msgs = ((InternalEObject) newContext).eInverseAdd(this, IUIBindingsPackage.BINDING_CONTEXT__BINDINGS,
 						IBindingContext.class, msgs);
-			}
 			msgs = basicSetContext(newContext, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
+			if (msgs != null) msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, IUIBindingsPackage.BINDING__CONTEXT, newContext,
 					newContext));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -439,29 +419,25 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void setState(BindingState newState) {
-		final BindingState oldState = state;
+		BindingState oldState = state;
 		state = newState == null ? STATE_EDEFAULT : newState;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, IUIBindingsPackage.BINDING__STATE, oldState, state));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setStateGen(BindingState newState) {
-		final BindingState oldState = state;
+		BindingState oldState = state;
 		state = newState == null ? STATE_EDEFAULT : newState;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, IUIBindingsPackage.BINDING__STATE, oldState, state));
-		}
 	}
 
 	/**
@@ -476,7 +452,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -486,16 +461,14 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setCreationPoint(Throwable newCreationPoint) {
-		final Throwable oldCreationPoint = creationPoint;
+		Throwable oldCreationPoint = creationPoint;
 		creationPoint = newCreationPoint;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, IUIBindingsPackage.BINDING__CREATION_POINT,
 					oldCreationPoint, creationPoint));
-		}
 	}
 
 	/**
@@ -523,7 +496,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -533,16 +505,14 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void setId(String newId) {
-		final String oldId = id;
+		String oldId = id;
 		id = newId;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, IUIBindingsPackage.BINDING__ID, oldId, id));
-		}
 	}
 
 	@Override
@@ -922,7 +892,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -932,16 +901,14 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setStaticDataType(IBindingDataType newStaticDataType) {
-		final IBindingDataType oldStaticDataType = staticDataType;
+		IBindingDataType oldStaticDataType = staticDataType;
 		staticDataType = newStaticDataType;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, IUIBindingsPackage.BINDING__STATIC_DATA_TYPE,
 					oldStaticDataType, staticDataType));
-		}
 	}
 
 	/**
@@ -988,7 +955,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -1001,7 +967,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -1015,7 +980,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -1051,7 +1015,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -1065,16 +1028,13 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case IUIBindingsPackage.BINDING__CONTEXT:
-			if (eInternalContainer() != null) {
-				msgs = eBasicRemoveFromContainer(msgs);
-			}
+			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
 			return basicSetContext((IBindingContext) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -1082,7 +1042,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -1096,7 +1055,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -1111,7 +1069,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -1159,7 +1116,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -1203,7 +1159,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -1242,7 +1197,6 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

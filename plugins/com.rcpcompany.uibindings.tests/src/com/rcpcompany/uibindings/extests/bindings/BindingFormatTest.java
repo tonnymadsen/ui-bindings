@@ -22,7 +22,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.rcpcompany.uibindings.Constants;
-import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;

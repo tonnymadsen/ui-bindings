@@ -25,7 +25,6 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Widget;
 import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.Hyperlink;
-import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -37,12 +36,10 @@ import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator;
-import com.rcpcompany.uibindings.internal.validators.BindingMessageCollectionTest;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.utils.EditingDomainUtils;
-import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 
 /**
  * Tests the behavior of {@link IValidatorAdapterManager} in {@link ScrolledForm}.

@@ -12,8 +12,8 @@ package com.rcpcompany.uibindings.extests.manager;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
-import com.rcpcompany.uibindings.UIBindingPreferences;
 
 public class ManagerTextCommitStrategyDelayTest extends AbstractPreferenceStoreIntTest {
 
@@ -29,7 +29,7 @@ public class ManagerTextCommitStrategyDelayTest extends AbstractPreferenceStoreI
 
 	@Override
 	public String getPreferenceName() {
-		return UIBindingPreferences.PREF_TEXT_COMMIT_STRATEGY_DELAY;
+		return Constants.PREF_TEXT_COMMIT_STRATEGY_DELAY;
 	}
 
 	@Override

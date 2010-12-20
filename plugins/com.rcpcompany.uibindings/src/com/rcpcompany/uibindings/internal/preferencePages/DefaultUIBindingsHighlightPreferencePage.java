@@ -16,7 +16,7 @@ import org.eclipse.jface.preference.IntegerFieldEditor;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
-import com.rcpcompany.uibindings.UIBindingPreferences;
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.utils.IBindingHighlightContext;
 
@@ -42,15 +42,14 @@ public class DefaultUIBindingsHighlightPreferencePage extends FieldEditorPrefere
 	protected void createFieldEditors() {
 		FieldEditor fe = null;
 
-		fe = new IntegerFieldEditor(UIBindingPreferences.PREF_HIGHLIGHT_FADE_IN_TIME, "Fade &In Time (ms)",
+		fe = new IntegerFieldEditor(Constants.PREF_HIGHLIGHT_FADE_IN_TIME, "Fade &In Time (ms)", getFieldEditorParent());
+		addField(fe);
+
+		fe = new IntegerFieldEditor(Constants.PREF_HIGHLIGHT_FADE_OUT_TIME, "Fade &Out Time (ms)",
 				getFieldEditorParent());
 		addField(fe);
 
-		fe = new IntegerFieldEditor(UIBindingPreferences.PREF_HIGHLIGHT_FADE_OUT_TIME, "Fade &Out Time (ms)",
-				getFieldEditorParent());
-		addField(fe);
-
-		fe = new IntegerFieldEditor(UIBindingPreferences.PREF_HIGHLIGHT_ACTIVE_TIME, "Default &Active Time (ms)",
+		fe = new IntegerFieldEditor(Constants.PREF_HIGHLIGHT_ACTIVE_TIME, "Default &Active Time (ms)",
 				getFieldEditorParent());
 		addField(fe);
 	}

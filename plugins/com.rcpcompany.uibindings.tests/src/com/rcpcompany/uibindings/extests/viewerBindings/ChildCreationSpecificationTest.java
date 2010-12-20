@@ -16,7 +16,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IChildCreationSpecification;
 import com.rcpcompany.uibindings.IConstantTreeItem;
 import com.rcpcompany.uibindings.IManager;

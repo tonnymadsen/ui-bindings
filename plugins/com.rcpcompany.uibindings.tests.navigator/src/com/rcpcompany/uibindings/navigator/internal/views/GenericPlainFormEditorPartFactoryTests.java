@@ -76,9 +76,9 @@ public class GenericPlainFormEditorPartFactoryTests {
 
 		assertEquals(4, context.getBindings().size());
 
-//		for (final IBinding b : context.getBindings()) {
-//			System.out.println(b);
-//		}
+		// for (final IBinding b : context.getBindings()) {
+		// System.out.println(b);
+		// }
 
 		testOneBinding(context, 1, IMOAOPackage.Literals.NAMED_OBJECT__NAME, true);
 		testOneBinding(context, 2, IMOAOPackage.Literals.NAMED_OBJECT__DESCRIPTION, true);

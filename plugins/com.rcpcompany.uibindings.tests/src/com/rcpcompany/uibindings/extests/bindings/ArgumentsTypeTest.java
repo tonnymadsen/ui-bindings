@@ -33,7 +33,6 @@ import com.rcpcompany.uibinding.tests.model.TestObject;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IControlFactory;
-import com.rcpcompany.uibindings.IObservableListFactory;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.controlFactories.CheckBoxControlFactory;

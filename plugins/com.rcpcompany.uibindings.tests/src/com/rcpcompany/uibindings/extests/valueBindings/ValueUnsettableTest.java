@@ -31,8 +31,6 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.views.TestView;
-import com.rcpcompany.uibindings.internal.decorators.extenders.UnsettableExtender;
-import com.rcpcompany.uibindings.internal.handlers.UseDefaultValueHandler;
 
 /**
  * Tests {@link UnsettableExtender} and {@link UseDefaultValueHandler}.

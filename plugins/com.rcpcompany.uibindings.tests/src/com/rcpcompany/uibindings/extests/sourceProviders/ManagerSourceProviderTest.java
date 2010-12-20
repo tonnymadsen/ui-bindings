@@ -33,7 +33,6 @@ import org.junit.Test;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.internal.Activator;
-import com.rcpcompany.uibindings.internal.sourceProviders.BindingSourceProvider;
 import com.rcpcompany.uibindings.internal.sourceProviders.ManagerSourceProvider;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
