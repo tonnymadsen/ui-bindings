@@ -183,7 +183,7 @@ public class ValidationView extends ViewPart {
 	 * {@link IObservableFactory} that finds the model feature of a {@link IBindingMessage binding
 	 * message}.
 	 * <p>
-	 * The common model feature of all tagrtes of the message or <code>null</code>.
+	 * The common model feature of all targets of the message or <code>null</code>.
 	 */
 	protected static class ModelFeatureFactory implements IObservableFactory {
 		@Override
