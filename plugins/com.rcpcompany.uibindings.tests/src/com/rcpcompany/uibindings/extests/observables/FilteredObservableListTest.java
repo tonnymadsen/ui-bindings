@@ -189,4 +189,40 @@ public class FilteredObservableListTest {
 		assertEquals(d4, l1.get(4));
 		assertEquals(ShopPackage.Literals.SHOP_ITEM_INFORMATION, l1.getElementType());
 	}
+
+	@Test
+	public void testErrorInFilter() {
+		final IObservableList master = new WritableList(new ArrayList<Object>(), ShopPackage.Literals.SHOP_INFORMATION);
+		final ShopItemDescription d0 = ShopFactory.eINSTANCE.createShopItemDescription();
+		final ShopItemURL d1 = ShopFactory.eINSTANCE.createShopItemURL();
+		master.add(d0);
+		master.add(d1);
+
+		final FilteredObservableList listref[] = new FilteredObservableList[] { null };
+
+		assertOneLog(new Runnable() {
+			@Override
+			public void run() {
+				listref[0] = new FilteredObservableList(master, new FilteredObservableList.IFilter() {
+					@Override
+					public boolean isIncluded(Object element) {
+						if (element == d1) throw new NullPointerException();
+						return true;
+					}
+				});
+			}
+		});
+
+		final FilteredObservableList list = listref[0];
+		assertNotNull(list);
+		assertEquals(1, list.size());
+		assertEquals(d0, list.get(0));
+
+		assertOneLog(new Runnable() {
+			@Override
+			public void run() {
+				list.updateList();
+			}
+		});
+	}
 }

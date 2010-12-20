@@ -9,6 +9,8 @@ import org.eclipse.core.databinding.observable.list.ListChangeEvent;
 import org.eclipse.core.databinding.observable.list.ObservableList;
 import org.eclipse.emf.ecore.EClass;
 
+import com.rcpcompany.utils.logging.LogUtils;
+
 /**
  * A {@link IndexObservableList} that filters the entries of another {@link IndexObservableList}
  * based on a filter.
@@ -94,8 +96,12 @@ public class FilteredObservableList extends ObservableList {
 	public void updateList() {
 		final List<Object> newList = new ArrayList<Object>();
 		for (final Object o : myMasterList) {
-			if (myFilter.isIncluded(o)) {
-				newList.add(o);
+			try {
+				if (myFilter.isIncluded(o)) {
+					newList.add(o);
+				}
+			} catch (final Exception ex) {
+				LogUtils.error(myFilter, "Filter throws exception. Element ignored.", ex);
 			}
 		}
 
