@@ -1,4 +1,4 @@
-package com.rcpcompany.uibindings;
+package com.rcpcompany.uibindings.participants;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EClass;

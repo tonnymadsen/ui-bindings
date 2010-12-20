@@ -1114,6 +1114,11 @@
             id="com.rcpcompany.uibindings.commands.SuperPaste"
             name="%command.name.10">
       </command>
+      <command
+            categoryId="com.rcpcompany.uibindings.commandCategories.uiBindings"
+            id="com.rcpcompany.uibindings.commands.SuperCreate"
+            name="Super Create">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.commandImages">
@@ -1275,6 +1280,20 @@
       <handler
             class="com.rcpcompany.uibindings.internal.handlers.ViewerSuperPasteHandler"
             commandId="com.rcpcompany.uibindings.commands.SuperPaste">
+         <activeWhen>
+            <and>
+               <with
+                     variable="com.rcpcompany.uibindings.sourceProviders.activeContainerBinding">
+                  <instanceof
+                        value="com.rcpcompany.uibindings.IViewerBinding">
+                  </instanceof>
+               </with>
+            </and>
+         </activeWhen>
+      </handler>
+      <handler
+            class="com.rcpcompany.uibindings.internal.handlers.ViewerSuperCreateHandler"
+            commandId="com.rcpcompany.uibindings.commands.SuperCreate">
          <activeWhen>
             <and>
                <with

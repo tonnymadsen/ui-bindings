@@ -6,8 +6,8 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingDataType;
-import com.rcpcompany.uibindings.IInitializationParticipant;
-import com.rcpcompany.uibindings.IInitializationParticipantContext;
+import com.rcpcompany.uibindings.participants.IInitializationParticipant;
+import com.rcpcompany.uibindings.participants.IInitializationParticipantContext;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**

@@ -1,4 +1,4 @@
-package com.rcpcompany.uibindings;
+package com.rcpcompany.uibindings.participants;
 
 import java.util.Map;
 

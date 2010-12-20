@@ -3,9 +3,9 @@ package com.rcpcompany.uibindings.moao.ui.internal.initializers;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import com.rcpcompany.uibindings.IInitializationParticipant;
-import com.rcpcompany.uibindings.IInitializationParticipantContext;
 import com.rcpcompany.uibindings.moao.INamedObject;
+import com.rcpcompany.uibindings.participants.IInitializationParticipant;
+import com.rcpcompany.uibindings.participants.IInitializationParticipantContext;
 import com.rcpcompany.uibindings.utils.IBindingObjectInformation;
 
 /**

@@ -17,8 +17,8 @@ import org.junit.Test;
 import com.rcpcompany.uibinding.tests.model.SubTestObject;
 import com.rcpcompany.uibinding.tests.model.TestModelFactory;
 import com.rcpcompany.uibinding.tests.model.TestObject;
-import com.rcpcompany.uibindings.AbstractDeleteParticipant;
-import com.rcpcompany.uibindings.IDeleteParticipantContext;
+import com.rcpcompany.uibindings.participants.AbstractDeleteParticipant;
+import com.rcpcompany.uibindings.participants.IDeleteParticipantContext;
 import com.rcpcompany.uibindings.utils.ParticipantUtils;
 
 /**

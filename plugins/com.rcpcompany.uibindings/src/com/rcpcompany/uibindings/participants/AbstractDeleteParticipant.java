@@ -1,4 +1,5 @@
-package com.rcpcompany.uibindings;
+package com.rcpcompany.uibindings.participants;
+
 
 /**
  * Abstract base class for {@link IDeleteParticipant}.

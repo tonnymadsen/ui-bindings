@@ -1,7 +1,7 @@
 package com.rcpcompany.uibindings.shop.initializers;
 
-import com.rcpcompany.uibindings.IInitializationParticipant;
-import com.rcpcompany.uibindings.IInitializationParticipantContext;
+import com.rcpcompany.uibindings.participants.IInitializationParticipant;
+import com.rcpcompany.uibindings.participants.IInitializationParticipantContext;
 import com.rcpcompany.uibindings.tests.shop.Order;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;

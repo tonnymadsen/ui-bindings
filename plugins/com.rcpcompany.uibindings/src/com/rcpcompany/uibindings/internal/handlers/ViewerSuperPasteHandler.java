@@ -44,7 +44,8 @@ import com.rcpcompany.uibindings.utils.IClipboardConverterManager.IResult;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * Handler for org.eclipse.ui.edit.paste for within {@link IViewerBinding}...
+ * Handler for <code>com.rcpcompany.uibindings.commands.SuperPaste</code> for within
+ * {@link IViewerBinding}...
  * 
  * @author Tonny Madsen, The RCP Company
  */

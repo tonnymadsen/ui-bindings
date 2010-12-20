@@ -7,8 +7,8 @@ import org.eclipse.emf.ecore.EObject;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IArgumentValue;
 import com.rcpcompany.uibindings.IBindingDataType;
-import com.rcpcompany.uibindings.IDeleteParticipant;
-import com.rcpcompany.uibindings.IDeleteParticipantContext;
+import com.rcpcompany.uibindings.participants.IDeleteParticipant;
+import com.rcpcompany.uibindings.participants.IDeleteParticipantContext;
 
 /**
  * Miscellaneous utilities for {@link IDeleteParticipant} and {@link IEditParticipant}

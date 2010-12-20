@@ -33,6 +33,8 @@ import com.rcpcompany.uibindings.internal.propertyTesters.EObjectPropertyTester;
 import com.rcpcompany.uibindings.internal.propertyTesters.EStructuralFeaturePropertyTester;
 import com.rcpcompany.uibindings.internal.propertyTesters.IViewerBindingPropertyTester;
 import com.rcpcompany.uibindings.internal.propertyTesters.ManagerPropertyTester;
+import com.rcpcompany.uibindings.participants.IDeleteParticipant;
+import com.rcpcompany.uibindings.participants.IInitializationParticipant;
 import com.rcpcompany.uibindings.units.IUnitBindingSupport;
 import com.rcpcompany.uibindings.utils.IBindingHighlightContext;
 import com.rcpcompany.uibindings.utils.IGlobalNavigationManager;
