@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.compositeform.AbstractCompositeFormPartFactory;
-import com.rcpcompany.uibindings.compositeform.ICompositeFormManager;
+import com.rcpcompany.uibindings.compositeform.ICompositeForm.Factory;
 import com.rcpcompany.uibindings.compositeform.ICompositeFormPart;
 import com.rcpcompany.uibindings.compositeform.ICompositeFormPartFactory;
 import com.rcpcompany.uibindings.compositeform.ICompositeFormPartOperations;
@@ -59,7 +59,7 @@ public class CompositeFormCreateTests {
 
 		myForm.addField("name");
 
-		ICompositeFormManager.Factory.createForm(myForm, "com.rcpcompany.uibindings.tests.compositeForms.create");
+		Factory.createForm(myForm, "com.rcpcompany.uibindings.tests.compositeForms.create");
 		myForm.finish();
 		yield();
 

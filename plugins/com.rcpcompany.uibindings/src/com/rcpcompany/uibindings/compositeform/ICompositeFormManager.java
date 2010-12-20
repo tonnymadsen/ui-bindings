@@ -10,7 +10,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import com.rcpcompany.uibindings.internal.compositeform.CompositeFormManagerImpl;
-import com.rcpcompany.uibindings.utils.IFormCreator;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Sub Form Manager</b></em>'.
@@ -35,19 +34,13 @@ public interface ICompositeFormManager extends EObject {
 		private Factory() {
 		}
 
+		/**
+		 * Returns the singleton manager.
+		 * 
+		 * @return the manager
+		 */
 		public static ICompositeFormManager getManager() {
 			return CompositeFormManagerImpl.getManager();
-		}
-
-		/**
-		 * Creates the composite form for the specified ID.
-		 * 
-		 * @param form the form that will contain the composite form
-		 * @param id the ID of the composite form
-		 * @return the sub form
-		 */
-		public static ICompositeForm createForm(IFormCreator form, String id) {
-			return CompositeFormManagerImpl.createForm(form, id);
 		}
 	}
 
