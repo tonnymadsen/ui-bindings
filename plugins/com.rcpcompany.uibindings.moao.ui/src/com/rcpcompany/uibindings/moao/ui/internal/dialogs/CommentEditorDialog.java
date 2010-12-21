@@ -33,25 +33,25 @@ import com.rcpcompany.uibindings.utils.IFormCreator;
  */
 public class CommentEditorDialog extends TitleAreaDialog {
 	/**
-	 * The button ID for the 'Delete' button
+	 * The button ID for the 'Delete' button.
 	 */
 	public static final int DELETE = 10;
 
 	/**
-	 * The comment that is the subject of this editor
+	 * The comment that is the subject of this editor.
 	 */
 	protected final IMOAOMessage myComment;
 
 	/**
-	 * The form
+	 * The form.
 	 */
 	protected IFormCreator myForm;
 	/**
-	 * The binding for the description
+	 * The binding for the description.
 	 */
 	protected IValueBinding myDescriptionBinding;
 	/**
-	 * The binding for the details
+	 * The binding for the details.
 	 */
 	protected IValueBinding myDetailsBinding;
 
@@ -82,7 +82,7 @@ public class CommentEditorDialog extends TitleAreaDialog {
 
 		myForm = IFormCreator.Factory.createForm(context, myComment, null, top);
 
-		myForm.addField("object").type(Constants.TYPE_LONG_NAME).dynamic().readonly()
+		myForm.addField("object").type(Constants.TYPE_QUALIFIED_NAME).dynamic().readonly()
 				.arg(Constants.ARG_PREFERRED_CONTROL, CLabel.class.getName());
 		myForm.addField("feature").dynamic().readonly();
 		myForm.addSeparator();
