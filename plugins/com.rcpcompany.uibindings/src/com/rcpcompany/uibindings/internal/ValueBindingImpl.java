@@ -77,6 +77,7 @@ import com.rcpcompany.uibindings.IValueBindingCell;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.internal.bindingMessages.IContextMessageProvider;
 import com.rcpcompany.uibindings.uiAttributes.SimpleUIAttribute;
+import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -1301,6 +1302,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			if (attribute != null && attribute.length() > 0) {
 				baseType += "(" + attribute + ")";
 			}
+		} else if (getUIAttribute() instanceof VirtualUIAttribute) {
+			baseType += "<=>VIRTUAL";
 		}
 		return baseType;
 	}
