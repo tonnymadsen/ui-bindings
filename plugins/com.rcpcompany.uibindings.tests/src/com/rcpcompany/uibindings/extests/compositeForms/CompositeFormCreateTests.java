@@ -124,7 +124,7 @@ public class CompositeFormCreateTests {
 		assertEquals(2, myPart2Called);
 		assertEquals(3, myPart3Called);
 
-		sleep(30000);
+		// sleep(30000);
 	}
 
 	protected static ICompositeFormPart myPart1 = null;
