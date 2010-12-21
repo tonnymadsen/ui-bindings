@@ -136,7 +136,7 @@ public class EValidatorAdapter extends AbstractValidatorAdapter {
 			 * 
 			 * 2) first is Object (not EObject)
 			 */
-			if (data.size() >= 1 && !(data.get(0) instanceof EObject)) return;
+			if (data.size() >= 1 && !(data.get(0) instanceof EObject) && !data.get(0).getClass().isArray()) return;
 
 			/*
 			 * Special cases from EObjectValidator
