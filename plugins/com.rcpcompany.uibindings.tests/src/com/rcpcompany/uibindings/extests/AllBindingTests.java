@@ -187,6 +187,7 @@ import com.rcpcompany.uibindings.extests.wizards.FormChooserWizardTest;
 import com.rcpcompany.uibindings.internal.ManagerSizesTest;
 import com.rcpcompany.uibindings.internal.decorators.extenders.ExtenderTest;
 import com.rcpcompany.uibindings.internal.decorators.extenders.OpenCommandSupportLowLevelTest;
+import com.rcpcompany.uibindings.internal.utils.BindingContextSelectionProviderTests;
 import com.rcpcompany.uibindings.internal.utils.CommandToStringTest;
 import com.rcpcompany.uibindings.internal.utils.GlobalNavigationManagerTest;
 import com.rcpcompany.uibindings.internal.utils.ViewerToolBarBaseTests;
@@ -391,7 +392,7 @@ PluginTest.class, PluginConfTest.class, PluginSpecificationTest.class, FragmentT
 		FilterTest.class, SortingTest.class, FormChooserTest.class, FormCreatorTest.class,
 		FormCreatorAlignmentTest.class, FormCreatorObjectMessageCollectionTest.class, TableCreatorTest.class,
 		DoubleClickAdapterTest.class, GlobalNavigationManagerTest.class, MouseDownConverterTest.class,
-		BindingObjectInformationTest.class,
+		BindingObjectInformationTest.class, BindingContextSelectionProviderTests.class,
 
 		FormChooserWizardTest.class, BindingEnablerTests.class, StringListTests.class,
 

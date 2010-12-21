@@ -20,7 +20,6 @@ import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
 import org.eclipse.core.runtime.ListenerList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.action.MenuManager;
-import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.util.SafeRunnable;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -33,7 +32,6 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
-import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.IWorkbenchPartSite;
 
 import com.rcpcompany.uibindings.IBinding;
@@ -206,7 +204,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	/**
 	 * The menu.
 	 */
-	private final MenuManager myMenuManager = new MenuManager();
+	/* package */final MenuManager myMenuManager = new MenuManager();
 
 	/**
 	 * List of selection change listeners (element type: <code>ISelectionChangedListener</code>).
@@ -232,13 +230,13 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	 */
 	private void createContextMenu() {
 		mySite.registerContextMenu(myMenuManager, this);
-		myMenuManager.add(new Separator("open"));
-		myMenuManager.add(new Separator("undo"));
-		myMenuManager.add(new Separator("new"));
-		myMenuManager.add(new Separator("delete"));
-		myMenuManager.add(new Separator("select"));
-		myMenuManager.add(new Separator("navigation"));
-		myMenuManager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
+		// myMenuManager.add(new Separator("open"));
+		// myMenuManager.add(new Separator("undo"));
+		// myMenuManager.add(new Separator("new"));
+		// myMenuManager.add(new Separator("delete"));
+		// myMenuManager.add(new Separator("select"));
+		// myMenuManager.add(new Separator("navigation"));
+		// myMenuManager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 		myMenuManager.createContextMenu(getContext().getTop());
 		getContext().getTop().setMenu(myMenuManager.getMenu());
 	}
