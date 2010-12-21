@@ -35,6 +35,7 @@ import com.rcpcompany.uibindings.internal.propertyTesters.IViewerBindingProperty
 import com.rcpcompany.uibindings.internal.propertyTesters.ManagerPropertyTester;
 import com.rcpcompany.uibindings.participants.IDeleteParticipant;
 import com.rcpcompany.uibindings.participants.IInitializationParticipant;
+import com.rcpcompany.uibindings.participants.ISuperCreateParticipant;
 import com.rcpcompany.uibindings.units.IUnitBindingSupport;
 import com.rcpcompany.uibindings.utils.IBindingHighlightContext;
 import com.rcpcompany.uibindings.utils.IGlobalNavigationManager;
@@ -407,6 +408,15 @@ public interface Constants {
 	 * The argument value is {@link IDeleteParticipant}.
 	 */
 	String ARG_DELETE_PARTICIPANT = "deleteParticipant";
+
+	/**
+	 * Argument name for a super create participant for a Super Create command.
+	 * <p>
+	 * The argument only makes sense for viewers and for model types.
+	 * <p>
+	 * The argument value is {@link ISuperCreateParticipant}.
+	 */
+	String ARG_SUPER_CREATE_PARTICIPANT = "superCreateParticipant";
 
 	/**
 	 * Argument name for the type of a binding if not specified directly with <code>type(...)</code>
@@ -924,5 +934,4 @@ public interface Constants {
 	 * <code>com.rcpcompany.uibindings.UIBindingPreferences:highlightPreferencePage</code>.
 	 */
 	String HIGHLIGHT_PREF_PAGE = "highlightPreferencePage"; //$NON-NLS-1$
-
 }

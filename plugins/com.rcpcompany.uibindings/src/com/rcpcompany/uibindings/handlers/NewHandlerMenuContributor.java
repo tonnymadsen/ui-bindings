@@ -98,7 +98,6 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 		/*
 		 * Only one selection please
 		 */
-
 		final List<IChildCreationSpecification> specs = container.getPossibleChildObjects(obj, null);
 		if (specs == null) return EMPTY_ITEMS;
 

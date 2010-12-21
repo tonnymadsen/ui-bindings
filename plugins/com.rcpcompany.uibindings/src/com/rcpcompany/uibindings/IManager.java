@@ -1030,9 +1030,9 @@ public interface IManager extends IBaseObject {
 	 * method is called.
 	 * 
 	 * @param parent the parent object
-	 * @param child
-	 * @param eReference
-	 * @return
+	 * @param ref the reference from the parent to the child
+	 * @param child the new child object to be initialized
+	 * @return a command used to initialize the child object
 	 */
-	Command initializeObject(EObject parent, EReference eReference, EObject child);
+	Command initializeObject(EObject parent, EReference ref, EObject child);
 } // IManager

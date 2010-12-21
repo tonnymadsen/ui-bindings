@@ -147,6 +147,13 @@
                   id="com.rcpcompany.uibindings.std.dynamics.NewMenu">
             </dynamic>
          </menu>
+         <command
+               commandId="com.rcpcompany.uibindings.commands.SuperCreate"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
       </menuContribution>
       <menuContribution
             locationURI="popup:org.eclipse.ui.popup.any?after=undo">
@@ -190,6 +197,9 @@
          <command
                commandId="com.rcpcompany.uibindings.commands.SuperPaste"
                style="push">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
          </command>
          <command
                commandId="com.rcpcompany.uibindings.commands.UseDefaultValue"

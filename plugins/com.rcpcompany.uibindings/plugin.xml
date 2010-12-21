@@ -481,7 +481,15 @@
 <argumentInfo name="unitSupport" lookupAttributeContainingClass="false" lookupAttributeTargetType="true"> </argumentInfo> 
 <argumentInfo name="validValues" lookupAttributeContainingClass="false" lookupAttributeTargetType="false" lookupParent="true" lookupReferenceContainingClass="false" lookupReferenceTargetType="true"> </argumentInfo> 
 <argumentInfo name="valueObjectMessages"> </argumentInfo> 
-<argumentInfo name="width" lookupAttributeContainingClass="false"> </argumentInfo> </extension>
+<argumentInfo name="width" lookupAttributeContainingClass="false"> </argumentInfo>
+<argumentInfo
+      lookupAttributeContainingClass="false"
+      lookupAttributeTargetType="false"
+      lookupParent="false"
+      lookupReferenceContainingClass="false"
+      lookupReferenceTargetType="false"
+      name="superCreateParticipant">
+</argumentInfo> </extension>
    
    <extension
          point="com.rcpcompany.uibindings.uiBindings">
