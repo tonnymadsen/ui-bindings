@@ -13,12 +13,11 @@ package com.rcpcompany.uibindings.internal.utils;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.core.databinding.observable.IObserving;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
 import org.eclipse.core.runtime.ListenerList;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
@@ -267,10 +266,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 			if (control == null) return;
 			final IObservableValue ov = vb.getModelObservableValue();
 			if (ov != null) {
-				final EClassifier type = vb.getModelEType();
-				if (type instanceof EClass) {
-					addControl(control, ov);
-				}
+				addControl(control, ov);
 				return;
 			}
 		} else if (binding instanceof IViewerBinding) {
@@ -337,7 +333,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	/**
 	 * Simple selection provider based on the value of an observable value.
 	 */
-	private class ObservableValueSelectionProvider implements ISelectionProvider, IValueChangeListener {
+	private final class ObservableValueSelectionProvider implements ISelectionProvider, IValueChangeListener {
 		private final ListenerList selectionChangedListeners = new ListenerList();
 
 		/**
@@ -389,11 +385,14 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 
 		@Override
 		public void handleValueChange(ValueChangeEvent event) {
-			final Object value = myValue.getValue();
-			if (value == null || !(value instanceof EObject)) {
-				selection = myEmptySelection;
-			} else {
+			Object value = myValue.getValue();
+			if (!(value instanceof EObject) && myValue instanceof IObserving) {
+				value = ((IObserving) myValue).getObserved();
+			}
+			if (value instanceof EObject) {
 				selection = new StructuredSelection(value);
+			} else {
+				selection = myEmptySelection;
 			}
 			fireSelectionChanged();
 		}
