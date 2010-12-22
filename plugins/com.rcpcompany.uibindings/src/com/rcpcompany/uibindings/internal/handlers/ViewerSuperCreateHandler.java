@@ -122,6 +122,16 @@ public class ViewerSuperCreateHandler extends AbstractHandler implements IHandle
 				return null;
 			}
 
+			@Override
+			public EObject getElement() {
+				final Point position = getPosition();
+				if (position == null) return null;
+				final IObservableList list = getViewer().getList();
+				if (position.y >= list.size()) return null;
+
+				return (EObject) list.get(position.y);
+			}
+
 			private final Point myP = new Point(p.x, p.y);
 
 			@Override

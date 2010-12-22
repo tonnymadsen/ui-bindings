@@ -63,4 +63,11 @@ public interface ISuperCreateParticipantContext {
 	 * @return the position
 	 */
 	Point getPosition();
+
+	/**
+	 * Returns the element from the specified position (the selection), if any.
+	 * 
+	 * @return the element or <code>null</code>
+	 */
+	EObject getElement();
 }
