@@ -40,7 +40,7 @@ public class PrintCommandHistoryHandler extends AbstractHandler implements IHand
 
 		final ExtendedCommandStack cs = (ExtendedCommandStack) commandStack;
 
-		System.out.println("Command History (reverse order):");
+		System.out.println("Command History (in order):");
 		for (final Command c : cs.getCommands()) {
 			System.out.println("  " + EcoreExtUtils.toString(c));
 		}
