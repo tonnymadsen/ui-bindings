@@ -131,9 +131,25 @@ public class EnumBindingDecorator extends SimpleUIBindingDecorator implements IU
 	@Override
 	protected Object convertUIToModel(Object fromObject) {
 		if (fromObject == null || fromObject.equals("")) return null;
-		final String key = fromObject.toString();
-		if (!uiToModelMappings.containsKey(key))
-			throw new IllegalArgumentException(MessageFormat.format("Illegal value ''{0}''", fromObject));
+		String key = fromObject.toString();
+		if (!uiToModelMappings.containsKey(key)) {
+			/*
+			 * Check if a case-insensitive match exists
+			 */
+			String nearMatch = null;
+			for (final String n : uiToModelMappings.keySet()) {
+				if (n.equalsIgnoreCase(key)) {
+					if (nearMatch == null) {
+						nearMatch = n;
+					} else
+						throw new IllegalArgumentException(MessageFormat.format("Illegal value ''{0}''", fromObject));
+				}
+			}
+			if (nearMatch == null)
+				throw new IllegalArgumentException(MessageFormat.format("Illegal value ''{0}''", fromObject));
+
+			key = nearMatch;
+		}
 		final String name = uiToModelMappings.get(key);
 		if (name == null) return null;
 		final EEnumLiteral literal = myEnumeration.getEEnumLiteral(name);
