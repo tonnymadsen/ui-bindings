@@ -269,7 +269,7 @@ public final class LogUtils {
 		// buffer.append(" - ");
 		buffer.append(Thread.currentThread().getName());
 
-		buffer.append(" - ");
+		// buffer.append(" - ");
 		final RuntimeException ex = new RuntimeException();
 		ex.fillInStackTrace();
 		int level = 0;
@@ -277,11 +277,15 @@ public final class LogUtils {
 		while (level < stackTrace.length) {
 			final StackTraceElement st = stackTrace[level++];
 			// Skip Utilities methods
-			if (st.getClassName().startsWith(LogUtils.class.getName())) {
+			final String className = st.getClassName();
+			if (className.startsWith(LogUtils.class.getName())) {
 				continue;
 			}
-			buffer.append(ClassUtils.getLastClassName(st.getClassName())).append('.').append(st.getMethodName())
-					.append(" (").append(st.getFileName()).append(':').append(st.getLineNumber()).append(")");
+			if (className.equals("SIMALogUtils")) {
+				continue;
+			}
+			buffer.append(ClassUtils.getLastClassName(className)).append('.').append(st.getMethodName()).append(" (")
+					.append(st.getFileName()).append(':').append(st.getLineNumber()).append(")");
 			break;
 		}
 
