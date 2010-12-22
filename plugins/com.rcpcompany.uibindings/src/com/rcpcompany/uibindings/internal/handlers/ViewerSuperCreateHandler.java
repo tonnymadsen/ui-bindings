@@ -19,9 +19,11 @@ import java.util.Map.Entry;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.IHandler;
+import org.eclipse.core.databinding.observable.IObserving;
+import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.WritableValue;
-import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -67,10 +69,10 @@ public class ViewerSuperCreateHandler extends AbstractHandler implements IHandle
 		final Object bb = HandlerUtil.getVariable(event, Constants.SOURCES_ACTIVE_CONTAINER_BINDING);
 		if (!(bb instanceof IViewerBinding)) return null;
 		final IViewerBinding container = (IViewerBinding) bb;
+		final IBindingContext context = container.getContext();
 
 		final IValueBinding binding = (IValueBinding) HandlerUtil.getVariable(event, Constants.SOURCES_ACTIVE_BINDING);
 		if (binding == null) return null;
-		final IBindingContext context = binding.getContext();
 
 		final List<IResult> conversions = IClipboardConverterManager.Factory.getManager().getClipboardConversions();
 
@@ -96,7 +98,6 @@ public class ViewerSuperCreateHandler extends AbstractHandler implements IHandle
 					"Can only create into a viewer");
 			return null;
 		}
-		p.y = container.getList().size();
 
 		/*
 		 * Create the needed rows in the viewer
@@ -109,14 +110,23 @@ public class ViewerSuperCreateHandler extends AbstractHandler implements IHandle
 
 			@Override
 			public EReference getReference() {
-				// TODO Auto-generated method stub
+				final IObservableList l = getViewer().getList();
+				if (l.getElementType() instanceof EReference) return (EReference) l.getElementType();
 				return null;
 			}
 
 			@Override
 			public EObject getParent() {
-				// TODO Auto-generated method stub
+				final IObservableList l = getViewer().getList();
+				if (l instanceof IObserving) return (EObject) ((IObserving) l).getObserved();
 				return null;
+			}
+
+			private final Point myP = new Point(p.x, p.y);
+
+			@Override
+			public Point getPosition() {
+				return myP;
 			}
 
 			@Override
@@ -132,25 +142,26 @@ public class ViewerSuperCreateHandler extends AbstractHandler implements IHandle
 		final ISuperCreateParticipant participant = container.getArgument(Constants.ARG_SUPER_CREATE_PARTICIPANT,
 				ISuperCreateParticipant.class, myDefaultParticipant);
 
-		boolean success = false;
-		try {
-			success = participant.createNeededRows(pcontext);
-		} catch (final Exception ex) {
-			LogUtils.error(participant, ex);
-		}
-		if (!success) {
-			MessageDialog.openError(HandlerUtil.getActiveShell(event), "Cannot create data", "Can not create rows");
-			return null;
-		}
-
 		final IBindingHighlightContext successHighlightContext = IBindingHighlightContext.Factory.createContext();
 
 		final Map<IValueBinding, String> assignmentMap = new HashMap<IValueBinding, String>();
 		final CommandStack commandStack = IManager.Factory.getManager().getEditingDomain().getCommandStack();
+
 		try {
 			if (commandStack instanceof ExtendedCommandStack) {
 				((ExtendedCommandStack) commandStack).setCollectCommandMode(true);
 			}
+			boolean success = false;
+			try {
+				success = participant.createNeededRows(pcontext);
+			} catch (final Exception ex) {
+				LogUtils.error(participant, ex);
+			}
+			if (!success) {
+				MessageDialog.openError(HandlerUtil.getActiveShell(event), "Cannot create data", "Can not create rows");
+				return null;
+			}
+
 			for (int r = 0; r < rows; r++) {
 				/*
 				 * The index of the column to copy into - needed as some columns can be zero width
@@ -187,13 +198,13 @@ public class ViewerSuperCreateHandler extends AbstractHandler implements IHandle
 					final IUIAttribute attribute = new SimpleUIAttribute(null, null, ov, true);
 					final IValueBinding createBinding = context.addBinding().model(b.getModelObservableValue())
 							.ui(attribute);
-					if (binding.hasArguments()) {
+					if (b.hasArguments()) {
 						createBinding.getExtraArgumentProviders().add(b);
 					}
-					if (binding.getParentBinding() != null) {
-						createBinding.getExtraArgumentProviders().add(binding.getParentBinding());
+					if (b.getParentBinding() != null) {
+						createBinding.getExtraArgumentProviders().add(b.getParentBinding());
 					}
-					if (binding.eIsSet(IUIBindingsPackage.Literals.BINDING__EXTRA_ARGUMENT_PROVIDERS)) {
+					if (b.eIsSet(IUIBindingsPackage.Literals.BINDING__EXTRA_ARGUMENT_PROVIDERS)) {
 						createBinding.getExtraArgumentProviders().addAll(b.getExtraArgumentProviders());
 					}
 
@@ -209,7 +220,8 @@ public class ViewerSuperCreateHandler extends AbstractHandler implements IHandle
 
 			for (final Entry<IValueBinding, String> d : assignmentMap.entrySet()) {
 				final IValueBinding b = d.getKey();
-				b.getUIAttribute().getCurrentValue().setValue(d.getValue());
+				final String value = d.getValue();
+				b.getUIAttribute().getCurrentValue().setValue(value);
 				/*
 				 * Check for errors in the binding
 				 */
@@ -222,7 +234,8 @@ public class ViewerSuperCreateHandler extends AbstractHandler implements IHandle
 					/*
 					 * Not really correct... Will allow the first set of changes...
 					 */
-					MessageDialog.openError(HandlerUtil.getActiveShell(event), "Cannot create data", errors.get(0));
+					MessageDialog.openError(HandlerUtil.getActiveShell(event), "Cannot paste data", "Setting value '"
+							+ value + "' : " + errors.get(0));
 					return null;
 				}
 			}
@@ -257,11 +270,15 @@ public class ViewerSuperCreateHandler extends AbstractHandler implements IHandle
 		@Override
 		public boolean createNeededRows(ISuperCreateParticipantContext context) {
 			final List<IChildCreationSpecification> specs = context.getViewer().getPossibleChildObjects(null, null);
-			if (specs == null || specs.size() != 1) return false;
+			if (specs == null || specs.size() != 1) {
+				LogUtils.debug(this, "Cannot creete rows. Specs=" + specs);
+				return false;
+			}
 
 			final IChildCreationSpecification s = specs.get(0);
 			final List<EObject> rows = new ArrayList<EObject>();
 			final EditingDomain ed = context.getEditingDomain();
+			final CompoundCommand cc = new CompoundCommand();
 			for (int r = 0; r < context.getClipboardContent().getRows(); r++) {
 				/*
 				 * Create a new row
@@ -270,12 +287,18 @@ public class ViewerSuperCreateHandler extends AbstractHandler implements IHandle
 				/*
 				 * Initialize the row
 				 */
-				final Command initializeCommand = IManager.Factory.getManager().initializeObject(s.getParent(),
-						s.getReference(), row);
-				ed.getCommandStack().execute(initializeCommand);
+				cc.append(IManager.Factory.getManager().initializeObject(s.getParent(), s.getReference(), row));
 				rows.add(row);
 			}
-			ed.getCommandStack().execute(AddCommand.create(ed, context.getParent(), context.getReference(), rows));
+			/*
+			 * Add the created rows to the list
+			 */
+			cc.append(AddCommand.create(ed, context.getParent(), context.getReference(), rows, context.getPosition().y));
+
+			/*
+			 * Execute the created command
+			 */
+			ed.getCommandStack().execute(cc);
 
 			return true;
 		}

@@ -3,6 +3,7 @@ package com.rcpcompany.uibindings.participants;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.swt.graphics.Point;
 
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
@@ -55,4 +56,11 @@ public interface ISuperCreateParticipantContext {
 	 * @return the editing domain
 	 */
 	EditingDomain getEditingDomain();
+
+	/**
+	 * Returns the destination position of the clipboard data.
+	 * 
+	 * @return the position
+	 */
+	Point getPosition();
 }

@@ -158,7 +158,8 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 
 			for (final Entry<IValueBinding, String> d : assignmentMap.entrySet()) {
 				final IValueBinding b = d.getKey();
-				b.getUIAttribute().getCurrentValue().setValue(d.getValue());
+				final String value = d.getValue();
+				b.getUIAttribute().getCurrentValue().setValue(value);
 				/*
 				 * Check for errors in the binding
 				 */
@@ -171,7 +172,8 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 					/*
 					 * Not really correct... Will allow the first set of changes...
 					 */
-					MessageDialog.openError(HandlerUtil.getActiveShell(event), "Cannot paste data", errors.get(0));
+					MessageDialog.openError(HandlerUtil.getActiveShell(event), "Cannot paste data", "Setting value '"
+							+ value + "' : " + errors.get(0));
 					return null;
 				}
 			}
