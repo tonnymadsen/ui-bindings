@@ -545,8 +545,14 @@ public final class EcoreExtUtils {
 			}
 		} else if (c instanceof CompoundCommand) {
 			final CompoundCommand cc = (CompoundCommand) c;
+			boolean first = true;
 			for (final Command ic : cc.getCommandList()) {
+				if (!first) {
+					sb.append(", ");
+				}
 				sb.append(toString(ic));
+				first = false;
+
 			}
 		} else if (c instanceof ViewerDragAndDropCommand) {
 			final ViewerDragAndDropCommand cc = (ViewerDragAndDropCommand) c;
@@ -586,7 +592,7 @@ public final class EcoreExtUtils {
 	}
 
 	private static String getEObjectName(EObject owner) {
-		return IBindingObjectInformation.Factory.getLongName(owner);
+		return IBindingObjectInformation.Factory.getQualifiedName(owner);
 	}
 
 	private static final Map<EClass, Collection<EClass>> SUB_CLASSES = new HashMap<EClass, Collection<EClass>>();
