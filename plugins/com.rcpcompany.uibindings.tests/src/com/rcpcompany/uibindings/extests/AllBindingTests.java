@@ -38,6 +38,7 @@ import com.rcpcompany.uibindings.extests.compositeForms.CompositeFormBasicTests;
 import com.rcpcompany.uibindings.extests.compositeForms.CompositeFormCreateTests;
 import com.rcpcompany.uibindings.extests.contexts.ContextActivationTest;
 import com.rcpcompany.uibindings.extests.cutCopyPaste.CopyPasteInViewerTest;
+import com.rcpcompany.uibindings.extests.cutCopyPaste.SuperPasteTest;
 import com.rcpcompany.uibindings.extests.decoratorProviders.DecoratorProviderTest;
 import com.rcpcompany.uibindings.extests.decoratorProviders.EObjectCreatorDecoratorProviderTest;
 import com.rcpcompany.uibindings.extests.decoratorProviders.EnumDecoratorProviderTest;
@@ -408,7 +409,7 @@ PluginTest.class, PluginConfTest.class, PluginSpecificationTest.class, FragmentT
 		/*
 		 * Cut, copy and paste
 		 */
-		CopyPasteInViewerTest.class,
+		CopyPasteInViewerTest.class, SuperPasteTest.class,
 
 		/*
 		 * Show View, Open Command
