@@ -23,9 +23,9 @@ import org.eclipse.emf.ecore.EObject;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public abstract class AbstractGridCell<COLUMN extends EObject, ROW extends EObject> implements IGridCell {
+public abstract class AbstractGridCell<COLUMN extends Object, ROW extends Object> implements IGridCell {
 	/**
-	 * The possible types of cells
+	 * The possible types of cells.
 	 */
 	public enum CellType {
 		/**
@@ -134,7 +134,7 @@ public abstract class AbstractGridCell<COLUMN extends EObject, ROW extends EObje
 	}
 
 	/**
-	 * Constructs and returns a new cell
+	 * Constructs and returns a new cell.
 	 * 
 	 * @param columnID the column ID
 	 * @param rowID the row ID
