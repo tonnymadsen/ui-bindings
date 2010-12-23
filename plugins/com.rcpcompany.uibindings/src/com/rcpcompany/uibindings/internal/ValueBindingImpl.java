@@ -21,6 +21,7 @@ import java.util.Map;
 import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.observable.ChangeEvent;
 import org.eclipse.core.databinding.observable.IChangeListener;
+import org.eclipse.core.databinding.observable.IDisposeListener;
 import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.core.databinding.observable.IObserving;
 import org.eclipse.core.databinding.observable.Observables;
@@ -65,6 +66,7 @@ import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.IControlFactory;
 import com.rcpcompany.uibindings.IControlFactoryContext;
 import com.rcpcompany.uibindings.IDecoratorProvider;
+import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.ISourceProviderStateContext;
 import com.rcpcompany.uibindings.IUIAttribute;
@@ -474,9 +476,26 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	public void finish1() {
 		assertTrue(getStaticDataType() != null, "No data type set"); //$NON-NLS-1$
 		assertTrue(getUIAttribute() != null, "No UI attribute set"); //$NON-NLS-1$
+		assertTrue(getModelObservable() != null, "No model observable set"); //$NON-NLS-1$
 
 		isDynamic = getArgument(ARG_DYNAMIC, Boolean.class, false);
 
+		if (Activator.getDefault().ASSERTS_PREMATURE_DISPOSE) {
+			final IDisposeListener listener = new IDisposeListener() {
+				@Override
+				public void handleDispose(org.eclipse.core.databinding.observable.DisposeEvent event) {
+					LogUtils.debug(ValueBindingImpl.this, ValueBindingImpl.this + ": control disposed");
+				}
+			};
+			getModelObservable().addDisposeListener(listener);
+			registerService(new IDisposable() {
+				@Override
+				public void dispose() {
+					if (getModelObservable().isDisposed()) return;
+					getModelObservable().removeDisposeListener(listener);
+				}
+			});
+		}
 		final IObservableValue ov = getModelObservableValue();
 		if (ov != null && isDynamic) {
 			myTypeListener = new IChangeListener() {

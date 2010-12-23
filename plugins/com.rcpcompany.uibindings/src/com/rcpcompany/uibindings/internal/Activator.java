@@ -86,6 +86,12 @@ public class Activator extends AbstractUIPlugin {
 	public boolean ASSERTS_CONTROLS = false;
 
 	/**
+	 * <code>true</code> if adding special asserts for different related problems involving objects
+	 * that are prematurely disposed.
+	 */
+	public boolean ASSERTS_PREMATURE_DISPOSE = false;
+
+	/**
 	 * <code>true</code> if tracing {@link IBinding#isChangeable()}.
 	 */
 	public boolean TRACE_ISCHANGEABLE = false;
@@ -291,6 +297,8 @@ public class Activator extends AbstractUIPlugin {
 			TRACE_SOURCE_PROVIDER = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/SourceProvider")); //$NON-NLS-1$
 			TRACE_ISCHANGEABLE = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/isChangeable")); //$NON-NLS-1$
 			ASSERTS_CONTROLS = Boolean.parseBoolean(Platform.getDebugOption(ID + "/assserts/Controls")); //$NON-NLS-1$
+			ASSERTS_PREMATURE_DISPOSE = Boolean.parseBoolean(Platform
+					.getDebugOption(ID + "/assserts/PrematureDisposes")); //$NON-NLS-1$
 			TRACE_SOURCE_PROVIDER_VERBOSE = Boolean.parseBoolean(Platform.getDebugOption(ID
 					+ "/trace/SourceProvider/Verbose")); //$NON-NLS-1$
 			TRACE_NAVIGATION_VIEWER = Boolean.parseBoolean(Platform.getDebugOption(ID + "/trace/Navigation/viewer")); //$NON-NLS-1$
