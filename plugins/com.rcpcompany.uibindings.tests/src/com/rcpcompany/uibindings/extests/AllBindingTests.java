@@ -81,6 +81,7 @@ import com.rcpcompany.uibindings.extests.manager.ManagerViewNavigationRecorded;
 import com.rcpcompany.uibindings.extests.manager.NoErrorsDuringInitializationTest;
 import com.rcpcompany.uibindings.extests.manager.ValidationErrorsAreFatalTest;
 import com.rcpcompany.uibindings.extests.observables.CountObservableValueTest;
+import com.rcpcompany.uibindings.extests.observables.EListElementObservableValueTests;
 import com.rcpcompany.uibindings.extests.observables.EListKeyedElementObservableValueTest;
 import com.rcpcompany.uibindings.extests.observables.FilteredObservableListTest;
 import com.rcpcompany.uibindings.extests.observables.GuardObservableValueTest;
@@ -296,8 +297,9 @@ PluginTest.class, PluginConfTest.class, PluginSpecificationTest.class, FragmentT
 		 */
 		TextObservableValueDisposeTest.class, TextObservableValueTest.class, CountObservableValueTest.class,
 		MessageFormatObservableValueTest.class, GuardObservableValueTest.class, MapperObservableValueTest.class,
-		EListKeyedElementObservableValueTest.class, ViewerBindingTreeFactoryTest.class,
-		ViewerBindingTreeFactoryPerformanceTest.class, IndexObservableListTest.class, FilteredObservableListTest.class,
+		EListElementObservableValueTests.class, EListKeyedElementObservableValueTest.class,
+		ViewerBindingTreeFactoryTest.class, ViewerBindingTreeFactoryPerformanceTest.class,
+		IndexObservableListTest.class, FilteredObservableListTest.class,
 
 		/*
 		 * UI Attributes

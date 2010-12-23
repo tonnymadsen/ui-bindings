@@ -10,10 +10,15 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.observables;
 
+import org.eclipse.core.databinding.observable.ChangeEvent;
+import org.eclipse.core.databinding.observable.Diffs;
+import org.eclipse.core.databinding.observable.IChangeListener;
 import org.eclipse.core.databinding.observable.IObserving;
 import org.eclipse.core.databinding.observable.value.AbstractObservableValue;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
-import org.eclipse.core.databinding.observable.value.IValueChangeListener;
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -21,6 +26,7 @@ import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
 import com.rcpcompany.uibindings.IManager;
+import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 /**
@@ -34,9 +40,23 @@ public class EListElementObservableValue extends AbstractObservableValue impleme
 	private final int myIndex;
 	private final EditingDomain myEditingDomain;
 
-	private final EObject myObject = null;
+	private EObject myObject = null;
 
-	private IValueChangeListener myObjectOVListener;
+	private final IChangeListener myObjectOVListener = new IChangeListener() {
+		@Override
+		public void handleChange(ChangeEvent event) {
+			updateValue();
+		}
+	};
+
+	private final Adapter myAdapter = new AdapterImpl() {
+		@Override
+		public void notifyChanged(Notification msg) {
+			if (msg.isTouch()) return;
+			updateValue();
+		};
+	};
+
 	/**
 	 * The current value of the observable value.
 	 */
@@ -71,6 +91,9 @@ public class EListElementObservableValue extends AbstractObservableValue impleme
 		myObjectOV = ov;
 		mySF = sf;
 		myIndex = index;
+
+		myObjectOV.addChangeListener(myObjectOVListener);
+		updateValue();
 	}
 
 	@Override
@@ -84,11 +107,37 @@ public class EListElementObservableValue extends AbstractObservableValue impleme
 	}
 
 	public void updateValue() {
-		myValue = doGetValue();
+		Object value = null;
+		try {
+			final EObject newObject = (EObject) myObjectOV.getValue();
+			if (myObject != newObject) {
+				if (myObject != null) {
+					myObject.eAdapters().remove(myAdapter);
+				}
+				myObject = newObject;
+				if (myObject != null) {
+					myObject.eAdapters().add(myAdapter);
+				}
+			}
+			if (myObject == null) return;
+
+			final EList<?> list = (EList<?>) myObject.eGet(mySF);
+			if (list == null) return;
+			if (list.size() <= myIndex) return;
+
+			value = list.get(myIndex);
+		} finally {
+			if (UIBindingsUtils.equals(value, myValue)) return;
+
+			fireValueChange(Diffs.createValueDiff(myValue, myValue = value));
+		}
 	}
 
 	@Override
 	public synchronized void dispose() {
+		if (myObjectOV != null) {
+			myObjectOV.removeChangeListener(myObjectOVListener);
+		}
 		if (hasListeners()) {
 			lastListenerRemoved();
 		}
@@ -108,12 +157,7 @@ public class EListElementObservableValue extends AbstractObservableValue impleme
 
 	@Override
 	protected final Object doGetValue() {
-		if (myObject == null) return null;
-		final EList<?> list = (EList<?>) myObject.eGet(mySF);
-		if (list == null) return null;
-		if (list.size() <= myIndex) return null;
-
-		return list.get(myIndex);
+		return myValue;
 	}
 
 	@Override
