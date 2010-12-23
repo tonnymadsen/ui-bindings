@@ -376,5 +376,20 @@
          name="High Lighting">
    </page>
 </extension>
+<extension
+      point="org.eclipse.ui.bindings">
+   <key
+         commandId="com.rcpcompany.uibindings.commands.new"
+         contextId="com.rcpcompany.uibindings.contexts.containerContext"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="INSERT">
+   </key>
+   <key
+         commandId="org.eclipse.ui.edit.delete"
+         contextId="com.rcpcompany.uibindings.contexts.containerContext"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="DELETE">
+   </key>
+</extension>
 
 </fragment>
