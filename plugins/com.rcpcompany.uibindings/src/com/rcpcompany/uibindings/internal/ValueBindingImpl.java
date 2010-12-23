@@ -128,7 +128,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	public IBindingDataType getDataType() {
 		if (!isDynamic()) return super.getDataType();
 		final IObservableValue ov = getModelObservableValue();
-		if (ov != null) {
+		if (ov != null && !ov.isDisposed()) {
 			/*
 			 * Find the data type based on the OV:
 			 * 
