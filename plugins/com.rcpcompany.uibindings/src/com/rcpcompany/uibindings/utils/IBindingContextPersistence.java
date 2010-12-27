@@ -17,8 +17,8 @@ import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.internal.utils.BindingContextPersistence;
 
 /**
- * This utility class is used to ease the persistence of configuration data for
- * {@link IBindingContext}.
+ * This utility class is used to ease the persistence of configuration data for a set of
+ * {@link IBindingContext IBindingContexts}.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -35,10 +35,8 @@ public interface IBindingContextPersistence extends IDisposable {
 		 * @param context
 		 * @return
 		 */
-		public static IBindingContextPersistence get(IBindingContext context) {
-			final IBindingContextPersistence service = context.getService(IBindingContextPersistence.class);
-			if (service != null) return service;
-			return new BindingContextPersistence(context);
+		public static IBindingContextPersistence create() {
+			return new BindingContextPersistence();
 		}
 	}
 

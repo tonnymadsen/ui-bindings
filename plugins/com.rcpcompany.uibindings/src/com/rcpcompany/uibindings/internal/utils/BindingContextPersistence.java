@@ -12,8 +12,6 @@ package com.rcpcompany.uibindings.internal.utils;
 
 import org.eclipse.ui.IMemento;
 
-import com.rcpcompany.uibindings.IBinding;
-import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.utils.IBindingContextPersistence;
 
@@ -28,8 +26,7 @@ public class BindingContextPersistence implements IBindingContextPersistence, ID
 	 * 
 	 * @param context the binding
 	 */
-	public BindingContextPersistence(IBindingContext context) {
-		myContext = context;
+	public BindingContextPersistence() {
 		init();
 	}
 
@@ -37,7 +34,6 @@ public class BindingContextPersistence implements IBindingContextPersistence, ID
 	 * Initializes this sorter.
 	 */
 	protected void init() {
-		myContext.registerService(this);
 	}
 
 	/**
@@ -45,10 +41,7 @@ public class BindingContextPersistence implements IBindingContextPersistence, ID
 	 */
 	@Override
 	public void dispose() {
-		myContext.unregisterService(this);
 	}
-
-	protected final IBindingContext myContext;
 
 	/**
 	 * Saves the current state of the binding in the specified {@link IMemento} under the name of
@@ -60,17 +53,6 @@ public class BindingContextPersistence implements IBindingContextPersistence, ID
 	 */
 	@Override
 	public void saveState(IMemento memento) {
-		if (memento == null) return;
-
-		for (final IBinding b : myContext.getBindings()) {
-			final String id = b.getId();
-			if (id == null) {
-				continue;
-			}
-			final IMemento bm = memento.createChild("IBinding", id);
-
-		}
-
 		// TODO see issue 58
 	}
 
@@ -84,9 +66,6 @@ public class BindingContextPersistence implements IBindingContextPersistence, ID
 	 */
 	@Override
 	public void restoreState(IMemento memento) {
-		if (memento == null) return;
-
 		// TODO see issue 58
-
 	}
 }
