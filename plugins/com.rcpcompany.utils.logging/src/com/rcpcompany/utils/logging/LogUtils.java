@@ -269,7 +269,7 @@ public final class LogUtils {
 		// buffer.append(" - ");
 		buffer.append(Thread.currentThread().getName());
 
-		// buffer.append(" - ");
+		buffer.append(" ");
 		final RuntimeException ex = new RuntimeException();
 		ex.fillInStackTrace();
 		int level = 0;
