@@ -104,7 +104,7 @@
             <standardArguments
                   preferredCellEditor="org.eclipse.swt.custom.CCombo"
                   preferredControl="org.eclipse.swt.custom.CCombo"
-                  validValues="com.rcpcompany.uibindings.scripting.internal.bindings.LanguageListFactory"></standardArguments>
+                  validValues="com.rcpcompany.uibindings.scripting.LanguageListFactory"></standardArguments>
          </feature>
       </model>
    </extension>

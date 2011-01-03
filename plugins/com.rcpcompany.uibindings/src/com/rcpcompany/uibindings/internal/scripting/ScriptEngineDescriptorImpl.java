@@ -30,16 +30,12 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.internal.scripting.ScriptEngineDescriptorImpl#getLanguage
- * <em>Language</em>}</li>
- * <li>
- * {@link com.rcpcompany.uibindings.internal.scripting.ScriptEngineDescriptorImpl#getExpressions
- * <em>Expressions</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.scripting.ScriptEngineDescriptorImpl#getEngine <em>
- * Engine</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.internal.scripting.ScriptEngineDescriptorImpl#getLanguage <em>Language</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.internal.scripting.ScriptEngineDescriptorImpl#getExpressions <em>Expressions</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.internal.scripting.ScriptEngineDescriptorImpl#getEngine <em>Engine</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ScriptEngineDescriptorImpl extends EObjectImpl implements IScriptEngineDescriptor {
@@ -64,9 +60,8 @@ public class ScriptEngineDescriptorImpl extends EObjectImpl implements IScriptEn
 	protected String language = LANGUAGE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getExpressions() <em>Expressions</em>}' containment
-	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getExpressions() <em>Expressions</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getExpressions()
 	 * @generated
 	 * @ordered
@@ -74,9 +69,9 @@ public class ScriptEngineDescriptorImpl extends EObjectImpl implements IScriptEn
 	protected EList<IScriptExpression> expressions;
 
 	/**
-	 * The cached value of the '{@link #getEngine() <em>Engine</em>}' attribute. <!-- begin-user-doc
+	 * The cached value of the '{@link #getEngine() <em>Engine</em>}' attribute.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @see #getEngine()
 	 * @generated
 	 * @ordered
@@ -85,7 +80,6 @@ public class ScriptEngineDescriptorImpl extends EObjectImpl implements IScriptEn
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ScriptEngineDescriptorImpl() {
@@ -94,7 +88,6 @@ public class ScriptEngineDescriptorImpl extends EObjectImpl implements IScriptEn
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -104,7 +97,6 @@ public class ScriptEngineDescriptorImpl extends EObjectImpl implements IScriptEn
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -114,22 +106,18 @@ public class ScriptEngineDescriptorImpl extends EObjectImpl implements IScriptEn
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<IScriptExpression> getExpressions() {
 		if (expressions == null) {
-			expressions = new EObjectContainmentWithInverseEList<IScriptExpression>(IScriptExpression.class, this,
-					IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR__EXPRESSIONS,
-					IScriptEnginePackage.SCRIPT_EXPRESSION__ENGINE);
+			expressions = new EObjectContainmentWithInverseEList<IScriptExpression>(IScriptExpression.class, this, IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR__EXPRESSIONS, IScriptEnginePackage.SCRIPT_EXPRESSION__ENGINE);
 		}
 		return expressions;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -139,111 +127,102 @@ public class ScriptEngineDescriptorImpl extends EObjectImpl implements IScriptEn
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void setEngine(CEObjectHolder<IScriptEngine> newEngine) {
-		final CEObjectHolder<IScriptEngine> oldEngine = engine;
+		CEObjectHolder<IScriptEngine> oldEngine = engine;
 		engine = newEngine;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR__ENGINE, oldEngine, engine));
-		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR__ENGINE, oldEngine, engine));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR__EXPRESSIONS:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getExpressions()).basicAdd(otherEnd, msgs);
+			case IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR__EXPRESSIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getExpressions()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR__EXPRESSIONS:
-			return ((InternalEList<?>) getExpressions()).basicRemove(otherEnd, msgs);
+			case IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR__EXPRESSIONS:
+				return ((InternalEList<?>)getExpressions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR__LANGUAGE:
-			return getLanguage();
-		case IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR__EXPRESSIONS:
-			return getExpressions();
-		case IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR__ENGINE:
-			return getEngine();
+			case IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR__LANGUAGE:
+				return getLanguage();
+			case IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR__EXPRESSIONS:
+				return getExpressions();
+			case IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR__ENGINE:
+				return getEngine();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR__ENGINE:
-			setEngine((CEObjectHolder<IScriptEngine>) newValue);
-			return;
+			case IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR__ENGINE:
+				setEngine((CEObjectHolder<IScriptEngine>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR__ENGINE:
-			setEngine((CEObjectHolder<IScriptEngine>) null);
-			return;
+			case IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR__ENGINE:
+				setEngine((CEObjectHolder<IScriptEngine>)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR__LANGUAGE:
-			return LANGUAGE_EDEFAULT == null ? language != null : !LANGUAGE_EDEFAULT.equals(language);
-		case IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR__EXPRESSIONS:
-			return expressions != null && !expressions.isEmpty();
-		case IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR__ENGINE:
-			return engine != null;
+			case IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR__LANGUAGE:
+				return LANGUAGE_EDEFAULT == null ? language != null : !LANGUAGE_EDEFAULT.equals(language);
+			case IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR__EXPRESSIONS:
+				return expressions != null && !expressions.isEmpty();
+			case IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR__ENGINE:
+				return engine != null;
 		}
 		return super.eIsSet(featureID);
 	}

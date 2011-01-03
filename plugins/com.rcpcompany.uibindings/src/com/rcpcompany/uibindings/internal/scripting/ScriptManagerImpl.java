@@ -6,7 +6,7 @@
  */
 package com.rcpcompany.uibindings.internal.scripting;
 
-import java.util.Collection;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.eclipse.core.databinding.observable.list.IObservableList;
@@ -14,7 +14,12 @@ import org.eclipse.core.databinding.observable.list.WritableList;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.notify.impl.AdapterImpl;
+import org.eclipse.emf.common.util.BasicEMap;
+import org.eclipse.emf.common.util.BasicEMap.Entry;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
@@ -23,7 +28,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -36,6 +40,8 @@ import com.rcpcompany.uibindings.scripting.IScriptEvaluationContext;
 import com.rcpcompany.uibindings.scripting.IScriptExpression;
 import com.rcpcompany.uibindings.scripting.IScriptManager;
 import com.rcpcompany.uibindings.scripting.ScriptEngineException;
+import com.rcpcompany.uibindings.utils.IManagerRunnable;
+import com.rcpcompany.utils.basic.ToStringUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -162,14 +168,14 @@ public class ScriptManagerImpl extends EObjectImpl implements IScriptManager {
 	protected EMap<EObject, IScriptEvaluationContext> registeredEvaluationContexts;
 
 	/**
-	 * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' containment
-	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' map. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDependencies()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<IScriptDependency> dependencies;
+	protected EMap<EObject, EList<IScriptDependency>> dependencies;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -284,9 +290,11 @@ public class ScriptManagerImpl extends EObjectImpl implements IScriptManager {
 	 * @generated
 	 */
 	@Override
-	public EList<IScriptDependency> getDependencies() {
+	public EMap<EObject, EList<IScriptDependency>> getDependencies() {
 		if (dependencies == null) {
-			dependencies = new EObjectContainmentEList<IScriptDependency>(IScriptDependency.class, this,
+			dependencies = new EcoreEMap<EObject, EList<IScriptDependency>>(
+					IScriptEnginePackage.Literals.EOBJECT_TO_SCRIPT_DEPENDENCY_LIST_MAP_ENTRY,
+					EObjectToScriptDependencyListMapEntryImpl.class, this,
 					IScriptEnginePackage.SCRIPT_MANAGER__DEPENDENCIES);
 		}
 		return dependencies;
@@ -331,7 +339,10 @@ public class ScriptManagerImpl extends EObjectImpl implements IScriptManager {
 			else
 				return getRegisteredEvaluationContexts().map();
 		case IScriptEnginePackage.SCRIPT_MANAGER__DEPENDENCIES:
-			return getDependencies();
+			if (coreType)
+				return getDependencies();
+			else
+				return getDependencies().map();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -352,8 +363,7 @@ public class ScriptManagerImpl extends EObjectImpl implements IScriptManager {
 			((EStructuralFeature.Setting) getRegisteredEvaluationContexts()).set(newValue);
 			return;
 		case IScriptEnginePackage.SCRIPT_MANAGER__DEPENDENCIES:
-			getDependencies().clear();
-			getDependencies().addAll((Collection<? extends IScriptDependency>) newValue);
+			((EStructuralFeature.Setting) getDependencies()).set(newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -411,5 +421,107 @@ public class ScriptManagerImpl extends EObjectImpl implements IScriptManager {
 			// TODO monitor changes..
 		}
 		return myLanguageList;
+	}
+
+	private final Adapter myDependencyAdapter = new AdapterImpl() {
+		@Override
+		public void notifyChanged(Notification msg) {
+			if (msg.isTouch()) return;
+
+			checkChangedDependencies(msg);
+		};
+	};
+
+	@Override
+	public IScriptDependency addDependency(IScriptDependency dependency) {
+		/*
+		 * Find the list of dependencies for the object of the specified dependency
+		 */
+		final EObject object = dependency.getObject();
+		EList<IScriptDependency> dList = getDependencies().get(object);
+		if (dList == null) {
+			final BasicEMap.Entry<EObject, EList<IScriptDependency>> entry = (Entry<EObject, EList<IScriptDependency>>) IScriptEngineFactory.eINSTANCE
+					.create(IScriptEnginePackage.Literals.EOBJECT_TO_SCRIPT_DEPENDENCY_LIST_MAP_ENTRY);
+			entry.setKey(object);
+			getDependencies().add(entry);
+			dList = entry.getValue();
+			object.eAdapters().add(myDependencyAdapter);
+		}
+
+		/*
+		 * See if we have an identical entry of the list
+		 */
+		for (final IScriptDependency d : dList) {
+			if (d.equals(dependency)) return d;
+		}
+		dList.add(dependency);
+
+		return dependency;
+	}
+
+	/**
+	 * Checks if any current {@link IScriptDependency} match the specified notification.
+	 * <p>
+	 * If one does match, all associated expressions are re-evaluated.
+	 * 
+	 * @param msg the notification to check
+	 */
+	protected void checkChangedDependencies(Notification msg) {
+		final EList<IScriptDependency> dList = getDependencies().get(msg.getNotifier());
+
+		/*
+		 * Should probably never happen!
+		 */
+		if (dList == null) return;
+
+		for (final IScriptDependency d : dList) {
+			if (d.getFeature() != msg.getFeature()) {
+				continue;
+			}
+
+			if (d.getIndex() != -1) {
+				if (d.getIndex() != msg.getPosition()) {
+					continue;
+				}
+			}
+
+			if (d.getKey() != null) {
+				// TODO
+				LogUtils.debug(this, "key=" + d.getKey() + "\nmsg=" + ToStringUtils.toString(msg));
+			}
+
+			/*
+			 * We have a match...
+			 */
+			for (final IScriptExpression e : d.getExpressions()) {
+				IManagerRunnable.Factory.asyncExec("evaluate", e, new Runnable() {
+					@Override
+					public void run() {
+						e.evaluate();
+					}
+				});
+			}
+		}
+	}
+
+	@Override
+	public void pruneDependencies() {
+		final Iterator<java.util.Map.Entry<EObject, EList<IScriptDependency>>> eIterator = getDependencies().entrySet()
+				.iterator();
+		while (eIterator.hasNext()) {
+			final java.util.Map.Entry<EObject, EList<IScriptDependency>> e = eIterator.next();
+			final EList<IScriptDependency> dList = e.getValue();
+			final Iterator<IScriptDependency> dIterator = dList.iterator();
+			while (dIterator.hasNext()) {
+				final IScriptDependency d = dIterator.next();
+				if (d.getExpressions().isEmpty()) {
+					dIterator.remove();
+				}
+			}
+			if (dList.isEmpty()) {
+				e.getKey().eAdapters().remove(myDependencyAdapter);
+				eIterator.remove();
+			}
+		}
 	}
 } // ScriptManagerImpl

@@ -1,10 +1,9 @@
-package com.rcpcompany.uibindings.scripting.internal.bindings;
+package com.rcpcompany.uibindings.scripting;
 
 import org.eclipse.core.databinding.observable.list.IObservableList;
 
 import com.rcpcompany.uibindings.IObservableListFactory;
 import com.rcpcompany.uibindings.IValueBinding;
-import com.rcpcompany.uibindings.scripting.IScriptManager;
 
 /**
  * {@link IObservableListFactory} for {@link IScriptManager#getLanguageList()}.

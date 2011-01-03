@@ -3,10 +3,23 @@
 <plugin>
    <extension
          point="org.eclipse.ui.views">
+      <category
+            id="com.rcpcompany.uibindings.debug.viewCategories.UIBindingDebug"
+            name="UI Binding Debug">
+      </category>
       <view
+            category="com.rcpcompany.uibindings.debug.viewCategories.UIBindingDebug"
             class="com.rcpcompany.uibindings.debug.internals.views.CurrentSelectionView"
             id="com.rcpcompany.uibindings.debug.internals.views.CurrentSelectionView"
             name="*Current Selection*"
+            restorable="true">
+      </view>
+      <view
+            category="com.rcpcompany.uibindings.debug.viewCategories.UIBindingDebug"
+            class="com.rcpcompany.uibindings.debug.internals.views.ScriptConsole"
+            icon="images/console_view_16x16.gif"
+            id="com.rcpcompany.uibindings.debug.views.ScriptConsole"
+            name="Script Console"
             restorable="true">
       </view>
    </extension>
@@ -33,7 +46,64 @@
                commandId="com.rcpcompany.uibindings.debug.commands.PrintCommandHistory"
                style="push">
          </command>
+         <command
+               commandId="org.eclipse.ui.views.showView"
+               icon="images/console_view_16x16.gif"
+               label="Show Script Console"
+               style="push">
+            <parameter
+                  name="org.eclipse.ui.views.showView.viewId"
+                  value="com.rcpcompany.uibindings.debug.views.ScriptConsole">
+            </parameter>
+         </command>
       </menuContribution>
+   </extension>
+   <extension
+         point="com.rcpcompany.uibindings.uiBindings">
+      <model
+            class="com.rcpcompany.uibindings.debug.IScriptConsoleContext">
+         <feature
+               name="script">
+            <argument
+                  name="type"
+                  value="script">
+            </argument>
+            <argument
+                  name="preferredControl"
+                  value="org.eclipse.swt.custom.StyledText">
+            </argument>
+         </feature>
+         <feature
+               name="object">
+            <argument
+                  name="dynamic"
+                  value="true">
+            </argument>
+            <argument
+                  name="toolTipText"
+                  value="The object of script">
+            </argument>
+            <argument
+                  name="type"
+                  value="ident">
+            </argument>
+         </feature>
+         <feature
+               name="language">
+            <standardArguments
+                  preferredCellEditor="org.eclipse.swt.custom.CCombo"
+                  preferredControl="org.eclipse.swt.custom.CCombo"
+                  validValues="com.rcpcompany.uibindings.scripting.LanguageListFactory">
+            </standardArguments>
+         </feature>
+      </model>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commandImages">
+      <image
+            commandId="com.rcpcompany.uibindings.debug.commands.PrintCommandHistory"
+            icon="images/history.png">
+      </image>
    </extension>
 
 </plugin>

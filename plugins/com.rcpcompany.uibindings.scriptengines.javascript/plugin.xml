@@ -4,9 +4,29 @@
    <extension
          point="com.rcpcompany.uibindings.scriptEngines">
       <engine
-            engine="com.rcpcompany.uibindings.scriptengines.javascript.JSScriptEngine"
+            engine="com.rcpcompany.uibindings.scriptengines.javascript.internal.JSScriptEngine"
             language="js">
       </engine>
    </extension>
+
+      <extension
+         point="com.rcpcompany.uibindings.uiBindings">
+      <bindingDecorator
+            exactModelTypeMatch="false"
+            type="script-js">
+         <modelType
+               alsoPrimitive="true"
+               class="java.lang.String">
+         </modelType>
+         <uiType
+               alsoPrimitive="true"
+               class="java.lang.String">
+         </uiType>
+         <javaDecorator
+               class="com.rcpcompany.uibindings.decorators.TextBindingDecorator">
+         </javaDecorator>
+      </bindingDecorator>
+   </extension>
+
 
 </plugin>

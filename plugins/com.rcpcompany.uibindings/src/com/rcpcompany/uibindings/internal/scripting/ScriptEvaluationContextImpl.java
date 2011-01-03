@@ -8,12 +8,10 @@ package com.rcpcompany.uibindings.internal.scripting;
 
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
@@ -100,48 +98,50 @@ public class ScriptEvaluationContextImpl extends EObjectImpl implements IScriptE
 	protected ScriptEvaluationContextImpl() {
 		super();
 
-		eAdapters().add(new AdapterImpl() {
-			@Override
-			public void notifyChanged(Notification msg) {
-				if (msg.isTouch()) return;
-
-				if (msg.getFeature() == IScriptEnginePackage.Literals.SCRIPT_EVALUATION_CONTEXT__VARIABLES) {
-					//
-					switch (msg.getEventType()) {
-					case Notification.REMOVE:
-					case Notification.SET:
-						final StringToObjectMapEntryImpl entry = (StringToObjectMapEntryImpl) msg.getOldValue();
-						entry.eAdapters().remove(this);
-						break;
-					case Notification.REMOVE_MANY:
-						final List<StringToObjectMapEntryImpl> entries = (List<StringToObjectMapEntryImpl>) msg
-								.getOldValue();
-						for (final StringToObjectMapEntryImpl e : entries) {
-							e.eAdapters().remove(this);
-						}
-						break;
-					}
-					switch (msg.getEventType()) {
-					case Notification.ADD:
-					case Notification.SET:
-						final StringToObjectMapEntryImpl entry = (StringToObjectMapEntryImpl) msg.getNewValue();
-						entry.eAdapters().add(this);
-						break;
-					case Notification.ADD_MANY:
-						final List<StringToObjectMapEntryImpl> entries = (List<StringToObjectMapEntryImpl>) msg
-								.getNewValue();
-						for (final StringToObjectMapEntryImpl e : entries) {
-							e.eAdapters().add(this);
-						}
-						break;
-					}
-					reevaluateExpressions();
-				} else if (msg.getFeature() == IUIBindingsPackage.Literals.STRING_TO_OBJECT_MAP_ENTRY__KEY
-						|| msg.getFeature() == IUIBindingsPackage.Literals.STRING_TO_OBJECT_MAP_ENTRY__VALUE) {
-					reevaluateExpressions();
-				}
-			}
-		});
+		// eAdapters().add(new AdapterImpl() {
+		// @Override
+		// public void notifyChanged(Notification msg) {
+		// if (msg.isTouch()) return;
+		//
+		// if (msg.getFeature() ==
+		// IScriptEnginePackage.Literals.SCRIPT_EVALUATION_CONTEXT__VARIABLES) {
+		// //
+		// switch (msg.getEventType()) {
+		// case Notification.REMOVE:
+		// case Notification.SET:
+		// final StringToObjectMapEntryImpl entry = (StringToObjectMapEntryImpl) msg.getOldValue();
+		// entry.eAdapters().remove(this);
+		// break;
+		// case Notification.REMOVE_MANY:
+		// final List<StringToObjectMapEntryImpl> entries = (List<StringToObjectMapEntryImpl>) msg
+		// .getOldValue();
+		// for (final StringToObjectMapEntryImpl e : entries) {
+		// e.eAdapters().remove(this);
+		// }
+		// break;
+		// }
+		// switch (msg.getEventType()) {
+		// case Notification.ADD:
+		// case Notification.SET:
+		// final StringToObjectMapEntryImpl entry = (StringToObjectMapEntryImpl) msg.getNewValue();
+		// entry.eAdapters().add(this);
+		// break;
+		// case Notification.ADD_MANY:
+		// final List<StringToObjectMapEntryImpl> entries = (List<StringToObjectMapEntryImpl>) msg
+		// .getNewValue();
+		// for (final StringToObjectMapEntryImpl e : entries) {
+		// e.eAdapters().add(this);
+		// }
+		// break;
+		// }
+		// reevaluateExpressions();
+		// } else if (msg.getFeature() ==
+		// IUIBindingsPackage.Literals.STRING_TO_OBJECT_MAP_ENTRY__KEY
+		// || msg.getFeature() == IUIBindingsPackage.Literals.STRING_TO_OBJECT_MAP_ENTRY__VALUE) {
+		// reevaluateExpressions();
+		// }
+		// }
+		// });
 	}
 
 	@Override

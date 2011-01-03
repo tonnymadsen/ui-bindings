@@ -6,8 +6,10 @@
  */
 package com.rcpcompany.uibindings.internal.scripting;
 
+import com.rcpcompany.uibindings.scripting.*;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -24,29 +26,30 @@ import com.rcpcompany.uibindings.scripting.IScriptManager;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
  * @generated
  */
 public class ScriptEngineFactoryImpl extends EFactoryImpl implements IScriptEngineFactory {
 	/**
-	 * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static IScriptEngineFactory init() {
 		try {
-			final IScriptEngineFactory theScriptEngineFactory = (IScriptEngineFactory) EPackage.Registry.INSTANCE
-					.getEFactory("http://rcp-company.com/schemas/uibindings/scriptEngine.ecore");
-			if (theScriptEngineFactory != null) return theScriptEngineFactory;
-		} catch (final Exception exception) {
+			IScriptEngineFactory theScriptEngineFactory = (IScriptEngineFactory)EPackage.Registry.INSTANCE.getEFactory("http://rcp-company.com/schemas/uibindings/scriptEngine.ecore"); 
+			if (theScriptEngineFactory != null) {
+				return theScriptEngineFactory;
+			}
+		}
+		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new ScriptEngineFactoryImpl();
 	}
 
 	/**
-	 * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public ScriptEngineFactoryImpl() {
@@ -55,119 +58,113 @@ public class ScriptEngineFactoryImpl extends EFactoryImpl implements IScriptEngi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case IScriptEnginePackage.SCRIPT_MANAGER:
-			return createScriptManager();
-		case IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR:
-			return createScriptEngineDescriptor();
-		case IScriptEnginePackage.SCRIPT_EVALUATION_CONTEXT:
-			return createScriptEvaluationContext();
-		case IScriptEnginePackage.SCRIPT_EXPRESSION:
-			return createScriptExpression();
-		case IScriptEnginePackage.SCRIPT_DEPENDENCY:
-			return createScriptDependency();
-		case IScriptEnginePackage.STRING_TO_SCRIPT_ENGINE_MAP_ENTRY:
-			return (EObject) createStringToScriptEngineMapEntry();
-		case IScriptEnginePackage.EOBJECT_TO_SCRIPT_ENGINE_MAP_ENTRY:
-			return (EObject) createEObjectToScriptEngineMapEntry();
-		default:
-			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+			case IScriptEnginePackage.SCRIPT_MANAGER: return createScriptManager();
+			case IScriptEnginePackage.SCRIPT_ENGINE_DESCRIPTOR: return createScriptEngineDescriptor();
+			case IScriptEnginePackage.SCRIPT_EVALUATION_CONTEXT: return createScriptEvaluationContext();
+			case IScriptEnginePackage.SCRIPT_EXPRESSION: return createScriptExpression();
+			case IScriptEnginePackage.SCRIPT_DEPENDENCY: return createScriptDependency();
+			case IScriptEnginePackage.STRING_TO_SCRIPT_ENGINE_MAP_ENTRY: return (EObject)createStringToScriptEngineMapEntry();
+			case IScriptEnginePackage.EOBJECT_TO_SCRIPT_DEPENDENCY_LIST_MAP_ENTRY: return (EObject)createEObjectToScriptDependencyListMapEntry();
+			case IScriptEnginePackage.EOBJECT_TO_SCRIPT_ENGINE_MAP_ENTRY: return (EObject)createEObjectToScriptEngineMapEntry();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public IScriptManager createScriptManager() {
-		final ScriptManagerImpl scriptManager = new ScriptManagerImpl();
+		ScriptManagerImpl scriptManager = new ScriptManagerImpl();
 		return scriptManager;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public IScriptEngineDescriptor createScriptEngineDescriptor() {
-		final ScriptEngineDescriptorImpl scriptEngineDescriptor = new ScriptEngineDescriptorImpl();
+		ScriptEngineDescriptorImpl scriptEngineDescriptor = new ScriptEngineDescriptorImpl();
 		return scriptEngineDescriptor;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public IScriptEvaluationContext createScriptEvaluationContext() {
-		final ScriptEvaluationContextImpl scriptEvaluationContext = new ScriptEvaluationContextImpl();
+		ScriptEvaluationContextImpl scriptEvaluationContext = new ScriptEvaluationContextImpl();
 		return scriptEvaluationContext;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public IScriptExpression createScriptExpression() {
-		final ScriptExpressionImpl scriptExpression = new ScriptExpressionImpl();
+		ScriptExpressionImpl scriptExpression = new ScriptExpressionImpl();
 		return scriptExpression;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public IScriptDependency createScriptDependency() {
-		final ScriptDependencyImpl scriptDependency = new ScriptDependencyImpl();
+		ScriptDependencyImpl scriptDependency = new ScriptDependencyImpl();
 		return scriptDependency;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Map.Entry<String, IScriptEngineDescriptor> createStringToScriptEngineMapEntry() {
-		final StringToScriptEngineMapEntryImpl stringToScriptEngineMapEntry = new StringToScriptEngineMapEntryImpl();
+		StringToScriptEngineMapEntryImpl stringToScriptEngineMapEntry = new StringToScriptEngineMapEntryImpl();
 		return stringToScriptEngineMapEntry;
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Map.Entry<EObject, EList<IScriptDependency>> createEObjectToScriptDependencyListMapEntry() {
+		EObjectToScriptDependencyListMapEntryImpl eObjectToScriptDependencyListMapEntry = new EObjectToScriptDependencyListMapEntryImpl();
+		return eObjectToScriptDependencyListMapEntry;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Map.Entry<EObject, IScriptEvaluationContext> createEObjectToScriptEngineMapEntry() {
-		final EObjectToScriptEngineMapEntryImpl eObjectToScriptEngineMapEntry = new EObjectToScriptEngineMapEntryImpl();
+		EObjectToScriptEngineMapEntryImpl eObjectToScriptEngineMapEntry = new EObjectToScriptEngineMapEntryImpl();
 		return eObjectToScriptEngineMapEntry;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public IScriptEnginePackage getScriptEnginePackage() {
-		return (IScriptEnginePackage) getEPackage();
+		return (IScriptEnginePackage)getEPackage();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @deprecated
 	 * @generated
 	 */

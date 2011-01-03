@@ -47,7 +47,7 @@ public class SimpleScriptTest {
 
 		IScriptExpression c = null;
 		try {
-			c = IScriptManager.Factory.addScript(IScriptManager.LANGUAGE_SIMPLE_VARIABLES, "a", String.class, null,
+			c = IScriptManager.Factory.addScript(IScriptManager.LANGUAGE_SIMPLE, "a", String.class, null,
 					null);
 		} catch (final ScriptEngineException ex) {
 			fail(ex.getMessage());
@@ -56,7 +56,7 @@ public class SimpleScriptTest {
 		assertNotNull(c);
 		assertEquals("a", c.getScript());
 		assertEquals(String.class, c.getExpectedValueClass());
-		assertEquals(manager.getEngines().get(IScriptManager.LANGUAGE_SIMPLE_VARIABLES), c.getEngine());
+		assertEquals(manager.getEngines().get(IScriptManager.LANGUAGE_SIMPLE), c.getEngine());
 		assertEquals(globalEvaluationContext, c.getEvaluationContext());
 
 		assertEquals(null, c.getCurrentValue());
@@ -79,7 +79,7 @@ public class SimpleScriptTest {
 
 		IScriptExpression c = null;
 		try {
-			c = IScriptManager.Factory.addScript(IScriptManager.LANGUAGE_SIMPLE_VARIABLES, "a", String.class, null,
+			c = IScriptManager.Factory.addScript(IScriptManager.LANGUAGE_SIMPLE, "a", String.class, null,
 					null);
 		} catch (final ScriptEngineException ex) {
 			fail(ex.getMessage());

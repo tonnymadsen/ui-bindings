@@ -8,7 +8,7 @@ import com.rcpcompany.uibindings.scripting.IScriptExpression;
 import com.rcpcompany.uibindings.scripting.IScriptManager;
 
 /**
- * The {@link IScriptEngine} for {@link IScriptManager#LANGUAGE_SIMPLE_VARIABLES}.
+ * The {@link IScriptEngine} for {@link IScriptManager#LANGUAGE_SIMPLE}.
  * 
  * @author Tonny Madsen, The RCP Company
  * 

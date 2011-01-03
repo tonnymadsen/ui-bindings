@@ -13,8 +13,8 @@ import com.rcpcompany.uibindings.IDisposable;
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Script Engine</b></em>'.
  * <!-- end-user-doc -->
- * 
- * 
+ *
+ *
  * @see com.rcpcompany.uibindings.scripting.IScriptEnginePackage#getScriptEngine()
  * @generated
  */

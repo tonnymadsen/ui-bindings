@@ -21,20 +21,17 @@ import com.rcpcompany.uibindings.internal.scripting.ScriptManagerImpl;
  * The manager for all things needed for the scripting.
  * 
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.scripting.IScriptManager#getEngines <em>Engines</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.scripting.IScriptManager#getGlobalEvaluationContext <em>
- * Global Evaluation Context</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.scripting.IScriptManager#getRegisteredEvaluationContexts
- * <em>Registered Evaluation Contexts</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.scripting.IScriptManager#getDependencies <em>Dependencies
- * </em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.scripting.IScriptManager#getEngines <em>Engines</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.scripting.IScriptManager#getGlobalEvaluationContext <em>Global Evaluation Context</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.scripting.IScriptManager#getRegisteredEvaluationContexts <em>Registered Evaluation Contexts</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.scripting.IScriptManager#getDependencies <em>Dependencies</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see com.rcpcompany.uibindings.scripting.IScriptEnginePackage#getScriptManager()
  * @generated
  */
@@ -42,7 +39,7 @@ public interface IScriptManager extends EObject {
 	/**
 	 * Factory methods for the manager.
 	 */
-	public static class Factory {
+	public static final class Factory {
 		private Factory() {
 		}
 
@@ -81,18 +78,23 @@ public interface IScriptManager extends EObject {
 	/**
 	 * Return value of {@link IScriptEngineDescriptor#getLanguage()} for Simple Variables.
 	 */
-	String LANGUAGE_SIMPLE_VARIABLES = "simple";
+	String LANGUAGE_SIMPLE = "simple";
 
 	/**
-	 * Returns the value of the '<em><b>Engines</b></em>' map. The key is of type
-	 * {@link java.lang.String}, and the value is of type
-	 * {@link com.rcpcompany.uibindings.scripting.IScriptEngineDescriptor}, <!-- begin-user-doc -->
+	 * Return value of {@link IScriptEngineDescriptor#getLanguage()} for Named Object Reference.
+	 */
+	String LANGUAGE_NAMED_OBJECRT_REF = "namedObjectRef";
+
+	/**
+	 * Returns the value of the '<em><b>Engines</b></em>' map.
+	 * The key is of type {@link java.lang.String},
+	 * and the value is of type {@link com.rcpcompany.uibindings.scripting.IScriptEngineDescriptor},
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Engines</em>' reference list isn't clear, there really should be
 	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Engines</em>' map.
 	 * @see com.rcpcompany.uibindings.scripting.IScriptEnginePackage#getScriptManager_Engines()
 	 * @generated
@@ -116,15 +118,15 @@ public interface IScriptManager extends EObject {
 	IScriptEvaluationContext getGlobalEvaluationContext();
 
 	/**
-	 * Returns the value of the '<em><b>Registered Evaluation Contexts</b></em>' map. The key is of
-	 * type {@link org.eclipse.emf.ecore.EObject}, and the value is of type
-	 * {@link com.rcpcompany.uibindings.scripting.IScriptEvaluationContext}, <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Registered Evaluation Contexts</b></em>' map.
+	 * The key is of type {@link org.eclipse.emf.ecore.EObject},
+	 * and the value is of type {@link com.rcpcompany.uibindings.scripting.IScriptEvaluationContext},
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Registered Evaluation Contexts</em>' map isn't clear, there really
 	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Registered Evaluation Contexts</em>' map.
 	 * @see com.rcpcompany.uibindings.scripting.IScriptEnginePackage#getScriptManager_RegisteredEvaluationContexts()
 	 * @generated
@@ -158,7 +160,7 @@ public interface IScriptManager extends EObject {
 	 * @see com.rcpcompany.uibindings.scripting.IScriptEnginePackage#getScriptManager_Dependencies()
 	 * @generated
 	 */
-	EList<IScriptDependency> getDependencies();
+	EMap<EObject, EList<IScriptDependency>> getDependencies();
 
 	/**
 	 * Adds a new script.
@@ -193,9 +195,26 @@ public interface IScriptManager extends EObject {
 	/**
 	 * Returns and observable list for all the current languages.
 	 * <p>
-	 * For use in UI...
+	 * For use in UI bindings as a validValues list.
 	 * 
 	 * @return the list
 	 */
 	IObservableList getLanguageList();
+
+	/**
+	 * Add a new dependency to the managed dependencies if not already present.
+	 * <p>
+	 * If the dependency already exists, then the existing dependency is returned; otherwise the new
+	 * dependency is added and returned.
+	 * 
+	 * @param dependency the new dependency
+	 * @return the existing or new dependency
+	 */
+	IScriptDependency addDependency(IScriptDependency dependency);
+
+	/**
+	 * Goes through all managed dependencies and remove all, that does not have any associated
+	 * expressions.
+	 */
+	void pruneDependencies();
 } // IScriptManager

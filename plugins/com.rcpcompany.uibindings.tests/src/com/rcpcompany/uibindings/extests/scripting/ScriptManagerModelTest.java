@@ -25,9 +25,9 @@ public class ScriptManagerModelTest {
 		assertNotNull(mng);
 
 		assertEquals(1, mng.getEngines().size());
-		final IScriptEngineDescriptor engine = mng.getEngines().get(IScriptManager.LANGUAGE_SIMPLE_VARIABLES);
+		final IScriptEngineDescriptor engine = mng.getEngines().get(IScriptManager.LANGUAGE_SIMPLE);
 		assertNotNull(engine);
-		assertEquals(IScriptManager.LANGUAGE_SIMPLE_VARIABLES, engine.getLanguage());
+		assertEquals(IScriptManager.LANGUAGE_SIMPLE, engine.getLanguage());
 		assertNotNull(engine.getEngine());
 		final IScriptEngine e = engine.getEngine().getObject();
 		assertTrue(e instanceof SimpleScriptEngine);

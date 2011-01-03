@@ -7,6 +7,10 @@
 package com.rcpcompany.uibindings.internal.scripting;
 
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.ListIterator;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.WritableValue;
@@ -27,6 +31,8 @@ import com.rcpcompany.uibindings.scripting.IScriptEngineDescriptor;
 import com.rcpcompany.uibindings.scripting.IScriptEnginePackage;
 import com.rcpcompany.uibindings.scripting.IScriptEvaluationContext;
 import com.rcpcompany.uibindings.scripting.IScriptExpression;
+import com.rcpcompany.uibindings.scripting.IScriptManager;
+import com.rcpcompany.uibindings.utils.IManagerRunnable;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Script Context</b></em>'.
@@ -180,6 +186,9 @@ public class ScriptExpressionImpl extends EObjectImpl implements IScriptExpressi
 	@Override
 	public void dispose() {
 		setEngine(null);
+
+		IManagerRunnable.Factory.cancelAsyncExec("evaluate", this);
+
 		/*
 		 * TODO - if last use, then disconnect
 		 */
@@ -415,10 +424,14 @@ public class ScriptExpressionImpl extends EObjectImpl implements IScriptExpressi
 		/*
 		 * More intelligence:
 		 * 
-		 * - String: all toString
+		 * - String: all toString OK
 		 * 
 		 * - Numbers
 		 */
+
+		if (newCurrentValue != null && getExpectedValueClass() == String.class) {
+			newCurrentValue = "" + newCurrentValue;
+		}
 		if (newCurrentValue != null && !getExpectedValueClass().isInstance(newCurrentValue)) {
 			setErrorMessage("Expected " + getExpectedValueClass().getName() + ", got value " + newCurrentValue);
 			return;
@@ -475,6 +488,48 @@ public class ScriptExpressionImpl extends EObjectImpl implements IScriptExpressi
 	@Override
 	public void evaluate() {
 		getEngine().getEngine().getObject().evaluate(this);
+	}
+
+	@Override
+	public void updateDependencies(List<IScriptDependency> newDependencies) {
+		/*
+		 * Sort the new dependencies, sort they can be compared with the current ones
+		 */
+		Collections.sort(newDependencies, new Comparator<IScriptDependency>() {
+			@Override
+			public int compare(IScriptDependency o1, IScriptDependency o2) {
+				return o1.hashCode() - o2.hashCode();
+			}
+		});
+		final EList<IScriptDependency> oldDependencies = getDependencies();
+
+		/*
+		 * If the dependencies are the same - which is very likely - then just return...
+		 */
+		if (oldDependencies.equals(newDependencies)) return;
+
+		final IScriptManager manager = IScriptManager.Factory.getManager();
+		final ListIterator<IScriptDependency> dIterator = newDependencies.listIterator();
+		while (dIterator.hasNext()) {
+			IScriptDependency d = dIterator.next();
+			/*
+			 * Find the dependency in the current manager dependencies. If not found, then create
+			 * it.
+			 */
+			d = manager.addDependency(d);
+			dIterator.set(d);
+		}
+
+		/*
+		 * Replace the previous list
+		 */
+		oldDependencies.clear();
+		oldDependencies.addAll(newDependencies);
+
+		/*
+		 * Prune any left overs
+		 */
+		manager.pruneDependencies();
 	}
 
 	/**
