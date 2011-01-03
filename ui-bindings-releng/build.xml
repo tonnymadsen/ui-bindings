@@ -1,0 +1,74 @@
+<!--
+    Copyright (c) 2010 Torkild U. Resheim
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        Torkild U. Resheim - initial API and implementation
+ -->
+<project name="Buildtools" default="run">
+	<!-- Load environment variables and prefix with "env" -->
+	<property environment="env" />
+	<property name="buildNumber" value="${env.BUILD_NUMBER}"/>
+	<!-- Load properties -->
+	<property file="${basedir}/build.properties"/>
+	<!-- Path to required ANT libraries -->
+	<property name="ant_libs" location="${basedir}/ant_libs"/>
+	<!-- Load the task we need for uploading to Google Code-->
+	<taskdef classname="net.bluecow.googlecode.ant.GoogleCodeUploadTask" 
+		classpath="${ant_libs}/ant-googlecode-0.0.2.jar" name="gcupload" />
+	<!-- Time stamp for use in build identifier -->
+	<tstamp>
+		<format property="timestamp" pattern="yyyy-MM-dd HH:mm" locale="en"/>			
+	</tstamp>
+	<!-- Main target -->
+	<target name="run" description="Compile the project">
+		<replace dir="${buildDirectory}/plugins" value="${timestamp}, build #${env.BUILD_NUMBER}" token="@build@">
+			<include name="**/about.mappings" /> 
+		</replace>
+		<java jar="${launcherJar}" fork="true" failonerror="true" dir="${basedir}" >
+			<arg value="-consoleLog" />
+			<arg value="-application" />
+			<arg value="org.eclipse.ant.core.antRunner" />
+			<arg value="-buildfile" />
+			<arg value="${buildfile}" />
+			<arg value="-DbaseLocation=${baseLocation}" />
+			<arg value="-DbuildDirectory=${buildDirectory}" />
+			<arg value="-DtestHome=${buildDirectory}/test" />
+			<arg value="-DrepoBaseLocation=${repoBaseLocation}" />
+			<arg value="-DtransformedRepoLocation=${transformedRepoLocation}" />
+			<arg value="-DupdateSites=${updateSites}" />
+			<arg value="-Dbuilder=${builder}" />
+			<arg value="-DbuildNumber=${buildNumber}" />
+		</java>
+    	<!-- Categorize distribution repository -->
+        <java jar="${launcherJar}" fork="true" failonerror="true">
+            <arg line="-console -consoleLog -application org.eclipse.equinox.p2.publisher.CategoryPublisher -metadataRepository file:/${buildDirectory}/builds/buildmonitor-p2repo -categoryDefinition file:/${basedir}/categories.xml -categoryQualifier -compress" />
+        </java>
+        <!-- This will not be changed anymore, so we can just zip it now -->
+		<echo message="Creating zip file of repository buildmonitor-${product.version}-p2repo.zip"/>
+		<zip destfile="${buildDirectory}/builds/buildmonitor-${product.version}-p2repo.zip" basedir="${buildDirectory}/builds/buildmonitor-p2repo">
+			<include name="**/*"/>
+		</zip>
+	</target>
+	<!-- Promote build to STABLE -->
+	<target name="promote_to_stable">
+		<!-- Upload to google code -->
+		<gcupload username="${gcLogin}" password="${gcPassword}" projectname="buildmonitor" 
+			filename="${buildDirectory}/buildmonitor-${product.version}-p2repo.zip" 
+			targetfilename="buildmonitor-${product.version}-p2repo.zip" 
+			summary="Equinox p2 repository" labels="Type-Package, OpSys-All" />
+		<!-- Tag repository (at the local source repo) -->
+		<exec executable="/bin/bash" dir="${repoPath}">
+			<arg value="-c"/>
+			<arg value="hg tag -f -m 'Published as version ${product.version}' stable-${product.version}"/>
+		</exec>
+		<!-- Push to the main repository -->
+		<exec executable="/bin/bash" dir="${repoPath}">
+			<arg value="-c"/>
+			<arg value="hg push"/>
+		</exec>
+	</target>
+</project>

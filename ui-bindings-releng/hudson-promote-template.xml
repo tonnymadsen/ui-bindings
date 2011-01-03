@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+    Copyright (c) 2010 Torkild U. Resheim
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        Torkild U. Resheim - initial API and implementation
+ -->
+<hudson.plugins.promoted__builds.PromotionProcess>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>false</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers class="vector"/>
+  <concurrentBuild>false</concurrentBuild>
+  <conditions>
+    <hudson.plugins.promoted__builds.conditions.ManualCondition/>
+  </conditions>
+  <icon>star-blue</icon>
+  <buildSteps>
+    <hudson.tasks.Ant>
+      <targets>promote_to_stable</targets>
+      <buildFile>releng/build.xml</buildFile>
+			<properties>builder=$WORKSPACE/releng
+buildDirectory=$WORKSPACE
+buildfile=BUILDFILE
+launcherJar=LAUNCHER_JAR
+baseLocation=BASE_LOCATION
+gcLogin=GC_LOGIN
+gcPassword=GC_PASSWORD
+ant_libs=ANT_LIBS
+repoPath=REPO_PATH</properties>
+    </hudson.tasks.Ant>
+  </buildSteps>
+</hudson.plugins.promoted__builds.PromotionProcess>

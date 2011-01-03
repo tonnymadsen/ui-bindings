@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.rcpcompany.uibindings.feature_1.0.0.qualifier.jar" id="com.rcpcompany.uibindings.feature" version="1.0.0.qualifier">
+      <category name="com.rcpcompany.uibindings"/>
+   </feature>
+   <category-def name="com.rcpcompany.uibindings" label="UI Bindings"/>
+</site>
