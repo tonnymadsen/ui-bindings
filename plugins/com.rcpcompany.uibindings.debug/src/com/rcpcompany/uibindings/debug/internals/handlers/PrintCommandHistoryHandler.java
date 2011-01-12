@@ -22,25 +22,29 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.utils.ExtendedCommandStack;
 
 /**
- * Handler for <code>com.rcpcompany.uibindings.debug.commands.PrintCommandHistory</code>.
+ * Handler for
+ * <code>com.rcpcompany.uibindings.debug.commands.PrintCommandHistory</code>.
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class PrintCommandHistoryHandler extends AbstractHandler implements IHandler {
+public class PrintCommandHistoryHandler extends AbstractHandler implements
+		IHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		final IManager manager = IManager.Factory.getManager();
-		final CommandStack commandStack = manager.getEditingDomain().getCommandStack();
+		final CommandStack commandStack = manager.getEditingDomain()
+				.getCommandStack();
 
 		if (!(commandStack instanceof ExtendedCommandStack)) {
-			System.out.println("Command not support for current command stack...");
+			System.out
+					.println("Command not support for current command stack...");
 			return null;
 		}
 
 		final ExtendedCommandStack cs = (ExtendedCommandStack) commandStack;
 
-		System.out.println("Command History (in order):");
+		System.out.println("Command History (in execution order):");
 		for (final Command c : cs.getCommands()) {
 			System.out.println("  " + EcoreExtUtils.toString(c));
 		}
