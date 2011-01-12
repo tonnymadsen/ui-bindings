@@ -366,6 +366,8 @@ public class UIAttributeFactoryTest<T extends Widget> extends BaseUIAttributeFac
 				assertEquals(what, myExpectedValueType, value.getValueType());
 
 				testObservableValue(widget, myAttribute, value, myExpectedValueType, myPropertyName);
+
+				widget.dispose();
 			}
 		});
 	}

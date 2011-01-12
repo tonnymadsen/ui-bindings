@@ -60,5 +60,7 @@ public class UIAttributeFileNameControlFactoryPropertiesTest extends BaseUIAttri
 		assertNotNull(attribute.getFieldAssistAdapter());
 		assertEquals(null, attribute.getPossibleValuesList());
 		assertEquals(null, attribute.getStyleRangeList());
+
+		widget.dispose();
 	}
 }

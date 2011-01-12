@@ -86,7 +86,7 @@ public class ControlDecorationTest {
 
 	@Test
 	public void testLocationInsideCorner() {
-		testALocation(0, 0, true);
+		testALocation(3, 3, true);
 	}
 
 	@Test
@@ -178,7 +178,7 @@ public class ControlDecorationTest {
 	 */
 	private void testSquare(final int x, final int y, RGB rgb) {
 		yield();
-		sleep(1000);
+		sleep(100);
 
 		assertPixelColor(myBody, 0, 0, white);
 		for (int dx = 0; dx < SQUARE_SIZE; dx++) {

@@ -62,6 +62,8 @@ public class UIAttributeListFactoryPropertiesTest extends BaseUIAttributeFactory
 		assertEquals(null, attribute.getFieldAssistAdapter());
 		testObservableList(widget, "", attribute.getPossibleValuesList(), String.class, "items");
 		assertEquals(null, attribute.getStyleRangeList());
+
+		widget.dispose();
 	}
 
 }

@@ -60,5 +60,7 @@ public class UIAttributeComboFactoryPropertiesTest extends BaseUIAttributeFactor
 		assertNotNull(attribute.getFieldAssistAdapter());
 		testObservableList(widget, "", attribute.getPossibleValuesList(), String.class, "items");
 		assertEquals(null, attribute.getStyleRangeList());
+
+		widget.dispose();
 	}
 }

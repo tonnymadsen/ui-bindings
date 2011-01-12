@@ -54,6 +54,8 @@ public class TextObservableValueTest<X extends Control> {
 	private final Class<X> myCls;
 	private final boolean mySingleLine;
 
+	private final static String NL = System.getProperty("line.separator");
+
 	@Parameters
 	public static Collection<Object[]> data() {
 		return Arrays.asList(new Object[][] {
@@ -220,6 +222,9 @@ public class TextObservableValueTest<X extends Control> {
 		ov1.dispose();
 		manager.setTextCommitStrategy(TextCommitStrategy.ON_MODIFY);
 		manager.setTextCommitStrategyDelay(400);
+
+		w1.dispose();
+		w2.dispose();
 	}
 
 	/**
@@ -427,20 +432,20 @@ public class TextObservableValueTest<X extends Control> {
 
 	@Test
 	public void testModifyEnterStrategy() {
-		testKeyStrategy(TextCommitStrategy.ON_MODIFY, "b", "ENTER", mySingleLine ? "b" : "\r\nb", false,
-				mySingleLine ? "b" : "\r\nb");
+		testKeyStrategy(TextCommitStrategy.ON_MODIFY, "b", "ENTER", mySingleLine ? "b" : NL + "b", false,
+				mySingleLine ? "b" : NL + "b");
 	}
 
 	@Test
 	public void testModifyDelayEnterStrategy() {
 		testKeyStrategy(TextCommitStrategy.ON_MODIFY_DELAY, "a", "ENTER", mySingleLine ? "b" : "a", !mySingleLine,
-				mySingleLine ? "b" : "\r\nb");
+				mySingleLine ? "b" : NL + "b");
 	}
 
 	@Test
 	public void testFocusOutEnterStrategy() {
 		testKeyStrategy(TextCommitStrategy.ON_FOCUS_OUT, "a", "ENTER", mySingleLine ? "b" : "a", !mySingleLine,
-				mySingleLine ? "b" : "\r\nb");
+				mySingleLine ? "b" : NL + "b");
 	}
 
 	@Test

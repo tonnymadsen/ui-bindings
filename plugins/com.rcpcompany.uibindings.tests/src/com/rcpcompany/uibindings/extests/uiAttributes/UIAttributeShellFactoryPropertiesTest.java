@@ -60,5 +60,7 @@ public class UIAttributeShellFactoryPropertiesTest extends BaseUIAttributeFactor
 		assertEquals(null, attribute.getFieldAssistAdapter());
 		assertEquals(null, attribute.getPossibleValuesList());
 		assertEquals(null, attribute.getStyleRangeList());
+
+		widget.dispose();
 	}
 }

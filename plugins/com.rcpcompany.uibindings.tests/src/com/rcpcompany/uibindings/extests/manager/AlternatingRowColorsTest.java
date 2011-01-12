@@ -8,6 +8,7 @@
  * Contributors:
  *     The RCP Company - initial API and implementation
  *******************************************************************************/
+
 package com.rcpcompany.uibindings.extests.manager;
 
 import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
@@ -25,8 +26,6 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.ui.forms.FormColors;
-import org.eclipse.ui.forms.IFormColors;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -34,6 +33,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
@@ -186,10 +186,12 @@ public class AlternatingRowColorsTest {
 			Color c;
 			if (i == 0) {
 				if (myHasFocus) {
-					c = myTable.getDisplay().getSystemColor(SWT.COLOR_LIST_SELECTION);
+					final Color focusColor = JFaceResources.getColorRegistry().get(
+							Constants.COLOR_DEFINITIONS_SELECTION_FOCUS_BACKGROUND);
+					c = focusColor;
 				} else {
-					final FormColors colors = IManager.Factory.getManager().getFormToolkit().getColors();
-					c = colors.getColor(IFormColors.H_HOVER_LIGHT);
+					c = JFaceResources.getColorRegistry()
+							.get(Constants.COLOR_DEFINITIONS_SELECTION_NO_FOCUS_BACKGROUND);
 				}
 			} else if (i % 2 == 0 && myEnable) {
 				c = evenColor;

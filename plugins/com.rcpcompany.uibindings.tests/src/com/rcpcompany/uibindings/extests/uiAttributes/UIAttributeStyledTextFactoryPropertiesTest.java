@@ -61,5 +61,7 @@ public class UIAttributeStyledTextFactoryPropertiesTest extends BaseUIAttributeF
 		assertNotNull(attribute.getFieldAssistAdapter());
 		assertEquals(null, attribute.getPossibleValuesList());
 		testObservableList(widget, "", attribute.getStyleRangeList(), StyleRange.class, "styleRanges");
+
+		widget.dispose();
 	}
 }

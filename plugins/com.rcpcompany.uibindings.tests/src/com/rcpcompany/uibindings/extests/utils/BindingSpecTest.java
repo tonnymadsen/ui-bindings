@@ -147,13 +147,13 @@ public class BindingSpecTest {
 	public void testSimpleSpecMapUnit2() {
 		final Display d = Display.getDefault();
 
-		assertEquals(96, d.getDPI().x);
+		final int dpi = d.getDPI().x;
 
 		final List<IBindingSpec> spec = IBindingSpec.Factory.parseSingleSpec(ShopPackage.Literals.CONTACT,
 				"country(w=10mm).name(width=10px)", SpecContext.FORM_FIELD);
 		assertNotNull(spec);
 		assertEquals(2, spec.size());
-		specTest(spec.get(0), ShopPackage.Literals.CONTACT__COUNTRY, Constants.ARG_WIDTH, 10 * 96 / 25);
+		specTest(spec.get(0), ShopPackage.Literals.CONTACT__COUNTRY, Constants.ARG_WIDTH, 10 * dpi / 25);
 		specTest(spec.get(1), IMOAOPackage.Literals.NAMED_OBJECT__NAME, Constants.ARG_WIDTH, 10);
 	}
 

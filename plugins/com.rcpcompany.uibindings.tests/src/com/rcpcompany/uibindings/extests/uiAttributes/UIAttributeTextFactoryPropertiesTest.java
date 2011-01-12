@@ -60,5 +60,7 @@ public class UIAttributeTextFactoryPropertiesTest extends BaseUIAttributeFactory
 		assertNotNull(attribute.getFieldAssistAdapter());
 		assertEquals(null, attribute.getPossibleValuesList());
 		assertEquals(null, attribute.getStyleRangeList());
+
+		widget.dispose();
 	}
 }

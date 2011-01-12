@@ -605,6 +605,8 @@ public class BaseTestUtils {
 		yield();
 	}
 
+	private static long lastMouseClickExpireTime = 0;
+
 	/**
 	 * Posts a mouse event for the specified control and point.
 	 * 
@@ -615,6 +617,12 @@ public class BaseTestUtils {
 	 * @param p the point
 	 */
 	public static void postMouseDown(String modifiers, int button, final Control c, int noClicks) {
+		final long now = System.currentTimeMillis();
+
+		if (lastMouseClickExpireTime > now) {
+			sleep((int) (lastMouseClickExpireTime - now));
+		}
+
 		KeyStroke keyStroke = null;
 		try {
 			if (modifiers != null) {
@@ -637,7 +645,7 @@ public class BaseTestUtils {
 			e.button = button;
 			e.count = i;
 			assertTrue(c.getDisplay().post(e));
-			yield();
+			// yield();
 
 			e.type = SWT.MouseUp;
 			e.button = button;
@@ -651,6 +659,7 @@ public class BaseTestUtils {
 			postModifierKeys(c, keyStroke, false);
 		}
 
+		lastMouseClickExpireTime = now + c.getDisplay().getDoubleClickTime() + 50;
 	}
 
 	/**

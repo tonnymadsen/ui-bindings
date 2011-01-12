@@ -47,6 +47,7 @@ import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.widgets.FileNameControl;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests that the correct simple cell editor widget is used for the simple data types.
@@ -108,6 +109,7 @@ public class SimplePreferredCellEditorTest {
 
 		what = myFeature.getName() + "(" + myType + "): "
 				+ (myExpectedCellEditor == null ? "<null>" : myExpectedCellEditor.getSimpleName());
+		LogUtils.debug(this, what);
 	}
 
 	@Before
@@ -160,6 +162,7 @@ public class SimplePreferredCellEditorTest {
 	public void testCellEditor() {
 		final Table table = myViewer.getTable();
 
+		sleep(table.getDisplay().getDoubleClickTime() + 200);
 		postMouse(table, 0 + myViewerBinding.getFirstTableColumnOffset(), 0);
 		yield();
 

@@ -55,7 +55,7 @@ public class ExtenderTest {
 	private final static Display D = Display.getCurrent();
 	private final static Color RED = D.getSystemColor(SWT.COLOR_RED);
 	private final static Color BLUE = D.getSystemColor(SWT.COLOR_BLUE);
-	private final static Font CN = new Font(D, D.getFontList(null, false)[0]);
+	private final static Font CN = new Font(D, D.getFontList(null, true)[0]);
 
 	@Before
 	public void before() {

@@ -61,5 +61,7 @@ public class UIAttributeSliderFactoryPropertiesTest extends BaseUIAttributeFacto
 		assertEquals(null, attribute.getFieldAssistAdapter());
 		assertEquals(null, attribute.getPossibleValuesList());
 		assertEquals(null, attribute.getStyleRangeList());
+
+		widget.dispose();
 	}
 }

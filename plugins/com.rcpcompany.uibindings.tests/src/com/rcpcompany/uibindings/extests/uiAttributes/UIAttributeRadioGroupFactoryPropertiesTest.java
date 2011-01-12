@@ -60,5 +60,7 @@ public class UIAttributeRadioGroupFactoryPropertiesTest extends BaseUIAttributeF
 		assertEquals(null, attribute.getFieldAssistAdapter());
 		testObservableList(widget, "", attribute.getPossibleValuesList(), String.class, null);
 		assertEquals(null, attribute.getStyleRangeList());
+
+		widget.dispose();
 	}
 }

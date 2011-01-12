@@ -114,6 +114,8 @@ public class ContentAdapterTest<T extends Control> {
 		if (myView != null) {
 			myView.getSite().getPage().hideView(myView);
 		}
+
+		myWidget.dispose();
 	}
 
 	private void createModel() {
