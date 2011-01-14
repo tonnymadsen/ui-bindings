@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2010 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
+ * Copyright (c) 2007, 2010 The RCP Company and others.
  *
  * Contributors:
  *     The RCP Company - initial API and implementation
@@ -48,6 +48,7 @@ import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.graphics.Rectangle;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
@@ -68,6 +69,7 @@ import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.commands.ICommandService;
+import org.eclipse.ui.forms.widgets.Hyperlink;
 import org.eclipse.ui.services.IServiceLocator;
 import org.eclipse.ui.services.ISourceProviderService;
 import org.osgi.service.packageadmin.PackageAdmin;
@@ -328,9 +330,22 @@ public class BaseTestUtils {
 			assertNotNull(constructor);
 
 			final T w = constructor.newInstance(top, style);
+
+			if (widgetType == Hyperlink.class) {
+				/*
+				 * Special case: a hyper link cannot be layed out without a text
+				 */
+				((Hyperlink) w).setText("");
+			}
+
+			((Control) w).setLayoutData(new GridData(SWT.FILL, SWT.BEGINNING, true, false));
+
+			emptyView.getSite().getPage().activate(emptyView);
+			emptyView.getTop().layout();
 			yield();
 			return w;
 		} catch (final Exception ex) {
+			ex.printStackTrace();
 			fail(ex.getMessage());
 		}
 		return null;
@@ -429,17 +444,18 @@ public class BaseTestUtils {
 	 * @param stroke the text representation of the key-stroke
 	 */
 	public static void postKeyStroke(Control c, String stroke) {
+		LogUtils.debug(c, stroke);
 		KeyStroke keyStroke = null;
 		try {
 			keyStroke = KeyStroke.getInstance(stroke);
 		} catch (final ParseException ex) {
-			fail(ex.getMessage());
+			fail(stroke + ": " + ex.getMessage());
 		}
-		assertTrue(keyStroke.isComplete());
+		assertTrue(stroke + ": not complete", keyStroke.isComplete());
 
 		Event event;
 
-		c.setFocus();
+		assertTrue(stroke + ": focus", c.setFocus());
 
 		postModifierKeys(c, keyStroke, true);
 
@@ -452,7 +468,7 @@ public class BaseTestUtils {
 
 		// System.out.println("e:: " + ToStringUtils.toString(event));
 
-		assertTrue(c.getDisplay().post(event));
+		assertTrue(stroke + ": post KeyDown", c.getDisplay().post(event));
 
 		event = new Event();
 		event.type = SWT.KeyUp;
@@ -463,7 +479,7 @@ public class BaseTestUtils {
 
 		// System.out.println("e:: " + ToStringUtils.toString(event));
 
-		assertTrue(c.getDisplay().post(event));
+		assertTrue(stroke + ": post KeyUp", c.getDisplay().post(event));
 
 		postModifierKeys(c, keyStroke, false);
 
@@ -871,7 +887,7 @@ public class BaseTestUtils {
 	 * @param y the y
 	 * @param expectedRGB the expected color
 	 */
-	public static void assertPixelColor(Control control, int x, int y, RGB expectedRGB) {
+	public static void assertPixelColor(String what, Control control, int x, int y, RGB expectedRGB) {
 		/*
 		 * Map to the shell to avoid negative coordinates
 		 */
@@ -892,7 +908,7 @@ public class BaseTestUtils {
 		if (!expectedRGB.equals(actualRGB)) {
 			dumpPixels(control, x, y, 3, 3);
 		}
-		assertEquals(expectedRGB, actualRGB);
+		assertEquals(what, expectedRGB, actualRGB);
 	}
 
 	public static void dumpPixels(Control control, int x, int y, int width, int height) {
@@ -901,6 +917,7 @@ public class BaseTestUtils {
 		 */
 		final Display display = control.getDisplay();
 		final Shell shell = control.getShell();
+		final StringBuilder sb = new StringBuilder(400);
 
 		final Point p = display.map(control, shell, new Point(x, y));
 		final GC gc = new GC(shell);
@@ -913,14 +930,16 @@ public class BaseTestUtils {
 			for (int dy = -height; dy < height; dy++) {
 				final int actualPixel = imageData.getPixel(dx + width, dy + height);
 				final RGB actualRGB = imageData.palette.getRGB(actualPixel);
-				System.out.println("(" + dx + ";" + dy + "): " + actualRGB);
+				sb.append("\n(" + dx + ";" + dy + "): " + actualRGB);
 			}
 		}
 		image.dispose();
 
-		gc.setForeground(display.getSystemColor(SWT.COLOR_BLUE));
+		gc.setForeground(display.getSystemColor(SWT.COLOR_RED));
+		gc.setLineStyle(SWT.LINE_DASH);
 		gc.drawRectangle(x - width, y - height, 2 * width, 2 * height);
 		gc.dispose();
+		LogUtils.debug(sb, sb.toString());
 		sleep(3000);
 	}
 
