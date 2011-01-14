@@ -178,13 +178,13 @@ public class BindingMessageCollectionTest {
 		yield();
 		final Point size = myText.getSize();
 		assertTrue(size.y > 0);
-		assertPixelColor(myText, -4, size.y - 6, new RGB(255, 255, 255));
+		assertPixelColor("", myText, -4, size.y - 6, new RGB(255, 255, 255));
 
 		myItem.setPrice(-1.0f);
 		assertEquals(noUnboundMessage, myValidatorManager.getUnboundMessages().size());
 		assertEquals(0, messages.size());
 		yield();
-		assertPixelColor(myText, -4, size.y - 6, new RGB(216, 66, 79));
+		assertPixelColor("", myText, -4, size.y - 6, new RGB(216, 66, 79));
 
 		// Test before the validation delay - problem already found due to the binding
 		sleep(VD - 150);
@@ -197,7 +197,7 @@ public class BindingMessageCollectionTest {
 		// Still just one error, and the two are collapsed into one
 		assertEquals(1, messages.size());
 		yield();
-		assertPixelColor(myText, -4, size.y - 6, new RGB(216, 66, 79));
+		assertPixelColor("", myText, -4, size.y - 6, new RGB(216, 66, 79));
 
 		final IBindingMessage message = messages.get(0);
 		assertEquals(myBinding, message.getBinding());
@@ -212,7 +212,7 @@ public class BindingMessageCollectionTest {
 		assertEquals(1, messages.size());
 		assertEquals(message, messages.get(0));
 		yield();
-		assertPixelColor(myText, -4, size.y - 6, new RGB(216, 66, 79));
+		assertPixelColor("", myText, -4, size.y - 6, new RGB(216, 66, 79));
 
 		// Test before the validation delay
 		sleep(VD - 100);
@@ -220,14 +220,14 @@ public class BindingMessageCollectionTest {
 		assertEquals(1, messages.size());
 		assertEquals(message, messages.get(0));
 		yield();
-		assertPixelColor(myText, -4, size.y - 6, new RGB(216, 66, 79));
+		assertPixelColor("", myText, -4, size.y - 6, new RGB(216, 66, 79));
 
 		// Test after the validation delay
 		sleep(300);
 		assertEquals(noUnboundMessage, myValidatorManager.getUnboundMessages().size());
 		assertEquals(0, messages.size());
 		yield();
-		assertPixelColor(myText, -4, size.y - 6, new RGB(255, 255, 255));
+		assertPixelColor("", myText, -4, size.y - 6, new RGB(255, 255, 255));
 
 		assertEquals(initNoUnboundMessage, myValidatorManager.getUnboundMessages().size());
 	}

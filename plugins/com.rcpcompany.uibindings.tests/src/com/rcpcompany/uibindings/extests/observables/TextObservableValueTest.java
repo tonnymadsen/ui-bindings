@@ -37,6 +37,7 @@ import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.internal.observables.DelayedChangeEvent;
 import com.rcpcompany.uibindings.internal.observables.IDelayedChangeListener;
 import com.rcpcompany.uibindings.internal.observables.TextObservableValue;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests the {@link TextObservableValue} behaves.
@@ -330,11 +331,12 @@ public class TextObservableValueTest<X extends Control> {
 
 		ov1.setValue("a"); // <<<<
 		assertEquals("a", getText());
+		yield();
 
 		performChange("a", b1, strategy != TextCommitStrategy.ON_MODIFY, "b", new Runnable() {
 			public void run() {
 				selectAll();
-				// postKeyDown(w1, "CTRL+A");
+				// postKeyDown(w1, "M1+A");
 				postKeyStroke(w1, "b");
 			}
 		});
@@ -348,7 +350,7 @@ public class TextObservableValueTest<X extends Control> {
 		performChange(b2, b3, strategy != TextCommitStrategy.ON_MODIFY, "c", new Runnable() {
 			public void run() {
 				selectAll();
-				// postKeyDown(w1, "CTRL+A");
+				// postKeyDown(w1, "M1+A");
 				postKeyStroke(w1, "c");
 			}
 		});
@@ -487,6 +489,8 @@ public class TextObservableValueTest<X extends Control> {
 
 		performChange(initial, b1, strategy != TextCommitStrategy.ON_MODIFY, b1, new Runnable() {
 			public void run() {
+				postKeyStroke(w1, "ARROW_LEFT"); // <<<<
+				LogUtils.debug(this, "next: " + stroke);
 				postKeyStroke(w1, stroke); // <<<<
 				sleep(DELAY / 2); // <<<<
 				w2.setFocus(); // <<<<

@@ -180,7 +180,7 @@ public class ControlDecorationTest {
 		yield();
 		sleep(100);
 
-		assertPixelColor(myBody, 0, 0, white);
+		assertPixelColor("", myBody, 0, 0, white);
 		for (int dx = 0; dx < SQUARE_SIZE; dx++) {
 			for (int dy = 0; dy < SQUARE_SIZE; dy++) {
 				assertTranslatedPixel(x + dx, y + dy, rgb);
@@ -195,6 +195,6 @@ public class ControlDecorationTest {
 	 */
 	private void assertTranslatedPixel(final int x, final int y, RGB rgb) {
 		final Point p = myText.getDisplay().map(myText, myBody, x, y);
-		assertPixelColor(myBody, p.x, p.y, rgb);
+		assertPixelColor("", myBody, p.x, p.y, rgb);
 	}
 }

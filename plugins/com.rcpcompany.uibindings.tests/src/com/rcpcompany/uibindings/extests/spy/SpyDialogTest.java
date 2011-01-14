@@ -102,7 +102,7 @@ public class SpyDialogTest {
 				}
 			});
 
-			postKeyStroke(myText, "ALT+SHIFT+F3");
+			postKeyStroke(myText, "M1+M3+F3");
 
 			sleep(2000);
 			assertEquals(shells, workbench.getDisplay().getShells().length);

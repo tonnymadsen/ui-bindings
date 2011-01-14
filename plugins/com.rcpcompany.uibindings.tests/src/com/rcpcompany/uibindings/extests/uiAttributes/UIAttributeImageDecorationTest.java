@@ -59,6 +59,7 @@ public class UIAttributeImageDecorationTest<T extends Control> {
 	private final float myAddWidth;
 	private final float myAddHeight;
 	private final Class<T> myWidgetClass;
+	private final String what;
 
 	@Parameters
 	public static Collection<Object[]> data() {
@@ -275,6 +276,9 @@ public class UIAttributeImageDecorationTest<T extends Control> {
 		myY = y;
 		myAddWidth = addWidth;
 		myAddHeight = addHeight;
+
+		what = myWidgetClass.getSimpleName() + ": p=" + myPosition + " outside=" + myOutside + " [" + myX + ";" + myY
+				+ "]";
 	}
 
 	private static final int SQUARE_SIZE = 8;
@@ -285,6 +289,7 @@ public class UIAttributeImageDecorationTest<T extends Control> {
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 
 		createView();
+		yield();
 
 		myOV = WritableValue.withValueType(String.class);
 		myAttribute = new SimpleUIAttribute(myWidget, null, myOV);
@@ -308,7 +313,7 @@ public class UIAttributeImageDecorationTest<T extends Control> {
 
 		try {
 			final Constructor<T> constructor = myWidgetClass.getConstructor(Composite.class, Integer.TYPE);
-			assertNotNull(constructor);
+			assertNotNull(what, constructor);
 
 			myWidget = constructor.newInstance(myBody, SWT.BORDER);
 			final GridData ld = new GridData(SWT.CENTER, SWT.CENTER, true, true);
@@ -361,9 +366,11 @@ public class UIAttributeImageDecorationTest<T extends Control> {
 		final IUIAttributeImageDecoration decoration = myAttribute.getImageDecoration(position, outside);
 
 		decoration.getImageValue().setValue(myImage1);
+		yield();
 		testSquare(x, y, rgb1);
 
 		decoration.getImageValue().setValue(myImage2);
+		yield();
 		testSquare(x, y, rgb2);
 	}
 
@@ -374,9 +381,8 @@ public class UIAttributeImageDecorationTest<T extends Control> {
 	 */
 	private void testSquare(final int x, final int y, RGB rgb) {
 		yield();
-		sleep(300); // TODO
 
-		assertPixelColor(myBody, 0, 0, white);
+		assertPixelColor(what + " - body", myBody, 0, 0, white);
 		for (int dx = 0; dx < SQUARE_SIZE; dx++) {
 			for (int dy = 0; dy < SQUARE_SIZE; dy++) {
 				assertTranslatedPixel(x + dx, y + dy, rgb);
@@ -391,6 +397,6 @@ public class UIAttributeImageDecorationTest<T extends Control> {
 	 */
 	private void assertTranslatedPixel(final int x, final int y, RGB rgb) {
 		final Point p = myWidget.getDisplay().map(myWidget, myBody, x, y);
-		assertPixelColor(myBody, p.x, p.y, rgb);
+		assertPixelColor(what + " - inner", myBody, p.x, p.y, rgb);
 	}
 }

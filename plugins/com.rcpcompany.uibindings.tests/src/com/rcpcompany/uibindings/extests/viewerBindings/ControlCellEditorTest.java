@@ -127,8 +127,8 @@ public class ControlCellEditorTest {
 
 		assertTrue(viewer.isCellEditorActive());
 
-		postKeyStroke(t, "SHIFT+B");
-		postKeyStroke(t, "SHIFT+B");
+		postKeyStroke(t, "M3+B");
+		postKeyStroke(t, "M3+B");
 		yield();
 
 		postKeyStroke(t, "ENTER");
@@ -163,7 +163,7 @@ public class ControlCellEditorTest {
 
 		postKeyStroke(t, "BACKSPACE");
 		yield();
-		postKeyStroke(t, "CTRL+SPACE");
+		postKeyStroke(t, "M1+SPACE");
 		yield();
 		postKeyStroke(t, "B");
 		postKeyStroke(t, "B");

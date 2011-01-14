@@ -193,7 +193,7 @@ public class CopyPasteInViewerTest {
 		/*
 		 * Copy the the price from item 1 to item 2
 		 */
-		postKeyStroke(myTable, "CTRL+C", myView.getSite(), ViewerCopyHandler.class);
+		postKeyStroke(myTable, "M1+C", myView.getSite(), ViewerCopyHandler.class);
 		yield();
 		assertEquals(0, myTable.getSelectionIndex());
 		assertNotNull(columnViewerEditor.getFocusCell());
@@ -207,7 +207,7 @@ public class CopyPasteInViewerTest {
 		assertNotNull(columnViewerEditor.getFocusCell());
 		assertEquals(1 + myViewerBinding.getFirstTableColumnOffset(), columnViewerEditor.getFocusCell()
 				.getColumnIndex());
-		postKeyStroke(myTable, "CTRL+V", myView.getSite(), ViewerPasteHandler.class);
+		postKeyStroke(myTable, "M1+V", myView.getSite(), ViewerPasteHandler.class);
 		yield();
 		assertEquals(1, myTable.getSelectionIndex());
 		assertNotNull(columnViewerEditor.getFocusCell());
@@ -224,7 +224,7 @@ public class CopyPasteInViewerTest {
 		/*
 		 * Copy the the price from item 2 to the name of item 2
 		 */
-		postKeyStroke(myTable, "CTRL+C", myView.getSite(), ViewerCopyHandler.class);
+		postKeyStroke(myTable, "M1+C", myView.getSite(), ViewerCopyHandler.class);
 		assertEquals(String.format("%,.2f", myItem2.getPrice()), clipboard.getContents(TextTransfer.getInstance()));
 		postKeyStroke(myTable, "ARROW_LEFT");
 		yield();
@@ -232,7 +232,7 @@ public class CopyPasteInViewerTest {
 		assertNotNull(columnViewerEditor.getFocusCell());
 		assertEquals(0 + myViewerBinding.getFirstTableColumnOffset(), columnViewerEditor.getFocusCell()
 				.getColumnIndex());
-		postKeyStroke(myTable, "CTRL+V", myView.getSite(), ViewerPasteHandler.class);
+		postKeyStroke(myTable, "M1+V", myView.getSite(), ViewerPasteHandler.class);
 		assertEquals(1, myTable.getSelectionIndex());
 		assertNotNull(columnViewerEditor.getFocusCell());
 
@@ -295,7 +295,7 @@ public class CopyPasteInViewerTest {
 		/*
 		 * Copy the name to the group for item 1 Should be OK.
 		 */
-		postKeyStroke(myTable, "CTRL+C", myView.getSite(), ViewerCopyHandler.class);
+		postKeyStroke(myTable, "M1+C", myView.getSite(), ViewerCopyHandler.class);
 		yield();
 		assertEquals(0, myTable.getSelectionIndex());
 		assertNotNull(columnViewerEditor.getFocusCell());
@@ -314,7 +314,7 @@ public class CopyPasteInViewerTest {
 		assertNotNull(columnViewerEditor.getFocusCell());
 		assertEquals(2 + myViewerBinding.getFirstTableColumnOffset(), columnViewerEditor.getFocusCell()
 				.getColumnIndex());
-		postKeyStroke(myTable, "CTRL+V", myView.getSite(), ViewerPasteHandler.class);
+		postKeyStroke(myTable, "M1+V", myView.getSite(), ViewerPasteHandler.class);
 		yield();
 		assertEquals(0, myTable.getSelectionIndex());
 		assertNotNull(columnViewerEditor.getFocusCell());

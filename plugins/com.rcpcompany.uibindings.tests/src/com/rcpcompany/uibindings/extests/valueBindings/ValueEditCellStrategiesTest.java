@@ -386,7 +386,7 @@ public class ValueEditCellStrategiesTest {
 				yield();
 				assertEquals("dummy", myShopItem1.getName());
 
-				postKeyStroke(myTable, "CTRL+Z");
+				postKeyStroke(myTable, "M1+Z");
 				yield();
 				assertEquals(false, myTableViewer.isCellEditorActive());
 
@@ -429,14 +429,14 @@ public class ValueEditCellStrategiesTest {
 		// });
 		// assertNoLog(new Runnable() {
 		// public void run() {
-		// postKeyDown(myTable, "Shift+TAB");
+		// postKeyDown(myTable, "M3+TAB");
 		// yield();
 		// testBindingValue(afterTabTabExpectedValue);
 		// }
 		// });
 		// assertNoLog(new Runnable() {
 		// public void run() {
-		// postKeyDown(myTable, "Shift+TAB");
+		// postKeyDown(myTable, "M3+TAB");
 		// yield();
 		// testBindingValue(afterTabExpectedValue);
 		// }
@@ -444,7 +444,7 @@ public class ValueEditCellStrategiesTest {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
-				postKeyStroke(myTable, "Shift+TAB");
+				postKeyStroke(myTable, "M3+TAB");
 				yield();
 				testBindingValue(expectedValue);
 			}

@@ -199,7 +199,7 @@ public class ControlCellEditor extends CellEditor {
 					 * The general handling of CR in Text widgets is via the Selection event (see
 					 * above).
 					 * 
-					 * But... for a MULTI-line Text widget CTRL+CR is also handled
+					 * But... for a MULTI-line Text widget M1+CR is also handled
 					 */
 					final Text text = getTextControl();
 					if (text != null) {

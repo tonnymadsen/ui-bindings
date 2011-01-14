@@ -365,7 +365,7 @@ public class StyledTextCellEditor extends CellEditor {
 	 * <p>
 	 * The <code>TextCellEditor</code> implementation of this framework method ignores when the
 	 * RETURN key is pressed since this is handled in <code>handleDefaultSelection</code>. An
-	 * exception is made for Ctrl+Enter for multi-line texts, since a default selection event is not
+	 * exception is made for M1+Enter for multi-line texts, since a default selection event is not
 	 * sent in this case.
 	 * </p>
 	 * 
@@ -381,7 +381,7 @@ public class StyledTextCellEditor extends CellEditor {
 			// See bug 39074 [CellEditors] [DBCS] canna input mode fires bogus event from Text
 			// Control
 			//
-			// An exception is made for Ctrl+Enter for multi-line texts, since
+			// An exception is made for M1+Enter for multi-line texts, since
 			// a default selection event is not sent in this case.
 			if (text != null && !text.isDisposed() && (text.getStyle() & SWT.MULTI) != 0) {
 				if ((keyEvent.stateMask & SWT.CTRL) != 0) {

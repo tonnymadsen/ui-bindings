@@ -161,7 +161,7 @@ public class ContentAdapterTest<T extends Control> {
 		sleep(300);
 
 		assertEquals(1, messages.size());
-		postKeyStroke(myWidget, "Ctrl+Space");
+		postKeyStroke(myWidget, "M1+Space");
 		postKeyStroke(myWidget, "CR");
 		sleep(300);
 

@@ -176,7 +176,7 @@ public class ViewerBindingMessageCollectionTest {
 		assertTrue(cellBounds.height > 0);
 		cellBounds.x += -4;
 		cellBounds.y += cellBounds.height - 8;
-		assertPixelColor(t, cellBounds.x, cellBounds.y, new RGB(227, 236, 246));
+		assertPixelColor("", t, cellBounds.x, cellBounds.y, new RGB(227, 236, 246));
 
 		/*
 		 * Error - colors according to error icon
@@ -186,20 +186,20 @@ public class ViewerBindingMessageCollectionTest {
 		myItem.setPrice(-1.0f);
 		assertEquals(noUnboundMessage, myValidatorManager.getUnboundMessages().size());
 		assertEquals(0, messages.size());
-		assertPixelColor(t, cellBounds.x, cellBounds.y, new RGB(227, 236, 246));
+		assertPixelColor("", t, cellBounds.x, cellBounds.y, new RGB(227, 236, 246));
 
 		// Test before the validation delay - problem already found due to the binding
 		sleep(VD - 150);
 		assertEquals(noUnboundMessage, myValidatorManager.getUnboundMessages().size());
 		assertEquals(0, messages.size());
-		assertPixelColor(t, cellBounds.x, cellBounds.y, new RGB(227, 236, 246));
+		assertPixelColor("", t, cellBounds.x, cellBounds.y, new RGB(227, 236, 246));
 
 		// Test after the validation delay
 		sleep(300);
 		assertEquals(noUnboundMessage + 1, myValidatorManager.getUnboundMessages().size());
 		// Still just one error, and the two are colapsed into one
 		assertEquals(1, messages.size());
-		assertPixelColor(t, cellBounds.x, cellBounds.y, new RGB(216, 66, 79));
+		assertPixelColor("", t, cellBounds.x, cellBounds.y, new RGB(216, 66, 79));
 
 		final IBindingMessage message = messages.get(0);
 		assertEquals(myBinding, message.getBinding());
@@ -216,20 +216,20 @@ public class ViewerBindingMessageCollectionTest {
 		// assertEquals(noUnboundMessage + 1, myValidatorManager.getUnboundMessages().size());
 		assertEquals(1, messages.size());
 		assertEquals(message, messages.get(0));
-		assertPixelColor(t, cellBounds.x, cellBounds.y, new RGB(216, 66, 79));
+		assertPixelColor("", t, cellBounds.x, cellBounds.y, new RGB(216, 66, 79));
 
 		// Test before the validation delay
 		sleep(VD - 100);
 		assertEquals(noUnboundMessage + 1, myValidatorManager.getUnboundMessages().size());
 		assertEquals(1, messages.size());
 		assertEquals(message, messages.get(0));
-		assertPixelColor(t, cellBounds.x, cellBounds.y, new RGB(216, 66, 79));
+		assertPixelColor("", t, cellBounds.x, cellBounds.y, new RGB(216, 66, 79));
 
 		// Test after the validation delay
 		sleep(300);
 		assertEquals(noUnboundMessage, myValidatorManager.getUnboundMessages().size());
 		assertEquals(0, messages.size());
-		assertPixelColor(t, cellBounds.x, cellBounds.y, new RGB(227, 236, 246));
+		assertPixelColor("", t, cellBounds.x, cellBounds.y, new RGB(227, 236, 246));
 
 		assertEquals(initNoUnboundMessage, myValidatorManager.getUnboundMessages().size());
 	}
@@ -250,7 +250,7 @@ public class ViewerBindingMessageCollectionTest {
 		/*
 		 * No errors - color according to row
 		 */
-		assertPixelColor(t, cellBounds.x, cellBounds.y, new RGB(227, 236, 246));
+		assertPixelColor("", t, cellBounds.x, cellBounds.y, new RGB(227, 236, 246));
 
 		/*
 		 * Error - colors according to error icon
@@ -259,7 +259,7 @@ public class ViewerBindingMessageCollectionTest {
 		 */
 		myItem.setPrice(-1.0f);
 		sleep(VD + 150);
-		assertPixelColor(t, cellBounds.x, cellBounds.y, new RGB(216, 66, 79));
+		assertPixelColor("", t, cellBounds.x, cellBounds.y, new RGB(216, 66, 79));
 
 		/*
 		 * Delete row
@@ -268,7 +268,7 @@ public class ViewerBindingMessageCollectionTest {
 		myItem.setShop(null);
 		sleep(VD + 250);
 		LogUtils.debug(this, "after sleep");
-		assertPixelColor(t, cellBounds.x, cellBounds.y, new RGB(255, 255, 255));
+		assertPixelColor("", t, cellBounds.x, cellBounds.y, new RGB(255, 255, 255));
 	}
 
 	/**

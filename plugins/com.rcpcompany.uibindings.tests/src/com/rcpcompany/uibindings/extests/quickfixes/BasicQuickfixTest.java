@@ -167,7 +167,7 @@ public class BasicQuickfixTest {
 
 		final int noShells = myBoundText.getDisplay().getShells().length;
 
-		postKeyStroke(myBoundText, "CTRL+1", myTestView.getSite(), QuickFixHandler.class);
+		postKeyStroke(myBoundText, "M1+1", myTestView.getSite(), QuickFixHandler.class);
 
 		sleep(300);
 		assertEquals(noShells + 1, myBoundText.getDisplay().getShells().length);

@@ -198,7 +198,8 @@ public class AlternatingRowColorsTest {
 			} else {
 				c = oddColor;
 			}
-			assertPixelColor(myTable, bounds.x + 3, bounds.y + 3, c.getRGB());
+			assertPixelColor("enabled=" + myEnable + ", hasFocus=" + myHasFocus, myTable, bounds.x + 3, bounds.y + 3,
+					c.getRGB());
 		}
 	}
 }

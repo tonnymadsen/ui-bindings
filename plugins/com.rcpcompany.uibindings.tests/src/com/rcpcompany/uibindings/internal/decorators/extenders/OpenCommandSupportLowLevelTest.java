@@ -74,7 +74,7 @@ public class OpenCommandSupportLowLevelTest {
 
 		myKeyStroke = null;
 		try {
-			myKeyStroke = KeyStroke.getInstance("CTRL+SPACE");
+			myKeyStroke = KeyStroke.getInstance("M1+SPACE");
 		} catch (final ParseException ex) {
 			fail(ex.getMessage());
 		}

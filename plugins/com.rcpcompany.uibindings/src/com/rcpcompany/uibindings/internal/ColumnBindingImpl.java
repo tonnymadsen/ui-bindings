@@ -243,7 +243,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 					final IClassIdentiferMapper mapper = UIBindingsUtils.createClassIdentiferMapper(dummyBinding, ec);
 
 					if (mapper instanceof UIBindingsUtils.DefaultMapper) {
-						LogUtils.debug(ColumnBindingImpl.this, "Default mapper for '" + target + "'");
+						// LogUtils.debug(ColumnBindingImpl.this, "Default mapper for '" + target +
+						// "'");
 					}
 					final IObservableValue ov = Observables.constantObservableValue(eobj, ec);
 					return new MapperObservableValue(ov, getContext().getEditingDomain(), mapper);

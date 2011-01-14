@@ -223,7 +223,7 @@ public class ShowViewSelectionTest {
 		myView.getSite().getPage().activate(myView);
 		// sleep(4000);
 		if (pm) {
-			postMouse("CTRL+SPACE", t, 0 + myViewerBinding.getFirstTableColumnOffset(), row, 1);
+			postMouse("M1+SPACE", t, 0 + myViewerBinding.getFirstTableColumnOffset(), row, 1);
 		} else {
 			assertEquals(myTableViewer2, myView.getSite().getSelectionProvider());
 			// LogUtils.debug(this, "1");

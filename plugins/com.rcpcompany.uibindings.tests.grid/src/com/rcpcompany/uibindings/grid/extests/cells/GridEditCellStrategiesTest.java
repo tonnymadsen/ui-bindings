@@ -316,7 +316,7 @@ public class GridEditCellStrategiesTest {
 				yield();
 				assertEquals(what, "dummy", myCellA1.getDetails());
 
-				postKeyStroke(t, "CTRL+Z");
+				postKeyStroke(t, "M1+Z");
 				yield();
 				assertEquals(what, false, myGridBinding.isEditing());
 
@@ -360,7 +360,7 @@ public class GridEditCellStrategiesTest {
 		});
 		// assertNoLog(new Runnable() {
 		// public void run() {
-		// postKeyDown(myTable, "Shift+TAB");
+		// postKeyDown(myTable, "M3+TAB");
 		// yield();
 		// testBindingValue(afterTabTabExpectedValue);
 		// }
@@ -368,7 +368,7 @@ public class GridEditCellStrategiesTest {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
-				postKeyStroke(myGrid, "Shift+TAB");
+				postKeyStroke(myGrid, "M3+TAB");
 				yield();
 				testBindingValue(afterTabExpectedValue);
 			}
@@ -376,7 +376,7 @@ public class GridEditCellStrategiesTest {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
-				postKeyStroke(myGrid, "Shift+TAB");
+				postKeyStroke(myGrid, "M3+TAB");
 				yield();
 				testBindingValue(expectedValue);
 			}

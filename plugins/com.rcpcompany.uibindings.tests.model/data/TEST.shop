@@ -6,6 +6,7 @@
   <countries name="Norway" uuid="NO" abbreviation="NO"/>
   <countries name="Sweden" uuid="SE" abbreviation="SE"/>
   <countries name="Finland" uuid="_otUH0MrREd-YTtT6Fix4Zw" abbreviation="FI"/>
+  <countries name="Germany" uuid="_3XfrkB5HEeCperwZGSwMCg" abbreviation="GE"/>
   <contacts name="Thomas" uuid="_0g5AAMgSEd-Mv9urbjVCgg" city="Turku" country="DK" birthday="1964-11-16T00:00:00.000+0100"/>
   <contacts name="Anders Jensen" uuid="_L0u6YMBGEd-siJXnD8pfBQ" address="Rued Langgaards Vej 7, 5D12" city="København" zip="2300" country="DK" customer="//@customers.0" newsletter="false" birthday="1964-11-16T00:00:00.000+0100"/>
   <contacts name="Henrik Hansen" uuid="_L0wvkMBGEd-siJXnD8pfBQ" city="Søborg" country="SE" customer="//@customers.2" birthday="1964-11-16T00:00:00.000+0100"/>
@@ -14,7 +15,7 @@
   <contacts name="Hans Jörgensen" uuid="_L0m-kMBGEd-siJXnD8pfBQ" address="Vasagatan 5" city="Stockholm" zip="21 145" country="NO" customer="//@customers.1" birthday="1976-12-16T00:00:00.000+0100"/>
   <contacts name="Allan" uuid="_L01oEMBGEd-siJXnD8pfBQ" city="Hvidovre" country="NO" birthday="1964-11-16T00:00:00.000+0100"/>
   <contacts name="Søren Søren" uuid="_L0ykwMBGEd-siJXnD8pfBQ" city="Århus" country="DK" birthday="1964-11-16T00:00:00.000+0100"/>
-  <contacts name="Rene Mortensen" uuid="__6y28P1ZEd-3CYRhWm1Dsg" city="Malmö" country="SE" newsletter="false"/>
+  <contacts name="Rene Mortensen" uuid="__6y28P1ZEd-3CYRhWm1Dsg" city="Malmö" country="_otUH0MrREd-YTtT6Fix4Zw" newsletter="false"/>
   <shopItems name="EMF Eclipse Modeling Framework" uuid="_L05ScMBGEd-siJXnD8pfBQ" price="1.0">
     <properties name="type" uuid="_nDc2cAa7EeC_n9ThbP5loA" value="a"/>
   </shopItems>
@@ -42,7 +43,7 @@
   <customers contact="_L0m-kMBGEd-siJXnD8pfBQ" orders="//@orders[no='0'] 1222" loyalty="Gold"/>
   <customers contact="_L0wvkMBGEd-siJXnD8pfBQ"/>
   <customerGroups name="Danes" uuid="_ZVS-YOJeEd-ufo4VJo3Xqw"/>
-  <shopGroups name="Eclipse" uuid="_L0_ZEMBGEd-siJXnD8pfBQ" items="_L05ScsBGEd-siJXnD8pfBQ _L06gkMBGEd-siJXnD8pfBQ"/>
+  <shopGroups name="Eclipse" uuid="_L0_ZEMBGEd-siJXnD8pfBQ" items="_L06gkMBGEd-siJXnD8pfBQ _L05ScsBGEd-siJXnD8pfBQ"/>
   <shopGroups name="Fitness" uuid="_L0_ZEcBGEd-siJXnD8pfBQ"/>
   <shopGroups name="Java" uuid="_L0_ZEsBGEd-siJXnD8pfBQ"/>
 </shop:Shop>
