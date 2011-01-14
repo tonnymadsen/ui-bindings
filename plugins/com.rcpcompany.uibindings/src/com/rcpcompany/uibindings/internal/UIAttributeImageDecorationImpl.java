@@ -178,7 +178,10 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 			Assert.isTrue(control == myControl, "Control may not change"); //$NON-NLS-1$
 		}
 		if (Activator.getDefault().TRACE_ATTRIBUTE_IMAGE_DECORATORS) {
-			LogUtils.debug(this, this + ": t=" + getTooltipValue().getValue() + ", bounds=" + innerBounds); //$NON-NLS-1$ //$NON-NLS-2$
+			LogUtils.debug(
+					this,
+					this
+							+ ": t=" + getTooltipValue().getValue() + ", bounds=" + innerBounds + ", rect=" + control.getBounds()); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		final Object v = getImageValue().getValue();
@@ -191,7 +194,7 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 		if (!(v instanceof Image)) {
 			LogUtils.error(v, "Expected Image, got " + v.getClass().getName()); //$NON-NLS-1$
 			if (myControlDecoration != null) {
-				IControlDecoration.Factory.addDecoration(myControlDecoration);
+				IControlDecoration.Factory.removeDecoration(myControlDecoration);
 			}
 			return;
 		}
