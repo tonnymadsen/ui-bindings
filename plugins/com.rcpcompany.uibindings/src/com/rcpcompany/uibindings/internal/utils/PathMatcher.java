@@ -10,7 +10,6 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.internal.utils;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -70,7 +69,7 @@ public class PathMatcher implements IPathMatcher {
 	 */
 	private String translateGlob(String pattern) {
 		String p = pattern;
-		final char separator = File.separatorChar;
+		// final char separator = File.separatorChar;
 
 		/*
 		 * Translate all "\\" into "/", to make the rest easier
@@ -128,24 +127,24 @@ public class PathMatcher implements IPathMatcher {
 		/*
 		 * Translate all '/' to the native separator (if different from '/')
 		 */
-		if (separator == '\\') {
-			// For unknown reasons replaceAll does not do the trick
-			for (int i = p.indexOf('/'); i >= 0; i = p.indexOf('/', i + 4)) {
-				p = p.substring(0, i) + "[/\\\\]" + p.substring(i + 1);
-			}
-			for (int i = p.indexOf("[^[/\\\\]]"); i >= 0; i = p.indexOf("[^[/\\\\]]")) {
-				p = p.substring(0, i) + "[^/\\\\]" + p.substring(i + 8);
-			}
-		} else if (separator != '/') {
-			p = p.replace('/', separator);
+		// if (separator == '\\') {
+		// For unknown reasons replaceAll does not do the trick
+		for (int i = p.indexOf('/'); i >= 0; i = p.indexOf('/', i + 4)) {
+			p = p.substring(0, i) + "[/\\\\]" + p.substring(i + 1);
 		}
+		for (int i = p.indexOf("[^[/\\\\]]"); i >= 0; i = p.indexOf("[^[/\\\\]]")) {
+			p = p.substring(0, i) + "[^/\\\\]" + p.substring(i + 8);
+		}
+		// } else if (separator != '/') {
+		// p = p.replace('/', separator);
+		// }
 
 		/*
 		 * For Windows (separator == '\'), add drive letter and network drive support
 		 */
-		if (separator == '\\') {
-			p = "([a-z]:|[/\\\\][^/\\\\]+)?" + p;
-		}
+		// if (separator == '\\') {
+		p = "([a-z]:|[/\\\\][^/\\\\]+)?" + p;
+		// }
 
 		// LogUtils.debug(this, "translate '" + pattern + "' -> '" + p + "'");
 		return p;
