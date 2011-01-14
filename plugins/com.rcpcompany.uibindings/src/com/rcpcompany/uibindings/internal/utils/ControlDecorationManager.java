@@ -719,7 +719,7 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 		 */
 		public Point getHoverSize() {
 			final GC gc = new GC(myHoverShell);
-			final Point e = gc.textExtent(myLastText);
+			final Point e = gc.textExtent(myLastText == null ? "" : myLastText);
 			gc.dispose();
 			e.x += hm * 2;
 			e.y += hm * 2;
