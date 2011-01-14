@@ -167,6 +167,7 @@ public class ReadonlyTest {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
+				postKeyStroke(text, "ARROW_LEFT");
 				postKeyStroke(text, "a");
 				yield();
 				assertEquals(expected, mySI.getName());
