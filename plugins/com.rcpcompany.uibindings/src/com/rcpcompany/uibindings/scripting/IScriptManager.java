@@ -1,9 +1,13 @@
-/**
- * <copyright>
- * </copyright>
+/*******************************************************************************
+ * Copyright (c) 2017, 2011 The RCP Company and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
  *
- * $Id$
- */
+ * Contributors:
+ *     The RCP Company - initial API and implementation
+ *******************************************************************************/
 package com.rcpcompany.uibindings.scripting;
 
 import java.util.Map;
@@ -21,17 +25,20 @@ import com.rcpcompany.uibindings.internal.scripting.ScriptManagerImpl;
  * The manager for all things needed for the scripting.
  * 
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.scripting.IScriptManager#getEngines <em>Engines</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.scripting.IScriptManager#getGlobalEvaluationContext <em>Global Evaluation Context</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.scripting.IScriptManager#getRegisteredEvaluationContexts <em>Registered Evaluation Contexts</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.scripting.IScriptManager#getDependencies <em>Dependencies</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.scripting.IScriptManager#getEngines <em>Engines</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.scripting.IScriptManager#getGlobalEvaluationContext <em>
+ * Global Evaluation Context</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.scripting.IScriptManager#getRegisteredEvaluationContexts
+ * <em>Registered Evaluation Contexts</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.scripting.IScriptManager#getDependencies <em>Dependencies
+ * </em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see com.rcpcompany.uibindings.scripting.IScriptEnginePackage#getScriptManager()
  * @generated
  */
@@ -86,15 +93,15 @@ public interface IScriptManager extends EObject {
 	String LANGUAGE_NAMED_OBJECRT_REF = "namedObjectRef";
 
 	/**
-	 * Returns the value of the '<em><b>Engines</b></em>' map.
-	 * The key is of type {@link java.lang.String},
-	 * and the value is of type {@link com.rcpcompany.uibindings.scripting.IScriptEngineDescriptor},
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Engines</b></em>' map. The key is of type
+	 * {@link java.lang.String}, and the value is of type
+	 * {@link com.rcpcompany.uibindings.scripting.IScriptEngineDescriptor}, <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Engines</em>' reference list isn't clear, there really should be
 	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Engines</em>' map.
 	 * @see com.rcpcompany.uibindings.scripting.IScriptEnginePackage#getScriptManager_Engines()
 	 * @generated
@@ -118,15 +125,15 @@ public interface IScriptManager extends EObject {
 	IScriptEvaluationContext getGlobalEvaluationContext();
 
 	/**
-	 * Returns the value of the '<em><b>Registered Evaluation Contexts</b></em>' map.
-	 * The key is of type {@link org.eclipse.emf.ecore.EObject},
-	 * and the value is of type {@link com.rcpcompany.uibindings.scripting.IScriptEvaluationContext},
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Registered Evaluation Contexts</b></em>' map. The key is of
+	 * type {@link org.eclipse.emf.ecore.EObject}, and the value is of type
+	 * {@link com.rcpcompany.uibindings.scripting.IScriptEvaluationContext}, <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Registered Evaluation Contexts</em>' map isn't clear, there really
 	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Registered Evaluation Contexts</em>' map.
 	 * @see com.rcpcompany.uibindings.scripting.IScriptEnginePackage#getScriptManager_RegisteredEvaluationContexts()
 	 * @generated

@@ -1,9 +1,13 @@
-/**
- * <copyright>
- * </copyright>
+/*******************************************************************************
+ * Copyright (c) 2017, 2011 The RCP Company and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
  *
- * $Id$
- */
+ * Contributors:
+ *     The RCP Company - initial API and implementation
+ *******************************************************************************/
 package com.rcpcompany.uibindings.scripting.internal;
 
 import org.eclipse.emf.ecore.EClass;
@@ -31,7 +35,9 @@ public class ScriptingFactoryImpl extends EFactoryImpl implements IScriptingFact
 		try {
 			final IScriptingFactory theScriptingFactory = (IScriptingFactory) EPackage.Registry.INSTANCE
 					.getEFactory("http://rcp-company.com/schemas/uibindings/scripting.ecore");
-			if (theScriptingFactory != null) return theScriptingFactory;
+			if (theScriptingFactory != null) {
+				return theScriptingFactory;
+			}
 		} catch (final Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}

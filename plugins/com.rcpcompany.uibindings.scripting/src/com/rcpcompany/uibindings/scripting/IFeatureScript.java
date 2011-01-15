@@ -1,9 +1,13 @@
-/**
- * <copyright>
- * </copyright>
+/*******************************************************************************
+ * Copyright (c) 2017, 2011 The RCP Company and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
  *
- * $Id$
- */
+ * Contributors:
+ *     The RCP Company - initial API and implementation
+ *******************************************************************************/
 package com.rcpcompany.uibindings.scripting;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -12,8 +16,7 @@ import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.moao.IMOAOFacet;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Script</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Script</b></em>'. <!-- end-user-doc -->
  * 
  * <p>
  * The following features are supported:
@@ -32,8 +35,8 @@ public interface IFeatureScript extends IMOAOFacet, IDisposable {
 	/**
 	 * Returns the value of the '<em><b>Feature</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature</em>' reference isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Feature</em>' reference isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -45,8 +48,8 @@ public interface IFeatureScript extends IMOAOFacet, IDisposable {
 	EStructuralFeature getFeature();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.scripting.IFeatureScript#getFeature
-	 * <em>Feature</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.scripting.IFeatureScript#getFeature <em>Feature</em>}'
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Feature</em>' reference.
 	 * @see #getFeature()
@@ -57,8 +60,8 @@ public interface IFeatureScript extends IMOAOFacet, IDisposable {
 	/**
 	 * Returns the value of the '<em><b>Language</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Language</em>' attribute isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Language</em>' attribute isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -70,8 +73,8 @@ public interface IFeatureScript extends IMOAOFacet, IDisposable {
 	String getLanguage();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.scripting.IFeatureScript#getLanguage
-	 * <em>Language</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.scripting.IFeatureScript#getLanguage <em>Language</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Language</em>' attribute.
 	 * @see #getLanguage()
@@ -82,8 +85,8 @@ public interface IFeatureScript extends IMOAOFacet, IDisposable {
 	/**
 	 * Returns the value of the '<em><b>Script</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Script</em>' attribute isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Script</em>' attribute isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -95,8 +98,8 @@ public interface IFeatureScript extends IMOAOFacet, IDisposable {
 	String getScript();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.scripting.IFeatureScript#getScript
-	 * <em>Script</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.scripting.IFeatureScript#getScript <em>Script</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Script</em>' attribute.
 	 * @see #getScript()
@@ -107,8 +110,8 @@ public interface IFeatureScript extends IMOAOFacet, IDisposable {
 	/**
 	 * Returns the value of the '<em><b>Expression</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Expression</em>' reference isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Expression</em>' reference isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -120,9 +123,8 @@ public interface IFeatureScript extends IMOAOFacet, IDisposable {
 	IScriptExpression getExpression();
 
 	/**
-	 * Sets the value of the '
-	 * {@link com.rcpcompany.uibindings.scripting.IFeatureScript#getExpression <em>Expression</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the ' {@link com.rcpcompany.uibindings.scripting.IFeatureScript#getExpression
+	 * <em>Expression</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Expression</em>' reference.
 	 * @see #getExpression()

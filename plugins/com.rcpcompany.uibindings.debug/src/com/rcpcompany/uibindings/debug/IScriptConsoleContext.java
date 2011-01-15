@@ -1,9 +1,13 @@
-/**
- * <copyright>
- * </copyright>
+/*******************************************************************************
+ * Copyright (c) 2017, 2011 The RCP Company and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
  *
- * $Id$
- */
+ * Contributors:
+ *     The RCP Company - initial API and implementation
+ *******************************************************************************/
 package com.rcpcompany.uibindings.debug;
 
 import org.eclipse.emf.ecore.EObject;
@@ -11,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
 import com.rcpcompany.uibindings.scripting.IScriptExpression;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Script Console Context</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Script Console Context</b></em>'. <!--
+ * end-user-doc -->
  * 
  * <p>
  * The following features are supported:
@@ -20,11 +24,9 @@ import com.rcpcompany.uibindings.scripting.IScriptExpression;
  * <li>{@link com.rcpcompany.uibindings.debug.IScriptConsoleContext#getObject <em>Object</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.debug.IScriptConsoleContext#getLanguage <em>Language</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.debug.IScriptConsoleContext#getScript <em>Script</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.debug.IScriptConsoleContext#getExpression <em>Expression
- * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.debug.IScriptConsoleContext#getExpression <em>Expression </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.debug.IScriptConsoleContext#getResult <em>Result</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.debug.IScriptConsoleContext#getException <em>Exception</em>}
- * </li>
+ * <li>{@link com.rcpcompany.uibindings.debug.IScriptConsoleContext#getException <em>Exception</em>}</li>
  * </ul>
  * </p>
  * 
@@ -35,8 +37,8 @@ public interface IScriptConsoleContext extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Object</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Object</em>' reference isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Object</em>' reference isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -48,8 +50,7 @@ public interface IScriptConsoleContext extends EObject {
 	EObject getObject();
 
 	/**
-	 * Sets the value of the '
-	 * {@link com.rcpcompany.uibindings.debug.IScriptConsoleContext#getObject <em>Object</em>}'
+	 * Sets the value of the ' {@link com.rcpcompany.uibindings.debug.IScriptConsoleContext#getObject <em>Object</em>}'
 	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Object</em>' reference.
@@ -61,8 +62,8 @@ public interface IScriptConsoleContext extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Language</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Language</em>' attribute isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Language</em>' attribute isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -74,9 +75,8 @@ public interface IScriptConsoleContext extends EObject {
 	String getLanguage();
 
 	/**
-	 * Sets the value of the '
-	 * {@link com.rcpcompany.uibindings.debug.IScriptConsoleContext#getLanguage <em>Language</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the ' {@link com.rcpcompany.uibindings.debug.IScriptConsoleContext#getLanguage
+	 * <em>Language</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Language</em>' attribute.
 	 * @see #getLanguage()
@@ -87,8 +87,8 @@ public interface IScriptConsoleContext extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Script</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Script</em>' attribute isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Script</em>' attribute isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -100,8 +100,7 @@ public interface IScriptConsoleContext extends EObject {
 	String getScript();
 
 	/**
-	 * Sets the value of the '
-	 * {@link com.rcpcompany.uibindings.debug.IScriptConsoleContext#getScript <em>Script</em>}'
+	 * Sets the value of the ' {@link com.rcpcompany.uibindings.debug.IScriptConsoleContext#getScript <em>Script</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Script</em>' attribute.
@@ -113,8 +112,8 @@ public interface IScriptConsoleContext extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Expression</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Expression</em>' reference isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Expression</em>' reference isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -126,8 +125,7 @@ public interface IScriptConsoleContext extends EObject {
 	IScriptExpression getExpression();
 
 	/**
-	 * Sets the value of the '
-	 * {@link com.rcpcompany.uibindings.debug.IScriptConsoleContext#getExpression
+	 * Sets the value of the ' {@link com.rcpcompany.uibindings.debug.IScriptConsoleContext#getExpression
 	 * <em>Expression</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Expression</em>' reference.
@@ -139,8 +137,8 @@ public interface IScriptConsoleContext extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Result</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Result</em>' attribute isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Result</em>' attribute isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -152,8 +150,7 @@ public interface IScriptConsoleContext extends EObject {
 	String getResult();
 
 	/**
-	 * Sets the value of the '
-	 * {@link com.rcpcompany.uibindings.debug.IScriptConsoleContext#getResult <em>Result</em>}'
+	 * Sets the value of the ' {@link com.rcpcompany.uibindings.debug.IScriptConsoleContext#getResult <em>Result</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Result</em>' attribute.
@@ -165,8 +162,8 @@ public interface IScriptConsoleContext extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Exception</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Exception</em>' attribute isn't clear, there really should be more
-	 * of a description here...
+	 * If the meaning of the '<em>Exception</em>' attribute isn't clear, there really should be more of a description
+	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -178,9 +175,8 @@ public interface IScriptConsoleContext extends EObject {
 	String getException();
 
 	/**
-	 * Sets the value of the '
-	 * {@link com.rcpcompany.uibindings.debug.IScriptConsoleContext#getException <em>Exception</em>}
-	 * ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the ' {@link com.rcpcompany.uibindings.debug.IScriptConsoleContext#getException
+	 * <em>Exception</em>} ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value the new value of the '<em>Exception</em>' attribute.
 	 * @see #getException()

@@ -1,9 +1,13 @@
-/**
- * <copyright>
- * </copyright>
+/*******************************************************************************
+ * Copyright (c) 2017, 2011 The RCP Company and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
  *
- * $Id$
- */
+ * Contributors:
+ *     The RCP Company - initial API and implementation
+ *******************************************************************************/
 package com.rcpcompany.uibindings.debug.internals;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -17,23 +21,17 @@ import com.rcpcompany.uibindings.debug.IScriptConsoleContext;
 import com.rcpcompany.uibindings.scripting.IScriptExpression;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Script Console Context</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Script Console Context</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.debug.internals.ScriptConsoleContextImpl#getObject <em>
- * Object</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.debug.internals.ScriptConsoleContextImpl#getLanguage <em>
- * Language</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.debug.internals.ScriptConsoleContextImpl#getScript <em>
- * Script</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.debug.internals.ScriptConsoleContextImpl#getExpression <em>
- * Expression</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.debug.internals.ScriptConsoleContextImpl#getResult <em>
- * Result</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.debug.internals.ScriptConsoleContextImpl#getException <em>
- * Exception</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.debug.internals.ScriptConsoleContextImpl#getObject <em> Object</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.debug.internals.ScriptConsoleContextImpl#getLanguage <em> Language</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.debug.internals.ScriptConsoleContextImpl#getScript <em> Script</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.debug.internals.ScriptConsoleContextImpl#getExpression <em> Expression</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.debug.internals.ScriptConsoleContextImpl#getResult <em> Result</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.debug.internals.ScriptConsoleContextImpl#getException <em> Exception</em>}</li>
  * </ul>
  * </p>
  * 
@@ -41,8 +39,8 @@ import com.rcpcompany.uibindings.scripting.IScriptExpression;
  */
 public class ScriptConsoleContextImpl extends EObjectImpl implements IScriptConsoleContext {
 	/**
-	 * The cached value of the '{@link #getObject() <em>Object</em>}' reference. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getObject() <em>Object</em>}' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getObject()
 	 * @generated
@@ -51,8 +49,8 @@ public class ScriptConsoleContextImpl extends EObjectImpl implements IScriptCons
 	protected EObject object;
 
 	/**
-	 * The default value of the '{@link #getLanguage() <em>Language</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getLanguage() <em>Language</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getLanguage()
 	 * @generated
@@ -61,8 +59,8 @@ public class ScriptConsoleContextImpl extends EObjectImpl implements IScriptCons
 	protected static final String LANGUAGE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getLanguage() <em>Language</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getLanguage() <em>Language</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getLanguage()
 	 * @generated
@@ -71,8 +69,8 @@ public class ScriptConsoleContextImpl extends EObjectImpl implements IScriptCons
 	protected String language = LANGUAGE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getScript() <em>Script</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getScript() <em>Script</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getScript()
 	 * @generated
@@ -81,8 +79,8 @@ public class ScriptConsoleContextImpl extends EObjectImpl implements IScriptCons
 	protected static final String SCRIPT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getScript() <em>Script</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getScript() <em>Script</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getScript()
 	 * @generated
@@ -91,8 +89,8 @@ public class ScriptConsoleContextImpl extends EObjectImpl implements IScriptCons
 	protected String script = SCRIPT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getExpression()
 	 * @generated
@@ -101,8 +99,8 @@ public class ScriptConsoleContextImpl extends EObjectImpl implements IScriptCons
 	protected IScriptExpression expression;
 
 	/**
-	 * The default value of the '{@link #getResult() <em>Result</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getResult() <em>Result</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getResult()
 	 * @generated
@@ -111,8 +109,8 @@ public class ScriptConsoleContextImpl extends EObjectImpl implements IScriptCons
 	protected static final String RESULT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getResult() <em>Result</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getResult() <em>Result</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getResult()
 	 * @generated
@@ -121,8 +119,8 @@ public class ScriptConsoleContextImpl extends EObjectImpl implements IScriptCons
 	protected String result = RESULT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getException() <em>Exception</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getException() <em>Exception</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getException()
 	 * @generated
@@ -131,8 +129,8 @@ public class ScriptConsoleContextImpl extends EObjectImpl implements IScriptCons
 	protected static final String EXCEPTION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getException() <em>Exception</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getException() <em>Exception</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getException()
 	 * @generated
@@ -424,7 +422,8 @@ public class ScriptConsoleContextImpl extends EObjectImpl implements IScriptCons
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (language: ");

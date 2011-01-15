@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2017, 2011 The RCP Company and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     The RCP Company - initial API and implementation
+ *******************************************************************************/
 package com.rcpcompany.uibindings.scriptengines.javascript.internal;
 
 import java.util.ArrayList;
@@ -80,8 +90,7 @@ public class JSScriptEngine extends AbstractScriptEngine implements IScriptEngin
 	}
 
 	/**
-	 * The script dependencies accumulated by {@link #addDependency(EObject, EStructuralFeature)}
-	 * and friends.
+	 * The script dependencies accumulated by {@link #addDependency(EObject, EStructuralFeature)} and friends.
 	 */
 	private static final List<IScriptDependency> myDependencies = new ArrayList<IScriptDependency>();
 
@@ -94,7 +103,9 @@ public class JSScriptEngine extends AbstractScriptEngine implements IScriptEngin
 			myDependencies.clear();
 
 			final String script = expression.getScript();
-			if (script == null) return;
+			if (script == null) {
+				return;
+			}
 			final Context cx = Context.getCurrentContext();
 			LogUtils.debug(cx, "cx=" + cx + ": " + script);
 			value = cx.evaluateString(myGlobalScope, script, "script", 1, null);
@@ -175,8 +186,7 @@ public class JSScriptEngine extends AbstractScriptEngine implements IScriptEngin
 		@Override
 		public Object get(String name, Scriptable start) {
 			/*
-			 * Look for the name first between the current evaluation context variables - and
-			 * parents
+			 * Look for the name first between the current evaluation context variables - and parents
 			 */
 			final IScriptExpression expression = getCurrentExpression();
 			if (expression != null) {

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2010 The RCP Company and others.
+ * Copyright (c) 2017, 2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -29,6 +29,7 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Item;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Scrollable;
 import org.eclipse.swt.widgets.Widget;
 
 import com.rcpcompany.uibindings.IUIAttribute;
@@ -91,15 +92,28 @@ public class SimpleUIAttribute extends AbstractUIAttribute {
 		}
 	}
 
+	/**
+	 * Calculates the inner and out bounds of the control of this attribute and updates the
+	 * decorations.
+	 */
 	private void updateImageDecorations() {
 		if (!(getWidget() instanceof Control)) return;
 		final Control c = (Control) getWidget();
 
 		final Point size = c.getSize();
-		final int trim = c.getBorderWidth();
+		final int bw = c.getBorderWidth();
 
-		final Rectangle innerBounds = new Rectangle(0, 0, size.x - 2 * trim, size.y - 2 * trim);
-		final Rectangle outerBounds = new Rectangle(-trim, -trim, size.x, size.y);
+		final int dx = 0;
+		final int dy = 0;
+		final Rectangle innerBounds;
+		if (c instanceof Scrollable) {
+			innerBounds = ((Scrollable) c).getClientArea();
+			// dx = -1;
+		} else {
+			innerBounds = new Rectangle(0, 0, size.x - 2 * bw, size.y - 2 * bw);
+		}
+		final Rectangle outerBounds;
+		outerBounds = new Rectangle(dx - bw, dy - bw, size.x, size.y);
 
 		/*
 		 * Special cases...

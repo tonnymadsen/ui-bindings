@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2010 The RCP Company and others.
+ * Copyright (c) 2017, 2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -15,8 +15,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 /**
- * Abstract {@link IUnitManager} used to isolate unit managers from smaller changes in the
- * interface.
+ * Abstract {@link IUnitManager} used to isolate unit managers from smaller changes in the interface.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -24,7 +23,9 @@ public abstract class AbstractUnitManager implements IUnitManager {
 	@Override
 	public IUnitDimension getDimension(String name) {
 		for (final IUnitDimension ud : getDimensions()) {
-			if (ud.getName().equals(name)) return ud;
+			if (ud.getName().equals(name)) {
+				return ud;
+			}
 		}
 		return null;
 	}
@@ -33,7 +34,9 @@ public abstract class AbstractUnitManager implements IUnitManager {
 	public IUnit getUnit(String name) {
 		for (final IUnitDimension ud : getDimensions()) {
 			final IUnit unit = ud.getUnit(name);
-			if (unit != null) return unit;
+			if (unit != null) {
+				return unit;
+			}
 		}
 		return null;
 	}

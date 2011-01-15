@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2010 The RCP Company and others.
+ * Copyright (c) 2017, 2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -15,8 +15,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 /**
- * Abstract {@link IUnitDimension} used to isolate unit dimensions from smaller changes in the
- * interface.
+ * Abstract {@link IUnitDimension} used to isolate unit dimensions from smaller changes in the interface.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -27,7 +26,9 @@ public abstract class AbstractUnitDimension implements IUnitDimension {
 	@Override
 	public IUnit getUnit(String name) {
 		for (final IUnit u : getUnits()) {
-			if (u.isName(name)) return u;
+			if (u.isName(name)) {
+				return u;
+			}
 		}
 		return null;
 	}

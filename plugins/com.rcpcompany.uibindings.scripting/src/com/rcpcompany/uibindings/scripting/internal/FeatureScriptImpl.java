@@ -1,9 +1,13 @@
-/**
- * <copyright>
- * </copyright>
+/*******************************************************************************
+ * Copyright (c) 2017, 2011 The RCP Company and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
  *
- * $Id$
- */
+ * Contributors:
+ *     The RCP Company - initial API and implementation
+ *******************************************************************************/
 package com.rcpcompany.uibindings.scripting.internal;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -26,19 +30,14 @@ import com.rcpcompany.uibindings.scripting.ScriptEngineException;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Script</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Script</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.scripting.internal.FeatureScriptImpl#getFeature <em>Feature
- * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.scripting.internal.FeatureScriptImpl#getLanguage <em>
- * Language</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.scripting.internal.FeatureScriptImpl#getScript <em>Script
- * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.scripting.internal.FeatureScriptImpl#getExpression <em>
- * Expression</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.scripting.internal.FeatureScriptImpl#getFeature <em>Feature </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.scripting.internal.FeatureScriptImpl#getLanguage <em> Language</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.scripting.internal.FeatureScriptImpl#getScript <em>Script </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.scripting.internal.FeatureScriptImpl#getExpression <em> Expression</em>}</li>
  * </ul>
  * </p>
  * 
@@ -46,8 +45,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  */
 public class FeatureScriptImpl extends MOAOFacetImpl implements IFeatureScript {
 	/**
-	 * The cached value of the '{@link #getFeature() <em>Feature</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getFeature() <em>Feature</em>}' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getFeature()
 	 * @generated
@@ -56,8 +55,8 @@ public class FeatureScriptImpl extends MOAOFacetImpl implements IFeatureScript {
 	protected EStructuralFeature feature;
 
 	/**
-	 * The default value of the '{@link #getLanguage() <em>Language</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getLanguage() <em>Language</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getLanguage()
 	 * @generated
@@ -66,8 +65,8 @@ public class FeatureScriptImpl extends MOAOFacetImpl implements IFeatureScript {
 	protected static final String LANGUAGE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getLanguage() <em>Language</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getLanguage() <em>Language</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getLanguage()
 	 * @generated
@@ -76,8 +75,8 @@ public class FeatureScriptImpl extends MOAOFacetImpl implements IFeatureScript {
 	protected String language = LANGUAGE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getScript() <em>Script</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getScript() <em>Script</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getScript()
 	 * @generated
@@ -86,8 +85,8 @@ public class FeatureScriptImpl extends MOAOFacetImpl implements IFeatureScript {
 	protected static final String SCRIPT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getScript() <em>Script</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getScript() <em>Script</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getScript()
 	 * @generated
@@ -96,8 +95,8 @@ public class FeatureScriptImpl extends MOAOFacetImpl implements IFeatureScript {
 	protected String script = SCRIPT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getExpression()
 	 * @generated
@@ -116,7 +115,9 @@ public class FeatureScriptImpl extends MOAOFacetImpl implements IFeatureScript {
 		eAdapters().add(new AdapterImpl() {
 			@Override
 			public void notifyChanged(Notification msg) {
-				if (msg.isTouch()) return;
+				if (msg.isTouch()) {
+					return;
+				}
 
 				if (msg.getFeature() == IScriptingPackage.Literals.FEATURE_SCRIPT__EXPRESSION) {
 					IScriptExpression e;
@@ -154,7 +155,9 @@ public class FeatureScriptImpl extends MOAOFacetImpl implements IFeatureScript {
 			/*
 			 * Need the language first
 			 */
-			if (getLanguage() == null) return;
+			if (getLanguage() == null) {
+				return;
+			}
 
 			final IBindingDataType dt = IBindingDataType.Factory.create(null, getFeature());
 			final IScriptManager manager = IScriptManager.Factory.getManager();
@@ -179,7 +182,9 @@ public class FeatureScriptImpl extends MOAOFacetImpl implements IFeatureScript {
 		final IScriptExpression e = getExpression();
 		final IMOAO obj = getObject();
 		final EStructuralFeature f = getFeature();
-		if (e == null || obj == null || f == null) return;
+		if (e == null || obj == null || f == null) {
+			return;
+		}
 		obj.eSet(f, e.getCurrentValue());
 	}
 
@@ -330,7 +335,9 @@ public class FeatureScriptImpl extends MOAOFacetImpl implements IFeatureScript {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case IScriptingPackage.FEATURE_SCRIPT__FEATURE:
-			if (resolve) return getFeature();
+			if (resolve) {
+				return getFeature();
+			}
 			return basicGetFeature();
 		case IScriptingPackage.FEATURE_SCRIPT__LANGUAGE:
 			return getLanguage();
@@ -417,7 +424,9 @@ public class FeatureScriptImpl extends MOAOFacetImpl implements IFeatureScript {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy()) {
+			return super.toString();
+		}
 
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (language: ");

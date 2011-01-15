@@ -1,9 +1,9 @@
 /*******************************************************************************
+ * Copyright (c) 2017, 2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * Copyright (c) 2007, 2010 The RCP Company and others.
  *
  * Contributors:
  *     The RCP Company - initial API and implementation
@@ -937,7 +937,7 @@ public class BaseTestUtils {
 
 		gc.setForeground(display.getSystemColor(SWT.COLOR_RED));
 		gc.setLineStyle(SWT.LINE_DASH);
-		gc.drawRectangle(x - width, y - height, 2 * width, 2 * height);
+		gc.drawRectangle(p.x - width, p.y - height, 2 * width, 2 * height);
 		gc.dispose();
 		LogUtils.debug(sb, sb.toString());
 		sleep(3000);

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2010 The RCP Company and others.
+ * Copyright (c) 2017, 2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -22,23 +22,19 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.utils.ExtendedCommandStack;
 
 /**
- * Handler for
- * <code>com.rcpcompany.uibindings.debug.commands.PrintCommandHistory</code>.
+ * Handler for <code>com.rcpcompany.uibindings.debug.commands.PrintCommandHistory</code>.
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class PrintCommandHistoryHandler extends AbstractHandler implements
-		IHandler {
+public class PrintCommandHistoryHandler extends AbstractHandler implements IHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		final IManager manager = IManager.Factory.getManager();
-		final CommandStack commandStack = manager.getEditingDomain()
-				.getCommandStack();
+		final CommandStack commandStack = manager.getEditingDomain().getCommandStack();
 
 		if (!(commandStack instanceof ExtendedCommandStack)) {
-			System.out
-					.println("Command not support for current command stack...");
+			System.out.println("Command not support for current command stack...");
 			return null;
 		}
 

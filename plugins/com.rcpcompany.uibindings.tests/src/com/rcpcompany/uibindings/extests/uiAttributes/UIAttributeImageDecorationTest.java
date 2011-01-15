@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2010 The RCP Company and others.
+ * Copyright (c) 2017, 2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -19,16 +19,18 @@ import java.util.Collection;
 
 import org.eclipse.core.databinding.observable.value.WritableValue;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.custom.CCombo;
-import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.RGB;
+import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Scrollable;
 import org.eclipse.swt.widgets.Text;
 import org.junit.After;
 import org.junit.Before;
@@ -44,6 +46,7 @@ import com.rcpcompany.uibindings.IUIAttributeImageDecoration;
 import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.uiAttributes.SimpleUIAttribute;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Test of image decorations.
@@ -63,206 +66,232 @@ public class UIAttributeImageDecorationTest<T extends Control> {
 
 	@Parameters
 	public static Collection<Object[]> data() {
-		return Arrays
-				.asList(new Object[][] {
+		return Arrays.asList(new Object[][] {
 
-						/*
-						 * widgetClass, position, outside, x, y, addWidth, addHeight
-						 */
+				/*
+				 * widgetClass, position, outside, x, y, addWidth, addHeight
+				 */
 
-						// Text - Inner
+				// Text - Inner
 
-						{ Text.class, DecorationPosition.TOP_LEFT, false, 0, 0, 0.0f, 0.0f },
-						{ Text.class, DecorationPosition.TOP_RIGHT, false, -SQUARE_SIZE, 0, 1.0f, 0.0f },
+				// { Text.class, DecorationPosition.TOP_LEFT, false, 0, 0, 0.0f, 0.0f },
+				// { Text.class, DecorationPosition.TOP_RIGHT, false, -SQUARE_SIZE, 0, 1.0f, 0.0f },
+				//
+				// { Text.class, DecorationPosition.CENTER_LEFT, false, 0, -SQUARE_SIZE / 2, 0.0f,
+				// 0.5f },
+				// { Text.class, DecorationPosition.CENTER_RIGHT, false, -SQUARE_SIZE, -SQUARE_SIZE
+				// / 2, 1.0f, 0.5f },
+				//
+				// { Text.class, DecorationPosition.BOTTOM_LEFT, false, 0, -SQUARE_SIZE, 0.0f, 1.0f
+				// },
+				// { Text.class, DecorationPosition.BOTTOM_RIGHT, false, -SQUARE_SIZE, -SQUARE_SIZE,
+				// 1.0f, 1.0f },
 
-						{ Text.class, DecorationPosition.CENTER_LEFT, false, 0, -SQUARE_SIZE / 2, 0.0f, 0.5f },
-						{ Text.class, DecorationPosition.CENTER_RIGHT, false, -SQUARE_SIZE, -SQUARE_SIZE / 2, 1.0f,
-								0.5f },
+				// Text - Outer
 
-						{ Text.class, DecorationPosition.BOTTOM_LEFT, false, 0, -SQUARE_SIZE, 0.0f, 1.0f },
-						{ Text.class, DecorationPosition.BOTTOM_RIGHT, false, -SQUARE_SIZE, -SQUARE_SIZE, 1.0f, 1.0f },
+				{ Text.class, DecorationPosition.TOP_LEFT, true,
+						-SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, 0, 0.0f, 0.0f },
+				{ Text.class, DecorationPosition.TOP_RIGHT, true, IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, 0,
+						1.0f, 0.0f },
 
-						// Text - Outer
+				{ Text.class, DecorationPosition.CENTER_LEFT, true,
+						-SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE / 2, 0.0f, 0.5f },
+				{ Text.class, DecorationPosition.CENTER_RIGHT, true, IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH,
+						-SQUARE_SIZE / 2, 1.0f, 0.5f },
 
-						{ Text.class, DecorationPosition.TOP_LEFT, true,
-								-SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, 0, 0.0f, 0.0f },
-						{ Text.class, DecorationPosition.TOP_RIGHT, true,
-								IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, 0, 1.0f, 0.0f },
+				{ Text.class, DecorationPosition.BOTTOM_LEFT, true,
+						-SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE, 0.0f, 1.0f },
+				{ Text.class, DecorationPosition.BOTTOM_RIGHT, true, IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH,
+						-SQUARE_SIZE, 1.0f, 1.0f },
 
-						{ Text.class, DecorationPosition.CENTER_LEFT, true,
-								-SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE / 2, 0.0f,
-								0.5f },
-						{ Text.class, DecorationPosition.CENTER_RIGHT, true,
-								IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE / 2, 1.0f, 0.5f },
+		// Combo - inner
 
-						{ Text.class, DecorationPosition.BOTTOM_LEFT, true,
-								-SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE, 0.0f, 1.0f },
-						{ Text.class, DecorationPosition.BOTTOM_RIGHT, true,
-								IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE, 1.0f, 1.0f },
+				// { Combo.class, DecorationPosition.TOP_LEFT, false, 0, 0, 0.0f, 0.0f },
+				// { Combo.class, DecorationPosition.TOP_RIGHT, false, -SQUARE_SIZE, 0,
+				// 1.0f, 0.0f },
+				//
+				// { Combo.class, DecorationPosition.CENTER_LEFT, false, 0, -SQUARE_SIZE /
+				// 2, 0.0f, 0.5f },
+				// { Combo.class, DecorationPosition.CENTER_RIGHT, false, -SQUARE_SIZE,
+				// -SQUARE_SIZE / 2, 1.0f,
+				// 0.5f },
+				//
+				// { Combo.class, DecorationPosition.BOTTOM_LEFT, false, 0, -SQUARE_SIZE,
+				// 0.0f, 1.0f },
+				// { Combo.class, DecorationPosition.BOTTOM_RIGHT, false, -SQUARE_SIZE,
+				// -SQUARE_SIZE, 1.0f, 1.0f
+				// },
 
-						// Combo - inner
+				// Combo - outer
 
-						// { Combo.class, DecorationPosition.TOP_LEFT, false, 0, 0, 0.0f, 0.0f },
-						// { Combo.class, DecorationPosition.TOP_RIGHT, false, -SQUARE_SIZE, 0,
-						// 1.0f, 0.0f },
-						//
-						// { Combo.class, DecorationPosition.CENTER_LEFT, false, 0, -SQUARE_SIZE /
-						// 2, 0.0f, 0.5f },
-						// { Combo.class, DecorationPosition.CENTER_RIGHT, false, -SQUARE_SIZE,
-						// -SQUARE_SIZE / 2, 1.0f,
-						// 0.5f },
-						//
-						// { Combo.class, DecorationPosition.BOTTOM_LEFT, false, 0, -SQUARE_SIZE,
-						// 0.0f, 1.0f },
-						// { Combo.class, DecorationPosition.BOTTOM_RIGHT, false, -SQUARE_SIZE,
-						// -SQUARE_SIZE, 1.0f, 1.0f
-						// },
+				// { Combo.class, DecorationPosition.TOP_LEFT, true,
+				// -SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, 0, 0.0f, 0.0f },
+				// { Combo.class, DecorationPosition.TOP_RIGHT, true,
+				// IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, 0, 1.0f, 0.0f },
+				//
+				// { Combo.class, DecorationPosition.CENTER_LEFT, true,
+				// -SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE / 2,
+				// 0.0f,
+				// 0.5f },
+				// { Combo.class, DecorationPosition.CENTER_RIGHT, true,
+				// IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE / 2, 1.0f, 0.5f },
+				//
+				// { Combo.class, DecorationPosition.BOTTOM_LEFT, true,
+				// -SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE,
+				// 0.0f, 1.0f },
+				// { Combo.class, DecorationPosition.BOTTOM_RIGHT, true,
+				// IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE, 1.0f, 1.0f },
 
-						// Combo - outer
+				// CCombo - inner
 
-						{ Combo.class, DecorationPosition.TOP_LEFT, true,
-								-SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, 0, 0.0f, 0.0f },
-						{ Combo.class, DecorationPosition.TOP_RIGHT, true,
-								IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, 0, 1.0f, 0.0f },
+				// { CCombo.class, DecorationPosition.TOP_LEFT, false, 0, 0, 0.0f, 0.0f },
+				// { CCombo.class, DecorationPosition.TOP_RIGHT, false, -SQUARE_SIZE, 0,
+				// 1.0f, 0.0f },
+				//
+				// { CCombo.class, DecorationPosition.CENTER_LEFT, false, 0, -SQUARE_SIZE /
+				// 2, 0.0f, 0.5f },
+				// { CCombo.class, DecorationPosition.CENTER_RIGHT, false, -SQUARE_SIZE,
+				// -SQUARE_SIZE / 2, 1.0f,
+				// 0.5f },
+				//
+				// { CCombo.class, DecorationPosition.BOTTOM_LEFT, false, 0, -SQUARE_SIZE,
+				// 0.0f, 1.0f },
+				// { CCombo.class, DecorationPosition.BOTTOM_RIGHT, false, -SQUARE_SIZE,
+				// -SQUARE_SIZE, 1.0f,
+				// 1.0f },
 
-						{ Combo.class, DecorationPosition.CENTER_LEFT, true,
-								-SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE / 2, 0.0f,
-								0.5f },
-						{ Combo.class, DecorationPosition.CENTER_RIGHT, true,
-								IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE / 2, 1.0f, 0.5f },
+				// CCombo - outer
 
-						{ Combo.class, DecorationPosition.BOTTOM_LEFT, true,
-								-SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE, 0.0f, 1.0f },
-						{ Combo.class, DecorationPosition.BOTTOM_RIGHT, true,
-								IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE, 1.0f, 1.0f },
+				// { CCombo.class, DecorationPosition.TOP_LEFT, true,
+				// -SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, 0, 0.0f, 0.0f },
+				// { CCombo.class, DecorationPosition.TOP_RIGHT, true,
+				// IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, 0, 1.0f, 0.0f },
+				//
+				// { CCombo.class, DecorationPosition.CENTER_LEFT, true,
+				// -SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE / 2,
+				// 0.0f,
+				// 0.5f },
+				// { CCombo.class, DecorationPosition.CENTER_RIGHT, true,
+				// IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE / 2, 1.0f, 0.5f },
+				//
+				// { CCombo.class, DecorationPosition.BOTTOM_LEFT, true,
+				// -SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE,
+				// 0.0f, 1.0f },
+				// { CCombo.class, DecorationPosition.BOTTOM_RIGHT, true,
+				// IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE, 1.0f, 1.0f },
 
-						// CCombo - inner
+				// StyledText - inner
 
-						// { CCombo.class, DecorationPosition.TOP_LEFT, false, 0, 0, 0.0f, 0.0f },
-						// { CCombo.class, DecorationPosition.TOP_RIGHT, false, -SQUARE_SIZE, 0,
-						// 1.0f, 0.0f },
-						//
-						// { CCombo.class, DecorationPosition.CENTER_LEFT, false, 0, -SQUARE_SIZE /
-						// 2, 0.0f, 0.5f },
-						// { CCombo.class, DecorationPosition.CENTER_RIGHT, false, -SQUARE_SIZE,
-						// -SQUARE_SIZE / 2, 1.0f,
-						// 0.5f },
-						//
-						// { CCombo.class, DecorationPosition.BOTTOM_LEFT, false, 0, -SQUARE_SIZE,
-						// 0.0f, 1.0f },
-						// { CCombo.class, DecorationPosition.BOTTOM_RIGHT, false, -SQUARE_SIZE,
-						// -SQUARE_SIZE, 1.0f,
-						// 1.0f },
+				// { StyledText.class, DecorationPosition.TOP_LEFT, false, 0, 0, 0.0f, 0.0f },
+				// { StyledText.class, DecorationPosition.TOP_RIGHT, false, -SQUARE_SIZE, 0, 1.0f,
+				// 0.0f },
+				//
+				// { StyledText.class, DecorationPosition.CENTER_LEFT, false, 0, -SQUARE_SIZE / 2,
+				// 0.0f, 0.5f },
+				// { StyledText.class, DecorationPosition.CENTER_RIGHT, false, -SQUARE_SIZE,
+				// -SQUARE_SIZE / 2,
+				// 1.0f, 0.5f },
+				//
+				// { StyledText.class, DecorationPosition.BOTTOM_LEFT, false, 0, -SQUARE_SIZE, 0.0f,
+				// 1.0f },
+				// { StyledText.class, DecorationPosition.BOTTOM_RIGHT, false, -SQUARE_SIZE,
+				// -SQUARE_SIZE, 1.0f,
+				// 1.0f },
 
-						// CCombo - outer
+				// StyledText - outer
 
-						{ CCombo.class, DecorationPosition.TOP_LEFT, true,
-								-SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, 0, 0.0f, 0.0f },
-						{ CCombo.class, DecorationPosition.TOP_RIGHT, true,
-								IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, 0, 1.0f, 0.0f },
+				// { StyledText.class, DecorationPosition.TOP_LEFT, true,
+				// -SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, 0, 0.0f, 0.0f },
+				// { StyledText.class, DecorationPosition.TOP_RIGHT, true,
+				// IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, 0, 1.0f, 0.0f },
+				//
+				// { StyledText.class, DecorationPosition.CENTER_LEFT, true,
+				// -SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE / 2,
+				// 0.0f,
+				// 0.5f },
+				// { StyledText.class, DecorationPosition.CENTER_RIGHT, true,
+				// IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE / 2, 1.0f, 0.5f },
+				//
+				// { StyledText.class, DecorationPosition.BOTTOM_LEFT, true,
+				// -SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE,
+				// 0.0f, 1.0f },
+				// { StyledText.class, DecorationPosition.BOTTOM_RIGHT, true,
+				// IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE, 1.0f, 1.0f },
 
-						{ CCombo.class, DecorationPosition.CENTER_LEFT, true,
-								-SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE / 2, 0.0f,
-								0.5f },
-						{ CCombo.class, DecorationPosition.CENTER_RIGHT, true,
-								IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE / 2, 1.0f, 0.5f },
+				// Button - inner
 
-						{ CCombo.class, DecorationPosition.BOTTOM_LEFT, true,
-								-SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE, 0.0f, 1.0f },
-						{ CCombo.class, DecorationPosition.BOTTOM_RIGHT, true,
-								IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE, 1.0f, 1.0f },
+				// { Button.class, DecorationPosition.TOP_LEFT, false, 0, 0, 0.0f, 0.0f },
+				// { Button.class, DecorationPosition.TOP_RIGHT, false, -SQUARE_SIZE, 0, 1.0f, 0.0f
+				// },
+				//
+				// { Button.class, DecorationPosition.CENTER_LEFT, false, 0, -SQUARE_SIZE / 2, 0.0f,
+				// 0.5f },
+				// { Button.class, DecorationPosition.CENTER_RIGHT, false, -SQUARE_SIZE,
+				// -SQUARE_SIZE / 2, 1.0f,
+				// 0.5f },
+				//
+				// { Button.class, DecorationPosition.BOTTOM_LEFT, false, 0, -SQUARE_SIZE, 0.0f,
+				// 1.0f },
+				// { Button.class, DecorationPosition.BOTTOM_RIGHT, false, -SQUARE_SIZE,
+				// -SQUARE_SIZE, 1.0f, 1.0f },
 
-						// StyledText - inner
+				// Button - outer
 
-						{ StyledText.class, DecorationPosition.TOP_LEFT, false, 0, 0, 0.0f, 0.0f },
-						{ StyledText.class, DecorationPosition.TOP_RIGHT, false, -SQUARE_SIZE, 0, 1.0f, 0.0f },
+				// { Button.class, DecorationPosition.TOP_LEFT, true,
+				// -SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, 0, 0.0f, 0.0f },
+				// { Button.class, DecorationPosition.TOP_RIGHT, true,
+				// IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, 0, 1.0f, 0.0f },
+				//
+				// { Button.class, DecorationPosition.CENTER_LEFT, true,
+				// -SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE / 2,
+				// 0.0f,
+				// 0.5f },
+				// { Button.class, DecorationPosition.CENTER_RIGHT, true,
+				// IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE / 2, 1.0f, 0.5f },
+				//
+				// { Button.class, DecorationPosition.BOTTOM_LEFT, true,
+				// -SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE,
+				// 0.0f, 1.0f },
+				// { Button.class, DecorationPosition.BOTTOM_RIGHT, true,
+				// IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE, 1.0f, 1.0f },
 
-						{ StyledText.class, DecorationPosition.CENTER_LEFT, false, 0, -SQUARE_SIZE / 2, 0.0f, 0.5f },
-						{ StyledText.class, DecorationPosition.CENTER_RIGHT, false, -SQUARE_SIZE, -SQUARE_SIZE / 2,
-								1.0f, 0.5f },
+				// Composite - inner
 
-						{ StyledText.class, DecorationPosition.BOTTOM_LEFT, false, 0, -SQUARE_SIZE, 0.0f, 1.0f },
-						{ StyledText.class, DecorationPosition.BOTTOM_RIGHT, false, -SQUARE_SIZE, -SQUARE_SIZE, 1.0f,
-								1.0f },
+				// { Composite.class, DecorationPosition.TOP_LEFT, false, 0, 0, 0.0f, 0.0f },
+				// { Composite.class, DecorationPosition.TOP_RIGHT, false, -SQUARE_SIZE, 0, 1.0f,
+				// 0.0f },
+				//
+				// { Composite.class, DecorationPosition.CENTER_LEFT, false, 0, -SQUARE_SIZE / 2,
+				// 0.0f, 0.5f },
+				// { Composite.class, DecorationPosition.CENTER_RIGHT, false, -SQUARE_SIZE,
+				// -SQUARE_SIZE / 2,
+				// 1.0f, 0.5f },
+				//
+				// { Composite.class, DecorationPosition.BOTTOM_LEFT, false, 0, -SQUARE_SIZE, 0.0f,
+				// 1.0f },
+				// { Composite.class, DecorationPosition.BOTTOM_RIGHT, false, -SQUARE_SIZE,
+				// -SQUARE_SIZE, 1.0f,
+				// 1.0f },
 
-						// StyledText - outer
+				// Composite - outer
 
-						{ StyledText.class, DecorationPosition.TOP_LEFT, true,
-								-SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, 0, 0.0f, 0.0f },
-						{ StyledText.class, DecorationPosition.TOP_RIGHT, true,
-								IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, 0, 1.0f, 0.0f },
-
-						{ StyledText.class, DecorationPosition.CENTER_LEFT, true,
-								-SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE / 2, 0.0f,
-								0.5f },
-						{ StyledText.class, DecorationPosition.CENTER_RIGHT, true,
-								IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE / 2, 1.0f, 0.5f },
-
-						{ StyledText.class, DecorationPosition.BOTTOM_LEFT, true,
-								-SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE, 0.0f, 1.0f },
-						{ StyledText.class, DecorationPosition.BOTTOM_RIGHT, true,
-								IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE, 1.0f, 1.0f },
-
-						// Button - inner
-
-						{ Button.class, DecorationPosition.TOP_LEFT, false, 0, 0, 0.0f, 0.0f },
-						{ Button.class, DecorationPosition.TOP_RIGHT, false, -SQUARE_SIZE, 0, 1.0f, 0.0f },
-
-						{ Button.class, DecorationPosition.CENTER_LEFT, false, 0, -SQUARE_SIZE / 2, 0.0f, 0.5f },
-						{ Button.class, DecorationPosition.CENTER_RIGHT, false, -SQUARE_SIZE, -SQUARE_SIZE / 2, 1.0f,
-								0.5f },
-
-						{ Button.class, DecorationPosition.BOTTOM_LEFT, false, 0, -SQUARE_SIZE, 0.0f, 1.0f },
-						{ Button.class, DecorationPosition.BOTTOM_RIGHT, false, -SQUARE_SIZE, -SQUARE_SIZE, 1.0f, 1.0f },
-
-						// Button - outer
-
-						{ Button.class, DecorationPosition.TOP_LEFT, true,
-								-SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, 0, 0.0f, 0.0f },
-						{ Button.class, DecorationPosition.TOP_RIGHT, true,
-								IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, 0, 1.0f, 0.0f },
-
-						{ Button.class, DecorationPosition.CENTER_LEFT, true,
-								-SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE / 2, 0.0f,
-								0.5f },
-						{ Button.class, DecorationPosition.CENTER_RIGHT, true,
-								IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE / 2, 1.0f, 0.5f },
-
-						{ Button.class, DecorationPosition.BOTTOM_LEFT, true,
-								-SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE, 0.0f, 1.0f },
-						{ Button.class, DecorationPosition.BOTTOM_RIGHT, true,
-								IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE, 1.0f, 1.0f },
-
-						// Composite - inner
-
-						{ Composite.class, DecorationPosition.TOP_LEFT, false, 0, 0, 0.0f, 0.0f },
-						{ Composite.class, DecorationPosition.TOP_RIGHT, false, -SQUARE_SIZE, 0, 1.0f, 0.0f },
-
-						{ Composite.class, DecorationPosition.CENTER_LEFT, false, 0, -SQUARE_SIZE / 2, 0.0f, 0.5f },
-						{ Composite.class, DecorationPosition.CENTER_RIGHT, false, -SQUARE_SIZE, -SQUARE_SIZE / 2,
-								1.0f, 0.5f },
-
-						{ Composite.class, DecorationPosition.BOTTOM_LEFT, false, 0, -SQUARE_SIZE, 0.0f, 1.0f },
-						{ Composite.class, DecorationPosition.BOTTOM_RIGHT, false, -SQUARE_SIZE, -SQUARE_SIZE, 1.0f,
-								1.0f },
-
-						// Composite - outer
-
-						{ Composite.class, DecorationPosition.TOP_LEFT, true,
-								-SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, 0, 0.0f, 0.0f },
-						{ Composite.class, DecorationPosition.TOP_RIGHT, true,
-								IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, 0, 1.0f, 0.0f },
-
-						{ Composite.class, DecorationPosition.CENTER_LEFT, true,
-								-SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE / 2, 0.0f,
-								0.5f },
-						{ Composite.class, DecorationPosition.CENTER_RIGHT, true,
-								IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE / 2, 1.0f, 0.5f },
-
-						{ Composite.class, DecorationPosition.BOTTOM_LEFT, true,
-								-SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE, 0.0f, 1.0f },
-						{ Composite.class, DecorationPosition.BOTTOM_RIGHT, true,
-								IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE, 1.0f, 1.0f },
+				// { Composite.class, DecorationPosition.TOP_LEFT, true,
+				// -SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, 0, 0.0f, 0.0f },
+				// { Composite.class, DecorationPosition.TOP_RIGHT, true,
+				// IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, 0, 1.0f, 0.0f },
+				//
+				// { Composite.class, DecorationPosition.CENTER_LEFT, true,
+				// -SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE / 2,
+				// 0.0f,
+				// 0.5f },
+				// { Composite.class, DecorationPosition.CENTER_RIGHT, true,
+				// IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE / 2, 1.0f, 0.5f },
+				//
+				// { Composite.class, DecorationPosition.BOTTOM_LEFT, true,
+				// -SQUARE_SIZE - IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE,
+				// 0.0f, 1.0f },
+				// { Composite.class, DecorationPosition.BOTTOM_RIGHT, true,
+				// IUIAttributeImageDecoration.OUTER_MARGIN_WIDTH, -SQUARE_SIZE, 1.0f, 1.0f },
 
 				});
 	}
@@ -349,6 +378,9 @@ public class UIAttributeImageDecorationTest<T extends Control> {
 		final Point size = myWidget.getSize();
 		final int trim = myWidget.getBorderWidth();
 
+		LogUtils.debug(myWidget, myAttribute + ": s=" + size + ", trim=" + trim + ", ca="
+				+ (myWidget instanceof Scrollable ? ((Scrollable) myWidget).getClientArea() : null));
+
 		if (myOutside) {
 			x -= trim;
 			y -= trim;
@@ -359,6 +391,28 @@ public class UIAttributeImageDecorationTest<T extends Control> {
 
 		x += myAddWidth * size.x;
 		y += myAddHeight * size.y;
+
+		final Display display = myWidget.getDisplay();
+		final Composite shell = myWidget.getParent();
+		final Rectangle r2 = new Rectangle(x, y, SQUARE_SIZE, SQUARE_SIZE);
+		final Rectangle r = display.map(myWidget, shell, r2);
+		LogUtils.debug(r, "r=" + r2 + "->" + r + ", shell=" + shell.getBounds() + ", pos=" + myWidget.getLocation());
+
+		shell.addListener(SWT.Paint, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				// final GC gc = new GC(shell);
+				final GC gc = event.gc;
+				gc.setBackground(display.getSystemColor(SWT.COLOR_RED));
+				gc.fillRectangle(r);
+				// gc.fillRectangle(0, 0, shell.getSize().x, shell.getSize().y);
+				// gc.dispose();
+				shell.removeListener(SWT.Paint, this);
+			}
+		});
+
+		sleep(500);
+
 		testImage(myPosition, myOutside, x, y);
 	}
 
@@ -367,10 +421,12 @@ public class UIAttributeImageDecorationTest<T extends Control> {
 
 		decoration.getImageValue().setValue(myImage1);
 		yield();
+		sleep(500);
 		testSquare(x, y, rgb1);
 
 		decoration.getImageValue().setValue(myImage2);
 		yield();
+		sleep(500);
 		testSquare(x, y, rgb2);
 	}
 
@@ -382,7 +438,14 @@ public class UIAttributeImageDecorationTest<T extends Control> {
 	private void testSquare(final int x, final int y, RGB rgb) {
 		yield();
 
+		/*
+		 * Test that the background color is white - the top-left corner
+		 */
 		assertPixelColor(what + " - body", myBody, 0, 0, white);
+
+		/*
+		 * Test that the complete square is visible
+		 */
 		for (int dx = 0; dx < SQUARE_SIZE; dx++) {
 			for (int dy = 0; dy < SQUARE_SIZE; dy++) {
 				assertTranslatedPixel(x + dx, y + dy, rgb);

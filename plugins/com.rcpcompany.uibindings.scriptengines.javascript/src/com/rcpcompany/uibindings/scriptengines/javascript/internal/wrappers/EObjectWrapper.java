@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2017, 2011 The RCP Company and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     The RCP Company - initial API and implementation
+ *******************************************************************************/
 package com.rcpcompany.uibindings.scriptengines.javascript.internal.wrappers;
 
 import org.eclipse.emf.common.util.EList;
@@ -36,7 +46,9 @@ public class EObjectWrapper implements Scriptable {
 	@Override
 	public Object get(String name, Scriptable start) {
 		final EStructuralFeature sf = findFeature(name);
-		if (sf == null) return NOT_FOUND;
+		if (sf == null) {
+			return NOT_FOUND;
+		}
 
 		final Object v = myEObject.eGet(sf);
 
@@ -53,7 +65,9 @@ public class EObjectWrapper implements Scriptable {
 	 */
 	private EStructuralFeature findFeature(String name) {
 		for (final EStructuralFeature sf : myEObject.eClass().getEAllStructuralFeatures()) {
-			if (sf.getName().equals(name)) return sf;
+			if (sf.getName().equals(name)) {
+				return sf;
+			}
 		}
 		return null;
 	}
@@ -135,10 +149,15 @@ public class EObjectWrapper implements Scriptable {
 				hint = ScriptRuntime.BooleanClass;
 			}
 		}
-		if (hint == null || hint == ScriptRuntime.StringClass)
+		if (hint == null || hint == ScriptRuntime.StringClass) {
 			return IBindingObjectInformation.Factory.getLongName(myEObject);
-		if (hint == ScriptRuntime.BooleanClass) return Boolean.TRUE;
-		if (hint == ScriptRuntime.NumberClass) return ScriptRuntime.NaNobj;
+		}
+		if (hint == ScriptRuntime.BooleanClass) {
+			return Boolean.TRUE;
+		}
+		if (hint == ScriptRuntime.NumberClass) {
+			return ScriptRuntime.NaNobj;
+		}
 		return this;
 	}
 

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2010 The RCP Company and others.
+ * Copyright (c) 2017, 2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -51,7 +51,7 @@ import com.rcpcompany.utils.logging.LogUtils;
 public final class ControlDecorationManager implements IDisposable, Listener {
 
 	/**
-	 * The size of fuzey match region - see {@link DecorationData#intersects(Rectangle, boolean)}.
+	 * The size of fuzzy match region - see {@link DecorationData#intersects(Rectangle, boolean)}.
 	 */
 	private static final int FUZZY_SIZE = 15;
 

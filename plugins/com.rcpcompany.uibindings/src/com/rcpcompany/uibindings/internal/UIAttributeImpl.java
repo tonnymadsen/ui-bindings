@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2010 The RCP Company and others.
+ * Copyright (c) 2017, 2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -613,7 +613,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 		if (control.equals(myLastImageDecorationsControl) && innerBounds.equals(myLastImageDecorationsInnerBounds)
 				&& outerBounds.equals(myLastImageDecorationsOuterBounds)) return;
 		if (Activator.getDefault().TRACE_ATTRIBUTE_IMAGE_DECORATORS) {
-			LogUtils.debug(this, toString() + ": c=" + control + ", bounds=" + innerBounds + "/" + outerBounds); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			LogUtils.debug(this, toString() + ": c=" + control + ", i/o=" + innerBounds + "/" + outerBounds); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		}
 		myLastImageDecorationsControl = control;
 		myLastImageDecorationsOuterBounds = outerBounds;

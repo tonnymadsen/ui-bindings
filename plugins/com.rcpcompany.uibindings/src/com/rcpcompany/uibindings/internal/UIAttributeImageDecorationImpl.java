@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2010 The RCP Company and others.
+ * Copyright (c) 2017, 2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -181,7 +181,7 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 			LogUtils.debug(
 					this,
 					this
-							+ ": t=" + getTooltipValue().getValue() + ", bounds=" + innerBounds + ", rect=" + control.getBounds()); //$NON-NLS-1$ //$NON-NLS-2$
+							+ ": t=" + getTooltipValue().getValue() + ", i/o=" + innerBounds + "/" + outerBounds + ", rect=" + control.getBounds()); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		final Object v = getImageValue().getValue();

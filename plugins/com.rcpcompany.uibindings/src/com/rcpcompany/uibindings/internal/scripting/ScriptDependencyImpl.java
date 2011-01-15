@@ -1,9 +1,13 @@
-/**
- * <copyright>
- * </copyright>
+/*******************************************************************************
+ * Copyright (c) 2017, 2011 The RCP Company and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
  *
- * $Id$
- */
+ * Contributors:
+ *     The RCP Company - initial API and implementation
+ *******************************************************************************/
 package com.rcpcompany.uibindings.internal.scripting;
 
 import java.util.Collection;
@@ -30,21 +34,26 @@ import com.rcpcompany.uibindings.scripting.IScriptExpression;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.internal.scripting.ScriptDependencyImpl#getObject <em>Object</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.internal.scripting.ScriptDependencyImpl#getFeature <em>Feature</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.internal.scripting.ScriptDependencyImpl#getExpressions <em>Expressions</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.internal.scripting.ScriptDependencyImpl#getIndex <em>Index</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.internal.scripting.ScriptDependencyImpl#getKey <em>Key</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.scripting.ScriptDependencyImpl#getObject <em>Object
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.scripting.ScriptDependencyImpl#getFeature <em>
+ * Feature</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.scripting.ScriptDependencyImpl#getExpressions <em>
+ * Expressions</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.scripting.ScriptDependencyImpl#getIndex <em>Index
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.scripting.ScriptDependencyImpl#getKey <em>Key</em>}
+ * </li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ScriptDependencyImpl extends EObjectImpl implements IScriptDependency {
 	/**
-	 * The cached value of the '{@link #getObject() <em>Object</em>}' reference.
-	 * <!-- begin-user-doc
+	 * The cached value of the '{@link #getObject() <em>Object</em>}' reference. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getObject()
 	 * @generated
 	 * @ordered
@@ -72,9 +81,9 @@ public class ScriptDependencyImpl extends EObjectImpl implements IScriptDependen
 	protected EList<IScriptExpression> expressions;
 
 	/**
-	 * The default value of the '{@link #getIndex() <em>Index</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The default value of the '{@link #getIndex() <em>Index</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getIndex()
 	 * @generated
 	 * @ordered
@@ -82,9 +91,9 @@ public class ScriptDependencyImpl extends EObjectImpl implements IScriptDependen
 	protected static final int INDEX_EDEFAULT = -1;
 
 	/**
-	 * The cached value of the '{@link #getIndex() <em>Index</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The cached value of the '{@link #getIndex() <em>Index</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getIndex()
 	 * @generated
 	 * @ordered
@@ -92,9 +101,9 @@ public class ScriptDependencyImpl extends EObjectImpl implements IScriptDependen
 	protected int index = INDEX_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getKey() <em>Key</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getKey() <em>Key</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getKey()
 	 * @generated
 	 * @ordered
@@ -102,9 +111,9 @@ public class ScriptDependencyImpl extends EObjectImpl implements IScriptDependen
 	protected static final Object KEY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getKey() <em>Key</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getKey() <em>Key</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getKey()
 	 * @generated
 	 * @ordered
@@ -113,6 +122,7 @@ public class ScriptDependencyImpl extends EObjectImpl implements IScriptDependen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ScriptDependencyImpl() {
@@ -121,6 +131,7 @@ public class ScriptDependencyImpl extends EObjectImpl implements IScriptDependen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -130,6 +141,7 @@ public class ScriptDependencyImpl extends EObjectImpl implements IScriptDependen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -139,18 +151,22 @@ public class ScriptDependencyImpl extends EObjectImpl implements IScriptDependen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setObject(EObject newObject) {
-		EObject oldObject = object;
+		final EObject oldObject = object;
 		object = newObject;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IScriptEnginePackage.SCRIPT_DEPENDENCY__OBJECT, oldObject, object));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, IScriptEnginePackage.SCRIPT_DEPENDENCY__OBJECT,
+					oldObject, object));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -160,198 +176,223 @@ public class ScriptDependencyImpl extends EObjectImpl implements IScriptDependen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setFeature(EStructuralFeature newFeature) {
-		EStructuralFeature oldFeature = feature;
+		final EStructuralFeature oldFeature = feature;
 		feature = newFeature;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IScriptEnginePackage.SCRIPT_DEPENDENCY__FEATURE, oldFeature, feature));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, IScriptEnginePackage.SCRIPT_DEPENDENCY__FEATURE,
+					oldFeature, feature));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<IScriptExpression> getExpressions() {
 		if (expressions == null) {
-			expressions = new EObjectWithInverseEList.ManyInverse<IScriptExpression>(IScriptExpression.class, this, IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS, IScriptEnginePackage.SCRIPT_EXPRESSION__DEPENDENCIES);
+			expressions = new EObjectWithInverseEList.ManyInverse<IScriptExpression>(IScriptExpression.class, this,
+					IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS,
+					IScriptEnginePackage.SCRIPT_EXPRESSION__DEPENDENCIES);
 		}
 		return expressions;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public int getIndex() {
 		return index;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public void setIndex(int newIndex) {
-		int oldIndex = index;
+		final int oldIndex = index;
 		index = newIndex;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IScriptEnginePackage.SCRIPT_DEPENDENCY__INDEX, oldIndex, index));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, IScriptEnginePackage.SCRIPT_DEPENDENCY__INDEX,
+					oldIndex, index));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public Object getKey() {
 		return key;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public void setKey(Object newKey) {
-		Object oldKey = key;
+		final Object oldKey = key;
 		key = newKey;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IScriptEnginePackage.SCRIPT_DEPENDENCY__KEY, oldKey, key));
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, IScriptEnginePackage.SCRIPT_DEPENDENCY__KEY, oldKey,
+					key));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getExpressions()).basicAdd(otherEnd, msgs);
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getExpressions()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS:
-				return ((InternalEList<?>)getExpressions()).basicRemove(otherEnd, msgs);
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS:
+			return ((InternalEList<?>) getExpressions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__OBJECT:
-				return getObject();
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__FEATURE:
-				return getFeature();
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS:
-				return getExpressions();
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__INDEX:
-				return getIndex();
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__KEY:
-				return getKey();
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__OBJECT:
+			return getObject();
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__FEATURE:
+			return getFeature();
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS:
+			return getExpressions();
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__INDEX:
+			return getIndex();
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__KEY:
+			return getKey();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__OBJECT:
-				setObject((EObject)newValue);
-				return;
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__FEATURE:
-				setFeature((EStructuralFeature)newValue);
-				return;
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS:
-				getExpressions().clear();
-				getExpressions().addAll((Collection<? extends IScriptExpression>)newValue);
-				return;
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__INDEX:
-				setIndex((Integer)newValue);
-				return;
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__KEY:
-				setKey(newValue);
-				return;
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__OBJECT:
+			setObject((EObject) newValue);
+			return;
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__FEATURE:
+			setFeature((EStructuralFeature) newValue);
+			return;
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS:
+			getExpressions().clear();
+			getExpressions().addAll((Collection<? extends IScriptExpression>) newValue);
+			return;
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__INDEX:
+			setIndex((Integer) newValue);
+			return;
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__KEY:
+			setKey(newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__OBJECT:
-				setObject((EObject)null);
-				return;
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__FEATURE:
-				setFeature((EStructuralFeature)null);
-				return;
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS:
-				getExpressions().clear();
-				return;
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__INDEX:
-				setIndex(INDEX_EDEFAULT);
-				return;
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__KEY:
-				setKey(KEY_EDEFAULT);
-				return;
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__OBJECT:
+			setObject((EObject) null);
+			return;
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__FEATURE:
+			setFeature((EStructuralFeature) null);
+			return;
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS:
+			getExpressions().clear();
+			return;
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__INDEX:
+			setIndex(INDEX_EDEFAULT);
+			return;
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__KEY:
+			setKey(KEY_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__OBJECT:
-				return object != null;
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__FEATURE:
-				return feature != null;
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS:
-				return expressions != null && !expressions.isEmpty();
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__INDEX:
-				return index != INDEX_EDEFAULT;
-			case IScriptEnginePackage.SCRIPT_DEPENDENCY__KEY:
-				return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__OBJECT:
+			return object != null;
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__FEATURE:
+			return feature != null;
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__EXPRESSIONS:
+			return expressions != null && !expressions.isEmpty();
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__INDEX:
+			return index != INDEX_EDEFAULT;
+		case IScriptEnginePackage.SCRIPT_DEPENDENCY__KEY:
+			return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (index: ");
 		result.append(index);
 		result.append(", key: ");

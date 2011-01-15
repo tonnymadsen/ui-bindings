@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2017, 2011 The RCP Company and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     The RCP Company - initial API and implementation
+ *******************************************************************************/
 package com.rcpcompany.uibindings.scripting.internal.bindings.extenders;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -25,11 +35,17 @@ public class FeatureScriptDecorationExtender extends AbstractUIBindingDecoratorE
 
 	@Override
 	public boolean isEnabled(IValueBinding binding) {
-		if (binding.getModelObservableValue().isDisposed()) return false;
-		if (!(binding.getModelObject() instanceof IMOAO)) return false;
+		if (binding.getModelObservableValue().isDisposed()) {
+			return false;
+		}
+		if (!(binding.getModelObject() instanceof IMOAO)) {
+			return false;
+		}
 		final IMOAO moao = (IMOAO) binding.getModelObject();
 		final EStructuralFeature feature = binding.getModelFeature();
-		if (feature == null) return false;
+		if (feature == null) {
+			return false;
+		}
 
 		myScript = ScriptingUtils.getFeatureScript(moao, feature, false);
 		return myScript != null;

@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2017, 2011 The RCP Company and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     The RCP Company - initial API and implementation
+ *******************************************************************************/
 package com.rcpcompany.uibindings.debug.internals.views;
 
 import java.util.Collection;
@@ -74,7 +84,8 @@ public class ScriptConsole extends ViewPart {
 	private final Adapter myAdapter = new AdapterImpl() {
 		@Override
 		public void notifyChanged(Notification msg) {
-			if (msg.isTouch()) return;
+			if (msg.isTouch())
+				return;
 
 			if (msg.getNotifier() == myData) {
 				if (msg.getFeature() == IDebugPackage.Literals.SCRIPT_CONSOLE_CONTEXT__LANGUAGE
@@ -93,7 +104,8 @@ public class ScriptConsole extends ViewPart {
 		@Override
 		public void selectionChanged(IWorkbenchPart part, ISelection selection) {
 			final List<EObject> s = SelectionUtils.computeSelection(selection, EObject.class);
-			if (s == null || s.size() != 1) return;
+			if (s == null || s.size() != 1)
+				return;
 
 			myData.setObject(s.get(0));
 		}
@@ -153,7 +165,8 @@ public class ScriptConsole extends ViewPart {
 			/*
 			 * Need the language first
 			 */
-			if (myData.getLanguage() == null) return;
+			if (myData.getLanguage() == null)
+				return;
 
 			final IScriptManager manager = IScriptManager.Factory.getManager();
 			try {

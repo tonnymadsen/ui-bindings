@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2017, 2011 The RCP Company and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     The RCP Company - initial API and implementation
+ *******************************************************************************/
 package com.rcpcompany.uibindings.scripting.util;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -18,8 +28,7 @@ public final class ScriptingUtils {
 	}
 
 	/**
-	 * Returns the feature script for the specified object and feature - optionally create it if
-	 * needed.
+	 * Returns the feature script for the specified object and feature - optionally create it if needed.
 	 * 
 	 * @param moao the object of the feature script
 	 * @param feature the feature of the feature script
@@ -41,7 +50,9 @@ public final class ScriptingUtils {
 			}
 		}
 
-		if (!create) return null;
+		if (!create) {
+			return null;
+		}
 
 		final IFeatureScript fs = IScriptingFactory.eINSTANCE.createFeatureScript();
 		fs.setObject(moao);
