@@ -211,6 +211,6 @@ public class ManagerRunnableManagerTests {
 		yield();
 
 		assertTrue(mng.isEmpty());
-		assertEquals("12A3", state);
+		assertEquals("123A", state);
 	}
 }

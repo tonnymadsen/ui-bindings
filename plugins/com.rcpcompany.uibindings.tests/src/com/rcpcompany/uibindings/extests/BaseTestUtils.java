@@ -441,6 +441,7 @@ public class BaseTestUtils {
 	/**
 	 * Posts the specified keystroke to the specified control which will get focus.
 	 * 
+	 * 
 	 * @param c the control
 	 * @param stroke the text representation of the key-stroke
 	 */
@@ -456,7 +457,7 @@ public class BaseTestUtils {
 
 		Event event;
 
-		assertTrue(stroke + ": focus", c.setFocus());
+		c.setFocus();
 
 		postModifierKeys(c, keyStroke, true);
 

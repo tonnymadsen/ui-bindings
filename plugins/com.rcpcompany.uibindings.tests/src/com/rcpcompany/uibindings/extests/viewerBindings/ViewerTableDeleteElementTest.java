@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.commands.ICommandService;
@@ -236,12 +237,11 @@ public class ViewerTableDeleteElementTest {
 				table.getDisplay().timerExec(1000, new Runnable() {
 					@Override
 					public void run() {
-						postKeyStroke(table, "ENTER");
+						postKeyStroke(Display.getCurrent().getFocusControl(), "ENTER");
 					}
 				});
 				hs.executeCommand(deleteCommand, null);
 				sleep(1500);
-				fail("Should not execute command");
 			} catch (final ExecutionException ex) {
 				// do nothing
 			}

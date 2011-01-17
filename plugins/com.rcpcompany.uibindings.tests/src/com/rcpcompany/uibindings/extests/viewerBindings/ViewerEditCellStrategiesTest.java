@@ -445,21 +445,21 @@ public class ViewerEditCellStrategiesTest {
 		// });
 		// assertNoLog(new Runnable() {
 		// public void run() {
-		// postKeyStroke(myTable, "M3+TAB");
+		// postKeyStroke(myTable, "M2+TAB");
 		// yield();
 		// testBooleanBindingValue(afterTabTabExpectedValue);
 		// }
 		// });
 		// assertNoLog(new Runnable() {
 		// public void run() {
-		// postKeyStroke(myTable, "M3+TAB");
+		// postKeyStroke(myTable, "M2+TAB");
 		// yield();
 		// testBindingValue(afterTabExpectedValue);
 		// }
 		// });
 		// assertNoLog(new Runnable() {
 		// public void run() {
-		// postKeyStroke(myTable, "M3+TAB");
+		// postKeyStroke(myTable, "M2+TAB");
 		// yield();
 		// testBindingValue(expectedValue);
 		// }

@@ -39,7 +39,6 @@ import org.eclipse.swt.widgets.Widget;
 import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.internal.observables.ControlCursorObservableValue;
 import com.rcpcompany.uibindings.internal.observables.StyledTextRangesObservableList;
-import com.rcpcompany.uibindings.utils.IPaintDecoration;
 
 /**
  * Simple {@link IUIAttribute} implementations used when control, attribute and observable value is
@@ -202,10 +201,10 @@ public class SimpleUIAttribute extends AbstractUIAttribute {
 			}
 		}
 
-		IPaintDecoration.Factory.paintRectangle((Control) myWidget, innerBounds,
-				c.getDisplay().getSystemColor(SWT.COLOR_GREEN));
-		IPaintDecoration.Factory.paintRectangle((Control) myWidget, outerBounds,
-				c.getDisplay().getSystemColor(SWT.COLOR_CYAN));
+		// IPaintDecoration.Factory.paintRectangle((Control) myWidget, innerBounds,
+		// c.getDisplay().getSystemColor(SWT.COLOR_GREEN));
+		// IPaintDecoration.Factory.paintRectangle((Control) myWidget, outerBounds,
+		// c.getDisplay().getSystemColor(SWT.COLOR_CYAN));
 
 		updateImageDecorations(c, innerBounds, outerBounds);
 	}

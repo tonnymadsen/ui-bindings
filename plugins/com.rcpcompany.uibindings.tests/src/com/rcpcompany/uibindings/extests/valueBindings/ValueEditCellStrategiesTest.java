@@ -56,7 +56,19 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 public class ValueEditCellStrategiesTest {
 	@Parameters
 	public static Collection<Object[]> data() {
-		return Arrays.asList(new Object[][] { { false, false }, { false, true }, { true, false }, { true, true } });
+		return Arrays.asList(new Object[][] {
+
+				// boolean anyKey, boolean singleClick
+
+				{ false, false },
+
+				{ false, true },
+
+				{ true, false },
+
+				{ true, true }
+
+		});
 	}
 
 	private final boolean myEditCellAnyKey;
@@ -429,14 +441,14 @@ public class ValueEditCellStrategiesTest {
 		// });
 		// assertNoLog(new Runnable() {
 		// public void run() {
-		// postKeyDown(myTable, "M3+TAB");
+		// postKeyDown(myTable, "M2+TAB");
 		// yield();
 		// testBindingValue(afterTabTabExpectedValue);
 		// }
 		// });
 		// assertNoLog(new Runnable() {
 		// public void run() {
-		// postKeyDown(myTable, "M3+TAB");
+		// postKeyDown(myTable, "M2+TAB");
 		// yield();
 		// testBindingValue(afterTabExpectedValue);
 		// }
@@ -444,7 +456,7 @@ public class ValueEditCellStrategiesTest {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
-				postKeyStroke(myTable, "M3+TAB");
+				postKeyStroke(myTable, "M2+TAB");
 				yield();
 				testBindingValue(expectedValue);
 			}

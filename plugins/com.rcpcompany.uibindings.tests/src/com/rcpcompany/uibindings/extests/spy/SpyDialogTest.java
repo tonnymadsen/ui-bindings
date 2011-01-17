@@ -84,7 +84,7 @@ public class SpyDialogTest {
 			yield();
 
 			// Have to use timerExec to get the runnable executed after the dialog is shown
-			workbench.getDisplay().timerExec(2000, new Runnable() {
+			workbench.getDisplay().timerExec(1000, new Runnable() {
 				@Override
 				public void run() {
 					/*
@@ -102,7 +102,7 @@ public class SpyDialogTest {
 				}
 			});
 
-			postKeyStroke(myText, "M1+M3+F3");
+			postKeyStroke(myText, "M2+M3+F3");
 
 			sleep(2000);
 			assertEquals(shells, workbench.getDisplay().getShells().length);

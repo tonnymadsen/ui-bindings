@@ -19,6 +19,7 @@ import java.util.Collection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.Text;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,6 +27,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
@@ -35,6 +37,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.utils.ITableCreator;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Test functionality of {@link IManager#setValidationErrorsAreFatal(boolean)}.
@@ -122,8 +125,15 @@ public class ValidationErrorsAreFatalTest {
 	public void warningTest() {
 		postMouse(myTable, 1 + myViewerBinding.getFirstTableColumnOffset(), 0);
 
+		final IBindingContext context = myViewerBinding.getContext();
+		final IBinding binding = context.getBindings().get(context.getBindings().size() - 1);
+		final Text t = (Text) binding.getControl();
+		LogUtils.debug(t, "t=" + t.getText());
 		postKeyStroke(myTable, "-");
+		LogUtils.debug(t, "t=" + t.getText());
+
 		postKeyStroke(myTable, "1");
+		LogUtils.debug(t, "t=" + t.getText());
 
 		postKeyStroke(myTable, "ENTER");
 

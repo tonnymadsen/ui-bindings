@@ -127,8 +127,8 @@ public class ControlCellEditorTest {
 
 		assertTrue(viewer.isCellEditorActive());
 
-		postKeyStroke(t, "M3+B");
-		postKeyStroke(t, "M3+B");
+		postKeyStroke(t, "M2+B");
+		postKeyStroke(t, "M2+B");
 		yield();
 
 		postKeyStroke(t, "ENTER");

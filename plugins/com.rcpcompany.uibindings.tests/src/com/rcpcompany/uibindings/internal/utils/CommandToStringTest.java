@@ -76,7 +76,7 @@ public class CommandToStringTest {
 
 				assertEquals(1, myShop.getNextCustomerNo());
 
-				assertEquals("SetCommand(SHOP, nextCustomerNo, 10, 1)", EcoreExtUtils.toString(command));
+				assertEquals("SetCommand(SHOP (Shop), nextCustomerNo, 10, 1)", EcoreExtUtils.toString(command));
 			}
 		});
 
@@ -97,7 +97,7 @@ public class CommandToStringTest {
 
 				assertTrue(myShop.getCountries().contains(c));
 
-				assertEquals("AddCommand(SHOP, countries, [DK])", EcoreExtUtils.toString(command));
+				assertEquals("AddCommand(SHOP (Shop), countries, [DK])", EcoreExtUtils.toString(command));
 			}
 		});
 	}
@@ -123,7 +123,7 @@ public class CommandToStringTest {
 
 				assertTrue(myShop.getCountries().get(0) == c2);
 
-				assertEquals("MoveCommand(SHOP, countries, SE, 0)", EcoreExtUtils.toString(command));
+				assertEquals("MoveCommand(SHOP (Shop), countries, SE, 0)", EcoreExtUtils.toString(command));
 			}
 		});
 	}
@@ -145,7 +145,7 @@ public class CommandToStringTest {
 
 				assertTrue(!myShop.getCountries().contains(c));
 
-				assertEquals("RemoveCommand(SHOP, countries, [DK])", EcoreExtUtils.toString(command));
+				assertEquals("RemoveCommand(SHOP (Shop), countries, [DK])", EcoreExtUtils.toString(command));
 			}
 		});
 	}
