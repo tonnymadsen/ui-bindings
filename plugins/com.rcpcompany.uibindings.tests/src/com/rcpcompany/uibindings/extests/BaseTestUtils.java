@@ -88,6 +88,7 @@ import com.rcpcompany.uibindings.scripting.IScriptExpression;
 import com.rcpcompany.uibindings.scripting.IScriptManager;
 import com.rcpcompany.uibindings.utils.IGlobalNavigationManager;
 import com.rcpcompany.uibindings.utils.IManagerRunnableManager;
+import com.rcpcompany.uibindings.utils.IPaintDecoration;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 import com.rcpcompany.utils.basic.ToStringUtils;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -911,7 +912,7 @@ public class BaseTestUtils {
 		assertEquals(what, expectedRGB, actualRGB);
 	}
 
-	public static void dumpPixels(Control control, int x, int y, int width, int height) {
+	public static void dumpPixels(Control control, final int x, final int y, final int width, final int height) {
 		/*
 		 * Map to the shell to avoid negative coordinates
 		 */
@@ -919,7 +920,7 @@ public class BaseTestUtils {
 		final Shell shell = control.getShell();
 		final StringBuilder sb = new StringBuilder(400);
 
-		final Point p = display.map(control, shell, new Point(x, y));
+		final Point p = display.map(control, shell, new Point(x - width, y - height));
 		final GC gc = new GC(shell);
 		final Image image = new Image(display, width * 2 + 1, height * 2 + 1);
 		gc.copyArea(image, p.x - width, p.y - height);
@@ -934,13 +935,14 @@ public class BaseTestUtils {
 			}
 		}
 		image.dispose();
-
-		gc.setForeground(display.getSystemColor(SWT.COLOR_RED));
-		gc.setLineStyle(SWT.LINE_DASH);
-		gc.drawRectangle(p.x - width, p.y - height, 2 * width, 2 * height);
 		gc.dispose();
+
+		IPaintDecoration.Factory.paintRectangle(control, new Rectangle(x - 1, y - 1, 2, 2),
+				display.getSystemColor(SWT.COLOR_RED));
+
+		yield();
 		LogUtils.debug(sb, sb.toString());
-		sleep(3000);
+		sleep(500);
 	}
 
 	public static void assertPixelColorVerbose(Control control, int x, int y, RGB expectedRGB) {
