@@ -3397,7 +3397,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	@Override
 	public void stopMonitorObservableDispose(IObservable obj) {
 		if (!Activator.getDefault().ASSERTS_PREMATURE_DISPOSE || obj == null) return;
-		obj.addDisposeListener(myMonitorObservableDisposeListener);
+		obj.removeDisposeListener(myMonitorObservableDisposeListener);
 	}
 
 } // ManagerImpl
