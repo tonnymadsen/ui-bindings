@@ -191,6 +191,31 @@ public class BaseTestUtils {
 
 		manager.getRegisteredEvaluationContexts().clear();
 		manager.getDependencies().clear();
+
+		final Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		Event e = new Event();
+		e.type = SWT.KeyUp;
+		e.keyCode = SWT.SHIFT;
+		e.stateMask = 0;
+		e.widget = shell;
+
+		shell.getDisplay().post(e);
+
+		e = new Event();
+		e.type = SWT.KeyUp;
+		e.keyCode = SWT.CTRL;
+		e.stateMask = 0;
+		e.widget = shell;
+
+		shell.getDisplay().post(e);
+
+		e = new Event();
+		e.type = SWT.KeyUp;
+		e.keyCode = SWT.ALT;
+		e.stateMask = 0;
+		e.widget = shell;
+
+		shell.getDisplay().post(e);
 	}
 
 	/**
@@ -446,7 +471,6 @@ public class BaseTestUtils {
 	 * @param stroke the text representation of the key-stroke
 	 */
 	public static void postKeyStroke(Control c, String stroke) {
-		LogUtils.debug(c, stroke);
 		KeyStroke keyStroke = null;
 		try {
 			keyStroke = KeyStroke.getInstance(stroke);
@@ -454,6 +478,7 @@ public class BaseTestUtils {
 			fail(stroke + ": " + ex.getMessage());
 		}
 		assertTrue(stroke + ": not complete", keyStroke.isComplete());
+		LogUtils.debug(c, stroke + " --> " + keyStroke);
 
 		Event event;
 
@@ -606,6 +631,8 @@ public class BaseTestUtils {
 		postMouse(null, c, p, noClicks);
 	}
 
+	private static long lastMouseOperationExpireTime = 0;
+
 	/**
 	 * Posts a mouse move event for the specified control and point.
 	 * 
@@ -615,15 +642,21 @@ public class BaseTestUtils {
 	public static void postMouseMove(Control c, Point p) {
 		final Point pt = c.getDisplay().map(c, null, p);
 
+		final long now = System.currentTimeMillis();
+
+		if (lastMouseOperationExpireTime > now) {
+			sleep((int) (lastMouseOperationExpireTime - now));
+		}
+
 		final Event e = new Event();
 		e.type = SWT.MouseMove;
 		e.x = pt.x;
 		e.y = pt.y;
 		assertTrue(c.getDisplay().post(e));
 		yield();
-	}
 
-	private static long lastMouseClickExpireTime = 0;
+		lastMouseOperationExpireTime = now + c.getDisplay().getDoubleClickTime() + 50;
+	}
 
 	/**
 	 * Posts a mouse event for the specified control and point.
@@ -637,8 +670,8 @@ public class BaseTestUtils {
 	public static void postMouseDown(String modifiers, int button, final Control c, int noClicks) {
 		final long now = System.currentTimeMillis();
 
-		if (lastMouseClickExpireTime > now) {
-			sleep((int) (lastMouseClickExpireTime - now));
+		if (lastMouseOperationExpireTime > now) {
+			sleep((int) (lastMouseOperationExpireTime - now));
 		}
 
 		KeyStroke keyStroke = null;
@@ -677,7 +710,7 @@ public class BaseTestUtils {
 			postModifierKeys(c, keyStroke, false);
 		}
 
-		lastMouseClickExpireTime = now + c.getDisplay().getDoubleClickTime() + 50;
+		lastMouseOperationExpireTime = now + c.getDisplay().getDoubleClickTime() + 50;
 	}
 
 	/**
@@ -908,18 +941,23 @@ public class BaseTestUtils {
 		final RGB actualRGB = imageData.palette.getRGB(actualPixel);
 		image.dispose();
 		if (!expectedRGB.equals(actualRGB)) {
-			dumpPixels(control, x, y, 3, 3);
+			dumpPixels(control, x, y, 3, 3, expectedRGB);
 		}
 		assertEquals(what, expectedRGB, actualRGB);
 	}
 
-	public static void dumpPixels(Control control, final int x, final int y, final int width, final int height) {
+	public static void dumpPixels(Control control, final int x, final int y, final int width, final int height,
+			RGB expectedRGB) {
 		/*
 		 * Map to the shell to avoid negative coordinates
 		 */
 		final Display display = control.getDisplay();
 		final Shell shell = control.getShell();
 		final StringBuilder sb = new StringBuilder(400);
+
+		if (expectedRGB != null) {
+			sb.append("Expected " + expectedRGB);
+		}
 
 		final Point p = display.map(control, shell, new Point(x - width, y - height));
 		final GC gc = new GC(shell);
@@ -938,7 +976,7 @@ public class BaseTestUtils {
 		image.dispose();
 		gc.dispose();
 
-		IPaintDecoration.Factory.paintRectangle(control, new Rectangle(x - 1, y - 1, 2, 2),
+		IPaintDecoration.Factory.paintRectangle(control, new Rectangle(x - width, y - height, width * 2, height * 2),
 				display.getSystemColor(SWT.COLOR_RED));
 
 		yield();
