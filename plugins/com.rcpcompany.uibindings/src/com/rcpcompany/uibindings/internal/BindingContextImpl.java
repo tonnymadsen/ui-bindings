@@ -380,8 +380,9 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 				IManagerRunnable.Factory.asyncExec("reflow", page.getControl(), new Runnable() {
 					@Override
 					public void run() {
-						if (page.getControl() == null) return;
-						final Composite c = page.getControl().getParent();
+						final Control control = page.getControl();
+						if (control == null || control.isDisposed()) return;
+						final Composite c = control.getParent();
 						if (c.isDisposed()) return;
 						c.layout(true, true);
 					}
