@@ -370,7 +370,7 @@ public class GridEditCellStrategiesTest {
 		});
 		// assertNoLog(new Runnable() {
 		// public void run() {
-		// postKeyDown(myTable, "M3+TAB");
+		// postKeyDown(myTable, "M2+TAB");
 		// yield();
 		// testBindingValue(afterTabTabExpectedValue);
 		// }
@@ -378,7 +378,7 @@ public class GridEditCellStrategiesTest {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
-				postKeyStroke(myGrid, "M3+TAB");
+				postKeyStroke(myGrid, "M2+TAB");
 				yield();
 				testBindingValue(afterTabExpectedValue);
 			}
@@ -386,7 +386,7 @@ public class GridEditCellStrategiesTest {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
-				postKeyStroke(myGrid, "M3+TAB");
+				postKeyStroke(myGrid, "M2+TAB");
 				yield();
 				testBindingValue(expectedValue);
 			}

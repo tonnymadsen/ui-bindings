@@ -22,6 +22,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
@@ -129,6 +130,7 @@ public class BindingMessageCollectionTest {
 	private void createView() {
 		myView = createTestView(this);
 		myBody = myView.getBody();
+		((GridLayout) myBody.getLayout()).numColumns = 2;
 
 		myLabel = new Label(myBody, SWT.NONE);
 		myLabel.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
@@ -184,20 +186,20 @@ public class BindingMessageCollectionTest {
 		assertEquals(noUnboundMessage, myValidatorManager.getUnboundMessages().size());
 		assertEquals(0, messages.size());
 		yield();
-		assertPixelColor("", myText, -4, size.y - 6, new RGB(216, 66, 79));
+		assertPixelColor("", myText, -4, size.y - 4, new RGB(216, 66, 79));
 
 		// Test before the validation delay - problem already found due to the binding
-		sleep(VD - 150);
+		// sleep(VD - 150);
 		assertEquals(noUnboundMessage, myValidatorManager.getUnboundMessages().size());
 		assertEquals(1, messages.size());
 
 		// Test after the validation delay
-		sleep(300);
+		sleep(VD);
 		assertEquals(noUnboundMessage + 1, myValidatorManager.getUnboundMessages().size());
 		// Still just one error, and the two are collapsed into one
 		assertEquals(1, messages.size());
 		yield();
-		assertPixelColor("", myText, -4, size.y - 6, new RGB(216, 66, 79));
+		assertPixelColor("", myText, -5, size.y - 6, new RGB(216, 66, 79));
 
 		final IBindingMessage message = messages.get(0);
 		assertEquals(myBinding, message.getBinding());

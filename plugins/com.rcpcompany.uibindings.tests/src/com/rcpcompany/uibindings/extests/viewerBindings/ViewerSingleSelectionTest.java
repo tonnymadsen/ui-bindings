@@ -225,7 +225,7 @@ public class ViewerSingleSelectionTest {
 			assertNoLog(runnable);
 			yield();
 			myTableViewer.removeSelectionChangedListener(listener);
-			assertTrue(selectionChangedSeen[0]);
+			assertTrue("no selection change seen", selectionChangedSeen[0]);
 		}
 		final int i = myShop.getCountries().indexOf(c);
 		assertEquals(i, myTable.getSelectionIndex());

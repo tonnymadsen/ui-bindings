@@ -120,10 +120,11 @@ public class ValueBindingFocusOutTest {
 
 		assertTrue(c.isFocusControl());
 
-		// postKeyStroke(c, "A");
-		postKeyStroke(c, "M1+a");
+		// postKeyStroke(c, "b");
+		postKeyStroke(c, "M1+A");
 		postKeyStroke(c, "2");
 		yield();
+		assertEquals("2", text.getText());
 
 		switch (myStrategy) {
 		case ON_MODIFY:

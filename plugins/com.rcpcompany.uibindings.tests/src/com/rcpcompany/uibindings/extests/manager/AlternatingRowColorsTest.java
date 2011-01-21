@@ -178,7 +178,8 @@ public class AlternatingRowColorsTest {
 		final Color evenColor = JFaceResources.getColorRegistry().get(
 				"com.rcpcompany.uibindings.colorDefinitions.EvenRowBackground");
 		final Color oddColor = myTable.getDisplay().getSystemColor(SWT.COLOR_WHITE);
-		// First row is selected and therefpore a different color
+		sleep(50);
+		// First row is selected and therefore a different color
 		for (int i = 0; i < items.length; i++) {
 			final TableItem item = items[i];
 			final Rectangle bounds = item.getBounds(myViewer.getFirstTableColumnOffset());

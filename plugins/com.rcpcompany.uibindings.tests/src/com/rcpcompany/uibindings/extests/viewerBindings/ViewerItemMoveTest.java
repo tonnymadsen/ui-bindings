@@ -49,6 +49,7 @@ import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests the different moveItem commands.
@@ -79,19 +80,22 @@ public class ViewerItemMoveTest {
 	final int myColumn;
 	final String myCommandId;
 	final String mySeq;
+	private final String what;
 
 	@Parameters
 	public static Collection<Object[]> data() {
 		return Arrays.asList(new Object[][] {
 
-		{ 0, 1, "com.rcpcompany.uibindings.commands.moveItemUp", "2134" },
+				// int column, int row, String id, String seq
+
+				// { 0, 1, "com.rcpcompany.uibindings.commands.moveItemUp", "2134" },
 				{ 1, 1, "com.rcpcompany.uibindings.commands.moveItemUp", "2134" },
 				{ 0, 1, "com.rcpcompany.uibindings.commands.moveItemDown", "1324" },
 				{ 0, 1, "com.rcpcompany.uibindings.commands.moveItemToTop", "2134" },
-				{ 0, 3, "com.rcpcompany.uibindings.commands.moveItemToTop", "4123" },
-				{ 0, 1, "com.rcpcompany.uibindings.commands.moveItemToBottom", "1342" },
+		// { 0, 3, "com.rcpcompany.uibindings.commands.moveItemToTop", "4123" },
+		// { 0, 1, "com.rcpcompany.uibindings.commands.moveItemToBottom", "1342" },
 
-		});
+				});
 	}
 
 	public ViewerItemMoveTest(int column, int row, String id, String seq) {
@@ -100,6 +104,10 @@ public class ViewerItemMoveTest {
 		myCommandId = id;
 		mySeq = seq;
 		myNewRow = seq.indexOf('0' + row + 1);
+
+		what = id + "[" + column + ";" + row + "] seq=" + seq + ":";
+
+		LogUtils.debug(this, what + " start");
 	}
 
 	@Before
@@ -199,21 +207,24 @@ public class ViewerItemMoveTest {
 			final IHandlerService hs = (IHandlerService) myView.getSite().getService(IHandlerService.class);
 
 			final ParameterizedCommand command = cs.deserialize(myCommandId);
-			assertTrue(command.getCommand().isDefined());
+			assertTrue(what + " is defined", command.getCommand().isDefined());
 
 			final Country country = myShop.getCountries().get(myRow);
+			LogUtils.debug(country, "" + country.getName());
 
 			postMouse(myTableViewer.getTable(), myColumn + myViewerBinding.getFirstTableColumnOffset(), myRow);
 			yield();
 
-			assertTrue(command.getCommand().isHandled());
-			assertTrue(command.getCommand().isDefined());
+			assertTrue(what + " is not handled", command.getCommand().isHandled());
+			assertTrue(what + " is not defined", command.getCommand().isDefined());
 
 			ViewerCell viewerCell = myTableViewer.getColumnViewerEditor().getFocusCell();
-			assertEquals(myColumn + myViewerBinding.getFirstTableColumnOffset(), viewerCell.getColumnIndex());
-			assertEquals(country, viewerCell.getElement());
-			assertEquals(myTableViewer.getTable().getItem(myRow), viewerCell.getViewerRow().getItem());
-			assertEquals(country, viewerCell.getViewerRow().getElement());
+			assertEquals(what + " index wrong", myColumn + myViewerBinding.getFirstTableColumnOffset(),
+					viewerCell.getColumnIndex());
+			assertEquals(what + " element wrong", country, viewerCell.getElement());
+			assertEquals(what + " item wrong", myTableViewer.getTable().getItem(myRow), viewerCell.getViewerRow()
+					.getItem());
+			assertEquals(what + " row element", country, viewerCell.getViewerRow().getElement());
 
 			assertEquals(4, myShop.getCountries().size());
 			hs.executeCommand(command, null);
