@@ -93,6 +93,7 @@ public class EListElementObservableValue extends AbstractObservableValue impleme
 		myIndex = index;
 
 		myObjectOV.addChangeListener(myObjectOVListener);
+		IManager.Factory.getManager().startMonitorObservableDispose(myObjectOV);
 		updateValue();
 	}
 
@@ -135,6 +136,7 @@ public class EListElementObservableValue extends AbstractObservableValue impleme
 
 	@Override
 	public synchronized void dispose() {
+		IManager.Factory.getManager().stopMonitorObservableDispose(myObjectOV);
 		if (myObjectOV != null) {
 			myObjectOV.removeChangeListener(myObjectOVListener);
 		}

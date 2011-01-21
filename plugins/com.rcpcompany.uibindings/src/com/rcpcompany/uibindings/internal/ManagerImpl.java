@@ -24,6 +24,9 @@ import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
+import org.eclipse.core.databinding.observable.DisposeEvent;
+import org.eclipse.core.databinding.observable.IDisposeListener;
+import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.masterdetail.IObservableFactory;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
@@ -3365,4 +3368,36 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 
 		return cc.unwrap();
 	}
+
+	/**
+	 * Listener use to monitor premature disposals of observables...
+	 */
+	private IDisposeListener myMonitorObservableDisposeListener = null;
+
+	@Override
+	public void startMonitorObservableDispose(IObservable obj) {
+		if (!Activator.getDefault().ASSERTS_PREMATURE_DISPOSE || obj == null) return;
+
+		if (myMonitorObservableDisposeListener == null) {
+			myMonitorObservableDisposeListener = new IDisposeListener() {
+
+				@Override
+				public void handleDispose(DisposeEvent event) {
+					final int oldLevels = LogUtils.DEBUG_STRACK_LEVELS;
+					LogUtils.DEBUG_STRACK_LEVELS = 10;
+					LogUtils.error(event.getSource(), "PREMATURE DISPOSAL: " + event.getSource());
+					LogUtils.DEBUG_STRACK_LEVELS = oldLevels;
+				}
+			};
+		}
+
+		obj.addDisposeListener(myMonitorObservableDisposeListener);
+	}
+
+	@Override
+	public void stopMonitorObservableDispose(IObservable obj) {
+		if (!Activator.getDefault().ASSERTS_PREMATURE_DISPOSE || obj == null) return;
+		obj.addDisposeListener(myMonitorObservableDisposeListener);
+	}
+
 } // ManagerImpl

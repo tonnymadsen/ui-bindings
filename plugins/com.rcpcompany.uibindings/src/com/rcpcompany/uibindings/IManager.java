@@ -13,6 +13,7 @@ package com.rcpcompany.uibindings;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.util.EList;
@@ -28,6 +29,7 @@ import org.eclipse.swt.widgets.Widget;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 
 import com.rcpcompany.uibindings.initializers.DefaultEObjectInitializer;
+import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.observableFactories.DefaultEMFObservableFactory;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 
@@ -123,6 +125,29 @@ public interface IManager extends IBaseObject {
 	 * @param objects the changed objects or <code>null</code>
 	 */
 	void updateBindings(Object[] objects);
+
+	/**
+	 * Starts monitoring if the specified observable is disposed prematurely.
+	 * <p>
+	 * This method is a NOP if the trace option {@link Activator#ASSERTS_PREMATURE_DISPOSE} is not
+	 * set or the object is <code>null</code>.
+	 * <p>
+	 * Use {@link #stopMonitorObservableDispose(IObservable)} to stop monitoring the observable
+	 * again. It is crusial that {@link #startMonitorObservableDispose(IObservable)} and
+	 * {@link #stopMonitorObservableDispose(IObservable)} comes in pairs...
+	 * 
+	 * @param obs the observable to monitor
+	 */
+	void startMonitorObservableDispose(IObservable obs);
+
+	/**
+	 * Stops monitoring the specified observable.
+	 * 
+	 * #see {@link #startMonitorObservableDispose(IObservable)}
+	 * 
+	 * @param obs the observable to <i>not</i> monitor
+	 */
+	void stopMonitorObservableDispose(IObservable obs);
 
 	/**
 	 * Returns the value of the '<em><b>Providers</b></em>' containment reference list. The list
