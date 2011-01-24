@@ -10,18 +10,24 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.observables;
 
+import java.util.List;
+
 import org.eclipse.core.databinding.observable.ChangeEvent;
 import org.eclipse.core.databinding.observable.Diffs;
 import org.eclipse.core.databinding.observable.IChangeListener;
 import org.eclipse.core.databinding.observable.IObserving;
 import org.eclipse.core.databinding.observable.value.AbstractObservableValue;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.core.runtime.Assert;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
@@ -31,6 +37,10 @@ import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 /**
  * Basic {@link IObservableValue observable value} for an element in an EMF {@link EList}.
+ * <p>
+ * Can be configured to "auto extend" the list to the correct size (only happens on set) - if the
+ * list is not {@link EReference#isUnique() "unique"} - by adding <code>null</code> values
+ * (defaults) to <code>false</code>.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -39,6 +49,10 @@ public class EListElementObservableValue extends AbstractObservableValue impleme
 	private final EStructuralFeature mySF;
 	private final int myIndex;
 	private final EditingDomain myEditingDomain;
+	/**
+	 * Whether the list is automatically extended as needed.
+	 */
+	private boolean myExpendList = false;
 
 	private EObject myObject = null;
 
@@ -91,6 +105,8 @@ public class EListElementObservableValue extends AbstractObservableValue impleme
 		myObjectOV = ov;
 		mySF = sf;
 		myIndex = index;
+
+		Assert.isTrue(mySF.isMany());
 
 		myObjectOV.addChangeListener(myObjectOVListener);
 		IManager.Factory.getManager().startMonitorObservableDispose(myObjectOV);
@@ -164,12 +180,41 @@ public class EListElementObservableValue extends AbstractObservableValue impleme
 
 	@Override
 	protected void doSetValue(final Object value) {
-		final SetCommand command = new SetCommand(myEditingDomain, myObject, mySF, value, myIndex);
-		myEditingDomain.getCommandStack().execute(command);
+		final CompoundCommand cc = new CompoundCommand();
+		if (isExpendList() && !mySF.isUnique()) {
+			final List<?> l = (List<?>) myObject.eGet(mySF);
+			/*
+			 * Missing elements, if possible
+			 */
+			final int missing = myIndex + 1 - l.size();
+			for (int i = 0; i < missing; i++) {
+				cc.append(new AddCommand(myEditingDomain, myObject, mySF, (Object) null));
+			}
+		}
+		cc.append(new SetCommand(myEditingDomain, myObject, mySF, value, myIndex));
+		myEditingDomain.getCommandStack().execute(cc.unwrap());
 	}
 
 	@Override
 	public Object getValueType() {
 		return mySF.getEType();
+	}
+
+	/**
+	 * Sets whether the list is automatically extended as needed.
+	 * 
+	 * @param expendList <code>true</code> if the list should be extended automatically
+	 */
+	public void setExpendList(boolean myExpendList) {
+		this.myExpendList = myExpendList;
+	}
+
+	/**
+	 * Returns whether the list is automatically extended as needed.
+	 * 
+	 * @return <code>true</code> if the list is automatically extended
+	 */
+	public boolean isExpendList() {
+		return myExpendList;
 	}
 }
