@@ -116,7 +116,7 @@ public class ControlCellEditor extends CellEditor {
 	@Override
 	protected Control createControl(Composite parent) {
 		/*
-		 * Call twice!
+		 * Called twice!
 		 * 
 		 * First time indirectly from the super constructor and thus myCell is not set.
 		 */

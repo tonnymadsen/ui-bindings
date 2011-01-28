@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017, 2011 The RCP Company and others.
+ * Copyright (c) 2007, 2010 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -274,7 +274,8 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 					break;
 				}
 			}
-			final IGridBindingCellInformation cell = getFocusCell();
+			final IGridBindingCellInformation cell = getCell(new Point(event.x, event.y));
+			// LogUtils.debug(this, "cell=" + cell);
 			if (cell != null) {
 				cell.handleEvent(event);
 			}
@@ -676,6 +677,9 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 				newFocusCell = getCell(0, 0);
 			}
 		}
+		if (newFocusCell == null) return;
+		if (newFocusCell.getColumn().getGridColumn() == null || newFocusCell.getRow().getGridItem() == null) return;
+
 		setFocusCellGen(newFocusCell);
 		if (newFocusCell != null) {
 			getGrid().setFocusColumn(newFocusCell.getColumn().getGridColumn());
@@ -1186,7 +1190,8 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 
 		IGridBindingCellInformation currentCell;
 		/*
-		 * If a specific position is specified in the event (x,y) then use this to focus.
+		 * If a specific position is specified in the event (x,y) then use this to focus - will only
+		 * succeed if the cell is inside the grid (not a header).
 		 */
 		final Event event = context.getEvent();
 		if ((event.x != 0 || event.y != 0) && event.widget == getControl()) {
@@ -1219,10 +1224,59 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 
 	@Override
 	public void setFocusCell(Point point) {
-		final Point cellCoordinates = getGrid().getCell(point);
-		if (cellCoordinates != null) {
-			setFocusCell(getCell(cellCoordinates.x, cellCoordinates.y));
+		final IGridBindingCellInformation cell = getCell(point);
+		if (cell != null) {
+			setFocusCell(cell);
 		}
+	}
+
+	@Override
+	public IGridBindingCellInformation getCell(Point point) {
+		final GridColumn gColumn = getGrid().getColumn(point);
+		IGridBindingColumnInformation ci = null;
+		if (gColumn != null) {
+			for (final IGridBindingColumnInformation c : getColumns().values()) {
+				if (c.getGridColumn() == gColumn) {
+					ci = c;
+					break;
+				}
+			}
+		}
+		if (ci == null) {
+			for (final IGridBindingColumnInformation c : getColumns().values()) {
+				if (c.getId() == IGridModel.HEADER1) {
+					ci = c;
+					break;
+				}
+			}
+		}
+		if (ci == null) return null;
+
+		final GridItem gItem = getGrid().getItem(point);
+		IGridBindingRowInformation ri = null;
+		if (gItem != null) {
+			for (final IGridBindingRowInformation r : getRows().values()) {
+				if (r.getGridItem() == gItem) {
+					ri = r;
+					break;
+				}
+			}
+		}
+		if (ri == null) {
+			for (final IGridBindingRowInformation r : getRows().values()) {
+				if (r.getId() == IGridModel.HEADER1) {
+					ri = r;
+					break;
+				}
+			}
+		}
+		if (ri == null) return null;
+
+		for (final IGridBindingCellInformation cell : ci.getRowCells()) {
+			if (cell.getRow() == ri) return cell;
+		}
+		LogUtils.throwException(this, "Cell not found - inconsistency", getCreationPoint());
+		return null;
 	}
 
 	@Override
@@ -1233,6 +1287,7 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 		for (final IGridBindingColumnInformation c : getColumns().values()) {
 			if (c.getId() == columnID) {
 				ci = c;
+				break;
 			}
 		}
 		if (ci == null) return null;
@@ -1240,6 +1295,7 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 		for (final IGridBindingRowInformation r : getRows().values()) {
 			if (r.getId() == rowID) {
 				ri = r;
+				break;
 			}
 		}
 		if (ri == null) return null;

@@ -44,6 +44,7 @@ import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Dialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.TabFolder;
@@ -263,10 +264,12 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			if (context.isCellEditor()) {
 				className = context.getBinding().getArgument(Constants.ARG_PREFERRED_CELL_EDITOR, String.class, null);
 			}
-			if (className == null || className.equals(Control.class.getName())) {
+			if (className == null || className.equals(Control.class.getName())
+					|| className.equals(Dialog.class.getName())) {
 				className = context.getBinding().getArgument(Constants.ARG_PREFERRED_CONTROL, String.class, null);
 			}
-			if (className == null || className.equals(Control.class.getName())) {
+			if (className == null || className.equals(Control.class.getName())
+					|| className.equals(Dialog.class.getName())) {
 				className = Text.class.getName();
 			}
 			Class<?> controlClass = null;

@@ -27,6 +27,7 @@ import org.eclipse.ui.forms.widgets.ScrolledForm;
 
 import com.rcpcompany.uibindings.BindingMessageSeverity;
 import com.rcpcompany.uibindings.BindingState;
+import com.rcpcompany.uibindings.ContainerCellType;
 import com.rcpcompany.uibindings.DecorationPosition;
 import com.rcpcompany.uibindings.IArgumentInformation;
 import com.rcpcompany.uibindings.IBindingContext;
@@ -185,6 +186,8 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 			return createSpecialBindingFromString(eDataType, initialValue);
 		case IUIBindingsPackage.BINDING_MESSAGE_SEVERITY:
 			return createBindingMessageSeverityFromString(eDataType, initialValue);
+		case IUIBindingsPackage.CONTAINER_CELL_TYPE:
+			return createContainerCellTypeFromString(eDataType, initialValue);
 		case IUIBindingsPackage.FORM_TOOLKIT:
 			return createFormToolkitFromString(eDataType, initialValue);
 		case IUIBindingsPackage.FORM_CREATOR:
@@ -212,6 +215,8 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 			return convertSpecialBindingToString(eDataType, instanceValue);
 		case IUIBindingsPackage.BINDING_MESSAGE_SEVERITY:
 			return convertBindingMessageSeverityToString(eDataType, instanceValue);
+		case IUIBindingsPackage.CONTAINER_CELL_TYPE:
+			return convertContainerCellTypeToString(eDataType, instanceValue);
 		case IUIBindingsPackage.FORM_TOOLKIT:
 			return convertFormToolkitToString(eDataType, instanceValue);
 		case IUIBindingsPackage.FORM_CREATOR:
@@ -709,6 +714,28 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * @generated
 	 */
 	public String convertBindingMessageSeverityToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public ContainerCellType createContainerCellTypeFromString(EDataType eDataType, String initialValue) {
+		final ContainerCellType result = ContainerCellType.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String convertContainerCellTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

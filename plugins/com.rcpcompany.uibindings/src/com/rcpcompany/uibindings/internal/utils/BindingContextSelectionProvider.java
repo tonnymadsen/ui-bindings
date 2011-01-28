@@ -36,6 +36,7 @@ import org.eclipse.ui.IWorkbenchPartSite;
 
 import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingContext;
+import com.rcpcompany.uibindings.IContainerBinding;
 import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
@@ -127,6 +128,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 
 	@Override
 	public void addControl(Control control, ISelectionProvider provider) {
+		if (control.getShell() != myMenuManager.getMenu().getShell()) return;
 		myProviders.put(control, provider);
 		control.setMenu(myMenuManager.getMenu());
 		checkFocus();
@@ -134,6 +136,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 
 	@Override
 	public void removeControl(Control control) {
+		if (control.getShell() != myMenuManager.getMenu().getShell()) return;
 		myProviders.remove(control);
 		if (!control.isDisposed()) {
 			control.setMenu(null);
@@ -274,6 +277,16 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 			if (filtering != null) {
 				addControl(filtering.getText(), vb.getViewer()); // TODO SWTB
 			}
+			return;
+		} else if (binding instanceof IContainerBinding) {
+			final IContainerBinding vb = (IContainerBinding) binding;
+			final Control control = vb.getControl();
+			if (control == null) return;
+			// final IObservableValue ov = vb.getse;
+			// if (ov != null) {
+			// addControl(control, ov);
+			// return;
+			// }
 			return;
 		}
 	}

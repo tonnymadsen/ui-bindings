@@ -3374,6 +3374,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 */
 	private IDisposeListener myMonitorObservableDisposeListener = null;
 
+	/*
+	 * TODO: Too important.. Needs a test..
+	 */
 	@Override
 	public void startMonitorObservableDispose(IObservable obj) {
 		if (!Activator.getDefault().ASSERTS_PREMATURE_DISPOSE || obj == null) return;

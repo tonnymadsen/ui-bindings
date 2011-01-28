@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017, 2011 The RCP Company and others.
+ * Copyright (c) 2007, 2010 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -57,6 +57,7 @@ import com.rcpcompany.uibindings.grid.IGridPackage;
 import com.rcpcompany.uibindings.uiAttributes.UIAttributePainter;
 import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
 import com.rcpcompany.uibindings.utils.IManagerRunnable;
+import com.rcpcompany.utils.basic.ToStringUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -893,21 +894,11 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		final StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (objectValue: ");
-		result.append(objectValue);
-		result.append(", enabled: ");
-		result.append(enabled);
-		result.append(", painter: ");
-		result.append(painter);
-		result.append(')');
-		return result.toString();
+		return "Cell(" + getColumn() + ";" + getRow() + "): " + getLabelBinding();
 	}
 
 	@Override
@@ -1120,7 +1111,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 
 	@Override
 	public void handleEvent(Event event) {
-		// LogUtils.debug(this, "event=" + ToStringUtils.toString(event));
+		LogUtils.debug(this, "event=" + ToStringUtils.toString(event));
 
 		if (!isChangeable()) return;
 

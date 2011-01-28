@@ -15,6 +15,7 @@ import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Dialog;
 import org.eclipse.swt.widgets.Text;
 
 import com.rcpcompany.uibindings.Constants;
@@ -146,6 +147,11 @@ public interface InternalConstants {
 	String CELL_EDITOR_TYPE_CONTROL = Control.class.getName();
 
 	/**
+	 * Cell Editor Type: Control based on a dialog with a {@link Constants#ARG_PREFERRED_CONTROL}.
+	 */
+	String CELL_EDITOR_TYPE_DIALOG = Dialog.class.getName();
+
+	/**
 	 * The resource name for the image in {@link FileNameControl} to designate the open dialog
 	 * button.
 	 */
@@ -160,4 +166,5 @@ public interface InternalConstants {
 	 * ID of the ID parameter of the new command.
 	 */
 	String ID_PARAMETER = "id";
+
 }

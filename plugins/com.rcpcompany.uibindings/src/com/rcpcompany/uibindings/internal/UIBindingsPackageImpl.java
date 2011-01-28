@@ -62,6 +62,7 @@ import com.ibm.icu.text.NumberFormat;
 import com.rcpcompany.uibindings.BindingMessageSeverity;
 import com.rcpcompany.uibindings.BindingState;
 import com.rcpcompany.uibindings.Constants;
+import com.rcpcompany.uibindings.ContainerCellType;
 import com.rcpcompany.uibindings.DecorationPosition;
 import com.rcpcompany.uibindings.IArgumentInformation;
 import com.rcpcompany.uibindings.IArgumentProvider;
@@ -545,6 +546,13 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	private EEnum bindingMessageSeverityEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EEnum containerCellTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -3929,6 +3937,16 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
+	public EEnum getContainerCellType() {
+		return containerCellTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EDataType getIBindingContextFinalizer() {
 		return iBindingContextFinalizerEDataType;
 	}
@@ -4739,6 +4757,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		textCommitStrategyEEnum = createEEnum(TEXT_COMMIT_STRATEGY);
 		specialBindingEEnum = createEEnum(SPECIAL_BINDING);
 		bindingMessageSeverityEEnum = createEEnum(BINDING_MESSAGE_SEVERITY);
+		containerCellTypeEEnum = createEEnum(CONTAINER_CELL_TYPE);
 
 		// Create data types
 		iBindingContextFinalizerEDataType = createEDataType(IBINDING_CONTEXT_FINALIZER);
@@ -6105,6 +6124,17 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		addEEnumLiteral(bindingMessageSeverityEEnum, BindingMessageSeverity.INFORMATION);
 		addEEnumLiteral(bindingMessageSeverityEEnum, BindingMessageSeverity.WARNING);
 		addEEnumLiteral(bindingMessageSeverityEEnum, BindingMessageSeverity.ERROR);
+
+		initEEnum(containerCellTypeEEnum, ContainerCellType.class, "ContainerCellType"); //$NON-NLS-1$
+		addEEnumLiteral(containerCellTypeEEnum, ContainerCellType.TOP_LEFT);
+		addEEnumLiteral(containerCellTypeEEnum, ContainerCellType.TOP_RIGHT);
+		addEEnumLiteral(containerCellTypeEEnum, ContainerCellType.COLUMN_HEADER);
+		addEEnumLiteral(containerCellTypeEEnum, ContainerCellType.ROW_HEADER);
+		addEEnumLiteral(containerCellTypeEEnum, ContainerCellType.DATA);
+		addEEnumLiteral(containerCellTypeEEnum, ContainerCellType.BOTTOM_LEFT);
+		addEEnumLiteral(containerCellTypeEEnum, ContainerCellType.BOTTOM_RIGHT);
+		addEEnumLiteral(containerCellTypeEEnum, ContainerCellType.COLUMN_TRAILER);
+		addEEnumLiteral(containerCellTypeEEnum, ContainerCellType.ROW_TRAILER);
 
 		// Initialize data types
 		initEDataType(iBindingContextFinalizerEDataType, IBindingContextFinalizer.class,

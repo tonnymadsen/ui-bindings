@@ -14,6 +14,7 @@ import java.util.Map;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.jface.viewers.ISelectionProvider;
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Event;
 
 import com.rcpcompany.uibindings.internal.sourceProviders.BindingSourceProvider;
@@ -57,6 +58,13 @@ public interface ISourceProviderStateContext {
 	 * @return the event or <code>null</code>
 	 */
 	Event getEvent();
+
+	/**
+	 * Returns the coordinates for the event local to the current control.
+	 * 
+	 * @return the coordinates
+	 */
+	Point getLocation();
 
 	/**
 	 * Adds a new {@link IObservableValue} which value must be observed. If the observed value

@@ -737,7 +737,7 @@ The default is &lt;code&gt;false&lt;/code&gt; .
          <attribute name="preferredCellEditor">
             <annotation>
                <documentation>
-                  the preferred Control for cell editing for the binding.
+                  the preferred type of Control for cell editing for the binding.
                </documentation>
             </annotation>
             <simpleType>
@@ -753,6 +753,8 @@ The default is &lt;code&gt;false&lt;/code&gt; .
                   <enumeration value="org.eclipse.swt.custom.StyledText">
                   </enumeration>
                   <enumeration value="org.eclipse.swt.widgets.Control">
+                  </enumeration>
+                  <enumeration value="org.eclipse.swt.widgets.Dialog">
                   </enumeration>
                </restriction>
             </simpleType>

@@ -1511,6 +1511,10 @@
                priorityLevel="activeSite">
          </variable>
          <variable
+               name="com.rcpcompany.uibindings.sourceProviders.activeContainerCellType"
+               priorityLevel="activeSite">
+         </variable>
+         <variable
                name="com.rcpcompany.uibindings.sourceProviders.activeContainerBinding#noComparatorOrFilter"
                priorityLevel="activeSite">
          </variable>

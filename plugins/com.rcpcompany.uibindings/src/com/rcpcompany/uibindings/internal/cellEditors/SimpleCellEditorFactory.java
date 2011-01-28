@@ -113,6 +113,8 @@ public class SimpleCellEditorFactory implements ICellEditorFactory {
 		final Composite parent = factoryContext.getParent();
 		if (InternalConstants.CELL_EDITOR_TYPE_STYLED_TEXT.equals(preferredCellEditor)) {
 			ce = new MyStyledTextCellEditor(parent, context);
+		} else if (InternalConstants.CELL_EDITOR_TYPE_DIALOG.equals(preferredCellEditor)) {
+			ce = new DialogControlCellEditor(parent, cell);
 		} else {
 			ce = new ControlCellEditor(parent, cell);
 		}
@@ -140,6 +142,8 @@ public class SimpleCellEditorFactory implements ICellEditorFactory {
 
 		if (ce instanceof ControlCellEditor) {
 			((ControlCellEditor) ce).setEditorBinding(editorBinding);
+		} else if (ce instanceof DialogControlCellEditor) {
+			((DialogControlCellEditor) ce).setEditorBinding(editorBinding);
 		}
 
 		/*

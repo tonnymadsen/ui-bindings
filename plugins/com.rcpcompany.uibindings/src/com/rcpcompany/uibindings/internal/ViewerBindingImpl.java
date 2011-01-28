@@ -68,6 +68,7 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
 import org.eclipse.swt.widgets.TreeItem;
@@ -75,6 +76,7 @@ import org.eclipse.swt.widgets.Widget;
 
 import com.rcpcompany.uibindings.BindingState;
 import com.rcpcompany.uibindings.Constants;
+import com.rcpcompany.uibindings.ContainerCellType;
 import com.rcpcompany.uibindings.EcoreExtUtils;
 import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingDataType;
@@ -1252,6 +1254,10 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 
 		context.putSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_TYPE, getModelType());
 
+		EObject element = null;
+		int columnIndex = -1;
+		ContainerCellType type = null;
+
 		ViewerCell cell;
 		/*
 		 * If no specific position is specified in the event (x,y) = (0,0), then try using the
@@ -1261,43 +1267,87 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		 * extra widgets are mapped to this binding with IBinding.registerWidget()
 		 */
 		final Event event = context.getEvent();
+		final Point point = context.getLocation();
+		LogUtils.debug(context, "p=" + point);
 		if (event.x == 0 && event.y == 0 || event.widget != getControl()) {
 			cell = viewer.getColumnViewerEditor().getFocusCell();
 		} else {
-			cell = viewer.getCell(new Point(event.x, event.y));
+			cell = viewer.getCell(point);
 		}
 		if (cell != null) {
-			final EObject element = (EObject) cell.getElement();
-			if (element != null) {
-				context.putSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT, element);
-				context.putSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_UP,
-						UIHandlerUtils.moveElement(this, element, -1, true));
-				context.putSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_DOWN,
-						UIHandlerUtils.moveElement(this, element, 1, true));
-			}
-
-			final int i = cell.getColumnIndex();
-			if (i >= getFirstTableColumnOffset() && element != null) {
-				final IColumnBindingCellInformation ci = getCell(i - getFirstTableColumnOffset(), element);
-				final IObservableValue objectValue = ci.getObjectValue();
-				final Object value = objectValue.getValue();
-
-				final IValueBinding labelBinding = ci.getLabelBinding();
-				context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING, labelBinding);
-				context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_RO, !ci.isChangeable());
-				context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_VALUE, value);
-				context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_TYPE, ""); //$NON-NLS-1$
-				if (labelBinding != null) {
-					context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_MODEL_OBJECT, labelBinding.getModelObject());
-					context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_FEATURE, labelBinding.getModelFeature());
-					context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_UNSETTABLE, labelBinding.getDataType()
-							.isUnsettable());
+			element = (EObject) cell.getElement();
+			columnIndex = cell.getColumnIndex();
+			type = ContainerCellType.DATA;
+		} else {
+			final Control c = viewer.getControl();
+			if (c instanceof Table) {
+				final Table t = (Table) c;
+				final TableItem item = t.getItem(point);
+				if (item != null) {
+					element = (EObject) item.getData();
+					type = ContainerCellType.ROW_TRAILER;
+				} else {
+					/*
+					 * Below or above the table?
+					 */
+					if (point.y < 0) {
+						type = ContainerCellType.COLUMN_HEADER;
+					} else {
+						type = ContainerCellType.COLUMN_TRAILER;
+					}
 				}
-				context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_VALUE_DISPLAY, ci.getDisplayText());
-
-				context.addObservedValue(ci.getLabelUIAttribute().getCurrentValue());
 			}
-			context.setSelectionProvider(getViewer());
+			if (c instanceof Tree) {
+				final Tree t = (Tree) c;
+				final TreeItem item = t.getItem(point);
+				if (item != null) {
+					element = (EObject) item.getData();
+					type = ContainerCellType.ROW_TRAILER;
+				} else {
+					/*
+					 * Below or above the tree?
+					 */
+					if (point.y < 0) {
+						type = ContainerCellType.COLUMN_HEADER;
+					} else {
+						type = ContainerCellType.COLUMN_TRAILER;
+					}
+				}
+			}
 		}
+
+		if (type != null) {
+			context.putSourceValue(Constants.SOURCES_ACTIVE_CONTAINER_CELL_TYPE, type.toString());
+		}
+		if (element != null) {
+			context.putSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT, element);
+			context.putSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_UP,
+					UIHandlerUtils.moveElement(this, element, -1, true));
+			context.putSourceValue(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_DOWN,
+					UIHandlerUtils.moveElement(this, element, 1, true));
+		}
+
+		if (columnIndex >= getFirstTableColumnOffset() && element != null) {
+			final IColumnBindingCellInformation ci = getCell(columnIndex - getFirstTableColumnOffset(), element);
+			final IObservableValue objectValue = ci.getObjectValue();
+			final Object value = objectValue.getValue();
+
+			final IValueBinding labelBinding = ci.getLabelBinding();
+			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING, labelBinding);
+			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_RO, !ci.isChangeable());
+			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_VALUE, value);
+			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_TYPE, ""); //$NON-NLS-1$
+			if (labelBinding != null) {
+				context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_MODEL_OBJECT, labelBinding.getModelObject());
+				context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_FEATURE, labelBinding.getModelFeature());
+				context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_UNSETTABLE, labelBinding.getDataType()
+						.isUnsettable());
+			}
+			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_VALUE_DISPLAY, ci.getDisplayText());
+
+			context.addObservedValue(ci.getLabelUIAttribute().getCurrentValue());
+		}
+
+		context.setSelectionProvider(getViewer());
 	}
 } // ViewerBindingImpl

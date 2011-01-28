@@ -24,6 +24,8 @@ import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
@@ -104,6 +106,7 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 		Display.getCurrent().addFilter(SWT.FocusIn, myDisplayFilter);
 		Display.getCurrent().addFilter(SWT.MouseDown, myDisplayFilter);
 		Display.getCurrent().addFilter(SWT.KeyUp, myDisplayFilter);
+		Display.getCurrent().addFilter(SWT.MenuDetect, myDisplayFilter);
 
 		resetMap(myCurrentState);
 	}
@@ -113,6 +116,7 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 		Display.getCurrent().removeFilter(SWT.FocusIn, myDisplayFilter);
 		Display.getCurrent().removeFilter(SWT.MouseDown, myDisplayFilter);
 		Display.getCurrent().removeFilter(SWT.KeyUp, myDisplayFilter);
+		Display.getCurrent().removeFilter(SWT.MenuDetect, myDisplayFilter);
 	}
 
 	/**
@@ -380,6 +384,9 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 		final Map<String, Object> map = new HashMap<String, Object>();
 		final List<IObservableValue> values = new ArrayList<IObservableValue>();
 		resetMap(map);
+		if (event.type == SWT.MenuDetect) {
+			LogUtils.debug(event, "MenuDetect");
+		}
 		try {
 			final IBinding b = IBindingContext.Factory.getBindingForWidget(event.widget);
 			if (b == null) return map;
@@ -390,6 +397,26 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 				@Override
 				public Event getEvent() {
 					return event;
+				}
+
+				private Point myLocation = null;
+
+				@Override
+				public Point getLocation() {
+					if (myLocation == null) {
+						myLocation = new Point(event.x, event.y);
+						switch (event.type) {
+						case SWT.MenuDetect:
+							/*
+							 * The location is relative to the display
+							 */
+							myLocation = event.widget.getDisplay().map(null, (Control) event.widget, myLocation);
+							break;
+						default:
+							break;
+						}
+					}
+					return myLocation;
 				}
 
 				@Override
@@ -463,6 +490,7 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 		map.put(Constants.SOURCES_ACTIVE_CONTEXT, IEvaluationContext.UNDEFINED_VARIABLE);
 
 		map.put(Constants.SOURCES_ACTIVE_CONTAINER_BINDING, IEvaluationContext.UNDEFINED_VARIABLE);
+		map.put(Constants.SOURCES_ACTIVE_CONTAINER_CELL_TYPE, IEvaluationContext.UNDEFINED_VARIABLE);
 		map.put(Constants.SOURCES_ACTIVE_CONTAINER_BINDING_NO_CAF, false);
 
 		map.put(Constants.SOURCES_ACTIVE_VIEWER_ELEMENT, IEvaluationContext.UNDEFINED_VARIABLE);

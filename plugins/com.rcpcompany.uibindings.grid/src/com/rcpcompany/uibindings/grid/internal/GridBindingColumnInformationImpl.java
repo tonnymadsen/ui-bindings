@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017, 2011 The RCP Company and others.
+ * Copyright (c) 2007, 2010 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -425,6 +425,7 @@ public class GridBindingColumnInformationImpl extends EObjectImpl implements IGr
 			gridColumn.setCheckable(true);
 			gridColumn.setMoveable(true);
 			gridColumn.setResizeable(true);
+			// gridColumn.setWidth(100);
 			// TODO gridColumn.setVisible(false);
 			gridColumn.setCellRenderer(new UIPainterCellRenderer(this));
 		}

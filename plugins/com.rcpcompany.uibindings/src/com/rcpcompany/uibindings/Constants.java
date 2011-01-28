@@ -607,6 +607,13 @@ public interface Constants {
 	String SOURCES_ACTIVE_CONTAINER_BINDING_NO_CAF = SOURCES_ACTIVE_CONTAINER_BINDING + "#noComparatorOrFilter"; //$NON-NLS-1$
 
 	/**
+	 * Source provider name for the type of the current cell of the active container binding if any.
+	 * <p>
+	 * The value is one of {@link ContainerCellType}.
+	 */
+	String SOURCES_ACTIVE_CONTAINER_CELL_TYPE = SOURCES + "activeContainerCellType"; //$NON-NLS-1$
+
+	/**
 	 * Source provider name for the active row element in the table or <code>null</code>.
 	 */
 	String SOURCES_ACTIVE_VIEWER_ELEMENT = SOURCES + "activeViewerElement"; //$NON-NLS-1$

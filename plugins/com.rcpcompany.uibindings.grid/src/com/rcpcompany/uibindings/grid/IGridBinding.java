@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017, 2011 The RCP Company and others.
+ * Copyright (c) 2007, 2010 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -271,7 +271,7 @@ public interface IGridBinding extends IContainerBinding, IArgumentProvider {
 	IGridBinding model(IGridModel model);
 
 	/**
-	 * Returns the cell at the specified coordinates.
+	 * Returns the cell at the specified grid coordinates.
 	 * 
 	 * @param column the column number
 	 * @param row the row number
@@ -287,4 +287,12 @@ public interface IGridBinding extends IContainerBinding, IArgumentProvider {
 	 * @return the cell or <code>null</code> if no cell is found
 	 */
 	IGridBindingCellInformation getCell(Object columnID, Object rowID);
+
+	/**
+	 * Returns the cell at the specified window point relative to the {@link Grid} control.
+	 * 
+	 * @param point the point
+	 * @return the cell or <code>null</code> if no cell is found
+	 */
+	IGridBindingCellInformation getCell(Point point);
 } // IGridBinding

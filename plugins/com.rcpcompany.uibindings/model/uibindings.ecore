@@ -257,6 +257,7 @@
         <details key="suppressedSetVisibility" value="true"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tonny" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColumnBindingCellInformation" eSuperTypes="#//IDisposable #//ValueBindingCell">
     <eStructuralFeatures xsi:type="ecore:EReference" name="column" lowerBound="1"
@@ -597,6 +598,17 @@
     <eLiterals name="Information" value="1" literal="INFORMATION"/>
     <eLiterals name="Warning" value="2" literal="WARNING"/>
     <eLiterals name="Error" value="3" literal="ERROR"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ContainerCellType">
+    <eLiterals name="TOP_LEFT" literal="TOP_LEFT"/>
+    <eLiterals name="TOP_RIGHT" value="1" literal="TOP_RIGHT"/>
+    <eLiterals name="COLUMN_HEADER" value="2" literal="COLUMN_HEADER"/>
+    <eLiterals name="ROW_HEADER" value="3" literal="ROW_HEADER"/>
+    <eLiterals name="DATA" value="4" literal="DATA"/>
+    <eLiterals name="BOTTOM_LEFT" value="5" literal="BOTTOM_LEFT"/>
+    <eLiterals name="BOTTOM_RIGHT" value="6" literal="BOTTOM_RIGHT"/>
+    <eLiterals name="COLUMN_TRAILER" value="7" literal="COLUMN_TRAILER"/>
+    <eLiterals name="ROW_TRAILER" value="8" literal="ROW_TRAILER"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringToModelClassInfoMapEntry" instanceClassName="java.util.Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
