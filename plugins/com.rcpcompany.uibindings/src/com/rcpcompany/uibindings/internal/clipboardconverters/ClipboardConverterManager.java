@@ -42,6 +42,7 @@ public class ClipboardConverterManager implements IClipboardConverterManager {
 
 	new CSVConverter("Comma Separated Values", ","), new CSVConverter("Tab Separated Values", "\t"),
 			new CSVConverter("Semicolon Separated Values", ";"), new CSVConverter("Space Separated Values", " "),
+			new DelimiterConverter("Space Separated Values", " \t"),
 
 			new HTMLTableConverter(), new WordTableConverter(), new PDFTableConverter(),
 
