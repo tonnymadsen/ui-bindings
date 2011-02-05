@@ -482,6 +482,7 @@ public class FormCreator implements IFormCreator {
 		fc.setLayout(layout);
 
 		fc.setData(FIELDS_COMPOSITE_MARKER);
+		myToolkit.paintBordersFor(fc);
 
 		return fc;
 	}
@@ -1205,8 +1206,15 @@ public class FormCreator implements IFormCreator {
 			myObjectMessageObjects = new HashSet<IObservableValue>();
 		}
 		if (myObjectMessageObjects.contains(value)) return;
-		myContext.addBinding().model(value).ui(new VirtualUIAttribute(String.class))
+		final IValueBinding binding = myContext.addBinding().model(value).ui(new VirtualUIAttribute(String.class))
 				.arg(Constants.ARG_VALUE_OBJECT_MESSAGES, true);
+		// value.addDisposeListener(new IDisposeListener() {
+		// @Override
+		// public void handleDispose(DisposeEvent event) {
+		// value.removeDisposeListener(this);
+		// binding.dispose();
+		// }
+		// });
 		myObjectMessageObjects.add(value);
 	}
 
