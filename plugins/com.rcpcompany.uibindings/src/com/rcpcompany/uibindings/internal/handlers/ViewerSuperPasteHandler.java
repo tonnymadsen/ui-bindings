@@ -35,8 +35,8 @@ import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IValueBindingCell;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.internal.Activator;
+import com.rcpcompany.uibindings.model.utils.ICommandStackWithCollect;
 import com.rcpcompany.uibindings.uiAttributes.SimpleUIAttribute;
-import com.rcpcompany.uibindings.utils.ExtendedCommandStack;
 import com.rcpcompany.uibindings.utils.IBindingHighlightContext;
 import com.rcpcompany.uibindings.utils.IBindingHighlightContext.STAGE;
 import com.rcpcompany.uibindings.utils.IClipboardConverterManager;
@@ -97,8 +97,8 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 		final Map<IValueBinding, String> assignmentMap = new HashMap<IValueBinding, String>();
 		final CommandStack commandStack = IManager.Factory.getManager().getEditingDomain().getCommandStack();
 		try {
-			if (commandStack instanceof ExtendedCommandStack) {
-				((ExtendedCommandStack) commandStack).setCollectCommandMode(true);
+			if (commandStack instanceof ICommandStackWithCollect) {
+				((ICommandStackWithCollect) commandStack).setCollectCommandMode(true);
 			}
 			for (int r = 0; r < rows; r++) {
 				/*
@@ -179,8 +179,8 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 			}
 			successHighlightContext.activate();
 		} finally {
-			if (commandStack instanceof ExtendedCommandStack) {
-				((ExtendedCommandStack) commandStack).setCollectCommandMode(false);
+			if (commandStack instanceof ICommandStackWithCollect) {
+				((ICommandStackWithCollect) commandStack).setCollectCommandMode(false);
 			}
 			/*
 			 * If we did not succeed, the dispose the highlight context...

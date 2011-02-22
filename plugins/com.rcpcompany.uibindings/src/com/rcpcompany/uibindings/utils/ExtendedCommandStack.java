@@ -19,13 +19,16 @@ import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.command.IdentityCommand;
 
+import com.rcpcompany.uibindings.model.utils.ICommandStackWithCollect;
+import com.rcpcompany.utils.logging.LogUtils;
+
 /**
  * Extended command stack that supports a number of extra methods plus the ability to collect a
  * number of commands in a new compound command that will be at the top of the stack
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class ExtendedCommandStack extends BasicCommandStack implements CommandStack {
+public class ExtendedCommandStack extends BasicCommandStack implements CommandStack, ICommandStackWithCollect {
 	/**
 	 * Whether commands are collected.
 	 * 
@@ -49,12 +52,10 @@ public class ExtendedCommandStack extends BasicCommandStack implements CommandSt
 		return Collections.unmodifiableList(commandList);
 	}
 
-	/**
-	 * Sets whether the executed commands should be collected in a single {@link CompoundCommand
-	 * compound command} that can be collectively undone and redone.
-	 * 
-	 * @param collect <code>true</code> if collecting commands
+	/* (non-Javadoc)
+	 * @see com.rcpcompany.uibindings.utils.ICommandStackWithCollect#setCollectCommandMode(boolean)
 	 */
+	@Override
 	public void setCollectCommandMode(boolean collect) {
 		myCollectCommandMode = collect;
 
@@ -88,5 +89,10 @@ public class ExtendedCommandStack extends BasicCommandStack implements CommandSt
 	public void redo() {
 		setCollectCommandMode(false);
 		super.redo();
+	}
+
+	@Override
+	protected void handleError(Exception exception) {
+		LogUtils.error(this, exception);
 	}
 }
