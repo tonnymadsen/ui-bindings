@@ -436,6 +436,8 @@ public class BindingSourceProviderTest {
 		assertSource(Constants.SOURCES_ACTIVE_BINDING_VALUE_DISPLAY, myCountry2.getName());
 	}
 
+	// TODO: ALL relevant ContainerCellTypes
+
 	public void assertSource(String name, Object value) {
 		final Map<String, Object> currentState = myProvider.getCurrentState();
 
