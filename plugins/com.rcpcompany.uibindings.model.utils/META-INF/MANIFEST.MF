@@ -7,6 +7,7 @@ Bundle-Vendor: The RCP Compabny
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: com.rcpcompany.utils.logging,
  org.eclipse.core.databinding.observable.list,
+ org.eclipse.emf.common.command,
  org.eclipse.emf.common.util,
  org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.util

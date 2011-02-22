@@ -10,6 +10,7 @@ Require-Bundle: org.eclipse.ui,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Import-Package: com.rcpcompany.uibindings,
+ com.rcpcompany.uibindings.model.utils,
  com.rcpcompany.uibindings.scripting,
  com.rcpcompany.uibindings.utils,
  com.rcpcompany.utils.basic,
