@@ -23,6 +23,7 @@ import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.graphics.TextLayout;
 import org.eclipse.swt.widgets.Button;
@@ -430,7 +431,17 @@ public class UIAttributePainter {
 		final String osname = System.getProperty("os.name"); //$NON-NLS-1$
 		final String osversion = System.getProperty("os.version"); //$NON-NLS-1$
 
-		final String imageName = "images/checkbox/" + osname + "-" + osversion + "-" + type + ".png";
+		String imageName = "images/checkbox/" + osname + "-" + osversion;
+
+		/*
+		 * Check for classic theme
+		 */
+		final RGB widgetBackgroundColor = control.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND).getRGB();
+		if (widgetBackgroundColor.red == 212 && widgetBackgroundColor.green == 208 && widgetBackgroundColor.blue == 200) {
+			imageName += "-classic";
+		}
+
+		imageName += "-" + type + ".png";
 		final ImageDescriptor id = AbstractUIPlugin.imageDescriptorFromPlugin(Activator.ID, imageName);
 		if (id != null) {
 			final Image i = id.createImage();
@@ -506,7 +517,7 @@ public class UIAttributePainter {
 		// final ImageLoader imageLoader = new ImageLoader();
 		// imageLoader.data = new ImageData[] { imageData };
 		//
-		// imageLoader.save("c:\\Windows\\Temp\\checkbox-" + type + ".png", SWT.IMAGE_PNG);
+		// imageLoader.save("/tmp/" + imageName, SWT.IMAGE_PNG);
 
 		return img;
 	}
