@@ -16,6 +16,10 @@ import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.ui.IWorkbenchCommandConstants;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
@@ -85,6 +89,7 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 
 		INavigatorManager.Factory.getManager().setUseGenericEditorPartFallback(false);
 
+		// TODO create a shortcut method
 		theShop.eAdapters().add(new AdapterImpl() {
 			@Override
 			public void notifyChanged(Notification msg) {
@@ -96,7 +101,18 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 			}
 		});
 		updateScriptingVariables();
+
+		for (int i = SWT.None; i < SWT.ImeComposition; i++) {
+			Display.getCurrent().addFilter(i, SWT_EVENT_LISTENER);
+		}
 	}
+
+	public final static Listener SWT_EVENT_LISTENER = new Listener() {
+		@Override
+		public void handleEvent(Event event) {
+			// LogUtils.debug(this, ToStringUtils.toString(event));
+		}
+	};
 
 	protected void updateScriptingVariables() {
 		myGlobalScriptingContext.getVariables().put("shop", theShop);
