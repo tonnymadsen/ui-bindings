@@ -233,7 +233,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 					/*
 					 * Any constant string is used first of all...
 					 * 
-					 * TODO: Problem: if text is specified, icon and co is ignored!
+					 * TODO: Problem: if text is specified, icon and other arguments are ignored!
 					 */
 					final String constantText = dummyBinding.getArgument(ARG_TEXT, String.class, null);
 					if (constantText != null)
