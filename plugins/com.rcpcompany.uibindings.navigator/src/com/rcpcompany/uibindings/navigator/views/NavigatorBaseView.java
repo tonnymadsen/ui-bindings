@@ -20,14 +20,17 @@ import org.eclipse.jface.action.ContributionItem;
 import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.resource.ImageRegistry;
+import org.eclipse.jface.util.Util;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Layout;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.swt.widgets.Tree;
@@ -174,6 +177,7 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 		myTree.setHeaderVisible(false);
 		final TreeColumn column = new TreeColumn(myTree, SWT.LEAD);
 		column.setWidth(300);
+		myTree.setLayout(new OneColumnTreeLayout());
 
 		IObservableList list = null;
 		try {
@@ -194,6 +198,7 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 
 		addToolbarItems();
 		listenToSelection();
+
 	}
 
 	@Override
@@ -271,7 +276,7 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 
 		/*
 		 * The advisor can come from either the advisor attribute of the view element or from the
-		 * editors extension point...
+		 * editors extension point based on the viewer id...
 		 */
 		if (ce.getAttribute(NavigatorConstants.ADVISOR_TAG) != null) {
 			try {
@@ -419,5 +424,52 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 	 */
 	public class TreePatternFilter extends PatternFilter {
 
+	}
+
+	/**
+	 * Simple layout that will keep the sole column the full width of the tree...
+	 */
+	public static class OneColumnTreeLayout extends Layout {
+
+		/**
+		 * The number of extra pixels taken as horizontal trim by the table column. To ensure there
+		 * are N pixels available for the content of the column, assign N+COLUMN_TRIM for the column
+		 * width.
+		 * 
+		 * @since 3.1
+		 */
+		private static int COLUMN_TRIM;
+
+		static {
+			if (Util.isWindows()) {
+				COLUMN_TRIM = 4;
+			} else if (Util.isMac()) {
+				COLUMN_TRIM = 24;
+			} else {
+				COLUMN_TRIM = 3;
+			}
+		}
+
+		@Override
+		public Point computeSize(Composite c, int wHint, int hHint, boolean flush) {
+			if (wHint != SWT.DEFAULT && hHint != SWT.DEFAULT) return new Point(wHint, hHint);
+
+			final Tree tree = (Tree) c;
+			// To avoid recursions.
+			tree.setLayout(null);
+			// Use native layout algorithm
+			final Point result = tree.computeSize(wHint, hHint, flush);
+			tree.setLayout(this);
+
+			return result;
+		}
+
+		@Override
+		public void layout(Composite c, boolean flush) {
+			final int width = c.getClientArea().width;
+
+			final TreeColumn column = ((Tree) c).getColumn(0);
+			column.setWidth(width);
+		}
 	}
 }
