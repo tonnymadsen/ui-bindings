@@ -20,7 +20,6 @@ import org.eclipse.jface.action.ContributionItem;
 import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.resource.ImageRegistry;
-import org.eclipse.jface.util.Util;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
@@ -430,26 +429,6 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 	 * Simple layout that will keep the sole column the full width of the tree...
 	 */
 	public static class OneColumnTreeLayout extends Layout {
-
-		/**
-		 * The number of extra pixels taken as horizontal trim by the table column. To ensure there
-		 * are N pixels available for the content of the column, assign N+COLUMN_TRIM for the column
-		 * width.
-		 * 
-		 * @since 3.1
-		 */
-		private static int COLUMN_TRIM;
-
-		static {
-			if (Util.isWindows()) {
-				COLUMN_TRIM = 4;
-			} else if (Util.isMac()) {
-				COLUMN_TRIM = 24;
-			} else {
-				COLUMN_TRIM = 3;
-			}
-		}
-
 		@Override
 		public Point computeSize(Composite c, int wHint, int hHint, boolean flush) {
 			if (wHint != SWT.DEFAULT && hHint != SWT.DEFAULT) return new Point(wHint, hHint);
