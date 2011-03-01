@@ -25,17 +25,41 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 /**
- * A observable list that given an observed EMF based list and a {@link EStructuralFeature
- * structural feature} will provide a new list with the values of the object of the original list
- * with the specific feature.
+ * An {@link IObservableList observable list} that given an observed list and a mapper object, will
+ * return a new list with the elements from the list mapped with the mapper.
+ * <p>
+ * Alternatively, the list can also take an EMF based observed list and an a
+ * {@link EStructuralFeature structural feature} will provide a new list with the values of the
+ * objects of the original list with the specific feature.
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class EMFListAttributeList extends WritableList implements IObservableList, IObserving {
+public class EMFListAttributeList extends WritableList implements IObserving {
 
 	private final IObservableList myObjectList;
 	private final IObservableListMapper myMapper;
 
+	/**
+	 * Constructs and returns a new list for the specified list and mapper object.
+	 * 
+	 * @param objectList the observed list
+	 * @param mapper the mapper object
+	 * @param type the element type of the resulting list
+	 */
+	public EMFListAttributeList(IObservableList objectList, IObservableListMapper mapper, Object type) {
+		super(new ArrayList<Object>(), type);
+		myObjectList = objectList;
+		myMapper = mapper;
+
+		init();
+	}
+
+	/**
+	 * Constructs and returns a new list for the specified EMF list and feature.
+	 * 
+	 * @param objectList the EMF list to monitor
+	 * @param structuralfeature the structural feature to retrieve
+	 */
 	public EMFListAttributeList(IObservableList objectList, final EStructuralFeature structuralfeature) {
 		this(objectList, new IObservableListMapper() {
 			@Override
@@ -45,26 +69,30 @@ public class EMFListAttributeList extends WritableList implements IObservableLis
 		}, structuralfeature);
 	}
 
-	public EMFListAttributeList(IObservableList objectList, IObservableListMapper mapper, Object type) {
-		super(new ArrayList<Object>(), type);
-		myObjectList = objectList;
-		myMapper = mapper;
-
-		init();
-	}
-
 	private final Adapter myFeatureMonitor = new AdapterImpl() {
 		@Override
-		public void notifyChanged(Notification msg) {
+		public void notifyChanged(final Notification msg) {
+			if (isDisposed()) /*
+							 * Cannot use toString() as this calls getterCalled()....
+							 * 
+							 * LogUtils.error(EMFListAttributeList.this, "List disposed: " +
+							 * EMFListAttributeList.this);
+							 */
+			return;
 			if (msg.isTouch()) return;
 			if (msg.getEventType() != Notification.SET) return;
 
-			final int index = myObjectList.indexOf(msg.getNotifier());
-			if (index == -1) return;
-			final Object oldValue = get(index);
-			final Object newValue = myMapper.map(msg.getNotifier());
-			if (newValue == null ? oldValue == null : newValue.equals(oldValue)) return;
-			set(index, newValue);
+			myObjectList.getRealm().exec(new Runnable() {
+				@Override
+				public void run() {
+					final int index = myObjectList.indexOf(msg.getNotifier());
+					if (index == -1) return;
+					final Object oldValue = get(index);
+					final Object newValue = myMapper.map(msg.getNotifier());
+					if (newValue == null ? oldValue == null : newValue.equals(oldValue)) return;
+					set(index, newValue);
+				}
+			});
 		};
 	};
 
@@ -72,14 +100,18 @@ public class EMFListAttributeList extends WritableList implements IObservableLis
 		private final ListDiffVisitor visitor = new ListDiffVisitor() {
 			@Override
 			public void handleRemove(int index, Object element) {
-				((EObject) element).eAdapters().remove(myFeatureMonitor);
+				if (element != null) {
+					((EObject) element).eAdapters().remove(myFeatureMonitor);
+				}
 				remove(index);
 			}
 
 			@Override
 			public void handleAdd(int index, Object element) {
 				add(index, myMapper.map(element));
-				((EObject) element).eAdapters().add(myFeatureMonitor);
+				if (element != null) {
+					((EObject) element).eAdapters().add(myFeatureMonitor);
+				}
 			}
 		};
 
@@ -90,10 +122,20 @@ public class EMFListAttributeList extends WritableList implements IObservableLis
 	};
 
 	private void init() {
+		// IManager.Factory.getManager().startMonitorObservableDispose(myObjectList);
 		for (final Object o : myObjectList) {
 			final EObject obj = (EObject) o;
 			add(myMapper.map(obj));
 		}
+	}
+
+	@Override
+	public synchronized void dispose() {
+		// IManager.Factory.getManager().stopMonitorObservableDispose(myObjectList);
+		if (hasListeners()) {
+			lastListenerRemoved();
+		}
+		super.dispose();
 	}
 
 	@Override
@@ -103,7 +145,9 @@ public class EMFListAttributeList extends WritableList implements IObservableLis
 		myObjectList.addListChangeListener(myListMonitor);
 		for (final Object o : myObjectList) {
 			final EObject obj = (EObject) o;
-			obj.eAdapters().add(myFeatureMonitor);
+			if (obj != null) {
+				obj.eAdapters().add(myFeatureMonitor);
+			}
 		}
 	}
 
@@ -111,7 +155,9 @@ public class EMFListAttributeList extends WritableList implements IObservableLis
 	protected void lastListenerRemoved() {
 		for (final Object o : myObjectList) {
 			final EObject obj = (EObject) o;
-			obj.eAdapters().remove(myFeatureMonitor);
+			if (obj != null) {
+				obj.eAdapters().remove(myFeatureMonitor);
+			}
 		}
 		myObjectList.removeListChangeListener(myListMonitor);
 
