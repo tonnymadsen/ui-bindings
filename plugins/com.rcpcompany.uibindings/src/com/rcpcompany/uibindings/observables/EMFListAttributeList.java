@@ -13,6 +13,7 @@ package com.rcpcompany.uibindings.observables;
 import java.util.ArrayList;
 
 import org.eclipse.core.databinding.observable.IObserving;
+import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.databinding.observable.list.IListChangeListener;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.list.ListChangeEvent;
@@ -23,6 +24,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+
+import com.rcpcompany.uibindings.IManager;
 
 /**
  * An {@link IObservableList observable list} that given an observed list and a mapper object, will
@@ -71,16 +74,29 @@ public class EMFListAttributeList extends WritableList implements IObserving {
 
 	private final Adapter myFeatureMonitor = new AdapterImpl() {
 		@Override
-		public void notifyChanged(Notification msg) {
+		public void notifyChanged(final Notification msg) {
+			if (isDisposed()) /*
+							 * Cannot use toString() as this calls getterCalled()....
+							 * 
+							 * LogUtils.error(EMFListAttributeList.this, "List disposed: " +
+							 * EMFListAttributeList.this);
+							 */
+			return;
 			if (msg.isTouch()) return;
 			if (msg.getEventType() != Notification.SET) return;
 
-			final int index = myObjectList.indexOf(msg.getNotifier());
-			if (index == -1) return;
-			final Object oldValue = get(index);
-			final Object newValue = myMapper.map(msg.getNotifier());
-			if (newValue == null ? oldValue == null : newValue.equals(oldValue)) return;
-			set(index, newValue);
+			final Realm realm = myObjectList.getRealm();
+			realm.exec(new Runnable() {
+				@Override
+				public void run() {
+					final int index = myObjectList.indexOf(msg.getNotifier());
+					if (index == -1) return;
+					final Object oldValue = get(index);
+					final Object newValue = myMapper.map(msg.getNotifier());
+					if (newValue == null ? oldValue == null : newValue.equals(oldValue)) return;
+					set(index, newValue);
+				}
+			});
 		};
 	};
 
@@ -110,6 +126,7 @@ public class EMFListAttributeList extends WritableList implements IObserving {
 	};
 
 	private void init() {
+		IManager.Factory.getManager().startMonitorObservableDispose(myObjectList);
 		for (final Object o : myObjectList) {
 			final EObject obj = (EObject) o;
 			add(myMapper.map(obj));
@@ -118,6 +135,7 @@ public class EMFListAttributeList extends WritableList implements IObserving {
 
 	@Override
 	public synchronized void dispose() {
+		IManager.Factory.getManager().stopMonitorObservableDispose(myObjectList);
 		if (hasListeners()) {
 			lastListenerRemoved();
 		}
