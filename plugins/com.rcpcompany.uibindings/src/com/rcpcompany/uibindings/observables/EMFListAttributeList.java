@@ -85,8 +85,7 @@ public class EMFListAttributeList extends WritableList implements IObserving {
 			if (msg.isTouch()) return;
 			if (msg.getEventType() != Notification.SET) return;
 
-			final Realm realm = myObjectList.getRealm();
-			realm.exec(new Runnable() {
+			myObjectList.getRealm().exec(new Runnable() {
 				@Override
 				public void run() {
 					final int index = myObjectList.indexOf(msg.getNotifier());
