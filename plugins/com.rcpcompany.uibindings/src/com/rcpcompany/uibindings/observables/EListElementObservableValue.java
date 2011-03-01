@@ -124,30 +124,34 @@ public class EListElementObservableValue extends AbstractObservableValue impleme
 	}
 
 	public void updateValue() {
-		Object value = null;
-		try {
-			final EObject newObject = (EObject) myObjectOV.getValue();
-			if (myObject != newObject) {
-				if (myObject != null) {
-					myObject.eAdapters().remove(myAdapter);
-				}
-				myObject = newObject;
-				if (myObject != null) {
-					myObject.eAdapters().add(myAdapter);
+		getRealm().exec(new Runnable() {
+			public void run() {
+				Object value = null;
+				try {
+					final EObject newObject = (EObject) myObjectOV.getValue();
+					if (myObject != newObject) {
+						if (myObject != null) {
+							myObject.eAdapters().remove(myAdapter);
+						}
+						myObject = newObject;
+						if (myObject != null) {
+							myObject.eAdapters().add(myAdapter);
+						}
+					}
+					if (myObject == null) return;
+
+					final EList<?> list = (EList<?>) myObject.eGet(mySF);
+					if (list == null) return;
+					if (list.size() <= myIndex) return;
+
+					value = list.get(myIndex);
+				} finally {
+					if (UIBindingsUtils.equals(value, myValue)) return;
+
+					fireValueChange(Diffs.createValueDiff(myValue, myValue = value));
 				}
 			}
-			if (myObject == null) return;
-
-			final EList<?> list = (EList<?>) myObject.eGet(mySF);
-			if (list == null) return;
-			if (list.size() <= myIndex) return;
-
-			value = list.get(myIndex);
-		} finally {
-			if (UIBindingsUtils.equals(value, myValue)) return;
-
-			fireValueChange(Diffs.createValueDiff(myValue, myValue = value));
-		}
+		});
 	}
 
 	@Override
