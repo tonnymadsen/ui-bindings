@@ -863,14 +863,19 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		};
 
 		public void updateCursor() {
-			for (final IColumnBinding col : getColumns()) {
-				final Cursor c = col.getCursor();
-				if (c != null) {
-					getControl().setCursor(c);
-					return;
+			getControl().getDisplay().syncExec(new Runnable() {
+				@Override
+				public void run() {
+					for (final IColumnBinding col : getColumns()) {
+						final Cursor c = col.getCursor();
+						if (c != null) {
+							getControl().setCursor(c);
+							return;
+						}
+					}
+					getControl().setCursor(null);
 				}
-			}
-			getControl().setCursor(null);
+			});
 		}
 	};
 
