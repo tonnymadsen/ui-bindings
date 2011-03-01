@@ -21,6 +21,8 @@ import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.action.ContributionItem;
 import org.eclipse.jface.action.IContributionItem;
+import org.eclipse.jface.viewers.ColumnViewer;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
@@ -65,17 +67,17 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 	 * <p>
 	 * Used when no items can be found in {@link #getContributionItems()}.
 	 */
-	private static final IContributionItem[] EMPTY_ITEMS = new IContributionItem[1];
+	private static final IContributionItem[] EMPTY_ITEMS = new IContributionItem[0];
 	{
-		EMPTY_ITEMS[0] = new ContributionItem() {
-			@Override
-			public void fill(Menu menu, int index) {
-				final MenuItem item = new MenuItem(menu, SWT.NONE);
-
-				item.setText("Nothing to create...");
-				item.setEnabled(false);
-			};
-		};
+		// EMPTY_ITEMS[0] = new ContributionItem() {
+		// @Override
+		// public void fill(Menu menu, int index) {
+		// final MenuItem item = new MenuItem(menu, SWT.NONE);
+		//
+		// item.setText("Nothing to create...");
+		// item.setEnabled(false);
+		// };
+		// };
 	}
 
 	@Override
@@ -101,7 +103,7 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 		final List<IChildCreationSpecification> specs = container.getPossibleChildObjects(obj, null);
 		if (specs == null) return EMPTY_ITEMS;
 
-		// TODO Temporary
+		// Only handle containment relations
 		for (final IChildCreationSpecification sp : specs.toArray(new IChildCreationSpecification[specs.size()])) {
 			if (!sp.getReference().isContainment()) {
 				specs.remove(sp);
@@ -109,7 +111,7 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 		}
 
 		/*
-		 * Less than two specs... no need for an open with menu... Ignore.
+		 * Less than one specs... no need for an open with menu... Ignore.
 		 */
 		if (specs == null || specs.size() < 1) return EMPTY_ITEMS;
 
@@ -119,7 +121,7 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 		final IContributionItem[] items = new IContributionItem[specs.size()];
 		for (int i = 0; i < items.length; i++) {
 			final IChildCreationSpecification sp = specs.get(i);
-			final IContributionItem item = new NewContributionItem(sp, container.getEditingDomain());
+			final IContributionItem item = new NewContributionItem(sp, container, container.getEditingDomain());
 			items[i] = item;
 		}
 
@@ -132,12 +134,13 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 	 * @author Tonny Madsen, The RCP Company
 	 */
 	public class NewContributionItem extends ContributionItem implements SelectionListener {
-
 		private final IChildCreationSpecification mySpec;
+		private final IViewerBinding myContainer;
 		private final EditingDomain myEditingDomain;
 
-		public NewContributionItem(IChildCreationSpecification sp, EditingDomain ed) {
+		public NewContributionItem(IChildCreationSpecification sp, IViewerBinding container, EditingDomain ed) {
 			mySpec = sp;
+			myContainer = container;
 			myEditingDomain = ed;
 		}
 
@@ -202,6 +205,17 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 			// LogUtils.debug(this, "execute");
 
 			myEditingDomain.getCommandStack().execute(cmd);
+
+			/*
+			 * Select the new child object
+			 */
+			final ColumnViewer viewer = myContainer.getViewer();
+			viewer.setSelection(new StructuredSelection(child), true);
+
+			/*
+			 * Possibly open an editor
+			 */
+			// TODO
 		}
 
 		@Override
