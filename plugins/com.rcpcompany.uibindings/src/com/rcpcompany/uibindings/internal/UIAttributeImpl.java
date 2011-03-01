@@ -549,16 +549,36 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 						case Notification.REMOVE:
 						case Notification.SET:
 							final IUIAttributeImageDecoration id = (IUIAttributeImageDecoration) msg.getOldValue();
-							id.getImageValue().removeValueChangeListener(myImageDecorationChangeListener);
-							id.getTooltipValue().removeValueChangeListener(myImageDecorationChangeListener);
+							id.getImageValue().getRealm().exec(new Runnable() {
+								@Override
+								public void run() {
+									id.getImageValue().removeValueChangeListener(myImageDecorationChangeListener);
+								}
+							});
+							id.getTooltipValue().getRealm().exec(new Runnable() {
+								@Override
+								public void run() {
+									id.getTooltipValue().removeValueChangeListener(myImageDecorationChangeListener);
+								}
+							});
 						}
 
 						switch (msg.getEventType()) {
 						case Notification.ADD:
 						case Notification.SET:
 							final IUIAttributeImageDecoration id = (IUIAttributeImageDecoration) msg.getNewValue();
-							id.getImageValue().addValueChangeListener(myImageDecorationChangeListener);
-							id.getTooltipValue().addValueChangeListener(myImageDecorationChangeListener);
+							id.getImageValue().getRealm().exec(new Runnable() {
+								@Override
+								public void run() {
+									id.getImageValue().addValueChangeListener(myImageDecorationChangeListener);
+								}
+							});
+							id.getTooltipValue().getRealm().exec(new Runnable() {
+								@Override
+								public void run() {
+									id.getTooltipValue().addValueChangeListener(myImageDecorationChangeListener);
+								}
+							});
 						}
 						myImageDecorationChangeListener.handleValueChange(null);
 					}
