@@ -69,7 +69,11 @@ public class TestView extends ViewPart {
 			public void notifyChanged(Notification msg) {
 				super.notifyChanged(msg);
 				if (msg.getFeature() == TestModelPackage.Literals.TEST_OBJECT__TEXT) {
-					text.setText(myTestObject.getText());
+					text.getDisplay().asyncExec(new Runnable() {
+						public void run() {
+							text.setText(myTestObject.getText());
+						}
+					});
 				}
 			}
 		});
