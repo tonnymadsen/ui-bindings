@@ -129,8 +129,8 @@ public class ClipboardConverterManager implements IClipboardConverterManager {
 		Collections.sort(results, new Comparator<IResult>() {
 			@Override
 			public int compare(IResult o1, IResult o2) {
-				final int c1 = o1.getColumns();
-				final int c2 = o2.getColumns();
+				final int c1 = o1.getColumns() * o1.getRows();
+				final int c2 = o2.getColumns() * o2.getRows();
 				if (c1 != c2) return c2 - c1;
 				return o2.getConverterNames().size() - o1.getConverterNames().size();
 			}
