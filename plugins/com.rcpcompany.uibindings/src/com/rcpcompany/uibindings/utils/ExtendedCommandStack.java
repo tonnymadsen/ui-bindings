@@ -52,9 +52,6 @@ public class ExtendedCommandStack extends BasicCommandStack implements CommandSt
 		return Collections.unmodifiableList(commandList);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.rcpcompany.uibindings.utils.ICommandStackWithCollect#setCollectCommandMode(boolean)
-	 */
 	@Override
 	public void setCollectCommandMode(boolean collect) {
 		myCollectCommandMode = collect;
