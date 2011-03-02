@@ -204,6 +204,7 @@ public class ManagerRunnableManagerTests {
 		Display.getCurrent().asyncExec(new Runnable() {
 			@Override
 			public void run() {
+				// LogUtils.debug(this, "started");
 				state += "A";
 			}
 		});
@@ -211,6 +212,6 @@ public class ManagerRunnableManagerTests {
 		yield();
 
 		assertTrue(mng.isEmpty());
-		assertEquals("123A", state);
+		assertEquals("12A3", state);
 	}
 }
