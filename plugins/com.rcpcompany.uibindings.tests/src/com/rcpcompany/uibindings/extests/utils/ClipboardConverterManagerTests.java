@@ -43,7 +43,7 @@ public class ClipboardConverterManagerTests {
 		assertEquals(2, res.size());
 
 		testOneResult(res.get(0), 1, new String[][] { new String[] { "1", "2", "3", "4" } });
-		testOneResult(res.get(1), 3, new String[][] { new String[] { "1,2,3,4" } });
+		testOneResult(res.get(1), 4, new String[][] { new String[] { "1,2,3,4" } });
 	}
 
 	/**
@@ -57,7 +57,7 @@ public class ClipboardConverterManagerTests {
 		assertEquals(2, res.size());
 
 		testOneResult(res.get(0), 1, new String[][] { new String[] { "1", "2", "3", "4" } });
-		testOneResult(res.get(1), 3, new String[][] { new String[] { "1,2,3,4" } });
+		testOneResult(res.get(1), 4, new String[][] { new String[] { "1,2,3,4" } });
 	}
 
 	/**
@@ -70,7 +70,7 @@ public class ClipboardConverterManagerTests {
 
 		assertEquals(2, res.size());
 
-		testOneResult(res.get(0), 1, new String[][] { new String[] { "1", "2", "3", "4" } });
+		testOneResult(res.get(0), 2, new String[][] { new String[] { "1", "2", "3", "4" } });
 		testOneResult(res.get(1), 3, new String[][] { new String[] { "1 2 3 4" } });
 	}
 
@@ -82,11 +82,12 @@ public class ClipboardConverterManagerTests {
 		setClipboarText("1 2\t3 4");
 		final List<IResult> res = IClipboardConverterManager.Factory.getManager().getClipboardConversions();
 
-		assertEquals(3, res.size());
+		assertEquals(4, res.size());
 
-		testOneResult(res.get(0), 1, new String[][] { new String[] { "1", "2\t3", "4" } });
-		testOneResult(res.get(1), 1, new String[][] { new String[] { "1 2", "3 4" } });
-		testOneResult(res.get(2), 2, new String[][] { new String[] { "1 2\t3 4" } });
+		testOneResult(res.get(0), 1, new String[][] { new String[] { "1", "2", "3", "4" } });
+		testOneResult(res.get(1), 1, new String[][] { new String[] { "1", "2\t3", "4" } });
+		testOneResult(res.get(2), 1, new String[][] { new String[] { "1 2", "3 4" } });
+		testOneResult(res.get(3), 2, new String[][] { new String[] { "1 2\t3 4" } });
 	}
 
 	/**
@@ -99,7 +100,7 @@ public class ClipboardConverterManagerTests {
 
 		assertEquals(2, res.size());
 
-		testOneResult(res.get(0), 1, new String[][] { new String[] { "1", "2", "3", "4" },
+		testOneResult(res.get(0), 2, new String[][] { new String[] { "1", "2", "3", "4" },
 				new String[] { "4", "3", "2", "1" } });
 		testOneResult(res.get(1), 3, new String[][] { new String[] { "1 2 3 4" }, new String[] { "4 3 2 1" } });
 	}
@@ -115,7 +116,7 @@ public class ClipboardConverterManagerTests {
 		assertEquals(2, res.size());
 
 		// Both TSV and SSV
-		testOneResult(res.get(0), 1, new String[][] { new String[] { "1", "2", "3", "4" } });
+		testOneResult(res.get(0), 2, new String[][] { new String[] { "1", "2", "3", "4" } });
 		testOneResult(res.get(1), 3, new String[][] { new String[] { "1\t2\t3\t4" } });
 	}
 
@@ -143,7 +144,7 @@ public class ClipboardConverterManagerTests {
 		assertEquals(3, res.size());
 
 		testOneResult(res.get(0), 1, new String[][] { new String[] { "1", "2\t3", "4" } });
-		testOneResult(res.get(1), 1, new String[][] { new String[] { "1,2", "3,4" } });
+		testOneResult(res.get(1), 2, new String[][] { new String[] { "1,2", "3,4" } });
 		testOneResult(res.get(2), 2, new String[][] { new String[] { "1,2\t3,4" } });
 	}
 
