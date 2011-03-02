@@ -75,7 +75,6 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	 * Extender for {@link ValueBindingMessageImageDecorator}.
 	 */
 	public static class Extender extends AbstractUIBindingDecoratorExtender implements IUIBindingDecoratorExtender {
-
 		@Override
 		public void extend(IUIBindingDecoratorExtenderContext context) {
 			final IValueBinding binding = context.getBinding();
