@@ -81,6 +81,7 @@ public class ManagerRunnableManager implements IManagerRunnableManager {
 
 			while (!isEmpty() && (System.currentTimeMillis() - start < MAX_TIME)) {
 				final Record r = myRecords.get(0);
+				// LogUtils.debug(r, "started");
 				try {
 					r.run();
 				} catch (final Exception ex) {
@@ -117,7 +118,7 @@ public class ManagerRunnableManager implements IManagerRunnableManager {
 	private final List<Record> myRecords = new ArrayList<Record>();
 
 	/**
-	 * Record of a singæle registered {@link Runnable}.
+	 * Record of a single registered {@link Runnable}.
 	 */
 	public class Record {
 		String type;
