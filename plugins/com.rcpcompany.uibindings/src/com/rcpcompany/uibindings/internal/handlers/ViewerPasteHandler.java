@@ -28,18 +28,18 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingContext.FinishOption;
+import com.rcpcompany.uibindings.IContainerBinding;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
-import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.utils.dnd.BindingTransfer;
 import com.rcpcompany.uibindings.uiAttributes.SimpleUIAttribute;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * Handler for org.eclipse.ui.edit.paste for within {@link IViewerBinding}...
+ * Handler for org.eclipse.ui.edit.paste for within {@link IContainerBinding}...
  * 
  * @author Tonny Madsen, The RCP Company
  */
