@@ -125,6 +125,7 @@ public class EListElementObservableValue extends AbstractObservableValue impleme
 
 	public void updateValue() {
 		getRealm().exec(new Runnable() {
+			@Override
 			public void run() {
 				Object value = null;
 				try {

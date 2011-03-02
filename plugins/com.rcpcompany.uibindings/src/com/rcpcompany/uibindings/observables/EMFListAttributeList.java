@@ -13,7 +13,6 @@ package com.rcpcompany.uibindings.observables;
 import java.util.ArrayList;
 
 import org.eclipse.core.databinding.observable.IObserving;
-import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.databinding.observable.list.IListChangeListener;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.list.ListChangeEvent;
