@@ -1267,7 +1267,7 @@
                <with
                      variable="com.rcpcompany.uibindings.sourceProviders.activeContainerBinding">
                   <instanceof
-                        value="com.rcpcompany.uibindings.IViewerBinding">
+                        value="com.rcpcompany.uibindings.IContainerBinding">
                   </instanceof>
                </with>
             </and>
@@ -1281,7 +1281,7 @@
                <with
                      variable="com.rcpcompany.uibindings.sourceProviders.activeContainerBinding">
                   <instanceof
-                        value="com.rcpcompany.uibindings.IViewerBinding">
+                        value="com.rcpcompany.uibindings.IContainerBinding">
                   </instanceof>
                </with>
             </and>
@@ -1303,7 +1303,7 @@
                <with
                      variable="com.rcpcompany.uibindings.sourceProviders.activeContainerBinding">
                   <instanceof
-                        value="com.rcpcompany.uibindings.IViewerBinding">
+                        value="com.rcpcompany.uibindings.IContainerBinding">
                   </instanceof>
                </with>
             </and>
@@ -1508,10 +1508,6 @@
 
          <variable
                name="com.rcpcompany.uibindings.sourceProviders.activeContainerBinding"
-               priorityLevel="activeSite">
-         </variable>
-         <variable
-               name="com.rcpcompany.uibindings.sourceProviders.activeContainerCellType"
                priorityLevel="activeSite">
          </variable>
          <variable
