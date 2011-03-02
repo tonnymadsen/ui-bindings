@@ -104,7 +104,6 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	private final Map<Control, ISelectionProvider> myProviders = new HashMap<Control, ISelectionProvider>();
 
 	private final ISelectionChangedListener mySelectionChangedListener = new ISelectionChangedListener() {
-
 		@Override
 		public void selectionChanged(SelectionChangedEvent event) {
 			checkSelection();
@@ -266,27 +265,22 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 			final Control control = vb.getControl();
 			if (control == null) return;
 			final IObservableValue ov = vb.getModelObservableValue();
-			if (ov != null) {
-				addControl(control, ov);
-				return;
-			}
+			if (ov == null) return;
+			addControl(control, ov);
 		} else if (binding instanceof IViewerBinding) {
 			final IViewerBinding vb = (IViewerBinding) binding;
 			addViewer(vb.getViewer()); // TODO SWTB
 			final IFilteringTableAdapter filtering = vb.getService(IFilteringTableAdapter.class);
-			if (filtering != null) {
-				addControl(filtering.getText(), vb.getViewer()); // TODO SWTB
-			}
+			if (filtering == null) return;
+			addControl(filtering.getText(), vb.getViewer()); // TODO SWTB
 			return;
 		} else if (binding instanceof IContainerBinding) {
 			final IContainerBinding vb = (IContainerBinding) binding;
 			final Control control = vb.getControl();
 			if (control == null) return;
-			// final IObservableValue ov = vb.getse;
-			// if (ov != null) {
-			// addControl(control, ov);
-			// return;
-			// }
+			final IObservableValue ov = vb.getSingleSelection();
+			if (ov == null) return;
+			addControl(control, ov);
 			return;
 		}
 	}

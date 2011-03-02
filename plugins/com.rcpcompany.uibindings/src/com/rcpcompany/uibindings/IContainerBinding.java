@@ -10,6 +10,8 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings;
 
+import org.eclipse.core.databinding.observable.value.IObservableValue;
+
 import com.rcpcompany.uibindings.bindingMessages.ValidationLabelDecorator;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 
@@ -17,11 +19,33 @@ import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Container Binding</b></em>'.
  * <!-- end-user-doc -->
  * 
+ * <p>
+ * The following features are supported:
+ * <ul>
+ * <li>{@link com.rcpcompany.uibindings.IContainerBinding#getSingleSelection <em>Single Selection
+ * </em>}</li>
+ * </ul>
+ * </p>
  * 
  * @see com.rcpcompany.uibindings.IUIBindingsPackage#getContainerBinding()
  * @generated
  */
 public interface IContainerBinding extends IBinding {
+
+	/**
+	 * Returns the value of the '<em><b>Single Selection</b></em>' attribute. <!-- begin-user-doc
+	 * -->
+	 * <p>
+	 * If the meaning of the '<em>Single Selection</em>' attribute isn't clear, there really should
+	 * be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Single Selection</em>' attribute.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getContainerBinding_SingleSelection()
+	 * @generated
+	 */
+	IObservableValue getSingleSelection();
 
 	/**
 	 * Returns the cell in the container with the specified row and column (<code>(0, 0)</code>

@@ -1957,6 +1957,16 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
+	public EAttribute getContainerBinding_SingleSelection() {
+		return (EAttribute) containerBindingEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getViewerBinding() {
 		return viewerBindingEClass;
 	}
@@ -1997,7 +2007,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getViewerBinding_SingleSelection() {
+	public EAttribute getViewerBinding_MultipleSelection() {
 		return (EAttribute) viewerBindingEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -2007,7 +2017,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getViewerBinding_MultipleSelection() {
+	public EAttribute getViewerBinding_Viewer() {
 		return (EAttribute) viewerBindingEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -2017,18 +2027,8 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getViewerBinding_Viewer() {
-		return (EAttribute) viewerBindingEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public EAttribute getViewerBinding_FirstTableColumnOffset() {
-		return (EAttribute) viewerBindingEClass.getEStructuralFeatures().get(6);
+		return (EAttribute) viewerBindingEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -4510,12 +4510,12 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		createEAttribute(columnBindingCellInformationEClass, COLUMN_BINDING_CELL_INFORMATION__ENABLED);
 
 		containerBindingEClass = createEClass(CONTAINER_BINDING);
+		createEAttribute(containerBindingEClass, CONTAINER_BINDING__SINGLE_SELECTION);
 
 		viewerBindingEClass = createEClass(VIEWER_BINDING);
 		createEReference(viewerBindingEClass, VIEWER_BINDING__COLUMNS);
 		createEAttribute(viewerBindingEClass, VIEWER_BINDING__LIST);
 		createEAttribute(viewerBindingEClass, VIEWER_BINDING__ELEMENTS);
-		createEAttribute(viewerBindingEClass, VIEWER_BINDING__SINGLE_SELECTION);
 		createEAttribute(viewerBindingEClass, VIEWER_BINDING__MULTIPLE_SELECTION);
 		createEAttribute(viewerBindingEClass, VIEWER_BINDING__VIEWER);
 		createEAttribute(viewerBindingEClass, VIEWER_BINDING__FIRST_TABLE_COLUMN_OFFSET);
@@ -5315,6 +5315,10 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 
 		initEClass(containerBindingEClass, IContainerBinding.class,
 				"ContainerBinding", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(
+				getContainerBinding_SingleSelection(),
+				this.getIObservableValue(),
+				"singleSelection", null, 1, 1, IContainerBinding.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(viewerBindingEClass, IViewerBinding.class,
 				"ViewerBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -5331,10 +5335,6 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				getViewerBinding_Elements(),
 				this.getIObservableSet(),
 				"elements", null, 1, 1, IViewerBinding.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(
-				getViewerBinding_SingleSelection(),
-				this.getIObservableValue(),
-				"singleSelection", null, 1, 1, IViewerBinding.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getViewerBinding_MultipleSelection(),
 				this.getIObservableList(),

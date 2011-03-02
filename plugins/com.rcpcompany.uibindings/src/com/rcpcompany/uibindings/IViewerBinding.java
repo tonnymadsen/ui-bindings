@@ -45,8 +45,6 @@ import com.rcpcompany.uibindings.internal.ViewerBindingImpl;
  * <li>{@link com.rcpcompany.uibindings.IViewerBinding#getColumns <em>Columns</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IViewerBinding#getList <em>List</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IViewerBinding#getElements <em>Elements</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IViewerBinding#getSingleSelection <em>Single Selection</em>}
- * </li>
  * <li>{@link com.rcpcompany.uibindings.IViewerBinding#getMultipleSelection <em>Multiple Selection
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IViewerBinding#getViewer <em>Viewer</em>}</li>
@@ -281,21 +279,6 @@ public interface IViewerBinding extends IContainerBinding {
 	 * @generated
 	 */
 	IObservableSet getElements();
-
-	/**
-	 * Returns the value of the '<em><b>Single Selection</b></em>' attribute. <!-- begin-user-doc
-	 * -->
-	 * <p>
-	 * If the meaning of the '<em>Single Selection</em>' attribute isn't clear, there really should
-	 * be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Single Selection</em>' attribute.
-	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getViewerBinding_SingleSelection()
-	 * @generated
-	 */
-	IObservableValue getSingleSelection();
 
 	/**
 	 * Returns the value of the '<em><b>Multiple Selection</b></em>' attribute. <!-- begin-user-doc

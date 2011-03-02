@@ -1780,13 +1780,22 @@ public interface IUIBindingsPackage extends EPackage {
 	int CONTAINER_BINDING__EXTRA_ARGUMENT_PROVIDERS = BINDING__EXTRA_ARGUMENT_PROVIDERS;
 
 	/**
+	 * The feature id for the '<em><b>Single Selection</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER_BINDING__SINGLE_SELECTION = BINDING_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Container Binding</em>' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_BINDING_FEATURE_COUNT = BINDING_FEATURE_COUNT + 0;
+	int CONTAINER_BINDING_FEATURE_COUNT = BINDING_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Services</b></em>' attribute list. <!-- begin-user-doc -->
@@ -1960,6 +1969,15 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__EXTRA_ARGUMENT_PROVIDERS = CONTAINER_BINDING__EXTRA_ARGUMENT_PROVIDERS;
 
 	/**
+	 * The feature id for the '<em><b>Single Selection</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int VIEWER_BINDING__SINGLE_SELECTION = CONTAINER_BINDING__SINGLE_SELECTION;
+
+	/**
 	 * The feature id for the '<em><b>Columns</b></em>' reference list. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
@@ -1987,22 +2005,13 @@ public interface IUIBindingsPackage extends EPackage {
 	int VIEWER_BINDING__ELEMENTS = CONTAINER_BINDING_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Single Selection</b></em>' attribute. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int VIEWER_BINDING__SINGLE_SELECTION = CONTAINER_BINDING_FEATURE_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Multiple Selection</b></em>' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int VIEWER_BINDING__MULTIPLE_SELECTION = CONTAINER_BINDING_FEATURE_COUNT + 4;
+	int VIEWER_BINDING__MULTIPLE_SELECTION = CONTAINER_BINDING_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Viewer</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -2011,7 +2020,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIEWER_BINDING__VIEWER = CONTAINER_BINDING_FEATURE_COUNT + 5;
+	int VIEWER_BINDING__VIEWER = CONTAINER_BINDING_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>First Table Column Offset</b></em>' attribute. <!--
@@ -2020,7 +2029,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIEWER_BINDING__FIRST_TABLE_COLUMN_OFFSET = CONTAINER_BINDING_FEATURE_COUNT + 6;
+	int VIEWER_BINDING__FIRST_TABLE_COLUMN_OFFSET = CONTAINER_BINDING_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Viewer Binding</em>' class. <!-- begin-user-doc
@@ -2029,7 +2038,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIEWER_BINDING_FEATURE_COUNT = CONTAINER_BINDING_FEATURE_COUNT + 7;
+	int VIEWER_BINDING_FEATURE_COUNT = CONTAINER_BINDING_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '
@@ -5978,6 +5987,18 @@ public interface IUIBindingsPackage extends EPackage {
 	EClass getContainerBinding();
 
 	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IContainerBinding#getSingleSelection
+	 * <em>Single Selection</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Single Selection</em>'.
+	 * @see com.rcpcompany.uibindings.IContainerBinding#getSingleSelection()
+	 * @see #getContainerBinding()
+	 * @generated
+	 */
+	EAttribute getContainerBinding_SingleSelection();
+
+	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IViewerBinding
 	 * <em>Viewer Binding</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -6022,18 +6043,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getViewerBinding_Elements();
-
-	/**
-	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IViewerBinding#getSingleSelection <em>Single Selection</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Single Selection</em>'.
-	 * @see com.rcpcompany.uibindings.IViewerBinding#getSingleSelection()
-	 * @see #getViewerBinding()
-	 * @generated
-	 */
-	EAttribute getViewerBinding_SingleSelection();
 
 	/**
 	 * Returns the meta object for the attribute '
@@ -9586,6 +9595,14 @@ public interface IUIBindingsPackage extends EPackage {
 		EClass CONTAINER_BINDING = eINSTANCE.getContainerBinding();
 
 		/**
+		 * The meta object literal for the '<em><b>Single Selection</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute CONTAINER_BINDING__SINGLE_SELECTION = eINSTANCE.getContainerBinding_SingleSelection();
+
+		/**
 		 * The meta object literal for the '
 		 * {@link com.rcpcompany.uibindings.internal.ViewerBindingImpl <em>Viewer Binding</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -9619,14 +9636,6 @@ public interface IUIBindingsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VIEWER_BINDING__ELEMENTS = eINSTANCE.getViewerBinding_Elements();
-
-		/**
-		 * The meta object literal for the '<em><b>Single Selection</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute VIEWER_BINDING__SINGLE_SELECTION = eINSTANCE.getViewerBinding_SingleSelection();
 
 		/**
 		 * The meta object literal for the '<em><b>Multiple Selection</b></em>' attribute feature.

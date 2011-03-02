@@ -22,6 +22,7 @@ import org.eclipse.core.databinding.observable.IChangeListener;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.list.ListDiffVisitor;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.core.databinding.observable.value.WritableValue;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EMap;
@@ -54,6 +55,7 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.ISourceProviderStateContext;
+import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IValueBindingCell;
 import com.rcpcompany.uibindings.bindingMessages.ValidationLabelDecorator;
@@ -441,6 +443,9 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 		getGrid().removeListener(SWT.MouseDoubleClick, myCellEventListener);
 		getGrid().removeListener(SWT.KeyDown, myCellEventListener);
 		getGrid().removeListener(SWT.Selection, myCellEventListener);
+		if (eIsSet(IUIBindingsPackage.Literals.CONTAINER_BINDING__SINGLE_SELECTION)) {
+			getSingleSelection().dispose();
+		}
 		if (getModel() != null) {
 			try {
 				if (Activator.getDefault().TRACE_SOURCE_MODEL) {
@@ -684,7 +689,21 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 		if (newFocusCell != null) {
 			getGrid().setFocusColumn(newFocusCell.getColumn().getGridColumn());
 			getGrid().setFocusItem(newFocusCell.getRow().getGridItem());
+			getSingleSelection().setValue(newFocusCell.getObjectValue());
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public IObservableValue getSingleSelection() {
+		if (super.getSingleSelection() == null) {
+			singleSelection = WritableValue.withValueType(null);
+		}
+		return super.getSingleSelection();
 	}
 
 	/**

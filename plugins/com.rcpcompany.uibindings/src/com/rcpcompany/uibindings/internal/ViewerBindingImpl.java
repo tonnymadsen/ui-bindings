@@ -109,8 +109,6 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <li>{@link com.rcpcompany.uibindings.internal.ViewerBindingImpl#getColumns <em>Columns</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ViewerBindingImpl#getList <em>List</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ViewerBindingImpl#getElements <em>Elements</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ViewerBindingImpl#getSingleSelection <em>Single
- * Selection</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ViewerBindingImpl#getMultipleSelection <em>Multiple
  * Selection</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ViewerBindingImpl#getViewer <em>Viewer</em>}</li>
@@ -656,7 +654,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		if (getElements() != null) {
 			getElements().dispose();
 		}
-		if (eIsSet(IUIBindingsPackage.Literals.VIEWER_BINDING__SINGLE_SELECTION)) {
+		if (eIsSet(IUIBindingsPackage.Literals.CONTAINER_BINDING__SINGLE_SELECTION)) {
 			getSingleSelection().dispose();
 		}
 		if (eIsSet(IUIBindingsPackage.Literals.VIEWER_BINDING__MULTIPLE_SELECTION)) {
@@ -748,26 +746,6 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	 * @ordered
 	 */
 	protected IObservableSet elements = ELEMENTS_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getSingleSelection() <em>Single Selection</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getSingleSelection()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final IObservableValue SINGLE_SELECTION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getSingleSelection() <em>Single Selection</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getSingleSelection()
-	 * @generated
-	 * @ordered
-	 */
-	protected IObservableValue singleSelection = SINGLE_SELECTION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getMultipleSelection() <em>Multiple Selection</em>}'
@@ -975,7 +953,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	@Override
 	public IObservableValue getSingleSelection() {
 		// TODO SWTB
-		if (singleSelection == null) {
+		if (super.getSingleSelection() == null) {
 			final IViewerValueProperty property = new MySelectionProviderSingleSelectionProperty() {
 				@Override
 				public Object getValueType() {
@@ -984,7 +962,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 			};
 			singleSelection = property.observe(viewer);
 		}
-		return singleSelection;
+		return super.getSingleSelection();
 	}
 
 	/**
@@ -1118,8 +1096,6 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 			return getList();
 		case IUIBindingsPackage.VIEWER_BINDING__ELEMENTS:
 			return getElements();
-		case IUIBindingsPackage.VIEWER_BINDING__SINGLE_SELECTION:
-			return getSingleSelection();
 		case IUIBindingsPackage.VIEWER_BINDING__MULTIPLE_SELECTION:
 			return getMultipleSelection();
 		case IUIBindingsPackage.VIEWER_BINDING__VIEWER:
@@ -1200,9 +1176,6 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 			return LIST_EDEFAULT == null ? list != null : !LIST_EDEFAULT.equals(list);
 		case IUIBindingsPackage.VIEWER_BINDING__ELEMENTS:
 			return ELEMENTS_EDEFAULT == null ? elements != null : !ELEMENTS_EDEFAULT.equals(elements);
-		case IUIBindingsPackage.VIEWER_BINDING__SINGLE_SELECTION:
-			return SINGLE_SELECTION_EDEFAULT == null ? singleSelection != null : !SINGLE_SELECTION_EDEFAULT
-					.equals(singleSelection);
 		case IUIBindingsPackage.VIEWER_BINDING__MULTIPLE_SELECTION:
 			return MULTIPLE_SELECTION_EDEFAULT == null ? multipleSelection != null : !MULTIPLE_SELECTION_EDEFAULT
 					.equals(multipleSelection);
