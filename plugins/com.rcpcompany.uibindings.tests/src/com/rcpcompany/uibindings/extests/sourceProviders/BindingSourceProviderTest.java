@@ -13,6 +13,9 @@ package com.rcpcompany.uibindings.extests.sourceProviders;
 import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
@@ -215,6 +218,7 @@ public class BindingSourceProviderTest {
 	public void testServicesExtension() {
 		boolean found = false;
 		final Map<String, Object> currentState = myProvider.getCurrentState();
+		final List<String> providedSourceNames = Arrays.asList(myProvider.getProvidedSourceNames());
 
 		final IExtensionRegistry registry = Platform.getExtensionRegistry();
 		for (final IConfigurationElement ce : registry.getConfigurationElementsFor("org.eclipse.ui.services")) {
@@ -226,20 +230,29 @@ public class BindingSourceProviderTest {
 				continue;
 			}
 
+			/*
+			 * Only one declaration
+			 */
 			assertTrue(!found);
 			found = true;
 
 			final IConfigurationElement[] children = ce.getChildren("variable");
+			final List<String> childrenVariables = new ArrayList<String>();
 			for (final IConfigurationElement cce : children) {
 				final String name = cce.getAttribute("name");
-				assertTrue(name + " not present", currentState.containsKey(name));
+				assertFalse(name + " listed twice", childrenVariables.contains(name));
+				childrenVariables.add(name);
+				assertTrue(name + " not in current state", currentState.containsKey(name));
 				if (name.equals(Constants.SOURCES_THE_MANAGER)) {
 					assertEquals(name + " priority", "workbench", cce.getAttribute("priorityLevel"));
 				} else {
 					assertEquals(name + " priority", "activeSite", cce.getAttribute("priorityLevel"));
 				}
 			}
-			assertEquals(myProvider.getProvidedSourceNames().length, children.length);
+			for (final String name : childrenVariables) {
+				assertTrue(name + " not in provider names", providedSourceNames.contains(name));
+			}
+			assertEquals(providedSourceNames.size(), children.length);
 		}
 
 		assertTrue(found);
@@ -252,10 +265,14 @@ public class BindingSourceProviderTest {
 	@Test
 	public void testNames() {
 		final Map<String, Object> currentState = myProvider.getCurrentState();
-		for (final String n : myProvider.getProvidedSourceNames()) {
+		final List<String> providedSourceNames = Arrays.asList(myProvider.getProvidedSourceNames());
+		for (final String n : providedSourceNames) {
 			assertTrue("Variable " + n, currentState.containsKey(n));
 		}
-		assertEquals(myProvider.getProvidedSourceNames().length, currentState.size());
+		for (final String n : currentState.keySet()) {
+			assertTrue("Variable " + n, providedSourceNames.contains(n));
+		}
+		assertEquals(providedSourceNames.size(), currentState.size());
 	}
 
 	/**
