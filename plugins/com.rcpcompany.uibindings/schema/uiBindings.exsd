@@ -671,7 +671,7 @@ Each feature can have a number of arguments for the label binding in the form of
                   an &lt;code&gt;IInitializationParticipant&lt;/code&gt; to be used to initialize objects with this class or feature.
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java" basedOn=":com.rcpcompany.uibindings.IInitializationParticipant"/>
+                  <meta.attribute kind="java" basedOn=":com.rcpcompany.uibindings.participants.IInitializationParticipant"/>
                </appInfo>
             </annotation>
          </attribute>
