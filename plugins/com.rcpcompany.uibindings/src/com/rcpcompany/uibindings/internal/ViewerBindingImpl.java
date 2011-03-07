@@ -1246,7 +1246,6 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		 */
 		final Event event = context.getEvent();
 		final Point point = context.getLocation();
-		LogUtils.debug(context, "p=" + point);
 		if (event.x == 0 && event.y == 0 || event.widget != getControl()) {
 			cell = viewer.getColumnViewerEditor().getFocusCell();
 		} else {
