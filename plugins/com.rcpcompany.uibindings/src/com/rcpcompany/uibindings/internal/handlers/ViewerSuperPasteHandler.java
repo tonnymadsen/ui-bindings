@@ -84,8 +84,14 @@ public class ViewerSuperPasteHandler extends AbstractHandler implements IHandler
 		/*
 		 * Check that we have room for the paste...
 		 */
-		final IContainerBinding container = binding.getCell().getContainer();
-		final Point p = binding.getCell().getPosition(true);
+		final IValueBindingCell baseCell = binding.getCell();
+		if (baseCell == null) {
+			LogUtils.error(binding, "Binding " + binding + " does not have a cell!");
+			MessageDialog.openError(HandlerUtil.getActiveShell(event), "Cannot paste data", "Internal Error");
+			return null;
+		}
+		final IContainerBinding container = baseCell.getContainer();
+		final Point p = baseCell.getPosition(true);
 		if (p == null) {
 			MessageDialog.openError(HandlerUtil.getActiveShell(event), "Cannot paste data",
 					"Can only paste into a viewer");
