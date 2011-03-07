@@ -94,14 +94,14 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 		 */
 		if (myExistingOnly) {
 			if (!file.exists()) return validationError("File does not exist");
-		}
 
-		/*
-		 * Check type (file/directory)
-		 */
-		if (myDirectoryMode && !file.isDirectory())
-			return validationError("Directory expected");
-		else if (!myDirectoryMode && !file.isFile()) return validationError("File expected");
+			/*
+			 * Check type (file/directory)
+			 */
+			if (myDirectoryMode && !file.isDirectory())
+				return validationError("Directory expected");
+			else if (!myDirectoryMode && !file.isFile()) return validationError("File expected");
+		}
 
 		/*
 		 * - Check extension
@@ -110,7 +110,7 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 			// LogUtils.debug(this, "Check '" + v + "' (" + fv + ") against " + extString);
 			boolean f = false;
 			for (final String es : myFilters) {
-				for (final String e : es.split(";")) {
+				for (final String e : es.split(";[ \t]*")) {
 					if (IPathMatcher.Factory.getPathMatcher("glob:" + e).matches(fv)) {
 						f = true;
 						break;
@@ -197,7 +197,20 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 		if (getBinding().getControl() instanceof FileNameControl) {
 			final FileNameControl fnw = (FileNameControl) getBinding().getControl();
 			fnw.setDirectoryMode(myDirectoryMode);
-			fnw.setExtensions(myFilterNames, myFilters);
+			// TODO not correct - rework soonest
+			final StringBuilder filterString = new StringBuilder();
+			if (myFilters != null) {
+				for (int i = 0; i < myFilters.length; i++) {
+					filterString.append(myFilters[i]);
+					if (i < myFilters.length - 1) {
+						filterString.append(";");
+					}
+				}
+			}
+
+			final String[] myFiltersArr = new String[1];
+			myFiltersArr[0] = filterString.toString();
+			fnw.setExtensions(myFilterNames, myFiltersArr);
 			fnw.setDialogTitle(getBinding().getLabel());
 			fnw.setExistingOnly(myExistingOnly);
 		}
