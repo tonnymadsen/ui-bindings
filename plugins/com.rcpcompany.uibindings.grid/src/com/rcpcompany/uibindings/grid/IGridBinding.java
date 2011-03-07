@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2010 The RCP Company and others.
+ * Copyright (c) 2007, 2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.grid;
 
+import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.jface.viewers.ColumnViewerEditorActivationEvent;
 import org.eclipse.nebula.widgets.grid.Grid;
@@ -35,6 +36,8 @@ import com.rcpcompany.uibindings.grid.internal.GridBindingImpl;
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBinding#getRows <em>Rows</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBinding#getGrid <em>Grid</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBinding#getModel <em>Model</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.IGridBinding#getColumnIDs <em>Column IDs</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.IGridBinding#getRowIDs <em>Row IDs</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBinding#getFocusCell <em>Focus Cell</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.IGridBinding#getCellEditor <em>Cell Editor</em>}</li>
  * </ul>
@@ -137,6 +140,34 @@ public interface IGridBinding extends IContainerBinding, IArgumentProvider {
 	 * @generated
 	 */
 	IGridModel getModel();
+
+	/**
+	 * Returns the value of the '<em><b>Column IDs</b></em>' attribute. <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Column IDs</em>' attribute isn't clear, there really should be
+	 * more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Column IDs</em>' attribute.
+	 * @see com.rcpcompany.uibindings.grid.IGridPackage#getGridBinding_ColumnIDs()
+	 * @generated
+	 */
+	IObservableList getColumnIDs();
+
+	/**
+	 * Returns the value of the '<em><b>Row IDs</b></em>' attribute. <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Row IDs</em>' attribute isn't clear, there really should be more
+	 * of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Row IDs</em>' attribute.
+	 * @see com.rcpcompany.uibindings.grid.IGridPackage#getGridBinding_RowIDs()
+	 * @generated
+	 */
+	IObservableList getRowIDs();
 
 	/**
 	 * Returns the value of the '<em><b>Focus Cell</b></em>' reference. <!-- begin-user-doc -->
@@ -271,7 +302,7 @@ public interface IGridBinding extends IContainerBinding, IArgumentProvider {
 	IGridBinding model(IGridModel model);
 
 	/**
-	 * Returns the cell at the specified grid coordinates.
+	 * Returns the cell at the specified grid coordinates using the visual model.
 	 * 
 	 * @param column the column number
 	 * @param row the row number

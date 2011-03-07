@@ -25,6 +25,12 @@
         <details key="suppressedSetVisibility" value="true"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="columnIDs" lowerBound="1"
+        eType="ecore:EDataType ../../com.rcpcompany.uibindings/model/uibindings.ecore#//IObservableList"
+        changeable="false" volatile="true" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rowIDs" lowerBound="1"
+        eType="ecore:EDataType ../../com.rcpcompany.uibindings/model/uibindings.ecore#//IObservableList"
+        changeable="false" volatile="true" transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="focusCell" eType="#//GridBindingCellInformation"
         transient="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cellEditor" eType="#//GridBindingCellEditor"

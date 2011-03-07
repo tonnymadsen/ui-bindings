@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017, 2011 The RCP Company and others.
+ * Copyright (c) 2007, 2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -30,6 +30,7 @@ import com.rcpcompany.uibindings.grid.IGridBindingCellInformation;
 import com.rcpcompany.uibindings.grid.IGridBindingColumnInformation;
 import com.rcpcompany.uibindings.grid.IGridBindingRowInformation;
 import com.rcpcompany.uibindings.grid.IGridFactory;
+import com.rcpcompany.uibindings.grid.IGridModel;
 import com.rcpcompany.uibindings.grid.IGridPackage;
 
 /**
@@ -366,19 +367,11 @@ public class GridBindingRowInformationImpl extends EObjectImpl implements IGridB
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		final StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (id: ");
-		result.append(id);
-		result.append(", gridItem: ");
-		result.append(gridItem);
-		result.append(')');
-		return result.toString();
+		return "" + getId();
 	}
 
 	@Override
@@ -415,4 +408,20 @@ public class GridBindingRowInformationImpl extends EObjectImpl implements IGridB
 			IGridFactory.eINSTANCE.createGridBindingCellInformation(column, this);
 		}
 	}
+
+	@Override
+	public int getPosition(boolean visualModel) {
+		final int noColumnHeaders = getGrid().getNoColumnHeaders();
+
+		if (getId() == IGridModel.HEADER1) return noColumnHeaders - 1;
+		if (getId() == IGridModel.HEADER2) return noColumnHeaders - 2;
+		if (getId() == IGridModel.HEADER3) return noColumnHeaders - 3;
+		if (getId() == IGridModel.HEADER4) return noColumnHeaders - 4;
+		if (getId() == IGridModel.HEADER5) return noColumnHeaders - 5;
+
+		final int y = getGrid().getRowIDs().indexOf(getId());
+
+		return y + noColumnHeaders;
+	}
+
 } // GridBindingRowInformationImpl

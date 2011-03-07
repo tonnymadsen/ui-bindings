@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017, 2011 The RCP Company and others.
+ * Copyright (c) 2007, 2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -243,6 +243,15 @@ public interface IGridPackage extends EPackage {
 	int GRID_BINDING__EXTRA_ARGUMENT_PROVIDERS = IUIBindingsPackage.CONTAINER_BINDING__EXTRA_ARGUMENT_PROVIDERS;
 
 	/**
+	 * The feature id for the '<em><b>Single Selection</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_BINDING__SINGLE_SELECTION = IUIBindingsPackage.CONTAINER_BINDING__SINGLE_SELECTION;
+
+	/**
 	 * The feature id for the '<em><b>No Column Headers</b></em>' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -297,13 +306,31 @@ public interface IGridPackage extends EPackage {
 	int GRID_BINDING__MODEL = IUIBindingsPackage.CONTAINER_BINDING_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Column IDs</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_BINDING__COLUMN_IDS = IUIBindingsPackage.CONTAINER_BINDING_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Row IDs</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_BINDING__ROW_IDS = IUIBindingsPackage.CONTAINER_BINDING_FEATURE_COUNT + 7;
+
+	/**
 	 * The feature id for the '<em><b>Focus Cell</b></em>' reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__FOCUS_CELL = IUIBindingsPackage.CONTAINER_BINDING_FEATURE_COUNT + 6;
+	int GRID_BINDING__FOCUS_CELL = IUIBindingsPackage.CONTAINER_BINDING_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Cell Editor</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -312,7 +339,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING__CELL_EDITOR = IUIBindingsPackage.CONTAINER_BINDING_FEATURE_COUNT + 7;
+	int GRID_BINDING__CELL_EDITOR = IUIBindingsPackage.CONTAINER_BINDING_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>Binding</em>' class. <!-- begin-user-doc -->
@@ -321,7 +348,7 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID_BINDING_FEATURE_COUNT = IUIBindingsPackage.CONTAINER_BINDING_FEATURE_COUNT + 8;
+	int GRID_BINDING_FEATURE_COUNT = IUIBindingsPackage.CONTAINER_BINDING_FEATURE_COUNT + 10;
 
 	/**
 	 * The meta object id for the '
@@ -805,6 +832,30 @@ public interface IGridPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGridBinding_Model();
+
+	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.grid.IGridBinding#getColumnIDs <em>Column IDs</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Column IDs</em>'.
+	 * @see com.rcpcompany.uibindings.grid.IGridBinding#getColumnIDs()
+	 * @see #getGridBinding()
+	 * @generated
+	 */
+	EAttribute getGridBinding_ColumnIDs();
+
+	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.grid.IGridBinding#getRowIDs <em>Row IDs</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Row IDs</em>'.
+	 * @see com.rcpcompany.uibindings.grid.IGridBinding#getRowIDs()
+	 * @see #getGridBinding()
+	 * @generated
+	 */
+	EAttribute getGridBinding_RowIDs();
 
 	/**
 	 * Returns the meta object for the reference '
@@ -1348,6 +1399,22 @@ public interface IGridPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GRID_BINDING__MODEL = eINSTANCE.getGridBinding_Model();
+
+		/**
+		 * The meta object literal for the '<em><b>Column IDs</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute GRID_BINDING__COLUMN_IDS = eINSTANCE.getGridBinding_ColumnIDs();
+
+		/**
+		 * The meta object literal for the '<em><b>Row IDs</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute GRID_BINDING__ROW_IDS = eINSTANCE.getGridBinding_RowIDs();
 
 		/**
 		 * The meta object literal for the '<em><b>Focus Cell</b></em>' reference feature. <!--

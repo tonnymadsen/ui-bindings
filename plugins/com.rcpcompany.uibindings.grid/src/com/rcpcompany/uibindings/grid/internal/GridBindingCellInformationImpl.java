@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2010 The RCP Company and others.
+ * Copyright (c) 2007, 2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -57,7 +57,6 @@ import com.rcpcompany.uibindings.grid.IGridPackage;
 import com.rcpcompany.uibindings.uiAttributes.UIAttributePainter;
 import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
 import com.rcpcompany.uibindings.utils.IManagerRunnable;
-import com.rcpcompany.utils.basic.ToStringUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -987,7 +986,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 			if (args != null) {
 				lb.args(args);
 			}
-			// TODO: make common super class: lb.setCell(this);
+			lb.setCell(this);
 			setLabelBinding(lb);
 
 			/*
@@ -1111,7 +1110,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 
 	@Override
 	public void handleEvent(Event event) {
-		LogUtils.debug(this, "event=" + ToStringUtils.toString(event));
+		// LogUtils.debug(this, "event=" + ToStringUtils.toString(event));
 
 		if (!isChangeable()) return;
 
@@ -1175,9 +1174,8 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 
 	@Override
 	public Point getPosition(boolean visualModel) {
-		// No visual model
-		final int x = getColumn().getRowCells().indexOf(this);
-		final int y = getRow().getColumnCells().indexOf(this);
+		final int x = getColumn().getPosition(visualModel);
+		final int y = getRow().getPosition(visualModel);
 		return new Point(x, y);
 	}
 } // GridBindingCellInformationImpl

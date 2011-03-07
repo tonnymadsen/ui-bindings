@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017, 2011 The RCP Company and others.
+ * Copyright (c) 2007, 2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -71,8 +71,7 @@ public interface IGridBindingRowInformation extends EObject, IDisposable {
 	 * {@link com.rcpcompany.uibindings.grid.IGridBindingCellInformation#getRow <em>Row</em>}'. <!--
 	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Column Cells</em>' reference list isn't clear, there really should
-	 * be more of a description here...
+	 * Please note that the order of cells object has no meaning.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -96,4 +95,16 @@ public interface IGridBindingRowInformation extends EObject, IDisposable {
 	 * @generated
 	 */
 	GridItem getGridItem();
+
+	/**
+	 * Returns the position of this row in the grid. Top row (a header) is <code>0</code>.
+	 * <p>
+	 * Includes column header columns (<code>GridUtils.isHeader(r.getId())</code>).
+	 * 
+	 * @param visualModel <code>true</code> if the visual model should be used rather than the
+	 *            logical model
+	 * 
+	 * @return the position
+	 */
+	int getPosition(boolean visualModel);
 } // IGridBindingRowInformation

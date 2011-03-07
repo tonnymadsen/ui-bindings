@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2010 The RCP Company and others.
+ * Copyright (c) 2007, 2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -31,6 +31,7 @@ import com.rcpcompany.uibindings.grid.IGridBindingCellInformation;
 import com.rcpcompany.uibindings.grid.IGridBindingColumnInformation;
 import com.rcpcompany.uibindings.grid.IGridBindingRowInformation;
 import com.rcpcompany.uibindings.grid.IGridFactory;
+import com.rcpcompany.uibindings.grid.IGridModel;
 import com.rcpcompany.uibindings.grid.IGridPackage;
 import com.rcpcompany.uibindings.grid.internal.renderers.UIPainterCellRenderer;
 
@@ -210,6 +211,34 @@ public class GridBindingColumnInformationImpl extends EObjectImpl implements IGr
 		return null;
 	}
 
+	@Override
+	public int getPosition(boolean visualModel) {
+		final int noRowHeaders = getGrid().getNoRowHeaders();
+
+		if (getId() == IGridModel.HEADER1) return noRowHeaders - 1;
+		if (getId() == IGridModel.HEADER2) return noRowHeaders - 2;
+		if (getId() == IGridModel.HEADER3) return noRowHeaders - 3;
+		if (getId() == IGridModel.HEADER4) return noRowHeaders - 4;
+		if (getId() == IGridModel.HEADER5) return noRowHeaders - 5;
+
+		int x = getGrid().getColumnIDs().indexOf(getId());
+		if (visualModel) {
+			/*
+			 * Convert to the visual model.
+			 * 
+			 * Only relevant for the columns
+			 */
+			final int[] columnOrder = getGrid().getGrid().getColumnOrder();
+			for (int i = 0; i < columnOrder.length; i++)
+				if (columnOrder[i] == x) {
+					x = i;
+					break;
+				}
+		}
+
+		return x + noRowHeaders;
+	}
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -375,19 +404,11 @@ public class GridBindingColumnInformationImpl extends EObjectImpl implements IGr
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		final StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (id: ");
-		result.append(id);
-		result.append(", gridColumn: ");
-		result.append(gridColumn);
-		result.append(')');
-		return result.toString();
+		return "" + getId();
 	}
 
 	@Override

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017, 2011 The RCP Company and others.
+ * Copyright (c) 2007, 2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -216,7 +216,7 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 */
 	@Override
 	public EReference getGridBinding_CellEditor() {
-		return (EReference) gridBindingEClass.getEStructuralFeatures().get(7);
+		return (EReference) gridBindingEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -255,8 +255,28 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getGridBinding_ColumnIDs() {
+		return (EAttribute) gridBindingEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getGridBinding_RowIDs() {
+		return (EAttribute) gridBindingEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EReference getGridBinding_FocusCell() {
-		return (EReference) gridBindingEClass.getEStructuralFeatures().get(6);
+		return (EReference) gridBindingEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -694,6 +714,8 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 		createEReference(gridBindingEClass, GRID_BINDING__ROWS);
 		createEAttribute(gridBindingEClass, GRID_BINDING__GRID);
 		createEAttribute(gridBindingEClass, GRID_BINDING__MODEL);
+		createEAttribute(gridBindingEClass, GRID_BINDING__COLUMN_IDS);
+		createEAttribute(gridBindingEClass, GRID_BINDING__ROW_IDS);
 		createEReference(gridBindingEClass, GRID_BINDING__FOCUS_CELL);
 		createEReference(gridBindingEClass, GRID_BINDING__CELL_EDITOR);
 
@@ -801,6 +823,12 @@ public class GridPackageImpl extends EPackageImpl implements IGridPackage {
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGridBinding_Model(), this.getIGridModel(), "model", null, 0, 1, IGridBinding.class,
 				IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGridBinding_ColumnIDs(), theUIBindingsPackage.getIObservableList(), "columnIDs", null, 1, 1,
+				IGridBinding.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGridBinding_RowIDs(), theUIBindingsPackage.getIObservableList(), "rowIDs", null, 1, 1,
+				IGridBinding.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 		initEReference(getGridBinding_FocusCell(), this.getGridBindingCellInformation(), null, "focusCell", null, 0, 1,
 				IGridBinding.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

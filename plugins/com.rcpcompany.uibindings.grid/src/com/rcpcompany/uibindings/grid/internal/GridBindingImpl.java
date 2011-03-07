@@ -85,6 +85,9 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingImpl#getRows <em>Rows</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingImpl#getGrid <em>Grid</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingImpl#getModel <em>Model</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingImpl#getColumnIDs <em>Column IDs
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingImpl#getRowIDs <em>Row IDs</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingImpl#getFocusCell <em>Focus Cell
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.grid.internal.GridBindingImpl#getCellEditor <em>Cell Editor
@@ -197,6 +200,26 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 	protected IGridModel model = MODEL_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getColumnIDs() <em>Column IDs</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getColumnIDs()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final IObservableList COLUMN_IDS_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getRowIDs() <em>Row IDs</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getRowIDs()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final IObservableList ROW_IDS_EDEFAULT = null;
+
+	/**
 	 * The cached value of the '{@link #getFocusCell() <em>Focus Cell</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -269,7 +292,7 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 						p.x = 0;
 						p.y++;
 					}
-					final IGridBindingCellInformation c = getCell(p.x, p.y);
+					final IGridBindingCellInformation c = (IGridBindingCellInformation) getCell(p.x, p.y, true);
 					if (c != null) {
 						setFocusCell(c);
 					}
@@ -340,7 +363,8 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 		if (p == null) return;
 		if (p.x < 0 || p.y < 0) return;
 
-		final IGridBindingCellInformation cell = getCell(p.x, p.y);
+		final IGridBindingCellInformation cell = (IGridBindingCellInformation) getCell(p.x + getNoRowHeaders(), p.y
+				+ getNoColumnHeaders(), true);
 		if (cell == null) return;
 		setFocusCell(cell);
 
@@ -361,7 +385,7 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 		IGridFactory.eINSTANCE.createGridBindingColumnInformation(this, columnID, index);
 		getContext().reflow();
 		if (getFocusCell() == null) {
-			setFocusCellDelayed(0, 0);
+			setFocusCellDelayed(getNoRowHeaders(), getNoColumnHeaders());
 		}
 	};
 
@@ -392,7 +416,7 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 		IGridFactory.eINSTANCE.createGridBindingRowInformation(this, rowID, index);
 		getContext().reflow();
 		if (getFocusCell() == null) {
-			setFocusCellDelayed(0, 0);
+			setFocusCellDelayed(getNoRowHeaders(), getNoColumnHeaders());
 		}
 	};
 
@@ -626,6 +650,26 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public IObservableList getColumnIDs() {
+		return myColumnIDs;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public IObservableList getRowIDs() {
+		return myRowIDs;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -652,7 +696,7 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 					setFocusCell((IGridBindingCellInformation) null);
 					return;
 				}
-				setFocusCell(getCell(c, r));
+				setFocusCell((IGridBindingCellInformation) getCell(c, r, true));
 			}
 		});
 	}
@@ -661,13 +705,11 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 	public void updateFocusCellDelayed() {
 		final IGridBindingCellInformation cell = getFocusCell();
 		if (cell == null) {
-			setFocusCellDelayed(0, 0);
+			setFocusCellDelayed(getNoRowHeaders(), getNoColumnHeaders());
 			return;
 		}
-
-		final int columnNo = getColumns().indexOf(cell.getColumn());
-		final int rowNo = getRows().indexOf(cell.getRow());
-		setFocusCellDelayed(columnNo, rowNo);
+		final Point position = cell.getPosition(true);
+		setFocusCellDelayed(position.x, position.y);
 	}
 
 	/**
@@ -679,7 +721,7 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 	public void setFocusCell(IGridBindingCellInformation newFocusCell) {
 		if (newFocusCell == null) {
 			if (getColumns().size() > 0 && getRows().size() > 0) {
-				newFocusCell = getCell(0, 0);
+				newFocusCell = (IGridBindingCellInformation) getCell(getNoRowHeaders(), getNoColumnHeaders(), true);
 			}
 		}
 		if (newFocusCell == null) return;
@@ -807,6 +849,10 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 			return getGrid();
 		case IGridPackage.GRID_BINDING__MODEL:
 			return getModel();
+		case IGridPackage.GRID_BINDING__COLUMN_IDS:
+			return getColumnIDs();
+		case IGridPackage.GRID_BINDING__ROW_IDS:
+			return getRowIDs();
 		case IGridPackage.GRID_BINDING__FOCUS_CELL:
 			return getFocusCell();
 		case IGridPackage.GRID_BINDING__CELL_EDITOR:
@@ -897,6 +943,10 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 			return GRID_EDEFAULT == null ? grid != null : !GRID_EDEFAULT.equals(grid);
 		case IGridPackage.GRID_BINDING__MODEL:
 			return MODEL_EDEFAULT == null ? model != null : !MODEL_EDEFAULT.equals(model);
+		case IGridPackage.GRID_BINDING__COLUMN_IDS:
+			return COLUMN_IDS_EDEFAULT == null ? getColumnIDs() != null : !COLUMN_IDS_EDEFAULT.equals(getColumnIDs());
+		case IGridPackage.GRID_BINDING__ROW_IDS:
+			return ROW_IDS_EDEFAULT == null ? getRowIDs() != null : !ROW_IDS_EDEFAULT.equals(getRowIDs());
 		case IGridPackage.GRID_BINDING__FOCUS_CELL:
 			return focusCell != null;
 		case IGridPackage.GRID_BINDING__CELL_EDITOR:
@@ -926,6 +976,10 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 				return IGridPackage.GRID_BINDING__GRID + EOFFSET_CORRECTION;
 			case IGridPackage.GRID_BINDING__MODEL:
 				return IGridPackage.GRID_BINDING__MODEL + EOFFSET_CORRECTION;
+			case IGridPackage.GRID_BINDING__COLUMN_IDS:
+				return IGridPackage.GRID_BINDING__COLUMN_IDS + EOFFSET_CORRECTION;
+			case IGridPackage.GRID_BINDING__ROW_IDS:
+				return IGridPackage.GRID_BINDING__ROW_IDS + EOFFSET_CORRECTION;
 			case IGridPackage.GRID_BINDING__FOCUS_CELL:
 				return IGridPackage.GRID_BINDING__FOCUS_CELL + EOFFSET_CORRECTION;
 			case IGridPackage.GRID_BINDING__CELL_EDITOR:
@@ -1326,40 +1380,44 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 		return null;
 	}
 
-	@Override
-	public IValueBindingCell getCell(int column, int row, boolean visualModel) {
-		return getCell(column, row);
+	private Object getColumnID(int column, boolean visualModel) {
+		if (column == getNoRowHeaders() - 2) return IGridModel.HEADER2;
+		if (column == getNoRowHeaders() - 3) return IGridModel.HEADER3;
+		if (column == getNoRowHeaders() - 4) return IGridModel.HEADER4;
+		if (column == getNoRowHeaders() - 5) return IGridModel.HEADER5;
+
+		column -= getNoRowHeaders();
+
+		if (visualModel) {
+			final int[] columnOrder = getGrid().getColumnOrder();
+			if (column < columnOrder.length) {
+				column = columnOrder[column];
+			}
+		}
+
+		return getColumnIDs().get(column);
+	}
+
+	private Object getRowID(int row, boolean visualModel) {
+		if (row == getNoColumnHeaders() - 2) return IGridModel.HEADER2;
+		if (row == getNoColumnHeaders() - 3) return IGridModel.HEADER3;
+		if (row == getNoColumnHeaders() - 4) return IGridModel.HEADER4;
+		if (row == getNoColumnHeaders() - 5) return IGridModel.HEADER5;
+
+		row -= getNoRowHeaders();
+
+		return getRowIDs().get(row);
 	}
 
 	@Override
-	public IGridBindingCellInformation getCell(int column, int row) {
-		final GridColumn gridColumn;
-		final GridItem gridRow;
-		if (column < 0 || getGrid().getColumnCount() <= column) return null;
-		if (row < 0 || getGrid().getItemCount() <= row) return null;
+	public IValueBindingCell getCell(int column, int row, boolean visualModel) {
+		final Object columnID = getColumnID(column, visualModel);
+		final Object rowID = getRowID(row, visualModel);
 
-		try {
-			gridColumn = getGrid().getColumn(column);
-			gridRow = getGrid().getItem(row);
-		} catch (final IllegalArgumentException ex) {
-			// Argument out of range
-			LogUtils.error(this, "Cell not found - inconsistency", getCreationPoint());
-			return null;
-		}
-		IGridBindingColumnInformation ci = null;
-		IGridBindingRowInformation ri = null;
+		final IGridBindingColumnInformation ci = getColumns().get(columnID);
+		final IGridBindingRowInformation ri = getRows().get(rowID);
 
-		for (final IGridBindingColumnInformation c : getColumns().values()) {
-			if (c.getGridColumn() == gridColumn) {
-				ci = c;
-			}
-		}
 		if (ci == null) return null;
-		for (final IGridBindingRowInformation r : getRows().values()) {
-			if (r.getGridItem() == gridRow) {
-				ri = r;
-			}
-		}
 		if (ri == null) return null;
 
 		for (final IGridBindingCellInformation cell : ci.getRowCells()) {
@@ -1369,17 +1427,9 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 		return null;
 	}
 
-	/**
-	 * Returns the grid cell for the specified grid item and column index.
-	 * 
-	 * @param column the column index
-	 * @param item the grid item
-	 * 
-	 * @return the cell or <code>null</code>
-	 */
-	protected IGridBindingCellInformation getCell(int column, GridItem item) {
-		// TODO there must be a more effective way for this
-		return getCell(column, getGrid().indexOf(item));
+	@Override
+	public IGridBindingCellInformation getCell(int column, int row) {
+		return (IGridBindingCellInformation) getCell(column, row, true);
 	}
 
 	@Override

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017, 2011 The RCP Company and others.
+ * Copyright (c) 2007, 2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,11 +11,14 @@
 package com.rcpcompany.uibindings.grid;
 
 import org.eclipse.core.databinding.observable.list.IObservableList;
+import org.eclipse.nebula.widgets.grid.Grid;
 
 import com.rcpcompany.uibindings.IDisposable;
 
 /**
  * The adapter for a grid to be shown.
+ * <p>
+ * A specific grid model may only be used for one {@link Grid}.
  * <p>
  * Spanning: via {@link IGridCell#getArguments()} for argument name ....
  * 
@@ -24,6 +27,8 @@ import com.rcpcompany.uibindings.IDisposable;
 public interface IGridModel extends IDisposable {
 	/**
 	 * Returns a list with the IDs of all columns of the grid.
+	 * <p>
+	 * Only called once per {@link Grid}.
 	 * 
 	 * @return the list of columns
 	 */
@@ -31,6 +36,8 @@ public interface IGridModel extends IDisposable {
 
 	/**
 	 * Returns a list with the IDs of all rows of the grid.
+	 * <p>
+	 * Only called once per {@link Grid}.
 	 * 
 	 * @return the list of rows
 	 */
