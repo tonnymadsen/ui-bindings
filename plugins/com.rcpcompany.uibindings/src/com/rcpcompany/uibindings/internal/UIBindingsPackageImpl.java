@@ -1817,6 +1817,16 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
+	public EAttribute getColumnBinding_Tonny() {
+		return (EAttribute) columnBindingEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getColumnBindingCellInformation() {
 		return columnBindingCellInformationEClass;
 	}
@@ -4494,6 +4504,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		createEAttribute(columnBindingEClass, COLUMN_BINDING__FACTORY);
 		createEAttribute(columnBindingEClass, COLUMN_BINDING__CURSOR);
 		createEAttribute(columnBindingEClass, COLUMN_BINDING__COLUMN_VISIBILITY);
+		createEAttribute(columnBindingEClass, COLUMN_BINDING__TONNY);
 
 		columnBindingCellInformationEClass = createEClass(COLUMN_BINDING_CELL_INFORMATION);
 		createEReference(columnBindingCellInformationEClass, COLUMN_BINDING_CELL_INFORMATION__COLUMN);
@@ -5254,6 +5265,10 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				getColumnBinding_ColumnVisibility(),
 				this.getIObservableValue(),
 				"columnVisibility", null, 1, 1, IColumnBinding.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getColumnBinding_Tonny(),
+				ecorePackage.getEInt(),
+				"tonny", null, 0, 1, IColumnBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(columnBindingCellInformationEClass, IColumnBindingCellInformation.class,
 				"ColumnBindingCellInformation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

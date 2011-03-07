@@ -1329,13 +1329,22 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__COLUMN_VISIBILITY = BINDING_FEATURE_COUNT + 9;
 
 	/**
+	 * The feature id for the '<em><b>Tonny</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN_BINDING__TONNY = BINDING_FEATURE_COUNT + 10;
+
+	/**
 	 * The number of structural features of the '<em>Column Binding</em>' class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN_BINDING_FEATURE_COUNT = BINDING_FEATURE_COUNT + 10;
+	int COLUMN_BINDING_FEATURE_COUNT = BINDING_FEATURE_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.ViewerBindingImpl
@@ -5822,6 +5831,18 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getColumnBinding_ColumnVisibility();
 
 	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IColumnBinding#getTonny <em>Tonny</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Tonny</em>'.
+	 * @see com.rcpcompany.uibindings.IColumnBinding#getTonny()
+	 * @see #getColumnBinding()
+	 * @generated
+	 */
+	EAttribute getColumnBinding_Tonny();
+
+	/**
 	 * Returns the meta object for class '
 	 * {@link com.rcpcompany.uibindings.IColumnBindingCellInformation
 	 * <em>Column Binding Cell Information</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -9467,6 +9488,14 @@ public interface IUIBindingsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COLUMN_BINDING__COLUMN_VISIBILITY = eINSTANCE.getColumnBinding_ColumnVisibility();
+
+		/**
+		 * The meta object literal for the '<em><b>Tonny</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute COLUMN_BINDING__TONNY = eINSTANCE.getColumnBinding_Tonny();
 
 		/**
 		 * The meta object literal for the '
