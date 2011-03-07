@@ -21,8 +21,23 @@ import com.rcpcompany.uibindings.utils.IFormCreator;
  * @author Tonny Madsen, The RCP Company
  */
 public abstract class FormEditorPartFactory extends AbstractEditorPartFactory implements IEditorPartFactory {
+	/**
+	 * The editor part context for this factory.
+	 */
+	private IEditorPartContext myEditorPartContext;
+
+	/**
+	 * Returns the editor part context for this factory.
+	 * 
+	 * @return the context
+	 */
+	public IEditorPartContext getEditorPartContext() {
+		return myEditorPartContext;
+	}
+
 	@Override
 	public final IEditorPart createEditorPart(IEditorPartContext context) {
+		myEditorPartContext = context;
 		final IFormCreator form = IFormCreator.Factory.createScrolledForm(context.getCurrentValue(),
 				context.getParent(), context.getDescriptor().getName());
 		form.getContext().addBinding().ui(form.getScrolledForm()).model(context.getCurrentValue())
