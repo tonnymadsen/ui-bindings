@@ -94,7 +94,7 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 
 			Constants.SOURCES_ACTIVE_CONTAINER_BINDING, Constants.SOURCES_ACTIVE_CONTAINER_BINDING_NO_CAF,
 			Constants.SOURCES_ACTIVE_CONTAINER_CELL_TYPE,
-
+			
 			Constants.SOURCES_ACTIVE_VIEWER_ELEMENT, Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_TYPE,
 			Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_UP, Constants.SOURCES_ACTIVE_VIEWER_ELEMENT_MOVE_DOWN,
 
@@ -386,7 +386,7 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 		final List<IObservableValue> values = new ArrayList<IObservableValue>();
 		resetMap(map);
 		if (event.type == SWT.MenuDetect) {
-			LogUtils.debug(event, "MenuDetect");
+			// LogUtils.debug(event, "MenuDetect");
 		}
 		try {
 			final IBinding b = IBindingContext.Factory.getBindingForWidget(event.widget);
