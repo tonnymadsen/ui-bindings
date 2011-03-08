@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.6"?>
 
-<target name="UI Bindings 3.6.x target">
+<target name="UI Bindings 3.7.x target">
 <locations>
 <location includeAllPlatforms="true" includeMode="slicer" type="InstallableUnit">
-<unit id="org.eclipse.platform.sdk" version="3.6.2.M20110210-1200"/>
-<repository location="http://download.eclipse.org/eclipse/updates/3.6"/>
+<unit id="org.eclipse.platform.sdk" version="3.7.0.I20110127-2034"/>
+<repository location="http://download.eclipse.org/eclipse/updates/3.7milestones"/>
 </location>
 <location includeAllPlatforms="true" includeMode="slicer" type="InstallableUnit">
-<unit id="org.eclipse.emf.sdk.feature.group" version="2.6.1.v20100914-1218"/>
-<unit id="org.eclipse.pde.junit.runtime.addon.feature.group" version="1.0.0.v20100831"/>
-<unit id="org.eclipse.wst.jsdt.feature.feature.group" version="1.2.3.v201102160540-7C78FGUF9JgLWNO2UCNqfa"/>
-<repository location="http://download.eclipse.org/releases/helios"/>
+<unit id="org.eclipse.emf.sdk.feature.group" version="2.7.0.v20110128-1446"/>
+<unit id="org.eclipse.wst.jsdt.feature.feature.group" version="1.3.0.v201101270151-7F78FUHFBBoPbSV-jGYxuY"/>
+<repository location="http://download.eclipse.org/releases/staging/"/>
 </location>
 </locations>
 <includeBundles>
