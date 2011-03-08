@@ -776,22 +776,25 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			/*
 			 * Find the bounds of the item - depends on Table or Tree
 			 */
-			final Rectangle cellBounds;
+			final Rectangle innerCellBounds;
 			if (event.item instanceof TableItem) {
-				cellBounds = ((TableItem) event.item).getBounds(event.index);
+				innerCellBounds = ((TableItem) event.item).getBounds(event.index);
 			} else if (event.item instanceof TreeItem) {
-				cellBounds = ((TreeItem) event.item).getBounds(event.index);
+				innerCellBounds = ((TreeItem) event.item).getBounds(event.index);
 			} else {
-				cellBounds = null;
+				LogUtils.error(this, "Cannot compute cell bounds. Cell ignored.");
+				return;
 			}
+			final Rectangle outerCellBounds = new Rectangle(innerCellBounds.x + 16, innerCellBounds.y,
+					innerCellBounds.width - 2 * 16, innerCellBounds.height);
 
 			/*
 			 * Update the image decorations of the label...
 			 */
-			labelBinding.getUIAttribute().updateImageDecorations(getViewerBinding().getControl(), cellBounds,
-					cellBounds);
+			labelBinding.getUIAttribute().updateImageDecorations(getViewerBinding().getControl(), innerCellBounds,
+					outerCellBounds);
 
-			painter.paint(event.gc, cellBounds);
+			painter.paint(event.gc, innerCellBounds);
 		}
 	}
 
