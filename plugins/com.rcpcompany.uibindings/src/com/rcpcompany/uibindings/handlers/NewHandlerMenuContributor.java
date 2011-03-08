@@ -65,7 +65,8 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 	/**
 	 * Empty set of items.
 	 * <p>
-	 * Used when no items can be found in {@link #getContributionItems()}.
+	 * Used when no items can be found in {@link #getContributionItems()}. This is needed as the
+	 * menu is other not updated as it is visible but disable when it is empty...
 	 */
 	private static final IContributionItem[] EMPTY_ITEMS = new IContributionItem[1];
 	{
