@@ -218,7 +218,6 @@ public class UIAttributeImageDecorationImpl extends EObjectImpl implements IUIAt
 			case CENTER_LEFT:
 			case BOTTOM_LEFT:
 				myLocation.x += -imageBounds.width - OUTER_MARGIN_WIDTH;
-				// myLocation.x += -2;
 				break;
 			case TOP_RIGHT:
 			case CENTER_RIGHT:
