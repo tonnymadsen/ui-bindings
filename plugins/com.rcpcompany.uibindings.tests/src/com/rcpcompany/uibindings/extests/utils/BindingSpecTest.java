@@ -132,8 +132,8 @@ public class BindingSpecTest {
 		final FontMetrics fm = gc.getFontMetrics();
 		gc.dispose();
 
-		final float fh = f.getFontData()[0].height;
-		assertTrue("Font size range, got " + fh, 8.0f < fh && fh < 18.0f);
+		final float fh = f.getFontData()[0].getHeight();
+		assertTrue("Font size range, got " + fh, 7.0f <= fh && fh < 18.0f);
 
 		final List<IBindingSpec> spec = IBindingSpec.Factory.parseSingleSpec(ShopPackage.Literals.CONTACT,
 				"country(w=10em).name(w=10dlu)", SpecContext.FORM_FIELD);
