@@ -33,8 +33,8 @@ import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
 import com.rcpcompany.uibindings.IChildCreationSpecification;
-import com.rcpcompany.uibindings.IViewerBinding;
-import com.rcpcompany.uibindings.UIBindingsUtils;
+import com.rcpcompany.uibindings.IContainerBinding;
+import com.rcpcompany.uibindings.IContainerBinding.IContainerDropContext;
 
 /**
  * Implementation of a drag 'n drop command.
@@ -46,7 +46,7 @@ import com.rcpcompany.uibindings.UIBindingsUtils;
  * @author Tonny Madsen, The RCP Company
  * 
  */
-public class ViewerDragAndDropCommand extends AbstractCommand implements DragAndDropFeedback {
+public class ContainerDragAndDropCommand extends AbstractCommand implements DragAndDropFeedback {
 	/**
 	 * This caches the label.
 	 */
@@ -61,16 +61,6 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 	 * This keeps track of the domain in which this command is created.
 	 */
 	protected EditingDomain myDomain;
-
-	/**
-	 * This keeps track of the owner that is the target of the drag and drop.
-	 */
-	protected EObject myTarget;
-
-	/**
-	 * This keeps track of the location of the drag and drop.
-	 */
-	protected float myLocation;
 
 	/**
 	 * This keeps track of the lower range of locations in which the effect of this command remains
@@ -102,7 +92,7 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 	/**
 	 * This keeps track of the collection of dragged sources.
 	 */
-	protected Collection<EObject> myDraggedSources;
+	protected Collection<EObject> mySourceObjects;
 
 	/**
 	 * This keeps track of the command that implements the drag side of the operation.
@@ -123,11 +113,13 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 	protected Command myDropCommand = UnexecutableCommand.INSTANCE;
 
 	/**
-	 * The viewer binding for the target.
+	 * The container binding for the target.
 	 */
-	private final IViewerBinding myViewer;
+	private final IContainerBinding myContainer;
 
 	private boolean isDragCommandExecuted;
+
+	private IContainerDropContext myContext;
 
 	/**
 	 * Creates an instance in the given domain and for the given information. The location should be
@@ -143,17 +135,16 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 	 * @param operation
 	 * @param source
 	 */
-	public ViewerDragAndDropCommand(IViewerBinding binding, EObject target, float location, int operations,
+	public ContainerDragAndDropCommand(IContainerBinding container, IContainerDropContext context, int operations,
 			int operation, Collection<EObject> source) {
 		super(LABEL, DESCRIPTION);
 
-		myViewer = binding;
-		myDomain = myViewer.getEditingDomain();
-		myTarget = target;
-		myLocation = location;
+		myContainer = container;
+		myContext = context;
+		myDomain = myContainer.getEditingDomain();
 		myOperations = operations;
 		myOperation = operation;
-		myDraggedSources = source;
+		mySourceObjects = source;
 	}
 
 	/**
@@ -167,7 +158,8 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 		/*
 		 * If there isn't something obviously wrong with the arguments...
 		 */
-		if (myTarget == null || myDraggedSources == null || myOperations == DROP_NONE || myOperation == DROP_NONE) {
+		if (myContext.getDropTarget() == null || mySourceObjects == null || myOperations == DROP_NONE
+				|| myOperation == DROP_NONE) {
 			myLowerLocationBound = 0.0F;
 			myUpperLocationBound = 1.0F;
 			return false;
@@ -176,7 +168,7 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 		/*
 		 * If the location is near the boundary, we'll start by trying to do a drop insert.
 		 */
-		if (myLocation <= 0.20 || myLocation >= 0.80) {
+		if (myContext.getDropLocation() <= 0.20 || myContext.getDropLocation() >= 0.80) {
 			/*
 			 * If we could do a drop insert operation...
 			 */
@@ -185,7 +177,7 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 				/*
 				 * Set the bounds so that we re-check when we are closer to the middle.
 				 */
-				if (myLocation <= 0.20) {
+				if (myContext.getDropLocation() <= 0.20) {
 					myLowerLocationBound = 0.0F;
 					myUpperLocationBound = 0.2F;
 				} else {
@@ -202,7 +194,7 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 				/*
 				 * Set the bounds so that we re-check when we get near the other end.
 				 */
-				if (myLocation <= 0.20) {
+				if (myContext.getDropLocation() <= 0.20) {
 					myLowerLocationBound = 0.0F;
 					myUpperLocationBound = 0.8F;
 				} else {
@@ -235,7 +227,7 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 				/*
 				 * Set the range so that we re-check when we get into the other half.
 				 */
-				if (myLocation <= 0.50) {
+				if (myContext.getDropLocation() <= 0.50) {
 					myLowerLocationBound = 0.0F;
 					myUpperLocationBound = 0.5F;
 				} else {
@@ -263,15 +255,15 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 	 * @return the best specification or <code>null</code>
 	 */
 	private IChildCreationSpecification findBestChildCreationSpecification(EObject parent, EObject sibling) {
-		final List<IChildCreationSpecification> possibleChildObjects = myViewer
-				.getPossibleChildObjects(parent, sibling);
+		final List<IChildCreationSpecification> possibleChildObjects = myContext.getPossibleChildObjects(parent,
+				sibling);
 		if (possibleChildObjects == null) return null;
 		OUTER: for (final IChildCreationSpecification pcs : possibleChildObjects) {
 			final EClass childType = pcs.getChildType();
 			if (childType == null) {
 				continue;
 			}
-			for (final EObject source : myDraggedSources) {
+			for (final EObject source : mySourceObjects) {
 				if (source.eClass() != childType) {
 					continue OUTER;
 				}
@@ -293,20 +285,20 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 		 * The feedback is set based on which half we are in. If the command isn't executable, these
 		 * values won't be used.
 		 */
-		feedback = myLocation < 0.5 ? FEEDBACK_INSERT_BEFORE : FEEDBACK_INSERT_AFTER;
+		feedback = myContext.getDropLocation() < 0.5 ? FEEDBACK_INSERT_BEFORE : FEEDBACK_INSERT_AFTER;
 
-		final IChildCreationSpecification spec = findBestChildCreationSpecification(null, myTarget);
+		final IChildCreationSpecification spec = findBestChildCreationSpecification(null, myContext.getDropTarget());
+		if (spec == null) return false;
 
 		/*
 		 * If we can't determine the parent.
 		 */
-		if (spec == null) return false;
 		int index = spec.getIndex();
 
 		/*
-		 * If the location indicates after, add one more.
+		 * If the location indicates after, add one more to get the correct index.
 		 */
-		if (myLocation >= 0.5 && index != -1) {
+		if (myContext.getDropLocation() >= 0.5 && index != -1) {
 			++index;
 		}
 
@@ -368,7 +360,7 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 		/*
 		 * We don't want to move insert an object before or after itself...
 		 */
-		if (myDraggedSources.contains(myTarget)) return false;
+		if (mySourceObjects.contains(myContext.getDropTarget())) return false;
 
 		/*
 		 * We need containment to move
@@ -382,7 +374,7 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 		final Object o = spec.getParent().eGet(spec.getReference());
 		if (o instanceof List<?>) {
 			final List<?> children = (List<?>) o;
-			if (children.containsAll(myDraggedSources)) {
+			if (children.containsAll(mySourceObjects)) {
 				/*
 				 * Create move commands for all the objects in the collection.
 				 */
@@ -392,7 +384,7 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 
 				int j = 0;
 				for (final Object object : children) {
-					if (myDraggedSources.contains(object)) {
+					if (mySourceObjects.contains(object)) {
 						if (j < index) {
 							before.add(object);
 						} else if (j > index) {
@@ -432,14 +424,14 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 		/*
 		 * Just remove the objects and add them.
 		 */
-		myDragCommand = RemoveCommand.create(myDomain, myDraggedSources);
-		myDropCommand = AddCommand.create(myDomain, spec.getParent(), spec.getReference(), myDraggedSources, index);
+		myDragCommand = RemoveCommand.create(myDomain, mySourceObjects);
+		myDropCommand = AddCommand.create(myDomain, spec.getParent(), spec.getReference(), mySourceObjects, index);
 
 		return myDragCommand.canExecute() && myDropCommand.canExecute();
 	}
 
 	protected boolean isCrossDomain() {
-		for (final EObject item : myDraggedSources) {
+		for (final EObject item : mySourceObjects) {
 			final EditingDomain itemDomain = AdapterFactoryEditingDomain.getEditingDomainFor(item);
 			if (itemDomain != null && itemDomain != myDomain) return true;
 		}
@@ -458,12 +450,12 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 		/*
 		 * We don't want to copy insert an object before or after itself...
 		 */
-		if (myDraggedSources.contains(spec.getParent())) return false;
+		if (mySourceObjects.contains(spec.getParent())) return false;
 
 		/*
 		 * Copy the collection
 		 */
-		myDragCommand = CopyCommand.create(myDomain, myDraggedSources);
+		myDragCommand = CopyCommand.create(myDomain, mySourceObjects);
 		if (myDragCommand.canExecute() && myDragCommand.canUndo()) {
 			myDragCommand.execute();
 			isDragCommandExecuted = true;
@@ -491,9 +483,9 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 		/*
 		 * We don't want to insert an object before or after itself...
 		 */
-		if (myDraggedSources.contains(spec.getParent())) return false;
+		if (mySourceObjects.contains(spec.getParent())) return false;
 
-		myDropCommand = AddCommand.create(myDomain, spec.getParent(), ref, myDraggedSources, index);
+		myDropCommand = AddCommand.create(myDomain, spec.getParent(), ref, mySourceObjects, index);
 		return myDragCommand.canExecute() && myDropCommand.canExecute();
 	}
 
@@ -509,7 +501,7 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 		 */
 		feedback = FEEDBACK_SELECT;
 
-		final IChildCreationSpecification spec = findBestChildCreationSpecification(myTarget, null);
+		final IChildCreationSpecification spec = findBestChildCreationSpecification(myContext.getDropTarget(), null);
 		if (spec == null) return false;
 
 		/*
@@ -567,8 +559,8 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 		 */
 		if (!spec.getReference().isContainment()) return false;
 
-		myDragCommand = RemoveCommand.create(myDomain, myDraggedSources);
-		myDropCommand = AddCommand.create(myDomain, spec.getParent(), spec.getReference(), myDraggedSources);
+		myDragCommand = RemoveCommand.create(myDomain, mySourceObjects);
+		myDropCommand = AddCommand.create(myDomain, spec.getParent(), spec.getReference(), mySourceObjects);
 
 		return myDragCommand.canExecute() && myDropCommand.canExecute();
 	}
@@ -584,7 +576,7 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 		 */
 		if (!spec.getReference().isContainment()) return false;
 
-		myDragCommand = CopyCommand.create(myDomain, myDraggedSources);
+		myDragCommand = CopyCommand.create(myDomain, mySourceObjects);
 		if (myDragCommand.canExecute() && myDragCommand.canUndo()) {
 			myDragCommand.execute();
 			isDragCommandExecuted = true;
@@ -611,7 +603,7 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 		 */
 		if (ref.isMany() && ref.getEOpposite() != null) return false;
 
-		myDropCommand = AddCommand.create(myDomain, spec.getParent(), ref, myDraggedSources);
+		myDropCommand = AddCommand.create(myDomain, spec.getParent(), ref, mySourceObjects);
 
 		return myDropCommand.canExecute();
 	}
@@ -636,32 +628,23 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 		myDropCommand = UnexecutableCommand.INSTANCE;
 	}
 
-	/**
-	 * This is called by EditingDomainViewerDropAdapter to determine if the drag and drop operation
-	 * is still enabled.
-	 */
 	@Override
 	public boolean validate(Object owner, float location, int operations, int operation, Collection<?> collection) {
+		throw new RuntimeException("Method not supported");
+	}
+
+	public boolean revalidate(IContainerDropContext context, int operations, int operation) {
 		/*
 		 * If the operation has NOT changed significantly, then just return the cached result.
 		 */
-		if (owner == myTarget && (location >= myLowerLocationBound && location <= myUpperLocationBound)
-				&& operation == myOperation && UIBindingsUtils.equals(collection, myDraggedSources))
-			return isExecutable;
-
-		// LogUtils.debug(this, "\nowner=" + owner + "\nmyTarget=" + myTarget + "\nlocation=" +
-		// location + " ["
-		// + myLowerLocationBound + "," + myUpperLocationBound + "]\noperation=" + operation +
-		// ", myOperation="
-		// + myOperation);
+		if (context.getDropTarget() == myContext.getDropTarget()
+				&& (context.getDropLocation() >= myLowerLocationBound && context.getDropLocation() <= myUpperLocationBound)
+				&& operation == myOperation) return isExecutable;
 
 		reset();
-
-		myTarget = (EObject) owner;
-		myLocation = location;
+		myContext = context;
 		myOperations = operations;
 		myOperation = operation;
-		myDraggedSources = (Collection<EObject>) collection;
 
 		return canExecute();
 	}
@@ -726,13 +709,13 @@ public class ViewerDragAndDropCommand extends AbstractCommand implements DragAnd
 	public String toString() {
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (domain: " + myDomain + ")");
-		result.append(" (owner: " + myTarget + ")");
-		result.append(" (location: " + myLocation + ")");
+		result.append(" (owner: " + myContext.getDropTarget() + ")");
+		result.append(" (location: " + myContext.getDropLocation() + ")");
 		result.append(" (lowerLocationBound: " + myLowerLocationBound + ")");
 		result.append(" (upperLocationBound: " + myUpperLocationBound + ")");
 		result.append(" (operations: " + myOperations + ")");
 		result.append(" (operation: " + myOperation + ")");
-		result.append(" (collection: " + myDraggedSources + ")");
+		result.append(" (collection: " + mySourceObjects + ")");
 		result.append(" (feedback: " + feedback + ")");
 
 		return result.toString();

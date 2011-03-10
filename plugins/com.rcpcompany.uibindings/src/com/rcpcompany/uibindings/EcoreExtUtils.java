@@ -39,7 +39,7 @@ import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
-import com.rcpcompany.uibindings.internal.utils.dnd.ViewerDragAndDropCommand;
+import com.rcpcompany.uibindings.internal.utils.dnd.ContainerDragAndDropCommand;
 import com.rcpcompany.uibindings.utils.IBindingObjectInformation;
 
 /**
@@ -554,8 +554,8 @@ public final class EcoreExtUtils {
 				first = false;
 
 			}
-		} else if (c instanceof ViewerDragAndDropCommand) {
-			final ViewerDragAndDropCommand cc = (ViewerDragAndDropCommand) c;
+		} else if (c instanceof ContainerDragAndDropCommand) {
+			final ContainerDragAndDropCommand cc = (ContainerDragAndDropCommand) c;
 			sb.append(toString(cc.getDragCommand())).append(", ").append(toString(cc.getDropCommand()));
 		} else {
 			sb.append("...");

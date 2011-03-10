@@ -10,7 +10,12 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings;
 
+import java.util.List;
+
 import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.swt.dnd.DropTargetEvent;
+import org.eclipse.swt.widgets.Table;
 
 import com.rcpcompany.uibindings.bindingMessages.ValidationLabelDecorator;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
@@ -46,6 +51,63 @@ public interface IContainerBinding extends IBinding {
 	 * @generated
 	 */
 	IObservableValue getSingleSelection();
+
+	/**
+	 * Returns the drop context for the specified event
+	 * 
+	 * @param event the event to test
+	 * @return the context or <code>null</code> if no context can be created
+	 */
+	IContainerDropContext getDropContext(DropTargetEvent event);
+
+	/**
+	 * Context that describes one drop event as seen from the container.
+	 */
+	public interface IContainerDropContext {
+		/**
+		 * Returns the relative location of the specified drop event in the current item of this
+		 * container.
+		 * <p>
+		 * The orientation of the location (up-down or left-right) depends on the container and the
+		 * event.
+		 * 
+		 * @return <code>0.0</code> at the beginning (top/left) and <code>1.0</code> at the end
+		 *         (bottom/right)
+		 */
+		float getDropLocation();
+
+		/**
+		 * Returns the target object of this drop event, if it can be determined from the event.
+		 * 
+		 * @return the target object
+		 */
+		EObject getDropTarget();
+
+		/**
+		 * Constructs and returns a new {@link Command} to handle the Drop operation for this
+		 * container
+		 * 
+		 * @return the command
+		 */
+		// Command createDragAndDropCommand(DragAndDropCommandContext context);
+
+		/**
+		 * Returns a list of the possible objects that can be created as sub-elements of the
+		 * specified parent.
+		 * <p>
+		 * If the parent is <code>null</code> top-level objects are created.
+		 * <p>
+		 * If a sibling is non-<code>null</code>, the children should be as close to immediately
+		 * following that sibling as possible.
+		 * <p>
+		 * For {@link Table tables} the element is ignored.
+		 * 
+		 * @param parent the view element that should be the parent of the child
+		 * @param sibling if non-<code>null</code> the wanted sibling
+		 * @return a list of possible children or <code>null</code> if no children a found
+		 */
+		List<IChildCreationSpecification> getPossibleChildObjects(EObject parent, EObject sibling);
+	}
 
 	/**
 	 * Returns the cell in the container with the specified row and column (<code>(0, 0)</code>

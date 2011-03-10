@@ -10,35 +10,29 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.internal.utils.dnd;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
-import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.DragAndDropCommand;
-import org.eclipse.emf.edit.command.DragAndDropFeedback;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DropTargetAdapter;
 import org.eclipse.swt.dnd.DropTargetEvent;
 import org.eclipse.swt.dnd.TransferData;
-import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.graphics.Rectangle;
-import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.TableItem;
-import org.eclipse.swt.widgets.TreeItem;
-import org.eclipse.swt.widgets.Widget;
 
-import com.rcpcompany.uibindings.IViewerBinding;
+import com.rcpcompany.uibindings.IContainerBinding;
+import com.rcpcompany.uibindings.IContainerBinding.IContainerDropContext;
 
 /**
+ * Drop adapter for use with {@link IContainerBinding}.
+ * <p>
  * This is an adaption of {@link org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter}.
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class ViewerBindingDropAdapter extends DropTargetAdapter {
+public class ContainerBindingDropAdapter extends DropTargetAdapter {
 	/**
 	 * This indicates whether the current platform is motif, which needs special treatment, since it
 	 * cannot do early data transfer, but doesn't cleanly return null either.
@@ -52,16 +46,16 @@ public class ViewerBindingDropAdapter extends DropTargetAdapter {
 	/**
 	 * This is the collection of source objects being dragged.
 	 */
-	protected Collection<EObject> mySource;
+	protected Collection<EObject> mySourceObjects;
 
 	/**
 	 * This is the command created during dragging which provides the feedback and will carry out
 	 * the action upon completion.
 	 */
-	protected Command myCommand;
+	protected ContainerDragAndDropCommand myDragAndDropCommand;
 
 	/**
-	 * This records the object for which the {@link #myCommand} was created.
+	 * This records the object for which the {@link #myDragAndDropCommand} was created.
 	 */
 	protected Object myCommandTarget;
 
@@ -72,19 +66,23 @@ public class ViewerBindingDropAdapter extends DropTargetAdapter {
 	protected int myDragEnterOperation;
 
 	/**
-	 * This keeps track of the information used to create {@link #myCommand}, but does not need to
-	 * be disposed. This allows us to dispose of the command in dragLeave, and then, if we need to
-	 * execute it, recreate it in drop.
+	 * This keeps track of the information used to create {@link #myDragAndDropCommand}, but does
+	 * not need to be disposed. This allows us to dispose of the command in dragLeave, and then, if
+	 * we need to execute it, recreate it in drop.
+	 * 
+	 * TODO Factor this out!
 	 */
 	protected DragAndDropCommandInformation myDragAndDropCommandInformation;
 
-	private final IViewerBinding myBinding;
+	private final IContainerBinding myContainer;
 
 	/**
-	 * This creates an instance with the given domain and viewer.
+	 * This creates an instance with the given container.
+	 * 
+	 * @param binding the container
 	 */
-	public ViewerBindingDropAdapter(IViewerBinding binding) {
-		myBinding = binding;
+	public ContainerBindingDropAdapter(IContainerBinding binding) {
+		myContainer = binding;
 	}
 
 	/**
@@ -100,13 +98,13 @@ public class ViewerBindingDropAdapter extends DropTargetAdapter {
 
 	@Override
 	public void dragLeave(DropTargetEvent event) {
-		if (myCommand != null) {
-			myCommand.dispose();
-			myCommand = null;
+		if (myDragAndDropCommand != null) {
+			myDragAndDropCommand.dispose();
+			myDragAndDropCommand = null;
 		}
 		myCommandTarget = null;
 
-		mySource = null;
+		mySourceObjects = null;
 	}
 
 	@Override
@@ -132,38 +130,39 @@ public class ViewerBindingDropAdapter extends DropTargetAdapter {
 		// A command was created if the source was available early, and the
 		// information used to create it was cached...
 		//
-		if (myDragAndDropCommandInformation != null) {
-			// Recreate the command.
-			//
-			myCommand = myDragAndDropCommandInformation.createCommand();
-		} else {
+		if (myDragAndDropCommandInformation == null) {
 			// Otherwise, the source should be available now as event.data, and we
 			// can create the command.
 			//
-			mySource = extractDragSource(event.data);
-			final Object target = extractDropTarget(event.item);
-			myCommand = DragAndDropCommand.create(myBinding.getEditingDomain(), target, getLocation(event),
-					event.operations, myDragEnterOperation, mySource);
+			mySourceObjects = extractDragSourceObjects(event.data);
+			final IContainerDropContext dropContext = myContainer.getDropContext(event);
+
+			myDragAndDropCommandInformation = new DragAndDropCommandInformation(dropContext, event.operations,
+					myDragEnterOperation);
 		}
+
+		// Recreate the command.
+		//
+		myDragAndDropCommand = myDragAndDropCommandInformation.createCommand();
 
 		// If the command can execute...
 		//
-		if (myCommand.canExecute()) {
+		if (myDragAndDropCommand != null && myDragAndDropCommand.canExecute()) {
 			// Execute it.
 			//
-			myBinding.getEditingDomain().getCommandStack().execute(myCommand);
+			myContainer.getEditingDomain().getCommandStack().execute(myDragAndDropCommand);
 		} else {
 			// Otherwise, let's call the whole thing off.
 			//
 			event.detail = DND.DROP_NONE;
-			myCommand.dispose();
+			myDragAndDropCommand.dispose();
 		}
 
 		// Clean up the state.
 		//
-		myCommand = null;
+		myDragAndDropCommand = null;
 		myCommandTarget = null;
-		mySource = null;
+		mySourceObjects = null;
 		myDragAndDropCommandInformation = null;
 	}
 
@@ -181,9 +180,9 @@ public class ViewerBindingDropAdapter extends DropTargetAdapter {
 		// If we don't already have it, try to get the source early. We can't give
 		// feedback if it's not available yet (this is platform-dependent).
 		//
-		if (mySource == null) {
-			mySource = getDragSource(event);
-			if (mySource == null) {
+		if (mySourceObjects == null) {
+			mySourceObjects = getDragSource(event);
+			if (mySourceObjects == null) {
 				// Clear out any old information from a previous drag.
 				//
 				myDragAndDropCommandInformation = null;
@@ -193,8 +192,9 @@ public class ViewerBindingDropAdapter extends DropTargetAdapter {
 
 		// Get the target object from the item widget and the mouse location in it.
 		//
-		final EObject target = extractDropTarget(event.item);
-		final float location = getLocation(event);
+		final IContainerDropContext dropContext = myContainer.getDropContext(event);
+		final EObject target = dropContext.getDropTarget();
+		final float location = dropContext.getDropLocation();
 
 		// Determine if we can create a valid command at the current location.
 		//
@@ -202,54 +202,42 @@ public class ViewerBindingDropAdapter extends DropTargetAdapter {
 
 		// If we don't have a previous cached command...
 		//
-		if (myCommand == null) {
+		if (myDragAndDropCommand == null) {
 			// We'll need to keep track of the information we use to create the
 			// command, so that we can recreate it in drop.
-			myDragAndDropCommandInformation = new DragAndDropCommandInformation(target, location, event.operations,
-					myDragEnterOperation, mySource);
+			myDragAndDropCommandInformation = new DragAndDropCommandInformation(dropContext, event.operations,
+					myDragEnterOperation);
 
 			// Remember the target; create the command and test if it is executable.
 			//
 			myCommandTarget = target;
-			myCommand = myDragAndDropCommandInformation.createCommand();
-			valid = myCommand.canExecute();
+			myDragAndDropCommand = myDragAndDropCommandInformation.createCommand();
+			valid = myDragAndDropCommand.canExecute();
 		} else {
 			// Check if the cached command can provide DND feedback/revalidation.
 			//
-			if (target == myCommandTarget && myCommand instanceof DragAndDropFeedback) {
+			if (target == myCommandTarget) {
 				// If so, revalidate the command.
 				//
-				valid = ((DragAndDropFeedback) myCommand).validate(target, location, event.operations,
-						myDragEnterOperation, mySource);
+				valid = myDragAndDropCommand.revalidate(dropContext, event.operations, myDragEnterOperation);
 
 				// Keep track of any changes to the command information.
-				myDragAndDropCommandInformation = new DragAndDropCommandInformation(target, location, event.operations,
-						myDragEnterOperation, mySource);
+				myDragAndDropCommandInformation = new DragAndDropCommandInformation(dropContext, event.operations,
+						myDragEnterOperation);
 			} else {
 				// If not, dispose the current command and create a new one.
 				//
-				myDragAndDropCommandInformation = new DragAndDropCommandInformation(target, location, event.operations,
-						myDragEnterOperation, mySource);
+				myDragAndDropCommand.dispose();
+				myDragAndDropCommandInformation = new DragAndDropCommandInformation(dropContext, event.operations,
+						myDragEnterOperation);
 				myCommandTarget = target;
-				myCommand.dispose();
-				myCommand = myDragAndDropCommandInformation.createCommand();
-				valid = myCommand.canExecute();
+				myDragAndDropCommand = myDragAndDropCommandInformation.createCommand();
+				valid = myDragAndDropCommand.canExecute();
 			}
 		}
 
-		// If this command can provide detailed drag and drop feedback...
-		//
-		if (myCommand instanceof DragAndDropFeedback) {
-			// Use it for the operation and drag under effect.
-			//
-			final DragAndDropFeedback dragAndDropFeedback = (DragAndDropFeedback) myCommand;
-			event.detail = dragAndDropFeedback.getOperation();
-			event.feedback = dragAndDropFeedback.getFeedback() | getAutoFeedback();
-		} else if (!valid) {
-			// There is no executable command, so we'd better nix the whole deal.
-			//
-			event.detail = DND.DROP_NONE;
-		}
+		event.detail = myDragAndDropCommand.getOperation();
+		event.feedback = myDragAndDropCommand.getFeedback() | getAutoFeedback();
 	}
 
 	/**
@@ -283,18 +271,15 @@ public class ViewerBindingDropAdapter extends DropTargetAdapter {
 				}
 			}
 
-			// TODO ????
-			return null;
-		} else {
-			// Motif kludge: we would get something random instead of null.
-			//
-			if (IS_MOTIF) return null;
-
-			// Transfer the data and, if non-null, extract it.
-			//
-			final Object object = localTransfer.nativeToJava(event.currentDataType);
-			return object == null ? null : extractDragSource(object);
 		}
+		// Motif kludge: we would get something random instead of null.
+		//
+		if (IS_MOTIF) return null;
+
+		// Transfer the data and, if non-null, extract it.
+		//
+		final Object object = localTransfer.nativeToJava(event.currentDataType);
+		return object == null ? null : extractDragSourceObjects(object);
 	}
 
 	/**
@@ -304,7 +289,7 @@ public class ViewerBindingDropAdapter extends DropTargetAdapter {
 	 * @param object the object from the transfer type
 	 * @return the collection of relevant objects
 	 */
-	protected Collection<EObject> extractDragSource(Object object) {
+	protected Collection<EObject> extractDragSourceObjects(Object object) {
 		Collection<?> list = null;
 		if (object instanceof Collection) {
 			list = (Collection<?>) object;
@@ -322,58 +307,22 @@ public class ViewerBindingDropAdapter extends DropTargetAdapter {
 	}
 
 	/**
-	 * This extracts an object from the given item widget, providing the special support required by
-	 * an {@link org.eclipse.emf.common.ui.viewer.ExtendedTableTreeViewer.ExtendedTableTreeItem}.
-	 */
-	protected EObject extractDropTarget(Widget item) {
-		if (item == null) return null;
-		if (item.getData() instanceof EObject) return (EObject) item.getData();
-		return null;
-	}
-
-	/**
-	 * This returns the location of the mouse in the vertical direction, relative to the item
-	 * widget, from 0 (top) to 1 (bottom).
-	 */
-	protected float getLocation(DropTargetEvent event) {
-		if (event.item instanceof TreeItem) {
-			final TreeItem treeItem = (TreeItem) event.item;
-			final Control control = treeItem.getParent();
-			final Point point = control.toControl(new Point(event.x, event.y));
-			final Rectangle bounds = treeItem.getBounds();
-			return (float) (point.y - bounds.y) / (float) bounds.height;
-		} else if (event.item instanceof TableItem) {
-			final TableItem tableItem = (TableItem) event.item;
-			final Control control = tableItem.getParent();
-			final Point point = control.toControl(new Point(event.x, event.y));
-			final Rectangle bounds = tableItem.getBounds(0);
-			return (float) (point.y - bounds.y) / (float) bounds.height;
-		} else
-			return 0.0F;
-	}
-
-	/**
 	 * This holds all of the information used to create a {@link DragAndDropCommand}, but does not
 	 * need to be disposed.
 	 */
 	protected class DragAndDropCommandInformation {
-		protected EObject target;
-		protected float location;
-		protected int operations;
-		protected int operation;
-		protected Collection<EObject> source;
+		private final int operations;
+		private final int operation;
+		private final IContainerDropContext context;
 
-		public DragAndDropCommandInformation(EObject target, float location, int operations, int operation,
-				Collection<EObject> source) {
-			this.target = target;
-			this.location = location;
+		public DragAndDropCommandInformation(IContainerDropContext context, int operations, int operation) {
+			this.context = context;
 			this.operations = operations;
 			this.operation = operation;
-			this.source = new ArrayList<EObject>(source);
 		}
 
-		public Command createCommand() {
-			return new ViewerDragAndDropCommand(myBinding, target, location, operations, operation, source);
+		public ContainerDragAndDropCommand createCommand() {
+			return new ContainerDragAndDropCommand(myContainer, context, operations, operation, mySourceObjects);
 		}
 	}
 }

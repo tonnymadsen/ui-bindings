@@ -20,6 +20,7 @@ import org.eclipse.swt.widgets.Control;
 
 import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingContext;
+import com.rcpcompany.uibindings.IContainerBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.internal.utils.AbstractContextMonitor;
 import com.rcpcompany.uibindings.utils.IDnDSupport;
@@ -74,9 +75,13 @@ public class DnDSupport extends AbstractContextMonitor implements IDnDSupport {
 		DropTargetListener dropListener = null;
 		if (binding instanceof IViewerBinding) {
 			final IViewerBinding vb = (IViewerBinding) binding;
-			dropListener = new ViewerBindingDropAdapter(vb);
+			dropListener = new ContainerBindingDropAdapter(vb);
 		}
 
+		if (binding instanceof IContainerBinding) {
+			final IContainerBinding vb = (IContainerBinding) binding;
+			dropListener = new ContainerBindingDropAdapter(vb);
+		}
 		if (dropListener != null) {
 			final DropTarget dropTarget = new DropTarget(control, DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK);
 			dropTarget.setTransfer(myTransferTypes);
@@ -84,11 +89,4 @@ public class DnDSupport extends AbstractContextMonitor implements IDnDSupport {
 			binding.registerService(dropListener);
 		}
 	}
-
-	@Override
-	protected void bindingRemoved(IBinding binding) {
-		// TODO Auto-generated method stub
-		super.bindingRemoved(binding);
-	}
-
 }

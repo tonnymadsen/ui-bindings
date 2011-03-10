@@ -42,6 +42,7 @@ import org.eclipse.nebula.widgets.grid.Grid;
 import org.eclipse.nebula.widgets.grid.GridColumn;
 import org.eclipse.nebula.widgets.grid.GridItem;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.dnd.DropTargetEvent;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Event;
@@ -53,11 +54,13 @@ import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingDataType;
+import com.rcpcompany.uibindings.IChildCreationSpecification;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.ISourceProviderStateContext;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IValueBindingCell;
+import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.bindingMessages.ValidationLabelDecorator;
 import com.rcpcompany.uibindings.grid.IGridBinding;
 import com.rcpcompany.uibindings.grid.IGridBindingCellEditor;
@@ -1440,5 +1443,41 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 	@Override
 	public Collection<EObject> getSelection() {
 		return null;
+	}
+
+	@Override
+	public IContainerDropContext getDropContext(DropTargetEvent event) {
+		final Control control = getControl();
+		final Point point = control.toControl(new Point(event.x, event.y));
+		final IGridBindingCellInformation cell = getCell(point);
+		if (cell == null) return null;
+
+		return new IContainerDropContext() {
+
+			@Override
+			public EObject getDropTarget() {
+				final IObservableValue valueOV = cell.getObjectValue();
+				if (valueOV == null) return null;
+				final Object value = valueOV.getValue();
+				if (value instanceof EObject) return (EObject) value;
+				return null;
+			}
+
+			@Override
+			public float getDropLocation() {
+				// TODO
+				return 0.5f;
+			}
+
+			@Override
+			public List<IChildCreationSpecification> getPossibleChildObjects(EObject parent, EObject sibling) {
+				if (cell.getColumn().getId() == IGridModel.HEADER1)
+					return UIBindingsUtils.getPossibleTopLevelChildObjects(getRowIDs(), parent);
+				if (cell.getRow().getId() == IGridModel.HEADER1)
+					return UIBindingsUtils.getPossibleTopLevelChildObjects(getColumnIDs(), parent);
+
+				return null;
+			}
+		};
 	}
 }

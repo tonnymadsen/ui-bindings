@@ -28,7 +28,6 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
 
-import com.rcpcompany.uibindings.internal.ViewerBindingImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -79,7 +78,7 @@ public interface IViewerBinding extends IContainerBinding {
 		 */
 		public static void addToChildCreationSpecification(final List<IChildCreationSpecification> specs,
 				EObject parent, EReference ref, final EClass childType, int index) {
-			ViewerBindingImpl.addToChildCreationSpecification(specs, parent, ref, childType, index);
+			UIBindingsUtils.addToChildCreationSpecification(specs, parent, ref, childType, index);
 		}
 	}
 

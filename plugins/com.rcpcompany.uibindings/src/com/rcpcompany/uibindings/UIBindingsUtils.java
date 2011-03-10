@@ -12,6 +12,7 @@
 package com.rcpcompany.uibindings;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -19,18 +20,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.databinding.EObjectObservableList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
@@ -45,7 +50,9 @@ import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.widgets.Display;
 
 import com.rcpcompany.uibindings.internal.Activator;
+import com.rcpcompany.uibindings.internal.ChildCreationSpecification;
 import com.rcpcompany.uibindings.internal.decorators.GenericEObjectDecorator;
+import com.rcpcompany.uibindings.internal.observables.MyDetailObservableList;
 import com.rcpcompany.uibindings.observables.IObservableListMapper;
 import com.rcpcompany.uibindings.observables.ProxyObservableValue;
 import com.rcpcompany.uibindings.utils.CoreRuntimeException;
@@ -60,6 +67,82 @@ import com.rcpcompany.utils.logging.LogUtils;
  */
 public final class UIBindingsUtils {
 	private UIBindingsUtils() {
+	}
+
+	/**
+	 * Adds to the specified list of {@link IChildCreationSpecification} with the specified
+	 * information.
+	 * <p>
+	 * Also adds any sub-class of child type.
+	 * 
+	 * @param specs the list of specifications to add to
+	 * @param parent the parent object
+	 * @param ref the reference
+	 * @param childType the child type
+	 * @param index TODO
+	 */
+	public static void addToChildCreationSpecification(final List<IChildCreationSpecification> specs, EObject parent,
+			EReference ref, final EClass childType, int index) {
+		/*
+		 * Allow the user to prevent the addition
+		 */
+		final IBindingDataType dt = IBindingDataType.Factory.create(parent, ref);
+
+		if (!childType.isAbstract() && !childType.isInterface()
+				&& dt.getArgument(Constants.ARG_NEW_ALLOWED, null, Boolean.class, Boolean.TRUE)) {
+			specs.add(new ChildCreationSpecification(parent, ref, childType, index));
+		}
+
+		final Collection<EClass> subClasses = EcoreExtUtils.getSubClasses(childType);
+		if (subClasses == null) return;
+
+		for (final EClass c : subClasses) {
+			addToChildCreationSpecification(specs, parent, ref, c, index);
+		}
+	}
+
+	/**
+	 * Returns {@link IChildCreationSpecification} for children of the specified list.
+	 * 
+	 * @param l the list
+	 * @param sibling a possible sibling, if non-<code>null</code>
+	 * 
+	 * @return the possible top-level children
+	 */
+	public static List<IChildCreationSpecification> getPossibleTopLevelChildObjects(IObservableList l, EObject sibling) {
+		final List<IChildCreationSpecification> specs = new ArrayList<IChildCreationSpecification>();
+
+		/*
+		 * Figure out the EReference of the elements
+		 */
+		EObject parent = null;
+		EReference ref = null;
+		if (l instanceof EObjectEList<?>) {
+			final EObjectEList<?> el = (EObjectEList<?>) l;
+			final EStructuralFeature sf = el.getEStructuralFeature();
+			if (sf instanceof EReference) {
+				parent = (EObject) el.getNotifier();
+				ref = (EReference) sf;
+			}
+		}
+		if (ref == null && l instanceof MyDetailObservableList) {
+			parent = (EObject) ((MyDetailObservableList) l).getObserved();
+			ref = (EReference) ((MyDetailObservableList) l).getElementType();
+		}
+		if (ref == null && l instanceof EObjectObservableList) {
+			parent = (EObject) ((EObjectObservableList) l).getObserved();
+			ref = (EReference) ((EObjectObservableList) l).getElementType();
+		}
+		if (ref == null) return specs;
+		final EClass childType = ref.getEReferenceType();
+		int index = -1;
+		if (sibling != null) {
+			index = l.indexOf(sibling);
+			if (index == -1) return specs;
+		}
+
+		UIBindingsUtils.addToChildCreationSpecification(specs, parent, ref, childType, index);
+		return specs;
 	}
 
 	/**

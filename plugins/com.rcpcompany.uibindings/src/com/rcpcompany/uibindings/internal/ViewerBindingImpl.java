@@ -27,14 +27,12 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.databinding.EObjectObservableList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.jface.databinding.viewers.IViewerValueProperty;
@@ -61,8 +59,10 @@ import org.eclipse.jface.viewers.TreeViewerEditor;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.jface.viewers.ViewerColumn;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.dnd.DropTargetEvent;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
@@ -77,7 +77,6 @@ import org.eclipse.swt.widgets.Widget;
 import com.rcpcompany.uibindings.BindingState;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.ContainerCellType;
-import com.rcpcompany.uibindings.EcoreExtUtils;
 import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IChildCreationSpecification;
@@ -92,8 +91,8 @@ import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IValueBindingCell;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
+import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.bindingMessages.ValidationLabelDecorator;
-import com.rcpcompany.uibindings.internal.observables.MyDetailObservableList;
 import com.rcpcompany.uibindings.internal.observables.properties.MySelectionProviderSingleSelectionProperty;
 import com.rcpcompany.uibindings.internal.utils.DoubleClickAdapter;
 import com.rcpcompany.uibindings.internal.utils.UIHandlerUtils;
@@ -504,7 +503,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	@Override
 	public List<IChildCreationSpecification> getPossibleChildObjects(EObject parent, EObject sibling) {
 		final Control control = getControl();
-		if (control instanceof Table) return getPossibleTopLevelChildObjects(sibling);
+		if (control instanceof Table) return UIBindingsUtils.getPossibleTopLevelChildObjects(getList(), sibling);
 		if (control instanceof Tree) {
 			if (parent == null && sibling != null) {
 				final IElementParentage parentage = getElementParentage(sibling);
@@ -512,86 +511,10 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 					parent = parentage.getParent();
 				}
 			}
-			if (parent == null) return getPossibleTopLevelChildObjects(sibling);
+			if (parent == null) return UIBindingsUtils.getPossibleTopLevelChildObjects(getList(), sibling);
 			return myTreeFactory.getPossibleChildObjects(parent, sibling);
 		}
 		return null;
-	}
-
-	/**
-	 * Returns {@link IChildCreationSpecification} for top-level children of this viewer.
-	 * 
-	 * @param sibling TODO
-	 * 
-	 * @return the possible top-level children
-	 */
-	public List<IChildCreationSpecification> getPossibleTopLevelChildObjects(EObject sibling) {
-		final List<IChildCreationSpecification> specs = new ArrayList<IChildCreationSpecification>();
-
-		/*
-		 * Figure out the EReference of the elements
-		 */
-		EObject parent = null;
-		EReference ref = null;
-		final IObservableList l = getList();
-		if (l instanceof EObjectEList<?>) {
-			final EObjectEList<?> el = (EObjectEList<?>) l;
-			final EStructuralFeature sf = el.getEStructuralFeature();
-			if (sf instanceof EReference) {
-				parent = (EObject) el.getNotifier();
-				ref = (EReference) sf;
-			}
-		}
-		if (ref == null && l instanceof MyDetailObservableList) {
-			parent = (EObject) ((MyDetailObservableList) l).getObserved();
-			ref = (EReference) ((MyDetailObservableList) l).getElementType();
-		}
-		if (ref == null && l instanceof EObjectObservableList) {
-			parent = (EObject) ((EObjectObservableList) l).getObserved();
-			ref = (EReference) ((EObjectObservableList) l).getElementType();
-		}
-		if (ref == null) return specs;
-		final EClass childType = ref.getEReferenceType();
-		int index = -1;
-		if (sibling != null) {
-			index = l.indexOf(sibling);
-			if (index == -1) return specs;
-		}
-
-		addToChildCreationSpecification(specs, parent, ref, childType, index);
-		return specs;
-	}
-
-	/**
-	 * Adds to the specified list of {@link IChildCreationSpecification} with the specified
-	 * information.
-	 * <p>
-	 * Also adds any sub-class of child type.
-	 * 
-	 * @param specs the list of specifications to add to
-	 * @param parent the parent object
-	 * @param ref the reference
-	 * @param childType the child type
-	 * @param index TODO
-	 */
-	public static void addToChildCreationSpecification(final List<IChildCreationSpecification> specs, EObject parent,
-			EReference ref, final EClass childType, int index) {
-		/*
-		 * Allow the user to prevent the addition
-		 */
-		final IBindingDataType dt = IBindingDataType.Factory.create(parent, ref);
-
-		if (!childType.isAbstract() && !childType.isInterface()
-				&& dt.getArgument(ARG_NEW_ALLOWED, null, Boolean.class, Boolean.TRUE)) {
-			specs.add(new ChildCreationSpecification(parent, ref, childType, index));
-		}
-
-		final Collection<EClass> subClasses = EcoreExtUtils.getSubClasses(childType);
-		if (subClasses == null) return;
-
-		for (final EClass c : subClasses) {
-			addToChildCreationSpecification(specs, parent, ref, c, index);
-		}
 	}
 
 	@Override
@@ -1326,5 +1249,38 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		}
 
 		context.setSelectionProvider(getViewer());
+	}
+
+	@Override
+	public IContainerDropContext getDropContext(final DropTargetEvent event) {
+		return new IContainerDropContext() {
+			@Override
+			public EObject getDropTarget() {
+				final Widget item = event.item;
+				if (item == null) return null;
+				if (item.getData() instanceof EObject) return (EObject) item.getData();
+				return null;
+			}
+
+			@Override
+			public float getDropLocation() {
+				final Control control = getControl();
+				final Point point = control.toControl(new Point(event.x, event.y));
+				final Rectangle bounds;
+				if (event.item instanceof TreeItem) {
+					bounds = ((TreeItem) event.item).getBounds();
+				} else if (event.item instanceof TableItem) {
+					bounds = ((TableItem) event.item).getBounds(0);
+				} else
+					return 0.0F;
+
+				return (float) (point.y - bounds.y) / (float) bounds.height;
+			}
+
+			@Override
+			public List<IChildCreationSpecification> getPossibleChildObjects(EObject parent, EObject sibling) {
+				return ViewerBindingImpl.this.getPossibleChildObjects(parent, sibling);
+			}
+		};
 	}
 } // ViewerBindingImpl
