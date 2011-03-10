@@ -380,7 +380,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	}
 
 	/**
-	 * Listener that will request a reflow of the context if/when the elements of the viewer
+	 * Listener that will request a re-flow of the context if/when the elements of the viewer
 	 * changes.
 	 * 
 	 * TODO TEST
