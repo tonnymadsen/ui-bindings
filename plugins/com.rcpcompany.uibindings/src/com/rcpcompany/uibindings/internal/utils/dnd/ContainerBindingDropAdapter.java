@@ -136,6 +136,8 @@ public class ContainerBindingDropAdapter extends DropTargetAdapter {
 			//
 			mySourceObjects = extractDragSourceObjects(event.data);
 			final IContainerDropContext dropContext = myContainer.getDropContext(event);
+			if (dropContext == null) // event.detail = DND.DROP_NONE;
+				return;
 
 			myDragAndDropCommandInformation = new DragAndDropCommandInformation(dropContext, event.operations,
 					myDragEnterOperation);
@@ -193,16 +195,19 @@ public class ContainerBindingDropAdapter extends DropTargetAdapter {
 		// Get the target object from the item widget and the mouse location in it.
 		//
 		final IContainerDropContext dropContext = myContainer.getDropContext(event);
-		final EObject target = dropContext.getDropTarget();
-		final float location = dropContext.getDropLocation();
+		if (dropContext == null) {
+			event.detail = DND.DROP_NONE;
+			return;
+		}
 
-		// Determine if we can create a valid command at the current location.
+		final EObject target = dropContext.getDropTargetObject();
+
 		//
-		boolean valid = false;
-
-		// If we don't have a previous cached command...
 		//
 		if (myDragAndDropCommand == null) {
+			/*
+			 * If we don't have a previous cached command...
+			 */
 			// We'll need to keep track of the information we use to create the
 			// command, so that we can recreate it in drop.
 			myDragAndDropCommandInformation = new DragAndDropCommandInformation(dropContext, event.operations,
@@ -212,30 +217,31 @@ public class ContainerBindingDropAdapter extends DropTargetAdapter {
 			//
 			myCommandTarget = target;
 			myDragAndDropCommand = myDragAndDropCommandInformation.createCommand();
-			valid = myDragAndDropCommand.canExecute();
-		} else {
-			// Check if the cached command can provide DND feedback/revalidation.
-			//
-			if (target == myCommandTarget) {
-				// If so, revalidate the command.
-				//
-				valid = myDragAndDropCommand.revalidate(dropContext, event.operations, myDragEnterOperation);
+		} else if (target == myCommandTarget) {
+			/*
+			 * The target has not changed...
+			 * 
+			 * re-validate the command.
+			 */
+			myDragAndDropCommand.revalidate(dropContext, event.operations, myDragEnterOperation);
 
-				// Keep track of any changes to the command information.
-				myDragAndDropCommandInformation = new DragAndDropCommandInformation(dropContext, event.operations,
-						myDragEnterOperation);
-			} else {
-				// If not, dispose the current command and create a new one.
-				//
-				myDragAndDropCommand.dispose();
-				myDragAndDropCommandInformation = new DragAndDropCommandInformation(dropContext, event.operations,
-						myDragEnterOperation);
-				myCommandTarget = target;
-				myDragAndDropCommand = myDragAndDropCommandInformation.createCommand();
-				valid = myDragAndDropCommand.canExecute();
-			}
+			// Keep track of any changes to the command information.
+			myDragAndDropCommandInformation = new DragAndDropCommandInformation(dropContext, event.operations,
+					myDragEnterOperation);
+		} else {
+			// If not, dispose the current command and create a new one.
+			//
+			myDragAndDropCommand.dispose();
+			myDragAndDropCommandInformation = new DragAndDropCommandInformation(dropContext, event.operations,
+					myDragEnterOperation);
+			myCommandTarget = target;
+			myDragAndDropCommand = myDragAndDropCommandInformation.createCommand();
 		}
 
+		if (!myDragAndDropCommand.canExecute()) {
+			event.detail = DND.DROP_NONE;
+			return;
+		}
 		event.detail = myDragAndDropCommand.getOperation();
 		event.feedback = myDragAndDropCommand.getFeedback() | getAutoFeedback();
 	}

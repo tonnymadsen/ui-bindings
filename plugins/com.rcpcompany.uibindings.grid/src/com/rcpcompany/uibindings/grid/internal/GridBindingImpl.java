@@ -44,6 +44,7 @@ import org.eclipse.nebula.widgets.grid.GridItem;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DropTargetEvent;
 import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
@@ -1442,7 +1443,24 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 
 	@Override
 	public Collection<EObject> getSelection() {
-		return null;
+		final Point[] cellSelection = getGrid().getCellSelection();
+		final Collection<EObject> selection = new ArrayList<EObject>(cellSelection.length);
+		for (final Point p : cellSelection) {
+			final IGridBindingCellInformation cell = getCell(p.x + getNoColumnHeaders(), p.y + getNoRowHeaders());
+			if (cell == null) {
+				continue;
+			}
+			final IObservableValue valueOV = cell.getObjectValue();
+			if (valueOV == null) {
+				continue;
+			}
+			final Object value = valueOV.getValue();
+			if (!(value instanceof EObject)) {
+				continue;
+			}
+			selection.add((EObject) valueOV.getValue());
+		}
+		return selection;
 	}
 
 	@Override
@@ -1455,7 +1473,7 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 		return new IContainerDropContext() {
 
 			@Override
-			public EObject getDropTarget() {
+			public EObject getDropTargetObject() {
 				final IObservableValue valueOV = cell.getObjectValue();
 				if (valueOV == null) return null;
 				final Object value = valueOV.getValue();
@@ -1465,8 +1483,59 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 
 			@Override
 			public float getDropLocation() {
-				// TODO
+				if (cell.getColumn().getId() == IGridModel.HEADER1) {
+					final GridItem gridItem = cell.getRow().getGridItem();
+					if (gridItem != null) {
+						final Rectangle bounds = gridItem.getBounds(0);
+						return (float) (point.y - bounds.y) / (float) bounds.height;
+					}
+				}
+				if (cell.getRow().getId() == IGridModel.HEADER1) {
+					final GridColumn column = cell.getColumn().getGridColumn();
+					if (column != null) {
+						final int x = getColumnHeaderXPosition(column);
+						final int width = column.getWidth();
+						return (float) (point.x - x) / width;
+					}
+				}
+
+				/*
+				 * OK... then we assume we are in the center of the cell
+				 */
 				return 0.5f;
+			}
+
+			/**
+			 * Returns the x position of the given column.
+			 * 
+			 * @param column given column
+			 * @return x position
+			 */
+			private int getColumnHeaderXPosition(GridColumn column) {
+				final Grid grid = getGrid();
+				int x = 0;
+
+				// x -= grid.getHScrollSelectionInPixels();
+
+				x += grid.getRowHeaderWidth();
+				final int[] columnOrder = grid.getColumnOrder();
+				for (final int i : columnOrder) {
+					final GridColumn c = grid.getColumn(i);
+					if (c == column) return x;
+
+					if (!c.isVisible()) {
+						continue;
+					}
+
+					x += c.getWidth();
+				}
+
+				return x;
+			}
+
+			@Override
+			public IValueBindingCell getDropCell() {
+				return cell;
 			}
 
 			@Override

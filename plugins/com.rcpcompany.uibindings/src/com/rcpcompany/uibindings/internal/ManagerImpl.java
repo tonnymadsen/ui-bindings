@@ -113,6 +113,8 @@ import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.internal.formatters.DefaultFormatterProvider;
 import com.rcpcompany.uibindings.internal.observableFactories.DefaultEMFObservableFactory;
+import com.rcpcompany.uibindings.participants.IAssignmentParticipant;
+import com.rcpcompany.uibindings.participants.IAssignmentParticipantContext;
 import com.rcpcompany.uibindings.participants.IDeleteParticipant;
 import com.rcpcompany.uibindings.participants.IInitializationParticipant;
 import com.rcpcompany.uibindings.participants.IInitializationParticipantContext;
@@ -3297,6 +3299,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		return null;
 	}
 
+	// TODO: Move to UIBU!
 	@Override
 	public Command initializeObject(final EObject parent, final EReference reference, final EObject child) {
 		if (child == null) return null;
@@ -3310,9 +3313,6 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 
 		final CompoundCommand cc = new CompoundCommand();
 		final Map<EStructuralFeature, Object> valueMap = new HashMap<EStructuralFeature, Object>();
-		if (parent != null && reference != null && reference.getEOpposite() != null) {
-			valueMap.put(reference.getEOpposite(), parent);
-		}
 		final IInitializationParticipantContext context = new IInitializationParticipantContext() {
 			@Override
 			public EObject getParent() {
@@ -3357,11 +3357,86 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 				return getObject().eGet(feature);
 			}
 		};
+		if (parent != null && reference != null && reference.getEOpposite() != null) {
+			context.setStructuralFeature(reference.getEOpposite(), parent);
+		}
 
 		try {
 			initializer.initialize(context, eClass);
 		} catch (final Exception ex) {
 			LogUtils.error(initializer, ex);
+		}
+
+		if (cc.isEmpty()) return null;
+
+		return cc.unwrap();
+	}
+
+	// TODO: Move to UIBU!
+	@Override
+	public Command assignObject(final EObject destination, final EObject source) {
+		if (source == null) return null;
+
+		final IAssignmentParticipant assigner = null;
+
+		if (assigner == null) return null;
+
+		final CompoundCommand cc = new CompoundCommand();
+		final Map<EStructuralFeature, Object> valueMap = new HashMap<EStructuralFeature, Object>();
+		final IAssignmentParticipantContext context = new IAssignmentParticipantContext() {
+			@Override
+			public EObject getParent() {
+				return null;
+			}
+
+			@Override
+			public EReference getReference() {
+				return null;
+			}
+
+			@Override
+			public EObject getObject() {
+				return source;
+			}
+
+			@Override
+			public EditingDomain getEditingDomain() {
+				return ManagerImpl.this.getEditingDomain();
+			}
+
+			@Override
+			public void addCommand(Command command) {
+				cc.append(command);
+			}
+
+			@Override
+			public Map<EStructuralFeature, Object> getValueMap() {
+				return valueMap;
+			}
+
+			@Override
+			public void setStructuralFeature(EStructuralFeature feature, Object value) {
+				getValueMap().put(feature, value);
+				final Command command = SetCommand.create(getEditingDomain(), getObject(), feature, value);
+				addCommand(command);
+			}
+
+			@Override
+			public Object getStructuralFeature(EStructuralFeature feature) {
+				if (getValueMap().containsKey(feature)) return getValueMap().get(feature);
+				return getObject().eGet(feature);
+			}
+
+			@Override
+			public EObject getSourceObject() {
+				return source;
+			}
+		};
+
+		try {
+			assigner.assign(context);
+		} catch (final Exception ex) {
+			LogUtils.error(assigner, ex);
 		}
 
 		if (cc.isEmpty()) return null;

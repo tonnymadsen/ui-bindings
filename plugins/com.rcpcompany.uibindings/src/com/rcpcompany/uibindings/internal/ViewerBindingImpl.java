@@ -1253,13 +1253,26 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 
 	@Override
 	public IContainerDropContext getDropContext(final DropTargetEvent event) {
+		final Control control = getControl();
+		final Point point = control.toControl(new Point(event.x, event.y));
+		final ViewerCell vcell = getViewer().getCell(point);
+		if (vcell == null) //
+			return null;
+		final IColumnBindingCellInformation cell = getCell(vcell.getColumnIndex() - getFirstTableColumnOffset(),
+				vcell.getElement());
+
 		return new IContainerDropContext() {
 			@Override
-			public EObject getDropTarget() {
-				final Widget item = event.item;
-				if (item == null) return null;
-				if (item.getData() instanceof EObject) return (EObject) item.getData();
+			public EObject getDropTargetObject() {
+				final IObservableValue valueOV = cell.getSourceValue();
+				if (valueOV == null) return null;
+				final Object value = valueOV.getValue();
+				if (value instanceof EObject) return (EObject) value;
 				return null;
+				// final Widget item = event.item;
+				// if (item == null) return null;
+				// if (item.getData() instanceof EObject) return (EObject) item.getData();
+				// return null;
 			}
 
 			@Override
@@ -1275,6 +1288,11 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 					return 0.0F;
 
 				return (float) (point.y - bounds.y) / (float) bounds.height;
+			}
+
+			@Override
+			public IValueBindingCell getDropCell() {
+				return cell;
 			}
 
 			@Override

@@ -1057,7 +1057,17 @@ public interface IManager extends IBaseObject {
 	 * @param parent the parent object
 	 * @param ref the reference from the parent to the child
 	 * @param child the new child object to be initialized
-	 * @return a command used to initialize the child object
+	 * @return a command used to initialize the child object - can be <code>null</code>
 	 */
 	Command initializeObject(EObject parent, EReference ref, EObject child);
+
+	/**
+	 * Assign values to the specified destination object from the specified source object by
+	 * creating a set of {@link Command commands} that will set all relevant fields.
+	 * 
+	 * @param destination the destination object
+	 * @param source the source object
+	 * @return a command used to initialize the child object - can be <code>null</code>
+	 */
+	Command assignObject(EObject destination, EObject source);
 } // IManager

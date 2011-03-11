@@ -77,11 +77,18 @@ public interface IContainerBinding extends IBinding {
 		float getDropLocation();
 
 		/**
+		 * Returns the current drop cell of this drop event, if it can be determined from the event.
+		 * 
+		 * @return the cell or <code>null</code>
+		 */
+		IValueBindingCell getDropCell();
+
+		/**
 		 * Returns the target object of this drop event, if it can be determined from the event.
 		 * 
-		 * @return the target object
+		 * @return the target object or <code>null</code>S
 		 */
-		EObject getDropTarget();
+		EObject getDropTargetObject();
 
 		/**
 		 * Constructs and returns a new {@link Command} to handle the Drop operation for this

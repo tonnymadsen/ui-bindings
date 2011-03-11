@@ -35,6 +35,8 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import com.rcpcompany.uibindings.IChildCreationSpecification;
 import com.rcpcompany.uibindings.IContainerBinding;
 import com.rcpcompany.uibindings.IContainerBinding.IContainerDropContext;
+import com.rcpcompany.uibindings.IManager;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Implementation of a drag 'n drop command.
@@ -158,7 +160,7 @@ public class ContainerDragAndDropCommand extends AbstractCommand implements Drag
 		/*
 		 * If there isn't something obviously wrong with the arguments...
 		 */
-		if (myContext.getDropTarget() == null || mySourceObjects == null || myOperations == DROP_NONE
+		if (myContext.getDropTargetObject() == null || mySourceObjects == null || myOperations == DROP_NONE
 				|| myOperation == DROP_NONE) {
 			myLowerLocationBound = 0.0F;
 			myUpperLocationBound = 1.0F;
@@ -258,6 +260,11 @@ public class ContainerDragAndDropCommand extends AbstractCommand implements Drag
 		final List<IChildCreationSpecification> possibleChildObjects = myContext.getPossibleChildObjects(parent,
 				sibling);
 		if (possibleChildObjects == null) return null;
+
+		/*
+		 * See, if we can find a direct match on the type (remember that the list already contains
+		 * all known sub-types, so we need not use instanceof)...
+		 */
 		OUTER: for (final IChildCreationSpecification pcs : possibleChildObjects) {
 			final EClass childType = pcs.getChildType();
 			if (childType == null) {
@@ -271,6 +278,14 @@ public class ContainerDragAndDropCommand extends AbstractCommand implements Drag
 
 			return pcs;
 		}
+
+		/*
+		 * No match.
+		 * 
+		 * Check if we can find a converter to a supported child type...
+		 * 
+		 * TODO
+		 */
 
 		return null;
 	}
@@ -287,7 +302,7 @@ public class ContainerDragAndDropCommand extends AbstractCommand implements Drag
 		 */
 		feedback = myContext.getDropLocation() < 0.5 ? FEEDBACK_INSERT_BEFORE : FEEDBACK_INSERT_AFTER;
 
-		final IChildCreationSpecification spec = findBestChildCreationSpecification(null, myContext.getDropTarget());
+		final IChildCreationSpecification spec = findBestChildCreationSpecification(null, myContext.getDropTargetObject());
 		if (spec == null) return false;
 
 		/*
@@ -360,7 +375,7 @@ public class ContainerDragAndDropCommand extends AbstractCommand implements Drag
 		/*
 		 * We don't want to move insert an object before or after itself...
 		 */
-		if (mySourceObjects.contains(myContext.getDropTarget())) return false;
+		if (mySourceObjects.contains(myContext.getDropTargetObject())) return false;
 
 		/*
 		 * We need containment to move
@@ -501,8 +516,23 @@ public class ContainerDragAndDropCommand extends AbstractCommand implements Drag
 		 */
 		feedback = FEEDBACK_SELECT;
 
-		final IChildCreationSpecification spec = findBestChildCreationSpecification(myContext.getDropTarget(), null);
-		if (spec == null) return false;
+		final EObject targetObject = myContext.getDropTargetObject();
+		final IChildCreationSpecification spec = findBestChildCreationSpecification(targetObject, null);
+		if (spec == null) {
+			LogUtils.debug(this, "No specs, trying convertion to string");
+			/*
+			 * No matching specs...
+			 * 
+			 * See if we can find an assignment instead
+			 */
+			if (mySourceObjects.size() != 1) return false;
+			final EObject obj = mySourceObjects.iterator().next();
+
+			final Command assignCommand = IManager.Factory.getManager().assignObject(targetObject, obj);
+			if (assignCommand == null) return false;
+			myDropCommand = assignCommand;
+			return true;
+		}
 
 		/*
 		 * Prepare the right type of operation.
@@ -637,7 +667,7 @@ public class ContainerDragAndDropCommand extends AbstractCommand implements Drag
 		/*
 		 * If the operation has NOT changed significantly, then just return the cached result.
 		 */
-		if (context.getDropTarget() == myContext.getDropTarget()
+		if (context.getDropTargetObject() == myContext.getDropTargetObject()
 				&& (context.getDropLocation() >= myLowerLocationBound && context.getDropLocation() <= myUpperLocationBound)
 				&& operation == myOperation) return isExecutable;
 
@@ -709,7 +739,7 @@ public class ContainerDragAndDropCommand extends AbstractCommand implements Drag
 	public String toString() {
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (domain: " + myDomain + ")");
-		result.append(" (owner: " + myContext.getDropTarget() + ")");
+		result.append(" (owner: " + myContext.getDropTargetObject() + ")");
 		result.append(" (location: " + myContext.getDropLocation() + ")");
 		result.append(" (lowerLocationBound: " + myLowerLocationBound + ")");
 		result.append(" (upperLocationBound: " + myUpperLocationBound + ")");

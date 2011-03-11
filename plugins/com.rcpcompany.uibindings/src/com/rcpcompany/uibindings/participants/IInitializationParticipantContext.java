@@ -27,16 +27,16 @@ import org.eclipse.emf.edit.domain.EditingDomain;
  */
 public interface IInitializationParticipantContext {
 	/**
-	 * Returns the parent object.
+	 * Returns the parent object if relevant.
 	 * 
-	 * @return the parent object
+	 * @return the parent object or <code>null</code>
 	 */
 	EObject getParent();
 
 	/**
-	 * Returns the reference from the parent to the object.
+	 * Returns the reference from the parent to the object if relevant.
 	 * 
-	 * @return the reference
+	 * @return the reference or <code>null</code>
 	 */
 	EReference getReference();
 
@@ -52,7 +52,7 @@ public interface IInitializationParticipantContext {
 	EObject getObject();
 
 	/**
-	 * The editing domain tpo use for all new commands.
+	 * The editing domain to use for all new commands.
 	 * 
 	 * @return the editing domain
 	 */
