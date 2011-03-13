@@ -24,4 +24,5 @@ Import-Package: com.rcpcompany.uibindings,
  org.eclipse.emf.ecore.util,
  org.eclipse.ui.forms,
  org.eclipse.ui.forms.widgets
-Export-Package: com.rcpcompany.uibindings.moao.ui.validation
+Export-Package: com.rcpcompany.uibindings.moao.ui.participants,
+ com.rcpcompany.uibindings.moao.ui.validation
