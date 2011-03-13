@@ -28,7 +28,6 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
 
-
 /**
  * <!-- begin-user-doc -->
  * <p>

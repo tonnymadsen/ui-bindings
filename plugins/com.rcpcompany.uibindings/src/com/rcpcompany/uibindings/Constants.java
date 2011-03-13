@@ -410,6 +410,13 @@ public interface Constants {
 	String ARG_DELETE_PARTICIPANT = "deleteParticipant";
 
 	/**
+	 * Argument name for an assignment participant manager used for paste and drop operations.
+	 * <p>
+	 * The argument value is {@link IAssignmentParticipantsManager}.
+	 */
+	String ARG_ASSIGNMENT_PARTICIPANT_MANAGER = "assignmentParticipantManager";
+
+	/**
 	 * Argument name for a super create participant for a Super Create command.
 	 * <p>
 	 * The argument only makes sense for viewers and for model types.

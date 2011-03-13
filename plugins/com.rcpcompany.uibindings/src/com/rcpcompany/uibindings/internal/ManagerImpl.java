@@ -77,6 +77,8 @@ import com.rcpcompany.uibindings.DecorationPosition;
 import com.rcpcompany.uibindings.IArgumentContext;
 import com.rcpcompany.uibindings.IArgumentInformation;
 import com.rcpcompany.uibindings.IArgumentProvider;
+import com.rcpcompany.uibindings.IAssignmentParticipantsManager;
+import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IBindingMessage;
@@ -187,6 +189,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#isDeleteHandlerCheckEnabled <em>Delete
  * Handler Check Enabled</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getCommandIDs <em>Command IDs</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getAssignmentParticiantsManager <em>
+ * Assignment Particiants Manager</em>}</li>
  * </ul>
  * </p>
  * 
@@ -937,6 +941,17 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected EMap<String, String> commandIDs;
 
 	/**
+	 * The cached value of the '{@link #getAssignmentParticiantsManager()
+	 * <em>Assignment Particiants Manager</em>}' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @see #getAssignmentParticiantsManager()
+	 * @generated
+	 * @ordered
+	 */
+	protected IAssignmentParticipantsManager assignmentParticiantsManager;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -970,6 +985,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 				IWorkbenchCommandConstants.NAVIGATE_BACKWARD_HISTORY);
 		getCommandIDs().put(IWorkbenchCommandConstants.NAVIGATE_FORWARD_HISTORY,
 				IWorkbenchCommandConstants.NAVIGATE_FORWARD_HISTORY);
+
+		assignmentParticiantsManager = new AssignmentParticipantsManagerImpl();
 
 		extensionReader();
 	}
@@ -2478,6 +2495,16 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
+	 * @generated
+	 */
+	@Override
+	public IAssignmentParticipantsManager getAssignmentParticiantsManager() {
+		return assignmentParticiantsManager;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	@Override
@@ -2807,6 +2834,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 				return getCommandIDs();
 			else
 				return getCommandIDs().map();
+		case IUIBindingsPackage.MANAGER__ASSIGNMENT_PARTICIANTS_MANAGER:
+			return getAssignmentParticiantsManager();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -3113,6 +3142,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			return deleteHandlerCheckEnabled != DELETE_HANDLER_CHECK_ENABLED_EDEFAULT;
 		case IUIBindingsPackage.MANAGER__COMMAND_IDS:
 			return commandIDs != null && !commandIDs.isEmpty();
+		case IUIBindingsPackage.MANAGER__ASSIGNMENT_PARTICIANTS_MANAGER:
+			return assignmentParticiantsManager != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -3374,12 +3405,30 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 
 	// TODO: Move to UIBU!
 	@Override
-	public Command assignObject(final EObject destination, final EObject source) {
-		if (source == null) return null;
+	public Command assignObject(IBinding binding, final EObject destination, final EObject source) {
+		if (destination == null || source == null) return null;
 
-		final IAssignmentParticipant assigner = null;
+		IAssignmentParticipant participant = null;
 
-		if (assigner == null) return null;
+		/*
+		 * First we concult the binding for any manager that can supply a participant.
+		 */
+		if (participant == null && binding != null) {
+			final IAssignmentParticipantsManager apManager = binding.getArgument(
+					Constants.ARG_ASSIGNMENT_PARTICIPANT_MANAGER, IAssignmentParticipantsManager.class, null);
+			if (apManager != null) {
+				participant = apManager.getParticipant(destination.getClass(), source.getClass());
+			}
+		}
+
+		/*
+		 * ...and if no participant is found, then concult the global manager
+		 */
+		if (participant == null && binding != null) {
+			participant = getAssignmentParticiantsManager().getParticipant(destination.getClass(), source.getClass());
+		}
+
+		if (participant == null) return null;
 
 		final CompoundCommand cc = new CompoundCommand();
 		final Map<EStructuralFeature, Object> valueMap = new HashMap<EStructuralFeature, Object>();
@@ -3434,9 +3483,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		};
 
 		try {
-			assigner.assign(context);
+			participant.assign(context);
 		} catch (final Exception ex) {
-			LogUtils.error(assigner, ex);
+			LogUtils.error(participant, ex);
 		}
 
 		if (cc.isEmpty()) return null;

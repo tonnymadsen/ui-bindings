@@ -302,7 +302,8 @@ public class ContainerDragAndDropCommand extends AbstractCommand implements Drag
 		 */
 		feedback = myContext.getDropLocation() < 0.5 ? FEEDBACK_INSERT_BEFORE : FEEDBACK_INSERT_AFTER;
 
-		final IChildCreationSpecification spec = findBestChildCreationSpecification(null, myContext.getDropTargetObject());
+		final IChildCreationSpecification spec = findBestChildCreationSpecification(null,
+				myContext.getDropTargetObject());
 		if (spec == null) return false;
 
 		/*
@@ -519,7 +520,7 @@ public class ContainerDragAndDropCommand extends AbstractCommand implements Drag
 		final EObject targetObject = myContext.getDropTargetObject();
 		final IChildCreationSpecification spec = findBestChildCreationSpecification(targetObject, null);
 		if (spec == null) {
-			LogUtils.debug(this, "No specs, trying convertion to string");
+			LogUtils.debug(this, "No specs, trying assignment");
 			/*
 			 * No matching specs...
 			 * 
@@ -528,7 +529,7 @@ public class ContainerDragAndDropCommand extends AbstractCommand implements Drag
 			if (mySourceObjects.size() != 1) return false;
 			final EObject obj = mySourceObjects.iterator().next();
 
-			final Command assignCommand = IManager.Factory.getManager().assignObject(targetObject, obj);
+			final Command assignCommand = IManager.Factory.getManager().assignObject(null, targetObject, obj);
 			if (assignCommand == null) return false;
 			myDropCommand = assignCommand;
 			return true;

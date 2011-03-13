@@ -66,6 +66,8 @@ import com.rcpcompany.uibindings.ContainerCellType;
 import com.rcpcompany.uibindings.DecorationPosition;
 import com.rcpcompany.uibindings.IArgumentInformation;
 import com.rcpcompany.uibindings.IArgumentProvider;
+import com.rcpcompany.uibindings.IAssignmentParticipantDescriptor;
+import com.rcpcompany.uibindings.IAssignmentParticipantsManager;
 import com.rcpcompany.uibindings.IBaseObject;
 import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingContext;
@@ -113,6 +115,7 @@ import com.rcpcompany.uibindings.IValueBindingCell;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.SpecialBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
+import com.rcpcompany.uibindings.participants.IAssignmentParticipant;
 import com.rcpcompany.uibindings.uiAttributes.UIAttributePainter;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.utils.IPersistentParty;
@@ -294,6 +297,20 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	private EClass uiBindingDecoratorExtenderDescriptorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass assignmentParticipantsManagerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass assignmentParticipantDescriptorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -574,6 +591,13 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	private EDataType iemfObservableFactoryEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EDataType iAssignmentParticipantEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1247,6 +1271,16 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
+	public EReference getManager_AssignmentParticiantsManager() {
+		return (EReference) managerEClass.getEStructuralFeatures().get(33);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EAttribute getManager_EditingDomain() {
 		return (EAttribute) managerEClass.getEStructuralFeatures().get(0);
 	}
@@ -1809,16 +1843,6 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	@Override
 	public EAttribute getColumnBinding_ColumnVisibility() {
 		return (EAttribute) columnBindingEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public EAttribute getColumnBinding_Tonny() {
-		return (EAttribute) columnBindingEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -2689,6 +2713,96 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	@Override
 	public EAttribute getUIBindingDecoratorExtenderDescriptor_Factory() {
 		return (EAttribute) uiBindingDecoratorExtenderDescriptorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EClass getAssignmentParticipantsManager() {
+		return assignmentParticipantsManagerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EReference getAssignmentParticipantsManager_Participants() {
+		return (EReference) assignmentParticipantsManagerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EClass getAssignmentParticipantDescriptor() {
+		return assignmentParticipantDescriptorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EReference getAssignmentParticipantDescriptor_Manager() {
+		return (EReference) assignmentParticipantDescriptorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAssignmentParticipantDescriptor_Id() {
+		return (EAttribute) assignmentParticipantDescriptorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAssignmentParticipantDescriptor_SourceTypes() {
+		return (EAttribute) assignmentParticipantDescriptorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAssignmentParticipantDescriptor_DestinationTypes() {
+		return (EAttribute) assignmentParticipantDescriptorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAssignmentParticipantDescriptor_Participant() {
+		return (EAttribute) assignmentParticipantDescriptorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAssignmentParticipantDescriptor_ExactModelTypeMatch() {
+		return (EAttribute) assignmentParticipantDescriptorEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -3987,6 +4101,16 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
+	public EDataType getIAssignmentParticipant() {
+		return iAssignmentParticipantEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EDataType getCEObjectHolder() {
 		return ceObjectHolderEDataType;
 	}
@@ -4445,6 +4569,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		createEAttribute(managerEClass, MANAGER__FORMATTER_PROVIDER);
 		createEAttribute(managerEClass, MANAGER__DELETE_HANDLER_CHECK_ENABLED);
 		createEReference(managerEClass, MANAGER__COMMAND_IDS);
+		createEReference(managerEClass, MANAGER__ASSIGNMENT_PARTICIANTS_MANAGER);
 
 		bindingContextEClass = createEClass(BINDING_CONTEXT);
 		createEReference(bindingContextEClass, BINDING_CONTEXT__BINDINGS);
@@ -4504,7 +4629,6 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		createEAttribute(columnBindingEClass, COLUMN_BINDING__FACTORY);
 		createEAttribute(columnBindingEClass, COLUMN_BINDING__CURSOR);
 		createEAttribute(columnBindingEClass, COLUMN_BINDING__COLUMN_VISIBILITY);
-		createEAttribute(columnBindingEClass, COLUMN_BINDING__TONNY);
 
 		columnBindingCellInformationEClass = createEClass(COLUMN_BINDING_CELL_INFORMATION);
 		createEReference(columnBindingCellInformationEClass, COLUMN_BINDING_CELL_INFORMATION__COLUMN);
@@ -4609,6 +4733,18 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		uiBindingDecoratorExtenderDescriptorEClass = createEClass(UI_BINDING_DECORATOR_EXTENDER_DESCRIPTOR);
 		createEAttribute(uiBindingDecoratorExtenderDescriptorEClass, UI_BINDING_DECORATOR_EXTENDER_DESCRIPTOR__PRIORITY);
 		createEAttribute(uiBindingDecoratorExtenderDescriptorEClass, UI_BINDING_DECORATOR_EXTENDER_DESCRIPTOR__FACTORY);
+
+		assignmentParticipantsManagerEClass = createEClass(ASSIGNMENT_PARTICIPANTS_MANAGER);
+		createEReference(assignmentParticipantsManagerEClass, ASSIGNMENT_PARTICIPANTS_MANAGER__PARTICIPANTS);
+
+		assignmentParticipantDescriptorEClass = createEClass(ASSIGNMENT_PARTICIPANT_DESCRIPTOR);
+		createEReference(assignmentParticipantDescriptorEClass, ASSIGNMENT_PARTICIPANT_DESCRIPTOR__MANAGER);
+		createEAttribute(assignmentParticipantDescriptorEClass, ASSIGNMENT_PARTICIPANT_DESCRIPTOR__ID);
+		createEAttribute(assignmentParticipantDescriptorEClass, ASSIGNMENT_PARTICIPANT_DESCRIPTOR__SOURCE_TYPES);
+		createEAttribute(assignmentParticipantDescriptorEClass, ASSIGNMENT_PARTICIPANT_DESCRIPTOR__DESTINATION_TYPES);
+		createEAttribute(assignmentParticipantDescriptorEClass, ASSIGNMENT_PARTICIPANT_DESCRIPTOR__PARTICIPANT);
+		createEAttribute(assignmentParticipantDescriptorEClass,
+				ASSIGNMENT_PARTICIPANT_DESCRIPTOR__EXACT_MODEL_TYPE_MATCH);
 
 		iArgumentProviderEClass = createEClass(IARGUMENT_PROVIDER);
 
@@ -4774,6 +4910,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		iBindingContextFinalizerEDataType = createEDataType(IBINDING_CONTEXT_FINALIZER);
 		uiAttributePainterEDataType = createEDataType(UI_ATTRIBUTE_PAINTER);
 		iemfObservableFactoryEDataType = createEDataType(IEMF_OBSERVABLE_FACTORY);
+		iAssignmentParticipantEDataType = createEDataType(IASSIGNMENT_PARTICIPANT);
 		ceObjectHolderEDataType = createEDataType(CE_OBJECT_HOLDER);
 		ceResourceHolderEDataType = createEDataType(CE_RESOURCE_HOLDER);
 		iFormatterProviderEDataType = createEDataType(IFORMATTER_PROVIDER);
@@ -4869,6 +5006,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		uiBindingDecoratorEClass.getESuperTypes().add(this.getIDisposable());
 		uiBindingDecoratorExtenderEClass.getESuperTypes().add(this.getIDisposable());
 		uiBindingDecoratorExtenderDescriptorEClass.getESuperTypes().add(this.getIArgumentProvider());
+		assignmentParticipantsManagerEClass.getESuperTypes().add(this.getIDisposable());
 		quickfixProposalEClass.getESuperTypes().add(this.getIContentProposal());
 		treeItemDescriptorEClass.getESuperTypes().add(this.getIArgumentProvider());
 		constantTreeItemEClass.getESuperTypes().add(this.getIArgumentProvider());
@@ -5031,6 +5169,11 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				this.getStringToStringMapEntry(),
 				null,
 				"commandIDs", null, 0, -1, IManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getManager_AssignmentParticiantsManager(),
+				this.getAssignmentParticipantsManager(),
+				null,
+				"assignmentParticiantsManager", null, 1, 1, IManager.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(bindingContextEClass, IBindingContext.class,
 				"BindingContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -5265,10 +5408,6 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				getColumnBinding_ColumnVisibility(),
 				this.getIObservableValue(),
 				"columnVisibility", null, 1, 1, IColumnBinding.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(
-				getColumnBinding_Tonny(),
-				ecorePackage.getEInt(),
-				"tonny", null, 0, 1, IColumnBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(columnBindingCellInformationEClass, IColumnBindingCellInformation.class,
 				"ColumnBindingCellInformation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -5624,6 +5763,45 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				getUIBindingDecoratorExtenderDescriptor_Factory(),
 				g1,
 				"factory", null, 1, 1, IUIBindingDecoratorExtenderDescriptor.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(assignmentParticipantsManagerEClass, IAssignmentParticipantsManager.class,
+				"AssignmentParticipantsManager", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+				getAssignmentParticipantsManager_Participants(),
+				this.getAssignmentParticipantDescriptor(),
+				this.getAssignmentParticipantDescriptor_Manager(),
+				"participants", null, 0, -1, IAssignmentParticipantsManager.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(assignmentParticipantDescriptorEClass, IAssignmentParticipantDescriptor.class,
+				"AssignmentParticipantDescriptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+				getAssignmentParticipantDescriptor_Manager(),
+				this.getAssignmentParticipantsManager(),
+				this.getAssignmentParticipantsManager_Participants(),
+				"manager", null, 0, 1, IAssignmentParticipantDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getAssignmentParticipantDescriptor_Id(),
+				ecorePackage.getEString(),
+				"id", null, 1, 1, IAssignmentParticipantDescriptor.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getAssignmentParticipantDescriptor_SourceTypes(),
+				ecorePackage.getEString(),
+				"sourceTypes", null, 0, -1, IAssignmentParticipantDescriptor.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getAssignmentParticipantDescriptor_DestinationTypes(),
+				ecorePackage.getEString(),
+				"destinationTypes", null, 0, -1, IAssignmentParticipantDescriptor.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		g1 = createEGenericType(this.getCEObjectHolder());
+		g2 = createEGenericType(this.getIAssignmentParticipant());
+		g1.getETypeArguments().add(g2);
+		initEAttribute(
+				getAssignmentParticipantDescriptor_Participant(),
+				g1,
+				"participant", null, 1, 1, IAssignmentParticipantDescriptor.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getAssignmentParticipantDescriptor_ExactModelTypeMatch(),
+				ecorePackage.getEBoolean(),
+				"exactModelTypeMatch", null, 1, 1, IAssignmentParticipantDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(iArgumentProviderEClass, IArgumentProvider.class,
 				"IArgumentProvider", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -6158,6 +6336,8 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				"UIAttributePainter", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEDataType(iemfObservableFactoryEDataType, IEMFObservableFactory.class,
 				"IEMFObservableFactory", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(iAssignmentParticipantEDataType, IAssignmentParticipant.class,
+				"IAssignmentParticipant", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEDataType(ceObjectHolderEDataType, CEObjectHolder.class,
 				"CEObjectHolder", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEDataType(ceResourceHolderEDataType, CEResourceHolder.class,

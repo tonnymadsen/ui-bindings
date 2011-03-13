@@ -95,6 +95,8 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * <li>{@link com.rcpcompany.uibindings.IManager#isDeleteHandlerCheckEnabled <em>Delete Handler
  * Check Enabled</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#getCommandIDs <em>Command IDs</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IManager#getAssignmentParticiantsManager <em>Assignment
+ * Particiants Manager</em>}</li>
  * </ul>
  * </p>
  * 
@@ -879,6 +881,21 @@ public interface IManager extends IBaseObject {
 	EMap<String, String> getCommandIDs();
 
 	/**
+	 * Returns the value of the '<em><b>Assignment Particiants Manager</b></em>' reference. <!--
+	 * begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Assignment Particiants Manager</em>' reference isn't clear, there
+	 * really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Assignment Particiants Manager</em>' reference.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getManager_AssignmentParticiantsManager()
+	 * @generated
+	 */
+	IAssignmentParticipantsManager getAssignmentParticiantsManager();
+
+	/**
 	 * Returns the value of the '<em><b>Editing Domain</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
 	 * The editing domain is used for all changes performed on model objects.
@@ -1065,9 +1082,11 @@ public interface IManager extends IBaseObject {
 	 * Assign values to the specified destination object from the specified source object by
 	 * creating a set of {@link Command commands} that will set all relevant fields.
 	 * 
+	 * @param binding TODO
 	 * @param destination the destination object
 	 * @param source the source object
+	 * 
 	 * @return a command used to initialize the child object - can be <code>null</code>
 	 */
-	Command assignObject(EObject destination, EObject source);
+	Command assignObject(IBinding binding, EObject destination, EObject source);
 } // IManager

@@ -209,6 +209,24 @@ public interface IUIBindingsFactory extends EFactory {
 	IUIBindingDecoratorExtenderDescriptor createUIBindingDecoratorExtenderDescriptor();
 
 	/**
+	 * Returns a new object of class '<em>Assignment Participants Manager</em>'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Assignment Participants Manager</em>'.
+	 * @generated
+	 */
+	IAssignmentParticipantsManager createAssignmentParticipantsManager();
+
+	/**
+	 * Returns a new object of class '<em>Assignment Participant Descriptor</em>'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Assignment Participant Descriptor</em>'.
+	 * @generated
+	 */
+	IAssignmentParticipantDescriptor createAssignmentParticipantDescriptor();
+
+	/**
 	 * Returns a new object of class '<em>Quickfix Proposal Processor Descriptor</em>'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 

@@ -62,7 +62,6 @@ import org.eclipse.swt.widgets.TreeColumn;
  * <li>{@link com.rcpcompany.uibindings.IColumnBinding#getCursor <em>Cursor</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IColumnBinding#getColumnVisibility <em>Column Visibility
  * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IColumnBinding#getTonny <em>Tonny</em>}</li>
  * </ul>
  * </p>
  * 
@@ -482,31 +481,6 @@ public interface IColumnBinding extends IBinding {
 	 * @generated
 	 */
 	IObservableValue getColumnVisibility();
-
-	/**
-	 * Returns the value of the '<em><b>Tonny</b></em>' attribute. <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Tonny</em>' attribute isn't clear, there really should be more of
-	 * a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Tonny</em>' attribute.
-	 * @see #setTonny(int)
-	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getColumnBinding_Tonny()
-	 * @generated
-	 */
-	int getTonny();
-
-	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.IColumnBinding#getTonny
-	 * <em>Tonny</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value the new value of the '<em>Tonny</em>' attribute.
-	 * @see #getTonny()
-	 * @generated
-	 */
-	void setTonny(int value);
 
 	/**
 	 * Returns the cell information object for this column and the specified element.

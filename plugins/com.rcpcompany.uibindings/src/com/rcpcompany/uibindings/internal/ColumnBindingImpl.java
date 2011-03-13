@@ -130,7 +130,6 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingImpl#getCursor <em>Cursor</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingImpl#getColumnVisibility <em>Column
  * Visibility</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.internal.ColumnBindingImpl#getTonny <em>Tonny</em>}</li>
  * </ul>
  * </p>
  * 
@@ -1267,26 +1266,6 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	protected IObservableValue columnVisibility = COLUMN_VISIBILITY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTonny() <em>Tonny</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 * 
-	 * @see #getTonny()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int TONNY_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getTonny() <em>Tonny</em>}' attribute. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 * 
-	 * @see #getTonny()
-	 * @generated
-	 * @ordered
-	 */
-	protected int tonny = TONNY_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -1602,31 +1581,6 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	 * 
 	 * @generated
 	 */
-	@Override
-	public int getTonny() {
-		return tonny;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void setTonny(int newTonny) {
-		final int oldTonny = tonny;
-		tonny = newTonny;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, IUIBindingsPackage.COLUMN_BINDING__TONNY, oldTonny,
-					tonny));
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -1700,8 +1654,6 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			return getCursor();
 		case IUIBindingsPackage.COLUMN_BINDING__COLUMN_VISIBILITY:
 			return getColumnVisibility();
-		case IUIBindingsPackage.COLUMN_BINDING__TONNY:
-			return getTonny();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1740,9 +1692,6 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		case IUIBindingsPackage.COLUMN_BINDING__CURSOR:
 			setCursor((Cursor) newValue);
 			return;
-		case IUIBindingsPackage.COLUMN_BINDING__TONNY:
-			setTonny((Integer) newValue);
-			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1779,9 +1728,6 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		case IUIBindingsPackage.COLUMN_BINDING__CURSOR:
 			setCursor(CURSOR_EDEFAULT);
 			return;
-		case IUIBindingsPackage.COLUMN_BINDING__TONNY:
-			setTonny(TONNY_EDEFAULT);
-			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1815,8 +1761,6 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		case IUIBindingsPackage.COLUMN_BINDING__COLUMN_VISIBILITY:
 			return COLUMN_VISIBILITY_EDEFAULT == null ? columnVisibility != null : !COLUMN_VISIBILITY_EDEFAULT
 					.equals(columnVisibility);
-		case IUIBindingsPackage.COLUMN_BINDING__TONNY:
-			return tonny != TONNY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

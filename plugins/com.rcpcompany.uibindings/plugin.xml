@@ -444,7 +444,10 @@
    </extension>
    <extension
          point="com.rcpcompany.uibindings.uiBindings">
-<argumentInfo name="alignment"> </argumentInfo> 
+<argumentInfo name="alignment"> </argumentInfo>
+<argumentInfo
+      name="assignmentParticipantManager">
+</argumentInfo> 
 <argumentInfo name="cellEditorType" lookupAttributeContainingClass="false" lookupAttributeTargetType="true" lookupParent="true" lookupReferenceContainingClass="false" lookupReferenceTargetType="true"> </argumentInfo>
 <argumentInfo name="ConstraintValidatorAdapter" lookupParent="false"> </argumentInfo>
 <argumentInfo
@@ -481,7 +484,15 @@
 <argumentInfo name="range"> </argumentInfo> 
 <argumentInfo name="readonly" lookupAttributeContainingClass="true" lookupAttributeTargetType="true" lookupParent="true" lookupReferenceContainingClass="true" lookupReferenceTargetType="true"> </argumentInfo> 
 <argumentInfo name="required"> </argumentInfo> 
-<argumentInfo name="showImage" lookupAttributeContainingClass="false" lookupReferenceTargetType="false"> </argumentInfo> 
+<argumentInfo name="showImage" lookupAttributeContainingClass="false" lookupReferenceTargetType="false"> </argumentInfo>
+<argumentInfo
+      lookupAttributeContainingClass="false"
+      lookupAttributeTargetType="false"
+      lookupParent="false"
+      lookupReferenceContainingClass="false"
+      lookupReferenceTargetType="false"
+      name="superCreateParticipant">
+</argumentInfo> 
 <argumentInfo name="text" lookupAttributeContainingClass="false"> </argumentInfo> 
 <argumentInfo name="textCommitStrategy"> </argumentInfo> 
 <argumentInfo name="toolTipText" lookupAttributeContainingClass="false" lookupReferenceContainingClass="false"> </argumentInfo> 
@@ -491,15 +502,7 @@
 <argumentInfo name="unitSupport" lookupAttributeContainingClass="false" lookupAttributeTargetType="true"> </argumentInfo> 
 <argumentInfo name="validValues" lookupAttributeContainingClass="false" lookupAttributeTargetType="false" lookupParent="true" lookupReferenceContainingClass="false" lookupReferenceTargetType="true"> </argumentInfo> 
 <argumentInfo name="valueObjectMessages"> </argumentInfo> 
-<argumentInfo name="width" lookupAttributeContainingClass="false"> </argumentInfo>
-<argumentInfo
-      lookupAttributeContainingClass="false"
-      lookupAttributeTargetType="false"
-      lookupParent="false"
-      lookupReferenceContainingClass="false"
-      lookupReferenceTargetType="false"
-      name="superCreateParticipant">
-</argumentInfo> </extension>
+<argumentInfo name="width" lookupAttributeContainingClass="false"> </argumentInfo> </extension>
    
    <extension
          point="com.rcpcompany.uibindings.uiBindings">

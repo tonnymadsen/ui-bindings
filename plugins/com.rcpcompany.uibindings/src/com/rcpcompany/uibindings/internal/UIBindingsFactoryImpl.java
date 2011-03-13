@@ -30,6 +30,8 @@ import com.rcpcompany.uibindings.BindingState;
 import com.rcpcompany.uibindings.ContainerCellType;
 import com.rcpcompany.uibindings.DecorationPosition;
 import com.rcpcompany.uibindings.IArgumentInformation;
+import com.rcpcompany.uibindings.IAssignmentParticipantDescriptor;
+import com.rcpcompany.uibindings.IAssignmentParticipantsManager;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingMessageTarget;
 import com.rcpcompany.uibindings.IColumnBinding;
@@ -129,6 +131,10 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 			return createModelFeatureInfo();
 		case IUIBindingsPackage.UI_BINDING_DECORATOR_EXTENDER_DESCRIPTOR:
 			return createUIBindingDecoratorExtenderDescriptor();
+		case IUIBindingsPackage.ASSIGNMENT_PARTICIPANTS_MANAGER:
+			return createAssignmentParticipantsManager();
+		case IUIBindingsPackage.ASSIGNMENT_PARTICIPANT_DESCRIPTOR:
+			return createAssignmentParticipantDescriptor();
 		case IUIBindingsPackage.STRING_TO_MODEL_CLASS_INFO_MAP_ENTRY:
 			return (EObject) createStringToModelClassInfoMapEntry();
 		case IUIBindingsPackage.STRING_TO_MODEL_FEATURE_INFO_MAP_ENTRY:
@@ -427,6 +433,28 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	public IUIBindingDecoratorExtenderDescriptor createUIBindingDecoratorExtenderDescriptor() {
 		final UIBindingDecoratorExtenderDescriptorImpl uiBindingDecoratorExtenderDescriptor = new UIBindingDecoratorExtenderDescriptorImpl();
 		return uiBindingDecoratorExtenderDescriptor;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public IAssignmentParticipantsManager createAssignmentParticipantsManager() {
+		final AssignmentParticipantsManagerImpl assignmentParticipantsManager = new AssignmentParticipantsManagerImpl();
+		return assignmentParticipantsManager;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public IAssignmentParticipantDescriptor createAssignmentParticipantDescriptor() {
+		final AssignmentParticipantDescriptorImpl assignmentParticipantDescriptor = new AssignmentParticipantDescriptorImpl();
+		return assignmentParticipantDescriptor;
 	}
 
 	/**

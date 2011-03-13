@@ -68,7 +68,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getServiceRegistry()
 	 * @generated
 	 */
-	int SERVICE_REGISTRY = 38;
+	int SERVICE_REGISTRY = 40;
 
 	/**
 	 * The feature id for the '<em><b>Services</b></em>' attribute list. <!-- begin-user-doc -->
@@ -433,13 +433,22 @@ public interface IUIBindingsPackage extends EPackage {
 	int MANAGER__COMMAND_IDS = BASE_OBJECT_FEATURE_COUNT + 32;
 
 	/**
+	 * The feature id for the '<em><b>Assignment Particiants Manager</b></em>' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MANAGER__ASSIGNMENT_PARTICIANTS_MANAGER = BASE_OBJECT_FEATURE_COUNT + 33;
+
+	/**
 	 * The number of structural features of the '<em>Manager</em>' class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER_FEATURE_COUNT = BASE_OBJECT_FEATURE_COUNT + 33;
+	int MANAGER_FEATURE_COUNT = BASE_OBJECT_FEATURE_COUNT + 34;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.BindingContextImpl
@@ -1329,22 +1338,13 @@ public interface IUIBindingsPackage extends EPackage {
 	int COLUMN_BINDING__COLUMN_VISIBILITY = BINDING_FEATURE_COUNT + 9;
 
 	/**
-	 * The feature id for the '<em><b>Tonny</b></em>' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int COLUMN_BINDING__TONNY = BINDING_FEATURE_COUNT + 10;
-
-	/**
 	 * The number of structural features of the '<em>Column Binding</em>' class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN_BINDING_FEATURE_COUNT = BINDING_FEATURE_COUNT + 11;
+	int COLUMN_BINDING_FEATURE_COUNT = BINDING_FEATURE_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.internal.ViewerBindingImpl
@@ -1467,7 +1467,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIDisposable()
 	 * @generated
 	 */
-	int IDISPOSABLE = 25;
+	int IDISPOSABLE = 27;
 
 	/**
 	 * The number of structural features of the '<em>IDisposable</em>' class. <!-- begin-user-doc
@@ -2131,7 +2131,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIArgumentProvider()
 	 * @generated
 	 */
-	int IARGUMENT_PROVIDER = 24;
+	int IARGUMENT_PROVIDER = 26;
 
 	/**
 	 * The number of structural features of the '<em>IArgument Provider</em>' class. <!--
@@ -2942,6 +2942,111 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_BINDING_DECORATOR_EXTENDER_DESCRIPTOR_FEATURE_COUNT = IARGUMENT_PROVIDER_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.internal.AssignmentParticipantsManagerImpl
+	 * <em>Assignment Participants Manager</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @see com.rcpcompany.uibindings.internal.AssignmentParticipantsManagerImpl
+	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getAssignmentParticipantsManager()
+	 * @generated
+	 */
+	int ASSIGNMENT_PARTICIPANTS_MANAGER = 24;
+
+	/**
+	 * The feature id for the '<em><b>Participants</b></em>' reference list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGNMENT_PARTICIPANTS_MANAGER__PARTICIPANTS = IDISPOSABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Assignment Participants Manager</em>' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGNMENT_PARTICIPANTS_MANAGER_FEATURE_COUNT = IDISPOSABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.internal.AssignmentParticipantDescriptorImpl
+	 * <em>Assignment Participant Descriptor</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @see com.rcpcompany.uibindings.internal.AssignmentParticipantDescriptorImpl
+	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getAssignmentParticipantDescriptor()
+	 * @generated
+	 */
+	int ASSIGNMENT_PARTICIPANT_DESCRIPTOR = 25;
+
+	/**
+	 * The feature id for the '<em><b>Manager</b></em>' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGNMENT_PARTICIPANT_DESCRIPTOR__MANAGER = 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGNMENT_PARTICIPANT_DESCRIPTOR__ID = 1;
+
+	/**
+	 * The feature id for the '<em><b>Source Types</b></em>' attribute list. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGNMENT_PARTICIPANT_DESCRIPTOR__SOURCE_TYPES = 2;
+
+	/**
+	 * The feature id for the '<em><b>Destination Types</b></em>' attribute list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGNMENT_PARTICIPANT_DESCRIPTOR__DESTINATION_TYPES = 3;
+
+	/**
+	 * The feature id for the '<em><b>Participant</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGNMENT_PARTICIPANT_DESCRIPTOR__PARTICIPANT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Exact Model Type Match</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGNMENT_PARTICIPANT_DESCRIPTOR__EXACT_MODEL_TYPE_MATCH = 5;
+
+	/**
+	 * The number of structural features of the '<em>Assignment Participant Descriptor</em>' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGNMENT_PARTICIPANT_DESCRIPTOR_FEATURE_COUNT = 6;
+
+	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.IModelArgumentMediator
 	 * <em>IModel Argument Mediator</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -2949,7 +3054,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIModelArgumentMediator()
 	 * @generated
 	 */
-	int IMODEL_ARGUMENT_MEDIATOR = 26;
+	int IMODEL_ARGUMENT_MEDIATOR = 28;
 
 	/**
 	 * The number of structural features of the '<em>IModel Argument Mediator</em>' class. <!--
@@ -2968,7 +3073,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIPersistentParty()
 	 * @generated
 	 */
-	int IPERSISTENT_PARTY = 27;
+	int IPERSISTENT_PARTY = 29;
 
 	/**
 	 * The number of structural features of the '<em>IPersistent Party</em>' class. <!--
@@ -2987,7 +3092,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getConstants()
 	 * @generated
 	 */
-	int CONSTANTS = 28;
+	int CONSTANTS = 30;
 
 	/**
 	 * The number of structural features of the '<em>Constants</em>' class. <!-- begin-user-doc -->
@@ -3008,7 +3113,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getStringToModelClassInfoMapEntry()
 	 * @generated
 	 */
-	int STRING_TO_MODEL_CLASS_INFO_MAP_ENTRY = 29;
+	int STRING_TO_MODEL_CLASS_INFO_MAP_ENTRY = 31;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -3047,7 +3152,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getStringToModelFeatureInfoMapEntry()
 	 * @generated
 	 */
-	int STRING_TO_MODEL_FEATURE_INFO_MAP_ENTRY = 30;
+	int STRING_TO_MODEL_FEATURE_INFO_MAP_ENTRY = 32;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -3086,7 +3191,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getStringToArgumentInformationMapEntry()
 	 * @generated
 	 */
-	int STRING_TO_ARGUMENT_INFORMATION_MAP_ENTRY = 31;
+	int STRING_TO_ARGUMENT_INFORMATION_MAP_ENTRY = 33;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -3124,7 +3229,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getStringToStringMapEntry()
 	 * @generated
 	 */
-	int STRING_TO_STRING_MAP_ENTRY = 32;
+	int STRING_TO_STRING_MAP_ENTRY = 34;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -3171,7 +3276,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getStringToObjectMapEntry()
 	 * @generated
 	 */
-	int STRING_TO_OBJECT_MAP_ENTRY = 33;
+	int STRING_TO_OBJECT_MAP_ENTRY = 35;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -3210,7 +3315,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getStringToImageDescriptorMapEntry()
 	 * @generated
 	 */
-	int STRING_TO_IMAGE_DESCRIPTOR_MAP_ENTRY = 34;
+	int STRING_TO_IMAGE_DESCRIPTOR_MAP_ENTRY = 36;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -3249,7 +3354,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getStringToIConfigurationElementMapEntry()
 	 * @generated
 	 */
-	int STRING_TO_ICONFIGURATION_ELEMENT_MAP_ENTRY = 35;
+	int STRING_TO_ICONFIGURATION_ELEMENT_MAP_ENTRY = 37;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -3287,7 +3392,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getStringToBooleanMapEntry()
 	 * @generated
 	 */
-	int STRING_TO_BOOLEAN_MAP_ENTRY = 36;
+	int STRING_TO_BOOLEAN_MAP_ENTRY = 38;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -3324,7 +3429,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getObjectToCIMapEntry()
 	 * @generated
 	 */
-	int OBJECT_TO_CI_MAP_ENTRY = 37;
+	int OBJECT_TO_CI_MAP_ENTRY = 39;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -3361,7 +3466,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIContentProposal()
 	 * @generated
 	 */
-	int ICONTENT_PROPOSAL = 54;
+	int ICONTENT_PROPOSAL = 56;
 
 	/**
 	 * The number of structural features of the '<em>IContent Proposal</em>' class. <!--
@@ -3380,7 +3485,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getQuickfixProposal()
 	 * @generated
 	 */
-	int QUICKFIX_PROPOSAL = 39;
+	int QUICKFIX_PROPOSAL = 41;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -3436,7 +3541,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getQuickfixProposalProcessor()
 	 * @generated
 	 */
-	int QUICKFIX_PROPOSAL_PROCESSOR = 40;
+	int QUICKFIX_PROPOSAL_PROCESSOR = 42;
 
 	/**
 	 * The number of structural features of the '<em>Quickfix Proposal Processor</em>' class. <!--
@@ -3457,7 +3562,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getQuickfixProposalProcessorContext()
 	 * @generated
 	 */
-	int QUICKFIX_PROPOSAL_PROCESSOR_CONTEXT = 41;
+	int QUICKFIX_PROPOSAL_PROCESSOR_CONTEXT = 43;
 
 	/**
 	 * The feature id for the '<em><b>Message</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -3505,7 +3610,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getQuickfixProposalProcessorDescriptor()
 	 * @generated
 	 */
-	int QUICKFIX_PROPOSAL_PROCESSOR_DESCRIPTOR = 42;
+	int QUICKFIX_PROPOSAL_PROCESSOR_DESCRIPTOR = 44;
 
 	/**
 	 * The feature id for the '<em><b>Model Type</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -3578,7 +3683,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getTreeItemRelation()
 	 * @generated
 	 */
-	int TREE_ITEM_RELATION = 43;
+	int TREE_ITEM_RELATION = 45;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -3651,7 +3756,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getTreeItemDescriptor()
 	 * @generated
 	 */
-	int TREE_ITEM_DESCRIPTOR = 44;
+	int TREE_ITEM_DESCRIPTOR = 46;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -3733,7 +3838,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getConstantTreeItem()
 	 * @generated
 	 */
-	int CONSTANT_TREE_ITEM = 45;
+	int CONSTANT_TREE_ITEM = 47;
 
 	/**
 	 * The feature id for the '<em><b>Descriptor</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -3770,7 +3875,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIMessage()
 	 * @generated
 	 */
-	int IMESSAGE = 53;
+	int IMESSAGE = 55;
 
 	/**
 	 * The number of structural features of the '<em>IMessage</em>' class. <!-- begin-user-doc -->
@@ -3789,7 +3894,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getBindingMessage()
 	 * @generated
 	 */
-	int BINDING_MESSAGE = 46;
+	int BINDING_MESSAGE = 48;
 
 	/**
 	 * The feature id for the '<em><b>Binding</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -3899,7 +4004,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getBindingMessageTarget()
 	 * @generated
 	 */
-	int BINDING_MESSAGE_TARGET = 47;
+	int BINDING_MESSAGE_TARGET = 49;
 
 	/**
 	 * The feature id for the '<em><b>Model Object</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -3945,7 +4050,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUIAttribute()
 	 * @generated
 	 */
-	int UI_ATTRIBUTE = 48;
+	int UI_ATTRIBUTE = 50;
 
 	/**
 	 * The feature id for the '<em><b>Widget</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -4127,7 +4232,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUIAttributeImageDecoration()
 	 * @generated
 	 */
-	int UI_ATTRIBUTE_IMAGE_DECORATION = 49;
+	int UI_ATTRIBUTE_IMAGE_DECORATION = 51;
 
 	/**
 	 * The feature id for the '<em><b>Outside</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -4191,7 +4296,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUIAttributeFactory()
 	 * @generated
 	 */
-	int UI_ATTRIBUTE_FACTORY = 50;
+	int UI_ATTRIBUTE_FACTORY = 52;
 
 	/**
 	 * The number of structural features of the '<em>UI Attribute Factory</em>' class. <!--
@@ -4212,7 +4317,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUIAttributeFactoryDescriptor()
 	 * @generated
 	 */
-	int UI_ATTRIBUTE_FACTORY_DESCRIPTOR = 51;
+	int UI_ATTRIBUTE_FACTORY_DESCRIPTOR = 53;
 
 	/**
 	 * The feature id for the '<em><b>Type Name</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -4260,7 +4365,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getEMFObservableFactoryDescriptor()
 	 * @generated
 	 */
-	int EMF_OBSERVABLE_FACTORY_DESCRIPTOR = 52;
+	int EMF_OBSERVABLE_FACTORY_DESCRIPTOR = 54;
 
 	/**
 	 * The feature id for the '<em><b>Package Prefix</b></em>' attribute. <!-- begin-user-doc -->
@@ -4297,7 +4402,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getBindingState()
 	 * @generated
 	 */
-	int BINDING_STATE = 55;
+	int BINDING_STATE = 57;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.DecorationPosition
@@ -4307,7 +4412,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getDecorationPosition()
 	 * @generated
 	 */
-	int DECORATION_POSITION = 56;
+	int DECORATION_POSITION = 58;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.TextCommitStrategy
@@ -4317,7 +4422,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getTextCommitStrategy()
 	 * @generated
 	 */
-	int TEXT_COMMIT_STRATEGY = 57;
+	int TEXT_COMMIT_STRATEGY = 59;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.SpecialBinding
@@ -4327,7 +4432,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getSpecialBinding()
 	 * @generated
 	 */
-	int SPECIAL_BINDING = 58;
+	int SPECIAL_BINDING = 60;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.BindingMessageSeverity
@@ -4337,7 +4442,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getBindingMessageSeverity()
 	 * @generated
 	 */
-	int BINDING_MESSAGE_SEVERITY = 59;
+	int BINDING_MESSAGE_SEVERITY = 61;
 
 	/**
 	 * The meta object id for the '{@link com.rcpcompany.uibindings.ContainerCellType
@@ -4347,7 +4452,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getContainerCellType()
 	 * @generated
 	 */
-	int CONTAINER_CELL_TYPE = 60;
+	int CONTAINER_CELL_TYPE = 62;
 
 	/**
 	 * The meta object id for the '<em>IBinding Context Finalizer</em>' data type. <!--
@@ -4357,7 +4462,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIBindingContextFinalizer()
 	 * @generated
 	 */
-	int IBINDING_CONTEXT_FINALIZER = 61;
+	int IBINDING_CONTEXT_FINALIZER = 63;
 
 	/**
 	 * The meta object id for the '<em>UI Attribute Painter</em>' data type. <!-- begin-user-doc -->
@@ -4367,7 +4472,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUIAttributePainter()
 	 * @generated
 	 */
-	int UI_ATTRIBUTE_PAINTER = 62;
+	int UI_ATTRIBUTE_PAINTER = 64;
 
 	/**
 	 * The meta object id for the '<em>IEMF Observable Factory</em>' data type. <!-- begin-user-doc
@@ -4377,7 +4482,17 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIEMFObservableFactory()
 	 * @generated
 	 */
-	int IEMF_OBSERVABLE_FACTORY = 63;
+	int IEMF_OBSERVABLE_FACTORY = 65;
+
+	/**
+	 * The meta object id for the '<em>IAssignment Participant</em>' data type. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @see com.rcpcompany.uibindings.participants.IAssignmentParticipant
+	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIAssignmentParticipant()
+	 * @generated
+	 */
+	int IASSIGNMENT_PARTICIPANT = 66;
 
 	/**
 	 * The meta object id for the '<em>CE Object Holder</em>' data type. <!-- begin-user-doc -->
@@ -4387,7 +4502,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getCEObjectHolder()
 	 * @generated
 	 */
-	int CE_OBJECT_HOLDER = 64;
+	int CE_OBJECT_HOLDER = 67;
 
 	/**
 	 * The meta object id for the '<em>CE Resource Holder</em>' data type. <!-- begin-user-doc -->
@@ -4397,7 +4512,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getCEResourceHolder()
 	 * @generated
 	 */
-	int CE_RESOURCE_HOLDER = 65;
+	int CE_RESOURCE_HOLDER = 68;
 
 	/**
 	 * The meta object id for the '<em>IFormatter Provider</em>' data type. <!-- begin-user-doc -->
@@ -4407,7 +4522,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIFormatterProvider()
 	 * @generated
 	 */
-	int IFORMATTER_PROVIDER = 66;
+	int IFORMATTER_PROVIDER = 69;
 
 	/**
 	 * The meta object id for the '<em>DB Context</em>' data type. <!-- begin-user-doc --> <!--
@@ -4417,7 +4532,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getDBContext()
 	 * @generated
 	 */
-	int DB_CONTEXT = 67;
+	int DB_CONTEXT = 70;
 
 	/**
 	 * The meta object id for the '<em>DB Binding</em>' data type. <!-- begin-user-doc --> <!--
@@ -4427,7 +4542,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getDBBinding()
 	 * @generated
 	 */
-	int DB_BINDING = 68;
+	int DB_BINDING = 71;
 
 	/**
 	 * The meta object id for the '<em>Column Viewer</em>' data type. <!-- begin-user-doc --> <!--
@@ -4437,7 +4552,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getColumnViewer()
 	 * @generated
 	 */
-	int COLUMN_VIEWER = 69;
+	int COLUMN_VIEWER = 72;
 
 	/**
 	 * The meta object id for the '<em>Viewer Column</em>' data type. <!-- begin-user-doc --> <!--
@@ -4447,7 +4562,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getViewerColumn()
 	 * @generated
 	 */
-	int VIEWER_COLUMN = 70;
+	int VIEWER_COLUMN = 73;
 
 	/**
 	 * The meta object id for the '<em>Image Descriptor</em>' data type. <!-- begin-user-doc -->
@@ -4457,7 +4572,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getImageDescriptor()
 	 * @generated
 	 */
-	int IMAGE_DESCRIPTOR = 71;
+	int IMAGE_DESCRIPTOR = 74;
 
 	/**
 	 * The meta object id for the '<em>IControl Content Adapter</em>' data type. <!-- begin-user-doc
@@ -4467,7 +4582,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIControlContentAdapter()
 	 * @generated
 	 */
-	int ICONTROL_CONTENT_ADAPTER = 72;
+	int ICONTROL_CONTENT_ADAPTER = 75;
 
 	/**
 	 * The meta object id for the '<em>IService Locator</em>' data type. <!-- begin-user-doc -->
@@ -4477,7 +4592,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIServiceLocator()
 	 * @generated
 	 */
-	int ISERVICE_LOCATOR = 73;
+	int ISERVICE_LOCATOR = 76;
 
 	/**
 	 * The meta object id for the '<em>IConfiguration Element</em>' data type. <!-- begin-user-doc
@@ -4487,7 +4602,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIConfigurationElement()
 	 * @generated
 	 */
-	int ICONFIGURATION_ELEMENT = 74;
+	int ICONFIGURATION_ELEMENT = 77;
 
 	/**
 	 * The meta object id for the '<em>Pattern</em>' data type. <!-- begin-user-doc --> <!--
@@ -4497,7 +4612,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getPattern()
 	 * @generated
 	 */
-	int PATTERN = 75;
+	int PATTERN = 78;
 
 	/**
 	 * The meta object id for the '<em>Throwable</em>' data type. <!-- begin-user-doc --> <!--
@@ -4507,7 +4622,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getThrowable()
 	 * @generated
 	 */
-	int THROWABLE = 76;
+	int THROWABLE = 79;
 
 	/**
 	 * The meta object id for the '<em>IObservable</em>' data type. <!-- begin-user-doc --> <!--
@@ -4517,7 +4632,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIObservable()
 	 * @generated
 	 */
-	int IOBSERVABLE = 77;
+	int IOBSERVABLE = 80;
 
 	/**
 	 * The meta object id for the '<em>IObservable Value</em>' data type. <!-- begin-user-doc -->
@@ -4527,7 +4642,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIObservableValue()
 	 * @generated
 	 */
-	int IOBSERVABLE_VALUE = 78;
+	int IOBSERVABLE_VALUE = 81;
 
 	/**
 	 * The meta object id for the '<em>IObservable List</em>' data type. <!-- begin-user-doc -->
@@ -4537,7 +4652,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIObservableList()
 	 * @generated
 	 */
-	int IOBSERVABLE_LIST = 79;
+	int IOBSERVABLE_LIST = 82;
 
 	/**
 	 * The meta object id for the '<em>IObservable Set</em>' data type. <!-- begin-user-doc --> <!--
@@ -4547,7 +4662,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIObservableSet()
 	 * @generated
 	 */
-	int IOBSERVABLE_SET = 80;
+	int IOBSERVABLE_SET = 83;
 
 	/**
 	 * The meta object id for the '<em>IObservable Factory</em>' data type. <!-- begin-user-doc -->
@@ -4557,7 +4672,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIObservableFactory()
 	 * @generated
 	 */
-	int IOBSERVABLE_FACTORY = 81;
+	int IOBSERVABLE_FACTORY = 84;
 
 	/**
 	 * The meta object id for the '<em>ISWT Observable Value</em>' data type. <!-- begin-user-doc
@@ -4567,7 +4682,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getISWTObservableValue()
 	 * @generated
 	 */
-	int ISWT_OBSERVABLE_VALUE = 82;
+	int ISWT_OBSERVABLE_VALUE = 85;
 
 	/**
 	 * The meta object id for the '<em>IConverter</em>' data type. <!-- begin-user-doc --> <!--
@@ -4577,7 +4692,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIConverter()
 	 * @generated
 	 */
-	int ICONVERTER = 83;
+	int ICONVERTER = 86;
 
 	/**
 	 * The meta object id for the '<em>IValidator</em>' data type. <!-- begin-user-doc --> <!--
@@ -4587,7 +4702,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIValidator()
 	 * @generated
 	 */
-	int IVALIDATOR = 84;
+	int IVALIDATOR = 87;
 
 	/**
 	 * The meta object id for the '<em>Editing Domain</em>' data type. <!-- begin-user-doc --> <!--
@@ -4597,7 +4712,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getEditingDomain()
 	 * @generated
 	 */
-	int EDITING_DOMAIN = 85;
+	int EDITING_DOMAIN = 88;
 
 	/**
 	 * The meta object id for the '<em>Widget</em>' data type. <!-- begin-user-doc --> <!--
@@ -4607,7 +4722,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getWidget()
 	 * @generated
 	 */
-	int WIDGET = 86;
+	int WIDGET = 89;
 
 	/**
 	 * The meta object id for the '<em>Form Toolkit</em>' data type. <!-- begin-user-doc --> <!--
@@ -4617,7 +4732,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getFormToolkit()
 	 * @generated
 	 */
-	int FORM_TOOLKIT = 87;
+	int FORM_TOOLKIT = 90;
 
 	/**
 	 * The meta object id for the '<em>Form Creator</em>' data type. <!-- begin-user-doc --> <!--
@@ -4627,7 +4742,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getFormCreator()
 	 * @generated
 	 */
-	int FORM_CREATOR = 88;
+	int FORM_CREATOR = 91;
 
 	/**
 	 * The meta object id for the '<em>Control</em>' data type. <!-- begin-user-doc --> <!--
@@ -4637,7 +4752,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getControl()
 	 * @generated
 	 */
-	int CONTROL = 89;
+	int CONTROL = 92;
 
 	/**
 	 * The meta object id for the '<em>Composite</em>' data type. <!-- begin-user-doc --> <!--
@@ -4647,7 +4762,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getComposite()
 	 * @generated
 	 */
-	int COMPOSITE = 90;
+	int COMPOSITE = 93;
 
 	/**
 	 * The meta object id for the '<em>Table</em>' data type. <!-- begin-user-doc --> <!--
@@ -4657,7 +4772,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getTable()
 	 * @generated
 	 */
-	int TABLE = 91;
+	int TABLE = 94;
 
 	/**
 	 * The meta object id for the '<em>Table Column</em>' data type. <!-- begin-user-doc --> <!--
@@ -4667,7 +4782,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getTableColumn()
 	 * @generated
 	 */
-	int TABLE_COLUMN = 92;
+	int TABLE_COLUMN = 95;
 
 	/**
 	 * The meta object id for the '<em>Tree</em>' data type. <!-- begin-user-doc --> <!--
@@ -4677,7 +4792,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getTree()
 	 * @generated
 	 */
-	int TREE = 93;
+	int TREE = 96;
 
 	/**
 	 * The meta object id for the '<em>Tree Column</em>' data type. <!-- begin-user-doc --> <!--
@@ -4687,7 +4802,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getTreeColumn()
 	 * @generated
 	 */
-	int TREE_COLUMN = 94;
+	int TREE_COLUMN = 97;
 
 	/**
 	 * The meta object id for the '<em>Clipboard</em>' data type. <!-- begin-user-doc --> <!--
@@ -4697,7 +4812,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getClipboard()
 	 * @generated
 	 */
-	int CLIPBOARD = 95;
+	int CLIPBOARD = 98;
 
 	/**
 	 * The meta object id for the '<em>Image</em>' data type. <!-- begin-user-doc --> <!--
@@ -4707,7 +4822,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getImage()
 	 * @generated
 	 */
-	int IMAGE = 96;
+	int IMAGE = 99;
 
 	/**
 	 * The meta object id for the '<em>Color</em>' data type. <!-- begin-user-doc --> <!--
@@ -4717,7 +4832,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getColor()
 	 * @generated
 	 */
-	int COLOR = 97;
+	int COLOR = 100;
 
 	/**
 	 * The meta object id for the '<em>Cursor</em>' data type. <!-- begin-user-doc --> <!--
@@ -4727,7 +4842,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getCursor()
 	 * @generated
 	 */
-	int CURSOR = 98;
+	int CURSOR = 101;
 
 	/**
 	 * The meta object id for the '<em>Selection Listener</em>' data type. <!-- begin-user-doc -->
@@ -4737,7 +4852,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getSelectionListener()
 	 * @generated
 	 */
-	int SELECTION_LISTENER = 99;
+	int SELECTION_LISTENER = 102;
 
 	/**
 	 * The meta object id for the '<em>Update Value Strategy</em>' data type. <!-- begin-user-doc
@@ -4747,7 +4862,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUpdateValueStrategy()
 	 * @generated
 	 */
-	int UPDATE_VALUE_STRATEGY = 100;
+	int UPDATE_VALUE_STRATEGY = 103;
 
 	/**
 	 * The meta object id for the '<em>Update List Strategy</em>' data type. <!-- begin-user-doc -->
@@ -4757,7 +4872,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUpdateListStrategy()
 	 * @generated
 	 */
-	int UPDATE_LIST_STRATEGY = 101;
+	int UPDATE_LIST_STRATEGY = 104;
 
 	/**
 	 * The meta object id for the '<em>Update Set Strategy</em>' data type. <!-- begin-user-doc -->
@@ -4767,7 +4882,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getUpdateSetStrategy()
 	 * @generated
 	 */
-	int UPDATE_SET_STRATEGY = 102;
+	int UPDATE_SET_STRATEGY = 105;
 
 	/**
 	 * The meta object id for the '<em>Number Format</em>' data type. <!-- begin-user-doc --> <!--
@@ -4777,7 +4892,7 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getNumberFormat()
 	 * @generated
 	 */
-	int NUMBER_FORMAT = 103;
+	int NUMBER_FORMAT = 106;
 
 	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IBaseObject
@@ -5157,6 +5272,18 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getManager_CommandIDs();
+
+	/**
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IManager#getAssignmentParticiantsManager
+	 * <em>Assignment Particiants Manager</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference '<em>Assignment Particiants Manager</em>'.
+	 * @see com.rcpcompany.uibindings.IManager#getAssignmentParticiantsManager()
+	 * @see #getManager()
+	 * @generated
+	 */
+	EReference getManager_AssignmentParticiantsManager();
 
 	/**
 	 * Returns the meta object for the attribute '
@@ -5829,18 +5956,6 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getColumnBinding_ColumnVisibility();
-
-	/**
-	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IColumnBinding#getTonny <em>Tonny</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Tonny</em>'.
-	 * @see com.rcpcompany.uibindings.IColumnBinding#getTonny()
-	 * @see #getColumnBinding()
-	 * @generated
-	 */
-	EAttribute getColumnBinding_Tonny();
 
 	/**
 	 * Returns the meta object for class '
@@ -6856,6 +6971,112 @@ public interface IUIBindingsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getUIBindingDecoratorExtenderDescriptor_Factory();
+
+	/**
+	 * Returns the meta object for class '
+	 * {@link com.rcpcompany.uibindings.IAssignmentParticipantsManager
+	 * <em>Assignment Participants Manager</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Assignment Participants Manager</em>'.
+	 * @see com.rcpcompany.uibindings.IAssignmentParticipantsManager
+	 * @generated
+	 */
+	EClass getAssignmentParticipantsManager();
+
+	/**
+	 * Returns the meta object for the reference list '
+	 * {@link com.rcpcompany.uibindings.IAssignmentParticipantsManager#getParticipants
+	 * <em>Participants</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference list '<em>Participants</em>'.
+	 * @see com.rcpcompany.uibindings.IAssignmentParticipantsManager#getParticipants()
+	 * @see #getAssignmentParticipantsManager()
+	 * @generated
+	 */
+	EReference getAssignmentParticipantsManager_Participants();
+
+	/**
+	 * Returns the meta object for class '
+	 * {@link com.rcpcompany.uibindings.IAssignmentParticipantDescriptor
+	 * <em>Assignment Participant Descriptor</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Assignment Participant Descriptor</em>'.
+	 * @see com.rcpcompany.uibindings.IAssignmentParticipantDescriptor
+	 * @generated
+	 */
+	EClass getAssignmentParticipantDescriptor();
+
+	/**
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.IAssignmentParticipantDescriptor#getManager
+	 * <em>Manager</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference '<em>Manager</em>'.
+	 * @see com.rcpcompany.uibindings.IAssignmentParticipantDescriptor#getManager()
+	 * @see #getAssignmentParticipantDescriptor()
+	 * @generated
+	 */
+	EReference getAssignmentParticipantDescriptor_Manager();
+
+	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IAssignmentParticipantDescriptor#getId <em>Id</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see com.rcpcompany.uibindings.IAssignmentParticipantDescriptor#getId()
+	 * @see #getAssignmentParticipantDescriptor()
+	 * @generated
+	 */
+	EAttribute getAssignmentParticipantDescriptor_Id();
+
+	/**
+	 * Returns the meta object for the attribute list '
+	 * {@link com.rcpcompany.uibindings.IAssignmentParticipantDescriptor#getSourceTypes
+	 * <em>Source Types</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute list '<em>Source Types</em>'.
+	 * @see com.rcpcompany.uibindings.IAssignmentParticipantDescriptor#getSourceTypes()
+	 * @see #getAssignmentParticipantDescriptor()
+	 * @generated
+	 */
+	EAttribute getAssignmentParticipantDescriptor_SourceTypes();
+
+	/**
+	 * Returns the meta object for the attribute list '
+	 * {@link com.rcpcompany.uibindings.IAssignmentParticipantDescriptor#getDestinationTypes
+	 * <em>Destination Types</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute list '<em>Destination Types</em>'.
+	 * @see com.rcpcompany.uibindings.IAssignmentParticipantDescriptor#getDestinationTypes()
+	 * @see #getAssignmentParticipantDescriptor()
+	 * @generated
+	 */
+	EAttribute getAssignmentParticipantDescriptor_DestinationTypes();
+
+	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IAssignmentParticipantDescriptor#getParticipant
+	 * <em>Participant</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Participant</em>'.
+	 * @see com.rcpcompany.uibindings.IAssignmentParticipantDescriptor#getParticipant()
+	 * @see #getAssignmentParticipantDescriptor()
+	 * @generated
+	 */
+	EAttribute getAssignmentParticipantDescriptor_Participant();
+
+	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IAssignmentParticipantDescriptor#isExactModelTypeMatch
+	 * <em>Exact Model Type Match</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Exact Model Type Match</em>'.
+	 * @see com.rcpcompany.uibindings.IAssignmentParticipantDescriptor#isExactModelTypeMatch()
+	 * @see #getAssignmentParticipantDescriptor()
+	 * @generated
+	 */
+	EAttribute getAssignmentParticipantDescriptor_ExactModelTypeMatch();
 
 	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IArgumentProvider
@@ -8323,6 +8544,17 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for data type '
+	 * {@link com.rcpcompany.uibindings.participants.IAssignmentParticipant
+	 * <em>IAssignment Participant</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '<em>IAssignment Participant</em>'.
+	 * @see com.rcpcompany.uibindings.participants.IAssignmentParticipant
+	 * @generated
+	 */
+	EDataType getIAssignmentParticipant();
+
+	/**
+	 * Returns the meta object for data type '
 	 * {@link com.rcpcompany.utils.extensionpoints.CEObjectHolder <em>CE Object Holder</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -9020,6 +9252,14 @@ public interface IUIBindingsPackage extends EPackage {
 		EReference MANAGER__COMMAND_IDS = eINSTANCE.getManager_CommandIDs();
 
 		/**
+		 * The meta object literal for the '<em><b>Assignment Particiants Manager</b></em>'
+		 * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference MANAGER__ASSIGNMENT_PARTICIANTS_MANAGER = eINSTANCE.getManager_AssignmentParticiantsManager();
+
+		/**
 		 * The meta object literal for the '<em><b>Editing Domain</b></em>' attribute feature. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -9488,14 +9728,6 @@ public interface IUIBindingsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COLUMN_BINDING__COLUMN_VISIBILITY = eINSTANCE.getColumnBinding_ColumnVisibility();
-
-		/**
-		 * The meta object literal for the '<em><b>Tonny</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute COLUMN_BINDING__TONNY = eINSTANCE.getColumnBinding_Tonny();
 
 		/**
 		 * The meta object literal for the '
@@ -10261,6 +10493,91 @@ public interface IUIBindingsPackage extends EPackage {
 		 */
 		EAttribute UI_BINDING_DECORATOR_EXTENDER_DESCRIPTOR__FACTORY = eINSTANCE
 				.getUIBindingDecoratorExtenderDescriptor_Factory();
+
+		/**
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.AssignmentParticipantsManagerImpl
+		 * <em>Assignment Participants Manager</em>}' class. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
+		 * @see com.rcpcompany.uibindings.internal.AssignmentParticipantsManagerImpl
+		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getAssignmentParticipantsManager()
+		 * @generated
+		 */
+		EClass ASSIGNMENT_PARTICIPANTS_MANAGER = eINSTANCE.getAssignmentParticipantsManager();
+
+		/**
+		 * The meta object literal for the '<em><b>Participants</b></em>' reference list feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference ASSIGNMENT_PARTICIPANTS_MANAGER__PARTICIPANTS = eINSTANCE
+				.getAssignmentParticipantsManager_Participants();
+
+		/**
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.internal.AssignmentParticipantDescriptorImpl
+		 * <em>Assignment Participant Descriptor</em>}' class. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
+		 * @see com.rcpcompany.uibindings.internal.AssignmentParticipantDescriptorImpl
+		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getAssignmentParticipantDescriptor()
+		 * @generated
+		 */
+		EClass ASSIGNMENT_PARTICIPANT_DESCRIPTOR = eINSTANCE.getAssignmentParticipantDescriptor();
+
+		/**
+		 * The meta object literal for the '<em><b>Manager</b></em>' reference feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference ASSIGNMENT_PARTICIPANT_DESCRIPTOR__MANAGER = eINSTANCE.getAssignmentParticipantDescriptor_Manager();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute ASSIGNMENT_PARTICIPANT_DESCRIPTOR__ID = eINSTANCE.getAssignmentParticipantDescriptor_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Types</b></em>' attribute list feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute ASSIGNMENT_PARTICIPANT_DESCRIPTOR__SOURCE_TYPES = eINSTANCE
+				.getAssignmentParticipantDescriptor_SourceTypes();
+
+		/**
+		 * The meta object literal for the '<em><b>Destination Types</b></em>' attribute list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute ASSIGNMENT_PARTICIPANT_DESCRIPTOR__DESTINATION_TYPES = eINSTANCE
+				.getAssignmentParticipantDescriptor_DestinationTypes();
+
+		/**
+		 * The meta object literal for the '<em><b>Participant</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute ASSIGNMENT_PARTICIPANT_DESCRIPTOR__PARTICIPANT = eINSTANCE
+				.getAssignmentParticipantDescriptor_Participant();
+
+		/**
+		 * The meta object literal for the '<em><b>Exact Model Type Match</b></em>' attribute
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute ASSIGNMENT_PARTICIPANT_DESCRIPTOR__EXACT_MODEL_TYPE_MATCH = eINSTANCE
+				.getAssignmentParticipantDescriptor_ExactModelTypeMatch();
 
 		/**
 		 * The meta object literal for the '{@link com.rcpcompany.uibindings.IArgumentProvider
@@ -11425,6 +11742,16 @@ public interface IUIBindingsPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType IEMF_OBSERVABLE_FACTORY = eINSTANCE.getIEMFObservableFactory();
+
+		/**
+		 * The meta object literal for the '<em>IAssignment Participant</em>' data type. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see com.rcpcompany.uibindings.participants.IAssignmentParticipant
+		 * @see com.rcpcompany.uibindings.internal.UIBindingsPackageImpl#getIAssignmentParticipant()
+		 * @generated
+		 */
+		EDataType IASSIGNMENT_PARTICIPANT = eINSTANCE.getIAssignmentParticipant();
 
 		/**
 		 * The meta object literal for the '<em>CE Object Holder</em>' data type. <!--

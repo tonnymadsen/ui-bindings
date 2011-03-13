@@ -97,6 +97,9 @@
         transient="true" defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="commandIDs" upperBound="-1"
         eType="#//StringToStringMapEntry" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignmentParticiantsManager"
+        lowerBound="1" eType="#//AssignmentParticipantsManager" changeable="false"
+        transient="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BindingContext" eSuperTypes="#//BaseObject #//IDisposable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
@@ -554,6 +557,29 @@
       </eGenericType>
     </eStructuralFeatures>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AssignmentParticipantsManager" eSuperTypes="#//IDisposable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="participants" upperBound="-1"
+        eType="#//AssignmentParticipantDescriptor" transient="true" resolveProxies="false"
+        eOpposite="#//AssignmentParticipantDescriptor/manager"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AssignmentParticipantDescriptor">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="manager" eType="#//AssignmentParticipantsManager"
+        resolveProxies="false" eOpposite="#//AssignmentParticipantsManager/participants"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        transient="true" iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceTypes" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="destinationTypes" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="participant" lowerBound="1"
+        transient="true">
+      <eGenericType eClassifier="#//CEObjectHolder">
+        <eTypeArguments eClassifier="#//IAssignmentParticipant"/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="exactModelTypeMatch" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IArgumentProvider" instanceClassName="com.rcpcompany.uibindings.IArgumentProvider"
       abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EDataType" name="IBindingContextFinalizer" instanceClassName="com.rcpcompany.uibindings.IBindingContextFinalizer"
@@ -958,6 +984,8 @@
       </eGenericType>
     </eStructuralFeatures>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="IAssignmentParticipant" instanceClassName="com.rcpcompany.uibindings.participants.IAssignmentParticipant"
+      serializable="false"/>
   <eClassifiers xsi:type="ecore:EDataType" name="CEObjectHolder" instanceClassName="com.rcpcompany.utils.extensionpoints.CEObjectHolder"
       serializable="false">
     <eTypeParameters name="X"/>
