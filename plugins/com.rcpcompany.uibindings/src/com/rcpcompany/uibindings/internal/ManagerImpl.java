@@ -77,6 +77,7 @@ import com.rcpcompany.uibindings.DecorationPosition;
 import com.rcpcompany.uibindings.IArgumentContext;
 import com.rcpcompany.uibindings.IArgumentInformation;
 import com.rcpcompany.uibindings.IArgumentProvider;
+import com.rcpcompany.uibindings.IAssignmentParticipantDescriptor;
 import com.rcpcompany.uibindings.IAssignmentParticipantsManager;
 import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingContext;
@@ -1004,7 +1005,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 				.getConfigurationElementsFor(InternalConstants.UIBINDINGS_EXTENSION_POINT)) {
 			final String elementName = ce.getName();
 			if (InternalConstants.BINDING_DECORATOR_TAG.equals(elementName)) {
-				extenderReaderBindingDecorator(ce);
+				extensionReaderBindingDecorator(ce);
 			} else if (InternalConstants.UI_ATTRIBUTE_FACTORY_TAG.equals(elementName)) {
 				extensionReaderUIAttributeFactory(ce);
 			} else if (InternalConstants.ARGUMENT_INFO_TAG.equals(elementName)) {
@@ -1025,6 +1026,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 				getObservableFactories().add(desc);
 			} else if (InternalConstants.MODEL_TAG.equals(elementName)) {
 				extensionReaderModel(ce);
+			} else if (InternalConstants.ASSIGNMENT_PARTICIPANT_TAG.equals(elementName)) {
+				extensionReaderAssignmentParticipant(ce);
 			} else if (InternalConstants.TREE_ITEM_TAG.equals(elementName)) {
 				final String id = ce.getAttribute(InternalConstants.ID_TAG);
 				if (id == null || id.length() == 0) {
@@ -1336,9 +1339,65 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	}
 
 	/**
+	 * Reads a {@link IAssignmentParticipantDescriptor} from the registry.
+	 * 
 	 * @param ce
 	 */
-	private void extenderReaderBindingDecorator(final IConfigurationElement ce) {
+	private void extensionReaderAssignmentParticipant(final IConfigurationElement ce) {
+		final IAssignmentParticipantDescriptor desc = IUIBindingsFactory.eINSTANCE
+				.createAssignmentParticipantDescriptor();
+		String attr = ce.getAttribute(InternalConstants.ID_TAG);
+		if (attr == null || attr.length() == 0) {
+			attr = "<unspecified>"; //$NON-NLS-1$
+		}
+		desc.setId(attr);
+
+		attr = ce.getAttribute(InternalConstants.EXACT_MODEL_TYPE_MATCH_TAG);
+		desc.setExactTypeMatch(attr != null && Boolean.valueOf(attr).booleanValue());
+
+		final EList<String> destinationTypes = desc.getDestinationTypes();
+		for (final IConfigurationElement child : ce.getChildren(InternalConstants.DESTINATION_TYPE_TAG)) {
+			attr = child.getAttribute(InternalConstants.CLASS_TAG);
+			if (attr == null || attr.length() == 0) {
+				LogUtils.error(child, "Required attribute class is empty. Ignored."); //$NON-NLS-1$
+				break;
+			}
+			if (destinationTypes.contains(attr)) {
+				LogUtils.error(child, "Duplicate destination type: '" + attr + "'. Ignored."); //$NON-NLS-1$ //$NON-NLS-2$
+			}
+			destinationTypes.add(attr);
+		}
+		if (destinationTypes.size() == 0) {
+			LogUtils.error(ce, "No destination types supplied. Ignored."); //$NON-NLS-1$
+			return;
+		}
+
+		final EList<String> sourceTypes = desc.getSourceTypes();
+		for (final IConfigurationElement child : ce.getChildren(InternalConstants.SOURCE_TYPE_TAG)) {
+			attr = child.getAttribute(InternalConstants.CLASS_TAG);
+			if (attr == null || attr.length() == 0) {
+				LogUtils.error(ce, "Required attribute class is empty. Ignored."); //$NON-NLS-1$
+				break;
+			}
+			if (sourceTypes.contains(attr)) {
+				LogUtils.error(child, "Duplicate target type: '" + attr + "'. Ignored."); //$NON-NLS-1$ //$NON-NLS-2$
+			}
+			sourceTypes.add(attr);
+		}
+		if (sourceTypes.size() == 0) {
+			LogUtils.error(ce, "No source Types supplied. Ignored."); //$NON-NLS-1$
+			return;
+		}
+
+		desc.setParticipant(new CEObjectHolder<IAssignmentParticipant>(ce));
+
+		getAssignmentParticiantsManager().getParticipants().add(desc);
+	}
+
+	/**
+	 * @param ce
+	 */
+	private void extensionReaderBindingDecorator(final IConfigurationElement ce) {
 		String id = ce.getAttribute(InternalConstants.ID_TAG);
 		if (id == null || id.length() == 0) {
 			id = "<unspecified>"; //$NON-NLS-1$
@@ -3417,15 +3476,15 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			final IAssignmentParticipantsManager apManager = binding.getArgument(
 					Constants.ARG_ASSIGNMENT_PARTICIPANT_MANAGER, IAssignmentParticipantsManager.class, null);
 			if (apManager != null) {
-				participant = apManager.getParticipant(destination.getClass(), source.getClass());
+				participant = apManager.getParticipant(destination.eClass(), source.eClass());
 			}
 		}
 
 		/*
 		 * ...and if no participant is found, then concult the global manager
 		 */
-		if (participant == null && binding != null) {
-			participant = getAssignmentParticiantsManager().getParticipant(destination.getClass(), source.getClass());
+		if (participant == null) {
+			participant = getAssignmentParticiantsManager().getParticipant(destination.eClass(), source.eClass());
 		}
 
 		if (participant == null) return null;
@@ -3445,7 +3504,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 
 			@Override
 			public EObject getObject() {
-				return source;
+				return destination;
 			}
 
 			@Override

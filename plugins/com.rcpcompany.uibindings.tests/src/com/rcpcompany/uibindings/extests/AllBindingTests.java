@@ -95,6 +95,7 @@ import com.rcpcompany.uibindings.extests.observables.ViewerBindingTreeFactoryPer
 import com.rcpcompany.uibindings.extests.observables.ViewerBindingTreeFactoryTest;
 import com.rcpcompany.uibindings.extests.observables.getset.BasicSetTestValue;
 import com.rcpcompany.uibindings.extests.observables.getset.BasicSetTestViewer;
+import com.rcpcompany.uibindings.extests.participants.ManagerAssignmentParticipantsManagerTest;
 import com.rcpcompany.uibindings.extests.preferences.PreferencePageDialogTest;
 import com.rcpcompany.uibindings.extests.preferences.UIBindingPreferencesTest;
 import com.rcpcompany.uibindings.extests.propertyTesters.EStructuralFeaturePropertyTesterTests;
@@ -241,6 +242,8 @@ PluginTest.class, PluginConfTest.class, PluginSpecificationTest.class, FragmentT
 		ManagerValidationErrorsAreFatal.class, ManagerRequiredVBIDShown.class, ManagerAssistVBIDShown.class,
 		ManagerQuickfixVBIDShown.class, ManagerViewNavigationRecorded.class, ManagerFormatterProviderTest.class,
 		ManagerDeleteHandlerCheckEnabledTest.class, ManagerArgumentInformationTest.class,
+
+		ManagerAssignmentParticipantsManagerTest.class,
 
 		ConstantDefinitionsTest.class,
 

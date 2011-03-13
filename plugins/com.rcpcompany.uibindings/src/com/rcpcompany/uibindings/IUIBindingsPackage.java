@@ -3029,13 +3029,13 @@ public interface IUIBindingsPackage extends EPackage {
 	int ASSIGNMENT_PARTICIPANT_DESCRIPTOR__PARTICIPANT = 4;
 
 	/**
-	 * The feature id for the '<em><b>Exact Model Type Match</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Exact Type Match</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int ASSIGNMENT_PARTICIPANT_DESCRIPTOR__EXACT_MODEL_TYPE_MATCH = 5;
+	int ASSIGNMENT_PARTICIPANT_DESCRIPTOR__EXACT_TYPE_MATCH = 5;
 
 	/**
 	 * The number of structural features of the '<em>Assignment Participant Descriptor</em>' class.
@@ -7068,15 +7068,15 @@ public interface IUIBindingsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link com.rcpcompany.uibindings.IAssignmentParticipantDescriptor#isExactModelTypeMatch
-	 * <em>Exact Model Type Match</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IAssignmentParticipantDescriptor#isExactTypeMatch
+	 * <em>Exact Type Match</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the attribute '<em>Exact Model Type Match</em>'.
-	 * @see com.rcpcompany.uibindings.IAssignmentParticipantDescriptor#isExactModelTypeMatch()
+	 * @return the meta object for the attribute '<em>Exact Type Match</em>'.
+	 * @see com.rcpcompany.uibindings.IAssignmentParticipantDescriptor#isExactTypeMatch()
 	 * @see #getAssignmentParticipantDescriptor()
 	 * @generated
 	 */
-	EAttribute getAssignmentParticipantDescriptor_ExactModelTypeMatch();
+	EAttribute getAssignmentParticipantDescriptor_ExactTypeMatch();
 
 	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.IArgumentProvider
@@ -10571,13 +10571,13 @@ public interface IUIBindingsPackage extends EPackage {
 				.getAssignmentParticipantDescriptor_Participant();
 
 		/**
-		 * The meta object literal for the '<em><b>Exact Model Type Match</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Exact Type Match</b></em>' attribute feature.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		EAttribute ASSIGNMENT_PARTICIPANT_DESCRIPTOR__EXACT_MODEL_TYPE_MATCH = eINSTANCE
-				.getAssignmentParticipantDescriptor_ExactModelTypeMatch();
+		EAttribute ASSIGNMENT_PARTICIPANT_DESCRIPTOR__EXACT_TYPE_MATCH = eINSTANCE
+				.getAssignmentParticipantDescriptor_ExactTypeMatch();
 
 		/**
 		 * The meta object literal for the '{@link com.rcpcompany.uibindings.IArgumentProvider

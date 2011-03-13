@@ -28,8 +28,8 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * Destination Types</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IAssignmentParticipantDescriptor#getParticipant <em>
  * Participant</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.IAssignmentParticipantDescriptor#isExactModelTypeMatch <em>
- * Exact Model Type Match</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IAssignmentParticipantDescriptor#isExactTypeMatch <em>Exact
+ * Type Match</em>}</li>
  * </ul>
  * </p>
  * 
@@ -149,30 +149,30 @@ public interface IAssignmentParticipantDescriptor extends EObject {
 	void setParticipant(CEObjectHolder<IAssignmentParticipant> value);
 
 	/**
-	 * Returns the value of the '<em><b>Exact Model Type Match</b></em>' attribute. <!--
-	 * begin-user-doc -->
+	 * Returns the value of the '<em><b>Exact Type Match</b></em>' attribute. <!-- begin-user-doc
+	 * -->
 	 * <p>
-	 * If the meaning of the '<em>Exact Model Type Match</em>' attribute isn't clear, there really
-	 * should be more of a description here...
+	 * If the meaning of the '<em>Exact Type Match</em>' attribute isn't clear, there really should
+	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Exact Model Type Match</em>' attribute.
-	 * @see #setExactModelTypeMatch(boolean)
-	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getAssignmentParticipantDescriptor_ExactModelTypeMatch()
+	 * @return the value of the '<em>Exact Type Match</em>' attribute.
+	 * @see #setExactTypeMatch(boolean)
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getAssignmentParticipantDescriptor_ExactTypeMatch()
 	 * @generated
 	 */
-	boolean isExactModelTypeMatch();
+	boolean isExactTypeMatch();
 
 	/**
 	 * Sets the value of the '
-	 * {@link com.rcpcompany.uibindings.IAssignmentParticipantDescriptor#isExactModelTypeMatch
-	 * <em>Exact Model Type Match</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * {@link com.rcpcompany.uibindings.IAssignmentParticipantDescriptor#isExactTypeMatch
+	 * <em>Exact Type Match</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @param value the new value of the '<em>Exact Model Type Match</em>' attribute.
-	 * @see #isExactModelTypeMatch()
+	 * @param value the new value of the '<em>Exact Type Match</em>' attribute.
+	 * @see #isExactTypeMatch()
 	 * @generated
 	 */
-	void setExactModelTypeMatch(boolean value);
+	void setExactTypeMatch(boolean value);
 
 } // IAssignmentParticipantDescriptor

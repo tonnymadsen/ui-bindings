@@ -41,8 +41,8 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * <li>{@link com.rcpcompany.uibindings.internal.AssignmentParticipantDescriptorImpl#getParticipant
  * <em>Participant</em>}</li>
  * <li>
- * {@link com.rcpcompany.uibindings.internal.AssignmentParticipantDescriptorImpl#isExactModelTypeMatch
- * <em>Exact Model Type Match</em>}</li>
+ * {@link com.rcpcompany.uibindings.internal.AssignmentParticipantDescriptorImpl#isExactTypeMatch
+ * <em>Exact Type Match</em>}</li>
  * </ul>
  * </p>
  * 
@@ -110,24 +110,24 @@ public class AssignmentParticipantDescriptorImpl extends EObjectImpl implements 
 	protected CEObjectHolder<IAssignmentParticipant> participant;
 
 	/**
-	 * The default value of the '{@link #isExactModelTypeMatch() <em>Exact Model Type Match</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #isExactTypeMatch() <em>Exact Type Match</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @see #isExactModelTypeMatch()
+	 * @see #isExactTypeMatch()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean EXACT_MODEL_TYPE_MATCH_EDEFAULT = false;
+	protected static final boolean EXACT_TYPE_MATCH_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isExactModelTypeMatch() <em>Exact Model Type Match</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #isExactTypeMatch() <em>Exact Type Match</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @see #isExactModelTypeMatch()
+	 * @see #isExactTypeMatch()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean exactModelTypeMatch = EXACT_MODEL_TYPE_MATCH_EDEFAULT;
+	protected boolean exactTypeMatch = EXACT_TYPE_MATCH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -291,8 +291,8 @@ public class AssignmentParticipantDescriptorImpl extends EObjectImpl implements 
 	 * @generated
 	 */
 	@Override
-	public boolean isExactModelTypeMatch() {
-		return exactModelTypeMatch;
+	public boolean isExactTypeMatch() {
+		return exactTypeMatch;
 	}
 
 	/**
@@ -301,13 +301,13 @@ public class AssignmentParticipantDescriptorImpl extends EObjectImpl implements 
 	 * @generated
 	 */
 	@Override
-	public void setExactModelTypeMatch(boolean newExactModelTypeMatch) {
-		final boolean oldExactModelTypeMatch = exactModelTypeMatch;
-		exactModelTypeMatch = newExactModelTypeMatch;
+	public void setExactTypeMatch(boolean newExactTypeMatch) {
+		final boolean oldExactTypeMatch = exactTypeMatch;
+		exactTypeMatch = newExactTypeMatch;
 		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					IUIBindingsPackage.ASSIGNMENT_PARTICIPANT_DESCRIPTOR__EXACT_MODEL_TYPE_MATCH,
-					oldExactModelTypeMatch, exactModelTypeMatch));
+					IUIBindingsPackage.ASSIGNMENT_PARTICIPANT_DESCRIPTOR__EXACT_TYPE_MATCH, oldExactTypeMatch,
+					exactTypeMatch));
 		}
 	}
 
@@ -362,8 +362,8 @@ public class AssignmentParticipantDescriptorImpl extends EObjectImpl implements 
 			return getDestinationTypes();
 		case IUIBindingsPackage.ASSIGNMENT_PARTICIPANT_DESCRIPTOR__PARTICIPANT:
 			return getParticipant();
-		case IUIBindingsPackage.ASSIGNMENT_PARTICIPANT_DESCRIPTOR__EXACT_MODEL_TYPE_MATCH:
-			return isExactModelTypeMatch();
+		case IUIBindingsPackage.ASSIGNMENT_PARTICIPANT_DESCRIPTOR__EXACT_TYPE_MATCH:
+			return isExactTypeMatch();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -394,8 +394,8 @@ public class AssignmentParticipantDescriptorImpl extends EObjectImpl implements 
 		case IUIBindingsPackage.ASSIGNMENT_PARTICIPANT_DESCRIPTOR__PARTICIPANT:
 			setParticipant((CEObjectHolder<IAssignmentParticipant>) newValue);
 			return;
-		case IUIBindingsPackage.ASSIGNMENT_PARTICIPANT_DESCRIPTOR__EXACT_MODEL_TYPE_MATCH:
-			setExactModelTypeMatch((Boolean) newValue);
+		case IUIBindingsPackage.ASSIGNMENT_PARTICIPANT_DESCRIPTOR__EXACT_TYPE_MATCH:
+			setExactTypeMatch((Boolean) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -424,8 +424,8 @@ public class AssignmentParticipantDescriptorImpl extends EObjectImpl implements 
 		case IUIBindingsPackage.ASSIGNMENT_PARTICIPANT_DESCRIPTOR__PARTICIPANT:
 			setParticipant((CEObjectHolder<IAssignmentParticipant>) null);
 			return;
-		case IUIBindingsPackage.ASSIGNMENT_PARTICIPANT_DESCRIPTOR__EXACT_MODEL_TYPE_MATCH:
-			setExactModelTypeMatch(EXACT_MODEL_TYPE_MATCH_EDEFAULT);
+		case IUIBindingsPackage.ASSIGNMENT_PARTICIPANT_DESCRIPTOR__EXACT_TYPE_MATCH:
+			setExactTypeMatch(EXACT_TYPE_MATCH_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -449,8 +449,8 @@ public class AssignmentParticipantDescriptorImpl extends EObjectImpl implements 
 			return destinationTypes != null && !destinationTypes.isEmpty();
 		case IUIBindingsPackage.ASSIGNMENT_PARTICIPANT_DESCRIPTOR__PARTICIPANT:
 			return participant != null;
-		case IUIBindingsPackage.ASSIGNMENT_PARTICIPANT_DESCRIPTOR__EXACT_MODEL_TYPE_MATCH:
-			return exactModelTypeMatch != EXACT_MODEL_TYPE_MATCH_EDEFAULT;
+		case IUIBindingsPackage.ASSIGNMENT_PARTICIPANT_DESCRIPTOR__EXACT_TYPE_MATCH:
+			return exactTypeMatch != EXACT_TYPE_MATCH_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -473,8 +473,8 @@ public class AssignmentParticipantDescriptorImpl extends EObjectImpl implements 
 		result.append(destinationTypes);
 		result.append(", participant: "); //$NON-NLS-1$
 		result.append(participant);
-		result.append(", exactModelTypeMatch: "); //$NON-NLS-1$
-		result.append(exactModelTypeMatch);
+		result.append(", exactTypeMatch: "); //$NON-NLS-1$
+		result.append(exactTypeMatch);
 		result.append(')');
 		return result.toString();
 	}

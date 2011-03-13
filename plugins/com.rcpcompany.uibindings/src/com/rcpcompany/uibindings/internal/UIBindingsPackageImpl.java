@@ -2801,7 +2801,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getAssignmentParticipantDescriptor_ExactModelTypeMatch() {
+	public EAttribute getAssignmentParticipantDescriptor_ExactTypeMatch() {
 		return (EAttribute) assignmentParticipantDescriptorEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -4743,8 +4743,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		createEAttribute(assignmentParticipantDescriptorEClass, ASSIGNMENT_PARTICIPANT_DESCRIPTOR__SOURCE_TYPES);
 		createEAttribute(assignmentParticipantDescriptorEClass, ASSIGNMENT_PARTICIPANT_DESCRIPTOR__DESTINATION_TYPES);
 		createEAttribute(assignmentParticipantDescriptorEClass, ASSIGNMENT_PARTICIPANT_DESCRIPTOR__PARTICIPANT);
-		createEAttribute(assignmentParticipantDescriptorEClass,
-				ASSIGNMENT_PARTICIPANT_DESCRIPTOR__EXACT_MODEL_TYPE_MATCH);
+		createEAttribute(assignmentParticipantDescriptorEClass, ASSIGNMENT_PARTICIPANT_DESCRIPTOR__EXACT_TYPE_MATCH);
 
 		iArgumentProviderEClass = createEClass(IARGUMENT_PROVIDER);
 
@@ -5799,9 +5798,9 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				g1,
 				"participant", null, 1, 1, IAssignmentParticipantDescriptor.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
-				getAssignmentParticipantDescriptor_ExactModelTypeMatch(),
+				getAssignmentParticipantDescriptor_ExactTypeMatch(),
 				ecorePackage.getEBoolean(),
-				"exactModelTypeMatch", null, 1, 1, IAssignmentParticipantDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"exactTypeMatch", null, 1, 1, IAssignmentParticipantDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(iArgumentProviderEClass, IArgumentProvider.class,
 				"IArgumentProvider", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

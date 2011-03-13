@@ -748,5 +748,18 @@
             priority="100"
             title="2"/>
    </extension>
+   <extension
+         point="com.rcpcompany.uibindings.uiBindings">
+      <assignmentParticipant
+            class="com.rcpcompany.uibindings.extests.participants.ManagerAssignmentParticipantsManagerTest$ItemToGroupAssignmentParticipant"
+            exactTypeMatch="true">
+         <sourceType
+               class="com.rcpcompany.uibindings.tests.shop.ShopItem">
+         </sourceType>
+         <destinationType
+               class="com.rcpcompany.uibindings.tests.shop.ShopItemGroup">
+         </destinationType>
+      </assignmentParticipant>
+   </extension>
 
 </fragment>

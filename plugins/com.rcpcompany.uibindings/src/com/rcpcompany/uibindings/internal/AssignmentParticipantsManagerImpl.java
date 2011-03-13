@@ -180,13 +180,15 @@ public class AssignmentParticipantsManagerImpl extends EObjectImpl implements IA
 	}
 
 	@Override
-	public IAssignmentParticipant getParticipant(Class<?> destinationType, Class<?> sourceType) {
+	public IAssignmentParticipant getParticipant(EClass destinationType, EClass sourceType) {
 		if (Activator.getDefault().TRACE_PARTICIPANTS) {
 			LogUtils.debug(this, "getParticipant(" + destinationType.getName() + ", " + sourceType.getName() + ")"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		}
 
-		final Class<?>[] destinationTypeOrder = Platform.getAdapterManager().computeClassOrder(destinationType);
-		final Class<?>[] sourceTypeOrder = Platform.getAdapterManager().computeClassOrder(sourceType);
+		final Class<?>[] destinationTypeOrder = Platform.getAdapterManager().computeClassOrder(
+				destinationType.getInstanceClass());
+		final Class<?>[] sourceTypeOrder = Platform.getAdapterManager()
+				.computeClassOrder(sourceType.getInstanceClass());
 
 		final List<IAssignmentParticipantDescriptor> ps = new ArrayList<IAssignmentParticipantDescriptor>();
 		int psPriority = 1000000;
@@ -197,12 +199,11 @@ public class AssignmentParticipantsManagerImpl extends EObjectImpl implements IA
 			for (final String t : p.getDestinationTypes()) {
 				prio = 0;
 				/*
-				 * If exact model type matching is wanted when just test again the model type
-				 * itself.
+				 * If exact type matching is wanted when just test again the model type itself.
 				 * 
 				 * Otherwise test against model type order as found above.
 				 */
-				if (p.isExactModelTypeMatch()) {
+				if (p.isExactTypeMatch()) {
 					if (destinationType.getName().equals(t)) {
 						found = true;
 					}
@@ -223,13 +224,26 @@ public class AssignmentParticipantsManagerImpl extends EObjectImpl implements IA
 				continue;
 			}
 			priority += prio;
+
 			found = false;
 			for (final String t : p.getSourceTypes()) {
 				prio = 0;
-				for (final Class<?> c : sourceTypeOrder) {
-					if (c.getName().equals(t)) {
+				/*
+				 * If exact type matching is wanted when just test again the model type itself.
+				 * 
+				 * Otherwise test against model type order as found above.
+				 */
+				if (p.isExactTypeMatch()) {
+					if (sourceType.getName().equals(t)) {
 						found = true;
-						break;
+					}
+				} else {
+					for (final Class<?> c : sourceTypeOrder) {
+						if (c.getName().equals(t)) {
+							found = true;
+							break;
+						}
+						prio++;
 					}
 				}
 				if (found) {
@@ -267,7 +281,7 @@ public class AssignmentParticipantsManagerImpl extends EObjectImpl implements IA
 			 */
 			// TODO: Find the right match
 			LogUtils.error(this, "TODO: find the right match, got priority " + psPriority + " (" //$NON-NLS-1$ //$NON-NLS-2$
-					+ destinationType.getSimpleName() + ", " + sourceType.getSimpleName() + "): " + ps.size() //$NON-NLS-1$ //$NON-NLS-2$
+					+ destinationType.getName() + ", " + sourceType.getName() + "): " + ps.size() //$NON-NLS-1$ //$NON-NLS-2$
 					+ " matches:\n" + ps); //$NON-NLS-1$
 			//$FALL-THROUGH$ fallthrough
 		case 1:

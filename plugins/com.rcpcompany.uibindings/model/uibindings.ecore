@@ -577,7 +577,7 @@
         <eTypeArguments eClassifier="#//IAssignmentParticipant"/>
       </eGenericType>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="exactModelTypeMatch" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="exactTypeMatch" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IArgumentProvider" instanceClassName="com.rcpcompany.uibindings.IArgumentProvider"

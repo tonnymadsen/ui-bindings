@@ -7,6 +7,7 @@
 package com.rcpcompany.uibindings;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 import com.rcpcompany.uibindings.participants.IAssignmentParticipant;
@@ -49,11 +50,11 @@ public interface IAssignmentParticipantsManager extends EObject, IDisposable {
 	EList<IAssignmentParticipantDescriptor> getParticipants();
 
 	/**
-	 * Returns the best match - if any - for an assignment participan in this manager.
+	 * Returns the best match - if any - for an assignment participant in this manager.
 	 * 
 	 * @param destinationType the class of the destination object
 	 * @param sourceType the class of the source object
 	 * @return the best match or <code>null</code> if none can be found
 	 */
-	IAssignmentParticipant getParticipant(Class<?> destinationType, Class<?> sourceType);
+	IAssignmentParticipant getParticipant(EClass destinationType, EClass sourceType);
 }

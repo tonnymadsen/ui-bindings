@@ -116,6 +116,8 @@ public interface InternalConstants {
 	String FACTORY_TAG = "factory"; //$NON-NLS-1$
 	String TITLE_TAG = "title"; //$NON-NLS-1$
 	String ASSIGNMENT_PARTICIPANT_TAG = "assignmentParticipant"; //$NON-NLS-1$
+	String DESTINATION_TYPE_TAG = "destinationType"; //$NON-NLS-1$
+	String SOURCE_TYPE_TAG = "sourceType"; //$NON-NLS-1$
 
 	/**
 	 * Cell Editor Type: Text.

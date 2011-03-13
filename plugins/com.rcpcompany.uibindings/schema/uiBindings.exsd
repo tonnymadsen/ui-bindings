@@ -40,6 +40,7 @@ This framework is based on the concept of decoration of widgets rather than exte
             <element ref="quickfixProcessor"/>
             <element ref="modelArgumentMediator"/>
             <element ref="argumentInfo"/>
+            <element ref="assignmentParticipant"/>
          </choice>
          <attribute name="point" type="string" use="required">
             <annotation>
@@ -109,39 +110,6 @@ Each decorator can have a number of arguments for the label binding in the form 
             <annotation>
                <documentation>
                   if &lt;code&gt;true&lt;/code&gt;, then matching for this provider will use the model type directly, instead of testing against all the super types of the model type.
-               </documentation>
-            </annotation>
-         </attribute>
-      </complexType>
-   </element>
-
-   <element name="decoratorExtender">
-      <annotation>
-         <documentation>
-            An extender of an binding decoration.
-&lt;p&gt;
-Each extender can have a number of arguments for the label binding in the form of &lt;code&gt;argument&lt;/code&gt; sub-elements.
-         </documentation>
-      </annotation>
-      <complexType>
-         <choice minOccurs="0" maxOccurs="unbounded">
-            <element ref="argument"/>
-            <element ref="standardArguments"/>
-         </choice>
-         <attribute name="class" type="string">
-            <annotation>
-               <documentation>
-                  the class of the extender.
-               </documentation>
-               <appInfo>
-                  <meta.attribute kind="java" basedOn="com.rcpcompany.uibindings.decorators.extenders.AbstractUIBindingDecoratorExtender:com.rcpcompany.uibindings.IUIBindingDecoratorExtender"/>
-               </appInfo>
-            </annotation>
-         </attribute>
-         <attribute name="priority" type="string" use="default" value="100">
-            <annotation>
-               <documentation>
-                  the priority of the extender compared to other extenders. The higher the priority the later the extender will be run and the more important the extensions.
                </documentation>
             </annotation>
          </attribute>
@@ -314,6 +282,39 @@ The concrete UI type used in a specific binding depending on the UI observable a
                <appInfo>
                   <meta.attribute kind="java"/>
                </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="decoratorExtender">
+      <annotation>
+         <documentation>
+            An extender of an binding decoration.
+&lt;p&gt;
+Each extender can have a number of arguments for the label binding in the form of &lt;code&gt;argument&lt;/code&gt; sub-elements.
+         </documentation>
+      </annotation>
+      <complexType>
+         <choice minOccurs="0" maxOccurs="unbounded">
+            <element ref="argument"/>
+            <element ref="standardArguments"/>
+         </choice>
+         <attribute name="class" type="string">
+            <annotation>
+               <documentation>
+                  the class of the extender.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="com.rcpcompany.uibindings.decorators.extenders.AbstractUIBindingDecoratorExtender:com.rcpcompany.uibindings.IUIBindingDecoratorExtender"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="priority" type="string" use="default" value="100">
+            <annotation>
+               <documentation>
+                  the priority of the extender compared to other extenders. The higher the priority the later the extender will be run and the more important the extensions.
+               </documentation>
             </annotation>
          </attribute>
       </complexType>
@@ -1105,6 +1106,81 @@ This information is used to determine how a specific argument is resolved. E.g f
                <documentation>
                   whether to lookup values in the containing class of a reference - defaults to &lt;code&gt;false&lt;/code&gt;
                </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="assignmentParticipant">
+      <annotation>
+         <documentation>
+            The declaration of a &lt;code&gt;IAssignmentParticipant&lt;/code&gt;. These are used in paste operations and in drag &apos;n drop operations to assign information from a source object to a destination object.
+         </documentation>
+      </annotation>
+      <complexType>
+         <choice minOccurs="1" maxOccurs="unbounded">
+            <element ref="sourceType"/>
+            <element ref="destinationType"/>
+         </choice>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the participant that will be used in the assignment.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":com.rcpcompany.uibindings.participants.IAssignmentParticipant"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="exactTypeMatch" type="boolean">
+            <annotation>
+               <documentation>
+                  whether type checking is performed using &lt;code&gt;==&lt;/code&gt; or using &lt;code&gt;instanceof&lt;/code&gt;. The default is &lt;code&gt;false&lt;/code&gt;.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="sourceType">
+      <annotation>
+         <documentation>
+            The specification of a specific source type supported by an assignment participant.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the type of a source 
+&lt;p&gt;
+The test is performed using &lt;code&gt;instanceof&lt;/code&gt; unless
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.emf.ecore.EObject"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="destinationType">
+      <annotation>
+         <documentation>
+            The specification of a specific destination type supported by an assignment participant.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the type of a source 
+&lt;p&gt;
+The test is performed using &lt;code&gt;instanceof&lt;/code&gt; unless
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.emf.ecore.EObject"/>
+               </appInfo>
             </annotation>
          </attribute>
       </complexType>
