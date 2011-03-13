@@ -356,11 +356,11 @@
    <extension
          point="com.rcpcompany.uibindings.uiBindings">
       <model
-            class="com.sun.jmx.mbeanserver.NamedObject">
+            class="com.rcpcompany.uibindings.moao.INamedObject">
          <feature
                name="name">
             <standardArguments
-                  preferredCellEditor="org.eclipse.swt.widgets.Text">
+                 preferredCellEditor="org.eclipse.swt.widgets.Text">
             </standardArguments>
          </feature>
       </model>
@@ -437,7 +437,8 @@
          <feature
                name="name">
             <standardArguments
-                  openCommand="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.example.application.views.ContactsView)">
+                  openCommand="com.rcpcompany.uibindings.commands.showView(viewId=com.rcpcompany.uibindings.example.application.views.ContactsView)"
+                  preferredCellEditor="org.eclipse.swt.widgets.Dialog">
             </standardArguments>
          </feature>
       </model>
@@ -748,6 +749,19 @@
             class="com.rcpcompany.uibindings.shop.views.advisors.ShopNavigatorOrderAdvisor"
             id="com.rcpcompany.uibindings.shop.views.ShopNavigationOrderView">
       </navigator>
+   </extension>
+   <extension
+         point="com.rcpcompany.uibindings.uiBindings">
+      <assignmentParticipant
+            class="com.rcpcompany.uibindings.shop.participants.ShopItemToGroupAsignmentParticipant"
+            exactTypeMatch="true">
+         <sourceType
+               class="com.rcpcompany.uibindings.tests.shop.ShopItem">
+         </sourceType>
+         <destinationType
+               class="com.rcpcompany.uibindings.tests.shop.ShopItemGroup">
+         </destinationType>
+      </assignmentParticipant>
    </extension>
 
 
