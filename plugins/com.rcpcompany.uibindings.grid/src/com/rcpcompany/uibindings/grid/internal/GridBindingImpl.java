@@ -724,7 +724,7 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 	@Override
 	public void setFocusCell(IGridBindingCellInformation newFocusCell) {
 		if (newFocusCell == null) {
-			if (getColumns().size() > 0 && getRows().size() > 0) {
+			if (getColumnIDs().size() > 0 && getRowIDs().size() > 0) {
 				newFocusCell = (IGridBindingCellInformation) getCell(getNoRowHeaders(), getNoColumnHeaders(), true);
 			}
 		}
