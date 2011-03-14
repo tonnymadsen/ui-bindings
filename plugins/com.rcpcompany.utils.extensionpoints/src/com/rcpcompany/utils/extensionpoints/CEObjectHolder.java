@@ -107,7 +107,7 @@ public class CEObjectHolder<X> {
 			return null;
 		}
 		try {
-			return bundle.loadClass(className);
+			return (Class<X>) bundle.loadClass(className);
 		} catch (final ClassNotFoundException ex) {
 			LogUtils.error(myCE, myAttrName + ": class cannot be loaded: " + className, ex);
 			return null;
