@@ -753,8 +753,8 @@
    <extension
          point="com.rcpcompany.uibindings.uiBindings">
       <assignmentParticipant
-            class="com.rcpcompany.uibindings.shop.participants.ShopItemToGroupAsignmentParticipant"
-            exactTypeMatch="true">
+            class="com.rcpcompany.uibindings.moao.ui.participants.NamedObjectToNamedObjectAsignmentParticipant"
+            exactTypeMatch="false">
          <sourceType
                class="com.rcpcompany.uibindings.tests.shop.ShopItem">
          </sourceType>
