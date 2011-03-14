@@ -2340,6 +2340,14 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			} catch (final CoreException ex) {
 				LogUtils.error(ce, ex);
 			}
+		} else if (argumentType == IAssignmentParticipant.class) {
+			try {
+				final IAssignmentParticipant adapter = (IAssignmentParticipant) ce
+						.createExecutableExtension(attributeName);
+				return (ArgumentType) adapter;
+			} catch (final CoreException ex) {
+				LogUtils.error(ce, ex);
+			}
 		} else if (argumentType == IControlFactory.class) {
 			try {
 				final IControlFactory factory = (IControlFactory) ce.createExecutableExtension(attributeName);
