@@ -72,26 +72,50 @@ public class UsedPropertyNamesTest {
 	}
 
 	/**
-	 * Tests that the used sources in the uibinding plug-ins are all legal.
+	 * Tests used property named in handlers extension point.
 	 */
 	@Test
-	public void testUsedSourcesUIHandlers() {
+	public void testUsedPropertiesUIHandlers() {
 		testUsedSources("org.eclipse.ui.handlers");
 	}
 
 	/**
-	 * Tests that the used sources in the uibinding plug-ins are all legal.
+	 * Tests used property named in menus extension point.
 	 */
 	@Test
-	public void testUsedSourcesUIMenus() {
+	public void testUsedPropertiesUIMenus() {
 		testUsedSources("org.eclipse.ui.menus");
 	}
 
 	/**
-	 * Tests that the used sources in the uibinding plug-ins are all legal.
+	 * Tests used property named in activities extension point.
 	 */
 	@Test
-	public void testUsedSourcesExpressionsDefinitions() {
+	public void testUsedPropertiesUIActivities() {
+		testUsedSources("org.eclipse.ui.activities");
+	}
+
+	/**
+	 * Tests used property named in popupMenus extension point.
+	 */
+	@Test
+	public void testUsedPropertiesUIPopupMenus() {
+		testUsedSources("org.eclipse.ui.popupMenus");
+	}
+
+	/**
+	 * Tests used property named in propertyPages extension point.
+	 */
+	@Test
+	public void testUsedPropertiesUIPropertyPages() {
+		testUsedSources("org.eclipse.ui.propertyPages");
+	}
+
+	/**
+	 * Tests used property named in definitions extension point.
+	 */
+	@Test
+	public void testUsedPropertiesExpressionsDefinitions() {
 		testUsedSources("org.eclipse.core.expressions.definitions");
 	}
 
