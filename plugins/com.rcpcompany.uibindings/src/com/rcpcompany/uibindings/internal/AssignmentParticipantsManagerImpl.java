@@ -192,18 +192,18 @@ public class AssignmentParticipantsManagerImpl extends EObjectImpl implements IA
 
 		final List<IAssignmentParticipantDescriptor> ps = new ArrayList<IAssignmentParticipantDescriptor>();
 		int psPriority = 1000000;
-		for (final IAssignmentParticipantDescriptor p : getParticipants()) {
+		for (final IAssignmentParticipantDescriptor desc : getParticipants()) {
 			boolean found = false;
 			int priority = 0;
 			int prio = 0;
-			for (final String t : p.getDestinationTypes()) {
+			for (final String t : desc.getDestinationTypes()) {
 				prio = 0;
 				/*
 				 * If exact type matching is wanted when just test again the model type itself.
 				 * 
 				 * Otherwise test against model type order as found above.
 				 */
-				if (p.isExactTypeMatch()) {
+				if (desc.isExactTypeMatch()) {
 					if (destinationType.getName().equals(t)) {
 						found = true;
 					}
@@ -226,14 +226,14 @@ public class AssignmentParticipantsManagerImpl extends EObjectImpl implements IA
 			priority += prio;
 
 			found = false;
-			for (final String t : p.getSourceTypes()) {
+			for (final String t : desc.getSourceTypes()) {
 				prio = 0;
 				/*
 				 * If exact type matching is wanted when just test again the model type itself.
 				 * 
 				 * Otherwise test against model type order as found above.
 				 */
-				if (p.isExactTypeMatch()) {
+				if (desc.isExactTypeMatch()) {
 					if (sourceType.getName().equals(t)) {
 						found = true;
 					}
@@ -263,7 +263,7 @@ public class AssignmentParticipantsManagerImpl extends EObjectImpl implements IA
 				psPriority = priority;
 			}
 
-			ps.add(p);
+			ps.add(desc);
 		}
 
 		/*
