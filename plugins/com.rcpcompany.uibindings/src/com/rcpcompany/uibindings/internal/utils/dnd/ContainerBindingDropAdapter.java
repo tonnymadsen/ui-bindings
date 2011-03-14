@@ -74,7 +74,10 @@ public class ContainerBindingDropAdapter extends DropTargetAdapter {
 	 */
 	protected DragAndDropCommandInformation myDragAndDropCommandInformation;
 
-	private final IContainerBinding myContainer;
+	/**
+	 * The container of the adapter
+	 */
+	protected final IContainerBinding myContainer;
 
 	/**
 	 * This creates an instance with the given container.
