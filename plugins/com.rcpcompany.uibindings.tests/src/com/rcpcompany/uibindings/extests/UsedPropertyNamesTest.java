@@ -29,7 +29,9 @@ import org.junit.Test;
 import com.rcpcompany.uibindings.internal.Activator;
 
 /**
- * Tests of all used property names in the expression related extension points
+ * Tests of all used property names in the expression related extension points.
+ * <p>
+ * Only the extension points remotely relevant for RCP plug-ins are included here.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -117,6 +119,22 @@ public class UsedPropertyNamesTest {
 	@Test
 	public void testUsedPropertiesExpressionsDefinitions() {
 		testUsedSources("org.eclipse.core.expressions.definitions");
+	}
+
+	/**
+	 * Tests used property named in modelProviders extension point.
+	 */
+	@Test
+	public void testUsedPropertiesModelProviders() {
+		testUsedSources("org.eclipse.core.resources.modelProviders");
+	}
+
+	/**
+	 * Tests used property named in variableResolvers extension point.
+	 */
+	@Test
+	public void testUsedPropertiesVariableResolvers() {
+		testUsedSources("org.eclipse.core.resources.variableResolvers");
 	}
 
 	private void testUsedSources(String epName) {
