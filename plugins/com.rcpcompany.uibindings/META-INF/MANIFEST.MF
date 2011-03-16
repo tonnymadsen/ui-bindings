@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: com.rcpcompany.uibindings;singleton:=true
-Bundle-Version: 2.11.3.qualifier
+Bundle-Version: 2.11.1.qualifier
 Bundle-Activator: com.rcpcompany.uibindings.internal.Activator
 Bundle-Vendor: %Bundle-Vendor
 Require-Bundle: org.junit;bundle-version="[4.0.0,5.0.0)",
@@ -53,6 +53,7 @@ Import-Package: com.ibm.icu.text;version="4.2.1.1",
  org.eclipse.core.expressions,
  org.eclipse.core.internal.databinding,
  org.eclipse.core.internal.databinding.observable,
+ org.eclipse.emf.common,
  org.eclipse.emf.common.command,
  org.eclipse.emf.common.notify,
  org.eclipse.emf.common.notify.impl,
