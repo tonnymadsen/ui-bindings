@@ -722,8 +722,7 @@ public interface Constants {
 	/**
 	 * This expression evaluates to <code>true</code> and has a very high source priority.
 	 * <p>
-	 * This expression is used to provoke that a local undo handler takes priority over global
-	 * handlers.
+	 * This expression is used to ensure that a local handler takes priority over global handlers.
 	 */
 	Expression TRUE_EXPRESSION = new Expression() {
 		@Override

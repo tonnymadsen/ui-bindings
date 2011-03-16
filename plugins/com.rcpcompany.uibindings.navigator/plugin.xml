@@ -129,14 +129,35 @@
       <command
             commandId="com.rcpcompany.uibindings.navigator.commands.PinEditor"
             style="toggle">
+         <visibleWhen
+               checkEnabled="false">
+            <test
+                  args="com.rcpcompany.uibindings.navigator,SHOW_BASE_EDITOR_VIEW_CONTRIBUTIONS"
+                  property="com.rcpcompany.uibindings.preference">
+            </test>
+         </visibleWhen>
       </command>
       <command
             commandId="com.rcpcompany.uibindings.navigator.commands.CloneEditor"
             style="push">
+         <visibleWhen
+               checkEnabled="false">
+            <test
+                  args="com.rcpcompany.uibindings.navigator,SHOW_BASE_EDITOR_VIEW_CONTRIBUTIONS"
+                  property="com.rcpcompany.uibindings.preference">
+            </test>
+         </visibleWhen>
       </command>
       <menu
             id="com.rcpcompany.uibindings.navigator.SelectEditorPartMenu"
             label="Select Editor">
+         <visibleWhen
+               checkEnabled="false">
+            <test
+                  args="com.rcpcompany.uibindings.navigator,SHOW_BASE_EDITOR_VIEW_CONTRIBUTIONS"
+                  property="com.rcpcompany.uibindings.preference">
+            </test>
+         </visibleWhen>
       </menu>
    </menuContribution>
    <menuContribution
@@ -145,15 +166,36 @@
       <command
             commandId="com.rcpcompany.uibindings.navigator.commands.PinEditor"
             style="toggle">
+         <visibleWhen
+               checkEnabled="false">
+            <test
+                  args="com.rcpcompany.uibindings.navigator,SHOW_BASE_EDITOR_VIEW_CONTRIBUTIONS"
+                  property="com.rcpcompany.uibindings.preference">
+            </test>
+         </visibleWhen>
       </command>
       <command
             commandId="com.rcpcompany.uibindings.navigator.commands.CloneEditor"
             style="push">
+         <visibleWhen
+               checkEnabled="false">
+            <test
+                  args="com.rcpcompany.uibindings.navigator,SHOW_BASE_EDITOR_VIEW_CONTRIBUTIONS"
+                  property="com.rcpcompany.uibindings.preference">
+            </test>
+         </visibleWhen>
       </command>
       <command
             commandId="com.rcpcompany.uibindings.navigator.commands.SelectEditorPart"
             id="com.rcpcompany.uibindings.navigator.SelectEditorPartMenu"
             style="pulldown">
+         <visibleWhen
+               checkEnabled="false">
+            <test
+                  args="com.rcpcompany.uibindings.navigator,SHOW_BASE_EDITOR_VIEW_CONTRIBUTIONS"
+                  property="com.rcpcompany.uibindings.preference">
+            </test>
+         </visibleWhen>
       </command>
    </menuContribution>
    <menuContribution

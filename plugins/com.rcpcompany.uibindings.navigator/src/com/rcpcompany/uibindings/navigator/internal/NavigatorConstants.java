@@ -45,6 +45,12 @@ public interface NavigatorConstants {
 	 */
 	String PREF_PIN_EDITOR_BY_DEFAULT = "PREF_PIN_EDITOR_BY_DEFAULT";
 
+	/**
+	 * Preference name for whether to show toolbar and menu items - no {@link INavigatorManager}
+	 * attribute.
+	 */
+	String PREF_SHOW_BASE_EDITOR_VIEW_CONTRIBUTIONS = "SHOW_BASE_EDITOR_VIEW_CONTRIBUTIONS";
+
 	String ID_TAG = "id";
 	String MODEL_TYPE_TAG = "modelType";
 	String EDITOR_TAG = "editor";

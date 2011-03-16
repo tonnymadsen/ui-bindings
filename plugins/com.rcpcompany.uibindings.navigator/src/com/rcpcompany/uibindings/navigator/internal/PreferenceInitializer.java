@@ -11,6 +11,7 @@
 package com.rcpcompany.uibindings.navigator.internal;
 
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
+import org.eclipse.jface.preference.IPreferenceStore;
 
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 
@@ -23,5 +24,8 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 	@Override
 	public void initializeDefaultPreferences() {
 		INavigatorManager.Factory.getManager();
+
+		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
+		ps.setDefault(NavigatorConstants.PREF_SHOW_BASE_EDITOR_VIEW_CONTRIBUTIONS, true);
 	}
 }

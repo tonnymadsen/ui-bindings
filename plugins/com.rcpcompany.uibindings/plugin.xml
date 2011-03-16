@@ -1589,6 +1589,13 @@
             properties="hasDefaultValue"
             type="org.eclipse.emf.ecore.EStructuralFeature">
       </propertyTester>
+      <propertyTester
+            class="com.rcpcompany.uibindings.internal.propertyTesters.PreferenceStorePropertyTester"
+            id="com.rcpcompany.uibindings.navigator.internal.propertyTesters.PreferenceStorePropertyTester"
+            namespace="com.rcpcompany.uibindings"
+            properties="preference"
+            type="java.lang.Object">
+      </propertyTester>
    </extension>
    <extension
          point="org.eclipse.ui.themes">

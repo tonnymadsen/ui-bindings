@@ -97,6 +97,10 @@ public class PreferredEditorPage extends FieldEditorPreferencePage implements IW
 		editor = new BooleanFieldEditor(NavigatorConstants.PREF_PIN_EDITOR_BY_DEFAULT, "Pin new editors by default",
 				getFieldEditorParent());
 		addField(editor);
+
+		editor = new BooleanFieldEditor(NavigatorConstants.PREF_SHOW_BASE_EDITOR_VIEW_CONTRIBUTIONS,
+				"Show toolbar and menu for editors", getFieldEditorParent());
+		addField(editor);
 	}
 
 	@Override
