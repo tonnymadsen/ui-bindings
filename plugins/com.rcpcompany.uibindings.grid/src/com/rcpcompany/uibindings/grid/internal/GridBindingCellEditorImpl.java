@@ -402,14 +402,14 @@ public class GridBindingCellEditorImpl extends EObjectImpl implements IGridBindi
 				getGrid().getGrid().indexOf(cell.getColumn().getGridColumn()));
 
 		/*
-		 * Set focus - after the binding
-		 */
-		myCE.setFocus();
-
-		/*
 		 * Activation
 		 */
 		myCE.activate(event);
+
+		/*
+		 * Set focus - after the binding
+		 */
+		myCE.setFocus();// ???
 
 		myMouseListener = new MouseAdapter() {
 			final int activationTime = event.time + Display.getCurrent().getDoubleClickTime();

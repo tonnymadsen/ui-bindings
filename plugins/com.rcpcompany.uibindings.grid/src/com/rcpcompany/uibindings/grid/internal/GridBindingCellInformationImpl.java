@@ -1136,8 +1136,9 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 					new ColumnViewerEditorActivationEvent(MyViewerCell.INSTANCE, new MouseEvent(event)));
 			break;
 		case SWT.KeyDown:
-			getGrid().editCell(this, new ColumnViewerEditorActivationEvent(MyViewerCell.INSTANCE, new KeyEvent(event)));
-			event.doit = false;
+			final KeyEvent keyEvent = new KeyEvent(event);
+			getGrid().editCell(this, new ColumnViewerEditorActivationEvent(MyViewerCell.INSTANCE, keyEvent));
+			event.doit = keyEvent.doit;
 			break;
 		default:
 			break;
