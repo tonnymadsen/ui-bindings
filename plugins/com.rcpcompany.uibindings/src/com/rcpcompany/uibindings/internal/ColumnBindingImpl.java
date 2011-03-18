@@ -751,7 +751,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			if (ci == null) return;
 			final IValueBinding labelBinding = ci.getLabelBinding();
 			if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS) {
-				//LogUtils.debug(labelBinding, labelBinding + " paint: " + ci.getDisplayText()); //$NON-NLS-1$
+				LogUtils.debug(labelBinding, labelBinding + " paint: " + ci.getDisplayText()); //$NON-NLS-1$
 			}
 			if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS && Activator.getDefault().TRACE_EVENTS_SWT) {
 				LogUtils.debug(labelBinding, ToStringUtils.toString(event));
