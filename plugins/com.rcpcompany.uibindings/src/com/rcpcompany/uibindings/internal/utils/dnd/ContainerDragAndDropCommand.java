@@ -36,7 +36,6 @@ import com.rcpcompany.uibindings.IChildCreationSpecification;
 import com.rcpcompany.uibindings.IContainerBinding;
 import com.rcpcompany.uibindings.IContainerBinding.IContainerDropContext;
 import com.rcpcompany.uibindings.IManager;
-import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Implementation of a drag 'n drop command.
@@ -463,6 +462,8 @@ public class ContainerDragAndDropCommand extends AbstractCommand implements Drag
 		 */
 		if (!spec.getReference().isContainment()) return false;
 
+		if (isCopyOnSameParent(spec)) return false;
+
 		/*
 		 * We don't want to copy insert an object before or after itself...
 		 */
@@ -520,7 +521,7 @@ public class ContainerDragAndDropCommand extends AbstractCommand implements Drag
 		final EObject targetObject = myContext.getDropTargetObject();
 		final IChildCreationSpecification spec = findBestChildCreationSpecification(targetObject, null);
 		if (spec == null) {
-			LogUtils.debug(this, "No specs, trying assignment");
+			// LogUtils.debug(this, "No specs, trying assignment");
 			/*
 			 * No matching specs...
 			 * 
@@ -607,6 +608,8 @@ public class ContainerDragAndDropCommand extends AbstractCommand implements Drag
 		 */
 		if (!spec.getReference().isContainment()) return false;
 
+		if (isCopyOnSameParent(spec)) return false;
+
 		myDragCommand = CopyCommand.create(myDomain, mySourceObjects);
 		if (myDragCommand.canExecute() && myDragCommand.canUndo()) {
 			myDragCommand.execute();
@@ -615,6 +618,21 @@ public class ContainerDragAndDropCommand extends AbstractCommand implements Drag
 					myDragCommand.getResult());
 		}
 		return myDragCommand.canExecute() && myDropCommand.canExecute();
+	}
+
+	/**
+	 * Only allow a COPY on the same parent, when explicitly requested.
+	 * 
+	 * @return <code>true</code> if the copy operation should not be allowed
+	 */
+	private boolean isCopyOnSameParent(IChildCreationSpecification spec) {
+		if (myOperation != DROP_COPY) {
+			for (final EObject so : mySourceObjects) {
+				if (so.eContainer() == spec.getParent()) return true;
+			}
+		}
+
+		return false;
 	}
 
 	/**
