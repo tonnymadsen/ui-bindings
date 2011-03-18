@@ -47,7 +47,10 @@ import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.graphics.RGB;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Tree;
+import org.eclipse.swt.widgets.TreeItem;
 
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.ChildCreationSpecification;
@@ -410,16 +413,36 @@ public final class UIBindingsUtils {
 		return newDomain;
 	}
 
+	private static Boolean myIsWindows = null;
+
+	/**
+	 * Returns whether the application is running under Windows (any version).
+	 * 
+	 * @return <code>true</code> if Windows, <code>false</code> otherwise
+	 */
+	public static boolean isWindows() {
+		if (myIsWindows == null) {
+			final String osname = System.getProperty("os.name"); //$NON-NLS-1$
+			myIsWindows = osname.startsWith("Windows"); //$NON-NLS-1$
+		}
+		return myIsWindows;
+	}
+
+	private static Boolean myIsWindowsXP = null;
+
 	/**
 	 * Returns whether the application is running under Windows XP.
 	 * 
 	 * @return <code>true</code> if Windows XP, <code>false</code> otherwise
 	 */
 	public static boolean isWindowsXP() {
-		final String osname = System.getProperty("os.name"); //$NON-NLS-1$
-		final String osversion = System.getProperty("os.version"); //$NON-NLS-1$
-		//LogUtils.debug(Activator.getDefault(), "name='" + osname + "', version='" + osversion + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-		return osname.startsWith("Windows") && "5.1".equals(osversion); //$NON-NLS-1$ //$NON-NLS-2$
+		if (myIsWindowsXP == null) {
+			final String osname = System.getProperty("os.name"); //$NON-NLS-1$
+			final String osversion = System.getProperty("os.version"); //$NON-NLS-1$
+			//LogUtils.debug(Activator.getDefault(), "name='" + osname + "', version='" + osversion + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			myIsWindowsXP = osname.startsWith("Windows") && "5.1".equals(osversion); //$NON-NLS-1$ //$NON-NLS-2$
+		}
+		return myIsWindowsXP;
 	}
 
 	/**
@@ -664,5 +687,37 @@ public final class UIBindingsUtils {
 	 */
 	public static String getBoxed2Primitive(String boxed) {
 		return BOXED2PRIMITIVE.get(boxed);
+	}
+
+	/**
+	 * Calculates the needed Y adjustment for the specified control for decorations inside the
+	 * control.
+	 * <p>
+	 * Needed for {@link Tree} under Windows.
+	 * 
+	 * @param control the control to calculate the adjustment for
+	 * @return the adjustment in pixels
+	 */
+	public static int calculateYAdjustment(final Control control) {
+		int adjustY = 0;
+		if (isWindows() && control instanceof Tree) {
+			/*
+			 * BUG under Windows?
+			 * 
+			 * Tree.getClientArea does not return the visible area of the tree, but rather the
+			 * complete area of the tree if there was "room" enough.
+			 * 
+			 * The fix is to calculate the y of the top-index and correct with this when saving
+			 * locations inside a Tree.
+			 * 
+			 * This code finds the bounds of the first root element. When this is not the top
+			 * element in the view of the tree, the bounds still returned with a negative y...
+			 */
+			final Tree t = (Tree) control;
+			final TreeItem rootItem = t.getItem(0);
+			adjustY = -rootItem.getBounds().y;
+			// LogUtils.debug(control, "Adjust y " + adjustY + " for " + rootItem.getData());
+		}
+		return adjustY;
 	}
 }

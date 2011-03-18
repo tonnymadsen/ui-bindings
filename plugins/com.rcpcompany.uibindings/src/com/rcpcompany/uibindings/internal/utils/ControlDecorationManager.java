@@ -31,9 +31,11 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Scrollable;
 import org.eclipse.swt.widgets.Shell;
 
 import com.rcpcompany.uibindings.IDisposable;
+import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.utils.IControlDecoration;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -472,6 +474,7 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 				bounds.x += location.x;
 				bounds.y += location.y;
 			}
+			bounds.y -= UIBindingsUtils.calculateYAdjustment(control);
 
 			return getShell().getDisplay().map(control, c, bounds);
 		}
@@ -498,7 +501,8 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 			// event.gc.drawRectangle(rect);
 			// event.gc.setForeground(oldForeground);
 			if (Activator.getDefault().TRACE_CONTROL_DECORATIONS_VERBOSE) {
-				LogUtils.debug(this, "paint: " + event.widget + "/" + event.widget.hashCode() + ": rect=" + rect);
+				LogUtils.debug(this, "paint: " + event.widget + "/" + event.widget.hashCode() +
+				 ": rect=" + rect);
 			}
 			event.gc.drawImage(image, rect.x, rect.y);
 		}

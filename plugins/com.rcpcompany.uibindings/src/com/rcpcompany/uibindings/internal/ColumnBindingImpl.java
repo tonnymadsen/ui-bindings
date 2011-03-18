@@ -751,7 +751,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			if (ci == null) return;
 			final IValueBinding labelBinding = ci.getLabelBinding();
 			if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS) {
-				LogUtils.debug(labelBinding, labelBinding + " paint: " + ci.getDisplayText()); //$NON-NLS-1$
+				//LogUtils.debug(labelBinding, labelBinding + " paint: " + ci.getDisplayText()); //$NON-NLS-1$
 			}
 			if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS && Activator.getDefault().TRACE_EVENTS_SWT) {
 				LogUtils.debug(labelBinding, ToStringUtils.toString(event));
@@ -775,25 +775,31 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			/*
 			 * Find the bounds of the item - depends on Table or Tree
 			 */
-			final Rectangle innerCellBounds;
+			final Rectangle cellBounds;
 			if (event.item instanceof TableItem) {
-				innerCellBounds = ((TableItem) event.item).getBounds(event.index);
+				cellBounds = ((TableItem) event.item).getBounds(event.index);
 			} else if (event.item instanceof TreeItem) {
-				innerCellBounds = ((TreeItem) event.item).getBounds(event.index);
+				cellBounds = ((TreeItem) event.item).getBounds(event.index);
 			} else {
 				LogUtils.error(this, "Cannot compute cell bounds. Cell ignored.");
 				return;
 			}
-			final Rectangle outerCellBounds = new Rectangle(innerCellBounds.x + 16, innerCellBounds.y,
-					innerCellBounds.width - 2 * 16, innerCellBounds.height);
+			/*
+			 * Note that outer bounds are inside the inner bounds!
+			 */
+			final Rectangle innerCellBounds = new Rectangle(cellBounds.x, cellBounds.y
+					+ UIBindingsUtils.calculateYAdjustment(getViewer().getControl()), cellBounds.width,
+					cellBounds.height);
+			final Rectangle outerCellBounds = new Rectangle(cellBounds.x + 7, cellBounds.y, cellBounds.width - 2 * 7,
+					cellBounds.height);
 
 			/*
-			 * Update the image decorations of the label...
+			 * Update any image decorations of the label...
 			 */
 			labelBinding.getUIAttribute().updateImageDecorations(getViewerBinding().getControl(), innerCellBounds,
 					outerCellBounds);
 
-			painter.paint(event.gc, innerCellBounds);
+			painter.paint(event.gc, cellBounds);
 		}
 	}
 
