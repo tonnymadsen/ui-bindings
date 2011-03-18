@@ -303,7 +303,16 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 					break;
 				}
 			}
-			final IGridBindingCellInformation cell = getCell(new Point(event.x, event.y));
+			final IGridBindingCellInformation cell;
+			/*
+			 * Find the target cell. For some event - like KEY_DOWN - the location is (0, 0), so
+			 * there we use the current focus cell (if set).
+			 */
+			if (event.x == 0 && event.y == 0) {
+				cell = getFocusCell();
+			} else {
+				cell = getCell(new Point(event.x, event.y));
+			}
 			// LogUtils.debug(this, "cell=" + cell);
 			if (cell != null) {
 				cell.handleEvent(event);
