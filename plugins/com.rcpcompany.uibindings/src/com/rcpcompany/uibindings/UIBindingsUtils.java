@@ -714,6 +714,7 @@ public final class UIBindingsUtils {
 			 * element in the view of the tree, the bounds still returned with a negative y...
 			 */
 			final Tree t = (Tree) control;
+			if (t.getItemCount() == 0) return 0;
 			final TreeItem rootItem = t.getItem(0);
 			adjustY = -rootItem.getBounds().y;
 			// LogUtils.debug(control, "Adjust y " + adjustY + " for " + rootItem.getData());
