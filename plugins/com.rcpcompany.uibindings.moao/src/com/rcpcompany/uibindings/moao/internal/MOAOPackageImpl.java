@@ -18,9 +18,12 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
@@ -31,6 +34,7 @@ import com.rcpcompany.uibindings.moao.IMOAOMessage;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.moao.INamedObject;
 import com.rcpcompany.uibindings.moao.Severity;
+import com.rcpcompany.uibindings.moao.util.MOAOValidator;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
@@ -164,6 +168,14 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 
 		// Initialize created meta-data
 		theMOAOPackage.initializePackageContents();
+
+		// Register package validator
+		EValidator.Registry.INSTANCE.put(theMOAOPackage, new EValidator.Descriptor() {
+			@Override
+			public EValidator getEValidator() {
+				return MOAOValidator.INSTANCE;
+			}
+		});
 
 		// Mark meta-data to indicate it can't be changed
 		theMOAOPackage.freeze();
@@ -454,10 +466,6 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
-		// Obtain other dependent packages
-		final EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE
-				.getEPackage(EcorePackage.eNS_URI);
-
 		// Create type parameters
 		addETypeParameter(mapEDataType, "K");
 		addETypeParameter(mapEDataType, "V");
@@ -476,6 +484,16 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 				IMOAO.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		final EOperation op = addEOperation(moaoEClass, ecorePackage.getEBoolean(), "isValid", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+		addEParameter(op, this.getDiagnosticChain(), "diagnostic", 0, 1, IS_UNIQUE, IS_ORDERED);
+		final EGenericType g1 = createEGenericType(this.getMap());
+		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(moaoFacetEClass, IMOAOFacet.class, "MOAOFacet", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMOAOFacet_Object(), this.getMOAO(), this.getMOAO_Facets(), "object", null, 0, 1,
@@ -489,7 +507,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 		initEAttribute(getNamedObject_Description(), ecorePackage.getEString(), "description", null, 0, 1,
 				INamedObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNamedObject_Uuid(), theEcorePackage.getEString(), "uuid", null, 1, 1, INamedObject.class,
+		initEAttribute(getNamedObject_Uuid(), ecorePackage.getEString(), "uuid", null, 1, 1, INamedObject.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(iAdaptableEClass, IAdaptable.class, "IAdaptable", IS_ABSTRACT, IS_INTERFACE,
@@ -497,19 +515,18 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 
 		initEClass(moaoMessageEClass, IMOAOMessage.class, "MOAOMessage", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMOAOMessage_Owner(), theEcorePackage.getEString(), "owner", null, 0, 1, IMOAOMessage.class,
+		initEAttribute(getMOAOMessage_Owner(), ecorePackage.getEString(), "owner", null, 0, 1, IMOAOMessage.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMOAOMessage_Feature(), this.getEStructuralFeature(), null, "feature", null, 0, 1,
 				IMOAOMessage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMOAOMessage_Description(), theEcorePackage.getEString(), "description", null, 0, 1,
+		initEAttribute(getMOAOMessage_Description(), ecorePackage.getEString(), "description", null, 0, 1,
 				IMOAOMessage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMOAOMessage_Severity(), this.getSeverity(), "severity", null, 0, 1, IMOAOMessage.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMOAOMessage_Details(), theEcorePackage.getEString(), "details", null, 0, 1,
-				IMOAOMessage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMOAOMessage_Details(), ecorePackage.getEString(), "details", null, 0, 1, IMOAOMessage.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eStructuralFeatureEClass, EStructuralFeature.class, "EStructuralFeature", IS_ABSTRACT, IS_INTERFACE,
 				!IS_GENERATED_INSTANCE_CLASS);
