@@ -124,8 +124,10 @@ public class EValidatorAdapterUtils {
 				return;
 			}
 		}
-		final BasicDiagnostic diagnostic = new BasicDiagnostic(severity, source, code, message, data);
-		diagnostics.add(diagnostic);
+		if (diagnostics != null) {
+			final BasicDiagnostic diagnostic = new BasicDiagnostic(severity, source, code, message, data);
+			diagnostics.add(diagnostic);
+		}
 	}
 
 	/**
