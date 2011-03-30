@@ -1309,6 +1309,12 @@
                         value="com.rcpcompany.uibindings.IContainerBinding">
                   </instanceof>
                </with>
+               <with
+                     variable="com.rcpcompany.uibindings.sourceProviders.activeBinding#ro">
+                  <equals
+                        value="false">
+                  </equals>
+               </with>
             </and>
          </activeWhen>
       </handler>
@@ -1322,6 +1328,12 @@
                   <instanceof
                         value="com.rcpcompany.uibindings.IViewerBinding">
                   </instanceof>
+               </with>
+               <with
+                     variable="com.rcpcompany.uibindings.sourceProviders.activeBinding#ro">
+                  <equals
+                        value="false">
+                  </equals>
                </with>
             </and>
          </activeWhen>
