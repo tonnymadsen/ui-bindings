@@ -187,6 +187,11 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 		myTreeBinding = myContext.addViewer().viewer(myTreeViewer).model(list)
 				.arg(Constants.ARG_DOUBLE_CLICK_COMMAND, Constants.DEFAULT_OPEN_COMMAND)
 				.arg(Constants.ARG_TREE_ID, myAdvisor.getTreeID());
+		try {
+			myTreeBinding.arg(Constants.ARG_READONLY, myAdvisor.isTreeReadonly());
+		} catch (final Exception ex) {
+			LogUtils.error(myAdvisor, ex);
+		}
 		myTreeColumnBinding = myTreeBinding.addColumn().column(column).model(SpecialBinding.TREE_ITEM)
 				.arg(Constants.ARG_LABEL_DECORATOR, true).arg(Constants.ARG_SHOW_IMAGE, true);
 
@@ -197,7 +202,6 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 
 		addToolbarItems();
 		listenToSelection();
-
 	}
 
 	@Override

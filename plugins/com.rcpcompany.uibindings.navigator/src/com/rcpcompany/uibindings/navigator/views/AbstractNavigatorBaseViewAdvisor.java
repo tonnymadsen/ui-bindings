@@ -35,4 +35,9 @@ public abstract class AbstractNavigatorBaseViewAdvisor implements INavigatorBase
 	public String getTreeID() {
 		return "";
 	}
+
+	@Override
+	public boolean isTreeReadonly() {
+		return false;
+	}
 }

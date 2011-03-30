@@ -46,4 +46,11 @@ public interface INavigatorBaseViewAdvisor extends IDisposable {
 	 * @return the navigator ID
 	 */
 	String getTreeID();
+
+	/**
+	 * Returns whether the navigator tree is readonly.
+	 * 
+	 * @return <code>true</code> if the tree should be readonly
+	 */
+	boolean isTreeReadonly();
 }
