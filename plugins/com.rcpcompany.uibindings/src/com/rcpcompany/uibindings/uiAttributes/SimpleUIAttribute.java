@@ -36,6 +36,7 @@ import org.eclipse.swt.widgets.Scrollable;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Widget;
 
+import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.internal.observables.ControlCursorObservableValue;
 import com.rcpcompany.uibindings.internal.observables.StyledTextRangesObservableList;
@@ -212,6 +213,7 @@ public class SimpleUIAttribute extends AbstractUIAttribute {
 	@Override
 	public final void dispose() {
 		for (final IObservable v : myObservables) {
+			IManager.Factory.getManager().stopMonitorObservableDispose(v);
 			v.dispose();
 		}
 		if (myControlListener != null) {
@@ -228,6 +230,7 @@ public class SimpleUIAttribute extends AbstractUIAttribute {
 	 */
 	protected final IObservableValue addObservable(IObservableValue observable) {
 		myObservables.add(observable);
+		IManager.Factory.getManager().startMonitorObservableDispose(observable);
 		return observable;
 	}
 

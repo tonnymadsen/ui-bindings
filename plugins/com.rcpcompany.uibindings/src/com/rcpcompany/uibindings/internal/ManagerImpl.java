@@ -3579,7 +3579,11 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 				public void handleDispose(DisposeEvent event) {
 					final int oldLevels = LogUtils.DEBUG_STRACK_LEVELS;
 					LogUtils.DEBUG_STRACK_LEVELS = 10;
-					LogUtils.error(event.getSource(), "PREMATURE DISPOSAL: " + event.getSource());
+					Object source = event.getSource();
+					if (source instanceof IObservable && ((IObservable) source).isDisposed()) {
+						source = "DISPOSED " + source.getClass().getSimpleName();
+					}
+					LogUtils.error(source, "PREMATURE DISPOSAL: " + source);
 					LogUtils.DEBUG_STRACK_LEVELS = oldLevels;
 				}
 			};
