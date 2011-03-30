@@ -115,18 +115,18 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 
 		final Object elementType = argument.getElementType();
 
-		Class<?> actualElementType;
+		final Class<?> expectedElementType;
 		if (elementType instanceof EClass) {
-			actualElementType = ((EClass) elementType).getInstanceClass();
+			expectedElementType = ((EClass) elementType).getInstanceClass();
 		} else if (elementType instanceof EReference) {
-			actualElementType = ((EReference) elementType).getEReferenceType().getInstanceClass();
+			expectedElementType = ((EReference) elementType).getEReferenceType().getInstanceClass();
 		} else {
 			LogUtils.error(getBinding(), "List for '" + Constants.ARG_VALID_VALUES
 					+ "' not with EClass or EReferences: got " + elementType, getBinding().getCreationPoint());
 			return;
 		}
 
-		final Class<?> expectedElementType = dynDataType.getDataType();
+		final Class<?> actualElementType = dynDataType.getDataType();
 		if (!expectedElementType.isAssignableFrom(actualElementType)) {
 			LogUtils.error(getBinding(), "List of supplied valid type does not match feature of binding: expected "
 					+ expectedElementType.getName() + " got " + actualElementType.getName(), getBinding()
