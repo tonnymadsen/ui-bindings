@@ -638,6 +638,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			final IColumnBindingCellInformation ci = getCellInformation(element);
 			if (ci == null) return;
 			final IValueBinding labelBinding = ci.getLabelBinding();
+			assertTrue(!labelBinding.isDisposed(), "binding disposed");
 			if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS) {
 				LogUtils.debug(labelBinding, labelBinding + " update: " //$NON-NLS-1$
 						+ labelBinding.getUIAttribute().getCurrentValue().getValue());
@@ -915,13 +916,15 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	@Override
 	public IColumnBindingCellInformation getCellInformation(Object element, boolean create) {
 		if (isDisposed()) return null;
-		final Object baseElement = element;
-		// TODO?
-		if (element instanceof IConstantTreeItem) {
-			final IConstantTreeItem ti = (IConstantTreeItem) element;
-			// baseElement = ti.getTarget();
-		}
-		IColumnBindingCellInformation ci = getCells().get(baseElement);
+
+		/*
+		 * NOTE to self:
+		 * 
+		 * If the element is an IConstantTreeItem, we cannot use the target of this, as there can
+		 * easily be multiple of IConstantTreeItem that use the same target, but have different
+		 * descriptions...
+		 */
+		IColumnBindingCellInformation ci = getCells().get(element);
 
 		if (ci == null && create) {
 			ci = IUIBindingsFactory.eINSTANCE.createColumnBindingCellInformation(this, element);
