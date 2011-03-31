@@ -11,6 +11,7 @@
 package com.rcpcompany.uibindings.internal;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
@@ -297,8 +298,16 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 			for (final IUIAttributeImageDecoration id : getImageDecorations()) {
 				id.dispose();
 			}
+			getImageDecorations().clear();
 		}
-		setAttribute(ATTRIBUTE_EDEFAULT);
+		setAttribute(null);
+
+		myImageDecorationsAdapter = null;
+		myImageDecorationChangeListener = null;
+
+		myLastImageDecorationsControl = null;
+		myLastImageDecorationsInnerBounds = null;
+		myLastImageDecorationsOuterBounds = null;
 	}
 
 	@Override
@@ -548,37 +557,32 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 						switch (msg.getEventType()) {
 						case Notification.REMOVE:
 						case Notification.SET:
-							final IUIAttributeImageDecoration id = (IUIAttributeImageDecoration) msg.getOldValue();
-							id.getImageValue().getRealm().exec(new Runnable() {
-								@Override
-								public void run() {
-									id.getImageValue().removeValueChangeListener(myImageDecorationChangeListener);
-								}
-							});
-							id.getTooltipValue().getRealm().exec(new Runnable() {
-								@Override
-								public void run() {
-									id.getTooltipValue().removeValueChangeListener(myImageDecorationChangeListener);
-								}
-							});
+							removeDecorator((IUIAttributeImageDecoration) msg.getOldValue());
+							break;
+						case Notification.REMOVE_MANY:
+							for (final IUIAttributeImageDecoration id : (List<IUIAttributeImageDecoration>) msg
+									.getOldValue()) {
+								removeDecorator(id);
+							}
+							break;
+						default:
+							break;
 						}
 
 						switch (msg.getEventType()) {
 						case Notification.ADD:
 						case Notification.SET:
 							final IUIAttributeImageDecoration id = (IUIAttributeImageDecoration) msg.getNewValue();
-							id.getImageValue().getRealm().exec(new Runnable() {
-								@Override
-								public void run() {
-									id.getImageValue().addValueChangeListener(myImageDecorationChangeListener);
-								}
-							});
-							id.getTooltipValue().getRealm().exec(new Runnable() {
-								@Override
-								public void run() {
-									id.getTooltipValue().addValueChangeListener(myImageDecorationChangeListener);
-								}
-							});
+							addDecorator(id);
+							break;
+						case Notification.REMOVE_MANY:
+							for (final IUIAttributeImageDecoration ida : (List<IUIAttributeImageDecoration>) msg
+									.getNewValue()) {
+								addDecorator(ida);
+							}
+							break;
+						default:
+							break;
 						}
 						myImageDecorationChangeListener.handleValueChange(null);
 					}
@@ -594,6 +598,36 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 						}
 						updateImageDecorationData();
 					}
+				}
+
+				private void addDecorator(final IUIAttributeImageDecoration id) {
+					id.getImageValue().getRealm().exec(new Runnable() {
+						@Override
+						public void run() {
+							id.getImageValue().addValueChangeListener(myImageDecorationChangeListener);
+						}
+					});
+					id.getTooltipValue().getRealm().exec(new Runnable() {
+						@Override
+						public void run() {
+							id.getTooltipValue().addValueChangeListener(myImageDecorationChangeListener);
+						}
+					});
+				}
+
+				private void removeDecorator(final IUIAttributeImageDecoration id) {
+					id.getImageValue().getRealm().exec(new Runnable() {
+						@Override
+						public void run() {
+							id.getImageValue().removeValueChangeListener(myImageDecorationChangeListener);
+						}
+					});
+					id.getTooltipValue().getRealm().exec(new Runnable() {
+						@Override
+						public void run() {
+							id.getTooltipValue().removeValueChangeListener(myImageDecorationChangeListener);
+						}
+					});
 				};
 			};
 			eAdapters().add(myImageDecorationsAdapter);
