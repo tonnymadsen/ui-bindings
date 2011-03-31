@@ -821,7 +821,8 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 			((VirtualUIAttribute) getLabelUIAttribute()).removeChangeListener(myAttributeValueListener);
 		}
 		getLabelBinding().dispose();
-		getLabelUIAttribute().dispose();
+		// getLabelUIAttribute().dispose();
+
 		/*
 		 * We created this, so we must dispose as well..
 		 */
