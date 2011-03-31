@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.rcpcompany.uibindings.BindingMessageSeverity;
 import com.rcpcompany.uibindings.IBindingMessage;
+import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.bindingMessages.AbstractBindingMessage;
 import com.rcpcompany.uibindings.utils.IBindingObjectInformation;
 import com.rcpcompany.utils.basic.ToStringUtils;
@@ -67,7 +68,7 @@ public class EValidatorAdapter extends AbstractValidatorAdapter {
 			boolean old = false;
 			for (final Object o : messages) {
 				final Message f = (Message) o;
-				if (f.getDiagnostic().equals(d)) {
+				if (UIBindingsUtils.equals(f.getDiagnostic(), d)) {
 					old = true;
 					toRemoveList.remove(f);
 				}

@@ -12,10 +12,12 @@
 package com.rcpcompany.uibindings;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -25,6 +27,7 @@ import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.databinding.EObjectObservableList;
@@ -374,11 +377,63 @@ public final class UIBindingsUtils {
 	 * 
 	 * @param a object a
 	 * @param b object b
-	 * @return true if a and b are equal or both <code>null</code>
+	 * @return true if a and b are equal or both are <code>null</code>
 	 */
 	public static boolean equals(Object a, Object b) {
 		if (a == b) return true;
 		if (a == null) return false;
+		return a.equals(b);
+	}
+
+	/**
+	 * Returns whether the two objects are deeply equal or both <code>null</code>.
+	 * <p>
+	 * Note that two arrays of the same length, base type and with equals elements are considered
+	 * equal.
+	 * <p>
+	 * Also two collections of the same size and with equal elements are also considered equal.
+	 * 
+	 * @param a object a
+	 * @param b object b
+	 * @return true if a and b are equal or both are <code>null</code>
+	 */
+	public static boolean deepEquals(Object a, Object b) {
+		if (a == b) return true;
+		if (a == null) return false;
+		if (a.getClass().isArray() && b.getClass().isArray()) {
+			if (a.getClass() != b.getClass()) return false;
+			if (a instanceof Object[] && b instanceof Object[])
+				return Arrays.deepEquals((Object[]) a, (Object[]) b);
+			else if (a instanceof byte[] && b instanceof byte[])
+				return Arrays.equals((byte[]) a, (byte[]) b);
+			else if (a instanceof short[] && b instanceof short[])
+				return Arrays.equals((short[]) a, (short[]) b);
+			else if (a instanceof int[] && b instanceof int[])
+				return Arrays.equals((int[]) a, (int[]) b);
+			else if (a instanceof long[] && b instanceof long[])
+				return Arrays.equals((long[]) a, (long[]) b);
+			else if (a instanceof char[] && b instanceof char[])
+				return Arrays.equals((char[]) a, (char[]) b);
+			else if (a instanceof float[] && b instanceof float[])
+				return Arrays.equals((float[]) a, (float[]) b);
+			else if (a instanceof double[] && b instanceof double[])
+				return Arrays.equals((double[]) a, (double[]) b);
+			else if (a instanceof boolean[] && b instanceof boolean[])
+				return Arrays.equals((boolean[]) a, (boolean[]) b);
+			else
+				return false;
+		}
+		if (a instanceof Collection && b instanceof Collection) {
+			final Collection<?> aData = (Collection<?>) a;
+			final Collection<?> bData = (Collection<?>) b;
+			if (aData.size() != bData.size()) return false;
+			final Iterator<?> aIterator = aData.iterator();
+			final Iterator<?> bIterator = bData.iterator();
+			while (aIterator.hasNext()) {
+				if (!deepEquals(aIterator.next(), bIterator.next())) return false;
+			}
+			return true;
+		}
 		return a.equals(b);
 	}
 
@@ -391,7 +446,7 @@ public final class UIBindingsUtils {
 	 * @param a object a
 	 * @param b object b
 	 * @param key key attribute in objects
-	 * @return true if a and b are equal or both <code>null</code>
+	 * @return true if a and b are equal or both are <code>null</code>
 	 */
 	public static boolean equals(EObject a, EObject b, EAttribute key) {
 		if (a == b) return true;
@@ -400,6 +455,31 @@ public final class UIBindingsUtils {
 
 		if (b == null || key == null) return false;
 		return equals(a.eGet(key), b.eGet(key));
+	}
+
+	/**
+	 * Returns whether the two {@link Diagnostic} objects are equal or both <code>null</code>.
+	 * 
+	 * @param a {@link Diagnostic} object a
+	 * @param b {@link Diagnostic} object b
+	 * @return true if a and b represent the same {@link Diagnostic} or both are <code>null</code>
+	 */
+	public static boolean equals(Diagnostic a, Diagnostic b) {
+		if (a == b) return true;
+		if (a == null) return false;
+
+		if (a.getSeverity() != b.getSeverity()) return false;
+
+		if (!equals(a.getSource(), b.getSource())) return false;
+		if (a.getCode() != b.getCode()) return false;
+
+		if (!equals(a.getMessage(), b.getMessage())) return false;
+		if (!equals(a.getException(), b.getException())) return false;
+
+		if (!deepEquals(a.getChildren(), b.getChildren())) return false;
+		if (!deepEquals(a.getData(), b.getData())) return false;
+
+		return true;
 	}
 
 	/**
