@@ -10,10 +10,6 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.uiAttributes;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.jface.databinding.swt.SWTObservables;
@@ -36,7 +32,6 @@ import org.eclipse.swt.widgets.Scrollable;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Widget;
 
-import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.internal.observables.ControlCursorObservableValue;
 import com.rcpcompany.uibindings.internal.observables.StyledTextRangesObservableList;
@@ -48,11 +43,9 @@ import com.rcpcompany.uibindings.internal.observables.StyledTextRangesObservable
  * @author Tonny Madsen, The RCP Company
  */
 public class SimpleUIAttribute extends AbstractUIAttribute {
-	private final Widget myWidget;
+	final Widget myWidget;
 	private final IObservableValue myValue;
-	private final List<IObservable> myObservables = new ArrayList<IObservable>();
-
-	private Listener myControlListener = null;
+	Listener myControlListener = null;
 
 	/**
 	 * Constructs and returns new attribute.
@@ -95,6 +88,16 @@ public class SimpleUIAttribute extends AbstractUIAttribute {
 				updateImageDecorations();
 			}
 		}
+	}
+
+	@Override
+	public final void dispose() {
+		super.dispose();
+		if (myControlListener != null) {
+			myWidget.removeListener(SWT.Resize, myControlListener);
+			myControlListener = null;
+		}
+		super.dispose();
 	}
 
 	/**
@@ -208,41 +211,6 @@ public class SimpleUIAttribute extends AbstractUIAttribute {
 		// c.getDisplay().getSystemColor(SWT.COLOR_CYAN));
 
 		updateImageDecorations(c, innerBounds, outerBounds);
-	}
-
-	@Override
-	public final void dispose() {
-		for (final IObservable v : myObservables) {
-			IManager.Factory.getManager().stopMonitorObservableDispose(v);
-			v.dispose();
-		}
-		if (myControlListener != null) {
-			myWidget.removeListener(SWT.Resize, myControlListener);
-		}
-		super.dispose();
-	}
-
-	/**
-	 * Adds an observable that must be disposed when this attribute is disposed.
-	 * 
-	 * @param observable the observable to dispose
-	 * @return the observable itself
-	 */
-	protected final IObservableValue addObservable(IObservableValue observable) {
-		myObservables.add(observable);
-		IManager.Factory.getManager().startMonitorObservableDispose(observable);
-		return observable;
-	}
-
-	/**
-	 * Adds an observable that must be disposed when this attribute is disposed.
-	 * 
-	 * @param observable the observable to dispose
-	 * @return the observable itself
-	 */
-	protected final IObservableList addObservable(IObservableList observable) {
-		myObservables.add(observable);
-		return observable;
 	}
 
 	@Override

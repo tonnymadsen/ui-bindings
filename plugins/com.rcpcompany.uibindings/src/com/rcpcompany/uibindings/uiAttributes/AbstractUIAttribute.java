@@ -10,8 +10,11 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.uiAttributes;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.databinding.observable.IChangeListener;
+import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.jface.fieldassist.IControlContentAdapter;
@@ -22,6 +25,7 @@ import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Widget;
 
+import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.internal.UIAttributeImpl;
 
@@ -148,5 +152,114 @@ public abstract class AbstractUIAttribute extends UIAttributeImpl {
 		final IObservableValue value = getEnabledValue();
 		if (value == null) return null;
 		return (Boolean) value.getValue();
+	}
+
+	private final List<IObservable> myObservables = new ArrayList<IObservable>();
+	/**
+	 * All observable listeners for this object goes via this...
+	 */
+	protected IChangeListener[] myListeners = null;
+
+	@Override
+	public void dispose() {
+		for (final IObservable v : myObservables) {
+			IManager.Factory.getManager().stopMonitorObservableDispose(v);
+
+			if (myListeners != null) {
+				for (final IChangeListener myListener : myListeners) {
+					if (myListener != null) {
+						v.removeChangeListener(myListener);
+					}
+				}
+			}
+
+			v.dispose();
+		}
+		super.dispose();
+	}
+
+	/**
+	 * Adds an observable that must be disposed when this attribute is disposed.
+	 * 
+	 * @param observable the observable to dispose
+	 * @return the observable itself
+	 */
+	protected final IObservableValue addObservable(IObservableValue observable) {
+		addObservable((IObservable) observable);
+		return observable;
+	}
+
+	/**
+	 * Adds an observable that must be disposed when this attribute is disposed.
+	 * 
+	 * @param observable the observable to dispose
+	 * @return the observable itself
+	 */
+	protected final IObservableList addObservable(IObservableList observable) {
+		addObservable((IObservable) observable);
+		return observable;
+	}
+
+	private final void addObservable(IObservable observable) {
+		myObservables.add(observable);
+		IManager.Factory.getManager().startMonitorObservableDispose(observable);
+		if (myListeners != null) {
+			for (final IChangeListener myListener : myListeners) {
+				if (myListener != null) {
+					observable.addChangeListener(myListener);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Adds the specified change listener to all the observable values of this attribute.
+	 * 
+	 * @param listener the listener to add
+	 */
+	public void addChangeListener(IChangeListener listener) {
+		int i = -1;
+		if (myListeners == null) {
+			// The standard case is exactly one listener
+			myListeners = new IChangeListener[1];
+			i = 0;
+		} else {
+			final int l = myListeners.length;
+			for (int n = 0; n < l; n++) {
+				if (myListeners[n] == null) {
+					i = n;
+					break;
+				}
+			}
+			if (i == -1) {
+				final IChangeListener[] newListeners = new IChangeListener[l + 2];
+				System.arraycopy(myListeners, 0, newListeners, 0, l);
+				myListeners = newListeners;
+				i = l;
+			}
+		}
+
+		myListeners[i] = listener;
+		for (final IObservable o : myObservables) {
+			o.addChangeListener(listener);
+		}
+	}
+
+	/**
+	 * Removes the specified change listener from all the observable values of this attribute.
+	 * 
+	 * @param listener the listener to remove
+	 */
+	public void removeChangeListener(IChangeListener listener) {
+		if (myListeners == null) return;
+		for (int n = 0; n < myListeners.length; n++) {
+			if (myListeners[n] == listener) {
+				myListeners[n] = null;
+				break;
+			}
+		}
+		for (final IObservable o : myObservables) {
+			o.removeChangeListener(listener);
+		}
 	}
 }
