@@ -58,6 +58,7 @@ import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IChildCreationSpecification;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.ISourceProviderStateContext;
+import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IValueBindingCell;
@@ -737,15 +738,14 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 				newFocusCell = (IGridBindingCellInformation) getCell(getNoRowHeaders(), getNoColumnHeaders(), true);
 			}
 		}
+		setFocusCellGen(newFocusCell);
+
 		if (newFocusCell == null) return;
 		if (newFocusCell.getColumn().getGridColumn() == null || newFocusCell.getRow().getGridItem() == null) return;
 
-		setFocusCellGen(newFocusCell);
-		if (newFocusCell != null) {
-			getGrid().setFocusColumn(newFocusCell.getColumn().getGridColumn());
-			getGrid().setFocusItem(newFocusCell.getRow().getGridItem());
-			getSingleSelection().setValue(newFocusCell.getObjectValue());
-		}
+		getGrid().setFocusColumn(newFocusCell.getColumn().getGridColumn());
+		getGrid().setFocusItem(newFocusCell.getRow().getGridItem());
+		getSingleSelection().setValue(newFocusCell.getObjectValue());
 	}
 
 	/**
@@ -1287,7 +1287,6 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 		if (currentCell != null) {
 			final IBindingDataType dataType = currentCell.getDataType();
 			final IObservableValue objectValue = currentCell.getObjectValue();
-			final Object value = objectValue.getValue();
 			final IValueBinding labelBinding = currentCell.getLabelBinding();
 
 			if (labelBinding != null) {
@@ -1301,10 +1300,15 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 				context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_UNSETTABLE, dataType.isUnsettable());
 				context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_MODEL_OBJECT, dataType.getDataType());
 			}
-			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_VALUE, value);
+			if (objectValue != null) {
+				context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_VALUE, objectValue.getValue());
+			}
 			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_VALUE_DISPLAY, currentCell.getDisplayText());
 
-			context.addObservedValue(currentCell.getLabelUIAttribute().getCurrentValue());
+			final IUIAttribute la = currentCell.getLabelUIAttribute();
+			if (la != null) {
+				context.addObservedValue(la.getCurrentValue());
+			}
 		}
 	}
 

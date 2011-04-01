@@ -376,7 +376,6 @@ public class GridBindingRowInformationImpl extends EObjectImpl implements IGridB
 
 	@Override
 	public void dispose() {
-		getGrid().updateFocusCellDelayed();
 		/*
 		 * Remove all cells from row
 		 */
@@ -384,8 +383,11 @@ public class GridBindingRowInformationImpl extends EObjectImpl implements IGridB
 				new IGridBindingCellInformation[getColumnCells().size()])) {
 			cell.dispose();
 		}
-		getGridItem().dispose();
+		if (getGridItem() != null) {
+			getGridItem().dispose();
+		}
 		getGrid().getRows().removeKey(getId());
+		getGrid().updateFocusCellDelayed();
 	}
 
 	/**

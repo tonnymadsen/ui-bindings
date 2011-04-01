@@ -413,7 +413,6 @@ public class GridBindingColumnInformationImpl extends EObjectImpl implements IGr
 
 	@Override
 	public void dispose() {
-		getGrid().updateFocusCellDelayed();
 		/*
 		 * Remove all cells from column
 		 */
@@ -425,8 +424,7 @@ public class GridBindingColumnInformationImpl extends EObjectImpl implements IGr
 			getGridColumn().dispose();
 		}
 		getGrid().getColumns().removeKey(getId());
-		// TODO Auto-generated method stub
-
+		getGrid().updateFocusCellDelayed();
 	}
 
 	/**

@@ -54,6 +54,7 @@ import com.rcpcompany.uibindings.grid.IGridBindingRowInformation;
 import com.rcpcompany.uibindings.grid.IGridCell;
 import com.rcpcompany.uibindings.grid.IGridModel;
 import com.rcpcompany.uibindings.grid.IGridPackage;
+import com.rcpcompany.uibindings.uiAttributes.AbstractUIAttribute;
 import com.rcpcompany.uibindings.uiAttributes.UIAttributePainter;
 import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
 import com.rcpcompany.uibindings.utils.IManagerRunnable;
@@ -554,14 +555,14 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 	@Override
 	public String getDisplayText() {
 		Object value = null;
-		final IObservableValue displayValue = getLabelUIAttribute().getCurrentValue();
+		final IUIAttribute la = getLabelUIAttribute();
+		if (la == null) return "";
+		final IObservableValue displayValue = la.getCurrentValue();
 		if (displayValue != null) {
 			value = displayValue.getValue();
 		}
 
-		if (value == null) {
-			value = "";
-		}
+		if (value == null) return "";
 		return value.toString();
 	}
 
@@ -908,7 +909,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 		}
 
 		if (getLabelUIAttribute() instanceof VirtualUIAttribute) {
-			((VirtualUIAttribute) getLabelUIAttribute()).removeChangeListener(myPropertyValueListener);
+			((AbstractUIAttribute) getLabelUIAttribute()).removeChangeListener(myPropertyValueListener);
 		}
 
 		getLabelBinding().dispose();
@@ -978,7 +979,7 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 			/*
 			 * We will use a UI binding to convert from myValue to myLabelUIAttribute...
 			 */
-			final VirtualUIAttribute attribute = new VirtualUIAttribute(String.class);
+			final AbstractUIAttribute attribute = new VirtualUIAttribute(String.class);
 			setLabelUIAttribute(attribute);
 
 			final IValueBinding lb = context.addBinding().model(value).ui(attribute);
