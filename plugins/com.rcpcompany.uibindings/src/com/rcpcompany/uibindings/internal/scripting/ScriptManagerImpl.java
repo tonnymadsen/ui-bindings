@@ -518,7 +518,7 @@ public class ScriptManagerImpl extends EObjectImpl implements IScriptManager {
 			final Iterator<IScriptDependency> dIterator = dList.iterator();
 			while (dIterator.hasNext()) {
 				final IScriptDependency d = dIterator.next();
-				if (d.getExpressions().isEmpty()) {
+				if (!d.eIsSet(IScriptEnginePackage.Literals.SCRIPT_DEPENDENCY__EXPRESSIONS)) {
 					dIterator.remove();
 				}
 			}

@@ -280,7 +280,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			boolean found = false;
 			int priority = 0;
 			int prio = 0;
-			if (p.getModelTypes().isEmpty()) {
+			if (!p.eIsSet(IUIBindingsPackage.Literals.DECORATOR_PROVIDER__MODEL_TYPES)) {
 				found = true;
 			}
 			for (final String t : p.getModelTypes()) {
