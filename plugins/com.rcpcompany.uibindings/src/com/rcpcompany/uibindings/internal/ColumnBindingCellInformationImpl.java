@@ -830,7 +830,7 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 		// mySourceValue is handled in the base column...
 
 		// TODO remove listener from label provider
-		getColumn().getCells().remove(getElement());
+		getColumn().getCells().removeKey(getElement());
 	}
 
 	@Override
