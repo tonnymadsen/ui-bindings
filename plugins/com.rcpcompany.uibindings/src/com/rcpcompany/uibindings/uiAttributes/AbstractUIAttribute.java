@@ -154,7 +154,8 @@ public abstract class AbstractUIAttribute extends UIAttributeImpl {
 		return (Boolean) value.getValue();
 	}
 
-	private final List<IObservable> myObservables = new ArrayList<IObservable>();
+	private List<IObservable> myObservables = new ArrayList<IObservable>();
+
 	/**
 	 * All observable listeners for this object goes via this...
 	 */
@@ -171,11 +172,13 @@ public abstract class AbstractUIAttribute extends UIAttributeImpl {
 						v.removeChangeListener(myListener);
 					}
 				}
+				myListeners = null;
 			}
 
 			v.dispose();
 		}
 		super.dispose();
+		myObservables = null;
 	}
 
 	/**
@@ -202,7 +205,7 @@ public abstract class AbstractUIAttribute extends UIAttributeImpl {
 
 	private final void addObservable(IObservable observable) {
 		myObservables.add(observable);
-		IManager.Factory.getManager().startMonitorObservableDispose(observable);
+		IManager.Factory.getManager().startMonitorObservableDispose(observable, this);
 		if (myListeners != null) {
 			for (final IChangeListener myListener : myListeners) {
 				if (myListener != null) {

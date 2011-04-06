@@ -12,6 +12,7 @@ package com.rcpcompany.uibindings.uiAttributes;
 
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.core.runtime.Assert;
 import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.jface.util.Util;
 import org.eclipse.swt.SWT;
@@ -97,7 +98,6 @@ public class SimpleUIAttribute extends AbstractUIAttribute {
 			myWidget.removeListener(SWT.Resize, myControlListener);
 			myControlListener = null;
 		}
-		super.dispose();
 	}
 
 	/**
@@ -225,6 +225,7 @@ public class SimpleUIAttribute extends AbstractUIAttribute {
 
 	@Override
 	public IObservableValue getTooltipValue() {
+		Assert.isTrue(!isDisposed());
 		if (myWidget instanceof Control) {
 			final Control c = (Control) myWidget;
 			return addObservable(SWTObservables.observeTooltipText(c));
@@ -234,6 +235,7 @@ public class SimpleUIAttribute extends AbstractUIAttribute {
 
 	@Override
 	public IObservableValue getFontValue() {
+		Assert.isTrue(!isDisposed());
 		if (myWidget instanceof Control) {
 			final Control c = (Control) myWidget;
 			return addObservable(SWTObservables.observeFont(c));
@@ -243,6 +245,7 @@ public class SimpleUIAttribute extends AbstractUIAttribute {
 
 	@Override
 	public IObservableValue getCursorValue() {
+		Assert.isTrue(!isDisposed());
 		if (myWidget instanceof Control) {
 			final Control c = (Control) myWidget;
 			return addObservable(new ControlCursorObservableValue(c));
@@ -252,6 +255,7 @@ public class SimpleUIAttribute extends AbstractUIAttribute {
 
 	@Override
 	public IObservableList getStyleRangeList() {
+		Assert.isTrue(!isDisposed());
 		if (myWidget instanceof StyledText) {
 			final StyledText c = (StyledText) myWidget;
 			return addObservable(new StyledTextRangesObservableList(c));
@@ -261,6 +265,7 @@ public class SimpleUIAttribute extends AbstractUIAttribute {
 
 	@Override
 	public IObservableValue getImageValue() {
+		Assert.isTrue(!isDisposed());
 		if (myWidget instanceof Button) {
 			final Button c = (Button) myWidget;
 			return addObservable(SWTObservables.observeImage(c));
@@ -282,6 +287,7 @@ public class SimpleUIAttribute extends AbstractUIAttribute {
 
 	@Override
 	public IObservableValue getForegroundValue() {
+		Assert.isTrue(!isDisposed());
 		if (myWidget instanceof Control) {
 			final Control c = (Control) myWidget;
 			return addObservable(SWTObservables.observeForeground(c));
@@ -291,6 +297,7 @@ public class SimpleUIAttribute extends AbstractUIAttribute {
 
 	@Override
 	public IObservableValue getBackgroundValue() {
+		Assert.isTrue(!isDisposed());
 		if (myWidget instanceof Control) {
 			final Control c = (Control) myWidget;
 			return addObservable(SWTObservables.observeBackground(c));
@@ -300,6 +307,7 @@ public class SimpleUIAttribute extends AbstractUIAttribute {
 
 	@Override
 	public IObservableValue getEnabledValue() {
+		Assert.isTrue(!isDisposed());
 		if (myWidget instanceof Control) {
 			final Control c = (Control) myWidget;
 			return addObservable(SWTObservables.observeEnabled(c));

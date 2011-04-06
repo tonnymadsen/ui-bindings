@@ -35,7 +35,7 @@ import com.rcpcompany.uibindings.IUIAttribute;
  * @author Tonny Madsen, The RCP Company
  */
 public class VirtualUIAttribute extends AbstractUIAttribute {
-	private final IObservableValue myValue;
+	private IObservableValue myValue;
 	private IObservableValue myTooltipValue;
 	private IObservableValue myFontValue;
 	private IObservableValue myCursorValue;
@@ -62,6 +62,23 @@ public class VirtualUIAttribute extends AbstractUIAttribute {
 	public VirtualUIAttribute(Object valueType) {
 		myValue = addObservable(WritableValue.withValueType(valueType));
 		setChangeable(true);
+	}
+
+	@Override
+	public void dispose() {
+		Assert.isTrue(!isDisposed());
+		super.dispose();
+		myValue = null;
+		myBackgroundValue = null;
+		myForegroundValue = null;
+		myFontValue = null;
+		myImageValue = null;
+		myCursorValue = null;
+		myEnabledValue = null;
+		myMinValue = null;
+		myMaxValue = null;
+		myTooltipValue = null;
+		myStyleRangeList = null;
 	}
 
 	@Override
