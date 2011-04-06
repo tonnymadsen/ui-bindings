@@ -575,7 +575,7 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 							final IUIAttributeImageDecoration id = (IUIAttributeImageDecoration) msg.getNewValue();
 							addDecorator(id);
 							break;
-						case Notification.REMOVE_MANY:
+						case Notification.ADD_MANY:
 							for (final IUIAttributeImageDecoration ida : (List<IUIAttributeImageDecoration>) msg
 									.getNewValue()) {
 								addDecorator(ida);
