@@ -1190,7 +1190,11 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 						c.removeDisposeListener(myDisposeListener);
 					}
 				}
-				if (msg.getNewValue() == BindingState.OK) {
+				/*
+				 * We add the dispose listener in this phase rather than OK to ensure it is very
+				 * early in the listener sequence
+				 */
+				if (msg.getNewValue() == BindingState.PHASE1) {
 					final Control c = b.getControl();
 					if (c != null && !c.isDisposed()) {
 						c.addDisposeListener(myDisposeListener);
