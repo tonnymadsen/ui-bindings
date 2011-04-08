@@ -109,7 +109,7 @@ public class EListElementObservableValue extends AbstractObservableValue impleme
 		Assert.isTrue(mySF.isMany());
 
 		myObjectOV.addChangeListener(myObjectOVListener);
-		IManager.Factory.getManager().startMonitorObservableDispose(myObjectOV);
+		IManager.Factory.getManager().startMonitorObservableDispose(myObjectOV, this);
 		updateValue();
 	}
 

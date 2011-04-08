@@ -3565,14 +3565,21 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 */
 	private IDisposeListener myMonitorObservableDisposeListener = null;
 
+	/**
+	 * Map with all monitored {@link IObservable} with a translation to the corresponding object
+	 * that uses this object, if any...
+	 */
+	private Map<IObservable, Object> myMonitoredObservablesMap = null;
+
 	/*
 	 * TODO: Too important.. Needs a test..
 	 */
 	@Override
-	public void startMonitorObservableDispose(IObservable obj) {
+	public void startMonitorObservableDispose(IObservable obj, Object observing) {
 		if (!Activator.getDefault().ASSERTS_PREMATURE_DISPOSE || obj == null) return;
 
 		if (myMonitorObservableDisposeListener == null) {
+			myMonitoredObservablesMap = new HashMap<IObservable, Object>();
 			myMonitorObservableDisposeListener = new IDisposeListener() {
 
 				@Override
@@ -3580,21 +3587,24 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 					final int oldLevels = LogUtils.DEBUG_STRACK_LEVELS;
 					LogUtils.DEBUG_STRACK_LEVELS = 10;
 					Object source = event.getSource();
+					final Object observing = myMonitoredObservablesMap.get(source);
 					if (source instanceof IObservable && ((IObservable) source).isDisposed()) {
 						source = "DISPOSED " + source.getClass().getSimpleName();
 					}
-					LogUtils.error(source, "PREMATURE DISPOSAL: " + source);
+					LogUtils.error(source, "PREMATURE DISPOSAL: " + source + "\nby " + observing);
 					LogUtils.DEBUG_STRACK_LEVELS = oldLevels;
 				}
 			};
 		}
 
+		myMonitoredObservablesMap.put(obj, observing);
 		obj.addDisposeListener(myMonitorObservableDisposeListener);
 	}
 
 	@Override
 	public void stopMonitorObservableDispose(IObservable obj) {
 		if (!Activator.getDefault().ASSERTS_PREMATURE_DISPOSE || obj == null) return;
+		myMonitoredObservablesMap.remove(obj);
 		obj.removeDisposeListener(myMonitorObservableDisposeListener);
 	}
 

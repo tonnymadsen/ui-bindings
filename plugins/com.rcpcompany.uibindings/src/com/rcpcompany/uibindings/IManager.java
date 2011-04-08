@@ -135,17 +135,18 @@ public interface IManager extends IBaseObject {
 	 * set or the object is <code>null</code>.
 	 * <p>
 	 * Use {@link #stopMonitorObservableDispose(IObservable)} to stop monitoring the observable
-	 * again. It is crusial that {@link #startMonitorObservableDispose(IObservable)} and
+	 * again. It is crusial that {@link #startMonitorObservableDispose(IObservable, Object)} and
 	 * {@link #stopMonitorObservableDispose(IObservable)} comes in pairs...
 	 * 
 	 * @param obs the observable to monitor
+	 * @param observing TODO
 	 */
-	void startMonitorObservableDispose(IObservable obs);
+	void startMonitorObservableDispose(IObservable obs, Object observing);
 
 	/**
 	 * Stops monitoring the specified observable.
 	 * 
-	 * #see {@link #startMonitorObservableDispose(IObservable)}
+	 * #see {@link #startMonitorObservableDispose(IObservable, Object)}
 	 * 
 	 * @param obs the observable to <i>not</i> monitor
 	 */

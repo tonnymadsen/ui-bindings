@@ -481,7 +481,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 		isDynamic = getArgument(ARG_DYNAMIC, Boolean.class, false);
 
-		IManager.Factory.getManager().startMonitorObservableDispose(getModelObservable());
+		IManager.Factory.getManager().startMonitorObservableDispose(getModelObservable(), this);
 		final IObservableValue ov = getModelObservableValue();
 		if (ov != null && isDynamic) {
 			myTypeListener = new IChangeListener() {

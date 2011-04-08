@@ -124,7 +124,7 @@ public class EMFListAttributeList extends WritableList implements IObserving {
 	};
 
 	private void init() {
-		IManager.Factory.getManager().startMonitorObservableDispose(myObjectList);
+		IManager.Factory.getManager().startMonitorObservableDispose(myObjectList, this);
 		for (final Object o : myObjectList) {
 			final EObject obj = (EObject) o;
 			add(myMapper.map(obj));
