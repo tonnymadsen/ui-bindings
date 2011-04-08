@@ -199,7 +199,7 @@ public class BindingMessageCollectionTest {
 		// Still just one error, and the two are collapsed into one
 		assertEquals(1, messages.size());
 		yield();
-		assertPixelColor("", myText, -5, size.y - 6, new RGB(216, 66, 79));
+		assertPixelColor("", myText, -5, size.y - 4, new RGB(216, 66, 79));
 
 		final IBindingMessage message = messages.get(0);
 		assertEquals(myBinding, message.getBinding());
@@ -214,7 +214,7 @@ public class BindingMessageCollectionTest {
 		assertEquals(1, messages.size());
 		assertEquals(message, messages.get(0));
 		yield();
-		assertPixelColor("", myText, -5, size.y - 6, new RGB(216, 66, 79));
+		assertPixelColor("", myText, -5, size.y - 4, new RGB(216, 66, 79));
 
 		// Test before the validation delay
 		sleep(VD - 100);
@@ -222,7 +222,7 @@ public class BindingMessageCollectionTest {
 		assertEquals(1, messages.size());
 		assertEquals(message, messages.get(0));
 		yield();
-		assertPixelColor("", myText, -5, size.y - 6, new RGB(216, 66, 79));
+		assertPixelColor("", myText, -5, size.y - 4, new RGB(216, 66, 79));
 
 		// Test after the validation delay
 		sleep(300);
