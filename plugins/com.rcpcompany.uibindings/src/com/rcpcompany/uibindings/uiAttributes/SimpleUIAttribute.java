@@ -30,7 +30,9 @@ import org.eclipse.swt.widgets.Item;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Scrollable;
+import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.Widget;
 
 import com.rcpcompany.uibindings.IUIAttribute;
@@ -116,7 +118,7 @@ public class SimpleUIAttribute extends AbstractUIAttribute {
 
 		final Rectangle innerBounds = new Rectangle(0, 0, size.x, size.y);
 		/*
-		 * Special cases...
+		 * Special cases... and plenty of them!
 		 */
 		if (c instanceof Text) {
 			if (Util.isWindows()) {
@@ -166,6 +168,35 @@ public class SimpleUIAttribute extends AbstractUIAttribute {
 				innerBounds.width -= 4 + 8;
 				innerBounds.height -= 2 + 9;
 			}
+		} else if (c instanceof Table) {
+			innerBounds.height = ((Table) c).getHeaderHeight();
+			if (innerBounds.height == 0) {
+				innerBounds.height = ((Table) c).getItemHeight();
+			}
+			final Rectangle r = ((Table) c).computeTrim(0, 0, innerBounds.width, innerBounds.height);
+			innerBounds.y += r.y;
+			if (Util.isMac()) {
+				innerBounds.width -= 2;
+				innerBounds.height -= 2;
+			} else if (Util.isWindows()) {
+				innerBounds.width -= 5;
+				innerBounds.height -= 4;
+			}
+		} else if (c instanceof Tree) {
+			innerBounds.height = ((Tree) c).getHeaderHeight();
+			if (innerBounds.height == 0) {
+				innerBounds.height = ((Tree) c).getItemHeight();
+			}
+			if (Util.isMac()) {
+				final Rectangle r = ((Tree) c).computeTrim(0, 0, innerBounds.width, innerBounds.height);
+				innerBounds.y += r.y;
+				innerBounds.width -= 2;
+				innerBounds.height -= 2;
+			} else if (Util.isWindows()) {
+				innerBounds.y = -innerBounds.height;
+				innerBounds.width -= 5;
+				innerBounds.height -= 4;
+			}
 		} else if (c instanceof Composite) {
 			if (Util.isMac()) {
 				innerBounds.width -= 2;
@@ -174,10 +205,17 @@ public class SimpleUIAttribute extends AbstractUIAttribute {
 				innerBounds.width -= 5;
 				innerBounds.height -= 4;
 			}
+			if (innerBounds.height > 40) {
+				innerBounds.height = 20;
+			}
 		}
 
 		final Rectangle outerBounds;
-		if (c instanceof Scrollable) {
+		if (c instanceof Table) {
+			outerBounds = new Rectangle(0 - bw, innerBounds.y - bw, size.x + 2 * bw, innerBounds.height + 2 * bw);
+		} else if (c instanceof Tree) {
+			outerBounds = new Rectangle(0 - bw, innerBounds.y - bw, size.x + 2 * bw, innerBounds.height + 2 * bw);
+		} else if (c instanceof Scrollable) {
 			final Rectangle trim = ((Scrollable) c).computeTrim(0, innerBounds.y, size.x, innerBounds.height);
 			outerBounds = new Rectangle(trim.x, innerBounds.y - bw, trim.width, innerBounds.height + 2 * bw);
 		} else {
