@@ -34,6 +34,7 @@ import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests of {@link EcoreExtUtils#sync(EObject, EObject)} and friends.
@@ -218,7 +219,7 @@ public class EcoreExtUtilsSyncTest {
 	 * Test sync of containment reference
 	 */
 	@Test
-	public void testContainmentListSync() {
+	public void testContainmentListSync1() {
 		final Shop source = ShopFactory.eINSTANCE.createShop();
 		final ShopItem shopItem1 = ShopFactory.eINSTANCE.createShopItem();
 		shopItem1.setName("1");
@@ -326,6 +327,55 @@ public class EcoreExtUtilsSyncTest {
 		assertEquals(120f, shopItem4b.getPrice(), 0.001f);
 	}
 
+	/**
+	 * Test sync of containment reference (based on problem from 3Dfacto)
+	 */
+	@Test
+	public void testContainmentListSync4() {
+		final Shop source = ShopFactory.eINSTANCE.createShop();
+		source.setName("source");
+		final ShopItem shopItem1a = ShopFactory.eINSTANCE.createShopItem();
+		shopItem1a.setName("1");
+		shopItem1a.setPrice(100f);
+		shopItem1a.setShop(source);
+		final ShopItem shopItem2a = ShopFactory.eINSTANCE.createShopItem();
+		shopItem2a.setName("2");
+		shopItem2a.setPrice(100f);
+		shopItem2a.setShop(source);
+		final ShopItem shopItem3a = ShopFactory.eINSTANCE.createShopItem();
+		shopItem3a.setName("3");
+		shopItem3a.setPrice(100f);
+		shopItem3a.setShop(source);
+		final ShopItem shopItem4a = ShopFactory.eINSTANCE.createShopItem();
+		shopItem4a.setName("4");
+		shopItem4a.setPrice(100f);
+		shopItem4a.setShop(source);
+
+		final Shop target = ShopFactory.eINSTANCE.createShop();
+		target.setName("target");
+		final ShopItem shopItem1b = ShopFactory.eINSTANCE.createShopItem();
+		shopItem1b.setName("1");
+		shopItem1b.setPrice(100f);
+		shopItem1b.setShop(target);
+		final ShopItem shopItem3b = ShopFactory.eINSTANCE.createShopItem();
+		shopItem3b.setName("3");
+		shopItem3b.setPrice(100f);
+		shopItem3b.setShop(target);
+		final ShopItem shopItem2b = ShopFactory.eINSTANCE.createShopItem();
+		shopItem2b.setName("2");
+		shopItem2b.setPrice(100f);
+		shopItem2b.setShop(target);
+
+		sync(target, target.getShopItems(), source.getShopItems(), null, ShopPackage.Literals.SHOP__SHOP_ITEMS,
+				ShopPackage.Literals.SHOP__SHOP_ITEMS);
+
+		assertEquals(4, target.getShopItems().size());
+		assertEquals(target, shopItem1b.getShop());
+		assertEquals(target, shopItem2b.getShop());
+		assertEquals(target, shopItem3b.getShop());
+		assertEquals(target, shopItem4a.getShop());
+	}
+
 	private final List<EStructuralFeature> myChanges = new ArrayList<EStructuralFeature>();
 	private final EContentAdapter myChangeListener = new EContentAdapter() {
 		@Override
@@ -334,8 +384,7 @@ public class EcoreExtUtilsSyncTest {
 			if (msg.isTouch()) return;
 			final EStructuralFeature sf = (EStructuralFeature) msg.getFeature();
 			if (sf == null) return;
-			// LogUtils.debug(this, ">>> " + sf.getContainerClass().getName() + "." + sf.getName() +
-			// ": " + msg);
+			LogUtils.debug(this, ">>> " + sf.getContainerClass().getName() + "." + sf.getName() + ": " + msg);
 			myChanges.add(sf);
 		}
 	};
@@ -385,10 +434,12 @@ public class EcoreExtUtilsSyncTest {
 		Arrays.sort(actualFeatureChanges, BaseTestUtils.SF_COMPARATOR);
 		assertArrayEquals(expectedFeatureChanges, actualFeatureChanges);
 
-		if (expectedRemovedObjects == null) {
-			assertEquals(null, controller.getRemovedObjects());
+		final List<EObject> removedObjects = controller.getRemovedObjects();
+		if (expectedRemovedObjects == null || expectedRemovedObjects.length == 0) {
+			assertEquals(null, removedObjects);
 		} else {
-			final Object[] actualRemovedObjects = controller.getRemovedObjects().toArray(new Object[0]);
+			assertNotNull(removedObjects);
+			final Object[] actualRemovedObjects = removedObjects.toArray(new Object[0]);
 			Arrays.sort(expectedRemovedObjects, BaseTestUtils.OBJECT_COMPARATOR);
 			Arrays.sort(actualRemovedObjects, BaseTestUtils.OBJECT_COMPARATOR);
 			assertArrayEquals(expectedFeatureChanges, actualFeatureChanges);
