@@ -79,7 +79,7 @@ public final class UIBindingsUtils {
 	 * Adds to the specified list of {@link IChildCreationSpecification} with the specified
 	 * information.
 	 * <p>
-	 * Also adds any sub-class of child type.
+	 * Also adds any sub-classes of child type.
 	 * 
 	 * @param specs the list of specifications to add to
 	 * @param parent the parent object
@@ -440,8 +440,9 @@ public final class UIBindingsUtils {
 	/**
 	 * Returns whether the two EObjects are equal or both <code>null</code>.
 	 * <p>
-	 * If <code>key</code> is non-<code>null</code>, also tests if the key attribute of the objects
-	 * are {@link #equals(Object, Object)}
+	 * This version uses the equality concept from EMF with object keys. I.e. if <code>key</code> is
+	 * non-<code>null</code>, it also tests if the key attribute of the objects are
+	 * {@link #equals(Object, Object)}. So two objects are "equal" if just the keys are equal.
 	 * 
 	 * @param a object a
 	 * @param b object b
