@@ -226,9 +226,15 @@ public final class EcoreExtUtils {
 						continue;
 					}
 
-					final int oldTargetIndex = ECollections.indexOf(targetList, sourceObject, index);
+					/*
+					 * See if the source already exists somewhere in the target list.
+					 * 
+					 * Also see if the target object at the wanted index is found anywhere in the
+					 * source list.
+					 */
+					final int existingTargetIndex = ECollections.indexOf(targetList, sourceObject, index);
 					int targetIndex = ECollections.indexOf(sourceList, targetObject, index);
-					if (oldTargetIndex == -1) {
+					if (existingTargetIndex == -1) {
 						/*
 						 * The object does not exist in the target list already, so we have to add
 						 * it or replace the exiting object if it is not needed
@@ -242,23 +248,31 @@ public final class EcoreExtUtils {
 						}
 						continue;
 					}
+					final Object existingTargetObject = targetList.get(existingTargetIndex);
 
+					/*
+					 * There are no use for the current target element - just remove it
+					 */
 					if (targetIndex == -1) {
 						addCommand(RemoveCommand.create(getEditingDomain(), target, sf, targetObject));
 						targetList.remove(index);
 						done = false;
 						continue;
 					}
-					if (targetIndex > oldTargetIndex) {
+					/*
+					 * There are a later use for the target element...
+					 */
+					if (targetIndex > existingTargetIndex) {
 						if (targetList.size() <= targetIndex) {
 							targetIndex = targetList.size() - 1;
 						}
-						addCommand(MoveCommand.create(getEditingDomain(), target, sf, sourceObject, targetIndex));
+						addCommand(MoveCommand
+								.create(getEditingDomain(), target, sf, existingTargetObject, targetIndex));
 						targetList.move(targetIndex, index);
 						done = false;
 						continue;
 					}
-					addCommand(MoveCommand.create(getEditingDomain(), target, sf, sourceObject, index));
+					addCommand(MoveCommand.create(getEditingDomain(), target, sf, existingTargetObject, index));
 					targetList.move(targetIndex, index);
 				} while (!done);
 			}
@@ -314,7 +328,7 @@ public final class EcoreExtUtils {
 					 * Does the right element already exist
 					 */
 					final EObject targetObject = targetList.get(sourceIndex);
-					if (targetObject == sourceObject) {
+					if (UIBindingsUtils.equals(targetObject, sourceObject)) {
 						continue;
 					}
 
@@ -369,7 +383,8 @@ public final class EcoreExtUtils {
 						if (targetList.size() <= targetIndex) {
 							targetIndex = targetList.size() - 1;
 						}
-						addCommand(MoveCommand.create(getEditingDomain(), target, ref, sourceObject, targetIndex));
+						addCommand(MoveCommand.create(getEditingDomain(), target, ref, existingTargetObject,
+								targetIndex));
 						targetList.move(targetIndex, sourceIndex);
 						done = false;
 						continue;
@@ -421,6 +436,16 @@ public final class EcoreExtUtils {
 			return ref.getEReferenceType().getEIDAttribute();
 		}
 
+		/**
+		 * Returns the index of the specified object in the list using the key starting from the
+		 * specified index
+		 * 
+		 * @param list the list to search
+		 * @param key the key for elements(can be <code>null</code>)
+		 * @param lookup the element to lookup
+		 * @param index the starting index
+		 * @return the index of the element or <code>-1</code> if noy found
+		 */
 		private int indexOf(List<EObject> list, EAttribute key, EObject lookup, int index) {
 			for (int i = index; i < list.size(); i++) {
 				if (UIBindingsUtils.equals(lookup, list.get(i), key)) return i;
