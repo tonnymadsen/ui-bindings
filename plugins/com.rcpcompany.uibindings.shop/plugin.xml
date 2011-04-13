@@ -560,7 +560,7 @@
       <treeItem
             id="com.rcpcompany.uibindings.shop.treeItems.shopItemFolder">
          <standardArguments
-               image="icons\shopItem-16x16.png"
+               image="icons/shopItem-16x16.png"
                text="Items"></standardArguments>
       </treeItem>
       <treeItem
