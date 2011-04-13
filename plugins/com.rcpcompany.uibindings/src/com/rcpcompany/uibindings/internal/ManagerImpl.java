@@ -2304,7 +2304,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		} else if (argumentType == ImageDescriptor.class) {
 			final ImageDescriptor id = AbstractUIPlugin.imageDescriptorFromPlugin(ce.getContributor().getName(), value);
 			if (id == null) {
-				LogUtils.error(ce, "Cannot find image for '" + value + "': " + this); //$NON-NLS-1$
+				LogUtils.error(ce, "Cannot find image for '" + value + "'"); //$NON-NLS-1$
 			}
 			return (ArgumentType) id;
 		} else if (argumentType == IObservableList.class) {
