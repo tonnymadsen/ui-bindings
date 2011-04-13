@@ -3478,7 +3478,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		IAssignmentParticipant participant = null;
 
 		/*
-		 * First we concult the binding for any manager that can supply a participant.
+		 * First we consult the binding for any manager that can supply a participant.
 		 */
 		if (participant == null && binding != null) {
 			final IAssignmentParticipantsManager apManager = binding.getArgument(
@@ -3489,7 +3489,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		}
 
 		/*
-		 * ...and if no participant is found, then concult the global manager
+		 * ...and if no participant is found, then consult the global manager
 		 */
 		if (participant == null) {
 			participant = getAssignmentParticiantsManager().getParticipant(destination.eClass(), source.eClass());

@@ -31,6 +31,7 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import com.rcpcompany.uibindings.initializers.DefaultEObjectInitializer;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.observableFactories.DefaultEMFObservableFactory;
+import com.rcpcompany.uibindings.participants.IAssignmentParticipant;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 
 /**
@@ -1082,8 +1083,11 @@ public interface IManager extends IBaseObject {
 	/**
 	 * Assign values to the specified destination object from the specified source object by
 	 * creating a set of {@link Command commands} that will set all relevant fields.
+	 * <p>
+	 * The used {@link IAssignmentParticipant} is based on the specified binding, if given, or the
+	 * global repository.
 	 * 
-	 * @param binding TODO
+	 * @param binding the binding of the destination if any
 	 * @param destination the destination object
 	 * @param source the source object
 	 * 
