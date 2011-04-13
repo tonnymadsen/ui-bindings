@@ -178,7 +178,7 @@ public class EObjectCreatorDecorator extends SimpleUIBindingDecorator implements
 			return null;
 		}
 		/*
-		 * Crate and initialize the object
+		 * Create and initialize the object
 		 */
 		final EObject e = EcoreUtil.create(ec);
 		IManager.Factory.getManager().initializeObject(null, null, e);
