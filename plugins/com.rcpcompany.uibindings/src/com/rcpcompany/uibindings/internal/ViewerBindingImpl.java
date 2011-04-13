@@ -39,7 +39,9 @@ import org.eclipse.jface.databinding.viewers.IViewerValueProperty;
 import org.eclipse.jface.databinding.viewers.ObservableListContentProvider;
 import org.eclipse.jface.databinding.viewers.ObservableListTreeContentProvider;
 import org.eclipse.jface.databinding.viewers.ViewersObservables;
+import org.eclipse.jface.layout.AbstractColumnLayout;
 import org.eclipse.jface.viewers.CellNavigationStrategy;
+import org.eclipse.jface.viewers.ColumnPixelData;
 import org.eclipse.jface.viewers.ColumnViewer;
 import org.eclipse.jface.viewers.ColumnViewerEditor;
 import org.eclipse.jface.viewers.ColumnViewerEditorActivationStrategy;
@@ -53,6 +55,7 @@ import org.eclipse.jface.viewers.MyTableViewerFocusCellManager;
 import org.eclipse.jface.viewers.MyTreeViewerFocusCellManager;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.TreeViewerEditor;
@@ -65,6 +68,7 @@ import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Layout;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
@@ -135,6 +139,20 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 			column.setWidth(0);
 			column.setMoveable(false);
 			column.setResizable(false);
+
+			/*
+			 * Check whether the table uses any special layout
+			 */
+			Layout l = table.getParent().getLayout();
+			if (l instanceof AbstractColumnLayout) {
+				final AbstractColumnLayout layout = (AbstractColumnLayout) l;
+				layout.setColumnData(column, new ColumnPixelData(0, false, false));
+			}
+			l = table.getLayout();
+			if (l instanceof TableLayout) {
+				final TableLayout layout = (TableLayout) l;
+				layout.addColumnData(new ColumnPixelData(0, false, false));
+			}
 		}
 
 		return this;
