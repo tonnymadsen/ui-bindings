@@ -32,8 +32,11 @@ public class NameInitializer implements IInitializationParticipant {
 		final EStructuralFeature sf = (EStructuralFeature) facet;
 		final String label = IBindingObjectInformation.Factory.getLabel(obj.eClass());
 
-		// TODO: possibly use validValues to check for exiting objects
-
+		/*
+		 * TODO: possibly use validValues to check for exiting objects
+		 * 
+		 * Difficult as this might require that the object is connected to its parent
+		 */
 		context.setStructuralFeature(sf, label + (lastNo++));
 	}
 }
