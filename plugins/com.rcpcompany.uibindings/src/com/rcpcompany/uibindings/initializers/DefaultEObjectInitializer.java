@@ -27,6 +27,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  */
 public class DefaultEObjectInitializer implements IInitializationParticipant {
 
+	IInitializationParticipant myDefaultSFInitializer = new DefaultEStructuralFeatureInitializer();
+
 	@Override
 	public void initialize(IInitializationParticipantContext context, Object facet) {
 		if (!(facet instanceof EClass)) return;
@@ -36,7 +38,7 @@ public class DefaultEObjectInitializer implements IInitializationParticipant {
 			final IBindingDataType dt = IBindingDataType.Factory.create(context.getObject().eClass(), sf);
 
 			final IInitializationParticipant initializer = dt.getArgument(Constants.ARG_INITIALIZER, null,
-					IInitializationParticipant.class, null);
+					IInitializationParticipant.class, myDefaultSFInitializer);
 			if (initializer != null) {
 				try {
 					initializer.initialize(context, sf);
