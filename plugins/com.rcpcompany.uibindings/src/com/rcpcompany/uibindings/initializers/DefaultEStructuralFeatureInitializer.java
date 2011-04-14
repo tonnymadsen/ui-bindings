@@ -36,7 +36,7 @@ public class DefaultEStructuralFeatureInitializer implements IInitializationPart
 	public void initialize(IInitializationParticipantContext context, Object facet) {
 		if (!(facet instanceof EReference)) return;
 		final EReference ref = (EReference) facet;
-		if (!ref.isRequired()) return;
+		if (!ref.isRequired() || ref.isContainer()) return;
 
 		final EObject object = context.getObject();
 

@@ -114,6 +114,7 @@ import com.rcpcompany.uibindings.IValueBindingCell;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.UIBindingsUtils;
+import com.rcpcompany.uibindings.initializers.DefaultEObjectInitializer;
 import com.rcpcompany.uibindings.internal.formatters.DefaultFormatterProvider;
 import com.rcpcompany.uibindings.internal.observableFactories.DefaultEMFObservableFactory;
 import com.rcpcompany.uibindings.participants.IAssignmentParticipant;
@@ -3397,6 +3398,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		return null;
 	}
 
+	private static final IInitializationParticipant myDefaultInitializationParticipant = new DefaultEObjectInitializer();
+
 	// TODO: Move to UIBU!
 	@Override
 	public Command initializeObject(final EObject parent, final EReference reference, final EObject child) {
@@ -3405,7 +3408,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		final IBindingDataType dt = IBindingDataType.Factory.create(null, eClass);
 
 		final IInitializationParticipant initializer = dt.getArgument(Constants.ARG_INITIALIZER, null,
-				IInitializationParticipant.class, null);
+				IInitializationParticipant.class, myDefaultInitializationParticipant);
 
 		if (initializer == null) return null;
 

@@ -467,7 +467,7 @@
 <argumentInfo name="height" lookupAttributeContainingClass="false"> </argumentInfo> 
 <argumentInfo name="helpID"> </argumentInfo> 
 <argumentInfo name="image"> </argumentInfo> 
-<argumentInfo name="initializer" lookupAttributeContainingClass="false" lookupAttributeTargetType="true" lookupParent="false" lookupReferenceContainingClass="false" lookupReferenceTargetType="true"> </argumentInfo> 
+<argumentInfo name="initializer" lookupAttributeContainingClass="false" lookupAttributeTargetType="false" lookupParent="false" lookupReferenceContainingClass="false" lookupReferenceTargetType="false"> </argumentInfo> 
 <argumentInfo name="label" lookupAttributeContainingClass="false" lookupParent="false"> </argumentInfo> 
 <argumentInfo name="labelDecorator"> </argumentInfo> 
 <argumentInfo name="max"> </argumentInfo> 
@@ -938,12 +938,6 @@
             targetType="directoryName">
 		<standardArguments
             preferredControl="com.rcpcompany.uibindings.widgets.FileNameControl" />
-      </model>
-      <model
-            class="org.eclipse.emf.ecore.EObject">
-         <standardArguments
-               initializer="com.rcpcompany.uibindings.initializers.DefaultEObjectInitializer">
-         </standardArguments>
       </model>
       <model
             class="com.rcpcompany.uibindings.scripting.IScriptEngineDescriptor">
