@@ -49,8 +49,19 @@ public interface INavigatorBaseViewAdvisor extends IDisposable {
 
 	/**
 	 * Returns whether the navigator tree is readonly.
+	 * <p>
+	 * Defaults to <code>false</code>.
 	 * 
 	 * @return <code>true</code> if the tree should be readonly
 	 */
 	boolean isTreeReadonly();
+
+	/**
+	 * Returns whether to use label decorators for the navigator.
+	 * <p>
+	 * Defaults to <code>true</code>.
+	 * 
+	 * @return <code>true</code> if using label decorator
+	 */
+	boolean useLabelDecoration();
 }

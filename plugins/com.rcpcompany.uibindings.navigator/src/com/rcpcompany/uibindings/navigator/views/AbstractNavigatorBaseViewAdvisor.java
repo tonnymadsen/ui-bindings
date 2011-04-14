@@ -40,4 +40,9 @@ public abstract class AbstractNavigatorBaseViewAdvisor implements INavigatorBase
 	public boolean isTreeReadonly() {
 		return false;
 	}
+
+	@Override
+	public boolean useLabelDecoration() {
+		return true;
+	}
 }

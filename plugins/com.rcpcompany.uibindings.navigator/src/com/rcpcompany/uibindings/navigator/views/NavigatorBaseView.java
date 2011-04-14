@@ -193,7 +193,12 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 			LogUtils.error(myAdvisor, ex);
 		}
 		myTreeColumnBinding = myTreeBinding.addColumn().column(column).model(SpecialBinding.TREE_ITEM)
-				.arg(Constants.ARG_LABEL_DECORATOR, true).arg(Constants.ARG_SHOW_IMAGE, true);
+				.arg(Constants.ARG_SHOW_IMAGE, true);
+		try {
+			myTreeColumnBinding.arg(Constants.ARG_LABEL_DECORATOR, myAdvisor.useLabelDecoration());
+		} catch (final Exception ex) {
+			LogUtils.error(myAdvisor, ex);
+		}
 
 		myContext.finish();
 
