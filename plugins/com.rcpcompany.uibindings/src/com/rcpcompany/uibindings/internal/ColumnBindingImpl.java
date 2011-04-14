@@ -28,6 +28,7 @@ import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
 import org.eclipse.core.databinding.observable.value.WritableValue;
+import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -43,6 +44,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.resource.JFaceColors;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.viewers.CellEditor;
@@ -202,14 +204,23 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 				private final IValueBinding dummyBinding = getContext().addBinding().ui(dummyAttribute).model(dummyOV)
 						.dynamic();
 
+				private final IObservableValue myOV = Observables.constantObservableValue("...",
+						EcorePackage.Literals.ESTRING);
+
 				@Override
 				public IObservable createObservable(Object target) {
 					if (!(target instanceof EObject)) return null;
+					Assert.isTrue(dummyBinding.getState() == BindingState.OK
+							|| dummyBinding.getState() == BindingState.PHASE2);
 					final EObject eobj = (EObject) target;
 					final EClass ec = eobj.eClass();
 
+					/*
+					 * Reset...
+					 */
 					dummyBinding.getExtraArgumentProviders().clear();
 					dummyBinding.clearCachedArguments();
+
 					/*
 					 * This is not pretty - or efficient!
 					 * 
@@ -230,19 +241,34 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 						dummyBinding.getExtraArgumentProviders().add(((IConstantTreeItem) eobj).getDescriptor());
 					}
 
+					IClassIdentiferMapper mapper = null;
 					/*
 					 * Any constant string is used first of all...
 					 * 
 					 * TODO: Problem: if text is specified, icon and other arguments are ignored!
 					 */
 					final String constantText = dummyBinding.getArgument(ARG_TEXT, String.class, null);
-					if (constantText != null)
-						return Observables.constantObservableValue(constantText, EcorePackage.Literals.ESTRING);
+					if (constantText != null) {
+						mapper = new IClassIdentiferMapper() {
+							@Override
+							public Object map(Object value) {
+								return constantText;
+							}
 
-					/*
-					 * Check for a mapper...
-					 */
-					final IClassIdentiferMapper mapper = UIBindingsUtils.createClassIdentiferMapper(dummyBinding, ec);
+							@Override
+							public IObservableValue getObservableValue(IObservableValue value,
+									EditingDomain editingDomain) {
+								return myOV;
+							}
+						};
+					}
+
+					if (mapper == null) {
+						/*
+						 * Check for a mapper...
+						 */
+						mapper = UIBindingsUtils.createClassIdentiferMapper(dummyBinding, ec);
+					}
 
 					if (mapper instanceof UIBindingsUtils.DefaultMapper) {
 						// LogUtils.debug(ColumnBindingImpl.this, "Default mapper for '" + target +

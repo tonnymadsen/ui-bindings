@@ -641,6 +641,7 @@ public final class UIBindingsUtils {
 	 */
 	protected static class SingleFeatureMapper implements IClassIdentiferMapper {
 		private final EStructuralFeature myFeature;
+		private IObservableValue ov = null;
 
 		/**
 		 * Constructs and returns a new mapper based on the specified feature.
@@ -664,8 +665,11 @@ public final class UIBindingsUtils {
 
 		@Override
 		public IObservableValue getObservableValue(IObservableValue value, EditingDomain editingDomain) {
-			value = new ProxyObservableValue(value);
-			return UIBindingsEMFObservables.observeDetailValue(value.getRealm(), editingDomain, value, myFeature);
+			if (ov == null) {
+				ov = new ProxyObservableValue(value);
+				ov = UIBindingsEMFObservables.observeDetailValue(value.getRealm(), editingDomain, ov, myFeature);
+			}
+			return ov;
 		}
 
 		@Override
@@ -679,6 +683,7 @@ public final class UIBindingsUtils {
 	 */
 	protected static class MultipleFeatureMapper implements IClassIdentiferMapper {
 		private final EStructuralFeature[] myFeatures;
+		private IObservableValue ov = null;
 
 		/**
 		 * Constructs and returns a new mapper based on the specified features.
@@ -701,11 +706,14 @@ public final class UIBindingsUtils {
 
 		@Override
 		public IObservableValue getObservableValue(IObservableValue value, EditingDomain editingDomain) {
-			for (final EStructuralFeature sf : myFeatures) {
-				if (value == null) return null;
-				value = UIBindingsEMFObservables.observeDetailValue(value.getRealm(), editingDomain, value, sf);
+			if (ov == null) {
+				ov = value;
+				for (final EStructuralFeature sf : myFeatures) {
+					if (ov == null) return null;
+					ov = UIBindingsEMFObservables.observeDetailValue(ov.getRealm(), editingDomain, ov, sf);
+				}
 			}
-			return value;
+			return ov;
 		}
 
 		@Override

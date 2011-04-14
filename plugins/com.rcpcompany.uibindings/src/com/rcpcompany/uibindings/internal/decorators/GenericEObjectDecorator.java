@@ -69,8 +69,11 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 	 */
 	@Override
 	public IObservableValue getDisplayObservableValue(IObservableValue value) {
-		if (myClassIdentiferMapper != null)
-			return myClassIdentiferMapper.getObservableValue(value, getBinding().getContext().getEditingDomain());
+		if (myClassIdentiferMapper != null) {
+			final IObservableValue ov = myClassIdentiferMapper.getObservableValue(value, getBinding().getContext()
+					.getEditingDomain());
+			if (ov != null) return ov;
+		}
 		return super.getDisplayObservableValue(value);
 	}
 

@@ -100,7 +100,7 @@ public class MapperObservableValue extends AbstractObservableValue implements IO
 			myCurrentOV.dispose();
 		}
 		myCurrentOV = ov;
-		final Object v = myCurrentOV.getValue();
+		final Object v = myMapper.map(myBaseObject.getValue());
 		if (UIBindingsUtils.equals(v, myCurrentValue)) return;
 
 		final ValueDiff diff = Diffs.createValueDiff(myCurrentValue, v);
@@ -116,7 +116,7 @@ public class MapperObservableValue extends AbstractObservableValue implements IO
 
 	@Override
 	protected Object doGetValue() {
-		return myCurrentOV.getValue();
+		return myCurrentValue;
 	}
 
 	@Override
