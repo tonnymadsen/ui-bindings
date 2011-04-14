@@ -212,7 +212,7 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 				return !list.isEmpty();
 			}
 		}
-		return true;
+		return null;
 	}
 
 	@Override
