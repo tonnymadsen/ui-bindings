@@ -3418,16 +3418,6 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		final Map<EStructuralFeature, Object> valueMap = new HashMap<EStructuralFeature, Object>();
 		final IInitializationParticipantContext context = new IInitializationParticipantContext() {
 			@Override
-			public EObject getParent() {
-				return parent;
-			}
-
-			@Override
-			public EReference getReference() {
-				return reference;
-			}
-
-			@Override
 			public EObject getObject() {
 				return child;
 			}
@@ -3460,6 +3450,10 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 				return getObject().eGet(feature);
 			}
 		};
+		/*
+		 * Make sure the parent is seen from the start... though it is only added asa command at the
+		 * end - see below...
+		 */
 		if (parent != null && reference != null && reference.getEOpposite() != null) {
 			context.getValueMap().put(reference.getEOpposite(), parent);
 		}
@@ -3484,7 +3478,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 
 	// TODO: Move to UIBU!
 	@Override
-	public Command assignObject(EditingDomain editingDomain, IBinding binding, final EObject destination, final EObject source) {
+	public Command assignObject(EditingDomain editingDomain, IBinding binding, final EObject destination,
+			final EObject source) {
 		if (destination == null || source == null) return null;
 
 		IAssignmentParticipant participant = null;
@@ -3512,16 +3507,6 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		final CompoundCommand cc = new CompoundCommand();
 		final Map<EStructuralFeature, Object> valueMap = new HashMap<EStructuralFeature, Object>();
 		final IAssignmentParticipantContext context = new IAssignmentParticipantContext() {
-			@Override
-			public EObject getParent() {
-				return null;
-			}
-
-			@Override
-			public EReference getReference() {
-				return null;
-			}
-
 			@Override
 			public EObject getObject() {
 				return destination;

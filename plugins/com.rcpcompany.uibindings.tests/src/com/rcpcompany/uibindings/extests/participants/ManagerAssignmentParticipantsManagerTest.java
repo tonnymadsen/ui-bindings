@@ -127,8 +127,6 @@ public class ManagerAssignmentParticipantsManagerTest {
 		public void assign(IAssignmentParticipantContext context) {
 			assertEquals(mySI, context.getSourceObject());
 			assertEquals(mySG, context.getObject());
-			assertEquals(null, context.getParent());
-			assertEquals(null, context.getReference());
 			assertEquals(IManager.Factory.getManager().getEditingDomain(), context.getEditingDomain());
 
 			context.setStructuralFeature(IMOAOPackage.Literals.NAMED_OBJECT__NAME, mySI.getName());

@@ -27,14 +27,12 @@ public class OrderInitializer implements IInitializationParticipant {
 	public void initialize(IInitializationParticipantContext context, Object facet) {
 		if (facet == ShopPackage.Literals.ORDER__NO) {
 			int no = 0;
-			if (context.getParent() instanceof Shop) {
-				final Shop shop = (Shop) context.getParent();
-
+			final Shop shop = (Shop) context.getStructuralFeature(ShopPackage.Literals.ORDER__SHOP);
+			if (shop != null) {
 				no = shop.getNextOrderNo();
 				shop.setNextOrderNo(no + 1);
+				context.setStructuralFeature(ShopPackage.Literals.ORDER__NO, no);
 			}
-
-			context.setStructuralFeature(ShopPackage.Literals.ORDER__NO, no);
 		}
 	}
 }

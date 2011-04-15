@@ -14,7 +14,6 @@ import java.util.Map;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -26,20 +25,6 @@ import org.eclipse.emf.edit.domain.EditingDomain;
  * @author Tonny Madsen, The RCP Company
  */
 public interface IInitializationParticipantContext {
-	/**
-	 * Returns the parent object if relevant.
-	 * 
-	 * @return the parent object or <code>null</code>
-	 */
-	EObject getParent();
-
-	/**
-	 * Returns the reference from the parent to the object if relevant.
-	 * 
-	 * @return the reference or <code>null</code>
-	 */
-	EReference getReference();
-
 	/**
 	 * Returns the object to initialize.
 	 * <p>
