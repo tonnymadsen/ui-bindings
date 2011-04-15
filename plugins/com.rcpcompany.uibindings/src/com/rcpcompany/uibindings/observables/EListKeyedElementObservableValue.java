@@ -126,6 +126,7 @@ public class EListKeyedElementObservableValue<T extends EObject> extends Abstrac
 	 * @param editingDomain the editing domain to use
 	 * @param object the source object
 	 * @param listRef the structural feature with the list
+	 * @param elemenEClass the class of the wanted element type
 	 * @param keySF the structural feature for the key value
 	 * @param key the key value
 	 * @param valueSF the structural feature for the value
