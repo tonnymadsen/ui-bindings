@@ -15,7 +15,6 @@
   <contacts name="Hans Jörgensen" uuid="_L0m-kMBGEd-siJXnD8pfBQ" address="Vasagatan 5" city="Stockholm" zip="21 145" country="NO" customer="//@customers.1" birthday="1976-12-16T00:00:00.000+0100"/>
   <contacts name="Allan" uuid="_L01oEMBGEd-siJXnD8pfBQ" city="Hvidovre" country="NO" birthday="1964-11-16T00:00:00.000+0100"/>
   <contacts name="Søren Søren" uuid="_L0ykwMBGEd-siJXnD8pfBQ" city="Århus" country="DK" birthday="1964-11-16T00:00:00.000+0100"/>
-  <contacts name="Rene Mortensen" uuid="__6y28P1ZEd-3CYRhWm1Dsg" city="Malmö" country="_otUH0MrREd-YTtT6Fix4Zw" newsletter="false"/>
   <shopItems name="EMF Eclipse Modeling Framework" uuid="_L05ScMBGEd-siJXnD8pfBQ" price="1.0">
     <properties name="type" uuid="_nDc2cAa7EeC_n9ThbP5loA" value="a"/>
   </shopItems>
