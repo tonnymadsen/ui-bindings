@@ -21,6 +21,7 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Layout;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Widget;
+import org.eclipse.swt.graphics.GC;
 
 /**
  * This utility class provides a number of static functions that can ease formatting of data.
@@ -235,6 +236,7 @@ public final class ToStringUtils {
 		}
 		sb.append("\n  x=").append(event.x).append(", y=").append(event.y).append(", doit=").append(event.doit); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
+		GC gc = event.gc;
 		switch (event.type) {
 		case SWT.KeyDown:
 		case SWT.KeyUp:
@@ -281,7 +283,7 @@ public final class ToStringUtils {
 			sb.append("button=").append(event.button).append(", count=").append(event.count); //$NON-NLS-1$ //$NON-NLS-2$
 			break;
 		case SWT.Paint:
-			sb.append("\n  gc=").append(event.gc).append(", width=").append(event.width).append(", height=") //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			sb.append("\n  gc=").append(gc).append(", clipping=").append(gc.getClipping()).append(", width=").append(event.width).append(", height=") //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 					.append(event.height).append(", count=").append(event.count); //$NON-NLS-1$
 			break;
 		case SWT.Move:
@@ -405,12 +407,12 @@ public final class ToStringUtils {
 			break;
 		case SWT.EraseItem:
 		case SWT.MeasureItem:
-			sb.append("\n  gc=").append(event.gc).append(", index(column)=").append(event.index).append(", width=") //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			sb.append("\n  gc=").append(gc).append(", index(column)=").append(event.index).append(", width=") //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 					.append(event.width).append(", height=").append(event.height).append(", count=") //$NON-NLS-1$ //$NON-NLS-2$
 					.append(event.count);
 			break;
 		case SWT.PaintItem:
-			sb.append("\n  gc=").append(event.gc).append(", index(column)=").append(event.index).append(", width=") //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			sb.append("\n  gc=").append(gc).append(", index(column)=").append(event.index).append(", width=") //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 					.append(event.width).append(", height=").append(event.height).append(", count=") //$NON-NLS-1$ //$NON-NLS-2$
 					.append(event.count).append(", detail="); //$NON-NLS-1$
 			int d = event.detail;
