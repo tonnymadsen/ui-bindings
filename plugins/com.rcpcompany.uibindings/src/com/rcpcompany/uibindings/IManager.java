@@ -1073,12 +1073,14 @@ public interface IManager extends IBaseObject {
 	 * Please note that the object is <em>not</em> yet included in the containment tree when this
 	 * method is called.
 	 * 
+	 * @param editinDomain editing domain used for all changes
 	 * @param parent the parent object
 	 * @param ref the reference from the parent to the child
 	 * @param child the new child object to be initialized
+	 * 
 	 * @return a command used to initialize the child object - can be <code>null</code>
 	 */
-	Command initializeObject(EObject parent, EReference ref, EObject child);
+	Command initializeObject(EditingDomain editinDomain, EObject parent, EReference ref, EObject child);
 
 	/**
 	 * Assign values to the specified destination object from the specified source object by

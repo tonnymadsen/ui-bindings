@@ -3403,7 +3403,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 
 	// TODO: Move to UIBU!
 	@Override
-	public Command initializeObject(final EObject parent, final EReference reference, final EObject child) {
+	public Command initializeObject(final EditingDomain editinDomain, final EObject parent, final EReference reference,
+			final EObject child) {
 		if (child == null) return null;
 		final EClass eClass = child.eClass();
 		final IBindingDataType dt = IBindingDataType.Factory.create(null, eClass);
@@ -3433,7 +3434,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 
 			@Override
 			public EditingDomain getEditingDomain() {
-				return ManagerImpl.this.getEditingDomain();
+				return editinDomain;
 			}
 
 			@Override

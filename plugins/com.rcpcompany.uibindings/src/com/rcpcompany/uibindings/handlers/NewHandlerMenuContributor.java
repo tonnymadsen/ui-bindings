@@ -176,7 +176,7 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 				/*
 				 * Initialize the object
 				 */
-				initializeCommand = IManager.Factory.getManager().initializeObject(mySpec.getParent(),
+				initializeCommand = IManager.Factory.getManager().initializeObject(myEditingDomain, mySpec.getParent(),
 						mySpec.getReference(), child);
 			} else {
 				child = null;
@@ -184,13 +184,13 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 				return;
 			}
 			final CompoundCommand cmd = new CompoundCommand();
+			if (initializeCommand != null) {
+				cmd.append(initializeCommand);
+			}
 			if (mySpec.getReference().isMany()) {
 				cmd.append(AddCommand.create(myEditingDomain, mySpec.getParent(), mySpec.getReference(), child));
 			} else {
 				cmd.append(SetCommand.create(myEditingDomain, mySpec.getParent(), mySpec.getReference(), child));
-			}
-			if (initializeCommand != null) {
-				cmd.append(initializeCommand);
 			}
 
 			/*

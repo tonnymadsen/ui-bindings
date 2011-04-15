@@ -52,9 +52,8 @@ public class DefaultEStructuralFeatureInitializer implements IInitializationPart
 			final List<EObject> newChildren = new ArrayList<EObject>(missing);
 			for (; missing > 0; missing--) {
 				final EObject newChild = EcoreUtil.create(ref.getEReferenceType());
-				context.addCommand(IManager.Factory.getManager().initializeObject(object, ref, newChild));
-
-				newChildren.add(newChild);
+				context.addCommand(IManager.Factory.getManager().initializeObject(context.getEditingDomain(), object,
+						ref, newChild));
 			}
 			context.addCommand(AddCommand.create(context.getEditingDomain(), object, ref, newChildren));
 		} else {
@@ -65,9 +64,8 @@ public class DefaultEStructuralFeatureInitializer implements IInitializationPart
 			if (o != null) return;
 
 			final EObject newChild = EcoreUtil.create(ref.getEReferenceType());
-			context.addCommand(IManager.Factory.getManager().initializeObject(object, ref, newChild));
-
-			context.setStructuralFeature(ref, newChild);
+			context.addCommand(IManager.Factory.getManager().initializeObject(context.getEditingDomain(), object, ref,
+					newChild));
 		}
 	}
 }
