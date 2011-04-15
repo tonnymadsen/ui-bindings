@@ -3484,7 +3484,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 
 	// TODO: Move to UIBU!
 	@Override
-	public Command assignObject(IBinding binding, final EObject destination, final EObject source) {
+	public Command assignObject(EditingDomain editingDomain, IBinding binding, final EObject destination, final EObject source) {
 		if (destination == null || source == null) return null;
 
 		IAssignmentParticipant participant = null;

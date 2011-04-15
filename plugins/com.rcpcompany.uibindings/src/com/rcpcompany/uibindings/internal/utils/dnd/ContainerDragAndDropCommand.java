@@ -530,7 +530,8 @@ public class ContainerDragAndDropCommand extends AbstractCommand implements Drag
 			if (mySourceObjects.size() != 1) return false;
 			final EObject obj = mySourceObjects.iterator().next();
 
-			final Command assignCommand = IManager.Factory.getManager().assignObject(myContainer, targetObject, obj);
+			final Command assignCommand = IManager.Factory.getManager().assignObject(myDomain, myContainer,
+					targetObject, obj);
 			if (assignCommand == null) return false;
 			myDropCommand = assignCommand;
 			return true;

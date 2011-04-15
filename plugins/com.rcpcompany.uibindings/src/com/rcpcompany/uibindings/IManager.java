@@ -1088,12 +1088,12 @@ public interface IManager extends IBaseObject {
 	 * <p>
 	 * The used {@link IAssignmentParticipant} is based on the specified binding, if given, or the
 	 * global repository.
-	 * 
+	 * @param editingDomain TODO
 	 * @param binding the binding of the destination if any
 	 * @param destination the destination object
 	 * @param source the source object
 	 * 
 	 * @return a command used to initialize the child object - can be <code>null</code>
 	 */
-	Command assignObject(IBinding binding, EObject destination, EObject source);
+	Command assignObject(EditingDomain editingDomain, IBinding binding, EObject destination, EObject source);
 } // IManager

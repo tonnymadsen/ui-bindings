@@ -109,11 +109,11 @@ public class ManagerAssignmentParticipantsManagerTest {
 				mySG = ShopFactory.eINSTANCE.createShopItemGroup();
 				mySG.setName("new");
 
-				Command c = IManager.Factory.getManager().assignObject(null, mySG, mySI);
+				Command c = MANAGER.assignObject(MANAGER.getEditingDomain(), null, mySG, mySI);
 				assertNotNull(c);
 				assertTrue(c instanceof SetCommand);
 
-				c = IManager.Factory.getManager().assignObject(null, mySI, mySI);
+				c = MANAGER.assignObject(MANAGER.getEditingDomain(), null, mySI, mySI);
 				assertEquals(null, c);
 			}
 		});
