@@ -32,6 +32,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Listener;
 
 import com.rcpcompany.uibindings.BindingMessageSeverity;
 import com.rcpcompany.uibindings.BindingState;
@@ -69,7 +71,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  * @author Tonny Madsen, The RCP Company
  */
 public class ValueBindingMessageImageDecorator extends AdapterImpl implements IDisposable, IContextMessageProvider,
-		IValidatorAdapterMessageDecorator, Adapter, IChangeListener, IDelayedChangeListener {
+		IValidatorAdapterMessageDecorator, Adapter, IChangeListener, IDelayedChangeListener, Listener {
 
 	/**
 	 * Extender for {@link ValueBindingMessageImageDecorator}.
@@ -155,6 +157,16 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 		}
 
 		/*
+		 * For bindings with controls, register a focus listener, so we can change the decoration at
+		 * focus in/out.
+		 */
+		final Control control = getBinding().getControl();
+		if (control != null) {
+			control.addListener(SWT.FocusIn, this);
+			control.addListener(SWT.FocusOut, this);
+		}
+
+		/*
 		 * Register for configuration changes
 		 */
 		IManager.Factory.getManager().eAdapters().add(this);
@@ -174,6 +186,12 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 			((IDelayedChangeObservable) observable).removeDelayedChangeListener(this);
 		}
 		getBinding().unregisterService(this);
+
+		final Control control = getBinding().getControl();
+		if (control != null) {
+			control.removeListener(SWT.FocusIn, this);
+			control.removeListener(SWT.FocusOut, this);
+		}
 
 		/*
 		 * Clear all messages and update the context decorator...
@@ -228,6 +246,11 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 			}
 			return;
 		}
+	}
+
+	@Override
+	public void handleEvent(Event event) {
+		updateDecoration();
 	}
 
 	/**
@@ -529,10 +552,11 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 			final IManager manager = IManager.Factory.getManager();
 
 			/*
-			 * Only show the alternative decorations for controls - but not for checkboxes
+			 * Only show the alternative decorations for controls if they have the focus - but not
+			 * for checkboxes
 			 */
 			final Control control = getBinding().getControl();
-			boolean showAlternativeDecorations = control != null;
+			boolean showAlternativeDecorations = control != null && control.isFocusControl();
 			if (control instanceof Button && (control.getStyle() & SWT.CHECK) == SWT.CHECK) {
 				showAlternativeDecorations = false;
 			}
