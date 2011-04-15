@@ -55,6 +55,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.preference.IPreferenceStore;
@@ -3459,13 +3460,20 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			}
 		};
 		if (parent != null && reference != null && reference.getEOpposite() != null) {
-			context.setStructuralFeature(reference.getEOpposite(), parent);
+			context.getValueMap().put(reference.getEOpposite(), parent);
 		}
 
 		try {
 			initializer.initialize(context, eClass);
 		} catch (final Exception ex) {
 			LogUtils.error(initializer, ex);
+		}
+		if (parent != null && reference != null) {
+			if (reference.isMany()) {
+				context.addCommand(AddCommand.create(context.getEditingDomain(), parent, reference, child));
+			} else {
+				context.addCommand(SetCommand.create(context.getEditingDomain(), parent, reference, child));
+			}
 		}
 
 		if (cc.isEmpty()) return null;
