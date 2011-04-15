@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.jface.layout.TableColumnLayout;
 import org.eclipse.jface.viewers.ColumnPixelData;
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.swt.SWT;
@@ -81,7 +82,7 @@ public class TableCreator implements ITableCreator {
 	/**
 	 * The table layout used - controlled by the {@link ITableCreator#RESIZE} style.
 	 */
-	protected MyTableColumnLayout myTableLayout = null;
+	protected TableColumnLayout myTableLayout = null;
 
 	/**
 	 * Constructs and returns a new table creator.
@@ -116,12 +117,12 @@ public class TableCreator implements ITableCreator {
 
 		if ((style & ITableCreator.RESIZE) == ITableCreator.RESIZE) {
 			style &= ~ITableCreator.RESIZE;
-			// p = manager.getFormToolkit().createComposite(p);
-			// myTableLayout = new MyTableColumnLayout();
-			// p.setLayout(myTableLayout);
-			// if (myFilter != null) {
-			// p.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-			// }
+			p = manager.getFormToolkit().createComposite(p);
+			myTableLayout = new TableColumnLayout();
+			p.setLayout(myTableLayout);
+			if (myFilter != null) {
+				p.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+			}
 		}
 
 		myTable = manager.getFormToolkit().createTable(p, style | SWT.FULL_SELECTION);
