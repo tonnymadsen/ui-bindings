@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.SetCommand;
@@ -92,6 +93,8 @@ public class EListKeyedElementObservableValue<T extends EObject> extends Abstrac
 	 */
 	private final Listener myListener = new Listener();
 
+	private final EClass myElemenEClass;
+
 	/**
 	 * Constructs and returns a new {@link IObservableValue} for the specified element in the list
 	 * of the object.
@@ -108,6 +111,32 @@ public class EListKeyedElementObservableValue<T extends EObject> extends Abstrac
 		myEditingDomain = editingDomain;
 		mySourceOV = ov;
 		myListRef = listRef;
+		myElemenEClass = myListRef.getEReferenceType();
+		myKeySF = keySF;
+		myKey = key;
+		myValueSF = valueSF;
+
+		init();
+	}
+
+	/**
+	 * Constructs and returns a new {@link IObservableValue} for the specified element in the list
+	 * of the object.
+	 * 
+	 * @param editingDomain the editing domain to use
+	 * @param object the source object
+	 * @param listRef the structural feature with the list
+	 * @param keySF the structural feature for the key value
+	 * @param key the key value
+	 * @param valueSF the structural feature for the value
+	 */
+	public EListKeyedElementObservableValue(EditingDomain editingDomain, EObject object, EReference listRef,
+			EClass elemenEClass, EStructuralFeature keySF, Object key, EStructuralFeature valueSF) {
+		myEditingDomain = editingDomain;
+		mySourceOV = null;
+		mySource = object;
+		myListRef = listRef;
+		myElemenEClass = elemenEClass;
 		myKeySF = keySF;
 		myKey = key;
 		myValueSF = valueSF;
@@ -128,10 +157,28 @@ public class EListKeyedElementObservableValue<T extends EObject> extends Abstrac
 	 */
 	public EListKeyedElementObservableValue(EditingDomain editingDomain, EObject object, EReference listRef,
 			EStructuralFeature keySF, Object key, EStructuralFeature valueSF) {
+		this(editingDomain, object, listRef, listRef.getEReferenceType(), keySF, key, valueSF);
+	}
+
+	/**
+	 * Constructs and returns a new {@link IObservableValue} for the specified element in the list
+	 * of the object.
+	 * 
+	 * @param editingDomain the editing domain to use
+	 * @param list the list with elements - must be an <code>EObjectContainmentEList</code>
+	 * @param keySF the structural feature for the key value
+	 * @param key the key value
+	 * @param valueSF the structural feature for the value
+	 */
+	public EListKeyedElementObservableValue(EditingDomain editingDomain, EList<T> list, EStructuralFeature keySF,
+			Object key, EStructuralFeature valueSF) {
+		Assert.isTrue(list instanceof EObjectContainmentEList);
+		final EObjectContainmentEList<T> clist = (EObjectContainmentEList<T>) list;
 		myEditingDomain = editingDomain;
 		mySourceOV = null;
-		mySource = object;
-		myListRef = listRef;
+		mySource = clist.getEObject();
+		myListRef = (EReference) clist.getEStructuralFeature();
+		myElemenEClass = myListRef.getEReferenceType();
 		myKeySF = keySF;
 		myKey = key;
 		myValueSF = valueSF;
@@ -149,7 +196,7 @@ public class EListKeyedElementObservableValue<T extends EObject> extends Abstrac
 		// keySF is based on listRef.getReferenceType()
 		// valueSF is based on listRef.getReferenceType()
 
-		calcValue();
+		updateValue();
 	}
 
 	@Override
@@ -165,7 +212,7 @@ public class EListKeyedElementObservableValue<T extends EObject> extends Abstrac
 	/**
 	 * Updates the current state.
 	 */
-	private void calcValue() {
+	private void updateValue() {
 		/*
 		 * If based on the an IOV for the base object, then first resolve this.
 		 */
@@ -198,6 +245,12 @@ public class EListKeyedElementObservableValue<T extends EObject> extends Abstrac
 		if (myList != null) {
 			for (int i = 0; i < myList.size(); i++) {
 				final T e = myList.get(i);
+				if (e == null) {
+					continue;
+				}
+				if (!myElemenEClass.isSuperTypeOf(e.eClass())) {
+					continue;
+				}
 				if (UIBindingsUtils.equals(e.eGet(myKeySF), myKey)) {
 					myIndex = i;
 					myElement = e;
@@ -266,19 +319,19 @@ public class EListKeyedElementObservableValue<T extends EObject> extends Abstrac
 	protected void firstListenerAdded() {
 		super.firstListenerAdded();
 
-		calcValue();
+		updateValue();
 	}
 
 	@Override
 	protected void lastListenerRemoved() {
 		super.lastListenerRemoved();
 
-		calcValue();
+		updateValue();
 	}
 
 	@Override
 	protected final Object doGetValue() {
-		calcValue();
+		updateValue();
 		return myValue;
 	}
 
@@ -295,14 +348,13 @@ public class EListKeyedElementObservableValue<T extends EObject> extends Abstrac
 			Assert.isTrue(myIndex != -1);
 			command = new SetCommand(myEditingDomain, myElement, myValueSF, value);
 		} else {
-			final EClass referenceType = myListRef.getEReferenceType();
-			final EObject object = EcoreUtil.create(referenceType);
+			final EObject object = EcoreUtil.create(myElemenEClass);
 			object.eSet(myKeySF, myKey);
 			object.eSet(myValueSF, value);
 			command = new AddCommand(myEditingDomain, myList, object);
 		}
 		myEditingDomain.getCommandStack().execute(command);
-		calcValue();
+		updateValue();
 	}
 
 	@Override
@@ -352,12 +404,12 @@ public class EListKeyedElementObservableValue<T extends EObject> extends Abstrac
 				 * No other changes are interesting
 				 */
 				return;
-			calcValue();
+			updateValue();
 		};
 
 		@Override
 		public void handleChange(ChangeEvent event) {
-			calcValue();
+			updateValue();
 		}
 	}
 }
