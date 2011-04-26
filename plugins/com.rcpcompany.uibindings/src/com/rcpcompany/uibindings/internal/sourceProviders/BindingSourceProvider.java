@@ -270,7 +270,7 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 
 		if (!newState.isEmpty()) {
 			/*
-			 * Reset the property testers as well, when any of values changes
+			 * Reset the property testers as well, when any of the values changes
 			 */
 			newState.put(Constants.PREFIX + Constants.PROPERTY_CAN_DELETE, true);
 			newState.put(Constants.PREFIX + Constants.PROPERTY_CAN_DELETE_SELECTED_OBJECTS, true);
@@ -303,18 +303,10 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 			final Object activeBindingObject = myCurrentState.get(Constants.SOURCES_ACTIVE_BINDING);
 			if (activeBindingObject instanceof IValueBinding) {
 				final IValueBinding vb = (IValueBinding) activeBindingObject;
-				/*
-				 * TODO: only update once per binding
-				 * 
-				 * API? theManager.asyncExec("update", vb, new Runnable() {
-				 * 
-				 * @Override public void run() { vb.updateBinding(); } }
-				 * 
-				 * First two args a compound key and only one Runnable per key
-				 */
 				IManagerRunnable.Factory.asyncExec("update", vb, new Runnable() {
 					@Override
 					public void run() {
+						if (vb.isDisposed()) return;
 						vb.updateBinding();
 					}
 				});
@@ -503,7 +495,7 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 		map.put(Constants.SOURCES_ACTIVE_BINDING_TYPE, IEvaluationContext.UNDEFINED_VARIABLE);
 		map.put(Constants.SOURCES_ACTIVE_BINDING_MODEL_OBJECT, IEvaluationContext.UNDEFINED_VARIABLE);
 		map.put(Constants.SOURCES_ACTIVE_BINDING_FEATURE, IEvaluationContext.UNDEFINED_VARIABLE);
-		map.put(Constants.SOURCES_ACTIVE_BINDING_RO, false);
+		map.put(Constants.SOURCES_ACTIVE_BINDING_RO, true);
 		map.put(Constants.SOURCES_ACTIVE_BINDING_UNSETTABLE, false);
 		map.put(Constants.SOURCES_ACTIVE_BINDING_OPEN_COMMAND, IEvaluationContext.UNDEFINED_VARIABLE);
 

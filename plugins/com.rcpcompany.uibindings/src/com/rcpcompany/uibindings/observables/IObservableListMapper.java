@@ -21,7 +21,7 @@ public interface IObservableListMapper {
 	/**
 	 * Maps the specified value to a new value
 	 * 
-	 * @param value the original value
+	 * @param value the original value - can be <code>null</code>
 	 * @return the new value
 	 */
 	Object map(Object value);

@@ -60,8 +60,7 @@ public interface IUIBindingDecoratorExtenderDescriptor extends EObject, IArgumen
 	/**
 	 * Returns the value of the '<em><b>Factory</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Factory</em>' attribute isn't clear, there really should be more
-	 * of a description here...
+	 * In this context the factory is a {@link IUIBindingDecoratorExtender} factory.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 

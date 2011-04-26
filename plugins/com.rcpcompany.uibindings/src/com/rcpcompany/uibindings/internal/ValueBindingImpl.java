@@ -603,8 +603,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			/*
 			 * TODO Not sure about this! In general, the reaction to non-changeable fields stinks!
 			 */
-			// if (eIsSet(IUIBindingsPackage.Literals.BINDING__ERROR_CONDITIONS) &&
-			// getErrorConditions().size() > 0)
+			// if (eIsSet(IUIBindingsPackage.Literals.BINDING__ERROR_CONDITIONS))
 			// return false;
 
 			final IUIAttribute attribute = getUIAttribute();

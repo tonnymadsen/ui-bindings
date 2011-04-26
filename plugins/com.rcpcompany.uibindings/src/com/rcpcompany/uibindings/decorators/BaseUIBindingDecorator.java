@@ -31,6 +31,7 @@ import org.eclipse.core.databinding.validation.IValidator;
 import org.eclipse.core.databinding.validation.ValidationStatus;
 import org.eclipse.core.internal.databinding.BindingMessages;
 import org.eclipse.core.internal.databinding.BindingStatus;
+import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Status;
@@ -133,6 +134,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 
 	@Override
 	public void init(IValueBinding binding) {
+		Assert.isNotNull(binding);
 		setBinding(binding);
 	}
 
