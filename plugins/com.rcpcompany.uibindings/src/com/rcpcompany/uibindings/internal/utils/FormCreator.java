@@ -1206,15 +1206,9 @@ public class FormCreator implements IFormCreator {
 			myObjectMessageObjects = new HashSet<IObservableValue>();
 		}
 		if (myObjectMessageObjects.contains(value)) return;
-		final IValueBinding binding = myContext.addBinding().model(value).ui(new VirtualUIAttribute(String.class))
-				.arg(Constants.ARG_VALUE_OBJECT_MESSAGES, true);
-		// value.addDisposeListener(new IDisposeListener() {
-		// @Override
-		// public void handleDispose(DisposeEvent event) {
-		// value.removeDisposeListener(this);
-		// binding.dispose();
-		// }
-		// });
+		final IValueBinding binding = myContext.addBinding();
+		binding.model(value).ui(new VirtualUIAttribute(String.class)).arg(Constants.ARG_VALUE_OBJECT_MESSAGES, true);
+
 		myObjectMessageObjects.add(value);
 	}
 
