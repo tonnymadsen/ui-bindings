@@ -1389,12 +1389,6 @@
                      <test
                            property="com.rcpcompany.uibindings.hasDefaultValue">
                      </test>
-               </with>
-               <with
-                     variable="com.rcpcompany.uibindings.sourceProviders.activeBinding#feature">
-                     <not><test
-                           property="com.rcpcompany.uibindings.hasType" args="boolean,java.lang.Enum">
-                     </test></not>
                </with></and>
          </enabledWhen>
       </handler>
