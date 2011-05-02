@@ -1239,12 +1239,14 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 
 	@Override
 	public IBinding validValues(IObservableList list) {
+		assertTrue(false, "Cannot set validValues");
 		return this;
 	}
 
 	@Override
 	public IBinding validValues(EObject obj, EReference reference) {
-		return null;
+		assertTrue(false, "Cannot set validValues");
+		return this;
 	}
 
 	@Override

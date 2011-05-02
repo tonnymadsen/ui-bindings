@@ -1160,7 +1160,8 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 
 	@Override
 	public IBinding validValues(EObject obj, EReference reference) {
-		return null;
+		assertTrue(false, "Cannot set validValues");
+		return this;
 	}
 
 	@Override
