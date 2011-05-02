@@ -26,8 +26,6 @@ import org.eclipse.core.databinding.observable.IObserving;
 import org.eclipse.core.databinding.observable.Observables;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
-import org.eclipse.core.internal.databinding.observable.ConstantObservableValue;
-import org.eclipse.core.internal.databinding.observable.UnmodifiableObservableValue;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
@@ -77,6 +75,9 @@ import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IValueBindingCell;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.internal.bindingMessages.IContextMessageProvider;
+import com.rcpcompany.uibindings.observables.DisposePendingEvent;
+import com.rcpcompany.uibindings.observables.IDisposePendingListener;
+import com.rcpcompany.uibindings.observables.IDisposePendingObservable;
 import com.rcpcompany.uibindings.uiAttributes.SimpleUIAttribute;
 import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
@@ -478,10 +479,10 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		assertTrue(getStaticDataType() != null, "No data type set"); //$NON-NLS-1$
 		assertTrue(getUIAttribute() != null, "No UI attribute set"); //$NON-NLS-1$
 		assertTrue(getModelObservable() != null, "No model observable set"); //$NON-NLS-1$
+		assertTrue(!getModelObservable().isDisposed(), "Model observable disposed"); //$NON-NLS-1$
 
 		isDynamic = getArgument(ARG_DYNAMIC, Boolean.class, false);
 
-		IManager.Factory.getManager().startMonitorObservableDispose(getModelObservable(), this);
 		final IObservableValue ov = getModelObservableValue();
 		if (ov != null && isDynamic) {
 			myTypeListener = new IChangeListener() {
@@ -520,6 +521,28 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		}
 
 		decorateIfNeeded();
+
+		/*
+		 * This need to be as late in the process as possible! And only for the observables we want
+		 * to dispose later.
+		 */
+		if (getModelObservable() != null) {
+			IManager.Factory.getManager().startMonitorObservableDispose(getModelObservable(), this);
+		}
+		/*
+		 * If we have a model observable that implement the pending interface, we add a listener
+		 * that will dispose the binding as needed...
+		 */
+		if (getModelObservable() instanceof IDisposePendingObservable) {
+			final IDisposePendingObservable dpov = (IDisposePendingObservable) getModelObservable();
+			dpov.addDisposePendingListener(new IDisposePendingListener() {
+				@Override
+				public void disposePending(DisposePendingEvent event) {
+					dpov.removeDisposePendingListener(this);
+					dispose();
+				}
+			});
+		}
 	}
 
 	/**
@@ -639,13 +662,14 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			 * If the model observable is a constant IOV, then this binding must be constant.
 			 */
 			final IObservableValue ov = getModelObservableValue();
-			if (ov instanceof ConstantObservableValue) {
+			final String ovClassName = ov.getClass().getName();
+			if (ovClassName.equals("org.eclipse.core.internal.databinding.observable.ConstantObservableValue")) {
 				if (Activator.getDefault().TRACE_ISCHANGEABLE) {
 					sb = ov + ": constant";
 				}
 				return false;
 			}
-			if (ov instanceof UnmodifiableObservableValue) {
+			if (ovClassName.equals("org.eclipse.core.internal.databinding.observable.UnmodifiableObservableValue")) {
 				if (Activator.getDefault().TRACE_ISCHANGEABLE) {
 					sb = ov + ": unmodifiable";
 				}
@@ -704,17 +728,21 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			}
 			dbBindings.clear();
 		}
-		IManager.Factory.getManager().stopMonitorObservableDispose(getModelObservable());
 		super.dispose();
 		final IObservableValue ov = getModelObservableValue();
 		if (myTypeListener != null && ov != null) {
 			ov.removeChangeListener(myTypeListener);
 			myTypeListener = null;
 		}
+
+		if (getModelObservable() != null) {
+			IManager.Factory.getManager().stopMonitorObservableDispose(getModelObservable());
+		}
 		if (getModelObservable() != null && myModelObservableDispose) {
 			getModelObservable().dispose();
-			setModelObservable(null);
 		}
+		setModelObservable(null);
+
 		if (getUIAttribute() != null) {
 			getUIAttribute().dispose();
 		}
