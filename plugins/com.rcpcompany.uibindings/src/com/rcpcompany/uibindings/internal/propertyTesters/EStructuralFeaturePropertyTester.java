@@ -11,6 +11,7 @@
 package com.rcpcompany.uibindings.internal.propertyTesters;
 
 import org.eclipse.core.expressions.PropertyTester;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import com.rcpcompany.uibindings.Constants;
@@ -19,8 +20,6 @@ import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Property tester for {@link EStructuralFeature}.
- * 
- * TODO TEST
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -36,9 +35,33 @@ public class EStructuralFeaturePropertyTester extends PropertyTester {
 		}
 		final EStructuralFeature sf = (EStructuralFeature) receiver;
 
-		if (Constants.PROPERTY_HAS_DEFAULT_VALUE.equals(property)) return sf.getDefaultValueLiteral() != null;
+		if (Constants.PROPERTY_HAS_DEFAULT_VALUE.equals(property)) {
+			final boolean res = sf.getDefaultValueLiteral() != null;
+			if (Activator.getDefault().TRACE_PROPERTY_TESTERS) {
+				LogUtils.debug(this, "->> " + res);
+			}
+			return res;
+		} else if (Constants.PROPERTY_HAS_TYPE.equals(property)) {
+			if (args.length == 0) {
+				LogUtils.error(this, "Missing arguments for " + Constants.PREFIX + property);
+				return false;
+			}
+			final Class<?> instanceClass = sf.getEType().getInstanceClass();
+			final Class<?>[] sfTypeOrder = Platform.getAdapterManager().computeClassOrder(instanceClass);
+
+			for (final Object s : args) {
+				for (final Class<?> c : sfTypeOrder) {
+					if (c.getName().equals(s)) {
+						if (Activator.getDefault().TRACE_PROPERTY_TESTERS) {
+							LogUtils.debug(this, "->> true (" + instanceClass.getName() + " has super-class " + s + ")");
+						}
+						return true;
+					}
+				}
+			}
+			return false;
+		}
 
 		return false;
 	}
-
 }

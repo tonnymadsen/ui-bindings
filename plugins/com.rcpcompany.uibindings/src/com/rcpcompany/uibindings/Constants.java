@@ -19,6 +19,7 @@ import org.eclipse.core.expressions.EvaluationResult;
 import org.eclipse.core.expressions.Expression;
 import org.eclipse.core.expressions.ExpressionInfo;
 import org.eclipse.core.expressions.IEvaluationContext;
+import org.eclipse.core.runtime.IAdapterManager;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -469,8 +470,19 @@ public interface Constants {
 
 	/**
 	 * Property name used in {@link EStructuralFeaturePropertyTester}.
+	 * <p>
+	 * Tests whether the feature has a default value.
 	 */
 	String PROPERTY_HAS_DEFAULT_VALUE = "hasDefaultValue"; //$NON-NLS-1$
+
+	/**
+	 * Property name used in {@link EStructuralFeaturePropertyTester}.
+	 * <p>
+	 * Tests whether the type of the feature is one of the names supplied as arguments in the test
+	 * element. The test is performed using instanceof via
+	 * {@link IAdapterManager#computeClassOrder(Class)}.
+	 */
+	String PROPERTY_HAS_TYPE = "hasType"; //$NON-NLS-1$
 
 	/**
 	 * Property name used in {@link IViewerBindingPropertyTester}.

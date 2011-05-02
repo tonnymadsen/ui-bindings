@@ -26,24 +26,61 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  */
 public class EStructuralFeaturePropertyTesterTests {
 	@Test
-	public void testPropertyTester() {
+	public void testPropertyTesterHasDefaultValue() {
 		final EStructuralFeaturePropertyTester tester = new EStructuralFeaturePropertyTester();
 
 		assertOneLog(new Runnable() {
 			@Override
 			public void run() {
-				assertFalse(tester.test(ShopPackage.Literals.ORDER, Constants.PROPERTY_HAS_DEFAULT_VALUE, null,
-						new Object[0]));
+				assertFalse(tester.test(ShopPackage.Literals.ORDER, Constants.PROPERTY_HAS_DEFAULT_VALUE,
+						new Object[0], null));
 			}
 		});
 
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
-				assertFalse(tester.test(ShopPackage.Literals.ORDER__PRICE, Constants.PROPERTY_HAS_DEFAULT_VALUE, null,
-						new Object[0]));
+				assertFalse(tester.test(ShopPackage.Literals.ORDER__PRICE, Constants.PROPERTY_HAS_DEFAULT_VALUE,
+						new Object[0], null));
 				assertTrue(tester.test(ShopPackage.Literals.ORDER__DISCOUNT, Constants.PROPERTY_HAS_DEFAULT_VALUE,
-						null, new Object[0]));
+						new Object[0], null));
+			}
+		});
+	}
+
+	@Test
+	public void testPropertyTesterHasType() {
+		final EStructuralFeaturePropertyTester tester = new EStructuralFeaturePropertyTester();
+
+		assertOneLog(new Runnable() {
+			@Override
+			public void run() {
+				assertFalse(tester.test(ShopPackage.Literals.ORDER, Constants.PROPERTY_HAS_TYPE, new Object[0], null));
+			}
+		});
+
+		assertOneLog(new Runnable() {
+			@Override
+			public void run() {
+				/*
+				 * Missing arguments
+				 */
+				assertFalse(tester.test(ShopPackage.Literals.ORDER_ITEM__ID, Constants.PROPERTY_HAS_TYPE,
+						new Object[0], null));
+			}
+		});
+
+		assertNoLog(new Runnable() {
+			@Override
+			public void run() {
+				assertFalse(tester.test(ShopPackage.Literals.ORDER__PRICE, Constants.PROPERTY_HAS_TYPE,
+						new Object[] { "int" }, null));
+				assertTrue(tester.test(ShopPackage.Literals.ORDER__PRICE, Constants.PROPERTY_HAS_TYPE,
+						new Object[] { "float" }, null));
+				assertFalse(tester.test(ShopPackage.Literals.CUSTOMER__LOYALTY, Constants.PROPERTY_HAS_TYPE,
+						new Object[] { "float" }, null));
+				assertTrue(tester.test(ShopPackage.Literals.CUSTOMER__LOYALTY, Constants.PROPERTY_HAS_TYPE,
+						new Object[] { "float", "java.lang.Enum" }, null));
 			}
 		});
 	}

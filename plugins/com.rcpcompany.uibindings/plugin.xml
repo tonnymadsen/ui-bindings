@@ -1386,9 +1386,51 @@
                </with>
                <with
                      variable="com.rcpcompany.uibindings.sourceProviders.activeBinding#feature">
-                  <test
-                        property="com.rcpcompany.uibindings.hasDefaultValue">
-                  </test>
+                     <test
+                           property="com.rcpcompany.uibindings.hasDefaultValue">
+                     </test>
+               </with>
+               <with
+                     variable="com.rcpcompany.uibindings.sourceProviders.activeBinding#feature">
+                     <not><test
+                           property="com.rcpcompany.uibindings.hasType" args="boolean,java.lang.Enum">
+                     </test></not>
+               </with></and>
+         </enabledWhen>
+      </handler>
+      <handler
+            class="com.rcpcompany.uibindings.internal.handlers.UseDefaultValueHandler"
+            commandId="com.rcpcompany.uibindings.commands.UseDefaultValuexxx">
+         <activeWhen>
+            <and>
+               <with
+                     variable="com.rcpcompany.uibindings.sourceProviders.activeBinding">
+                  <instanceof
+                        value="com.rcpcompany.uibindings.IValueBinding">
+                  </instanceof>
+               </with>
+            </and>
+         </activeWhen>
+         <enabledWhen>
+            <and>
+               <with
+                     variable="com.rcpcompany.uibindings.sourceProviders.activeBinding#ro">
+                  <equals
+                        value="false">
+                  </equals>
+               </with>
+               <with
+                     variable="com.rcpcompany.uibindings.sourceProviders.activeBinding#feature">
+                  <and>
+                     <test
+                           property="com.rcpcompany.uibindings.hasDefaultValue">
+                     </test>
+                     <not>
+                        <test
+                              args="boolean,java.lang.Enum"
+                              property="com.rcpcompany.uibindings.hasType">
+                        </test>
+                     </not></and>
                </with></and>
          </enabledWhen>
       </handler>
@@ -1592,7 +1634,7 @@
             class="com.rcpcompany.uibindings.internal.propertyTesters.EStructuralFeaturePropertyTester"
             id="com.rcpcompany.uibindings.internal.propertyTesters.EStructuralFeaturePropertyTester"
             namespace="com.rcpcompany.uibindings"
-            properties="hasDefaultValue"
+            properties="hasDefaultValue,hasType"
             type="org.eclipse.emf.ecore.EStructuralFeature">
       </propertyTester>
       <propertyTester
