@@ -16,7 +16,6 @@ import java.util.Map;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
-import org.eclipse.core.databinding.observable.value.WritableValue;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.swt.SWT;
@@ -31,6 +30,7 @@ import org.eclipse.swt.widgets.Layout;
 import com.rcpcompany.uibindings.BindingState;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingContext.FinishOption;
+import com.rcpcompany.uibindings.observables.DisposePendingWritableValue;
 import com.rcpcompany.uibindings.utils.IFormChooser;
 import com.rcpcompany.uibindings.utils.IFormChooserCreator;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -54,7 +54,7 @@ public class FormChooser implements IFormChooser {
 	/**
 	 * Proxy for {@link #myDiscriminant}, that prevents propergation of dispose.
 	 */
-	protected IObservableValue myChildDiscriminant;
+	protected DisposePendingWritableValue myChildDiscriminant;
 
 	/**
 	 * The top {@link Composite} for all children created by the choosers.
@@ -151,7 +151,7 @@ public class FormChooser implements IFormChooser {
 		myCurrentCreator = creator;
 		if (myCurrentCreator != null) {
 			try {
-				myChildDiscriminant = WritableValue.withValueType(myDiscriminant.getValueType());
+				myChildDiscriminant = DisposePendingWritableValue.withValueType(myDiscriminant.getValueType());
 				myChildDiscriminant.setValue(myDiscriminant.getValue());
 				myCurrentCreator.createForm(myContext, myChildDiscriminant, myTop);
 			} catch (final Exception ex) {
@@ -246,7 +246,10 @@ public class FormChooser implements IFormChooser {
 			myTop.setRedraw(true);
 		}
 		myCurrentCreator = null;
-		if (myChildDiscriminant != null) {
+		if (myChildDiscriminant != null && !myChildDiscriminant.isDisposed()) {
+			myChildDiscriminant.fireDisposePending();
+		}
+		if (myChildDiscriminant != null && !myChildDiscriminant.isDisposed()) {
 			myChildDiscriminant.dispose();
 			myChildDiscriminant = null;
 		}
