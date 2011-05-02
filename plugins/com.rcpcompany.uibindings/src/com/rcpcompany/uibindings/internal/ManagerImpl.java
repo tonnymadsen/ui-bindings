@@ -3565,8 +3565,27 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	/**
 	 * Map with all monitored {@link IObservable} with a translation to the corresponding object
 	 * that uses this object, if any...
+	 * 
+	 * Unfortunately we cannot use {@link IObservable} as the direct key due to bug <a
+	 * href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=341999">341999</a>: [DataBinding]+ *
+	 * DecoratingObservable.hashCode() should not depend on decorated OV
 	 */
-	private Map<IObservable, Object> myMonitoredObservablesMap = null;
+	private Map<Integer, MonitoredObservableInfo> myMonitoredObservablesMap = null;
+
+	private class MonitoredObservableInfo {
+		public MonitoredObservableInfo(IObservable source, Object observing) {
+			this.sourceInfo = "" + source;
+			this.observing = observing;
+
+			final Throwable cp = new Throwable();
+			cp.fillInStackTrace();
+			startPoint = cp;
+		}
+
+		public final String sourceInfo;
+		public final Object observing;
+		public final Throwable startPoint;
+	}
 
 	/*
 	 * TODO: Too important.. Needs a test..
@@ -3576,32 +3595,42 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		if (!Activator.getDefault().ASSERTS_PREMATURE_DISPOSE || obj == null) return;
 
 		if (myMonitorObservableDisposeListener == null) {
-			myMonitoredObservablesMap = new HashMap<IObservable, Object>();
+			myMonitoredObservablesMap = new HashMap<Integer, MonitoredObservableInfo>();
 			myMonitorObservableDisposeListener = new IDisposeListener() {
-
 				@Override
 				public void handleDispose(DisposeEvent event) {
+					final MonitoredObservableInfo info = myMonitoredObservablesMap.get(System.identityHashCode(event
+							.getSource()));
+					/*
+					 * Might already be removed by a listener prior in the listenerList
+					 */
+					if (info == null) return;
+					final Object observing = info.observing;
 					final int oldLevels = LogUtils.DEBUG_STRACK_LEVELS;
-					LogUtils.DEBUG_STRACK_LEVELS = 10;
-					Object source = event.getSource();
-					final Object observing = myMonitoredObservablesMap.get(source);
-					if (source instanceof IObservable && ((IObservable) source).isDisposed()) {
-						source = "DISPOSED " + source.getClass().getSimpleName();
+					try {
+						LogUtils.DEBUG_STRACK_LEVELS = 10;
+						LogUtils.error(event.getSource(), "PREMATURE DISPOSAL: " + info.sourceInfo + "\nby "
+								+ observing, info.startPoint);
+					} finally {
+						LogUtils.DEBUG_STRACK_LEVELS = oldLevels;
 					}
-					LogUtils.error(source, "PREMATURE DISPOSAL: " + source + "\nby " + observing);
-					LogUtils.DEBUG_STRACK_LEVELS = oldLevels;
 				}
 			};
 		}
 
-		myMonitoredObservablesMap.put(obj, observing);
+		if (myMonitoredObservablesMap.containsKey(System.identityHashCode(obj))) {
+			LogUtils.error(obj, "Object already monitored. Ignored...");
+			return;
+		}
+		final MonitoredObservableInfo info = new MonitoredObservableInfo(obj, observing);
+		myMonitoredObservablesMap.put(System.identityHashCode(obj), info);
 		obj.addDisposeListener(myMonitorObservableDisposeListener);
 	}
 
 	@Override
 	public void stopMonitorObservableDispose(IObservable obj) {
 		if (!Activator.getDefault().ASSERTS_PREMATURE_DISPOSE || obj == null) return;
-		myMonitoredObservablesMap.remove(obj);
+		myMonitoredObservablesMap.remove(System.identityHashCode(obj));
 		obj.removeDisposeListener(myMonitorObservableDisposeListener);
 	}
 
