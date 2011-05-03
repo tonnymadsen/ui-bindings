@@ -329,6 +329,14 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		myDecoratedValue = null;
 		final Binding uiToDecoratedDB;
 		if (uiAttributeValue.getValueType() == String.class) {
+			/*
+			 * TODO figure out if we can avoid this extra IOV. Only use if any of the following is
+			 * true
+			 * 
+			 * - the binding is dynamic
+			 * 
+			 * - the type is String and a messages is specified
+			 */
 			myDecoratedValue = WritableValue.withValueType(String.class);
 			myDecoratedValue.setValue(""); //$NON-NLS-1$
 			myFormattedValue = new MessageFormatObservableValue(myDecoratedValue, null);
@@ -350,10 +358,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 			myValueChangeListener = new IValueChangeListener() {
 				@Override
 				public void handleValueChange(ValueChangeEvent event) {
-					final Object oldValue = event.diff.getOldValue();
-					final Object newValue = event.diff.getNewValue();
-					if (oldValue == newValue) return;
-					if (oldValue != null && oldValue.equals(newValue)) return;
+					if (UIBindingsUtils.equals(event.diff.getOldValue(), event.diff.getNewValue())) return;
 					if (uiToDecoratedDB != null) {
 						uiToDecoratedDB.updateTargetToModel();
 					}
