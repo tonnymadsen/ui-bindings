@@ -65,6 +65,8 @@ public interface IUIBindingDecorator extends EObject, IDisposable {
 	 * then be used to monitor changes to these features.
 	 * <p>
 	 * The value itself of the returned observable value is <em>not</em> used.
+	 * <p>
+	 * A decorator must return the same observable every time called.
 	 * 
 	 * @param value the observable value of the specific binding
 	 * 
