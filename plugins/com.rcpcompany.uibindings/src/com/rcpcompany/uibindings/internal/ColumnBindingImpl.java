@@ -202,7 +202,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 				 * This binding is finished before first use by the context...
 				 */
 				private final IValueBinding dummyBinding = getContext().addBinding().ui(dummyAttribute).model(dummyOV)
-						.dynamic();
+						.dynamic().arg("dummyBinding", true);
 
 				private final IObservableValue myOV = Observables.constantObservableValue("...",
 						EcorePackage.Literals.ESTRING);
@@ -274,6 +274,15 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 						// LogUtils.debug(ColumnBindingImpl.this, "Default mapper for '" + target +
 						// "'");
 					}
+
+					/*
+					 * Remove the reference from the dummy to the object again. This will clean up a
+					 * lot of internal structures, and also make debugging a lot easier!!!
+					 */
+					dummyOV.setValue(null);
+					dummyBinding.getExtraArgumentProviders().clear();
+					dummyBinding.clearCachedArguments();
+
 					final IObservableValue ov = Observables.constantObservableValue(eobj, ec);
 					return new MapperObservableValue(ov, getContext().getEditingDomain(), mapper);
 				}

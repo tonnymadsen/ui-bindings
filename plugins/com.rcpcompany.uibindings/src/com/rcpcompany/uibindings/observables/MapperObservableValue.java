@@ -29,7 +29,7 @@ import com.rcpcompany.uibindings.UIBindingsUtils.IClassIdentiferMapper;
  */
 public class MapperObservableValue extends AbstractObservableValue implements IObserving {
 
-	private final IValueChangeListener listener = new IValueChangeListener() {
+	private final IValueChangeListener myListener = new IValueChangeListener() {
 		@Override
 		public void handleValueChange(ValueChangeEvent event) {
 			updateValue();
@@ -67,7 +67,7 @@ public class MapperObservableValue extends AbstractObservableValue implements IO
 	protected void firstListenerAdded() {
 		super.firstListenerAdded();
 		if (myCurrentOV != null) {
-			myCurrentOV.addValueChangeListener(listener);
+			myCurrentOV.addValueChangeListener(myListener);
 		}
 	}
 
@@ -75,7 +75,7 @@ public class MapperObservableValue extends AbstractObservableValue implements IO
 	protected void lastListenerRemoved() {
 		super.lastListenerRemoved();
 		if (myCurrentOV != null) {
-			myCurrentOV.removeValueChangeListener(listener);
+			myCurrentOV.removeValueChangeListener(myListener);
 		}
 	}
 
@@ -87,19 +87,20 @@ public class MapperObservableValue extends AbstractObservableValue implements IO
 	 */
 	protected void updateValue() {
 		final IObservableValue ov = myMapper.getObservableValue(myBaseObject, myEditingDomain);
-		if (UIBindingsUtils.equals(ov, myCurrentOV)) return;
-		if (hasListeners()) {
+		if (!UIBindingsUtils.equals(ov, myCurrentOV)) {
+			if (hasListeners()) {
+				if (myCurrentOV != null) {
+					myCurrentOV.removeValueChangeListener(myListener);
+				}
+				if (ov != null) {
+					ov.addValueChangeListener(myListener);
+				}
+			}
 			if (myCurrentOV != null) {
-				myCurrentOV.removeValueChangeListener(listener);
+				myCurrentOV.dispose();
 			}
-			if (ov != null) {
-				ov.addValueChangeListener(listener);
-			}
+			myCurrentOV = ov;
 		}
-		if (myCurrentOV != null) {
-			myCurrentOV.dispose();
-		}
-		myCurrentOV = ov;
 		final Object v = myMapper.map(myBaseObject.getValue());
 		if (UIBindingsUtils.equals(v, myCurrentValue)) return;
 
