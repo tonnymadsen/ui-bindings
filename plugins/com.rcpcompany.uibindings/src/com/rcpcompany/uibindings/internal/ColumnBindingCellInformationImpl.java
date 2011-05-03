@@ -197,6 +197,10 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 		return new Point(columnNo, rowNo);
 	}
 
+	/**
+	 * Listener used to on the {@link IUIAttribute} to monitor for changes that should provoke an
+	 * update of the cell.
+	 */
 	protected final IChangeListener myAttributeValueListener = new IChangeListener() {
 		@Override
 		public void handleChange(ChangeEvent event) {
