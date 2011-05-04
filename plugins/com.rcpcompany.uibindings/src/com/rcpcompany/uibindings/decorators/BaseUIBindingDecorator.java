@@ -471,19 +471,18 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		 */
 		if (control != null) {
 			// bind help ID
-			String value;
-			value = binding.getArgument(Constants.ARG_HELP_ID, String.class, null);
+			final String value = binding.getArgument(Constants.ARG_HELP_ID, String.class, null);
 			if (value != null) {
 				PlatformUI.getWorkbench().getHelpSystem().setHelp(control, value);
 			}
+		}
 
-			// bind tool tip
-			value = binding.getArgument(Constants.ARG_TOOL_TIP_TEXT, String.class, null);
-			if (value != null) {
-				final IObservableValue tooltipValue = getBinding().getUIAttribute().getTooltipValue();
-				if (tooltipValue != null) {
-					tooltipValue.setValue(value);
-				}
+		// bind tool tip
+		final String value = binding.getArgument(Constants.ARG_TOOL_TIP_TEXT, String.class, null);
+		if (value != null) {
+			final IObservableValue tooltipValue = getBinding().getUIAttribute().getTooltipValue();
+			if (tooltipValue != null) {
+				tooltipValue.setValue(value);
 			}
 		}
 	}
