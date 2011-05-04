@@ -323,7 +323,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		 * Then bind the value
 		 * 
 		 * Note that if we have to do two bindings, then we need to bind the model side first as the
-		 * ui side will otherwise always be null the first time, which may not be a valid value
+		 * UI side will otherwise always be null the first time, which may not be a valid value
 		 */
 		final IObservableValue uiAttributeValue = attribute.getCurrentValue();
 		myDecoratedValue = null;
@@ -482,7 +482,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 			if (value != null) {
 				final IObservableValue tooltipValue = getBinding().getUIAttribute().getTooltipValue();
 				if (tooltipValue != null) {
-					control.setToolTipText(value);
+					tooltipValue.setValue(value);
 				}
 			}
 		}
