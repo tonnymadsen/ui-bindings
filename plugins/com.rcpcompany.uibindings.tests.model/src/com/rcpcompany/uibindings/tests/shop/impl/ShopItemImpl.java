@@ -10,8 +10,12 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.tests.shop.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -47,6 +51,8 @@ import com.rcpcompany.uibindings.tests.shop.util.ShopValidator;
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemImpl#getShop <em>Shop</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemImpl#getPrice <em>Price</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemImpl#getAdvancedPrice <em>Advanced
+ * Price</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemImpl#getOrderItems <em>Order Items
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.impl.ShopItemImpl#isForSale <em>For Sale</em>}</li>
@@ -82,6 +88,26 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 	 * @ordered
 	 */
 	protected float price = PRICE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAdvancedPrice() <em>Advanced Price</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getAdvancedPrice()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ADVANCED_PRICE_EDEFAULT = "\"\"";
+
+	/**
+	 * The cached value of the '{@link #getAdvancedPrice() <em>Advanced Price</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getAdvancedPrice()
+	 * @generated
+	 * @ordered
+	 */
+	protected String advancedPrice = ADVANCED_PRICE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getOrderItems() <em>Order Items</em>}' reference list. <!--
@@ -193,6 +219,31 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 		price = newPrice;
 		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_ITEM__PRICE, oldPrice, price));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String getAdvancedPrice() {
+		return advancedPrice;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setAdvancedPrice(String newAdvancedPrice) {
+		final String oldAdvancedPrice = advancedPrice;
+		advancedPrice = newAdvancedPrice;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_ITEM__ADVANCED_PRICE,
+					oldAdvancedPrice, advancedPrice));
 		}
 	}
 
@@ -490,6 +541,44 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 		return true;
 	}
 
+	@Override
+	public boolean isValid(DiagnosticChain diagnostic, Map<Object, Object> context) {
+		boolean valid = super.isValid(diagnostic, context);
+
+		/*
+		 * First build a map with the names of the columns versus the columns with that name
+		 */
+		final Map<String, List<ShopItemProperties>> names = new HashMap<String, List<ShopItemProperties>>();
+
+		for (final ShopItemProperties tc : getProperties()) {
+			List<ShopItemProperties> tcList = names.get(tc.getName());
+			if (tcList == null) {
+				tcList = new ArrayList<ShopItemProperties>();
+				names.put(tc.getName(), tcList);
+			}
+			tcList.add(tc);
+		}
+
+		/*
+		 * Then check that only only property exists for each
+		 */
+		for (final Entry<String, List<ShopItemProperties>> entry : names.entrySet()) {
+			if (entry.getValue().size() == 1) {
+				continue;
+			}
+
+			final List<Object> data = new ArrayList<Object>();
+			for (final ShopItemProperties tc : entry.getValue()) {
+				data.add(new Object[] { this, ShopPackage.Literals.SHOP_ITEM__PROPERTIES, getProperties().indexOf(tc) });
+			}
+			EValidatorAdapterUtils.addDiagnostic(diagnostic, ShopPackage.eNS_URI, 1000, Diagnostic.ERROR,
+					"Multiple properties named '" + entry.getKey() + "'", data.toArray());
+			valid = false;
+		}
+
+		return valid;
+	}
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -566,6 +655,8 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 			return getShop();
 		case ShopPackage.SHOP_ITEM__PRICE:
 			return getPrice();
+		case ShopPackage.SHOP_ITEM__ADVANCED_PRICE:
+			return getAdvancedPrice();
 		case ShopPackage.SHOP_ITEM__ORDER_ITEMS:
 			return getOrderItems();
 		case ShopPackage.SHOP_ITEM__FOR_SALE:
@@ -597,6 +688,9 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 			return;
 		case ShopPackage.SHOP_ITEM__PRICE:
 			setPrice((Float) newValue);
+			return;
+		case ShopPackage.SHOP_ITEM__ADVANCED_PRICE:
+			setAdvancedPrice((String) newValue);
 			return;
 		case ShopPackage.SHOP_ITEM__ORDER_ITEMS:
 			getOrderItems().clear();
@@ -637,6 +731,9 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 		case ShopPackage.SHOP_ITEM__PRICE:
 			setPrice(PRICE_EDEFAULT);
 			return;
+		case ShopPackage.SHOP_ITEM__ADVANCED_PRICE:
+			setAdvancedPrice(ADVANCED_PRICE_EDEFAULT);
+			return;
 		case ShopPackage.SHOP_ITEM__ORDER_ITEMS:
 			getOrderItems().clear();
 			return;
@@ -671,6 +768,9 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 			return getShop() != null;
 		case ShopPackage.SHOP_ITEM__PRICE:
 			return price != PRICE_EDEFAULT;
+		case ShopPackage.SHOP_ITEM__ADVANCED_PRICE:
+			return ADVANCED_PRICE_EDEFAULT == null ? advancedPrice != null : !ADVANCED_PRICE_EDEFAULT
+					.equals(advancedPrice);
 		case ShopPackage.SHOP_ITEM__ORDER_ITEMS:
 			return orderItems != null && !orderItems.isEmpty();
 		case ShopPackage.SHOP_ITEM__FOR_SALE:
@@ -699,6 +799,8 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (price: ");
 		result.append(price);
+		result.append(", advancedPrice: ");
+		result.append(advancedPrice);
 		result.append(", forSale: ");
 		result.append(forSale);
 		result.append(", locations: ");

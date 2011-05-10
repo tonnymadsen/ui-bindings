@@ -419,13 +419,22 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM__PRICE = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Advanced Price</b></em>' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_ITEM__ADVANCED_PRICE = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Order Items</b></em>' reference list. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM__ORDER_ITEMS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 2;
+	int SHOP_ITEM__ORDER_ITEMS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>For Sale</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -434,7 +443,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM__FOR_SALE = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 3;
+	int SHOP_ITEM__FOR_SALE = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Information</b></em>' containment reference. <!--
@@ -443,7 +452,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM__INFORMATION = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 4;
+	int SHOP_ITEM__INFORMATION = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Group</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -452,7 +461,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM__GROUP = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 5;
+	int SHOP_ITEM__GROUP = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Locations</b></em>' attribute list. <!-- begin-user-doc -->
@@ -461,7 +470,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM__LOCATIONS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 6;
+	int SHOP_ITEM__LOCATIONS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference list. <!--
@@ -470,7 +479,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM__PROPERTIES = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 7;
+	int SHOP_ITEM__PROPERTIES = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Item</em>' class. <!-- begin-user-doc --> <!--
@@ -479,7 +488,7 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 8;
+	int SHOP_ITEM_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '
@@ -1631,6 +1640,18 @@ public interface ShopPackage extends EPackage {
 	EAttribute getShopItem_Price();
 
 	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItem#getAdvancedPrice
+	 * <em>Advanced Price</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Advanced Price</em>'.
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopItem#getAdvancedPrice()
+	 * @see #getShopItem()
+	 * @generated
+	 */
+	EAttribute getShopItem_AdvancedPrice();
+
+	/**
 	 * Returns the meta object for the container reference '
 	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItem#getShop <em>Shop</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -2473,6 +2494,14 @@ public interface ShopPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SHOP_ITEM__PRICE = eINSTANCE.getShopItem_Price();
+
+		/**
+		 * The meta object literal for the '<em><b>Advanced Price</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute SHOP_ITEM__ADVANCED_PRICE = eINSTANCE.getShopItem_AdvancedPrice();
 
 		/**
 		 * The meta object literal for the '<em><b>Shop</b></em>' container reference feature. <!--

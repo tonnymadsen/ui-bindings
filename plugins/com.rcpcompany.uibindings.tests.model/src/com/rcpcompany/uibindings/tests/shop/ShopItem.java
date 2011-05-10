@@ -26,6 +26,8 @@ import com.rcpcompany.uibindings.moao.INamedObject;
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getShop <em>Shop</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getPrice <em>Price</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getAdvancedPrice <em>Advanced Price
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getOrderItems <em>Order Items</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.ShopItem#isForSale <em>For Sale</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getInformation <em>Information</em>}</li>
@@ -63,6 +65,32 @@ public interface ShopItem extends INamedObject {
 	 * @generated
 	 */
 	void setPrice(float value);
+
+	/**
+	 * Returns the value of the '<em><b>Advanced Price</b></em>' attribute. The default value is
+	 * <code>"\"\""</code>. <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Advanced Price</em>' attribute isn't clear, there really should be
+	 * more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Advanced Price</em>' attribute.
+	 * @see #setAdvancedPrice(String)
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItem_AdvancedPrice()
+	 * @generated
+	 */
+	String getAdvancedPrice();
+
+	/**
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getAdvancedPrice
+	 * <em>Advanced Price</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value the new value of the '<em>Advanced Price</em>' attribute.
+	 * @see #getAdvancedPrice()
+	 * @generated
+	 */
+	void setAdvancedPrice(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Shop</b></em>' container reference. It is bidirectional and
