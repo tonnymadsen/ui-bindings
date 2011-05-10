@@ -47,6 +47,14 @@
             </message_arguments>
         </filter>
     </resource>
+    <resource path="src/com/rcpcompany/uibindings/observables/IDisposePendingListener.java" type="com.rcpcompany.uibindings.observables.IDisposePendingListener">
+        <filter id="571473929">
+            <message_arguments>
+                <message_argument value="IObservablesListener"/>
+                <message_argument value="IDisposePendingListener"/>
+            </message_arguments>
+        </filter>
+    </resource>
     <resource path="src/com/rcpcompany/uibindings/quixkfixes/AbstractQuickfixProposal.java" type="com.rcpcompany.uibindings.quixkfixes.AbstractQuickfixProposal">
         <filter comment="Abstract public version of EMF" id="576720909">
             <message_arguments>
