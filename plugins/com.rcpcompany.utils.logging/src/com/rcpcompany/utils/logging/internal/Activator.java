@@ -10,6 +10,9 @@
  *******************************************************************************/
 package com.rcpcompany.utils.logging.internal;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
@@ -59,10 +62,25 @@ public class Activator extends Plugin {
 
 	/* ===================================================================== */
 
+	/**
+	 * List of all installed log bridges.
+	 */
+	private final List<ILogBridge> myInstalledLogBridges = new ArrayList<ILogBridge>();
+
+	/* ===================================================================== */
+
 	@Override
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		myContext = context;
+
+		if (Class.forName("java.util.logging.Logger") != null) {
+			myInstalledLogBridges.add(new LoggerBridge());
+		}
+
+		if (Class.forName("org.apache.log4j.Logger") != null) {
+			myInstalledLogBridges.add(new Log4JBridge());
+		}
 
 		if (isDebugging()) {
 
@@ -86,6 +104,12 @@ public class Activator extends Plugin {
 	@Override
 	public void stop(BundleContext context) throws Exception {
 		super.stop(context);
+
+		for (final ILogBridge lb : myInstalledLogBridges) {
+			lb.dispose();
+		}
+		myInstalledLogBridges.clear();
+
 		assert context == myContext;
 		myContext = null;
 	}
