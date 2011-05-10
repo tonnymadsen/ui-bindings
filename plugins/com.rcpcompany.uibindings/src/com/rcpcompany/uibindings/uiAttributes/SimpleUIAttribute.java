@@ -37,7 +37,7 @@ import org.eclipse.swt.widgets.Widget;
 
 import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.internal.observables.ControlCursorObservableValue;
-import com.rcpcompany.uibindings.internal.observables.StyledTextRangesObservableList;
+import com.rcpcompany.uibindings.observables.StyledTextRangesObservableList;
 
 /**
  * Simple {@link IUIAttribute} implementations used when control, attribute and observable value is

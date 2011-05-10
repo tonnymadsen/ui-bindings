@@ -48,6 +48,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Widget;
+import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.services.IServiceLocator;
@@ -451,6 +452,13 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	@Override
 	public IServiceLocator getServiceLocator() {
 		IServiceLocator sl = getServiceLocatorGen();
+		if (sl == null) {
+			final IWorkbenchPart activePart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+					.getActivePart();
+			if (activePart != null) {
+				sl = activePart.getSite();
+			}
+		}
 		if (sl == null) {
 			sl = PlatformUI.getWorkbench();
 		}

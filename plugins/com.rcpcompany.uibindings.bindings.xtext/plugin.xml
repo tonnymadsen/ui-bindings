@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="com.rcpcompany.uibindings.uiBindings">
+      <bindingDecorator
+            exactModelTypeMatch="false"
+            id="com.rcpcompany.uibindings.bindings.xtext"
+            type="xtext">
+         <uiType
+               alsoPrimitive="false"
+               class="java.lang.String">
+         </uiType>
+         <modelType
+               alsoPrimitive="true"
+               class="java.lang.String">
+         </modelType>
+         <javaDecorator
+               class="com.rcpcompany.uibindings.bindings.xtext.bindingDecorators.XTextEditorBindingDecorator">
+         </javaDecorator>
+      </bindingDecorator>
+      <argumentInfo
+            lookupReferenceTargetType="false"
+            name="xtextInjectorModule">
+      </argumentInfo>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+   </extension>
+   <extension
+         point="org.eclipse.ui.contexts">
+      <context
+            description="UI Bindings: XText Editor Context"
+            id="com.rcpcompany.uibindings.bindings.xtext.contexts.xtextEditorContext"
+            name="UI Bindings: XText Editor Context"
+            parentId="com.rcpcompany.uibindings.contexts.baseContext">
+      </context>
+   </extension>
+
+</plugin>

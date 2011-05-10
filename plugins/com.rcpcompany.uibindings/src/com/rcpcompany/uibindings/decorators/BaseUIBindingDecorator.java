@@ -44,6 +44,7 @@ import org.eclipse.jface.fieldassist.IControlContentAdapter;
 import org.eclipse.jface.fieldassist.SimpleContentProposalProvider;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyleRange;
+import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.FocusListener;
 import org.eclipse.swt.graphics.Color;
@@ -136,6 +137,11 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 	public void init(IValueBinding binding) {
 		Assert.isNotNull(binding);
 		setBinding(binding);
+	}
+
+	@Override
+	public void setBinding(IValueBinding newBinding) {
+		super.setBinding(newBinding);
 	}
 
 	@Override
@@ -237,7 +243,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 	@Override
 	public void decorate() {
 		final IValueBinding binding = getBinding();
-		final Control control = binding.getControl();
+		final Control control = getUIAttributeControl();
 		final IUIAttribute attribute = binding.getUIAttribute();
 
 		final IObservableValue modelValue = binding.getModelObservableValue();
@@ -280,7 +286,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 				uiToModelUpdateStrategy.setBeforeSetValidator(new IValidator() {
 					@Override
 					public IStatus validate(Object value) {
-						if (value == null || "".equals(value)) return ValidationStatus.error("Value is required"); //$NON-NLS-1$
+						if (value == null || "".equals(value)) return ValidationStatus.error("Value is required");
 						return Status.OK_STATUS;
 					}
 				});
@@ -298,7 +304,13 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 					final Text t = (Text) control;
 					if (t.getEditable()) {
 						t.setEditable(false);
-						LogUtils.debug(getBinding(), getBinding() + ": set to not editable");
+						LogUtils.debug(getBinding(), getBinding() + ": set to not editable"); //$NON-NLS-1$
+					}
+				} else if (control instanceof StyledText) {
+					final StyledText t = (StyledText) control;
+					if (t.getEditable()) {
+						t.setEditable(false);
+						LogUtils.debug(getBinding(), getBinding() + ": set to not editable"); //$NON-NLS-1$
 					}
 				} else {
 					if ((control.getStyle() & SWT.READ_ONLY) != SWT.READ_ONLY) {
@@ -325,7 +337,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		 * Note that if we have to do two bindings, then we need to bind the model side first as the
 		 * UI side will otherwise always be null the first time, which may not be a valid value
 		 */
-		final IObservableValue uiAttributeValue = attribute.getCurrentValue();
+		final IObservableValue uiAttributeValue = getUIAttributeValue();
 		myDecoratedValue = null;
 		final Binding uiToDecoratedDB;
 		if (uiAttributeValue.getValueType() == String.class) {
@@ -374,7 +386,6 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 						IManagerRunnable.Factory.asyncExec("update", binding, new Runnable() {
 							@Override
 							public void run() {
-								if (control.isDisposed()) return;
 								binding.updateUI();
 							}
 						});
@@ -460,11 +471,35 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 	}
 
 	/**
+	 * Returns the UI Attribute value to use for the binding.
+	 * <p>
+	 * Meant to be overriden in specific decorators if the real binding is different that the value
+	 * of the UI attribute of the binding.
+	 * 
+	 * @return the {@link IObservableValue} to bind
+	 */
+	public IObservableValue getUIAttributeValue() {
+		return getBinding().getUIAttribute().getCurrentValue();
+	}
+
+	/**
+	 * Returns the Control to use for the binding.
+	 * <p>
+	 * Meant to be overriden in specific decorators if the real binding is different that the value
+	 * of the UI attribute of the binding.
+	 * 
+	 * @return the {@link IObservableValue} to bind
+	 */
+	public Control getUIAttributeControl() {
+		return getBinding().getControl();
+	}
+
+	/**
 	 * Decorates the binding with misc things like help, tooltip, etc.
 	 */
 	public void decorateMisc() {
 		final IValueBinding binding = getBinding();
-		final Control control = binding.getControl();
+		final Control control = getUIAttributeControl();
 
 		/**
 		 * The following is only relevant if an control exists!

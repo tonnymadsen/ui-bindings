@@ -172,6 +172,9 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 
 	/**
 	 * The UI Context service.
+	 * 
+	 * 
+	 * TODO: the the context service via the current IBindingContext
 	 */
 	private final IContextService myContextService = (IContextService) PlatformUI.getWorkbench().getService(
 			IContextService.class);
