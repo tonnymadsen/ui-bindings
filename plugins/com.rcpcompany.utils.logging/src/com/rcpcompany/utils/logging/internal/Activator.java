@@ -74,12 +74,18 @@ public class Activator extends Plugin {
 		super.start(context);
 		myContext = context;
 
-		if (Class.forName("java.util.logging.Logger") != null) {
-			myInstalledLogBridges.add(new LoggerBridge());
+		try {
+			if (Class.forName("java.util.logging.Logger") != null) {
+				myInstalledLogBridges.add(new LoggerBridge());
+			}
+		} catch (final ClassNotFoundException ex) {
 		}
 
-		if (Class.forName("org.apache.log4j.Logger") != null) {
-			myInstalledLogBridges.add(new Log4JBridge());
+		try {
+			if (Class.forName("org.apache.log4j.Logger") != null) {
+				myInstalledLogBridges.add(new Log4JBridge());
+			}
+		} catch (final ClassNotFoundException ex) {
 		}
 
 		if (isDebugging()) {
