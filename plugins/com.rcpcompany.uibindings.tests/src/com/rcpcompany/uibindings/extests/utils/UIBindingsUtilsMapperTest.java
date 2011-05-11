@@ -31,6 +31,7 @@ import org.junit.runners.Parameterized.Parameters;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
+import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.UIBindingsUtils.IClassIdentiferMapper;
@@ -144,6 +145,13 @@ public class UIBindingsUtilsMapperTest {
 
 				assertEquals(myResult + "-2", mapper.map(myContact));
 				assertEquals(myResult + "-2", value.getValue());
+
+				if (mapper instanceof IDisposable) {
+					((IDisposable) mapper).dispose();
+					if (value != myBinding.getModelObservableValue()) {
+						assertTrue(value.isDisposed());
+					}
+				}
 			}
 		});
 	}
