@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingDataType;
+import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.IUIBindingDecorator;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.UIBindingsUtils;
@@ -70,9 +71,13 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 	@Override
 	public IObservableValue getDisplayObservableValue(IObservableValue value) {
 		if (myClassIdentiferMapper != null) {
-			final IObservableValue ov = myClassIdentiferMapper.getObservableValue(value, getBinding().getContext()
-					.getEditingDomain());
-			if (ov != null) return ov;
+			try {
+				final IObservableValue ov = myClassIdentiferMapper.getObservableValue(value, getBinding().getContext()
+						.getEditingDomain());
+				if (ov != null) return ov;
+			} catch (final Exception ex) {
+				LogUtils.error(myClassIdentiferMapper, ex);
+			}
 		}
 		return super.getDisplayObservableValue(value);
 	}
@@ -96,6 +101,14 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 			myClassIdentiferMapper = UIBindingsUtils.createClassIdentiferMapper(getBinding(), (EClass) type);
 		}
 		deduceValidValues();
+	}
+
+	@Override
+	public void dispose() {
+		if (myClassIdentiferMapper instanceof IDisposable) {
+			((IDisposable) myClassIdentiferMapper).dispose();
+		}
+		super.dispose();
 	}
 
 	/**
@@ -148,6 +161,9 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 	@Override
 	protected Object convertModelToUI(Object fromObject) {
 		if (myClassIdentiferMapper == null) return myNullLabel;
+		/*
+		 * Any exception just falls through
+		 */
 		final Object o = myClassIdentiferMapper.map(fromObject);
 		return o != null ? o.toString() : myNullLabel;
 	}

@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import com.rcpcompany.uibindings.IManager;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * An {@link IObservableList observable list} that given an observed list and a mapper object, will
@@ -90,7 +91,13 @@ public class EMFListAttributeList extends WritableList implements IObserving {
 					final int index = myObjectList.indexOf(msg.getNotifier());
 					if (index == -1) return;
 					final Object oldValue = get(index);
-					final Object newValue = myMapper.map(msg.getNotifier());
+					Object newValue;
+					try {
+						newValue = myMapper.map(msg.getNotifier());
+					} catch (final Exception ex) {
+						newValue = null;
+						LogUtils.error(myMapper, ex);
+					}
 					if (newValue == null ? oldValue == null : newValue.equals(oldValue)) return;
 					set(index, newValue);
 				}
@@ -102,7 +109,7 @@ public class EMFListAttributeList extends WritableList implements IObserving {
 		private final ListDiffVisitor visitor = new ListDiffVisitor() {
 			@Override
 			public void handleRemove(int index, Object element) {
-				if (element != null) {
+				if (element != null && hasListeners()) {
 					((EObject) element).eAdapters().remove(myFeatureMonitor);
 				}
 				remove(index);
@@ -110,8 +117,15 @@ public class EMFListAttributeList extends WritableList implements IObserving {
 
 			@Override
 			public void handleAdd(int index, Object element) {
-				add(index, myMapper.map(element));
-				if (element != null) {
+				Object v;
+				try {
+					v = myMapper.map(element);
+				} catch (final Exception ex) {
+					LogUtils.error(myMapper, ex);
+					v = null;
+				}
+				add(index, v);
+				if (element != null && hasListeners()) {
 					((EObject) element).eAdapters().add(myFeatureMonitor);
 				}
 			}
@@ -127,7 +141,14 @@ public class EMFListAttributeList extends WritableList implements IObserving {
 		IManager.Factory.getManager().startMonitorObservableDispose(myObjectList, this);
 		for (final Object o : myObjectList) {
 			final EObject obj = (EObject) o;
-			add(myMapper.map(obj));
+			Object v;
+			try {
+				v = myMapper.map(obj);
+			} catch (final Exception ex) {
+				LogUtils.error(myMapper, ex);
+				v = null;
+			}
+			add(v);
 		}
 	}
 

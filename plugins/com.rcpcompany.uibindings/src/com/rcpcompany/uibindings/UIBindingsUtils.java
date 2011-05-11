@@ -528,6 +528,8 @@ public final class UIBindingsUtils {
 
 	/**
 	 * Interface used to map an {@link EObject} to the identifier attribute of the object.
+	 * <p>
+	 * An implementation can also implement {@link IDisposable}.
 	 * 
 	 * @see GenericEObjectDecorator
 	 * @author Tonny Madsen, The RCP Company
@@ -658,7 +660,7 @@ public final class UIBindingsUtils {
 				value = ((EObject) value).eGet(myFeature);
 			}
 			if (value == null) {
-				value = "";
+				// value = "";
 			}
 			return value;
 		}
@@ -681,7 +683,7 @@ public final class UIBindingsUtils {
 	/**
 	 * {@link IClassIdentiferMapper} based on a chain of {@link EStructuralFeature features}.
 	 */
-	protected static class MultipleFeatureMapper implements IClassIdentiferMapper {
+	protected static class MultipleFeatureMapper implements IClassIdentiferMapper, IDisposable {
 		private final EStructuralFeature[] myFeatures;
 		private IObservableValue ov = null;
 
@@ -697,10 +699,10 @@ public final class UIBindingsUtils {
 		@Override
 		public Object map(Object value) {
 			for (final EStructuralFeature sf : myFeatures) {
-				if (value == null) return "";
+				if (value == null) return value;
 				value = ((EObject) value).eGet(sf);
 			}
-			if (value == null) return "";
+			if (value == null) return value;
 			return value;
 		}
 
@@ -714,6 +716,13 @@ public final class UIBindingsUtils {
 				}
 			}
 			return ov;
+		}
+
+		@Override
+		public void dispose() {
+			if (ov != null) {
+				ov.dispose();
+			}
 		}
 
 		@Override

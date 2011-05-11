@@ -19,8 +19,10 @@ import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
 import org.eclipse.core.databinding.observable.value.ValueDiff;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
+import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.UIBindingsUtils.IClassIdentiferMapper;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Observable value that returns a value based on a mapper functor (function object).
@@ -52,56 +54,43 @@ public class MapperObservableValue extends AbstractObservableValue implements IO
 		myEditingDomain = editingDomain;
 		myMapper = classIdentiferMapper;
 
+		try {
+			myCurrentOV = myMapper.getObservableValue(myBaseObject, myEditingDomain);
+		} catch (final Exception ex) {
+			LogUtils.error(myMapper, ex);
+		}
+		if (myCurrentOV != null) {
+			myCurrentOV.addValueChangeListener(myListener);
+		}
 		updateValue();
 	}
 
 	@Override
 	public synchronized void dispose() {
-		if (hasListeners()) {
-			lastListenerRemoved();
+		if (myCurrentOV != null) {
+			myCurrentOV.removeValueChangeListener(myListener);
+		}
+
+		if (myMapper instanceof IDisposable) {
+			((IDisposable) myMapper).dispose();
 		}
 		super.dispose();
 	}
 
-	@Override
-	protected void firstListenerAdded() {
-		super.firstListenerAdded();
-		if (myCurrentOV != null) {
-			myCurrentOV.addValueChangeListener(myListener);
-		}
-	}
-
-	@Override
-	protected void lastListenerRemoved() {
-		super.lastListenerRemoved();
-		if (myCurrentOV != null) {
-			myCurrentOV.removeValueChangeListener(myListener);
-		}
-	}
-
-	private IObservableValue myCurrentOV;
+	private IObservableValue myCurrentOV = null;
 	private Object myCurrentValue;
 
 	/**
 	 * Updates the resulting count for this observable value.
 	 */
 	protected void updateValue() {
-		final IObservableValue ov = myMapper.getObservableValue(myBaseObject, myEditingDomain);
-		if (!UIBindingsUtils.equals(ov, myCurrentOV)) {
-			if (hasListeners()) {
-				if (myCurrentOV != null) {
-					myCurrentOV.removeValueChangeListener(myListener);
-				}
-				if (ov != null) {
-					ov.addValueChangeListener(myListener);
-				}
-			}
-			if (myCurrentOV != null) {
-				myCurrentOV.dispose();
-			}
-			myCurrentOV = ov;
+		Object v;
+		try {
+			v = myMapper.map(myBaseObject.getValue());
+		} catch (final Exception ex) {
+			LogUtils.error(myMapper, ex);
+			v = null;
 		}
-		final Object v = myMapper.map(myBaseObject.getValue());
 		if (UIBindingsUtils.equals(v, myCurrentValue)) return;
 
 		final ValueDiff diff = Diffs.createValueDiff(myCurrentValue, v);

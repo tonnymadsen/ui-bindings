@@ -17,9 +17,11 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.eclipse.core.databinding.observable.Observables;
+import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
 import org.eclipse.core.databinding.observable.value.WritableValue;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Text;
@@ -168,7 +170,51 @@ public class MapperObservableValueTest {
 				} else {
 					fail();
 				}
+
+				ov.dispose();
+				/*
+				 * TODO How to test that the IOV of the mapper is properly disposed...
+				 */
 			}
 		});
+	}
+
+	MapperObservableValue ov;
+
+	@Test
+	public void mapperFailTest() {
+		myBinding.arg(Constants.ARG_FEATURE_NAME, myFN);
+		final IClassIdentiferMapper mapper = new IClassIdentiferMapper() {
+			@Override
+			public Object map(Object value) {
+				throw new RuntimeException("map boom");
+			}
+
+			@Override
+			public IObservableValue getObservableValue(IObservableValue value, EditingDomain editingDomain) {
+				throw new RuntimeException("ov boom");
+			}
+		};
+		assertNotNull(mapper);
+
+		final WritableValue base = WritableValue.withValueType(ShopPackage.Literals.CONTACT);
+		assertNLog(2, new Runnable() {
+			public void run() {
+				ov = new MapperObservableValue(base, myBinding.getContext().getEditingDomain(), mapper);
+			}
+		});
+		// No base yet.
+		assertEquals(null, ov.getValue());
+		assertEquals(null, ov.getObserved());
+
+		base.setValue(myContact);
+
+		assertEquals(null, ov.getValue());
+		assertEquals(myContact, ov.getObserved());
+
+		ov.dispose();
+		/*
+		 * TODO How to test that the IOV of the mapper is properly disposed...
+		 */
 	}
 }
