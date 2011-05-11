@@ -3575,16 +3575,17 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	private class MonitoredObservableInfo {
 		public MonitoredObservableInfo(IObservable source, Object observing) {
 			this.sourceInfo = "" + source;
-			this.observing = observing;
+			this.firstObserving = observing;
 
 			final Throwable cp = new Throwable();
 			cp.fillInStackTrace();
-			startPoint = cp;
+			firstMonitoringPoint = cp;
 		}
 
 		public final String sourceInfo;
-		public final Object observing;
-		public final Throwable startPoint;
+		public final Object firstObserving;
+		public final Throwable firstMonitoringPoint;
+		public int noMonitors = 0;
 	}
 
 	/*
@@ -3605,12 +3606,12 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 					 * Might already be removed by a listener prior in the listenerList
 					 */
 					if (info == null) return;
-					final Object observing = info.observing;
+					final Object observing = info.firstObserving;
 					final int oldLevels = LogUtils.DEBUG_STRACK_LEVELS;
 					try {
 						LogUtils.DEBUG_STRACK_LEVELS = 10;
 						LogUtils.error(event.getSource(), "PREMATURE DISPOSAL: " + info.sourceInfo + "\nby "
-								+ observing, info.startPoint);
+								+ observing, info.firstMonitoringPoint);
 					} finally {
 						LogUtils.DEBUG_STRACK_LEVELS = oldLevels;
 					}
@@ -3618,18 +3619,24 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			};
 		}
 
-		if (myMonitoredObservablesMap.containsKey(System.identityHashCode(obj))) {
-			LogUtils.error(obj, "Object already monitored. Ignored...");
-			return;
+		MonitoredObservableInfo info = myMonitoredObservablesMap.get(System.identityHashCode(obj));
+		if (info == null) {
+			info = new MonitoredObservableInfo(obj, observing);
+			myMonitoredObservablesMap.put(System.identityHashCode(obj), info);
+			obj.addDisposeListener(myMonitorObservableDisposeListener);
 		}
-		final MonitoredObservableInfo info = new MonitoredObservableInfo(obj, observing);
-		myMonitoredObservablesMap.put(System.identityHashCode(obj), info);
-		obj.addDisposeListener(myMonitorObservableDisposeListener);
+		info.noMonitors++;
 	}
 
 	@Override
 	public void stopMonitorObservableDispose(IObservable obj) {
 		if (!Activator.getDefault().ASSERTS_PREMATURE_DISPOSE || obj == null) return;
+
+		final MonitoredObservableInfo info = myMonitoredObservablesMap.get(System.identityHashCode(obj));
+		if (info == null) return;
+		info.noMonitors--;
+		if (info.noMonitors > 0) return;
+
 		myMonitoredObservablesMap.remove(System.identityHashCode(obj));
 		obj.removeDisposeListener(myMonitorObservableDisposeListener);
 	}
