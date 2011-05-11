@@ -14,6 +14,7 @@ import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.core.databinding.observable.value.WritableValue;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,6 +26,7 @@ import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
+import com.rcpcompany.uibindings.observables.DisposePendingWritableValue;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.uiAttributes.SimpleUIAttribute;
@@ -71,7 +73,7 @@ public class BindingDisposeTest {
 	}
 
 	@Test
-	public void testCurrentValueDispose() {
+	public void testBindingDispose() {
 		final int noInitAdapters = myShop.eAdapters().size();
 
 		final IBindingContext context = IBindingContext.Factory.createContext(myView.getScrolledForm());
@@ -91,5 +93,32 @@ public class BindingDisposeTest {
 		assertEquals("New", myShop.getName());
 		assertTrue(ov.isDisposed());
 		assertAdapters(noInitAdapters, myShop);
+	}
+
+	@Test
+	public void testCurrentValueDispose() {
+		final IBindingContext context = IBindingContext.Factory.createContext(myView.getScrolledForm());
+
+		final WritableValue ov = new WritableValue("", String.class);
+		final IUIAttribute attribute = new SimpleUIAttribute(null, null, ov, true);
+
+		final DisposePendingWritableValue value = DisposePendingWritableValue
+				.withValueType(EcorePackage.Literals.ESTRING);
+
+		final IValueBinding binding = context.addBinding().model(value).ui(attribute);
+		context.finish();
+		yield();
+
+		ov.setValue("New");
+
+		assertNoLog(new Runnable() {
+			public void run() {
+				value.fireDisposePending();
+				value.dispose();
+			}
+		});
+
+		assertEquals(0, context.getBindings().size());
+		assertTrue(ov.isDisposed());
 	}
 }
