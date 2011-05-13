@@ -79,6 +79,7 @@ public class Activator extends Plugin {
 				myInstalledLogBridges.add(new LoggerBridge());
 			}
 		} catch (final ClassNotFoundException ex) {
+			// Hmm... should never happen...
 		}
 
 		try {
@@ -86,6 +87,7 @@ public class Activator extends Plugin {
 				myInstalledLogBridges.add(new Log4JBridge());
 			}
 		} catch (final ClassNotFoundException ex) {
+			// Log4J not installed
 		}
 
 		if (isDebugging()) {
