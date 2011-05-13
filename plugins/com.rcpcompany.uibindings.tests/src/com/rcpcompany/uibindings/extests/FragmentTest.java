@@ -23,9 +23,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-import org.osgi.framework.Bundle;
-
-import com.rcpcompany.uibindings.internal.Activator;
 
 /**
  * Test the needed fragments are enabled
@@ -34,9 +31,6 @@ import com.rcpcompany.uibindings.internal.Activator;
  */
 @RunWith(Parameterized.class)
 public class FragmentTest {
-	private final static Bundle testBundle = Activator.getDefault().getBundle();
-	private final static List<String> exceptions = Arrays.asList(new String[] { "" });
-
 	private final String myId;
 
 	@Parameters

@@ -24,9 +24,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-import org.osgi.framework.Bundle;
-
-import com.rcpcompany.uibindings.internal.Activator;
 
 /**
  * Test the setup of specified bundles.
@@ -35,8 +32,6 @@ import com.rcpcompany.uibindings.internal.Activator;
  */
 @RunWith(Parameterized.class)
 public class PluginSpecificationTest {
-	private final static Bundle testBundle = Activator.getDefault().getBundle();
-
 	private final String myId;
 
 	@Parameters
@@ -76,7 +71,6 @@ public class PluginSpecificationTest {
 			if ("org.junit".equals(bsName)) {
 				assertTrue(!bs.isOptional());
 			}
-
 		}
 	}
 }
