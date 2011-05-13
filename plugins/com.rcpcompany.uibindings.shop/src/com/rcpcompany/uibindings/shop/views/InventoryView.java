@@ -25,6 +25,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.ui.part.ViewPart;
 
+import com.google.inject.Module;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IColumnBinding;
@@ -40,6 +41,7 @@ import com.rcpcompany.uibindings.utils.IFormChooser;
 import com.rcpcompany.uibindings.utils.IFormChooserCreator;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.utils.ITableCreator;
+import com.rcpcompany.uibindings.xtext.tests.ui.SimpleDSLActivator;
 
 /**
  * The inventory view.
@@ -84,26 +86,32 @@ public class InventoryView extends ViewPart {
 
 		myForm.addField(orders.getColumnVisibility(), SWT.NONE).label("Show Orders");
 
-		final IFormCreator details = myForm.addSection("Details", table.getBinding().getSingleSelection());
-		details.addObjectMessages();
+		final IFormCreator detailsForm = myForm.addSection("Details", table.getBinding().getSingleSelection());
+		detailsForm.addObjectMessages();
 
-		details.addField("name(w=20em)");
-		details.addField("forSale(w=4em)");
-		details.addField("group(w=10em)");
-		details.addField("price(w=10em)");
-		details.addField("properties{name='type': value}(w=10em,label='Type')");
+		detailsForm.addField("name(w=20em)");
+		detailsForm.addField("forSale(w=4em)");
+		detailsForm.addField("group(w=10em)");
+		detailsForm.addField("price(w=10em)");
+		// final IValueBinding advPriceBinding = UIBXtextUtils.createEditorBinding(detailsForm,
+		// "advancedPrice",
+		// getXTextInjectorModule());
+		// final Composite c = (Composite) advPriceBinding.getControl();
+		// final TableWrapData layoutData = (TableWrapData) c.getLayoutData();
+
+		detailsForm.addField("properties{name='type': value}(w=10em,label='Type')");
 
 		final IObservableList list = WritableList.withElementType(EClass.class);
 		list.add(ShopPackage.Literals.SHOP_ITEM_DESCRIPTION);
 		list.add(ShopPackage.Literals.SHOP_ITEM_URL);
-		final IValueBinding discriminant = details.addField("information")
+		final IValueBinding discriminant = detailsForm.addField("information")
 				.arg(Constants.ARG_PREFERRED_CONTROL, CCombo.class.getName()).type("eobjectCreator").validValues(list);
 
 		final IFormChooser chooser = myForm.addFormChooser(discriminant);
 		chooser.addFormEClass(ShopPackage.Literals.SHOP_ITEM_DESCRIPTION, new IFormChooserCreator() {
 			@Override
 			public void createForm(IBindingContext context, IObservableValue discriminant, Composite parent) {
-				final IFormCreator sub = details.subForm(parent);
+				final IFormCreator sub = detailsForm.subForm(parent);
 				final IObservableValue subValue = new WritableValue(myForm.getObservableValue().getValue(),
 						ShopPackage.Literals.SHOP_ITEM_DESCRIPTION);
 				sub.addField(subValue, "description");
@@ -124,6 +132,10 @@ public class InventoryView extends ViewPart {
 		myForm.finish();
 		IBindingContextSelectionProvider.Factory.adapt(myForm.getContext(), getSite());
 		IDnDSupport.Factory.installOn(myForm.getContext());
+	}
+
+	private Module getXTextInjectorModule() {
+		return SimpleDSLActivator.getInstance().getInjectorModule();
 	}
 
 	@Override
