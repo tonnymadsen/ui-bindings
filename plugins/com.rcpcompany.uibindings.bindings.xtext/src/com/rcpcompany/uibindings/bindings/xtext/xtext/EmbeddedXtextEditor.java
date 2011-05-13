@@ -558,7 +558,8 @@ public class EmbeddedXtextEditor {
 	/**
 	 * Source viewer focus listener that activates/deactivates action handlers on focus state change.
 	 * 
-	 * @author Mikaël Barbero auther Tonny Madsen, The RCP Company
+	 * @author Mikaël Barbero
+	 * @auther Tonny Madsen, The RCP Company
 	 */
 	private final class SourceViewerFocusListener implements FocusListener {
 		private final Expression myExpression;

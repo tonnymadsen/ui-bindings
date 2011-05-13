@@ -1,26 +1,39 @@
 package com.rcpcompany.uibindings.bindings.xtext.bindingDecorators;
 
+import java.util.List;
+
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.xtext.parser.IParseResult;
+import org.eclipse.xtext.parsetree.SyntaxError;
+import org.eclipse.xtext.resource.XtextResource;
+import org.eclipse.xtext.ui.editor.model.IXtextDocument;
+import org.eclipse.xtext.ui.editor.model.IXtextModelListener;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Module;
 import com.google.inject.util.Modules;
+import com.rcpcompany.uibindings.EcoreExtUtils;
 import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.IUIBindingDecorator;
 import com.rcpcompany.uibindings.IValueBinding;
+import com.rcpcompany.uibindings.bindings.xtext.IUIBXTextBindingContext;
 import com.rcpcompany.uibindings.bindings.xtext.UIBXTextContants;
 import com.rcpcompany.uibindings.bindings.xtext.internal.uiAttributes.EditorAttribute;
 import com.rcpcompany.uibindings.bindings.xtext.internal.xtext.EmbeddedXtextEditorModule;
+import com.rcpcompany.uibindings.bindings.xtext.internal.xtext.EmbeddedXtextEditorOverrideModule;
 import com.rcpcompany.uibindings.bindings.xtext.xtext.EmbeddedXtextEditor;
 import com.rcpcompany.uibindings.decorators.BaseUIBindingDecorator;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * {@link IUIBindingDecorator} for XText Editors.
@@ -40,14 +53,17 @@ public class XTextEditorBindingDecorator extends BaseUIBindingDecorator implemen
 	 */
 	private EmbeddedXtextEditor myEditor;
 
+	/**
+	 * An {@link IObservableValue} that should be updated with the AST of the current content of the editor.
+	 * <p>
+	 * Can be <code>null</code>.
+	 */
+	private IObservableValue myASTOV;
+
 	@Override
 	public void init(IValueBinding binding) {
 		Assert.isNotNull(binding);
 		setBinding(binding);
-	}
-
-	@Override
-	public void dispose() {
 	}
 
 	@Override
@@ -71,13 +87,29 @@ public class XTextEditorBindingDecorator extends BaseUIBindingDecorator implemen
 		final Control c = b.getControl();
 		b.assertTrue(c instanceof Composite, "Control of XText Editor Binding must be a Composite");
 
+		final IUIBXTextBindingContext context = new IUIBXTextBindingContext() {
+			@Override
+			public IValueBinding getBinding() {
+				return XTextEditorBindingDecorator.this.getBinding();
+			}
+
+			@Override
+			public IObservableValue getModelOV() {
+				return getBinding().getModelObservableValue();
+			}
+
+			@Override
+			public EObject getModelObject() {
+				return getBinding().getModelObject();
+			}
+		};
 		/*
 		 * Based on the supplied module, create the needed injector
 		 */
 		Module m = b.getArgument(UIBXTextContants.ARG_XTEXT_INJECTOR_MODULE, Module.class, null);
 		b.assertTrue(m != null, "XText Decoratoe requires an injector");
-		m = Modules.override(m).with(new EmbeddedXtextEditorModule());
-		myInjector = Guice.createInjector(m);
+		m = Modules.override(m).with(new EmbeddedXtextEditorOverrideModule());
+		myInjector = Guice.createInjector(new EmbeddedXtextEditorModule(context), m);
 
 		/*
 		 * Create the editor
@@ -95,6 +127,58 @@ public class XTextEditorBindingDecorator extends BaseUIBindingDecorator implemen
 		oldUIAttribute.dispose();
 
 		super.decorate();
+
+		myASTOV = getBinding().getArgument(UIBXTextContants.ARG_XTEXT_AST_OV, IObservableValue.class, null);
+
+		final IXtextDocument document = myEditor.getDocument();
+		document.addModelListener(new IXtextModelListener() {
+			@Override
+			public void modelChanged(XtextResource resource) {
+				updateState();
+			}
+		});
+		updateState();
+	}
+
+	/**
+	 * Updates the state for the binding based on the editor parse result.
+	 * <p>
+	 * This includes:
+	 * <ul>
+	 * <li>{@link #myASTOV} from the AST if needed</li>
+	 * <li>errors if relevant</li>
+	 * </ul>
+	 */
+	protected void updateState() {
+		final XtextResource resource = myEditor.getResource();
+		final IParseResult pr = resource.getParseResult();
+		final List<SyntaxError> errors = pr.getParseErrors();
+
+		if (errors != null && errors.size() > 0) {
+			LogUtils.debug(this, "errors: " + errors);
+			return;
+		}
+		if (myASTOV != null) {
+			final EObject newValue = pr.getRootASTElement();
+			myASTOV.getRealm().exec(new Runnable() {
+				@Override
+				public void run() {
+					if (newValue == null) {
+						myASTOV.setValue(null);
+					} else {
+						EObject oldValue = (EObject) myASTOV.getValue();
+						if (oldValue != null && oldValue.eClass() != newValue.eClass()) {
+							oldValue = null;
+						}
+						if (oldValue == null) {
+							oldValue = EcoreUtil.create(newValue.eClass());
+							myASTOV.setValue(oldValue);
+						}
+						EcoreExtUtils.sync(oldValue, EcoreUtil.copy(newValue));
+					}
+				}
+			});
+		}
 	}
 
 	@Override
