@@ -25,7 +25,6 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.ui.part.ViewPart;
 
-import com.google.inject.Module;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IColumnBinding;
@@ -41,7 +40,6 @@ import com.rcpcompany.uibindings.utils.IFormChooser;
 import com.rcpcompany.uibindings.utils.IFormChooserCreator;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.utils.ITableCreator;
-import com.rcpcompany.uibindings.xtext.tests.ui.SimpleDSLActivator;
 
 /**
  * The inventory view.
@@ -132,10 +130,6 @@ public class InventoryView extends ViewPart {
 		myForm.finish();
 		IBindingContextSelectionProvider.Factory.adapt(myForm.getContext(), getSite());
 		IDnDSupport.Factory.installOn(myForm.getContext());
-	}
-
-	private Module getXTextInjectorModule() {
-		return SimpleDSLActivator.getInstance().getInjectorModule();
 	}
 
 	@Override
