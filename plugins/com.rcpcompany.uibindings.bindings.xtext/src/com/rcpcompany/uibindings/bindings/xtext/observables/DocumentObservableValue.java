@@ -12,6 +12,8 @@ import com.rcpcompany.uibindings.UIBindingsUtils;
 
 /**
  * {@link IObservableValue} for {@link IDocument}.
+ * <p>
+ * TODO Handle re-write sessions better.
  * 
  * @author Tonny Madsen, The RCP Company
  */
