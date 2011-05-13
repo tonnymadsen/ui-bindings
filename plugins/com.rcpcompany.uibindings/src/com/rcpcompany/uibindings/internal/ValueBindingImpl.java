@@ -126,7 +126,27 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 	@Override
 	public IBindingDataType getDataType() {
+		/*
+		 * Use cached result until the value changes...
+		 * 
+		 * See finish1() and myTypeListener.
+		 */
+		if (myCachedDataType == null) {
+			myCachedDataType = calculateDataType();
+		}
+		return myCachedDataType;
+	}
+
+	protected IBindingDataType myCachedDataType = null;
+
+	/**
+	 * Calculates the current data type for this binding.
+	 * 
+	 * @return the current data type
+	 */
+	private IBindingDataType calculateDataType() {
 		if (!isDynamic()) return super.getDataType();
+
 		final IObservableValue ov = getModelObservableValue();
 		if (ov != null && !ov.isDisposed()) {
 			/*
@@ -490,6 +510,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			myTypeListener = new IChangeListener() {
 				@Override
 				public void handleChange(ChangeEvent event) {
+					myCachedDataType = null;
 					decorateIfNeeded();
 				}
 			};
