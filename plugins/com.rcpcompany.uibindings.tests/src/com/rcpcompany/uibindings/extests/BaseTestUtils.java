@@ -824,7 +824,17 @@ public class BaseTestUtils {
 	 * @return any last state message
 	 */
 	public static IStatus assertOneLog(Runnable run) {
-		final OneLogLogListener ll = new OneLogLogListener();
+		return assertNLog(1, run);
+	}
+
+	/**
+	 * Asserts that the specified runnable can be executed without any log messages or exceptions.
+	 * 
+	 * @param run the runnable
+	 * @return any last state message
+	 */
+	public static IStatus assertNLog(int noMessages, Runnable run) {
+		final NLogLogListener ll = new NLogLogListener();
 		Platform.addLogListener(ll);
 		try {
 			run.run();
@@ -832,26 +842,23 @@ public class BaseTestUtils {
 			fail("Exception occured: " + ex.getMessage());
 		}
 		Platform.removeLogListener(ll);
-		assertTrue("No log messages, expected one", ll.lastStatus != null);
+		assertTrue(ll.myMessages.size() + " log messages, expected " + noMessages, ll.myMessages.size() == noMessages);
 
-		return ll.lastStatus;
+		return ll.myMessages.get(0);
 	}
 
 	/**
 	 * Listener used to assert that exactly one log message is seen - used in
 	 * {@link BaseTestUtils#assertOneLog(Runnable)}.
 	 */
-	private static class OneLogLogListener implements ILogListener {
-		public IStatus lastStatus;
+	private static class NLogLogListener implements ILogListener {
+		public List<IStatus> myMessages = new ArrayList<IStatus>();
 
 		@Override
 		public void logging(IStatus status, String plugin) {
 			// Ignore non-error messages
 			if (status.getSeverity() != IStatus.ERROR) return;
-			if (lastStatus != null) {
-				fail("Multiple log messages: '" + lastStatus.getMessage() + "' and '" + status.getMessage() + "'");
-			}
-			lastStatus = status;
+			myMessages.add(status);
 		}
 	}
 
