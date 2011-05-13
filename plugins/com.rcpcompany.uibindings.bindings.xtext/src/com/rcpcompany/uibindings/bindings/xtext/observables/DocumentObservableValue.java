@@ -69,7 +69,12 @@ public class DocumentObservableValue extends AbstractObservableValue {
 
 	@Override
 	protected void doSetValue(Object value) {
-		final String s = "" + value;
+		final String s;
+		if (value == null) {
+			s = "";
+		} else {
+			s = value.toString();
+		}
 		if (UIBindingsUtils.equals(s, doGetValue()))
 			return;
 		myDocument.set(s);
