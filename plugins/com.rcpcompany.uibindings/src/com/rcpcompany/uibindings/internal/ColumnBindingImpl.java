@@ -44,7 +44,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.resource.JFaceColors;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.viewers.CellEditor;
@@ -242,26 +241,6 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 					}
 
 					IClassIdentiferMapper mapper = null;
-					/*
-					 * Any constant string is used first of all...
-					 * 
-					 * TODO: Problem: if text is specified, icon and other arguments are ignored!
-					 */
-					final String constantText = dummyBinding.getArgument(ARG_TEXT, String.class, null);
-					if (constantText != null) {
-						mapper = new IClassIdentiferMapper() {
-							@Override
-							public Object map(Object value) {
-								return constantText;
-							}
-
-							@Override
-							public IObservableValue getObservableValue(IObservableValue value,
-									EditingDomain editingDomain) {
-								return myOV;
-							}
-						};
-					}
 
 					if (mapper == null) {
 						/*

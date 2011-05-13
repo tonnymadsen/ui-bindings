@@ -565,6 +565,24 @@ public final class UIBindingsUtils {
 	public static IClassIdentiferMapper createClassIdentiferMapper(IBinding binding, EClass ec) {
 		EStructuralFeature feature;
 
+		/*
+		 * Any constant string is used first of all...
+		 * 
+		 * TODO: Problem: if text is specified, icon and other arguments are ignored!
+		 */
+		final String constantText = binding.getArgument(Constants.ARG_TEXT, String.class, null);
+		if (constantText != null) return new IClassIdentiferMapper() {
+			@Override
+			public Object map(Object value) {
+				return constantText;
+			}
+
+			@Override
+			public IObservableValue getObservableValue(IObservableValue value, EditingDomain editingDomain) {
+				return value;
+			}
+		};
+
 		// Via Annotation
 		final String featureNames = binding.getArgument(Constants.ARG_FEATURE_NAME, String.class, null);
 		if (featureNames != null) {
