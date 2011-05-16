@@ -313,6 +313,11 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	 */
 	private ValidationLabelDecorator myValidationLabelDecorator;
 
+	/**
+	 * A binding used to show messages associated with the viewer itself.
+	 */
+	private IValueBinding myMessagesOnlyValueBinding = null;
+
 	@Override
 	public ValidationLabelDecorator getValidationLabelDecorator() {
 		return myValidationLabelDecorator;
@@ -396,8 +401,9 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 			// final EObject baseObject = (EObject) ((IObserving) getList()).getObserved();
 			// final EReference elementType = (EReference) getList().getElementType();
 
-			getContext().addBinding().ui(control, InternalConstants.ATTR_VIEWERS_MESSAGE_ONLY).model(getList())
-					.type(InternalConstants.VIEWERS_MESSAGE_ONLY_TYPE);
+			myMessagesOnlyValueBinding = getContext().addBinding()
+					.ui(control, InternalConstants.ATTR_VIEWERS_MESSAGE_ONLY).model(getList())
+					.type(InternalConstants.VIEWERS_MESSAGE_ONLY_TYPE).arg(Constants.ARG_MODEL_OBJECT_MESSAGES, true);
 		}
 		ColumnViewerToolTipSupport.enableFor(viewer);
 		DoubleClickAdapter.adapt(this);
@@ -582,11 +588,18 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		}
 		IManager.Factory.getManager().eAdapters().remove(myManagerAdapter);
 		if (mySelectionChangedListener != null) {
-			getViewer().removeSelectionChangedListener(mySelectionChangedListener); // TODO SWTB -
-																					// change to
-																					// widget
-																					// listener
+			getViewer().removeSelectionChangedListener(mySelectionChangedListener);
+			// TODO SWTB -
+
+			// change to
+			// widget
+			// listener
 			mySelectionChangedListener = null;
+		}
+
+		if (myMessagesOnlyValueBinding != null) {
+			myMessagesOnlyValueBinding.dispose();
+			myMessagesOnlyValueBinding = null;
 		}
 
 		/*
