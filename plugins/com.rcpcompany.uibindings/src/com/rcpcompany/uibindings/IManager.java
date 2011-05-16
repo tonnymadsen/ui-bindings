@@ -1005,11 +1005,12 @@ public interface IManager extends IBaseObject {
 	 * Returns the decorator provider for the combined triple model type, UI type and type name.
 	 * 
 	 * @param modelType the model type
+	 * @param modelKind TODO
 	 * @param uiType the UI type
 	 * @param type the type name
 	 * @return the decorator provider
 	 */
-	IDecoratorProvider getProvider(Class<?> modelType, Class<?> uiType, String type);
+	IDecoratorProvider getProvider(Class<?> modelType, ModelValueKind modelKind, Class<?> uiType, String type);
 
 	/**
 	 * Returns a list of quick fixes for the specified message.
@@ -1088,6 +1089,7 @@ public interface IManager extends IBaseObject {
 	 * <p>
 	 * The used {@link IAssignmentParticipant} is based on the specified binding, if given, or the
 	 * global repository.
+	 * 
 	 * @param editingDomain TODO
 	 * @param binding the binding of the destination if any
 	 * @param destination the destination object

@@ -202,8 +202,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="ValueBinding" eSuperTypes="#//Binding #//IArgumentProvider">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelObservable" eType="#//IObservable"
         transient="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelObservableValue" eType="#//IObservableValue"
-        volatile="true" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelKind" lowerBound="1"
+        eType="#//ModelValueKind" changeable="false" volatile="true" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelObservableValue" ordered="false"
+        eType="#//IObservableValue" changeable="false" volatile="true" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelObservableList" ordered="false"
+        eType="#//IObservableList" changeable="false" volatile="true" transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="modelObject" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         changeable="false" volatile="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="modelFeature" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStructuralFeature"
@@ -404,6 +408,7 @@
         eType="#//UIBindingDecorator" changeable="false" volatile="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="exactModelTypeMatch" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelValueKind" eType="#//ModelValueKind"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JavaDecoratorProvider" eSuperTypes="#//DecoratorProvider"/>
   <eClassifiers xsi:type="ecore:EClass" name="EnumDecoratorProvider" eSuperTypes="#//DecoratorProvider">
@@ -600,6 +605,10 @@
     <eLiterals name="OK" value="4"/>
     <eLiterals name="DISPOSED" value="5"/>
     <eLiterals name="DISPOSE_PENDING" value="6" literal="DISPOSE_PENDING"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ModelValueKind">
+    <eLiterals name="VALUE" literal="VALUE"/>
+    <eLiterals name="LIST" value="1" literal="LIST"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DecorationPosition">
     <eLiterals name="TopLeft" value="16512" literal="TOP_LEFT"/>

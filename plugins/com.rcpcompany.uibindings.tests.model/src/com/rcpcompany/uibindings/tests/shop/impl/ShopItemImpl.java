@@ -546,17 +546,17 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 		boolean valid = super.isValid(diagnostic, context);
 
 		/*
-		 * First build a map with the names of the columns versus the columns with that name
+		 * First build a map which index all properties by name
 		 */
 		final Map<String, List<ShopItemProperties>> names = new HashMap<String, List<ShopItemProperties>>();
 
-		for (final ShopItemProperties tc : getProperties()) {
-			List<ShopItemProperties> tcList = names.get(tc.getName());
+		for (final ShopItemProperties p : getProperties()) {
+			List<ShopItemProperties> tcList = names.get(p.getName());
 			if (tcList == null) {
 				tcList = new ArrayList<ShopItemProperties>();
-				names.put(tc.getName(), tcList);
+				names.put(p.getName(), tcList);
 			}
-			tcList.add(tc);
+			tcList.add(p);
 		}
 
 		/*
@@ -568,8 +568,8 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 			}
 
 			final List<Object> data = new ArrayList<Object>();
-			for (final ShopItemProperties tc : entry.getValue()) {
-				data.add(new Object[] { this, ShopPackage.Literals.SHOP_ITEM__PROPERTIES, getProperties().indexOf(tc) });
+			for (final ShopItemProperties p : entry.getValue()) {
+				data.add(new Object[] { this, ShopPackage.Literals.SHOP_ITEM__PROPERTIES, getProperties().indexOf(p) });
 			}
 			EValidatorAdapterUtils.addDiagnostic(diagnostic, ShopPackage.eNS_URI, 1000, Diagnostic.ERROR,
 					"Multiple properties named '" + entry.getKey() + "'", data.toArray());

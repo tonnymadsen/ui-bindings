@@ -125,7 +125,7 @@ public class FinancialUpDownExtender extends AbstractUIBindingDecoratorExtender 
 		public BindingData(IValueBinding binding) {
 			myBinding = binding;
 			/*
-			 * Tested above
+			 * Tested in isEnabled(...)
 			 */
 			myObservableValue = binding.getModelObservableValue();
 			myValue = myObservableValue.getValue();

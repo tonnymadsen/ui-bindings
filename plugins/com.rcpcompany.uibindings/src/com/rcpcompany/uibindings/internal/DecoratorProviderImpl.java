@@ -29,6 +29,7 @@ import com.rcpcompany.uibindings.IDecoratorProvider;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIBindingDecorator;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
+import com.rcpcompany.uibindings.ModelValueKind;
 import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -53,6 +54,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#isExactModelTypeMatch <em>
  * Exact Model Type Match</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.DecoratorProviderImpl#getModelValueKind <em>Model
+ * Value Kind</em>}</li>
  * </ul>
  * </p>
  * 
@@ -88,6 +91,31 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 		}
 	}
 
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public ModelValueKind getModelValueKind() {
+		return modelValueKind;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setModelValueKind(ModelValueKind newModelValueKind) {
+		final ModelValueKind oldModelValueKind = modelValueKind;
+		modelValueKind = newModelValueKind == null ? MODEL_VALUE_KIND_EDEFAULT : newModelValueKind;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					IUIBindingsPackage.DECORATOR_PROVIDER__MODEL_VALUE_KIND, oldModelValueKind, modelValueKind));
+		}
+	}
+
 	@Override
 	public void providerReader(String id, IConfigurationElement providerCE, IConfigurationElement childCE) {
 		setId(id);
@@ -101,6 +129,19 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 			attr = ""; //$NON-NLS-1$
 		}
 		setType(attr);
+
+		attr = providerCE.getAttribute(InternalConstants.MODEL_VALUE_KIND_TAG);
+		if (attr == null || attr.length() == 0) {
+			setModelValueKind(ModelValueKind.VALUE);
+		} else {
+			try {
+				setModelValueKind(ModelValueKind.valueOf(attr));
+			} catch (final Exception ex) {
+				LogUtils.error(this, ex);
+				setModelValueKind(ModelValueKind.VALUE);
+			}
+		}
+
 		attr = providerCE.getAttribute(InternalConstants.EXACT_MODEL_TYPE_MATCH_TAG);
 		setExactModelTypeMatch(attr != null && Boolean.valueOf(attr).booleanValue());
 
@@ -272,6 +313,26 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 	 * @ordered
 	 */
 	protected boolean exactModelTypeMatch = EXACT_MODEL_TYPE_MATCH_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getModelValueKind() <em>Model Value Kind</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getModelValueKind()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ModelValueKind MODEL_VALUE_KIND_EDEFAULT = ModelValueKind.VALUE;
+
+	/**
+	 * The cached value of the '{@link #getModelValueKind() <em>Model Value Kind</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getModelValueKind()
+	 * @generated
+	 * @ordered
+	 */
+	protected ModelValueKind modelValueKind = MODEL_VALUE_KIND_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -555,6 +616,8 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 			return getDecorator();
 		case IUIBindingsPackage.DECORATOR_PROVIDER__EXACT_MODEL_TYPE_MATCH:
 			return isExactModelTypeMatch();
+		case IUIBindingsPackage.DECORATOR_PROVIDER__MODEL_VALUE_KIND:
+			return getModelValueKind();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -594,6 +657,9 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 		case IUIBindingsPackage.DECORATOR_PROVIDER__EXACT_MODEL_TYPE_MATCH:
 			setExactModelTypeMatch((Boolean) newValue);
 			return;
+		case IUIBindingsPackage.DECORATOR_PROVIDER__MODEL_VALUE_KIND:
+			setModelValueKind((ModelValueKind) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -630,6 +696,9 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 		case IUIBindingsPackage.DECORATOR_PROVIDER__EXACT_MODEL_TYPE_MATCH:
 			setExactModelTypeMatch(EXACT_MODEL_TYPE_MATCH_EDEFAULT);
 			return;
+		case IUIBindingsPackage.DECORATOR_PROVIDER__MODEL_VALUE_KIND:
+			setModelValueKind(MODEL_VALUE_KIND_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -660,6 +729,8 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 			return getDecorator() != null;
 		case IUIBindingsPackage.DECORATOR_PROVIDER__EXACT_MODEL_TYPE_MATCH:
 			return exactModelTypeMatch != EXACT_MODEL_TYPE_MATCH_EDEFAULT;
+		case IUIBindingsPackage.DECORATOR_PROVIDER__MODEL_VALUE_KIND:
+			return modelValueKind != MODEL_VALUE_KIND_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -688,6 +759,8 @@ public abstract class DecoratorProviderImpl extends EObjectImpl implements IDeco
 		result.append(childCE);
 		result.append(", exactModelTypeMatch: "); //$NON-NLS-1$
 		result.append(exactModelTypeMatch);
+		result.append(", modelValueKind: "); //$NON-NLS-1$
+		result.append(modelValueKind);
 		result.append(')');
 		return result.toString();
 	}

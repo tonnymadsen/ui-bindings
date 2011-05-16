@@ -70,6 +70,7 @@ public class TestView extends ViewPart {
 				super.notifyChanged(msg);
 				if (msg.getFeature() == TestModelPackage.Literals.TEST_OBJECT__TEXT) {
 					text.getDisplay().asyncExec(new Runnable() {
+						@Override
 						public void run() {
 							text.setText(myTestObject.getText());
 						}

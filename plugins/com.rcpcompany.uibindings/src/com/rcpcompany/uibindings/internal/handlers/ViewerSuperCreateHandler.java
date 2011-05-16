@@ -206,6 +206,7 @@ public class ViewerSuperCreateHandler extends AbstractHandler implements IHandle
 					 */
 					final WritableValue ov = new WritableValue("", String.class);
 					final IUIAttribute attribute = new SimpleUIAttribute(null, null, ov, true);
+					// TODO: Why are we sure about this being a value?
 					final IValueBinding createBinding = context.addBinding().model(b.getModelObservableValue())
 							.ui(attribute);
 					if (b.hasArguments()) {

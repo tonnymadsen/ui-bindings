@@ -52,9 +52,8 @@
       </bindingDecorator>
       <bindingDecorator
             exactModelTypeMatch="true" type=""
-            id="com.rcpcompany.uibindings.basic.Object.String"
->
-	 <standardArguments             readonly="true" />
+            id="com.rcpcompany.uibindings.basic.Object.String">
+	 <standardArguments readonly="true" />
          <modelType
                class="java.lang.Object">
          </modelType>
@@ -147,7 +146,6 @@
          <number
                format="%%.4g"></number>
       </bindingDecorator>
-
 
       <bindingDecorator
             id="com.rcpcompany.uibindings.basic.float"
@@ -439,6 +437,24 @@
          </uiType>
          <javaDecorator
                class="com.rcpcompany.uibindings.internal.decorators.FileNameControlDecorator:directory">
+         </javaDecorator>
+      </bindingDecorator>
+
+      <bindingDecorator
+            exactModelTypeMatch="false"
+            id="com.rcpcompany.uibindings.basic.MessagesOnlyDecorator"
+            modelValueKind="LIST"
+            type="messagesOnly">
+         <modelType
+               alsoPrimitive="true"
+               class="org.eclipse.emf.ecore.EObject">
+         </modelType>
+         <uiType
+               alsoPrimitive="true"
+               class="java.lang.String">
+         </uiType>
+         <javaDecorator
+               class="com.rcpcompany.uibindings.internal.decorators.MessagesOnlyBindingDecorator">
          </javaDecorator>
       </bindingDecorator>
    </extension>
@@ -849,6 +865,26 @@
             attribute=""
             class="com.rcpcompany.uibindings.internal.uiAttributeFactories.FileNameControlDefaultUIAttributeFactory"
             widgetType="com.rcpcompany.uibindings.widgets.FileNameControl">
+      </uiAttributeFactory>
+      <uiAttributeFactory
+            attribute=" messagesOnly"
+            class="com.rcpcompany.uibindings.internal.uiAttributeFactories.LargeAreaMessagesOnlyUIAttributeFactory"
+            widgetType="org.eclipse.swt.widgets.Composite">
+      </uiAttributeFactory>
+      <uiAttributeFactory
+            attribute=" messagesOnly"
+            class="com.rcpcompany.uibindings.internal.uiAttributeFactories.LargeAreaMessagesOnlyUIAttributeFactory"
+            widgetType="org.eclipse.swt.widgets.Table">
+      </uiAttributeFactory>
+      <uiAttributeFactory
+            attribute=" messagesOnly"
+            class="com.rcpcompany.uibindings.internal.uiAttributeFactories.LargeAreaMessagesOnlyUIAttributeFactory"
+            widgetType="org.eclipse.swt.widgets.Tree">
+      </uiAttributeFactory>
+      <uiAttributeFactory
+            attribute=" messagesOnly"
+            class="com.rcpcompany.uibindings.internal.uiAttributeFactories.LargeAreaMessagesOnlyUIAttributeFactory"
+            widgetType="org.eclipse.swt.custom.StyledText">
       </uiAttributeFactory>
    </extension>
    

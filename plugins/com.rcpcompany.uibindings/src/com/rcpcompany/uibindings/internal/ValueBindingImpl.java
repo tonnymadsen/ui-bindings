@@ -73,6 +73,7 @@ import com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IValueBindingCell;
+import com.rcpcompany.uibindings.ModelValueKind;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.internal.bindingMessages.IContextMessageProvider;
 import com.rcpcompany.uibindings.observables.DisposePendingEvent;
@@ -91,8 +92,11 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getModelObservable <em>Model
  * Observable</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getModelKind <em>Model Kind</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getModelObservableValue <em>Model
  * Observable Value</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getModelObservableList <em>Model
+ * Observable List</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getModelObject <em>Model Object
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ValueBindingImpl#getModelFeature <em>Model Feature
@@ -170,6 +174,19 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			 * Use the real type of the current value... if set...
 			 */
 			if (v != null) return IBindingDataType.Factory.create(null, v.getClass());
+
+			/*
+			 * If we have the data type, then use this...
+			 */
+			if (dt != null) return dt;
+		}
+
+		final IObservableList ol = getModelObservableList();
+		if (ol != null && !ol.isDisposed()) {
+			/*
+			 * Find the data type based on the OL:
+			 */
+			final IBindingDataType dt = IBindingDataType.Factory.create(ol);
 
 			/*
 			 * If we have the data type, then use this...
@@ -386,6 +403,16 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	}
 
 	@Override
+	public IValueBinding model(IObservableList observable) {
+		setModelObservable(observable);
+		setStaticDataType(IBindingDataType.Factory.create(observable));
+		assertTrue(getStaticDataType() != null, "Observable not supported, got value type: " //$NON-NLS-1$
+				+ observable.getElementType());
+		myModelObservableDispose = false;
+		return this;
+	}
+
+	@Override
 	public IValueBinding model(EObject object, EStructuralFeature feature) {
 		assertTrue(object != null, "Object must be non-null");
 		assertTrue(feature != null, "Feature must be non-null");
@@ -393,8 +420,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		if (!feature.isMany()) {
 			setModelObservable(UIBindingsEMFObservables.observeValue(null, getEditingDomain(), object, feature));
 		} else {
-			// TODO myModelObservable(UIBindingsEMFObservables.observeList(object, feature));
-			LogUtils.throwException(this, "Many valued feature not supported yet", getCreationPoint()); //$NON-NLS-1$
+			setModelObservable(UIBindingsEMFObservables.observeList(null, getEditingDomain(), object, feature));
+			//			LogUtils.throwException(this, "Many valued feature not supported yet", getCreationPoint()); //$NON-NLS-1$
 		}
 		return this;
 	}
@@ -591,11 +618,12 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		}
 
 		final Class<?> modelValueType = getModelType();
+		final ModelValueKind modelValueKind = getModelKind();
 		final Class<?> uiValueType = getUIType();
 		final String type = getType();
 
-		final IDecoratorProvider provider = IManager.Factory.getManager()
-				.getProvider(modelValueType, uiValueType, type);
+		final IDecoratorProvider provider = IManager.Factory.getManager().getProvider(modelValueType, modelValueKind,
+				uiValueType, type);
 
 		myPreviousDynamicDataType = newDynamicDataType;
 
@@ -604,9 +632,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		 */
 		if (provider == null) {
 			setDecorator(null);
-			LogUtils.debug(this, "model: " + modelValueType + " ui: " + uiValueType + " type: " + type //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			addErrorCondition("model: " + modelValueType + "(" + modelValueKind + ") ui: " + uiValueType + " type: " + type //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 					+ " --> no decorator"); //$NON-NLS-1$
-			addErrorCondition("Binding decorator not found"); //$NON-NLS-1$
 			return;
 		}
 
@@ -614,9 +641,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		setDecorator(provider.getDecorator());
 
 		if (getDecorator() == null) {
-			LogUtils.debug(this, "model: " + modelValueType + " ui: " + uiValueType + " type: " + type //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			addErrorCondition("model: " + modelValueType + "(" + modelValueKind + ") ui: " + uiValueType + " type: " + type //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 					+ " --> no decorator created"); //$NON-NLS-1$
-			addErrorCondition("Binding decorator cannot be created"); //$NON-NLS-1$
 			return;
 		}
 
@@ -626,6 +652,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		try {
 			getDecorator().init(this);
 		} catch (final RuntimeException ex) {
+			// Already reported
 			setDecorator(null);
 			return;
 		} catch (final Exception ex) {
@@ -685,20 +712,24 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			 * If the model observable is a constant IOV, then this binding must be constant.
 			 */
 			final IObservableValue ov = getModelObservableValue();
-			final String ovClassName = ov.getClass().getName();
-			if (ovClassName.equals("org.eclipse.core.internal.databinding.observable.ConstantObservableValue")) {
-				if (Activator.getDefault().TRACE_ISCHANGEABLE) {
-					sb = ov + ": constant";
+			if (ov != null) {
+				final String ovClassName = ov.getClass().getName();
+				/*
+				 * These tests are to not depend on any internal classes :-)
+				 */
+				if (ovClassName.equals("org.eclipse.core.internal.databinding.observable.ConstantObservableValue")) {
+					if (Activator.getDefault().TRACE_ISCHANGEABLE) {
+						sb = ov + ": constant";
+					}
+					return false;
 				}
-				return false;
-			}
-			if (ovClassName.equals("org.eclipse.core.internal.databinding.observable.UnmodifiableObservableValue")) {
-				if (Activator.getDefault().TRACE_ISCHANGEABLE) {
-					sb = ov + ": unmodifiable";
+				if (ovClassName.equals("org.eclipse.core.internal.databinding.observable.UnmodifiableObservableValue")) {
+					if (Activator.getDefault().TRACE_ISCHANGEABLE) {
+						sb = ov + ": unmodifiable";
+					}
+					return false;
 				}
-				return false;
 			}
-
 			if (getArgument(Constants.ARG_READONLY, Boolean.class, Boolean.FALSE)) {
 				if (Activator.getDefault().TRACE_ISCHANGEABLE) {
 					sb = "READONLY";
@@ -753,7 +784,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		}
 		super.dispose();
 		final IObservableValue ov = getModelObservableValue();
-		if (myTypeListener != null && ov != null) {
+		if (ov != null && myTypeListener != null) {
 			ov.removeChangeListener(myTypeListener);
 			myTypeListener = null;
 		}
@@ -792,6 +823,16 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	protected IObservable modelObservable = MODEL_OBSERVABLE_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getModelKind() <em>Model Kind</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getModelKind()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ModelValueKind MODEL_KIND_EDEFAULT = ModelValueKind.VALUE;
+
+	/**
 	 * The default value of the '{@link #getModelObservableValue() <em>Model Observable Value</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -800,6 +841,16 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 * @ordered
 	 */
 	protected static final IObservableValue MODEL_OBSERVABLE_VALUE_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getModelObservableList() <em>Model Observable List</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getModelObservableList()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final IObservableList MODEL_OBSERVABLE_LIST_EDEFAULT = null;
 
 	/**
 	 * <code>true</code> if {@link #modelObservable} should be disposed by {@link #dispose()}.
@@ -926,6 +977,19 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 * @generated NOT
 	 */
 	@Override
+	public ModelValueKind getModelKind() {
+		final IObservable o = getModelObservable();
+		if (o instanceof IObservableValue) return ModelValueKind.VALUE;
+		if (o instanceof IObservableList) return ModelValueKind.LIST;
+		return ModelValueKind.VALUE;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
 	public IObservableValue getModelObservableValue() {
 		final IObservable observable = getModelObservable();
 		if (!(observable instanceof IObservableValue)) return null;
@@ -938,8 +1002,10 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	 * @generated NOT
 	 */
 	@Override
-	public void setModelObservableValue(IObservableValue newModelObservableValue) {
-		setModelObservable(newModelObservableValue);
+	public IObservableList getModelObservableList() {
+		final IObservable observable = getModelObservable();
+		if (!(observable instanceof IObservableList)) return null;
+		return (IObservableList) observable;
 	}
 
 	/**
@@ -1202,8 +1268,12 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		switch (featureID) {
 		case IUIBindingsPackage.VALUE_BINDING__MODEL_OBSERVABLE:
 			return getModelObservable();
+		case IUIBindingsPackage.VALUE_BINDING__MODEL_KIND:
+			return getModelKind();
 		case IUIBindingsPackage.VALUE_BINDING__MODEL_OBSERVABLE_VALUE:
 			return getModelObservableValue();
+		case IUIBindingsPackage.VALUE_BINDING__MODEL_OBSERVABLE_LIST:
+			return getModelObservableList();
 		case IUIBindingsPackage.VALUE_BINDING__MODEL_OBJECT:
 			return getModelObject();
 		case IUIBindingsPackage.VALUE_BINDING__MODEL_FEATURE:
@@ -1237,9 +1307,6 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		case IUIBindingsPackage.VALUE_BINDING__MODEL_OBSERVABLE:
 			setModelObservable((IObservable) newValue);
 			return;
-		case IUIBindingsPackage.VALUE_BINDING__MODEL_OBSERVABLE_VALUE:
-			setModelObservableValue((IObservableValue) newValue);
-			return;
 		case IUIBindingsPackage.VALUE_BINDING__DECORATOR_PROVIDER:
 			setDecoratorProvider((IDecoratorProvider) newValue);
 			return;
@@ -1266,9 +1333,6 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		switch (featureID) {
 		case IUIBindingsPackage.VALUE_BINDING__MODEL_OBSERVABLE:
 			setModelObservable(MODEL_OBSERVABLE_EDEFAULT);
-			return;
-		case IUIBindingsPackage.VALUE_BINDING__MODEL_OBSERVABLE_VALUE:
-			setModelObservableValue(MODEL_OBSERVABLE_VALUE_EDEFAULT);
 			return;
 		case IUIBindingsPackage.VALUE_BINDING__DECORATOR_PROVIDER:
 			setDecoratorProvider((IDecoratorProvider) null);
@@ -1297,9 +1361,14 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		case IUIBindingsPackage.VALUE_BINDING__MODEL_OBSERVABLE:
 			return MODEL_OBSERVABLE_EDEFAULT == null ? modelObservable != null : !MODEL_OBSERVABLE_EDEFAULT
 					.equals(modelObservable);
+		case IUIBindingsPackage.VALUE_BINDING__MODEL_KIND:
+			return getModelKind() != MODEL_KIND_EDEFAULT;
 		case IUIBindingsPackage.VALUE_BINDING__MODEL_OBSERVABLE_VALUE:
 			return MODEL_OBSERVABLE_VALUE_EDEFAULT == null ? getModelObservableValue() != null
 					: !MODEL_OBSERVABLE_VALUE_EDEFAULT.equals(getModelObservableValue());
+		case IUIBindingsPackage.VALUE_BINDING__MODEL_OBSERVABLE_LIST:
+			return MODEL_OBSERVABLE_LIST_EDEFAULT == null ? getModelObservableList() != null
+					: !MODEL_OBSERVABLE_LIST_EDEFAULT.equals(getModelObservableList());
 		case IUIBindingsPackage.VALUE_BINDING__MODEL_OBJECT:
 			return getModelObject() != null;
 		case IUIBindingsPackage.VALUE_BINDING__MODEL_FEATURE:
@@ -1393,18 +1462,26 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING, this);
 		context.setSelectionProvider(null);
 
-		final IObservableValue v = getModelObservableValue();
-		if (v != null) {
+		switch (getModelKind()) {
+		case VALUE:
+			final IObservableValue v = getModelObservableValue();
 			final IBindingDataType dataType = getDataType();
 			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_TYPE, getType());
 			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_MODEL_OBJECT, getModelObject());
 			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_FEATURE, getModelFeature());
-			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_RO, !isChangeable()); // TODO ??
+			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_RO, !isChangeable()); // TODO
+																							// ??
 			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_UNSETTABLE, dataType.isUnsettable());
 
 			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_VALUE, v.getValue());
 			context.putSourceValue(Constants.SOURCES_ACTIVE_BINDING_VALUE_DISPLAY, getUIAttribute().getCurrentValue()
 					.getValue());
+			break;
+		case LIST:
+			// TODO
+			break;
+		default:
+			LogUtils.error(this, "Unknown kind: " + getModelKind());
 		}
 		context.addObservedValue(getUIAttribute().getCurrentValue());
 	}

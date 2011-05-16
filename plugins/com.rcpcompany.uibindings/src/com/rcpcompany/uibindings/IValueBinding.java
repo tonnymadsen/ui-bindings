@@ -48,8 +48,11 @@ import com.rcpcompany.uibindings.internal.bindingMessages.IContextMessageProvide
  * The following features are supported:
  * <ul>
  * <li>{@link com.rcpcompany.uibindings.IValueBinding#getModelObservable <em>Model Observable</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IValueBinding#getModelKind <em>Model Kind</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IValueBinding#getModelObservableValue <em>Model Observable
  * Value</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IValueBinding#getModelObservableList <em>Model Observable
+ * List</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IValueBinding#getModelObject <em>Model Object</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IValueBinding#getModelFeature <em>Model Feature</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IValueBinding#getDecoratorProvider <em>Decorator Provider
@@ -141,12 +144,20 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	IValueBinding model(IObservableValue modelObject, EStructuralFeature feature);
 
 	/**
-	 * Binds this binding directly to the specified observable.
+	 * Binds this binding directly to the specified observable value.
 	 * 
 	 * @param observable the observable to bind to
 	 * @return <code>this</code>
 	 */
 	IValueBinding model(IObservableValue observable);
+
+	/**
+	 * Binds this binding directly to the specified observable list.
+	 * 
+	 * @param observable the observable to bind to
+	 * @return <code>this</code>
+	 */
+	IValueBinding model(IObservableList observable);
 
 	/**
 	 * Sets the type of the binding. Defaults to "<code>basic</code>".
@@ -299,11 +310,27 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	void setModelObservable(IObservable value);
 
 	/**
+	 * Returns the value of the '<em><b>Model Kind</b></em>' attribute. The literals are from the
+	 * enumeration {@link com.rcpcompany.uibindings.ModelValueKind}. <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Model Kind</em>' attribute isn't clear, there really should be
+	 * more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Model Kind</em>' attribute.
+	 * @see com.rcpcompany.uibindings.ModelValueKind
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getValueBinding_ModelKind()
+	 * @generated
+	 */
+	ModelValueKind getModelKind();
+
+	/**
 	 * Returns the value of the '<em><b>Model Observable Value</b></em>' attribute. <!--
 	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Model Observable Value</em>' attribute isn't clear, there really
-	 * should be more of a description here...
+	 * Same as {@link #getModelObservable()} if this is an {@link IObservableValue}. Otherwise
+	 * <code>null</code>.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
@@ -315,15 +342,19 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 	IObservableValue getModelObservableValue();
 
 	/**
-	 * Sets the value of the '
-	 * {@link com.rcpcompany.uibindings.IValueBinding#getModelObservableValue
-	 * <em>Model Observable Value</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the value of the '<em><b>Model Observable List</b></em>' attribute. <!--
+	 * begin-user-doc -->
+	 * <p>
+	 * Same as {@link #getModelObservable()} if this is an {@link IObservableList}. Otherwise
+	 * <code>null</code>.
+	 * </p>
+	 * <!-- end-user-doc -->
 	 * 
-	 * @param value the new value of the '<em>Model Observable Value</em>' attribute.
-	 * @see #getModelObservableValue()
+	 * @return the value of the '<em>Model Observable List</em>' attribute.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getValueBinding_ModelObservableList()
 	 * @generated
 	 */
-	void setModelObservableValue(IObservableValue value);
+	IObservableList getModelObservableList();
 
 	/**
 	 * Returns the value of the '<em><b>Model Object</b></em>' reference. <!-- begin-user-doc -->

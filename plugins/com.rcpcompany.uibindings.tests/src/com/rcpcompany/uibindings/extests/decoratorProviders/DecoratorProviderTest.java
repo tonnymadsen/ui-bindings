@@ -32,6 +32,7 @@ import org.junit.runners.Parameterized.Parameters;
 import com.rcpcompany.uibindings.IDecoratorProvider;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIBindingDecorator;
+import com.rcpcompany.uibindings.ModelValueKind;
 
 @RunWith(Parameterized.class)
 public class DecoratorProviderTest<T, U> {
@@ -128,7 +129,7 @@ public class DecoratorProviderTest<T, U> {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
-				provider = manager.getProvider(myModelClass, myUIClass, myType);
+				provider = manager.getProvider(myModelClass, ModelValueKind.VALUE, myUIClass, myType);
 				assertNotNull(what + " provider is null", provider);
 				assertTrue(what + " is not a provider in the manager", providers.contains(provider));
 			}

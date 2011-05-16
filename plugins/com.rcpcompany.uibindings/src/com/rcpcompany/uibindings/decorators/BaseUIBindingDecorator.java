@@ -242,6 +242,23 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 
 	@Override
 	public void decorate() {
+		switch (getBinding().getModelKind()) {
+		case VALUE:
+			decorateValue();
+			break;
+		case LIST:
+			decorateList();
+			break;
+		default:
+			LogUtils.error(this, "Unknown kind: " + getBinding().getModelKind());
+			break;
+		}
+	}
+
+	/**
+	 * Decorates a
+	 */
+	protected void decorateValue() {
 		final IValueBinding binding = getBinding();
 		final Control control = getUIAttributeControl();
 		final IUIAttribute attribute = binding.getUIAttribute();
@@ -470,6 +487,27 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		});
 	}
 
+	public void decorateList() {
+		final IValueBinding binding = getBinding();
+		final Control control = getUIAttributeControl();
+		final IUIAttribute attribute = binding.getUIAttribute();
+
+		final IObservableList modelList = binding.getModelObservableList();
+
+		/*
+		 * Bind more...
+		 */
+		decorateMisc();
+		decorateAssist();
+
+		IManagerRunnable.Factory.asyncExec("extenders", getBinding(), new Runnable() {
+			@Override
+			public void run() {
+				runExtenders();
+			}
+		});
+	}
+
 	/**
 	 * Returns the UI Attribute value to use for the binding.
 	 * <p>
@@ -527,7 +565,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 	 * 
 	 * @param proposalProvider the proposal provider
 	 */
-	public void setupContentProposalProvider(IContentProposalProvider proposalProvider) {
+	public void setupValueContentProposalProvider(IContentProposalProvider proposalProvider) {
 		final IValueBinding binding = getBinding();
 		/*
 		 * The following is only relevant if an control exists!
@@ -572,7 +610,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		};
 		proposalProvider.setFiltering(true);
 
-		setupContentProposalProvider(proposalProvider);
+		setupValueContentProposalProvider(proposalProvider);
 	}
 
 	/**

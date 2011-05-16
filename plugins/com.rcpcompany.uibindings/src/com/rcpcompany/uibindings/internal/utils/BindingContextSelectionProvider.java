@@ -13,7 +13,11 @@ package com.rcpcompany.uibindings.internal.utils;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.core.databinding.observable.IObserving;
+import org.eclipse.core.databinding.observable.list.IListChangeListener;
+import org.eclipse.core.databinding.observable.list.IObservableList;
+import org.eclipse.core.databinding.observable.list.ListChangeEvent;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
@@ -149,6 +153,11 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	}
 
 	@Override
+	public void addControl(Control control, IObservableList selection) {
+		addControl(control, new ObservableListSelectionProvider(selection));
+	}
+
+	@Override
 	public void addViewer(Viewer viewer) {
 		addControl(viewer.getControl(), viewer);
 	}
@@ -264,9 +273,13 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 			final IValueBinding vb = (IValueBinding) binding;
 			final Control control = vb.getControl();
 			if (control == null) return;
-			final IObservableValue ov = vb.getModelObservableValue();
-			if (ov == null) return;
-			addControl(control, ov);
+			final IObservable o = vb.getModelObservable();
+			if (o instanceof IObservableValue) {
+				addControl(control, (IObservableValue) o);
+			}
+			if (o instanceof IObservableList) {
+				addControl(control, (IObservableList) o);
+			}
 		} else if (binding instanceof IViewerBinding) {
 			final IViewerBinding vb = (IViewerBinding) binding;
 			addViewer(vb.getViewer()); // TODO SWTB
@@ -344,7 +357,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		/**
 		 * The current selection.
 		 */
-		private ISelection selection = null;
+		private ISelection mySelection = null;
 
 		/**
 		 * The observable value that forms the base of the selection provider.
@@ -368,7 +381,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 
 		@Override
 		public ISelection getSelection() {
-			return selection;
+			return mySelection;
 		}
 
 		@Override
@@ -395,9 +408,73 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 				value = ((IObserving) myValue).getObserved();
 			}
 			if (value instanceof EObject) {
-				selection = new StructuredSelection(value);
+				mySelection = new StructuredSelection(value);
 			} else {
-				selection = myEmptySelection;
+				mySelection = myEmptySelection;
+			}
+			fireSelectionChanged();
+		}
+	}
+
+	/**
+	 * Simple selection provider based on the value of an observable list.
+	 */
+	private final class ObservableListSelectionProvider implements ISelectionProvider, IListChangeListener {
+		private final ListenerList selectionChangedListeners = new ListenerList();
+
+		/**
+		 * The current selection.
+		 */
+		private ISelection mySelection = null;
+
+		/**
+		 * The observable value that forms the base of the selection provider.
+		 */
+		private final IObservableList myList;
+
+		private ObservableListSelectionProvider(IObservableList list) {
+			myList = list;
+			list.addListChangeListener(this);
+		}
+
+		@Override
+		public void addSelectionChangedListener(ISelectionChangedListener listener) {
+			selectionChangedListeners.add(listener);
+		}
+
+		@Override
+		public void removeSelectionChangedListener(ISelectionChangedListener listener) {
+			selectionChangedListeners.remove(listener);
+		}
+
+		@Override
+		public ISelection getSelection() {
+			return mySelection;
+		}
+
+		@Override
+		public void setSelection(ISelection sel) {
+			// Not supported as this is a not a viewer
+		}
+
+		private void fireSelectionChanged() {
+			if (selectionChangedListeners != null) {
+				final SelectionChangedEvent event = new SelectionChangedEvent(this, getSelection());
+
+				final Object[] listeners = selectionChangedListeners.getListeners();
+				for (final Object listener2 : listeners) {
+					final ISelectionChangedListener listener = (ISelectionChangedListener) listener2;
+					listener.selectionChanged(event);
+				}
+			}
+		}
+
+		@Override
+		public void handleListChange(ListChangeEvent event) {
+			if (myList.isEmpty()) {
+				mySelection = myEmptySelection;
+			} else {
+				mySelection = new StructuredSelection(myList);
 			}
 			fireSelectionChanged();
 		}

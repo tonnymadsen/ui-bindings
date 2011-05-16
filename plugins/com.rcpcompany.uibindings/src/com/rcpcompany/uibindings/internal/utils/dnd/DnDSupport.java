@@ -21,9 +21,11 @@ import org.eclipse.swt.widgets.Control;
 import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IContainerBinding;
+import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.internal.utils.AbstractContextMonitor;
 import com.rcpcompany.uibindings.utils.IDnDSupport;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Implementation of {@link IDnDSupport}.
@@ -61,32 +63,47 @@ public class DnDSupport extends AbstractContextMonitor implements IDnDSupport {
 		if (control == null) return;
 
 		/*
-		 * Only when the object of the binding is capable
+		 * No drag-n-drop for non-default attributes..
 		 */
-		DragSourceListener dragListener = null;
-		dragListener = new BindingDragAdapter();
-		if (dragListener != null) {
-			final DragSource dragSource = new DragSource(control, DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK);
-			dragSource.setTransfer(myTransferTypes);
-			dragSource.addDragListener(dragListener);
-			binding.registerService(dragListener);
+		if (binding instanceof IValueBinding) {
+			final IValueBinding vb = (IValueBinding) binding;
+			final String attr = vb.getUIAttribute().getAttribute();
+			if (attr != null && attr.length() > 0) return;
 		}
 
-		DropTargetListener dropListener = null;
-		if (binding instanceof IViewerBinding) {
-			final IViewerBinding vb = (IViewerBinding) binding;
-			dropListener = new ContainerBindingDropAdapter(vb);
-		}
+		/*
+		 * Only when the object of the binding is capable
+		 * 
+		 * The try-catch block is used to screen again some nasty DND exceptions
+		 */
+		try {
+			DragSourceListener dragListener = null;
+			dragListener = new BindingDragAdapter();
+			if (dragListener != null) {
+				final DragSource dragSource = new DragSource(control, DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK);
+				dragSource.setTransfer(myTransferTypes);
+				dragSource.addDragListener(dragListener);
+				binding.registerService(dragListener);
+			}
 
-		if (binding instanceof IContainerBinding) {
-			final IContainerBinding vb = (IContainerBinding) binding;
-			dropListener = new ContainerBindingDropAdapter(vb);
-		}
-		if (dropListener != null) {
-			final DropTarget dropTarget = new DropTarget(control, DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK);
-			dropTarget.setTransfer(myTransferTypes);
-			dropTarget.addDropListener(dropListener);
-			binding.registerService(dropListener);
+			DropTargetListener dropListener = null;
+			if (binding instanceof IViewerBinding) {
+				final IViewerBinding vb = (IViewerBinding) binding;
+				dropListener = new ContainerBindingDropAdapter(vb);
+			}
+
+			if (binding instanceof IContainerBinding) {
+				final IContainerBinding vb = (IContainerBinding) binding;
+				dropListener = new ContainerBindingDropAdapter(vb);
+			}
+			if (dropListener != null) {
+				final DropTarget dropTarget = new DropTarget(control, DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK);
+				dropTarget.setTransfer(myTransferTypes);
+				dropTarget.addDropListener(dropListener);
+				binding.registerService(dropListener);
+			}
+		} catch (final Exception ex) {
+			LogUtils.error(binding, ex);
 		}
 	}
 }

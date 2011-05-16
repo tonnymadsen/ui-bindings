@@ -113,6 +113,21 @@ Each decorator can have a number of arguments for the label binding in the form 
                </documentation>
             </annotation>
          </attribute>
+         <attribute name="modelValueKind" use="default" value="value">
+            <annotation>
+               <documentation>
+                  the kind of model observable that can be supported by this decorator. Defaults to &apos;value&apos;.
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="VALUE">
+                  </enumeration>
+                  <enumeration value="LIST">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
       </complexType>
    </element>
 

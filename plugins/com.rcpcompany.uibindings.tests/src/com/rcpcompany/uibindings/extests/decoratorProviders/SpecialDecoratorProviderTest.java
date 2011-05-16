@@ -19,11 +19,13 @@ import org.junit.Test;
 import com.rcpcompany.uibindings.IDecoratorProvider;
 import com.rcpcompany.uibindings.IEnumDecoratorProvider;
 import com.rcpcompany.uibindings.IManager;
+import com.rcpcompany.uibindings.ModelValueKind;
 
 public class SpecialDecoratorProviderTest {
 	@Test
 	public void testEnumDecorator() {
-		final IDecoratorProvider provider = IManager.Factory.getManager().getProvider(Enum.class, String.class, "");
+		final IDecoratorProvider provider = IManager.Factory.getManager().getProvider(Enum.class, ModelValueKind.VALUE,
+				String.class, "");
 
 		assertNotNull(provider);
 		assertTrue(provider instanceof IEnumDecoratorProvider);
@@ -31,7 +33,8 @@ public class SpecialDecoratorProviderTest {
 
 	@Test
 	public void testDateDecorator() {
-		final IDecoratorProvider provider = IManager.Factory.getManager().getProvider(Date.class, String.class, "");
+		final IDecoratorProvider provider = IManager.Factory.getManager().getProvider(Date.class, ModelValueKind.VALUE,
+				String.class, "");
 
 		assertNotNull(provider);
 		// TODO: assertTrue(provider instanceof DateDecoratorProvider);

@@ -1093,7 +1093,9 @@ public class FormCreator implements IFormCreator {
 
 	@Override
 	public IFormChooser addFormChooser(IValueBinding discriminant) {
-		return IFormChooser.Factory.create(getContext(), discriminant.getModelObservableValue(), addComposite());
+		final IObservableValue ov = discriminant.getModelObservableValue();
+		discriminant.assertTrue(ov != null, "Discriminant not single valued");
+		return IFormChooser.Factory.create(getContext(), ov, addComposite());
 	}
 
 	@Override

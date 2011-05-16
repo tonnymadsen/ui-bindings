@@ -31,7 +31,6 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
-import org.eclipse.swt.widgets.Scrollable;
 import org.eclipse.swt.widgets.Shell;
 
 import com.rcpcompany.uibindings.IDisposable;
@@ -501,8 +500,7 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 			// event.gc.drawRectangle(rect);
 			// event.gc.setForeground(oldForeground);
 			if (Activator.getDefault().TRACE_CONTROL_DECORATIONS_VERBOSE) {
-				LogUtils.debug(this, "paint: " + event.widget + "/" + event.widget.hashCode() +
-				 ": rect=" + rect);
+				LogUtils.debug(this, "paint: " + event.widget + "/" + event.widget.hashCode() + ": rect=" + rect);
 			}
 			event.gc.drawImage(image, rect.x, rect.y);
 		}

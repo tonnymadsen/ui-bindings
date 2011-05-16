@@ -36,6 +36,7 @@ import com.rcpcompany.uibindings.INumberDecoratorProvider;
 import com.rcpcompany.uibindings.IUIBindingDecorator;
 import com.rcpcompany.uibindings.IUIBindingsFactory;
 import com.rcpcompany.uibindings.IValueBinding;
+import com.rcpcompany.uibindings.ModelValueKind;
 import com.rcpcompany.uibindings.bindingMessages.AbstractBindingMessage;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.decorators.FileNameControlDecorator;
@@ -145,7 +146,8 @@ public class ConstraintValidatorAdapter extends AbstractValidatorAdapter {
 				continue;
 			}
 
-			final IDecoratorProvider provider = manager.getProvider(vb.getModelType(), String.class, vb.getType());
+			final IDecoratorProvider provider = manager.getProvider(vb.getModelType(), ModelValueKind.VALUE,
+					String.class, vb.getType());
 			vb.setDecoratorProvider(provider);
 			if (provider instanceof INumberDecoratorProvider) {
 				/*

@@ -20,6 +20,9 @@ import org.eclipse.swt.widgets.Text;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBinding;
+import com.rcpcompany.uibindings.IUIAttribute;
+import com.rcpcompany.uibindings.IValueBinding;
+import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.internal.compositeform.CompositeFormManagerImpl;
 import com.rcpcompany.uibindings.internal.scripting.ScriptManagerImpl;
 import com.rcpcompany.uibindings.widgets.FileNameControl;
@@ -57,6 +60,22 @@ public interface InternalConstants {
 	 * @see CompositeFormManagerImpl#extensionReader()
 	 */
 	String COMPOSITE_FORMS_EXTENSION_POINT = Activator.ID + ".compositeForms"; //$NON-NLS-1$
+
+	/**
+	 * {@link IUIAttribute} type used for {@link IValueBinding value bindings} to get just messages
+	 * for the model side.
+	 * <p>
+	 * Used by {@link IViewerBinding viewer bindings} to get messages for the viewer...
+	 */
+	String ATTR_VIEWERS_MESSAGE_ONLY = "messagesOnly";
+
+	/**
+	 * Binding type used for {@link IValueBinding value bindings} to get just messages for the model
+	 * side.
+	 * <p>
+	 * Used by {@link IViewerBinding viewer bindings} to get messages for the viewer...
+	 */
+	String VIEWERS_MESSAGE_ONLY_TYPE = "messagesOnly";
 
 	String ARGUMENT_INFO_TAG = "argumentInfo"; //$NON-NLS-1$
 	String LOOKUP_PARENT_TAG = "lookupParent"; //$NON-NLS-1$
@@ -118,6 +137,7 @@ public interface InternalConstants {
 	String ASSIGNMENT_PARTICIPANT_TAG = "assignmentParticipant"; //$NON-NLS-1$
 	String DESTINATION_TYPE_TAG = "destinationType"; //$NON-NLS-1$
 	String SOURCE_TYPE_TAG = "sourceType"; //$NON-NLS-1$
+	String MODEL_VALUE_KIND_TAG = "modelValueKind"; //$NON-NLS-1$
 
 	/**
 	 * Cell Editor Type: Text.
@@ -169,5 +189,4 @@ public interface InternalConstants {
 	 * ID of the ID parameter of the new command.
 	 */
 	String ID_PARAMETER = "id";
-
 }

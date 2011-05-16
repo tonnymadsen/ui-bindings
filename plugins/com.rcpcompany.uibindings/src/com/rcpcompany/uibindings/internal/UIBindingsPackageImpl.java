@@ -113,6 +113,7 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IValueBindingCell;
 import com.rcpcompany.uibindings.IViewerBinding;
+import com.rcpcompany.uibindings.ModelValueKind;
 import com.rcpcompany.uibindings.SpecialBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.participants.IAssignmentParticipant;
@@ -535,6 +536,13 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	private EEnum bindingStateEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EEnum modelValueKindEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1631,7 +1639,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getValueBinding_ModelObservableValue() {
+	public EAttribute getValueBinding_ModelKind() {
 		return (EAttribute) valueBindingEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1641,27 +1649,27 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
+	public EAttribute getValueBinding_ModelObservableValue() {
+		return (EAttribute) valueBindingEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getValueBinding_ModelObservableList() {
+		return (EAttribute) valueBindingEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EReference getValueBinding_ModelObject() {
-		return (EReference) valueBindingEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public EReference getValueBinding_ModelFeature() {
-		return (EReference) valueBindingEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public EReference getValueBinding_DecoratorProvider() {
 		return (EReference) valueBindingEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1671,7 +1679,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EReference getValueBinding_Decorator() {
+	public EReference getValueBinding_ModelFeature() {
 		return (EReference) valueBindingEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -1681,7 +1689,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EReference getValueBinding_UIAttribute() {
+	public EReference getValueBinding_DecoratorProvider() {
 		return (EReference) valueBindingEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -1691,8 +1699,8 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getValueBinding_UIObservable() {
-		return (EAttribute) valueBindingEClass.getEStructuralFeatures().get(7);
+	public EReference getValueBinding_Decorator() {
+		return (EReference) valueBindingEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1701,7 +1709,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EReference getValueBinding_Cell() {
+	public EReference getValueBinding_UIAttribute() {
 		return (EReference) valueBindingEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -1711,7 +1719,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getValueBinding_MessagePrefix() {
+	public EAttribute getValueBinding_UIObservable() {
 		return (EAttribute) valueBindingEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -1721,8 +1729,28 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
+	public EReference getValueBinding_Cell() {
+		return (EReference) valueBindingEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getValueBinding_MessagePrefix() {
+		return (EAttribute) valueBindingEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EAttribute getValueBinding_Dynamic() {
-		return (EAttribute) valueBindingEClass.getEStructuralFeatures().get(10);
+		return (EAttribute) valueBindingEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -2233,6 +2261,16 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	@Override
 	public EAttribute getDecoratorProvider_ExactModelTypeMatch() {
 		return (EAttribute) decoratorProviderEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDecoratorProvider_ModelValueKind() {
+		return (EAttribute) decoratorProviderEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -4021,6 +4059,16 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
+	public EEnum getModelValueKind() {
+		return modelValueKindEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EEnum getDecorationPosition() {
 		return decorationPositionEEnum;
 	}
@@ -4605,7 +4653,9 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 
 		valueBindingEClass = createEClass(VALUE_BINDING);
 		createEAttribute(valueBindingEClass, VALUE_BINDING__MODEL_OBSERVABLE);
+		createEAttribute(valueBindingEClass, VALUE_BINDING__MODEL_KIND);
 		createEAttribute(valueBindingEClass, VALUE_BINDING__MODEL_OBSERVABLE_VALUE);
+		createEAttribute(valueBindingEClass, VALUE_BINDING__MODEL_OBSERVABLE_LIST);
 		createEReference(valueBindingEClass, VALUE_BINDING__MODEL_OBJECT);
 		createEReference(valueBindingEClass, VALUE_BINDING__MODEL_FEATURE);
 		createEReference(valueBindingEClass, VALUE_BINDING__DECORATOR_PROVIDER);
@@ -4673,6 +4723,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		createEAttribute(decoratorProviderEClass, DECORATOR_PROVIDER__CHILD_CE);
 		createEReference(decoratorProviderEClass, DECORATOR_PROVIDER__DECORATOR);
 		createEAttribute(decoratorProviderEClass, DECORATOR_PROVIDER__EXACT_MODEL_TYPE_MATCH);
+		createEAttribute(decoratorProviderEClass, DECORATOR_PROVIDER__MODEL_VALUE_KIND);
 
 		javaDecoratorProviderEClass = createEClass(JAVA_DECORATOR_PROVIDER);
 
@@ -4899,6 +4950,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 
 		// Create enums
 		bindingStateEEnum = createEEnum(BINDING_STATE);
+		modelValueKindEEnum = createEEnum(MODEL_VALUE_KIND);
 		decorationPositionEEnum = createEEnum(DECORATION_POSITION);
 		textCommitStrategyEEnum = createEEnum(TEXT_COMMIT_STRATEGY);
 		specialBindingEEnum = createEEnum(SPECIAL_BINDING);
@@ -5311,9 +5363,17 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				this.getIObservable(),
 				"modelObservable", null, 0, 1, IValueBinding.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
+				getValueBinding_ModelKind(),
+				this.getModelValueKind(),
+				"modelKind", null, 1, 1, IValueBinding.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
 				getValueBinding_ModelObservableValue(),
 				this.getIObservableValue(),
-				"modelObservableValue", null, 0, 1, IValueBinding.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"modelObservableValue", null, 0, 1, IValueBinding.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getValueBinding_ModelObservableList(),
+				this.getIObservableList(),
+				"modelObservableList", null, 0, 1, IValueBinding.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 		initEReference(
 				getValueBinding_ModelObject(),
 				ecorePackage.getEObject(),
@@ -5568,6 +5628,10 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				getDecoratorProvider_ExactModelTypeMatch(),
 				ecorePackage.getEBoolean(),
 				"exactModelTypeMatch", null, 1, 1, IDecoratorProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getDecoratorProvider_ModelValueKind(),
+				this.getModelValueKind(),
+				"modelValueKind", null, 0, 1, IDecoratorProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(javaDecoratorProviderEClass, IJavaDecoratorProvider.class,
 				"JavaDecoratorProvider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -6292,6 +6356,10 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		addEEnumLiteral(bindingStateEEnum, BindingState.OK);
 		addEEnumLiteral(bindingStateEEnum, BindingState.DISPOSED);
 		addEEnumLiteral(bindingStateEEnum, BindingState.DISPOSE_PENDING);
+
+		initEEnum(modelValueKindEEnum, ModelValueKind.class, "ModelValueKind"); //$NON-NLS-1$
+		addEEnumLiteral(modelValueKindEEnum, ModelValueKind.VALUE);
+		addEEnumLiteral(modelValueKindEEnum, ModelValueKind.LIST);
 
 		initEEnum(decorationPositionEEnum, DecorationPosition.class, "DecorationPosition"); //$NON-NLS-1$
 		addEEnumLiteral(decorationPositionEEnum, DecorationPosition.TOP_LEFT);

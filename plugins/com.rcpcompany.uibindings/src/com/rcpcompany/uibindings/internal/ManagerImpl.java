@@ -113,6 +113,7 @@ import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IValueBindingCell;
 import com.rcpcompany.uibindings.IViewerBinding;
+import com.rcpcompany.uibindings.ModelValueKind;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.initializers.DefaultEObjectInitializer;
@@ -208,22 +209,25 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		 * Constructs and returns a new key object.
 		 * 
 		 * @param modelType the wanted model type
+		 * @param modelKind the wanted model kind (value, list, ...)
 		 * @param uiType the wanted UI type
 		 * @param type the wanted type (optional)
 		 */
-		private BindingProviderKey(Class<?> modelType, Class<?> uiType, String type) {
+		private BindingProviderKey(Class<?> modelType, ModelValueKind modelKind, Class<?> uiType, String type) {
 			this.modelType = modelType;
+			this.modelKind = modelKind;
 			this.uiType = uiType;
 			this.type = type;
 		}
 
 		public Class<?> modelType;
+		public ModelValueKind modelKind;
 		public Class<?> uiType;
 		public String type;
 
 		@Override
 		public String toString() {
-			return "getkey(" + modelType + ", " + uiType + ", " + type + ")"; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+			return "getkey(" + modelType + "(" + modelKind + "), " + uiType + ", " + type + ")"; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 		}
 
 		@Override
@@ -231,6 +235,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			final int prime = 31;
 			int result = 1;
 			result = prime * result + ((modelType == null) ? 0 : modelType.hashCode());
+			result = prime * result + ((modelKind == null) ? 0 : modelKind.hashCode());
 			result = prime * result + ((type == null) ? 0 : type.hashCode());
 			result = prime * result + ((uiType == null) ? 0 : uiType.hashCode());
 			return result;
@@ -242,28 +247,23 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			if (obj == null) return false;
 			if (getClass() != obj.getClass()) return false;
 			final BindingProviderKey other = (BindingProviderKey) obj;
-			if (modelType == null) {
-				if (other.modelType != null) return false;
-			} else if (!modelType.equals(other.modelType)) return false;
-			if (type == null) {
-				if (other.type != null) return false;
-			} else if (!type.equals(other.type)) return false;
-			if (uiType == null) {
-				if (other.uiType != null) return false;
-			} else if (!uiType.equals(other.uiType)) return false;
+			if (modelKind != other.modelKind) return false;
+			if (!UIBindingsUtils.equals(modelType, other.modelType)) return false;
+			if (!UIBindingsUtils.equals(type, other.type)) return false;
+			if (!UIBindingsUtils.equals(uiType, other.uiType)) return false;
 			return true;
 		}
 	}
 
 	@Override
-	public IDecoratorProvider getProvider(Class<?> modelType, Class<?> uiType, String type) {
+	public IDecoratorProvider getProvider(Class<?> modelType, ModelValueKind modelKind, Class<?> uiType, String type) {
 		if (type == null) {
 			type = ""; //$NON-NLS-1$
 		}
 		if (Activator.getDefault().TRACE_DECORATORS) {
 			LogUtils.debug(this, "getProvider(" + modelType.getName() + ", " + uiType.getName() + ", " + type + ")"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 		}
-		final BindingProviderKey key = new BindingProviderKey(modelType, uiType, type);
+		final BindingProviderKey key = new BindingProviderKey(modelType, modelKind, uiType, type);
 		IDecoratorProvider provider = myBindingCache.get(key);
 		if (provider != null) return provider;
 
@@ -277,6 +277,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		int psPriority = 1000000;
 		for (final IDecoratorProvider p : getProviders()) {
 			if (!type.equals(p.getType())) {
+				continue;
+			}
+			if (modelKind != p.getModelValueKind()) {
 				continue;
 			}
 			boolean found = false;
@@ -1471,7 +1474,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	@Override
 	public IUIAttribute createUIAttribute(Widget widget, String attribute) {
 		final Class<?>[] classes = Platform.getAdapterManager().computeClassOrder(widget.getClass());
-		CEObjectHolder<IUIAttributeFactory> holder = null;
+		CEObjectHolder<IUIAttributeFactory> factoryHolder = null;
 		for (final Class<?> c : classes) {
 			final String typeName = c.getName();
 			for (final IUIAttributeFactoryDescriptor d : getUiAttributeFactories()) {
@@ -1481,20 +1484,20 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 				if (!d.getAttribute().equals(attribute)) {
 					continue;
 				}
-				holder = d.getFactory();
+				factoryHolder = d.getFactory();
 				break;
 			}
-			if (holder != null) {
+			if (factoryHolder != null) {
 				break;
 			}
 		}
-		if (holder == null) {
+		if (factoryHolder == null) {
 			LogUtils.error(widget, "Widget, '" + widget.getClass().getName() + "', does not support attribute '" //$NON-NLS-1$ //$NON-NLS-2$
 					+ attribute + "'. Ignored."); //$NON-NLS-1$
 			return null;
 		}
 
-		final IUIAttributeFactory factory = holder.getObject();
+		final IUIAttributeFactory factory = factoryHolder.getObject();
 		if (factory == null) {
 			LogUtils.error(widget, "Widget, '" + widget.getClass().getName() //$NON-NLS-1$
 					+ "', not supported. Cannot create IUIAttribute factory. Ignored."); //$NON-NLS-1$

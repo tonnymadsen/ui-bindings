@@ -56,6 +56,7 @@ import com.rcpcompany.uibindings.IUIBindingsFactory;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
+import com.rcpcompany.uibindings.ModelValueKind;
 import com.rcpcompany.uibindings.SpecialBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.utils.IFormCreator;
@@ -184,6 +185,8 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 		switch (eDataType.getClassifierID()) {
 		case IUIBindingsPackage.BINDING_STATE:
 			return createBindingStateFromString(eDataType, initialValue);
+		case IUIBindingsPackage.MODEL_VALUE_KIND:
+			return createModelValueKindFromString(eDataType, initialValue);
 		case IUIBindingsPackage.DECORATION_POSITION:
 			return createDecorationPositionFromString(eDataType, initialValue);
 		case IUIBindingsPackage.TEXT_COMMIT_STRATEGY:
@@ -213,6 +216,8 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 		switch (eDataType.getClassifierID()) {
 		case IUIBindingsPackage.BINDING_STATE:
 			return convertBindingStateToString(eDataType, instanceValue);
+		case IUIBindingsPackage.MODEL_VALUE_KIND:
+			return convertModelValueKindToString(eDataType, instanceValue);
 		case IUIBindingsPackage.DECORATION_POSITION:
 			return convertDecorationPositionToString(eDataType, instanceValue);
 		case IUIBindingsPackage.TEXT_COMMIT_STRATEGY:
@@ -654,6 +659,28 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	 * @generated
 	 */
 	public String convertBindingStateToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public ModelValueKind createModelValueKindFromString(EDataType eDataType, String initialValue) {
+		final ModelValueKind result = ModelValueKind.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String convertModelValueKindToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

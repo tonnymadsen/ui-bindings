@@ -2,12 +2,13 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: UIBinding based navigator and editor framework
 Bundle-SymbolicName: com.rcpcompany.uibindings.navigator;singleton:=true
-Bundle-Version: 1.3.0.qualifier
+Bundle-Version: 1.3.1.qualifier
 Bundle-Activator: com.rcpcompany.uibindings.navigator.internal.Activator
 Bundle-Vendor: The RCP Company
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.eclipse.core.expressions.source;bundle-version="[3.0.0,4.0.0)";resolution:=optional
+ org.eclipse.core.expressions.source;bundle-version="[3.0.0,4.0.0)";resolution:=optional,
+ org.eclipse.emf.ecore;bundle-version="2.6.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: com.rcpcompany.uibindings.navigator,
@@ -19,6 +20,8 @@ Import-Package: com.rcpcompany.uibindings,
  com.rcpcompany.utils.extensionpoints,
  com.rcpcompany.utils.logging,
  com.rcpcompany.utils.selection,
+ org.eclipse.core.databinding,
+ org.eclipse.core.databinding.observable,
  org.eclipse.core.databinding.observable.list,
  org.eclipse.core.databinding.observable.value,
  org.eclipse.core.expressions,

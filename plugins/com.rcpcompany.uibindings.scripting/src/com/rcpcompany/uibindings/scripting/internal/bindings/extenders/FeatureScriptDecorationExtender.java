@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.scripting.internal.bindings.extenders;
 
+import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.ui.forms.IFormColors;
 
@@ -35,17 +36,15 @@ public class FeatureScriptDecorationExtender extends AbstractUIBindingDecoratorE
 
 	@Override
 	public boolean isEnabled(IValueBinding binding) {
-		if (binding.getModelObservableValue().isDisposed()) {
+		final IObservableValue ov = binding.getModelObservableValue();
+		if (ov == null || ov.isDisposed())
 			return false;
-		}
-		if (!(binding.getModelObject() instanceof IMOAO)) {
+		if (!(binding.getModelObject() instanceof IMOAO))
 			return false;
-		}
 		final IMOAO moao = (IMOAO) binding.getModelObject();
 		final EStructuralFeature feature = binding.getModelFeature();
-		if (feature == null) {
+		if (feature == null)
 			return false;
-		}
 
 		myScript = ScriptingUtils.getFeatureScript(moao, feature, false);
 		return myScript != null;

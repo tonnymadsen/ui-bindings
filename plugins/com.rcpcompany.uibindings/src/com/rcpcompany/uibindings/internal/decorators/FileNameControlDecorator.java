@@ -223,7 +223,7 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 		 */
 		final IContentProposalProvider proposalProvider = new FileNameContentProposalProvider();
 
-		setupContentProposalProvider(proposalProvider);
+		setupValueContentProposalProvider(proposalProvider);
 	}
 
 	/**

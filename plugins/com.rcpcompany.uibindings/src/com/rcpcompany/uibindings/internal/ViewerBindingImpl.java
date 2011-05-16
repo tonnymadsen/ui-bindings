@@ -392,6 +392,13 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 			// Not supported
 		}
 
+		if (getList() instanceof IObserving && getList().getElementType() instanceof EReference) {
+			// final EObject baseObject = (EObject) ((IObserving) getList()).getObserved();
+			// final EReference elementType = (EReference) getList().getElementType();
+
+			getContext().addBinding().ui(control, InternalConstants.ATTR_VIEWERS_MESSAGE_ONLY).model(getList())
+					.type(InternalConstants.VIEWERS_MESSAGE_ONLY_TYPE);
+		}
 		ColumnViewerToolTipSupport.enableFor(viewer);
 		DoubleClickAdapter.adapt(this);
 	}

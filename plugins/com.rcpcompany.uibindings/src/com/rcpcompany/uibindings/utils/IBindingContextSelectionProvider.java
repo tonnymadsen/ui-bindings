@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.utils;
 
+import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.Viewer;
@@ -62,11 +63,23 @@ public interface IBindingContextSelectionProvider extends IDisposable {
 
 	/**
 	 * Adds the specified control with the specified "constant" selection value.
+	 * <p>
+	 * The selection does react to changes in the observable value,.
 	 * 
 	 * @param control the control to add
 	 * @param selection the "constant" selection value to use
 	 */
 	void addControl(Control control, IObservableValue selection);
+
+	/**
+	 * Adds the specified control with the specified "constant" selection list.
+	 * <p>
+	 * The selection does react to changes in the observable list
+	 * 
+	 * @param control the control to add
+	 * @param selection the "constant" selection list to use
+	 */
+	void addControl(Control control, IObservableList selection);
 
 	/**
 	 * Removes the control from the list of controls managed by this manager.
@@ -81,4 +94,5 @@ public interface IBindingContextSelectionProvider extends IDisposable {
 	 * @param viewer the viewer to add
 	 */
 	void addViewer(Viewer viewer);
+
 }

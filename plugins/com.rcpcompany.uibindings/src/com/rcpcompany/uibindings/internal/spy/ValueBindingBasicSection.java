@@ -11,6 +11,7 @@
 package com.rcpcompany.uibindings.internal.spy;
 
 import org.eclipse.core.commands.ExecutionEvent;
+import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.swt.SWT;
 
@@ -40,11 +41,17 @@ public class ValueBindingBasicSection implements IBindingSpySection {
 		subform.addField("modelFeature(w=300)").type("long");
 		subform.addField("decoratorProvider(w=300)").type("className");
 		subform.addField("decorator(w=300)").type("className");
-		final IObservableValue o = vb.getModelObservableValue();
-		if (o != null) {
+		final IObservableValue ov = vb.getModelObservableValue();
+		if (ov != null) {
 			subform.addSeparator();
-			subform.addConstantField("Observable Value", o.getValue(), SWT.NONE);
-			subform.addConstantField("Observable Type", o.getValueType(), SWT.NONE);
+			subform.addConstantField("Observable Value", ov.getValue(), SWT.NONE);
+			subform.addConstantField("Observable Type", ov.getValueType(), SWT.NONE);
+		}
+		final IObservableList ol = vb.getModelObservableList();
+		if (ol != null) {
+			subform.addSeparator();
+			subform.addConstantField("Observable List", ol.toString(), SWT.NONE);
+			subform.addConstantField("Observable Type", ol.getElementType(), SWT.NONE);
 		}
 	}
 }

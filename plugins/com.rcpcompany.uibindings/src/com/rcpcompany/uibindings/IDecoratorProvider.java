@@ -31,6 +31,8 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link com.rcpcompany.uibindings.IDecoratorProvider#getDecorator <em>Decorator</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IDecoratorProvider#isExactModelTypeMatch <em>Exact Model
  * Type Match</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IDecoratorProvider#getModelValueKind <em>Model Value Kind
+ * </em>}</li>
  * </ul>
  * </p>
  * 
@@ -225,6 +227,34 @@ public interface IDecoratorProvider extends EObject, IArgumentProvider {
 	 * @generated
 	 */
 	void setExactModelTypeMatch(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Model Value Kind</b></em>' attribute. The literals are from
+	 * the enumeration {@link com.rcpcompany.uibindings.ModelValueKind}. <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Model Value Kind</em>' attribute isn't clear, there really should
+	 * be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Model Value Kind</em>' attribute.
+	 * @see com.rcpcompany.uibindings.ModelValueKind
+	 * @see #setModelValueKind(ModelValueKind)
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getDecoratorProvider_ModelValueKind()
+	 * @generated
+	 */
+	ModelValueKind getModelValueKind();
+
+	/**
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.IDecoratorProvider#getModelValueKind
+	 * <em>Model Value Kind</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value the new value of the '<em>Model Value Kind</em>' attribute.
+	 * @see com.rcpcompany.uibindings.ModelValueKind
+	 * @see #getModelValueKind()
+	 * @generated
+	 */
+	void setModelValueKind(ModelValueKind value);
 
 	/**
 	 * "Reads" the information about the provider from the extensiion register.

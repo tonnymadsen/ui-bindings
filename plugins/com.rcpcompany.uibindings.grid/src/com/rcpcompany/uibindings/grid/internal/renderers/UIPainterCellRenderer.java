@@ -67,6 +67,7 @@ public class UIPainterCellRenderer extends GridCellRenderer implements IRenderer
 		painter.setSelected(isCellSelected());
 		final IValueBinding b = ci.getLabelBinding();
 		if (b.getModelType() == Boolean.class || b.getModelType() == Boolean.TYPE) {
+			// TODO: Why are we sure about this being a value?
 			painter.setCheckbox((Boolean) b.getModelObservableValue().getValue());
 			painter.setHorizontalAlignment(SWT.CENTER);
 		} else {
