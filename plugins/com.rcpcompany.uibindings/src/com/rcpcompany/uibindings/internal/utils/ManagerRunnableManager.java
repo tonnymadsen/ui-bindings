@@ -175,6 +175,11 @@ public class ManagerRunnableManager implements IManagerRunnableManager {
 
 			}
 		}
+
+		@Override
+		public String toString() {
+			return "Record [type=" + type + ", key=" + key + "]";
+		}
 	}
 
 }
