@@ -124,11 +124,15 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 		}
 
 		getBinding().registerService(this);
-		final IObservableValue observable = getBinding().getUIObservable();
+
+		IObservable observable = getBinding().getUIObservable();
 		observable.addChangeListener(this);
 		if (observable instanceof IDelayedChangeObservable) {
 			((IDelayedChangeObservable) observable).addDelayedChangeListener(this);
 		}
+
+		observable = getBinding().getModelObservable();
+		observable.addChangeListener(this);
 
 		/*
 		 * The list change listener will ensure that the change listener is added to all the message
@@ -180,11 +184,15 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 		IManagerRunnable.Factory.cancelAsyncExec("updateDecorations", this);
 		VALIDATION_MANAGER.removeDecorator(this);
 
-		final IObservableValue observable = getBinding().getUIObservable();
+		IObservable observable = getBinding().getUIObservable();
 		observable.removeChangeListener(this);
 		if (observable instanceof IDelayedChangeObservable) {
 			((IDelayedChangeObservable) observable).removeDelayedChangeListener(this);
 		}
+
+		observable = getBinding().getModelObservable();
+		observable.removeChangeListener(this);
+
 		getBinding().unregisterService(this);
 
 		final Control control = getBinding().getControl();
@@ -411,6 +419,7 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 	 * @see #updateDecoration()
 	 */
 	protected void updateDecorationDelayed() {
+		if (getBinding().getState() != BindingState.OK) return;
 		/*
 		 * As this operation is delayed, the widget might be disposed in the mean time...
 		 */
