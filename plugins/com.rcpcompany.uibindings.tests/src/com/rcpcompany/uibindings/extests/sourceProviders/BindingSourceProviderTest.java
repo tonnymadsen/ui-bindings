@@ -47,6 +47,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.sourceProviders.BindingSourceProvider;
@@ -159,7 +160,7 @@ public class BindingSourceProviderTest {
 	 * Creates the view
 	 */
 	public void createView() {
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 		myBody = myView.getBody();
 		myBody.setLayout(new TableWrapLayout());
 

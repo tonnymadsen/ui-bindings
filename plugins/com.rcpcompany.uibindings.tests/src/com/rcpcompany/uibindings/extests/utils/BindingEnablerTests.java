@@ -22,6 +22,7 @@ import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 import com.rcpcompany.uibinding.tests.model.TestObject;
 import com.rcpcompany.uibinding.tests.model.WeightUnit;
 import com.rcpcompany.uibindings.IValueBinding;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.utils.IBindingEnabler;
 import com.rcpcompany.uibindings.utils.IFormCreator;
@@ -60,7 +61,7 @@ public class BindingEnablerTests {
 	 */
 	@Test
 	public void testDispose() {
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 
 		myForm = myView.createFormCreator(myTestObject);
 
@@ -88,7 +89,7 @@ public class BindingEnablerTests {
 	@Test
 	public void testBeforeFinishFalse() {
 		myTestObject.setUnit(WeightUnit.KG);
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 
 		myForm = myView.createFormCreator(myTestObject);
 
@@ -116,7 +117,7 @@ public class BindingEnablerTests {
 	@Test
 	public void testBeforeFinishTrue() {
 		myTestObject.setUnit(WeightUnit.KG);
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 
 		myForm = myView.createFormCreator(myTestObject);
 
@@ -140,7 +141,7 @@ public class BindingEnablerTests {
 	@Test
 	public void testAfterFinishFalse() {
 		myTestObject.setUnit(WeightUnit.KG);
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 
 		myForm = myView.createFormCreator(myTestObject);
 
@@ -170,7 +171,7 @@ public class BindingEnablerTests {
 	@Test
 	public void testAfterFinishTrue() {
 		myTestObject.setUnit(WeightUnit.KG);
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 
 		myForm = myView.createFormCreator(myTestObject);
 
@@ -197,7 +198,7 @@ public class BindingEnablerTests {
 	@Test
 	public void testAfterFinishShort() {
 		myTestObject.setUnit(WeightUnit.KG);
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 
 		myForm = myView.createFormCreator(myTestObject);
 
@@ -224,7 +225,7 @@ public class BindingEnablerTests {
 	@Test
 	public void testAfterFinishShortTrue() {
 		myTestObject.setUnit(WeightUnit.KG);
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 
 		myForm = myView.createFormCreator(myTestObject);
 

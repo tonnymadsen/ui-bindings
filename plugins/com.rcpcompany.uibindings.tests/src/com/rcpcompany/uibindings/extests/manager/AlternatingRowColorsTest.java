@@ -37,6 +37,7 @@ import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Country;
@@ -124,7 +125,7 @@ public class AlternatingRowColorsTest {
 	 * Creates the view
 	 */
 	public void createView() {
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 		myBody = myView.getBody();
 		myTable = new Table(myBody, SWT.FULL_SELECTION);
 		myTable.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));

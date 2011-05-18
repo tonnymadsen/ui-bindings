@@ -45,6 +45,7 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.widgets.FileNameControl;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -131,7 +132,7 @@ public class SimplePreferredCellEditorTest {
 	}
 
 	private void createView() {
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 		myBody = myView.getBody();
 
 		myViewer = new TableViewer(myBody, SWT.FULL_SELECTION);

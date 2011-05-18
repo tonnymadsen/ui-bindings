@@ -47,6 +47,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.IUIAttributeImageDecoration;
 import com.rcpcompany.uibindings.UIBindingsUtils;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.uiAttributes.SimpleUIAttribute;
 import com.rcpcompany.uibindings.utils.IPaintDecoration;
@@ -321,7 +322,7 @@ public class UIAttributeImageDecorationTest<T extends Control> {
 	 * Creates the view
 	 */
 	public void createView() {
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 		myBody = myView.getBody();
 
 		try {

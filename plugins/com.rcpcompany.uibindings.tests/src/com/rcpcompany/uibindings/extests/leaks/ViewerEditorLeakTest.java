@@ -23,6 +23,7 @@ import org.junit.Test;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.TextCommitStrategy;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Customer;
@@ -74,7 +75,7 @@ public class ViewerEditorLeakTest {
 	}
 
 	private void createView() {
-		myTestView = createTestView(this);
+		myTestView = UIBindingsTestUtils.createUIBTestView(this);
 
 		final IBindingContext context = IBindingContext.Factory.createContext(myTestView.getScrolledForm());
 		myTableCreator = ITableCreator.Factory.create(context, myTestView.getBody(), SWT.NONE, myShop,

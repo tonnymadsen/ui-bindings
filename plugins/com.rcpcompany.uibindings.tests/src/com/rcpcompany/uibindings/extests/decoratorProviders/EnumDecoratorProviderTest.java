@@ -27,6 +27,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIBindingDecorator;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator;
 import com.rcpcompany.uibindings.internal.decorators.EnumBindingDecorator;
@@ -72,7 +73,7 @@ public class EnumDecoratorProviderTest {
 		myCustomer = myShop.getCustomers().get(0);
 		myOldLoyalty = myCustomer.getLoyalty();
 
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 		myBody = myView.getBody();
 
 		myBasicText = new Text(myBody, SWT.SINGLE | SWT.LEAD | SWT.BORDER);

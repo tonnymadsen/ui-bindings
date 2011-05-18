@@ -34,6 +34,7 @@ import com.rcpcompany.uibindings.ICellEditorFactoryContext;
 import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.TextCommitStrategy;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.utils.ITableCreator;
 
@@ -77,7 +78,7 @@ public class PreferredCellEditorFactoryTest {
 	}
 
 	private void createView() {
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 		myBody = myView.getBody();
 
 		myContext = IBindingContext.Factory.createContext(myView.getScrolledForm());

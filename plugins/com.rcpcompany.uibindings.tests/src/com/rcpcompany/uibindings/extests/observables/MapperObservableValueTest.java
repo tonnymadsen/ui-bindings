@@ -36,6 +36,7 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.UIBindingsUtils.IClassIdentiferMapper;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.observables.MapperObservableValue;
 import com.rcpcompany.uibindings.tests.shop.Contact;
@@ -83,7 +84,7 @@ public class MapperObservableValueTest {
 	}
 
 	private void createView() {
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 
 		final Text text = new Text(myView.getBody(), SWT.SINGLE | SWT.LEAD | SWT.BORDER);
 		text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));

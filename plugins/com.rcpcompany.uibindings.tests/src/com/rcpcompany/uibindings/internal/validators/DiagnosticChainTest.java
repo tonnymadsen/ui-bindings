@@ -28,6 +28,7 @@ import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
@@ -85,7 +86,7 @@ public class DiagnosticChainTest {
 		myProperty.setItem(myItem);
 		myProperty.setName("type");
 
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 		myBody = myView.getBody();
 
 		final Text text = new Text(myBody, SWT.SINGLE | SWT.LEAD | SWT.BORDER);

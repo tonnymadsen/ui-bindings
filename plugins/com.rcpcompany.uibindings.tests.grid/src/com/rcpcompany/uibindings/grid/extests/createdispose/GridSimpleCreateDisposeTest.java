@@ -29,6 +29,7 @@ import org.junit.Test;
 import com.rcpcompany.uibinding.tests.model.TestGrid;
 import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 import com.rcpcompany.uibindings.IBindingContext;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.grid.IGridBinding;
 import com.rcpcompany.uibindings.grid.extests.models.TestGridGridModel;
@@ -56,7 +57,7 @@ public class GridSimpleCreateDisposeTest {
 	}
 
 	private void createView() {
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 	}
 
 	@After

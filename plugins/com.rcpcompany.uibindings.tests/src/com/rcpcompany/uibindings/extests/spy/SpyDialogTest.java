@@ -24,6 +24,7 @@ import org.junit.Test;
 
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.spy.BindingSpyDialog;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
@@ -51,7 +52,7 @@ public class SpyDialogTest {
 	}
 
 	private void createView() {
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 
 		final Composite body = myView.getBody();
 

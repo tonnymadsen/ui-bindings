@@ -25,6 +25,7 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IServiceRegistry;
 import com.rcpcompany.uibindings.IValueBinding;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
@@ -44,7 +45,7 @@ public class BasicServiceTest {
 	@Before
 	public void setup() {
 		resetAll();
-		myTestView = createTestView(this);
+		myTestView = UIBindingsTestUtils.createUIBTestView(this);
 	}
 
 	@After

@@ -20,6 +20,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
@@ -76,7 +77,7 @@ public class ViewerColumnHeaderAlignment {
 	 * Creates the view
 	 */
 	public void createView() {
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 
 		myForm = myView.createFormCreator(myShop);
 		myTable = myForm.addTableCreator(ShopPackage.Literals.SHOP__SHOP_ITEMS, true, SWT.NONE);

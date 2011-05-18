@@ -24,6 +24,7 @@ import org.junit.Test;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IValueBinding;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
@@ -54,7 +55,7 @@ public class UIAttributeRadioGroupTest {
 		myItem = ShopFactory.eINSTANCE.createShopItem();
 		myItem.setName("a");
 
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 		myForm = myView.createFormCreator(myItem);
 
 		myBinding = myForm.addField("name").validValues(myValidValues)

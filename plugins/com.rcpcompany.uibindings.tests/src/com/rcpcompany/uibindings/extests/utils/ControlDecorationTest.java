@@ -27,6 +27,7 @@ import org.junit.Test;
 
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.UIBindingsUtils;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.utils.AbstractControlDecoration;
 import com.rcpcompany.uibindings.utils.IControlDecoration;
@@ -56,7 +57,7 @@ public class ControlDecorationTest {
 	 * Creates the view
 	 */
 	public void createView() {
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 		myBody = myView.getBody();
 
 		myText = new Text(myBody, SWT.SINGLE | SWT.LEAD | SWT.BORDER);

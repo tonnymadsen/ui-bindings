@@ -35,6 +35,7 @@ import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.SpecialBinding;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
@@ -168,7 +169,7 @@ public class TreePerformanceTest {
 	 * Creates the view - pretty real-life
 	 */
 	public void createView() {
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 
 		myContext = IBindingContext.Factory.createContext(myView.getBody());
 

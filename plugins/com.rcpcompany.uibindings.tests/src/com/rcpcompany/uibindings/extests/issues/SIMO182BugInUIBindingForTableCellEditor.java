@@ -36,6 +36,7 @@ import com.rcpcompany.uibindings.IColumnBindingCellInformation;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Country;
@@ -90,7 +91,7 @@ public class SIMO182BugInUIBindingForTableCellEditor {
 	}
 
 	public void createView() {
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 		myBody = myView.getBody();
 
 		myViewer = new TableViewer(myBody, SWT.FULL_SELECTION);

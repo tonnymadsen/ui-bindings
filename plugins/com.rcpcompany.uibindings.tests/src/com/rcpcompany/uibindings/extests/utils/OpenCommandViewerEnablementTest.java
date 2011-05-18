@@ -29,6 +29,7 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.TextCommitStrategy;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
@@ -110,7 +111,7 @@ public class OpenCommandViewerEnablementTest {
 	 * Creates the view
 	 */
 	public void createView() {
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 		myBody = myView.getBody();
 
 		myContext = IBindingContext.Factory.createContext(myView.getScrolledForm());

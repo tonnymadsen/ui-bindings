@@ -25,6 +25,7 @@ import org.junit.Test;
 
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
@@ -93,7 +94,7 @@ public class ControlCellEditorTest {
 	 * Creates the view
 	 */
 	public void createView() {
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 
 		myForm = myView.createFormCreator(myShop);
 

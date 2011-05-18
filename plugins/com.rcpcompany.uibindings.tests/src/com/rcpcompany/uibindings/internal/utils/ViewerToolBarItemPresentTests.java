@@ -27,6 +27,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 import com.rcpcompany.uibindings.IViewerBinding;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
@@ -96,7 +97,7 @@ public class ViewerToolBarItemPresentTests {
 		myCountry2.setAbbreviation("AB");
 		myCountry2.setShop(myShop);
 
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 		myForm = myView.createFormCreator(myShop);
 
 		myTable = myForm.addTableCreator(ShopPackage.Literals.SHOP__COUNTRIES, true, SWT.NONE);

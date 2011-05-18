@@ -33,6 +33,7 @@ import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator;
 import com.rcpcompany.uibindings.tests.shop.Contact;
@@ -113,7 +114,7 @@ public class BasicValueBindingTest {
 	}
 
 	private void createView() {
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 		final Composite body = myView.getBody();
 
 		myDummyText = myView.getToolkit().createText(body, "");

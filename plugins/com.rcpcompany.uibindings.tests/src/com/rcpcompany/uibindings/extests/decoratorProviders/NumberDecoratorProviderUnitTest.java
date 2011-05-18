@@ -25,6 +25,7 @@ import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.units.AbstractUnitBindingSupport;
 import com.rcpcompany.uibindings.units.IUnitBindingSupportContext;
@@ -55,7 +56,7 @@ public class NumberDecoratorProviderUnitTest {
 
 		myTestObject = TestModelFactory.eINSTANCE.createTestObject();
 
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 		myForm = myView.createFormCreator(myTestObject);
 
 		myFBinding = myForm.addField("f").arg(Constants.ARG_TOOL_TIP_TEXT, "ff");

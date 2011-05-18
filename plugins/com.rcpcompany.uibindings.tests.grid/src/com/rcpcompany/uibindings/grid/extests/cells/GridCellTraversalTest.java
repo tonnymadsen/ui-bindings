@@ -25,6 +25,7 @@ import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.TextCommitStrategy;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.grid.IGridBinding;
 import com.rcpcompany.uibindings.grid.extests.models.TestGridGridModel;
@@ -60,7 +61,7 @@ public class GridCellTraversalTest {
 	}
 
 	private void createView() {
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 
 		myGrid = new Grid(myView.getBody(), SWT.NONE);
 		myContext = IBindingContext.Factory.createContext(myView.getBody());

@@ -31,6 +31,7 @@ import com.rcpcompany.uibindings.IUIBindingDecoratorExtenderContext;
 import com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor;
 import com.rcpcompany.uibindings.IUIBindingsFactory;
 import com.rcpcompany.uibindings.IValueBinding;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.UIBindingDecoratorExtenderImpl;
 import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
@@ -68,7 +69,7 @@ public class ExtenderTest {
 		myTestObject = TestModelFactory.eINSTANCE.createTestObject();
 		myUIAttr = new VirtualUIAttribute(String.class);
 
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 
 		final IFormCreator form = myView.createFormCreator(myTestObject);
 		myBinding = form.getContext().addBinding().model(myTestObject, TestModelPackage.Literals.TEST_OBJECT__NUMBER)

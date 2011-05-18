@@ -31,6 +31,7 @@ import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
@@ -93,7 +94,7 @@ public class ValidationErrorsAreFatalTest {
 	 * Creates the view
 	 */
 	public void createView() {
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 		myBody = myView.getBody();
 
 		myContext = IBindingContext.Factory.createContext(myView.getScrolledForm());

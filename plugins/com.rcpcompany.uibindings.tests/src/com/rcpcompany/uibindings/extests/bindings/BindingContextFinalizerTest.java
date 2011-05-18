@@ -26,6 +26,7 @@ import com.rcpcompany.uibinding.tests.model.TestObject;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingContextFinalizer;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 
@@ -41,7 +42,7 @@ public class BindingContextFinalizerTest {
 
 	@Before
 	public void before() {
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 
 		myTO = TestModelFactory.eINSTANCE.createTestObject();
 	}

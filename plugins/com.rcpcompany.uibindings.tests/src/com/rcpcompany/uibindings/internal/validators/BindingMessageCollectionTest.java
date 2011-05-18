@@ -40,6 +40,7 @@ import com.rcpcompany.uibindings.IBindingMessage.FeatureMatchingAlgorithm;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator;
 import com.rcpcompany.uibindings.tests.shop.Shop;
@@ -128,7 +129,7 @@ public class BindingMessageCollectionTest {
 	 * 
 	 */
 	private void createView() {
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 		myBody = myView.getBody();
 		((GridLayout) myBody.getLayout()).numColumns = 2;
 

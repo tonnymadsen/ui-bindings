@@ -24,6 +24,7 @@ import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator;
 import com.rcpcompany.uibindings.utils.IFormCreator;
@@ -59,7 +60,7 @@ public class DirectoryNameQuickfixTest {
 
 		myObject = TestModelFactory.eINSTANCE.createTestObject();
 
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 		myForm = myView.createFormCreator(myObject);
 
 		myBinding = myForm.addField("text(w=100)").type(Constants.TYPE_DIRECTORY_NAME)

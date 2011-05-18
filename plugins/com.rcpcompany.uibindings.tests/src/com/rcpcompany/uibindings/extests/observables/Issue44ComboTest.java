@@ -25,6 +25,7 @@ import org.junit.Test;
 
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
@@ -55,7 +56,7 @@ public class Issue44ComboTest {
 		resetAll();
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 
-		myTestView = createTestView(this);
+		myTestView = UIBindingsTestUtils.createUIBTestView(this);
 		shop = ShopFactory.eINSTANCE.getShop(EditingDomainUtils.getEditingDomain());
 		contact = shop.getContacts().get(0);
 		contactAbbreviation = contact.getCountry().getAbbreviation();

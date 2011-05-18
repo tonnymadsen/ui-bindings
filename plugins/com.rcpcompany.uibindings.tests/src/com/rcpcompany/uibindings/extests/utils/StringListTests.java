@@ -18,6 +18,7 @@ import org.junit.Test;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IValueBinding;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
@@ -32,7 +33,7 @@ public class StringListTests {
 	@Test
 	public void testABC() {
 		final Contact contact = ShopFactory.eINSTANCE.createContact();
-		final TestView testView = createTestView(this);
+		final TestView testView = UIBindingsTestUtils.createUIBTestView(this);
 		final IFormCreator form = testView.createFormCreator(contact);
 
 		final IValueBinding binding = form.addField("address");

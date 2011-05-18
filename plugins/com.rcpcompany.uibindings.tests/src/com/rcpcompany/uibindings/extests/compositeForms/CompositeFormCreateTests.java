@@ -23,6 +23,7 @@ import com.rcpcompany.uibindings.compositeform.ICompositeForm.Factory;
 import com.rcpcompany.uibindings.compositeform.ICompositeFormPart;
 import com.rcpcompany.uibindings.compositeform.ICompositeFormPartFactory;
 import com.rcpcompany.uibindings.compositeform.ICompositeFormPartOperations;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
@@ -47,7 +48,7 @@ public class CompositeFormCreateTests {
 		myShop.setNextCustomerNo(100);
 		myShop.setNextOrderNo(1);
 
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 		myForm = myView.createFormCreator(myShop);
 	}
 

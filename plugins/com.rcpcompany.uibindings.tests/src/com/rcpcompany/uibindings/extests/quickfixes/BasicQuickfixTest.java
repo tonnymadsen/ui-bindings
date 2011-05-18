@@ -27,6 +27,7 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator;
 import com.rcpcompany.uibindings.internal.handlers.QuickFixHandler;
@@ -79,7 +80,7 @@ public class BasicQuickfixTest {
 	}
 
 	private void createView() {
-		myTestView = createTestView(this);
+		myTestView = UIBindingsTestUtils.createUIBTestView(this);
 		myBody = myTestView.getBody();
 
 		myBoundText = new Text(myBody, SWT.SINGLE | SWT.LEAD | SWT.BORDER);

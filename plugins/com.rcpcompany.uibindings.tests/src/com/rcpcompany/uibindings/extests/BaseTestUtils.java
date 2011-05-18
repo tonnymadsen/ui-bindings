@@ -80,7 +80,6 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.extests.views.EmptyView;
-import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.InternalConstants;
 import com.rcpcompany.uibindings.scripting.IScriptEvaluationContext;
@@ -236,30 +235,6 @@ public class BaseTestUtils {
 		}
 
 		return list;
-	}
-
-	private static int testViewSeq = 0;
-
-	/**
-	 * Opens and returns a new test view.
-	 * 
-	 * @param creatingObject the object of the caller - used to name the new view
-	 * 
-	 * @return the new view
-	 */
-	public static TestView createTestView(Object creatingObject) {
-		TestView view = null;
-		try {
-			final IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-			view = (TestView) page.showView("com.rcpcompany.uibindings.extests.views.TestView", "" + (testViewSeq++),
-					IWorkbenchPage.VIEW_ACTIVATE);
-			assertNotNull(view);
-			view.setPartName("Test View: " + creatingObject.getClass().getSimpleName());
-		} catch (final Exception ex) {
-			fail(ex.getMessage());
-		}
-		view.getSite().getPage().activate(view);
-		return view;
 	}
 
 	/**

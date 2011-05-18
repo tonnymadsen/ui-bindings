@@ -34,6 +34,7 @@ import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IControlFactory;
 import com.rcpcompany.uibindings.IValueBinding;
+import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.TestView;
 import com.rcpcompany.uibindings.internal.controlFactories.CheckBoxControlFactory;
 
@@ -65,7 +66,7 @@ public class ArgumentsTypeTest {
 	@Before
 	public void setup() {
 		resetAll();
-		myView = createTestView(this);
+		myView = UIBindingsTestUtils.createUIBTestView(this);
 		myBody = myView.getBody();
 
 		myReferenceText = new Text(myBody, SWT.SINGLE | SWT.LEAD | SWT.BORDER);
