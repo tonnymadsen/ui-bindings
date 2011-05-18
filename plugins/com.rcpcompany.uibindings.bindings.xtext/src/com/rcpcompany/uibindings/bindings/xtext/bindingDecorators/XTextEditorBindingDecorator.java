@@ -21,7 +21,6 @@ import org.eclipse.xtext.ui.editor.model.IXtextModelListener;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Module;
-import com.google.inject.util.Modules;
 import com.rcpcompany.uibindings.EcoreExtUtils;
 import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.IUIBindingDecorator;
@@ -30,7 +29,6 @@ import com.rcpcompany.uibindings.bindings.xtext.IUIBXTextBindingContext;
 import com.rcpcompany.uibindings.bindings.xtext.UIBXTextContants;
 import com.rcpcompany.uibindings.bindings.xtext.internal.uiAttributes.EditorAttribute;
 import com.rcpcompany.uibindings.bindings.xtext.internal.xtext.EmbeddedXtextEditorModule;
-import com.rcpcompany.uibindings.bindings.xtext.internal.xtext.EmbeddedXtextEditorOverrideModule;
 import com.rcpcompany.uibindings.bindings.xtext.xtext.EmbeddedXtextEditor;
 import com.rcpcompany.uibindings.decorators.BaseUIBindingDecorator;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -106,9 +104,9 @@ public class XTextEditorBindingDecorator extends BaseUIBindingDecorator implemen
 		/*
 		 * Based on the supplied module, create the needed injector
 		 */
-		Module m = b.getArgument(UIBXTextContants.ARG_XTEXT_INJECTOR_MODULE, Module.class, null);
+		final Module m = b.getArgument(UIBXTextContants.ARG_XTEXT_INJECTOR_MODULE, Module.class, null);
 		b.assertTrue(m != null, "XText Decoratoe requires an injector");
-		m = Modules.override(m).with(new EmbeddedXtextEditorOverrideModule());
+		// m = Modules.override(m).with(new EmbeddedXtextEditorOverrideModule());
 		myInjector = Guice.createInjector(new EmbeddedXtextEditorModule(context), m);
 
 		/*

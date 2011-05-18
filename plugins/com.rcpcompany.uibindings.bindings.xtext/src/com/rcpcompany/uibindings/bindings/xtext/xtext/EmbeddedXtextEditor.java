@@ -119,7 +119,7 @@ public class EmbeddedXtextEditor {
 	/**
 	 * Internal resource used for the editor
 	 */
-	private EmbeddedXtextResource myResource;
+	private XtextResource myResource;
 
 	/**
 	 * Document representation of the content of the editor.
@@ -155,7 +155,7 @@ public class EmbeddedXtextEditor {
 	private Provider<XtextDocument> myDocumentProvider;
 
 	@Inject
-	private Provider<EmbeddedXtextResource> myEmbeddedXtextResourceProvider;
+	private Provider<XtextResource> myXtextResourceProvider;
 	@Inject
 	private IResourceValidator myResourceValidator;
 
@@ -257,8 +257,8 @@ public class EmbeddedXtextEditor {
 		getViewer().setDocument(getDocument(), annotationModel);
 	}
 
-	private EmbeddedXtextResource createResource(String content) {
-		final EmbeddedXtextResource result = createResource();
+	private XtextResource createResource(String content) {
+		final XtextResource result = createResource();
 		try {
 			result.load(new StringInputStream(content, result.getEncoding()), Collections.emptyMap());
 		} catch (final Exception e) {
@@ -611,11 +611,11 @@ public class EmbeddedXtextEditor {
 		}
 	}
 
-	protected EmbeddedXtextResource createResource() {
+	protected XtextResource createResource() {
 		final ResourceSet resourceSet = myResourceSetProvider.get(null);
 		// XtextResource result = (XtextResource) resourceSet.createResource(
 		// URI.createURI(fGrammarAccess.getGrammar().getName() + "." + fFileExtension));
-		final EmbeddedXtextResource result = myEmbeddedXtextResourceProvider.get();
+		final XtextResource result = myXtextResourceProvider.get();
 		result.setURI(URI.createURI(myGrammarAccess.getGrammar().getName() + "." + myFileExtension));
 		resourceSet.getResources().add(result);
 		return result;
