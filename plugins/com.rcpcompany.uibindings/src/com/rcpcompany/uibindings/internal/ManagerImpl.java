@@ -3575,7 +3575,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 */
 	private Map<Integer, MonitoredObservableInfo> myMonitoredObservablesMap = null;
 
-	private class MonitoredObservableInfo {
+	private static class MonitoredObservableInfo {
 		public MonitoredObservableInfo(IObservable source, Object observing) {
 			this.sourceInfo = "" + source;
 			this.firstObserving = observing;
@@ -3612,7 +3612,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 					final Object observing = info.firstObserving;
 					final int oldLevels = LogUtils.DEBUG_STRACK_LEVELS;
 					try {
-						LogUtils.DEBUG_STRACK_LEVELS = 10;
+						LogUtils.DEBUG_STRACK_LEVELS = 15;
 						LogUtils.error(event.getSource(), "PREMATURE DISPOSAL: " + info.sourceInfo + "\nby "
 								+ observing, info.firstMonitoringPoint);
 					} finally {
