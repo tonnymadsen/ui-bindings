@@ -160,6 +160,7 @@ public class FormChooserTest {
 				myShopItem.setInformation(ShopFactory.eINSTANCE.createShopItemDescription());
 				yield();
 				assertNotSame(null, myDisposeText);
+				assertFalse(myDisposeText.isDisposed());
 				assertEquals(1, myComposite.getChildren().length);
 				assertEquals(BindingState.OK, myContext.getState());
 				assertEquals(noBindings + 1, bindings.size());
@@ -189,6 +190,7 @@ public class FormChooserTest {
 				myShopItem.setInformation(ShopFactory.eINSTANCE.createShopItemDescription());
 				yield();
 				assertNotSame(null, myDisposeText);
+				assertFalse(myDisposeText.isDisposed());
 				assertEquals(1, myComposite.getChildren().length);
 				assertEquals(noBindings + 1, bindings.size());
 			}

@@ -34,6 +34,7 @@ import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
+import com.rcpcompany.uibindings.tests.shop.ShopItemProperties;
 import com.rcpcompany.uibindings.validators.EValidatorAdapter;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 
@@ -60,6 +61,7 @@ public class DiagnosticChainTest {
 	private ValueBindingMessageImageDecorator myMessageDecorator;
 	private ValidatorAdapterManager myValidatorManager;
 	private final EValidatorAdapter myValidationAdapter = new EValidatorAdapter();
+	private ShopItemProperties myProperty;
 
 	/**
 	 * 
@@ -73,10 +75,15 @@ public class DiagnosticChainTest {
 
 		myShop = ShopFactory.eINSTANCE.createShop();
 		myShop.setName("NN");
+
 		myItem = ShopFactory.eINSTANCE.createShopItem();
 		myItem.setName("xxx");
 		myItem.setPrice(10f);
 		myItem.setShop(myShop);
+
+		myProperty = ShopFactory.eINSTANCE.createShopItemProperties();
+		myProperty.setItem(myItem);
+		myProperty.setName("type");
 
 		myView = createTestView(this);
 		myBody = myView.getBody();
@@ -124,7 +131,7 @@ public class DiagnosticChainTest {
 		myItem.setName("x");
 		sleep(2 * VD);
 
-		System.out.println(myValidatorManager.getUnboundMessages());
+		// System.out.println(myValidatorManager.getUnboundMessages());
 		assertEquals(noUnboundMessages + 1, myValidatorManager.getUnboundMessages().size());
 		// Still no messages assigned to the name as the feature of the diagnostic is missing
 		assertEquals(1, messages.size());
