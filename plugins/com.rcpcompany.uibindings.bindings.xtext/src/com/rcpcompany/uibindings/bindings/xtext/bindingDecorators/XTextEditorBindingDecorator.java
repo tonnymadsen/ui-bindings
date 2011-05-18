@@ -124,10 +124,19 @@ public class XTextEditorBindingDecorator extends BaseUIBindingDecorator implemen
 		b.setUIAttribute(new EditorAttribute(myEditor));
 		oldUIAttribute.dispose();
 
+		/*
+		 * Decorate the binding...
+		 */
 		super.decorate();
 
+		/*
+		 * Connect to any AST obserable
+		 */
 		myASTOV = getBinding().getArgument(UIBXTextContants.ARG_XTEXT_AST_OV, IObservableValue.class, null);
 
+		/*
+		 * Update the state and make sure the state is updated whenever the model changes.
+		 */
 		final IXtextDocument document = myEditor.getDocument();
 		document.addModelListener(new IXtextModelListener() {
 			@Override
@@ -154,6 +163,11 @@ public class XTextEditorBindingDecorator extends BaseUIBindingDecorator implemen
 
 		if (errors != null && errors.size() > 0) {
 			LogUtils.debug(this, "errors: " + errors);
+			/*
+			 * Gate the errors to Messages...
+			 * 
+			 * TODO
+			 */
 			return;
 		}
 		if (myASTOV != null) {

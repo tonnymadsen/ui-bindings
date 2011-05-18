@@ -42,6 +42,7 @@ import org.eclipse.jface.text.source.IVerticalRuler;
 import org.eclipse.jface.text.source.IVerticalRulerColumn;
 import org.eclipse.jface.text.source.OverviewRuler;
 import org.eclipse.jface.text.source.SourceViewer;
+import org.eclipse.jface.text.source.VerticalRuler;
 import org.eclipse.jface.text.source.projection.ProjectionSupport;
 import org.eclipse.jface.text.source.projection.ProjectionViewer;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -171,6 +172,7 @@ public class EmbeddedXtextEditor {
 	private final EmbeddedFoldingStructureProvider myFoldingStructureProvider;
 
 	private IOverviewRuler myOverviewRuler;
+	private IVerticalRuler myVerticalRuler;
 
 	private IAnnotationAccess myAnnotationAccess;
 
@@ -307,6 +309,9 @@ public class EmbeddedXtextEditor {
 		mySourceViewer = mySourceViewerFactory.createSourceViewer(parent, fVerticalRuler, getOverviewRuler(), true,
 				myStyle);
 
+		/*
+		 * Borders..
+		 */
 		final FormToolkit formToolkit = IManager.Factory.getManager().getFormToolkit();
 		formToolkit.adapt(mySourceViewer.getTextWidget(), true, true);
 		formToolkit.paintBordersFor(mySourceViewer.getTextWidget().getParent());
@@ -432,6 +437,18 @@ public class EmbeddedXtextEditor {
 			myOverviewRuler = createOverviewRuler(EditorsUI.getSharedTextColors());
 		}
 		return myOverviewRuler;
+	}
+
+	/**
+	 * Returns the vertical ruler.
+	 * 
+	 * @return the vertical ruler
+	 */
+	private IVerticalRuler getVerticalRuler() {
+		if (myVerticalRuler == null && (myStyle & SWT.V_SCROLL) != 0) {
+			myVerticalRuler = new VerticalRuler(VERTICAL_RULER_WIDTH);
+		}
+		return myVerticalRuler;
 	}
 
 	/** The width of the vertical ruler. */
