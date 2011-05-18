@@ -23,9 +23,12 @@
             lookupReferenceTargetType="false"
             name="xtextInjectorModule">
       </argumentInfo>
-   </extension>
-   <extension
-         point="org.eclipse.ui.bindings">
+      <argumentInfo
+            lookupAttributeContainingClass="false"
+            lookupParent="false"
+            lookupReferenceTargetType="false"
+            name="xtextASTOV">
+      </argumentInfo>
    </extension>
    <extension
          point="org.eclipse.ui.contexts">
