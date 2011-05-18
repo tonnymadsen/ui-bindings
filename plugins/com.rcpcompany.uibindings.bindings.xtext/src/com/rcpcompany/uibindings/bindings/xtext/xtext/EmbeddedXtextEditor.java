@@ -600,6 +600,8 @@ public class EmbeddedXtextEditor {
 
 		@Override
 		public void focusGained(FocusEvent e) {
+			if (myBinding.isDisposed())
+				return;
 			final IServiceLocator sl = myBinding.getContext().getServiceLocator();
 
 			final IContextService contextService = (IContextService) sl.getService(IContextService.class);
@@ -615,6 +617,8 @@ public class EmbeddedXtextEditor {
 
 		@Override
 		public void focusLost(FocusEvent e) {
+			if (myBinding.isDisposed())
+				return;
 			if (myContextActivation != null) {
 				final IServiceLocator sl = myBinding.getContext().getServiceLocator();
 				final IContextService contextService = (IContextService) sl.getService(IContextService.class);
