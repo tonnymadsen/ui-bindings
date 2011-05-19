@@ -31,7 +31,7 @@ import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
@@ -59,7 +59,7 @@ public class ContextEditingDomainCommitTest {
 	private Country myCountry;
 	private Contact myContact1;
 
-	private TestView myView;
+	private UIBTestView myView;
 
 	private final boolean myPrivateEditingDomain;
 

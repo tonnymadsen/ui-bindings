@@ -38,7 +38,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
@@ -57,7 +57,7 @@ public class ViewerSingleSelectionTest {
 	private Country myCountry3;
 	private Country myCountry4;
 
-	private TestView myView;
+	private UIBTestView myView;
 	private Composite myBody;
 
 	private Text myEmptyText;

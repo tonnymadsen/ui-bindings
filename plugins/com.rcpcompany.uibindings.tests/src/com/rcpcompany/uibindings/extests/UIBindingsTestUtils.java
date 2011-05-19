@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 
 public class UIBindingsTestUtils {
 	/**
@@ -15,11 +15,11 @@ public class UIBindingsTestUtils {
 	 * 
 	 * @return the new view
 	 */
-	public static TestView createUIBTestView(Object creatingObject) {
-		TestView view = null;
+	public static UIBTestView createUIBTestView(Object creatingObject) {
+		UIBTestView view = null;
 		try {
 			final IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-			view = (TestView) page.showView("com.rcpcompany.uibindings.extests.views.TestView", "" + (testViewSeq++),
+			view = (UIBTestView) page.showView("com.rcpcompany.uibindings.extests.views.TestView", "" + (testViewSeq++),
 					IWorkbenchPage.VIEW_ACTIVATE);
 			assertNotNull(view);
 			view.setPartName("Test View: " + creatingObject.getClass().getSimpleName());

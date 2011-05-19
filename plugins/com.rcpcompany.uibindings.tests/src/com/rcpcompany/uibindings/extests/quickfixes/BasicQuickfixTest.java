@@ -28,7 +28,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator;
 import com.rcpcompany.uibindings.internal.handlers.QuickFixHandler;
 import com.rcpcompany.uibindings.tests.shop.Contact;
@@ -46,7 +46,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 public class BasicQuickfixTest {
 
 	private Shop myShop;
-	private TestView myTestView;
+	private UIBTestView myTestView;
 	private Composite myBody;
 	private Text myBoundText;
 	private Text myUnboundText;

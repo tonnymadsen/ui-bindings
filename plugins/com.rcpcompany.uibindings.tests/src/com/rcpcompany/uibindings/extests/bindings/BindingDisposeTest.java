@@ -25,7 +25,7 @@ import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.observables.DisposePendingWritableValue;
 import com.rcpcompany.uibindings.tests.shop.Shop;
@@ -45,7 +45,7 @@ import com.rcpcompany.uibindings.uiAttributes.SimpleUIAttribute;
 public class BindingDisposeTest {
 
 	private Shop myShop;
-	private TestView myView;
+	private UIBTestView myView;
 
 	@Before
 	public void setup() {

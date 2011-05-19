@@ -29,7 +29,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
@@ -54,7 +54,7 @@ public class DiagnosticChainTest {
 
 	private static final int VD = 500;
 	private Shop myShop;
-	private TestView myView;
+	private UIBTestView myView;
 	private Composite myBody;
 	private ShopItem myItem;
 	private IBindingContext myContext;

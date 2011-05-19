@@ -295,7 +295,7 @@
       </view>
       <view
             allowMultiple="true"
-            class="com.rcpcompany.uibindings.extests.views.TestView"
+            class="com.rcpcompany.uibindings.extests.views.UIBTestView"
             id="com.rcpcompany.uibindings.extests.views.TestView"
             name="Test View"
             restorable="true">

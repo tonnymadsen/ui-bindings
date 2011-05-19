@@ -28,7 +28,7 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
@@ -42,7 +42,7 @@ import com.rcpcompany.uibindings.utils.IFilteringTableAdapter;
  * @author Tonny Madsen, The RCP Company
  */
 public class FilterTest {
-	private TestView myView;
+	private UIBTestView myView;
 	private Shop myShop;
 	private Composite myBody;
 	private Table myTable;

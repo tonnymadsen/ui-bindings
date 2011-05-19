@@ -35,7 +35,7 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IControlFactory;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.internal.controlFactories.CheckBoxControlFactory;
 
 /**
@@ -49,7 +49,7 @@ import com.rcpcompany.uibindings.internal.controlFactories.CheckBoxControlFactor
  * @author Tonny Madsen, The RCP Company
  */
 public class ArgumentsTypeTest {
-	private TestView myView;
+	private UIBTestView myView;
 	private Composite myBody;
 	private IBindingContext myContext;
 

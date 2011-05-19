@@ -27,7 +27,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
@@ -43,7 +43,7 @@ public class BasicValueBindingArgumentsTest {
 
 	private static final String MY_HELP_ID = "myHelpID";
 	private static final String MY_TOOL_TIP = "my tool tip";
-	private TestView myView;
+	private UIBTestView myView;
 	private Text myCountryText;
 
 	private Shop myShop;

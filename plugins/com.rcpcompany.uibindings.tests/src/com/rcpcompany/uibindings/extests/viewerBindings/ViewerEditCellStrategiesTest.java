@@ -39,7 +39,7 @@ import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
@@ -80,7 +80,7 @@ public class ViewerEditCellStrategiesTest {
 	private ShopItem myShopItem1;
 	private ShopItem myShopItem2;
 
-	private TestView myView;
+	private UIBTestView myView;
 	private Composite myBody;
 	private TableViewer myTableViewer;
 	private TableViewerColumn myNameColumn;

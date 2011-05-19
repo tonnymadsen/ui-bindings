@@ -31,7 +31,7 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 
 /**
  * Tests {@link UnsettableExtender} and {@link UseDefaultValueHandler}.
@@ -47,7 +47,7 @@ import com.rcpcompany.uibindings.extests.views.TestView;
  */
 public class ValueUnsettableTest {
 
-	private TestView myView;
+	private UIBTestView myView;
 	private Composite myBody;
 
 	private IBindingContext myContext;

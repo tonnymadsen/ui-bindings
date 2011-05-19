@@ -28,7 +28,7 @@ import com.rcpcompany.uibindings.IUIBindingDecorator;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator;
 import com.rcpcompany.uibindings.internal.decorators.EnumBindingDecorator;
 import com.rcpcompany.uibindings.tests.shop.Customer;
@@ -45,7 +45,7 @@ import com.rcpcompany.uibindings.utils.EditingDomainUtils;
  */
 public class EnumDecoratorProviderTest {
 	private Shop myShop;
-	private TestView myView;
+	private UIBTestView myView;
 	private Composite myBody;
 
 	private IBindingContext myContext;

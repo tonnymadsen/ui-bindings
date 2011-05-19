@@ -32,7 +32,7 @@ import com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor;
 import com.rcpcompany.uibindings.IUIBindingsFactory;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.internal.UIBindingDecoratorExtenderImpl;
 import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
 import com.rcpcompany.uibindings.utils.IFormCreator;
@@ -49,7 +49,7 @@ public class ExtenderTest {
 	private IManager MANAGER;
 	private final MyExtender myExtender = new MyExtender();
 	private IUIBindingDecoratorExtenderDescriptor myDescriptor;
-	private TestView myView;
+	private UIBTestView myView;
 	private IUIAttribute myUIAttr;
 	private IValueBinding myBinding;
 

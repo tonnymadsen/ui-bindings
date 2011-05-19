@@ -29,7 +29,7 @@ import org.junit.Test;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Customer;
@@ -71,7 +71,7 @@ public class SuperPasteTest {
 	private Contact myContact1;
 	private Contact myContact2;
 	private Customer myCustomer1;
-	private TestView myView;
+	private UIBTestView myView;
 	private Customer myCustomer2;
 	private Country myDKCountry;
 	private Country mySECountry;

@@ -29,7 +29,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopItemDescription;
@@ -50,7 +50,7 @@ public class EObjectCreatorDecoratorProviderTest {
 
 	protected ShopItemDescription myDescription;
 
-	protected TestView myView;
+	protected UIBTestView myView;
 	protected Composite myBody;
 	protected Combo myCombo1;
 	protected Combo myCombo2;

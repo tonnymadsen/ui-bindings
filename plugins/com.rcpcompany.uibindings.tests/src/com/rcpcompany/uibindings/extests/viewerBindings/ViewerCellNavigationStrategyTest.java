@@ -21,7 +21,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
@@ -40,7 +40,7 @@ import com.rcpcompany.uibindings.utils.ITableCreator;
 public class ViewerCellNavigationStrategyTest {
 	private Shop myShop;
 
-	private TestView myView;
+	private UIBTestView myView;
 
 	private ITableCreator myTable;
 

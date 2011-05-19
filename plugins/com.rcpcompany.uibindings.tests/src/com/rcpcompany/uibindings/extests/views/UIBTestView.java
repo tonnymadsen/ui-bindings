@@ -25,7 +25,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.utils.IGlobalNavigationManager.IGetSelectionTarget;
 
-public class TestView extends ViewPart implements IGetSelectionTarget, ISetSelectionTarget {
+public class UIBTestView extends ViewPart implements IGetSelectionTarget, ISetSelectionTarget {
 	private final FormToolkit myToolkit = IManager.Factory.getManager().getFormToolkit();
 	private Composite myParent;
 

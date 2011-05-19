@@ -25,7 +25,7 @@ import org.junit.Test;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.utils.IFormCreator;
@@ -37,7 +37,7 @@ import com.rcpcompany.uibindings.utils.IFormCreator;
  */
 public class UIAttributeRadioGroupTest {
 
-	private TestView myView;
+	private UIBTestView myView;
 	private ShopItem myItem;
 	private WritableList myValidValues;
 	private IFormCreator myForm;

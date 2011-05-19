@@ -32,7 +32,7 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Shop;
@@ -50,7 +50,7 @@ public class FormCreatorTest {
 	private Contact myContact;
 
 	private FormToolkit myToolkit;
-	private TestView myView;
+	private UIBTestView myView;
 	private Composite myBody;
 
 	private Composite myComposite;

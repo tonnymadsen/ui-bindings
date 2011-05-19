@@ -48,7 +48,7 @@ import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.sourceProviders.BindingSourceProvider;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
@@ -72,7 +72,7 @@ public class BindingSourceProviderTest {
 	private Contact myContact1;
 	private Contact myContact2;
 
-	private TestView myView;
+	private UIBTestView myView;
 	private Composite myBody;
 
 	private Text myEmptyText;

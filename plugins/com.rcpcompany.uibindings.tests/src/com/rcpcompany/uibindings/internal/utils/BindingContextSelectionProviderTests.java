@@ -28,7 +28,7 @@ import org.junit.Test;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
@@ -45,7 +45,7 @@ import com.rcpcompany.uibindings.utils.ITableCreator;
 public class BindingContextSelectionProviderTests {
 	private Shop myShop;
 
-	private TestView myView;
+	private UIBTestView myView;
 	private IFormCreator myForm;
 
 	private IValueBinding myNameBinding;

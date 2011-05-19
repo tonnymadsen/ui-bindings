@@ -48,7 +48,7 @@ import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.IUIAttributeImageDecoration;
 import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.uiAttributes.SimpleUIAttribute;
 import com.rcpcompany.uibindings.utils.IPaintDecoration;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -311,7 +311,7 @@ public class UIAttributeImageDecorationTest<T extends Control> {
 		myView.getSite().getPage().activate(myView);
 	}
 
-	private TestView myView;
+	private UIBTestView myView;
 	private Composite myBody;
 	private T myWidget;
 

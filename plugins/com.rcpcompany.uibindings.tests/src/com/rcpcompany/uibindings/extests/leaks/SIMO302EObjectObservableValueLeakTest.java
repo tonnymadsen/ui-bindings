@@ -23,7 +23,7 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Customer;
 import com.rcpcompany.uibindings.tests.shop.CustomerType;
@@ -50,7 +50,7 @@ public class SIMO302EObjectObservableValueLeakTest {
 	}
 
 	private Shop myShop;
-	private TestView myTestView;
+	private UIBTestView myTestView;
 	private ITableCreator myTableCreator;
 	private Customer myCustomer1;
 	private Customer myCustomer2;

@@ -23,7 +23,7 @@ import com.rcpcompany.uibinding.tests.model.TestObject;
 import com.rcpcompany.uibinding.tests.model.WeightUnit;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.utils.IBindingEnabler;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 
@@ -41,7 +41,7 @@ public class BindingEnablerTests {
 	}
 
 	private TestObject myTestObject;
-	private TestView myView;
+	private UIBTestView myView;
 	private IFormCreator myForm;
 	private IValueBinding myBinding;
 

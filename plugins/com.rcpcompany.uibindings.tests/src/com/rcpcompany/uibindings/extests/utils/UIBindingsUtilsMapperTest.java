@@ -36,7 +36,7 @@ import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.UIBindingsUtils.IClassIdentiferMapper;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
@@ -54,7 +54,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 public class UIBindingsUtilsMapperTest {
 	private Shop myShop;
 	private Contact myContact;
-	private TestView myView;
+	private UIBTestView myView;
 	private IValueBinding myBinding;
 
 	@Parameters

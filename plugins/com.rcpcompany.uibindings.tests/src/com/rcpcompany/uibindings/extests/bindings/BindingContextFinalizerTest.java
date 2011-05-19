@@ -27,7 +27,7 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingContextFinalizer;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 
 /**
@@ -36,7 +36,7 @@ import com.rcpcompany.uibindings.utils.IFormCreator;
  * @author Tonny Madsen, The RCP Company
  */
 public class BindingContextFinalizerTest {
-	private TestView myView;
+	private UIBTestView myView;
 	private TestObject myTO;
 	private IBindingContext myContext;
 

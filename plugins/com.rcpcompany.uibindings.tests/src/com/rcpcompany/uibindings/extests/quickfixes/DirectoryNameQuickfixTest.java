@@ -25,7 +25,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.validators.EValidatorAdapter;
@@ -45,7 +45,7 @@ public class DirectoryNameQuickfixTest {
 
 	private int VD;
 	private TestObject myObject;
-	private TestView myView;
+	private UIBTestView myView;
 	private IFormCreator myForm;
 	private IValueBinding myBinding;
 	private ValueBindingMessageImageDecorator myMessageDecorator;

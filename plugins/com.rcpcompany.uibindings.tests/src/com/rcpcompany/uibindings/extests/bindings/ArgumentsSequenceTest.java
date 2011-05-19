@@ -35,7 +35,7 @@ import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IColumnBindingCellInformation;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.utils.ITableCreator;
 
@@ -52,7 +52,7 @@ import com.rcpcompany.uibindings.utils.ITableCreator;
  * @author Tonny Madsen, The RCP Company
  */
 public class ArgumentsSequenceTest {
-	private TestView myView;
+	private UIBTestView myView;
 
 	public static final String ARG = "foobar-Sequence";
 	private TestContainer myModel;

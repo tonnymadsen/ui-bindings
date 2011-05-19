@@ -27,7 +27,7 @@ import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.utils.ShowViewSelectionTestView;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.internal.decorators.extenders.OpenCommandSupport.ContextData;
 import com.rcpcompany.uibindings.internal.decorators.extenders.OpenCommandSupport.ManagerData;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
@@ -49,7 +49,7 @@ import com.rcpcompany.uibindings.utils.IFormCreator;
 public class OpenCommandSupportLowLevelTest {
 	public final static String TEST_VIEW_ID = ShowViewSelectionTestView.class.getName();
 
-	private TestView myView;
+	private UIBTestView myView;
 
 	private Shop myShop;
 

@@ -25,7 +25,7 @@ import org.junit.Test;
 import com.rcpcompany.uibindings.BindingState;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.utils.IFormCreator;
@@ -40,7 +40,7 @@ import com.rcpcompany.uibindings.utils.IGlobalNavigationManager.ForwardHistoryHa
  */
 public class GlobalNavigationManagerTest {
 	private Shop myShop;
-	private TestView myView;
+	private UIBTestView myView;
 	private IFormCreator myForm;
 	private IValueBinding myField1;
 	private IValueBinding myField2;
@@ -297,7 +297,7 @@ public class GlobalNavigationManagerTest {
 		/*
 		 * Create extra view
 		 */
-		final TestView view2 = UIBindingsTestUtils.createUIBTestView(this);
+		final UIBTestView view2 = UIBindingsTestUtils.createUIBTestView(this);
 		final ISelection selection2 = new StructuredSelection();
 		view2.selectReveal(selection2);
 		final IFormCreator form2 = view2.createFormCreator(myShop);
@@ -338,7 +338,7 @@ public class GlobalNavigationManagerTest {
 		// forward: move forward - recreate
 		mng.forwardHistory();
 		// assertTrue(myField3.getControl().isFocusControl());
-		final TestView view2b = (TestView) window.getActivePage().getActivePart();
+		final UIBTestView view2b = (UIBTestView) window.getActivePage().getActivePart();
 		assertEquals(secondaryId2, view2b.getViewSite().getSecondaryId());
 		assertEquals(selection2, view2b.getCurrentSelection());
 	}
