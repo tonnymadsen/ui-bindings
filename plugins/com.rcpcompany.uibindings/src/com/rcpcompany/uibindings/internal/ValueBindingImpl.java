@@ -207,6 +207,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 	@Override
 	public void updateUI() {
+		final Control c = getControl();
+		if (c == null || c.isDisposed()) return;
 		/*
 		 * We have to update the values backward to handle the chains set up in
 		 * BaseUIBindingDecorator.decorate()
@@ -228,7 +230,6 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 	@Override
 	public void setFocus() {
 		Control con = getControl();
-		if (con.isDisposed()) return;
 		if (con == null) {
 			final IValueBindingCell ci = getCell();
 			if (ci != null) {
@@ -236,6 +237,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			}
 		}
 		if (con == null) return;
+		if (con.isDisposed()) return;
 
 		/*
 		 * Make sure all Sections and ExpandableComposite are expanded
