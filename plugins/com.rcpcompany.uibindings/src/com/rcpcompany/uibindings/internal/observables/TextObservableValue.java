@@ -153,13 +153,20 @@ public class TextObservableValue extends AbstractSWTObservableValue implements I
 				if (myHandleENTER) {
 					forceUpdateValue();
 					/*
-					 * Cannot eat the keydown as it is also used when the binding is put into a cell
-					 * of a viewer // event.doit = false;
+					 * Cannot eat the ENTER as it is also used when the binding is put into a cell
+					 * of a viewer.
+					 * 
+					 * event.doit = false;
 					 */
 				}
 				break;
 			case SWT.ESC:
 				doSetValue(myOldValue);
+				/*
+				 * Cannot eat the ENTER as it is may also used to shut down a dialog, or whatever
+				 * 
+				 * event.doit = false;
+				 */
 				break;
 			default:
 				break;
