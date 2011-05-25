@@ -44,6 +44,7 @@ import com.rcpcompany.uibindings.IContainerBinding;
 import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
+import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
 import com.rcpcompany.uibindings.utils.IFilteringTableAdapter;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -117,7 +118,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	/**
 	 * Empty selection used when there are no current selection.
 	 */
-	protected final ISelection myEmptySelection = new ISelection() {
+	protected static final ISelection myEmptySelection = new ISelection() {
 		@Override
 		public boolean isEmpty() {
 			return true;
@@ -183,6 +184,9 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		}
 	}
 
+	/**
+	 * Checks whether the current selection has changed and fires an event if it has...
+	 */
 	protected void checkSelection() {
 		ISelection selection = null;
 		if (myCurrentProvider != null) {
@@ -192,8 +196,9 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		if (selection == null) {
 			selection = myEmptySelection;
 		}
-		if (selection == myCurrentSelection) return;
+		if (UIBindingsUtils.equals(selection, myCurrentSelection)) return;
 		myCurrentSelection = selection;
+		LogUtils.debug(this, "Selection changed to " + myCurrentSelection);
 		fireSelectionChanged(new SelectionChangedEvent(myCurrentProvider, myCurrentSelection));
 	}
 
@@ -271,6 +276,15 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	protected void bindingAdded(IBinding binding) {
 		if (binding instanceof IValueBinding) {
 			final IValueBinding vb = (IValueBinding) binding;
+			/*
+			 * Ignore bindings where the UI attribute has a non-empty attribute name...
+			 */
+			final String attribute = vb.getUIAttribute().getAttribute();
+			if (attribute != null && attribute.length() > 0) return;
+
+			/*
+			 * We need a control :-)
+			 */
 			final Control control = vb.getControl();
 			if (control == null) return;
 			final IObservable o = vb.getModelObservable();

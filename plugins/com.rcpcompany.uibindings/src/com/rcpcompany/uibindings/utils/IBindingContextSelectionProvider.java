@@ -94,5 +94,4 @@ public interface IBindingContextSelectionProvider extends IDisposable {
 	 * @param viewer the viewer to add
 	 */
 	void addViewer(Viewer viewer);
-
 }

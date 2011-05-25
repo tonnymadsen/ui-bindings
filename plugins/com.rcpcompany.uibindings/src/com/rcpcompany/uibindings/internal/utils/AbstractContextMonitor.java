@@ -84,6 +84,27 @@ public abstract class AbstractContextMonitor implements IDisposable {
 				if (newBinding.getState() == BindingState.OK) {
 					bindingAdded(newBinding);
 				} else {
+					if (myOKAdapter == null) {
+						myOKAdapter = new AdapterImpl() {
+							@Override
+							public void notifyChanged(Notification msg) {
+								if (msg.isTouch()) return;
+								if (msg.getFeature() != IUIBindingsPackage.Literals.BINDING_STATE) return;
+								final IBinding newBinding = (IBinding) msg.getNotifier();
+								switch (newBinding.getState()) {
+								case OK:
+									bindingAdded(newBinding);
+									//$FALL-THROUGH$ fallthrough
+								case DISPOSED:
+									((EObject) newBinding).eAdapters().remove(myOKAdapter);
+									break;
+								default:
+									break;
+								}
+							}
+						};
+					}
+
 					((EObject) newBinding).eAdapters().add(myOKAdapter);
 				}
 				break;
@@ -94,24 +115,7 @@ public abstract class AbstractContextMonitor implements IDisposable {
 		}
 	};
 
-	private final Adapter myOKAdapter = new AdapterImpl() {
-		@Override
-		public void notifyChanged(Notification msg) {
-			if (msg.isTouch()) return;
-			if (msg.getFeature() != IUIBindingsPackage.Literals.BINDING_STATE) return;
-			final IBinding newBinding = (IBinding) msg.getNotifier();
-			switch (newBinding.getState()) {
-			case OK:
-				bindingAdded(newBinding);
-				//$FALL-THROUGH$ fallthrough
-			case DISPOSED:
-				((EObject) newBinding).eAdapters().remove(myOKAdapter);
-				break;
-			default:
-				break;
-			}
-		}
-	};
+	private Adapter myOKAdapter = null;
 
 	/**
 	 * Invoked for each added binding in the context.
