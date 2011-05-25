@@ -25,7 +25,6 @@ import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Widget;
 
-import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.internal.UIAttributeImpl;
 
@@ -164,7 +163,7 @@ public abstract class AbstractUIAttribute extends UIAttributeImpl {
 	@Override
 	public void dispose() {
 		for (final IObservable v : myObservables) {
-			IManager.Factory.getManager().stopMonitorObservableDispose(v);
+			// IManager.Factory.getManager().stopMonitorObservableDispose(v);
 
 			if (myListeners != null) {
 				for (final IChangeListener myListener : myListeners) {
@@ -205,7 +204,12 @@ public abstract class AbstractUIAttribute extends UIAttributeImpl {
 
 	private final void addObservable(IObservable observable) {
 		myObservables.add(observable);
-		IManager.Factory.getManager().startMonitorObservableDispose(observable, this);
+		/*
+		 * Hmm... If we monitor the observable, there is a small problem when the widget is
+		 * disposed. In this case, will the observable be disposed, and the monitor dispose listener
+		 * will be called before the binding has had any changes to remove anything...
+		 */
+		// IManager.Factory.getManager().startMonitorObservableDispose(observable, this);
 		if (myListeners != null) {
 			for (final IChangeListener myListener : myListeners) {
 				if (myListener != null) {
