@@ -198,7 +198,6 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		}
 		if (UIBindingsUtils.equals(selection, myCurrentSelection)) return;
 		myCurrentSelection = selection;
-		LogUtils.debug(this, "Selection changed to " + myCurrentSelection);
 		fireSelectionChanged(new SelectionChangedEvent(myCurrentProvider, myCurrentSelection));
 	}
 
