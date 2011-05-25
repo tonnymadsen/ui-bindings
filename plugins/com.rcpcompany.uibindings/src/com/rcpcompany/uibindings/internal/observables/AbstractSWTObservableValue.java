@@ -57,6 +57,11 @@ public abstract class AbstractSWTObservableValue extends AbstractObservableValue
 		super.dispose();
 	}
 
+	/**
+	 * Dispose listener for the backed SWT widget. Not just added/removed in
+	 * {@link #firstListenerAdded()} and {@link #lastListenerRemoved()} as we want to track disposal
+	 * of the widget even if we don't have any listeners.
+	 */
 	private final DisposeListener disposeListener = new DisposeListener() {
 		@Override
 		public void widgetDisposed(DisposeEvent e) {

@@ -29,11 +29,8 @@ public class ListObservableList extends MySWTObservableList {
 	public ListObservableList(List list) {
 		super(SWTObservables.getRealm(list.getDisplay()));
 		this.list = list;
-	}
 
-	@Override
-	protected int getItemCount() {
-		return list.getItemCount();
+		init();
 	}
 
 	@Override
@@ -48,20 +45,6 @@ public class ListObservableList extends MySWTObservableList {
 	@Override
 	protected String[] getItems() {
 		return list.getItems();
-	}
-
-	@Override
-	protected String getItem(int index) {
-		return list.getItem(index);
-	}
-
-	@Override
-	protected void setItem(int index, String string) {
-		list.getDisplay().addFilter(SWT.Modify, myModifyFilter);
-		final String[] text = list.getSelection();
-		list.setItem(index, string);
-		list.setSelection(text);
-		list.getDisplay().removeFilter(SWT.Modify, myModifyFilter);
 	}
 
 	private final Listener myModifyFilter = new Listener() {

@@ -33,11 +33,8 @@ public class ComboObservableList extends MySWTObservableList {
 	public ComboObservableList(Combo combo) {
 		super(SWTObservables.getRealm(combo.getDisplay()));
 		this.combo = combo;
-	}
 
-	@Override
-	protected int getItemCount() {
-		return combo.getItemCount();
+		init();
 	}
 
 	@Override
@@ -57,25 +54,6 @@ public class ComboObservableList extends MySWTObservableList {
 	@Override
 	protected String[] getItems() {
 		return combo.getItems();
-	}
-
-	@Override
-	protected String getItem(int index) {
-		return combo.getItem(index);
-	}
-
-	@Override
-	protected void setItem(int index, String string) {
-		try {
-			combo.getDisplay().addFilter(SWT.Modify, myModifyFilter);
-			final String text = combo.getText();
-			combo.setItem(index, string);
-			combo.setText(text);
-		} catch (final Exception ex) {
-			LogUtils.error(this, ex);
-		} finally {
-			combo.getDisplay().removeFilter(SWT.Modify, myModifyFilter);
-		}
 	}
 
 	private final Listener myModifyFilter = new Listener() {

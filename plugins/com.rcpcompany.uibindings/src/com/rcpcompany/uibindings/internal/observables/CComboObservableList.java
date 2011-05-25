@@ -31,15 +31,13 @@ public class CComboObservableList extends MySWTObservableList {
 	public CComboObservableList(CCombo ccombo) {
 		super(SWTObservables.getRealm(ccombo.getDisplay()));
 		this.ccombo = ccombo;
-	}
 
-	@Override
-	protected int getItemCount() {
-		return ccombo.getItemCount();
+		init();
 	}
 
 	@Override
 	protected void setItems(String[] newItems) {
+		if (ccombo.isDisposed()) return;
 		ccombo.getDisplay().addFilter(SWT.Modify, myModifyFilter);
 		final String text = ccombo.getText();
 		ccombo.setItems(newItems);
@@ -50,20 +48,6 @@ public class CComboObservableList extends MySWTObservableList {
 	@Override
 	protected String[] getItems() {
 		return ccombo.getItems();
-	}
-
-	@Override
-	protected String getItem(int index) {
-		return ccombo.getItem(index);
-	}
-
-	@Override
-	protected void setItem(int index, String string) {
-		ccombo.getDisplay().addFilter(SWT.Modify, myModifyFilter);
-		final String text = ccombo.getText();
-		ccombo.setItem(index, string);
-		ccombo.setText(text);
-		ccombo.getDisplay().removeFilter(SWT.Modify, myModifyFilter);
 	}
 
 	private final Listener myModifyFilter = new Listener() {
