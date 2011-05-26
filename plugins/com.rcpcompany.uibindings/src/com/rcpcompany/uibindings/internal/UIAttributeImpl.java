@@ -616,18 +616,22 @@ public abstract class UIAttributeImpl extends EObjectImpl implements IUIAttribut
 				}
 
 				private void removeDecorator(final IUIAttributeImageDecoration id) {
-					id.getImageValue().getRealm().exec(new Runnable() {
-						@Override
-						public void run() {
-							id.getImageValue().removeValueChangeListener(myImageDecorationChangeListener);
-						}
-					});
-					id.getTooltipValue().getRealm().exec(new Runnable() {
-						@Override
-						public void run() {
-							id.getTooltipValue().removeValueChangeListener(myImageDecorationChangeListener);
-						}
-					});
+					if (id.eIsSet(IUIBindingsPackage.Literals.UI_ATTRIBUTE_IMAGE_DECORATION__IMAGE_VALUE)) {
+						id.getImageValue().getRealm().exec(new Runnable() {
+							@Override
+							public void run() {
+								id.getImageValue().removeValueChangeListener(myImageDecorationChangeListener);
+							}
+						});
+					}
+					if (id.eIsSet(IUIBindingsPackage.Literals.UI_ATTRIBUTE_IMAGE_DECORATION__TOOLTIP_VALUE)) {
+						id.getTooltipValue().getRealm().exec(new Runnable() {
+							@Override
+							public void run() {
+								id.getTooltipValue().removeValueChangeListener(myImageDecorationChangeListener);
+							}
+						});
+					}
 				};
 			};
 			eAdapters().add(myImageDecorationsAdapter);
