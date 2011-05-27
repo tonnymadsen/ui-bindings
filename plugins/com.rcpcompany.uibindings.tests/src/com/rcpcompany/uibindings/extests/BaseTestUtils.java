@@ -453,7 +453,7 @@ public class BaseTestUtils {
 			fail(stroke + ": " + ex.getMessage());
 		}
 		assertTrue(stroke + ": not complete", keyStroke.isComplete());
-		LogUtils.debug(c, stroke + " --> " + keyStroke);
+		// LogUtils.debug(c, stroke + " --> " + keyStroke);
 
 		Event event;
 
@@ -616,6 +616,7 @@ public class BaseTestUtils {
 	 */
 	public static void postMouseMove(Control c, Point p) {
 		final Point pt = c.getDisplay().map(c, null, p);
+		// LogUtils.debug(c, c + ": " + p + " -> " + pt);
 
 		final long now = System.currentTimeMillis();
 

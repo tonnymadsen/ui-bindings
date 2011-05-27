@@ -25,6 +25,7 @@ import org.junit.Test;
 
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
+import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.tests.shop.Contact;
@@ -118,12 +119,13 @@ public class ControlCellEditorTest {
 	 */
 	@Test
 	public void testDirectEdit() {
-		final ColumnViewer viewer = myTable.getBinding().getViewer();
+		final IViewerBinding binding = myTable.getBinding();
+		final ColumnViewer viewer = binding.getViewer();
 		final Table t = myTable.getTable();
 
 		assertEquals(myCountry1, myContact.getCountry());
 
-		postMouse(t, 0, 0);
+		postMouse(t, 0 + binding.getFirstTableColumnOffset(), 0);
 		yield();
 
 		assertTrue(viewer.isCellEditorActive());
@@ -144,7 +146,8 @@ public class ControlCellEditorTest {
 	 */
 	@Test
 	public void testChooseViaContentAssist() {
-		final ColumnViewer viewer = myTable.getBinding().getViewer();
+		final IViewerBinding binding = myTable.getBinding();
+		final ColumnViewer viewer = binding.getViewer();
 		final Table t = myTable.getTable();
 
 		assertEquals(myCountry1, myContact.getCountry());
@@ -157,7 +160,7 @@ public class ControlCellEditorTest {
 			}
 		});
 
-		postMouse(t, 0, 0);
+		postMouse(t, 0 + binding.getFirstTableColumnOffset(), 0);
 		yield();
 
 		assertTrue(viewer.isCellEditorActive());

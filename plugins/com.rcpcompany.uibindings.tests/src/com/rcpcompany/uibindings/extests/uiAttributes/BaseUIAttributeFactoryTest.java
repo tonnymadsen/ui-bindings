@@ -26,6 +26,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyleRange;
 
 import com.rcpcompany.uibindings.Constants;
+import com.rcpcompany.uibindings.extests.BaseTestUtils;
 
 public class BaseUIAttributeFactoryTest<T> {
 
@@ -128,6 +129,8 @@ public class BaseUIAttributeFactoryTest<T> {
 		for (final Object o : a) {
 			list.add(o);
 		}
+		BaseTestUtils.yield();
+
 		// assertEquals(widget.getClass().getName() + " attribute '" + attribute + "': expected <" +
 		// v + "> but was <"
 		// + valueV + ">", v, valueV);

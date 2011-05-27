@@ -154,7 +154,7 @@ public class SuperPasteTest {
 
 		setClipboarText("c:\\tmp\\a;AA;silver\nc:\\tmp\\b;BB;GOLD");
 
-		postMouse(table.getTable(), 0, 0);
+		postMouse(table.getTable(), 0 + table.getBinding().getFirstTableColumnOffset(), 0);
 
 		final IWorkbench workbench = PlatformUI.getWorkbench();
 		final ICommandService cs = (ICommandService) workbench.getService(ICommandService.class);
@@ -194,7 +194,7 @@ public class SuperPasteTest {
 		form.finish();
 		setClipboarText("aa;yes;\nbb;-");
 
-		postMouse(table.getTable(), 0, 1);
+		postMouse(table.getTable(), 0 + table.getBinding().getFirstTableColumnOffset(), 1);
 
 		final IWorkbench workbench = PlatformUI.getWorkbench();
 		final ICommandService cs = (ICommandService) workbench.getService(ICommandService.class);
