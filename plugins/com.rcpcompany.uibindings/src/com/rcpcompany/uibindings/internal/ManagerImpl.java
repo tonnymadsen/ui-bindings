@@ -3407,7 +3407,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	// TODO: Move to UIBU!
 	@Override
 	public Command initializeObject(final EditingDomain editinDomain, final EObject parent, final EReference reference,
-			final EObject child) {
+			final EObject child, boolean addToParent) {
 		if (child == null) return null;
 		final EClass eClass = child.eClass();
 		final IBindingDataType dt = IBindingDataType.Factory.create(null, eClass);
@@ -3466,7 +3466,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		} catch (final Exception ex) {
 			LogUtils.error(initializer, ex);
 		}
-		if (parent != null && reference != null) {
+		if (addToParent && parent != null && reference != null) {
 			if (reference.isMany()) {
 				context.addCommand(AddCommand.create(context.getEditingDomain(), parent, reference, child));
 			} else {

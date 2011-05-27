@@ -53,7 +53,7 @@ public class DefaultEStructuralFeatureInitializer implements IInitializationPart
 			for (; missing > 0; missing--) {
 				final EObject newChild = EcoreUtil.create(ref.getEReferenceType());
 				context.addCommand(IManager.Factory.getManager().initializeObject(context.getEditingDomain(), object,
-						ref, newChild));
+						ref, newChild, false));
 			}
 			context.addCommand(AddCommand.create(context.getEditingDomain(), object, ref, newChildren));
 		} else {
@@ -65,7 +65,7 @@ public class DefaultEStructuralFeatureInitializer implements IInitializationPart
 
 			final EObject newChild = EcoreUtil.create(ref.getEReferenceType());
 			context.addCommand(IManager.Factory.getManager().initializeObject(context.getEditingDomain(), object, ref,
-					newChild));
+					newChild, true));
 		}
 	}
 }

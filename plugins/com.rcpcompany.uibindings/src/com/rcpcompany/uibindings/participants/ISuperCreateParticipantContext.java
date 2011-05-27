@@ -23,7 +23,7 @@ import com.rcpcompany.uibindings.utils.IClipboardConverterManager.IResult;
  * Context for {@link ISuperCreateParticipant#createNeededRows(ISuperCreateParticipantContext)}.
  * <p>
  * Remember that new objects can be (partly) initialized using
- * {@link IManager#initializeObject(EditingDomain, EObject, EReference, EObject)}.
+ * {@link IManager#initializeObject(EditingDomain, EObject, EReference, EObject, boolean)}.
  * 
  * @author Tonny Madsen, The RCP Company
  */

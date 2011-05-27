@@ -181,7 +181,7 @@ public class EObjectCreatorDecorator extends SimpleUIBindingDecorator implements
 		 * Create and initialize the object
 		 */
 		final EObject e = EcoreUtil.create(ec);
-		IManager.Factory.getManager().initializeObject(getBinding().getEditingDomain(), null, null, e);
+		IManager.Factory.getManager().initializeObject(getBinding().getEditingDomain(), null, null, e, false);
 		uiToModelObjectMappings.put(name, e);
 		return e;
 	}

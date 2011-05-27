@@ -46,6 +46,7 @@ import com.rcpcompany.uibindings.ISourceProviderStateContext;
 import com.rcpcompany.uibindings.IUIBindingDecoratorExtender;
 import com.rcpcompany.uibindings.IUIBindingDecoratorExtenderDescriptor;
 import com.rcpcompany.uibindings.IValueBinding;
+import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.utils.IManagerRunnable;
 import com.rcpcompany.utils.basic.ClassUtils;
@@ -264,7 +265,7 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 			final Object n = i.getValue();
 
 			final Object o = myCurrentState.get(s);
-			if (o == null ? n == null : o.equals(n)) {
+			if (UIBindingsUtils.equals(n, o)) {
 				is.remove();
 			} else {
 				myCurrentState.put(s, n);

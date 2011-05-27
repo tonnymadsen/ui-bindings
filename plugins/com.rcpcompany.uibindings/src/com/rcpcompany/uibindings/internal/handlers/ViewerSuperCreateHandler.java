@@ -299,7 +299,7 @@ public class ViewerSuperCreateHandler extends AbstractHandler implements IHandle
 				 * Initialize the row
 				 */
 				cc.append(IManager.Factory.getManager().initializeObject(context.getEditingDomain(), s.getParent(),
-						s.getReference(), row));
+						s.getReference(), row, false));
 				rows.add(row);
 			}
 			/*

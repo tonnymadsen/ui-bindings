@@ -1071,17 +1071,19 @@ public interface IManager extends IBaseObject {
 	 * The default initilizer for {@link EClass} is {@link DefaultEObjectInitializer}, which will
 	 * initialize all features of the object in question.
 	 * <p>
-	 * Please note that the object is <em>not</em> yet included in the containment tree when this
-	 * method is called.
+	 * Please note that the object is <em>not</em> included in the containment tree by this method
+	 * is called unless <code>addToParent</code> is set to <code>true</code> and both the parent and
+	 * the reference is specified.
 	 * 
 	 * @param editinDomain editing domain used for all changes
 	 * @param parent the parent object
 	 * @param ref the reference from the parent to the child
 	 * @param child the new child object to be initialized
-	 * 
+	 * @param addToParent adds the child to the parent if <code>true</code>
 	 * @return a command used to initialize the child object - can be <code>null</code>
 	 */
-	Command initializeObject(EditingDomain editinDomain, EObject parent, EReference ref, EObject child);
+	Command initializeObject(EditingDomain editinDomain, EObject parent, EReference ref, EObject child,
+			boolean addToParent);
 
 	/**
 	 * Assign values to the specified destination object from the specified source object by
