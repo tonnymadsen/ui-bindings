@@ -56,6 +56,7 @@ public abstract class MySWTObservableList extends WritableList {
 				myWriteBackRunnable = new Runnable() {
 					@Override
 					public void run() {
+						if (isDisposed()) return;
 						myWriteBackRunnableOutstanding = false;
 						setItems((String[]) toArray(new String[size()]));
 					}
