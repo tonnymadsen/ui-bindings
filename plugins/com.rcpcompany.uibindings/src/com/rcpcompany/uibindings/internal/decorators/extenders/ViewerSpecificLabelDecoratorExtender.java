@@ -60,6 +60,9 @@ public class ViewerSpecificLabelDecoratorExtender extends AbstractUIBindingDecor
 		return myResourceManager;
 	}
 
+	/**
+	 * Constructs and returns a new extender.
+	 */
 	public ViewerSpecificLabelDecoratorExtender() {
 		myResourceManager = Activator.getDefault().getResourceManager();
 	}
