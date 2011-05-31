@@ -261,7 +261,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			type = ""; //$NON-NLS-1$
 		}
 		if (Activator.getDefault().TRACE_DECORATORS) {
-			LogUtils.debug(this, "getProvider(" + modelType.getName() + ", " + uiType.getName() + ", " + type + ")"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+			LogUtils.debug(
+					this,
+					"getProvider(" + modelType.getName() + "(" + modelKind + ") , " + uiType.getName() + ", " + type + ")"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 		}
 		final BindingProviderKey key = new BindingProviderKey(modelType, modelKind, uiType, type);
 		IDecoratorProvider provider = myBindingCache.get(key);
