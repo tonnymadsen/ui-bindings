@@ -1159,12 +1159,19 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	}
 
 	@Override
+	protected String getBaseType() {
+		final IBindingDataType dt = IBindingDataType.Factory.create(getList());
+		return dt.getBaseType();
+	}
+
+	@Override
 	public Widget getWidget() {
 		return getControl();
 	}
 
 	@Override
 	public IBinding dynamic() {
+		// TODO: error?
 		return this;
 	}
 

@@ -449,6 +449,10 @@
                alsoPrimitive="true"
                class="org.eclipse.emf.ecore.EObject">
          </modelType>
+         <modelType
+               alsoPrimitive="true"
+               class="java.util.Map$Entry">
+         </modelType>
          <uiType
                alsoPrimitive="true"
                class="java.lang.String">
