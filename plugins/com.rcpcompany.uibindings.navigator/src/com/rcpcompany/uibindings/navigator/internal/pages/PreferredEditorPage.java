@@ -94,12 +94,20 @@ public class PreferredEditorPage extends FieldEditorPreferencePage implements IW
 				"Open command should open new editors", getFieldEditorParent());
 		addField(editor);
 
+		editor = new BooleanFieldEditor(NavigatorConstants.PREF_SHOW_PIN_EDITOR_CONTRIBUTION,
+				"Show 'pin editor' contribution in menus and toolbars", getFieldEditorParent());
+		addField(editor);
+
 		editor = new BooleanFieldEditor(NavigatorConstants.PREF_PIN_EDITOR_BY_DEFAULT, "Pin new editors by default",
 				getFieldEditorParent());
 		addField(editor);
 
-		editor = new BooleanFieldEditor(NavigatorConstants.PREF_SHOW_BASE_EDITOR_VIEW_CONTRIBUTIONS,
-				"Show toolbar and menu for editors", getFieldEditorParent());
+		editor = new BooleanFieldEditor(NavigatorConstants.PREF_SHOW_CLONE_EDITOR_CONTRIBUTION,
+				"Show 'clone editor' contribution in menus and toolbars", getFieldEditorParent());
+		addField(editor);
+
+		editor = new BooleanFieldEditor(NavigatorConstants.PREF_SHOW_CLONE_EDITOR_CONTRIBUTION,
+				"Show other contribution in menus and toolbars", getFieldEditorParent());
 		addField(editor);
 	}
 

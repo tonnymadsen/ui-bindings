@@ -26,6 +26,8 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 		INavigatorManager.Factory.getManager();
 
 		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
-		ps.setDefault(NavigatorConstants.PREF_SHOW_BASE_EDITOR_VIEW_CONTRIBUTIONS, true);
+		ps.setDefault(NavigatorConstants.PREF_SHOW_PIN_EDITOR_CONTRIBUTION, true);
+		ps.setDefault(NavigatorConstants.PREF_SHOW_CLONE_EDITOR_CONTRIBUTION, true);
+		ps.setDefault(NavigatorConstants.PREF_SHOW_OTHER_CONTRIBUTIONS, true);
 	}
 }
