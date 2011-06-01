@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.BusyIndicator;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -29,6 +30,8 @@ import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.part.ISetSelectionTarget;
 import org.eclipse.ui.part.ViewPart;
 
+import com.rcpcompany.uibindings.IManager;
+import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.navigator.IEditorPart;
 import com.rcpcompany.uibindings.navigator.IEditorPartContext;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
@@ -173,7 +176,7 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 	 * @param obj the new current object of the editor
 	 */
 	@Override
-	public void setCurrentObject(EObject obj) {
+	public void setCurrentObject(final EObject obj) {
 		final IEditorPartDescriptor desc = INavigatorManager.Factory.getManager().getEditorPartDescriptor(obj);
 		if (Activator.getDefault().TRACE_EDITOR_PARTS_LIFECYCLE) {
 			LogUtils.debug(this, "Descriptor found: " + obj + "\n-> " + desc);
@@ -183,7 +186,9 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 		 * then just change the object without re-creating the editor part... Otherwise go the long
 		 * route and first dispose and then re-create the editor part.
 		 */
-		if (desc == myCurrentDescriptor && myCurrentEditorPart != null && myCurrentEditorPart.canAcceptObjectChanges()) {
+		if (desc == myCurrentDescriptor
+				&& ((myCurrentEditorPart != null && myCurrentEditorPart.canAcceptObjectChanges()) || (myCurrentValue != null && UIBindingsUtils
+						.equals(obj, myCurrentValue.getValue())))) {
 			/*
 			 * The editor part itself did not change... just update the observable value.
 			 */
@@ -191,7 +196,11 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 				if (Activator.getDefault().TRACE_EDITOR_PARTS_LIFECYCLE) {
 					LogUtils.debug(this, "Editor part value changed to " + obj);
 				}
-				myCurrentValue.setValue(obj);
+				BusyIndicator.showWhile(myParent.getDisplay(), new Runnable() {
+					public void run() {
+						myCurrentValue.setValue(obj);
+					}
+				});
 				final IBindingObjectInformation info = IBindingObjectInformation.Factory.createObjectInformation(
 						(EObject) myCurrentValue.getValue(), null);
 				setPartName(info.getName() + ": " + getCurrentDescriptor().getName());
@@ -215,6 +224,7 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 		 * descriptor
 		 */
 		myCurrentValue = new WritableValue(obj, obj.eClass());
+		IManager.Factory.getManager().startMonitorObservableDispose(myCurrentValue, this);
 		setCurrentDescriptor(desc);
 
 		/*
@@ -228,7 +238,11 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 				myParent = new Composite(myViewPartParent, SWT.NONE);
 				myParent.setLayout(new FillLayout());
 				try {
-					myCurrentEditorPart = factory.createEditorPart(myFactoryContext);
+					BusyIndicator.showWhile(myParent.getDisplay(), new Runnable() {
+						public void run() {
+							myCurrentEditorPart = factory.createEditorPart(myFactoryContext);
+						}
+					});
 				} catch (final Exception ex) {
 					LogUtils.error(factory, "Error detected during editor creation", ex);
 				}
@@ -283,6 +297,7 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 			}
 		}
 		if (myCurrentValue != null && !myCurrentValue.isDisposed()) {
+			IManager.Factory.getManager().stopMonitorObservableDispose(myCurrentValue);
 			myCurrentValue.dispose();
 		}
 		myCurrentValue = null;
