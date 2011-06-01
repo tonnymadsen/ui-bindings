@@ -30,7 +30,7 @@ import com.rcpcompany.uibinding.tests.model.TestGrid;
 import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.grid.IGridBinding;
 import com.rcpcompany.uibindings.grid.extests.models.TestGridGridModel;
 import com.rcpcompany.uibindings.grid.extests.models.TestGridGridModel.Cell;
@@ -43,7 +43,7 @@ import com.rcpcompany.uibindings.utils.EditingDomainUtils;
  */
 public class GridSimpleCreateDisposeTest {
 
-	private TestView myView;
+	private UIBTestView myView;
 
 	@Before
 	public void setup() {

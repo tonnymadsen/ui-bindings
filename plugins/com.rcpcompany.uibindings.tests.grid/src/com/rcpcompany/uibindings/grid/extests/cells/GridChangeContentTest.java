@@ -28,7 +28,7 @@ import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.TestView;
+import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.grid.IGridBinding;
 import com.rcpcompany.uibindings.grid.IGridBindingCellInformation;
 import com.rcpcompany.uibindings.grid.IGridModel;
@@ -42,7 +42,7 @@ import com.rcpcompany.uibindings.utils.EditingDomainUtils;
  */
 public class GridChangeContentTest {
 
-	private TestView myView;
+	private UIBTestView myView;
 	private Grid myGrid;
 	private IGridBinding myGridBinding;
 
