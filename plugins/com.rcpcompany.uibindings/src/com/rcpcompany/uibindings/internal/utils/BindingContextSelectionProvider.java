@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017, 2011 The RCP Company and others.
+ * Copyright (c) 2007, 2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -142,7 +142,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 
 	@Override
 	public void removeControl(Control control) {
-		if (control.getShell() != myMenuManager.getMenu().getShell()) return;
+		if (!control.isDisposed() && control.getShell() != myMenuManager.getMenu().getShell()) return;
 		myProviders.remove(control);
 		if (!control.isDisposed()) {
 			control.setMenu(null);
@@ -283,11 +283,16 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		Display.getCurrent().removeFilter(SWT.FocusIn, myFocusListener);
 
 		final Menu menu = myMenuManager.getMenu();
+		super.dispose();
+
+		/*
+		 * Now that the service itself is disposed, there should be no references to the menu any
+		 * more, so we can safely dispose it...
+		 */
 		if (menu != null) {
 			menu.dispose();
 		}
 
-		super.dispose();
 	}
 
 	@Override
