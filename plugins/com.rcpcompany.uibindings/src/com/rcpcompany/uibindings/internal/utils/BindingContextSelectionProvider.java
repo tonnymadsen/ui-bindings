@@ -36,7 +36,9 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IWorkbenchPartSite;
+import org.eclipse.ui.internal.PopupMenuExtender;
 
 import com.rcpcompany.uibindings.IBinding;
 import com.rcpcompany.uibindings.IBindingContext;
@@ -217,6 +219,11 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	private ISelection myCurrentSelection = null;
 
 	/**
+	 * org.eclipse.ui.internal class used to extend popup menus
+	 */
+	private PopupMenuExtender myPopupMenuExtender = null;
+
+	/**
 	 * The menu.
 	 */
 	/* package */final MenuManager myMenuManager = new MenuManager();
@@ -243,8 +250,10 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	/**
 	 * Creates the context menu.
 	 */
+	@SuppressWarnings("restriction")
 	private void createContextMenu() {
-		mySite.registerContextMenu(myMenuManager, this);
+		// myMenuManager.setRemoveAllWhenShown(true);
+		// mySite.registerContextMenu(myMenuManager, this);
 		// myMenuManager.add(new Separator("open"));
 		// myMenuManager.add(new Separator("undo"));
 		// myMenuManager.add(new Separator("new"));
@@ -254,6 +263,8 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		// myMenuManager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 		myMenuManager.createContextMenu(getContext().getTop());
 		getContext().getTop().setMenu(myMenuManager.getMenu());
+
+		myPopupMenuExtender = new PopupMenuExtender(mySite.getId(), myMenuManager, this, mySite.getPart(), false);
 	}
 
 	/**
@@ -264,9 +275,17 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		myFocusControl = null;
 		checkFocus();
 		// mySite.unregisterContextMenu(myMenuManager, this);
-
+		if (myPopupMenuExtender != null) {
+			myPopupMenuExtender.dispose();
+			myPopupMenuExtender = null;
+		}
 		mySite.setSelectionProvider(null);
 		Display.getCurrent().removeFilter(SWT.FocusIn, myFocusListener);
+
+		final Menu menu = myMenuManager.getMenu();
+		if (menu != null) {
+			menu.dispose();
+		}
 
 		super.dispose();
 	}

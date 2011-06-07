@@ -208,6 +208,8 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 
 	private IContextActivation myContainerContextContextActivation;
 
+	private IBinding myLastBinding;
+
 	/**
 	 * Observes changes in the specified valuse with the associated event.
 	 * 
@@ -280,7 +282,7 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 			newState.put(Constants.PREFIX + Constants.PROPERTY_CAN_DELETE_SELECTED_OBJECTS, true);
 
 			if (Activator.getDefault().TRACE_SOURCE_PROVIDER) {
-				final StringBuilder sb = new StringBuilder("Binding sources change:");
+				final StringBuilder sb = new StringBuilder("Binding sources change(" + myLastBinding + ")");
 				for (final Map.Entry<String, Object> i : newState.entrySet()) {
 					final String s = i.getKey();
 					sb.append("\n  ").append(s).append('=');
@@ -385,10 +387,10 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 			// LogUtils.debug(event, "MenuDetect");
 		}
 		try {
-			final IBinding b = IBindingContext.Factory.getBindingForWidget(event.widget);
-			if (b == null) return map;
+			myLastBinding = IBindingContext.Factory.getBindingForWidget(event.widget);
+			if (myLastBinding == null) return map;
 
-			map.put(Constants.SOURCES_ACTIVE_CONTEXT, b.getContext());
+			map.put(Constants.SOURCES_ACTIVE_CONTEXT, myLastBinding.getContext());
 
 			final ISourceProviderStateContext context = new ISourceProviderStateContext() {
 				@Override
@@ -444,9 +446,9 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 				}
 			};
 			try {
-				b.updateSourceProviderState(context);
+				myLastBinding.updateSourceProviderState(context);
 			} catch (final Exception ex) {
-				LogUtils.error(b, ex);
+				LogUtils.error(myLastBinding, ex);
 			}
 
 			/*

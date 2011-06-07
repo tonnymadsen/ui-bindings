@@ -16,6 +16,7 @@ import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.IWorkbenchPartSite;
+import org.eclipse.ui.internal.services.IWorkbenchLocationService;
 
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IDisposable;
@@ -50,6 +51,25 @@ public interface IBindingContextSelectionProvider extends IDisposable {
 		 */
 		public static IBindingContextSelectionProvider adapt(IBindingContext context, IWorkbenchPartSite site) {
 			return BindingContextSelectionProvider.adapt(context, site);
+		}
+
+		/**
+		 * Adds menu along with the corresponding selection provider for the specified context.
+		 * 
+		 * @param context the context
+		 * @param site the site
+		 * @return the new selection provider
+		 */
+		public static IBindingContextSelectionProvider adapt(IBindingContext context) {
+			@SuppressWarnings("restriction")
+			final IWorkbenchLocationService ls = (IWorkbenchLocationService) context.getServiceLocator().getService(
+					IWorkbenchLocationService.class);
+			if (ls == null) return null;
+
+			@SuppressWarnings("restriction")
+			final IWorkbenchPartSite site = ls.getPartSite();
+
+			return adapt(context, site);
 		}
 	}
 
