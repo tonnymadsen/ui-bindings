@@ -68,6 +68,9 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 	 * Map with all results returned by this factory.
 	 * <p>
 	 * Maps view parents to the list with the children in the parent.
+	 * <p>
+	 * An entry is removed when the list is disposed, which is done automatically by
+	 * {@link ObservableListTreeContentProvider} when an entry is not longer needed.
 	 */
 	private final Map<EObject, ViewerBindingTreeFactoryList> myResults = new HashMap<EObject, ViewerBindingTreeFactoryList>();
 
@@ -236,21 +239,30 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 		}
 
 		/*
-		 * Look at the parents TODO
+		 * Look at the parents in my previous results
 		 */
-		// final ITreeItemDescriptor parentDesc = childDescriptor.getPrimaryParent();
-		// EObject parent = null;
-		// if (parentDesc != null) {
-		// parent = findParent(echild, childDescriptor, parentDesc, null);
-		// if (parent != null) return parent;
-		//
-		// LogUtils.error(parentDesc, "Parent Descriptor is not a parent of " + echild);
-		// }
-		//
-		// for (final ITreeItemRelation parentRel : childDescriptor.getParentRelations()) {
-		// parent = findParent(echild, childDescriptor, parentRel.getParent(), parentRel);
-		// if (parent != null) return parent;
-		// }
+		for (final Entry<EObject, ViewerBindingTreeFactoryList> e : myResults.entrySet()) {
+			if (e.getValue().contains(echild)) return e.getKey();
+		}
+
+		/*
+		 * Look at all tree items to find a parent that
+		 * 
+		 * - either have a direct child that is the same as
+		 */
+		final ITreeItemDescriptor parentDesc = childDescriptor.getPrimaryParent();
+		EObject parent = null;
+		if (parentDesc != null) {
+			parent = findParent(echild, childDescriptor, parentDesc, null);
+			if (parent != null) return parent;
+
+			LogUtils.error(parentDesc, "Parent Descriptor is not a parent of " + echild);
+		}
+
+		for (final ITreeItemRelation parentRel : childDescriptor.getParentRelations()) {
+			parent = findParent(echild, childDescriptor, parentRel.getParent(), parentRel);
+			if (parent != null) return parent;
+		}
 
 		return null;
 	}
