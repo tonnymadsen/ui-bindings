@@ -477,6 +477,9 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 	public void dispose() {
 		if (isDisposed()) return;
 		setState(BindingState.DISPOSE_PENDING);
+		IManagerRunnable.Factory.cancelAsyncExec("initialSetup", this);
+		IManagerRunnable.Factory.cancelAsyncExec("structure", this);
+
 		getGrid().removeListener(SWT.MouseDown, myCellEventListener);
 		getGrid().removeListener(SWT.MouseDoubleClick, myCellEventListener);
 		getGrid().removeListener(SWT.KeyDown, myCellEventListener);
@@ -1078,7 +1081,7 @@ public class GridBindingImpl extends ContainerBindingImpl implements IGridBindin
 			/*
 			 * Create the column and row headers
 			 */
-			IManagerRunnable.Factory.asyncExec(null, this, new Runnable() {
+			IManagerRunnable.Factory.asyncExec("initialSetup", this, new Runnable() {
 				@Override
 				public void run() {
 					addColumn(IGridModel.HEADER1, 0);
