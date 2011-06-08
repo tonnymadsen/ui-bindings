@@ -246,13 +246,11 @@ public abstract class UIBindingDecoratorImpl extends EObjectImpl implements IUIB
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public IObservableList getMessages() {
-		// TODO: implement this method to return the 'Messages' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return null;
 	}
 
 	/**

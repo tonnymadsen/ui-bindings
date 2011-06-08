@@ -36,6 +36,11 @@ import com.rcpcompany.uibindings.bindings.xtext.internal.uiAttributes.EditorAttr
 import com.rcpcompany.uibindings.bindings.xtext.internal.xtext.EmbeddedXtextEditorModule;
 import com.rcpcompany.uibindings.bindings.xtext.xtext.EmbeddedXtextEditor;
 import com.rcpcompany.uibindings.decorators.BaseUIBindingDecorator;
+import com.rcpcompany.uibindings.moao.IMOAO;
+import com.rcpcompany.uibindings.moao.IMOAOFacet;
+import com.rcpcompany.uibindings.moao.IMOAOMessage;
+import com.rcpcompany.uibindings.moao.Severity;
+import com.rcpcompany.uibindings.moao.internal.MOAOMessageImpl;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -44,6 +49,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  * @author Tonny Madsen, The RCP Company
  */
 public class XTextEditorBindingDecorator extends BaseUIBindingDecorator implements IUIBindingDecorator {
+
 	/**
 	 * The injector used for the XText editor.
 	 * <p>
@@ -68,6 +74,7 @@ public class XTextEditorBindingDecorator extends BaseUIBindingDecorator implemen
 	 */
 	private final IObservableList myMessages = WritableList.withElementType(IBindingMessage.class);
 	private IBindingMessage mySyntaxErrorMessage;
+	private IMOAOFacet mySyntaxErrorFacet;
 
 	@Override
 	public void init(IValueBinding binding) {
@@ -193,9 +200,25 @@ public class XTextEditorBindingDecorator extends BaseUIBindingDecorator implemen
 					if (!myMessages.contains(mySyntaxErrorMessage)) {
 						myMessages.add(mySyntaxErrorMessage);
 					}
+
+					/*
+					 * Short term solution: if the module object is IMOAO, then add a facet...
+					 */
+					final EObject modelObject = getBinding().getModelObject();
+					if (modelObject instanceof IMOAO) {
+						final IMOAO mo = (IMOAO) modelObject;
+						if (mySyntaxErrorFacet == null) {
+							mySyntaxErrorFacet = new ErrorFacet();
+						}
+
+						mySyntaxErrorFacet.setObject(mo);
+					}
 					return;
 				}
 				myMessages.clear();
+				if (mySyntaxErrorFacet != null) {
+					mySyntaxErrorFacet.setObject(null);
+				}
 			}
 		});
 
@@ -263,6 +286,14 @@ public class XTextEditorBindingDecorator extends BaseUIBindingDecorator implemen
 		@Override
 		public int getCode() {
 			return -1;
+		}
+	}
+
+	public class ErrorFacet extends MOAOMessageImpl implements IMOAOMessage {
+		protected ErrorFacet() {
+			setDescription("Syntax error");
+			setSeverity(Severity.ERROR);
+			setFeature(getBinding().getModelFeature());
 		}
 	}
 }
