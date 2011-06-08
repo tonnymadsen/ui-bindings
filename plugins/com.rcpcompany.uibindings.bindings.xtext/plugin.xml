@@ -29,6 +29,9 @@
             lookupReferenceTargetType="false"
             name="xtextASTOV">
       </argumentInfo>
+      <constraintProvider
+            class="com.rcpcompany.uibindings.bindings.xtext.internal.validators.UIBXTextConstraintProvider">
+      </constraintProvider>
    </extension>
    <extension
          point="org.eclipse.ui.contexts">
