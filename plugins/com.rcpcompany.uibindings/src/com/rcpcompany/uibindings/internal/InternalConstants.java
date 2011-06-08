@@ -138,6 +138,7 @@ public interface InternalConstants {
 	String DESTINATION_TYPE_TAG = "destinationType"; //$NON-NLS-1$
 	String SOURCE_TYPE_TAG = "sourceType"; //$NON-NLS-1$
 	String MODEL_VALUE_KIND_TAG = "modelValueKind"; //$NON-NLS-1$
+	String CONSTRAINT_PROVIDER_TAG = "constraintProvider"; //$NON-NLS-1$
 
 	/**
 	 * Cell Editor Type: Text.

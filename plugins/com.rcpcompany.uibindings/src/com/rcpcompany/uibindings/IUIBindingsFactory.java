@@ -272,6 +272,15 @@ public interface IUIBindingsFactory extends EFactory {
 	IBindingMessageTarget createBindingMessageTarget();
 
 	/**
+	 * Returns a new object of class '<em>Constraint Validator Adapter Constraint Descriptor</em>'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Constraint Validator Adapter Constraint Descriptor</em>'.
+	 * @generated
+	 */
+	IConstraintValidatorAdapterConstraintDescriptor createConstraintValidatorAdapterConstraintDescriptor();
+
+	/**
 	 * Returns a new object of class '<em>UI Attribute Image Decoration</em>'. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 

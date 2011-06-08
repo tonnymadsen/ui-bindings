@@ -1059,6 +1059,15 @@
       </decoratorExtender>
    </extension>
    <extension
+         point="com.rcpcompany.uibindings.uiBindings">
+      <constraintProvider
+            class="com.rcpcompany.uibindings.internal.validators.constraints.NumberConstraintProvider">
+      </constraintProvider>
+      <constraintProvider
+            class="com.rcpcompany.uibindings.internal.validators.constraints.FileNameControlConstraintProvider">
+      </constraintProvider>
+   </extension>
+   <extension
          point="org.eclipse.ui.contexts">
       <context
             description="%context.description"

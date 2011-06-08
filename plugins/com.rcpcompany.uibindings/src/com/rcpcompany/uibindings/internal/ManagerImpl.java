@@ -52,6 +52,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -87,6 +88,7 @@ import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.IBindingMessageTarget;
 import com.rcpcompany.uibindings.ICellEditorFactory;
 import com.rcpcompany.uibindings.IColumnBinding;
+import com.rcpcompany.uibindings.IConstraintValidatorAdapterConstraintDescriptor;
 import com.rcpcompany.uibindings.IControlFactory;
 import com.rcpcompany.uibindings.IDecoratorProvider;
 import com.rcpcompany.uibindings.IEMFObservableFactory;
@@ -125,6 +127,7 @@ import com.rcpcompany.uibindings.participants.IDeleteParticipant;
 import com.rcpcompany.uibindings.participants.IInitializationParticipant;
 import com.rcpcompany.uibindings.participants.IInitializationParticipantContext;
 import com.rcpcompany.uibindings.units.IUnitBindingSupport;
+import com.rcpcompany.uibindings.validators.IConstraintValidatorAdapterConstraintProvider;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -187,6 +190,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  * Factories</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getQuickfixProposalProcessors <em>
  * Quickfix Proposal Processors</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getConstraintProviders <em>Constraint
+ * Providers</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getContexts <em>Contexts</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.ManagerImpl#getFormatterProvider <em>Formatter
  * Provider</em>}</li>
@@ -887,6 +892,16 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	protected EList<IQuickfixProposalProcessorDescriptor> quickfixProposalProcessors;
 
 	/**
+	 * The cached value of the '{@link #getConstraintProviders() <em>Constraint Providers</em>}'
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getConstraintProviders()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<IConstraintValidatorAdapterConstraintDescriptor> constraintProviders;
+
+	/**
 	 * The cached value of the '{@link #getContexts() <em>Contexts</em>}' containment reference
 	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -1025,6 +1040,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 				getModelArgumentMediators().add(mediator);
 			} else if (InternalConstants.QUICKFIX_PROCESSOR_TAG.equals(elementName)) {
 				extensionReaderQuickfixProcessor(ce);
+			} else if (InternalConstants.CONSTRAINT_PROVIDER_TAG.equals(elementName)) {
+				extensionReaderConstraintProvider(ce);
 			} else if (InternalConstants.OBSERVABLES_FACTORY_TAG.equals(elementName)) {
 				final IEMFObservableFactoryDescriptor desc = IUIBindingsFactory.eINSTANCE
 						.createEMFObservableFactoryDescriptor();
@@ -1343,6 +1360,18 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		qi.setModelType(ce.getAttribute(InternalConstants.MODEL_TYPE_TAG));
 		qi.setProcessor(new CEObjectHolder<IQuickfixProposalProcessor>(ce, InternalConstants.PROCESSOR_TAG));
 		getQuickfixProposalProcessors().add(qi);
+	}
+
+	/**
+	 * @param ce
+	 */
+	private void extensionReaderConstraintProvider(final IConfigurationElement ce) {
+		final IConstraintValidatorAdapterConstraintDescriptor cd = IUIBindingsFactory.eINSTANCE
+				.createConstraintValidatorAdapterConstraintDescriptor();
+
+		cd.setProvider(new CEObjectHolder<IConstraintValidatorAdapterConstraintProvider>(ce,
+				InternalConstants.PROCESSOR_TAG));
+		getConstraintProviders().add(cd);
 	}
 
 	/**
@@ -2478,6 +2507,21 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	 * @generated
 	 */
 	@Override
+	public EList<IConstraintValidatorAdapterConstraintDescriptor> getConstraintProviders() {
+		if (constraintProviders == null) {
+			constraintProviders = new EObjectEList<IConstraintValidatorAdapterConstraintDescriptor>(
+					IConstraintValidatorAdapterConstraintDescriptor.class, this,
+					IUIBindingsPackage.MANAGER__CONSTRAINT_PROVIDERS);
+		}
+		return constraintProviders;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EList<IBindingContext> getContexts() {
 		if (contexts == null) {
 			contexts = new EObjectContainmentEList<IBindingContext>(IBindingContext.class, this,
@@ -2897,6 +2941,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			return getObservableFactories();
 		case IUIBindingsPackage.MANAGER__QUICKFIX_PROPOSAL_PROCESSORS:
 			return getQuickfixProposalProcessors();
+		case IUIBindingsPackage.MANAGER__CONSTRAINT_PROVIDERS:
+			return getConstraintProviders();
 		case IUIBindingsPackage.MANAGER__CONTEXTS:
 			return getContexts();
 		case IUIBindingsPackage.MANAGER__FORMATTER_PROVIDER:
@@ -3015,6 +3061,11 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			getQuickfixProposalProcessors().addAll(
 					(Collection<? extends IQuickfixProposalProcessorDescriptor>) newValue);
 			return;
+		case IUIBindingsPackage.MANAGER__CONSTRAINT_PROVIDERS:
+			getConstraintProviders().clear();
+			getConstraintProviders().addAll(
+					(Collection<? extends IConstraintValidatorAdapterConstraintDescriptor>) newValue);
+			return;
 		case IUIBindingsPackage.MANAGER__CONTEXTS:
 			getContexts().clear();
 			getContexts().addAll((Collection<? extends IBindingContext>) newValue);
@@ -3124,6 +3175,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		case IUIBindingsPackage.MANAGER__QUICKFIX_PROPOSAL_PROCESSORS:
 			getQuickfixProposalProcessors().clear();
 			return;
+		case IUIBindingsPackage.MANAGER__CONSTRAINT_PROVIDERS:
+			getConstraintProviders().clear();
+			return;
 		case IUIBindingsPackage.MANAGER__CONTEXTS:
 			getContexts().clear();
 			return;
@@ -3207,6 +3261,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			return observableFactories != null && !observableFactories.isEmpty();
 		case IUIBindingsPackage.MANAGER__QUICKFIX_PROPOSAL_PROCESSORS:
 			return quickfixProposalProcessors != null && !quickfixProposalProcessors.isEmpty();
+		case IUIBindingsPackage.MANAGER__CONSTRAINT_PROVIDERS:
+			return constraintProviders != null && !constraintProviders.isEmpty();
 		case IUIBindingsPackage.MANAGER__CONTEXTS:
 			return contexts != null && !contexts.isEmpty();
 		case IUIBindingsPackage.MANAGER__FORMATTER_PROVIDER:

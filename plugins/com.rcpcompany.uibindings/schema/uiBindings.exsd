@@ -41,6 +41,7 @@ This framework is based on the concept of decoration of widgets rather than exte
             <element ref="modelArgumentMediator"/>
             <element ref="argumentInfo"/>
             <element ref="assignmentParticipant"/>
+            <element ref="constraintProvider"/>
          </choice>
          <attribute name="point" type="string" use="required">
             <annotation>
@@ -330,6 +331,26 @@ Each extender can have a number of arguments for the label binding in the form o
                <documentation>
                   the priority of the extender compared to other extenders. The higher the priority the later the extender will be run and the more important the extensions.
                </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="constraintProvider">
+      <annotation>
+         <documentation>
+            A provider that can provide a constraint for use in &lt;code&gt;com.rcpcompany.uibindings.validators.ConstraintValidatorAdapter&lt;/code&gt;.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="class" type="string">
+            <annotation>
+               <documentation>
+                  the class of the provider.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":com.rcpcompany.uibindings.validators.IConstraintValidatorAdapterConstraintProvider"/>
+               </appInfo>
             </annotation>
          </attribute>
       </complexType>

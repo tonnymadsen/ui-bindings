@@ -37,6 +37,7 @@ import com.rcpcompany.uibindings.IBindingMessageTarget;
 import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IColumnBindingCellInformation;
 import com.rcpcompany.uibindings.IConstantTreeItem;
+import com.rcpcompany.uibindings.IConstraintValidatorAdapterConstraintDescriptor;
 import com.rcpcompany.uibindings.IEMFObservableFactoryDescriptor;
 import com.rcpcompany.uibindings.IEnumDecoratorProvider;
 import com.rcpcompany.uibindings.IEnumDecoratorProviderEntry;
@@ -164,6 +165,8 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 			return createConstantTreeItem();
 		case IUIBindingsPackage.BINDING_MESSAGE_TARGET:
 			return createBindingMessageTarget();
+		case IUIBindingsPackage.CONSTRAINT_VALIDATOR_ADAPTER_CONSTRAINT_DESCRIPTOR:
+			return createConstraintValidatorAdapterConstraintDescriptor();
 		case IUIBindingsPackage.UI_ATTRIBUTE_IMAGE_DECORATION:
 			return createUIAttributeImageDecoration();
 		case IUIBindingsPackage.UI_ATTRIBUTE_FACTORY_DESCRIPTOR:
@@ -605,6 +608,17 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	public IBindingMessageTarget createBindingMessageTarget() {
 		final BindingMessageTargetImpl bindingMessageTarget = new BindingMessageTargetImpl();
 		return bindingMessageTarget;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public IConstraintValidatorAdapterConstraintDescriptor createConstraintValidatorAdapterConstraintDescriptor() {
+		final ConstraintValidatorAdapterConstraintDescriptorImpl constraintValidatorAdapterConstraintDescriptor = new ConstraintValidatorAdapterConstraintDescriptorImpl();
+		return constraintValidatorAdapterConstraintDescriptor;
 	}
 
 	/**

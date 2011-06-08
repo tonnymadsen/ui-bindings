@@ -79,6 +79,7 @@ import com.rcpcompany.uibindings.IColumnAdapter;
 import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IColumnBindingCellInformation;
 import com.rcpcompany.uibindings.IConstantTreeItem;
+import com.rcpcompany.uibindings.IConstraintValidatorAdapterConstraintDescriptor;
 import com.rcpcompany.uibindings.IContainerBinding;
 import com.rcpcompany.uibindings.IDecoratorProvider;
 import com.rcpcompany.uibindings.IDisposable;
@@ -120,6 +121,7 @@ import com.rcpcompany.uibindings.participants.IAssignmentParticipant;
 import com.rcpcompany.uibindings.uiAttributes.UIAttributePainter;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.utils.IPersistentParty;
+import com.rcpcompany.uibindings.validators.IConstraintValidatorAdapterConstraintProvider;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 import com.rcpcompany.utils.extensionpoints.CEResourceHolder;
 
@@ -493,6 +495,13 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * 
 	 * @generated
 	 */
+	private EClass constraintValidatorAdapterConstraintDescriptorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	private EClass uiAttributeImageDecorationEClass = null;
 
 	/**
@@ -592,6 +601,13 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	private EDataType uiAttributePainterEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EDataType constraintValidatorAdapterConstraintProviderEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1239,7 +1255,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EReference getManager_Contexts() {
+	public EReference getManager_ConstraintProviders() {
 		return (EReference) managerEClass.getEStructuralFeatures().get(29);
 	}
 
@@ -1249,8 +1265,8 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getManager_FormatterProvider() {
-		return (EAttribute) managerEClass.getEStructuralFeatures().get(30);
+	public EReference getManager_Contexts() {
+		return (EReference) managerEClass.getEStructuralFeatures().get(30);
 	}
 
 	/**
@@ -1259,7 +1275,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
-	public EAttribute getManager_DeleteHandlerCheckEnabled() {
+	public EAttribute getManager_FormatterProvider() {
 		return (EAttribute) managerEClass.getEStructuralFeatures().get(31);
 	}
 
@@ -1269,8 +1285,18 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
+	public EAttribute getManager_DeleteHandlerCheckEnabled() {
+		return (EAttribute) managerEClass.getEStructuralFeatures().get(32);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EReference getManager_CommandIDs() {
-		return (EReference) managerEClass.getEStructuralFeatures().get(32);
+		return (EReference) managerEClass.getEStructuralFeatures().get(33);
 	}
 
 	/**
@@ -1280,7 +1306,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 */
 	@Override
 	public EReference getManager_AssignmentParticiantsManager() {
-		return (EReference) managerEClass.getEStructuralFeatures().get(33);
+		return (EReference) managerEClass.getEStructuralFeatures().get(34);
 	}
 
 	/**
@@ -3899,6 +3925,36 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
+	public EClass getConstraintValidatorAdapterConstraintDescriptor() {
+		return constraintValidatorAdapterConstraintDescriptorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getConstraintValidatorAdapterConstraintDescriptor_Priority() {
+		return (EAttribute) constraintValidatorAdapterConstraintDescriptorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getConstraintValidatorAdapterConstraintDescriptor_Provider() {
+		return (EAttribute) constraintValidatorAdapterConstraintDescriptorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getUIAttributeImageDecoration() {
 		return uiAttributeImageDecorationEClass;
 	}
@@ -4141,6 +4197,16 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	@Override
 	public EDataType getUIAttributePainter() {
 		return uiAttributePainterEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EDataType getConstraintValidatorAdapterConstraintProvider() {
+		return constraintValidatorAdapterConstraintProviderEDataType;
 	}
 
 	/**
@@ -4623,6 +4689,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		createEAttribute(managerEClass, MANAGER__CLIPBOARD);
 		createEReference(managerEClass, MANAGER__OBSERVABLE_FACTORIES);
 		createEReference(managerEClass, MANAGER__QUICKFIX_PROPOSAL_PROCESSORS);
+		createEReference(managerEClass, MANAGER__CONSTRAINT_PROVIDERS);
 		createEReference(managerEClass, MANAGER__CONTEXTS);
 		createEAttribute(managerEClass, MANAGER__FORMATTER_PROVIDER);
 		createEAttribute(managerEClass, MANAGER__DELETE_HANDLER_CHECK_ENABLED);
@@ -4937,6 +5004,12 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		createEAttribute(uiAttributeEClass, UI_ATTRIBUTE__FIELD_ASSIST_CONTROL);
 		createEReference(uiAttributeEClass, UI_ATTRIBUTE__IMAGE_DECORATIONS);
 
+		constraintValidatorAdapterConstraintDescriptorEClass = createEClass(CONSTRAINT_VALIDATOR_ADAPTER_CONSTRAINT_DESCRIPTOR);
+		createEAttribute(constraintValidatorAdapterConstraintDescriptorEClass,
+				CONSTRAINT_VALIDATOR_ADAPTER_CONSTRAINT_DESCRIPTOR__PRIORITY);
+		createEAttribute(constraintValidatorAdapterConstraintDescriptorEClass,
+				CONSTRAINT_VALIDATOR_ADAPTER_CONSTRAINT_DESCRIPTOR__PROVIDER);
+
 		uiAttributeImageDecorationEClass = createEClass(UI_ATTRIBUTE_IMAGE_DECORATION);
 		createEAttribute(uiAttributeImageDecorationEClass, UI_ATTRIBUTE_IMAGE_DECORATION__OUTSIDE);
 		createEAttribute(uiAttributeImageDecorationEClass, UI_ATTRIBUTE_IMAGE_DECORATION__IMAGE_VALUE);
@@ -4971,6 +5044,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		// Create data types
 		iBindingContextFinalizerEDataType = createEDataType(IBINDING_CONTEXT_FINALIZER);
 		uiAttributePainterEDataType = createEDataType(UI_ATTRIBUTE_PAINTER);
+		constraintValidatorAdapterConstraintProviderEDataType = createEDataType(CONSTRAINT_VALIDATOR_ADAPTER_CONSTRAINT_PROVIDER);
 		iemfObservableFactoryEDataType = createEDataType(IEMF_OBSERVABLE_FACTORY);
 		iAssignmentParticipantEDataType = createEDataType(IASSIGNMENT_PARTICIPANT);
 		ceObjectHolderEDataType = createEDataType(CE_OBJECT_HOLDER);
@@ -5213,6 +5287,11 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				this.getQuickfixProposalProcessorDescriptor(),
 				null,
 				"quickfixProposalProcessors", null, 0, -1, IManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+				getManager_ConstraintProviders(),
+				this.getConstraintValidatorAdapterConstraintDescriptor(),
+				null,
+				"constraintProviders", null, 0, -1, IManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(
 				getManager_Contexts(),
 				this.getBindingContext(),
@@ -6298,6 +6377,22 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				this.getUIAttributeImageDecoration_Attribute(),
 				"imageDecorations", null, 0, -1, IUIAttribute.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
+		initEClass(
+				constraintValidatorAdapterConstraintDescriptorEClass,
+				IConstraintValidatorAdapterConstraintDescriptor.class,
+				"ConstraintValidatorAdapterConstraintDescriptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(
+				getConstraintValidatorAdapterConstraintDescriptor_Priority(),
+				ecorePackage.getEInt(),
+				"priority", null, 1, 1, IConstraintValidatorAdapterConstraintDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		g1 = createEGenericType(this.getCEObjectHolder());
+		g2 = createEGenericType(this.getConstraintValidatorAdapterConstraintProvider());
+		g1.getETypeArguments().add(g2);
+		initEAttribute(
+				getConstraintValidatorAdapterConstraintDescriptor_Provider(),
+				g1,
+				"provider", null, 1, 1, IConstraintValidatorAdapterConstraintDescriptor.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
 		initEClass(uiAttributeImageDecorationEClass, IUIAttributeImageDecoration.class,
 				"UIAttributeImageDecoration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(
@@ -6416,6 +6511,9 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				"IBindingContextFinalizer", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEDataType(uiAttributePainterEDataType, UIAttributePainter.class,
 				"UIAttributePainter", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(constraintValidatorAdapterConstraintProviderEDataType,
+				IConstraintValidatorAdapterConstraintProvider.class,
+				"ConstraintValidatorAdapterConstraintProvider", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEDataType(iemfObservableFactoryEDataType, IEMFObservableFactory.class,
 				"IEMFObservableFactory", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEDataType(iAssignmentParticipantEDataType, IAssignmentParticipant.class,

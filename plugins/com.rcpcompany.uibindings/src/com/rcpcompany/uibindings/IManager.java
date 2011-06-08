@@ -91,6 +91,8 @@ import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
  * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#getQuickfixProposalProcessors <em>Quickfix Proposal
  * Processors</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IManager#getConstraintProviders <em>Constraint Providers
+ * </em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#getContexts <em>Contexts</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#getFormatterProvider <em>Formatter Provider</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IManager#isDeleteHandlerCheckEnabled <em>Delete Handler
@@ -794,6 +796,23 @@ public interface IManager extends IBaseObject {
 	 * @generated
 	 */
 	EList<IQuickfixProposalProcessorDescriptor> getQuickfixProposalProcessors();
+
+	/**
+	 * Returns the value of the '<em><b>Constraint Providers</b></em>' reference list. The list
+	 * contents are of type
+	 * {@link com.rcpcompany.uibindings.IConstraintValidatorAdapterConstraintDescriptor}. <!--
+	 * begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Constraint Providers</em>' reference list isn't clear, there
+	 * really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Constraint Providers</em>' reference list.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getManager_ConstraintProviders()
+	 * @generated
+	 */
+	EList<IConstraintValidatorAdapterConstraintDescriptor> getConstraintProviders();
 
 	/**
 	 * Returns the value of the '<em><b>Contexts</b></em>' containment reference list. The list
