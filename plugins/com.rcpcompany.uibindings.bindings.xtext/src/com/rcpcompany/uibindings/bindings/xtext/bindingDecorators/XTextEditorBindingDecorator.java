@@ -3,6 +3,7 @@ package com.rcpcompany.uibindings.bindings.xtext.bindingDecorators;
 import java.util.List;
 
 import org.eclipse.core.databinding.observable.list.IObservableList;
+import org.eclipse.core.databinding.observable.list.WritableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
@@ -21,10 +22,14 @@ import org.eclipse.xtext.ui.editor.model.IXtextModelListener;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Module;
+import com.rcpcompany.uibindings.BindingMessageSeverity;
 import com.rcpcompany.uibindings.EcoreExtUtils;
+import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.IUIBindingDecorator;
+import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
+import com.rcpcompany.uibindings.bindingMessages.AbstractBindingMessage;
 import com.rcpcompany.uibindings.bindings.xtext.IUIBXTextBindingContext;
 import com.rcpcompany.uibindings.bindings.xtext.UIBXTextContants;
 import com.rcpcompany.uibindings.bindings.xtext.internal.uiAttributes.EditorAttribute;
@@ -57,6 +62,12 @@ public class XTextEditorBindingDecorator extends BaseUIBindingDecorator implemen
 	 * Can be <code>null</code>.
 	 */
 	private IObservableValue myASTOV;
+
+	/**
+	 * Any messages from the editor
+	 */
+	private final IObservableList myMessages = WritableList.withElementType(IBindingMessage.class);
+	private IBindingMessage mySyntaxErrorMessage;
 
 	@Override
 	public void init(IValueBinding binding) {
@@ -147,6 +158,11 @@ public class XTextEditorBindingDecorator extends BaseUIBindingDecorator implemen
 		updateState();
 	}
 
+	@Override
+	public IObservableList getMessages() {
+		return myMessages;
+	}
+
 	/**
 	 * Updates the state for the binding based on the editor parse result.
 	 * <p>
@@ -161,15 +177,28 @@ public class XTextEditorBindingDecorator extends BaseUIBindingDecorator implemen
 		final IParseResult pr = resource.getParseResult();
 		final List<SyntaxError> errors = pr.getParseErrors();
 
-		if (errors != null && errors.size() > 0) {
-			LogUtils.debug(this, "errors: " + errors);
-			/*
-			 * Gate the errors to Messages...
-			 * 
-			 * TODO
-			 */
-			return;
-		}
+		myMessages.getRealm().exec(new Runnable() {
+			@Override
+			public void run() {
+				if (errors != null && errors.size() > 0) {
+					LogUtils.debug(this, "errors: " + errors);
+					/*
+					 * Gate the errors to Messages...
+					 * 
+					 * TODO
+					 */
+					if (mySyntaxErrorMessage == null) {
+						mySyntaxErrorMessage = new Message();
+					}
+					if (!myMessages.contains(mySyntaxErrorMessage)) {
+						myMessages.add(mySyntaxErrorMessage);
+					}
+					return;
+				}
+				myMessages.clear();
+			}
+		});
+
 		if (myASTOV != null) {
 			final EObject newValue = pr.getRootASTElement();
 			myASTOV.getRealm().exec(new Runnable() {
@@ -184,9 +213,13 @@ public class XTextEditorBindingDecorator extends BaseUIBindingDecorator implemen
 						}
 						if (oldValue == null) {
 							oldValue = EcoreUtil.create(newValue.eClass());
-							myASTOV.setValue(oldValue);
 						}
+						/*
+						 * Sync before we set the values. This way the initial sync will only result in a single set
+						 * operation.
+						 */
 						EcoreExtUtils.sync(oldValue, EcoreUtil.copy(newValue));
+						myASTOV.setValue(oldValue);
 					}
 				}
 			});
@@ -199,5 +232,37 @@ public class XTextEditorBindingDecorator extends BaseUIBindingDecorator implemen
 		 * No list possible here
 		 */
 		return null;
+	}
+
+	/**
+	 * Message used to signal syntaxt errors.
+	 * 
+	 * @author Tonny Madsen, The RCP Company
+	 */
+	public class Message extends AbstractBindingMessage {
+		protected Message() {
+			super(XTextEditorBindingDecorator.this.getBinding(), XTextEditorBindingDecorator.this.getBinding()
+					.getModelObject(), XTextEditorBindingDecorator.this.getBinding().getModelFeature());
+		}
+
+		@Override
+		public String getMessage() {
+			return "Syntax error";
+		}
+
+		@Override
+		public BindingMessageSeverity getSeverity() {
+			return BindingMessageSeverity.ERROR;
+		}
+
+		@Override
+		public String getSource() {
+			return IUIBindingsPackage.eNS_URI;
+		}
+
+		@Override
+		public int getCode() {
+			return -1;
+		}
 	}
 }
