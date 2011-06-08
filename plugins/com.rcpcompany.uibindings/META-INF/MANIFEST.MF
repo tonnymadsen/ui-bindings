@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: com.rcpcompany.uibindings;singleton:=true
-Bundle-Version: 2.13.5.qualifier
+Bundle-Version: 2.13.6.qualifier
 Bundle-Activator: com.rcpcompany.uibindings.internal.Activator
 Bundle-Vendor: %Bundle-Vendor
 Require-Bundle: org.junit;bundle-version="[4.0.0,5.0.0)",

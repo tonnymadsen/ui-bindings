@@ -2928,13 +2928,22 @@ public interface IUIBindingsPackage extends EPackage {
 	int UI_BINDING_DECORATOR__VALID_UI_LIST = IDISPOSABLE_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Messages</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int UI_BINDING_DECORATOR__MESSAGES = IDISPOSABLE_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>UI Binding Decorator</em>' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int UI_BINDING_DECORATOR_FEATURE_COUNT = IDISPOSABLE_FEATURE_COUNT + 6;
+	int UI_BINDING_DECORATOR_FEATURE_COUNT = IDISPOSABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '
@@ -7026,6 +7035,18 @@ public interface IUIBindingsPackage extends EPackage {
 	EAttribute getUIBindingDecorator_ValidUIList();
 
 	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.IUIBindingDecorator#getMessages <em>Messages</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Messages</em>'.
+	 * @see com.rcpcompany.uibindings.IUIBindingDecorator#getMessages()
+	 * @see #getUIBindingDecorator()
+	 * @generated
+	 */
+	EAttribute getUIBindingDecorator_Messages();
+
+	/**
 	 * Returns the meta object for class '
 	 * {@link com.rcpcompany.uibindings.IUIBindingDecoratorExtender
 	 * <em>UI Binding Decorator Extender</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -10585,6 +10606,14 @@ public interface IUIBindingsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute UI_BINDING_DECORATOR__VALID_UI_LIST = eINSTANCE.getUIBindingDecorator_ValidUIList();
+
+		/**
+		 * The meta object literal for the '<em><b>Messages</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute UI_BINDING_DECORATOR__MESSAGES = eINSTANCE.getUIBindingDecorator_Messages();
 
 		/**
 		 * The meta object literal for the '

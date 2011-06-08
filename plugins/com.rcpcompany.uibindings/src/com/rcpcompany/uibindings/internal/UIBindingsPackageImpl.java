@@ -2719,6 +2719,16 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 	 * @generated
 	 */
 	@Override
+	public EAttribute getUIBindingDecorator_Messages() {
+		return (EAttribute) uiBindingDecoratorEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getUIBindingDecoratorExtender() {
 		return uiBindingDecoratorExtenderEClass;
 	}
@@ -4778,6 +4788,7 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 		createEAttribute(uiBindingDecoratorEClass, UI_BINDING_DECORATOR__UI_TO_MODEL_CONVERTER);
 		createEAttribute(uiBindingDecoratorEClass, UI_BINDING_DECORATOR__UI_TO_MODEL_AFTER_CONVERT_VALIDATOR);
 		createEAttribute(uiBindingDecoratorEClass, UI_BINDING_DECORATOR__VALID_UI_LIST);
+		createEAttribute(uiBindingDecoratorEClass, UI_BINDING_DECORATOR__MESSAGES);
 
 		uiBindingDecoratorExtenderEClass = createEClass(UI_BINDING_DECORATOR_EXTENDER);
 
@@ -5809,6 +5820,10 @@ public class UIBindingsPackageImpl extends EPackageImpl implements IUIBindingsPa
 				getUIBindingDecorator_ValidUIList(),
 				this.getIObservableList(),
 				"validUIList", null, 1, 1, IUIBindingDecorator.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(
+				getUIBindingDecorator_Messages(),
+				this.getIObservableList(),
+				"messages", null, 0, 1, IUIBindingDecorator.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(uiBindingDecoratorExtenderEClass, IUIBindingDecoratorExtender.class,
 				"UIBindingDecoratorExtender", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

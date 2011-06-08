@@ -41,6 +41,8 @@ import com.rcpcompany.uibindings.IValueBinding;
  * <em>UI To Model After Convert Validator</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.internal.UIBindingDecoratorImpl#getValidUIList <em>Valid UI
  * List</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.internal.UIBindingDecoratorImpl#getMessages <em>Messages
+ * </em>}</li>
  * </ul>
  * </p>
  * 
@@ -140,6 +142,16 @@ public abstract class UIBindingDecoratorImpl extends EObjectImpl implements IUIB
 	protected static final IObservableList VALID_UI_LIST_EDEFAULT = null;
 
 	/**
+	 * The default value of the '{@link #getMessages() <em>Messages</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getMessages()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final IObservableList MESSAGES_EDEFAULT = null;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -237,6 +249,16 @@ public abstract class UIBindingDecoratorImpl extends EObjectImpl implements IUIB
 	 * @generated
 	 */
 	@Override
+	public IObservableList getMessages() {
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case IUIBindingsPackage.UI_BINDING_DECORATOR__BINDING:
@@ -251,6 +273,8 @@ public abstract class UIBindingDecoratorImpl extends EObjectImpl implements IUIB
 			return getUIToModelAfterConvertValidator();
 		case IUIBindingsPackage.UI_BINDING_DECORATOR__VALID_UI_LIST:
 			return getValidUIList();
+		case IUIBindingsPackage.UI_BINDING_DECORATOR__MESSAGES:
+			return getMessages();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -309,6 +333,8 @@ public abstract class UIBindingDecoratorImpl extends EObjectImpl implements IUIB
 		case IUIBindingsPackage.UI_BINDING_DECORATOR__VALID_UI_LIST:
 			return VALID_UI_LIST_EDEFAULT == null ? getValidUIList() != null : !VALID_UI_LIST_EDEFAULT
 					.equals(getValidUIList());
+		case IUIBindingsPackage.UI_BINDING_DECORATOR__MESSAGES:
+			return MESSAGES_EDEFAULT == null ? getMessages() != null : !MESSAGES_EDEFAULT.equals(getMessages());
 		}
 		return super.eIsSet(featureID);
 	}

@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link com.rcpcompany.uibindings.IUIBindingDecorator#getUIToModelAfterConvertValidator <em>UI
  * To Model After Convert Validator</em>}</li>
  * <li>{@link com.rcpcompany.uibindings.IUIBindingDecorator#getValidUIList <em>Valid UI List</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.IUIBindingDecorator#getMessages <em>Messages</em>}</li>
  * </ul>
  * </p>
  * 
@@ -173,5 +174,21 @@ public interface IUIBindingDecorator extends EObject, IDisposable {
 	 * @generated
 	 */
 	IObservableList getValidUIList();
+
+	/**
+	 * Returns the value of the '<em><b>Messages</b></em>' attribute. <!-- begin-user-doc -->
+	 * <p>
+	 * This {@link IObservableList} contains extra messages from this decorator to be added to the
+	 * binding.
+	 * <p>
+	 * For decorators that cannot supply additional messages, this returns <code>null</code>.
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Messages</em>' attribute.
+	 * @see com.rcpcompany.uibindings.IUIBindingsPackage#getUIBindingDecorator_Messages()
+	 * @generated
+	 */
+	IObservableList getMessages();
 
 } // IUIBindingDecorator

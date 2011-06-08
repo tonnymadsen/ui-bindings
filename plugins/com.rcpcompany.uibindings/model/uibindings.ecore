@@ -548,6 +548,8 @@
         lowerBound="1" eType="#//IValidator" changeable="false" transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="validUIList" lowerBound="1"
         eType="#//IObservableList" changeable="false" volatile="true" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="messages" eType="#//IObservableList"
+        changeable="false" volatile="true" transient="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UIBindingDecoratorExtender" abstract="true"
       eSuperTypes="#//IDisposable"/>

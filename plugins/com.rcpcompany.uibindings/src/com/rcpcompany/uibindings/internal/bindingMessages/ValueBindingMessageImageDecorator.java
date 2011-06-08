@@ -134,6 +134,11 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 		observable = getBinding().getModelObservable();
 		observable.addChangeListener(this);
 
+		final IObservableList decoratorMessages = getBinding().getDecorator().getMessages();
+		if (decoratorMessages != null) {
+			decoratorMessages.addChangeListener(this);
+		}
+
 		/*
 		 * The list change listener will ensure that the change listener is added to all the message
 		 * providers
@@ -209,6 +214,10 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 		// Remove all listeners
 		for (final Object v : myMessageProviders) {
 			((IObservableValue) v).removeChangeListener(this);
+		}
+		final IObservableList decoratorMessages = getBinding().getDecorator().getMessages();
+		if (decoratorMessages != null) {
+			decoratorMessages.removeChangeListener(this);
 		}
 		myMessageProviders = null;
 		final ContextMessageDecorator contextMessageDecorator = myBinding.getContext().getService(
@@ -457,8 +466,18 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 				continue;
 			}
 			ml.add(message);
-
 		}
+		final IObservableList decoratorMessages = getBinding().getDecorator().getMessages();
+		if (decoratorMessages != null) {
+			for (final Object m : decoratorMessages) {
+				final IBindingMessage message = (IBindingMessage) m;
+				if (message.getSeverity().compareTo(minimumSeverity) < 0) {
+					continue;
+				}
+				ml.add(message);
+			}
+		}
+
 		for (final IBindingMessage message : myOutstandingMessages) {
 			if (message.getSeverity().compareTo(minimumSeverity) < 0) {
 				continue;
