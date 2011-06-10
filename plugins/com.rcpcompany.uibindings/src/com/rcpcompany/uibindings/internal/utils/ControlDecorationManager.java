@@ -18,8 +18,6 @@ import java.util.Set;
 import org.eclipse.jface.fieldassist.ControlDecoration;
 import org.eclipse.jface.util.Util;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.MouseAdapter;
-import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.graphics.GC;
@@ -228,6 +226,7 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 		case SWT.Paint:
 			handlePaint(event);
 			break;
+		case SWT.MouseMove:
 		case SWT.MouseHover:
 		case SWT.MouseExit:
 			handleHover(event);
@@ -272,10 +271,13 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 	 * @param event the event
 	 */
 	private void handleHover(Event event) {
+		// LogUtils.debug(this, ToStringUtils.toString(event));
 		final Control c = (Control) event.widget;
 		final Rectangle eventArea = c.getDisplay().map(c, null, event.x, event.y, event.width, event.height);
 		for (final DecorationData dd : myDecorations.values()) {
 			if (dd.intersects(eventArea, true)) {
+				// LogUtils.debug(this, "eventArea=" + eventArea + "\ndd=" +
+				// dd.getDecorationRectangle(null));
 				setHoverDecoration(dd, event);
 				return;
 			}
@@ -287,6 +289,13 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 	 * The current decoration to hover if any.
 	 */
 	private DecorationData myHoverDecoration = null;
+
+	// private final Listener myDisplayListener = new Listener() {
+	// @Override
+	// public void handleEvent(Event event) {
+	// LogUtils.debug(this, ToStringUtils.toString(event));
+	// }
+	// };
 
 	/**
 	 * Returns the current hover decoration.
@@ -304,6 +313,9 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 	 * @param event the SWT event that resulted in the hover
 	 */
 	private void setHoverDecoration(DecorationData dd, Event event) {
+		// if (dd != null || getHoverDecoration() != null) {
+		// LogUtils.debug(this, "\n" + getHoverDecoration() + "\n" + dd);
+		// }
 		if (dd == getHoverDecoration()) return;
 		/*
 		 * Remove the exiting hover if present
@@ -311,7 +323,12 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 		if (myHoverDecoration != null) {
 			if (myHover != null) {
 				myHover.setVisible(false);
+				myHover.getHoverShell().removeListener(SWT.MouseExit, this);
+				myHover.getHoverShell().removeListener(SWT.MouseMove, this);
 			}
+			// for (int i = SWT.KeyDown; i < SWT.OpenDocument; i++) {
+			// myHoverControl.getDisplay().removeFilter(i, myDisplayListener);
+			// }
 			if (myHoverControl != null) {
 				myHoverControl.removeListener(SWT.MouseExit, this);
 				myHoverControl.removeListener(SWT.MouseMove, this);
@@ -333,6 +350,15 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 			myHoverControl = (Control) event.widget;
 			myHoverControl.addListener(SWT.MouseExit, this);
 			myHoverControl.addListener(SWT.MouseMove, this);
+			myHover.getHoverShell().addListener(SWT.MouseExit, this);
+			myHover.getHoverShell().addListener(SWT.MouseMove, this);
+
+			// for (int i = SWT.KeyDown; i < SWT.OpenDocument; i++) {
+			// if (i == SWT.Paint) {
+			// continue;
+			// }
+			// myHoverControl.getDisplay().addFilter(i, myDisplayListener);
+			// }
 		}
 	}
 
@@ -616,16 +642,25 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 					}
 				}
 			});
-			myHoverShell.addMouseListener(new MouseAdapter() {
+			myHoverShell.addListener(SWT.MouseDown, new Listener() {
 				@Override
-				public void mouseDown(MouseEvent e) {
-					setVisible(false);
+				public void handleEvent(Event event) {
+					setHoverDecoration(null, event);
 				}
 			});
 		}
 
 		public boolean hasText() {
 			return myLastText != null && myLastText.length() > 0;
+		}
+
+		/**
+		 * Returns the shell of the hover.
+		 * 
+		 * @return the shell
+		 */
+		public Shell getHoverShell() {
+			return myHoverShell;
 		}
 
 		/*
@@ -659,12 +694,13 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 		 * Set the visibility of the hover.
 		 */
 		void setVisible(boolean visible) {
+			// LogUtils.debug(this, isVisible() + "->" + visible);
 			if (visible) {
-				if (!myHoverShell.isVisible()) {
+				if (!isVisible()) {
 					myHoverShell.setVisible(true);
 				}
 			} else {
-				if (myHoverShell.isVisible()) {
+				if (isVisible()) {
 					myHoverShell.setVisible(false);
 				}
 			}
@@ -704,11 +740,14 @@ public final class ControlDecorationManager implements IDisposable, Listener {
 			final int x = arrowOnLeft ? -hao + haw / 2 : -extent.x + hao + haw / 2;
 
 			// LogUtils.debug(this, "hover " + decorationRectangle + " offset " + x + "," + y);
-			myHoverShell.setLocation(decorationRectangle.x + x, decorationRectangle.y + y);
+			myHoverShell.setLocation(decorationRectangle.x + x + decorationRectangle.width / 2, decorationRectangle.y
+					+ y);
 		}
 
 		/**
 		 * Return whether or not the hover (shell) is visible.
+		 * 
+		 * @return <code>true</code> if the shell is visible and <code>false</code> otherwise
 		 */
 		public boolean isVisible() {
 			return myHoverShell.isVisible();
