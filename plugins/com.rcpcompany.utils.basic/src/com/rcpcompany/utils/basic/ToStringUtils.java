@@ -16,12 +16,12 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Layout;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Widget;
-import org.eclipse.swt.graphics.GC;
 
 /**
  * This utility class provides a number of static functions that can ease formatting of data.
@@ -214,7 +214,8 @@ public final class ToStringUtils {
 			"DefaultSelection", "FocusIn", "FocusOut", "Expand", "Collapse", "Iconify", "Deiconify", "Close", "Show", //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$
 			"Hide", "Modify", "Verify", "Activate", "Deactivate", "Help", "DragDetect", "Arm", "Traverse", //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$
 			"MouseHover", "HardKeyDown", "HardKeyUp", "MenuDetect", "SetData", "MouseWheel", "<unassigned>", //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
-			"Settings", "EraseItem", "MeasureItem", "PaintItem", "ImeComposition" }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
+			"Settings", "EraseItem", "MeasureItem", "PaintItem", "ImeComposition", "OrientationChange",
+			"Skin", "OpenDocument" }; //$NON-NLS-1$ //$NON-NLS-2$ 
 
 	/**
 	 * Returns a multi-line description of the specific Event.
@@ -227,7 +228,7 @@ public final class ToStringUtils {
 
 		final StringBuilder sb = new StringBuilder();
 
-		sb.append(EVENT_TYPE_NAMES[event.type]).append("[").append(event.type) //$NON-NLS-1$
+		sb.append(event.type < EVENT_TYPE_NAMES.length ? EVENT_TYPE_NAMES[event.type] : "...").append("[").append(event.type) //$NON-NLS-1$
 				.append("] hc=" + event.hashCode() + ": "); //$NON-NLS-1$ //$NON-NLS-2$
 		if (event.widget == null) {
 			sb.append("<null widget>"); //$NON-NLS-1$
@@ -236,7 +237,7 @@ public final class ToStringUtils {
 		}
 		sb.append("\n  x=").append(event.x).append(", y=").append(event.y).append(", doit=").append(event.doit); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
-		GC gc = event.gc;
+		final GC gc = event.gc;
 		switch (event.type) {
 		case SWT.KeyDown:
 		case SWT.KeyUp:
@@ -411,7 +412,7 @@ public final class ToStringUtils {
 					.append(event.width).append(", height=").append(event.height).append(", count=") //$NON-NLS-1$ //$NON-NLS-2$
 					.append(event.count);
 			break;
-		case SWT.PaintItem:
+		case SWT.PaintItem: {
 			sb.append("\n  gc=").append(gc).append(", index(column)=").append(event.index).append(", width=") //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 					.append(event.width).append(", height=").append(event.height).append(", count=") //$NON-NLS-1$ //$NON-NLS-2$
 					.append(event.count).append(", detail="); //$NON-NLS-1$
@@ -442,7 +443,34 @@ public final class ToStringUtils {
 			}
 			sb.append(d);
 			break;
-		case SWT.ImeComposition:
+		}
+		case SWT.ImeComposition: {
+			sb.append("\n  "); //$NON-NLS-1$
+			sb.append("[").append(event.start).append("; ").append(event.end).append("[='").append(event.text) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					.append("'").append(", detail="); //$NON-NLS-1$
+			int d = event.detail;
+			if ((d & SWT.COMPOSITION_CHANGED) == SWT.COMPOSITION_CHANGED) {
+				sb.append("CHANGED+"); //$NON-NLS-1$
+				d &= ~SWT.COMPOSITION_CHANGED;
+			}
+			if ((d & SWT.COMPOSITION_OFFSET) == SWT.COMPOSITION_OFFSET) {
+				sb.append("OFFSET+"); //$NON-NLS-1$
+				d &= ~SWT.COMPOSITION_OFFSET;
+			}
+			if ((d & SWT.COMPOSITION_SELECTION) == SWT.COMPOSITION_SELECTION) {
+				sb.append("SELECTION+"); //$NON-NLS-1$
+				d &= ~SWT.COMPOSITION_SELECTION;
+			}
+			sb.append(d);
+			break;
+		}
+		case SWT.OrientationChange:
+			// TODO
+			break;
+		case SWT.Skin:
+			// TODO
+			break;
+		case SWT.OpenDocument:
 			// TODO
 			break;
 		default:
