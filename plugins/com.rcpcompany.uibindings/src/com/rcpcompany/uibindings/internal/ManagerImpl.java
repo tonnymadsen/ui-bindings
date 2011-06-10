@@ -1369,8 +1369,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		final IConstraintValidatorAdapterConstraintDescriptor cd = IUIBindingsFactory.eINSTANCE
 				.createConstraintValidatorAdapterConstraintDescriptor();
 
-		cd.setProvider(new CEObjectHolder<IConstraintValidatorAdapterConstraintProvider>(ce,
-				InternalConstants.PROCESSOR_TAG));
+		cd.setProvider(new CEObjectHolder<IConstraintValidatorAdapterConstraintProvider>(ce));
 		getConstraintProviders().add(cd);
 	}
 
