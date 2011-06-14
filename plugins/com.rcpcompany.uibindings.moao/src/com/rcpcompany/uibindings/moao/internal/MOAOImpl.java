@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -195,23 +196,30 @@ public class MOAOImpl extends EObjectImpl implements IMOAO {
 			}
 
 			final IMOAO mo = (IMOAO) next;
-			if (!mo.eIsSet(IMOAOPackage.Literals.MOAO__FACETS)) {
+			mo.removeMessagesByOwner(null, owner);
+		}
+	}
+
+	@Override
+	public void removeMessagesByOwner(EStructuralFeature feature, String owner) {
+		if (!eIsSet(IMOAOPackage.Literals.MOAO__FACETS)) return;
+
+		/*
+		 * We know there must be at least one facet...
+		 */
+		for (final IMOAOFacet f : getFacets().toArray(new IMOAOFacet[getFacets().size()])) {
+			if (!(f instanceof IMOAOMessage)) {
 				continue;
 			}
+			final IMOAOMessage m = (IMOAOMessage) f;
 
-			/*
-			 * We know there must be at least one facet...
-			 */
-			for (final IMOAOFacet f : mo.getFacets().toArray(new IMOAOFacet[mo.getFacets().size()])) {
-				if (!(f instanceof IMOAOMessage)) {
-					continue;
-				}
-				final IMOAOMessage m = (IMOAOMessage) f;
-
-				if (owner.equals(m.getOwner())) {
-					mo.getFacets().remove(f);
-				}
+			if (feature != null && m.getFeature() != feature) {
+				continue;
 			}
+			if (!(owner.equals(m.getOwner()))) {
+				continue;
+			}
+			getFacets().remove(f);
 		}
 	}
 

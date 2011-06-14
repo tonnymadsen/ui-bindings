@@ -16,6 +16,7 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>MOAO</b></em>'. <!--
@@ -57,6 +58,14 @@ public interface IMOAO extends EObject, IAdaptable {
 	 * @param owner the owner
 	 */
 	void removeMessagesByOwner(String owner);
+
+	/**
+	 * Removes all messages from this object given by the specified feature and owner.
+	 * 
+	 * @param feature the feature of the messages
+	 * @param owner the owner of the messages
+	 */
+	void removeMessagesByOwner(EStructuralFeature feature, String owner);
 
 	/**
 	 * Checks that this object has a valid state and returns any result in the specified
