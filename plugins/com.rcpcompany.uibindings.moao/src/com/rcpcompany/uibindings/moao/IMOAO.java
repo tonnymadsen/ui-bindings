@@ -62,7 +62,8 @@ public interface IMOAO extends EObject, IAdaptable {
 	/**
 	 * Removes all messages from this object given by the specified feature and owner.
 	 * 
-	 * @param feature the feature of the messages
+	 * @param feature the feature of the messages or <code>null</code> if the feature should be
+	 *            ignored
 	 * @param owner the owner of the messages
 	 */
 	void removeMessagesByOwner(EStructuralFeature feature, String owner);

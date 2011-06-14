@@ -11,6 +11,7 @@
 package com.rcpcompany.uibindings.moao.internal;
 
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.eclipse.core.runtime.Platform;
@@ -207,20 +208,23 @@ public class MOAOImpl extends EObjectImpl implements IMOAO {
 		/*
 		 * We know there must be at least one facet...
 		 */
-		for (final IMOAOFacet f : getFacets().toArray(new IMOAOFacet[getFacets().size()])) {
-			if (!(f instanceof IMOAOMessage)) {
+		final Iterator<IMOAOFacet> iterator = getFacets().iterator();
+		while (iterator.hasNext()) {
+			final IMOAOFacet next = iterator.next();
+			if (!(next instanceof IMOAOMessage)) {
 				continue;
 			}
-			final IMOAOMessage m = (IMOAOMessage) f;
-
+			final IMOAOMessage m = (IMOAOMessage) next;
 			if (feature != null && m.getFeature() != feature) {
 				continue;
 			}
-			if (!(owner.equals(m.getOwner()))) {
+			final String o = m.getOwner();
+			if (!(o == null ? owner == null : o.equals(owner))) {
 				continue;
 			}
-			getFacets().remove(f);
+			iterator.remove();
 		}
+
 	}
 
 } // MOAOImpl
