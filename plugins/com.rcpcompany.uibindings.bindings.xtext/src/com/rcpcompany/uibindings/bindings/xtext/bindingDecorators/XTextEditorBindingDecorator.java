@@ -162,6 +162,7 @@ public class XTextEditorBindingDecorator extends BaseUIBindingDecorator implemen
 				updateState();
 			}
 		});
+
 		updateState();
 	}
 
@@ -169,6 +170,8 @@ public class XTextEditorBindingDecorator extends BaseUIBindingDecorator implemen
 	public IObservableList getMessages() {
 		return myMessages;
 	}
+
+	protected boolean firstTimeCleanUp = true;
 
 	/**
 	 * Updates the state for the binding based on the editor parse result.
@@ -187,6 +190,16 @@ public class XTextEditorBindingDecorator extends BaseUIBindingDecorator implemen
 		myMessages.getRealm().exec(new Runnable() {
 			@Override
 			public void run() {
+				final EObject modelObject = getBinding().getModelObject();
+				IMOAO mo = null;
+				if (modelObject instanceof IMOAO) {
+					mo = (IMOAO) modelObject;
+					if (firstTimeCleanUp) {
+						mo.removeMessagesByOwner(getBinding().getModelFeature(),
+								XTextEditorBindingDecorator.class.getName());
+						firstTimeCleanUp = false;
+					}
+				}
 				if (errors != null && errors.size() > 0) {
 					LogUtils.debug(this, "errors: " + errors);
 					/*
@@ -204,9 +217,7 @@ public class XTextEditorBindingDecorator extends BaseUIBindingDecorator implemen
 					/*
 					 * Short term solution: if the module object is IMOAO, then add a facet...
 					 */
-					final EObject modelObject = getBinding().getModelObject();
-					if (modelObject instanceof IMOAO) {
-						final IMOAO mo = (IMOAO) modelObject;
+					if (mo != null) {
 						if (mySyntaxErrorFacet == null) {
 							mySyntaxErrorFacet = new ErrorFacet();
 						}
@@ -294,6 +305,7 @@ public class XTextEditorBindingDecorator extends BaseUIBindingDecorator implemen
 			setDescription("Syntax error");
 			setSeverity(Severity.ERROR);
 			setFeature(getBinding().getModelFeature());
+			setOwner(XTextEditorBindingDecorator.class.getName());
 		}
 	}
 }
