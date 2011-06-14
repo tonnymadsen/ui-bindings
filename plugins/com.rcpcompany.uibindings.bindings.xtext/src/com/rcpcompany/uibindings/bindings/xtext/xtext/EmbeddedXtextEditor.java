@@ -13,6 +13,7 @@ package com.rcpcompany.uibindings.bindings.xtext.xtext;
  *    itemis AG - source viewer configuration
  *    Sebastian Zarnekow (itemis AG) - synthetic resource creation and source viewer configuration 
  *    Cedric Vidal (ProxiAD) - integration with global scope
+ *    Tonny Madsen (The RCP Company) - adaption to UI Bindings
  */
 
 import java.util.Collections;
@@ -20,7 +21,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.core.expressions.Expression;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -55,7 +55,6 @@ import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.FocusListener;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.ui.ActiveShellExpression;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.contexts.IContextActivation;
 import org.eclipse.ui.contexts.IContextService;
@@ -73,7 +72,6 @@ import org.eclipse.ui.texteditor.ITextEditorActionDefinitionIds;
 import org.eclipse.ui.texteditor.IUpdate;
 import org.eclipse.ui.texteditor.MarkerAnnotationPreferences;
 import org.eclipse.ui.texteditor.SourceViewerDecorationSupport;
-import org.eclipse.xtext.Constants;
 import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.XtextSourceViewer;
@@ -100,6 +98,7 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Provider;
 import com.google.inject.name.Named;
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.bindings.xtext.UIBXTextContants;
@@ -132,7 +131,7 @@ public class EmbeddedXtextEditor {
 	 * Used to create internal resource for the text of the editor
 	 */
 	@Inject
-	@Named(Constants.FILE_EXTENSIONS)
+	@Named(org.eclipse.xtext.Constants.FILE_EXTENSIONS)
 	private String myFileExtension;
 
 	private XtextSourceViewerConfiguration myViewerConfiguration;
@@ -182,10 +181,7 @@ public class EmbeddedXtextEditor {
 	 * 
 	 * @param binding the parent composite that will contain the editor
 	 * @param injector the Guice injector to get Xtext configuration elements
-	 * @param job the synchronization job that will be scheduled/rescheduled at each modification of the editor text. It
-	 *            may be use to reconcile the content of the editor with something else.
 	 * @param style the SWT style of the {@link SourceViewer} of this editor.
-	 * @param fileExtension the file extension (without the DOT) of the textual DSL to edit
 	 */
 	public EmbeddedXtextEditor(IValueBinding binding, Injector injector, int style) {
 		myBinding = binding;
@@ -226,6 +222,11 @@ public class EmbeddedXtextEditor {
 		return mySourceViewer;
 	}
 
+	/**
+	 * Returns the artificial resource for this editor.
+	 * 
+	 * @return the resource
+	 */
 	public XtextResource getResource() {
 		return myResource;
 	}
@@ -324,7 +325,7 @@ public class EmbeddedXtextEditor {
 		// make sure the source viewer decoration support is initialized
 		getSourceViewerDecorationSupport(mySourceViewer);
 
-		mySourceViewer.getTextWidget().addFocusListener(new SourceViewerFocusListener());
+		getControl().addFocusListener(new SourceViewerFocusListener());
 
 		fSourceViewerDecorationSupport.install(myPreferenceStoreAccess.getPreferenceStore());
 		parent.addDisposeListener(new DisposeListener() {
@@ -347,8 +348,6 @@ public class EmbeddedXtextEditor {
 						if (annotationIssueProcessor != null) {
 							annotationIssueProcessor.processIssues(issues, monitor);
 						}
-
-						// TODO also map the errors to Messages
 					}
 				}, CheckMode.FAST_ONLY);
 		myDocument.setValidationJob(job);
@@ -579,12 +578,10 @@ public class EmbeddedXtextEditor {
 	 * @auther Tonny Madsen, The RCP Company
 	 */
 	private final class SourceViewerFocusListener implements FocusListener {
-		private final Expression myExpression;
 		private final List<IHandlerActivation> myHandlerActivations;
 		private IContextActivation myContextActivation;
 
 		public SourceViewerFocusListener() {
-			myExpression = new ActiveShellExpression(getViewer().getControl().getShell());
 			myHandlerActivations = Lists.newArrayList();
 
 			getViewer().getControl().addDisposeListener(new DisposeListener() {
@@ -611,23 +608,21 @@ public class EmbeddedXtextEditor {
 
 			for (final ActionHandler actionHandler : myActionHandlers) {
 				myHandlerActivations.add(hs.activateHandler(actionHandler.getAction().getId(), actionHandler,
-						myExpression));
+						Constants.TRUE_EXPRESSION));
 			}
 		}
 
 		@Override
 		public void focusLost(FocusEvent e) {
-			if (myBinding.isDisposed())
-				return;
+			final IServiceLocator sl = myBinding.getContext().getServiceLocator();
 			if (myContextActivation != null) {
-				final IServiceLocator sl = myBinding.getContext().getServiceLocator();
 				final IContextService contextService = (IContextService) sl.getService(IContextService.class);
 				contextService.deactivateContext(myContextActivation);
+				myContextActivation = null;
 			}
 
-			final IHandlerService handlerService = (IHandlerService) PlatformUI.getWorkbench().getAdapter(
-					IHandlerService.class);
-			handlerService.deactivateHandlers(myHandlerActivations);
+			final IHandlerService hs = (IHandlerService) sl.getService(IHandlerService.class);
+			hs.deactivateHandlers(myHandlerActivations);
 			myHandlerActivations.clear();
 		}
 	}
