@@ -29,6 +29,7 @@ import org.eclipse.swt.widgets.Tree;
 
 import com.rcpcompany.uibindings.IChildCreationSpecification;
 import com.rcpcompany.uibindings.IConstantTreeItem;
+import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.IElementParentage;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.ITreeItemDescriptor;
@@ -48,7 +49,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IObservableFactory {
+public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IObservableFactory, IDisposable {
 	/**
 	 * Shortcut to the manager...
 	 */
@@ -170,6 +171,18 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 		return l;
 	}
 
+	@Override
+	public void dispose() {
+		/*
+		 * Dispose all lists - the dispose listener will take care of the rest...
+		 */
+		final ViewerBindingTreeFactoryList[] lists = myResults.values().toArray(
+				new ViewerBindingTreeFactoryList[myResults.values().size()]);
+		for (final ViewerBindingTreeFactoryList l : lists) {
+			l.dispose();
+		}
+	}
+
 	/**
 	 * Dispose listener used to remove mappings when the lists are disposed...
 	 */
@@ -250,19 +263,19 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 		 * 
 		 * - either have a direct child that is the same as
 		 */
-		final ITreeItemDescriptor parentDesc = childDescriptor.getPrimaryParent();
-		EObject parent = null;
-		if (parentDesc != null) {
-			parent = findParent(echild, childDescriptor, parentDesc, null);
-			if (parent != null) return parent;
-
-			LogUtils.error(parentDesc, "Parent Descriptor is not a parent of " + echild);
-		}
-
-		for (final ITreeItemRelation parentRel : childDescriptor.getParentRelations()) {
-			parent = findParent(echild, childDescriptor, parentRel.getParent(), parentRel);
-			if (parent != null) return parent;
-		}
+		// final ITreeItemDescriptor parentDesc = childDescriptor.getPrimaryParent();
+		// EObject parent = null;
+		// if (parentDesc != null) {
+		// parent = findParent(echild, childDescriptor, parentDesc, null);
+		// if (parent != null) return parent;
+		//
+		// LogUtils.error(parentDesc, "Parent Descriptor is not a parent of " + echild);
+		// }
+		//
+		// for (final ITreeItemRelation parentRel : childDescriptor.getParentRelations()) {
+		// parent = findParent(echild, childDescriptor, parentRel.getParent(), parentRel);
+		// if (parent != null) return parent;
+		// }
 
 		return null;
 	}
