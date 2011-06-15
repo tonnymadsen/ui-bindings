@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<shop:Shop xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:shop="http://rcp-company.com/schemas/uibindings/shop.ecore" name="IT Shop" uuid="_Lr6VkcBGEd-siJXnD8pfBQ" nextOrderNo="1223" nextCustomerNo="12" tmpDir="C:\Windows\Temp\3">
+<shop:Shop xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:shop="http://rcp-company.com/schemas/uibindings/shop.ecore" name="IT Shop" uuid="_Lr6VkcBGEd-siJXnD8pfBQ" nextOrderNo="1223" nextCustomerNo="12" tmpDir="/tmp">
   <countries name="Denmark" uuid="DK" abbreviation="DK">
     <information currency="DKK"/>
   </countries>
@@ -19,13 +19,13 @@
     <properties name="type" uuid="_nDc2cAa7EeC_n9ThbP5loA" value="a"/>
     <properties name="type" uuid="_k9p_kGdbEeCZePVdzCtDKg"/>
   </shopItems>
-  <shopItems name="RCP Principles" uuid="_L05SccBGEd-siJXnD8pfBQ" price="2.0">
+  <shopItems name="RCP Principles" uuid="_L05SccBGEd-siJXnD8pfBQ" price="-2.0">
     <properties name="type" uuid="_nDeroAa7EeC_n9ThbP5loA" value="b"/>
   </shopItems>
   <shopItems name="Eclipse Plug-ins" uuid="_L05ScsBGEd-siJXnD8pfBQ" price="300.0" group="_L0_ZEMBGEd-siJXnD8pfBQ">
     <information xsi:type="shop:ShopItemURL" url="hhh"/>
   </shopItems>
-  <shopItems name="FAQ" uuid="_L06gkMBGEd-siJXnD8pfBQ" price="5.0" forSale="true" group="_L0_ZEMBGEd-siJXnD8pfBQ">
+  <shopItems name="FAQ" uuid="_L06gkMBGEd-siJXnD8pfBQ" price="-5.0" forSale="true" group="_L0_ZEMBGEd-siJXnD8pfBQ">
     <information xsi:type="shop:ShopItemURL" url="http://hello"/>
   </shopItems>
   <orders customer="//@customers.1" discount="40.0">

@@ -93,8 +93,11 @@ public abstract class BindingDataTypeImpl extends EObjectImpl implements IBindin
 
 	@Override
 	public <ArgumentType> void addSuperDataTypeArguments(final IArgumentContext<ArgumentType> context) {
-
-		for (final IBindingDataType dt : IBindingDataType.Factory.getSuperTypes(this)) {
+		final IBindingDataType[] superTypes = IBindingDataType.Factory.getSuperTypes(this);
+		for (final IBindingDataType dt : superTypes) {
+			if (dt == this) {
+				continue;
+			}
 			dt.addArguments(context);
 			if (context.isResultFound()) return;
 		}

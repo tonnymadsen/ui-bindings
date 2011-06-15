@@ -207,12 +207,35 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 	 * @param element the element to find
 	 * @return the parent or <code>null</code> if not found
 	 */
-	private EObject findViewParent(EObject element) {
+	private EObject findParent(Object element) {
 		for (final Entry<EObject, ViewerBindingTreeFactoryList> e : myResults.entrySet()) {
 			if (e.getValue().contains(element)) return e.getKey();
 		}
 
 		return null;
+	}
+
+	/**
+	 * Returns whether the specified parent is already known in myResults - with other words,
+	 * calling {@link #createObservable(Object)} will not result in a new object being created.
+	 * 
+	 * @param parent the parent to test for
+	 * @return <code>true</code> if already found in myResults, <code>false</code> otherwise
+	 */
+	private boolean hasParentObservable(Object parent) {
+		if (parent == null) return false;
+
+		/*
+		 * The root items
+		 */
+		if (parent == ROOT_ELEMENT) return true;
+
+		/*
+		 * Look for any cached results
+		 */
+		final IObservableList list = myResults.get(parent);
+
+		return list != null;
 	}
 
 	@Override
@@ -233,6 +256,12 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 		if (child == myRootList) return null;
 		if (child == ROOT_ELEMENT) return null;
 
+		/*
+		 * Look at the parents in my previous results
+		 */
+		final Object parent = findParent(child);
+		if (parent != null) return parent;
+
 		final EObject echild;
 		final ITreeItemDescriptor childDescriptor;
 
@@ -249,13 +278,6 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 		} else {
 			LogUtils.error(this, "Child is not an EObject, but an " + ClassUtils.getLastClassName(child) + ": " + child); //$NON-NLS-1$
 			return null;
-		}
-
-		/*
-		 * Look at the parents in my previous results
-		 */
-		for (final Entry<EObject, ViewerBindingTreeFactoryList> e : myResults.entrySet()) {
-			if (e.getValue().contains(echild)) return e.getKey();
 		}
 
 		/*
@@ -288,7 +310,7 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 	 * @param childDescriptor the child descriptor
 	 * @param parentDesc the parent descriptor to test
 	 * @param parentRelation possible parent relation to test
-	 * @return the parent object of found; otherwise <code>null</code>
+	 * @return the parent object if found; otherwise <code>null</code>
 	 */
 	private EObject findParent(EObject echild, ITreeItemDescriptor childDescriptor, ITreeItemDescriptor parentDesc,
 			ITreeItemRelation parentRelation) {
@@ -309,7 +331,7 @@ public class ViewerBindingTreeFactory extends TreeStructureAdvisor implements IO
 		/*
 		 * Find the parent (if any) for the list with the element...
 		 */
-		final EObject parent = findViewParent(element);
+		final EObject parent = findParent(element);
 		if (parent == null) return null;
 
 		final ViewerBindingTreeFactoryList list = myResults.get(parent);

@@ -369,7 +369,7 @@
          <feature
                name="tmpDir">
             <standardArguments
-                  extensions="/windows/**"
+                  extensions="/windows/**;/tmp/**"
                   label="Temporary Directory"
                   type="directoryName">
             </standardArguments>

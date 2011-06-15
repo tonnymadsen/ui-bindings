@@ -10,10 +10,10 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.internal.handlers;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -22,10 +22,9 @@ import org.eclipse.core.commands.IHandler2;
 import org.eclipse.core.expressions.IEvaluationContext;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
-import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
@@ -38,7 +37,6 @@ import com.rcpcompany.uibindings.IElementParentage;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.internal.Activator;
-import com.rcpcompany.uibindings.utils.ParticipantUtils;
 import com.rcpcompany.uibindings.utils.UIBEcoreUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -59,47 +57,11 @@ public class DeleteHandler extends AbstractHandler implements IHandler2 {
 		// The viewer
 		final IViewerBinding vb = (IViewerBinding) bb;
 
-		final Command cmd = createCommand(vb);
+		final Command cmd = createCommand(vb, true);
 		/*
 		 * Execute if possible...
-		 * 
-		 * TODO return value
 		 */
-		if (!cmd.canExecute()) throw new ExecutionException("Cannot delete selected objects");
-
-		final Collection<EObject> list = vb.getSelection();
-		final Map<EObject, Collection<Setting>> references = UIBEcoreUtils.findIncommingRequiredReferences(list);
-		if (references != null) {
-			/*
-			 * Go though the incomming references to filter out any references that cannot be
-			 * removed
-			 */
-			for (final Entry<EObject, Collection<Setting>> e : references.entrySet().toArray(
-					new Entry[references.entrySet().size()])) {
-				for (final Setting st : e.getValue().toArray(new Setting[e.getValue().size()])) {
-					final EStructuralFeature sf = st.getEStructuralFeature();
-					if (sf.isMany()) {
-						final List<?> l = (List<?>) st.get(false);
-						if (l.size() - 1 < sf.getLowerBound()) {
-							continue;
-						}
-					} else {
-						if (sf.isRequired()) {
-							continue;
-						}
-					}
-
-					e.getValue().remove(st);
-				}
-				if (e.getValue().isEmpty()) {
-					references.remove(e.getKey());
-				}
-			}
-			if (!references.isEmpty()) {
-				UIBEcoreUtils.showErrorDialog("Delete Aborted", "Cannot delete the selected objects", references);
-				return null; // throw new ExecutionException("Cannot delete selected objects");
-			}
-		}
+		if (cmd == null || !cmd.canExecute()) throw new ExecutionException("Cannot delete selected objects");
 
 		// LogUtils.debug(this, "execute");
 
@@ -122,7 +84,7 @@ public class DeleteHandler extends AbstractHandler implements IHandler2 {
 		// The viewer
 		final IViewerBinding vb = (IViewerBinding) bbo;
 
-		final Command cmd = createCommand(vb);
+		final Command cmd = createCommand(vb, false);
 		/*
 		 * Execute if possible...
 		 */
@@ -134,7 +96,7 @@ public class DeleteHandler extends AbstractHandler implements IHandler2 {
 		if (IManager.Factory.getManager().isDeleteHandlerCheckEnabled()) {
 			final Collection<EObject> list = vb.getSelection();
 
-			final Map<EObject, Collection<Setting>> references = UIBEcoreUtils.findIncommingRequiredReferences(list);
+			final Map<EObject, Collection<Setting>> references = UIBEcoreUtils.findIncomingRequiredReferences(list);
 			if (references != null) {
 				setBaseEnabled(false);
 				return;
@@ -153,9 +115,10 @@ public class DeleteHandler extends AbstractHandler implements IHandler2 {
 	 * Creates and returns a command that can delete the current objects of the specified viewer.
 	 * 
 	 * @param vb the viewer binding
+	 * @param queryUser TODO
 	 * @return the command that will delete the current objects or <code>null</code>
 	 */
-	public static Command createCommand(IViewerBinding vb) {
+	public static Command createCommand(IViewerBinding vb, boolean queryUser) {
 		/*
 		 * TODO: find a way to cache the result - this method is called far too many times!
 		 */
@@ -165,6 +128,7 @@ public class DeleteHandler extends AbstractHandler implements IHandler2 {
 
 		final EditingDomain domain = vb.getEditingDomain();
 		final CompoundCommand cc = new CompoundCommand();
+		final List<EObject> deleteObjects = new ArrayList<EObject>();
 		for (final EObject element : list) {
 			/*
 			 * Find the parentage for the element. Especially important - and difficult - for trees.
@@ -181,23 +145,17 @@ public class DeleteHandler extends AbstractHandler implements IHandler2 {
 
 			Command cmd = null;
 			if (ref.isContainment()) {
-				/*
-				 * Check whether this element and all children can be deleted according the the
-				 * delete participants
-				 */
-				if (!ParticipantUtils.canDeleteAccordingToParticipants(element)) {
-					continue;
-				}
-				for (final TreeIterator<EObject> i = element.eAllContents(); i.hasNext();) {
-					if (!ParticipantUtils.canDeleteAccordingToParticipants(i.next())) {
-						continue;
-					}
-				}
-				cmd = DeleteCommand.create(domain, element);
+				deleteObjects.add(element);
 			} else {
 				cmd = RemoveCommand.create(domain, parent, ref, element);
 			}
 			cc.append(cmd);
+		}
+		if (!deleteObjects.isEmpty()) {
+			cc.append(DeleteCommand.create(domain, deleteObjects));
+			final Command deleteCommands = IManager.Factory.getManager().deleteObjects(domain, deleteObjects, false);
+			if (deleteCommands == null) return UnexecutableCommand.INSTANCE;
+			cc.append(deleteCommands);
 		}
 		return cc.unwrap();
 	}

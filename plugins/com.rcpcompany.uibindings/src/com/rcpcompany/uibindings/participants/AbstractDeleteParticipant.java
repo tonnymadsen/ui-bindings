@@ -20,12 +20,4 @@ public abstract class AbstractDeleteParticipant implements IDeleteParticipant {
 	public boolean canDelete(IDeleteParticipantContext context) {
 		return true;
 	}
-
-	@Override
-	public void preDelete(IDeleteParticipantContext context) {
-	}
-
-	@Override
-	public void postDelete(IDeleteParticipantContext context) {
-	}
 }

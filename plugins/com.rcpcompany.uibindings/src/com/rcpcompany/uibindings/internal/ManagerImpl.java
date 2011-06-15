@@ -37,16 +37,19 @@ import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.common.command.IdentityCommand;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
@@ -79,6 +82,7 @@ import com.rcpcompany.uibindings.DecorationPosition;
 import com.rcpcompany.uibindings.IArgumentContext;
 import com.rcpcompany.uibindings.IArgumentInformation;
 import com.rcpcompany.uibindings.IArgumentProvider;
+import com.rcpcompany.uibindings.IArgumentValue;
 import com.rcpcompany.uibindings.IAssignmentParticipantDescriptor;
 import com.rcpcompany.uibindings.IAssignmentParticipantsManager;
 import com.rcpcompany.uibindings.IBinding;
@@ -124,9 +128,11 @@ import com.rcpcompany.uibindings.internal.observableFactories.DefaultEMFObservab
 import com.rcpcompany.uibindings.participants.IAssignmentParticipant;
 import com.rcpcompany.uibindings.participants.IAssignmentParticipantContext;
 import com.rcpcompany.uibindings.participants.IDeleteParticipant;
+import com.rcpcompany.uibindings.participants.IDeleteParticipantContext;
 import com.rcpcompany.uibindings.participants.IInitializationParticipant;
 import com.rcpcompany.uibindings.participants.IInitializationParticipantContext;
 import com.rcpcompany.uibindings.units.IUnitBindingSupport;
+import com.rcpcompany.uibindings.utils.UIBEcoreUtils;
 import com.rcpcompany.uibindings.validators.IConstraintValidatorAdapterConstraintProvider;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -3463,8 +3469,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 
 	// TODO: Move to UIBU!
 	@Override
-	public Command initializeObject(final EditingDomain editinDomain, final EObject parent, final EReference reference,
-			final EObject child, boolean addToParent) {
+	public Command initializeObject(final EditingDomain editingDomain, final EObject parent,
+			final EReference reference, final EObject child, boolean addToParent) {
 		if (child == null) return null;
 		final EClass eClass = child.eClass();
 		final IBindingDataType dt = IBindingDataType.Factory.create(null, eClass);
@@ -3484,7 +3490,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 
 			@Override
 			public EditingDomain getEditingDomain() {
-				return editinDomain;
+				return editingDomain;
 			}
 
 			@Override
@@ -3538,7 +3544,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 
 	// TODO: Move to UIBU!
 	@Override
-	public Command assignObject(EditingDomain editingDomain, IBinding binding, final EObject destination,
+	public Command assignObject(final EditingDomain editingDomain, IBinding binding, final EObject destination,
 			final EObject source) {
 		if (destination == null || source == null) return null;
 
@@ -3574,7 +3580,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 
 			@Override
 			public EditingDomain getEditingDomain() {
-				return ManagerImpl.this.getEditingDomain();
+				return editingDomain;
 			}
 
 			@Override
@@ -3615,6 +3621,147 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		if (cc.isEmpty()) return null;
 
 		return cc.unwrap();
+	}
+
+	@Override
+	public Command deleteObjects(final EditingDomain editingDomain, final Collection<? extends EObject> targets,
+			final boolean queryUser) {
+		if (targets == null) return null;
+
+		final CompoundCommand cc = new CompoundCommand();
+		final boolean checkForIncomingReferences[] = new boolean[1];
+		checkForIncomingReferences[0] = true;
+
+		/*
+		 * Tests each of the objects and their contained children if they can be deleted
+		 */
+		for (final EObject t : targets) {
+			final IDeleteParticipantContext context = new IDeleteParticipantContext() {
+				@Override
+				public EObject getElement() {
+					return t;
+				}
+
+				@Override
+				public EditingDomain getEditingDomain() {
+					return editingDomain;
+				}
+
+				@Override
+				public void addCommand(Command command) {
+					cc.append(command);
+				}
+
+				@Override
+				public boolean canQueryUser() {
+					return queryUser;
+				}
+
+				@Override
+				public void dontCheckForIncomingReferences() {
+					checkForIncomingReferences[0] = false;
+				}
+			};
+			if (!deleteObjectInternal(t, context)) return null;
+			for (final TreeIterator<EObject> i = t.eAllContents(); i.hasNext();) {
+				if (!deleteObjectInternal(i.next(), context)) return null;
+			}
+		}
+
+		if (checkForIncomingReferences[0]) {
+			/*
+			 * Check if we have any incoming references into the targets...
+			 */
+			final Map<EObject, Collection<Setting>> references = UIBEcoreUtils.findIncomingRequiredReferences(targets);
+			if (references != null) {
+				/*
+				 * Go though the incoming references to filter out any references that cannot be
+				 * removed
+				 */
+				for (final Entry<EObject, Collection<Setting>> e : references.entrySet().toArray(
+						new Entry[references.entrySet().size()])) {
+					for (final Setting st : e.getValue().toArray(new Setting[e.getValue().size()])) {
+						final EStructuralFeature sf = st.getEStructuralFeature();
+						if (sf.isMany()) {
+							final List<?> l = (List<?>) st.get(false);
+							if (l.size() - 1 < sf.getLowerBound()) {
+								continue;
+							}
+						} else {
+							if (sf.isRequired()) {
+								continue;
+							}
+						}
+
+						e.getValue().remove(st);
+					}
+					if (e.getValue().isEmpty()) {
+						references.remove(e.getKey());
+					}
+				}
+				if (!references.isEmpty()) {
+					if (queryUser) {
+						UIBEcoreUtils.showErrorDialog("Delete Aborted", "Cannot delete the selected objects",
+								references);
+					}
+					return null;
+				}
+			}
+		}
+
+		if (cc.isEmpty()) return IdentityCommand.INSTANCE;
+		return cc.unwrap();
+	}
+
+	private boolean deleteObjectInternal(final EObject target, final IDeleteParticipantContext parentContext) {
+		/*
+		 * Consult the global manager for participants
+		 */
+		final IBindingDataType dataType = IBindingDataType.Factory.create(null, target.getClass());
+		if (dataType == null) return false;
+		final List<IArgumentValue<IDeleteParticipant>> participants = dataType.getArguments(
+				Constants.ARG_DELETE_PARTICIPANT, null, IDeleteParticipant.class, false);
+
+		IDeleteParticipantContext context = null;
+		for (final IArgumentValue<IDeleteParticipant> dp : participants) {
+			if (context == null) {
+				context = new IDeleteParticipantContext() {
+					@Override
+					public EObject getElement() {
+						return target;
+					}
+
+					@Override
+					public EditingDomain getEditingDomain() {
+						return parentContext.getEditingDomain();
+					}
+
+					@Override
+					public void addCommand(Command command) {
+						parentContext.addCommand(command);
+					}
+
+					@Override
+					public boolean canQueryUser() {
+						return parentContext.canQueryUser();
+					}
+
+					@Override
+					public void dontCheckForIncomingReferences() {
+						parentContext.dontCheckForIncomingReferences();
+					}
+				};
+			}
+			final IDeleteParticipant participant = dp.getValue();
+			try {
+				if (!participant.canDelete(context)) return false;
+			} catch (final Exception ex) {
+				LogUtils.error(participant, ex);
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	/**

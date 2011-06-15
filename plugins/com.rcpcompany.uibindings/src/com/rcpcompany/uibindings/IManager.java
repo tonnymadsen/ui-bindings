@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -32,6 +33,7 @@ import com.rcpcompany.uibindings.initializers.DefaultEObjectInitializer;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.observableFactories.DefaultEMFObservableFactory;
 import com.rcpcompany.uibindings.participants.IAssignmentParticipant;
+import com.rcpcompany.uibindings.participants.IDeleteParticipant;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 
 /**
@@ -1094,14 +1096,14 @@ public interface IManager extends IBaseObject {
 	 * is called unless <code>addToParent</code> is set to <code>true</code> and both the parent and
 	 * the reference is specified.
 	 * 
-	 * @param editinDomain editing domain used for all changes
+	 * @param editingDomain editing domain used for all changes
 	 * @param parent the parent object
 	 * @param ref the reference from the parent to the child
 	 * @param child the new child object to be initialized
 	 * @param addToParent adds the child to the parent if <code>true</code>
 	 * @return a command used to initialize the child object - can be <code>null</code>
 	 */
-	Command initializeObject(EditingDomain editinDomain, EObject parent, EReference ref, EObject child,
+	Command initializeObject(EditingDomain editingDomain, EObject parent, EReference ref, EObject child,
 			boolean addToParent);
 
 	/**
@@ -1111,7 +1113,7 @@ public interface IManager extends IBaseObject {
 	 * The used {@link IAssignmentParticipant} is based on the specified binding, if given, or the
 	 * global repository.
 	 * 
-	 * @param editingDomain TODO
+	 * @param editingDomain editing domain used for all changes
 	 * @param binding the binding of the destination if any
 	 * @param destination the destination object
 	 * @param source the source object
@@ -1119,4 +1121,26 @@ public interface IManager extends IBaseObject {
 	 * @return a command used to initialize the child object - can be <code>null</code>
 	 */
 	Command assignObject(EditingDomain editingDomain, IBinding binding, EObject destination, EObject source);
+
+	/**
+	 * Deletes the specified target objects by creating a set of {@link Command commands} that will
+	 * set all relevant features on all relevant objects.
+	 * <p>
+	 * This method can be called in two different ways:
+	 * <ul>
+	 * <li><code>queryUser = false</code>: performs a quick check, but may not query the user about
+	 * deleting any additional objects</li>
+	 * <li><code>queryUser = true</code>: performs a throughrough check which might include queries
+	 * to the user about the deletion of any additional objects or references</li>
+	 * </ul>
+	 * <p>
+	 * The used {@link IDeleteParticipant} is based on the global repository.
+	 * 
+	 * @param editingDomain editing domain used for all changes
+	 * @param targets the objects to delete
+	 * @param queryUser whether the user may be asked
+	 * @return a command used to delete the target object - <code>null</code> if the object cannot
+	 *         be deleted
+	 */
+	Command deleteObjects(EditingDomain editingDomain, Collection<? extends EObject> targets, boolean queryUser);
 } // IManager

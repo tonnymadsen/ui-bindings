@@ -14,6 +14,7 @@ import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.commands.NotEnabledException;
 import org.eclipse.core.commands.ParameterizedCommand;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -247,6 +248,8 @@ public class ViewerTableDeleteElementTest {
 				// do nothing
 			}
 			assertEquals(2, myShop.getCountries().size());
+		} catch (final NotEnabledException e) {
+			// OK
 		} catch (final Exception ex) {
 			fail(ex.getMessage());
 		}

@@ -40,7 +40,7 @@ public class IViewerBindingPropertyTester extends PropertyTester {
 		final IViewerBinding vb = (IViewerBinding) receiver;
 
 		if (Constants.PROPERTY_CAN_DELETE_SELECTED_OBJECTS.equals(property)) {
-			final Command cmd = DeleteHandler.createCommand(vb);
+			final Command cmd = DeleteHandler.createCommand(vb, false);
 			final boolean res = cmd != null && cmd.canExecute();
 			if (Activator.getDefault().TRACE_PROPERTY_TESTERS) {
 				LogUtils.debug(this, "->> " + res);

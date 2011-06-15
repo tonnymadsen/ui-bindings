@@ -13,6 +13,7 @@ package com.rcpcompany.uibindings.extests.bindingDataTypes;
 import static org.junit.Assert.*;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.Enumerator;
@@ -33,6 +34,7 @@ import com.rcpcompany.uibindings.internal.bindingDataTypes.EClassifierBindingDat
 import com.rcpcompany.uibindings.internal.bindingDataTypes.EEnumLiteralBindingDataType;
 import com.rcpcompany.uibindings.internal.bindingDataTypes.EStructuralFeatureBindingDataType;
 import com.rcpcompany.uibindings.internal.bindingDataTypes.JavaClassBindingDataType;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests various aspects of {@link BindingDataTypeFactory}.
@@ -119,6 +121,12 @@ public class BindingDataTypeFactoryTest {
 	}
 
 	@Test
+	public void testSuperSubTypesEClass() {
+		testSuperType(TestModelPackage.Literals.SUB_TEST_OBJECT, SubTestObject.class, TestObject.class, EObject.class,
+				Notifier.class);
+	}
+
+	@Test
 	public void testSuperTypesEnum() {
 		testSuperType(TestModelPackage.Literals.TIME_UNIT, TimeUnit.class, Enumerator.class, Enum.class, Object.class,
 				Comparable.class, Serializable.class);
@@ -136,6 +144,8 @@ public class BindingDataTypeFactoryTest {
 		final IBindingDataType dt = IBindingDataType.Factory.create(null, testClass);
 		assertEquals(testClass, dt.getEType());
 		final IBindingDataType[] types = IBindingDataType.Factory.getSuperTypes(dt);
+		LogUtils.debug(this, dt + "->\n" + Arrays.toString(types));
+
 		// for (final IBindingDataType t : types) {
 		// System.out.println(testClass.getName() + ": " + t.getDataType().getName());
 		// }

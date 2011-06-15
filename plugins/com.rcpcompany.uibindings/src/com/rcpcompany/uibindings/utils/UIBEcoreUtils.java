@@ -43,8 +43,8 @@ public final class UIBEcoreUtils {
 	 * @param objects the objects to test
 	 * @return the objects with references
 	 */
-	public static Map<EObject, Collection<EStructuralFeature.Setting>> findIncommingRequiredReferences(
-			Collection<EObject> objects) {
+	public static Map<EObject, Collection<EStructuralFeature.Setting>> findIncomingRequiredReferences(
+			Collection<? extends EObject> objects) {
 		/*
 		 * Find the involved objects
 		 */
@@ -106,7 +106,7 @@ public final class UIBEcoreUtils {
 	 * @param objects the objects
 	 * @return the same objects along with their containment children
 	 */
-	private static Collection<EObject> getContainmentTree(Collection<EObject> objects) {
+	private static Collection<EObject> getContainmentTree(Collection<? extends EObject> objects) {
 		final Collection<EObject> objs = new ArrayList<EObject>();
 		for (final Object wrappedObject : objects) {
 			final Object object = AdapterFactoryEditingDomain.unwrap(wrappedObject);
