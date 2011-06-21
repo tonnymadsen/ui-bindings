@@ -60,17 +60,24 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		IBindingContextSelectionProvider, ISelectionProvider, IDisposable {
 
 	/**
+	 * Whether to setup this selection provider on the site.
+	 */
+	private final boolean mySetupSelectionProvider;
+
+	/**
 	 * Factory method for {@link IBindingContextSelectionProvider} that checks a provider does not
 	 * already exist.
 	 * 
 	 * @param context the context
 	 * @param site the site
+	 * @param setupSelectionProvider whether to set the selection provider on the site
 	 * @return the new selection provider
 	 */
-	public static IBindingContextSelectionProvider adapt(IBindingContext context, IWorkbenchPartSite site) {
+	public static IBindingContextSelectionProvider adapt(IBindingContext context, IWorkbenchPartSite site,
+			boolean setupSelectionProvider) {
 		final BindingContextSelectionProvider provider = context.getService(BindingContextSelectionProvider.class);
 		if (provider != null) return provider;
-		return new BindingContextSelectionProvider(context, site);
+		return new BindingContextSelectionProvider(context, site, setupSelectionProvider);
 	}
 
 	/**
@@ -78,10 +85,13 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	 * 
 	 * @param context the binding
 	 * @param site the workbench site
+	 * @param setupSelectionProvider whether to set the selection provider on the site
 	 */
-	public BindingContextSelectionProvider(IBindingContext context, IWorkbenchPartSite site) {
+	public BindingContextSelectionProvider(IBindingContext context, IWorkbenchPartSite site,
+			boolean setupSelectionProvider) {
 		super(context);
 		mySite = site;
+		mySetupSelectionProvider = setupSelectionProvider;
 
 		if (context.getTop() == null) {
 			final IllegalStateException ex = new IllegalStateException("No top component set.");
@@ -97,7 +107,12 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	 */
 	@Override
 	public void init() {
-		mySite.setSelectionProvider(this);
+		if (mySetupSelectionProvider) {
+			if (mySite.getSelectionProvider() != null) {
+				LogUtils.error(this, "Site already have a selection provider: " + mySite.getSelectionProvider());
+			}
+			mySite.setSelectionProvider(this);
+		}
 
 		Display.getCurrent().addFilter(SWT.FocusIn, myFocusListener);
 		createContextMenu();
@@ -279,7 +294,9 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 			myPopupMenuExtender.dispose();
 			myPopupMenuExtender = null;
 		}
-		mySite.setSelectionProvider(null);
+		if (mySetupSelectionProvider) {
+			mySite.setSelectionProvider(null);
+		}
 		Display.getCurrent().removeFilter(SWT.FocusIn, myFocusListener);
 
 		final Menu menu = myMenuManager.getMenu();
