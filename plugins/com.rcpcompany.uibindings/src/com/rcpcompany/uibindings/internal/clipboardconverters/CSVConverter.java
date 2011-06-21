@@ -10,8 +10,12 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.internal.clipboardconverters;
 
+import java.util.Arrays;
+
 import org.eclipse.swt.dnd.Clipboard;
 import org.eclipse.swt.dnd.TextTransfer;
+
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * {@link IClipboardConverter} for Comma-Separated-Values.
@@ -22,11 +26,18 @@ import org.eclipse.swt.dnd.TextTransfer;
  */
 public class CSVConverter implements IClipboardConverter {
 	private final String myName;
-	private final String mySeparator;
+	private final String mySeparatorRE;
 
-	public CSVConverter(String name, String separator) {
+	/**
+	 * Constructs and returns a new converter with the specified name and the specified separator
+	 * {@link String#split(String) regular expression}.
+	 * 
+	 * @param name the name of the converter
+	 * @param separatorRE the regular expression for the converter
+	 */
+	public CSVConverter(String name, String separatorRE) {
 		myName = name;
-		mySeparator = separator;
+		mySeparatorRE = separatorRE;
 	}
 
 	@Override
@@ -46,7 +57,8 @@ public class CSVConverter implements IClipboardConverter {
 		final int noLines = lines.length;
 		final String[][] result = new String[noLines][0];
 		for (int i = 0; i < lines.length; i++) {
-			result[i] = lines[i].split(mySeparator);
+			result[i] = lines[i].split(mySeparatorRE);
+			LogUtils.debug(this, "RE='" + mySeparatorRE + "': '" + lines[i] + "->" + Arrays.toString(result[i]));
 		}
 		return result;
 	}

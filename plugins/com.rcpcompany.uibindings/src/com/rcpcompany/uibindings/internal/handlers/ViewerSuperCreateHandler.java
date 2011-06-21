@@ -184,12 +184,12 @@ public class ViewerSuperCreateHandler extends AbstractHandler implements IHandle
 					IValueBindingCell cell;
 					do {
 						cell = container.getCell(ci, p.y + r, true);
-						ci++;
 						if (cell == null) {
 							MessageDialog.openError(HandlerUtil.getActiveShell(event), "Cannot create data",
 									"No room for data");
 							return null;
 						}
+						ci++;
 					} while (cell.getColumnBinding() != null
 							&& cell.getColumnBinding().getColumnAdapter().getWidth() == 0);
 					final IValueBinding b = cell.getLabelBinding();
@@ -205,7 +205,7 @@ public class ViewerSuperCreateHandler extends AbstractHandler implements IHandle
 					 * Make a new create binding and add this to the assignmentMap...
 					 */
 					final WritableValue ov = new WritableValue("", String.class);
-					final IUIAttribute attribute = new SimpleUIAttribute(null, null, ov, true);
+					final IUIAttribute attribute = new SimpleUIAttribute(null, "", ov, true);
 					// TODO: Why are we sure about this being a value?
 					final IValueBinding createBinding = context.addBinding().model(b.getModelObservableValue())
 							.ui(attribute);

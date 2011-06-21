@@ -40,8 +40,9 @@ public class ClipboardConverterManager implements IClipboardConverterManager {
 
 	private final IClipboardConverter[] myConverters = new IClipboardConverter[] {
 
-	new CSVConverter("Comma Separated Values", ","), new CSVConverter("Tab Separated Values", "\t"),
-			new CSVConverter("Semicolon Separated Values", ";"), new CSVConverter("Space Separated Values", " "),
+	new CSVConverter("Comma Separated Values", "[ \t]*,[ \t]*"), new CSVConverter("Tab Separated Values", " *\t *"),
+			new CSVConverter("Semicolon Separated Values", "[ \t]*;[ \t]*"),
+			new CSVConverter("Space Separated Values", " +"),
 			new DelimiterConverter("Delimiter Separated Values", " \t"),
 
 			new HTMLTableConverter(), new WordTableConverter(), new PDFTableConverter(),

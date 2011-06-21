@@ -25,7 +25,7 @@ import com.rcpcompany.uibindings.internal.utils.BindingContextSelectionProvider;
 /**
  * Selection provider for a binding context.
  * <p>
- * Added to the context with {@link Factory#adapt(IBindingContext, IWorkbenchPartSite)
+ * Added to the context with {@link Factory#adapt(IBindingContext, IWorkbenchPartSite, boolean)
  * IBindingContextSelectionProvider.Factory.adapt(IBindingContext, IWorkbenchPartSite)}. Additional
  * controls and viewers can be added with the different <code>add...(...)</code> methods in this
  * interface.
@@ -44,23 +44,56 @@ public interface IBindingContextSelectionProvider extends IDisposable {
 
 		/**
 		 * Adds menu along with the corresponding selection provider for the specified context.
+		 * <p>
+		 * The selection provider is set on the site of the context.
 		 * 
 		 * @param context the context
 		 * @param site the site
 		 * @return the new selection provider
 		 */
 		public static IBindingContextSelectionProvider adapt(IBindingContext context, IWorkbenchPartSite site) {
-			return BindingContextSelectionProvider.adapt(context, site);
+			return adapt(context, site, true);
 		}
 
 		/**
 		 * Adds menu along with the corresponding selection provider for the specified context.
+		 * <p>
+		 * The selection provider is set on the site is wanted.
+		 * 
+		 * @param context the context
+		 * @param site the site
+		 * @param setupSelectionProvider whether to set the selection provider on the site
+		 * @return the new selection provider
+		 */
+		public static IBindingContextSelectionProvider adapt(IBindingContext context, IWorkbenchPartSite site,
+				boolean setupSelectionProvider) {
+			return BindingContextSelectionProvider.adapt(context, site, setupSelectionProvider);
+		}
+
+		/**
+		 * Adds menu along with the corresponding selection provider for the specified context.
+		 * <p>
+		 * The selection provider is set on the site of the context.
 		 * 
 		 * @param context the context
 		 * @param site the site
 		 * @return the new selection provider
 		 */
 		public static IBindingContextSelectionProvider adapt(IBindingContext context) {
+			return adapt(context, true);
+		}
+
+		/**
+		 * Adds menu along with the corresponding selection provider for the specified context.
+		 * <p>
+		 * The selection provider is set on the site is wanted.
+		 * 
+		 * @param context the context
+		 * @param setupSelectionProvider whether to set the selection provider on the site
+		 * @param site the site
+		 * @return the new selection provider
+		 */
+		public static IBindingContextSelectionProvider adapt(IBindingContext context, boolean setupSelectionProvider) {
 			@SuppressWarnings("restriction")
 			final IWorkbenchLocationService ls = (IWorkbenchLocationService) context.getServiceLocator().getService(
 					IWorkbenchLocationService.class);
@@ -69,7 +102,7 @@ public interface IBindingContextSelectionProvider extends IDisposable {
 			@SuppressWarnings("restriction")
 			final IWorkbenchPartSite site = ls.getPartSite();
 
-			return adapt(context, site);
+			return adapt(context, site, setupSelectionProvider);
 		}
 	}
 

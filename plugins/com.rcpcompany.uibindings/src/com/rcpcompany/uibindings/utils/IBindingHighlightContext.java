@@ -116,7 +116,7 @@ public interface IBindingHighlightContext extends IDisposable {
 	/**
 	 * The default fade-out time.
 	 */
-	int DEFAULT_FADE_OUT_TIME = 1000;
+	int DEFAULT_FADE_OUT_TIME = 2000;
 
 	/**
 	 * The default fade-in time.
