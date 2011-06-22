@@ -106,9 +106,14 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 		if (myFilteredTree != null) {
 			myFilteredTree.showFilterText(myShowFilterText);
 		}
+		if (myShowFilterTextItem != null) {
+			myShowFilterTextItem.update();
+		}
 	}
 
-	private MyFilteredTree myFilteredTree;
+	private IContributionItem myShowFilterTextItem = null;
+
+	private MyFilteredTree myFilteredTree = null;
 
 	private IMemento myMemento;
 
@@ -206,12 +211,6 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 		IBindingContextSelectionProvider.Factory.adapt(myContext, getSite());
 		IDnDSupport.Factory.installOn(myContext);
 
-		try {
-			myShowFilterText = myAdvisor.useTreeFilter();
-		} catch (final Exception ex) {
-			LogUtils.error(myAdvisor, ex);
-		}
-
 		addToolbarItems();
 		listenToSelection();
 	}
@@ -237,7 +236,15 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 		if (ps.getBoolean(NavigatorConstants.PREF_LINK_WITH_CONTRIBUTION)) {
 			toolbar.add(new LinkWithEditorContributionItem());
 		}
-		toolbar.add(new ShowFilterTextContributionItem());
+		try {
+			setShowFilterText(myAdvisor.useTreeFilter());
+		} catch (final Exception ex) {
+			LogUtils.error(myAdvisor, ex);
+		}
+		if (myShowFilterText) {
+			myShowFilterTextItem = new ShowFilterTextContributionItem();
+			toolbar.add(myShowFilterTextItem);
+		}
 	}
 
 	/**
@@ -357,6 +364,7 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 					update();
 				}
 			});
+			update();
 		}
 
 		@Override
@@ -390,6 +398,7 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 					update();
 				}
 			});
+			update();
 		}
 
 		@Override
