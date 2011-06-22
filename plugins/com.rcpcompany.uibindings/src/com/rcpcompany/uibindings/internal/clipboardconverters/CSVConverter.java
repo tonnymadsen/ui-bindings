@@ -10,12 +10,8 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.internal.clipboardconverters;
 
-import java.util.Arrays;
-
 import org.eclipse.swt.dnd.Clipboard;
 import org.eclipse.swt.dnd.TextTransfer;
-
-import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * {@link IClipboardConverter} for Comma-Separated-Values.
@@ -58,7 +54,8 @@ public class CSVConverter implements IClipboardConverter {
 		final String[][] result = new String[noLines][0];
 		for (int i = 0; i < lines.length; i++) {
 			result[i] = lines[i].split(mySeparatorRE);
-			LogUtils.debug(this, "RE='" + mySeparatorRE + "': '" + lines[i] + "->" + Arrays.toString(result[i]));
+			// LogUtils.debug(this, "RE='" + mySeparatorRE + "': '" + lines[i] + "->" +
+			// Arrays.toString(result[i]));
 		}
 		return result;
 	}
