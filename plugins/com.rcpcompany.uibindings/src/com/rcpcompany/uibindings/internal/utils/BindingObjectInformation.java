@@ -54,6 +54,10 @@ public class BindingObjectInformation implements IBindingObjectInformation {
 		binding = context.addBinding().model(value).ui(attribute).type(type);
 
 		context.finish();
+		/*
+		 * Need to provoke a run of all extenders...
+		 */
+		binding.updateBinding();
 
 		myName = (String) attribute.getCurrentValue().getValue();
 		myImage = (Image) attribute.getImageValue().getValue();
