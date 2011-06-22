@@ -60,6 +60,11 @@ public interface NavigatorConstants {
 	 * {@link INavigatorManager} attribute.
 	 */
 	String PREF_SHOW_OTHER_CONTRIBUTIONS = "PREF_SHOW_OTHER_CONTRIBUTIONS";
+	/**
+	 * Preference name for whether to show "Link With" contribution in navigator - no
+	 * {@link INavigatorManager} attribute.
+	 */
+	String PREF_LINK_WITH_CONTRIBUTION = "PREF_LINK_WITH_CONTRIBUTION";
 
 	String ID_TAG = "id";
 	String MODEL_TYPE_TAG = "modelType";

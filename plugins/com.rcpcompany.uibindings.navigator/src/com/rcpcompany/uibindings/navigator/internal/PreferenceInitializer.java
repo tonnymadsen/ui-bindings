@@ -29,5 +29,6 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 		ps.setDefault(NavigatorConstants.PREF_SHOW_PIN_EDITOR_CONTRIBUTION, true);
 		ps.setDefault(NavigatorConstants.PREF_SHOW_CLONE_EDITOR_CONTRIBUTION, true);
 		ps.setDefault(NavigatorConstants.PREF_SHOW_OTHER_CONTRIBUTIONS, true);
+		ps.setDefault(NavigatorConstants.PREF_LINK_WITH_CONTRIBUTION, true);
 	}
 }

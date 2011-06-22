@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.action.ContributionItem;
 import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.action.IToolBarManager;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
@@ -226,7 +227,10 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 	private void addToolbarItems() {
 		final IToolBarManager toolbar = getViewSite().getActionBars().getToolBarManager();
 
-		toolbar.add(new LinkWithEditorContributionItem());
+		final IPreferenceStore ps = Activator.getDefault().getPreferenceStore();
+		if (ps.getBoolean(NavigatorConstants.PREF_LINK_WITH_CONTRIBUTION)) {
+			toolbar.add(new LinkWithEditorContributionItem());
+		}
 		toolbar.add(new ShowFilterTextContributionItem());
 	}
 
