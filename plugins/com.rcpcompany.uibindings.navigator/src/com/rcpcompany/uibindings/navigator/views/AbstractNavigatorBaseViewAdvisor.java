@@ -42,6 +42,11 @@ public abstract class AbstractNavigatorBaseViewAdvisor implements INavigatorBase
 	}
 
 	@Override
+	public boolean useTreeFilter() {
+		return true;
+	}
+
+	@Override
 	public boolean useLabelDecoration() {
 		return true;
 	}

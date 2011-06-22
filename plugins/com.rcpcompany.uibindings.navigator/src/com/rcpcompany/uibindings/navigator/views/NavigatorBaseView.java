@@ -94,7 +94,7 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 	/**
 	 * Whether this the filter text is shown for this navigator...
 	 */
-	private boolean myShowFilterText = true;
+	private boolean myShowFilterText;
 
 	public boolean isShowFilterText() {
 		return myShowFilterText;
@@ -205,6 +205,12 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 
 		IBindingContextSelectionProvider.Factory.adapt(myContext, getSite());
 		IDnDSupport.Factory.installOn(myContext);
+
+		try {
+			myShowFilterText = myAdvisor.useTreeFilter();
+		} catch (final Exception ex) {
+			LogUtils.error(myAdvisor, ex);
+		}
 
 		addToolbarItems();
 		listenToSelection();
@@ -368,8 +374,6 @@ public class NavigatorBaseView extends ViewPart implements IExecutableExtension,
 		@Override
 		public void fill(ToolBar parent, int index) {
 			myItem = new ToolItem(parent, SWT.CHECK, index);
-			final ISharedImages sharedImages = PlatformUI.getWorkbench().getSharedImages();
-			// images from IWorkbenchGraphicConstants
 			final ImageRegistry imageRegistry = Activator.getDefault().getImageRegistry();
 			if (imageRegistry.getDescriptor("ShowFilterText") == null) {
 				imageRegistry.put("ShowFilterText",

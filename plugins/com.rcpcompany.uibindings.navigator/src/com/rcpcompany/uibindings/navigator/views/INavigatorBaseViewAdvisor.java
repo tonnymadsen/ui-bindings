@@ -64,4 +64,13 @@ public interface INavigatorBaseViewAdvisor extends IDisposable {
 	 * @return <code>true</code> if using label decorator
 	 */
 	boolean useLabelDecoration();
+
+	/**
+	 * Returns whether to use tree filter for the navigator.
+	 * <p>
+	 * Defaults to <code>true</code>.
+	 * 
+	 * @return <code>true</code> if using tree filter
+	 */
+	boolean useTreeFilter();
 }
