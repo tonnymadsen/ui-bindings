@@ -1073,7 +1073,7 @@
             description="%context.description"
             id="com.rcpcompany.uibindings.contexts.baseContext"
             name="%context.name"
-            parentId="org.eclipse.ui.contexts.window">
+            parentId="org.eclipse.ui.contexts.dialogAndWindow">
       </context>
       <context
             description="%context.description.0"
