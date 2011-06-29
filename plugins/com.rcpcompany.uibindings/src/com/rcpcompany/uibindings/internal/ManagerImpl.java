@@ -3658,6 +3658,11 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 				}
 
 				@Override
+				public boolean justTest() {
+					return !canQueryUser();
+				}
+
+				@Override
 				public void dontCheckForIncomingReferences() {
 					checkForIncomingReferences[0] = false;
 				}
@@ -3745,6 +3750,11 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 					public boolean canQueryUser() {
 						return parentContext.canQueryUser();
 					}
+
+					@Override
+					public boolean justTest() {
+						return parentContext.justTest();
+					};
 
 					@Override
 					public void dontCheckForIncomingReferences() {

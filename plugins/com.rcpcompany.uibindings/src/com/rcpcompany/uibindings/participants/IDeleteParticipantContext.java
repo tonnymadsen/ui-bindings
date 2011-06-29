@@ -49,6 +49,12 @@ public interface IDeleteParticipantContext {
 	boolean canQueryUser();
 
 	/**
+	 * Returns whether this is just a test of whether the object in question can be deleted or the
+	 * actual execution of the delete options.
+	 */
+	boolean justTest();
+
+	/**
 	 * Don't check the target objects for incoming references.
 	 * <p>
 	 * Used if you make all your needed changes to the model yourself, so the check will be
