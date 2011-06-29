@@ -1007,6 +1007,12 @@ public class NavigatorManagerImpl extends EObjectImpl implements INavigatorManag
 		}
 	}
 
+	@Override
+	public void closeView(IEditorPartView view) {
+		final IViewPart p = (IViewPart) view;
+		p.getSite().getPage().hideView(p);
+	}
+
 	/**
 	 * Finds the current preference value and sets the default editor.
 	 * 

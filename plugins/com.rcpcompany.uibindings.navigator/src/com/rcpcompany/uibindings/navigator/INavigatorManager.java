@@ -260,6 +260,13 @@ public interface INavigatorManager extends EObject {
 	Collection<IEditorPartView> getAllViews();
 
 	/**
+	 * Closes the specified view
+	 * 
+	 * @param view the view to close
+	 */
+	void closeView(IEditorPartView view);
+
+	/**
 	 * Closes all existing views (whether pinned or not).
 	 */
 	void closeAllViews();
