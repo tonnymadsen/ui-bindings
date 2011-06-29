@@ -538,6 +538,11 @@ public class ContainerDragAndDropCommand extends AbstractCommand implements Drag
 		}
 
 		/*
+		 * Check whether we are dropping on one of the source objects
+		 */
+		if (mySourceObjects.contains(myContext.getDropTargetObject())) return false;
+
+		/*
 		 * Prepare the right type of operation.
 		 */
 		switch (myOperation) {
