@@ -138,6 +138,7 @@ public class ManagerSourceProvider extends AbstractSourceProvider {
 			 */
 			newState.put(Constants.PREFIX + Constants.PROPERTY_CAN_UNDO, true);
 			newState.put(Constants.PREFIX + Constants.PROPERTY_CAN_REDO, true);
+			newState.put(Constants.PREFIX + Constants.PROPERTY_IS_SAVE_NEEDED, true);
 
 			if (Activator.getDefault().TRACE_SOURCE_PROVIDER) {
 				final StringBuilder sb = new StringBuilder("Binding sources change:");

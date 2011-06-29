@@ -1656,7 +1656,7 @@
             class="com.rcpcompany.uibindings.internal.propertyTesters.ManagerPropertyTester"
             id="com.rcpcompany.uibindings.internal.propertyTesters.ManagerPropertyTester"
             namespace="com.rcpcompany.uibindings"
-            properties="canUndo,canRedo"
+            properties="canUndo,canRedo,isSaveNeeded"
             type="com.rcpcompany.uibindings.IManager">
       </propertyTester>
       <propertyTester

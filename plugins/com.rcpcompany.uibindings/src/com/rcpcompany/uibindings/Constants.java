@@ -500,6 +500,11 @@ public interface Constants {
 	String PROPERTY_CAN_UNDO = "canUndo"; //$NON-NLS-1$
 
 	/**
+	 * Property name used in {@link ManagerPropertyTester}.
+	 */
+	String PROPERTY_IS_SAVE_NEEDED = "isSaveNeeded";
+
+	/**
 	 * Prefix for all IDs.
 	 */
 	String PREFIX = Activator.ID + "."; //$NON-NLS-1$
