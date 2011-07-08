@@ -128,6 +128,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		assertTrue(viewer != null, "viewer must be non-null");
 		setViewer(viewer);
 
+		// TODO: only for Windows?
 		if (getControl() instanceof Table) {
 			/*
 			 * Add an empty first column to the table to avoid alignment problems
