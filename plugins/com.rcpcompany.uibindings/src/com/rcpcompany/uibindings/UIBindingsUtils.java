@@ -39,6 +39,8 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.util.EObjectEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.EcoreUtil.EqualityHelper;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
@@ -392,6 +394,8 @@ public final class UIBindingsUtils {
 	 * equal.
 	 * <p>
 	 * Also two collections of the same size and with equal elements are also considered equal.
+	 * <p>
+	 * And two {@link EObject} are compared using {@link EcoreUtil#equals(EObject, EObject)}.
 	 * 
 	 * @param a object a
 	 * @param b object b
@@ -434,7 +438,34 @@ public final class UIBindingsUtils {
 			}
 			return true;
 		}
+		if (a instanceof EObject && b instanceof EObject) {
+			final EqualityHelper equalityHelper = new MyEqualityHelper();
+			return equalityHelper.equals(((EObject) a), ((EObject) b));
+		}
 		return a.equals(b);
+	}
+
+	/**
+	 * Variant of {@link EqualityHelper} that ignores containing references...
+	 */
+	private static class MyEqualityHelper extends EqualityHelper {
+		@Override
+		public boolean equals(EObject a, EObject b) {
+			final boolean res = super.equals(a, b);
+			// if (a != null && b != null) {
+			// LogUtils.debug(this, "" + ClassUtils.getLastClassName(a) + "@" +
+			// System.identityHashCode(a) + " <> "
+			// + ClassUtils.getLastClassName(b) + "@" + System.identityHashCode(b) + " ==== " +
+			// res);
+			// }
+			return res;
+		}
+
+		@Override
+		protected boolean haveEqualReference(EObject eObject1, EObject eObject2, EReference reference) {
+			if (reference.isContainer()) return true;
+			return super.haveEqualReference(eObject1, eObject2, reference);
+		}
 	}
 
 	/**
@@ -451,11 +482,8 @@ public final class UIBindingsUtils {
 	 */
 	public static boolean equals(EObject a, EObject b, EAttribute key) {
 		if (a == b) return true;
-		if (a == null) return false;
-		if (a.equals(b)) return true;
-
-		if (b == null || key == null) return false;
-		return equals(a.eGet(key), b.eGet(key));
+		if (key != null && a != null && b != null) return equals(a.eGet(key), b.eGet(key));
+		return deepEquals(a, b);
 	}
 
 	/**
