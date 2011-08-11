@@ -58,12 +58,6 @@ import com.rcpcompany.utils.logging.LogUtils;
  */
 public class BindingContextSelectionProvider extends AbstractContextMonitor implements
 		IBindingContextSelectionProvider, ISelectionProvider, IDisposable {
-
-	/**
-	 * Whether to setup this selection provider on the site.
-	 */
-	private final boolean mySetupSelectionProvider;
-
 	/**
 	 * Factory method for {@link IBindingContextSelectionProvider} that checks a provider does not
 	 * already exist.
@@ -188,7 +182,19 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	 * Called whenever the focus has changed or the registered selection providers change
 	 */
 	protected void checkFocus() {
-		final ISelectionProvider provider = myProviders.get(myFocusControl);
+		/*
+		 * Find the provider for the closest enclosing widget
+		 */
+		Control c = myFocusControl;
+		ISelectionProvider provider = null;
+		while (c != null) {
+			provider = myProviders.get(c);
+			if (provider != null) {
+				break;
+			}
+			c = c.getParent();
+		}
+
 		if (provider == myCurrentProvider) return;
 
 		if (myCurrentProvider != null) {
@@ -197,8 +203,8 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		myCurrentProvider = provider;
 		if (myCurrentProvider != null) {
 			myCurrentProvider.addSelectionChangedListener(mySelectionChangedListener);
-			checkSelection();
 		}
+		checkSelection();
 	}
 
 	/**
@@ -215,13 +221,18 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		}
 		if (UIBindingsUtils.equals(selection, myCurrentSelection)) return;
 		myCurrentSelection = selection;
-		fireSelectionChanged(new SelectionChangedEvent(myCurrentProvider, myCurrentSelection));
+		fireSelectionChanged(new SelectionChangedEvent(this, myCurrentSelection));
 	}
 
 	/**
 	 * The workbench site where the menu is registered.
 	 */
 	private final IWorkbenchPartSite mySite;
+
+	/**
+	 * Whether to setup this selection provider on the site.
+	 */
+	private final boolean mySetupSelectionProvider;
 
 	/**
 	 * The current selection provider.
@@ -231,7 +242,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	/**
 	 * The current selection.
 	 */
-	private ISelection myCurrentSelection = null;
+	private ISelection myCurrentSelection = myEmptySelection;
 
 	/**
 	 * org.eclipse.ui.internal class used to extend popup menus
@@ -255,10 +266,19 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	private final Listener myFocusListener = new Listener() {
 		@Override
 		public void handleEvent(Event event) {
-			if (event.type == SWT.FocusIn) {
-				myFocusControl = (Control) event.widget;
-				checkFocus();
+			if (event.type != SWT.FocusIn) return;
+			/*
+			 * Only react to focus changes within the top component
+			 */
+			Control c = (Control) event.widget;
+			while (c != null && c != getContext().getTop()) {
+				c = c.getParent();
 			}
+
+			if (c == null) return;
+
+			myFocusControl = (Control) event.widget;
+			checkFocus();
 		}
 	};
 
@@ -411,7 +431,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		/**
 		 * The current selection.
 		 */
-		private ISelection mySelection = null;
+		private ISelection mySelection = myEmptySelection;
 
 		/**
 		 * The observable value that forms the base of the selection provider.
@@ -479,7 +499,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		/**
 		 * The current selection.
 		 */
-		private ISelection mySelection = null;
+		private ISelection mySelection = myEmptySelection;
 
 		/**
 		 * The observable value that forms the base of the selection provider.

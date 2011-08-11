@@ -104,7 +104,10 @@ public class AutoFormCreator implements IAutoFormCreator {
 		myBaseSection = myForm.addSection("Base Information");
 		myOptionalSection = myForm.addSection("Optional");
 
-		IBindingContextSelectionProvider.Factory.adapt(myForm.getContext(), part.getSite());
+		final IBindingContextSelectionProvider selectionProvider = IBindingContextSelectionProvider.Factory.adapt(
+				myForm.getContext(), part.getSite(), true);
+		selectionProvider.addControl(myForm.getContext().getTop(), myForm.getObservableValue());
+
 		IDnDSupport.Factory.installOn(myForm.getContext());
 
 		myValue.addValueChangeListener(myValueChangeListener);
