@@ -62,8 +62,9 @@ public abstract class MySWTObservableList extends WritableList {
 					}
 				};
 			}
+			getRealm().asyncExec(myWriteBackRunnable);
+			myWriteBackRunnableOutstanding = true;
 		}
-		getRealm().asyncExec(myWriteBackRunnable);
 
 		super.fireListChange(diff);
 	}
