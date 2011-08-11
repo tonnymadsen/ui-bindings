@@ -336,8 +336,10 @@ public final class EcoreExtUtils {
 					 * An object with the correct key already exist in the correct place. Sync these
 					 * then.
 					 */
-					if (key != null && UIBindingsUtils.equals(targetObject, sourceObject, key)) {
-						sync(targetObject, sourceObject);
+					if (UIBindingsUtils.equals(targetObject, sourceObject, key)) {
+						if (key != null) {
+							sync(targetObject, sourceObject);
+						}
 						continue;
 					}
 
@@ -423,8 +425,10 @@ public final class EcoreExtUtils {
 				addCommand(SetCommand.create(getEditingDomain(), target, ref, sourceValue));
 				return;
 			}
-			if (key != null && UIBindingsUtils.equals(targetValue, sourceValue, key)) {
-				sync(targetValue, sourceValue);
+			if (UIBindingsUtils.equals(targetValue, sourceValue, key)) {
+				if (key != null) {
+					sync(targetValue, sourceValue);
+				}
 				return;
 			}
 			addCommand(SetCommand.create(getEditingDomain(), target, ref, sourceValue));
