@@ -88,6 +88,7 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 	 * objects are propagated to the parents (recursively).
 	 */
 	public static final String PROPAGATE = "propagate"; //$NON-NLS-1$
+
 	/**
 	 * The propagation adapter used to find the parent.
 	 */
