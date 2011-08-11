@@ -73,7 +73,9 @@ public class SimpleUIAttribute extends AbstractUIAttribute {
 	 */
 	public SimpleUIAttribute(Widget widget, String attribute, IObservableValue value, boolean isChangeable) {
 		myWidget = widget;
-		Assert.isNotNull(attribute);
+		if (attribute == null) {
+			attribute = "";
+		}
 		setAttribute(attribute);
 		myValue = value;
 		setChangeable(isChangeable);
