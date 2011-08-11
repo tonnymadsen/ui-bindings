@@ -207,8 +207,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 	@Override
 	public void updateUI() {
-		final Control c = getControl();
-		if (c == null || c.isDisposed()) return;
+		// final Control c = getControl();
+		// if (c == null || c.isDisposed()) return;
 		/*
 		 * We have to update the values backward to handle the chains set up in
 		 * BaseUIBindingDecorator.decorate()

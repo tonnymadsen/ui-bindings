@@ -264,6 +264,8 @@ public interface IValueBinding extends IBinding, IArgumentProvider {
 
 	/**
 	 * Forces an immediate update of the UI side of the binding.
+	 * <p>
+	 * Basically this means the model value is converted to the proper UI value.
 	 */
 	void updateUI();
 
