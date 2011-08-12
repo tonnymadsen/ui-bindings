@@ -150,14 +150,14 @@ public class OpenCommandSupport {
 			if (event != null) {
 				switch (event.type) {
 				case SWT.MouseEnter:
-					hoverWanted = event.stateMask == SWT.CTRL;
+					hoverWanted = event.stateMask == SWT.MOD1;
 					break;
 				case SWT.KeyDown:
-					hoverWanted = (event.stateMask == SWT.NONE && event.keyCode == SWT.CTRL)
-							|| event.stateMask == SWT.CTRL;
+					hoverWanted = (event.stateMask == SWT.NONE && event.keyCode == SWT.MOD1)
+							|| event.stateMask == SWT.MOD1;
 					break;
 				case SWT.KeyUp:
-					hoverWanted = event.stateMask == SWT.CTRL && event.keyCode != SWT.CTRL;
+					hoverWanted = event.stateMask == SWT.MOD1 && event.keyCode != SWT.MOD1;
 					break;
 				default:
 					LogUtils.error(this, "Unknown event ignored: " + ToStringUtils.toString(event));
