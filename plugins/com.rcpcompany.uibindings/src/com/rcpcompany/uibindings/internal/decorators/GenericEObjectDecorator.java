@@ -10,7 +10,10 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.internal.decorators;
 
+import org.eclipse.core.databinding.Binding;
+import org.eclipse.core.databinding.observable.list.IListChangeListener;
 import org.eclipse.core.databinding.observable.list.IObservableList;
+import org.eclipse.core.databinding.observable.list.ListChangeEvent;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
@@ -29,6 +32,7 @@ import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.UIBindingsUtils.IClassIdentiferMapper;
 import com.rcpcompany.uibindings.decorators.SimpleUIBindingDecorator;
 import com.rcpcompany.uibindings.observables.EMFListAttributeList;
+import com.rcpcompany.uibindings.utils.IManagerRunnable;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -45,6 +49,11 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 	 * The valid values in this decorator.
 	 */
 	private IObservableList myValidValues;
+
+	/**
+	 * Listener on {@link #myValidValues} to re-validate when the list changes.
+	 */
+	private IListChangeListener myValidValuesListener = null;
 
 	/**
 	 * The mapper used in this decorator.
@@ -105,6 +114,13 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 
 	@Override
 	public void dispose() {
+		if (myValidValues != null && myValidValuesListener != null) {
+			myValidValues.removeListChangeListener(myValidValuesListener);
+			IManagerRunnable.Factory.cancelAsyncExec("validValues changed", getBinding());
+		}
+		if (myValidUIList != null) {
+			myValidUIList.dispose();
+		}
 		if (myClassIdentiferMapper instanceof IDisposable) {
 			((IDisposable) myClassIdentiferMapper).dispose();
 		}
@@ -151,6 +167,36 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 		}
 
 		myValidValues = argument;
+		if (myValidValuesListener != null) {
+			myValidValues.addListChangeListener(myValidValuesListener);
+		}
+	}
+
+	/**
+	 * If the list of valid values changes, then we need to re-validate the current value on the UI
+	 * side as it might ad/remove an outstanding error.
+	 * 
+	 * One problem though: Assume we had the valid list [a, b, c] with the current value "a" and
+	 * then change that to [a', b, c], then the model side may change!!!
+	 */
+	@Override
+	public void decorateDBBindings(final Binding uiToDecoratedDB, final Binding decoratedToModelDB) {
+		super.decorateDBBindings(uiToDecoratedDB, decoratedToModelDB);
+		myValidValuesListener = new IListChangeListener() {
+			@Override
+			public void handleListChange(ListChangeEvent event) {
+				if (event.diff.isEmpty()) return;
+				IManagerRunnable.Factory.asyncExec("validValues changed", getBinding(), new Runnable() {
+					@Override
+					public void run() {
+						decoratedToModelDB.updateTargetToModel();
+					}
+				});
+			}
+		};
+		if (myValidValues != null) {
+			myValidValues.addListChangeListener(myValidValuesListener);
+		}
 	}
 
 	@Override
@@ -191,7 +237,6 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 		for (final Object to : myValidValues) {
 			if (fromObject.equals(convertModelToUI(to))) return to;
 		}
-		// LogUtils.debug(this, "Unknown value: '" + fromObject + "'");
 		throw new IllegalArgumentException("Unknown value");
 	}
 

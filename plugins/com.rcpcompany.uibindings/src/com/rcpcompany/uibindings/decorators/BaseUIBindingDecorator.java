@@ -54,6 +54,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.Widget;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.fieldassist.ContentAssistCommandAdapter;
 
@@ -462,7 +463,6 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 					runExtenders();
 				}
 			};
-			myDisplayValue.addChangeListener(myDisposeDisplayChangeListener);
 		} else {
 			myDisposeDisplayChangeListener = new IChangeListener() {
 				@Override
@@ -470,8 +470,13 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 					runExtenders();
 				}
 			};
-			myDisplayValue.addChangeListener(myDisposeDisplayChangeListener);
 		}
+		myDisplayValue.addChangeListener(myDisposeDisplayChangeListener);
+
+		/*
+		 * Add any needed interaction with the bindings
+		 */
+		decorateDBBindings(uiToDecoratedDB, decoratedToModelDB);
 
 		/*
 		 * Bind more...
@@ -485,6 +490,18 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 				runExtenders();
 			}
 		});
+	}
+
+	/**
+	 * Decorates the two created {@link Binding bindings} with any additional listeners, or
+	 * whatever...
+	 * 
+	 * @param uiToDecoratedDB Binding from UI {@link Widget} to model or intermediate decoration
+	 * @param decoratedToModelDB Binding from intermediate decoration to model - possibly
+	 *            <code>null</code>
+	 */
+	public void decorateDBBindings(Binding uiToDecoratedDB, Binding decoratedToModelDB) {
+		// Do nothing
 	}
 
 	public void decorateList() {

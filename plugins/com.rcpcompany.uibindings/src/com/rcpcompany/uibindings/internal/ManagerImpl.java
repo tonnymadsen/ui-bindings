@@ -134,6 +134,7 @@ import com.rcpcompany.uibindings.participants.IInitializationParticipantContext;
 import com.rcpcompany.uibindings.units.IUnitBindingSupport;
 import com.rcpcompany.uibindings.utils.UIBEcoreUtils;
 import com.rcpcompany.uibindings.validators.IConstraintValidatorAdapterConstraintProvider;
+import com.rcpcompany.utils.basic.ClassUtils;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -3791,8 +3792,15 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 
 	private static class MonitoredObservableInfo {
 		public MonitoredObservableInfo(IObservable source, Object observing) {
-			this.sourceInfo = "" + source;
-			this.firstObserving = observing;
+			String s = "" + source;
+			if (source != null) {
+				if (s.startsWith(source.getClass().getName() + "@") && source instanceof IObservableValue) {
+					s = "" + ((IObservableValue) source).getValue();
+				}
+				s = s + " [" + ClassUtils.getLastClassName(source) + "]";
+			}
+			sourceInfo = s;
+			firstObserving = observing;
 
 			final Throwable cp = new Throwable();
 			cp.fillInStackTrace();
@@ -3823,7 +3831,11 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 					 * Might already be removed by a listener prior in the listenerList
 					 */
 					if (info == null) return;
-					final Object observing = info.firstObserving;
+					Object observing = info.firstObserving;
+					if (observing != null) {
+						observing = observing + " [" + ClassUtils.getLastClassName(observing) + "]";
+					}
+
 					final int oldLevels = LogUtils.DEBUG_STRACK_LEVELS;
 					try {
 						LogUtils.DEBUG_STRACK_LEVELS = 15;
