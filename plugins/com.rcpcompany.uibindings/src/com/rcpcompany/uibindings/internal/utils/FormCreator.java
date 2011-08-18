@@ -753,6 +753,12 @@ public class FormCreator implements IFormCreator {
 		final ScrolledForm form = myToolkit.createScrolledForm(parent);
 		myToolkit.decorateFormHeading(form.getForm());
 		form.setText(formHeader);
+		/*
+		 * See FormUtil.processKey(int keyCode, Control c)
+		 * 
+		 * Without this, the form will scroll as well when a Combo or CCombo is scrolled.
+		 */
+		form.setData("novarrows", Boolean.TRUE);
 
 		final Composite c = form.getBody();
 		myToolkit.paintBordersFor(c);
