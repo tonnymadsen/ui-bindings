@@ -535,9 +535,16 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 		final IObservableValue ov = getModelObservableValue();
 		if (ov != null && isDynamic) {
+			/*
+			 * Forget whatever value we have found until now.
+			 */
+			myCachedDataType = null;
 			myTypeListener = new IChangeListener() {
 				@Override
 				public void handleChange(ChangeEvent event) {
+					/*
+					 * Make sure that we recalculate the data type based on the current value
+					 */
 					myCachedDataType = null;
 					decorateIfNeeded();
 				}
