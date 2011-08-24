@@ -87,6 +87,7 @@ import com.rcpcompany.uibindings.extests.observables.FilteredObservableListTest;
 import com.rcpcompany.uibindings.extests.observables.GuardObservableValueTest;
 import com.rcpcompany.uibindings.extests.observables.IndexObservableListTest;
 import com.rcpcompany.uibindings.extests.observables.Issue44ComboTest;
+import com.rcpcompany.uibindings.extests.observables.ListIndexObservableValueTest;
 import com.rcpcompany.uibindings.extests.observables.MapperObservableValueTest;
 import com.rcpcompany.uibindings.extests.observables.MessageFormatObservableValueTest;
 import com.rcpcompany.uibindings.extests.observables.TextObservableValueDisposeTest;
@@ -302,7 +303,7 @@ PluginTest.class, PluginConfTest.class, PluginSpecificationTest.class, FragmentT
 		MessageFormatObservableValueTest.class, GuardObservableValueTest.class, MapperObservableValueTest.class,
 		EListElementObservableValueTests.class, EListKeyedElementObservableValueTest.class,
 		ViewerBindingTreeFactoryTest.class, ViewerBindingTreeFactoryPerformanceTest.class,
-		IndexObservableListTest.class, FilteredObservableListTest.class,
+		IndexObservableListTest.class, FilteredObservableListTest.class, ListIndexObservableValueTest.class,
 
 		/*
 		 * UI Attributes

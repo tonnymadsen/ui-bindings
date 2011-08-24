@@ -73,9 +73,13 @@ public class ListIndexObservableValue extends AbstractObservableValue {
 			 */
 			if (getRealm() == null) return;
 
-			final int newIndex = calculateIndex();
-			if (myIndex == newIndex) return;
+			/*
+			 * Check if the old index still match
+			 */
+			final int i = myIndex - myOffset;
+			if (i != -1 && i < myList.size() && myList.get(i) == myElement) return;
 
+			final int newIndex = calculateIndex();
 			final ValueDiff diff = Diffs.createValueDiff(myIndex, newIndex);
 
 			myIndex = newIndex;
