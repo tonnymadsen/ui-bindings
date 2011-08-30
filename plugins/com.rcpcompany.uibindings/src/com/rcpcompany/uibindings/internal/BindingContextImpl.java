@@ -69,6 +69,7 @@ import com.rcpcompany.uibindings.internal.bindingMessages.contextAdapters.Scroll
 import com.rcpcompany.uibindings.internal.bindingMessages.contextAdapters.WizardPageContextMessageDecoratorAdapter;
 import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 import com.rcpcompany.uibindings.utils.IManagerRunnable;
+import com.rcpcompany.utils.logging.ITimedTask;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -991,6 +992,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 			}
 			return;
 		}
+		final ITimedTask task = ITimedTask.Factory.start("finish Defered");
 		try {
 			isInFinish = true;
 			if (Activator.getDefault().TRACE_LIFECYCLE_BINDINGS) {
@@ -1010,6 +1012,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 						setState(BindingState.PHASE1);
 						b.setState(BindingState.PHASE1);
 						try {
+							task.subTask("1:", b);
 							b.finish1();
 						} catch (final Exception ex) {
 							LogUtils.error(b, ex);
@@ -1027,6 +1030,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 						setState(BindingState.PHASE2);
 						b.setState(BindingState.PHASE2);
 						try {
+							task.subTask("2:", b);
 							b.finish2();
 						} catch (final Exception ex) {
 							LogUtils.error(b, ex);
@@ -1044,6 +1048,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 						setState(BindingState.PHASE3);
 						b.setState(BindingState.PHASE3);
 						try {
+							task.subTask("3:", b);
 							b.finish3();
 						} catch (final Exception ex) {
 							LogUtils.error(b, ex);
@@ -1063,7 +1068,8 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 				}
 
 				/*
-				 * Check for TabFolder
+				 * Check for TabFolder - whenever a new selection is made in one of these, we reflow
+				 * the context.
 				 */
 				for (Control c = b.getControl(); c != null && !(c instanceof Shell) && c != getTop(); c = c.getParent()) {
 					if (c instanceof TabFolder || c instanceof CTabFolder) {
@@ -1074,19 +1080,20 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 							 */
 							break;
 						}
-						myTabFolders = new ArrayList<Control>();
-						myTabFolderListener = new Listener() {
-							@Override
-							public void handleEvent(Event event) {
-								if (event.type == SWT.Selection) {
-									reflow();
+						if (myTabFolders == null) {
+							myTabFolders = new ArrayList<Control>();
+							myTabFolderListener = new Listener() {
+								@Override
+								public void handleEvent(Event event) {
+									if (event.type == SWT.Selection) {
+										reflow();
+									}
 								}
-							}
-						};
+							};
+						}
 						c.addListener(SWT.Selection, myTabFolderListener);
 						myTabFolders.add(c);
 					}
-
 				}
 			}
 
@@ -1102,6 +1109,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 			if (Activator.getDefault().TRACE_LIFECYCLE_BINDINGS) {
 				LogUtils.debug(this, "finish end"); //$NON-NLS-1$
 			}
+			task.end();
 		}
 		setState(BindingState.OK);
 	}
@@ -1228,8 +1236,15 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 			getTop().removeDisposeListener(myDisposeListener);
 		}
 
-		while (getBindings().size() > 0) {
-			getBindings().get(0).dispose();
+		/*
+		 * Dispose all bindings in the context. Backwards...
+		 * 
+		 * This is done as later bindings can reference earlier bindings, we therefore otherwise can
+		 * get premature disposal problems...
+		 */
+		final IBinding[] ba = getBindings().toArray(new IBinding[getBindings().size()]);
+		for (int i = ba.length - 1; i >= 0; i--) {
+			ba[i].dispose();
 		}
 
 		try {

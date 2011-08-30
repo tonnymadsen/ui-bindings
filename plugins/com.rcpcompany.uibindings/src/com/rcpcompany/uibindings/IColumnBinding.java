@@ -521,11 +521,11 @@ public interface IColumnBinding extends IBinding {
 	IObservableValue getValue(Object element);
 
 	/**
-	 * Signals that the label shown for the specified element has likely changed.
+	 * Request a label provider update with the specified elements.
 	 * 
-	 * @param element the element
+	 * @param elements the elements to updae
 	 */
-	void fireLabelChanged(IColumnBindingCellInformation element);
+	void fireLabelChanged(Object[] elements);
 
 	/**
 	 * Returns the index of this column in the parent viewer. Top column is <code>0</code>.

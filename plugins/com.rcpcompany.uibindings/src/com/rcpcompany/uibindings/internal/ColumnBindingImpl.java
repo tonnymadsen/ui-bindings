@@ -12,18 +12,14 @@ package com.rcpcompany.uibindings.internal;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.core.databinding.observable.Observables;
 import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.masterdetail.IObservableFactory;
-import org.eclipse.core.databinding.observable.set.ISetChangeListener;
-import org.eclipse.core.databinding.observable.set.SetChangeEvent;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
@@ -104,7 +100,6 @@ import com.rcpcompany.uibindings.observables.MapperObservableValue;
 import com.rcpcompany.uibindings.uiAttributes.UIAttributePainter;
 import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
 import com.rcpcompany.uibindings.utils.IColumnChooser;
-import com.rcpcompany.uibindings.utils.IManagerRunnable;
 import com.rcpcompany.utils.basic.ToStringUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -486,22 +481,6 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			}
 			getColumnAdapter().setAlignment(SWT.CENTER);
 		}
-
-		/*
-		 * Remove items from the cell information map when they are not shown in the table
-		 * anymore...
-		 */
-		getViewerBinding().getElements().addSetChangeListener(new ISetChangeListener() {
-			@Override
-			public void handleSetChange(SetChangeEvent event) {
-				for (final Object o : event.diff.getRemovals()) {
-					final IColumnBindingCellInformation ci = getCellInformation(o, false);
-					if (ci != null) {
-						ci.dispose();
-					}
-				}
-			}
-		});
 	}
 
 	@Override
@@ -600,46 +579,6 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			setOwnerDrawEnabled(getViewer(), getViewerColumn(), true);
 		}
 
-		/**
-		 * Whether there are an outstanding asyncExec for fireLabelProviderChanged()..
-		 */
-		protected Set<EObject> myHasOutstandingFireLabelProviderChangedSet = new HashSet<EObject>();
-
-		public void fireChanged(final IColumnBindingCellInformation ci) {
-			/*
-			 * No need to do anything more if we already have an outstanding request...
-			 */
-			final Control control = getViewerColumn().getViewer().getControl();
-			if (control.isDisposed()) return;
-			final EObject element = ci.getElement();
-			synchronized (myHasOutstandingFireLabelProviderChangedSet) {
-				if (myHasOutstandingFireLabelProviderChangedSet.contains(element)) return;
-				myHasOutstandingFireLabelProviderChangedSet.add(element);
-			}
-			if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS) {
-				LogUtils.debug(ci.getLabelBinding(), ci.getLabelBinding() + " label changed"); //$NON-NLS-1$
-			}
-			IManagerRunnable.Factory.asyncExec("labels", this, new Runnable() {
-				@Override
-				public void run() {
-					if (control.isDisposed()) return;
-					if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS) {
-						LogUtils.debug(ci.getLabelBinding(), "label changed (fired)"); //$NON-NLS-1$
-					}
-					// LogUtils.debug(this, "!!fire " + element);
-
-					Object[] elements;
-					synchronized (myHasOutstandingFireLabelProviderChangedSet) {
-						elements = myHasOutstandingFireLabelProviderChangedSet.toArray();
-						myHasOutstandingFireLabelProviderChangedSet.clear();
-					}
-					final LabelProviderChangedEvent event = new LabelProviderChangedEvent(GeneralLabelProvider.this,
-							elements);
-					fireLabelProviderChanged(event);
-				}
-			});
-		}
-
 		@Override
 		public String getToolTipText(Object element) {
 			final IColumnBindingCellInformation ci = getCellInformation(element);
@@ -647,21 +586,22 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		}
 
 		@Override
-		public void update(ViewerCell cell) {
+		public void update(final ViewerCell cell) {
+			/*
+			 * Redraw the cell...
+			 */
+			super.update(cell);
+
 			final Object element = cell.getElement();
 			final IColumnBindingCellInformation ci = getCellInformation(element);
 			if (ci == null) return;
+
 			final IValueBinding labelBinding = ci.getLabelBinding();
 			assertTrue(!labelBinding.isDisposed(), "binding disposed");
 			if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS) {
 				LogUtils.debug(labelBinding, labelBinding + " update: " //$NON-NLS-1$
 						+ labelBinding.getUIAttribute().getCurrentValue().getValue());
 			}
-
-			/*
-			 * Redraw the cell...
-			 */
-			super.update(cell);
 
 			// TODO possible move this to an extender
 			if (labelBinding.eIsSet(IUIBindingsPackage.Literals.BINDING__ERROR_CONDITIONS)) {
@@ -681,6 +621,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 			/*
 			 * Map all changes to the label attribute to the cell.
 			 */
+
 			final IUIAttribute labelAttribute = ci.getLabelUIAttribute();
 			final String tt = labelAttribute.getTooltip();
 			if (tt != null) {
@@ -815,6 +756,11 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 					outerCellBounds);
 
 			painter.paint(event.gc, cellBounds);
+		}
+
+		public void fireLabelChanged(Object[] elements) {
+			final LabelProviderChangedEvent event = new LabelProviderChangedEvent(this, elements);
+			super.fireLabelProviderChanged(event);
 		}
 	}
 
@@ -1799,8 +1745,8 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	}
 
 	@Override
-	public void fireLabelChanged(IColumnBindingCellInformation element) {
-		myLabelProvider.fireChanged(element);
+	public void fireLabelChanged(Object[] elements) {
+		myLabelProvider.fireLabelChanged(elements);
 	}
 
 	@Override

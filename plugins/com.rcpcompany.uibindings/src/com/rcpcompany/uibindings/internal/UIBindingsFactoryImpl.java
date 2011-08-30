@@ -61,6 +61,7 @@ import com.rcpcompany.uibindings.ModelValueKind;
 import com.rcpcompany.uibindings.SpecialBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.utils.IFormCreator;
+import com.rcpcompany.utils.logging.ITimeUtils;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>.
@@ -327,9 +328,19 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 	}
 
 	@Override
-	public IColumnBindingCellInformation createColumnBindingCellInformation(IColumnBinding column, Object element) {
+	public IColumnBindingCellInformation createColumnBindingCellInformation(final IColumnBinding column,
+			final Object element) {
 		final ColumnBindingCellInformationImpl ci = new ColumnBindingCellInformationImpl();
-		ci.init(column, element);
+
+		ITimeUtils.Factory.start("ci create");
+		ITimeUtils.Factory.run("ci create", new Runnable() {
+			public void run() {
+				ci.init(column, element);
+			}
+		});
+		ITimeUtils.Factory.end("ci create");
+		ITimeUtils.Factory.end("context");
+
 		return ci;
 	}
 

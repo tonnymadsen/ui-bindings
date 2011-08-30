@@ -373,4 +373,11 @@ public interface IViewerBinding extends IContainerBinding {
 	 */
 	IColumnBindingCellInformation getCell(int columnNo, Object element);
 
+	/**
+	 * Updates all cells that is based on the specified row element.
+	 * 
+	 * @param element the row element
+	 */
+	void updateCellsForElement(EObject element);
+
 } // IViewerBinding

@@ -54,7 +54,6 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.swt.widgets.Widget;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.fieldassist.ContentAssistCommandAdapter;
 
@@ -78,6 +77,7 @@ import com.rcpcompany.uibindings.observables.MessageFormatObservableValue;
 import com.rcpcompany.uibindings.utils.CoreRuntimeException;
 import com.rcpcompany.uibindings.utils.IManagerRunnable;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
+import com.rcpcompany.utils.logging.ITimedTask;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -257,10 +257,11 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 	}
 
 	/**
-	 * Decorates a
+	 * Decorates a value
 	 */
 	protected void decorateValue() {
 		final IValueBinding binding = getBinding();
+		final ITimedTask task = ITimedTask.Factory.start("decorate ", binding);
 		final Control control = getUIAttributeControl();
 		final IUIAttribute attribute = binding.getUIAttribute();
 
@@ -274,8 +275,10 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		 * Must be called before the binding to insure the internals of the decorator is properly
 		 * setup...
 		 */
+		task.subTask("getValidUIList()");
 		final IObservableList decoratorUIList = getValidUIList();
 
+		task.subTask("changeable");
 		final boolean changeable = getBinding().isChangeable();
 		UpdateValueStrategy uiToModelUpdateStrategy;
 		if (changeable) {
@@ -340,12 +343,14 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 			}
 		}
 
+		task.subTask("getPossibleValuesList()");
 		/*
 		 * Bind the list of possible values...
 		 */
 		final IObservableList attributeUIList = attribute.getPossibleValuesList();
 
 		if (attributeUIList != null && decoratorUIList != null) {
+			task.subTask("bindList()");
 			binding.bindList(attributeUIList, decoratorUIList, null, null, false);
 		}
 
@@ -367,6 +372,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 			 * 
 			 * - the type is String and a messages is specified
 			 */
+			task.subTask("bind myFormattedValue");
 			myDecoratedValue = WritableValue.withValueType(String.class);
 			myDecoratedValue.setValue(""); //$NON-NLS-1$
 			myFormattedValue = new MessageFormatObservableValue(myDecoratedValue, null);
@@ -376,6 +382,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 			myDecoratedValue = uiAttributeValue;
 			uiToDecoratedDB = null;
 		}
+		task.subTask("bind decoratedToModelDB");
 		final Binding decoratedToModelDB = new MyValueBinding(myDecoratedValue, modelValue, uiToModelUpdateStrategy,
 				modelToUIUpdateStrategy);
 		decoratedToModelDB.init(binding.getContext().getDbContext());
@@ -452,6 +459,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 			decoratorUIList.addChangeListener(myUIListChangeListener);
 		}
 
+		task.subTask("getDisplayObservableValue(...)");
 		myDisplayValue = getDisplayObservableValue(modelValue);
 		if (myDisplayValue != modelValue) {
 			myDisposeDisplayValue = myDisplayValue;
@@ -476,12 +484,15 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		/*
 		 * Add any needed interaction with the bindings
 		 */
-		decorateDBBindings(uiToDecoratedDB, decoratedToModelDB);
+		task.subTask("decorateDBBindings(...)");
+		decorateDBBindings(decoratedToModelDB);
 
 		/*
 		 * Bind more...
 		 */
+		task.subTask("decorateMisc()");
 		decorateMisc();
+		task.subTask("decorateAssist()");
 		decorateAssist();
 
 		IManagerRunnable.Factory.asyncExec("extenders", getBinding(), new Runnable() {
@@ -490,26 +501,24 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 				runExtenders();
 			}
 		});
+
+		task.subTask("end");
+		// task.end();
 	}
 
 	/**
 	 * Decorates the two created {@link Binding bindings} with any additional listeners, or
 	 * whatever...
 	 * 
-	 * @param uiToDecoratedDB Binding from UI {@link Widget} to model or intermediate decoration
-	 * @param decoratedToModelDB Binding from intermediate decoration to model - possibly
-	 *            <code>null</code>
+	 * @param decoratedToModelDB binding from UI attribute (possibly intermediate decoration) to
+	 *            model
 	 */
-	public void decorateDBBindings(Binding uiToDecoratedDB, Binding decoratedToModelDB) {
+	public void decorateDBBindings(Binding decoratedToModelDB) {
 		// Do nothing
 	}
 
 	public void decorateList() {
-		final IValueBinding binding = getBinding();
-		final Control control = getUIAttributeControl();
-		final IUIAttribute attribute = binding.getUIAttribute();
-
-		final IObservableList modelList = binding.getModelObservableList();
+		// TODO ???
 
 		/*
 		 * Bind more...

@@ -180,8 +180,8 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 	 * then change that to [a', b, c], then the model side may change!!!
 	 */
 	@Override
-	public void decorateDBBindings(final Binding uiToDecoratedDB, final Binding decoratedToModelDB) {
-		super.decorateDBBindings(uiToDecoratedDB, decoratedToModelDB);
+	public void decorateDBBindings(final Binding decoratedToModelDB) {
+		super.decorateDBBindings(decoratedToModelDB);
 		myValidValuesListener = new IListChangeListener() {
 			@Override
 			public void handleListChange(ListChangeEvent event) {

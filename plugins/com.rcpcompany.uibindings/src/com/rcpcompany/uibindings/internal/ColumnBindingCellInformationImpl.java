@@ -37,6 +37,7 @@ import com.rcpcompany.uibindings.internal.observables.MyDetailObservableValue;
 import com.rcpcompany.uibindings.observables.ProxyObservableValue;
 import com.rcpcompany.uibindings.uiAttributes.UIAttributePainter;
 import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
+import com.rcpcompany.utils.logging.ITimedTask;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -78,6 +79,7 @@ import com.rcpcompany.utils.logging.LogUtils;
 public class ColumnBindingCellInformationImpl extends EObjectImpl implements IColumnBindingCellInformation {
 	@Override
 	public void init(IColumnBinding column, Object element) {
+		final ITimedTask task = ITimedTask.Factory.start("init");
 		setColumn(column);
 		final Object baseElement = element;
 
@@ -176,9 +178,12 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 		/*
 		 * We added a new binding so call finish as well...
 		 */
+		task.subTask("finish");
 		context.finish(FinishOption.IF_ALREADY_FINISHED);
+		task.subTask("finish done");
 
 		attribute.addChangeListener(myAttributeValueListener);
+		// task.end();
 	}
 
 	@Override
@@ -204,7 +209,7 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 	protected final IChangeListener myAttributeValueListener = new IChangeListener() {
 		@Override
 		public void handleChange(ChangeEvent event) {
-			getColumn().fireLabelChanged(ColumnBindingCellInformationImpl.this);
+			getColumn().getViewerBinding().updateCellsForElement(getElement());
 		}
 	};
 
@@ -833,7 +838,6 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 		getObjectValue().dispose();
 		// mySourceValue is handled in the base column...
 
-		// TODO remove listener from label provider
 		getColumn().getCells().removeKey(getElement());
 	}
 

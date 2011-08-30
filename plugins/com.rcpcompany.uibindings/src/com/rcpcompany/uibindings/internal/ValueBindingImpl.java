@@ -82,6 +82,7 @@ import com.rcpcompany.uibindings.observables.IDisposePendingObservable;
 import com.rcpcompany.uibindings.uiAttributes.SimpleUIAttribute;
 import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
+import com.rcpcompany.utils.logging.ITimedTask;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -399,6 +400,9 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		// assertTrue(getDataType().getEType() != null,
 		// "Observable not supported, need EType, got value type: "
 		// + observable.getValueType());
+		/*
+		 * As we have this observable from the caller, we should not dispose it later!
+		 */
 		myModelObservableDispose = false;
 		return this;
 	}
@@ -584,7 +588,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		 * This need to be as late in the process as possible! And only for the observables we want
 		 * to dispose later.
 		 */
-		if (getModelObservable() != null) {
+		if (getModelObservable() != null && myModelObservableDispose) {
 			IManager.Factory.getManager().startMonitorObservableDispose(getModelObservable(), this);
 		}
 		/*
@@ -617,6 +621,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		final IBindingDataType newDynamicDataType = getDataType();
 		if (myPreviousDynamicDataType == newDynamicDataType) return;
 
+		final ITimedTask task = ITimedTask.Factory.start("decorateIfNeeded ", this);
 		/*
 		 * Clean up the old decoration as well as the old cached argument
 		 */
@@ -630,6 +635,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		final Class<?> uiValueType = getUIType();
 		final String type = getType();
 
+		task.subTask("getProvider");
 		final IDecoratorProvider provider = IManager.Factory.getManager().getProvider(modelValueType, modelValueKind,
 				uiValueType, type);
 
@@ -645,7 +651,9 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			return;
 		}
 
+		task.subTask("setProvider");
 		setDecoratorProvider(provider);
+		task.subTask("getDecorator");
 		setDecorator(provider.getDecorator());
 
 		if (getDecorator() == null) {
@@ -658,6 +666,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 		 * Initialize the decorator. If anything goes wrong, reset to null..
 		 */
 		try {
+			task.subTask("decorator.init");
 			getDecorator().init(this);
 		} catch (final RuntimeException ex) {
 			// Already reported
@@ -668,7 +677,10 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			LogUtils.error(this, ex);
 			return;
 		}
+		task.subTask("decorator.decorate");
 		getDecorator().decorate();
+		task.subTask("end");
+		// task.end();
 	}
 
 	@Override
@@ -797,10 +809,8 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 			myTypeListener = null;
 		}
 
-		if (getModelObservable() != null) {
-			IManager.Factory.getManager().stopMonitorObservableDispose(getModelObservable());
-		}
 		if (getModelObservable() != null && myModelObservableDispose) {
+			IManager.Factory.getManager().stopMonitorObservableDispose(getModelObservable());
 			getModelObservable().dispose();
 		}
 		setModelObservable(null);

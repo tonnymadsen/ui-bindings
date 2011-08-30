@@ -13,8 +13,10 @@ package com.rcpcompany.uibindings.internal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.core.databinding.observable.IObserving;
 import org.eclipse.core.databinding.observable.list.IObservableList;
@@ -419,6 +421,23 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	private final ISetChangeListener myElementsListener = new ISetChangeListener() {
 		@Override
 		public void handleSetChange(SetChangeEvent event) {
+			// if (event != null) {
+			// LogUtils.debug(event, "remove " + event.diff.getRemovals().size() + " add "
+			// + event.diff.getAdditions().size());
+			// }
+
+			/*
+			 * Remove rows as needed
+			 */
+			for (final Object o : event.diff.getRemovals()) {
+				for (final IColumnBinding c : getColumns()) {
+					final IColumnBindingCellInformation ci = c.getCellInformation(o, false);
+					if (ci != null) {
+						ci.dispose();
+					}
+				}
+			}
+
 			/*
 			 * SIMA-182: Bug in UIBinding for table cell editor?
 			 * (http://jira.marintek.sintef.no/jira/browse/SIMA-182)
@@ -1352,5 +1371,47 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 				return ViewerBindingImpl.this.getPossibleChildObjects(parent, sibling);
 			}
 		};
+	}
+
+	/**
+	 * Whether there are an outstanding asyncExec for fireLabelProviderChanged()..
+	 */
+	protected Set<EObject> myHasOutstandingFireLabelProviderChangedSet = new HashSet<EObject>();
+
+	@Override
+	public void updateCellsForElement(EObject element) {
+		/*
+		 * No need to do anything more if we already have an outstanding request...
+		 */
+		final Control control = getViewer().getControl();
+		if (control.isDisposed()) return;
+		synchronized (myHasOutstandingFireLabelProviderChangedSet) {
+			if (myHasOutstandingFireLabelProviderChangedSet.contains(element)) return;
+			myHasOutstandingFireLabelProviderChangedSet.add(element);
+		}
+		if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS) {
+			//LogUtils.debug(ci.getLabelBinding(), ci.getLabelBinding() + " label changed"); //$NON-NLS-1$
+		}
+		IManagerRunnable.Factory.asyncExec("labels", this, new Runnable() {
+			@Override
+			public void run() {
+				if (control.isDisposed()) return;
+				if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS) {
+					//LogUtils.debug(ci.getLabelBinding(), "label changed (fired)"); //$NON-NLS-1$
+				}
+				// LogUtils.debug(this, "!!fire " + element);
+
+				Object[] elements;
+				synchronized (myHasOutstandingFireLabelProviderChangedSet) {
+					elements = myHasOutstandingFireLabelProviderChangedSet.toArray();
+					myHasOutstandingFireLabelProviderChangedSet.clear();
+				}
+				/*
+				 * Find the label provider of the first real column
+				 */
+				final IColumnBinding cb = getColumns().get(getFirstTableColumnOffset());
+				cb.fireLabelChanged(elements);
+			}
+		});
 	}
 } // ViewerBindingImpl
