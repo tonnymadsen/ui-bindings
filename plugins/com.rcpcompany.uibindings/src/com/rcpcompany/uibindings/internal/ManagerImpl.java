@@ -3839,7 +3839,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 					final int oldLevels = LogUtils.DEBUG_STRACK_LEVELS;
 					try {
 						LogUtils.DEBUG_STRACK_LEVELS = 15;
-						LogUtils.error(event.getSource(), "PREMATURE DISPOSAL: " + info.sourceInfo + "\nby "
+						LogUtils.error(event.getSource(), "PREMATURE DISPOSAL: " + info.sourceInfo + "\nused by "
 								+ observing, info.firstMonitoringPoint);
 					} finally {
 						LogUtils.DEBUG_STRACK_LEVELS = oldLevels;
