@@ -270,15 +270,23 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 			/*
 			 * Only react to focus changes within the top component
 			 */
-			Control c = (Control) event.widget;
+			final Control newFocusControl = (Control) event.widget;
+			Control c = newFocusControl;
 			while (c != null && c != getContext().getTop()) {
 				c = c.getParent();
 			}
 
 			if (c == null) return;
 
-			myFocusControl = (Control) event.widget;
-			checkFocus();
+			setFocusControl(newFocusControl);
+		}
+	};
+
+	private final Listener myFocusDisposeListener = new Listener() {
+		@Override
+		public void handleEvent(Event event) {
+			// LogUtils.error(myFocusControl, "Control is disposed!");
+			setFocusControl(null);
 		}
 	};
 
@@ -302,13 +310,25 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		myPopupMenuExtender = new PopupMenuExtender(mySite.getId(), myMenuManager, this, mySite.getPart(), false);
 	}
 
+	protected void setFocusControl(Control newFocusControl) {
+		if (myFocusControl != newFocusControl) {
+			if (myFocusControl != null) {
+				myFocusControl.removeListener(SWT.Dispose, myFocusDisposeListener);
+			}
+			myFocusControl = newFocusControl;
+			if (myFocusControl != null) {
+				myFocusControl.addListener(SWT.Dispose, myFocusDisposeListener);
+			}
+		}
+		checkFocus();
+	}
+
 	/**
 	 * Removes the filtering functionality again.
 	 */
 	@Override
 	public void dispose() {
-		myFocusControl = null;
-		checkFocus();
+		setFocusControl(null);
 		// mySite.unregisterContextMenu(myMenuManager, this);
 		if (myPopupMenuExtender != null) {
 			myPopupMenuExtender.dispose();
