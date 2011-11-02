@@ -750,10 +750,15 @@ public final class ToStringUtils {
 		} else {
 			sb.append("NOTIFICATION#").append(msg.getEventType()); //$NON-NLS-1$
 		}
-		sb.append(":"); //$NON-NLS-1$
+		final Object notifier = msg.getNotifier();
+		if (notifier != null) {
+			sb.append(": ").append(notifier.getClass().getSimpleName());
+		} else {
+			sb.append(": NULL");
+		}
 		final EStructuralFeature sf = (EStructuralFeature) msg.getFeature();
 		if (sf != null) {
-			sb.append(' ').append(sf.getName());
+			sb.append('.').append(sf.getName());
 		}
 		if (msg.isTouch()) {
 			sb.append(" [TOUCH]"); //$NON-NLS-1$
@@ -763,6 +768,9 @@ public final class ToStringUtils {
 			sb.append(msg.getPosition());
 		}
 		switch (msg.getEventType()) {
+		case Notification.REMOVING_ADAPTER:
+			sb.append("\nadapter: ").append(ClassUtils.getLastClassName(msg.getOldValue())); //$NON-NLS-1$
+			break;
 		case Notification.SET:
 		case Notification.UNSET:
 		case Notification.REMOVE:
@@ -775,34 +783,15 @@ public final class ToStringUtils {
 			break;
 		}
 		switch (msg.getEventType()) {
+		case Notification.RESOLVE:
+			sb.append("\nresolved to: ").append(ClassUtils.getLastClassName(msg.getOldValue())); //$NON-NLS-1$
+			break;
 		case Notification.SET:
 		case Notification.ADD:
 		case Notification.ADD_MANY:
 		case Notification.MOVE:
 			sb.append("\nnew: "); //$NON-NLS-1$
 			sb.append(msg.getNewValue());
-			break;
-		default:
-			break;
-		}
-		switch (msg.getEventType()) {
-		case Notification.SET:
-			break;
-		case Notification.UNSET:
-			break;
-		case Notification.ADD:
-			break;
-		case Notification.REMOVE:
-			break;
-		case Notification.ADD_MANY:
-			break;
-		case Notification.REMOVE_MANY:
-			break;
-		case Notification.MOVE:
-			break;
-		case Notification.REMOVING_ADAPTER:
-			break;
-		case Notification.RESOLVE:
 			break;
 		default:
 			break;
@@ -826,6 +815,10 @@ public final class ToStringUtils {
 				s = ""; //$NON-NLS-1$
 			}
 			s = c + "@" + System.identityHashCode(c) + s; //$NON-NLS-1$
+			if (c.isDisposed()) {
+				s += " DISPOSED";
+				break;
+			}
 			c = c.getParent();
 		}
 		return s;
