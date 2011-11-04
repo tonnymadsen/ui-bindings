@@ -884,6 +884,19 @@ public abstract class BindingImpl extends BaseObjectImpl implements IBinding {
 		}
 	}
 
+	public static IBinding getBindingForWidget(Widget widget) {
+		if (widget == null) return null;
+		while (widget != null) {
+			final IBinding b = (IBinding) widget.getData(InternalConstants.WIDGET_KEY);
+			if (b != null) return b;
+			if (widget.isDisposed()) return null;
+			if (!(widget instanceof Control)) return null;
+			widget = ((Control) widget).getParent();
+		}
+
+		return null;
+	}
+
 	@Override
 	public abstract void finish1();
 

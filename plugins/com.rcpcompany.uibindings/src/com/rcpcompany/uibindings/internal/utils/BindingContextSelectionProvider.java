@@ -32,6 +32,8 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.MenuEvent;
+import org.eclipse.swt.events.MenuListener;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
@@ -119,6 +121,10 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	 */
 	private final Map<Control, ISelectionProvider> myProviders = new HashMap<Control, ISelectionProvider>();
 
+	/**
+	 * Selection listener that is installed on the current selection provider to forward changes in
+	 * the current selection provider...
+	 */
 	private final ISelectionChangedListener mySelectionChangedListener = new ISelectionChangedListener() {
 		@Override
 		public void selectionChanged(SelectionChangedEvent event) {
@@ -190,6 +196,9 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		while (c != null) {
 			provider = myProviders.get(c);
 			if (provider != null) {
+				break;
+			}
+			if (c.isDisposed()) {
 				break;
 			}
 			c = c.getParent();
@@ -306,6 +315,17 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		// myMenuManager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 		myMenuManager.createContextMenu(getContext().getTop());
 		getContext().getTop().setMenu(myMenuManager.getMenu());
+		myMenuManager.getMenu().addMenuListener(new MenuListener() {
+			@Override
+			public void menuShown(MenuEvent e) {
+				LogUtils.debug(BindingContextSelectionProvider.this, "");
+			}
+
+			@Override
+			public void menuHidden(MenuEvent e) {
+				LogUtils.debug(BindingContextSelectionProvider.this, "");
+			}
+		});
 
 		myPopupMenuExtender = new PopupMenuExtender(mySite.getId(), myMenuManager, this, mySite.getPart(), false);
 	}
@@ -461,6 +481,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		private ObservableValueSelectionProvider(IObservableValue value) {
 			myValue = value;
 			value.addValueChangeListener(this);
+			handleValueChange(null);
 		}
 
 		@Override
@@ -488,8 +509,8 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 				final SelectionChangedEvent event = new SelectionChangedEvent(this, getSelection());
 
 				final Object[] listeners = selectionChangedListeners.getListeners();
-				for (final Object listener2 : listeners) {
-					final ISelectionChangedListener listener = (ISelectionChangedListener) listener2;
+				for (final Object l : listeners) {
+					final ISelectionChangedListener listener = (ISelectionChangedListener) l;
 					listener.selectionChanged(event);
 				}
 			}

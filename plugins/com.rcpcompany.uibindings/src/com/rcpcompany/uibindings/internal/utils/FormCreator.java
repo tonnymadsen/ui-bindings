@@ -622,6 +622,7 @@ public class FormCreator implements IFormCreator {
 		 * Set the focus to the first focusable widget of the top composite
 		 */
 		final Control focusControl = Display.getCurrent().getFocusControl();
+		// Problem!
 		final String ws = ToStringUtils.toPath(focusControl);
 		final String is = ToStringUtils.toPath(myLastFocusControl);
 		// LogUtils.debug(this, "FOCUS\nwas: " + ws + "\nlast: " + is);

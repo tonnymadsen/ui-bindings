@@ -29,7 +29,7 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.services.IServiceLocator;
 
-import com.rcpcompany.uibindings.internal.InternalConstants;
+import com.rcpcompany.uibindings.internal.BindingImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -168,8 +168,7 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 		 * @return the associated binding or <code>null</code>
 		 */
 		public static IBinding getBindingForWidget(Widget widget) {
-			if (widget == null) return null;
-			return (IBinding) widget.getData(InternalConstants.WIDGET_KEY);
+			return BindingImpl.getBindingForWidget(widget);
 		}
 	}
 
