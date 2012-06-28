@@ -47,20 +47,17 @@ import org.eclipse.jface.viewers.ColumnPixelData;
 import org.eclipse.jface.viewers.ColumnViewer;
 import org.eclipse.jface.viewers.ColumnViewerEditor;
 import org.eclipse.jface.viewers.ColumnViewerEditorActivationStrategy;
-import org.eclipse.jface.viewers.ColumnViewerToolTipSupport;
 import org.eclipse.jface.viewers.FocusCellOwnerDrawHighlighter;
 import org.eclipse.jface.viewers.ILabelDecorator;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.MyTableViewerEditor;
 import org.eclipse.jface.viewers.MyTableViewerFocusCellManager;
-import org.eclipse.jface.viewers.MyTreeViewerFocusCellManager;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
-import org.eclipse.jface.viewers.TreeViewerEditor;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.jface.viewers.ViewerColumn;
 import org.eclipse.swt.SWT;
@@ -366,7 +363,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		}
 
 		IManager.Factory.getManager().eAdapters().add(myManagerAdapter);
-		control.addListener(SWT.PaintItem, myPaintItemListener);
+		// RAPRAP control.addListener(SWT.PaintItem, myPaintItemListener);
 		if ((control.getStyle() & SWT.SINGLE) == SWT.SINGLE) {
 			mySelectionChangedListener = new ISelectionChangedListener() {
 				@Override
@@ -393,9 +390,11 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 					focusDrawingDelegate, theCellNavigationStrategy);
 			MyTableViewerEditor.create((TableViewer) viewer, myMyTableViewerFocusCellManager, actSupport, feature);
 		} else if (viewer instanceof TreeViewer) {
-			myMyTreeViewerFocusCellManager = new MyTreeViewerFocusCellManager((TreeViewer) viewer,
-					focusDrawingDelegate, theCellNavigationStrategy);
-			TreeViewerEditor.create((TreeViewer) viewer, myMyTreeViewerFocusCellManager, actSupport, feature);
+			// RAPRAP myMyTreeViewerFocusCellManager = new MyTreeViewerFocusCellManager((TreeViewer)
+			// viewer,
+			// focusDrawingDelegate, theCellNavigationStrategy);
+			// RAPRAP TreeViewerEditor.create((TreeViewer) viewer, myMyTreeViewerFocusCellManager,
+			// actSupport, feature);
 		} else {
 			// Not supported
 		}
@@ -408,7 +407,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 					.ui(control, InternalConstants.ATTR_VIEWERS_MESSAGE_ONLY).model(getList())
 					.type(InternalConstants.VIEWERS_MESSAGE_ONLY_TYPE).arg(Constants.ARG_MODEL_OBJECT_MESSAGES, true);
 		}
-		ColumnViewerToolTipSupport.enableFor(viewer);
+		// RAPRAP ColumnViewerToolTipSupport.enableFor(viewer);
 		DoubleClickAdapter.adapt(this);
 	}
 
@@ -429,11 +428,15 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 			/*
 			 * Remove rows as needed
 			 */
-			for (final Object o : event.diff.getRemovals()) {
-				for (final IColumnBinding c : getColumns()) {
-					final IColumnBindingCellInformation ci = c.getCellInformation(o, false);
-					if (ci != null) {
-						ci.dispose();
+			if (event != null) {
+				LogUtils.debug(event,
+						"removals: " + event.diff.getRemovals() + "\nadditions: " + event.diff.getAdditions());
+				for (final Object o : event.diff.getRemovals()) {
+					for (final IColumnBinding c : getColumns()) {
+						final IColumnBindingCellInformation ci = c.getCellInformation(o, false);
+						if (ci != null) {
+							ci.dispose();
+						}
 					}
 				}
 			}
@@ -575,10 +578,11 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 			myMyTableViewerFocusCellManager.setFocusCell(element, column);
 			return;
 		}
-		if (myMyTreeViewerFocusCellManager != null) {
-			myMyTreeViewerFocusCellManager.setFocusCell(element, column);
-			return;
-		}
+		// RAPRAP
+		// if (myMyTreeViewerFocusCellManager != null) {
+		// myMyTreeViewerFocusCellManager.setFocusCell(element, column);
+		// return;
+		// }
 	}
 
 	/**
@@ -590,10 +594,11 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 			myMyTableViewerFocusCellManager.updateFocusCell();
 			return;
 		}
-		if (myMyTreeViewerFocusCellManager != null) {
-			myMyTreeViewerFocusCellManager.updateFocusCell();
-			return;
-		}
+		// RAPRAP
+		// if (myMyTreeViewerFocusCellManager != null) {
+		// myMyTreeViewerFocusCellManager.updateFocusCell();
+		// return;
+		// }
 	}
 
 	@Override
@@ -604,7 +609,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		final Control control = getControl();
 		if (!control.isDisposed()) {
 			unregisterWidget(control);
-			control.removeListener(SWT.PaintItem, myPaintItemListener);
+			// RAPRAP control.removeListener(SWT.PaintItem, myPaintItemListener);
 		}
 		IManager.Factory.getManager().eAdapters().remove(myManagerAdapter);
 		if (mySelectionChangedListener != null) {
@@ -844,7 +849,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	};
 
 	private MyTableViewerFocusCellManager myMyTableViewerFocusCellManager;
-	private MyTreeViewerFocusCellManager myMyTreeViewerFocusCellManager;
+	// RAPRAP private MyTreeViewerFocusCellManager myMyTreeViewerFocusCellManager;
 
 	private ViewerBindingTreeFactory myTreeFactory;
 
@@ -1409,7 +1414,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 				/*
 				 * Find the label provider of the first real column
 				 */
-				final IColumnBinding cb = getColumns().get(getFirstTableColumnOffset());
+				final IColumnBinding cb = getColumns().get(0);
 				cb.fireLabelChanged(elements);
 			}
 		});

@@ -22,17 +22,22 @@ import java.util.List;
 import org.eclipse.core.databinding.observable.value.WritableValue;
 import org.eclipse.jface.util.Util;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.CCombo;
+import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Scrollable;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
 import org.junit.After;
@@ -83,73 +88,66 @@ public class UIAttributeImageDecorationTest<T extends Control> {
 				 * borderWidth, isEnabled
 				 */
 
-				// // Text
-				//
-				// { Text.class, null, false, 0, 0, 0, 0, 0, 0, true },
-				//
-				// { Text.class, null, true, 0, 0, 0, 0, 0, 0, Util.isMac() },
-				// { Text.class, null, true, 6, -6, 1, 0, -1, 0, Util.isWindows() },
-				//
-				// // Combo
-				//
-				// /*
-				// * INNER on Windows: does not seem to work!
-				// */
-				// { Combo.class, null, false, 1, -21, 2, -1, -5, 0, Util.isMac() },
-				// { Combo.class, null, true, 0, 0, 2, -1, -5, 0, Util.isMac() },
-				// { Combo.class, null, true, 0, 0, 0, 0, 0, 0, Util.isWindows() },
-				//
-				// // CCombo
-				//
-				// /*
-				// * INNER NOT POSSIBLE due to the way the inner controls are protected, so we
-				// cannot
-				// * add a paint listener
-				// */
-				// // { CCombo.class, null, false, 0, 0, 0, 0, 0, 0, true },
-				// { CCombo.class, null, true, 0, 0, 0, -1, -2, 0, Util.isMac() },
-				// { CCombo.class, null, true, 2, 2, 1, 0, -2, 0, Util.isWindows() },
-				//
-				// // StyledText
-				//
-				// { StyledText.class, null, false, 0, -3, 0, -1, -2, 0, Util.isMac() },
-				// { StyledText.class, null, false, 0, 0, 0, 0, 0, 0, Util.isWindows() },
-				// { StyledText.class, null, true, 0, 0, 0, -1, -2, 0, Util.isMac() },
-				// { StyledText.class, null, true, 2, -2, 1, 0, -1, 0, Util.isWindows() },
-				//
-				// // Button
-				//
-				// { Button.class, null, false, 14, -14, 5, -2, -9, 0, Util.isMac() },
-				// { Button.class, null, false, 4, -4, 2, -1, -5, 0, Util.isWindows() },
-				// { Button.class, null, true, 5, -5, 5, -2, -9, 0, Util.isMac() },
-				// { Button.class, null, true, 0, 0, 3, -1, -6, 0, Util.isWindows() },
-				//
-				// // Composite (small)
-				//
-				// { Composite.class, new Point(100, 30), false, 0, 0, 0, 0, 0, 0, Util.isMac() },
-				// { Composite.class, new Point(100, 30), false, 0, -1, 0, 0, 0, 0, Util.isWindows()
-				// },
-				// { Composite.class, new Point(100, 30), true, 0, 4, 0, 1, 2, 0, Util.isMac() },
-				// { Composite.class, new Point(100, 30), true, 2, 10, 1, 3, 5, 0, Util.isWindows()
-				// },
-				//
-				// // Composite (big)
-				//
-				// { Composite.class, new Point(100, 50), false, 0, 0, 0, -15, -30, 0, Util.isMac()
-				// },
-				// { Composite.class, new Point(100, 50), false, 0, -1, 0, -15, -30, 0,
-				// Util.isWindows() },
-				// { Composite.class, new Point(100, 50), true, 0, 4, 0, -14, -28, 0, Util.isMac()
-				// },
-				// { Composite.class, new Point(100, 50), true, 2, 10, 1, -12, -25, 0,
-				// Util.isWindows() },
+				// Text
+
+				{ Text.class, null, false, 0, 0, 0, 0, 0, 0, true },
+
+				{ Text.class, null, true, 0, 0, 0, 0, 0, 0, Util.isMac() },
+				{ Text.class, null, true, 6, -6, 1, 0, -1, 0, Util.isWindows() },
+
+				// Combo
+
+				/*
+				 * INNER on Windows: does not seem to work!
+				 */
+				{ Combo.class, null, false, 1, -21, 2, -1, -5, 0, Util.isMac() },
+				{ Combo.class, null, true, 0, 0, 2, -1, -5, 0, Util.isMac() },
+				{ Combo.class, null, true, 0, 0, 0, 0, 0, 0, Util.isWindows() },
+
+				// CCombo
+
+				/*
+				 * INNER NOT POSSIBLE due to the way the inner controls are protected, so we cannot
+				 * add a paint listener
+				 */
+				// { CCombo.class, null, false, 0, 0, 0, 0, 0, 0, true },
+				{ CCombo.class, null, true, 0, 0, 0, -1, -2, 0, Util.isMac() },
+				{ CCombo.class, null, true, 2, 2, 1, 0, -2, 0, Util.isWindows() },
+
+				// StyledText
+
+				{ StyledText.class, null, false, 0, -3, 0, -1, -2, 0, Util.isMac() },
+				{ StyledText.class, null, false, 0, 0, 0, 0, 0, 0, Util.isWindows() },
+				{ StyledText.class, null, true, 0, 0, 0, -1, -2, 0, Util.isMac() },
+				{ StyledText.class, null, true, 2, -2, 1, 0, -1, 0, Util.isWindows() },
+
+				// Button
+
+				{ Button.class, null, false, 14, -14, 5, -2, -9, 0, Util.isMac() },
+				{ Button.class, null, false, 4, -4, 2, -1, -5, 0, Util.isWindows() },
+				{ Button.class, null, true, 5, -5, 5, -2, -9, 0, Util.isMac() },
+				{ Button.class, null, true, 0, 0, 3, -1, -6, 0, Util.isWindows() },
+
+				// Composite (small)
+
+				{ Composite.class, new Point(100, 30), false, 0, 0, 0, 0, 0, 0, Util.isMac() },
+				{ Composite.class, new Point(100, 30), false, 0, -1, 0, 0, 0, 0, Util.isWindows() },
+				{ Composite.class, new Point(100, 30), true, 0, 4, 0, 1, 2, 0, Util.isMac() },
+				{ Composite.class, new Point(100, 30), true, 2, 10, 1, 3, 5, 0, Util.isWindows() },
+
+				// Composite (big)
+
+				{ Composite.class, new Point(100, 50), false, 0, 0, 0, -15, -30, 0, Util.isMac() },
+				{ Composite.class, new Point(100, 50), false, 0, -1, 0, -15, -30, 0, Util.isWindows() },
+				{ Composite.class, new Point(100, 50), true, 0, 4, 0, -14, -28, 0, Util.isMac() },
+				{ Composite.class, new Point(100, 50), true, 2, 10, 1, -12, -25, 0, Util.isWindows() },
 
 				// Table
 
 				/*
 				 * INSIDE: does not make sense
 				 */
-				{ Table.class, new Point(100, 50), true, 0, 19, 0, -17, -33, 0, Util.isMac() },
+				{ Table.class, new Point(100, 50), true, 0, 4, 0, -17, -33, 0, Util.isMac() },
 				{ Table.class, new Point(100, 50), true, 2, 27, 1, -12, -25, 0, Util.isWindows() },
 
 				// Tree
@@ -157,7 +155,7 @@ public class UIAttributeImageDecorationTest<T extends Control> {
 				/*
 				 * INSIDE: does not make sense
 				 */
-				{ Tree.class, new Point(100, 50), true, 0, 19, 0, -17, -33, 0, Util.isMac() },
+				{ Tree.class, new Point(100, 50), true, 0, 4, 0, -17, -33, 0, Util.isMac() },
 				{ Tree.class, new Point(100, 50), true, 2, 27, -21, -34, -47, 0, Util.isWindows() },
 
 		});
@@ -306,7 +304,7 @@ public class UIAttributeImageDecorationTest<T extends Control> {
 		yield();
 
 		myOV = WritableValue.withValueType(String.class);
-		myAttribute = new SimpleUIAttribute(myWidget, null, myOV);
+		myAttribute = new SimpleUIAttribute(myWidget, "", myOV);
 
 		myView.getSite().getPage().activate(myView);
 	}

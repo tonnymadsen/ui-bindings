@@ -12,6 +12,7 @@ package com.rcpcompany.uibindings.shop.views;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.part.ViewPart;
 
 import com.rcpcompany.uibindings.tests.shop.Shop;
@@ -34,6 +35,7 @@ public class GroupView extends ViewPart {
 
 	@Override
 	public void createPartControl(Composite parent) {
+		final ISelectionService ss = getSite().getWorkbenchWindow().getSelectionService();
 		final Shop shop = ShopFactory.eINSTANCE.getShop(EditingDomainUtils.getEditingDomain());
 		myForm = IFormCreator.Factory.createScrolledForm(shop, parent, "Group");
 
@@ -42,12 +44,12 @@ public class GroupView extends ViewPart {
 		final IFormCreator itemColumn = columns[1];
 
 		final ITableCreator groupTable = groupColumn.addTableCreator(ShopPackage.Literals.SHOP__SHOP_GROUPS, true,
-				ITableCreator.FILTER);
+				ITableCreator.FILTER | SWT.VIRTUAL);
 		groupTable.addColumn("name(w=10em)");
 
 		final IFormCreator itemSection = itemColumn.addSection("Items", groupTable.getBinding().getSingleSelection());
 		final ITableCreator itemTable = itemSection.addTableCreator(ShopPackage.Literals.SHOP_ITEM_GROUP__ITEMS, true,
-				SWT.NONE);
+				SWT.VIRTUAL);
 		itemTable.addColumn("name(w=20em)");
 
 		myForm.finish();

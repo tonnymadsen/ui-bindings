@@ -83,7 +83,7 @@ public class ShopBasicsView extends ViewPart {
 		myToolkit.paintBordersFor(countriesComposite);
 		countriesSection.setClient(countriesComposite);
 
-		myTable = myToolkit.createTable(countriesComposite, SWT.FULL_SELECTION);
+		myTable = myToolkit.createTable(countriesComposite, SWT.FULL_SELECTION | SWT.VIRTUAL);
 		myTableViewer = new TableViewer(myTable);
 		myTable.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, true));
 		myTable.setLinesVisible(true);

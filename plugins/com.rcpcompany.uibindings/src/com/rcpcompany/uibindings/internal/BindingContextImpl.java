@@ -1109,7 +1109,7 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 			if (Activator.getDefault().TRACE_LIFECYCLE_BINDINGS) {
 				LogUtils.debug(this, "finish end"); //$NON-NLS-1$
 			}
-			task.end();
+			// task.end();
 		}
 		setState(BindingState.OK);
 	}

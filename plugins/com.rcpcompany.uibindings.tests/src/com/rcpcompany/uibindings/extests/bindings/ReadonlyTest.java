@@ -107,7 +107,7 @@ public class ReadonlyTest {
 
 		myTableViewerMixed = new TableViewer(myBody, SWT.FULL_SELECTION | SWT.BORDER);
 		Table table = myTableViewerMixed.getTable();
-		table.setLayoutData(new TableWrapData(TableWrapData.FILL));
+		table.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
 		table.setHeaderVisible(true);
 
 		myNameColumnRW = new TableViewerColumn(myTableViewerMixed, SWT.NONE);

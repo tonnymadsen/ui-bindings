@@ -19,7 +19,7 @@
     <properties name="type" uuid="_nDc2cAa7EeC_n9ThbP5loA" value="a"/>
     <properties name="type" uuid="_k9p_kGdbEeCZePVdzCtDKg"/>
   </shopItems>
-  <shopItems name="RCP Principles" uuid="_L05SccBGEd-siJXnD8pfBQ" price="-2.0">
+  <shopItems name="RCP Principles" uuid="_L05SccBGEd-siJXnD8pfBQ" price="-2.0" group="_L0_ZEcBGEd-siJXnD8pfBQ">
     <properties name="type" uuid="_nDeroAa7EeC_n9ThbP5loA" value="b"/>
   </shopItems>
   <shopItems name="Eclipse Plug-ins" uuid="_L05ScsBGEd-siJXnD8pfBQ" price="300.0" group="_L0_ZEMBGEd-siJXnD8pfBQ">
@@ -44,6 +44,6 @@
   <customers contact="_L0wvkMBGEd-siJXnD8pfBQ"/>
   <customerGroups name="Danes" uuid="_ZVS-YOJeEd-ufo4VJo3Xqw"/>
   <shopGroups name="Eclipse" uuid="_L0_ZEMBGEd-siJXnD8pfBQ" items="_L06gkMBGEd-siJXnD8pfBQ _L05ScsBGEd-siJXnD8pfBQ"/>
-  <shopGroups name="Fitness" uuid="_L0_ZEcBGEd-siJXnD8pfBQ"/>
+  <shopGroups name="Fitness" uuid="_L0_ZEcBGEd-siJXnD8pfBQ" items="_L05SccBGEd-siJXnD8pfBQ"/>
   <shopGroups name="Java" uuid="_L0_ZEsBGEd-siJXnD8pfBQ"/>
 </shop:Shop>

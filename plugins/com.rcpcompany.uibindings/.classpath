@@ -9,5 +9,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/com.rcpcompany.uibindings.fragments.ecore"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/com.rcpcompany.uibindings.fragments.jface"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/com.rcpcompany.uibindings.fragments.rap.rwt"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/com.rcpcompany.uibindings.fragments.rap.ui"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -101,7 +101,7 @@ public class QuickFixHandler extends AbstractHandler implements IHandler {
 
 		protected MyContentProposalAdapter(Control control, IControlContentAdapter controlContentAdapter,
 				IContentProposalProvider proposalProvider) {
-			super(control, controlContentAdapter, proposalProvider, null, null);
+			super(control, controlContentAdapter, proposalProvider, null);
 		}
 
 		/**

@@ -195,7 +195,6 @@ public class ViewerDisposeTest {
 				myContextTop.dispose();
 			}
 		});
-
 	}
 
 	/**
@@ -246,10 +245,10 @@ public class ViewerDisposeTest {
 
 		yield();
 
-		monitorObject(myContactNameBinding, IUIBindingsPackage.Literals.BINDING__STATE, no, 0);
+		monitorObject(myContactNameBinding, IUIBindingsPackage.Literals.BINDING__STATE, no, 3);
 		monitorObject(myCountryNameBinding, IUIBindingsPackage.Literals.BINDING__STATE, no, 1);
 		monitorObject(myCountryAbbrevBinding, IUIBindingsPackage.Literals.BINDING__STATE, no, 2);
-		monitorObject(myContactCityBinding, IUIBindingsPackage.Literals.BINDING__STATE, no, 3);
+		monitorObject(myContactCityBinding, IUIBindingsPackage.Literals.BINDING__STATE, no, 0);
 		monitorObject(myViewerBinding, IUIBindingsPackage.Literals.BINDING__STATE, no, 4);
 
 		assertNoLog(new Runnable() {

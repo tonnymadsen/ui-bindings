@@ -44,7 +44,7 @@ public class BindingMessagesPopup extends ContentProposalAdapter implements IBin
 	 * @param messages the messages to show
 	 */
 	public BindingMessagesPopup(Control control) {
-		super(control, new MyControlContentAdapter(), null, null, null);
+		super(control, new MyControlContentAdapter(), null, null);
 		setProposalAcceptanceStyle(ContentProposalAdapter.PROPOSAL_IGNORE);
 		addContentProposalListener(new IContentProposalListener() {
 			@Override

@@ -616,7 +616,7 @@ public class BaseTestUtils {
 	 */
 	public static void postMouseMove(Control c, Point p) {
 		final Point pt = c.getDisplay().map(c, null, p);
-		// LogUtils.debug(c, c + ": " + p + " -> " + pt);
+		LogUtils.debug(c, c + ": " + p + " -> " + pt);
 
 		final long now = System.currentTimeMillis();
 

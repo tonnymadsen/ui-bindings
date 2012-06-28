@@ -168,7 +168,7 @@ public class BindingSourceProviderTest {
 
 		myTableViewer = new TableViewer(myBody, SWT.FULL_SELECTION | SWT.BORDER);
 		myTable = myTableViewer.getTable();
-		myTable.setLayoutData(new TableWrapData(TableWrapData.FILL));
+		myTable.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB));
 		myTable.setHeaderVisible(true);
 
 		myNameColumn = new TableViewerColumn(myTableViewer, SWT.NONE);
@@ -335,8 +335,10 @@ public class BindingSourceProviderTest {
 	 */
 	@Test
 	public void testSimpleColumnBinding() {
+		yield();
+		// sleep(20000);
 		postMouse(myTable, 0 + myViewerBinding.getFirstTableColumnOffset(), 1);
-
+		// sleep(2000);
 		final IColumnBindingCellInformation ci = myViewerBinding.getCell(0, myViewerBinding.getList().get(1));
 		assertNotNull(ci);
 
@@ -457,6 +459,7 @@ public class BindingSourceProviderTest {
 	// TODO: ALL relevant ContainerCellTypes
 
 	public void assertSource(String name, Object value) {
+		@SuppressWarnings("unchecked")
 		final Map<String, Object> currentState = myProvider.getCurrentState();
 
 		assertEquals("variable " + name, value, currentState.get(name));
