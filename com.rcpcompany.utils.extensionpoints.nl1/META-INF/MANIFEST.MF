@@ -1,6 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: com.rcpcompany.utils.extensionpoints.nl1 Fragment
-Bundle-SymbolicName: com.rcpcompany.utils.extensionpoints.nl1
-Bundle-Version: 1.0.0.qualifier
-Fragment-Host: com.rcpcompany.utils.extensionpoints;bundle-version="[1.0.2,2)"
