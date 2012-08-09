@@ -70,4 +70,19 @@ public class TimedTask implements ITimedTask {
 			c.appendChildren(sb, prefix + "   ");
 		}
 	}
+
+	/**
+	 * Simple Null implementation used when timed tasks are disabled.
+	 */
+	public static final ITimedTask NULL_TASK = new ITimedTask() {
+
+		@Override
+		public ITimedTask subTask(Object... name) {
+			return this;
+		}
+
+		@Override
+		public void end() {
+		}
+	};
 }
