@@ -10,7 +10,8 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.widgets;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.UITestUtils.*;
 import static org.junit.Assert.*;
 
 import java.util.Arrays;
@@ -33,6 +34,7 @@ import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 import com.rcpcompany.uibindings.widgets.FileNameControl;
@@ -73,7 +75,7 @@ public class FileNameControlTest {
 
 	@Before
 	public void before() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 		IManager.Factory.getManager().setValidationDelay(VD);
 
 		myView = UIBindingsTestUtils.createUIBTestView(this);

@@ -17,7 +17,7 @@
          point="org.eclipse.core.runtime.applications">
       <application>
          <run
-               class="com.rcpcompany.tests.utils.logging.internal.Application">
+               class="com.rcpcompany.utils.logging.tests.internal.Application">
          </run>
       </application>
    </extension>

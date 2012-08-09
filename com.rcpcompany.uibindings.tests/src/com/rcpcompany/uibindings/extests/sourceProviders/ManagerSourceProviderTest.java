@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.sourceProviders;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.UITestUtils.*;
 import static org.junit.Assert.*;
 
 import java.util.Map;
@@ -37,6 +37,7 @@ import com.rcpcompany.uibindings.internal.sourceProviders.ManagerSourceProvider;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 /**
@@ -59,7 +60,7 @@ public class ManagerSourceProviderTest {
 
 	@Before
 	public void before() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 
 		final IManager mng = IManager.Factory.getManager();
 		myCommandStack = mng.getEditingDomain().getCommandStack();

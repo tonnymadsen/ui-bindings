@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.bindings;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.UITestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.core.databinding.observable.list.WritableList;
@@ -36,6 +36,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.UIBTestView;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.utils.ITableCreator;
 
 /**
@@ -62,7 +63,7 @@ public class PreferredCellEditorFactoryTest {
 
 	@Before
 	public void setup() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 		IManager.Factory.getManager().setTextCommitStrategy(TextCommitStrategy.ON_MODIFY);
 		IManager.Factory.getManager().setEditCellAnyKey(true);
 		IManager.Factory.getManager().setEditCellSingleClick(false);

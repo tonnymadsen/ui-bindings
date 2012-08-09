@@ -10,7 +10,8 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.utils;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.UITestUtils.*;
 import static org.junit.Assert.*;
 
 import java.util.List;
@@ -29,6 +30,7 @@ import com.rcpcompany.uibindings.extests.TestObjectValidatorAdapter;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.internal.bindingMessages.ContextMessageDecorator;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 
@@ -58,7 +60,7 @@ public class FormCreatorObjectMessageCollectionTest {
 
 	@Before
 	public void before() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 		VD = IManager.Factory.getManager().getValidationDelay();
 
 		yield();

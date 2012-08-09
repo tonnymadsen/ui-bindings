@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * To be decomented...
  * 
- * @author "Tonny Madsen, The RCP CompanyÒ
+ * @author "Tonny Madsen, The RCP Companyï¿½
  */
 public interface ITimeUtils {
 	public static class Factory {
@@ -46,10 +46,9 @@ public interface ITimeUtils {
 
 		public static void end(String name) {
 			final Long l = accumulatedTimes.remove(name);
-			if (l == null) {
-				LogUtils.error(null, "No time by name '" + name + "'");
+			if (l == null) // LogUtils.error(null, "No time by name '" + name +
+							// "'");
 				return;
-			}
 			final int oldLevels = LogUtils.DEBUG_STRACK_LEVELS;
 			LogUtils.DEBUG_STRACK_LEVELS = 0;
 			// LogUtils.debug(null, name + ": " + l + " ns");

@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JFace Fragment Interfaces
+Bundle-SymbolicName: com.rcpcompany.uibindings.fragments.jfaceif
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: The RCP Company
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: com.rcpcompany.uibindings.fragments.jfaceif

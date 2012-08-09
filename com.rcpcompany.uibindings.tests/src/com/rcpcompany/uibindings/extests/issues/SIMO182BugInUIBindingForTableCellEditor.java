@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.issues;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.UITestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.core.databinding.observable.list.IObservableList;
@@ -43,6 +43,7 @@ import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 /**
@@ -81,7 +82,7 @@ public class SIMO182BugInUIBindingForTableCellEditor {
 
 	@Before
 	public void before() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 		myShop = ShopFactory.eINSTANCE.getShop(EditingDomainUtils.getEditingDomain());
 		myCountries = myShop.getCountries();

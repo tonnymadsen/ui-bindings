@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.uiAttributes;
 
+import static com.rcpcompany.test.utils.UITestUtils.*;
 import static org.junit.Assert.*;
 
 import java.beans.BeanInfo;
@@ -26,7 +27,6 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyleRange;
 
 import com.rcpcompany.uibindings.Constants;
-import com.rcpcompany.uibindings.extests.BaseTestUtils;
 
 public class BaseUIAttributeFactoryTest<T> {
 
@@ -129,7 +129,7 @@ public class BaseUIAttributeFactoryTest<T> {
 		for (final Object o : a) {
 			list.add(o);
 		}
-		BaseTestUtils.yield();
+		yield();
 
 		// assertEquals(widget.getClass().getName() + " attribute '" + attribute + "': expected <" +
 		// v + "> but was <"

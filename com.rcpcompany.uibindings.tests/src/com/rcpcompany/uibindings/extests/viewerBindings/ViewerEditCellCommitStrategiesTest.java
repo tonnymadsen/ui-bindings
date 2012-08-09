@@ -10,7 +10,8 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.viewerBindings;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.UITestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -42,6 +43,7 @@ import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.utils.basic.ToStringUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -76,7 +78,7 @@ public class ViewerEditCellCommitStrategiesTest {
 
 	@Before
 	public void before() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 		manager.setTextCommitStrategy(TextCommitStrategy.ON_MODIFY);
 		manager.setEditCellAnyKey(false);
 		manager.setEditCellSingleClick(false);

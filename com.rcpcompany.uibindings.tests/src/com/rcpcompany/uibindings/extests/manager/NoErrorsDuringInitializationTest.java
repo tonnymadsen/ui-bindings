@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.rcpcompany.uibindings.tests.application.Application;
+import com.rcpcompany.uibindings.tests.utils.StartActivator;
 
 /**
  * Tests that there was no errors during the initialization of this application.
@@ -30,6 +30,6 @@ public class NoErrorsDuringInitializationTest {
 
 	@Test
 	public void testNoErrors() {
-		assertEquals(0, Application.noMessages);
+		assertEquals(0, StartActivator.noMessages);
 	}
 }

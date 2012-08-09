@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.internal.validators;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.UITestUtils.*;
 import static org.junit.Assert.*;
 
 import java.util.Arrays;
@@ -35,6 +35,7 @@ import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.validators.EValidatorAdapter;
 import com.rcpcompany.uibindings.validators.IValidatorAdapter;
@@ -80,7 +81,7 @@ public class MessageDecorationMinimumSeverityTest {
 
 	@Before
 	public void setup() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 		IManager.Factory.getManager().setTextCommitStrategy(TextCommitStrategy.ON_MODIFY);
 		IManager.Factory.getManager().setMessageDecorationMinimumSeverity(myMinSeverity);
 		IManager.Factory.getManager().setValidationDelay(VD);

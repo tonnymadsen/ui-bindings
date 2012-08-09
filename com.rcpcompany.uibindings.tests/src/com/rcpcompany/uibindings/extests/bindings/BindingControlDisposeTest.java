@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.bindings;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.UITestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
@@ -35,6 +35,7 @@ import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 
 /**
  * Tests that bindings are disposed, when the control is...
@@ -56,7 +57,7 @@ public class BindingControlDisposeTest {
 
 	@Before
 	public void setup() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 		IManager.Factory.getManager().setTextCommitStrategy(TextCommitStrategy.ON_MODIFY);
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 

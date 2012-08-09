@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.services;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.swt.SWT;
@@ -29,6 +29,7 @@ import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 /**
@@ -44,7 +45,7 @@ public class BasicServiceTest {
 
 	@Before
 	public void setup() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 		myTestView = UIBindingsTestUtils.createUIBTestView(this);
 	}
 

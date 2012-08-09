@@ -10,7 +10,8 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.uiAttributes;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.BaseTestUtils.*;
+import static com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils.*;
 import static org.junit.Assert.*;
 
 import java.util.Arrays;

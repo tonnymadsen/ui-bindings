@@ -10,7 +10,8 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.observables;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.UITestUtils.*;
+import static com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils.*;
 import static org.junit.Assert.*;
 
 import java.util.Arrays;
@@ -37,6 +38,7 @@ import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.internal.observables.DelayedChangeEvent;
 import com.rcpcompany.uibindings.internal.observables.IDelayedChangeListener;
 import com.rcpcompany.uibindings.internal.observables.TextObservableValue;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -199,7 +201,7 @@ public class TextObservableValueTest<X extends Control> {
 
 	@Before
 	public void before() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 		w1 = createWidget(myCls, myTextStyle);
 
 		if (w1 instanceof Text) {

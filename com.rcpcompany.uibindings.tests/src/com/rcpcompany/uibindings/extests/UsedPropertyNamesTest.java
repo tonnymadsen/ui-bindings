@@ -10,7 +10,6 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -27,6 +26,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.rcpcompany.uibindings.internal.Activator;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 
 /**
  * Tests of all used property names in the expression related extension points.
@@ -43,7 +43,7 @@ public class UsedPropertyNamesTest {
 
 	@Before
 	public void before() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 
 		for (final IConfigurationElement ce : Platform.getExtensionRegistry().getConfigurationElementsFor(
 				"org.eclipse.core.expressions.propertyTesters")) {

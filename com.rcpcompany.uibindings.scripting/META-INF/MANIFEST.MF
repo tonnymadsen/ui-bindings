@@ -6,7 +6,7 @@ Bundle-Version: 1.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: com.rcpcompany.uibindings.scripting,
  com.rcpcompany.uibindings.scripting.internal,
  com.rcpcompany.uibindings.scripting.util

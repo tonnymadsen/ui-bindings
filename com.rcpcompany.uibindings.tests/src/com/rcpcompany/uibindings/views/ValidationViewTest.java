@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.views;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.UITestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.core.commands.ParameterizedCommand;
@@ -27,6 +27,7 @@ import org.eclipse.ui.handlers.IHandlerService;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.utils.ITableCreator;
 
 /**
@@ -39,7 +40,7 @@ public class ValidationViewTest {
 
 	@Before
 	public void before() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 	}
 
 	/**

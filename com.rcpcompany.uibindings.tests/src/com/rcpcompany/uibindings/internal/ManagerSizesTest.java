@@ -10,7 +10,8 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.internal;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.ExtensionTestUtils.*;
 import static org.junit.Assert.*;
 
 import java.util.List;
@@ -20,6 +21,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.rcpcompany.uibindings.IManager;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 
 /**
  * This class tests that the difference lists and maps of the {@link IManager} have a sane size.
@@ -31,7 +33,7 @@ public class ManagerSizesTest {
 
 	@Before
 	public void setup() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 		m = IManager.Factory.getManager();
 	}
 
@@ -43,7 +45,7 @@ public class ManagerSizesTest {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
-				final List<IConfigurationElement> elements = getElements(InternalConstants.BINDING_DECORATOR_TAG);
+				final List<IConfigurationElement> elements = getElements("com.rcpcompany.uibindings.uiBindings", InternalConstants.BINDING_DECORATOR_TAG);
 
 				assertTrue(m.getProviders().size() > 12);
 				assertEquals(elements.size(), m.getProviders().size());
@@ -60,7 +62,7 @@ public class ManagerSizesTest {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
-				final List<IConfigurationElement> elements = getElements(InternalConstants.QUICKFIX_PROCESSOR_TAG);
+				final List<IConfigurationElement> elements = getElements("com.rcpcompany.uibindings.uiBindings", InternalConstants.QUICKFIX_PROCESSOR_TAG);
 
 				assertTrue(m.getQuickfixProposalProcessors().size() > 2);
 				assertEquals(elements.size(), m.getQuickfixProposalProcessors().size());
@@ -76,7 +78,7 @@ public class ManagerSizesTest {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
-				final List<IConfigurationElement> elements = getElements(InternalConstants.ARGUMENT_INFO_TAG);
+				final List<IConfigurationElement> elements = getElements("com.rcpcompany.uibindings.uiBindings", InternalConstants.ARGUMENT_INFO_TAG);
 
 				assertTrue(m.getArgumentInformation().size() > 2);
 				assertEquals(elements.size(), m.getArgumentInformation().size());
@@ -92,7 +94,7 @@ public class ManagerSizesTest {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
-				final List<IConfigurationElement> elements = getElements(InternalConstants.UI_ATTRIBUTE_FACTORY_TAG);
+				final List<IConfigurationElement> elements = getElements("com.rcpcompany.uibindings.uiBindings", InternalConstants.UI_ATTRIBUTE_FACTORY_TAG);
 
 				assertTrue(m.getUiAttributeFactories().size() > 2);
 				assertEquals(elements.size(), m.getUiAttributeFactories().size());
@@ -108,7 +110,7 @@ public class ManagerSizesTest {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
-				final List<IConfigurationElement> elements = getElements(InternalConstants.MODEL_TAG);
+				final List<IConfigurationElement> elements = getElements("com.rcpcompany.uibindings.uiBindings", InternalConstants.MODEL_TAG);
 
 				assertTrue(m.getModelInfo().size() > 1);
 				// Some elements can refer to the same model class and thus collapse the number of
@@ -126,7 +128,7 @@ public class ManagerSizesTest {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
-				final List<IConfigurationElement> elements = getElements(InternalConstants.OBSERVABLES_FACTORY_TAG);
+				final List<IConfigurationElement> elements = getElements("com.rcpcompany.uibindings.uiBindings", InternalConstants.OBSERVABLES_FACTORY_TAG);
 
 				// assertTrue(m.myObservableFactories.size() > 1);
 				assertEquals(elements.size(), m.getObservableFactories().size());

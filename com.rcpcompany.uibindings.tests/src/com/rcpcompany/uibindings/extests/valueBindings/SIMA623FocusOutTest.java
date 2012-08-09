@@ -10,7 +10,8 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.valueBindings;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.UITestUtils.*;
 import static org.junit.Assert.*;
 
 import java.util.List;
@@ -31,6 +32,7 @@ import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageIma
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 
 /**
  * Tests end-to-end that a text widget with focus out is handled correct.
@@ -54,7 +56,7 @@ public class SIMA623FocusOutTest {
 
 	@Before
 	public void before() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 		IManager.Factory.getManager().setTextCommitStrategy(TextCommitStrategy.ON_FOCUS_OUT);
 
 		createModel();

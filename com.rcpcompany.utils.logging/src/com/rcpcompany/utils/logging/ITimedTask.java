@@ -8,7 +8,7 @@ import com.rcpcompany.utils.logging.internal.TimedTask;
 /**
  * To be decomented...
  * 
- * @author "Tonny Madsen, The RCP CompanyÒ
+ * @author "Tonny Madsen, The RCP Companyï¿½
  */
 public interface ITimedTask {
 	public static class Factory {

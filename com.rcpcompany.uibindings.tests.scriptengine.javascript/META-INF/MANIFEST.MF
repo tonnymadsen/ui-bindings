@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Tests of Javascript ScriptEngine
-Bundle-SymbolicName: com.rcpcompany.uibindings.tests.scriptengine.javascript;singleton:=true
-Bundle-Version: 1.0.0.qualifier
-Bundle-Vendor: Tonny Madsen, The RCP Company
-Fragment-Host: com.rcpcompany.uibindings.scriptengines.javascript;bundle-version="[1.0.0,2.0.0)"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6

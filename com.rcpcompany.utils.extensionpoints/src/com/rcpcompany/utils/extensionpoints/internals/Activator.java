@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017, 2011 The RCP Company and others.
+ * Copyright (c) 2006-2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -41,12 +41,14 @@ public class Activator extends AbstractUIPlugin {
 	/**
 	 * Returns the bundle with the specified symbolic name.
 	 * 
-	 * @param name the name
+	 * @param name
+	 *            the name
 	 * @return the bundle or <code>null</code> if not found
 	 */
 	public Bundle getBundle(String name) {
 		for (final Bundle b : myContext.getBundles()) {
-			if (b.getSymbolicName().equals(name)) return b;
+			if (b.getSymbolicName().equals(name))
+				return b;
 		}
 
 		return null;

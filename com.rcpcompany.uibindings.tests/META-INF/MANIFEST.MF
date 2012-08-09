@@ -5,8 +5,8 @@ Bundle-SymbolicName: com.rcpcompany.uibindings.tests;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: The RCP Company
 Fragment-Host: com.rcpcompany.uibindings;bundle-version="[2.0.0,3.0.0)"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: com.rcpcompany.uibindings.tests.model;bundle-version="[1.0.0,2.0.0)",
- com.rcpcompany.uibindings.tests.application;bundle-version="[1.0.0,2.0.0)"
+ com.rcpcompany.uibindings.tests.utils;bundle-version="1.0.0"
 Export-Package: com.rcpcompany.uibindings.extests,
  com.rcpcompany.uibindings.extests.views

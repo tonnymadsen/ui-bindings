@@ -19,7 +19,8 @@ public class TimedTask implements ITimedTask {
 	public String getName() {
 		if (myName.length == 1) {
 			final Object n = myName[0];
-			if (n == null) return "<null>";
+			if (n == null)
+				return "<null>";
 			return n.toString();
 		}
 		final StringBuilder sb = new StringBuilder(200);
@@ -29,6 +30,7 @@ public class TimedTask implements ITimedTask {
 		return sb.toString();
 	}
 
+	@Override
 	public ITimedTask subTask(Object... name) {
 		final TimedTask child = new TimedTask(name);
 		if (myChildren == null) {
@@ -39,6 +41,7 @@ public class TimedTask implements ITimedTask {
 		return child;
 	}
 
+	@Override
 	public void end() {
 		final long endTime = System.nanoTime();
 
@@ -47,19 +50,22 @@ public class TimedTask implements ITimedTask {
 		sb.append('\n');
 		sb.append(">> ").append(getName()).append(": 0 ns").append('\n');
 		appendChildren(sb, "   ");
-		sb.append(">> ").append(getName()).append(": +").append(endTime - myStartTime).append(" ns");
+		sb.append(">> ").append(getName()).append(": +")
+				.append(endTime - myStartTime).append(" ns");
 
 		LogUtils.debug(this, sb.toString());
 	}
 
 	private void appendChildren(StringBuilder sb, String prefix) {
-		if (myChildren == null) return;
+		if (myChildren == null)
+			return;
 
 		long prevTime = myStartTime;
 
 		for (final TimedTask c : myChildren) {
-			sb.append(prefix).append(">> ").append(c.getName()).append(": +").append(c.myStartTime - myStartTime)
-					.append('/').append(c.myStartTime - prevTime).append(" ns\n");
+			sb.append(prefix).append(">> ").append(c.getName()).append(": +")
+					.append(c.myStartTime - myStartTime).append('/')
+					.append(c.myStartTime - prevTime).append(" ns\n");
 			prevTime = c.myStartTime;
 			c.appendChildren(sb, prefix + "   ");
 		}

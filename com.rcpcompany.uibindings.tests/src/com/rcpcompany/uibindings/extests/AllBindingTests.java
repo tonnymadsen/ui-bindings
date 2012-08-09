@@ -34,8 +34,8 @@ import com.rcpcompany.uibindings.extests.bindings.PreferredCellEditorFactoryTest
 import com.rcpcompany.uibindings.extests.bindings.ReadonlyTest;
 import com.rcpcompany.uibindings.extests.bindings.SimplePreferredCellEditorTest;
 import com.rcpcompany.uibindings.extests.bindings.extenders.EnumImageExtenderTest;
-import com.rcpcompany.uibindings.extests.compositeForms.CompositeFormBasicTests;
-import com.rcpcompany.uibindings.extests.compositeForms.CompositeFormCreateTests;
+import com.rcpcompany.uibindings.extests.compositeForms.CompositeFormBasicTest;
+import com.rcpcompany.uibindings.extests.compositeForms.CompositeFormCreateTest;
 import com.rcpcompany.uibindings.extests.contexts.ContextActivationTest;
 import com.rcpcompany.uibindings.extests.cutCopyPaste.CopyPasteInViewerTest;
 import com.rcpcompany.uibindings.extests.cutCopyPaste.SuperCreateTest;
@@ -81,7 +81,7 @@ import com.rcpcompany.uibindings.extests.manager.ManagerViewNavigationRecorded;
 import com.rcpcompany.uibindings.extests.manager.NoErrorsDuringInitializationTest;
 import com.rcpcompany.uibindings.extests.manager.ValidationErrorsAreFatalTest;
 import com.rcpcompany.uibindings.extests.observables.CountObservableValueTest;
-import com.rcpcompany.uibindings.extests.observables.EListElementObservableValueTests;
+import com.rcpcompany.uibindings.extests.observables.EListElementObservableValueTest;
 import com.rcpcompany.uibindings.extests.observables.EListKeyedElementObservableValueTest;
 import com.rcpcompany.uibindings.extests.observables.FilteredObservableListTest;
 import com.rcpcompany.uibindings.extests.observables.GuardObservableValueTest;
@@ -99,12 +99,12 @@ import com.rcpcompany.uibindings.extests.observables.getset.BasicSetTestViewer;
 import com.rcpcompany.uibindings.extests.participants.ManagerAssignmentParticipantsManagerTest;
 import com.rcpcompany.uibindings.extests.preferences.PreferencePageDialogTest;
 import com.rcpcompany.uibindings.extests.preferences.UIBindingPreferencesTest;
-import com.rcpcompany.uibindings.extests.propertyTesters.EStructuralFeaturePropertyTesterTests;
+import com.rcpcompany.uibindings.extests.propertyTesters.EStructuralFeaturePropertyTesterTest;
 import com.rcpcompany.uibindings.extests.quickfixes.BasicQuickfixTest;
 import com.rcpcompany.uibindings.extests.quickfixes.DirectoryNameQuickfixTest;
 import com.rcpcompany.uibindings.extests.quickfixes.NamingQuickfixTest;
 import com.rcpcompany.uibindings.extests.quickfixes.QuickfixMatchingTest;
-import com.rcpcompany.uibindings.extests.scripting.AllScriptEngineTests;
+import com.rcpcompany.uibindings.extests.scripting.AllScriptEngineTest;
 import com.rcpcompany.uibindings.extests.services.BasicServiceTest;
 import com.rcpcompany.uibindings.extests.sourceProviders.BindingSourceProviderTest;
 import com.rcpcompany.uibindings.extests.sourceProviders.CommonSourceProviderTest;
@@ -135,30 +135,30 @@ import com.rcpcompany.uibindings.extests.uiAttributes.UIAttributeSliderFactoryPr
 import com.rcpcompany.uibindings.extests.uiAttributes.UIAttributeSpinnerFactoryPropertiesTest;
 import com.rcpcompany.uibindings.extests.uiAttributes.UIAttributeStyledTextFactoryPropertiesTest;
 import com.rcpcompany.uibindings.extests.uiAttributes.UIAttributeTextFactoryPropertiesTest;
-import com.rcpcompany.uibindings.extests.utils.BindingEnablerTests;
+import com.rcpcompany.uibindings.extests.utils.BindingEnablerTest;
 import com.rcpcompany.uibindings.extests.utils.BindingObjectInformationTest;
 import com.rcpcompany.uibindings.extests.utils.BindingSpecTest;
-import com.rcpcompany.uibindings.extests.utils.ClipboardConverterManagerTests;
+import com.rcpcompany.uibindings.extests.utils.ClipboardConverterManagerTest;
 import com.rcpcompany.uibindings.extests.utils.ControlDecorationTest;
 import com.rcpcompany.uibindings.extests.utils.DeleteParticipantTest;
 import com.rcpcompany.uibindings.extests.utils.DoubleClickAdapterTest;
 import com.rcpcompany.uibindings.extests.utils.EcoreExtUtilsSubclassesTest;
 import com.rcpcompany.uibindings.extests.utils.EcoreExtUtilsSyncTest;
-import com.rcpcompany.uibindings.extests.utils.ExtendedCommandStackTests;
-import com.rcpcompany.uibindings.extests.utils.FeatureListMonitorTests;
+import com.rcpcompany.uibindings.extests.utils.ExtendedCommandStackTest;
+import com.rcpcompany.uibindings.extests.utils.FeatureListMonitorTest;
 import com.rcpcompany.uibindings.extests.utils.FilterTest;
 import com.rcpcompany.uibindings.extests.utils.FormChooserTest;
 import com.rcpcompany.uibindings.extests.utils.FormCreatorAlignmentTest;
 import com.rcpcompany.uibindings.extests.utils.FormCreatorObjectMessageCollectionTest;
 import com.rcpcompany.uibindings.extests.utils.FormCreatorTest;
-import com.rcpcompany.uibindings.extests.utils.IPathMatcherTests;
-import com.rcpcompany.uibindings.extests.utils.ManagerRunnableManagerTests;
+import com.rcpcompany.uibindings.extests.utils.IPathMatcherTest;
+import com.rcpcompany.uibindings.extests.utils.ManagerRunnableManagerTest;
 import com.rcpcompany.uibindings.extests.utils.MouseDownConverterTest;
 import com.rcpcompany.uibindings.extests.utils.OpenCommandTextWidgetEnablementTest;
 import com.rcpcompany.uibindings.extests.utils.OpenCommandViewerEnablementTest;
 import com.rcpcompany.uibindings.extests.utils.ShowViewSelectionTest;
 import com.rcpcompany.uibindings.extests.utils.SortingTest;
-import com.rcpcompany.uibindings.extests.utils.StringListTests;
+import com.rcpcompany.uibindings.extests.utils.StringListTest;
 import com.rcpcompany.uibindings.extests.utils.TableCreatorTest;
 import com.rcpcompany.uibindings.extests.utils.UIBindingsUtilsMapperTest;
 import com.rcpcompany.uibindings.extests.utils.UIBindingsUtilsTest;
@@ -192,12 +192,12 @@ import com.rcpcompany.uibindings.extests.wizards.FormChooserWizardTest;
 import com.rcpcompany.uibindings.internal.ManagerSizesTest;
 import com.rcpcompany.uibindings.internal.decorators.extenders.ExtenderTest;
 import com.rcpcompany.uibindings.internal.decorators.extenders.OpenCommandSupportLowLevelTest;
-import com.rcpcompany.uibindings.internal.utils.BindingContextSelectionProviderTests;
+import com.rcpcompany.uibindings.internal.utils.BindingContextSelectionProviderTest;
 import com.rcpcompany.uibindings.internal.utils.CommandToStringTest;
 import com.rcpcompany.uibindings.internal.utils.GlobalNavigationManagerTest;
-import com.rcpcompany.uibindings.internal.utils.ViewerToolBarBaseTests;
-import com.rcpcompany.uibindings.internal.utils.ViewerToolBarFunctionTests;
-import com.rcpcompany.uibindings.internal.utils.ViewerToolBarItemPresentTests;
+import com.rcpcompany.uibindings.internal.utils.ViewerToolBarBaseTest;
+import com.rcpcompany.uibindings.internal.utils.ViewerToolBarFunctionTest;
+import com.rcpcompany.uibindings.internal.utils.ViewerToolBarItemPresentTest;
 import com.rcpcompany.uibindings.internal.validators.BasicMessageCollectionTest;
 import com.rcpcompany.uibindings.internal.validators.BindingMessageCollectionTest;
 import com.rcpcompany.uibindings.internal.validators.BindingObjectMessageCollectionTest;
@@ -207,7 +207,6 @@ import com.rcpcompany.uibindings.internal.validators.DiagnosticChainTest;
 import com.rcpcompany.uibindings.internal.validators.MessageDecorationMinimumSeverityTest;
 import com.rcpcompany.uibindings.internal.validators.ValidationAdapterManagerTest;
 import com.rcpcompany.uibindings.quixkfixes.AbstractQuickfixProposalTest;
-import com.rcpcompany.uibindings.tests.PluginTest;
 import com.rcpcompany.uibindings.views.ValidationViewTest;
 
 @RunWith(Suite.class)
@@ -221,20 +220,19 @@ NoErrorsDuringInitializationTest.class,
 /*
  * Basic internal tests.
  */
-PluginTest.class, PluginConfTest.class, PluginSpecificationTest.class, FragmentTest.class,
-		ECoreModelInformationTest.class,
+PluginConfTest.class, PluginSpecificationTest.class, FragmentTest.class, ECoreModelInformationTest.class,
 
-		/*
-		 * Various constants
-		 */
-		ConstantTests.class, ColorsAndFontsTests.class, ManagerSizesTest.class,
+/*
+ * Various constants
+ */
+ConstantTest.class, ColorsAndFontsTest.class, ManagerSizesTest.class,
 
-		UsedPropertyNamesTest.class,
+UsedPropertyNamesTest.class,
 
-		/*
-		 * The manager and its very basic interfaces (no bindings yet...)
-		 */
-		ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, ManagerTextCommitStrategyTest.class,
+/*
+ * The manager and its very basic interfaces (no bindings yet...)
+ */
+ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, ManagerTextCommitStrategyTest.class,
 		ManagerTextCommitStrategyDelayTest.class, ManagerEditCellAnyKeyTest.class,
 		ManagerEditCellSingleClickTest.class, ManagerMessageDecorationPositionTest.class,
 		ManagerMessageDecorationMinimumSeverityTest.class, ManagerAlternativeDecorationPositionTest.class,
@@ -270,8 +268,8 @@ PluginTest.class, PluginConfTest.class, PluginSpecificationTest.class, FragmentT
 		/*
 		 * Utilities
 		 */
-		BindingSpecTest.class, IPathMatcherTests.class, EcoreExtUtilsSyncTest.class, EcoreExtUtilsSubclassesTest.class,
-		ViewerToolBarBaseTests.class, ViewerToolBarFunctionTests.class, ViewerToolBarItemPresentTests.class,
+		BindingSpecTest.class, IPathMatcherTest.class, EcoreExtUtilsSyncTest.class, EcoreExtUtilsSubclassesTest.class,
+		ViewerToolBarBaseTest.class, ViewerToolBarFunctionTest.class, ViewerToolBarItemPresentTest.class,
 
 		DeleteParticipantTest.class,
 
@@ -292,7 +290,7 @@ PluginTest.class, PluginConfTest.class, PluginSpecificationTest.class, FragmentT
 		 * 
 		 * TODO
 		 */
-		EStructuralFeaturePropertyTesterTests.class,
+		EStructuralFeaturePropertyTesterTest.class,
 
 		/*
 		 * Specific observables
@@ -301,7 +299,7 @@ PluginTest.class, PluginConfTest.class, PluginSpecificationTest.class, FragmentT
 		 */
 		TextObservableValueDisposeTest.class, TextObservableValueTest.class, CountObservableValueTest.class,
 		MessageFormatObservableValueTest.class, GuardObservableValueTest.class, MapperObservableValueTest.class,
-		EListElementObservableValueTests.class, EListKeyedElementObservableValueTest.class,
+		EListElementObservableValueTest.class, EListKeyedElementObservableValueTest.class,
 		ViewerBindingTreeFactoryTest.class, ViewerBindingTreeFactoryPerformanceTest.class,
 		IndexObservableListTest.class, FilteredObservableListTest.class, ListIndexObservableValueTest.class,
 
@@ -400,18 +398,18 @@ PluginTest.class, PluginConfTest.class, PluginSpecificationTest.class, FragmentT
 		FilterTest.class, SortingTest.class, FormChooserTest.class, FormCreatorTest.class,
 		FormCreatorAlignmentTest.class, FormCreatorObjectMessageCollectionTest.class, TableCreatorTest.class,
 		DoubleClickAdapterTest.class, GlobalNavigationManagerTest.class, MouseDownConverterTest.class,
-		BindingObjectInformationTest.class, BindingContextSelectionProviderTests.class,
+		BindingObjectInformationTest.class, BindingContextSelectionProviderTest.class,
 
-		FormChooserWizardTest.class, BindingEnablerTests.class, StringListTests.class,
+		FormChooserWizardTest.class, BindingEnablerTest.class, StringListTest.class,
 
-		ManagerRunnableManagerTests.class, ClipboardConverterManagerTests.class,
+		ManagerRunnableManagerTest.class, ClipboardConverterManagerTest.class,
 
-		ExtendedCommandStackTests.class, FeatureListMonitorTests.class,
+		ExtendedCommandStackTest.class, FeatureListMonitorTest.class,
 
 		/*
 		 * Composite Forms
 		 */
-		CompositeFormBasicTests.class, CompositeFormCreateTests.class,
+		CompositeFormBasicTest.class, CompositeFormCreateTest.class,
 
 		/*
 		 * Cut, copy and paste
@@ -434,7 +432,7 @@ PluginTest.class, PluginConfTest.class, PluginSpecificationTest.class, FragmentT
 		/*
 		 * Script Engine
 		 */
-		AllScriptEngineTests.class
+		AllScriptEngineTest.class
 
 })
 public class AllBindingTests {

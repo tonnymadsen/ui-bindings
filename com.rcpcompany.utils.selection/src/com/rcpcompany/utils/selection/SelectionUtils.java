@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017, 2011 The RCP Company and others.
+ * Copyright (c) 2006-2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,6 +11,7 @@
 package com.rcpcompany.utils.selection;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -28,22 +29,26 @@ public final class SelectionUtils {
 	private SelectionUtils() {
 	}
 
-	private static final List EMPTY_LIST = new ArrayList();
-
 	/**
-	 * Computes and returns a list with the objects of the selection that are - or can adapt to -
-	 * the specified base class.
+	 * Computes and returns a list with the objects of the selection that are -
+	 * or can adapt to - the specified base class.
 	 * 
-	 * @param <T> the type of the baseClass
-	 * @param selection the selection to handle
-	 * @param baseClass the wanted base class
+	 * @param <T>
+	 *            the type of the baseClass
+	 * @param selection
+	 *            the selection to handle
+	 * @param baseClass
+	 *            the wanted base class
 	 * @return a list with the found objects
 	 */
-	public static <T> List<T> computeSelection(ISelection selection, Class<T> baseClass) {
-		if (!(selection instanceof IStructuredSelection)) return EMPTY_LIST;
+	@SuppressWarnings("unchecked")
+	public static <T> List<T> computeSelection(ISelection selection,
+			Class<T> baseClass) {
+		if (!(selection instanceof IStructuredSelection))
+			return Collections.EMPTY_LIST;
 		final IStructuredSelection ss = (IStructuredSelection) selection;
 		List<T> list = null;
-		for (final Iterator e = ss.iterator(); e.hasNext();) {
+		for (final Iterator<?> e = ss.iterator(); e.hasNext();) {
 			final Object next = e.next();
 			T c = (T) Platform.getAdapterManager().getAdapter(next, baseClass);
 			if (c != null) {
@@ -60,7 +65,8 @@ public final class SelectionUtils {
 				list.add(c);
 			}
 		}
-		if (list == null) return EMPTY_LIST;
+		if (list == null)
+			return Collections.EMPTY_LIST;
 		return list;
 	}
 }

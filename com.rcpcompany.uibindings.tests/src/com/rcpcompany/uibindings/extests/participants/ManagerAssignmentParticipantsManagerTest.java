@@ -10,7 +10,8 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.participants;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.ExtensionTestUtils.*;
 import static org.junit.Assert.*;
 
 import java.util.List;
@@ -31,6 +32,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopItemGroup;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 
 /**
  * Test of {@link IManager#getAssignmentParticiantsManager()}.
@@ -42,7 +44,7 @@ public class ManagerAssignmentParticipantsManagerTest {
 
 	@Before
 	public void before() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 		MANAGER = IManager.Factory.getManager();
 	}
 
@@ -63,7 +65,7 @@ public class ManagerAssignmentParticipantsManagerTest {
 			@Override
 			public void run() {
 				final IAssignmentParticipantsManager m = MANAGER.getAssignmentParticiantsManager();
-				final List<IConfigurationElement> elements = getElements(InternalConstants.ASSIGNMENT_PARTICIPANT_TAG);
+				final List<IConfigurationElement> elements = getElements("com.rcpcompany.uibindings.uiBindings", InternalConstants.ASSIGNMENT_PARTICIPANT_TAG);
 
 				assertTrue(m.getParticipants().size() >= 1);
 				assertEquals(elements.size(), m.getParticipants().size());

@@ -10,7 +10,6 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.manager;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.emf.common.util.EList;
@@ -21,6 +20,7 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.ITreeItemDescriptor;
 import com.rcpcompany.uibindings.ITreeItemRelation;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 
 /**
  * Test of {@link IManager#getTreeItems()}, {@link IManager#getTreeItem(String)} and
@@ -33,7 +33,7 @@ public class ManagerTreeFunctionalityTest {
 
 	@Before
 	public void setup() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 		myManager = IManager.Factory.getManager();
 	}
 

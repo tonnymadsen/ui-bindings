@@ -1,15 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %Bundle-Name
+Bundle-Name: Basic Extension Point Utilities
 Bundle-SymbolicName: com.rcpcompany.utils.extensionpoints
 Bundle-Version: 1.2.0.qualifier
-Bundle-Vendor: %Bundle-Vendor
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-Vendor: The RCP Company
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.0.0,4.0.0)",
  com.rcpcompany.utils.logging;bundle-version="[1.1.0,2.0.0)",
- org.eclipse.ui;bundle-version="[3.0.0,4.0.0)",
- org.junit;bundle-version="[4.0.0,5.0.0)"
-Export-Package: com.rcpcompany.utils.extensionpoints,
- com.rcpcompany.utils.extensionpoints.tests
+ org.eclipse.ui;bundle-version="[3.0.0,4.0.0)"
+Export-Package: com.rcpcompany.utils.extensionpoints;version="1.2.0"
 Bundle-Activator: com.rcpcompany.utils.extensionpoints.internals.Activator
 Bundle-ActivationPolicy: lazy

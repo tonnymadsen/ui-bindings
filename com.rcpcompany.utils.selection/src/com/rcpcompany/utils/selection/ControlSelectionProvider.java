@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017, 2011 The RCP Company and others.
+ * Copyright (c) 2006-2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -31,8 +31,8 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.ui.forms.widgets.Section;
 
 /**
- * A selection provider for view parts with more that one viewer. Tracks the focus of the viewers to
- * provide the correct selection.
+ * A selection provider for view parts with more that one viewer. Tracks the
+ * focus of the viewers to provide the correct selection.
  */
 public class ControlSelectionProvider implements IPostSelectionProvider {
 
@@ -44,7 +44,11 @@ public class ControlSelectionProvider implements IPostSelectionProvider {
 	/**
 	 * All round listener.
 	 */
-	private class MyListener implements ISelectionChangedListener, FocusListener, Listener {
+	private class MyListener
+			implements
+				ISelectionChangedListener,
+				FocusListener,
+				Listener {
 		private final Control myControl;
 
 		public MyListener(Control control) {
@@ -120,14 +124,13 @@ public class ControlSelectionProvider implements IPostSelectionProvider {
 	}
 
 	/**
-	 * @param viewers All viewers that can provide a selection
-	 * @param viewerInFocus the viewer currently in focus or <code>null</code>
+	 * @param viewers
+	 *            All viewers that can provide a selection
+	 * @param viewerInFocus
+	 *            the viewer currently in focus or <code>null</code>
 	 */
-	public ControlSelectionProvider(StructuredViewer[] viewers, StructuredViewer viewerInFocus) {
-		this();
-		final Control[] controls = new Control[viewers.length];
-		final ISelectionProvider[] providers = new ISelectionProvider[viewers.length];
-
+	public ControlSelectionProvider(StructuredViewer[] viewers,
+			StructuredViewer viewerInFocus) {
 		for (final StructuredViewer viewer : viewers) {
 			addViewer(viewer);
 		}
@@ -140,7 +143,8 @@ public class ControlSelectionProvider implements IPostSelectionProvider {
 	 * @param controls
 	 * @param providers
 	 */
-	public ControlSelectionProvider(Control[] controls, ISelectionProvider[] providers) {
+	public ControlSelectionProvider(Control[] controls,
+			ISelectionProvider[] providers) {
 		this();
 		Assert.isNotNull(controls);
 		Assert.isNotNull(providers);
@@ -166,7 +170,8 @@ public class ControlSelectionProvider implements IPostSelectionProvider {
 	 * @return the provider or <code>null</code>
 	 */
 	public ISelectionProvider getCurrentSelectionProvider() {
-		if (controlInFocus == null) return null;
+		if (controlInFocus == null)
+			return null;
 
 		return selectionProviders.get(controlInFocus);
 	}
@@ -174,8 +179,10 @@ public class ControlSelectionProvider implements IPostSelectionProvider {
 	/**
 	 * Adds a new control with a specific provider.
 	 * 
-	 * @param control the control
-	 * @param provider the provider
+	 * @param control
+	 *            the control
+	 * @param provider
+	 *            the provider
 	 */
 	public void addControl(Control control, ISelectionProvider provider) {
 		debug("added(" + control + ", " + provider + ")"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -193,7 +200,8 @@ public class ControlSelectionProvider implements IPostSelectionProvider {
 		}
 		if (provider instanceof IPostSelectionProvider) {
 			final IPostSelectionProvider post = (IPostSelectionProvider) provider;
-			post.addPostSelectionChangedListener(new PostSelectionListener(control));
+			post.addPostSelectionChangedListener(new PostSelectionListener(
+					control));
 		}
 	}
 
@@ -206,7 +214,8 @@ public class ControlSelectionProvider implements IPostSelectionProvider {
 	 */
 	public void setFocusControl(Control control) {
 		Assert.isNotNull(control);
-		if (control == controlInFocus) return;
+		if (control == controlInFocus)
+			return;
 		debug("focus: " + control); //$NON-NLS-1$
 
 		controlInFocus = control;
@@ -216,7 +225,8 @@ public class ControlSelectionProvider implements IPostSelectionProvider {
 		}
 
 		final ISelectionProvider provider = selectionProviders.get(control);
-		if (provider == null) return;
+		if (provider == null)
+			return;
 		fireSelectionChanged();
 		firePostSelectionChanged();
 	}
@@ -225,7 +235,8 @@ public class ControlSelectionProvider implements IPostSelectionProvider {
 		debug("selectionChanged(" + getCurrentSelectionProvider() + ": " + getSelection() + ")"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
 		if (selectionChangedListeners != null) {
-			final SelectionChangedEvent event = new SelectionChangedEvent(this, getSelection());
+			final SelectionChangedEvent event = new SelectionChangedEvent(this,
+					getSelection());
 
 			final Object[] listeners = selectionChangedListeners.getListeners();
 			for (final Object listener2 : listeners) {
@@ -237,9 +248,11 @@ public class ControlSelectionProvider implements IPostSelectionProvider {
 
 	private void firePostSelectionChanged() {
 		if (postSelectionChangedListeners != null) {
-			final SelectionChangedEvent event = new SelectionChangedEvent(this, getSelection());
+			final SelectionChangedEvent event = new SelectionChangedEvent(this,
+					getSelection());
 
-			final Object[] listeners = postSelectionChangedListeners.getListeners();
+			final Object[] listeners = postSelectionChangedListeners
+					.getListeners();
 			for (final Object listener2 : listeners) {
 				final ISelectionChangedListener listener = (ISelectionChangedListener) listener2;
 				listener.selectionChanged(event);
@@ -253,24 +266,28 @@ public class ControlSelectionProvider implements IPostSelectionProvider {
 	}
 
 	@Override
-	public void removeSelectionChangedListener(ISelectionChangedListener listener) {
+	public void removeSelectionChangedListener(
+			ISelectionChangedListener listener) {
 		selectionChangedListeners.remove(listener);
 	}
 
 	@Override
-	public void addPostSelectionChangedListener(ISelectionChangedListener listener) {
+	public void addPostSelectionChangedListener(
+			ISelectionChangedListener listener) {
 		postSelectionChangedListeners.add(listener);
 	}
 
 	@Override
-	public void removePostSelectionChangedListener(ISelectionChangedListener listener) {
+	public void removePostSelectionChangedListener(
+			ISelectionChangedListener listener) {
 		postSelectionChangedListeners.remove(listener);
 	}
 
 	@Override
 	public ISelection getSelection() {
 		final ISelectionProvider provider = getCurrentSelectionProvider();
-		if (provider == null) return StructuredSelection.EMPTY;
+		if (provider == null)
+			return StructuredSelection.EMPTY;
 
 		final ISelection selection = provider.getSelection();
 		debug("getSelection()=" + selection); //$NON-NLS-1$
@@ -283,7 +300,8 @@ public class ControlSelectionProvider implements IPostSelectionProvider {
 	@Override
 	public void setSelection(ISelection selection) {
 		final ISelectionProvider provider = getCurrentSelectionProvider();
-		if (provider == null) return;
+		if (provider == null)
+			return;
 
 		provider.setSelection(selection);
 	}

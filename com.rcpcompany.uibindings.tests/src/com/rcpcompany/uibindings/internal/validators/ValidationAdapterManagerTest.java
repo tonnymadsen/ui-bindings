@@ -10,7 +10,8 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.internal.validators;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.EMFTestUtils.*;
+import static com.rcpcompany.test.utils.UITestUtils.*;
 import static org.junit.Assert.*;
 
 import org.junit.Before;

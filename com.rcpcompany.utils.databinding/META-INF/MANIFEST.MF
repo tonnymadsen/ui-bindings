@@ -1,19 +1,17 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %Bundle-Name
+Bundle-Name: Basic Databinding Utilities
 Bundle-SymbolicName: com.rcpcompany.utils.databinding;singleton:=true
 Bundle-Version: 1.1.0.qualifier
-Bundle-Vendor: %Bundle-Vendor
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: The RCP Company
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.eclipse.core.databinding;bundle-version="[1.0.0,2.0.0)";visibility:=reexport,
  org.eclipse.jface.databinding;bundle-version="[1.2.0,2.0.0)",
  org.eclipse.ui.forms;bundle-version="[3.3.0,4.0.0)";visibility:=reexport,
  org.eclipse.core.runtime;bundle-version="[3.0.0,4.0.0)",
  com.rcpcompany.utils.logging;bundle-version="[1.0.0,2.0.0)",
- org.eclipse.ui;bundle-version="[3.4.0,4.0.0)",
- org.junit;bundle-version="[4.0.0,5.0.0)"
-Export-Package: com.rcpcompany.utils.databinding,
- com.rcpcompany.utils.databinding.tests
+ org.eclipse.ui;bundle-version="[3.4.0,4.0.0)"
+Export-Package: com.rcpcompany.utils.databinding;version="1.0.0"
 Import-Package: org.eclipse.emf.common.notify,
  org.eclipse.emf.common.notify.impl,
  org.eclipse.emf.common.util,

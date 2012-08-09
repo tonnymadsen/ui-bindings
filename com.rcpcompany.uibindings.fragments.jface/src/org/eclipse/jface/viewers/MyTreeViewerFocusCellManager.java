@@ -12,6 +12,8 @@ package org.eclipse.jface.viewers;
 
 import org.eclipse.swt.widgets.TreeItem;
 
+import com.rcpcompany.uibindings.fragments.jfaceif.IMyViewerFocusCellManager;
+
 /**
  * Special version of {@link TreeViewerFocusCellManager}.
  * <p>
@@ -23,7 +25,7 @@ import org.eclipse.swt.widgets.TreeItem;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class MyTreeViewerFocusCellManager extends TreeViewerFocusCellManager {
+public class MyTreeViewerFocusCellManager extends TreeViewerFocusCellManager implements IMyViewerFocusCellManager {
 	public MyTreeViewerFocusCellManager(TreeViewer viewer, FocusCellHighlighter focusDrawingDelegate) {
 		super(viewer, focusDrawingDelegate);
 	}
@@ -33,6 +35,7 @@ public class MyTreeViewerFocusCellManager extends TreeViewerFocusCellManager {
 		super(viewer, focusDrawingDelegate, navigationStrategy);
 	}
 
+	@Override
 	public void setFocusCell(Object element, int column) {
 		final ViewerCell oldCell = getFocusCell();
 		if (oldCell != null && (column == oldCell.getColumnIndex()) && (element == oldCell.getElement())) return;
@@ -46,25 +49,6 @@ public class MyTreeViewerFocusCellManager extends TreeViewerFocusCellManager {
 		setFocusCell(cell);
 	}
 
-	@Override
-	void setFocusCell(ViewerCell focusCell) {
-		// if (focusCell != null) {
-		// LogUtils.debug(this, "" + focusCell.getElement());
-		// final ColumnViewer viewer = getViewer();
-		// final Tree Tree = (Tree) viewer.getControl();
-		// final TreeItem item = (TreeItem) focusCell.getItem();
-		//
-		// Tree.setSelection(item);
-		// }
-
-		super.setFocusCell(focusCell);
-	}
-
-	/**
-	 * Updates the element part of the {@link ViewerCell}.
-	 * <p>
-	 * Part of our fix for SIMA-182.
-	 */
 	public void updateFocusCell() {
 		final ViewerCell cell = getFocusCell();
 		if (cell == null || cell.getViewerRow() == null) return;

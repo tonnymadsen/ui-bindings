@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017, 2011 The RCP Company and others.
+ * Copyright (c) 2006-2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -252,34 +252,7 @@ public final class ToStringUtils {
 		case SWT.MouseDoubleClick:
 		case SWT.MouseHover:
 		case SWT.MouseWheel:
-			sb.append("\n  "); //$NON-NLS-1$
-			if ((event.stateMask & SWT.ALT) == SWT.ALT) {
-				sb.append("ALT "); //$NON-NLS-1$
-			}
-			if ((event.stateMask & SWT.SHIFT) == SWT.SHIFT) {
-				sb.append("SHIFT "); //$NON-NLS-1$
-			}
-			if ((event.stateMask & SWT.CTRL) == SWT.CTRL) {
-				sb.append("CTRL "); //$NON-NLS-1$
-			}
-			if ((event.stateMask & SWT.COMMAND) == SWT.COMMAND) {
-				sb.append("COMMAND "); //$NON-NLS-1$
-			}
-			if ((event.stateMask & SWT.BUTTON1) == SWT.BUTTON1) {
-				sb.append("BUTTON1 "); //$NON-NLS-1$
-			}
-			if ((event.stateMask & SWT.BUTTON2) == SWT.BUTTON2) {
-				sb.append("BUTTON2 "); //$NON-NLS-1$
-			}
-			if ((event.stateMask & SWT.BUTTON3) == SWT.BUTTON3) {
-				sb.append("BUTTON3 "); //$NON-NLS-1$
-			}
-			if ((event.stateMask & SWT.BUTTON4) == SWT.BUTTON4) {
-				sb.append("BUTTON4 "); //$NON-NLS-1$
-			}
-			if ((event.stateMask & SWT.BUTTON5) == SWT.BUTTON5) {
-				sb.append("BUTTON5 "); //$NON-NLS-1$
-			}
+			toStringStateMask(sb, event);
 
 			sb.append("button=").append(event.button).append(", count=").append(event.count); //$NON-NLS-1$ //$NON-NLS-2$
 			break;
@@ -294,34 +267,8 @@ public final class ToStringUtils {
 			break;
 		case SWT.Selection:
 		case SWT.DefaultSelection:
-			sb.append("\n  "); //$NON-NLS-1$
-			if ((event.stateMask & SWT.ALT) == SWT.ALT) {
-				sb.append("ALT "); //$NON-NLS-1$
-			}
-			if ((event.stateMask & SWT.SHIFT) == SWT.SHIFT) {
-				sb.append("SHIFT "); //$NON-NLS-1$
-			}
-			if ((event.stateMask & SWT.CTRL) == SWT.CTRL) {
-				sb.append("CTRL "); //$NON-NLS-1$
-			}
-			if ((event.stateMask & SWT.COMMAND) == SWT.COMMAND) {
-				sb.append("COMMAND "); //$NON-NLS-1$
-			}
-			if ((event.stateMask & SWT.BUTTON1) == SWT.BUTTON1) {
-				sb.append("BUTTON1 "); //$NON-NLS-1$
-			}
-			if ((event.stateMask & SWT.BUTTON2) == SWT.BUTTON2) {
-				sb.append("BUTTON2 "); //$NON-NLS-1$
-			}
-			if ((event.stateMask & SWT.BUTTON3) == SWT.BUTTON3) {
-				sb.append("BUTTON3 "); //$NON-NLS-1$
-			}
-			if ((event.stateMask & SWT.BUTTON4) == SWT.BUTTON4) {
-				sb.append("BUTTON4 "); //$NON-NLS-1$
-			}
-			if ((event.stateMask & SWT.BUTTON5) == SWT.BUTTON5) {
-				sb.append("BUTTON5 "); //$NON-NLS-1$
-			}
+			toStringStateMask(sb, event);
+
 			sb.append("width=").append(event.width).append(", height=").append(event.height).append(", detail="); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			if ((event.detail & SWT.CHECK) == SWT.CHECK) {
 				sb.append("CHECK "); //$NON-NLS-1$
@@ -489,6 +436,37 @@ public final class ToStringUtils {
 		}
 
 		return sb.toString();
+	}
+
+	private static void toStringStateMask(final StringBuilder sb, Event event) {
+		sb.append("\n  "); //$NON-NLS-1$
+		if ((event.stateMask & SWT.ALT) == SWT.ALT) {
+			sb.append("ALT "); //$NON-NLS-1$
+		}
+		if ((event.stateMask & SWT.SHIFT) == SWT.SHIFT) {
+			sb.append("SHIFT "); //$NON-NLS-1$
+		}
+		if ((event.stateMask & SWT.CTRL) == SWT.CTRL) {
+			sb.append("CTRL "); //$NON-NLS-1$
+		}
+		if ((event.stateMask & SWT.COMMAND) == SWT.COMMAND) {
+			sb.append("COMMAND "); //$NON-NLS-1$
+		}
+		if ((event.stateMask & SWT.BUTTON1) == SWT.BUTTON1) {
+			sb.append("BUTTON1 "); //$NON-NLS-1$
+		}
+		if ((event.stateMask & SWT.BUTTON2) == SWT.BUTTON2) {
+			sb.append("BUTTON2 "); //$NON-NLS-1$
+		}
+		if ((event.stateMask & SWT.BUTTON3) == SWT.BUTTON3) {
+			sb.append("BUTTON3 "); //$NON-NLS-1$
+		}
+		if ((event.stateMask & SWT.BUTTON4) == SWT.BUTTON4) {
+			sb.append("BUTTON4 "); //$NON-NLS-1$
+		}
+		if ((event.stateMask & SWT.BUTTON5) == SWT.BUTTON5) {
+			sb.append("BUTTON5 "); //$NON-NLS-1$
+		}
 	}
 
 	/**

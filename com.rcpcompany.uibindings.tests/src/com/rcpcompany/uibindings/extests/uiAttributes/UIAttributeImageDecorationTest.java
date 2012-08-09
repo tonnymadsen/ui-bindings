@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.uiAttributes;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.UITestUtils.*;
 import static org.junit.Assert.*;
 
 import java.lang.reflect.Constructor;
@@ -49,6 +49,7 @@ import com.rcpcompany.uibindings.IUIAttributeImageDecoration;
 import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.views.UIBTestView;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.uiAttributes.SimpleUIAttribute;
 import com.rcpcompany.uibindings.utils.IPaintDecoration;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -299,7 +300,7 @@ public class UIAttributeImageDecorationTest<T extends Control> {
 
 	@Before
 	public void before() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 
 		createView();

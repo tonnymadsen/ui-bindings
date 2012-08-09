@@ -10,7 +10,6 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.observables;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.core.databinding.observable.list.IObservableList;
@@ -25,6 +24,7 @@ import com.rcpcompany.uibindings.observables.CountObservableValue;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 
 /**
  * Test of {@link CountObservableValue}.
@@ -36,7 +36,7 @@ public class CountObservableValueTest {
 
 	@Before
 	public void before() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 		myShop = ShopFactory.eINSTANCE.createShop();
 	}
 

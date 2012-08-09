@@ -10,7 +10,6 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.sourceProviders;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -28,6 +27,7 @@ import org.junit.Test;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.internal.Activator;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 
 /**
  * Tests of all used source names in the expression related extension points
@@ -42,7 +42,7 @@ public class CommonSourceProviderTest {
 
 	@Before
 	public void before() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 
 		final IServiceLocator locator = PlatformUI.getWorkbench();
 

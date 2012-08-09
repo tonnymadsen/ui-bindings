@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017, 2011 The RCP Company and others.
+ * Copyright (c) 2006-2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -20,11 +20,13 @@ import com.rcpcompany.utils.logging.LogUtils;
 /**
  * Simple holder pattern.
  * <p>
- * Used to hold a reference to an object that is created via the extension registry.
+ * Used to hold a reference to an object that is created via the extension
+ * registry.
  * 
  * @author Tonny Madsen, The RCP Company
  * 
- * @param <X> the concrete type of the wanted objects
+ * @param <X>
+ *            the concrete type of the wanted objects
  */
 public class CEObjectHolder<X> {
 	private final IConfigurationElement myCE;
@@ -42,21 +44,26 @@ public class CEObjectHolder<X> {
 	private final String myAttrName;
 
 	/**
-	 * Constructs and returns a new holder object for the specified configuration element.
+	 * Constructs and returns a new holder object for the specified
+	 * configuration element.
 	 * <p>
 	 * Short for <code>CEObjectHolder(ce, "class")</code>
 	 * 
-	 * @param ce the configuration element
+	 * @param ce
+	 *            the configuration element
 	 */
 	public CEObjectHolder(IConfigurationElement ce) {
 		this(ce, "class");
 	}
 
 	/**
-	 * Constructs and returns a new holder object for the specified configuration element.
+	 * Constructs and returns a new holder object for the specified
+	 * configuration element.
 	 * 
-	 * @param ce the configuration element
-	 * @param attrName the attribute name
+	 * @param ce
+	 *            the configuration element
+	 * @param attrName
+	 *            the attribute name
 	 */
 	public CEObjectHolder(IConfigurationElement ce, String attrName) {
 		myCE = ce;
@@ -68,7 +75,8 @@ public class CEObjectHolder<X> {
 	 * <p>
 	 * This can be considered a constant holder object.
 	 * 
-	 * @param obj the constant holder value
+	 * @param obj
+	 *            the constant holder value
 	 * 
 	 */
 	public CEObjectHolder(X obj) {
@@ -82,6 +90,7 @@ public class CEObjectHolder<X> {
 	 * 
 	 * @return the object or <code>null</code>
 	 */
+	@SuppressWarnings("unchecked")
 	public X getObject() {
 		if (myObject == null) {
 			try {
@@ -98,18 +107,21 @@ public class CEObjectHolder<X> {
 	 * 
 	 * @return the object or <code>null</code>
 	 */
+	@SuppressWarnings("unchecked")
 	public Class<X> getObjectClass() {
 		final String name = myCE.getContributor().getName();
 		final String className = myCE.getAttribute(myAttrName);
 		final Bundle bundle = Activator.getDefault().getBundle(name);
 		if (bundle == null) {
-			LogUtils.error(myCE, myAttrName + ": cannot find bundle configuration element");
+			LogUtils.error(myCE, myAttrName
+					+ ": cannot find bundle configuration element");
 			return null;
 		}
 		try {
 			return (Class<X>) bundle.loadClass(className);
 		} catch (final ClassNotFoundException ex) {
-			LogUtils.error(myCE, myAttrName + ": class cannot be loaded: " + className, ex);
+			LogUtils.error(myCE, myAttrName + ": class cannot be loaded: "
+					+ className, ex);
 			return null;
 		}
 	}

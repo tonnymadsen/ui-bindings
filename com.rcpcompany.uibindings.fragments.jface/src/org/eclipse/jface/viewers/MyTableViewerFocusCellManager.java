@@ -12,6 +12,8 @@ package org.eclipse.jface.viewers;
 
 import org.eclipse.swt.widgets.TableItem;
 
+import com.rcpcompany.uibindings.fragments.jfaceif.IMyViewerFocusCellManager;
+
 /**
  * Special version of {@link TableViewerFocusCellManager}.
  * <p>
@@ -23,7 +25,7 @@ import org.eclipse.swt.widgets.TableItem;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class MyTableViewerFocusCellManager extends TableViewerFocusCellManager {
+public class MyTableViewerFocusCellManager extends TableViewerFocusCellManager implements IMyViewerFocusCellManager {
 	public MyTableViewerFocusCellManager(TableViewer viewer, FocusCellHighlighter focusDrawingDelegate) {
 		super(viewer, focusDrawingDelegate);
 	}
@@ -33,6 +35,7 @@ public class MyTableViewerFocusCellManager extends TableViewerFocusCellManager {
 		super(viewer, focusDrawingDelegate, navigationStrategy);
 	}
 
+	@Override
 	public void setFocusCell(Object element, int column) {
 		final ViewerCell oldCell = getFocusCell();
 		if (oldCell != null && (column == oldCell.getColumnIndex()) && (element == oldCell.getElement())) return;
@@ -46,25 +49,12 @@ public class MyTableViewerFocusCellManager extends TableViewerFocusCellManager {
 		setFocusCell(cell);
 	}
 
-	@Override
-	void setFocusCell(ViewerCell focusCell) {
-		// if (focusCell != null) {
-		// LogUtils.debug(this, "" + focusCell.getElement());
-		// final ColumnViewer viewer = getViewer();
-		// final Table table = (Table) viewer.getControl();
-		// final TableItem item = (TableItem) focusCell.getItem();
-		//
-		// table.setSelection(item);
-		// }
-
-		super.setFocusCell(focusCell);
-	}
-
-	/**
-	 * Updates the element part of the {@link ViewerCell}.
-	 * <p>
-	 * Part of our fix for SIMA-182.
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.viewers.IA#updateFocusCell()
 	 */
+	@Override
 	public void updateFocusCell() {
 		final ViewerCell cell = getFocusCell();
 		if (cell == null || cell.getViewerRow() == null) return;

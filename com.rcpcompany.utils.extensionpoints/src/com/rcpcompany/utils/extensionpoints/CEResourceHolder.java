@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017, 2011 The RCP Company and others.
+ * Copyright (c) 2006-2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -18,7 +18,8 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 /**
  * Simple holder pattern for images in the extension registry.
  * <p>
- * Used to hold a reference to a resource that is created via the extension registry.
+ * Used to hold a reference to a resource that is created via the extension
+ * registry.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -29,21 +30,26 @@ public class CEResourceHolder {
 	private final String myAttrName;
 
 	/**
-	 * Constructs and returns a new holder object for the specified configuration element.
+	 * Constructs and returns a new holder object for the specified
+	 * configuration element.
 	 * <p>
 	 * Short for <code>CEObjectHolder(ce, "image")</code>
 	 * 
-	 * @param ce the configuration element
+	 * @param ce
+	 *            the configuration element
 	 */
 	public CEResourceHolder(IConfigurationElement ce) {
 		this(ce, "image");
 	}
 
 	/**
-	 * Constructs and returns a new holder object for the specified configuration element.
+	 * Constructs and returns a new holder object for the specified
+	 * configuration element.
 	 * 
-	 * @param ce the configuration element
-	 * @param attrName the attribute name
+	 * @param ce
+	 *            the configuration element
+	 * @param attrName
+	 *            the attribute name
 	 */
 	public CEResourceHolder(IConfigurationElement ce, String attrName) {
 		myCE = ce;
@@ -74,8 +80,8 @@ public class CEResourceHolder {
 		if (myImageDescriptor == null) {
 			final String imageName = myCE.getAttribute(myAttrName);
 			if (imageName != null) {
-				myImageDescriptor = AbstractUIPlugin.imageDescriptorFromPlugin(myCE.getContributor().getName(),
-						imageName);
+				myImageDescriptor = AbstractUIPlugin.imageDescriptorFromPlugin(
+						myCE.getContributor().getName(), imageName);
 			}
 		}
 		return myImageDescriptor;

@@ -10,7 +10,6 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.internal.decorators.extenders;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.swt.SWT;

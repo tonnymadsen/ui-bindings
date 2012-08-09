@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.internal;
 
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -48,19 +49,20 @@ import org.eclipse.jface.viewers.ColumnViewer;
 import org.eclipse.jface.viewers.ColumnViewerEditor;
 import org.eclipse.jface.viewers.ColumnViewerEditorActivationStrategy;
 import org.eclipse.jface.viewers.ColumnViewerToolTipSupport;
+import org.eclipse.jface.viewers.FocusCellHighlighter;
 import org.eclipse.jface.viewers.FocusCellOwnerDrawHighlighter;
 import org.eclipse.jface.viewers.ILabelDecorator;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.MyTableViewerEditor;
-import org.eclipse.jface.viewers.MyTableViewerFocusCellManager;
-import org.eclipse.jface.viewers.MyTreeViewerFocusCellManager;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.viewers.TableViewerEditor;
+import org.eclipse.jface.viewers.TableViewerFocusCellManager;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.TreeViewerEditor;
+import org.eclipse.jface.viewers.TreeViewerFocusCellManager;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.jface.viewers.ViewerColumn;
 import org.eclipse.swt.SWT;
@@ -99,6 +101,7 @@ import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.bindingMessages.ValidationLabelDecorator;
+import com.rcpcompany.uibindings.fragments.jfaceif.IMyViewerFocusCellManager;
 import com.rcpcompany.uibindings.internal.observables.properties.MySelectionProviderSingleSelectionProperty;
 import com.rcpcompany.uibindings.internal.utils.DoubleClickAdapter;
 import com.rcpcompany.uibindings.internal.utils.UIHandlerUtils;
@@ -121,6 +124,8 @@ import com.rcpcompany.utils.logging.LogUtils;
  * First Table Column Offset</em>}</li>
  * </ul>
  * </p>
+ * 
+ * @param <SWTFocusCellManager>
  * 
  * @generated
  */
@@ -388,16 +393,28 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		final FocusCellOwnerDrawHighlighter focusDrawingDelegate = new FocusCellOwnerDrawHighlighter(viewer);
 		final int feature = ColumnViewerEditor.TABBING_HORIZONTAL | ColumnViewerEditor.TABBING_MOVE_TO_ROW_NEIGHBOR
 				| ColumnViewerEditor.TABBING_VERTICAL | ColumnViewerEditor.KEYBOARD_ACTIVATION;
-		if (viewer instanceof TableViewer) {
-			myMyTableViewerFocusCellManager = new MyTableViewerFocusCellManager((TableViewer) viewer,
-					focusDrawingDelegate, theCellNavigationStrategy);
-			MyTableViewerEditor.create((TableViewer) viewer, myMyTableViewerFocusCellManager, actSupport, feature);
-		} else if (viewer instanceof TreeViewer) {
-			myMyTreeViewerFocusCellManager = new MyTreeViewerFocusCellManager((TreeViewer) viewer,
-					focusDrawingDelegate, theCellNavigationStrategy);
-			TreeViewerEditor.create((TreeViewer) viewer, myMyTreeViewerFocusCellManager, actSupport, feature);
-		} else {
-			// Not supported
+		try {
+			if (viewer instanceof TableViewer) {
+				final Class<?> cls = Class.forName("org.eclipse.jface.viewers.MyTableViewerFocusCellManager");
+				final Constructor<?> constructor = cls.getConstructor(TableViewer.class, FocusCellHighlighter.class,
+						CellNavigationStrategy.class);
+				myViewerFocusCellManager = (IMyViewerFocusCellManager) constructor.newInstance(viewer,
+						focusDrawingDelegate, theCellNavigationStrategy);
+				TableViewerEditor.create((TableViewer) viewer, (TableViewerFocusCellManager) myViewerFocusCellManager,
+						actSupport, feature);
+			} else if (viewer instanceof TreeViewer) {
+				final Class<?> cls = Class.forName("org.eclipse.jface.viewers.MyTreeViewerFocusCellManager");
+				final Constructor<?> constructor = cls.getConstructor(TableViewer.class, FocusCellHighlighter.class,
+						CellNavigationStrategy.class);
+				myViewerFocusCellManager = (IMyViewerFocusCellManager) constructor.newInstance(viewer,
+						focusDrawingDelegate, theCellNavigationStrategy);
+				TreeViewerEditor.create((TreeViewer) viewer, (TreeViewerFocusCellManager) myViewerFocusCellManager,
+						actSupport, feature);
+			} else {
+				// Not supported
+			}
+		} catch (final Exception ex) {
+			// Do nothing
 		}
 
 		if (getList() instanceof IObserving && getList().getElementType() instanceof EReference) {
@@ -571,12 +588,8 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	@Override
 	public void setFocus(int column, EObject element) {
 		if (getControl().isDisposed()) return;
-		if (myMyTableViewerFocusCellManager != null) {
-			myMyTableViewerFocusCellManager.setFocusCell(element, column);
-			return;
-		}
-		if (myMyTreeViewerFocusCellManager != null) {
-			myMyTreeViewerFocusCellManager.setFocusCell(element, column);
+		if (myViewerFocusCellManager != null) {
+			myViewerFocusCellManager.setFocusCell(element, column);
 			return;
 		}
 	}
@@ -586,12 +599,8 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	 */
 	public void updateFocusCell() {
 		if (getControl().isDisposed()) return;
-		if (myMyTableViewerFocusCellManager != null) {
-			myMyTableViewerFocusCellManager.updateFocusCell();
-			return;
-		}
-		if (myMyTreeViewerFocusCellManager != null) {
-			myMyTreeViewerFocusCellManager.updateFocusCell();
+		if (myViewerFocusCellManager != null) {
+			myViewerFocusCellManager.updateFocusCell();
 			return;
 		}
 	}
@@ -843,8 +852,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		}
 	};
 
-	private MyTableViewerFocusCellManager myMyTableViewerFocusCellManager;
-	private MyTreeViewerFocusCellManager myMyTreeViewerFocusCellManager;
+	private IMyViewerFocusCellManager myViewerFocusCellManager;
 
 	private ViewerBindingTreeFactory myTreeFactory;
 

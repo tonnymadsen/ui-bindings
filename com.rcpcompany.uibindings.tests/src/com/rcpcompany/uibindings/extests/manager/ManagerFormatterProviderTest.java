@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.manager;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
 import org.junit.After;
@@ -20,6 +20,7 @@ import org.junit.Test;
 import com.rcpcompany.uibindings.IFormatter;
 import com.rcpcompany.uibindings.IFormatterProvider;
 import com.rcpcompany.uibindings.IManager;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 
 /**
  * Test of {@link IManager#getFormatterProvider()}.
@@ -32,7 +33,7 @@ public class ManagerFormatterProviderTest {
 
 	@Before
 	public void before() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 		MANAGER = IManager.Factory.getManager();
 		myOrigFormatterProvider = MANAGER.getFormatterProvider();
 	}

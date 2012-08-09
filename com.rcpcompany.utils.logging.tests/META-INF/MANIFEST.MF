@@ -1,13 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Logging Tests
-Bundle-SymbolicName: com.rcpcompany.tests.utils.logging; singleton:=true
+Bundle-Name: Test of com.rcpcompany.utils.logging
+Bundle-SymbolicName: com.rcpcompany.utils.logging.tests;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: The RCP Company
 Require-Bundle: org.eclipse.core.runtime,
- com.rcpcompany.utils.logging;bundle-version="1.1.0",
- org.junit;bundle-version="[4.0.0,5.0.0)",
- com.rcpcompany.tests.utils.logging.helper;bundle-version="1.1.0"
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Bundle-Activator: com.rcpcompany.tests.utils.logging.internal.Activator
+ com.rcpcompany.utils.logging,
+ com.rcpcompany.utils.logging.tests.helper,
+ com.rcpcompany.test.utils
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-Activator: com.rcpcompany.utils.logging.tests.internal.Activator
 Bundle-ActivationPolicy: lazy

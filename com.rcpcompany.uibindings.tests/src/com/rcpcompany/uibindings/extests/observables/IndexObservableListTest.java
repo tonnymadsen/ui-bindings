@@ -10,7 +10,6 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.observables;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.emf.ecore.EcorePackage;
@@ -18,6 +17,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.rcpcompany.uibindings.observables.IndexObservableList;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 
 /**
  * Test of {@link IndexObservableList}.
@@ -27,7 +27,7 @@ import com.rcpcompany.uibindings.observables.IndexObservableList;
 public class IndexObservableListTest {
 	@Before
 	public void before() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 	}
 
 	@Test

@@ -10,7 +10,6 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.scripting;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
@@ -21,6 +20,7 @@ import com.rcpcompany.uibindings.scripting.IScriptEvaluationContext;
 import com.rcpcompany.uibindings.scripting.IScriptExpression;
 import com.rcpcompany.uibindings.scripting.IScriptManager;
 import com.rcpcompany.uibindings.scripting.ScriptEngineException;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 
 /**
  * Tests the basic operation of the script functionality with the simple script engine.
@@ -33,7 +33,7 @@ public class SimpleScriptTest {
 	 */
 	@Test
 	public void testUnknownEngine() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 
 		final IScriptManager manager = IScriptManager.Factory.getManager();
 
@@ -49,7 +49,7 @@ public class SimpleScriptTest {
 	 */
 	@Test
 	public void testBasicCreation() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 
 		final IScriptManager manager = IScriptManager.Factory.getManager();
 
@@ -80,7 +80,7 @@ public class SimpleScriptTest {
 	 */
 	@Test
 	public void testVariableReevaluation() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 
 		final IScriptManager manager = IScriptManager.Factory.getManager();
 

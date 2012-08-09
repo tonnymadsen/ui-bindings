@@ -10,7 +10,6 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.observables;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -24,6 +23,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.rcpcompany.uibindings.internal.observables.ListIndexObservableValue;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 
 /**
  * Test of {@link ListIndexObservableValue}.
@@ -33,7 +33,7 @@ import com.rcpcompany.uibindings.internal.observables.ListIndexObservableValue;
 public class ListIndexObservableValueTest {
 	@Before
 	public void before() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 	}
 
 	int events = 0;

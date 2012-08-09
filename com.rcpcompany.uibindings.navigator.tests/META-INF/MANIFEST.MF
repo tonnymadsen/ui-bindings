@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test of Editors
+Bundle-SymbolicName: com.rcpcompany.uibindings.navigator.tests;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Tonny Madsen, The RCP Company
+Fragment-Host: com.rcpcompany.uibindings.navigator;bundle-version="[1.1.0,2.0.0)"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: com.rcpcompany.uibindings.tests.utils;bundle-version="[1.0.0,1.1.0)"
+Import-Package: com.rcpcompany.uibindings,
+ com.rcpcompany.uibindings.extests,
+ com.rcpcompany.uibindings.moao,
+ com.rcpcompany.uibindings.tests.shop,
+ com.rcpcompany.uibindings.utils,
+ com.rcpcompany.utils.logging,
+ org.eclipse.core.commands,
+ org.eclipse.core.databinding.observable.list,
+ org.eclipse.emf.common.notify,
+ org.eclipse.emf.common.notify.impl,
+ org.eclipse.emf.common.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.jface.action,
+ org.eclipse.jface.preference,
+ org.eclipse.jface.viewers,
+ org.eclipse.swt,
+ org.eclipse.swt.widgets

@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.manager;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.BaseTestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -22,6 +22,7 @@ import org.junit.Test;
 
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.internal.Activator;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 
 public abstract class AbstractPreferenceStoreBooleanTest {
 
@@ -72,7 +73,7 @@ public abstract class AbstractPreferenceStoreBooleanTest {
 
 	@Before
 	public void setup() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 		m = IManager.Factory.getManager();
 	}
 

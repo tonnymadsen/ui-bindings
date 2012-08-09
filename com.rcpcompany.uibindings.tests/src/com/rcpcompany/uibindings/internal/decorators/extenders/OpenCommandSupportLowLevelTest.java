@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.internal.decorators.extenders;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.UITestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.jface.bindings.keys.KeyStroke;
@@ -33,6 +33,7 @@ import com.rcpcompany.uibindings.internal.decorators.extenders.OpenCommandSuppor
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 
 /**
@@ -64,7 +65,7 @@ public class OpenCommandSupportLowLevelTest {
 
 	@Before
 	public void before() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 		IManager.Factory.getManager().setTextCommitStrategy(TextCommitStrategy.ON_MODIFY);
 		IManager.Factory.getManager().setEditCellSingleClick(false);
 

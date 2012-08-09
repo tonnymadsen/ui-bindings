@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017, 2011 The RCP Company and others.
+ * Copyright (c) 2006-2011 The RCP Company and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,21 +10,15 @@
  *******************************************************************************/
 package com.rcpcompany.utils.logging.internal;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.eclipse.core.runtime.Plugin;
-import org.osgi.framework.Bundle;
+import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
-import org.osgi.service.packageadmin.PackageAdmin;
-import org.osgi.util.tracker.ServiceTracker;
 
 /**
  * The bundle activator for the logging utilities.
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class Activator extends Plugin {
+public class Activator implements BundleActivator {
 
 	/**
 	 * The ID of this bundle.
@@ -42,13 +36,13 @@ public class Activator extends Plugin {
 	/**
 	 * The singleton activator.
 	 */
-	private static Activator theActivator;
+	private static Activator ACTIVATOR;
 
 	/**
 	 * Constructs and returns a new activator.
 	 */
 	public Activator() {
-		theActivator = this;
+		ACTIVATOR = this;
 	}
 
 	/**
@@ -57,48 +51,20 @@ public class Activator extends Plugin {
 	 * @return the activator ()
 	 */
 	public static Activator getDefault() {
-		return theActivator;
+		return ACTIVATOR;
 	}
-
-	/* ===================================================================== */
-
-	/**
-	 * List of all installed log bridges.
-	 */
-	private final List<ILogBridge> myInstalledLogBridges = new ArrayList<ILogBridge>();
 
 	/* ===================================================================== */
 
 	@Override
 	public void start(BundleContext context) throws Exception {
-		super.start(context);
-		myContext = context;
-
-		try {
-			if (Class.forName("java.util.logging.Logger") != null) {
-				myInstalledLogBridges.add(new LoggerBridge());
-			}
-		} catch (final ClassNotFoundException ex) {
-			// Hmm... should never happen...
-		}
-
-		try {
-			if (Class.forName("org.apache.log4j.Logger") != null) {
-				myInstalledLogBridges.add(new Log4JBridge());
-			}
-		} catch (final ClassNotFoundException ex) {
-			// Log4J not installed
-		}
-
-		if (isDebugging()) {
-
-		}
+		CONTEXT = context;
 	}
 
 	/**
 	 * The bundle context of the bundle.
 	 */
-	private BundleContext myContext;
+	private BundleContext CONTEXT;
 
 	/**
 	 * Returns the bundle context.
@@ -106,71 +72,13 @@ public class Activator extends Plugin {
 	 * @return the context
 	 */
 	public BundleContext getContext() {
-		return myContext;
+		return CONTEXT;
 	}
 
 	@Override
 	public void stop(BundleContext context) throws Exception {
-		super.stop(context);
-
-		for (final ILogBridge lb : myInstalledLogBridges) {
-			lb.dispose();
-		}
-		myInstalledLogBridges.clear();
-
-		assert context == myContext;
-		myContext = null;
+		assert context == CONTEXT;
+		CONTEXT = null;
 	}
 
-	/* ===================================================================== */
-
-	/**
-	 * Service tracker used in {@link #getBundleId(Object)}.
-	 */
-	private ServiceTracker bundleTracker;
-
-	/**
-	 * Returns the bundle id of the bundle that contains the provided object, or <code>null</code>
-	 * if the bundle could not be determined.
-	 * 
-	 * @param object the object to test
-	 * @return the build ID or <code>null</code>
-	 */
-	public String getBundleId(Object object) {
-		if (object == null) return null;
-
-		if (object instanceof String) return (String) object;
-
-		return getBundleId(object.getClass());
-	}
-
-	/**
-	 * Returns the bundle id of the bundle that contains the provided object, or <code>null</code>
-	 * if the bundle could not be determined.
-	 * 
-	 * @param clazz the object to test
-	 * @return the build ID or <code>null</code>
-	 */
-	public String getBundleId(Class<? extends Object> clazz) {
-		if (clazz == null) return null;
-
-		final PackageAdmin packageAdmin = getBundleAdmin();
-		if (packageAdmin == null) return null;
-
-		final Bundle source = packageAdmin.getBundle(clazz);
-		if (source == null || source.getSymbolicName() == null) return null;
-
-		return source.getSymbolicName();
-	}
-
-	/**
-	 * Returns the OSGi Package Admin service, if available.
-	 */
-	public PackageAdmin getBundleAdmin() {
-		if (bundleTracker == null) {
-			bundleTracker = new ServiceTracker(getContext(), PackageAdmin.class.getName(), null);
-			bundleTracker.open();
-		}
-		return (PackageAdmin) bundleTracker.getService();
-	}
 }
