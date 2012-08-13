@@ -19,14 +19,14 @@ import com.rcpcompany.uibindings.UIBindingsEMFObservables;
 import com.rcpcompany.uibindings.internal.utils.BindingEnabler;
 
 /**
- * This interface provides a number of simpole interfaces that can be used to control the
+ * This interface provides a number of simple interfaces that can be used to control the
  * "enablement" of the controls of exiting bindings.
  * <p>
  * The corresponding binding context need not be finished.
  * <p>
  * An example: assume we have a form for some object with a <code>unit</code> attribute with type
  * <code>WeightUnit<code>.
- * And we have an already created binding, we to make enabled only when the <code>unit</code>
+ * And we have an already created binding, that may be enabled only when the <code>unit</code>
  * attribute has the values <code>KG</code> or <code>TONNE</code>, then the following code can be
  * used.
  * 

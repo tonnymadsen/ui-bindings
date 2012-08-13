@@ -9,7 +9,6 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: com.rcpcompany.uibindings.grid,
  com.rcpcompany.uibindings.grid.internal
-Require-Bundle: org.junit;bundle-version="[4.0.0,5.0.0)"
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: com.rcpcompany.uibindings.grid.internal.Activator
 Import-Package: com.rcpcompany.uibindings,

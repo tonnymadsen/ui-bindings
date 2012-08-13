@@ -25,15 +25,14 @@ import org.junit.Test;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
-import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
 import com.rcpcompany.uibindings.extests.utils.ShowViewSelectionTestView;
-import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.internal.decorators.extenders.OpenCommandSupport.ContextData;
 import com.rcpcompany.uibindings.internal.decorators.extenders.OpenCommandSupport.ManagerData;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
+import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 
 /**
@@ -76,7 +75,7 @@ public class OpenCommandSupportLowLevelTest {
 
 		myKeyStroke = null;
 		try {
-			myKeyStroke = KeyStroke.getInstance("M1+SPACE");
+			myKeyStroke = KeyStroke.getInstance("CTRL+Space");
 		} catch (final ParseException ex) {
 			fail(ex.getMessage());
 		}
@@ -98,7 +97,7 @@ public class OpenCommandSupportLowLevelTest {
 	 * Creates the view
 	 */
 	public void createView() {
-		myView = UIBindingsTestUtils.createUIBTestView(this);
+		myView = BaseUIBTestUtils.createUIBTestView(this);
 
 		myForm = myView.createFormCreator(myShop);
 

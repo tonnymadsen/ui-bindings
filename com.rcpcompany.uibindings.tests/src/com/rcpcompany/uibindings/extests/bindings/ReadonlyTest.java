@@ -31,14 +31,13 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
-import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
+import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 
 /**
  * Test that {@link IBinding#ARG_READONLY} is handled correctly.
@@ -98,7 +97,7 @@ public class ReadonlyTest {
 	 * Creates the view
 	 */
 	public void createView() {
-		myView = UIBindingsTestUtils.createUIBTestView(this);
+		myView = BaseUIBTestUtils.createUIBTestView(this);
 		myToolkit = myView.getToolkit();
 		myBody = myView.getBody();
 		myBody.setLayout(new TableWrapLayout());

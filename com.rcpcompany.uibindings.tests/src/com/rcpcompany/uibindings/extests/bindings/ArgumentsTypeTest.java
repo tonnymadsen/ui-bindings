@@ -35,10 +35,9 @@ import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IControlFactory;
 import com.rcpcompany.uibindings.IValueBinding;
-import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.internal.controlFactories.CheckBoxControlFactory;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
+import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 
 /**
  * This test is about the different data types for arguments.
@@ -68,7 +67,7 @@ public class ArgumentsTypeTest {
 	@Before
 	public void setup() {
 		BaseUIBTestUtils.resetAll();
-		myView = UIBindingsTestUtils.createUIBTestView(this);
+		myView = BaseUIBTestUtils.createUIBTestView(this);
 		myBody = myView.getBody();
 
 		myReferenceText = new Text(myBody, SWT.SINGLE | SWT.LEAD | SWT.BORDER);

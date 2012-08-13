@@ -35,9 +35,8 @@ import com.rcpcompany.uibindings.IBindingDataType;
 import com.rcpcompany.uibindings.IColumnBinding;
 import com.rcpcompany.uibindings.IColumnBindingCellInformation;
 import com.rcpcompany.uibindings.IValueBinding;
-import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
+import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.utils.ITableCreator;
 
@@ -64,7 +63,7 @@ public class ArgumentsSequenceTest {
 	@Before
 	public void setup() {
 		BaseUIBTestUtils.resetAll();
-		myView = UIBindingsTestUtils.createUIBTestView(this);
+		myView = BaseUIBTestUtils.createUIBTestView(this);
 
 		myModel = TestModelFactory.eINSTANCE.getTestContainer();
 		myObject = myModel.getChildren().get(1);

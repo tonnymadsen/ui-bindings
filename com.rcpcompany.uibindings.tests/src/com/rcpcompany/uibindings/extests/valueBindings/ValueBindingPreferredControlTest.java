@@ -35,9 +35,8 @@ import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 import com.rcpcompany.uibinding.tests.model.TestObject;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IValueBinding;
-import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
+import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 import com.rcpcompany.utils.basic.ClassUtils;
 
 /**
@@ -109,7 +108,7 @@ public class ValueBindingPreferredControlTest {
 	}
 
 	private void createView() {
-		myView = UIBindingsTestUtils.createUIBTestView(this);
+		myView = BaseUIBTestUtils.createUIBTestView(this);
 	}
 
 	@After

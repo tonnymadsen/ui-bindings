@@ -38,8 +38,6 @@ import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
-import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
@@ -47,6 +45,7 @@ import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
+import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 
 /**
  * Test of {@link CComboContentAdapter} and {@link StyledTextContentAdapter}.
@@ -106,7 +105,7 @@ public class ContentAdapterTest<T extends Control> {
 	 * 
 	 */
 	private void createView() {
-		myView = UIBindingsTestUtils.createUIBTestView(this);
+		myView = BaseUIBTestUtils.createUIBTestView(this);
 		myBody = myView.getBody();
 
 		myWidget = createWidget(myWidgetType, myStyle);
@@ -164,7 +163,7 @@ public class ContentAdapterTest<T extends Control> {
 		sleep(300);
 
 		assertEquals(1, messages.size());
-		postKeyStroke(myWidget, "M1+Space");
+		postKeyStroke(myWidget, "CTRL+Space");
 		postKeyStroke(myWidget, "CR");
 		sleep(300);
 

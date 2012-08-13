@@ -8,7 +8,7 @@
  * Contributors:
  *     The RCP Company - initial API and implementation
  *******************************************************************************/
-package com.rcpcompany.uibindings.tests.utils;
+package com.rcpcompany.uibindings.tests.utils.views;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;

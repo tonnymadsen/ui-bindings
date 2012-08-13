@@ -53,7 +53,8 @@
 
 		<module>../com.rcpcompany.uibindings.debug</module>
 
-		<!-- <module>../com.rcpcompany.uibindings.grid</module> <module>../com.rcpcompany.uibindings.grid.tests</module> -->
+		<module>../com.rcpcompany.uibindings.grid</module>
+		<module>../com.rcpcompany.uibindings.grid.tests</module>
 
 		<module>../com.rcpcompany.uibindings.financial</module>
 		<module>../com.rcpcompany.uibindings.navigator</module>
@@ -99,7 +100,7 @@
 					<target>
 						<artifact>
 							<groupId>${project.groupId}</groupId>
-							<artifactId>com.rcpcompany.uibindings.target</artifactId>
+							<artifactId>com.rcpcompany.target</artifactId>
 							<version>4.2-SNAPSHOT</version>
 							<classifier>uibindings</classifier>
 						</artifact>

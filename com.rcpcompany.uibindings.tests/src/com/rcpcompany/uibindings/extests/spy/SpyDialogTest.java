@@ -24,13 +24,12 @@ import org.junit.Test;
 
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
-import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.internal.spy.BindingSpyDialog;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
+import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 
 public class SpyDialogTest {
 	private Shop myShop;
@@ -53,7 +52,7 @@ public class SpyDialogTest {
 	}
 
 	private void createView() {
-		myView = UIBindingsTestUtils.createUIBTestView(this);
+		myView = BaseUIBTestUtils.createUIBTestView(this);
 
 		final Composite body = myView.getBody();
 
@@ -80,7 +79,7 @@ public class SpyDialogTest {
 	public void testSpy() {
 		try {
 			final IWorkbench workbench = PlatformUI.getWorkbench();
-			final int shells = workbench.getDisplay().getShells().length;
+			final int noShells = workbench.getDisplay().getShells().length;
 
 			myText.setFocus();
 			yield();
@@ -91,23 +90,27 @@ public class SpyDialogTest {
 				public void run() {
 					/*
 					 * More than one shell is created as the used CCombo's also each create a Shell.
+					 * 
+					 * We know the Spy dialog is the first shell...
 					 */
-					assertTrue(workbench.getDisplay().getShells().length > shells);
-					final Shell lastShell = workbench.getDisplay().getShells()[shells];
+					final Shell[] shells = workbench.getDisplay().getShells();
+					assertTrue(shells.length > noShells);
+					final Shell lastShell = shells[noShells];
 					assertNotNull(lastShell);
 					final Object data = lastShell.getData();
 					assertNotNull(data);
 					assertTrue(data instanceof BindingSpyDialog);
 					((BindingSpyDialog) data).close();
+					yield();
 
-					assertEquals(shells, workbench.getDisplay().getShells().length);
+					assertEquals(noShells, workbench.getDisplay().getShells().length);
 				}
 			});
 
-			postKeyStroke(myText, "M2+M3+F3");
+			postKeyStroke(myText, "M2+M3+F5");
 
 			sleep(2000);
-			assertEquals(shells, workbench.getDisplay().getShells().length);
+			assertEquals(noShells, workbench.getDisplay().getShells().length);
 		} catch (final Exception ex) {
 			fail(ex.getMessage());
 		}

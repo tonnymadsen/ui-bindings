@@ -46,6 +46,8 @@ import com.rcpcompany.utils.logging.internal.LogUtilsImpl;
  * log of this plug-in for the unknown cases...</li>
  * <li>Change the format of the time stamp</li>
  * </ul>
+ * <p>
+ * This class is named "LogUtils" and not "ILogUtils" for historical reasons...
  */
 
 public final class LogUtils {

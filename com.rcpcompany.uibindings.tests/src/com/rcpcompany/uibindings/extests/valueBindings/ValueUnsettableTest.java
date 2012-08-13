@@ -31,9 +31,8 @@ import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.TextCommitStrategy;
-import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
+import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 
 /**
  * Tests {@link UnsettableExtender} and {@link UseDefaultValueHandler}.
@@ -94,7 +93,7 @@ public class ValueUnsettableTest {
 	 * Creates the view
 	 */
 	public void createView() {
-		myView = UIBindingsTestUtils.createUIBTestView(this);
+		myView = BaseUIBTestUtils.createUIBTestView(this);
 		myBody = myView.getBody();
 		myBody.setLayout(new TableWrapLayout());
 

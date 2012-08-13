@@ -203,7 +203,7 @@ public interface IViewerBinding extends IContainerBinding {
 	 * 
 	 * @return the new column binding
 	 * 
-	 * @deprecated will disappear
+	 *         deprecated will disappear
 	 */
 	@Deprecated
 	IColumnBinding addColumn(ViewerColumn column, EStructuralFeature feature);

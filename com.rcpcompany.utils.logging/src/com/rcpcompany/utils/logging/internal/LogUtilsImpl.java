@@ -227,6 +227,9 @@ public class LogUtilsImpl {
 			if (className.startsWith(LogUtils.class.getName())) {
 				continue;
 			}
+			if (className.startsWith(LogUtilsImpl.class.getName())) {
+				continue;
+			}
 			buffer.append(ClassUtils.getLastClassName(className)).append('.')
 					.append(st.getMethodName()).append(" (")
 					.append(st.getFileName()).append(':')

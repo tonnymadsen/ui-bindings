@@ -43,7 +43,7 @@ public interface INavigatorModelPackage extends EPackage {
 	 * 
 	 * @generated
 	 */
-	String eNS_URI = "http://rcpcompany.com/schemas/uibindings/navigator";
+	String eNS_URI = "http://rcp-company.com/schemas/uibindings/navigator";
 
 	/**
 	 * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->

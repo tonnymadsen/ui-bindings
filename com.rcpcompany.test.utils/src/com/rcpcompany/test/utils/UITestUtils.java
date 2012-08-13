@@ -187,6 +187,9 @@ public class UITestUtils {
 	 *            the text representation of the key-stroke
 	 */
 	public static void postKeyStroke(Control c, String stroke) {
+		assertNotNull(c);
+		assertFalse(c.isDisposed());
+
 		KeyStroke keyStroke = null;
 		try {
 			keyStroke = KeyStroke.getInstance(stroke);
@@ -242,6 +245,15 @@ public class UITestUtils {
 	 */
 	public static void postModifierKeys(Control c, KeyStroke keyStroke,
 			boolean down) {
+		if ((keyStroke.getModifierKeys() & SWT.COMMAND) == SWT.COMMAND) {
+			final Event event = new Event();
+			event.type = down ? SWT.KeyDown : SWT.KeyUp;
+			event.stateMask = 0;
+			event.keyCode = SWT.COMMAND;
+			event.widget = c;
+
+			assertTrue(c.getDisplay().post(event));
+		}
 		if ((keyStroke.getModifierKeys() & SWT.ALT) == SWT.ALT) {
 			final Event event = new Event();
 			event.type = down ? SWT.KeyDown : SWT.KeyUp;
@@ -270,7 +282,6 @@ public class UITestUtils {
 			assertTrue(c.getDisplay().post(event));
 		}
 	}
-
 	/**
 	 * Posts the specified keystroke to the specified control which will get
 	 * focus.

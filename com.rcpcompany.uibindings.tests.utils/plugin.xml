@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="com.rcpcompany.uibindings.tests.utils.views.EmptyView"
+            id="com.rcpcompany.uibindings.extests.views.EmptyView"
+            name="Empty View"
+            restorable="false">
+      </view>
+      <view
+            allowMultiple="true"
+            class="com.rcpcompany.uibindings.tests.utils.views.UIBTestView"
+            id="com.rcpcompany.uibindings.extests.views.TestView"
+            name="Test View"
+            restorable="false">
+      </view>
+   </extension>
+
+</plugin>

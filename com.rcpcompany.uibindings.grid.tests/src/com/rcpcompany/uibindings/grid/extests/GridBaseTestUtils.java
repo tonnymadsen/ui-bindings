@@ -18,12 +18,12 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.nebula.widgets.grid.Grid;
 
+import com.rcpcompany.test.utils.UITestUtils;
 import com.rcpcompany.uibinding.tests.model.TestGrid;
 import com.rcpcompany.uibinding.tests.model.TestGridCell;
 import com.rcpcompany.uibinding.tests.model.TestGridColumn;
 import com.rcpcompany.uibinding.tests.model.TestGridRow;
 import com.rcpcompany.uibinding.tests.model.TestModelFactory;
-import com.rcpcompany.uibindings.extests.BaseTestUtils;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -126,7 +126,7 @@ public final class GridBaseTestUtils {
 	 * @param noClicks the number of clicks
 	 */
 	public static void postMouse(Grid grid, int column, int row, int noClicks) {
-		BaseTestUtils.postMouse(grid, grid.getItem(row).getBounds(column), noClicks);
+		UITestUtils.postMouse(grid, grid.getItem(row).getBounds(column), noClicks);
 	}
 
 }

@@ -135,11 +135,11 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		assertTrue(viewer != null, "viewer must be non-null");
 		setViewer(viewer);
 
-		// TODO: only for Windows?
 		if (getControl() instanceof Table) {
 			/*
 			 * Add an empty first column to the table to avoid alignment problems
 			 */
+			// TODO: only for Windows?
 			final Table table = (Table) getControl();
 			final TableColumn column = new TableColumn(table, SWT.NONE, 0);
 			setFirstTableColumnOffset(1);
@@ -446,11 +446,13 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 			/*
 			 * Remove rows as needed
 			 */
-			for (final Object o : event.diff.getRemovals()) {
-				for (final IColumnBinding c : getColumns()) {
-					final IColumnBindingCellInformation ci = c.getCellInformation(o, false);
-					if (ci != null) {
-						ci.dispose();
+			if (event != null) {
+				for (final Object o : event.diff.getRemovals()) {
+					for (final IColumnBinding c : getColumns()) {
+						final IColumnBindingCellInformation ci = c.getCellInformation(o, false);
+						if (ci != null) {
+							ci.dispose();
+						}
 					}
 				}
 			}
@@ -1417,7 +1419,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 				/*
 				 * Find the label provider of the first real column
 				 */
-				final IColumnBinding cb = getColumns().get(getFirstTableColumnOffset());
+				final IColumnBinding cb = getColumns().get(0);
 				cb.fireLabelChanged(elements);
 			}
 		});

@@ -37,8 +37,6 @@ import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
-import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
@@ -46,6 +44,9 @@ import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
+import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
+import com.rcpcompany.utils.basic.ToStringUtils;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests the dispose sequence of a viewer and the columns in the viewer.
@@ -129,7 +130,7 @@ public class ViewerDisposeTest {
 	 * Creates the view
 	 */
 	public void createView() {
-		myView = UIBindingsTestUtils.createUIBTestView(this);
+		myView = BaseUIBTestUtils.createUIBTestView(this);
 		myBody = myView.getBody();
 		myContextTop = new Composite(myBody, SWT.NONE);
 		myContextTop.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
@@ -243,23 +244,26 @@ public class ViewerDisposeTest {
 	}
 
 	private void doTestDispose(final Runnable runnable) {
-		final int[] no = new int[1];
-		no[0] = 0;
+		final int[] no = new int[] { 0 };
 
 		yield();
 
-		monitorObject(myContactNameBinding, IUIBindingsPackage.Literals.BINDING__STATE, no, 0);
-		monitorObject(myCountryNameBinding, IUIBindingsPackage.Literals.BINDING__STATE, no, 1);
-		monitorObject(myCountryAbbrevBinding, IUIBindingsPackage.Literals.BINDING__STATE, no, 2);
-		monitorObject(myContactCityBinding, IUIBindingsPackage.Literals.BINDING__STATE, no, 3);
+		/*
+		 * The columns are disposed in various order, depending on where the dispose initiatted.
+		 * 
+		 * Based on Context dispose: The column bindings are disposed in a reverse order, but child
+		 * columns before their base column.
+		 * 
+		 * Base on Viewer dispose: The column bindings are disposed in order, but child columns
+		 * before their base column.
+		 */
+		monitorObject(myContactNameBinding, IUIBindingsPackage.Literals.BINDING__STATE, no, -1);
+		monitorObject(myCountryNameBinding, IUIBindingsPackage.Literals.BINDING__STATE, no, -1);
+		monitorObject(myCountryAbbrevBinding, IUIBindingsPackage.Literals.BINDING__STATE, no, -1);
+		monitorObject(myContactCityBinding, IUIBindingsPackage.Literals.BINDING__STATE, no, -1);
 		monitorObject(myViewerBinding, IUIBindingsPackage.Literals.BINDING__STATE, no, 4);
 
-		assertNoLog(new Runnable() {
-			@Override
-			public void run() {
-				runnable.run();
-			}
-		});
+		assertNoLog(runnable);
 		yield();
 
 		assertEquals(5, no[0]);
@@ -274,8 +278,11 @@ public class ViewerDisposeTest {
 					if (msg.getFeature() != stateAttribute) return;
 					// We ignore the pending dispose for now...
 					if (BindingState.DISPOSE_PENDING == ((EObject) msg.getNotifier()).eGet(stateAttribute)) return;
+					LogUtils.debug(this, ToStringUtils.toString(msg));
 					assertEquals(BindingState.DISPOSED, ((EObject) msg.getNotifier()).eGet(stateAttribute));
-					assertEquals(expectedNo, no[0]);
+					if (expectedNo != -1) {
+						assertEquals(expectedNo, no[0]);
+					}
 					no[0]++;
 				}
 			}

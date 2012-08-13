@@ -4,6 +4,11 @@ import org.eclipse.core.runtime.ILogListener;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Plugin;
+import org.eclipse.ui.IViewReference;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.IWorkbenchListener;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.PlatformUI;
 import org.osgi.framework.BundleContext;
 
 public class StartActivator extends Plugin {
@@ -20,5 +25,39 @@ public class StartActivator extends Plugin {
 		super.start(context);
 
 		Platform.addLogListener(myLogListener);
+
+		PlatformUI.getWorkbench().addWorkbenchListener(
+				new IWorkbenchListener() {
+
+					@Override
+					public boolean preShutdown(IWorkbench workbench,
+							boolean forced) {
+						/*
+						 * List all leftover TestViews
+						 */
+						final IWorkbenchPage page = workbench
+								.getActiveWorkbenchWindow().getActivePage();
+						for (final IViewReference vref : page
+								.getViewReferences()) {
+							if (!vref
+									.getId()
+									.equals("com.rcpcompany.uibindings.extests.views.TestView")) {
+								continue;
+							}
+							System.out.println("Leftover view: "
+									+ vref.getTitle());
+						}
+						return true;
+					}
+
+					@Override
+					public void postShutdown(IWorkbench workbench) {
+					}
+				});
+	}
+
+	@Override
+	public void stop(BundleContext context) throws Exception {
+		super.stop(context);
 	}
 }

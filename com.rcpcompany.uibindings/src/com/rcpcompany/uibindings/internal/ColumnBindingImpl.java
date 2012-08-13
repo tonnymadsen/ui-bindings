@@ -504,8 +504,9 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		while (getSubColumns().size() > 0) {
 			getSubColumns().get(0).dispose();
 		}
-		final IColumnBindingCellInformation[] ciArray = getCells().values().toArray(
-				new IColumnBindingCellInformation[getCells().values().size()]);
+		final Collection<IColumnBindingCellInformation> ciValues = getCells().values();
+		final IColumnBindingCellInformation[] ciArray = ciValues.toArray(new IColumnBindingCellInformation[ciValues
+				.size()]);
 		for (final IColumnBindingCellInformation ci : ciArray) {
 			ci.dispose();
 		}
@@ -1742,6 +1743,16 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 	@Override
 	public String toString() {
 		return super.toString();
+	}
+
+	@Override
+	protected String getBaseType() {
+		String bt = super.getBaseType();
+		if (getStaticDataType() != null) {
+			bt += " " + getStaticDataType().getBaseType();
+		}
+
+		return bt;
 	}
 
 	@Override

@@ -40,7 +40,7 @@ public class NavigatorModelFactoryImpl extends EFactoryImpl implements INavigato
 	public static INavigatorModelFactory init() {
 		try {
 			final INavigatorModelFactory theNavigatorModelFactory = (INavigatorModelFactory) EPackage.Registry.INSTANCE
-					.getEFactory("http://rcpcompany.com/schemas/uibindings/navigator");
+					.getEFactory("http://rcp-company.com/schemas/uibindings/navigator");
 			if (theNavigatorModelFactory != null) return theNavigatorModelFactory;
 		} catch (final Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);

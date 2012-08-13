@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.2"?><!--
+<?eclipse version="3.2"?>
+<!--
     Copyright (c) 2011 IBM Corporation and others.
     All rights reserved. This program and the accompanying materials
     are made available under the terms of the Eclipse Public License v1.0
@@ -287,19 +288,6 @@
    </extension>
    <extension
          point="org.eclipse.ui.views">
-      <view
-            class="com.rcpcompany.uibindings.extests.views.EmptyView"
-            id="com.rcpcompany.uibindings.extests.views.EmptyView"
-            name="Empty View"
-            restorable="true">
-      </view>
-      <view
-            allowMultiple="true"
-            class="com.rcpcompany.uibindings.extests.views.UIBTestView"
-            id="com.rcpcompany.uibindings.extests.views.TestView"
-            name="Test View"
-            restorable="true">
-      </view>
       <view
             class="com.rcpcompany.uibindings.extests.utils.ShowViewSelectionTestView"
             id="com.rcpcompany.uibindings.extests.utils.ShowViewSelectionTestView"
@@ -704,13 +692,13 @@
             id="com.rcpcompany.uibindings.tests.compositeForms.form1">
       </form>
       <part
-            factory="com.rcpcompany.uibindings.extests.compositeForms.CompositeFormBasicTests$TopFactory"
+            factory="com.rcpcompany.uibindings.extests.compositeForms.CompositeFormBasicTest$TopFactory"
             formID="com.rcpcompany.uibindings.tests.compositeForms.form1"
             image="icons/add_correction.gif"
             priority="1000"
             title="Top"/>
       <part
-            factory="com.rcpcompany.uibindings.extests.compositeForms.CompositeFormBasicTests$BottonFactory"
+            factory="com.rcpcompany.uibindings.extests.compositeForms.CompositeFormBasicTest$BottonFactory"
             formID="com.rcpcompany.uibindings.tests.compositeForms.form1"
             image="icons/add_correction.gif"
             priority="1"
@@ -718,7 +706,7 @@
       </part>
   
       <part
-            factory="com.rcpcompany.uibindings.extests.compositeForms.CompositeFormBasicTests$MiddleFactory"
+            factory="com.rcpcompany.uibindings.extests.compositeForms.CompositeFormBasicTest$MiddleFactory"
             formID="com.rcpcompany.uibindings.tests.compositeForms.form1"
             image="icons/add_correction.gif"
             priority="100"
@@ -728,13 +716,13 @@
             id="com.rcpcompany.uibindings.tests.compositeForms.create">
       </form>
       <part
-            factory="com.rcpcompany.uibindings.extests.compositeForms.CompositeFormCreateTests$Factory1"
+            factory="com.rcpcompany.uibindings.extests.compositeForms.CompositeFormCreateTest$Factory1"
             formID="com.rcpcompany.uibindings.tests.compositeForms.create"
             image="icons/add_correction.gif"
             priority="1000"
             title="1"/>
       <part
-            factory="com.rcpcompany.uibindings.extests.compositeForms.CompositeFormCreateTests$Factory3"
+            factory="com.rcpcompany.uibindings.extests.compositeForms.CompositeFormCreateTest$Factory3"
             formID="com.rcpcompany.uibindings.tests.compositeForms.create"
             image="icons/add_correction.gif"
             priority="1"
@@ -742,7 +730,7 @@
       </part>
   
       <part
-            factory="com.rcpcompany.uibindings.extests.compositeForms.CompositeFormCreateTests$Factory2"
+            factory="com.rcpcompany.uibindings.extests.compositeForms.CompositeFormCreateTest$Factory2"
             formID="com.rcpcompany.uibindings.tests.compositeForms.create"
             image="icons/add_correction.gif"
             priority="100"

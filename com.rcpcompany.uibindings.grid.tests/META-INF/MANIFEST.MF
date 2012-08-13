@@ -9,7 +9,6 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: com.rcpcompany.uibinding.tests.model,
  com.rcpcompany.uibindings,
  com.rcpcompany.uibindings.extests,
- com.rcpcompany.uibindings.extests.views,
  com.rcpcompany.uibindings.tests.shop,
  com.rcpcompany.uibindings.utils,
  com.rcpcompany.utils.logging,
@@ -21,4 +20,5 @@ Import-Package: com.rcpcompany.uibinding.tests.model,
  org.eclipse.emf.ecore.resource,
  org.eclipse.emf.ecore.resource.impl,
  org.eclipse.emf.edit.domain
-Require-Bundle: org.eclipse.ui
+Require-Bundle: org.eclipse.ui,
+ com.rcpcompany.uibindings.tests.utils;bundle-version="1.0.0"

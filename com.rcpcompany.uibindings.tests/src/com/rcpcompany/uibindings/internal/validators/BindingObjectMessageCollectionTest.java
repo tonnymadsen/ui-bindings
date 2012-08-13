@@ -33,10 +33,9 @@ import com.rcpcompany.uibindings.IBindingMessage.FeatureMatchingAlgorithm;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.extests.TestObjectValidatorAdapter;
-import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.internal.bindingMessages.ValueBindingMessageImageDecorator;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
+import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 
@@ -99,7 +98,7 @@ public class BindingObjectMessageCollectionTest {
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
-				myView = UIBindingsTestUtils.createUIBTestView(this);
+				myView = BaseUIBTestUtils.createUIBTestView(this);
 				final IFormCreator form = myView.createFormCreator(myValidationAdapter.getItem());
 				myBinding = form.addField("price");
 				if (myCollectObjectMessages != null) {

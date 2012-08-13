@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.grid.extests.cells;
 
-import static com.rcpcompany.uibindings.extests.BaseTestUtils.*;
+import static com.rcpcompany.test.utils.UITestUtils.*;
 import static com.rcpcompany.uibindings.grid.extests.GridBaseTestUtils.*;
 import static org.junit.Assert.*;
 
@@ -27,12 +27,12 @@ import com.rcpcompany.uibinding.tests.model.TestGridRow;
 import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
-import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.grid.IGridBinding;
 import com.rcpcompany.uibindings.grid.IGridBindingCellInformation;
 import com.rcpcompany.uibindings.grid.IGridModel;
 import com.rcpcompany.uibindings.grid.extests.models.TestGridGridModel;
+import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
+import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 /**
@@ -51,7 +51,7 @@ public class GridChangeContentTest {
 
 	@Before
 	public void setup() {
-		resetAll();
+		BaseUIBTestUtils.resetAll();
 
 		createModel();
 		createView();
@@ -64,7 +64,7 @@ public class GridChangeContentTest {
 	}
 
 	private void createView() {
-		myView = UIBindingsTestUtils.createUIBTestView(this);
+		myView = BaseUIBTestUtils.createUIBTestView(this);
 
 		myGrid = new Grid(myView.getBody(), SWT.NONE);
 		final IBindingContext context = IBindingContext.Factory.createContext(myView.getBody());

@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.grid.internal;
 
+import java.lang.reflect.Constructor;
 import java.util.Map;
 
 import org.eclipse.core.databinding.observable.ChangeEvent;
@@ -23,7 +24,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.jface.viewers.ColumnViewerEditorActivationEvent;
-import org.eclipse.jface.viewers.MyViewerCell;
+import org.eclipse.jface.viewers.ViewerCell;
+import org.eclipse.jface.viewers.ViewerRow;
 import org.eclipse.nebula.widgets.grid.Grid;
 import org.eclipse.nebula.widgets.grid.GridColumn;
 import org.eclipse.nebula.widgets.grid.GridItem;
@@ -1109,6 +1111,29 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 		}
 	}
 
+	/**
+	 * {@link ViewerCell} used for all {@link ColumnViewerEditorActivationEvent}.
+	 */
+	private static final ViewerCell myActivationEventViewerCell;
+
+	static {
+		ViewerCell vc = null;
+		try {
+			final Constructor<ViewerCell> constructor = ViewerCell.class.getConstructor(ViewerRow.class, Integer.TYPE,
+					Object.class);
+			final boolean wasAccessible = constructor.isAccessible();
+			try {
+				constructor.setAccessible(true);
+				vc = constructor.newInstance(null, 0, null);
+			} finally {
+				constructor.setAccessible(wasAccessible);
+			}
+		} catch (final Exception ex) {
+			LogUtils.error(null, "Cannot create ViewerCell", ex);
+		}
+		myActivationEventViewerCell = vc;
+	}
+
 	@Override
 	public void handleEvent(Event event) {
 		// LogUtils.debug(this, "event=" + ToStringUtils.toString(event));
@@ -1130,15 +1155,15 @@ public class GridBindingCellInformationImpl extends EObjectImpl implements IGrid
 			break;
 		case SWT.MouseDown:
 			getGrid().editCell(this,
-					new ColumnViewerEditorActivationEvent(MyViewerCell.INSTANCE, new MouseEvent(event)));
+					new ColumnViewerEditorActivationEvent(myActivationEventViewerCell, new MouseEvent(event)));
 			break;
 		case SWT.MouseDoubleClick:
 			getGrid().editCell(this,
-					new ColumnViewerEditorActivationEvent(MyViewerCell.INSTANCE, new MouseEvent(event)));
+					new ColumnViewerEditorActivationEvent(myActivationEventViewerCell, new MouseEvent(event)));
 			break;
 		case SWT.KeyDown:
 			final KeyEvent keyEvent = new KeyEvent(event);
-			getGrid().editCell(this, new ColumnViewerEditorActivationEvent(MyViewerCell.INSTANCE, keyEvent));
+			getGrid().editCell(this, new ColumnViewerEditorActivationEvent(myActivationEventViewerCell, keyEvent));
 			event.doit = keyEvent.doit;
 			break;
 		default:

@@ -2438,7 +2438,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 	@Override
 	public IModelFeatureInfo getModelFeatureInfo(String className, String featureName, String type, boolean create) {
 		if (className == null || featureName == null) return null;
-		final IModelClassInfo cInfo = getModelClassInfo(className, type, true);
+		final IModelClassInfo cInfo = getModelClassInfo(className, type, create);
 		if (cInfo == null) return null;
 
 		IModelFeatureInfo fInfo = cInfo.getFeatures().get(featureName);

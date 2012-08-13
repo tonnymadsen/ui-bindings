@@ -8,7 +8,7 @@
  * Contributors:
  *     The RCP Company - initial API and implementation
  *******************************************************************************/
-package com.rcpcompany.uibindings.extests.views;
+package com.rcpcompany.uibindings.tests.utils.views;
 
 import static org.junit.Assert.*;
 

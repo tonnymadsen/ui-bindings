@@ -22,11 +22,12 @@ import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 import com.rcpcompany.uibinding.tests.model.TestObject;
 import com.rcpcompany.uibinding.tests.model.WeightUnit;
 import com.rcpcompany.uibindings.IValueBinding;
-import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
+import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 import com.rcpcompany.uibindings.utils.IBindingEnabler;
 import com.rcpcompany.uibindings.utils.IFormCreator;
+import com.rcpcompany.utils.basic.ToStringUtils;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests of {@link IBindingEnabler}.
@@ -62,7 +63,7 @@ public class BindingEnablerTest {
 	 */
 	@Test
 	public void testDispose() {
-		myView = UIBindingsTestUtils.createUIBTestView(this);
+		myView = BaseUIBTestUtils.createUIBTestView(this);
 
 		myForm = myView.createFormCreator(myTestObject);
 
@@ -75,6 +76,7 @@ public class BindingEnablerTest {
 		myForm.finish();
 		assertFalse(myForm.getContext().getFinalizers().contains(enabler));
 
+		LogUtils.debug(this, ToStringUtils.toPath(myBinding.getControl()));
 		yield();
 		assertEquals(2, myForm.getContext().getBindings().size());
 
@@ -90,7 +92,7 @@ public class BindingEnablerTest {
 	@Test
 	public void testBeforeFinishFalse() {
 		myTestObject.setUnit(WeightUnit.KG);
-		myView = UIBindingsTestUtils.createUIBTestView(this);
+		myView = BaseUIBTestUtils.createUIBTestView(this);
 
 		myForm = myView.createFormCreator(myTestObject);
 
@@ -118,7 +120,7 @@ public class BindingEnablerTest {
 	@Test
 	public void testBeforeFinishTrue() {
 		myTestObject.setUnit(WeightUnit.KG);
-		myView = UIBindingsTestUtils.createUIBTestView(this);
+		myView = BaseUIBTestUtils.createUIBTestView(this);
 
 		myForm = myView.createFormCreator(myTestObject);
 
@@ -142,7 +144,7 @@ public class BindingEnablerTest {
 	@Test
 	public void testAfterFinishFalse() {
 		myTestObject.setUnit(WeightUnit.KG);
-		myView = UIBindingsTestUtils.createUIBTestView(this);
+		myView = BaseUIBTestUtils.createUIBTestView(this);
 
 		myForm = myView.createFormCreator(myTestObject);
 
@@ -172,7 +174,7 @@ public class BindingEnablerTest {
 	@Test
 	public void testAfterFinishTrue() {
 		myTestObject.setUnit(WeightUnit.KG);
-		myView = UIBindingsTestUtils.createUIBTestView(this);
+		myView = BaseUIBTestUtils.createUIBTestView(this);
 
 		myForm = myView.createFormCreator(myTestObject);
 
@@ -199,7 +201,7 @@ public class BindingEnablerTest {
 	@Test
 	public void testAfterFinishShort() {
 		myTestObject.setUnit(WeightUnit.KG);
-		myView = UIBindingsTestUtils.createUIBTestView(this);
+		myView = BaseUIBTestUtils.createUIBTestView(this);
 
 		myForm = myView.createFormCreator(myTestObject);
 
@@ -226,7 +228,7 @@ public class BindingEnablerTest {
 	@Test
 	public void testAfterFinishShortTrue() {
 		myTestObject.setUnit(WeightUnit.KG);
-		myView = UIBindingsTestUtils.createUIBTestView(this);
+		myView = BaseUIBTestUtils.createUIBTestView(this);
 
 		myForm = myView.createFormCreator(myTestObject);
 

@@ -23,8 +23,6 @@ import org.junit.Test;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.TextCommitStrategy;
-import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Customer;
 import com.rcpcompany.uibindings.tests.shop.CustomerType;
@@ -32,6 +30,7 @@ import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
+import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 import com.rcpcompany.uibindings.utils.ITableCreator;
 
 /**
@@ -76,7 +75,7 @@ public class SIMO302EObjectObservableValueLeakTest {
 	}
 
 	private void createView() {
-		myTestView = UIBindingsTestUtils.createUIBTestView(this);
+		myTestView = BaseUIBTestUtils.createUIBTestView(this);
 
 		final IBindingContext context = IBindingContext.Factory.createContext(myTestView.getScrolledForm());
 		myTableCreator = ITableCreator.Factory.create(context, myTestView.getBody(), SWT.NONE, myShop,

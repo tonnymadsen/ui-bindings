@@ -15,7 +15,7 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://rcpcompany.com/schemas/uibindings/navigator"
+            uri="http://rcp-company.com/schemas/uibindings/navigator"
             class="com.rcpcompany.uibindings.navigator.INavigatorModelPackage"
             genModel="model/model.genmodel"/>
    </extension>

@@ -1437,7 +1437,7 @@ public class ValueBindingImpl extends BindingImpl implements IValueBinding {
 
 	@Override
 	protected String getBaseType() {
-		String baseType = getDataType().getBaseType();
+		String baseType = getDataType() != null ? getDataType().getBaseType() : "*UNINIT*";
 		final Widget w = getWidget();
 		if (w != null) {
 			baseType += "<=>" + w;

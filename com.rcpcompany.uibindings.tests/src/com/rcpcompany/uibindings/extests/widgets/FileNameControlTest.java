@@ -29,12 +29,11 @@ import org.junit.runners.Parameterized.Parameters;
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
-import com.rcpcompany.uibindings.extests.UIBindingsTestUtils;
-import com.rcpcompany.uibindings.extests.views.UIBTestView;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
+import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 import com.rcpcompany.uibindings.widgets.FileNameControl;
@@ -78,7 +77,7 @@ public class FileNameControlTest {
 		BaseUIBTestUtils.resetAll();
 		IManager.Factory.getManager().setValidationDelay(VD);
 
-		myView = UIBindingsTestUtils.createUIBTestView(this);
+		myView = BaseUIBTestUtils.createUIBTestView(this);
 
 		myShop = ShopFactory.eINSTANCE.createShop();
 		myShop.setName(myInitValue);

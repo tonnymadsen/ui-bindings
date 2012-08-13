@@ -204,6 +204,8 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 		}
 	};
 
+	private IContextActivation myBaseContextContextActivation;
+
 	private IContextActivation myWidgetContextContextActivation;
 
 	private IContextActivation myContainerContextContextActivation;
@@ -348,6 +350,7 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 				LogUtils.debug(this, "deactivated " + Constants.CONTAINER_CONTEXT_ID);
 			}
 		}
+
 		/*
 		 * If inside an value binding, then activate the proper context
 		 */
@@ -364,6 +367,24 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 			myWidgetContextContextActivation = null;
 			if (Activator.getDefault().TRACE_CONTEXTS) {
 				LogUtils.debug(this, "deactivated " + Constants.WIDGET_CONTEXT_ID);
+			}
+		}
+
+		/*
+		 * Also activate the base context - this does not seem to happen automatically ???
+		 */
+		final boolean bc = myContainerContextContextActivation != null || myWidgetContextContextActivation != null;
+		if (bc && myBaseContextContextActivation == null) {
+			myBaseContextContextActivation = myContextService.activateContext(Constants.COMMON_CONTEXT_ID);
+			if (Activator.getDefault().TRACE_CONTEXTS) {
+				LogUtils.debug(this, "activated " + Constants.COMMON_CONTEXT_ID);
+			}
+		}
+		if (!bc && myBaseContextContextActivation != null) {
+			myContextService.deactivateContext(myBaseContextContextActivation);
+			myBaseContextContextActivation = null;
+			if (Activator.getDefault().TRACE_CONTEXTS) {
+				LogUtils.debug(this, "deactivated " + Constants.COMMON_CONTEXT_ID);
 			}
 		}
 	}

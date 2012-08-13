@@ -85,7 +85,8 @@ public class ConstraintValidationAdapterCollectionTest {
 	public void testEnabled() {
 		final IManager mng = IManager.Factory.getManager();
 		final IModelFeatureInfo info = mng.getModelFeatureInfo(Shop.class.getName(),
-				ShopPackage.Literals.SHOP__NEXT_ORDER_NO.getName(), null, true);
+				ShopPackage.Literals.SHOP__NEXT_ORDER_NO.getName(), null, false);
+		assertNotNull(info);
 		try {
 			if (myValidate != null) {
 				info.getArguments().put(Constants.ARG_CONSTRAINTS_VALIDATE, myValidate);

@@ -45,6 +45,8 @@ import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.scripting.IScriptEvaluationContext;
 import com.rcpcompany.uibindings.scripting.IScriptExpression;
 import com.rcpcompany.uibindings.scripting.IScriptManager;
+import com.rcpcompany.uibindings.tests.utils.views.EmptyView;
+import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 import com.rcpcompany.uibindings.utils.IGlobalNavigationManager;
 import com.rcpcompany.uibindings.utils.IManagerRunnableManager;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
@@ -59,6 +61,31 @@ import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 public class BaseUIBTestUtils {
 	private BaseUIBTestUtils() {
 	}
+
+	/**
+	 * Opens and returns a new test view.
+	 * 
+	 * @param creatingObject the object of the caller - used to name the new view
+	 * 
+	 * @return the new view
+	 */
+	public static UIBTestView createUIBTestView(Object creatingObject) {
+		UIBTestView view = null;
+		try {
+			final IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+			view = (UIBTestView) page.showView("com.rcpcompany.uibindings.extests.views.TestView",
+					"" + (testViewSeq++), IWorkbenchPage.VIEW_ACTIVATE);
+			assertNotNull(view);
+			final String partName = "Test View: " + creatingObject.getClass().getSimpleName();
+			view.setPartName(partName);
+		} catch (final Exception ex) {
+			fail(ex.getMessage());
+		}
+		view.getSite().getPage().activate(view);
+		return view;
+	}
+
+	static int testViewSeq = 0;
 
 	/**
 	 * Resets the complete test environment.
