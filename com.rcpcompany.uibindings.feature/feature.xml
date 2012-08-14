@@ -55,8 +55,12 @@
          id="org.eclipse.emf.edit"
          version="0.0.0"/>
 
+   <includes
+         id="com.rcpcompany.utils.feature"
+         version="0.0.0"/>
+
    <requires>
-      <import plugin="org.eclipse.ui.forms" version="3.3.0" match="compatible"/>
+      <import feature="com.rcpcompany.utils.feature" version="1.0.0.qualifier"/>
    </requires>
 
    <plugin
@@ -90,28 +94,64 @@
          unpack="false"/>
 
    <plugin
-         id="com.rcpcompany.utils.basic"
+         id="com.rcpcompany.uibindings.debug"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="com.rcpcompany.utils.extensionpoints"
+         id="com.rcpcompany.uibindings.financial"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="com.rcpcompany.utils.logging"
+         id="com.rcpcompany.uibindings.grid"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="com.rcpcompany.utils.selection"
+         id="com.rcpcompany.uibindings.moao"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.rcpcompany.uibindings.model.utils"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.rcpcompany.uibindings.scriptengines.javascript"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.rcpcompany.uibindings.scripting"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.rcpcompany.uibindings.std"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="com.rcpcompany.uibindings.units"
          download-size="0"
          install-size="0"
          version="0.0.0"

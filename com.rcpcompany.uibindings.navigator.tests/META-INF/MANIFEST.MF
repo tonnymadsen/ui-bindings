@@ -8,7 +8,6 @@ Fragment-Host: com.rcpcompany.uibindings.navigator;bundle-version="[1.1.0,2.0.0)
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: com.rcpcompany.uibindings.tests.utils;bundle-version="[1.0.0,1.1.0)"
 Import-Package: com.rcpcompany.uibindings,
- com.rcpcompany.uibindings.extests,
  com.rcpcompany.uibindings.moao,
  com.rcpcompany.uibindings.tests.shop,
  com.rcpcompany.uibindings.utils,

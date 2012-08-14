@@ -5,8 +5,9 @@ Bundle-SymbolicName: com.rcpcompany.uibindings.tests.api
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: The RCP Company
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: com.rcpcompany.uibindings,
- com.rcpcompany.uibindings.bindingMessages,
- org.eclipse.emf.common.util,
+Import-Package: org.eclipse.emf.common.util,
  org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.impl,
  org.eclipse.swt.widgets
+Require-Bundle: com.rcpcompany.uibindings;bundle-version="[2.0.0,3.0.0)",
+ org.eclipse.emf.ecore;bundle-version="2.8.0"

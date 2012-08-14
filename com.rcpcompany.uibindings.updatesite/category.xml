@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <category-def name="com.rcpcompany.utils.category" label="The RCP Company Utils Features">
+      <description>
+         Various utility plug-ins used within The RCP Company.
+      </description>
+   </category-def>
+   <category-def name="com.rcpcompany.uibindings.category" label="UI Bindings Features">
+      <description>
+         All plug-ins used for UI-Bindings
+      </description>
+   </category-def>
+</site>

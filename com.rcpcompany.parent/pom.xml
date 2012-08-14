@@ -37,6 +37,7 @@
 		<module>../com.rcpcompany.utils.logging.tests</module>
 		<module>../com.rcpcompany.utils.logging.tests.helper</module>
 		<module>../com.rcpcompany.utils.selection</module>
+		<module>../com.rcpcompany.utils.feature</module>
 
 		<module>../com.rcpcompany.uibindings.moao</module>
 		<module>../com.rcpcompany.uibindings.moao.ui</module>
@@ -47,25 +48,31 @@
 		<module>../com.rcpcompany.uibindings.fragments.jfaceif</module>
 		<module>../com.rcpcompany.uibindings.fragments.ecore</module>
 		<module>../com.rcpcompany.uibindings.tests.utils</module>
-		<module>../com.rcpcompany.uibindings.tests</module>
+		<!-- <module>../com.rcpcompany.uibindings.tests</module> -->
 		<module>../com.rcpcompany.uibindings.tests.api</module>
 		<module>../com.rcpcompany.uibindings.tests.model</module>
 
 		<module>../com.rcpcompany.uibindings.debug</module>
+		<module>../com.rcpcompany.uibindings.std</module>
 
 		<module>../com.rcpcompany.uibindings.grid</module>
-		<module>../com.rcpcompany.uibindings.grid.tests</module>
+		<!--  <module>../com.rcpcompany.uibindings.grid.tests</module> -->
 
 		<module>../com.rcpcompany.uibindings.financial</module>
 		<module>../com.rcpcompany.uibindings.navigator</module>
 		<module>../com.rcpcompany.uibindings.navigator.tests</module>
 		<module>../com.rcpcompany.uibindings.scripting</module>
-		<module>../com.rcpcompany.uibindings.scripting.tests</module>
+		<!-- <module>../com.rcpcompany.uibindings.scripting.tests</module> -->
+		<module>../com.rcpcompany.uibindings.scriptengines.javascript</module>
+		<!-- <module>../com.rcpcompany.uibindings.scriptengines.javascript.tests</module> -->
 		<module>../com.rcpcompany.uibindings.units</module>
 
 		<!-- <module>../com.rcpcompany.uibindings.bindings.xtext</module> <module>../com.rcpcompany.uibindings.bindings.xtext.tests</module> -->
 
+		<module>../com.rcpcompany.utils.feature</module>
 		<module>../com.rcpcompany.uibindings.feature</module>
+
+		<module>../com.rcpcompany.uibindings.updatesite</module>
 	</modules>
 
 	<pluginRepositories>
