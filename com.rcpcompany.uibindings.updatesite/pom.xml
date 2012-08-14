@@ -23,6 +23,19 @@
 					<finalName>uibindings-3.0-${build.number}-repository</finalName>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>downloads-maven-plugin</artifactId>
+				<version>0.5</version>
+
+				<configuration>
+					<description>${project.version} release of ${project.name}</description>
+					<override>true</override>
+					<includeAttached>true</includeAttached>
+					<dryRun>true</dryRun>
+				</configuration>
+			</plugin>
 		</plugins>
 
 		<pluginManagement>

@@ -37,7 +37,6 @@
 		<module>../com.rcpcompany.utils.logging.tests</module>
 		<module>../com.rcpcompany.utils.logging.tests.helper</module>
 		<module>../com.rcpcompany.utils.selection</module>
-		<module>../com.rcpcompany.utils.feature</module>
 
 		<module>../com.rcpcompany.uibindings.moao</module>
 		<module>../com.rcpcompany.uibindings.moao.ui</module>
