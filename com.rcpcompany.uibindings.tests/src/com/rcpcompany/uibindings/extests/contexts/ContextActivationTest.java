@@ -179,7 +179,7 @@ public class ContextActivationTest {
 				myText.setFocus();
 				myNameText.setFocus();
 				final Collection ids = myCS.getActiveContextIds();
-				assertTrue(!ids.contains(Constants.COMMON_CONTEXT_ID));
+				assertTrue(ids.contains(Constants.COMMON_CONTEXT_ID));
 				assertTrue(ids.contains(Constants.WIDGET_CONTEXT_ID));
 				assertTrue(!ids.contains(Constants.CONTAINER_CONTEXT_ID));
 			}
@@ -194,7 +194,7 @@ public class ContextActivationTest {
 				myText.setFocus();
 				myTable.setFocus();
 				final Collection ids = myCS.getActiveContextIds();
-				assertTrue(!ids.contains(Constants.COMMON_CONTEXT_ID));
+				assertTrue(ids.contains(Constants.COMMON_CONTEXT_ID));
 				assertTrue(!ids.contains(Constants.WIDGET_CONTEXT_ID));
 				assertTrue(ids.contains(Constants.CONTAINER_CONTEXT_ID));
 			}

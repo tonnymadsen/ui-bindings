@@ -152,19 +152,19 @@ public class NumberDecoratorProviderUnitTest {
 		myDUnitSupport.setFactor(0.001);
 		yield();
 		assertEquals("0.02", t.getText());
-		assertEquals("dd [Unit0.0010]", t.getToolTipText());
+		assertEquals("dd [Unit0.001]", t.getToolTipText());
 
 		// UI to Model (factor 0.001)
 		t.setText("4.0");
 		yield();
 		assertEquals(4000.0, myTestObject.getD(), 0.01);
-		assertEquals("dd [Unit0.0010]", t.getToolTipText());
+		assertEquals("dd [Unit0.001]", t.getToolTipText());
 
 		// UI to Model (factor 0.001)
 		t.setText("5");
 		yield();
 		assertEquals(5000.0, myTestObject.getD(), 0.01);
-		assertEquals("dd [Unit0.0010]", t.getToolTipText());
+		assertEquals("dd [Unit0.001]", t.getToolTipText());
 	}
 
 	/**
@@ -217,25 +217,25 @@ public class NumberDecoratorProviderUnitTest {
 		myDUnitSupport.setFactor(0.001);
 		yield();
 		assertEquals("0.02", t.getText());
-		assertEquals("dd [Unit0.0010]", t.getToolTipText());
+		assertEquals("dd [Unit0.001]", t.getToolTipText());
 
 		// Model to UI (factor 0.001)
 		myTestObject.setD(3000.0);
 		yield();
 		assertEquals("3.00", t.getText());
-		assertEquals("dd [Unit0.0010]", t.getToolTipText());
+		assertEquals("dd [Unit0.001]", t.getToolTipText());
 
 		// UI to Model (factor 0.001)
 		t.setText("4.0");
 		yield();
 		assertEquals(4000.0, myTestObject.getD(), 0.01);
-		assertEquals("dd [Unit0.0010]", t.getToolTipText());
+		assertEquals("dd [Unit0.001]", t.getToolTipText());
 
 		// UI to Model (factor 0.001)
 		t.setText("5");
 		yield();
 		assertEquals(5000.0, myTestObject.getD(), 0.01);
-		assertEquals("dd [Unit0.0010]", t.getToolTipText());
+		assertEquals("dd [Unit0.001]", t.getToolTipText());
 	}
 
 	public class UnitSupport extends AbstractUnitBindingSupport {

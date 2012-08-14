@@ -19,13 +19,13 @@
     <properties name="type" uuid="_nDc2cAa7EeC_n9ThbP5loA" value="a"/>
     <properties name="type" uuid="_k9p_kGdbEeCZePVdzCtDKg"/>
   </shopItems>
-  <shopItems name="RCP Principles" uuid="_L05SccBGEd-siJXnD8pfBQ" price="-2.0">
+  <shopItems name="RCP Principles" uuid="_L05SccBGEd-siJXnD8pfBQ" price="2.0">
     <properties name="type" uuid="_nDeroAa7EeC_n9ThbP5loA" value="b"/>
   </shopItems>
   <shopItems name="Eclipse Plug-ins" uuid="_L05ScsBGEd-siJXnD8pfBQ" price="300.0" group="_L0_ZEMBGEd-siJXnD8pfBQ">
     <information xsi:type="shop:ShopItemURL" url="hhh"/>
   </shopItems>
-  <shopItems name="FAQ" uuid="_L06gkMBGEd-siJXnD8pfBQ" price="-5.0" forSale="true" group="_L0_ZEMBGEd-siJXnD8pfBQ">
+  <shopItems name="FAQ (online)" uuid="_L06gkMBGEd-siJXnD8pfBQ" price="5.0" forSale="true" group="_L0_ZEMBGEd-siJXnD8pfBQ">
     <information xsi:type="shop:ShopItemURL" url="http://hello"/>
   </shopItems>
   <orders customer="//@customers.1" discount="40.0">

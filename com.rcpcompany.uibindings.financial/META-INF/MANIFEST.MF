@@ -5,7 +5,7 @@ Bundle-SymbolicName: com.rcpcompany.uibindings.financial;singleton:=true
 Bundle-Version: 1.1.0.qualifier
 Bundle-Activator: com.rcpcompany.uibindings.financial.internal.Activator
 Bundle-Vendor: %Bundle-Vendor
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Import-Package: com.rcpcompany.uibindings,
  com.rcpcompany.uibindings.decorators.extenders,

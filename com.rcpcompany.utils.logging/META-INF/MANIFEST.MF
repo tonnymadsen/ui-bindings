@@ -5,7 +5,7 @@ Bundle-SymbolicName: com.rcpcompany.utils.logging
 Bundle-Version: 1.5.0.qualifier
 Bundle-Vendor: The RCP Company
 Require-Bundle: org.eclipse.core.runtime
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: com.rcpcompany.utils.logging;version="1.5.0"
 Import-Package: com.rcpcompany.utils.basic;version="[1.2.0,2.0.0)",

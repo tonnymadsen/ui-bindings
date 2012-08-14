@@ -7,7 +7,7 @@ Bundle-Activator: com.rcpcompany.uibindings.debug.internals.Activator
 Bundle-Vendor: The RCP Company
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Import-Package: com.rcpcompany.uibindings,
  com.rcpcompany.uibindings.model.utils,

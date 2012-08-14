@@ -5,7 +5,7 @@ Bundle-SymbolicName: com.rcpcompany.uibindings.grid.tests
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: The RCP Company
 Fragment-Host: com.rcpcompany.uibindings.grid;bundle-version="[1.0.0,2.0.0)"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: com.rcpcompany.uibinding.tests.model,
  com.rcpcompany.uibindings,
  com.rcpcompany.uibindings.extests,

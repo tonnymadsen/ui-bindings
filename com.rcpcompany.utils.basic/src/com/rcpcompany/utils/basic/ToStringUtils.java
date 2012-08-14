@@ -413,7 +413,11 @@ public final class ToStringUtils {
 					sb.append("HOT+"); //$NON-NLS-1$
 					d &= ~SWT.HOT;
 				}
-				sb.append(d);
+				if (d == 0 && event.detail != 0) {
+					sb.deleteCharAt(sb.length() - 1);
+				} else {
+					sb.append(d);
+				}
 				break;
 			}
 			case SWT.ImeComposition : {
@@ -433,7 +437,11 @@ public final class ToStringUtils {
 					sb.append("SELECTION+"); //$NON-NLS-1$
 					d &= ~SWT.COMPOSITION_SELECTION;
 				}
-				sb.append(d);
+				if (d == 0 && event.detail != 0) {
+					sb.deleteCharAt(sb.length() - 1);
+				} else {
+					sb.append(d);
+				}
 				break;
 			}
 			case SWT.OrientationChange :

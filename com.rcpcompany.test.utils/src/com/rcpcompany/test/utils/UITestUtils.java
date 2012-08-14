@@ -315,8 +315,10 @@ public class UITestUtils {
 				// if (hc == HandlerProxy.class) {
 				// hc = ((HandlerProxy) handler).getClass();
 				// }
-				assertEquals("Stroke '" + stroke + "' command '" + commandId
-						+ "'", handlerClass.getName(), hName);
+				if (!hName.equals("org.eclipse.ui.internal.MakeHandlersGo")) {
+					assertEquals("Stroke '" + stroke + "' command '"
+							+ commandId + "'", handlerClass.getName(), hName);
+				}
 				executed[0] = true;
 			}
 
@@ -395,21 +397,12 @@ public class UITestUtils {
 	public static void postMouseMove(Control c, Point p) {
 		final Point pt = c.getDisplay().map(c, null, p);
 
-		final long now = System.currentTimeMillis();
-
-		if (lastMouseOperationExpireTime > now) {
-			sleep((int) (lastMouseOperationExpireTime - now));
-		}
-
 		final Event e = new Event();
 		e.type = SWT.MouseMove;
 		e.x = pt.x;
 		e.y = pt.y;
 		assertTrue(c.getDisplay().post(e));
 		yield();
-
-		lastMouseOperationExpireTime = now
-				+ c.getDisplay().getDoubleClickTime() + 50;
 	}
 
 	/**
@@ -429,6 +422,8 @@ public class UITestUtils {
 	public static void postMouseDown(String modifiers, int button,
 			final Control c, int noClicks) {
 		final long now = System.currentTimeMillis();
+		LogUtils.debug(c.getDisplay(), "dc time="
+				+ c.getDisplay().getDoubleClickTime());
 
 		if (lastMouseOperationExpireTime > now) {
 			sleep((int) (lastMouseOperationExpireTime - now));
@@ -453,18 +448,21 @@ public class UITestUtils {
 
 		for (int i = 1; i <= noClicks; i++) {
 			e.type = SWT.MouseDown;
+			e.widget = c;
 			e.button = button;
 			e.count = i;
+			LogUtils.debug(e, "#" + i + ": " + ToStringUtils.toString(e));
 			assertTrue(c.getDisplay().post(e));
 			// yield();
 
 			e.type = SWT.MouseUp;
+			e.widget = c;
 			e.button = button;
 			e.count = i;
-			// LogUtils.debug(e, ToStringUtils.toString(e));
+			LogUtils.debug(e, "#" + i + ": " + ToStringUtils.toString(e));
 			assertTrue(c.getDisplay().post(e));
-			yield();
 		}
+		yield();
 
 		if (keyStroke != null) {
 			postModifierKeys(c, keyStroke, false);
@@ -486,10 +484,15 @@ public class UITestUtils {
 	 * @param noClicks
 	 *            the number of clicks
 	 */
-	public static void postMouse(String modifiers, Control c, Point p,
-			int noClicks) {
-		postMouseMove(c, p);
-		postMouseDown(modifiers, 1, c, noClicks);
+	public static void postMouse(final String modifiers, final Control c,
+			final Point p, final int noClicks) {
+		UITestUtils.swtListen(new Runnable() { // TMTM
+					@Override
+					public void run() {
+						postMouseMove(c, p);
+						postMouseDown(modifiers, 1, c, noClicks);
+					}
+				});
 	}
 
 	/**

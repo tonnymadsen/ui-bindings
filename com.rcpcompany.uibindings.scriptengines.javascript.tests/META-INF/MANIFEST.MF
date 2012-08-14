@@ -5,4 +5,4 @@ Bundle-SymbolicName: com.rcpcompany.uibindings.scriptengines.javascript.tests;si
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Tonny Madsen, The RCP Company
 Fragment-Host: com.rcpcompany.uibindings.scriptengines.javascript;bundle-version="[1.0.0,2.0.0)"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

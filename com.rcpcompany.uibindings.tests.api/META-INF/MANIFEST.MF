@@ -4,7 +4,7 @@ Bundle-Name: API Tests for UI Bindings
 Bundle-SymbolicName: com.rcpcompany.uibindings.tests.api
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: The RCP Company
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: com.rcpcompany.uibindings,
  com.rcpcompany.uibindings.bindingMessages,
  org.eclipse.emf.common.util,

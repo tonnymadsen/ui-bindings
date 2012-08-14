@@ -18,6 +18,9 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.jface.viewers.ColumnViewerEditorActivationEvent;
+import org.eclipse.jface.viewers.ColumnViewerEditorActivationListener;
+import org.eclipse.jface.viewers.ColumnViewerEditorDeactivationEvent;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
@@ -45,6 +48,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests of when text is accepted in .
@@ -120,30 +124,28 @@ public class ValueEditCellStrategiesTest {
 		// myTable.getDisplay().addFilter(i, listener);
 		// }
 		//
-		// myTableViewer.getColumnViewerEditor().addEditorActivationListener(new
-		// ColumnViewerEditorActivationListener()
-		// {
-		//
-		// @Override
-		// public void beforeEditorDeactivated(ColumnViewerEditorDeactivationEvent event) {
-		// LogUtils.debug(this, "");
-		// }
-		//
-		// @Override
-		// public void beforeEditorActivated(ColumnViewerEditorActivationEvent event) {
-		// LogUtils.debug(this, "");
-		// }
-		//
-		// @Override
-		// public void afterEditorDeactivated(ColumnViewerEditorDeactivationEvent event) {
-		// LogUtils.debug(this, "");
-		// }
-		//
-		// @Override
-		// public void afterEditorActivated(ColumnViewerEditorActivationEvent event) {
-		// LogUtils.debug(this, "");
-		// }
-		// });
+		myTableViewer.getColumnViewerEditor().addEditorActivationListener(new ColumnViewerEditorActivationListener() {
+
+			@Override
+			public void beforeEditorDeactivated(ColumnViewerEditorDeactivationEvent event) {
+				LogUtils.debug(this, "");
+			}
+
+			@Override
+			public void beforeEditorActivated(ColumnViewerEditorActivationEvent event) {
+				LogUtils.debug(this, "");
+			}
+
+			@Override
+			public void afterEditorDeactivated(ColumnViewerEditorDeactivationEvent event) {
+				LogUtils.debug(this, "");
+			}
+
+			@Override
+			public void afterEditorActivated(ColumnViewerEditorActivationEvent event) {
+				LogUtils.debug(this, "");
+			}
+		});
 	}
 
 	@After
@@ -222,6 +224,7 @@ public class ValueEditCellStrategiesTest {
 	 */
 	@Test
 	public void testDoubleClick() {
+		myTable.setFocus();
 		testEditStrategy(!myEditCellSingleClick, myShopItem1.getName(), new Runnable() {
 			@Override
 			public void run() {
@@ -348,14 +351,8 @@ public class ValueEditCellStrategiesTest {
 	 * @param runnable the runnable to get the
 	 */
 	private void testEditStrategy(final boolean editExpected, final String expectedValue, final Runnable runnable) {
-
-		assertNoLog(new Runnable() {
-			@Override
-			public void run() {
-				runnable.run();
-				yield();
-			}
-		});
+		assertNoLog(runnable);
+		yield();
 		assertNoLog(new Runnable() {
 			@Override
 			public void run() {
