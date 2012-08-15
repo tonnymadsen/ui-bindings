@@ -11,6 +11,7 @@
 package com.rcpcompany.uibindings.observables;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import org.eclipse.core.databinding.observable.IObserving;
 import org.eclipse.core.databinding.observable.list.IListChangeListener;
@@ -43,6 +44,39 @@ public class EMFListAttributeList extends WritableList implements IObserving {
 	private final IObservableListMapper myMapper;
 
 	/**
+	 * The value used to replace <code>null</code> values in the resulting list.
+	 * <p>
+	 * Thus, if the mapper returns <code>null</code>, this value is used instead (if set).
+	 */
+	private final Object myNullReplacementValue;
+
+	/**
+	 * Returns the value used to replace <code>null</code> values in the resulting list.
+	 * 
+	 * @return the current replacement value
+	 */
+	public Object getNullReplacementValue() {
+		return myNullReplacementValue;
+	}
+
+	/**
+	 * Constructs and returns a new list for the specified list and mapper object.
+	 * 
+	 * @param objectList the observed list
+	 * @param mapper the mapper object
+	 * @param type the element type of the resulting list
+	 */
+	public EMFListAttributeList(IObservableList objectList, IObservableListMapper mapper, Object type,
+			Object nullReplacementValue) {
+		super(new ArrayList<Object>(), type);
+		myObjectList = objectList;
+		myMapper = mapper;
+		myNullReplacementValue = nullReplacementValue;
+
+		init();
+	}
+
+	/**
 	 * Constructs and returns a new list for the specified list and mapper object.
 	 * 
 	 * @param objectList the observed list
@@ -50,11 +84,7 @@ public class EMFListAttributeList extends WritableList implements IObserving {
 	 * @param type the element type of the resulting list
 	 */
 	public EMFListAttributeList(IObservableList objectList, IObservableListMapper mapper, Object type) {
-		super(new ArrayList<Object>(), type);
-		myObjectList = objectList;
-		myMapper = mapper;
-
-		init();
+		this(objectList, mapper, type, null);
 	}
 
 	/**
@@ -75,13 +105,14 @@ public class EMFListAttributeList extends WritableList implements IObserving {
 	private final Adapter myFeatureMonitor = new AdapterImpl() {
 		@Override
 		public void notifyChanged(final Notification msg) {
-			if (isDisposed()) /*
-							 * Cannot use toString() as this calls getterCalled()....
-							 * 
-							 * LogUtils.error(EMFListAttributeList.this, "List disposed: " +
-							 * EMFListAttributeList.this);
-							 */
-			return;
+
+			/*
+			 * Cannot use toString() as this calls getterCalled()....
+			 * 
+			 * LogUtils.error(EMFListAttributeList.this , "List disposed: " +
+			 * EMFListAttributeList.this);
+			 */
+			if (isDisposed()) return;
 			if (msg.isTouch()) return;
 			if (msg.getEventType() != Notification.SET) return;
 
@@ -99,7 +130,7 @@ public class EMFListAttributeList extends WritableList implements IObserving {
 						LogUtils.error(myMapper, ex);
 					}
 					if (newValue == null ? oldValue == null : newValue.equals(oldValue)) return;
-					set(index, newValue);
+					EMFListAttributeList.super.set(index, newValue);
 				}
 			});
 		};
@@ -112,19 +143,12 @@ public class EMFListAttributeList extends WritableList implements IObserving {
 				if (element != null && hasListeners()) {
 					((EObject) element).eAdapters().remove(myFeatureMonitor);
 				}
-				remove(index);
+				EMFListAttributeList.super.remove(index);
 			}
 
 			@Override
 			public void handleAdd(int index, Object element) {
-				Object v;
-				try {
-					v = myMapper.map(element);
-				} catch (final Exception ex) {
-					LogUtils.error(myMapper, ex);
-					v = null;
-				}
-				add(index, v);
+				EMFListAttributeList.super.add(index, mapValue(element));
 				if (element != null && hasListeners()) {
 					((EObject) element).eAdapters().add(myFeatureMonitor);
 				}
@@ -140,16 +164,30 @@ public class EMFListAttributeList extends WritableList implements IObserving {
 	private void init() {
 		IManager.Factory.getManager().startMonitorObservableDispose(myObjectList, this);
 		for (final Object o : myObjectList) {
-			final EObject obj = (EObject) o;
-			Object v;
-			try {
-				v = myMapper.map(obj);
-			} catch (final Exception ex) {
-				LogUtils.error(myMapper, ex);
-				v = null;
-			}
-			add(v);
+			super.add(mapValue(o));
 		}
+	}
+
+	/**
+	 * Maps a single value with the mapper.
+	 * <p>
+	 * If
+	 * 
+	 * @param obj the object to map
+	 * @return the mapped value
+	 */
+	private Object mapValue(final Object obj) {
+		Object v;
+		try {
+			v = myMapper.map(obj);
+		} catch (final Exception ex) {
+			LogUtils.error(myMapper, ex);
+			v = null;
+		}
+		if (v == null) {
+			v = myNullReplacementValue;
+		}
+		return v;
 	}
 
 	@Override
@@ -190,5 +228,60 @@ public class EMFListAttributeList extends WritableList implements IObserving {
 	@Override
 	public Object getObserved() {
 		return myObjectList;
+	}
+
+	@Override
+	public void add(int index, Object element) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public boolean add(Object element) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public boolean addAll(Collection c) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public boolean addAll(int index, Collection c) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public Object remove(int index) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public boolean remove(Object o) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public boolean removeAll(Collection c) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public Object set(int index, Object element) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public void clear() {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public Object move(int oldIndex, int newIndex) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public boolean retainAll(Collection c) {
+		throw new UnsupportedOperationException();
 	}
 }

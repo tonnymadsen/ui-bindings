@@ -205,26 +205,26 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 	}
 
 	@Override
+	public IObservableList getValidUIList() {
+		if (!calculatedValidUIList) {
+			calculatedValidUIList = true;
+			if (!isChangeable()) return null;
+			myValidUIList = new EMFListAttributeList(myValidValues, myClassIdentiferMapper, String.class, "");
+			if (!getBinding().getDataType().isRequired()) {
+				myValidUIList.add(myNullLabel);
+			}
+		}
+		return myValidUIList;
+	}
+
+	@Override
 	protected Object convertModelToUI(Object fromObject) {
 		if (myClassIdentiferMapper == null) return myNullLabel;
 		/*
 		 * Any exception just falls through
 		 */
 		final Object o = myClassIdentiferMapper.map(fromObject);
-		return o != null ? o.toString() : myNullLabel;
-	}
-
-	@Override
-	public IObservableList getValidUIList() {
-		if (!calculatedValidUIList) {
-			calculatedValidUIList = true;
-			if (!isChangeable()) return null;
-			myValidUIList = new EMFListAttributeList(myValidValues, myClassIdentiferMapper, String.class);
-			if (!getBinding().getDataType().isRequired()) {
-				myValidUIList.add(myNullLabel);
-			}
-		}
-		return myValidUIList;
+		return o != null ? o.toString() : "";
 	}
 
 	@Override
