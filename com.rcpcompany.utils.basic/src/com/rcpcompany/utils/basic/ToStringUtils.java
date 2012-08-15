@@ -485,6 +485,20 @@ public final class ToStringUtils {
 		if ((event.stateMask & SWT.COMMAND) == SWT.COMMAND) {
 			sb.append("COMMAND "); //$NON-NLS-1$
 		}
+
+		if ((event.stateMask & SWT.MOD1) == SWT.MOD1) {
+			sb.append("MOD1 "); //$NON-NLS-1$
+		}
+		if ((event.stateMask & SWT.MOD2) == SWT.MOD2) {
+			sb.append("MOD2 "); //$NON-NLS-1$
+		}
+		if ((event.stateMask & SWT.MOD3) == SWT.MOD3) {
+			sb.append("MOD3 "); //$NON-NLS-1$
+		}
+		if ((event.stateMask & SWT.MOD4) == SWT.MOD4) {
+			sb.append("MOD4 "); //$NON-NLS-1$
+		}
+
 		if ((event.stateMask & SWT.BUTTON1) == SWT.BUTTON1) {
 			sb.append("BUTTON1 "); //$NON-NLS-1$
 		}
@@ -735,6 +749,18 @@ public final class ToStringUtils {
 					sb.append(keyCode);
 				}
 				break;
+		}
+		/*
+		 * Add a MODx suffix for the state mask stuff..
+		 */
+		if (keyCode == SWT.MOD1) {
+			sb.append("[MOD1]"); //$NON-NLS-1$
+		} else if (keyCode == SWT.MOD2) {
+			sb.append("[MOD2]"); //$NON-NLS-1$
+		} else if (keyCode == SWT.MOD3) {
+			sb.append("[MOD3]"); //$NON-NLS-1$
+		} else if (keyCode == SWT.MOD4) {
+			sb.append("[MOD4]"); //$NON-NLS-1$
 		}
 	}
 
