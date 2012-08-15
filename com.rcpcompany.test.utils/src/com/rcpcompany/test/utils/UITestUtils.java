@@ -422,8 +422,6 @@ public class UITestUtils {
 	public static void postMouseDown(String modifiers, int button,
 			final Control c, int noClicks) {
 		final long now = System.currentTimeMillis();
-		LogUtils.debug(c.getDisplay(), "dc time="
-				+ c.getDisplay().getDoubleClickTime());
 
 		if (lastMouseOperationExpireTime > now) {
 			sleep((int) (lastMouseOperationExpireTime - now));
@@ -451,7 +449,7 @@ public class UITestUtils {
 			e.widget = c;
 			e.button = button;
 			e.count = i;
-			LogUtils.debug(e, "#" + i + ": " + ToStringUtils.toString(e));
+			// LogUtils.debug(e, "#" + i + ": " + ToStringUtils.toString(e));
 			assertTrue(c.getDisplay().post(e));
 			// yield();
 
@@ -459,7 +457,7 @@ public class UITestUtils {
 			e.widget = c;
 			e.button = button;
 			e.count = i;
-			LogUtils.debug(e, "#" + i + ": " + ToStringUtils.toString(e));
+			// LogUtils.debug(e, "#" + i + ": " + ToStringUtils.toString(e));
 			assertTrue(c.getDisplay().post(e));
 		}
 		yield();
@@ -486,13 +484,8 @@ public class UITestUtils {
 	 */
 	public static void postMouse(final String modifiers, final Control c,
 			final Point p, final int noClicks) {
-		UITestUtils.swtListen(new Runnable() { // TMTM
-					@Override
-					public void run() {
-						postMouseMove(c, p);
-						postMouseDown(modifiers, 1, c, noClicks);
-					}
-				});
+		postMouseMove(c, p);
+		postMouseDown(modifiers, 1, c, noClicks);
 	}
 
 	/**
@@ -629,12 +622,15 @@ public class UITestUtils {
 	 *            the {@link Runnable} to run
 	 */
 	public static void swtListen(Runnable runnable) {
-		for (int i = SWT.None; i < SWT.ImeComposition; i++) {
-			Display.getCurrent().addFilter(i, SWT_EVENT_LISTENER);
-		}
-		BaseTestUtils.assertNoLog(runnable);
-		for (int i = SWT.None; i < SWT.ImeComposition; i++) {
-			Display.getCurrent().removeFilter(i, SWT_EVENT_LISTENER);
+		try {
+			for (int i = SWT.None; i < SWT.ImeComposition; i++) {
+				Display.getCurrent().addFilter(i, SWT_EVENT_LISTENER);
+			}
+			BaseTestUtils.assertNoLog(runnable);
+		} finally {
+			for (int i = SWT.None; i < SWT.ImeComposition; i++) {
+				Display.getCurrent().removeFilter(i, SWT_EVENT_LISTENER);
+			}
 		}
 	}
 

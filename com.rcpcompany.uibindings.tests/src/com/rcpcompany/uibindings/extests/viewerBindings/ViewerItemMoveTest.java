@@ -50,7 +50,6 @@ import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
-import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests the different moveItem commands.
@@ -108,7 +107,7 @@ public class ViewerItemMoveTest {
 
 		what = id + "[" + column + ";" + row + "] seq=" + seq + ":";
 
-		LogUtils.debug(this, what + " start");
+		// LogUtils.debug(this, what + " start");
 	}
 
 	@Before
@@ -211,7 +210,7 @@ public class ViewerItemMoveTest {
 			assertTrue(what + " is defined", command.getCommand().isDefined());
 
 			final Country country = myShop.getCountries().get(myRow);
-			LogUtils.debug(country, "" + country.getName());
+			// LogUtils.debug(country, "" + country.getName());
 
 			postMouse(myTableViewer.getTable(), myColumn + myViewerBinding.getFirstTableColumnOffset(), myRow);
 			yield();

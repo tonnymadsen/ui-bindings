@@ -191,7 +191,6 @@ public class NumberDecoratorProviderRangeTest {
 			});
 			final ValueBindingMessageImageDecorator decorator = myBinding
 					.getService(ValueBindingMessageImageDecorator.class);
-			// System.out.println(what + "=" + decorator.getMessages());
 			assertEquals(what, 0, decorator.getMessages().size());
 			final double d = myTestObject.getD();
 			assertEquals(what, expectedResult, d, 0.00001);
@@ -216,11 +215,8 @@ public class NumberDecoratorProviderRangeTest {
 			});
 			final ValueBindingMessageImageDecorator decorator = myBinding
 					.getService(ValueBindingMessageImageDecorator.class);
-			// System.out.println(what + "=" + decorator.getMessages());
 			assertEquals(what, 1, decorator.getMessages().size());
 			final IBindingMessage message = (IBindingMessage) decorator.getMessages().get(0);
-			// System.out.println("  \"" + message.getMessage() + "\".matches(\"" + expectedError +
-			// "\")");
 			assertTrue(what, message.getMessage().matches(expectedError));
 		}
 	}
@@ -263,7 +259,6 @@ public class NumberDecoratorProviderRangeTest {
 				bindUI(range);
 			}
 		});
-		// System.out.println("s=" + status.getMessage());
 		assertNotNull(status.getException());
 		assertTrue(what, status.getException().getMessage().matches(expectedError));
 	}

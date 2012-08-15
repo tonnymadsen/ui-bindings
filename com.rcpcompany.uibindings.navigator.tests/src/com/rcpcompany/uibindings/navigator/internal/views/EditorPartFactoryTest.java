@@ -48,7 +48,7 @@ public class EditorPartFactoryTest {
 		myGroup = ShopFactory.eINSTANCE.createShopItemGroup();
 
 		NavigatorTestUtils.setPreferred(ShopItemGroup.class,
-				"com.rcpcompany.uibindings.navigator.internal.views.EditorPartFactoryTests.GroupEditorPartFactory");
+				"com.rcpcompany.uibindings.navigator.internal.views.EditorPartFactoryTest.GroupEditorPartFactory");
 	}
 
 	/**

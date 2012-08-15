@@ -46,6 +46,7 @@ import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
 import com.rcpcompany.uibindings.utils.IDnDSupport;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Performance tests for trees using {@link TreeViewer#expandAll()}.
@@ -158,7 +159,7 @@ public class TreePerformanceTest {
 		final long endMemory = runtime.totalMemory() - runtime.freeMemory();
 		final long deltaTime = endTime - startTime;
 		final long deltaMemory = endMemory - startMemory;
-		System.out.println("model (" + mySizeFactor + "): " + myNoShopObjs + " objects " + deltaTime + " ms "
+		LogUtils.debug(this, "model (" + mySizeFactor + "): " + myNoShopObjs + " objects " + deltaTime + " ms "
 				+ deltaMemory + " bytes (= " + (1f * deltaTime / myNoShopObjs) + " ms/obj) "
 				+ (deltaMemory / myNoShopObjs) + " bytes/obj)");
 
@@ -215,7 +216,7 @@ public class TreePerformanceTest {
 
 		// sleep(2000);
 
-		System.out.println("expand (" + mySizeFactor + "): " + (endTime - startTime) + " (= "
+		LogUtils.debug(this, "expand (" + mySizeFactor + "): " + (endTime - startTime) + " (= "
 				+ (1f * (endTime - startTime) / myNoShopObjs) + " ms/obj)");
 	}
 }

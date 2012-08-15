@@ -160,7 +160,6 @@ public class DoubleClickAdapterTest {
 
 		@Override
 		public Object execute(ExecutionEvent event) throws ExecutionException {
-			// System.out.println("handler");
 			final String value = event.getParameter("p");
 			DoubleClickAdapterTest.theTestObject.setHandlerParameter(value);
 			return null;

@@ -45,8 +45,6 @@ import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
-import com.rcpcompany.utils.basic.ToStringUtils;
-import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests the dispose sequence of a viewer and the columns in the viewer.
@@ -278,7 +276,6 @@ public class ViewerDisposeTest {
 					if (msg.getFeature() != stateAttribute) return;
 					// We ignore the pending dispose for now...
 					if (BindingState.DISPOSE_PENDING == ((EObject) msg.getNotifier()).eGet(stateAttribute)) return;
-					LogUtils.debug(this, ToStringUtils.toString(msg));
 					assertEquals(BindingState.DISPOSED, ((EObject) msg.getNotifier()).eGet(stateAttribute));
 					if (expectedNo != -1) {
 						assertEquals(expectedNo, no[0]);

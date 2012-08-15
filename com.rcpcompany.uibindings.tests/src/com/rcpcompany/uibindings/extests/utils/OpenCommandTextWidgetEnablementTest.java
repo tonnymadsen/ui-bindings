@@ -20,9 +20,7 @@ import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.Listener;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -177,17 +175,6 @@ public class OpenCommandTextWidgetEnablementTest {
 	}
 
 	private void testColumnBinding(IValueBinding binding, boolean openEnabled) {
-		final Listener listener = new Listener() {
-
-			@Override
-			public void handleEvent(Event event) {
-				// System.out.println(">>>" + ToStringUtils.toString(event));
-			}
-		};
-		for (int i = SWT.None; i < SWT.ImeComposition; i++) {
-			Display.getCurrent().addFilter(i, listener);
-		}
-
 		final Control control = binding.getControl();
 		final Rectangle bounds = control.getBounds();
 		final Point p = new Point(bounds.x + bounds.width / 2, bounds.y + bounds.height / 2);

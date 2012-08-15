@@ -35,6 +35,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 import com.rcpcompany.uibindings.utils.IFormCreator;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests that when the model is changed, then the widget is changed as well.
@@ -156,11 +157,10 @@ public class ValueBindingFocusOutTest {
 	private void dump(IValueBinding binding) {
 		final Control c = binding.getControl();
 		final Rectangle bounds = c.getBounds();
-		System.out.println(binding.getLabel() + ": " + c.hashCode() + " - " + bounds + " - "
-				+ c.getDisplay().map(c, null, bounds));
+		LogUtils.debug(this,
+				binding.getLabel() + ": " + c.hashCode() + " - " + bounds + " - " + c.getDisplay().map(c, null, bounds));
 		for (Control d = c; !(d instanceof Shell); d = d.getParent()) {
-			System.out.println("  " + d + ": " + d.getBounds() + " - " + c.getDisplay().map(c, d, bounds));
-
+			LogUtils.debug(this, "  " + d + ": " + d.getBounds() + " - " + c.getDisplay().map(c, d, bounds));
 		}
 	}
 }

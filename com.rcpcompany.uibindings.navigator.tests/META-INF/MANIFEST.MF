@@ -23,3 +23,8 @@ Import-Package: com.rcpcompany.uibindings,
  org.eclipse.jface.viewers,
  org.eclipse.swt,
  org.eclipse.swt.widgets
+Export-Package: com.rcpcompany.uibindings.navigator.extests,
+ com.rcpcompany.uibindings.navigator.extests.editors,
+ com.rcpcompany.uibindings.navigator.extests.manager,
+ com.rcpcompany.uibindings.navigator.extests.utils,
+ com.rcpcompany.uibindings.tests.navigator.editorParts

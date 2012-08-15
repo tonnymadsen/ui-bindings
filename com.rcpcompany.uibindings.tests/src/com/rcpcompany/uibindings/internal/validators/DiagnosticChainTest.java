@@ -132,7 +132,7 @@ public class DiagnosticChainTest {
 		myItem.setName("x");
 		sleep(2 * VD);
 
-		// System.out.println(myValidatorManager.getUnboundMessages());
+		// LogUtils.debug(this, myValidatorManager.getUnboundMessages());
 		assertEquals(noUnboundMessages + 1, myValidatorManager.getUnboundMessages().size());
 		// Still no messages assigned to the name as the feature of the diagnostic is missing
 		assertEquals(1, messages.size());

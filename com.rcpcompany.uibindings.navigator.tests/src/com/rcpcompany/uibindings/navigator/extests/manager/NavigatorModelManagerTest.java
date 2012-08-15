@@ -22,14 +22,12 @@ import org.eclipse.emf.common.util.EList;
 import org.junit.Test;
 
 import com.rcpcompany.uibindings.IManager;
-import com.rcpcompany.uibindings.ITreeItemDescriptor;
 import com.rcpcompany.uibindings.navigator.IEditorInformation;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.internal.NavigatorConstants;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.Shop;
-import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests the basic properties of the {@link IEditorManager}.
@@ -80,20 +78,27 @@ public class NavigatorModelManagerTest {
 
 		final EList<IEditorInformation> eis = manager.getEditorInformations();
 		assertNotNull(eis);
-		assertEquals(4, eis.size());
+		/*
+		 * Can grow over time based on other configuration - so it depends on the test sequence
+		 */
+		assertTrue(eis.size() >= 4);
 
 		boolean shopSeen = false;
 		boolean countrySeen = false;
 
 		for (final IEditorInformation mt : manager.getEditorInformations()) {
-			if (mt.getModelType().equals(Shop.class.getName())) {
-				assertEquals(Shop.class.getName(), mt.getModelType());
+			final String modelType = mt.getModelType();
+			if (modelType == null) {
+				continue;
+			}
+			if (modelType.equals(Shop.class.getName())) {
+				assertEquals(Shop.class.getName(), modelType);
 				final EList<IEditorPartDescriptor> shopEditors = mt.getEditors();
 				assertEquals(3, shopEditors.size());
 				shopSeen = true;
 			}
-			if (mt.getModelType().equals(Country.class.getName())) {
-				assertEquals(Country.class.getName(), mt.getModelType());
+			if (modelType.equals(Country.class.getName())) {
+				assertEquals(Country.class.getName(), modelType);
 				final EList<IEditorPartDescriptor> countryEditors = mt.getEditors();
 				assertEquals(1, countryEditors.size());
 				final IEditorPartDescriptor countryED = countryEditors.get(0);
@@ -116,9 +121,9 @@ public class NavigatorModelManagerTest {
 		final INavigatorManager nmanager = INavigatorManager.Factory.getManager();
 
 		assertNotNull(manager.getTreeItem("com.rcpcompany.uibindings.shop.treeItems.contactFolder"));
-		for (final ITreeItemDescriptor i : manager.getTreeItems()) {
-			LogUtils.debug(this, "i: " + i.getId());
-		}
+		// for (final ITreeItemDescriptor i : manager.getTreeItems()) {
+		// LogUtils.debug(this, "i: " + i.getId());
+		// }
 
 		final IEditorInformation i = nmanager
 				.getEditorInformation("com.rcpcompany.uibindings.shop.treeItems.contactFolder");

@@ -17,5 +17,22 @@
             restorable="false">
       </view>
    </extension>
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="com.rcpcompany.uibindings.tests.utils.application.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="com.rcpcompany.uibindings.tests.utils.application.Perspective"
+            id="com.rcpcompany.uibindings.tests.utils.perspectives.TestPerspective"
+            name="Test Perspective">
+      </perspective>
+   </extension>
 
 </plugin>

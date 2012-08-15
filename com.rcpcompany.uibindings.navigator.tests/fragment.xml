@@ -56,25 +56,25 @@
          </modelType>
       </editor>
       <editor
-            factory="com.rcpcompany.uibindings.navigator.internal.views.EditorPartFactoryTests$GroupEditorPartFactory"
-            id="com.rcpcompany.uibindings.navigator.internal.views.EditorPartFactoryTests.GroupEditorPartFactory"
-            name="Test (EditorPartFactoryTests)">
+            factory="com.rcpcompany.uibindings.navigator.internal.views.EditorPartFactoryTest$GroupEditorPartFactory"
+            id="com.rcpcompany.uibindings.navigator.internal.views.EditorPartFactoryTest.GroupEditorPartFactory"
+            name="Test (EditorPartFactoryTest)">
          <modelType
                class="com.rcpcompany.uibindings.tests.shop.ShopItemGroup">
          </modelType>
       </editor>
       <editor
-            factory="com.rcpcompany.uibindings.navigator.extests.editors.EditorPartLifecycleTests$GroupEditorPartFactory"
-            id="com.rcpcompany.uibindings.navigator.extests.editors.EditorPartLifecycleTests.GroupEditorPartFactory"
-            name="Test (EditorPartLifecycleTests)">
+            factory="com.rcpcompany.uibindings.navigator.extests.editors.EditorPartLifecycleTest$GroupEditorPartFactory"
+            id="com.rcpcompany.uibindings.navigator.extests.editors.EditorPartLifecycleTest.GroupEditorPartFactory"
+            name="Test (EditorPartLifecycleTest)">
          <modelType
                class="com.rcpcompany.uibindings.tests.shop.ShopItemGroup">
          </modelType>
       </editor>
       <editor
             factory="com.rcpcompany.uibindings.navigator.editorFactories.GenericPlainFormEditorPartFactory"
-            id="com.rcpcompany.uibindings.navigator.extests.editors.GenericPlainFormEditorPartFactoryTests"
-            name="Test (GenericPlainFormEditorPartFactoryTests)">
+            id="com.rcpcompany.uibindings.navigator.extests.editors.GenericPlainFormEditorPartFactoryTest"
+            name="Test (GenericPlainFormEditorPartFactoryTest)">
          <modelType
                class="com.rcpcompany.uibindings.tests.shop.ShopItemGroup">
          </modelType>
@@ -93,7 +93,7 @@
       </preferenceModelType>
       <editor
             factory="com.rcpcompany.uibindings.navigator.editorFactories.GenericPlainFormEditorPartFactory"
-            id="com.rcpcompany.uibindings.navigator.extests.editors.GenericPlainFormEditorPartFactoryTests"
+            id="com.rcpcompany.uibindings.navigator.extests.editors.GenericPlainFormEditorPartFactoryTest"
             name="Test (com.rcpcompany.uibindings.shop.treeItems.contactFolder)">
          <treeItem
                id="com.rcpcompany.uibindings.shop.treeItems.contactFolder">

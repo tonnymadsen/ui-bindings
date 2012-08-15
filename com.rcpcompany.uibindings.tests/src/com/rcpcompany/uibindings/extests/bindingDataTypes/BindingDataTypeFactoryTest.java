@@ -152,7 +152,6 @@ public class BindingDataTypeFactoryTest {
 		assertEquals(memberClasses.length, types.length);
 		for (int i = 0; i < memberClasses.length; i++) {
 			final IBindingDataType d = types[i];
-			// System.out.println(d.getDataType().getSimpleName() + ": " + d.getEType());
 			assertEquals(memberClasses[i], d.getDataType());
 		}
 	}

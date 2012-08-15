@@ -46,7 +46,6 @@ import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.utils.ITableCreator;
-import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests that {@link IValueBinding#setFocus()} works correctly.
@@ -144,7 +143,7 @@ public class BindingSetFocusTest {
 	@Test
 	public void testValueBinding() {
 		final Control control = myNameBinding.getControl();
-		LogUtils.debug(this, "b=" + control.getBounds());
+		// LogUtils.debug(this, "b=" + control.getBounds());
 		assertEquals(false, control.isFocusControl());
 		// assertEquals(false, control.isVisible());
 

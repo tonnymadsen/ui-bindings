@@ -28,6 +28,7 @@ import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Performance tests {@link ViewerBindingTreeFactory}.
@@ -64,7 +65,7 @@ public class ViewerBindingTreeFactoryPerformanceTest {
 		}
 
 		final long endTime = System.currentTimeMillis();
-		System.out.println("model: " + (endTime - startTime) + "ms for " + noObjs + " objects");
+		LogUtils.debug(this, "model: " + (endTime - startTime) + "ms for " + noObjs + " objects");
 
 		return shop;
 	}
@@ -102,9 +103,9 @@ public class ViewerBindingTreeFactoryPerformanceTest {
 			assertEquals(size, list2.size());
 			final long t4 = System.currentTimeMillis();
 
-			System.out.println(" - construction " + (t2 - t1) + "ms");
-			System.out.println(" - 1st level get " + (t3 - t2) + "ms");
-			System.out.println(" - 2nd level get " + (t4 - t3) + "ms");
+			LogUtils.debug(this, " - construction " + (t2 - t1) + "ms");
+			LogUtils.debug(this, " - 1st level get " + (t3 - t2) + "ms");
+			LogUtils.debug(this, " - 2nd level get " + (t4 - t3) + "ms");
 		}
 	}
 
@@ -138,8 +139,8 @@ public class ViewerBindingTreeFactoryPerformanceTest {
 			}
 			final long t3 = System.currentTimeMillis();
 
-			System.out.println(" - remove ½ " + (t2 - t1) + "ms");
-			System.out.println(" - re-add ½ " + (t3 - t2) + "ms");
+			LogUtils.debug(this, " - remove ½ " + (t2 - t1) + "ms");
+			LogUtils.debug(this, " - re-add ½ " + (t3 - t2) + "ms");
 		}
 	}
 }

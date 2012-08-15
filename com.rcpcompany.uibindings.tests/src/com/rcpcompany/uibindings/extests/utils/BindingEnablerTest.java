@@ -26,8 +26,6 @@ import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 import com.rcpcompany.uibindings.utils.IBindingEnabler;
 import com.rcpcompany.uibindings.utils.IFormCreator;
-import com.rcpcompany.utils.basic.ToStringUtils;
-import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests of {@link IBindingEnabler}.
@@ -76,7 +74,6 @@ public class BindingEnablerTest {
 		myForm.finish();
 		assertFalse(myForm.getContext().getFinalizers().contains(enabler));
 
-		LogUtils.debug(this, ToStringUtils.toPath(myBinding.getControl()));
 		yield();
 		assertEquals(2, myForm.getContext().getBindings().size());
 

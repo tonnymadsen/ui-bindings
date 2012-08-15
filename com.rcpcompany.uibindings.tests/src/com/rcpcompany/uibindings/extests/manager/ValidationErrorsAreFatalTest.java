@@ -38,7 +38,6 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 import com.rcpcompany.uibindings.utils.ITableCreator;
-import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Test functionality of {@link IManager#setValidationErrorsAreFatal(boolean)}.
@@ -129,12 +128,12 @@ public class ValidationErrorsAreFatalTest {
 		final IBindingContext context = myViewerBinding.getContext();
 		final IBinding binding = context.getBindings().get(context.getBindings().size() - 1);
 		final Text t = (Text) binding.getControl();
-		LogUtils.debug(t, "t=" + t.getText());
+		// LogUtils.debug(t, "t=" + t.getText());
 		postKeyStroke(myTable, "-");
-		LogUtils.debug(t, "t=" + t.getText());
+		// LogUtils.debug(t, "t=" + t.getText());
 
 		postKeyStroke(myTable, "1");
-		LogUtils.debug(t, "t=" + t.getText());
+		// LogUtils.debug(t, "t=" + t.getText());
 
 		postKeyStroke(myTable, "ENTER");
 

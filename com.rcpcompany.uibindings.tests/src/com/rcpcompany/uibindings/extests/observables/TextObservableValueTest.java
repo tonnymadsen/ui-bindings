@@ -39,7 +39,6 @@ import com.rcpcompany.uibindings.internal.observables.DelayedChangeEvent;
 import com.rcpcompany.uibindings.internal.observables.IDelayedChangeListener;
 import com.rcpcompany.uibindings.internal.observables.TextObservableValue;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
-import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests the {@link TextObservableValue} behaves.
@@ -254,40 +253,40 @@ public class TextObservableValueTest<X extends Control> {
 
 		w1.setFocus();
 
-		ov1.setValue("a"); // <<<<
+		ov1.setValue("a");
 		assertEquals("a", getText());
 
 		performChange("a", b1, strategy != TextCommitStrategy.ON_MODIFY, "b", new Runnable() {
 			@Override
 			public void run() {
-				setText("b"); // <<<<
+				setText("b");
 			}
 		});
 
 		performChange(b1, b2, false, "b", new Runnable() {
 			public void run() {
-				sleep(DELAY / 5); // <<<<
+				sleep(DELAY / 5);
 			}
 		});
 
 		performChange(b2, b3, strategy != TextCommitStrategy.ON_MODIFY, "c", new Runnable() {
 			@Override
 			public void run() {
-				setText("c"); // <<<<
+				setText("c");
 			}
 		});
 
 		performChange(b3, b4, false, "c", new Runnable() {
 			@Override
 			public void run() {
-				sleep(2 * DELAY); // <<<<
+				sleep(2 * DELAY);
 			}
 		});
 
 		performChange(b4, b5, false, "c", new Runnable() {
 			@Override
 			public void run() {
-				w2.setFocus(); // <<<<
+				w2.setFocus();
 			}
 		});
 	}
@@ -331,7 +330,7 @@ public class TextObservableValueTest<X extends Control> {
 
 		w1.setFocus();
 
-		ov1.setValue("a"); // <<<<
+		ov1.setValue("a");
 		assertEquals("a", getText());
 		yield();
 
@@ -345,7 +344,7 @@ public class TextObservableValueTest<X extends Control> {
 
 		performChange(b1, b2, false, "b", new Runnable() {
 			public void run() {
-				sleep(DELAY / 5); // <<<<
+				sleep(DELAY / 5);
 			}
 		});
 
@@ -359,13 +358,13 @@ public class TextObservableValueTest<X extends Control> {
 
 		performChange(b3, b4, false, "c", new Runnable() {
 			public void run() {
-				sleep(2 * DELAY); // <<<<
+				sleep(2 * DELAY);
 			}
 		});
 
 		performChange(b4, b5, false, "c", new Runnable() {
 			public void run() {
-				w2.setFocus(); // <<<<
+				w2.setFocus();
 			}
 		});
 	}
@@ -413,23 +412,23 @@ public class TextObservableValueTest<X extends Control> {
 		w1.setFocus();
 		final String initial = "a";
 
-		ov1.setValue(initial); // <<<<
+		ov1.setValue(initial);
 
 		performChange(initial, b1, strategy != TextCommitStrategy.ON_MODIFY, "b", new Runnable() {
 			public void run() {
-				setText("b"); // <<<<
+				setText("b");
 			}
 		});
 
 		performChange(b1, b1, false, "b", new Runnable() {
 			public void run() {
-				sleep(DELAY / 2); // <<<<
+				sleep(DELAY / 2);
 			}
 		});
 
 		performChange(b1, b2, expectDelayChangeEvents, getValue, new Runnable() {
 			public void run() {
-				postKeyStroke(w1, stroke); // <<<<
+				postKeyStroke(w1, stroke);
 			}
 		});
 	}
@@ -487,15 +486,15 @@ public class TextObservableValueTest<X extends Control> {
 		w1.setFocus();
 		final String initial = "a";
 
-		ov1.setValue(initial); // <<<<
+		ov1.setValue(initial);
 
 		performChange(initial, b1, strategy != TextCommitStrategy.ON_MODIFY, b1, new Runnable() {
 			public void run() {
-				postKeyStroke(w1, "ARROW_LEFT"); // <<<<
-				LogUtils.debug(this, "next: " + stroke);
-				postKeyStroke(w1, stroke); // <<<<
-				sleep(DELAY / 2); // <<<<
-				w2.setFocus(); // <<<<
+				postKeyStroke(w1, "ARROW_LEFT");
+				// LogUtils.debug(this, "next: " + stroke);
+				postKeyStroke(w1, stroke);
+				sleep(DELAY / 2);
+				w2.setFocus();
 			}
 		});
 	}
@@ -541,7 +540,7 @@ public class TextObservableValueTest<X extends Control> {
 
 		performChange("a", b1, expectDelayChangeEvents, "b", new Runnable() {
 			public void run() {
-				setText("b"); // <<<<
+				setText("b");
 			}
 		});
 
@@ -611,7 +610,7 @@ public class TextObservableValueTest<X extends Control> {
 
 		performChange("a", b1, expectDelayChangeEvents, "b", new Runnable() {
 			public void run() {
-				setText("b"); // <<<<
+				setText("b");
 			}
 		});
 

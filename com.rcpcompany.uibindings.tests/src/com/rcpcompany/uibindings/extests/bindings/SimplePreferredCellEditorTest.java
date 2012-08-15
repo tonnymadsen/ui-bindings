@@ -48,7 +48,6 @@ import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 import com.rcpcompany.uibindings.widgets.FileNameControl;
-import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests that the correct simple cell editor widget is used for the simple data types.
@@ -110,7 +109,7 @@ public class SimplePreferredCellEditorTest {
 
 		what = myFeature.getName() + "(" + myType + "): "
 				+ (myExpectedCellEditor == null ? "<null>" : myExpectedCellEditor.getSimpleName());
-		LogUtils.debug(this, what);
+		// LogUtils.debug(this, what);
 	}
 
 	@Before

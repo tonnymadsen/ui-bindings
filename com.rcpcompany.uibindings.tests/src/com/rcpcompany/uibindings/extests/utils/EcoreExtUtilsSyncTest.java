@@ -35,7 +35,6 @@ import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
-import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests of {@link EcoreExtUtils#sync(EObject, EObject)} and friends.
@@ -385,7 +384,8 @@ public class EcoreExtUtilsSyncTest {
 			if (msg.isTouch()) return;
 			final EStructuralFeature sf = (EStructuralFeature) msg.getFeature();
 			if (sf == null) return;
-			LogUtils.debug(this, ">>> " + sf.getContainerClass().getName() + "." + sf.getName() + ": " + msg);
+			// LogUtils.debug(this, ">>> " + sf.getContainerClass().getName() + "." + sf.getName() +
+			// ": " + msg);
 			myChanges.add(sf);
 		}
 	};
@@ -404,8 +404,6 @@ public class EcoreExtUtilsSyncTest {
 		final EStructuralFeature[] actualFeatureChanges = myChanges.toArray(new EStructuralFeature[myChanges.size()]);
 		Arrays.sort(expectedFeatureChanges, EMFTestUtils.SF_COMPARATOR);
 		Arrays.sort(actualFeatureChanges, EMFTestUtils.SF_COMPARATOR);
-		// System.out.println("exp: " + Arrays.toString(expectedFeatureChanges));
-		// System.out.println("act: " + Arrays.toString(actualFeatureChanges));
 		assertArrayEquals(expectedFeatureChanges, actualFeatureChanges);
 
 		if (expectedRemovedObjects == null) {

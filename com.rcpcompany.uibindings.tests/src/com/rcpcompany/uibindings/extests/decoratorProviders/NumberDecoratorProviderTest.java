@@ -331,7 +331,7 @@ public class NumberDecoratorProviderTest {
 
 	private void bindUI() {
 		myContext = IBindingContext.Factory.createContext(myView.getScrolledForm());
-		myBinding = (IValueBinding) myContext.addBinding(myText, myTestObject, myFeature).type(myType);
+		myBinding = myContext.addBinding(myText, myTestObject, myFeature).type(myType);
 
 		myContext.finish();
 		yield();
@@ -394,7 +394,6 @@ public class NumberDecoratorProviderTest {
 		});
 		final ValueBindingMessageImageDecorator decorator = myBinding
 				.getService(ValueBindingMessageImageDecorator.class);
-		// System.out.println(what + "=" + decorator.getMessages());
 		assertEquals(what, 0, decorator.getMessages().size());
 		final Object object = myTestObject.eGet(myFeature);
 		assertEquals(what, expectedResult, object);
@@ -414,11 +413,8 @@ public class NumberDecoratorProviderTest {
 		});
 		final ValueBindingMessageImageDecorator decorator = myBinding
 				.getService(ValueBindingMessageImageDecorator.class);
-		// System.out.println(what + "=" + decorator.getMessages());
 		assertEquals(what, 1, decorator.getMessages().size());
 		final IBindingMessage message = (IBindingMessage) decorator.getMessages().get(0);
-		// System.out.println("  \"" + message.getMessage() + "\".matches(\"" + expectedError +
-		// "\")");
 		assertTrue(what + " had '" + message.getMessage() + "' - no match for '" + expectedError + "'", message
 				.getMessage().matches(expectedError));
 	}

@@ -35,6 +35,8 @@ import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.utils.ITableCreator;
+import com.rcpcompany.utils.basic.ToStringUtils;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests a combo in a {@link ControlCellEditor}.
@@ -156,7 +158,7 @@ public class ControlCellEditorTest {
 			public void notifyChanged(Notification msg) {
 				super.notifyChanged(msg);
 				if (msg.isTouch()) return;
-				System.out.println(msg);
+				LogUtils.debug(this, ToStringUtils.toString(msg));
 			}
 		});
 

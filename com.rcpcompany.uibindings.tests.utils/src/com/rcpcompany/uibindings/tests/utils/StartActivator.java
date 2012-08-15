@@ -24,6 +24,9 @@ public class StartActivator extends Plugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 
+		if (!PlatformUI.isWorkbenchRunning())
+			return;
+
 		Platform.addLogListener(myLogListener);
 
 		PlatformUI.getWorkbench().addWorkbenchListener(

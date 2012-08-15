@@ -46,11 +46,11 @@ public class EditorPartLifecycleTest {
 		myGroup = ShopFactory.eINSTANCE.createShopItemGroup();
 
 		NavigatorTestUtils.setPreferred(ShopItemGroup.class,
-				"com.rcpcompany.uibindings.navigator.extests.editors.EditorPartLifecycleTests.GroupEditorPartFactory");
+				"com.rcpcompany.uibindings.navigator.extests.editors.EditorPartLifecycleTest.GroupEditorPartFactory");
 	}
 
 	/**
-	 * Tests life cycle when the view is close - then the editor part is closed.
+	 * Tests life cycle when the view is closed - then the editor part is closed.
 	 */
 	@Test
 	public void testLifecycleViewClose() {

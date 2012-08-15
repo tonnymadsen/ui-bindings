@@ -50,7 +50,7 @@ public class GenericPlainFormEditorPartFactoryTest {
 		myGroup = ShopFactory.eINSTANCE.createShopItemGroup();
 
 		NavigatorTestUtils.setPreferred(ShopItemGroup.class,
-				"com.rcpcompany.uibindings.navigator.extests.editors.GenericPlainFormEditorPartFactoryTests");
+				"com.rcpcompany.uibindings.navigator.extests.editors.GenericPlainFormEditorPartFactoryTest");
 	}
 
 	/**

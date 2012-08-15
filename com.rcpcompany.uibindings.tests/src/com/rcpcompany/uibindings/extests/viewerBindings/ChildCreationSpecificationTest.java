@@ -42,6 +42,7 @@ import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.utils.ITableCreator;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests of {@link IViewerBinding#getElementParentage(org.eclipse.emf.ecore.EObject)}.
@@ -189,7 +190,7 @@ public class ChildCreationSpecificationTest {
 
 				assertNotNull(specs);
 				for (final IChildCreationSpecification s : specs) {
-					System.out.println(s.getReference().getEContainingClass().getName() + "."
+					LogUtils.debug(this, s.getReference().getEContainingClass().getName() + "."
 							+ s.getReference().getName());
 				}
 				/*

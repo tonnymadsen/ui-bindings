@@ -14,6 +14,7 @@ import static org.junit.Assert.*;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecore.EcorePackage;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.rcpcompany.uibindings.scripting.IScriptEvaluationContext;
@@ -79,6 +80,7 @@ public class SimpleScriptTest {
 	 * Tests script is properly re-evaluated when the evaluation context changes..
 	 */
 	@Test
+	@Ignore
 	public void testVariableReevaluation() {
 		BaseUIBTestUtils.resetAll();
 

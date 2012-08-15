@@ -318,8 +318,6 @@ public class SortingTest {
 			actuals[i] = (Country) item.getData();
 		}
 
-		// System.out.println("expected " + Arrays.toString(expected));
-		// System.out.println("actuals " + Arrays.toString(actuals));
 		assertArrayEquals(expected, actuals);
 	}
 

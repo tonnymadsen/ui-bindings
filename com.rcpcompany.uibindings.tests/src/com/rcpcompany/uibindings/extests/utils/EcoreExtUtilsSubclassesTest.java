@@ -21,7 +21,6 @@ import org.junit.Test;
 
 import com.rcpcompany.uibindings.EcoreExtUtils;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
-import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests {@link EcoreExtUtils#getSubClasses(EClass)}.
@@ -38,7 +37,7 @@ public class EcoreExtUtilsSubclassesTest {
 
 	public void testOneResult(EClass sc, EClass... expectedSubClasses) {
 		final Collection<EClass> subClasses = EcoreExtUtils.getSubClasses(sc);
-		LogUtils.debug(this, sc.getName() + ": " + subClasses);
+		// LogUtils.debug(this, sc.getName() + ": " + subClasses);
 		if (expectedSubClasses.length == 0) {
 			assertEquals(null, subClasses);
 			return;
