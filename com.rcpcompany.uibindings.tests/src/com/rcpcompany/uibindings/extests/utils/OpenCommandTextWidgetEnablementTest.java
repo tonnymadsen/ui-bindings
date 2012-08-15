@@ -131,6 +131,8 @@ public class OpenCommandTextWidgetEnablementTest {
 				.arg(Constants.ARG_OPEN_COMMAND, SHOW_VIEW_COMMAND).validValues(countries);
 
 		myForm.finish();
+		myView.getSite().getPage().activate(myView);
+		sleep(200);
 	}
 
 	@After
@@ -145,7 +147,7 @@ public class OpenCommandTextWidgetEnablementTest {
 	 */
 	@Test
 	public void nameNameTest() {
-		testColumnBinding(myNameField, false);
+		testBinding(myNameField, false);
 	}
 
 	/**
@@ -155,7 +157,7 @@ public class OpenCommandTextWidgetEnablementTest {
 	 */
 	@Test
 	public void countryOKTest() {
-		testColumnBinding(myCountryOKField, true);
+		testBinding(myCountryOKField, true);
 	}
 
 	/**
@@ -163,7 +165,7 @@ public class OpenCommandTextWidgetEnablementTest {
 	 */
 	@Test
 	public void countryNotOKTest() {
-		testColumnBinding(myCountryNOKField, false);
+		testBinding(myCountryNOKField, false);
 	}
 
 	/**
@@ -171,13 +173,17 @@ public class OpenCommandTextWidgetEnablementTest {
 	 */
 	@Test
 	public void countryEmptyTest() {
-		testColumnBinding(myCountryEmptyField, false);
+		testBinding(myCountryEmptyField, false);
 	}
 
-	private void testColumnBinding(IValueBinding binding, boolean openEnabled) {
+	private void testBinding(IValueBinding binding, boolean openEnabled) {
 		final Control control = binding.getControl();
 		final Rectangle bounds = control.getBounds();
 		final Point p = new Point(bounds.x + bounds.width / 2, bounds.y + bounds.height / 2);
+
+		/*
+		 * Move to the control
+		 */
 		postMouseMove(control.getParent(), p);
 
 		final Cursor initCursor = control.getCursor();
@@ -188,23 +194,29 @@ public class OpenCommandTextWidgetEnablementTest {
 		event = new Event();
 		event.type = SWT.KeyDown;
 		event.stateMask = 0;
-		event.keyCode = SWT.CTRL;
+		event.keyCode = SWT.MOD1;
 		event.widget = control;
 
 		assertTrue(control.getDisplay().post(event));
-		yield();
 
+		yield();
+		Cursor cursor = control.getCursor();
+		assertEquals(openEnabled, cursor != null);
+
+		/*
+		 * Move one pixel
+		 */
 		p.x += 1;
 		postMouseMove(control.getParent(), p);
 		p.x -= 1;
 
-		final Cursor cursor = control.getCursor();
+		cursor = control.getCursor();
 		assertEquals(openEnabled, cursor != null);
 
 		event = new Event();
 		event.type = SWT.KeyUp;
 		event.stateMask = 0;
-		event.keyCode = SWT.CTRL;
+		event.keyCode = SWT.MOD1;
 		event.widget = control;
 
 		assertTrue(control.getDisplay().post(event));
