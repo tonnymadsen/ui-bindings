@@ -140,9 +140,13 @@ public class UITestUtils {
 	 * Sleeps for the specified number of msec.
 	 * 
 	 * @param msec
-	 *            the length
+	 *            the length in msec
 	 */
 	public static void sleep(int msec) {
+		if (msec <= 0)
+			return;
+		final long timeout = System.currentTimeMillis() + msec;
+
 		cont = false;
 		DISPLAY.timerExec(msec, new Runnable() {
 			@Override
@@ -419,8 +423,8 @@ public class UITestUtils {
 	 * @param p
 	 *            the point
 	 */
-	public static void postMouseDown(String modifiers, int button,
-			final Control c, int noClicks) {
+	public static void postMouseDown(String modifiers, final int button,
+			final Control c, final int noClicks) {
 		final long now = System.currentTimeMillis();
 
 		if (lastMouseOperationExpireTime > now) {
@@ -437,30 +441,50 @@ public class UITestUtils {
 			fail(ex.getMessage());
 		}
 
-		final Event e = new Event();
-
 		if (keyStroke != null) {
 			c.setFocus();
 			postModifierKeys(c, keyStroke, true);
 		}
 
-		for (int i = 1; i <= noClicks; i++) {
-			e.type = SWT.MouseDown;
-			e.widget = c;
-			e.button = button;
-			e.count = i;
-			// LogUtils.debug(e, "#" + i + ": " + ToStringUtils.toString(e));
-			assertTrue(c.getDisplay().post(e));
-			// yield();
+		swtListen(new Runnable() {
+			@Override
+			public void run() {
+				final Event e = new Event();
+				for (int i = 1; i <= noClicks; i++) {
+					e.type = SWT.MouseDown;
+					e.widget = c;
+					e.button = button;
+					e.count = i;
+					LogUtils.debug(e,
+							"#" + i + ": " + ToStringUtils.toString(e));
+					assertTrue(c.getDisplay().post(e));
 
-			e.type = SWT.MouseUp;
-			e.widget = c;
-			e.button = button;
-			e.count = i;
-			// LogUtils.debug(e, "#" + i + ": " + ToStringUtils.toString(e));
-			assertTrue(c.getDisplay().post(e));
-		}
-		yield();
+					/*
+					 * Problem on MACOSX: the event handler for the MouseDown
+					 * event, seems to be actively waiting for the MouseUp
+					 * event. While this happens, Display.readAndDispatch is
+					 * blocked. Not event timer events are executed, only system
+					 * events.
+					 * 
+					 * The "solution" seems to be to avoid all waiting at this
+					 * point!
+					 */
+					// sleep(50);
+					// yield();
+
+					e.type = SWT.MouseUp;
+					e.widget = c;
+					e.button = button;
+					e.count = i;
+					LogUtils.debug(e,
+							"#" + i + ": " + ToStringUtils.toString(e));
+					assertTrue(c.getDisplay().post(e));
+					// sleep(50);
+				}
+
+			}
+		});
+		// yield();
 
 		if (keyStroke != null) {
 			postModifierKeys(c, keyStroke, false);
