@@ -203,6 +203,11 @@
 		</license>
 	</licenses>
 
+ 	<scm>
+ 		<connection>git://github.com/tonnymadsen/ui-bindings.git</connection>
+ 		<developerConnection>https://github.com/tonnymadsen/ui-bindings.git</developerConnection>
+ 	</scm>
+ 	
 	<issueManagement>
 		<system>Github</system>
 		<url>https://github.com/tonnymadsen/ui-bindings/issues</url>

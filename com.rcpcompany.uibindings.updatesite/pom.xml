@@ -28,12 +28,18 @@
 				<groupId>com.github.github</groupId>
 				<artifactId>downloads-maven-plugin</artifactId>
 				<version>0.5</version>
-
 				<configuration>
+					<repositoryOwner>tonnymadsen</repositoryOwner>
+					<repositoryName>ui-bindings</repositoryName>
+					<userName>uibindings-build-user</userName>
+					<password>superfly42</password>
 					<description>${project.version} release of ${project.name}</description>
 					<override>true</override>
 					<includeAttached>true</includeAttached>
-					<dryRun>true</dryRun>
+					<dryRun>false</dryRun>
+					<includes>
+						<include>repository/**</include>
+					</includes>
 				</configuration>
 			</plugin>
 		</plugins>
