@@ -129,20 +129,6 @@
          unpack="false"/>
 
    <plugin
-         id="com.rcpcompany.uibindings.scriptengines.javascript"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.rcpcompany.uibindings.scripting"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="com.rcpcompany.uibindings.std"
          download-size="0"
          install-size="0"

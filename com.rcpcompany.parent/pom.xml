@@ -59,10 +59,10 @@
 
 		<module>../com.rcpcompany.uibindings.financial</module>
 		<module>../com.rcpcompany.uibindings.navigator</module>
-		<module>../com.rcpcompany.uibindings.navigator.tests</module>
-		<module>../com.rcpcompany.uibindings.scripting</module>
+		<!-- <module>../com.rcpcompany.uibindings.navigator.tests</module> -->
+		<!-- <module>../com.rcpcompany.uibindings.scripting</module> -->
 		<!-- <module>../com.rcpcompany.uibindings.scripting.tests</module> -->
-		<module>../com.rcpcompany.uibindings.scriptengines.javascript</module>
+		<!-- <module>../com.rcpcompany.uibindings.scriptengines.javascript</module> -->
 		<!-- <module>../com.rcpcompany.uibindings.scriptengines.javascript.tests</module> -->
 		<module>../com.rcpcompany.uibindings.units</module>
 
