@@ -12,6 +12,27 @@
 		<relativePath>../com.rcpcompany.parent</relativePath>
 	</parent>
 
+	<!-- This pom is based on https://github.com/msbarry/Xtest/tree/master/releng/org.xtest.updatesite -->
+
+	<!-- Default properties - development release -->
+	<properties>
+		<output-dir>develop</output-dir>
+		<append-site>false</append-site>
+		<updates>${project.build.directory}/../../../ui-bindings-pages/updates</updates>
+	</properties>
+
+	<!-- Profile-specific properties -->
+	<profiles>
+		<profile>
+			<id>release</id>
+			<properties>
+				<output-dir>release</output-dir>
+				<append-site>true</append-site>
+			</properties>
+		</profile>
+	</profiles>
+
+
 	<build>
 		<plugins>
 			<plugin>
@@ -24,22 +45,37 @@
 				</configuration>
 			</plugin>
 
+			<!-- Merge generated repository into gh-pages repository -->
 			<plugin>
-				<groupId>com.github.github</groupId>
-				<artifactId>downloads-maven-plugin</artifactId>
-				<version>0.5</version>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>tycho-p2-extras-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>mirror</goal>
+						</goals>
+					</execution>
+				</executions>
+
 				<configuration>
-					<repositoryOwner>tonnymadsen</repositoryOwner>
-					<repositoryName>ui-bindings</repositoryName>
-					<userName>uibindings-build-user</userName>
-					<password>superfly42</password>
-					<description>${project.version} release of ${project.name}</description>
-					<override>true</override>
-					<includeAttached>true</includeAttached>
-					<dryRun>false</dryRun>
-					<includes>
-						<include>repository/**</include>
-					</includes>
+					<source>
+						<!-- source repositories to mirror from -->
+						<repository>
+							<url>${project.baseUri}/target/repository</url>
+							<layout>p2</layout>
+						</repository>
+					</source>
+					<publishArtifacts>true</publishArtifacts>
+					<!-- The destination directory to mirror to. -->
+					<destination>${updates}/${output-dir}/</destination>
+					<!-- whether to append to the target repository content -->
+					<append>${append-site}</append>
+					<!-- mirror artifacts and metadata -->
+					<mirrorMetadataOnly>false</mirrorMetadataOnly>
+					<!-- whether to compress the content.xml/artifacts.xml -->
+					<compress>false</compress>
 				</configuration>
 			</plugin>
 		</plugins>

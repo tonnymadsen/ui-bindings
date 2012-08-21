@@ -347,7 +347,7 @@
 				</os>
 			</activation>
 			<properties>
-				<java.os.args>-XstartOnFirstThread</java.os.args>
+				<java.os.args>-XstartOnFirstThread -Xint</java.os.args>
 				<local.os>macosx</local.os>
 				<local.ws>cocoa</local.ws>
 				<local.arch>x86_64</local.arch>
