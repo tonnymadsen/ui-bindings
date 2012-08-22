@@ -2,7 +2,7 @@
 <?metadataRepository version='1.1.0'?>
 <repository name='' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'>
   <properties size='1'>
-    <property name='p2.timestamp' value='1345558619803'/>
+    <property name='p2.timestamp' value='1345622742684'/>
   </properties>
   <units size='124'>
     <unit id='org.eclipse.rcp.feature.group' version='4.2.0.v20120528-1648-7IAPA7BrHQicRpNdOz-Obz-rlRCA' singleton='false'>
@@ -299,20 +299,6 @@
           </instruction>
         </instructions>
       </touchpointData>
-    </unit>
-    <unit id='201208211416.com.rcpcompany.uibindings.category' version='1.0.0.2--cMQRnh773573I5E59AI'>
-      <properties size='3'>
-        <property name='org.eclipse.equinox.p2.name' value='UI Bindings Features'/>
-        <property name='org.eclipse.equinox.p2.description' value='All plug-ins used for UI-Bindings'/>
-        <property name='org.eclipse.equinox.p2.type.category' value='true'/>
-      </properties>
-      <provides size='1'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='201208211416.com.rcpcompany.uibindings.category' version='1.0.0.2--cMQRnh773573I5E59AI'/>
-      </provides>
-      <requires size='1'>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.feature.feature.group' range='[1.0.0.201208161348,1.0.0.201208161348]'/>
-      </requires>
-      <touchpoint id='null' version='0.0.0'/>
     </unit>
     <unit id='org.eclipse.core.commands' version='3.6.1.v20120521-2329' singleton='false'>
       <update id='org.eclipse.core.commands' range='[0.0.0,3.6.1.v20120521-2329)' severity='0'/>
@@ -695,6 +681,20 @@
           </instruction>
         </instructions>
       </touchpointData>
+    </unit>
+    <unit id='201208220805.com.rcpcompany.uibindings.category' version='1.0.0.2--cMQRnh773573I5E59AI'>
+      <properties size='3'>
+        <property name='org.eclipse.equinox.p2.name' value='UI Bindings Features'/>
+        <property name='org.eclipse.equinox.p2.description' value='All plug-ins used for UI-Bindings'/>
+        <property name='org.eclipse.equinox.p2.type.category' value='true'/>
+      </properties>
+      <provides size='1'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='201208220805.com.rcpcompany.uibindings.category' version='1.0.0.2--cMQRnh773573I5E59AI'/>
+      </provides>
+      <requires size='1'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.feature.feature.group' range='[1.0.0.201208161348,1.0.0.201208161348]'/>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
     </unit>
     <unit id='org.eclipse.e4.ui.workbench.renderers.swt' version='0.10.1.v20120523-1955'>
       <update id='org.eclipse.e4.ui.workbench.renderers.swt' range='[0.0.0,0.10.1.v20120523-1955)' severity='0'/>
@@ -2854,20 +2854,6 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='201208211416.com.rcpcompany.utils.category' version='1.0.0.2--cMIWnh773573I5E59AI'>
-      <properties size='3'>
-        <property name='org.eclipse.equinox.p2.name' value='The RCP Company Utils Features'/>
-        <property name='org.eclipse.equinox.p2.description' value='Various utility plug-ins used within The RCP Company.'/>
-        <property name='org.eclipse.equinox.p2.type.category' value='true'/>
-      </properties>
-      <provides size='1'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='201208211416.com.rcpcompany.utils.category' version='1.0.0.2--cMIWnh773573I5E59AI'/>
-      </provides>
-      <requires size='1'>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.feature.feature.group' range='[1.0.0.201208161348,1.0.0.201208161348]'/>
-      </requires>
-      <touchpoint id='null' version='0.0.0'/>
-    </unit>
     <unit id='org.eclipse.e4.core.commands' version='0.10.1.v20120523-1955'>
       <update id='org.eclipse.e4.core.commands' range='[0.0.0,0.10.1.v20120523-1955)' severity='0'/>
       <properties size='5'>
@@ -4607,6 +4593,20 @@
           </instruction>
         </instructions>
       </touchpointData>
+    </unit>
+    <unit id='201208220805.com.rcpcompany.utils.category' version='1.0.0.2--cMIWnh773573I5E59AI'>
+      <properties size='3'>
+        <property name='org.eclipse.equinox.p2.name' value='The RCP Company Utils Features'/>
+        <property name='org.eclipse.equinox.p2.description' value='Various utility plug-ins used within The RCP Company.'/>
+        <property name='org.eclipse.equinox.p2.type.category' value='true'/>
+      </properties>
+      <provides size='1'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='201208220805.com.rcpcompany.utils.category' version='1.0.0.2--cMIWnh773573I5E59AI'/>
+      </provides>
+      <requires size='1'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.feature.feature.group' range='[1.0.0.201208161348,1.0.0.201208161348]'/>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
     </unit>
     <unit id='org.apache.batik.util' version='1.6.0.v201011041432' singleton='false'>
       <update id='org.apache.batik.util' range='[0.0.0,1.6.0.v201011041432)' severity='0'/>
