@@ -78,6 +78,28 @@
 					<compress>false</compress>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-scm-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<phase>install</phase>
+						<goals>
+							<goal>checkin</goal>
+						</goals>
+					</execution>
+				</executions>
+
+				<configuration>
+					<basedir>${updates}/${output-dir}/</basedir>
+					<message>New updated update site based on XXX</message>
+					<developerConnectionUrl>scm:git:https://github.com/tonnymadsen/ui-bindings.git</developerConnectionUrl>
+					<username>uibindings-build-user</username>
+					<password>${uibindings-build-user-password}</password>
+				</configuration>
+			</plugin>
 		</plugins>
 
 		<pluginManagement>

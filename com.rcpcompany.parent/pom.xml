@@ -20,6 +20,8 @@
 		<java.debug.args /> <!-- for the default case -->
 
 		<java.debug.host>localhost</java.debug.host>
+		
+		<uibindings-build-user-password>xxx</uibindings-build-user-password>
 	</properties>
 
 	<!-- the modules that should be built together -->
@@ -204,8 +206,8 @@
 	</licenses>
 
  	<scm>
- 		<connection>git://github.com/tonnymadsen/ui-bindings.git</connection>
- 		<developerConnection>https://github.com/tonnymadsen/ui-bindings.git</developerConnection>
+ 		<connection>scm:git:git://github.com/tonnymadsen/ui-bindings.git</connection>
+ 		<developerConnection>scm:git:https://github.com/tonnymadsen/ui-bindings.git</developerConnection>
  	</scm>
  	
 	<issueManagement>
