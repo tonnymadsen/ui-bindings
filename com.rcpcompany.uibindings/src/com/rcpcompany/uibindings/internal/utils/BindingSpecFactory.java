@@ -95,7 +95,7 @@ public final class BindingSpecFactory {
 		ALIASES.put(IBindingSpec.HEIGHT, Constants.ARG_HEIGHT);
 		ARGUMENT_TYPES.put(Constants.ARG_HEIGHT, Integer.class);
 
-		ALIASES.put(IBindingSpec.DYNAMIC, Constants.ARG_WIDTH);
+		ALIASES.put(IBindingSpec.DYNAMIC, Constants.ARG_DYNAMIC);
 
 		ARGUMENT_TYPES.put(IBindingSpec.WIDTH_WEIGHT, Integer.class);
 
