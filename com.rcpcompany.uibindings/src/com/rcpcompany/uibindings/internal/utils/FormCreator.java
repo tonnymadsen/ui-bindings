@@ -455,7 +455,8 @@ public class FormCreator implements IFormCreator {
 	 * 
 	 * @return a suitable Composite for the fields
 	 */
-	private Composite getFieldsComposite() {
+	@Override
+	public Composite getFieldsComposite() {
 		final Control[] children = myTop.getChildren();
 		if (children.length == 0) return createFieldsComposite();
 		final Control last = children[children.length - 1];
@@ -541,6 +542,7 @@ public class FormCreator implements IFormCreator {
 			c.setLayoutData(ld);
 		}
 		myTopForm.decorateControl(c);
+
 		/*
 		 * Assign it as the ui of the binding
 		 */
@@ -644,6 +646,9 @@ public class FormCreator implements IFormCreator {
 		setLayoutData(c, grabHorizontal, grabVertical);
 		c.setLayout(new FillLayout());
 		return c;
+	}
+
+	public void addControl(Control c) {
 	}
 
 	/**

@@ -23,6 +23,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
+import org.eclipse.ui.forms.widgets.TableWrapData;
 import org.eclipse.ui.forms.widgets.TableWrapLayout;
 
 import com.rcpcompany.uibindings.IBindingContext;
@@ -621,4 +622,11 @@ public interface IFormCreator extends IDisposable {
 	 * @return true if it is a top-level form
 	 */
 	boolean isTopForm();
+
+	/**
+	 * Returns a {@link Composite} with {@link TableWrapData} layout.
+	 * 
+	 * @return a suitable Composite for the fields
+	 */
+	Composite getFieldsComposite();
 }
