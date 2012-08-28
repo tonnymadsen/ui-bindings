@@ -17,7 +17,7 @@
 	<!-- Default properties - development release -->
 	<properties>
 		<output-dir>develop</output-dir>
-		<append-site>false</append-site>
+		<append-site>true</append-site> <!-- was false -->
 		<updates>${project.build.directory}/../../../ui-bindings-pages/updates</updates>
 	</properties>
 
@@ -85,19 +85,32 @@
 				<version>1.7</version>
 				<executions>
 					<execution>
+						<id>add</id>
+						<phase>install</phase>
+						<goals>
+							<goal>add</goal>
+						</goals>
+						<configuration>
+							<includes>.,*,**/*</includes>
+						</configuration>
+					</execution>
+					<execution>
+						<id>install</id>
 						<phase>install</phase>
 						<goals>
 							<goal>checkin</goal>
 						</goals>
+						<configuration>
+							<message>New updated update site based on XXX</message>
+						</configuration>
 					</execution>
 				</executions>
-
 				<configuration>
 					<basedir>${updates}/${output-dir}/</basedir>
-					<message>New updated update site based on XXX</message>
 					<developerConnectionUrl>scm:git:https://github.com/tonnymadsen/ui-bindings.git</developerConnectionUrl>
 					<username>uibindings-build-user</username>
 					<password>${uibindings-build-user-password}</password>
+					<includes>.</includes>
 				</configuration>
 			</plugin>
 		</plugins>
