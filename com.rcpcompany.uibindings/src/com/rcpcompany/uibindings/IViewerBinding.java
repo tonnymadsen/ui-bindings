@@ -120,6 +120,15 @@ public interface IViewerBinding extends IContainerBinding {
 	IViewerBinding model(IObservableList list);
 
 	/**
+	 * TODO
+	 * 
+	 * @param list the list to bind to - <em>NOT</em> disposed by the framework
+	 * 
+	 * @return <code>this</code>
+	 */
+	<E> IViewerBinding model(EList<E> list);
+
+	/**
 	 * Binds this binding to the specified reference of the object.
 	 * 
 	 * @param object the EMF object
