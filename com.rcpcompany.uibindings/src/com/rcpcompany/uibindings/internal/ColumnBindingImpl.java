@@ -31,7 +31,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -173,23 +172,13 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 		setSpecialBindingType(specialValue);
 		switch (specialValue) {
 		case ROW_ELEMENT:
-			if (getDataType().getEType() instanceof EDataType) {
-				final IObservableFactory rowElementFactory = new IObservableFactory() {
-					@Override
-					public IObservable createObservable(Object target) {
-						return Observables.constantObservableValue(target, getDataType().getEType());
-					}
-				};
-				return model(rowElementFactory, getDataType().getEType());
-			} else {
-				final IObservableFactory rowElementFactory = new IObservableFactory() {
-					@Override
-					public IObservable createObservable(Object target) {
-						return Observables.constantObservableValue(target, EcorePackage.Literals.EOBJECT);
-					}
-				};
-				return model(rowElementFactory, EcorePackage.Literals.EOBJECT).dynamic();
-			}
+			final IObservableFactory rowElementFactory = new IObservableFactory() {
+				@Override
+				public IObservable createObservable(Object target) {
+					return Observables.constantObservableValue(target, EcorePackage.Literals.EOBJECT);
+				}
+			};
+			return model(rowElementFactory, EcorePackage.Literals.EOBJECT).dynamic();
 		case ROW_NO:
 			final IObservableFactory rowNoFactory = new IObservableFactory() {
 				@Override

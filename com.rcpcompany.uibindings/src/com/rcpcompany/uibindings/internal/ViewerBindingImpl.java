@@ -28,11 +28,9 @@ import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.notify.NotifyingList;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -191,23 +189,6 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		assertTrue(getModelEType() instanceof EClass, "The data type must be an EClass (and not an EDataType): "
 				+ getModelEType());
 		myListDispose = disposeList;
-		return this;
-	}
-
-	public <E> IViewerBinding model(EList<E> list) {
-		assertTrue(list != null, "The list must be non-null");
-		assertTrue(list instanceof NotifyingList<?>, "The list must be NotifyingList");
-		final NotifyingList<E> nlist = (NotifyingList<E>) list;
-		final IBindingDataType dataType = IBindingDataType.Factory.create(nlist.getNotifier(), nlist.getFeature());
-		final IObservableList ol = UIBindingsEMFObservables.observeList(getEditingDomain(),
-				(EObject) nlist.getNotifier(), (EStructuralFeature) nlist.getFeature());
-
-		setList(ol);
-		setStaticDataType(dataType);
-
-		assertTrue(getModelEType() instanceof EDataType, "The data type must be an EDataType (and not an EClass): "
-				+ getModelEType());
-		myListDispose = false;
 		return this;
 	}
 
