@@ -73,7 +73,10 @@ public class ViewerToolBar implements IViewerToolBar, IDisposable {
 		myViewer.registerService(this);
 
 		final IManager manager = IManager.Factory.getManager();
-		myToolkit = manager.getFormToolkit();
+		FormToolkit toolkit = myViewer.getContext().getService(FormToolkit.class);
+		if (toolkit == null) {
+			toolkit = manager.getFormToolkit();
+		}
 
 		final IServiceLocator serviceLocator = getViewer().getContext().getServiceLocator();
 		myCommandService = (ICommandService) serviceLocator.getService(ICommandService.class);
@@ -92,7 +95,7 @@ public class ViewerToolBar implements IViewerToolBar, IDisposable {
 		final Control control = myViewer.getControl();
 		final Composite parent = control.getParent();
 
-		myComposite = myToolkit.createComposite(parent);
+		myComposite = toolkit.createComposite(parent);
 		myComposite.setLayoutData(control.getLayoutData());
 		final GridLayout compLayout = new GridLayout(1, false);
 		myComposite.setLayout(compLayout);
@@ -187,8 +190,6 @@ public class ViewerToolBar implements IViewerToolBar, IDisposable {
 	private final IHandlerService myHandlerService;
 
 	private final ICommandImageService myCommandImageService;
-
-	private final FormToolkit myToolkit;
 
 	@Override
 	public void addItem(int id, String commandId) {

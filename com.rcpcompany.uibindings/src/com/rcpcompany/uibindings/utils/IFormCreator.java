@@ -52,9 +52,9 @@ public interface IFormCreator extends IDisposable {
 		/**
 		 * Creates a new form with the specified parent.
 		 * 
-		 * @param context the binding context to use
+		 * @param context the binding context to use or <code>null</code>
 		 * @param obj the current object
-		 * @param toolkit the {@link FormToolkit} to use
+		 * @param toolkit the {@link FormToolkit} to use or <code>null</code>
 		 * @param parent the parent composite of the new form
 		 * @return the created form creator
 		 */
@@ -66,9 +66,9 @@ public interface IFormCreator extends IDisposable {
 		/**
 		 * Creates a new form with the specified parent.
 		 * 
-		 * @param context the binding context to use
+		 * @param context the binding context to use or <code>null</code>
 		 * @param value the observable value
-		 * @param toolkit the {@link FormToolkit} to use
+		 * @param toolkit the {@link FormToolkit} to use or <code>null</code>
 		 * @param parent the parent composite of the new form
 		 * @return the created form creator
 		 */
@@ -90,9 +90,9 @@ public interface IFormCreator extends IDisposable {
 		/**
 		 * Creates a new form with the specified parent.
 		 * 
-		 * @param context the binding context to use
+		 * @param context the binding context to use or <code>null</code>
 		 * @param value the observable value for the form
-		 * @param toolkit the {@link FormToolkit} to use
+		 * @param toolkit the {@link FormToolkit} to useor <code>null</code>
 		 * @param parent the parent composite of the new form
 		 * @param formHeader the header text used for the form
 		 * @return the created form creator
@@ -105,9 +105,9 @@ public interface IFormCreator extends IDisposable {
 		/**
 		 * Creates a new form with the specified parent.
 		 * 
-		 * @param context the binding context to use
+		 * @param context the binding context to use or <code>null</code>
 		 * @param obj the current object
-		 * @param toolkit the {@link FormToolkit} to use
+		 * @param toolkit the {@link FormToolkit} to use or <code>null</code>
 		 * @param parent the parent composite of the new form
 		 * @param formHeader the header text used for the form
 		 * @return the created form creator

@@ -204,6 +204,11 @@ public class FormCreator implements IFormCreator {
 	public FormCreator(FormCreator topForm, IBindingContext context, IObservableValue value, FormToolkit toolkit,
 			Composite top, String formHeader) {
 		if (toolkit == null) {
+			if (context != null) {
+				toolkit = context.getService(FormToolkit.class);
+			}
+		}
+		if (toolkit == null) {
 			toolkit = IManager.Factory.getManager().getFormToolkit();
 		}
 		myToolkit = toolkit;
@@ -225,6 +230,7 @@ public class FormCreator implements IFormCreator {
 				top = createTopComposite(top);
 				context = IBindingContext.Factory.createContext(top);
 			}
+			context.registerService(myToolkit);
 		} else {
 			top = createTopComposite(top);
 		}
@@ -1095,6 +1101,8 @@ public class FormCreator implements IFormCreator {
 		parent.setLayout(l);
 		for (final GridData gd : layoutData) {
 			final Composite child = new Composite(parent, SWT.NONE);
+			child.setBackground(parent.getBackground());
+			child.setMenu(parent.getMenu());
 			child.setLayoutData(gd);
 			final IFormCreator s = subForm(child);
 			s.setFieldsAligned(false);
