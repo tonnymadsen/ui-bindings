@@ -629,4 +629,17 @@ public interface IFormCreator extends IDisposable {
 	 * @return a suitable Composite for the fields
 	 */
 	Composite getFieldsComposite();
+
+	/**
+	 * Creates a link in this section with the given text.
+	 * <p>
+	 * The link will execute the specified command when pressed.
+	 * <p>
+	 * The given link text must include exactly one <code>&lt;a href="..."&gt;</code> element where
+	 * the href is a valid Eclipse command as decoded by ICommandService#deserialize(...). E.g. "
+	 * <code>The list can be configured &lt;a href="..."&gt;here&lt;/a&gt;.</code>"
+	 * 
+	 * @param linkText the text for the link
+	 */
+	void addCommandLink(String linkText);
 }

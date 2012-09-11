@@ -18,6 +18,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.eclipse.core.commands.ParameterizedCommand;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.WritableValue;
 import org.eclipse.core.runtime.Assert;
@@ -34,6 +35,8 @@ import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
@@ -45,7 +48,11 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Layout;
+import org.eclipse.swt.widgets.Link;
 import org.eclipse.swt.widgets.Listener;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.forms.widgets.ColumnLayout;
 import org.eclipse.ui.forms.widgets.ExpandableComposite;
 import org.eclipse.ui.forms.widgets.FormToolkit;
@@ -53,6 +60,7 @@ import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.forms.widgets.TableWrapData;
 import org.eclipse.ui.forms.widgets.TableWrapLayout;
+import org.eclipse.ui.handlers.IHandlerService;
 
 import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingContext;
@@ -1243,6 +1251,32 @@ public class FormCreator implements IFormCreator {
 					runnable.run();
 				} finally {
 					myTopForm.myContext.getFinalizers().remove(this);
+				}
+			}
+		});
+	}
+
+	@Override
+	public void addCommandLink(String linkText) {
+		final Link link = new Link(getFieldsComposite(), SWT.WRAP);
+		link.setText(linkText);
+		link.addSelectionListener(new SelectionListener() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				widgetDefaultSelected(e);
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				final IWorkbench workbench = PlatformUI.getWorkbench();
+				final ICommandService cs = (ICommandService) workbench.getService(ICommandService.class);
+				final IHandlerService hs = (IHandlerService) workbench.getService(IHandlerService.class);
+
+				try {
+					final ParameterizedCommand command = cs.deserialize(e.text);
+					hs.executeCommand(command, null);
+				} catch (final Exception ex) {
+					LogUtils.error(this, ex);
 				}
 			}
 		});
