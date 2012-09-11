@@ -40,7 +40,7 @@
 				<artifactId>tycho-p2-repository-plugin</artifactId>
 				<version>${tycho.version}</version>
 				<configuration>
-					<includeAllDependencies>true</includeAllDependencies>
+					<includeAllDependencies>false</includeAllDependencies>
 					<finalName>uibindings-3.0-${build.number}-repository</finalName>
 				</configuration>
 			</plugin>
@@ -85,13 +85,23 @@
 				<version>1.7</version>
 				<executions>
 					<execution>
-						<id>add</id>
+						<id>add-rest</id>
 						<phase>install</phase>
 						<goals>
 							<goal>add</goal>
 						</goals>
 						<configuration>
-							<includes>.,*,**/*</includes>
+							<includes>.,*,binary/**/*,features/**/*</includes>
+						</configuration>
+					</execution>
+					<execution>
+						<id>add-plugins</id>
+						<phase>install</phase>
+						<goals>
+							<goal>add</goal>
+						</goals>
+						<configuration>
+							<includes>plugins/**/*</includes>
 						</configuration>
 					</execution>
 					<execution>
