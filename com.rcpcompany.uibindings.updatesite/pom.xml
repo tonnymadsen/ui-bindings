@@ -29,9 +29,58 @@
 				<output-dir>release</output-dir>
 				<append-site>true</append-site>
 			</properties>
+
+			<build>
+				<plugins>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-scm-plugin</artifactId>
+						<version>1.7</version>
+						<executions>
+							<execution>
+								<id>add-rest</id>
+								<phase>install</phase>
+								<goals>
+									<goal>add</goal>
+								</goals>
+								<configuration>
+									<includes>.,*,binary/**/*,features/**/*</includes>
+								</configuration>
+							</execution>
+							<execution>
+								<id>add-plugins</id>
+								<phase>install</phase>
+								<goals>
+									<goal>add</goal>
+								</goals>
+								<configuration>
+									<includes>plugins/**/*</includes>
+								</configuration>
+							</execution>
+							<execution>
+								<id>install</id>
+								<phase>install</phase>
+								<goals>
+									<goal>checkin</goal>
+								</goals>
+								<configuration>
+									<message>New updated update site based on XXX</message>
+								</configuration>
+							</execution>
+						</executions>
+						<configuration>
+							<basedir>${updates}/${output-dir}/</basedir>
+							<developerConnectionUrl>scm:git:https://github.com/tonnymadsen/ui-bindings.git</developerConnectionUrl>
+							<username>uibindings-build-user</username>
+							<password>${uibindings-build-user-password}</password>
+							<includes>.</includes>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
 		</profile>
 	</profiles>
-
 
 	<build>
 		<plugins>
@@ -76,51 +125,6 @@
 					<mirrorMetadataOnly>false</mirrorMetadataOnly>
 					<!-- whether to compress the content.xml/artifacts.xml -->
 					<compress>false</compress>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-scm-plugin</artifactId>
-				<version>1.7</version>
-				<executions>
-					<execution>
-						<id>add-rest</id>
-						<phase>install</phase>
-						<goals>
-							<goal>add</goal>
-						</goals>
-						<configuration>
-							<includes>.,*,binary/**/*,features/**/*</includes>
-						</configuration>
-					</execution>
-					<execution>
-						<id>add-plugins</id>
-						<phase>install</phase>
-						<goals>
-							<goal>add</goal>
-						</goals>
-						<configuration>
-							<includes>plugins/**/*</includes>
-						</configuration>
-					</execution>
-					<execution>
-						<id>install</id>
-						<phase>install</phase>
-						<goals>
-							<goal>checkin</goal>
-						</goals>
-						<configuration>
-							<message>New updated update site based on XXX</message>
-						</configuration>
-					</execution>
-				</executions>
-				<configuration>
-					<basedir>${updates}/${output-dir}/</basedir>
-					<developerConnectionUrl>scm:git:https://github.com/tonnymadsen/ui-bindings.git</developerConnectionUrl>
-					<username>uibindings-build-user</username>
-					<password>${uibindings-build-user-password}</password>
-					<includes>.</includes>
 				</configuration>
 			</plugin>
 		</plugins>
