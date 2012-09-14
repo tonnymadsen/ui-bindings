@@ -2,45 +2,52 @@
  */
 package com.rcpcompany.uibinding.tests.model.internal;
 
-import com.rcpcompany.uibinding.tests.model.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
+import com.rcpcompany.uibinding.tests.model.AmountAndCurrency;
+import com.rcpcompany.uibinding.tests.model.AmountAndCurrencyOld;
+import com.rcpcompany.uibinding.tests.model.SubTestObject;
+import com.rcpcompany.uibinding.tests.model.TestContainer;
+import com.rcpcompany.uibinding.tests.model.TestGrid;
+import com.rcpcompany.uibinding.tests.model.TestGridCell;
+import com.rcpcompany.uibinding.tests.model.TestGridColumn;
+import com.rcpcompany.uibinding.tests.model.TestGridRow;
+import com.rcpcompany.uibinding.tests.model.TestModelFactory;
+import com.rcpcompany.uibinding.tests.model.TestModelPackage;
+import com.rcpcompany.uibinding.tests.model.TestObject;
+import com.rcpcompany.uibinding.tests.model.TimeUnit;
+import com.rcpcompany.uibinding.tests.model.WeightUnit;
+
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model <b>Factory</b>.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFactory {
 	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static TestModelFactory init() {
 		try {
-			TestModelFactory theTestModelFactory = (TestModelFactory) EPackage.Registry.INSTANCE
+			final TestModelFactory theTestModelFactory = (TestModelFactory) EPackage.Registry.INSTANCE
 					.getEFactory("http://rcp-company.com/schemas/uibindings/testModel"); //$NON-NLS-1$ 
-			if (theTestModelFactory != null) { return theTestModelFactory; }
-		} catch (Exception exception) {
+			if (theTestModelFactory != null) return theTestModelFactory;
+		} catch (final Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new TestModelFactoryImpl();
 	}
 
 	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public TestModelFactoryImpl() {
@@ -48,8 +55,8 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -77,8 +84,8 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -96,8 +103,8 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -115,92 +122,92 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public TestObject createTestObject() {
-		TestObjectImpl testObject = new TestObjectImpl();
+		final TestObjectImpl testObject = new TestObjectImpl();
 		return testObject;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SubTestObject createSubTestObject() {
-		SubTestObjectImpl subTestObject = new SubTestObjectImpl();
+		final SubTestObjectImpl subTestObject = new SubTestObjectImpl();
 		return subTestObject;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public TestContainer createTestContainer() {
-		TestContainerImpl testContainer = new TestContainerImpl();
+		final TestContainerImpl testContainer = new TestContainerImpl();
 		return testContainer;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AmountAndCurrency createAmountAndCurrency() {
-		AmountAndCurrencyImpl amountAndCurrency = new AmountAndCurrencyImpl();
+		final AmountAndCurrencyImpl amountAndCurrency = new AmountAndCurrencyImpl();
 		return amountAndCurrency;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public TestGrid createTestGrid() {
-		TestGridImpl testGrid = new TestGridImpl();
+		final TestGridImpl testGrid = new TestGridImpl();
 		return testGrid;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public TestGridColumn createTestGridColumn() {
-		TestGridColumnImpl testGridColumn = new TestGridColumnImpl();
+		final TestGridColumnImpl testGridColumn = new TestGridColumnImpl();
 		return testGridColumn;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public TestGridRow createTestGridRow() {
-		TestGridRowImpl testGridRow = new TestGridRowImpl();
+		final TestGridRowImpl testGridRow = new TestGridRowImpl();
 		return testGridRow;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public TestGridCell createTestGridCell() {
-		TestGridCellImpl testGridCell = new TestGridCellImpl();
+		final TestGridCellImpl testGridCell = new TestGridCellImpl();
 		return testGridCell;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public WeightUnit createWeightUnitFromString(EDataType eDataType, String initialValue) {
-		WeightUnit result = WeightUnit.get(initialValue);
+		final WeightUnit result = WeightUnit.get(initialValue);
 		if (result == null)
 			throw new IllegalArgumentException(
 					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -208,8 +215,8 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertWeightUnitToString(EDataType eDataType, Object instanceValue) {
@@ -217,12 +224,12 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public TimeUnit createTimeUnitFromString(EDataType eDataType, String initialValue) {
-		TimeUnit result = TimeUnit.get(initialValue);
+		final TimeUnit result = TimeUnit.get(initialValue);
 		if (result == null)
 			throw new IllegalArgumentException(
 					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -230,8 +237,8 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertTimeUnitToString(EDataType eDataType, Object instanceValue) {
@@ -239,8 +246,8 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public AmountAndCurrencyOld createAmountAndCurrencyStructFromString(EDataType eDataType, String initialValue) {
@@ -248,8 +255,8 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertAmountAndCurrencyStructToString(EDataType eDataType, Object instanceValue) {
@@ -257,8 +264,8 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public TestModelPackage getTestModelPackage() {
@@ -266,8 +273,8 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @deprecated
 	 * @generated
 	 */
@@ -276,4 +283,30 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 		return TestModelPackage.eINSTANCE;
 	}
 
-} //TestModelFactoryImpl
+	private TestContainer theContainer = null;
+
+	@Override
+	public TestContainer getTestContainer() {
+		if (theContainer == null) {
+			theContainer = createTestContainer();
+			addChild(true, 0, "", WeightUnit.G);
+			addChild(false, 1, "a", WeightUnit.G);
+			addChild(true, 0, "b", WeightUnit.G);
+			addChild(false, 3, "c", WeightUnit.TONNE);
+			addChild(true, 0, "d", WeightUnit.KG);
+			addChild(false, 5, "e", WeightUnit.G);
+		}
+		return theContainer;
+	}
+
+	private void addChild(boolean b, int i, String t, WeightUnit w) {
+		final TestObject c = createTestObject();
+		c.setB(b);
+		// c.setDate(date);
+		c.setNumber(i);
+		c.setText(t);
+		c.setUnit(w);
+		getTestContainer().getChildren().add(c);
+	}
+
+} // TestModelFactoryImpl
