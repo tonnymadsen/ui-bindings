@@ -9,7 +9,6 @@ package com.rcpcompany.uibindings.moao
 import org.eclipse.emf.ecore.EDiagnosticChain
 import org.eclipse.emf.ecore.EMap
 
-import com.rcpcompany.uibindings.moao.IMOAOPackage
 import com.rcpcompany.uibindings.moao.IMOAOPackage$Literals
 
 /**
