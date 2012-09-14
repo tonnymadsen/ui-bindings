@@ -13,6 +13,6 @@
       <package
             uri="http://rcp-company.com/schemas/uibindings/moao.ecore"
             class="com.rcpcompany.uibindings.moao.IMOAOPackage"
-            genModel="model/moao.genmodel"/>
+            genModel="model/moao.xcore"/>
    </extension>
 </plugin>

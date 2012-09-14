@@ -1,0 +1,193 @@
+@Ecore(nsURI="http://rcp-company.com/schemas/uibindings/moao.ecore")
+@GenModel(nonNLSMarkers="true", classPackageSuffix="internal", adapterFactory="false",
+		classNamePattern="{0}Impl", interfaceNamePattern="I{0}", suppressEMFModelTags="true",
+		fileExtensions="moao", suppressGenModelAnnotations="false", language="",
+		prefix="MOAO", modelName="MOAO", codeFormatting="true", redirection="",
+		updateClasspath="false")
+package com.rcpcompany.uibindings.moao 
+
+import org.eclipse.emf.ecore.EDiagnosticChain
+import org.eclipse.emf.ecore.EMap
+
+import com.rcpcompany.uibindings.moao.IMOAOPackage
+import com.rcpcompany.uibindings.moao.IMOAOPackage$Literals
+
+/**
+ * <p>
+ * IAdapable is used as an interface for MOAO.
+ */
+interface IAdaptable wraps org.eclipse.core.runtime.IAdaptable {
+}
+
+/**
+ * <p>
+ * Structural Feature from ECore
+ */
+interface EStructuralFeature wraps org.eclipse.emf.ecore.EStructuralFeature {
+}
+
+/**
+ * <p>
+ * Top-level "Mother of all Objects".
+ */
+class MOAO extends IAdaptable {
+	/**
+	 * <p>
+	 * All facets of this object.
+	 */
+	contains MOAOFacet[*] facets opposite object
+	
+	/**
+	 * <p>
+	 * Validation of this object.
+	 * <p>
+	 * Extend in your own class.
+	 */
+	op boolean isValid(EDiagnosticChain diagnostics, EMap<Object, Object> context) {
+        return true
+    }
+    
+    /**
+	 * <p>
+	 * Removes all messages from this object and all contained objects (using reflection) given by
+	 * the specified owner.
+	 * 
+	 * @param owner the owner
+	 */
+    op void removeMessagesByOwner(String owner) {
+    	val allContents = eAllContents()
+		while (allContents.hasNext()) {
+			val next = allContents.next()
+			switch next {
+				IMOAO : (next as IMOAO).removeMessagesByOwner(null, owner)
+			}
+		}
+    }
+    
+    /**
+     * <p>
+	 * Removes all messages from this object given by the specified feature and owner.
+	 * 
+	 * @param feature the feature of the messages or <code>null</code> if the feature should be
+	 *            ignored
+	 * @param owner the owner of the messages
+	 */
+	op void removeMessagesByOwner(EStructuralFeature feature, String owner) {
+		if (! eIsSet(IMOAOPackage$Literals::MOAO__FACETS)) return
+		
+		val iterator = facets.iterator
+		while (iterator.hasNext) {
+			val next = iterator.next
+			switch next {
+				IMOAOMessage : {
+					val m = next as IMOAOMessage
+					if (feature != null && feature == m.feature && owner == m.owner)
+				  		iterator.remove 
+				}
+			}
+		}
+	}
+}
+
+/**
+ * <p>
+ * A facet of an MOAO.
+ * <p>
+ * Should be extended in sub-classes.
+ */
+class MOAOFacet extends MOAO {
+	/**
+	 * <p>
+	 * The parent object of this facet.
+	 */
+	container MOAO object opposite facets
+}
+
+/**
+ * <p>
+ * MOAO with a name and description.
+ */
+ class NamedObject extends MOAO {
+ 	/**
+ 	 * <p>
+ 	 * The name of the object.
+ 	 */
+ 	String[1] name
+
+ 	/**
+ 	 * <p>
+ 	 * The description of the object.
+ 	 */
+ 	String description
+
+ 	/**
+ 	 * <p>
+ 	 * The UUID of the object.
+ 	 * <p>
+ 	 * Initialized as <code>EcoreUtil.generateUUID()</code>
+ 	 */
+	@GenModel(suppressedSetVisibility = "true", suppressedUnsetVisibility = "true")
+ 	String[1] uuid
+ }
+ 
+ class MOAOMessage extends MOAOFacet {
+ 	/**
+ 	 * <p>
+ 	 * The owner of the message.
+ 	 */
+ 	String owner
+
+ 	/**
+ 	 * <p>
+ 	 * The feature of the message.
+ 	 */
+ 	refers EStructuralFeature feature
+
+ 	/**
+ 	 * <p>
+ 	 * The description of the message.
+ 	 */
+ 	String description
+
+ 	/**
+ 	 * <p>
+ 	 * The severity of the message.
+ 	 */
+ 	Severity severity
+
+ 	/**
+ 	 * <p>
+ 	 * Any details of the message.
+ 	 * <p>
+ 	 * Can be stack trace or similar. 
+ 	 */
+ 	String details
+ }
+ 
+ enum Severity {
+ 	/**
+ 	 * <p>
+ 	 * Warning message.
+ 	 */
+ 	WARNING as "Warning" = 0,
+
+ 	/**
+ 	 * <p>
+ 	 * Error message.
+ 	 */
+ 	ERROR as "Error" = 1,
+
+ 	/**
+ 	 * <p>
+ 	 * Informational message.
+ 	 */
+ 	INFO as "Info" = 2,
+
+ 	/**
+ 	 * <p>
+ 	 * Comment.
+ 	 */
+ 	COMMENT as "Comment" = 3
+ }
+
+// EOF
