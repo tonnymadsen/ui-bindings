@@ -1,0 +1,122 @@
+@Ecore(nsPrefix="tm", nsURI="http://rcp-company.com/schemas/uibindings/testModel")
+@GenModel(nonNLSMarkers="true", classPackageSuffix="internal", adapterFactory="false",
+		classNamePattern="{0}Impl", interfaceNamePattern="{0}", suppressEMFModelTags="true",
+		fileExtensions="aserver", suppressGenModelAnnotations="false", language="",
+		prefix="TestModel", modelName="TestModel", codeFormatting="true", redirection="",
+		updateClasspath="false")
+package com.rcpcompany.uibinding.tests.model
+
+
+import org.eclipse.emf.ecore.EDate
+import org.eclipse.emf.ecore.EBigDecimal
+import org.eclipse.emf.ecore.EBigInteger
+
+annotation "http://rcp-company.com/schemas/uibindings" as uibindings
+
+@uibindings(foobar_Sequence_all="TestObject",
+	foobar_Sequence_parent="TestObject",
+	foobar_Sequence_targetType="TestObject",
+	foobar_Sequence_containingClass="TestObject",
+	foobar_Sequence_default="TestObject" 
+)
+class TestObject {
+	unique unsettable int number = "0"
+	unique double d
+	unique float f
+	EDate date
+	@uibindings(foobar_Sequence_all="TestObject.text",
+		foobar_Sequence_parent="TestObject.text",
+		foobar_Sequence_targetType="TestObject.text",
+		foobar_Sequence_containingClass="TestObject.text",
+		foobar_Sequence_default="TestObject.text" 
+	)
+	String text
+	refers TestContainer parent
+	boolean b
+	AmountAndCurrencyStruct ac
+	WeightUnit unit
+	TimeUnit timeUnit
+	byte ^byte
+	@uibindings(foobar="b")
+	short ^short
+	long ^long
+	EBigDecimal bigDecimal
+	EBigInteger bigInteger
+}
+
+@uibindings(foobar_Sequence_all="SubTestObject",
+	foobar_Sequence_parent="SubTestObject",
+	foobar_Sequence_targetType="SubTestObject",
+	foobar_Sequence_containingClass="SubTestObject",
+	foobar_Sequence_default="SubTestObject",
+	text.foobar_Sequence_all="SubTestObject.text",
+	text.foobar_Sequence_parent="SubTestObject.text",
+	text.foobar_Sequence_targetType="SubTestObject.text",
+	text.foobar_Sequence_containingClass="SubTestObject.text",
+	text.foobar_Sequence_default="SubTestObject.text"
+)
+class SubTestObject extends TestObject {
+	
+}
+
+@uibindings(foobar_Sequence_all="TestContainer",
+	foobar_Sequence_parent="TestContainer",
+	foobar_Sequence_targetType="TestContainer",
+	foobar_Sequence_containingClass="TestContainer",
+	foobar_Sequence_default="TestContainer" 
+)
+class TestContainer {
+	refers TestObject[*] children
+	@uibindings(foobar_Sequence_all="TestContainer.current",
+		foobar_Sequence_parent="TestContainer.current",
+		foobar_Sequence_targetType="TestContainer.current",
+		foobar_Sequence_containingClass="TestContainer.current",
+		foobar_Sequence_default="TestContainer.current" 
+	)
+	refers unsettable TestObject current
+}
+
+class AmountAndCurrency {
+	float amount
+	String currency
+}
+
+enum WeightUnit {
+	G = 0
+	KG = 1
+	Tonne as "TONNE" = 2
+}
+
+enum TimeUnit {
+	SEC = 0
+	MIN = 1
+}
+
+@uibindings(foobar="c")
+type AmountAndCurrencyStruct wraps com.rcpcompany.uibinding.tests.model.AmountAndCurrencyOld
+
+class TestGrid {
+	refers TestGridColumn[*] columns opposite grid
+	refers TestGridRow[*] rows opposite grid
+}
+
+class TestGridColumn {
+	refers TestGrid grid opposite columns
+	String name
+	refers TestGridCell[*] cells opposite column
+}
+
+class TestGridRow {
+	refers TestGrid grid opposite rows
+	int number
+	refers TestGridCell[*] cells opposite row
+}
+
+class TestGridCell {
+	String details
+	float price
+	refers TestGridColumn column opposite cells
+	refers TestGridRow row opposite cells
+}
+
+// EOF
