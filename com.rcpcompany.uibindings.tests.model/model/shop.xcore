@@ -1,0 +1,155 @@
+@Ecore(nsPrefix="shop", nsURI="http://rcp-company.com/schemas/uibindings/shop.ecore")
+@GenModel(nonNLSMarkers="true", classPackageSuffix="internal", adapterFactory="false",
+		classNamePattern="{0}Impl", interfaceNamePattern="{0}", suppressEMFModelTags="true",
+		fileExtensions="shop", suppressGenModelAnnotations="false", language="",
+		prefix="Shop", modelName="Shop", codeFormatting="true", redirection="",
+		updateClasspath="false")
+
+package com.rcpcompany.uibindings.tests.shop
+
+import com.rcpcompany.uibindings.moao.NamedObject
+import com.rcpcompany.uibindings.moao.MOAO
+import org.eclipse.emf.ecore.EDiagnosticChain
+import org.eclipse.emf.ecore.EMap
+import org.eclipse.emf.ecore.EDate
+
+annotation "http://rcp-company.com/schemas/uibindings" as uibindings
+
+class Shop extends NamedObject {
+	int nextOrderNo
+	int nextCustomerNo
+	String tmpDir = "C:\\Windows\\Temp"
+	contains Country[*] countries opposite shop keys abbreviation
+	contains Contact[*] contacts opposite shop
+	contains ShopItem[*] shopItems opposite shop //keys name
+	contains Order[*] orders opposite shop keys no
+	contains Customer[*] customers opposite shop
+	contains CustomerGroup[*] customerGroups opposite shop
+	contains ShopItemGroup[*] shopGroups opposite shop
+	contains ShopInformation[*] infos
+	
+	op void save()
+	op boolean nameLengthOK(EDiagnosticChain diagnostics, EMap<Object, Object> context)
+}
+
+class Customer extends MOAO {
+	container Shop shop opposite customers
+	refers local Contact[1] contact opposite customer
+	refers transient Order[*] orders opposite customer
+	CustomerType loyalty = "BRONCE"
+	String logoFileName
+}
+
+class CustomerGroup extends NamedObject {
+	container Shop shop opposite customerGroups 
+	
+	refers local Customer[*] customers
+} 
+
+class ShopItem extends NamedObject {
+	container Shop shop opposite shopItems
+	
+	float price
+	String advancedPrice = ""
+	refers transient OrderItem[*] orderItems
+	boolean[1] forSale
+	contains ShopItemInformation[*] information
+	refers local ShopItemGroup group opposite item
+	String[*] locations
+	contains ShopItemProperties[*] properties opposite item
+	
+	op boolean namePriceOK(EDiagnosticChain diagnostics, EMap<Object, Object> context)
+	op boolean nameOK(EDiagnosticChain diagnostics, EMap<Object, Object> context)
+}
+
+class ShopItemProperties extends NamedObject {
+	container ShopItem item opposite properties //keys name 
+	
+	String value
+}
+
+class ShopItemGroup extends NamedObject {
+	container Shop shop opposite shopGroups
+	
+	refers local ShopItem item opposite group 
+}
+
+class Order extends MOAO {
+	container Shop shop opposite orders
+	
+	@GenModel(suppressedSetVisibility="true")
+	id int no
+	refers local Customer[1] customer opposite orders
+	@GenModel(suppressedSetVisibility="true")
+	transient float price
+	contains OrderItem[*] items opposite order keys no
+	unsettable float discount = "0.0"
+}
+
+class OrderItem extends MOAO {
+	container Order order opposite items
+	
+	readonly transient int no
+	refers local ShopItem[1] item
+	int count = "1"
+	readonly derived transient volatile String ^id
+}
+
+class Contact extends NamedObject {
+	container Shop shop opposite contacts
+	
+	String address = ""
+	String[1] city
+	String zip
+	refers local Country[1] country opposite contacts
+	refers transient Customer customer opposite contact
+	boolean[1] newsletter = "true"
+	EDate[1] birthday
+}
+
+@uibindings(featureName="abbreviation")
+class Country extends NamedObject {
+	container Shop shop opposite countries 
+	
+	id String abbreviation
+	refers transient Contact[*] contacts opposite country
+	contains CountryInfo[0..1] information
+
+	op boolean abbreviationLengthOK(EDiagnosticChain diagnostics, EMap<Object, Object> context)
+	op boolean abbreviationCaseOK(EDiagnosticChain diagnostics, EMap<Object, Object> context)
+}
+
+class CountryInfo extends MOAO {
+	int population
+	String currency
+}
+
+class ShopItemInformation extends MOAO {
+	
+}
+
+class ShopItemDescription extends ShopItemInformation {
+	
+}
+
+class ShopItemURL extends ShopItemInformation {
+	String url
+}
+
+abstract class ShopInformation extends NamedObject {
+	String value
+}
+
+class ShopURL extends ShopInformation {
+	String url
+}
+
+class ShopAddress extends ShopInformation {
+	String url
+}
+
+enum CustomerType {
+	BRONCE = 0
+	SILVER = 1
+	GOLD = 2
+}
