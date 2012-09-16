@@ -15,7 +15,7 @@ import org.eclipse.ui.forms.widgets.Section;
 
 import com.rcpcompany.uibindings.IUIAttribute;
 import com.rcpcompany.uibindings.IUIAttributeFactory;
-import com.rcpcompany.uibindings.internal.observables.SectionObservableValue;
+import com.rcpcompany.uibindings.internal.observables.SectionTextObservableValue;
 import com.rcpcompany.uibindings.uiAttributes.SimpleUIAttribute;
 
 /**
@@ -27,6 +27,6 @@ public class SectionUIAttributeFactory implements IUIAttributeFactory {
 
 	@Override
 	public IUIAttribute create(Widget widget, String attribute) {
-		return new SimpleUIAttribute(widget, attribute, new SectionObservableValue((Section) widget), false);
+		return new SimpleUIAttribute(widget, attribute, new SectionTextObservableValue((Section) widget), false);
 	}
 }

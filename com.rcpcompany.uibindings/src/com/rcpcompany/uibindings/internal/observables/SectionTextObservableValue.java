@@ -18,14 +18,14 @@ import org.eclipse.ui.forms.widgets.Section;
  * 
  * @author Tonny Madsen, The RCP Company
  */
-public class SectionObservableValue extends AbstractSWTObservableValue {
+public class SectionTextObservableValue extends AbstractSWTObservableValue {
 
 	private final Section section;
 
 	/**
 	 * @param link the link
 	 */
-	public SectionObservableValue(Section link) {
+	public SectionTextObservableValue(Section link) {
 		super(link);
 		section = link;
 	}
