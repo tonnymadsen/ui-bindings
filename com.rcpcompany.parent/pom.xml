@@ -20,7 +20,7 @@
 		<java.debug.args /> <!-- for the default case -->
 
 		<java.debug.host>localhost</java.debug.host>
-		
+
 		<uibindings-build-user-password>xxx</uibindings-build-user-password>
 	</properties>
 
@@ -57,7 +57,7 @@
 		<module>../com.rcpcompany.uibindings.std</module>
 
 		<module>../com.rcpcompany.uibindings.grid</module>
-		<!--  <module>../com.rcpcompany.uibindings.grid.tests</module> -->
+		<!-- <module>../com.rcpcompany.uibindings.grid.tests</module> -->
 
 		<module>../com.rcpcompany.uibindings.financial</module>
 		<module>../com.rcpcompany.uibindings.navigator</module>
@@ -114,8 +114,16 @@
 						</artifact>
 					</target>
 					<environments>
-						<!-- <environment> <os>linux</os> <ws>gtk</ws> <arch>x86</arch> </environment> 
-							<environment> <os>linux</os> <ws>gtk</ws> <arch>x86_64</arch> </environment> -->
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
 						<environment>
 							<os>win32</os>
 							<ws>win32</ws>
@@ -205,11 +213,11 @@
 		</license>
 	</licenses>
 
- 	<scm>
- 		<connection>scm:git:git://github.com/tonnymadsen/ui-bindings.git</connection>
- 		<developerConnection>scm:git:https://github.com/tonnymadsen/ui-bindings.git</developerConnection>
- 	</scm>
- 	
+	<scm>
+		<connection>scm:git:git://github.com/tonnymadsen/ui-bindings.git</connection>
+		<developerConnection>scm:git:https://github.com/tonnymadsen/ui-bindings.git</developerConnection>
+	</scm>
+
 	<issueManagement>
 		<system>Github</system>
 		<url>https://github.com/tonnymadsen/ui-bindings/issues</url>
