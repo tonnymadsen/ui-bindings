@@ -7,7 +7,7 @@ branches:
 notifications:
   email:
     - tonny.madsen@gmail.com
-before_script:
+before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
   - git clone -b gh-pages git@github.com:tonnymadsen/ui-bindings.git ui-bindings-pages
