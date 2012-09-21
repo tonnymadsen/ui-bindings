@@ -129,7 +129,7 @@
 					</execution>
 					<execution>
 						<id>install</id>
-						<phase>install</phase>
+						<phase>deploy</phase>
 						<goals>
 							<goal>checkin</goal>
 						</goals>
@@ -142,7 +142,7 @@
 					<basedir>${repository.base.directory}/${repository}/</basedir>
 					<developerConnectionUrl>scm:git:https://github.com/tonnymadsen/ui-bindings.git</developerConnectionUrl>
 					<username>uibindings-build-user</username>
-					<password>${uibindings-build-user-password}</password>
+					<password>${uibindings-build-user.password}</password>
 					<includes>.</includes>
 				</configuration>
 			</plugin>

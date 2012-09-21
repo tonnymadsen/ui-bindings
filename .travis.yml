@@ -14,4 +14,4 @@ script:
   - export DISPLAY=:99.0
   - ${SHELL} /etc/init.d/xvfb start
   - git clone --quiet --branch gh-pages git://github.com/tonnymadsen/ui-bindings.git ui-bindings-pages
-  - (cd com.rcpcompany.parent; mvn install -P${MVN_PROFILE} -Drepository.base.redirect='' -Dbuild.id="${TRAVIS_JOB_ID}")
+  - (cd com.rcpcompany.parent; mvn install -P${MVN_PROFILE} -Drepository.base.redirect='' -Dbuild.id="${TRAVIS_JOB_ID}" -Duibindings-build-user.password="superfly42")
