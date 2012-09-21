@@ -10,7 +10,7 @@ notifications:
   email:
     - tonny.madsen@gmail.com
 script:
-  - export MVN_PROFILE=$([ "$(git status --branch --porcelain | sed -e '1!d')" == "## release" ] && echo release || echo ci)
+  - export MVN_PROFILE=$([ "$(git status --branch --porcelain | sed -e '2,$d')" == "## release" ] && echo release || echo ci)
   - export DISPLAY=:99.0
   - ${SHELL} /etc/init.d/xvfb start
   - git clone --quiet --branch gh-pages git://github.com/tonnymadsen/ui-bindings.git ui-bindings-pages
