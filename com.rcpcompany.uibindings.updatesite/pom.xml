@@ -20,6 +20,7 @@
 		<repository.append>false</repository.append>
 		<repository.base.redirect>../</repository.base.redirect>
 		<repository.base.directory>${project.build.directory}/../../${repository.base.redirect}ui-bindings-pages/updates</repository.base.directory>
+		<LAST_COMMIT>Unknown</LAST_COMMIT>
 	</properties>
 
 	<!-- Profile-specific properties -->
@@ -134,7 +135,7 @@
 							<goal>checkin</goal>
 						</goals>
 						<configuration>
-							<message>New updated update site based on XXX</message>
+							<message>New updated update site based on ${LAST_COMMIT}</message>
 						</configuration>
 					</execution>
 				</executions>
