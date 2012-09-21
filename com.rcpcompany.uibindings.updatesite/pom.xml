@@ -129,7 +129,7 @@
 					</execution>
 					<execution>
 						<id>install</id>
-						<phase>deploy</phase>
+						<phase>install</phase>
 						<goals>
 							<goal>checkin</goal>
 						</goals>
