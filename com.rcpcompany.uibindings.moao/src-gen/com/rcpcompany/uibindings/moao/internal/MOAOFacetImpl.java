@@ -58,7 +58,7 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 	@Override
 	public IMOAO getObject() {
 		if (eContainerFeatureID() != IMOAOPackage.MOAO_FACET__OBJECT) return null;
-		return (IMOAO) eContainer();
+		return (IMOAO) eInternalContainer();
 	}
 
 	/**
