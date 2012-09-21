@@ -174,7 +174,7 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 	 */
 	public Shop getShop() {
 		if (eContainerFeatureID() != ShopPackage.CONTACT__SHOP) return null;
-		return (Shop) eContainer();
+		return (Shop) eInternalContainer();
 	}
 
 	/**

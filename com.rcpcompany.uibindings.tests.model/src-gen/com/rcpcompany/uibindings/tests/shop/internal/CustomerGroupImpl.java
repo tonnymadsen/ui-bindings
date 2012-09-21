@@ -70,7 +70,7 @@ public class CustomerGroupImpl extends NamedObjectImpl implements CustomerGroup 
 	 */
 	public Shop getShop() {
 		if (eContainerFeatureID() != ShopPackage.CUSTOMER_GROUP__SHOP) return null;
-		return (Shop) eContainer();
+		return (Shop) eInternalContainer();
 	}
 
 	/**

@@ -12,16 +12,19 @@ import java.util.Map.Entry;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -43,40 +46,34 @@ import com.rcpcompany.uibindings.tests.shop.util.ShopValidator;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemImpl#getShop <em>Shop</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemImpl#getPrice <em>Price</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemImpl#getAdvancedPrice <em>
- * Advanced Price</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemImpl#getOrderItems <em>Order
- * Items</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemImpl#isForSale <em>For Sale
- * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemImpl#getInformation <em>
- * Information</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemImpl#getGroup <em>Group</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemImpl#getLocations <em>Locations
- * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemImpl#getProperties <em>
- * Properties</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemImpl#getShop <em>Shop</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemImpl#getPrice <em>Price</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemImpl#getAdvancedPrice <em>Advanced Price</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemImpl#getOrderItems <em>Order Items</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemImpl#isForSale <em>For Sale</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemImpl#getInformation <em>Information</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemImpl#getGroup <em>Group</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemImpl#getLocations <em>Locations</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemImpl#getProperties <em>Properties</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 	/**
-	 * The default value of the '{@link #getPrice() <em>Price</em>}' attribute. <!-- begin-user-doc
+	 * The default value of the '{@link #getPrice() <em>Price</em>}' attribute.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @see #getPrice()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final float PRICE_EDEFAULT = 0.0F;
 	/**
-	 * The cached value of the '{@link #getPrice() <em>Price</em>}' attribute. <!-- begin-user-doc
+	 * The cached value of the '{@link #getPrice() <em>Price</em>}' attribute.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @see #getPrice()
 	 * @generated
 	 * @ordered
@@ -85,7 +82,6 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 	/**
 	 * The default value of the '{@link #getAdvancedPrice() <em>Advanced Price</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #getAdvancedPrice()
 	 * @generated
 	 * @ordered
@@ -128,18 +124,17 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 	 */
 	protected boolean forSale = FOR_SALE_EDEFAULT;
 	/**
-	 * The cached value of the '{@link #getInformation() <em>Information</em>}' containment
-	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getInformation() <em>Information</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getInformation()
 	 * @generated
 	 * @ordered
 	 */
 	protected EList<ShopItemInformation> information;
 	/**
-	 * The cached value of the '{@link #getGroup() <em>Group</em>}' reference. <!-- begin-user-doc
+	 * The cached value of the '{@link #getGroup() <em>Group</em>}' reference.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @see #getGroup()
 	 * @generated
 	 * @ordered
@@ -155,9 +150,8 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 	 */
 	protected EList<String> locations;
 	/**
-	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference
-	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getProperties()
 	 * @generated
 	 * @ordered
@@ -166,7 +160,6 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ShopItemImpl() {
@@ -175,7 +168,6 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -185,17 +177,15 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Shop getShop() {
 		if (eContainerFeatureID() != ShopPackage.SHOP_ITEM__SHOP) return null;
-		return (Shop) eContainer();
+		return (Shop) eInternalContainer();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetShop(Shop newShop, NotificationChain msgs) {
@@ -205,7 +195,6 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setShop(Shop newShop) {
@@ -214,24 +203,17 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 			if (EcoreUtil.isAncestor(this, newShop))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
-			if (eInternalContainer() != null) {
-				msgs = eBasicRemoveFromContainer(msgs);
-			}
-			if (newShop != null) {
+			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
+			if (newShop != null)
 				msgs = ((InternalEObject) newShop).eInverseAdd(this, ShopPackage.SHOP__SHOP_ITEMS, Shop.class, msgs);
-			}
 			msgs = basicSetShop(newShop, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
+			if (msgs != null) msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_ITEM__SHOP, newShop, newShop));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public float getPrice() {
@@ -240,20 +222,17 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setPrice(float newPrice) {
-		final float oldPrice = price;
+		float oldPrice = price;
 		price = newPrice;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_ITEM__PRICE, oldPrice, price));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getAdvancedPrice() {
@@ -262,21 +241,18 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setAdvancedPrice(String newAdvancedPrice) {
-		final String oldAdvancedPrice = advancedPrice;
+		String oldAdvancedPrice = advancedPrice;
 		advancedPrice = newAdvancedPrice;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_ITEM__ADVANCED_PRICE,
 					oldAdvancedPrice, advancedPrice));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<OrderItem> getOrderItems() {
@@ -288,7 +264,6 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean isForSale() {
@@ -297,20 +272,17 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setForSale(boolean newForSale) {
-		final boolean oldForSale = forSale;
+		boolean oldForSale = forSale;
 		forSale = newForSale;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_ITEM__FOR_SALE, oldForSale, forSale));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<ShopItemInformation> getInformation() {
@@ -323,7 +295,6 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ShopItemGroup getGroup() {
@@ -332,52 +303,43 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetGroup(ShopItemGroup newGroup, NotificationChain msgs) {
-		final ShopItemGroup oldGroup = group;
+		ShopItemGroup oldGroup = group;
 		group = newGroup;
 		if (eNotificationRequired()) {
-			final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					ShopPackage.SHOP_ITEM__GROUP, oldGroup, newGroup);
-			if (msgs == null) {
+			if (msgs == null)
 				msgs = notification;
-			} else {
+			else
 				msgs.add(notification);
-			}
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setGroup(ShopItemGroup newGroup) {
 		if (newGroup != group) {
 			NotificationChain msgs = null;
-			if (group != null) {
+			if (group != null)
 				msgs = ((InternalEObject) group).eInverseRemove(this, ShopPackage.SHOP_ITEM_GROUP__ITEM,
 						ShopItemGroup.class, msgs);
-			}
-			if (newGroup != null) {
+			if (newGroup != null)
 				msgs = ((InternalEObject) newGroup).eInverseAdd(this, ShopPackage.SHOP_ITEM_GROUP__ITEM,
 						ShopItemGroup.class, msgs);
-			}
 			msgs = basicSetGroup(newGroup, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
+			if (msgs != null) msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_ITEM__GROUP, newGroup, newGroup));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<String> getLocations() {
@@ -389,7 +351,6 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<ShopItemProperties> getProperties() {
@@ -489,7 +450,6 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -497,15 +457,12 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case ShopPackage.SHOP_ITEM__SHOP:
-			if (eInternalContainer() != null) {
-				msgs = eBasicRemoveFromContainer(msgs);
-			}
+			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
 			return basicSetShop((Shop) otherEnd, msgs);
 		case ShopPackage.SHOP_ITEM__GROUP:
-			if (group != null) {
+			if (group != null)
 				msgs = ((InternalEObject) group).eInverseRemove(this, ShopPackage.SHOP_ITEM_GROUP__ITEM,
 						ShopItemGroup.class, msgs);
-			}
 			return basicSetGroup((ShopItemGroup) otherEnd, msgs);
 		case ShopPackage.SHOP_ITEM__PROPERTIES:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getProperties()).basicAdd(otherEnd, msgs);
@@ -515,7 +472,6 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -535,7 +491,6 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -549,7 +504,6 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -579,7 +533,6 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -623,7 +576,6 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -662,7 +614,6 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -693,7 +644,6 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -710,14 +660,13 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		final StringBuffer result = new StringBuffer(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (price: "); //$NON-NLS-1$
 		result.append(price);
 		result.append(", advancedPrice: "); //$NON-NLS-1$

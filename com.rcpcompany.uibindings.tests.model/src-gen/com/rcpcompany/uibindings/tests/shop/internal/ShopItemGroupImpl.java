@@ -70,7 +70,7 @@ public class ShopItemGroupImpl extends NamedObjectImpl implements ShopItemGroup 
 	 */
 	public Shop getShop() {
 		if (eContainerFeatureID() != ShopPackage.SHOP_ITEM_GROUP__SHOP) return null;
-		return (Shop) eContainer();
+		return (Shop) eInternalContainer();
 	}
 
 	/**

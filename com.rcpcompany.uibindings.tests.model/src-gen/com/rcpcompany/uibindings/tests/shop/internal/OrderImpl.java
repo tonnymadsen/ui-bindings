@@ -206,7 +206,7 @@ public class OrderImpl extends MOAOImpl implements Order {
 	 */
 	public Shop getShop() {
 		if (eContainerFeatureID() != ShopPackage.ORDER__SHOP) return null;
-		return (Shop) eContainer();
+		return (Shop) eInternalContainer();
 	}
 
 	/**

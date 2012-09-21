@@ -105,7 +105,7 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 	 */
 	public Shop getShop() {
 		if (eContainerFeatureID() != ShopPackage.COUNTRY__SHOP) return null;
-		return (Shop) eContainer();
+		return (Shop) eInternalContainer();
 	}
 
 	/**

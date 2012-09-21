@@ -21,7 +21,7 @@ class Shop extends NamedObject {
 	String tmpDir = "C:\\Windows\\Temp"
 	contains Country[*] countries opposite shop keys abbreviation
 	contains Contact[*] contacts opposite shop
-	contains ShopItem[*] shopItems opposite shop //keys name
+	contains ShopItem[*] shopItems opposite shop keys name
 	contains Order[*] orders opposite shop keys no
 	contains Customer[*] customers opposite shop
 	contains CustomerGroup[*] customerGroups opposite shop
@@ -63,7 +63,7 @@ class ShopItem extends NamedObject {
 }
 
 class ShopItemProperties extends NamedObject {
-	container ShopItem item opposite properties //keys name 
+	container ShopItem item opposite properties keys name 
 	
 	String value
 }

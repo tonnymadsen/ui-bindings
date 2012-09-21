@@ -131,7 +131,7 @@ public class CustomerImpl extends MOAOImpl implements Customer {
 	 */
 	public Shop getShop() {
 		if (eContainerFeatureID() != ShopPackage.CUSTOMER__SHOP) return null;
-		return (Shop) eContainer();
+		return (Shop) eInternalContainer();
 	}
 
 	/**

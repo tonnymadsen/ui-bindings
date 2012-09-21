@@ -75,7 +75,7 @@ public class ShopItemPropertiesImpl extends NamedObjectImpl implements ShopItemP
 	 */
 	public ShopItem getItem() {
 		if (eContainerFeatureID() != ShopPackage.SHOP_ITEM_PROPERTIES__ITEM) return null;
-		return (ShopItem) eContainer();
+		return (ShopItem) eInternalContainer();
 	}
 
 	/**
