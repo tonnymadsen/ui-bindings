@@ -16,9 +16,10 @@
 
 	<!-- Default properties - development release -->
 	<properties>
-		<output-dir>develop</output-dir>
-		<append-site>true</append-site> <!-- was false -->
-		<updates>${project.build.directory}/../../../ui-bindings-pages/updates</updates>
+		<repository>develop</repository>
+		<repository.append>false</repository.append>
+		<repository.base.redirect>../</repository.base.redirect>
+		<repository.base.directory>${project.build.directory}/../../${repository.base.redirect}ui-bindings-pages/updates</repository.base.directory>
 	</properties>
 
 	<!-- Profile-specific properties -->
@@ -26,8 +27,8 @@
 		<profile>
 			<id>release</id>
 			<properties>
-				<output-dir>release</output-dir>
-				<append-site>true</append-site>
+				<repository>release</repository>
+				<repository.append>true</repository.append>
 			</properties>
 		</profile>
 	</profiles>
@@ -51,7 +52,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<basedir>${updates}/${output-dir}/</basedir>
+					<basedir>${repository.base.directory}/${repository}/</basedir>
 					<developerConnectionUrl>scm:git:https://github.com/tonnymadsen/ui-bindings.git</developerConnectionUrl>
 					<username>uibindings-build-user</username>
 					<password>${uibindings-build-user-password}</password>
@@ -92,9 +93,9 @@
 					</source>
 					<publishArtifacts>true</publishArtifacts>
 					<!-- The destination directory to mirror to. -->
-					<destination>${updates}/${output-dir}/</destination>
+					<destination>${repository.base.directory}/${repository}/</destination>
 					<!-- whether to append to the target repository content -->
-					<append>${append-site}</append>
+					<append>${repository.append}</append>
 					<!-- mirror artifacts and metadata -->
 					<mirrorMetadataOnly>false</mirrorMetadataOnly>
 					<!-- whether to compress the content.xml/artifacts.xml -->
@@ -138,7 +139,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<basedir>${updates}/${output-dir}/</basedir>
+					<basedir>${repository.base.directory}/${repository}/</basedir>
 					<developerConnectionUrl>scm:git:https://github.com/tonnymadsen/ui-bindings.git</developerConnectionUrl>
 					<username>uibindings-build-user</username>
 					<password>${uibindings-build-user-password}</password>
