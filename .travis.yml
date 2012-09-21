@@ -10,8 +10,9 @@ notifications:
   email:
     - tonny.madsen@gmail.com
 script:
+  - set
+  - export MVN_PROFILE="$('git log --format=%s HEAD~1..HEAD | grep "release" >/dev/null && echo release || echo ci')"
   - export DISPLAY=:99.0
   - ${SHELL} /etc/init.d/xvfb start
-  - git clone -b gh-pages git://github.com/tonnymadsen/ui-bindings.git ui-bindings-pages
-  - (cd com.rcpcompany.parent; mvn install -Drepository.base.redirect='' -Dbuild.id="${TRAVIS_JOB_ID}")
-  - (cd com.rcpcompany.parent; mvn deploy -Drepository.base.redirect='' -Dbuild.id="${TRAVIS_JOB_ID}")
+  - git clone --quiet --single-branch --branch gh-pages git://github.com/tonnymadsen/ui-bindings.git ui-bindings-pages
+  - (cd com.rcpcompany.parent; mvn install -P${MVN_PROFILE} -Drepository.base.redirect='' -Dbuild.id="${TRAVIS_JOB_ID}")
