@@ -10,7 +10,6 @@ notifications:
   email:
     - tonny.madsen@gmail.com
 script:
-  - set
   - export MVN_PROFILE=$([ "$(git status --branch --porcelain | sed -e '1!d')" == release ] && echo release || echo ci)
   - export DISPLAY=:99.0
   - ${SHELL} /etc/init.d/xvfb start
