@@ -4,7 +4,8 @@ jdk:
 branches:
   only:
     - master
-    - issue-*
+    - /^issue-.*$/
+    - release
 notifications:
   email:
     - tonny.madsen@gmail.com
