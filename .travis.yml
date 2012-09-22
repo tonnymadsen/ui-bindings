@@ -1,10 +1,4 @@
 language: java
-jdk:
-  - openjdk7
-  - openjdk6
-env:
-  - MVN_EXTRA_PROFILES=
-  - MVN_EXTRA_PROFILES=",update-site"
 matrix:
   include:
     - jdk: openjdk7
@@ -26,6 +20,6 @@ script:
   - export DISPLAY=:99.0
   - ${SHELL} /etc/init.d/xvfb start
   - git clone --quiet --branch gh-pages git://github.com/tonnymadsen/ui-bindings.git ui-bindings-pages
-  - echo Command: mvn install -P${MVN_PROFILE}${MVN_EXTRA_PROFILES} -Drepository.base.redirect='' -Dbuild.id="${TRAVIS_JOB_ID}" -Duibindings-build-user.password="superfly42" -DLAST_COMMIT="${MVN_LAST_COMMIT}"
+  - echo "Command:" mvn install -P${MVN_PROFILE}${MVN_EXTRA_PROFILES} -Drepository.base.redirect='' -Dbuild.id="${TRAVIS_JOB_ID}" -Duibindings-build-user.password="superfly42" -DLAST_COMMIT="${MVN_LAST_COMMIT}"
   - (cd com.rcpcompany.parent; mvn install -P${MVN_PROFILE}${MVN_EXTRA_PROFILES} -Drepository.base.redirect='' -Dbuild.id="${TRAVIS_JOB_ID}" -Duibindings-build-user.password="superfly42" -DLAST_COMMIT="${MVN_LAST_COMMIT}")
   
