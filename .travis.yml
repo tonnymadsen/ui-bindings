@@ -3,12 +3,12 @@ jdk:
   - oraclejdk7
 env:
   - MVN_EXTRA_PROFILES=
-#matrix:
-#  include:
-#    - jdk: openjdk7
-#      env: MVN_EXTRA_PROFILES=
-#    - jdk: openjdk6
-#      env: MVN_EXTRA_PROFILES=",update-site"
+matrix:
+  include:
+    - jdk: openjdk7
+      env: MVN_EXTRA_PROFILES=
+    - jdk: openjdk6
+      env: MVN_EXTRA_PROFILES=",update-site"
 branches:
   only:
     - master
@@ -18,7 +18,6 @@ notifications:
   email:
     - tonny.madsen@gmail.com
 script:
-  - ls -las /usr/lib/jvm
   - BRANCH="$(git status --branch --porcelain | sed -e '2,$d')"
   - MVN_PROFILE=$([ "${BRANCH}" == "## release" ] && echo release || echo ci)${MVN_EXTRA_PROFILES}
   - MVN_LAST_COMMIT="$(git log --pretty=oneline -1)"
