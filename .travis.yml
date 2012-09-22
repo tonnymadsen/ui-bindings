@@ -6,7 +6,9 @@ env:
 matrix:
   include:
     - jdk: openjdk7
+      env: UPDATE_SITE=
     - jdk: oraclejdk7
+      env: UPDATE_SITE=
 branches:
   only:
     - master
