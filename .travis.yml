@@ -25,6 +25,6 @@ script:
   - MVN_LAST_COMMIT="$(git log --pretty=oneline -1)"
   - export DISPLAY=":99.0"
   - ${SHELL} /etc/init.d/xvfb start
-  - echo git clone --quiet --branch gh-pages git://github.com/tonnymadsen/ui-bindings.git ui-bindings-pages
-  - (cd com.rcpcompany.parent; echo mvn install -P${MVN_PROFILES} -Drepository.base.redirect='' -Dbuild.id="${TRAVIS_JOB_ID}" -Duibindings-build-user.password="superfly42" -DLAST_COMMIT="${MVN_LAST_COMMIT}")
+  - git clone --quiet --branch gh-pages git://github.com/tonnymadsen/ui-bindings.git ui-bindings-pages
+  - (cd com.rcpcompany.parent; mvn install -P${MVN_PROFILES} -Drepository.base.redirect='' -Dbuild.id="${TRAVIS_JOB_ID}" -Duibindings-build-user.password="superfly42" -DLAST_COMMIT="${MVN_LAST_COMMIT}")
   
