@@ -1,10 +1,14 @@
 language: java
-matrix:
-  include:
-    - jdk: openjdk7
-      env: MVN_EXTRA_PROFILES=
-    - jdk: openjdk6
-      env: MVN_EXTRA_PROFILES=",update-site"
+jdk:
+  - oraclejdk7
+env:
+  - MVN_EXTRA_PROFILES=
+#matrix:
+#  include:
+#    - jdk: openjdk7
+#      env: MVN_EXTRA_PROFILES=
+#    - jdk: openjdk6
+#      env: MVN_EXTRA_PROFILES=",update-site"
 branches:
   only:
     - master
@@ -14,12 +18,13 @@ notifications:
   email:
     - tonny.madsen@gmail.com
 script:
+  - ls -las /usr/lib/jvm
   - BRANCH="$(git status --branch --porcelain | sed -e '2,$d')"
-  - MVN_PROFILE=$([ "${BRANCH}" == "## release" ] && echo release || echo ci)
+  - MVN_PROFILE=$([ "${BRANCH}" == "## release" ] && echo release || echo ci)${MVN_EXTRA_PROFILES}
   - MVN_LAST_COMMIT="$(git log --pretty=oneline -1)"
   - export DISPLAY=:99.0
   - ${SHELL} /etc/init.d/xvfb start
   - git clone --quiet --branch gh-pages git://github.com/tonnymadsen/ui-bindings.git ui-bindings-pages
-  - echo "Command:" mvn install -P${MVN_PROFILE}${MVN_EXTRA_PROFILES} -Drepository.base.redirect='' -Dbuild.id="${TRAVIS_JOB_ID}" -Duibindings-build-user.password="superfly42" -DLAST_COMMIT="${MVN_LAST_COMMIT}"
-  - (cd com.rcpcompany.parent; mvn install -P${MVN_PROFILE}${MVN_EXTRA_PROFILES} -Drepository.base.redirect='' -Dbuild.id="${TRAVIS_JOB_ID}" -Duibindings-build-user.password="superfly42" -DLAST_COMMIT="${MVN_LAST_COMMIT}")
+  - echo "Command:" mvn install -P${MVN_PROFILE} -Drepository.base.redirect='' -Dbuild.id="${TRAVIS_JOB_ID}" -Duibindings-build-user.password="superfly42" -DLAST_COMMIT="${MVN_LAST_COMMIT}"
+  - (cd com.rcpcompany.parent; mvn install -P${MVN_PROFILE} -Drepository.base.redirect='' -Dbuild.id="${TRAVIS_JOB_ID}" -Duibindings-build-user.password="superfly42" -DLAST_COMMIT="${MVN_LAST_COMMIT}")
   
