@@ -2,91 +2,9 @@
 <?metadataRepository version='1.1.0'?>
 <repository name='' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'>
   <properties size='1'>
-    <property name='p2.timestamp' value='1348243528952'/>
+    <property name='p2.timestamp' value='1348272984788'/>
   </properties>
   <units size='122'>
-    <unit id='com.rcpcompany.utils.basic' version='1.3.0.201209211602' singleton='false'>
-      <update id='com.rcpcompany.utils.basic' range='[0.0.0,1.3.0.201209211602)' severity='0'/>
-      <properties size='5'>
-        <property name='org.eclipse.equinox.p2.name' value='Basic Utilities'/>
-        <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.utils.basic'/>
-        <property name='maven-version' value='1.3.0-SNAPSHOT'/>
-      </properties>
-      <provides size='4'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.basic' version='1.3.0.201209211602'/>
-        <provided namespace='osgi.bundle' name='com.rcpcompany.utils.basic' version='1.3.0.201209211602'/>
-        <provided namespace='java.package' name='com.rcpcompany.utils.basic' version='1.2.0'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='7'>
-        <required namespace='java.package' name='org.eclipse.core.runtime' range='3.4.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.common.notify' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.ecore' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.swt' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.swt.events' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.swt.graphics' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.swt.widgets' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.basic' version='1.3.0.201209211602'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: com.rcpcompany.utils.basic&#xA;Bundle-Version: 1.3.0.201209211602
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='com.rcpcompany.uibindings.debug' version='1.0.0.201209211602'>
-      <update id='com.rcpcompany.uibindings.debug' range='[0.0.0,1.0.0.201209211602)' severity='0'/>
-      <properties size='5'>
-        <property name='org.eclipse.equinox.p2.name' value='UI Bindings Debug Facilities'/>
-        <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.debug'/>
-        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
-      </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.debug' version='1.0.0.201209211602'/>
-        <provided namespace='osgi.bundle' name='com.rcpcompany.uibindings.debug' version='1.0.0.201209211602'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='18'>
-        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.uibindings' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.uibindings.model.utils' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.uibindings.scripting' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.uibindings.utils' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.utils.basic' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.utils.logging' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.databinding.observable.list' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.databinding.observable.value' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.common.command' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.common.notify' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.common.notify.impl' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.common.util' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.ecore' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.ecore.impl' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.ecore.plugin' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.edit.domain' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.debug' version='1.0.0.201209211602'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: com.rcpcompany.uibindings.debug;singleton:=true&#xA;Bundle-Version: 1.0.0.201209211602
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
     <unit id='org.eclipse.rcp.feature.group' version='4.2.0.v20120528-1648-7IAPA7BrHQicRpNdOz-Obz-rlRCA' singleton='false'>
       <update id='org.eclipse.rcp.feature.group' range='[0.0.0,4.2.0.v20120528-1648-7IAPA7BrHQicRpNdOz-Obz-rlRCA)' severity='0'/>
       <properties size='9'>
@@ -282,6 +200,44 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='com.rcpcompany.uibindings.feature.feature.jar' version='1.0.0.201209220013'>
+      <properties size='7'>
+        <property name='org.eclipse.equinox.p2.name' value='UI Bindings Feature'/>
+        <property name='org.eclipse.equinox.p2.description' value='[Enter Feature Description here.]'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http://www.example.com/description'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.feature'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.feature.feature.jar' version='1.0.0.201209220013'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='com.rcpcompany.uibindings.feature' version='1.0.0.201209220013'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.feature' version='1.0.0.201209220013'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license uri='http://www.example.com/license' url='http://www.example.com/license'>
+          [Enter License Description here.]
+        </license>
+      </licenses>
+      <copyright uri='http://www.example.com/copyright' url='http://www.example.com/copyright'>
+        [Enter Copyright Description here.]
+      </copyright>
+    </unit>
     <unit id='org.eclipse.e4.ui.workbench' version='0.10.2.v20120531-1742'>
       <update id='org.eclipse.e4.ui.workbench' range='[0.0.0,0.10.2.v20120531-1742)' severity='0'/>
       <properties size='5'>
@@ -370,37 +326,6 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='com.rcpcompany.uibindings.fragments.jface' version='1.1.0.201209211602' singleton='false'>
-      <update id='com.rcpcompany.uibindings.fragments.jface' range='[0.0.0,1.1.0.201209211602)' severity='0'/>
-      <properties size='5'>
-        <property name='org.eclipse.equinox.p2.name' value='org.eclipse.jface fragment'/>
-        <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.fragments.jface'/>
-        <property name='maven-version' value='1.1.0-SNAPSHOT'/>
-      </properties>
-      <provides size='4'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.fragments.jface' version='1.1.0.201209211602'/>
-        <provided namespace='osgi.bundle' name='com.rcpcompany.uibindings.fragments.jface' version='1.1.0.201209211602'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-        <provided namespace='osgi.fragment' name='org.eclipse.jface' version='1.1.0.201209211602'/>
-      </provides>
-      <requires size='2'>
-        <required namespace='osgi.bundle' name='org.eclipse.jface' range='[3.5.0,4.0.0)'/>
-        <required namespace='java.package' name='com.rcpcompany.uibindings.fragments.jfaceif' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.fragments.jface' version='1.1.0.201209211602'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: com.rcpcompany.uibindings.fragments.jface&#xA;Bundle-Version: 1.1.0.201209211602&#xA;Fragment-Host: org.eclipse.jface;bundle-version=&quot;[3.5.0,4.0.0)&quot;
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
     <unit id='javax.xml' version='1.3.4.v201005080400' singleton='false'>
       <update id='javax.xml' range='[0.0.0,1.3.4.v201005080400)' severity='0'/>
       <properties size='5'>
@@ -456,6 +381,44 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='com.rcpcompany.uibindings.financial' version='1.1.0.201209220013'>
+      <update id='com.rcpcompany.uibindings.financial' range='[0.0.0,1.1.0.201209220013)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.Bundle-Vendor' value='The RCP Company'/>
+        <property name='df_LT.Bundle-Name' value='Financial Utilities for the UI Bindings framework'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Bundle-Name'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%Bundle-Vendor'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.financial'/>
+        <property name='maven-version' value='1.1.0-SNAPSHOT'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.financial' version='1.1.0.201209220013'/>
+        <provided namespace='osgi.bundle' name='com.rcpcompany.uibindings.financial' version='1.1.0.201209220013'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='7'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.5.0,4.0.0)'/>
+        <required namespace='java.package' name='com.rcpcompany.uibindings' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.uibindings.decorators.extenders' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.utils.logging' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.databinding.observable.value' range='0.0.0'/>
+        <required namespace='java.package' name='org.osgi.framework' range='1.5.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.financial' version='1.1.0.201209220013'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.rcpcompany.uibindings.financial;singleton:=true&#xA;Bundle-Version: 1.1.0.201209220013
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='org.eclipse.equinox.registry' version='3.5.200.v20120522-1841'>
       <update id='org.eclipse.equinox.registry' range='[0.0.0,3.5.200.v20120522-1841)' severity='0'/>
       <properties size='5'>
@@ -504,36 +467,6 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.eclipse.equinox.registry;singleton:=true&#xA;Bundle-Version: 3.5.200.v20120522-1841
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='com.rcpcompany.uibindings.fragments.ecore' version='1.0.0.201209211602' singleton='false'>
-      <update id='com.rcpcompany.uibindings.fragments.ecore' range='[0.0.0,1.0.0.201209211602)' severity='0'/>
-      <properties size='5'>
-        <property name='org.eclipse.equinox.p2.name' value='Ecore fragment with revised messages'/>
-        <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.fragments.ecore'/>
-        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
-      </properties>
-      <provides size='4'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.fragments.ecore' version='1.0.0.201209211602'/>
-        <provided namespace='osgi.bundle' name='com.rcpcompany.uibindings.fragments.ecore' version='1.0.0.201209211602'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-        <provided namespace='osgi.fragment' name='org.eclipse.emf.ecore' version='1.0.0.201209211602'/>
-      </provides>
-      <requires size='1'>
-        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='[2.5.0,3.0.0)'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.fragments.ecore' version='1.0.0.201209211602'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: com.rcpcompany.uibindings.fragments.ecore&#xA;Bundle-Version: 1.0.0.201209211602&#xA;Fragment-Host: org.eclipse.emf.ecore;bundle-version=&quot;[2.5.0,3.0.0)&quot;
           </instruction>
         </instructions>
       </touchpointData>
@@ -652,38 +585,6 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.eclipse.e4.ui.workbench.renderers.swt;singleton:=true&#xA;Bundle-Version: 0.10.1.v20120523-1955
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='com.rcpcompany.utils.selection' version='1.1.0.201209211602' singleton='false'>
-      <update id='com.rcpcompany.utils.selection' range='[0.0.0,1.1.0.201209211602)' severity='0'/>
-      <properties size='5'>
-        <property name='org.eclipse.equinox.p2.name' value='Selection Utilities'/>
-        <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.utils.selection'/>
-        <property name='maven-version' value='1.1.0-SNAPSHOT'/>
-      </properties>
-      <provides size='4'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.selection' version='1.1.0.201209211602'/>
-        <provided namespace='osgi.bundle' name='com.rcpcompany.utils.selection' version='1.1.0.201209211602'/>
-        <provided namespace='java.package' name='com.rcpcompany.utils.selection' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='3'>
-        <required namespace='osgi.bundle' name='org.eclipse.jface' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.forms' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.selection' version='1.1.0.201209211602'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: com.rcpcompany.utils.selection&#xA;Bundle-Version: 1.1.0.201209211602
           </instruction>
         </instructions>
       </touchpointData>
@@ -999,6 +900,59 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='com.rcpcompany.uibindings.navigator' version='1.3.6.201209220013'>
+      <update id='com.rcpcompany.uibindings.navigator' range='[0.0.0,1.3.6.201209220013)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='UIBinding based navigator and editor framework'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.navigator'/>
+        <property name='maven-version' value='1.3.6-SNAPSHOT'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.navigator' version='1.3.6.201209220013'/>
+        <provided namespace='osgi.bundle' name='com.rcpcompany.uibindings.navigator' version='1.3.6.201209220013'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.navigator' version='0.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.navigator.editorFactories' version='0.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.navigator.views' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='22'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.expressions.source' range='[3.0.0,4.0.0)' optional='true' greedy='false'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='2.6.1'/>
+        <required namespace='java.package' name='com.rcpcompany.uibindings' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.uibindings.utils' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.utils.basic' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.utils.extensionpoints' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.utils.logging' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.utils.selection' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.databinding' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.databinding.observable' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.databinding.observable.list' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.databinding.observable.value' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.expressions' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.common.notify' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.common.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.ecore' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.ecore.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.ecore.plugin' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.ecore.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.ui.forms.widgets' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.navigator' version='1.3.6.201209220013'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.rcpcompany.uibindings.navigator;singleton:=true&#xA;Bundle-Version: 1.3.6.201209220013
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='org.eclipse.e4.ui.workbench3' version='0.12.0.v20120521-2329'>
       <update id='org.eclipse.e4.ui.workbench3' range='[0.0.0,0.12.0.v20120521-2329)' severity='0'/>
       <properties size='5'>
@@ -1028,6 +982,48 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.eclipse.e4.ui.workbench3;singleton:=true&#xA;Bundle-Version: 0.12.0.v20120521-2329
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='com.rcpcompany.uibindings.moao' version='1.2.1.201209220013'>
+      <update id='com.rcpcompany.uibindings.moao' range='[0.0.0,1.2.1.201209220013)' severity='0'/>
+      <properties size='8'>
+        <property name='df_LT.providerName' value='www.example.org'/>
+        <property name='df_LT.pluginName' value='MOAO Model'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.moao'/>
+        <property name='maven-version' value='1.2.1-SNAPSHOT'/>
+      </properties>
+      <provides size='7'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.moao' version='1.2.1.201209220013'/>
+        <provided namespace='osgi.bundle' name='com.rcpcompany.uibindings.moao' version='1.2.1.201209220013'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.moao' version='0.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.moao.internal' version='0.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.moao.util' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='7'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.xtext.xbase.lib' range='[2.3.0,3.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='[2.8.0,3.0.0)'/>
+        <required namespace='java.package' name='org.eclipse.emf.common.notify' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.common.notify.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.common.util' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.moao' version='1.2.1.201209220013'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.rcpcompany.uibindings.moao;singleton:=true&#xA;Bundle-Version: 1.2.1.201209220013
           </instruction>
         </instructions>
       </touchpointData>
@@ -1070,73 +1066,8 @@
         Copyright (c) 2007-2011 IBM Corporation and others.&#xA;All rights reserved.   This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html
       </copyright>
     </unit>
-    <unit id='com.rcpcompany.uibindings.grid' version='1.2.0.201209211602'>
-      <update id='com.rcpcompany.uibindings.grid' range='[0.0.0,1.2.0.201209211602)' severity='0'/>
-      <properties size='8'>
-        <property name='df_LT.providerName' value='www.example.org'/>
-        <property name='df_LT.pluginName' value='Grid Model'/>
-        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
-        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
-        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.grid'/>
-        <property name='maven-version' value='1.2.0-SNAPSHOT'/>
-      </properties>
-      <provides size='6'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.grid' version='1.2.0.201209211602'/>
-        <provided namespace='osgi.bundle' name='com.rcpcompany.uibindings.grid' version='1.2.0.201209211602'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.grid' version='0.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.grid.internal' version='0.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
-      </provides>
-      <requires size='31'>
-        <required namespace='java.package' name='com.rcpcompany.uibindings' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.uibindings.bindingMessages' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.uibindings.internal' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.uibindings.internal.cellEditors' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.uibindings.uiAttributes' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.uibindings.utils' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.utils.basic' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.utils.logging' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.databinding' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.databinding.observable' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.databinding.observable.list' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.databinding.observable.value' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.runtime' range='3.4.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.common.notify' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.common.notify.impl' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.common.util' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.ecore' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.ecore.impl' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.ecore.plugin' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.ecore.util' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.edit.domain' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.jface.databinding.swt' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.jface.viewers' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.nebula.widgets.grid' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.nebula.widgets.grid.internal' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.swt' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.swt.dnd' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.swt.events' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.swt.graphics' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.swt.widgets' range='0.0.0'/>
-        <required namespace='java.package' name='org.osgi.framework' range='1.5.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.grid' version='1.2.0.201209211602'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: com.rcpcompany.uibindings.grid;singleton:=true&#xA;Bundle-Version: 1.2.0.201209211602
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='com.rcpcompany.utils.databinding' version='1.1.0.201209211602'>
-      <update id='com.rcpcompany.utils.databinding' range='[0.0.0,1.1.0.201209211602)' severity='0'/>
+    <unit id='com.rcpcompany.utils.databinding' version='1.1.0.201209220013'>
+      <update id='com.rcpcompany.utils.databinding' range='[0.0.0,1.1.0.201209220013)' severity='0'/>
       <properties size='5'>
         <property name='org.eclipse.equinox.p2.name' value='Basic Databinding Utilities'/>
         <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
@@ -1145,8 +1076,8 @@
         <property name='maven-version' value='1.1.0-SNAPSHOT'/>
       </properties>
       <provides size='4'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.databinding' version='1.1.0.201209211602'/>
-        <provided namespace='osgi.bundle' name='com.rcpcompany.utils.databinding' version='1.1.0.201209211602'/>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.databinding' version='1.1.0.201209220013'/>
+        <provided namespace='osgi.bundle' name='com.rcpcompany.utils.databinding' version='1.1.0.201209220013'/>
         <provided namespace='java.package' name='com.rcpcompany.utils.databinding' version='1.0.0'/>
         <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
       </provides>
@@ -1163,13 +1094,13 @@
         <required namespace='java.package' name='org.eclipse.emf.ecore' range='0.0.0'/>
       </requires>
       <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.databinding' version='1.1.0.201209211602'/>
+        <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.databinding' version='1.1.0.201209220013'/>
       </artifacts>
       <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-SymbolicName: com.rcpcompany.utils.databinding;singleton:=true&#xA;Bundle-Version: 1.1.0.201209211602
+            Bundle-SymbolicName: com.rcpcompany.utils.databinding;singleton:=true&#xA;Bundle-Version: 1.1.0.201209220013
           </instruction>
         </instructions>
       </touchpointData>
@@ -1279,6 +1210,41 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='com.rcpcompany.uibindings.model.utils' version='1.1.0.201209220013' singleton='false'>
+      <update id='com.rcpcompany.uibindings.model.utils' range='[0.0.0,1.1.0.201209220013)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='UI Bindings: Model Utilities'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The RCP Compabny'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.model.utils'/>
+        <property name='maven-version' value='1.1.0-SNAPSHOT'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.model.utils' version='1.1.0.201209220013'/>
+        <provided namespace='osgi.bundle' name='com.rcpcompany.uibindings.model.utils' version='1.1.0.201209220013'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.model.utils' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='6'>
+        <required namespace='java.package' name='com.rcpcompany.utils.logging' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.databinding.observable.list' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.common.command' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.common.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.ecore' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.ecore.util' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.model.utils' version='1.1.0.201209220013'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.rcpcompany.uibindings.model.utils&#xA;Bundle-Version: 1.1.0.201209220013
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='org.eclipse.equinox.util' version='1.0.400.v20120522-2049' singleton='false'>
       <update id='org.eclipse.equinox.util' range='[0.0.0,1.0.400.v20120522-2049)' severity='0'/>
       <properties size='6'>
@@ -1360,6 +1326,38 @@
       <copyright uri='http://www.eclipse.org/legal/epl-v10.html' url='http://www.eclipse.org/legal/epl-v10.html'>
         Copyright (c) 2002-2011 IBM Corporation and others.&#xA;All rights reserved.   This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html
       </copyright>
+    </unit>
+    <unit id='com.rcpcompany.utils.selection' version='1.1.0.201209220013' singleton='false'>
+      <update id='com.rcpcompany.utils.selection' range='[0.0.0,1.1.0.201209220013)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='Selection Utilities'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.utils.selection'/>
+        <property name='maven-version' value='1.1.0-SNAPSHOT'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.selection' version='1.1.0.201209220013'/>
+        <provided namespace='osgi.bundle' name='com.rcpcompany.utils.selection' version='1.1.0.201209220013'/>
+        <provided namespace='java.package' name='com.rcpcompany.utils.selection' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='3'>
+        <required namespace='osgi.bundle' name='org.eclipse.jface' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.forms' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.selection' version='1.1.0.201209220013'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.rcpcompany.utils.selection&#xA;Bundle-Version: 1.1.0.201209220013
+          </instruction>
+        </instructions>
+      </touchpointData>
     </unit>
     <unit id='org.eclipse.swt' version='3.100.0.v4233d'>
       <update id='org.eclipse.swt' range='[0.0.0,3.100.0.v4233d)' severity='0'/>
@@ -1561,44 +1559,6 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='com.rcpcompany.utils.feature.feature.jar' version='1.0.0.201209211602'>
-      <properties size='7'>
-        <property name='org.eclipse.equinox.p2.name' value='The RCP Company Utility Feature'/>
-        <property name='org.eclipse.equinox.p2.description' value='[Enter Feature Description here.]'/>
-        <property name='org.eclipse.equinox.p2.description.url' value='http://www.example.com/description'/>
-        <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.utils.feature'/>
-        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
-      </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.feature.feature.jar' version='1.0.0.201209211602'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
-        <provided namespace='org.eclipse.update.feature' name='com.rcpcompany.utils.feature' version='1.0.0.201209211602'/>
-      </provides>
-      <filter>
-        (org.eclipse.update.install.features=true)
-      </filter>
-      <artifacts size='1'>
-        <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.feature' version='1.0.0.201209211602'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='zipped'>
-            true
-          </instruction>
-        </instructions>
-      </touchpointData>
-      <licenses size='1'>
-        <license uri='http://www.example.com/license' url='http://www.example.com/license'>
-          [Enter License Description here.]
-        </license>
-      </licenses>
-      <copyright uri='http://www.example.com/copyright' url='http://www.example.com/copyright'>
-        [Enter Copyright Description here.]
-      </copyright>
-    </unit>
     <unit id='javax.annotation' version='1.0.0.v20101115-0725' singleton='false'>
       <update id='javax.annotation' range='[0.0.0,1.0.0.v20101115-0725)' severity='0'/>
       <properties size='5'>
@@ -1650,111 +1610,37 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='com.rcpcompany.utils.feature.feature.group' version='1.0.0.201209211602' singleton='false'>
-      <update id='com.rcpcompany.utils.feature.feature.group' range='[0.0.0,1.0.0.201209211602)' severity='0'/>
-      <properties size='8'>
-        <property name='org.eclipse.equinox.p2.name' value='The RCP Company Utility Feature'/>
-        <property name='org.eclipse.equinox.p2.description' value='[Enter Feature Description here.]'/>
-        <property name='org.eclipse.equinox.p2.description.url' value='http://www.example.com/description'/>
+    <unit id='com.rcpcompany.utils.logging' version='1.5.0.201209220013' singleton='false'>
+      <update id='com.rcpcompany.utils.logging' range='[0.0.0,1.5.0.201209220013)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='Logging Utilities'/>
         <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
-        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
         <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.utils.feature'/>
-        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+        <property name='maven-artifactId' value='com.rcpcompany.utils.logging'/>
+        <property name='maven-version' value='1.5.0-SNAPSHOT'/>
       </properties>
-      <provides size='1'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.feature.feature.group' version='1.0.0.201209211602'/>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.logging' version='1.5.0.201209220013'/>
+        <provided namespace='osgi.bundle' name='com.rcpcompany.utils.logging' version='1.5.0.201209220013'/>
+        <provided namespace='java.package' name='com.rcpcompany.utils.logging' version='1.5.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
       </provides>
-      <requires size='22'>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.common' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.ecore' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.swt' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.runtime' range='[3.0.0,4.0.0)'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui' range='[3.0.0,4.0.0)'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.annotation' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jface' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui.forms' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.databinding' range='[1.0.0,2.0.0)'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jface.databinding' range='[1.2.0,2.0.0)'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui.forms' range='[3.3.0,4.0.0)'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui' range='[3.4.0,4.0.0)'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui' range='[3.3.0,4.0.0)'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.junit' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.basic' range='[1.3.0.201209211602,1.3.0.201209211602]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.extensionpoints' range='[1.2.0.201209211602,1.2.0.201209211602]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.logging' range='[1.5.0.201209211602,1.5.0.201209211602]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.selection' range='[1.1.0.201209211602,1.1.0.201209211602]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.databinding' range='[1.1.0.201209211602,1.1.0.201209211602]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.jface' range='[1.2.0.201209211602,1.2.0.201209211602]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.feature.feature.jar' range='[1.0.0.201209211602,1.0.0.201209211602]'>
-          <filter>
-            (org.eclipse.update.install.features=true)
-          </filter>
-        </required>
+      <requires size='3'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.utils.basic' range='[1.2.0,2.0.0)'/>
+        <required namespace='java.package' name='org.eclipse.jdt.annotation' range='0.0.0'/>
       </requires>
-      <touchpoint id='null' version='0.0.0'/>
-      <licenses size='1'>
-        <license uri='http://www.example.com/license' url='http://www.example.com/license'>
-          [Enter License Description here.]
-        </license>
-      </licenses>
-      <copyright uri='http://www.example.com/copyright' url='http://www.example.com/copyright'>
-        [Enter Copyright Description here.]
-      </copyright>
-    </unit>
-    <unit id='com.rcpcompany.uibindings.feature.feature.group' version='1.0.0.201209211602' singleton='false'>
-      <update id='com.rcpcompany.uibindings.feature.feature.group' range='[0.0.0,1.0.0.201209211602)' severity='0'/>
-      <properties size='8'>
-        <property name='org.eclipse.equinox.p2.name' value='UI Bindings Feature'/>
-        <property name='org.eclipse.equinox.p2.description' value='[Enter Feature Description here.]'/>
-        <property name='org.eclipse.equinox.p2.description.url' value='http://www.example.com/description'/>
-        <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
-        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.feature'/>
-        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
-      </properties>
-      <provides size='1'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.feature.feature.group' version='1.0.0.201209211602'/>
-      </provides>
-      <requires size='22'>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.rcp.feature.group' range='[4.2.0.v20120528-1648-7IAPA7BrHQicRpNdOz-Obz-rlRCA,4.2.0.v20120528-1648-7IAPA7BrHQicRpNdOz-Obz-rlRCA]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.databinding.edit.feature.group' range='[1.2.0.v20120608-0554,1.2.0.v20120608-0554]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.common.feature.group' range='[2.8.0.v20120606-0717,2.8.0.v20120606-0717]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.databinding.feature.group' range='[1.2.0.v20120608-0554,1.2.0.v20120608-0554]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.ecore.feature.group' range='[2.8.0.v20120606-0717,2.8.0.v20120606-0717]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.ecore.edit.feature.group' range='[2.8.0.v20120608-0554,2.8.0.v20120608-0554]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.edit.feature.group' range='[2.8.0.v20120608-0554,2.8.0.v20120608-0554]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.feature.feature.group' range='[1.0.0.201209211602,1.0.0.201209211602]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.feature.feature.group' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings' range='[2.14.0.201209211602,2.14.0.201209211602]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.fragments.ecore' range='[1.0.0.201209211602,1.0.0.201209211602]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.fragments.jface' range='[1.1.0.201209211602,1.1.0.201209211602]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.navigator' range='[1.3.6.201209211602,1.3.6.201209211602]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.debug' range='[1.0.0.201209211602,1.0.0.201209211602]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.financial' range='[1.1.0.201209211602,1.1.0.201209211602]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.grid' range='[1.2.0.201209211602,1.2.0.201209211602]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.moao' range='[1.2.1.201209211602,1.2.1.201209211602]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.model.utils' range='[1.1.0.201209211602,1.1.0.201209211602]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.std' range='[1.0.0.201209211602,1.0.0.201209211602]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.units' range='[1.0.0.201209211602,1.0.0.201209211602]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.fragments.jfaceif' range='[1.0.0.201209211602,1.0.0.201209211602]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.feature.feature.jar' range='[1.0.0.201209211602,1.0.0.201209211602]'>
-          <filter>
-            (org.eclipse.update.install.features=true)
-          </filter>
-        </required>
-      </requires>
-      <touchpoint id='null' version='0.0.0'/>
-      <licenses size='1'>
-        <license uri='http://www.example.com/license' url='http://www.example.com/license'>
-          [Enter License Description here.]
-        </license>
-      </licenses>
-      <copyright uri='http://www.example.com/copyright' url='http://www.example.com/copyright'>
-        [Enter Copyright Description here.]
-      </copyright>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.logging' version='1.5.0.201209220013'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.rcpcompany.utils.logging&#xA;Bundle-Version: 1.5.0.201209220013
+          </instruction>
+        </instructions>
+      </touchpointData>
     </unit>
     <unit id='org.eclipse.e4.ui.bindings' version='0.10.1.v20120523-1955'>
       <update id='org.eclipse.e4.ui.bindings' range='[0.0.0,0.10.1.v20120523-1955)' severity='0'/>
@@ -1884,6 +1770,59 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='com.rcpcompany.uibindings.feature.feature.group' version='1.0.0.201209220013' singleton='false'>
+      <update id='com.rcpcompany.uibindings.feature.feature.group' range='[0.0.0,1.0.0.201209220013)' severity='0'/>
+      <properties size='8'>
+        <property name='org.eclipse.equinox.p2.name' value='UI Bindings Feature'/>
+        <property name='org.eclipse.equinox.p2.description' value='[Enter Feature Description here.]'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http://www.example.com/description'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.feature'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+      </properties>
+      <provides size='1'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.feature.feature.group' version='1.0.0.201209220013'/>
+      </provides>
+      <requires size='22'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.rcp.feature.group' range='[4.2.0.v20120528-1648-7IAPA7BrHQicRpNdOz-Obz-rlRCA,4.2.0.v20120528-1648-7IAPA7BrHQicRpNdOz-Obz-rlRCA]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.databinding.edit.feature.group' range='[1.2.0.v20120608-0554,1.2.0.v20120608-0554]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.common.feature.group' range='[2.8.0.v20120606-0717,2.8.0.v20120606-0717]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.databinding.feature.group' range='[1.2.0.v20120608-0554,1.2.0.v20120608-0554]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.ecore.feature.group' range='[2.8.0.v20120606-0717,2.8.0.v20120606-0717]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.ecore.edit.feature.group' range='[2.8.0.v20120608-0554,2.8.0.v20120608-0554]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.edit.feature.group' range='[2.8.0.v20120608-0554,2.8.0.v20120608-0554]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.feature.feature.group' range='[1.0.0.201209220013,1.0.0.201209220013]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.feature.feature.group' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings' range='[2.14.0.201209220013,2.14.0.201209220013]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.fragments.ecore' range='[1.0.0.201209220013,1.0.0.201209220013]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.fragments.jface' range='[1.1.0.201209220013,1.1.0.201209220013]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.navigator' range='[1.3.6.201209220013,1.3.6.201209220013]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.debug' range='[1.0.0.201209220013,1.0.0.201209220013]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.financial' range='[1.1.0.201209220013,1.1.0.201209220013]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.grid' range='[1.2.0.201209220013,1.2.0.201209220013]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.moao' range='[1.2.1.201209220013,1.2.1.201209220013]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.model.utils' range='[1.1.0.201209220013,1.1.0.201209220013]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.std' range='[1.0.0.201209220013,1.0.0.201209220013]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.units' range='[1.0.0.201209220013,1.0.0.201209220013]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.fragments.jfaceif' range='[1.0.0.201209220013,1.0.0.201209220013]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.feature.feature.jar' range='[1.0.0.201209220013,1.0.0.201209220013]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license uri='http://www.example.com/license' url='http://www.example.com/license'>
+          [Enter License Description here.]
+        </license>
+      </licenses>
+      <copyright uri='http://www.example.com/copyright' url='http://www.example.com/copyright'>
+        [Enter Copyright Description here.]
+      </copyright>
+    </unit>
     <unit id='org.eclipse.equinox.simpleconfigurator' version='1.0.300.v20110815-1744'>
       <update id='org.eclipse.equinox.simpleconfigurator' range='[0.0.0,1.0.300.v20110815-1744)' severity='0'/>
       <properties size='5'>
@@ -1959,145 +1898,6 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='com.rcpcompany.uibindings' version='2.14.0.201209211602'>
-      <update id='com.rcpcompany.uibindings' range='[0.0.0,2.14.0.201209211602)' severity='0'/>
-      <properties size='7'>
-        <property name='df_LT.Bundle-Vendor' value='The RCP Company'/>
-        <property name='df_LT.Bundle-Name' value='UI Binding Framework'/>
-        <property name='org.eclipse.equinox.p2.name' value='%Bundle-Name'/>
-        <property name='org.eclipse.equinox.p2.provider' value='%Bundle-Vendor'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings'/>
-        <property name='maven-version' value='2.14.0-SNAPSHOT'/>
-      </properties>
-      <provides size='26'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings' version='2.14.0.201209211602'/>
-        <provided namespace='osgi.bundle' name='com.rcpcompany.uibindings' version='2.14.0.201209211602'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings' version='2.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.bindingMessages' version='2.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.compositeform' version='2.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.compositeform.utils' version='2.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.decorators' version='2.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.decorators.extenders' version='2.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.handlers' version='2.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.initializers' version='2.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.internal' version='2.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.internal.cellEditors' version='2.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.internal.observables' version='2.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.observables' version='2.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.participants' version='2.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.quixkfixes' version='2.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.scripting' version='2.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.scripting.utils' version='2.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.uiAttributes' version='2.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.units' version='2.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.utils' version='2.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.validators' version='2.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.views' version='2.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.widgets' version='2.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
-      </provides>
-      <requires size='48'>
-        <required namespace='osgi.bundle' name='org.eclipse.ui' range='[3.5.0,4.0.0)'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.5.0,4.0.0)'/>
-        <required namespace='java.package' name='com.ibm.icu.text' range='4.2.1.1'/>
-        <required namespace='java.package' name='com.rcpcompany.uibindings.fragments.jfaceif' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.uibindings.model.utils' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.uibindings.utils' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.utils.basic' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.utils.extensionpoints' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.utils.logging' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.databinding' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.databinding.conversion' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.databinding.observable' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.databinding.observable.list' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.databinding.observable.map' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.databinding.observable.masterdetail' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.databinding.observable.set' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.databinding.observable.value' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.databinding.property' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.databinding.util' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.databinding.validation' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.expressions' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.internal.databinding' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.internal.databinding.observable' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.common' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.common.command' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.common.notify' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.common.notify.impl' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.common.util' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.databinding' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.databinding.edit' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.ecore' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.ecore.impl' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.ecore.plugin' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.ecore.resource' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.ecore.util' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.edit' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.edit.command' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.edit.domain' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.edit.provider' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.jface.databinding.swt' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.jface.databinding.viewers' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.jface.internal.databinding.provisional.swt' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.nebula.widgets.radiogroup' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.osgi.util' range='1.1.0'/>
-        <required namespace='java.package' name='org.eclipse.ui.forms' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.ui.forms.events' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.ui.forms.widgets' range='0.0.0'/>
-        <required namespace='java.package' name='org.osgi.framework' range='1.5.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings' version='2.14.0.201209211602'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: com.rcpcompany.uibindings;singleton:=true&#xA;Bundle-Version: 2.14.0.201209211602
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='com.rcpcompany.uibindings.feature.feature.jar' version='1.0.0.201209211602'>
-      <properties size='7'>
-        <property name='org.eclipse.equinox.p2.name' value='UI Bindings Feature'/>
-        <property name='org.eclipse.equinox.p2.description' value='[Enter Feature Description here.]'/>
-        <property name='org.eclipse.equinox.p2.description.url' value='http://www.example.com/description'/>
-        <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.feature'/>
-        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
-      </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.feature.feature.jar' version='1.0.0.201209211602'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
-        <provided namespace='org.eclipse.update.feature' name='com.rcpcompany.uibindings.feature' version='1.0.0.201209211602'/>
-      </provides>
-      <filter>
-        (org.eclipse.update.install.features=true)
-      </filter>
-      <artifacts size='1'>
-        <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.feature' version='1.0.0.201209211602'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='zipped'>
-            true
-          </instruction>
-        </instructions>
-      </touchpointData>
-      <licenses size='1'>
-        <license uri='http://www.example.com/license' url='http://www.example.com/license'>
-          [Enter License Description here.]
-        </license>
-      </licenses>
-      <copyright uri='http://www.example.com/copyright' url='http://www.example.com/copyright'>
-        [Enter Copyright Description here.]
-      </copyright>
-    </unit>
     <unit id='org.eclipse.rcp' version='4.2.0.v201206081400'>
       <update id='org.eclipse.rcp' range='[0.0.0,4.2.0.v201206081400)' severity='0'/>
       <properties size='5'>
@@ -2124,20 +1924,6 @@
           </instruction>
         </instructions>
       </touchpointData>
-    </unit>
-    <unit id='201209211602.com.rcpcompany.uibindings.category' version='1.0.0.2--cMQRnh773573K755E37'>
-      <properties size='3'>
-        <property name='org.eclipse.equinox.p2.name' value='UI Bindings Features'/>
-        <property name='org.eclipse.equinox.p2.description' value='All plug-ins used for UI-Bindings'/>
-        <property name='org.eclipse.equinox.p2.type.category' value='true'/>
-      </properties>
-      <provides size='1'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='201209211602.com.rcpcompany.uibindings.category' version='1.0.0.2--cMQRnh773573K755E37'/>
-      </provides>
-      <requires size='1'>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.feature.feature.group' range='[1.0.0.201209211602,1.0.0.201209211602]'/>
-      </requires>
-      <touchpoint id='null' version='0.0.0'/>
     </unit>
     <unit id='org.eclipse.swt.win32.win32.x86_64' version='3.100.0.v4233d'>
       <update id='org.eclipse.swt.win32.win32.x86_64' range='[0.0.0,3.100.0.v4233d)' severity='0'/>
@@ -2366,38 +2152,6 @@
       <copyright>
         %copyright
       </copyright>
-    </unit>
-    <unit id='com.rcpcompany.utils.logging' version='1.5.0.201209211602' singleton='false'>
-      <update id='com.rcpcompany.utils.logging' range='[0.0.0,1.5.0.201209211602)' severity='0'/>
-      <properties size='5'>
-        <property name='org.eclipse.equinox.p2.name' value='Logging Utilities'/>
-        <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.utils.logging'/>
-        <property name='maven-version' value='1.5.0-SNAPSHOT'/>
-      </properties>
-      <provides size='4'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.logging' version='1.5.0.201209211602'/>
-        <provided namespace='osgi.bundle' name='com.rcpcompany.utils.logging' version='1.5.0.201209211602'/>
-        <provided namespace='java.package' name='com.rcpcompany.utils.logging' version='1.5.0'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='3'>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.utils.basic' range='[1.2.0,2.0.0)'/>
-        <required namespace='java.package' name='org.eclipse.jdt.annotation' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.logging' version='1.5.0.201209211602'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: com.rcpcompany.utils.logging&#xA;Bundle-Version: 1.5.0.201209211602
-          </instruction>
-        </instructions>
-      </touchpointData>
     </unit>
     <unit id='org.eclipse.equinox.launcher.win32.win32.x86_64' version='1.1.200.v20120522-1813'>
       <update id='org.eclipse.equinox.launcher.win32.win32.x86_64' range='[0.0.0,1.1.200.v20120522-1813)' severity='0'/>
@@ -2749,6 +2503,39 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='com.rcpcompany.utils.jface' version='1.2.0.201209220013' singleton='false'>
+      <update id='com.rcpcompany.utils.jface' range='[0.0.0,1.2.0.201209220013)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='Jface Utility Classes'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.utils.jface'/>
+        <property name='maven-version' value='1.2.0-SNAPSHOT'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.jface' version='1.2.0.201209220013'/>
+        <provided namespace='osgi.bundle' name='com.rcpcompany.utils.jface' version='1.2.0.201209220013'/>
+        <provided namespace='java.package' name='com.rcpcompany.utils.jface' version='1.2.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.utils.jface.providers' version='1.2.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='3'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='[3.3.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.0.0,4.0.0)'/>
+        <required namespace='java.package' name='org.eclipse.emf.ecore' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.jface' version='1.2.0.201209220013'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.rcpcompany.utils.jface&#xA;Bundle-Version: 1.2.0.201209220013
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='org.eclipse.emf.edit.feature.jar' version='2.8.0.v20120608-0554'>
       <properties size='7'>
         <property name='org.eclipse.equinox.p2.name' value='%featureName'/>
@@ -2787,34 +2574,48 @@
         Copyright (c) 2002-2011 IBM Corporation and others.&#xA;All rights reserved.   This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html
       </copyright>
     </unit>
-    <unit id='com.rcpcompany.utils.extensionpoints' version='1.2.0.201209211602' singleton='false'>
-      <update id='com.rcpcompany.utils.extensionpoints' range='[0.0.0,1.2.0.201209211602)' severity='0'/>
+    <unit id='com.rcpcompany.uibindings.debug' version='1.0.0.201209220013'>
+      <update id='com.rcpcompany.uibindings.debug' range='[0.0.0,1.0.0.201209220013)' severity='0'/>
       <properties size='5'>
-        <property name='org.eclipse.equinox.p2.name' value='Basic Extension Point Utilities'/>
+        <property name='org.eclipse.equinox.p2.name' value='UI Bindings Debug Facilities'/>
         <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
         <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.utils.extensionpoints'/>
-        <property name='maven-version' value='1.2.0-SNAPSHOT'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.debug'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
       </properties>
-      <provides size='4'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.extensionpoints' version='1.2.0.201209211602'/>
-        <provided namespace='osgi.bundle' name='com.rcpcompany.utils.extensionpoints' version='1.2.0.201209211602'/>
-        <provided namespace='java.package' name='com.rcpcompany.utils.extensionpoints' version='1.2.0'/>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.debug' version='1.0.0.201209220013'/>
+        <provided namespace='osgi.bundle' name='com.rcpcompany.uibindings.debug' version='1.0.0.201209220013'/>
         <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
       </provides>
-      <requires size='3'>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.0.0,4.0.0)'/>
-        <required namespace='osgi.bundle' name='com.rcpcompany.utils.logging' range='[1.1.0,2.0.0)'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui' range='[3.0.0,4.0.0)'/>
+      <requires size='18'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.uibindings' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.uibindings.model.utils' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.uibindings.scripting' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.uibindings.utils' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.utils.basic' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.utils.logging' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.databinding.observable.list' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.databinding.observable.value' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.common.command' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.common.notify' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.common.notify.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.common.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.ecore' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.ecore.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.ecore.plugin' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.edit.domain' range='0.0.0'/>
       </requires>
       <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.extensionpoints' version='1.2.0.201209211602'/>
+        <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.debug' version='1.0.0.201209220013'/>
       </artifacts>
       <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-SymbolicName: com.rcpcompany.utils.extensionpoints&#xA;Bundle-Version: 1.2.0.201209211602
+            Bundle-SymbolicName: com.rcpcompany.uibindings.debug;singleton:=true&#xA;Bundle-Version: 1.0.0.201209220013
           </instruction>
         </instructions>
       </touchpointData>
@@ -2856,6 +2657,36 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.eclipse.e4.core.commands;singleton:=true&#xA;Bundle-Version: 0.10.1.v20120523-1955
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='com.rcpcompany.uibindings.units' version='1.0.0.201209220013' singleton='false'>
+      <update id='com.rcpcompany.uibindings.units' range='[0.0.0,1.0.0.201209220013)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='UI Bindings: Unit Support'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.units'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.units' version='1.0.0.201209220013'/>
+        <provided namespace='osgi.bundle' name='com.rcpcompany.uibindings.units' version='1.0.0.201209220013'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='2'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.units' version='1.0.0.201209220013'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.rcpcompany.uibindings.units&#xA;Bundle-Version: 1.0.0.201209220013
           </instruction>
         </instructions>
       </touchpointData>
@@ -3001,46 +2832,29 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='201209211602.com.rcpcompany.utils.category' version='1.0.0.2--cMIWnh773573K755E37'>
-      <properties size='3'>
-        <property name='org.eclipse.equinox.p2.name' value='The RCP Company Utils Features'/>
-        <property name='org.eclipse.equinox.p2.description' value='Various utility plug-ins used within The RCP Company.'/>
-        <property name='org.eclipse.equinox.p2.type.category' value='true'/>
-      </properties>
-      <provides size='1'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='201209211602.com.rcpcompany.utils.category' version='1.0.0.2--cMIWnh773573K755E37'/>
-      </provides>
-      <requires size='1'>
-        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.feature.feature.group' range='[1.0.0.201209211602,1.0.0.201209211602]'/>
-      </requires>
-      <touchpoint id='null' version='0.0.0'/>
-    </unit>
-    <unit id='com.rcpcompany.uibindings.units' version='1.0.0.201209211602' singleton='false'>
-      <update id='com.rcpcompany.uibindings.units' range='[0.0.0,1.0.0.201209211602)' severity='0'/>
+    <unit id='com.rcpcompany.uibindings.fragments.jfaceif' version='1.0.0.201209220013' singleton='false'>
+      <update id='com.rcpcompany.uibindings.fragments.jfaceif' range='[0.0.0,1.0.0.201209220013)' severity='0'/>
       <properties size='5'>
-        <property name='org.eclipse.equinox.p2.name' value='UI Bindings: Unit Support'/>
+        <property name='org.eclipse.equinox.p2.name' value='JFace Fragment Interfaces'/>
         <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
         <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.units'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.fragments.jfaceif'/>
         <property name='maven-version' value='1.0.0-SNAPSHOT'/>
       </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.units' version='1.0.0.201209211602'/>
-        <provided namespace='osgi.bundle' name='com.rcpcompany.uibindings.units' version='1.0.0.201209211602'/>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.fragments.jfaceif' version='1.0.0.201209220013'/>
+        <provided namespace='osgi.bundle' name='com.rcpcompany.uibindings.fragments.jfaceif' version='1.0.0.201209220013'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.fragments.jfaceif' version='0.0.0'/>
         <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
       </provides>
-      <requires size='2'>
-        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
-      </requires>
       <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.units' version='1.0.0.201209211602'/>
+        <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.fragments.jfaceif' version='1.0.0.201209220013'/>
       </artifacts>
       <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-SymbolicName: com.rcpcompany.uibindings.units&#xA;Bundle-Version: 1.0.0.201209211602
+            Bundle-SymbolicName: com.rcpcompany.uibindings.fragments.jfaceif&#xA;Bundle-Version: 1.0.0.201209220013
           </instruction>
         </instructions>
       </touchpointData>
@@ -3222,6 +3036,36 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.eclipse.core.databinding&#xA;Bundle-Version: 1.4.1.v20120521-2329
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='com.rcpcompany.uibindings.std' version='1.0.0.201209220013'>
+      <update id='com.rcpcompany.uibindings.std' range='[0.0.0,1.0.0.201209220013)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='Standard settings for UI Bindings'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.std'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.std' version='1.0.0.201209220013'/>
+        <provided namespace='osgi.bundle' name='com.rcpcompany.uibindings.std' version='1.0.0.201209220013'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='osgi.fragment' name='com.rcpcompany.uibindings' version='1.0.0.201209220013'/>
+      </provides>
+      <requires size='1'>
+        <required namespace='osgi.bundle' name='com.rcpcompany.uibindings' range='[2.1.40,3.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.std' version='1.0.0.201209220013'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.rcpcompany.uibindings.std;singleton:=true&#xA;Bundle-Version: 1.0.0.201209220013&#xA;Fragment-Host: com.rcpcompany.uibindings;bundle-version=&quot;[2.1.40,3)&quot;
           </instruction>
         </instructions>
       </touchpointData>
@@ -3728,33 +3572,6 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='com.rcpcompany.uibindings.fragments.jfaceif' version='1.0.0.201209211602' singleton='false'>
-      <update id='com.rcpcompany.uibindings.fragments.jfaceif' range='[0.0.0,1.0.0.201209211602)' severity='0'/>
-      <properties size='5'>
-        <property name='org.eclipse.equinox.p2.name' value='JFace Fragment Interfaces'/>
-        <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.fragments.jfaceif'/>
-        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
-      </properties>
-      <provides size='4'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.fragments.jfaceif' version='1.0.0.201209211602'/>
-        <provided namespace='osgi.bundle' name='com.rcpcompany.uibindings.fragments.jfaceif' version='1.0.0.201209211602'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.fragments.jfaceif' version='0.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.fragments.jfaceif' version='1.0.0.201209211602'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: com.rcpcompany.uibindings.fragments.jfaceif&#xA;Bundle-Version: 1.0.0.201209211602
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
     <unit id='org.eclipse.emf.ecore.xmi' version='2.8.0.v20120606-0717'>
       <update id='org.eclipse.emf.ecore.xmi' range='[0.0.0,2.8.0.v20120606-0717)' severity='0'/>
       <properties size='5'>
@@ -3785,6 +3602,102 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.eclipse.emf.ecore.xmi; singleton:=true&#xA;Bundle-Version: 2.8.0.v20120606-0717
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='com.rcpcompany.uibindings.grid' version='1.2.0.201209220013'>
+      <update id='com.rcpcompany.uibindings.grid' range='[0.0.0,1.2.0.201209220013)' severity='0'/>
+      <properties size='8'>
+        <property name='df_LT.providerName' value='www.example.org'/>
+        <property name='df_LT.pluginName' value='Grid Model'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.grid'/>
+        <property name='maven-version' value='1.2.0-SNAPSHOT'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.grid' version='1.2.0.201209220013'/>
+        <provided namespace='osgi.bundle' name='com.rcpcompany.uibindings.grid' version='1.2.0.201209220013'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.grid' version='0.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.grid.internal' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='31'>
+        <required namespace='java.package' name='com.rcpcompany.uibindings' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.uibindings.bindingMessages' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.uibindings.internal' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.uibindings.internal.cellEditors' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.uibindings.uiAttributes' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.uibindings.utils' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.utils.basic' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.utils.logging' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.databinding' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.databinding.observable' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.databinding.observable.list' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.databinding.observable.value' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.runtime' range='3.4.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.common.notify' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.common.notify.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.common.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.ecore' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.ecore.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.ecore.plugin' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.ecore.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.edit.domain' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.jface.databinding.swt' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.jface.viewers' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.nebula.widgets.grid' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.nebula.widgets.grid.internal' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.swt' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.swt.dnd' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.swt.events' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.swt.graphics' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.swt.widgets' range='0.0.0'/>
+        <required namespace='java.package' name='org.osgi.framework' range='1.5.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.grid' version='1.2.0.201209220013'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.rcpcompany.uibindings.grid;singleton:=true&#xA;Bundle-Version: 1.2.0.201209220013
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='com.rcpcompany.uibindings.fragments.jface' version='1.1.0.201209220013' singleton='false'>
+      <update id='com.rcpcompany.uibindings.fragments.jface' range='[0.0.0,1.1.0.201209220013)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='org.eclipse.jface fragment'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.fragments.jface'/>
+        <property name='maven-version' value='1.1.0-SNAPSHOT'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.fragments.jface' version='1.1.0.201209220013'/>
+        <provided namespace='osgi.bundle' name='com.rcpcompany.uibindings.fragments.jface' version='1.1.0.201209220013'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='osgi.fragment' name='org.eclipse.jface' version='1.1.0.201209220013'/>
+      </provides>
+      <requires size='2'>
+        <required namespace='osgi.bundle' name='org.eclipse.jface' range='[3.5.0,4.0.0)'/>
+        <required namespace='java.package' name='com.rcpcompany.uibindings.fragments.jfaceif' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.fragments.jface' version='1.1.0.201209220013'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.rcpcompany.uibindings.fragments.jface&#xA;Bundle-Version: 1.1.0.201209220013&#xA;Fragment-Host: org.eclipse.jface;bundle-version=&quot;[3.5.0,4.0.0)&quot;
           </instruction>
         </instructions>
       </touchpointData>
@@ -3955,6 +3868,20 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='201209220013.com.rcpcompany.utils.category' version='1.0.0.2--cMIWnh773573K773359'>
+      <properties size='3'>
+        <property name='org.eclipse.equinox.p2.name' value='The RCP Company Utils Features'/>
+        <property name='org.eclipse.equinox.p2.description' value='Various utility plug-ins used within The RCP Company.'/>
+        <property name='org.eclipse.equinox.p2.type.category' value='true'/>
+      </properties>
+      <provides size='1'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='201209220013.com.rcpcompany.utils.category' version='1.0.0.2--cMIWnh773573K773359'/>
+      </provides>
+      <requires size='1'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.feature.feature.group' range='[1.0.0.201209220013,1.0.0.201209220013]'/>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+    </unit>
     <unit id='org.eclipse.swt.gtk.linux.x86' version='3.100.0.v4233d'>
       <update id='org.eclipse.swt.gtk.linux.x86' range='[0.0.0,3.100.0.v4233d)' severity='0'/>
       <properties size='5'>
@@ -3992,41 +3919,6 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.eclipse.swt.gtk.linux.x86; singleton:=true&#xA;Bundle-Version: 3.100.0.v4233d&#xA;Fragment-Host: org.eclipse.swt; bundle-version=&quot;[3.0.0,4.0.0)&quot;
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='com.rcpcompany.uibindings.model.utils' version='1.1.0.201209211602' singleton='false'>
-      <update id='com.rcpcompany.uibindings.model.utils' range='[0.0.0,1.1.0.201209211602)' severity='0'/>
-      <properties size='5'>
-        <property name='org.eclipse.equinox.p2.name' value='UI Bindings: Model Utilities'/>
-        <property name='org.eclipse.equinox.p2.provider' value='The RCP Compabny'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.model.utils'/>
-        <property name='maven-version' value='1.1.0-SNAPSHOT'/>
-      </properties>
-      <provides size='4'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.model.utils' version='1.1.0.201209211602'/>
-        <provided namespace='osgi.bundle' name='com.rcpcompany.uibindings.model.utils' version='1.1.0.201209211602'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.model.utils' version='0.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='6'>
-        <required namespace='java.package' name='com.rcpcompany.utils.logging' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.databinding.observable.list' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.common.command' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.common.util' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.ecore' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.ecore.util' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.model.utils' version='1.1.0.201209211602'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: com.rcpcompany.uibindings.model.utils&#xA;Bundle-Version: 1.1.0.201209211602
           </instruction>
         </instructions>
       </touchpointData>
@@ -4145,59 +4037,6 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='com.rcpcompany.uibindings.navigator' version='1.3.6.201209211602'>
-      <update id='com.rcpcompany.uibindings.navigator' range='[0.0.0,1.3.6.201209211602)' severity='0'/>
-      <properties size='5'>
-        <property name='org.eclipse.equinox.p2.name' value='UIBinding based navigator and editor framework'/>
-        <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.navigator'/>
-        <property name='maven-version' value='1.3.6-SNAPSHOT'/>
-      </properties>
-      <provides size='6'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.navigator' version='1.3.6.201209211602'/>
-        <provided namespace='osgi.bundle' name='com.rcpcompany.uibindings.navigator' version='1.3.6.201209211602'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.navigator' version='0.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.navigator.editorFactories' version='0.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.navigator.views' version='0.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='22'>
-        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.expressions.source' range='[3.0.0,4.0.0)' optional='true' greedy='false'/>
-        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='2.6.1'/>
-        <required namespace='java.package' name='com.rcpcompany.uibindings' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.uibindings.utils' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.utils.basic' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.utils.extensionpoints' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.utils.logging' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.utils.selection' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.databinding' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.databinding.observable' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.databinding.observable.list' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.databinding.observable.value' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.expressions' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.common.notify' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.common.util' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.ecore' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.ecore.impl' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.ecore.plugin' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.ecore.util' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.ui.forms.widgets' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.navigator' version='1.3.6.201209211602'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: com.rcpcompany.uibindings.navigator;singleton:=true&#xA;Bundle-Version: 1.3.6.201209211602
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
     <unit id='org.eclipse.swt.gtk.linux.x86_64' version='3.100.0.v4233d'>
       <update id='org.eclipse.swt.gtk.linux.x86_64' range='[0.0.0,3.100.0.v4233d)' severity='0'/>
       <properties size='5'>
@@ -4272,6 +4111,38 @@
           </instruction>
           <instruction key='zipped'>
             true
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='com.rcpcompany.utils.extensionpoints' version='1.2.0.201209220013' singleton='false'>
+      <update id='com.rcpcompany.utils.extensionpoints' range='[0.0.0,1.2.0.201209220013)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='Basic Extension Point Utilities'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.utils.extensionpoints'/>
+        <property name='maven-version' value='1.2.0-SNAPSHOT'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.extensionpoints' version='1.2.0.201209220013'/>
+        <provided namespace='osgi.bundle' name='com.rcpcompany.utils.extensionpoints' version='1.2.0.201209220013'/>
+        <provided namespace='java.package' name='com.rcpcompany.utils.extensionpoints' version='1.2.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='3'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.0.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='com.rcpcompany.utils.logging' range='[1.1.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='[3.0.0,4.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.extensionpoints' version='1.2.0.201209220013'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.rcpcompany.utils.extensionpoints&#xA;Bundle-Version: 1.2.0.201209220013
           </instruction>
         </instructions>
       </touchpointData>
@@ -4413,6 +4284,20 @@
         Copyright (c) 2002-2011 IBM Corporation and others.&#xA;All rights reserved.   This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html
       </copyright>
     </unit>
+    <unit id='201209220013.com.rcpcompany.uibindings.category' version='1.0.0.2--cMQRnh773573K773359'>
+      <properties size='3'>
+        <property name='org.eclipse.equinox.p2.name' value='UI Bindings Features'/>
+        <property name='org.eclipse.equinox.p2.description' value='All plug-ins used for UI-Bindings'/>
+        <property name='org.eclipse.equinox.p2.type.category' value='true'/>
+      </properties>
+      <provides size='1'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='201209220013.com.rcpcompany.uibindings.category' version='1.0.0.2--cMQRnh773573K773359'/>
+      </provides>
+      <requires size='1'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.feature.feature.group' range='[1.0.0.201209220013,1.0.0.201209220013]'/>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+    </unit>
     <unit id='org.apache.felix.gogo.shell' version='0.8.0.v201110170705' singleton='false'>
       <update id='org.apache.felix.gogo.shell' range='[0.0.0,0.8.0.v201110170705)' severity='0'/>
       <properties size='7'>
@@ -4444,86 +4329,6 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.apache.felix.gogo.shell&#xA;Bundle-Version: 0.8.0.v201110170705
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='com.rcpcompany.uibindings.financial' version='1.1.0.201209211602'>
-      <update id='com.rcpcompany.uibindings.financial' range='[0.0.0,1.1.0.201209211602)' severity='0'/>
-      <properties size='7'>
-        <property name='df_LT.Bundle-Vendor' value='The RCP Company'/>
-        <property name='df_LT.Bundle-Name' value='Financial Utilities for the UI Bindings framework'/>
-        <property name='org.eclipse.equinox.p2.name' value='%Bundle-Name'/>
-        <property name='org.eclipse.equinox.p2.provider' value='%Bundle-Vendor'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.financial'/>
-        <property name='maven-version' value='1.1.0-SNAPSHOT'/>
-      </properties>
-      <provides size='4'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.financial' version='1.1.0.201209211602'/>
-        <provided namespace='osgi.bundle' name='com.rcpcompany.uibindings.financial' version='1.1.0.201209211602'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
-      </provides>
-      <requires size='7'>
-        <required namespace='osgi.bundle' name='org.eclipse.ui' range='[3.5.0,4.0.0)'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.5.0,4.0.0)'/>
-        <required namespace='java.package' name='com.rcpcompany.uibindings' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.uibindings.decorators.extenders' range='0.0.0'/>
-        <required namespace='java.package' name='com.rcpcompany.utils.logging' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.core.databinding.observable.value' range='0.0.0'/>
-        <required namespace='java.package' name='org.osgi.framework' range='1.5.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.financial' version='1.1.0.201209211602'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: com.rcpcompany.uibindings.financial;singleton:=true&#xA;Bundle-Version: 1.1.0.201209211602
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='com.rcpcompany.uibindings.moao' version='1.2.1.201209211602'>
-      <update id='com.rcpcompany.uibindings.moao' range='[0.0.0,1.2.1.201209211602)' severity='0'/>
-      <properties size='8'>
-        <property name='df_LT.providerName' value='www.example.org'/>
-        <property name='df_LT.pluginName' value='MOAO Model'/>
-        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
-        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
-        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.moao'/>
-        <property name='maven-version' value='1.2.1-SNAPSHOT'/>
-      </properties>
-      <provides size='7'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.moao' version='1.2.1.201209211602'/>
-        <provided namespace='osgi.bundle' name='com.rcpcompany.uibindings.moao' version='1.2.1.201209211602'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.moao' version='0.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.moao.internal' version='0.0.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.uibindings.moao.util' version='0.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
-      </provides>
-      <requires size='7'>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.xtext.xbase.lib' range='[2.3.0,3.0.0)'/>
-        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='[2.8.0,3.0.0)'/>
-        <required namespace='java.package' name='org.eclipse.emf.common.notify' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.common.notify.impl' range='0.0.0'/>
-        <required namespace='java.package' name='org.eclipse.emf.common.util' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.moao' version='1.2.1.201209211602'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: com.rcpcompany.uibindings.moao;singleton:=true&#xA;Bundle-Version: 1.2.1.201209211602
           </instruction>
         </instructions>
       </touchpointData>
@@ -4592,6 +4397,44 @@
           </instruction>
         </instructions>
       </touchpointData>
+    </unit>
+    <unit id='com.rcpcompany.utils.feature.feature.jar' version='1.0.0.201209220013'>
+      <properties size='7'>
+        <property name='org.eclipse.equinox.p2.name' value='The RCP Company Utility Feature'/>
+        <property name='org.eclipse.equinox.p2.description' value='[Enter Feature Description here.]'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http://www.example.com/description'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.utils.feature'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.feature.feature.jar' version='1.0.0.201209220013'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='com.rcpcompany.utils.feature' version='1.0.0.201209220013'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.feature' version='1.0.0.201209220013'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license uri='http://www.example.com/license' url='http://www.example.com/license'>
+          [Enter License Description here.]
+        </license>
+      </licenses>
+      <copyright uri='http://www.example.com/copyright' url='http://www.example.com/copyright'>
+        [Enter Copyright Description here.]
+      </copyright>
     </unit>
     <unit id='org.eclipse.ui.workbench' version='3.103.0.v20120530-1824'>
       <update id='org.eclipse.ui.workbench' range='[0.0.0,3.103.0.v20120530-1824)' severity='0'/>
@@ -4818,6 +4661,42 @@
         Copyright (c) 2002-2011 IBM Corporation and others.&#xA;All rights reserved.   This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html
       </copyright>
     </unit>
+    <unit id='com.rcpcompany.utils.basic' version='1.3.0.201209220013' singleton='false'>
+      <update id='com.rcpcompany.utils.basic' range='[0.0.0,1.3.0.201209220013)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='Basic Utilities'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.utils.basic'/>
+        <property name='maven-version' value='1.3.0-SNAPSHOT'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.basic' version='1.3.0.201209220013'/>
+        <provided namespace='osgi.bundle' name='com.rcpcompany.utils.basic' version='1.3.0.201209220013'/>
+        <provided namespace='java.package' name='com.rcpcompany.utils.basic' version='1.2.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='7'>
+        <required namespace='java.package' name='org.eclipse.core.runtime' range='3.4.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.common.notify' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.ecore' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.swt' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.swt.events' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.swt.graphics' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.swt.widgets' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.basic' version='1.3.0.201209220013'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.rcpcompany.utils.basic&#xA;Bundle-Version: 1.3.0.201209220013
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='org.eclipse.core.runtime' version='3.8.0.v20120521-2346'>
       <update id='org.eclipse.core.runtime' range='[0.0.0,3.8.0.v20120521-2346)' severity='0'/>
       <properties size='5'>
@@ -4854,39 +4733,6 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.eclipse.core.runtime; singleton:=true&#xA;Bundle-Version: 3.8.0.v20120521-2346
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='com.rcpcompany.utils.jface' version='1.2.0.201209211602' singleton='false'>
-      <update id='com.rcpcompany.utils.jface' range='[0.0.0,1.2.0.201209211602)' severity='0'/>
-      <properties size='5'>
-        <property name='org.eclipse.equinox.p2.name' value='Jface Utility Classes'/>
-        <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.utils.jface'/>
-        <property name='maven-version' value='1.2.0-SNAPSHOT'/>
-      </properties>
-      <provides size='5'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.jface' version='1.2.0.201209211602'/>
-        <provided namespace='osgi.bundle' name='com.rcpcompany.utils.jface' version='1.2.0.201209211602'/>
-        <provided namespace='java.package' name='com.rcpcompany.utils.jface' version='1.2.0'/>
-        <provided namespace='java.package' name='com.rcpcompany.utils.jface.providers' version='1.2.0'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='3'>
-        <required namespace='osgi.bundle' name='org.eclipse.ui' range='[3.3.0,4.0.0)'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.0.0,4.0.0)'/>
-        <required namespace='java.package' name='org.eclipse.emf.ecore' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.jface' version='1.2.0.201209211602'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: com.rcpcompany.utils.jface&#xA;Bundle-Version: 1.2.0.201209211602
           </instruction>
         </instructions>
       </touchpointData>
@@ -4966,32 +4812,156 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='com.rcpcompany.uibindings.std' version='1.0.0.201209211602'>
-      <update id='com.rcpcompany.uibindings.std' range='[0.0.0,1.0.0.201209211602)' severity='0'/>
-      <properties size='5'>
-        <property name='org.eclipse.equinox.p2.name' value='Standard settings for UI Bindings'/>
+    <unit id='com.rcpcompany.utils.feature.feature.group' version='1.0.0.201209220013' singleton='false'>
+      <update id='com.rcpcompany.utils.feature.feature.group' range='[0.0.0,1.0.0.201209220013)' severity='0'/>
+      <properties size='8'>
+        <property name='org.eclipse.equinox.p2.name' value='The RCP Company Utility Feature'/>
+        <property name='org.eclipse.equinox.p2.description' value='[Enter Feature Description here.]'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http://www.example.com/description'/>
         <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
         <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.std'/>
+        <property name='maven-artifactId' value='com.rcpcompany.utils.feature'/>
         <property name='maven-version' value='1.0.0-SNAPSHOT'/>
       </properties>
-      <provides size='4'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.std' version='1.0.0.201209211602'/>
-        <provided namespace='osgi.bundle' name='com.rcpcompany.uibindings.std' version='1.0.0.201209211602'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-        <provided namespace='osgi.fragment' name='com.rcpcompany.uibindings' version='1.0.0.201209211602'/>
+      <provides size='1'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.feature.feature.group' version='1.0.0.201209220013'/>
       </provides>
-      <requires size='1'>
-        <required namespace='osgi.bundle' name='com.rcpcompany.uibindings' range='[2.1.40,3.0.0)'/>
+      <requires size='22'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.common' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.ecore' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.swt' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.runtime' range='[3.0.0,4.0.0)'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui' range='[3.0.0,4.0.0)'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.annotation' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jface' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui.forms' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.databinding' range='[1.0.0,2.0.0)'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jface.databinding' range='[1.2.0,2.0.0)'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui.forms' range='[3.3.0,4.0.0)'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui' range='[3.4.0,4.0.0)'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui' range='[3.3.0,4.0.0)'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.junit' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.basic' range='[1.3.0.201209220013,1.3.0.201209220013]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.extensionpoints' range='[1.2.0.201209220013,1.2.0.201209220013]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.logging' range='[1.5.0.201209220013,1.5.0.201209220013]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.selection' range='[1.1.0.201209220013,1.1.0.201209220013]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.databinding' range='[1.1.0.201209220013,1.1.0.201209220013]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.jface' range='[1.2.0.201209220013,1.2.0.201209220013]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.utils.feature.feature.jar' range='[1.0.0.201209220013,1.0.0.201209220013]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license uri='http://www.example.com/license' url='http://www.example.com/license'>
+          [Enter License Description here.]
+        </license>
+      </licenses>
+      <copyright uri='http://www.example.com/copyright' url='http://www.example.com/copyright'>
+        [Enter Copyright Description here.]
+      </copyright>
+    </unit>
+    <unit id='com.rcpcompany.uibindings' version='2.14.0.201209220013'>
+      <update id='com.rcpcompany.uibindings' range='[0.0.0,2.14.0.201209220013)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.Bundle-Vendor' value='The RCP Company'/>
+        <property name='df_LT.Bundle-Name' value='UI Binding Framework'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Bundle-Name'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%Bundle-Vendor'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings'/>
+        <property name='maven-version' value='2.14.0-SNAPSHOT'/>
+      </properties>
+      <provides size='26'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings' version='2.14.0.201209220013'/>
+        <provided namespace='osgi.bundle' name='com.rcpcompany.uibindings' version='2.14.0.201209220013'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings' version='2.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.bindingMessages' version='2.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.compositeform' version='2.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.compositeform.utils' version='2.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.decorators' version='2.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.decorators.extenders' version='2.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.handlers' version='2.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.initializers' version='2.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.internal' version='2.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.internal.cellEditors' version='2.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.internal.observables' version='2.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.observables' version='2.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.participants' version='2.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.quixkfixes' version='2.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.scripting' version='2.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.scripting.utils' version='2.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.uiAttributes' version='2.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.units' version='2.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.utils' version='2.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.validators' version='2.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.views' version='2.0.0'/>
+        <provided namespace='java.package' name='com.rcpcompany.uibindings.widgets' version='2.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='48'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.5.0,4.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.text' range='4.2.1.1'/>
+        <required namespace='java.package' name='com.rcpcompany.uibindings.fragments.jfaceif' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.uibindings.model.utils' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.uibindings.utils' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.utils.basic' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.utils.extensionpoints' range='0.0.0'/>
+        <required namespace='java.package' name='com.rcpcompany.utils.logging' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.databinding' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.databinding.conversion' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.databinding.observable' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.databinding.observable.list' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.databinding.observable.map' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.databinding.observable.masterdetail' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.databinding.observable.set' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.databinding.observable.value' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.databinding.property' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.databinding.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.databinding.validation' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.expressions' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.internal.databinding' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.internal.databinding.observable' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.common' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.common.command' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.common.notify' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.common.notify.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.common.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.databinding' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.databinding.edit' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.ecore' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.ecore.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.ecore.plugin' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.ecore.resource' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.ecore.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.edit' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.edit.command' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.edit.domain' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.edit.provider' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.jface.databinding.swt' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.jface.databinding.viewers' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.jface.internal.databinding.provisional.swt' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.nebula.widgets.radiogroup' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.osgi.util' range='1.1.0'/>
+        <required namespace='java.package' name='org.eclipse.ui.forms' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.ui.forms.events' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.ui.forms.widgets' range='0.0.0'/>
+        <required namespace='java.package' name='org.osgi.framework' range='1.5.0'/>
       </requires>
       <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.std' version='1.0.0.201209211602'/>
+        <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings' version='2.14.0.201209220013'/>
       </artifacts>
       <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-SymbolicName: com.rcpcompany.uibindings.std;singleton:=true&#xA;Bundle-Version: 1.0.0.201209211602&#xA;Fragment-Host: com.rcpcompany.uibindings;bundle-version=&quot;[2.1.40,3)&quot;
+            Bundle-SymbolicName: com.rcpcompany.uibindings;singleton:=true&#xA;Bundle-Version: 2.14.0.201209220013
           </instruction>
         </instructions>
       </touchpointData>
@@ -5106,6 +5076,36 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.eclipse.e4.ui.workbench.swt;singleton:=true&#xA;Bundle-Version: 0.10.1.v20120525-2014
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='com.rcpcompany.uibindings.fragments.ecore' version='1.0.0.201209220013' singleton='false'>
+      <update id='com.rcpcompany.uibindings.fragments.ecore' range='[0.0.0,1.0.0.201209220013)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='Ecore fragment with revised messages'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The RCP Company'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.fragments.ecore'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.rcpcompany.uibindings.fragments.ecore' version='1.0.0.201209220013'/>
+        <provided namespace='osgi.bundle' name='com.rcpcompany.uibindings.fragments.ecore' version='1.0.0.201209220013'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='osgi.fragment' name='org.eclipse.emf.ecore' version='1.0.0.201209220013'/>
+      </provides>
+      <requires size='1'>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='[2.5.0,3.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.fragments.ecore' version='1.0.0.201209220013'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.rcpcompany.uibindings.fragments.ecore&#xA;Bundle-Version: 1.0.0.201209220013&#xA;Fragment-Host: org.eclipse.emf.ecore;bundle-version=&quot;[2.5.0,3.0.0)&quot;
           </instruction>
         </instructions>
       </touchpointData>
