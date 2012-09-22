@@ -19,6 +19,7 @@ notifications:
     - tonny.madsen@gmail.com
 script:
   - BRANCH="$(git status --branch --porcelain | sed -e '2,$d')"
+  - echo "BRANCH='${BRANCH}'"
   - MVN_PROFILE=$([ "${BRANCH}" == "## release" ] && echo release || echo ci)${MVN_EXTRA_PROFILES}
   - MVN_LAST_COMMIT="$(git log --pretty=oneline -1)"
   - export DISPLAY=:99.0
