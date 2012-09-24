@@ -2041,6 +2041,36 @@ public interface ShopPackage extends EPackage {
 	int CUSTOMER_TYPE = 17;
 
 	/**
+	 * The meta object id for the '<em>EDiagnostic Chain</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.common.util.DiagnosticChain
+	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getEDiagnosticChain()
+	 * @generated
+	 */
+	int EDIAGNOSTIC_CHAIN = 18;
+
+	/**
+	 * The meta object id for the '<em>EMap</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.Map
+	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getEMap()
+	 * @generated
+	 */
+	int EMAP = 19;
+
+	/**
+	 * The meta object id for the '<em>EDate</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.Date
+	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getEDate()
+	 * @generated
+	 */
+	int EDATE = 20;
+
+	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.Shop <em>Shop</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2941,6 +2971,36 @@ public interface ShopPackage extends EPackage {
 	EEnum getCustomerType();
 
 	/**
+	 * Returns the meta object for data type '{@link org.eclipse.emf.common.util.DiagnosticChain <em>EDiagnostic Chain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>EDiagnostic Chain</em>'.
+	 * @see org.eclipse.emf.common.util.DiagnosticChain
+	 * @generated
+	 */
+	EDataType getEDiagnosticChain();
+
+	/**
+	 * Returns the meta object for data type '{@link java.util.Map <em>EMap</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>EMap</em>'.
+	 * @see java.util.Map
+	 * @generated
+	 */
+	EDataType getEMap();
+
+	/**
+	 * Returns the meta object for data type '{@link java.util.Date <em>EDate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>EDate</em>'.
+	 * @see java.util.Date
+	 * @generated
+	 */
+	EDataType getEDate();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3673,6 +3733,36 @@ public interface ShopPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum CUSTOMER_TYPE = eINSTANCE.getCustomerType();
+
+		/**
+		 * The meta object literal for the '<em>EDiagnostic Chain</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.common.util.DiagnosticChain
+		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getEDiagnosticChain()
+		 * @generated
+		 */
+		EDataType EDIAGNOSTIC_CHAIN = eINSTANCE.getEDiagnosticChain();
+
+		/**
+		 * The meta object literal for the '<em>EMap</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.Map
+		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getEMap()
+		 * @generated
+		 */
+		EDataType EMAP = eINSTANCE.getEMap();
+
+		/**
+		 * The meta object literal for the '<em>EDate</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.Date
+		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getEDate()
+		 * @generated
+		 */
+		EDataType EDATE = eINSTANCE.getEDate();
 
 	}
 

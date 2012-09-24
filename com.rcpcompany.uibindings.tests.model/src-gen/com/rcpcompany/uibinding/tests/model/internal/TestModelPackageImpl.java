@@ -16,6 +16,9 @@ import com.rcpcompany.uibinding.tests.model.TestObject;
 import com.rcpcompany.uibinding.tests.model.TimeUnit;
 import com.rcpcompany.uibinding.tests.model.WeightUnit;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.Date;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -102,6 +105,27 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * @generated
 	 */
 	private EEnum timeUnitEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType eDateEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType eBigDecimalEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType eBigIntegerEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -548,6 +572,33 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getEDate() {
+		return eDateEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getEBigDecimal() {
+		return eBigDecimalEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getEBigInteger() {
+		return eBigIntegerEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getAmountAndCurrencyStruct() {
 		return amountAndCurrencyStructEDataType;
 	}
@@ -632,6 +683,9 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 		timeUnitEEnum = createEEnum(TIME_UNIT);
 
 		// Create data types
+		eDateEDataType = createEDataType(EDATE);
+		eBigDecimalEDataType = createEDataType(EBIG_DECIMAL);
+		eBigIntegerEDataType = createEDataType(EBIG_INTEGER);
 		amountAndCurrencyStructEDataType = createEDataType(AMOUNT_AND_CURRENCY_STRUCT);
 	}
 
@@ -685,7 +739,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 				"f", null, 0, 1, TestObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getTestObject_Date(),
-				theEcorePackage.getEDate(),
+				this.getEDate(),
 				"date", null, 0, 1, TestObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getTestObject_Text(),
@@ -726,11 +780,11 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 				"long", null, 0, 1, TestObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getTestObject_BigDecimal(),
-				theEcorePackage.getEBigDecimal(),
+				this.getEBigDecimal(),
 				"bigDecimal", null, 0, 1, TestObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getTestObject_BigInteger(),
-				theEcorePackage.getEBigInteger(),
+				this.getEBigInteger(),
 				"bigInteger", null, 0, 1, TestObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(subTestObjectEClass, SubTestObject.class,
@@ -838,6 +892,11 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 		addEEnumLiteral(timeUnitEEnum, TimeUnit.MIN);
 
 		// Initialize data types
+		initEDataType(eDateEDataType, Date.class, "EDate", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(eBigDecimalEDataType, BigDecimal.class,
+				"EBigDecimal", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(eBigIntegerEDataType, BigInteger.class,
+				"EBigInteger", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEDataType(amountAndCurrencyStructEDataType, AmountAndCurrencyOld.class,
 				"AmountAndCurrencyStruct", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 

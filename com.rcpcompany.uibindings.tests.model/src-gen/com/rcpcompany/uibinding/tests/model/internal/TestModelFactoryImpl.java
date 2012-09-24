@@ -3,6 +3,9 @@
 package com.rcpcompany.uibinding.tests.model.internal;
 
 import com.rcpcompany.uibinding.tests.model.*;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.Date;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -93,6 +96,12 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 			return createWeightUnitFromString(eDataType, initialValue);
 		case TestModelPackage.TIME_UNIT:
 			return createTimeUnitFromString(eDataType, initialValue);
+		case TestModelPackage.EDATE:
+			return createEDateFromString(eDataType, initialValue);
+		case TestModelPackage.EBIG_DECIMAL:
+			return createEBigDecimalFromString(eDataType, initialValue);
+		case TestModelPackage.EBIG_INTEGER:
+			return createEBigIntegerFromString(eDataType, initialValue);
 		case TestModelPackage.AMOUNT_AND_CURRENCY_STRUCT:
 			return createAmountAndCurrencyStructFromString(eDataType, initialValue);
 		default:
@@ -111,6 +120,12 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 			return convertWeightUnitToString(eDataType, instanceValue);
 		case TestModelPackage.TIME_UNIT:
 			return convertTimeUnitToString(eDataType, instanceValue);
+		case TestModelPackage.EDATE:
+			return convertEDateToString(eDataType, instanceValue);
+		case TestModelPackage.EBIG_DECIMAL:
+			return convertEBigDecimalToString(eDataType, instanceValue);
+		case TestModelPackage.EBIG_INTEGER:
+			return convertEBigIntegerToString(eDataType, instanceValue);
 		case TestModelPackage.AMOUNT_AND_CURRENCY_STRUCT:
 			return convertAmountAndCurrencyStructToString(eDataType, instanceValue);
 		default:
@@ -228,6 +243,60 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	 */
 	public String convertTimeUnitToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Date createEDateFromString(EDataType eDataType, String initialValue) {
+		return (Date) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEDateToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BigDecimal createEBigDecimalFromString(EDataType eDataType, String initialValue) {
+		return (BigDecimal) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEBigDecimalToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BigInteger createEBigIntegerFromString(EDataType eDataType, String initialValue) {
+		return (BigInteger) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEBigIntegerToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

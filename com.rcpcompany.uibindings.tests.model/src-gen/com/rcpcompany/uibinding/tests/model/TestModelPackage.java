@@ -716,6 +716,36 @@ public interface TestModelPackage extends EPackage {
 	int TIME_UNIT = 9;
 
 	/**
+	 * The meta object id for the '<em>EDate</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.Date
+	 * @see com.rcpcompany.uibinding.tests.model.internal.TestModelPackageImpl#getEDate()
+	 * @generated
+	 */
+	int EDATE = 10;
+
+	/**
+	 * The meta object id for the '<em>EBig Decimal</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.math.BigDecimal
+	 * @see com.rcpcompany.uibinding.tests.model.internal.TestModelPackageImpl#getEBigDecimal()
+	 * @generated
+	 */
+	int EBIG_DECIMAL = 11;
+
+	/**
+	 * The meta object id for the '<em>EBig Integer</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.math.BigInteger
+	 * @see com.rcpcompany.uibinding.tests.model.internal.TestModelPackageImpl#getEBigInteger()
+	 * @generated
+	 */
+	int EBIG_INTEGER = 12;
+
+	/**
 	 * The meta object id for the '<em>Amount And Currency Struct</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -723,7 +753,7 @@ public interface TestModelPackage extends EPackage {
 	 * @see com.rcpcompany.uibinding.tests.model.internal.TestModelPackageImpl#getAmountAndCurrencyStruct()
 	 * @generated
 	 */
-	int AMOUNT_AND_CURRENCY_STRUCT = 10;
+	int AMOUNT_AND_CURRENCY_STRUCT = 13;
 
 	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibinding.tests.model.TestObject <em>Test Object</em>}'.
@@ -1167,6 +1197,36 @@ public interface TestModelPackage extends EPackage {
 	EEnum getTimeUnit();
 
 	/**
+	 * Returns the meta object for data type '{@link java.util.Date <em>EDate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>EDate</em>'.
+	 * @see java.util.Date
+	 * @generated
+	 */
+	EDataType getEDate();
+
+	/**
+	 * Returns the meta object for data type '{@link java.math.BigDecimal <em>EBig Decimal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>EBig Decimal</em>'.
+	 * @see java.math.BigDecimal
+	 * @generated
+	 */
+	EDataType getEBigDecimal();
+
+	/**
+	 * Returns the meta object for data type '{@link java.math.BigInteger <em>EBig Integer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>EBig Integer</em>'.
+	 * @see java.math.BigInteger
+	 * @generated
+	 */
+	EDataType getEBigInteger();
+
+	/**
 	 * Returns the meta object for data type '{@link com.rcpcompany.uibinding.tests.model.AmountAndCurrencyOld <em>Amount And Currency Struct</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1546,6 +1606,36 @@ public interface TestModelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum TIME_UNIT = eINSTANCE.getTimeUnit();
+
+		/**
+		 * The meta object literal for the '<em>EDate</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.Date
+		 * @see com.rcpcompany.uibinding.tests.model.internal.TestModelPackageImpl#getEDate()
+		 * @generated
+		 */
+		EDataType EDATE = eINSTANCE.getEDate();
+
+		/**
+		 * The meta object literal for the '<em>EBig Decimal</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.math.BigDecimal
+		 * @see com.rcpcompany.uibinding.tests.model.internal.TestModelPackageImpl#getEBigDecimal()
+		 * @generated
+		 */
+		EDataType EBIG_DECIMAL = eINSTANCE.getEBigDecimal();
+
+		/**
+		 * The meta object literal for the '<em>EBig Integer</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.math.BigInteger
+		 * @see com.rcpcompany.uibinding.tests.model.internal.TestModelPackageImpl#getEBigInteger()
+		 * @generated
+		 */
+		EDataType EBIG_INTEGER = eINSTANCE.getEBigInteger();
 
 		/**
 		 * The meta object literal for the '<em>Amount And Currency Struct</em>' data type.

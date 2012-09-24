@@ -6,6 +6,7 @@ import com.rcpcompany.uibindings.moao.util.MOAOValidator;
 
 import com.rcpcompany.uibindings.tests.shop.*;
 
+import java.util.Date;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -172,6 +173,12 @@ public class ShopValidator extends EObjectValidator {
 			return validateShopAddress((ShopAddress) value, diagnostics, context);
 		case ShopPackage.CUSTOMER_TYPE:
 			return validateCustomerType((CustomerType) value, diagnostics, context);
+		case ShopPackage.EDIAGNOSTIC_CHAIN:
+			return validateEDiagnosticChain((DiagnosticChain) value, diagnostics, context);
+		case ShopPackage.EMAP:
+			return validateEMap((Map<?, ?>) value, diagnostics, context);
+		case ShopPackage.EDATE:
+			return validateEDate((Date) value, diagnostics, context);
 		default:
 			return true;
 		}
@@ -632,6 +639,34 @@ public class ShopValidator extends EObjectValidator {
 	 */
 	public boolean validateCustomerType(CustomerType customerType, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateEDiagnosticChain(DiagnosticChain eDiagnosticChain, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateEMap(Map<?, ?> eMap, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateEDate(Date eDate, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

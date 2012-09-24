@@ -6,12 +6,14 @@
 		updateClasspath="false")
 package com.rcpcompany.uibinding.tests.model
 
-
-import org.eclipse.emf.ecore.EDate
-import org.eclipse.emf.ecore.EBigDecimal
-import org.eclipse.emf.ecore.EBigInteger
+import java.math.BigDecimal
+import java.math.BigInteger
 
 annotation "http://rcp-company.com/schemas/uibindings" as uibindings
+
+type EDate wraps java.util.Date
+type EBigDecimal wraps BigDecimal
+type EBigInteger wraps BigInteger
 
 @uibindings(foobar_Sequence_all="TestObject",
 	foobar_Sequence_parent="TestObject",

@@ -27,8 +27,12 @@ import com.rcpcompany.uibindings.tests.shop.ShopURL;
 
 import com.rcpcompany.uibindings.tests.shop.util.ShopValidator;
 
+import java.util.Date;
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
@@ -171,6 +175,27 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	private EEnum customerTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType eDiagnosticChainEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType eMapEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType eDateEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -1004,6 +1029,33 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getEDiagnosticChain() {
+		return eDiagnosticChainEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getEMap() {
+		return eMapEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getEDate() {
+		return eDateEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ShopFactory getShopFactory() {
 		return (ShopFactory) getEFactoryInstance();
 	}
@@ -1129,6 +1181,11 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 		// Create enums
 		customerTypeEEnum = createEEnum(CUSTOMER_TYPE);
+
+		// Create data types
+		eDiagnosticChainEDataType = createEDataType(EDIAGNOSTIC_CHAIN);
+		eMapEDataType = createEDataType(EMAP);
+		eDateEDataType = createEDataType(EDATE);
 	}
 
 	/**
@@ -1159,6 +1216,8 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
+		addETypeParameter(eMapEDataType, "K"); //$NON-NLS-1$
+		addETypeParameter(eMapEDataType, "V"); //$NON-NLS-1$
 
 		// Set bounds for type parameters
 
@@ -1242,8 +1301,8 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 		EOperation op = initEOperation(getShop__NameLengthOK__DiagnosticChain_Map(), theEcorePackage.getEBoolean(),
 				"nameLengthOK", 0, 1, !IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		addEParameter(op, theEcorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, !IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		EGenericType g1 = createEGenericType(theEcorePackage.getEMap());
+		addEParameter(op, this.getEDiagnosticChain(), "diagnostics", 0, 1, !IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		EGenericType g1 = createEGenericType(this.getEMap());
 		EGenericType g2 = createEGenericType(theEcorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(theEcorePackage.getEJavaObject());
@@ -1333,8 +1392,8 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 		op = initEOperation(getShopItem__NamePriceOK__DiagnosticChain_Map(), theEcorePackage.getEBoolean(),
 				"namePriceOK", 0, 1, !IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		addEParameter(op, theEcorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, !IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		g1 = createEGenericType(theEcorePackage.getEMap());
+		addEParameter(op, this.getEDiagnosticChain(), "diagnostics", 0, 1, !IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		g1 = createEGenericType(this.getEMap());
 		g2 = createEGenericType(theEcorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(theEcorePackage.getEJavaObject());
@@ -1343,8 +1402,8 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 		op = initEOperation(getShopItem__NameOK__DiagnosticChain_Map(), theEcorePackage.getEBoolean(),
 				"nameOK", 0, 1, !IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		addEParameter(op, theEcorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, !IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		g1 = createEGenericType(theEcorePackage.getEMap());
+		addEParameter(op, this.getEDiagnosticChain(), "diagnostics", 0, 1, !IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		g1 = createEGenericType(this.getEMap());
 		g2 = createEGenericType(theEcorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(theEcorePackage.getEJavaObject());
@@ -1465,7 +1524,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 				"newsletter", "true", 1, 1, Contact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(
 				getContact_Birthday(),
-				theEcorePackage.getEDate(),
+				this.getEDate(),
 				"birthday", null, 1, 1, Contact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(countryEClass, Country.class, "Country", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -1491,8 +1550,8 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 		op = initEOperation(getCountry__AbbreviationLengthOK__DiagnosticChain_Map(), theEcorePackage.getEBoolean(),
 				"abbreviationLengthOK", 0, 1, !IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		addEParameter(op, theEcorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, !IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		g1 = createEGenericType(theEcorePackage.getEMap());
+		addEParameter(op, this.getEDiagnosticChain(), "diagnostics", 0, 1, !IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		g1 = createEGenericType(this.getEMap());
 		g2 = createEGenericType(theEcorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(theEcorePackage.getEJavaObject());
@@ -1501,8 +1560,8 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 		op = initEOperation(getCountry__AbbreviationCaseOK__DiagnosticChain_Map(), theEcorePackage.getEBoolean(),
 				"abbreviationCaseOK", 0, 1, !IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		addEParameter(op, theEcorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, !IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		g1 = createEGenericType(theEcorePackage.getEMap());
+		addEParameter(op, this.getEDiagnosticChain(), "diagnostics", 0, 1, !IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		g1 = createEGenericType(this.getEMap());
 		g2 = createEGenericType(theEcorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(theEcorePackage.getEJavaObject());
@@ -1558,6 +1617,12 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		addEEnumLiteral(customerTypeEEnum, CustomerType.BRONCE);
 		addEEnumLiteral(customerTypeEEnum, CustomerType.SILVER);
 		addEEnumLiteral(customerTypeEEnum, CustomerType.GOLD);
+
+		// Initialize data types
+		initEDataType(eDiagnosticChainEDataType, DiagnosticChain.class,
+				"EDiagnosticChain", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(eMapEDataType, Map.class, "EMap", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(eDateEDataType, Date.class, "EDate", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		// Create resource
 		createResource(eNS_URI);
