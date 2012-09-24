@@ -41,6 +41,7 @@
 		<module>../com.rcpcompany.utils.selection</module>
 
 		<module>../com.rcpcompany.uibindings.moao</module>
+		<module>../com.rcpcompany.uibindings.moao.tests</module>
 		<module>../com.rcpcompany.uibindings.moao.ui</module>
 		<module>../com.rcpcompany.uibindings.model.utils</module>
 
