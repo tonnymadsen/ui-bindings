@@ -151,19 +151,29 @@ public interface ShopItem extends INamedObject {
 	void setForSale(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Information</b></em>' containment reference list.
-	 * The list contents are of type {@link com.rcpcompany.uibindings.tests.shop.ShopItemInformation}.
+	 * Returns the value of the '<em><b>Information</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Information</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Information</em>' containment reference list.
+	 * @return the value of the '<em>Information</em>' reference.
+	 * @see #setInformation(ShopItemInformation)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItem_Information()
 	 * @generated
 	 */
-	EList<ShopItemInformation> getInformation();
+	ShopItemInformation getInformation();
+
+	/**
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getInformation <em>Information</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Information</em>' reference.
+	 * @see #getInformation()
+	 * @generated
+	 */
+	void setInformation(ShopItemInformation value);
 
 	/**
 	 * Returns the value of the '<em><b>Group</b></em>' reference.

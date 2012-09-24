@@ -578,7 +578,7 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM__FOR_SALE = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Information</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Information</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2384,10 +2384,10 @@ public interface ShopPackage extends EPackage {
 	EAttribute getShopItem_ForSale();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getInformation <em>Information</em>}'.
+	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getInformation <em>Information</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Information</em>'.
+	 * @return the meta object for the reference '<em>Information</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopItem#getInformation()
 	 * @see #getShopItem()
 	 * @generated
@@ -3264,7 +3264,7 @@ public interface ShopPackage extends EPackage {
 		EAttribute SHOP_ITEM__FOR_SALE = eINSTANCE.getShopItem_ForSale();
 
 		/**
-		 * The meta object literal for the '<em><b>Information</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Information</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

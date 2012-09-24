@@ -54,7 +54,7 @@ class ShopItem extends NamedObject {
 	String advancedPrice = ""
 	refers transient OrderItem[*] orderItems
 	boolean[1] forSale
-	contains ShopItemInformation[*] information
+	refers ShopItemInformation information
 	refers local ShopItemGroup group opposite item
 	String[*] locations
 	contains ShopItemProperties[*] properties opposite item

@@ -124,13 +124,13 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 	 */
 	protected boolean forSale = FOR_SALE_EDEFAULT;
 	/**
-	 * The cached value of the '{@link #getInformation() <em>Information</em>}' containment reference list.
+	 * The cached value of the '{@link #getInformation() <em>Information</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getInformation()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ShopItemInformation> information;
+	protected ShopItemInformation information;
 	/**
 	 * The cached value of the '{@link #getGroup() <em>Group</em>}' reference.
 	 * <!-- begin-user-doc
@@ -285,12 +285,39 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ShopItemInformation> getInformation() {
-		if (information == null) {
-			information = new EObjectContainmentEList<ShopItemInformation>(ShopItemInformation.class, this,
-					ShopPackage.SHOP_ITEM__INFORMATION);
+	public ShopItemInformation getInformation() {
+		if (information != null && information.eIsProxy()) {
+			InternalEObject oldInformation = (InternalEObject) information;
+			information = (ShopItemInformation) eResolveProxy(oldInformation);
+			if (information != oldInformation) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ShopPackage.SHOP_ITEM__INFORMATION,
+							oldInformation, information));
+			}
 		}
 		return information;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ShopItemInformation basicGetInformation() {
+		return information;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInformation(ShopItemInformation newInformation) {
+		ShopItemInformation oldInformation = information;
+		information = newInformation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_ITEM__INFORMATION, oldInformation,
+					information));
 	}
 
 	/**
@@ -479,8 +506,6 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 		switch (featureID) {
 		case ShopPackage.SHOP_ITEM__SHOP:
 			return basicSetShop(null, msgs);
-		case ShopPackage.SHOP_ITEM__INFORMATION:
-			return ((InternalEList<?>) getInformation()).basicRemove(otherEnd, msgs);
 		case ShopPackage.SHOP_ITEM__GROUP:
 			return basicSetGroup(null, msgs);
 		case ShopPackage.SHOP_ITEM__PROPERTIES:
@@ -520,7 +545,8 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 		case ShopPackage.SHOP_ITEM__FOR_SALE:
 			return isForSale();
 		case ShopPackage.SHOP_ITEM__INFORMATION:
-			return getInformation();
+			if (resolve) return getInformation();
+			return basicGetInformation();
 		case ShopPackage.SHOP_ITEM__GROUP:
 			return getGroup();
 		case ShopPackage.SHOP_ITEM__LOCATIONS:
@@ -556,8 +582,7 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 			setForSale((Boolean) newValue);
 			return;
 		case ShopPackage.SHOP_ITEM__INFORMATION:
-			getInformation().clear();
-			getInformation().addAll((Collection<? extends ShopItemInformation>) newValue);
+			setInformation((ShopItemInformation) newValue);
 			return;
 		case ShopPackage.SHOP_ITEM__GROUP:
 			setGroup((ShopItemGroup) newValue);
@@ -597,7 +622,7 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 			setForSale(FOR_SALE_EDEFAULT);
 			return;
 		case ShopPackage.SHOP_ITEM__INFORMATION:
-			getInformation().clear();
+			setInformation((ShopItemInformation) null);
 			return;
 		case ShopPackage.SHOP_ITEM__GROUP:
 			setGroup((ShopItemGroup) null);
@@ -631,7 +656,7 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 		case ShopPackage.SHOP_ITEM__FOR_SALE:
 			return forSale != FOR_SALE_EDEFAULT;
 		case ShopPackage.SHOP_ITEM__INFORMATION:
-			return information != null && !information.isEmpty();
+			return information != null;
 		case ShopPackage.SHOP_ITEM__GROUP:
 			return group != null;
 		case ShopPackage.SHOP_ITEM__LOCATIONS:
