@@ -7,9 +7,9 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: com.rcpcompany.uibindings.moao,
- com.rcpcompany.uibindings.moao.internal,
- com.rcpcompany.uibindings.moao.util
+Export-Package: com.rcpcompany.uibindings.moao;version="1.2.0",
+ com.rcpcompany.uibindings.moao.internal;version="1.2.0",
+ com.rcpcompany.uibindings.moao.util;version="1.2.0"
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui,
  org.eclipse.xtext.xbase.lib;bundle-version="[2.3.0,3.0.0)",

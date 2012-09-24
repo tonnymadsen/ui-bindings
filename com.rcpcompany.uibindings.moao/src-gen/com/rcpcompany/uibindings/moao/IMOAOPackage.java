@@ -469,6 +469,26 @@ public interface IMOAOPackage extends EPackage {
 	int SEVERITY = 6;
 
 	/**
+	 * The meta object id for the '<em>EDiagnostic Chain</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.common.util.DiagnosticChain
+	 * @see com.rcpcompany.uibindings.moao.internal.MOAOPackageImpl#getEDiagnosticChain()
+	 * @generated
+	 */
+	int EDIAGNOSTIC_CHAIN = 7;
+
+	/**
+	 * The meta object id for the '<em>EMap</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.Map
+	 * @see com.rcpcompany.uibindings.moao.internal.MOAOPackageImpl#getEMap()
+	 * @generated
+	 */
+	int EMAP = 8;
+
+	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.moao.IMOAO <em>MOAO</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for class '<em>MOAO</em>'.
@@ -656,6 +676,26 @@ public interface IMOAOPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getSeverity();
+
+	/**
+	 * Returns the meta object for data type '{@link org.eclipse.emf.common.util.DiagnosticChain <em>EDiagnostic Chain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>EDiagnostic Chain</em>'.
+	 * @see org.eclipse.emf.common.util.DiagnosticChain
+	 * @generated
+	 */
+	EDataType getEDiagnosticChain();
+
+	/**
+	 * Returns the meta object for data type '{@link java.util.Map <em>EMap</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>EMap</em>'.
+	 * @see java.util.Map
+	 * @generated
+	 */
+	EDataType getEMap();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.core.runtime.IAdaptable <em>IAdaptable</em>}'.
@@ -848,6 +888,26 @@ public interface IMOAOPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum SEVERITY = eINSTANCE.getSeverity();
+
+		/**
+		 * The meta object literal for the '<em>EDiagnostic Chain</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.common.util.DiagnosticChain
+		 * @see com.rcpcompany.uibindings.moao.internal.MOAOPackageImpl#getEDiagnosticChain()
+		 * @generated
+		 */
+		EDataType EDIAGNOSTIC_CHAIN = eINSTANCE.getEDiagnosticChain();
+
+		/**
+		 * The meta object literal for the '<em>EMap</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.Map
+		 * @see com.rcpcompany.uibindings.moao.internal.MOAOPackageImpl#getEMap()
+		 * @generated
+		 */
+		EDataType EMAP = eINSTANCE.getEMap();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.core.runtime.IAdaptable <em>IAdaptable</em>}' class.

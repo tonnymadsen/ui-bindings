@@ -6,10 +6,10 @@
 		updateClasspath="false")
 package com.rcpcompany.uibindings.moao 
 
-import org.eclipse.emf.ecore.EDiagnosticChain
-import org.eclipse.emf.ecore.EMap
-
 import com.rcpcompany.uibindings.moao.IMOAOPackage$Literals
+
+type EDiagnosticChain wraps org.eclipse.emf.common.util.DiagnosticChain
+type EMap<K,V> wraps java.util.Map
 
 /**
  * <p>
