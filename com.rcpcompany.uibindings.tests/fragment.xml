@@ -48,28 +48,28 @@
             <standardArguments
                   preferredCellEditor="org.eclipse.swt.custom.StyledText"></standardArguments>
          </feature>
-         <argument name="foobar-Sequence-all" value="TestObject" />
-         <argument name="foobar-Sequence-parent" value="TestObject" />
-         <argument name="foobar-Sequence-targetType" value="TestObject" />
-         <argument name="foobar-Sequence-containingClass" value="TestObject" />
-         <argument name="foobar-Sequence-default" value="TestObject" />
+         <argument name="foobar_Sequence_all" value="TestObject" />
+         <argument name="foobar_Sequence_parent" value="TestObject" />
+         <argument name="foobar_Sequence_targetType" value="TestObject" />
+         <argument name="foobar_Sequence_containingClass" value="TestObject" />
+         <argument name="foobar_Sequence_default" value="TestObject" />
          <feature
                name="text">
-            <argument name="foobar-Sequence-all" value="TestObject.text" />
-            <argument name="foobar-Sequence-parent" value="TestObject.text" />
-            <argument name="foobar-Sequence-targetType" value="TestObject.text" />
-            <argument name="foobar-Sequence-containingClass" value="TestObject.text" />
-            <argument name="foobar-Sequence-default" value="TestObject.text" />
+            <argument name="foobar_Sequence_all" value="TestObject.text" />
+            <argument name="foobar_Sequence_parent" value="TestObject.text" />
+            <argument name="foobar_Sequence_targetType" value="TestObject.text" />
+            <argument name="foobar_Sequence_containingClass" value="TestObject.text" />
+            <argument name="foobar_Sequence_default" value="TestObject.text" />
          </feature>
       </model>
       <decoratorExtender
             class="com.rcpcompany.uibindings.extests.bindings.FoobarExtender"
             priority="100">
-         <argument name="foobar-Sequence-all" value="extender" />
-         <argument name="foobar-Sequence-parent" value="extender" />
-         <argument name="foobar-Sequence-targetType" value="extender" />
-         <argument name="foobar-Sequence-containingClass" value="extender" />
-         <argument name="foobar-Sequence-default" value="extender" />
+         <argument name="foobar_Sequence_all" value="extender" />
+         <argument name="foobar_Sequence_parent" value="extender" />
+         <argument name="foobar_Sequence_targetType" value="extender" />
+         <argument name="foobar_Sequence_containingClass" value="extender" />
+         <argument name="foobar_Sequence_default" value="extender" />
       </decoratorExtender>
       <model
             class="org.eclipse.emf.common.util.Enumerator">
@@ -90,11 +90,11 @@
          <javaDecorator
                class="com.rcpcompany.uibindings.decorators.TextBindingDecorator">
          </javaDecorator>
-         <argument name="foobar-Sequence-all" value="bindingDecorator.simple" />
-         <argument name="foobar-Sequence-parent" value="bindingDecorator.simple" />
-         <argument name="foobar-Sequence-targetType" value="bindingDecorator.simple" />
-         <argument name="foobar-Sequence-containingClass" value="bindingDecorator.simple" />
-         <argument name="foobar-Sequence-default" value="bindingDecorator.simple" />
+         <argument name="foobar_Sequence_all" value="bindingDecorator.simple" />
+         <argument name="foobar_Sequence_parent" value="bindingDecorator.simple" />
+         <argument name="foobar_Sequence_targetType" value="bindingDecorator.simple" />
+         <argument name="foobar_Sequence_containingClass" value="bindingDecorator.simple" />
+         <argument name="foobar_Sequence_default" value="bindingDecorator.simple" />
       </bindingDecorator>
       <bindingDecorator
             id="com.rcpcompany.uibindings.extests.bindings.ArgumentsScopeTest.eobject"
@@ -108,94 +108,94 @@
          <javaDecorator
                class="com.rcpcompany.uibindings.internal.decorators.GenericEObjectDecorator">
          </javaDecorator>
-         <argument name="foobar-Sequence-all" value="bindingDecorator.eobject" />
-         <argument name="foobar-Sequence-parent" value="bindingDecorator.eobject" />
-         <argument name="foobar-Sequence-targetType" value="bindingDecorator.eobject" />
-         <argument name="foobar-Sequence-containingClass" value="bindingDecorator.eobject" />
-         <argument name="foobar-Sequence-default" value="bindingDecorator.eobject" />
+         <argument name="foobar_Sequence_all" value="bindingDecorator.eobject" />
+         <argument name="foobar_Sequence_parent" value="bindingDecorator.eobject" />
+         <argument name="foobar_Sequence_targetType" value="bindingDecorator.eobject" />
+         <argument name="foobar_Sequence_containingClass" value="bindingDecorator.eobject" />
+         <argument name="foobar_Sequence_default" value="bindingDecorator.eobject" />
       </bindingDecorator>
       <model
             class="java.lang.String">
-         <argument name="foobar-Sequence-all" value="java.lang.String" />
-         <argument name="foobar-Sequence-parent" value="java.lang.String" />
-         <argument name="foobar-Sequence-targetType" value="java.lang.String" />
-         <argument name="foobar-Sequence-containingClass" value="java.lang.String" />
-         <argument name="foobar-Sequence-default" value="java.lang.String" />
+         <argument name="foobar_Sequence_all" value="java.lang.String" />
+         <argument name="foobar_Sequence_parent" value="java.lang.String" />
+         <argument name="foobar_Sequence_targetType" value="java.lang.String" />
+         <argument name="foobar_Sequence_containingClass" value="java.lang.String" />
+         <argument name="foobar_Sequence_default" value="java.lang.String" />
       </model>
       <model
             class="java.lang.CharSequence">
-         <argument name="foobar-Sequence-all" value="java.lang.CharSequence" />
-         <argument name="foobar-Sequence-parent" value="java.lang.CharSequence" />
-         <argument name="foobar-Sequence-targetType" value="java.lang.CharSequence" />
-         <argument name="foobar-Sequence-containingClass" value="java.lang.CharSequence" />
-         <argument name="foobar-Sequence-default" value="java.lang.CharSequence" />
+         <argument name="foobar_Sequence_all" value="java.lang.CharSequence" />
+         <argument name="foobar_Sequence_parent" value="java.lang.CharSequence" />
+         <argument name="foobar_Sequence_targetType" value="java.lang.CharSequence" />
+         <argument name="foobar_Sequence_containingClass" value="java.lang.CharSequence" />
+         <argument name="foobar_Sequence_default" value="java.lang.CharSequence" />
       </model>
       <model
             class="org.eclipse.emf.ecore.EObject">
-         <argument name="foobar-Sequence-all" value="EObject" />
-         <argument name="foobar-Sequence-parent" value="EObject" />
-         <argument name="foobar-Sequence-targetType" value="EObject" />
-         <argument name="foobar-Sequence-containingClass" value="EObject" />
-         <argument name="foobar-Sequence-default" value="EObject" />
+         <argument name="foobar_Sequence_all" value="EObject" />
+         <argument name="foobar_Sequence_parent" value="EObject" />
+         <argument name="foobar_Sequence_targetType" value="EObject" />
+         <argument name="foobar_Sequence_containingClass" value="EObject" />
+         <argument name="foobar_Sequence_default" value="EObject" />
       </model>
       <model
             class="com.rcpcompany.uibinding.tests.model.TestContainer">
-         <argument name="foobar-Sequence-all" value="TestContainer" />
-         <argument name="foobar-Sequence-parent" value="TestContainer" />
-         <argument name="foobar-Sequence-targetType" value="TestContainer" />
-         <argument name="foobar-Sequence-containingClass" value="TestContainer" />
-         <argument name="foobar-Sequence-default" value="TestContainer" />
+         <argument name="foobar_Sequence_all" value="TestContainer" />
+         <argument name="foobar_Sequence_parent" value="TestContainer" />
+         <argument name="foobar_Sequence_targetType" value="TestContainer" />
+         <argument name="foobar_Sequence_containingClass" value="TestContainer" />
+         <argument name="foobar_Sequence_default" value="TestContainer" />
          <feature
                name="current">
-            <argument name="foobar-Sequence-all" value="TestContainer.current" />
-            <argument name="foobar-Sequence-parent" value="TestContainer.current" />
-            <argument name="foobar-Sequence-targetType" value="TestContainer.current" />
-            <argument name="foobar-Sequence-containingClass" value="TestContainer.current" />
-            <argument name="foobar-Sequence-default" value="TestContainer.current" />
+            <argument name="foobar_Sequence_all" value="TestContainer.current" />
+            <argument name="foobar_Sequence_parent" value="TestContainer.current" />
+            <argument name="foobar_Sequence_targetType" value="TestContainer.current" />
+            <argument name="foobar_Sequence_containingClass" value="TestContainer.current" />
+            <argument name="foobar_Sequence_default" value="TestContainer.current" />
          </feature>
       </model>
       <model
             class="com.rcpcompany.uibinding.tests.model.SubTestObject">
          <argument
-               name="foobar-Sequence-all"
+               name="foobar_Sequence_all"
                value="SubTestObject">
          </argument>
          <argument
-               name="foobar-Sequence-parent"
+               name="foobar_Sequence_parent"
                value="SubTestObject">
          </argument>
          <argument
-               name="foobar-Sequence-targetType"
+               name="foobar_Sequence_targetType"
                value="SubTestObject">
          </argument>
          <argument
-               name="foobar-Sequence-containingClass"
+               name="foobar_Sequence_containingClass"
                value="SubTestObject">
          </argument>
          <argument
-               name="foobar-Sequence-default"
+               name="foobar_Sequence_default"
                value="SubTestObject">
          </argument>
          <feature
                name="text">
             <argument
-                  name="foobar-Sequence-all"
+                  name="foobar_Sequence_all"
                   value="SubTestObject.text">
             </argument>
             <argument
-                  name="foobar-Sequence-parent"
+                  name="foobar_Sequence_parent"
                   value="SubTestObject.text">
             </argument>
             <argument
-                  name="foobar-Sequence-targetType"
+                  name="foobar_Sequence_targetType"
                   value="SubTestObject.text">
             </argument>
             <argument
-                  name="foobar-Sequence-containingClass"
+                  name="foobar_Sequence_containingClass"
                   value="SubTestObject.text">
             </argument>
             <argument
-                  name="foobar-Sequence-default"
+                  name="foobar_Sequence_default"
                   value="SubTestObject.text">
             </argument>
          </feature>
@@ -639,7 +639,7 @@
             lookupParent="true"
             lookupReferenceContainingClass="true"
             lookupReferenceTargetType="true"
-            name="foobar-Sequence-all">
+            name="foobar_Sequence_all">
       </argumentInfo>
       <argumentInfo
             lookupAttributeContainingClass="false"
@@ -647,7 +647,7 @@
             lookupParent="true"
             lookupReferenceContainingClass="false"
             lookupReferenceTargetType="false"
-            name="foobar-Sequence-parent">
+            name="foobar_Sequence_parent">
       </argumentInfo>
       <argumentInfo
             lookupAttributeContainingClass="false"
@@ -655,7 +655,7 @@
             lookupParent="false"
             lookupReferenceContainingClass="false"
             lookupReferenceTargetType="true"
-            name="foobar-Sequence-targetType">
+            name="foobar_Sequence_targetType">
       </argumentInfo>
       <argumentInfo
             lookupAttributeContainingClass="true"
@@ -663,10 +663,10 @@
             lookupParent="false"
             lookupReferenceContainingClass="true"
             lookupReferenceTargetType="false"
-            name="foobar-Sequence-containingClass">
+            name="foobar_Sequence_containingClass">
       </argumentInfo>
       <argumentInfo
-            name="foobar-Sequence-default">
+            name="foobar_Sequence_default">
       </argumentInfo>
    </extension>
    <extension

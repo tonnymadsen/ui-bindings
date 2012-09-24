@@ -55,7 +55,7 @@ import com.rcpcompany.uibindings.utils.ITableCreator;
 public class ArgumentsSequenceTest {
 	private UIBTestView myView;
 
-	public static final String ARG = "foobar-Sequence";
+	public static final String ARG = "foobar_Sequence";
 	private TestContainer myModel;
 	private TestObject myObject;
 	private SubTestObject mySubObject;
