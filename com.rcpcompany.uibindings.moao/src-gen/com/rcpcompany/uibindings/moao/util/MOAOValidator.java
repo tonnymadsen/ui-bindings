@@ -109,6 +109,10 @@ public class MOAOValidator extends EObjectValidator {
 			return validateMOAOMessage((IMOAOMessage) value, diagnostics, context);
 		case IMOAOPackage.SEVERITY:
 			return validateSeverity((Severity) value, diagnostics, context);
+		case IMOAOPackage.EDIAGNOSTIC_CHAIN:
+			return validateEDiagnosticChain((DiagnosticChain) value, diagnostics, context);
+		case IMOAOPackage.EMAP:
+			return validateEMap((Map<?, ?>) value, diagnostics, context);
 		default:
 			return true;
 		}
@@ -214,6 +218,25 @@ public class MOAOValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateSeverity(Severity severity, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateEDiagnosticChain(DiagnosticChain eDiagnosticChain, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateEMap(Map<?, ?> eMap, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

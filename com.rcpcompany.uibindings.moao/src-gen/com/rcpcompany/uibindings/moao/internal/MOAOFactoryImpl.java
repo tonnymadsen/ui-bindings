@@ -88,6 +88,10 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 		switch (eDataType.getClassifierID()) {
 		case IMOAOPackage.SEVERITY:
 			return createSeverityFromString(eDataType, initialValue);
+		case IMOAOPackage.EDIAGNOSTIC_CHAIN:
+			return createEDiagnosticChainFromString(eDataType, initialValue);
+		case IMOAOPackage.EMAP:
+			return createEMapFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
@@ -103,6 +107,10 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 		switch (eDataType.getClassifierID()) {
 		case IMOAOPackage.SEVERITY:
 			return convertSeverityToString(eDataType, instanceValue);
+		case IMOAOPackage.EDIAGNOSTIC_CHAIN:
+			return convertEDiagnosticChainToString(eDataType, instanceValue);
+		case IMOAOPackage.EMAP:
+			return convertEMapToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
@@ -168,6 +176,42 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 	 */
 	public String convertSeverityToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DiagnosticChain createEDiagnosticChainFromString(EDataType eDataType, String initialValue) {
+		return (DiagnosticChain) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEDiagnosticChainToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Map<?, ?> createEMapFromString(EDataType eDataType, String initialValue) {
+		return (Map<?, ?>) super.createFromString(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEMapToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(instanceValue);
 	}
 
 	/**

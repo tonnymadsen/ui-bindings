@@ -74,6 +74,20 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 	private EEnum severityEEnum = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType eDiagnosticChainEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType eMapEDataType = null;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -317,6 +331,24 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getEDiagnosticChain() {
+		return eDiagnosticChainEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getEMap() {
+		return eMapEDataType;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -387,6 +419,10 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 
 		// Create enums
 		severityEEnum = createEEnum(SEVERITY);
+
+		// Create data types
+		eDiagnosticChainEDataType = createEDataType(EDIAGNOSTIC_CHAIN);
+		eMapEDataType = createEDataType(EMAP);
 	}
 
 	/**
@@ -414,6 +450,8 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
+		addETypeParameter(eMapEDataType, "K"); //$NON-NLS-1$
+		addETypeParameter(eMapEDataType, "V"); //$NON-NLS-1$
 
 		// Set bounds for type parameters
 
@@ -439,8 +477,8 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 
 		EOperation op = initEOperation(getMOAO__IsValid__DiagnosticChain_Map(), theEcorePackage.getEBoolean(),
 				"isValid", 0, 1, !IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		addEParameter(op, theEcorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, !IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		EGenericType g1 = createEGenericType(theEcorePackage.getEMap());
+		addEParameter(op, this.getEDiagnosticChain(), "diagnostics", 0, 1, !IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		EGenericType g1 = createEGenericType(this.getEMap());
 		EGenericType g2 = createEGenericType(theEcorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(theEcorePackage.getEJavaObject());
@@ -509,6 +547,11 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 		addEEnumLiteral(severityEEnum, Severity.ERROR);
 		addEEnumLiteral(severityEEnum, Severity.INFO);
 		addEEnumLiteral(severityEEnum, Severity.COMMENT);
+
+		// Initialize data types
+		initEDataType(eDiagnosticChainEDataType, DiagnosticChain.class,
+				"EDiagnosticChain", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(eMapEDataType, Map.class, "EMap", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		// Create resource
 		createResource(eNS_URI);
