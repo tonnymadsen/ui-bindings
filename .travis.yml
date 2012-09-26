@@ -18,7 +18,7 @@ notifications:
   email:
     - tonny.madsen@gmail.com
 script:
-  - git status --branch --porcelain
+  - set
   - BRANCH="$(git status --branch --porcelain | sed -e '2,$d')"
   - echo "BRANCH='${BRANCH}'"
   - MVN_PROFILES=$([ "${BRANCH}" == "## release*" ] && echo release || echo ci)
