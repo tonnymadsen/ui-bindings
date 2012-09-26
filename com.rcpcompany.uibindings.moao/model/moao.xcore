@@ -126,7 +126,7 @@ class MOAOFacet extends MOAO {
  	 * Initialized as <code>EcoreUtil.generateUUID()</code>
  	 */
 	@GenModel(suppressedSetVisibility = "true", suppressedUnsetVisibility = "true")
- 	String[1] uuid
+ 	id derived String[1] uuid
  }
  
  class MOAOMessage extends MOAOFacet {

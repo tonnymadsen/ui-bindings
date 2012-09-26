@@ -3,13 +3,13 @@
 package com.rcpcompany.uibindings.tests.shop.internal;
 
 import com.rcpcompany.uibindings.tests.shop.*;
-import java.util.Date;
-import java.util.Map;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import java.io.FileNotFoundException;
 import java.net.URL;
+import java.util.Date;
+import java.util.Map;
 
 import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -96,8 +96,9 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 				return null;
 			}
 			final Resource resource = editingDomain.loadResource(resolve.toString());
-
-			theShop = (Shop) resource.getContents().get(0);
+			if (resource != null) {
+				theShop = (Shop) resource.getContents().get(0);
+			}
 		}
 		return theShop;
 	}
@@ -351,8 +352,7 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public DiagnosticChain createEDiagnosticChainFromString(EDataType eDataType, String initialValue) {
@@ -360,8 +360,7 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String convertEDiagnosticChainToString(EDataType eDataType, Object instanceValue) {
@@ -369,8 +368,7 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Map<?, ?> createEMapFromString(EDataType eDataType, String initialValue) {
@@ -378,8 +376,7 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String convertEMapToString(EDataType eDataType, Object instanceValue) {
@@ -387,8 +384,7 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Date createEDateFromString(EDataType eDataType, String initialValue) {
@@ -396,8 +392,7 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String convertEDateToString(EDataType eDataType, Object instanceValue) {

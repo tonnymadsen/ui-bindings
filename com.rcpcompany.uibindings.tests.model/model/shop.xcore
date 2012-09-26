@@ -55,7 +55,7 @@ class ShopItem extends NamedObject {
 	refers transient OrderItem[*] orderItems
 	boolean[1] forSale
 	refers ShopItemInformation information
-	refers local ShopItemGroup group opposite item
+	refers local ShopItemGroup group opposite items
 	String[*] locations
 	contains ShopItemProperties[*] properties opposite item
 	
@@ -72,7 +72,7 @@ class ShopItemProperties extends NamedObject {
 class ShopItemGroup extends NamedObject {
 	container Shop shop opposite shopGroups
 	
-	refers local ShopItem item opposite group 
+	refers local ShopItem[*] items opposite group 
 }
 
 class Order extends MOAO {
@@ -112,7 +112,7 @@ class Contact extends NamedObject {
 class Country extends NamedObject {
 	container Shop shop opposite countries 
 	
-	id String abbreviation
+	String abbreviation
 	refers transient Contact[*] contacts opposite country
 	contains CountryInfo[0..1] information
 
@@ -150,7 +150,7 @@ class ShopAddress extends ShopInformation {
 }
 
 enum CustomerType {
-	BRONCE = 0
-	SILVER = 1
-	GOLD = 2
+	BRONCE as "Bronce" = 0
+	SILVER as "Silver" = 1
+	GOLD as "Gold" = 2
 }

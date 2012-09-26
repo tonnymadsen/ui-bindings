@@ -60,6 +60,15 @@ public class EMFListAttributeList extends WritableList implements IObserving {
 	}
 
 	/**
+	 * Sets the special label to be used for the <code>null</code> value.
+	 * 
+	 * @param nullLabel the <code>null</code> label
+	 */
+	public void setNullLabel(String nullLabel) {
+		super.add(nullLabel);
+	}
+
+	/**
 	 * Constructs and returns a new list for the specified list and mapper object.
 	 * 
 	 * @param objectList the observed list

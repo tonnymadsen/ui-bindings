@@ -315,7 +315,7 @@ public interface IViewerBinding extends IContainerBinding {
 	 * The offset of the first binding column of the columns of the table or tree.
 	 * <p>
 	 * In tables, this is 1 to allow for an artificial first column. Used to be able to control the
-	 * align of the first column.
+	 * alignment of the first column.
 	 * <p>
 	 * In trees, this is 0 as the first column must be the tree column.
 	 * 

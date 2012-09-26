@@ -1,8 +1,0 @@
-package error2
-
-import org.eclipse.emf.ecore.EDiagnosticChain
-import org.eclipse.emf.ecore.EMap
-
-class Item {
-	op boolean nameLengthOK(EDiagnosticChain diagnostics, EMap<Object, Object> context)
-}

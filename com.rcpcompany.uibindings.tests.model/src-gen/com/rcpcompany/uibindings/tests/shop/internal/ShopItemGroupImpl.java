@@ -9,15 +9,19 @@ import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopItemGroup;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +31,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * <ul>
  *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemGroupImpl#getShop <em>Shop</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemGroupImpl#getItem <em>Item</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemGroupImpl#getItems <em>Items</em>}</li>
  * </ul>
  * </p>
  *
@@ -35,14 +39,14 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public class ShopItemGroupImpl extends NamedObjectImpl implements ShopItemGroup {
 	/**
-	 * The cached value of the '{@link #getItem() <em>Item</em>}' reference.
+	 * The cached value of the '{@link #getItems() <em>Items</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getItem()
+	 * @see #getItems()
 	 * @generated
 	 * @ordered
 	 */
-	protected ShopItem item;
+	protected EList<ShopItem> items;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -108,27 +112,12 @@ public class ShopItemGroupImpl extends NamedObjectImpl implements ShopItemGroup 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ShopItem getItem() {
-		return item;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetItem(ShopItem newItem, NotificationChain msgs) {
-		ShopItem oldItem = item;
-		item = newItem;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					ShopPackage.SHOP_ITEM_GROUP__ITEM, oldItem, newItem);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+	public EList<ShopItem> getItems() {
+		if (items == null) {
+			items = new EObjectWithInverseEList<ShopItem>(ShopItem.class, this, ShopPackage.SHOP_ITEM_GROUP__ITEMS,
+					ShopPackage.SHOP_ITEM__GROUP);
 		}
-		return msgs;
+		return items;
 	}
 
 	/**
@@ -136,37 +125,15 @@ public class ShopItemGroupImpl extends NamedObjectImpl implements ShopItemGroup 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setItem(ShopItem newItem) {
-		if (newItem != item) {
-			NotificationChain msgs = null;
-			if (item != null)
-				msgs = ((InternalEObject) item)
-						.eInverseRemove(this, ShopPackage.SHOP_ITEM__GROUP, ShopItem.class, msgs);
-			if (newItem != null)
-				msgs = ((InternalEObject) newItem)
-						.eInverseAdd(this, ShopPackage.SHOP_ITEM__GROUP, ShopItem.class, msgs);
-			msgs = basicSetItem(newItem, msgs);
-			if (msgs != null) msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_ITEM_GROUP__ITEM, newItem, newItem));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case ShopPackage.SHOP_ITEM_GROUP__SHOP:
 			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
 			return basicSetShop((Shop) otherEnd, msgs);
-		case ShopPackage.SHOP_ITEM_GROUP__ITEM:
-			if (item != null)
-				msgs = ((InternalEObject) item)
-						.eInverseRemove(this, ShopPackage.SHOP_ITEM__GROUP, ShopItem.class, msgs);
-			return basicSetItem((ShopItem) otherEnd, msgs);
+		case ShopPackage.SHOP_ITEM_GROUP__ITEMS:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getItems()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -181,8 +148,8 @@ public class ShopItemGroupImpl extends NamedObjectImpl implements ShopItemGroup 
 		switch (featureID) {
 		case ShopPackage.SHOP_ITEM_GROUP__SHOP:
 			return basicSetShop(null, msgs);
-		case ShopPackage.SHOP_ITEM_GROUP__ITEM:
-			return basicSetItem(null, msgs);
+		case ShopPackage.SHOP_ITEM_GROUP__ITEMS:
+			return ((InternalEList<?>) getItems()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -211,8 +178,8 @@ public class ShopItemGroupImpl extends NamedObjectImpl implements ShopItemGroup 
 		switch (featureID) {
 		case ShopPackage.SHOP_ITEM_GROUP__SHOP:
 			return getShop();
-		case ShopPackage.SHOP_ITEM_GROUP__ITEM:
-			return getItem();
+		case ShopPackage.SHOP_ITEM_GROUP__ITEMS:
+			return getItems();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -222,14 +189,16 @@ public class ShopItemGroupImpl extends NamedObjectImpl implements ShopItemGroup 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case ShopPackage.SHOP_ITEM_GROUP__SHOP:
 			setShop((Shop) newValue);
 			return;
-		case ShopPackage.SHOP_ITEM_GROUP__ITEM:
-			setItem((ShopItem) newValue);
+		case ShopPackage.SHOP_ITEM_GROUP__ITEMS:
+			getItems().clear();
+			getItems().addAll((Collection<? extends ShopItem>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -246,8 +215,8 @@ public class ShopItemGroupImpl extends NamedObjectImpl implements ShopItemGroup 
 		case ShopPackage.SHOP_ITEM_GROUP__SHOP:
 			setShop((Shop) null);
 			return;
-		case ShopPackage.SHOP_ITEM_GROUP__ITEM:
-			setItem((ShopItem) null);
+		case ShopPackage.SHOP_ITEM_GROUP__ITEMS:
+			getItems().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -263,8 +232,8 @@ public class ShopItemGroupImpl extends NamedObjectImpl implements ShopItemGroup 
 		switch (featureID) {
 		case ShopPackage.SHOP_ITEM_GROUP__SHOP:
 			return getShop() != null;
-		case ShopPackage.SHOP_ITEM_GROUP__ITEM:
-			return item != null;
+		case ShopPackage.SHOP_ITEM_GROUP__ITEMS:
+			return items != null && !items.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

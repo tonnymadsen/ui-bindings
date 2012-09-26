@@ -177,7 +177,7 @@ public interface ShopItem extends INamedObject {
 
 	/**
 	 * Returns the value of the '<em><b>Group</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link com.rcpcompany.uibindings.tests.shop.ShopItemGroup#getItem <em>Item</em>}'.
+	 * It is bidirectional and its opposite is '{@link com.rcpcompany.uibindings.tests.shop.ShopItemGroup#getItems <em>Items</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Group</em>' reference isn't clear,
@@ -187,7 +187,7 @@ public interface ShopItem extends INamedObject {
 	 * @return the value of the '<em>Group</em>' reference.
 	 * @see #setGroup(ShopItemGroup)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItem_Group()
-	 * @see com.rcpcompany.uibindings.tests.shop.ShopItemGroup#getItem
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopItemGroup#getItems
 	 * @generated
 	 */
 	ShopItemGroup getGroup();

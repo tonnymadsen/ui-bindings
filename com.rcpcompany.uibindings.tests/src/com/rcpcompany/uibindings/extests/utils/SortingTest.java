@@ -38,6 +38,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
+import com.rcpcompany.uibindings.utils.IPaintDecoration;
 import com.rcpcompany.uibindings.utils.ISortableTableAdapter;
 
 /**
@@ -338,8 +339,10 @@ public class SortingTest {
 
 		final Rectangle bounds = myTable.getItem(0).getBounds(i); // Not needed: +
 		// IViewerBinding.FIRST_TABLE_COLUMN_OFFSET
-		bounds.y = 0;
 		bounds.height = myTable.getHeaderHeight();
+		bounds.y -= bounds.height;
+		IPaintDecoration.Factory.addDecoration(myTable, bounds.x + bounds.width / 2, bounds.y + bounds.height / 2);
+		sleep(1000);
 		postMouse(myTable, bounds);
 	}
 }

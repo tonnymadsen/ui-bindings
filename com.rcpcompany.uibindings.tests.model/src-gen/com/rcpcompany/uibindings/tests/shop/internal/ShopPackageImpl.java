@@ -633,7 +633,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getShopItemGroup_Item() {
+	public EReference getShopItemGroup_Items() {
 		return (EReference) shopItemGroupEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1124,7 +1124,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 		shopItemGroupEClass = createEClass(SHOP_ITEM_GROUP);
 		createEReference(shopItemGroupEClass, SHOP_ITEM_GROUP__SHOP);
-		createEReference(shopItemGroupEClass, SHOP_ITEM_GROUP__ITEM);
+		createEReference(shopItemGroupEClass, SHOP_ITEM_GROUP__ITEMS);
 
 		orderEClass = createEClass(ORDER);
 		createEReference(orderEClass, ORDER__SHOP);
@@ -1378,7 +1378,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		initEReference(
 				getShopItem_Group(),
 				this.getShopItemGroup(),
-				this.getShopItemGroup_Item(),
+				this.getShopItemGroup_Items(),
 				"group", null, 0, 1, ShopItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(
 				getShopItem_Locations(),
@@ -1430,10 +1430,10 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 				this.getShop_ShopGroups(),
 				"shop", null, 0, 1, ShopItemGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(
-				getShopItemGroup_Item(),
+				getShopItemGroup_Items(),
 				this.getShopItem(),
 				this.getShopItem_Group(),
-				"item", null, 0, 1, ShopItemGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"items", null, 0, -1, ShopItemGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(orderEClass, Order.class, "Order", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(
@@ -1536,7 +1536,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		initEAttribute(
 				getCountry_Abbreviation(),
 				theEcorePackage.getEString(),
-				"abbreviation", null, 0, 1, Country.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"abbreviation", null, 0, 1, Country.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(
 				getCountry_Contacts(),
 				this.getContact(),

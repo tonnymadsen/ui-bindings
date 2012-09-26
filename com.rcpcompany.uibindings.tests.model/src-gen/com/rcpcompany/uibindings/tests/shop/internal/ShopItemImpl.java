@@ -354,10 +354,10 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 		if (newGroup != group) {
 			NotificationChain msgs = null;
 			if (group != null)
-				msgs = ((InternalEObject) group).eInverseRemove(this, ShopPackage.SHOP_ITEM_GROUP__ITEM,
+				msgs = ((InternalEObject) group).eInverseRemove(this, ShopPackage.SHOP_ITEM_GROUP__ITEMS,
 						ShopItemGroup.class, msgs);
 			if (newGroup != null)
-				msgs = ((InternalEObject) newGroup).eInverseAdd(this, ShopPackage.SHOP_ITEM_GROUP__ITEM,
+				msgs = ((InternalEObject) newGroup).eInverseAdd(this, ShopPackage.SHOP_ITEM_GROUP__ITEMS,
 						ShopItemGroup.class, msgs);
 			msgs = basicSetGroup(newGroup, msgs);
 			if (msgs != null) msgs.dispatch();
@@ -488,7 +488,7 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 			return basicSetShop((Shop) otherEnd, msgs);
 		case ShopPackage.SHOP_ITEM__GROUP:
 			if (group != null)
-				msgs = ((InternalEObject) group).eInverseRemove(this, ShopPackage.SHOP_ITEM_GROUP__ITEM,
+				msgs = ((InternalEObject) group).eInverseRemove(this, ShopPackage.SHOP_ITEM_GROUP__ITEMS,
 						ShopItemGroup.class, msgs);
 			return basicSetGroup((ShopItemGroup) otherEnd, msgs);
 		case ShopPackage.SHOP_ITEM__PROPERTIES:

@@ -16,7 +16,7 @@
          point="com.rcpcompany.uibindings.uiBindings">
       <observablesFactory
             class="com.rcpcompany.uibindings.extests.manager.ShopEMFObservableFactory"
-            package="com.rcpcompany.uibindings.tests.shop.impl">
+            package="com.rcpcompany.uibindings.tests.shop.internal">
       </observablesFactory>
    </extension>
    <extension
