@@ -11,4 +11,4 @@ Eclipse-LazyStart: true
 Export-Package: com.rcpcompany.utils.jface;version="1.2.0",
  com.rcpcompany.utils.jface.providers;version="1.2.0"
 Import-Package: org.eclipse.emf.ecore
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

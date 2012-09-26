@@ -4,7 +4,7 @@ Bundle-Name: Test Application Plug-in
 Bundle-SymbolicName: com.rcpcompany.uibindings.tests.application;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: The RCP Company
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui,
  com.rcpcompany.utils.logging;bundle-version="1.1.2",
