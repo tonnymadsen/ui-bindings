@@ -26,4 +26,5 @@ script:
   - ${SHELL} /etc/init.d/xvfb start
   - git clone --quiet --branch gh-pages git://github.com/tonnymadsen/ui-bindings.git ui-bindings-pages
   - (cd com.rcpcompany.parent; mvn install -P${MVN_PROFILES} -Drepository.base.redirect='' -Dbuild.id="${TRAVIS_JOB_ID}" -Duibindings-build-user.password="superfly42" -DLAST_COMMIT="${MVN_LAST_COMMIT}")
-  
+
+# RELEASE 2012-09-26
