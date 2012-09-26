@@ -455,8 +455,8 @@ public class UITestUtils {
 					e.widget = c;
 					e.button = button;
 					e.count = i;
-					LogUtils.debug(e,
-							"#" + i + ": " + ToStringUtils.toString(e));
+					// LogUtils.debug(e,
+					// "#" + i + ": " + ToStringUtils.toString(e));
 					assertTrue(c.getDisplay().post(e));
 
 					/*
@@ -476,15 +476,15 @@ public class UITestUtils {
 					e.widget = c;
 					e.button = button;
 					e.count = i;
-					LogUtils.debug(e,
-							"#" + i + ": " + ToStringUtils.toString(e));
+					// LogUtils.debug(e,
+					// "#" + i + ": " + ToStringUtils.toString(e));
 					assertTrue(c.getDisplay().post(e));
 					// sleep(50);
 				}
 
 			}
 		});
-		// yield();
+		yield();
 
 		if (keyStroke != null) {
 			postModifierKeys(c, keyStroke, false);
@@ -734,7 +734,7 @@ public class UITestUtils {
 		// display.getSystemColor(SWT.COLOR_RED));
 
 		yield();
-		LogUtils.debug(sb, sb.toString());
+		LogUtils.debug(control, sb.toString());
 		sleep(500);
 	}
 
@@ -747,6 +747,7 @@ public class UITestUtils {
 		final Shell shell = control.getShell();
 
 		final Composite parent = control.getParent();
+		//
 		final Point p2 = display.map(control, parent, x, y);
 		final GC gc2 = new GC(parent);
 		gc2.setForeground(display.getSystemColor(SWT.COLOR_BLUE));

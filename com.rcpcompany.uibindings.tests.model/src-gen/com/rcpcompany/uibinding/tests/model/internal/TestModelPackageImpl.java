@@ -958,43 +958,44 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 */
 	protected void createUibindingsAnnotations() {
 		String source = "http://rcp-company.com/schemas/uibindings"; //$NON-NLS-1$				
-		addAnnotation(testObjectEClass, source, new String[] { "foobar_Sequence_all", "TestObject", //$NON-NLS-1$ //$NON-NLS-2$
-				"foobar_Sequence_parent", "TestObject", //$NON-NLS-1$ //$NON-NLS-2$
-				"foobar_Sequence_targetType", "TestObject", //$NON-NLS-1$ //$NON-NLS-2$
-				"foobar_Sequence_containingClass", "TestObject", //$NON-NLS-1$ //$NON-NLS-2$
-				"foobar_Sequence_default", "TestObject" //$NON-NLS-1$ //$NON-NLS-2$
+		addAnnotation(testObjectEClass, source, new String[] { "foobar_Sequence_all", "TestObject (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"foobar_Sequence_parent", "TestObject (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"foobar_Sequence_targetType", "TestObject (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"foobar_Sequence_containingClass", "TestObject (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"foobar_Sequence_default", "TestObject (annotation)" //$NON-NLS-1$ //$NON-NLS-2$
 		});
-		addAnnotation(getTestObject_Text(), source, new String[] { "foobar_Sequence_all", "TestObject.text", //$NON-NLS-1$ //$NON-NLS-2$
-				"foobar_Sequence_parent", "TestObject.text", //$NON-NLS-1$ //$NON-NLS-2$
-				"foobar_Sequence_targetType", "TestObject.text", //$NON-NLS-1$ //$NON-NLS-2$
-				"foobar_Sequence_containingClass", "TestObject.text", //$NON-NLS-1$ //$NON-NLS-2$
-				"foobar_Sequence_default", "TestObject.text" //$NON-NLS-1$ //$NON-NLS-2$
+		addAnnotation(getTestObject_Text(), source, new String[] {
+				"foobar_Sequence_all", "TestObject.text (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"foobar_Sequence_parent", "TestObject.text (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"foobar_Sequence_targetType", "TestObject.text (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"foobar_Sequence_containingClass", "TestObject.text (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"foobar_Sequence_default", "TestObject.text (annotation)" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 		addAnnotation(getTestObject_Short(), source, new String[] { "foobar", "b" //$NON-NLS-1$ //$NON-NLS-2$
 		});
-		addAnnotation(subTestObjectEClass, source, new String[] { "foobar_Sequence_all", "SubTestObject", //$NON-NLS-1$ //$NON-NLS-2$
-				"foobar_Sequence_parent", "SubTestObject", //$NON-NLS-1$ //$NON-NLS-2$
-				"foobar_Sequence_targetType", "SubTestObject", //$NON-NLS-1$ //$NON-NLS-2$
-				"foobar_Sequence_containingClass", "SubTestObject", //$NON-NLS-1$ //$NON-NLS-2$
-				"foobar_Sequence_default", "SubTestObject", //$NON-NLS-1$ //$NON-NLS-2$
-				"text.foobar_Sequence_all", "SubTestObject.text", //$NON-NLS-1$ //$NON-NLS-2$
-				"text.foobar_Sequence_parent", "SubTestObject.text", //$NON-NLS-1$ //$NON-NLS-2$
-				"text.foobar_Sequence_targetType", "SubTestObject.text", //$NON-NLS-1$ //$NON-NLS-2$
-				"text.foobar_Sequence_containingClass", "SubTestObject.text", //$NON-NLS-1$ //$NON-NLS-2$
-				"text.foobar_Sequence_default", "SubTestObject.text" //$NON-NLS-1$ //$NON-NLS-2$
+		addAnnotation(subTestObjectEClass, source, new String[] { "foobar_Sequence_all", "SubTestObject (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"foobar_Sequence_parent", "SubTestObject (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"foobar_Sequence_targetType", "SubTestObject (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"foobar_Sequence_containingClass", "SubTestObject (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"foobar_Sequence_default", "SubTestObject (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"text.foobar_Sequence_all", "SubTestObject.text (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"text.foobar_Sequence_parent", "SubTestObject.text (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"text.foobar_Sequence_targetType", "SubTestObject.text (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"text.foobar_Sequence_containingClass", "SubTestObject.text (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"text.foobar_Sequence_default", "SubTestObject.text (annotation)" //$NON-NLS-1$ //$NON-NLS-2$
 		});
-		addAnnotation(testContainerEClass, source, new String[] { "foobar_Sequence_all", "TestContainer", //$NON-NLS-1$ //$NON-NLS-2$
-				"foobar_Sequence_parent", "TestContainer", //$NON-NLS-1$ //$NON-NLS-2$
-				"foobar_Sequence_targetType", "TestContainer", //$NON-NLS-1$ //$NON-NLS-2$
-				"foobar_Sequence_containingClass", "TestContainer", //$NON-NLS-1$ //$NON-NLS-2$
-				"foobar_Sequence_default", "TestContainer" //$NON-NLS-1$ //$NON-NLS-2$
+		addAnnotation(testContainerEClass, source, new String[] { "foobar_Sequence_all", "TestContainer (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"foobar_Sequence_parent", "TestContainer (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"foobar_Sequence_targetType", "TestContainer (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"foobar_Sequence_containingClass", "TestContainer (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"foobar_Sequence_default", "TestContainer (annotation)" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 		addAnnotation(getTestContainer_Current(), source, new String[] {
-				"foobar_Sequence_all", "TestContainer.current", //$NON-NLS-1$ //$NON-NLS-2$
-				"foobar_Sequence_parent", "TestContainer.current", //$NON-NLS-1$ //$NON-NLS-2$
-				"foobar_Sequence_targetType", "TestContainer.current", //$NON-NLS-1$ //$NON-NLS-2$
-				"foobar_Sequence_containingClass", "TestContainer.current", //$NON-NLS-1$ //$NON-NLS-2$
-				"foobar_Sequence_default", "TestContainer.current" //$NON-NLS-1$ //$NON-NLS-2$
+				"foobar_Sequence_all", "TestContainer.current (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"foobar_Sequence_parent", "TestContainer.current (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"foobar_Sequence_targetType", "TestContainer.current (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"foobar_Sequence_containingClass", "TestContainer.current (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
+				"foobar_Sequence_default", "TestContainer.current (annotation)" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 		addAnnotation(amountAndCurrencyStructEDataType, source, new String[] { "foobar", "c" //$NON-NLS-1$ //$NON-NLS-2$
 		});

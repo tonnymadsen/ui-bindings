@@ -176,8 +176,7 @@ public class AlternatingRowColorsTest {
 	@Test
 	public void colorTest() {
 		final TableItem[] items = myTable.getItems();
-		final Color evenColor = JFaceResources.getColorRegistry().get(
-				"com.rcpcompany.uibindings.colorDefinitions.EvenRowBackground");
+		final Color evenColor = JFaceResources.getColorRegistry().get(Constants.COLOR_DEFINITIONS_EVEN_ROW_BACKGROUND);
 		final Color oddColor = myTable.getDisplay().getSystemColor(SWT.COLOR_WHITE);
 		sleep(50);
 		// First row is selected and therefore a different color

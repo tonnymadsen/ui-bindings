@@ -515,7 +515,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 		initEAttribute(
 				getNamedObject_Uuid(),
 				theEcorePackage.getEString(),
-				"uuid", null, 1, 1, INamedObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"uuid", null, 1, 1, INamedObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(moaoMessageEClass, IMOAOMessage.class,
 				"MOAOMessage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

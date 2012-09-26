@@ -339,8 +339,8 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		ViewerDisposeTest.class, ViewerEditCellStrategiesTest.class, ViewerEditCheckboxTest.class,
 		ViewerTableDeleteElementTest.class, ViewerItemMoveEnabledTest.class, ViewerItemMoveTest.class,
 		ViewerSingleSelectionTest.class, ViewerEditCellCommitStrategiesTest.class, ColumnVisibilityTest.class,
-		ColumnIndexTest.class, ViewerEditCellStrategiesTest.class, ViewerColumnHeaderAlignment.class,
-		ElementParentageTest.class, ChildCreationSpecificationTest.class, ControlCellEditorTest.class,
+		ColumnIndexTest.class, ViewerColumnHeaderAlignment.class, ElementParentageTest.class,
+		ChildCreationSpecificationTest.class, ControlCellEditorTest.class,
 
 		/*
 		 * Trees

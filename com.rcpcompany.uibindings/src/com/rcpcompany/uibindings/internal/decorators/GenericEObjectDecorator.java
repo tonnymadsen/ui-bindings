@@ -209,10 +209,12 @@ public class GenericEObjectDecorator extends SimpleUIBindingDecorator implements
 		if (!calculatedValidUIList) {
 			calculatedValidUIList = true;
 			if (!isChangeable()) return null;
-			myValidUIList = new EMFListAttributeList(myValidValues, myClassIdentiferMapper, String.class, "");
+			final EMFListAttributeList uil = new EMFListAttributeList(myValidValues, myClassIdentiferMapper,
+					String.class, myNullLabel);
 			if (!getBinding().getDataType().isRequired()) {
-				myValidUIList.add(myNullLabel);
+				uil.setNullLabel(myNullLabel);
 			}
+			myValidUIList = uil;
 		}
 		return myValidUIList;
 	}

@@ -3,6 +3,7 @@
 package com.rcpcompany.uibindings.tests.shop;
 
 import com.rcpcompany.uibindings.moao.INamedObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,7 +14,7 @@ import com.rcpcompany.uibindings.moao.INamedObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link com.rcpcompany.uibindings.tests.shop.ShopItemGroup#getShop <em>Shop</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.ShopItemGroup#getItem <em>Item</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.ShopItemGroup#getItems <em>Items</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,30 +50,20 @@ public interface ShopItemGroup extends INamedObject {
 	void setShop(Shop value);
 
 	/**
-	 * Returns the value of the '<em><b>Item</b></em>' reference.
+	 * Returns the value of the '<em><b>Items</b></em>' reference list.
+	 * The list contents are of type {@link com.rcpcompany.uibindings.tests.shop.ShopItem}.
 	 * It is bidirectional and its opposite is '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getGroup <em>Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Item</em>' reference isn't clear,
+	 * If the meaning of the '<em>Items</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Item</em>' reference.
-	 * @see #setItem(ShopItem)
-	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItemGroup_Item()
+	 * @return the value of the '<em>Items</em>' reference list.
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItemGroup_Items()
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopItem#getGroup
 	 * @generated
 	 */
-	ShopItem getItem();
-
-	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.ShopItemGroup#getItem <em>Item</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Item</em>' reference.
-	 * @see #getItem()
-	 * @generated
-	 */
-	void setItem(ShopItem value);
+	EList<ShopItem> getItems();
 
 } // ShopItemGroup

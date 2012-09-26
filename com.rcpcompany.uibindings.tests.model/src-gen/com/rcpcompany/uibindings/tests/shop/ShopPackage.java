@@ -841,13 +841,13 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM_GROUP__SHOP = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Item</b></em>' reference.
+	 * The feature id for the '<em><b>Items</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM_GROUP__ITEM = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 1;
+	int SHOP_ITEM_GROUP__ITEMS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Item Group</em>' class.
@@ -2501,15 +2501,15 @@ public interface ShopPackage extends EPackage {
 	EReference getShopItemGroup_Shop();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.tests.shop.ShopItemGroup#getItem <em>Item</em>}'.
+	 * Returns the meta object for the reference list '{@link com.rcpcompany.uibindings.tests.shop.ShopItemGroup#getItems <em>Items</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Item</em>'.
-	 * @see com.rcpcompany.uibindings.tests.shop.ShopItemGroup#getItem()
+	 * @return the meta object for the reference list '<em>Items</em>'.
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopItemGroup#getItems()
 	 * @see #getShopItemGroup()
 	 * @generated
 	 */
-	EReference getShopItemGroup_Item();
+	EReference getShopItemGroup_Items();
 
 	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.Order <em>Order</em>}'.
@@ -3357,12 +3357,12 @@ public interface ShopPackage extends EPackage {
 		EReference SHOP_ITEM_GROUP__SHOP = eINSTANCE.getShopItemGroup_Shop();
 
 		/**
-		 * The meta object literal for the '<em><b>Item</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Items</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SHOP_ITEM_GROUP__ITEM = eINSTANCE.getShopItemGroup_Item();
+		EReference SHOP_ITEM_GROUP__ITEMS = eINSTANCE.getShopItemGroup_Items();
 
 		/**
 		 * The meta object literal for the '{@link com.rcpcompany.uibindings.tests.shop.internal.OrderImpl <em>Order</em>}' class.

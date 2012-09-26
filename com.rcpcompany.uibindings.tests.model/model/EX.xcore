@@ -15,22 +15,22 @@ type EDate wraps java.util.Date
 type EBigDecimal wraps BigDecimal
 type EBigInteger wraps BigInteger
 
-@uibindings(foobar_Sequence_all="TestObject",
-	foobar_Sequence_parent="TestObject",
-	foobar_Sequence_targetType="TestObject",
-	foobar_Sequence_containingClass="TestObject",
-	foobar_Sequence_default="TestObject" 
+@uibindings(foobar_Sequence_all="TestObject (annotation)",
+	foobar_Sequence_parent="TestObject (annotation)",
+	foobar_Sequence_targetType="TestObject (annotation)",
+	foobar_Sequence_containingClass="TestObject (annotation)",
+	foobar_Sequence_default="TestObject (annotation)" 
 )
 class TestObject {
 	unique unsettable int number = "0"
 	unique double d
 	unique float f
 	EDate date
-	@uibindings(foobar_Sequence_all="TestObject.text",
-		foobar_Sequence_parent="TestObject.text",
-		foobar_Sequence_targetType="TestObject.text",
-		foobar_Sequence_containingClass="TestObject.text",
-		foobar_Sequence_default="TestObject.text" 
+	@uibindings(foobar_Sequence_all="TestObject.text (annotation)",
+		foobar_Sequence_parent="TestObject.text (annotation)",
+		foobar_Sequence_targetType="TestObject.text (annotation)",
+		foobar_Sequence_containingClass="TestObject.text (annotation)",
+		foobar_Sequence_default="TestObject.text (annotation)" 
 	)
 	String text
 	refers TestContainer parent
@@ -46,34 +46,34 @@ class TestObject {
 	EBigInteger bigInteger
 }
 
-@uibindings(foobar_Sequence_all="SubTestObject",
-	foobar_Sequence_parent="SubTestObject",
-	foobar_Sequence_targetType="SubTestObject",
-	foobar_Sequence_containingClass="SubTestObject",
-	foobar_Sequence_default="SubTestObject",
-	text.foobar_Sequence_all="SubTestObject.text",
-	text.foobar_Sequence_parent="SubTestObject.text",
-	text.foobar_Sequence_targetType="SubTestObject.text",
-	text.foobar_Sequence_containingClass="SubTestObject.text",
-	text.foobar_Sequence_default="SubTestObject.text"
+@uibindings(foobar_Sequence_all="SubTestObject (annotation)",
+	foobar_Sequence_parent="SubTestObject (annotation)",
+	foobar_Sequence_targetType="SubTestObject (annotation)",
+	foobar_Sequence_containingClass="SubTestObject (annotation)",
+	foobar_Sequence_default="SubTestObject (annotation)",
+	text.foobar_Sequence_all="SubTestObject.text (annotation)",
+	text.foobar_Sequence_parent="SubTestObject.text (annotation)",
+	text.foobar_Sequence_targetType="SubTestObject.text (annotation)",
+	text.foobar_Sequence_containingClass="SubTestObject.text (annotation)",
+	text.foobar_Sequence_default="SubTestObject.text (annotation)"
 )
 class SubTestObject extends TestObject {
 	
 }
 
-@uibindings(foobar_Sequence_all="TestContainer",
-	foobar_Sequence_parent="TestContainer",
-	foobar_Sequence_targetType="TestContainer",
-	foobar_Sequence_containingClass="TestContainer",
-	foobar_Sequence_default="TestContainer" 
+@uibindings(foobar_Sequence_all="TestContainer (annotation)",
+	foobar_Sequence_parent="TestContainer (annotation)",
+	foobar_Sequence_targetType="TestContainer (annotation)",
+	foobar_Sequence_containingClass="TestContainer (annotation)",
+	foobar_Sequence_default="TestContainer (annotation)" 
 )
 class TestContainer {
 	refers TestObject[*] children
-	@uibindings(foobar_Sequence_all="TestContainer.current",
-		foobar_Sequence_parent="TestContainer.current",
-		foobar_Sequence_targetType="TestContainer.current",
-		foobar_Sequence_containingClass="TestContainer.current",
-		foobar_Sequence_default="TestContainer.current" 
+	@uibindings(foobar_Sequence_all="TestContainer.current (annotation)",
+		foobar_Sequence_parent="TestContainer.current (annotation)",
+		foobar_Sequence_targetType="TestContainer.current (annotation)",
+		foobar_Sequence_containingClass="TestContainer.current (annotation)",
+		foobar_Sequence_default="TestContainer.current (annotation)" 
 	)
 	refers unsettable TestObject current
 }

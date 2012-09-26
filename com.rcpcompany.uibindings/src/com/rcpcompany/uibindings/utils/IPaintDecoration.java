@@ -11,6 +11,7 @@
 package com.rcpcompany.uibindings.utils;
 
 import org.eclipse.jface.fieldassist.ControlDecoration;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
@@ -53,6 +54,13 @@ public interface IPaintDecoration {
 		 */
 		public static void addDecoration(IPaintDecoration decoration) {
 			PaintDecorationManager.addDecoration(decoration);
+		}
+
+		public static IPaintDecoration addDecoration(Control c, int x, int y) {
+			final IPaintDecoration pd = IPaintDecoration.Factory.paintRectangle(c, new Rectangle(x - 2, y - 2, 4, 4), c
+					.getDisplay().getSystemColor(SWT.COLOR_RED));
+			IPaintDecoration.Factory.addDecoration(pd);
+			return pd;
 		}
 
 		public static IPaintDecoration paintRectangle(final Control c, Rectangle rect, final Color color) {

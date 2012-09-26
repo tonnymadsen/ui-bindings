@@ -85,7 +85,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testObjectAttributeAllSequence() {
-		testOneAttributeSequence(ARG + "-all", myObject, "extender", null, "bindingDecorator.simple",
+		testOneAttributeSequence(ARG + "_all", myObject, "extender", null, "bindingDecorator.simple",
 				"TestObject.text (annotation)", "TestObject.text", "java.lang.String", "java.lang.CharSequence",
 				"TestObject (annotation)", "TestObject", "IArgumentProvider1", "IArgumentProvider2");
 		// TODO: missing "SubTestObject (annotation)"
@@ -98,7 +98,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testObjectAttributeDefaultSequence() {
-		testOneAttributeSequence(ARG + "-default", myObject, "extender", null, "bindingDecorator.simple",
+		testOneAttributeSequence(ARG + "_default", myObject, "extender", null, "bindingDecorator.simple",
 				"TestObject.text (annotation)", "TestObject.text", "TestObject (annotation)", "TestObject",
 				"IArgumentProvider1", "IArgumentProvider2");
 	}
@@ -110,7 +110,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testObjectAttributeParentSequence() {
-		testOneAttributeSequence(ARG + "-parent", myObject, "extender", null, "bindingDecorator.simple",
+		testOneAttributeSequence(ARG + "_parent", myObject, "extender", null, "bindingDecorator.simple",
 				"TestObject.text (annotation)", "TestObject.text", "IArgumentProvider1", "IArgumentProvider2");
 	}
 
@@ -121,7 +121,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testObjectAttributeTargetTypeSequence() {
-		testOneAttributeSequence(ARG + "-targetType", myObject, "extender", null, "bindingDecorator.simple",
+		testOneAttributeSequence(ARG + "_targetType", myObject, "extender", null, "bindingDecorator.simple",
 				"TestObject.text (annotation)", "TestObject.text", "java.lang.String", "java.lang.CharSequence",
 				"IArgumentProvider1", "IArgumentProvider2");
 	}
@@ -133,7 +133,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testObjectAttributeContainingClassSequence() {
-		testOneAttributeSequence(ARG + "-containingClass", myObject, "extender", null, "bindingDecorator.simple",
+		testOneAttributeSequence(ARG + "_containingClass", myObject, "extender", null, "bindingDecorator.simple",
 				"TestObject.text (annotation)", "TestObject.text", "TestObject (annotation)", "TestObject",
 				"IArgumentProvider1", "IArgumentProvider2");
 	}
@@ -145,7 +145,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testSubObjectAttributeAllSequence() {
-		testOneAttributeSequence(ARG + "-all", mySubObject, "extender", null, "bindingDecorator.simple",
+		testOneAttributeSequence(ARG + "_all", mySubObject, "extender", null, "bindingDecorator.simple",
 				"SubTestObject.text (annotation)", "SubTestObject.text", "TestObject.text (annotation)",
 				"TestObject.text", "java.lang.String", "java.lang.CharSequence", "SubTestObject (annotation)",
 				"SubTestObject", "IArgumentProvider1", "IArgumentProvider2");
@@ -158,7 +158,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testSubObjectAttributeDefaultSequence() {
-		testOneAttributeSequence(ARG + "-default", mySubObject, "extender", null, "bindingDecorator.simple",
+		testOneAttributeSequence(ARG + "_default", mySubObject, "extender", null, "bindingDecorator.simple",
 				"SubTestObject.text (annotation)", "SubTestObject.text", "TestObject.text (annotation)",
 				"TestObject.text", "SubTestObject (annotation)", "SubTestObject", "IArgumentProvider1",
 				"IArgumentProvider2");
@@ -171,7 +171,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testSubObjectAttributeParentSequence() {
-		testOneAttributeSequence(ARG + "-parent", mySubObject, "extender", null, "bindingDecorator.simple",
+		testOneAttributeSequence(ARG + "_parent", mySubObject, "extender", null, "bindingDecorator.simple",
 				"SubTestObject.text (annotation)", "SubTestObject.text", "TestObject.text (annotation)",
 				"TestObject.text", "IArgumentProvider1", "IArgumentProvider2");
 	}
@@ -183,7 +183,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testSubObjectAttributeTargetTypeSequence() {
-		testOneAttributeSequence(ARG + "-targetType", mySubObject, "extender", null, "bindingDecorator.simple",
+		testOneAttributeSequence(ARG + "_targetType", mySubObject, "extender", null, "bindingDecorator.simple",
 				"SubTestObject.text (annotation)", "SubTestObject.text", "TestObject.text (annotation)",
 				"TestObject.text", "java.lang.String", "java.lang.CharSequence", "IArgumentProvider1",
 				"IArgumentProvider2");
@@ -196,7 +196,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testSubObjectAttributeContainingClassSequence() {
-		testOneAttributeSequence(ARG + "-containingClass", mySubObject, "extender", null, "bindingDecorator.simple",
+		testOneAttributeSequence(ARG + "_containingClass", mySubObject, "extender", null, "bindingDecorator.simple",
 				"SubTestObject.text (annotation)", "SubTestObject.text", "TestObject.text (annotation)",
 				"TestObject.text", "SubTestObject (annotation)", "SubTestObject", "IArgumentProvider1",
 				"IArgumentProvider2");
@@ -261,7 +261,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testCellAllSequence() {
-		testOneCellSequence(ARG + "-all", "extender", "bindingDecorator.simple", "column arg",
+		testOneCellSequence(ARG + "_all", "extender", "bindingDecorator.simple", "column arg",
 				"TestObject.text (annotation)", "TestObject.text", "java.lang.String", "java.lang.CharSequence",
 				"TestObject (annotation)", "TestObject", "IArgumentProvider1", "IArgumentProvider2");
 	}
@@ -273,7 +273,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testCellDefaultSequence() {
-		testOneCellSequence(ARG + "-default", "extender", "bindingDecorator.simple", "column arg",
+		testOneCellSequence(ARG + "_default", "extender", "bindingDecorator.simple", "column arg",
 				"TestObject.text (annotation)", "TestObject.text", "TestObject (annotation)", "TestObject",
 				"IArgumentProvider1", "IArgumentProvider2");
 	}
@@ -285,7 +285,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testCellParentSequence() {
-		testOneCellSequence(ARG + "-parent", "extender", "bindingDecorator.simple", "column arg",
+		testOneCellSequence(ARG + "_parent", "extender", "bindingDecorator.simple", "column arg",
 				"TestObject.text (annotation)", "TestObject.text", "IArgumentProvider1", "IArgumentProvider2");
 	}
 
@@ -296,7 +296,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testCellTargetTypeSequence() {
-		testOneCellSequence(ARG + "-targetType", "extender", "bindingDecorator.simple", "TestObject.text (annotation)",
+		testOneCellSequence(ARG + "_targetType", "extender", "bindingDecorator.simple", "TestObject.text (annotation)",
 				"TestObject.text", "java.lang.String", "java.lang.CharSequence", "IArgumentProvider1",
 				"IArgumentProvider2");
 	}
@@ -308,7 +308,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testCellContainingClassSequence() {
-		testOneCellSequence(ARG + "-containingClass", "extender", "bindingDecorator.simple",
+		testOneCellSequence(ARG + "_containingClass", "extender", "bindingDecorator.simple",
 				"TestObject.text (annotation)", "TestObject.text", "TestObject (annotation)", "TestObject",
 				"IArgumentProvider1", "IArgumentProvider2");
 	}
@@ -379,7 +379,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testReferenceAllSequence() {
-		testOneReferenceSequence(ARG + "-all", "extender", "direct arg", "bindingDecorator.eobject",
+		testOneReferenceSequence(ARG + "_all", "extender", "direct arg", "bindingDecorator.eobject",
 				"TestContainer.current (annotation)", "TestContainer.current", "TestObject (annotation)", "TestObject",
 				"EObject", "TestContainer (annotation)", "TestContainer", "IArgumentProvider1", "IArgumentProvider2");
 	}
@@ -391,7 +391,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testReferenceDefaultSequence() {
-		testOneReferenceSequence(ARG + "-default", "extender", "direct arg", "bindingDecorator.eobject",
+		testOneReferenceSequence(ARG + "_default", "extender", "direct arg", "bindingDecorator.eobject",
 				"TestContainer.current (annotation)", "TestContainer.current", "TestObject (annotation)", "TestObject",
 				"EObject", "IArgumentProvider1", "IArgumentProvider2");
 	}
@@ -403,7 +403,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testReferenceParentSequence() {
-		testOneReferenceSequence(ARG + "-parent", "extender", "direct arg", "bindingDecorator.eobject",
+		testOneReferenceSequence(ARG + "_parent", "extender", "direct arg", "bindingDecorator.eobject",
 				"TestContainer.current (annotation)", "TestContainer.current", "IArgumentProvider1",
 				"IArgumentProvider2");
 	}
@@ -415,7 +415,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testReferenceTargetTypeSequence() {
-		testOneReferenceSequence(ARG + "-targetType", "extender", "direct arg", "bindingDecorator.eobject",
+		testOneReferenceSequence(ARG + "_targetType", "extender", "direct arg", "bindingDecorator.eobject",
 				"TestContainer.current (annotation)", "TestContainer.current", "TestObject (annotation)", "TestObject",
 				"EObject", "IArgumentProvider1", "IArgumentProvider2");
 	}
@@ -427,7 +427,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testReferenceContainingClassSequence() {
-		testOneReferenceSequence(ARG + "-containingClass", "extender", "direct arg", "bindingDecorator.eobject",
+		testOneReferenceSequence(ARG + "_containingClass", "extender", "direct arg", "bindingDecorator.eobject",
 				"TestContainer.current (annotation)", "TestContainer.current", "TestContainer (annotation)",
 				"TestContainer", "IArgumentProvider1", "IArgumentProvider2");
 	}
@@ -493,7 +493,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testDTAllSequence() {
-		testOneDTSequence(ARG + "-all", null, TestModelPackage.Literals.TEST_OBJECT__TEXT,
+		testOneDTSequence(ARG + "_all", null, TestModelPackage.Literals.TEST_OBJECT__TEXT,
 				"TestObject.text (annotation)", "TestObject.text", "java.lang.String", "java.lang.CharSequence",
 				"TestObject (annotation)", "TestObject");
 	}
@@ -505,7 +505,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testDTDefaultSequence() {
-		testOneDTSequence(ARG + "-default", null, TestModelPackage.Literals.TEST_OBJECT__TEXT,
+		testOneDTSequence(ARG + "_default", null, TestModelPackage.Literals.TEST_OBJECT__TEXT,
 				"TestObject.text (annotation)", "TestObject.text", "TestObject (annotation)", "TestObject");
 	}
 
@@ -516,7 +516,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testDTParentSequence() {
-		testOneDTSequence(ARG + "-parent", null, TestModelPackage.Literals.TEST_OBJECT__TEXT,
+		testOneDTSequence(ARG + "_parent", null, TestModelPackage.Literals.TEST_OBJECT__TEXT,
 				"TestObject.text (annotation)", "TestObject.text");
 	}
 
@@ -527,7 +527,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testDTTargetTypeSequence() {
-		testOneDTSequence(ARG + "-targetType", null, TestModelPackage.Literals.TEST_OBJECT__TEXT,
+		testOneDTSequence(ARG + "_targetType", null, TestModelPackage.Literals.TEST_OBJECT__TEXT,
 				"TestObject.text (annotation)", "TestObject.text", "java.lang.String", "java.lang.CharSequence");
 	}
 
@@ -538,7 +538,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testDTContainingClassSequence() {
-		testOneDTSequence(ARG + "-containingClass", null, TestModelPackage.Literals.TEST_OBJECT__TEXT,
+		testOneDTSequence(ARG + "_containingClass", null, TestModelPackage.Literals.TEST_OBJECT__TEXT,
 				"TestObject.text (annotation)", "TestObject.text", "TestObject (annotation)", "TestObject");
 	}
 
@@ -549,7 +549,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testSubDTAllSequence() {
-		testOneDTSequence(ARG + "-all", TestModelPackage.Literals.SUB_TEST_OBJECT,
+		testOneDTSequence(ARG + "_all", TestModelPackage.Literals.SUB_TEST_OBJECT,
 				TestModelPackage.Literals.TEST_OBJECT__TEXT, "SubTestObject.text (annotation)", "SubTestObject.text",
 				"TestObject.text (annotation)", "TestObject.text", "java.lang.String", "java.lang.CharSequence",
 				"SubTestObject (annotation)", "SubTestObject");
@@ -562,7 +562,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testSubDTDefaultSequence() {
-		testOneDTSequence(ARG + "-default", TestModelPackage.Literals.SUB_TEST_OBJECT,
+		testOneDTSequence(ARG + "_default", TestModelPackage.Literals.SUB_TEST_OBJECT,
 				TestModelPackage.Literals.TEST_OBJECT__TEXT, "SubTestObject.text (annotation)", "SubTestObject.text",
 				"TestObject.text (annotation)", "TestObject.text", "SubTestObject (annotation)", "SubTestObject");
 	}
@@ -574,7 +574,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testSubDTParentSequence() {
-		testOneDTSequence(ARG + "-parent", TestModelPackage.Literals.SUB_TEST_OBJECT,
+		testOneDTSequence(ARG + "_parent", TestModelPackage.Literals.SUB_TEST_OBJECT,
 				TestModelPackage.Literals.TEST_OBJECT__TEXT, "SubTestObject.text (annotation)", "SubTestObject.text",
 				"TestObject.text (annotation)", "TestObject.text");
 	}
@@ -586,7 +586,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testSubDTTargetTypeSequence() {
-		testOneDTSequence(ARG + "-targetType", TestModelPackage.Literals.SUB_TEST_OBJECT,
+		testOneDTSequence(ARG + "_targetType", TestModelPackage.Literals.SUB_TEST_OBJECT,
 				TestModelPackage.Literals.TEST_OBJECT__TEXT, "SubTestObject.text (annotation)", "SubTestObject.text",
 				"TestObject.text (annotation)", "TestObject.text", "java.lang.String", "java.lang.CharSequence");
 	}
@@ -598,7 +598,7 @@ public class ArgumentsSequenceTest {
 	 */
 	@Test
 	public void testSubDTContainingClassSequence() {
-		testOneDTSequence(ARG + "-containingClass", TestModelPackage.Literals.SUB_TEST_OBJECT,
+		testOneDTSequence(ARG + "_containingClass", TestModelPackage.Literals.SUB_TEST_OBJECT,
 				TestModelPackage.Literals.TEST_OBJECT__TEXT, "SubTestObject.text (annotation)", "SubTestObject.text",
 				"TestObject.text (annotation)", "TestObject.text", "SubTestObject (annotation)", "SubTestObject");
 	}

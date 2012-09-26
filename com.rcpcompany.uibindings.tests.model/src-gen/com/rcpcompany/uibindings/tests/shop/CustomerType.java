@@ -25,7 +25,7 @@ public enum CustomerType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BRONCE(0, "BRONCE", "BRONCE"), /**
+	BRONCE(0, "BRONCE", "Bronce"), /**
 									 * The '<em><b>SILVER</b></em>' literal object.
 									 * <!-- begin-user-doc -->
 									 * <!-- end-user-doc -->
@@ -33,7 +33,7 @@ public enum CustomerType implements Enumerator {
 									 * @generated
 									 * @ordered
 									 */
-	SILVER(1, "SILVER", "SILVER"), /**
+	SILVER(1, "SILVER", "Silver"), /**
 									 * The '<em><b>GOLD</b></em>' literal object.
 									 * <!-- begin-user-doc -->
 									 * <!-- end-user-doc -->
@@ -41,7 +41,7 @@ public enum CustomerType implements Enumerator {
 									 * @generated
 									 * @ordered
 									 */
-	GOLD(2, "GOLD", "GOLD");
+	GOLD(2, "GOLD", "Gold");
 
 	/**
 	 * The '<em><b>BRONCE</b></em>' literal value.

@@ -72,6 +72,7 @@ public class FormCreatorAlignmentTest {
 	public void createView() {
 		myView = BaseUIBTestUtils.createUIBTestView(this);
 		myForm = myView.createFormCreator(myShop);
+		myForm.setFieldsAligned(true);
 		myShopName = myForm.addField("name(label='Shop Name')");
 
 		myContactSection = myForm.addSection("contact", myContact);

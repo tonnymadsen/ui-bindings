@@ -17,7 +17,10 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.core.databinding.observable.ChangeEvent;
+import org.eclipse.core.databinding.observable.IChangeListener;
 import org.eclipse.jface.dialogs.IMessageProvider;
+import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.graphics.Rectangle;
@@ -30,6 +33,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 import com.rcpcompany.uibindings.BindingMessageSeverity;
+import com.rcpcompany.uibindings.Constants;
 import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.IBindingMessage.FeatureMatchingAlgorithm;
 import com.rcpcompany.uibindings.IColumnBinding;
@@ -45,6 +49,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 import com.rcpcompany.uibindings.utils.IFormCreator;
+import com.rcpcompany.uibindings.utils.IPaintDecoration;
 import com.rcpcompany.uibindings.utils.ITableCreator;
 import com.rcpcompany.uibindings.validators.ConstraintValidatorAdapter;
 import com.rcpcompany.uibindings.validators.IValidatorAdapter;
@@ -97,6 +102,24 @@ public class ViewerBindingMessageCollectionTest {
 	private IColumnBindingCellInformation myCellInformation;
 	private IValueBinding myBinding;
 
+	protected boolean myMessageChangesAllowed = true;
+	private final IChangeListener myMessageListener = new IChangeListener() {
+		@Override
+		public void handleChange(ChangeEvent event) {
+			if (!myMessageChangesAllowed) {
+				// fail("Changes not allowed");
+			}
+		}
+	};
+
+	/*
+	 * Colors
+	 */
+	private RGB myNoFocusRGB;
+	private RGB myEvenRGB;
+	private final RGB myRedRGB = new RGB(216, 66, 79);
+	private final RGB myWhiteRGB = new RGB(255, 255, 255);
+
 	@Before
 	public void before() {
 		BaseUIBTestUtils.resetAll();
@@ -108,6 +131,10 @@ public class ViewerBindingMessageCollectionTest {
 		manager.setValidationErrorsAreFatal(myEIV);
 		manager.setValidationDelay(VD);
 		manager.setEditCellSingleClick(false);
+
+		myNoFocusRGB = JFaceResources.getColorRegistry().getRGB(
+				Constants.COLOR_DEFINITIONS_SELECTION_NO_FOCUS_BACKGROUND);
+		myEvenRGB = JFaceResources.getColorRegistry().getRGB(Constants.COLOR_DEFINITIONS_EVEN_ROW_BACKGROUND);
 
 		createModel();
 		createView();
@@ -139,16 +166,22 @@ public class ViewerBindingMessageCollectionTest {
 	private void createModel() {
 		myShop = ShopFactory.eINSTANCE.createShop();
 		myItem = ShopFactory.eINSTANCE.createShopItem();
+		myItem.setName("a name");
 		myItem.setPrice(200f);
 		myItem.setShop(myShop);
 	}
 
 	@After
 	public void disposeView() {
+		/*
+		 * Must be before the view disposal.
+		 */
+		myMessageDecorator.getMessages().removeChangeListener(myMessageListener);
 		if (myView != null) {
 			myView.getSite().getPage().hideView(myView);
 		}
 		myValidatorManager.removeRoot(myShop, myValidationAdapter);
+
 	}
 
 	@Test
@@ -166,6 +199,8 @@ public class ViewerBindingMessageCollectionTest {
 
 		final List<IBindingMessage> messages = myMessageDecorator.getMessages();
 		assertNotNull(messages);
+		myMessageDecorator.getMessages().addChangeListener(myMessageListener);
+		myMessageChangesAllowed = false;
 
 		/*
 		 * No errors - color according to row
@@ -175,9 +210,9 @@ public class ViewerBindingMessageCollectionTest {
 		final Table t = (Table) myTable.getBinding().getControl();
 		final Rectangle cellBounds = t.getItem(0).getBounds(1 + myTable.getBinding().getFirstTableColumnOffset());
 		assertTrue(cellBounds.height > 0);
-		cellBounds.x += -4;
+		cellBounds.x += +3;
 		cellBounds.y += cellBounds.height - 8;
-		assertPixelColor("", t, cellBounds.x, cellBounds.y, new RGB(227, 236, 246));
+		assertPC(t, cellBounds.x, cellBounds.y, myEvenRGB);
 
 		/*
 		 * Error - colors according to error icon
@@ -185,22 +220,25 @@ public class ViewerBindingMessageCollectionTest {
 		 * Delayed!
 		 */
 		myItem.setPrice(-1.0f);
+		yield();
 		assertEquals(noUnboundMessage, myValidatorManager.getUnboundMessages().size());
-		assertEquals(0, messages.size());
-		assertPixelColor("", t, cellBounds.x, cellBounds.y, new RGB(227, 236, 246));
+		assertEquals(1, messages.size());
+		assertPC(t, cellBounds.x, cellBounds.y, myRedRGB);
 
 		// Test before the validation delay - problem already found due to the binding
-		sleep(VD - 150);
+		sleep(VD - 300);
 		assertEquals(noUnboundMessage, myValidatorManager.getUnboundMessages().size());
-		assertEquals(0, messages.size());
-		assertPixelColor("", t, cellBounds.x, cellBounds.y, new RGB(227, 236, 246));
+		assertEquals(1, messages.size());
+		assertPC(t, cellBounds.x, cellBounds.y, myNoFocusRGB);
 
 		// Test after the validation delay
-		sleep(300);
+		myMessageChangesAllowed = true;
+		sleep(600);
+		myMessageChangesAllowed = false;
 		assertEquals(noUnboundMessage + 1, myValidatorManager.getUnboundMessages().size());
-		// Still just one error, and the two are colapsed into one
+		// Still just one error, and the two are collapsed into one
 		assertEquals(1, messages.size());
-		assertPixelColor("", t, cellBounds.x, cellBounds.y, new RGB(216, 66, 79));
+		assertPC(t, cellBounds.x, cellBounds.y, myRedRGB);
 
 		final IBindingMessage message = messages.get(0);
 		assertEquals(myBinding, message.getBinding());
@@ -217,20 +255,22 @@ public class ViewerBindingMessageCollectionTest {
 		// assertEquals(noUnboundMessage + 1, myValidatorManager.getUnboundMessages().size());
 		assertEquals(1, messages.size());
 		assertEquals(message, messages.get(0));
-		assertPixelColor("", t, cellBounds.x, cellBounds.y, new RGB(216, 66, 79));
+		assertPC(t, cellBounds.x, cellBounds.y, myRedRGB);
 
 		// Test before the validation delay
 		sleep(VD - 100);
 		assertEquals(noUnboundMessage + 1, myValidatorManager.getUnboundMessages().size());
 		assertEquals(1, messages.size());
 		assertEquals(message, messages.get(0));
-		assertPixelColor("", t, cellBounds.x, cellBounds.y, new RGB(216, 66, 79));
+		assertPC(t, cellBounds.x, cellBounds.y, myRedRGB);
 
 		// Test after the validation delay
+		myMessageChangesAllowed = true;
 		sleep(300);
+		myMessageChangesAllowed = false;
 		assertEquals(noUnboundMessage, myValidatorManager.getUnboundMessages().size());
 		assertEquals(0, messages.size());
-		assertPixelColor("", t, cellBounds.x, cellBounds.y, new RGB(227, 236, 246));
+		assertPC(t, cellBounds.x, cellBounds.y, myNoFocusRGB);
 
 		assertEquals(initNoUnboundMessage, myValidatorManager.getUnboundMessages().size());
 	}
@@ -245,13 +285,13 @@ public class ViewerBindingMessageCollectionTest {
 		final Table t = (Table) myTable.getBinding().getControl();
 		final Rectangle cellBounds = t.getItem(0).getBounds(1 + myTable.getBinding().getFirstTableColumnOffset());
 		assertTrue(cellBounds.height > 0);
-		cellBounds.x += -4;
+		cellBounds.x += +3;
 		cellBounds.y += cellBounds.height - 8;
 
 		/*
 		 * No errors - color according to row
 		 */
-		assertPixelColor("", t, cellBounds.x, cellBounds.y, new RGB(227, 236, 246));
+		assertPC(t, cellBounds.x, cellBounds.y, myEvenRGB);
 
 		/*
 		 * Error - colors according to error icon
@@ -260,7 +300,7 @@ public class ViewerBindingMessageCollectionTest {
 		 */
 		myItem.setPrice(-1.0f);
 		sleep(VD + 150);
-		assertPixelColor("", t, cellBounds.x, cellBounds.y, new RGB(216, 66, 79));
+		assertPC(t, cellBounds.x, cellBounds.y, new RGB(216, 66, 79));
 
 		/*
 		 * Delete row
@@ -269,7 +309,14 @@ public class ViewerBindingMessageCollectionTest {
 		myItem.setShop(null);
 		sleep(VD + 250);
 		LogUtils.debug(this, "after sleep");
-		assertPixelColor("", t, cellBounds.x, cellBounds.y, new RGB(255, 255, 255));
+		assertPC(t, cellBounds.x, cellBounds.y, myWhiteRGB);
+	}
+
+	private void assertPC(Table t, int x, int y, RGB expectedRGB) {
+		final IPaintDecoration pd = IPaintDecoration.Factory.addDecoration(t, x, y);
+		sleep(600);
+		assertPixelColor("", t, x, y, expectedRGB);
+		IPaintDecoration.Factory.removeDecoration(pd);
 	}
 
 	/**
@@ -309,5 +356,4 @@ public class ViewerBindingMessageCollectionTest {
 		sleep(2 * VD);
 		assertEquals(0, myValidatorManager.getUnboundMessages().size());
 	}
-
 }
