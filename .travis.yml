@@ -1,14 +1,14 @@
 language: java
 jdk:
-  - oraclejdk7
+  - openjdk6
 env:
-  - MVN_EXTRA_PROFILES=
+  - UPDATE_SITE=yes
 matrix:
   include:
     - jdk: openjdk7
-      env: MVN_EXTRA_PROFILES=
-    - jdk: openjdk6
-      env: MVN_EXTRA_PROFILES=",update-site"
+      env: UPDATE_SITE=no
+    - jdk: oraclejdk7
+      env: UPDATE_SITE=no
 branches:
   only:
     - master
