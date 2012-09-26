@@ -13,7 +13,6 @@ branches:
   only:
     - master
     - /^issue-.*$/
-    - release
 notifications:
   email:
     - tonny.madsen@gmail.com
