@@ -19,7 +19,7 @@ notifications:
 script:
   - MVN_LAST_COMMIT="$(git log --pretty=oneline -1)"
   - echo "LAST_COMMIT='${MVN_LAST_COMMIT}'"
-  - MVN_PROFILES=$([ "${MVN_LAST_COMMIT}" == "*RELEASE*" ] && echo release || echo ci)
+  - MVN_PROFILES=ci #$([ "${MVN_LAST_COMMIT}" == "*RELEASE*" ] && echo release || echo ci)
   - if [ "${UPDATE_SITE}" == "yes" ]; then MVN_PROFILES="${MVN_PROFILES},update-site"; fi
   - export DISPLAY=":99.0"
   - ${SHELL} /etc/init.d/xvfb start
