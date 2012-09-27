@@ -50,7 +50,7 @@
 		<module>../com.rcpcompany.uibindings.fragments.jfaceif</module>
 		<module>../com.rcpcompany.uibindings.fragments.ecore</module>
 		<module>../com.rcpcompany.uibindings.tests.utils</module>
-		<module>../com.rcpcompany.uibindings.tests</module>
+		<!-- <module>../com.rcpcompany.uibindings.tests</module> -->
 		<module>../com.rcpcompany.uibindings.tests.api</module>
 		<module>../com.rcpcompany.uibindings.tests.model</module>
 
