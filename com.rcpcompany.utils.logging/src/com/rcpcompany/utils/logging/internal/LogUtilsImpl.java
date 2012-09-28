@@ -1,5 +1,7 @@
 package com.rcpcompany.utils.logging.internal;
 
+import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtension;
 import org.eclipse.equinox.log.ExtendedLogService;
@@ -56,8 +58,8 @@ public class LogUtilsImpl {
 
 	/* ======================================================================== */
 
-	private static final String[] ID_ATTRIBUTES = {"id", "name", "class",
-			"type"};
+	private static final String[] ID_ATTRIBUTES = { "id", "name", "class",
+			"type" };
 
 	private Throwable lastException;
 
@@ -81,6 +83,11 @@ public class LogUtilsImpl {
 	 */
 	public void log(Object context, int logLevel, String message,
 			Throwable exception) {
+
+		if (exception instanceof InvocationTargetException) {
+			exception = ((InvocationTargetException) exception)
+					.getTargetException();
+		}
 		/*
 		 * Special case: if the exception is the same as last time!! So don't
 		 * report it again...
