@@ -6,4 +6,4 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: The RCP Company
 Fragment-Host: com.rcpcompany.uibindings.bindings.xtext;bundle-version="[1.0.0,2.0.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Require-Bundle: com.rcpcompany.tests.utils;bundle-version="[1.0.0,2.0.0)"
+Require-Bundle: com.rcpcompany.test.utils;bundle-version="[1.0.0,2.0.0)"
