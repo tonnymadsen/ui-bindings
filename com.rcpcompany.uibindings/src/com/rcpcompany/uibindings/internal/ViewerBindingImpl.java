@@ -21,6 +21,7 @@ import java.util.Set;
 
 import org.eclipse.core.databinding.observable.IObserving;
 import org.eclipse.core.databinding.observable.list.IObservableList;
+import org.eclipse.core.databinding.observable.list.WritableList;
 import org.eclipse.core.databinding.observable.set.IObservableSet;
 import org.eclipse.core.databinding.observable.set.ISetChangeListener;
 import org.eclipse.core.databinding.observable.set.SetChangeEvent;
@@ -639,8 +640,13 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		if (getViewer().getContentProvider() != null) { // TODO SWTB
 			getViewer().setInput(null);
 		}
-		if (myListDispose) {
+		/*
+		 * Need to check the basic list here...
+		 */
+		if (getList() != null && myListDispose) {
 			getList().dispose();
+			setList(null);
+			myListDispose = false;
 		}
 
 		if (getElements() != null) {
@@ -896,10 +902,13 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public IObservableList getList() {
+		if (list == null) {
+			list = WritableList.withElementType(getDataType().getDataType());
+		}
 		return list;
 	}
 
