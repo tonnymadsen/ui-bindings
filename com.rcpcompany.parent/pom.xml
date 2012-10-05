@@ -11,8 +11,12 @@
 	<properties>
 		<project.source.sourceEncoding>UTF-8</project.source.sourceEncoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<<<<<<< HEAD
 		<tycho.version>0.16.0-SNAPSHOT</tycho.version>
 		<tycho-extras.version>0.16.0-SNAPSHOT</tycho-extras.version>
+=======
+		<tycho.version>0.15.0</tycho.version>
+>>>>>>> refs/heads/issue-50-npe
 
 		<!-- OS Specific Flags for Java - see profiles below -->
 		<java.os.args /> <!-- for the default case -->
@@ -198,6 +202,7 @@
 					<artifactId>tycho-packaging-plugin</artifactId>
 					<version>${tycho.version}</version>
 
+<<<<<<< HEAD
 					<dependencies>
 						<dependency>
 							<groupId>org.eclipse.tycho.extras</groupId>
@@ -205,12 +210,9 @@
 							<version>${tycho-extras.version}</version>
 						</dependency>
 					</dependencies>
+=======
+>>>>>>> refs/heads/issue-50-npe
 					<configuration>
-						<strictBinIncludes>false</strictBinIncludes>
-						<format>'v'yyyyMMdd-HHmm</format>
-						<timestampProvider>jgit</timestampProvider>
-						<jgit.ignore>
-						</jgit.ignore>
 						<archive>
 							<manifestEntries>
 								<Built-By>${project.organization.name}</Built-By>
