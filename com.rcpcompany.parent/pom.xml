@@ -11,8 +11,8 @@
 	<properties>
 		<project.source.sourceEncoding>UTF-8</project.source.sourceEncoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<tycho.version>0.15.0</tycho.version>
-		<tycho-extras.version>0.16.0</tycho-extras.version>
+		<tycho.version>0.16.0-SNAPSHOT</tycho.version>
+		<tycho-extras.version>0.16.0-SNAPSHOT</tycho-extras.version>
 
 		<!-- OS Specific Flags for Java - see profiles below -->
 		<java.os.args /> <!-- for the default case -->
@@ -73,7 +73,9 @@
 		<!-- <module>../com.rcpcompany.uibindings.bindings.xtext</module> <module>../com.rcpcompany.uibindings.bindings.xtext.tests</module> -->
 
 		<module>../com.rcpcompany.utils.feature</module>
+		<module>../com.rcpcompany.utils.source.feature</module>
 		<module>../com.rcpcompany.uibindings.feature</module>
+		<module>../com.rcpcompany.uibindings.source.feature</module>
 
 		<module>../com.rcpcompany.uibindings.updatesite</module>
 	</modules>
@@ -100,6 +102,21 @@
 				<artifactId>versions-maven-plugin</artifactId>
 				<version>1.3.1</version>
 			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<executions>
+					<execution>
+						<id>plugin-source</id>
+						<goals>
+							<goal>plugin-source</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>target-platform-configuration</artifactId>
@@ -185,7 +202,7 @@
 						<dependency>
 							<groupId>org.eclipse.tycho.extras</groupId>
 							<artifactId>tycho-buildtimestamp-jgit</artifactId>
-							<version>{tycho-extras.version}</version>
+							<version>${tycho-extras.version}</version>
 						</dependency>
 					</dependencies>
 					<configuration>
