@@ -643,9 +643,14 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 		/*
 		 * Need to check the basic list here...
 		 */
-		if (getList() != null && myListDispose) {
-			getList().dispose();
+		final IObservableList l = getList();
+		if (l != null && myListDispose) {
+			/*
+			 * Need to reset the list first, as we will other wiese refers to the disposed list in
+			 * the notifiers.
+			 */
 			setList(null);
+			l.dispose();
 			myListDispose = false;
 		}
 
