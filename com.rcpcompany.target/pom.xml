@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>com.rcpcompany.target</artifactId>
-	<version>4.2-SNAPSHOT</version>
+	<version>5-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<parent>
@@ -32,7 +32,7 @@
 									<!-- note: the file name must be ${classifier}.target -->
 									<file>uibindings.target</file>
 									<type>target</type>
-									<classifier>uibindings</classifier>
+									<classifier>uibindings-${eclipse.platform.version}</classifier>
 								</artifact>
 							</artifacts>
 						</configuration>

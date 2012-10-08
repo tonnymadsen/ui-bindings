@@ -13,6 +13,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<tycho.version>0.16.0-SNAPSHOT</tycho.version>
 		<tycho-extras.version>0.16.0-SNAPSHOT</tycho-extras.version>
+		<eclipse.platform.version>3.8</eclipse.platform.version>
 
 		<!-- OS Specific Flags for Java - see profiles below -->
 		<java.os.args /> <!-- for the default case -->
@@ -128,8 +129,8 @@
 						<artifact>
 							<groupId>${project.groupId}</groupId>
 							<artifactId>com.rcpcompany.target</artifactId>
-							<version>4.2-SNAPSHOT</version>
-							<classifier>uibindings</classifier>
+							<version>5-SNAPSHOT</version>
+							<classifier>uibindings-${eclipse.platform.version}</classifier>
 						</artifact>
 					</target>
 					<environments>
