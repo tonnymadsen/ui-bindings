@@ -6,7 +6,6 @@
  */
 package com.rcpcompany.uibindings.moao.util;
 
-import com.rcpcompany.uibindings.moao.*;
 import java.util.Map;
 
 import org.eclipse.core.runtime.IAdaptable;

@@ -82,7 +82,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isValid(DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean isValid(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
 		return true;
 	}
 
@@ -90,7 +90,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void removeMessagesByOwner(String owner) {
+	public void removeMessagesByOwner(final String owner) {
 		IMOAO _this = this;
 		final TreeIterator<EObject> allContents = _this.eAllContents();
 		boolean _hasNext = allContents.hasNext();
@@ -116,7 +116,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void removeMessagesByOwner(EStructuralFeature feature, String owner) {
+	public void removeMessagesByOwner(final EStructuralFeature feature, final String owner) {
 		IMOAO _this = this;
 		boolean _eIsSet = _this.eIsSet(Literals.MOAO__FACETS);
 		boolean _not = (!_eIsSet);
