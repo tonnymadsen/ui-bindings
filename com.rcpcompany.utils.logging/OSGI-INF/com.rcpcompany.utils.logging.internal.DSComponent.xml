@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:component name="com.rcpcompany.utils.logging.internal.DSComponent" xmlns:ns2="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <reference unbind="unbindLogService" bind="bindLogService" interface="org.osgi.service.log.LogService" name="bindLogService"/>
+    <reference unbind="unbindExtendedLogService" bind="bindExtendedLogService" interface="org.eclipse.equinox.log.ExtendedLogService" name="bindExtendedLogService"/>
+    <implementation class="com.rcpcompany.utils.logging.internal.DSComponent"/>
+</ns2:component>

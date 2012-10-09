@@ -1,6 +1,8 @@
 package com.rcpcompany.utils.logging.internal;
 
 import org.eclipse.equinox.log.ExtendedLogService;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.log.LogService;
 
 /**
@@ -10,13 +12,15 @@ import org.osgi.service.log.LogService;
  * 
  * @author Tonny Madsen, tma@bording.dk
  */
-public class Component {
+@Component
+public class DSComponent {
 	/**
 	 * OSGi DS Interface.
 	 * 
 	 * @param servive
 	 *            the new service to bind to
 	 */
+	@Reference
 	public void bindLogService(LogService servive) {
 		LogUtilsImpl.getInstance().bindLogService(servive);
 	}
@@ -27,6 +31,7 @@ public class Component {
 	 * @param service
 	 *            the new service to bind to
 	 */
+	@Reference
 	public void bindExtendedLogService(ExtendedLogService service) {
 		LogUtilsImpl.getInstance().bindExtendedLogService(service);
 	}
