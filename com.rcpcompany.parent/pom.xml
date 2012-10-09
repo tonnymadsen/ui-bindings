@@ -370,5 +370,77 @@
 				</plugins>
 			</build>
 		</profile>
+
+		<!-- Platform specific profiles -->
+		<profile>
+			<id>macosx-jvm-flags</id>
+			<activation>
+				<os>
+					<family>mac</family>
+				</os>
+			</activation>
+			<properties>
+				<java.os.args>-XstartOnFirstThread</java.os.args>
+				<osgi.os>macosx</osgi.os>
+				<osgi.ws>cocoa</osgi.ws>
+				<osgi.arch>x86_64</osgi.arch>
+			</properties>
+		</profile>
+		<profile>
+			<id>win32-64-flags</id>
+			<activation>
+				<os>
+					<family>windows</family>
+					<arch>x86_86</arch>
+				</os>
+			</activation>
+			<properties>
+				<osgi.os>win32</osgi.os>
+				<osgi.ws>win32</osgi.ws>
+				<osgi.arch>x86_64</osgi.arch>
+			</properties>
+		</profile>
+		<profile>
+			<id>win32-32-flags</id>
+			<activation>
+				<os>
+					<family>windows</family>
+					<arch>x86</arch>
+				</os>
+			</activation>
+			<properties>
+				<osgi.os>win32</osgi.os>
+				<osgi.ws>win32</osgi.ws>
+				<osgi.arch>x86_64</osgi.arch>
+			</properties>
+		</profile>
+		<profile>
+			<id>win32-amd64-flags</id>
+			<activation>
+				<os>
+					<family>windows</family>
+					<arch>amd64</arch>
+				</os>
+			</activation>
+			<properties>
+				<osgi.os>win32</osgi.os>
+				<osgi.ws>win32</osgi.ws>
+				<osgi.arch>x86_64</osgi.arch>
+			</properties>
+		</profile>
+		<profile>
+			<id>win32-amd32-flags</id>
+			<activation>
+				<os>
+					<family>windows</family>
+					<arch>amd32</arch>
+				</os>
+			</activation>
+			<properties>
+				<osgi.os>win32</osgi.os>
+				<osgi.ws>win32</osgi.ws>
+				<osgi.arch>x86</osgi.arch>
+			</properties>
+		</profile>
 	</profiles>
 </project>
