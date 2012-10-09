@@ -4,6 +4,11 @@
 <target name="UI Bindings 3.8.x target" sequenceNumber="18">
 <locations>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.platform.ide" version="0.0.0"/>
+<unit id="org.eclipse.platform.sdk" version="0.0.0"/>
+<repository location="http://download.eclipse.org/eclipse/updates/3.8"/>
+</location>
+<location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.nebula.feature.feature.group" version="0.0.0"/>
 <repository location="http://download.eclipse.org/technology/nebula/snapshot"/>
 </location>
@@ -12,17 +17,16 @@
 <repository location="http://download.eclipse.org/technology/nebula/incubation/snapshot"/>
 </location>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.jdt.feature.group" version="3.8.0.v20120525-1249-8-8nFqlFNOfwKDRGz-pXLdGxEM83"/>
-<unit id="org.eclipse.emf.sdk.feature.group" version="2.8.0.v20120608-0554"/>
-<unit id="org.eclipse.wst.jsdt.feature.feature.group" version="1.4.0.v201111090639-7H7DFeHFC7sRemSZgYbe4"/>
-<unit id="org.eclipse.xtext.xbase.feature.group" version="2.3.0.v201206120633"/>
-<unit id="org.eclipse.xtext.runtime.feature.group" version="2.3.0.v201206120633"/>
+<unit id="org.eclipse.jdt.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.emf.sdk.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.wst.jsdt.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.xtext.xbase.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.xtext.runtime.feature.group" version="0.0.0"/>
 <repository location="http://download.eclipse.org/releases/juno/"/>
 </location>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.sdk.feature.group" version="3.8.1.v20120814-105048-7Q85DODQN3IBqeFgLdD172SJUFfysJd0oa2T8u1smOyIu"/>
-<unit id="org.eclipse.sdk.ide" version="3.8.1.M20120914-1540"/>
-<repository location="http://download.eclipse.org/eclipse/updates/3.8"/>
+<unit id="com.wuetherich.osgi.ds.annotations.feature.feature.group" version="0.0.0"/>
+<repository location="http://www.wuetherich.com/ds-annotations/update/"/>
 </location>
 </locations>
 </target>

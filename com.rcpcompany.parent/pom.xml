@@ -13,7 +13,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<tycho.version>0.16.0-SNAPSHOT</tycho.version>
 		<tycho-extras.version>0.16.0-SNAPSHOT</tycho-extras.version>
-		<eclipse.platform.version>3.8</eclipse.platform.version>
+		<eclipse.platform.version>4.2</eclipse.platform.version>
 
 		<!-- OS Specific Flags for Java - see profiles below -->
 		<java.os.args /> <!-- for the default case -->
@@ -227,7 +227,7 @@
 					<configuration>
 						<baselineRepositories>
 							<repository>
-								<url>http://tonnymadsen.github.com/ui-bindings/updates/release</url>
+								<url>http://tonnymadsen.github.com/ui-bindings/updates/release2</url>
 							</repository>
 						</baselineRepositories>
 					</configuration>
@@ -278,7 +278,6 @@
 			<properties>
 				<build.type>IDE</build.type>
 				<build.number>IDE</build.number>
-				<clean.verbose>false</clean.verbose>
 			</properties>
 		</profile>
 		<profile>
