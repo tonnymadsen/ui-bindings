@@ -38,7 +38,7 @@ public class FinancialUpDownExtender extends AbstractUIBindingDecoratorExtender 
 	/**
 	 * Argument name to enable the financial up/down arrow for numbers.
 	 * <p>
-	 * The argument value is a {@link Boolean}.
+	 * The argument value is a {@link Boolean}.Defaults to <code>false</code>.
 	 */
 	public static final String ARG_FINANCIAL_UP_DOWN = "financialUpDown";
 
