@@ -20,7 +20,7 @@ public class DSComponent {
 	 * @param servive
 	 *            the new service to bind to
 	 */
-	@Reference
+	@Reference(unbind = "-")
 	public void bindLogService(LogService servive) {
 		LogUtilsImpl.getInstance().bindLogService(servive);
 	}
@@ -31,7 +31,7 @@ public class DSComponent {
 	 * @param service
 	 *            the new service to bind to
 	 */
-	@Reference
+	@Reference(unbind = "-")
 	public void bindExtendedLogService(ExtendedLogService service) {
 		LogUtilsImpl.getInstance().bindExtendedLogService(service);
 	}
