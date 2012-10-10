@@ -6,7 +6,9 @@ Bundle-Version: 2.14.0.qualifier
 Bundle-Activator: com.rcpcompany.uibindings.internal.Activator
 Bundle-Vendor: %Bundle-Vendor
 Require-Bundle: org.eclipse.ui;bundle-version="[3.5.0,4.0.0)";visibility:=reexport,
- org.eclipse.core.runtime;bundle-version="[3.5.0,4.0.0)"
+ org.eclipse.core.runtime;bundle-version="[3.5.0,4.0.0)",
+ org.eclipse.emf.common;bundle-version="[2.4.0,3.0.0)";visibility:=reexport,
+ org.eclipse.emf.ecore;bundle-version="[2.4.0,3.0.0)";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Export-Package: com.rcpcompany.uibindings;version="2.0.0",
  com.rcpcompany.uibindings.bindingMessages;version="2.0.0",
@@ -52,18 +54,8 @@ Import-Package: com.ibm.icu.text;version="4.2.1.1",
  org.eclipse.core.expressions,
  org.eclipse.core.internal.databinding,
  org.eclipse.core.internal.databinding.observable,
- org.eclipse.emf.common,
- org.eclipse.emf.common.command,
- org.eclipse.emf.common.notify,
- org.eclipse.emf.common.notify.impl,
- org.eclipse.emf.common.util,
  org.eclipse.emf.databinding,
  org.eclipse.emf.databinding.edit,
- org.eclipse.emf.ecore,
- org.eclipse.emf.ecore.impl,
- org.eclipse.emf.ecore.plugin,
- org.eclipse.emf.ecore.resource,
- org.eclipse.emf.ecore.util,
  org.eclipse.emf.edit,
  org.eclipse.emf.edit.command,
  org.eclipse.emf.edit.domain,
