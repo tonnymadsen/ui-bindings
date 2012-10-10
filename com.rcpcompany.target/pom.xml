@@ -21,7 +21,7 @@
 				<executions>
 					<!-- make target file available for incremental builds -->
 					<execution>
-						<id>attach-artifacts</id>
+						<id>attach-artifacts-3.8</id>
 						<phase>package</phase>
 						<goals>
 							<goal>attach-artifact</goal>
@@ -30,9 +30,26 @@
 							<artifacts>
 								<artifact>
 									<!-- note: the file name must be ${classifier}.target -->
-									<file>uibindings.target</file>
+									<file>uibindings-3.8.target</file>
 									<type>target</type>
-									<classifier>uibindings-${eclipse.platform.version}</classifier>
+									<classifier>uibindings-3.8</classifier>
+								</artifact>
+							</artifacts>
+						</configuration>
+					</execution>
+					<execution>
+						<id>attach-artifacts-4.2</id>
+						<phase>package</phase>
+						<goals>
+							<goal>attach-artifact</goal>
+						</goals>
+						<configuration>
+							<artifacts>
+								<artifact>
+									<!-- note: the file name must be ${classifier}.target -->
+									<file>uibindings-4.2.target</file>
+									<type>target</type>
+									<classifier>uibindings-4.2</classifier>
 								</artifact>
 							</artifacts>
 						</configuration>
