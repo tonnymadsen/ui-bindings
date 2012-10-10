@@ -28,40 +28,8 @@
    </license>
 
    <includes
-         id="org.eclipse.rcp"
+         id="com.rcpcompany.utils.source.feature"
          version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.emf.databinding.edit"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.emf.common"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.emf.databinding"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.emf.ecore"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.emf.ecore.edit"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.emf.edit"
-         version="0.0.0"/>
-
-   <includes
-         id="com.rcpcompany.utils.feature"
-         version="0.0.0"/>
-
-   <requires>
-      <import feature="com.rcpcompany.utils.feature" version="1.0.0.qualifier"/>
-   </requires>
 
    <plugin
          id="com.rcpcompany.uibindings.source"
