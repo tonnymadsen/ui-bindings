@@ -11,6 +11,7 @@
 package com.rcpcompany.uibindings.moao;
 
 import org.eclipse.emf.ecore.EFactory;
+import org.eclipse.emf.ecore.EStructuralFeature;
 
 /**
  * <!-- begin-user-doc --> The <b>Factory</b> for the model. It provides a create method for each
@@ -36,8 +37,7 @@ public interface IMOAOFactory extends EFactory {
 
 	/**
 	 * Returns a new object of class '<em>Facet</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return a new object of class '<em>Facet</em>'.
 	 * @generated
 	 */
@@ -53,13 +53,21 @@ public interface IMOAOFactory extends EFactory {
 	INamedObject createNamedObject();
 
 	/**
-	 * Returns a new object of class '<em>Message</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Message</em>'. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @return a new object of class '<em>Message</em>'.
 	 * @generated
 	 */
 	IMOAOMessage createMOAOMessage();
+
+	/**
+	 * Returns a new '<em>Message</em>'.
+	 * 
+	 * @return a new object of class '<em>Message</em>'.
+	 */
+	IMOAOMessage createMOAOMessage(IMOAO moao, EStructuralFeature feature, String owner, Severity severity,
+			String description);
 
 	/**
 	 * Returns the package supported by this factory.
