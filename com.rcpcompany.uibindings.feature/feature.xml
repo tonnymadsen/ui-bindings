@@ -27,6 +27,10 @@
       [Enter License Description here.]
    </license>
 
+   <url>
+      <update label="The RCP Company" url="http://tonnymadsen.github.com/ui-bindings/updates/release"/>
+   </url>
+
    <includes
          id="com.rcpcompany.utils.feature"
          version="0.0.0"/>
