@@ -19,7 +19,7 @@ import org.eclipse.core.commands.ICommandListener;
 import org.eclipse.core.commands.NotEnabledException;
 import org.eclipse.core.commands.NotHandledException;
 import org.eclipse.core.commands.ParameterizedCommand;
-import org.eclipse.core.commands.SerializationException;
+import org.eclipse.core.commands.common.CommandException;
 import org.eclipse.core.commands.common.NotDefinedException;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
@@ -192,9 +192,13 @@ public class ViewerToolBar implements IViewerToolBar, IDisposable {
 	private final ICommandImageService myCommandImageService;
 
 	@Override
-	public void addItem(int id, String commandId) {
-		final CommandToolItemAdapter a = new CommandToolItemAdapter(commandId);
-		addItem(id, a.getItem());
+	public void addItem(int id, String command) {
+		try {
+			final CommandToolItemAdapter a = new CommandToolItemAdapter(command);
+			addItem(id, a.getItem());
+		} catch (final CommandException ex) {
+			// Ignore
+		}
 	}
 
 	/**
@@ -228,23 +232,17 @@ public class ViewerToolBar implements IViewerToolBar, IDisposable {
 			return myItem;
 		}
 
-		private CommandToolItemAdapter(String commandId) {
+		private CommandToolItemAdapter(String commandId) throws CommandException {
 			myCommandId = commandId;
 			myItem = new ToolItem(getToolBar(), SWT.PUSH);
-			try {
-				myCommand = myCommandService.deserialize(commandId);
-				myCommand.getCommand().addCommandListener(this);
+			myCommand = myCommandService.deserialize(commandId);
+			myCommand.getCommand().addCommandListener(this);
 
-				myItem.setImage(getImage(ICommandImageService.TYPE_DEFAULT));
-				myItem.setDisabledImage(getImage(ICommandImageService.TYPE_DISABLED));
-				myItem.setHotImage(getImage(ICommandImageService.TYPE_HOVER));
+			myItem.setImage(getImage(ICommandImageService.TYPE_DEFAULT));
+			myItem.setDisabledImage(getImage(ICommandImageService.TYPE_DISABLED));
+			myItem.setHotImage(getImage(ICommandImageService.TYPE_HOVER));
 
-				commandChanged(null);
-			} catch (final NotDefinedException ex) {
-				LogUtils.error(this, ex);
-			} catch (final SerializationException ex) {
-				LogUtils.error(this, ex);
-			}
+			commandChanged(null);
 
 			myItem.addListener(SWT.Dispose, this);
 			myItem.addListener(SWT.Selection, this);

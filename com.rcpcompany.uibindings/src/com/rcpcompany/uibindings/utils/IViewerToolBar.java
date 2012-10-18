@@ -14,6 +14,7 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
+import org.eclipse.ui.commands.ICommandService;
 
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.internal.utils.ViewerToolBar;
@@ -113,14 +114,18 @@ public interface IViewerToolBar {
 	ToolItem getItem(int itemId);
 
 	/**
-	 * Adds a new {@link ToolBar} item to this toolbar for the specified command.
+	 * Adds a new {@link ToolBar} item to this toolbar for the specified serialized command.
 	 * <p>
 	 * Icons, tool tips and behavior is defined by the command.
+	 * <p>
+	 * See {@link ICommandService#deserialize(String)} for the format of the command. If any error
+	 * is detected - e.g. illegal format or unknown command id in the command - then the command is
+	 * ignored.
 	 * 
 	 * @param id the id of the item
-	 * @param commandId the command to execute
+	 * @param command the serialized command to execute
 	 */
-	void addItem(int id, String commandId);
+	void addItem(int id, String command);
 
 	/**
 	 * Adds a new {@link ToolBar} item to this toolbar.
