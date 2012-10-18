@@ -10,6 +10,6 @@ Require-Bundle: org.eclipse.core.runtime
 Service-Component: OSGI-INF/com.rcpcompany.utils.logging.internal.DSComponent.xml
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
-Import-Package: com.rcpcompany.utils.basic;version="[1.2.0,2.0.0)",
+Import-Package: com.rcpcompany.utils.basic;version="[1.4.0,2.0.0)",
  org.eclipse.jdt.annotation,
  org.osgi.service.component.annotations

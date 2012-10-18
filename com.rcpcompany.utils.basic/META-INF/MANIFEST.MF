@@ -5,7 +5,7 @@ Bundle-SymbolicName: com.rcpcompany.utils.basic
 Bundle-Version: 1.4.0.qualifier
 Bundle-Vendor: The RCP Company
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: com.rcpcompany.utils.basic;version="1.2.0"
+Export-Package: com.rcpcompany.utils.basic;version="1.4.0"
 Import-Package: org.eclipse.core.runtime;version="3.4.0",
  org.eclipse.emf.common.notify,
  org.eclipse.emf.ecore,
