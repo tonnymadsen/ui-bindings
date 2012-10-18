@@ -3,7 +3,6 @@ package com.rcpcompany.utils.logging.internal;
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IExtension;
 import org.eclipse.equinox.log.ExtendedLogService;
 import org.eclipse.equinox.log.Logger;
 import org.eclipse.jdt.annotation.Nullable;
@@ -13,6 +12,7 @@ import org.osgi.framework.FrameworkUtil;
 import org.osgi.service.log.LogService;
 
 import com.rcpcompany.utils.basic.ClassUtils;
+import com.rcpcompany.utils.basic.TSStatusUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -58,9 +58,6 @@ public class LogUtilsImpl {
 
 	/* ======================================================================== */
 
-	private static final String[] ID_ATTRIBUTES = { "id", "name", "class",
-			"type" };
-
 	private Throwable lastException;
 
 	/**
@@ -100,37 +97,7 @@ public class LogUtilsImpl {
 		if (context instanceof IConfigurationElement) {
 			final IConfigurationElement ce = (IConfigurationElement) context;
 			bundleID = ce.getContributor().getName();
-			IConfigurationElement c = null;
-			Object o = null;
-
-			for (o = ce; o instanceof IConfigurationElement; o = c.getParent()) {
-				c = (IConfigurationElement) o;
-				String m = c.getName();
-				for (final String a : ID_ATTRIBUTES) {
-					final String av = c.getAttribute(a);
-					if (av != null) {
-						m = m + "[" + a + "=" + av + "]";
-						break;
-					}
-				}
-				if (messagePrefix == null) {
-					messagePrefix = m;
-				} else {
-					messagePrefix = m + "/" + messagePrefix;
-				}
-			}
-			if (o instanceof IExtension) {
-				final IExtension e = (IExtension) o;
-				String m = e.getExtensionPointUniqueIdentifier();
-				if (e.getLabel() != null && e.getLabel().length() > 0) {
-					m = m + "[label=" + e.getLabel() + "]";
-				} else if (e.getSimpleIdentifier() != null) {
-					m = m + "[id=" + e.getSimpleIdentifier() + "]";
-				}
-				messagePrefix = m + "/" + messagePrefix;
-			}
-			messagePrefix = "{" + ce.getContributor().getName() + "/"
-					+ messagePrefix + "}";
+			messagePrefix = TSStatusUtils.toString(ce);
 		} else if (context instanceof String) {
 			bundleID = (String) context;
 		} else if (context != null) {

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Basic Utilities
 Bundle-SymbolicName: com.rcpcompany.utils.basic
-Bundle-Version: 1.3.0.qualifier
+Bundle-Version: 1.4.0.qualifier
 Bundle-Vendor: The RCP Company
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: com.rcpcompany.utils.basic;version="1.2.0"

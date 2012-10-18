@@ -21,6 +21,14 @@ import org.eclipse.core.runtime.Status;
  */
 
 public final class TSStatusUtils {
+	/**
+	 * Returns a generic <code>toString</code> representation for
+	 * {@link IStatus}.
+	 * 
+	 * @param status
+	 *            the status object
+	 * @return the string for the status object
+	 */
 	public static String toString(IStatus status) {
 		if (status == Status.OK_STATUS)
 			return "STATUS[OK]";
@@ -32,24 +40,24 @@ public final class TSStatusUtils {
 		sb.append(ClassUtils.getLastClassName(status));
 		sb.append("[").append(status.getPlugin()).append(", ");
 		switch (status.getSeverity()) {
-			case IStatus.CANCEL :
-				sb.append("CANCEL");
-				break;
-			case IStatus.OK :
-				sb.append("OK");
-				break;
-			case IStatus.INFO :
-				sb.append("INFO");
-				break;
-			case IStatus.WARNING :
-				sb.append("WARNING");
-				break;
-			case IStatus.ERROR :
-				sb.append("ERROR");
-				break;
-			default :
-				sb.append("#").append(status.getSeverity());
-				break;
+		case IStatus.CANCEL:
+			sb.append("CANCEL");
+			break;
+		case IStatus.OK:
+			sb.append("OK");
+			break;
+		case IStatus.INFO:
+			sb.append("INFO");
+			break;
+		case IStatus.WARNING:
+			sb.append("WARNING");
+			break;
+		case IStatus.ERROR:
+			sb.append("ERROR");
+			break;
+		default:
+			sb.append("#").append(status.getSeverity());
+			break;
 		}
 		sb.append(", \"").append(status.getMessage()).append("\", ")
 				.append(status.getCode());
