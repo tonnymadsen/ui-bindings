@@ -11,8 +11,8 @@
 	<properties>
 		<project.source.sourceEncoding>UTF-8</project.source.sourceEncoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<tycho.version>0.16.0-SNAPSHOT</tycho.version>
-		<tycho-extras.version>0.16.0-SNAPSHOT</tycho-extras.version>
+		<tycho.version>0.16.0</tycho.version>
+		<tycho-extras.version>0.16.0</tycho-extras.version>
 		<eclipse.platform.version>3.8</eclipse.platform.version>
 
 		<!-- OS Specific Flags for Java - see profiles below -->
@@ -85,6 +85,10 @@
 		<pluginRepository>
 			<id>tycho-snapshots</id>
 			<url>https://oss.sonatype.org/content/groups/public/</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>tycho-0.16.0-staged</id>
+			<url>https://oss.sonatype.org/content/repositories/orgeclipsetycho-207/</url>
 		</pluginRepository>
 	</pluginRepositories>
 
@@ -227,7 +231,7 @@
 					<configuration>
 						<baselineRepositories>
 							<repository>
-								<url>http://tonnymadsen.github.com/ui-bindings/updates/release2</url>
+								<url>http://tonnymadsen.github.com/ui-bindings/updates/release</url>
 							</repository>
 						</baselineRepositories>
 					</configuration>
