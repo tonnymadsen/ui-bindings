@@ -5,7 +5,7 @@ Bundle-SymbolicName: com.rcpcompany.uibindings.model.utils
 Bundle-Version: 1.1.0.qualifier
 Bundle-Vendor: The RCP Compabny
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: com.rcpcompany.utils.logging,
+Import-Package: com.rcpcompany.utils.logging;version="[1.5.0,2.0.0)",
  org.eclipse.core.databinding.observable.list,
  org.eclipse.emf.common.command,
  org.eclipse.emf.common.util,
