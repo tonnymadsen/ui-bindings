@@ -12,7 +12,7 @@ import org.osgi.framework.FrameworkUtil;
 import org.osgi.service.log.LogService;
 
 import com.rcpcompany.utils.basic.ClassUtils;
-import com.rcpcompany.utils.basic.TSStatusUtils;
+import com.rcpcompany.utils.basic.TSRegistryUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -97,7 +97,7 @@ public class LogUtilsImpl {
 		if (context instanceof IConfigurationElement) {
 			final IConfigurationElement ce = (IConfigurationElement) context;
 			bundleID = ce.getContributor().getName();
-			messagePrefix = TSStatusUtils.toString(ce);
+			messagePrefix = TSRegistryUtils.toString(ce);
 		} else if (context instanceof String) {
 			bundleID = (String) context;
 		} else if (context != null) {
