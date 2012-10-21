@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Test of com.rcpcompany.utils.basic
-Bundle-SymbolicName: com.rcpcompany.utils.basic.tests
-Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: com.rcpcompany.utils.basic.tests;singleton:=true
+Bundle-Version: 1.0.1.qualifier
 Bundle-Vendor: The RCP Company
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: com.rcpcompany.utils.basic;bundle-version="[1.4.0,2.0.0)",

@@ -24,6 +24,9 @@ public final class TSRegistryUtils {
 	/**
 	 * Returns a generic <code>toString</code> representation for
 	 * {@link IConfigurationElement}.
+	 * <p>
+	 * The output is to a large extend decided via heuristics. E.g which
+	 * attributes of an element that are likely to be the key for the element.
 	 * 
 	 * @param ce
 	 *            the element
@@ -55,6 +58,8 @@ public final class TSRegistryUtils {
 			String m = e.getExtensionPointUniqueIdentifier();
 			if (e.getLabel() != null && e.getLabel().length() > 0) {
 				m = m + "[label=" + e.getLabel() + "]";
+			} else if (e.getUniqueIdentifier() != null) {
+				m = m + "[id=" + e.getUniqueIdentifier() + "]";
 			} else if (e.getSimpleIdentifier() != null) {
 				m = m + "[id=" + e.getSimpleIdentifier() + "]";
 			}

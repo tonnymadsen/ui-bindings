@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views" id="test.V1">
+      <view
+            class="com.rcpcompany.utils.basic.tests.views.V1"
+            id="com.rcpcompany.utils.basic.tests.views.V1"
+            name="V1"
+            restorable="true">
+         <description>
+            description body text
+         </description>
+      </view>
+   </extension>
+
+</plugin>
