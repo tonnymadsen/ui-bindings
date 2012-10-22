@@ -1,16 +1,16 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: AGETOR 5 Workbench: Various Test Utilities
+Bundle-Name: Various Test Utilities
 Bundle-SymbolicName: com.rcpcompany.test.utils
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.rcpcompany.test.utils.internal.Activator
 Bundle-Vendor: The RCP Company
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
+Require-Bundle: org.eclipse.core.runtime,
  org.junit;bundle-version="[4.8.0,5.0.0)";visibility:=reexport,
  org.eclipse.core.resources;bundle-version="[3.4.0,4.0.0)";visibility:=reexport,
  org.eclipse.emf.common;bundle-version="[2.6.0,3.0.0)";visibility:=reexport,
- org.eclipse.emf.ecore;bundle-version="[2.6.0,3.0.0)";visibility:=reexport
+ org.eclipse.emf.ecore;bundle-version="[2.6.0,3.0.0)";visibility:=reexport,
+ org.eclipse.ui;bundle-version="[3.4.0,4.0.0)";resolution:=optional
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: com.rcpcompany.test.utils;version="1.0.0"
