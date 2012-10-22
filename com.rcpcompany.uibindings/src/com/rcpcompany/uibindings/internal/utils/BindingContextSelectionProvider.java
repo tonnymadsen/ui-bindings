@@ -48,7 +48,7 @@ import com.rcpcompany.uibindings.IContainerBinding;
 import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IViewerBinding;
-import com.rcpcompany.uibindings.UIBindingsUtils;
+import com.rcpcompany.uibindings.model.utils.BasicUtils;
 import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
 import com.rcpcompany.uibindings.utils.IFilteringTableAdapter;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -228,7 +228,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		if (selection == null) {
 			selection = myEmptySelection;
 		}
-		if (UIBindingsUtils.equals(selection, myCurrentSelection)) return;
+		if (BasicUtils.equals(selection, myCurrentSelection)) return;
 		myCurrentSelection = selection;
 		fireSelectionChanged(new SelectionChangedEvent(this, myCurrentSelection));
 	}

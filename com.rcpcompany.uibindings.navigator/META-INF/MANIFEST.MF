@@ -15,6 +15,7 @@ Export-Package: com.rcpcompany.uibindings.navigator,
  com.rcpcompany.uibindings.navigator.editorFactories,
  com.rcpcompany.uibindings.navigator.views
 Import-Package: com.rcpcompany.uibindings,
+ com.rcpcompany.uibindings.model.utils,
  com.rcpcompany.uibindings.utils,
  com.rcpcompany.utils.basic,
  com.rcpcompany.utils.extensionpoints,

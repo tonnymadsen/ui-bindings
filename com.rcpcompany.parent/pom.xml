@@ -46,6 +46,7 @@
 		<module>../com.rcpcompany.uibindings.moao.tests</module>
 		<module>../com.rcpcompany.uibindings.moao.ui</module>
 		<module>../com.rcpcompany.uibindings.model.utils</module>
+		<module>../com.rcpcompany.uibindings.model.utils.tests</module>
 
 		<module>../com.rcpcompany.uibindings</module>
 		<module>../com.rcpcompany.uibindings.fragments.jface</module>

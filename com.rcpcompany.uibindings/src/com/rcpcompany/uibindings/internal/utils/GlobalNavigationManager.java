@@ -51,8 +51,8 @@ import com.rcpcompany.uibindings.IDisposable;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.IValueBindingCell;
-import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.internal.Activator;
+import com.rcpcompany.uibindings.model.utils.BasicUtils;
 import com.rcpcompany.uibindings.utils.IBindingObjectLongName;
 import com.rcpcompany.uibindings.utils.IGlobalNavigationManager;
 import com.rcpcompany.uibindings.utils.IManagerRunnable;
@@ -501,10 +501,10 @@ public final class GlobalNavigationManager implements IGlobalNavigationManager {
 			if (this == obj) return true;
 			if (!(obj instanceof Location)) return false;
 			final Location other = (Location) obj;
-			return UIBindingsUtils.equals(this.getId(), other.getId())
-					&& UIBindingsUtils.equals(this.getSecondaryId(), other.getSecondaryId())
-					&& UIBindingsUtils.equals(this.getSelection(), other.getSelection())
-					&& UIBindingsUtils.equals(this.getBinding(), other.getBinding());
+			return BasicUtils.equals(this.getId(), other.getId())
+					&& BasicUtils.equals(this.getSecondaryId(), other.getSecondaryId())
+					&& BasicUtils.equals(this.getSelection(), other.getSelection())
+					&& BasicUtils.equals(this.getBinding(), other.getBinding());
 		}
 	}
 

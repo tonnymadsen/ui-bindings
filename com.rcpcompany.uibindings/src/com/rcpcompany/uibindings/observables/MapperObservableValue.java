@@ -20,8 +20,8 @@ import org.eclipse.core.databinding.observable.value.ValueDiff;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
 import com.rcpcompany.uibindings.IDisposable;
-import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.UIBindingsUtils.IClassIdentiferMapper;
+import com.rcpcompany.uibindings.model.utils.BasicUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -91,7 +91,7 @@ public class MapperObservableValue extends AbstractObservableValue implements IO
 			LogUtils.error(myMapper, ex);
 			v = null;
 		}
-		if (UIBindingsUtils.equals(v, myCurrentValue)) return;
+		if (BasicUtils.equals(v, myCurrentValue)) return;
 
 		final ValueDiff diff = Diffs.createValueDiff(myCurrentValue, v);
 

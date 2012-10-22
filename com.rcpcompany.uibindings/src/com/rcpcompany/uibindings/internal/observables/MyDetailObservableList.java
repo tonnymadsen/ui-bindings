@@ -34,7 +34,7 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 
-import com.rcpcompany.uibindings.UIBindingsUtils;
+import com.rcpcompany.uibindings.model.utils.BasicUtils;
 
 /**
  * 
@@ -308,7 +308,7 @@ public class MyDetailObservableList extends ObservableList implements IObserving
 	}
 
 	private static void warnIfDifferentRealms(Realm detailRealm, Realm innerObservableRealm) {
-		if (!UIBindingsUtils.equals(detailRealm, innerObservableRealm)) {
+		if (!BasicUtils.equals(detailRealm, innerObservableRealm)) {
 			final Throwable throwable = new Throwable();
 			throwable.fillInStackTrace();
 			final String message = "Inner observable realm (" + innerObservableRealm //$NON-NLS-1$

@@ -13,8 +13,8 @@ import org.eclipse.ui.preferences.ScopedPreferenceStore;
 import org.eclipse.ui.services.IEvaluationService;
 
 import com.rcpcompany.uibindings.Constants;
-import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.internal.Activator;
+import com.rcpcompany.uibindings.model.utils.BasicUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -76,6 +76,6 @@ public class PreferenceStorePropertyTester extends PropertyTester {
 
 		final String value = ps.getString(preferenceName);
 
-		return UIBindingsUtils.equals(value, "" + expectedValue);
+		return BasicUtils.equals(value, "" + expectedValue);
 	}
 }

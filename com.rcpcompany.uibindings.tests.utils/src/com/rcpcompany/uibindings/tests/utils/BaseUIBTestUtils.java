@@ -14,7 +14,6 @@ import static com.rcpcompany.test.utils.UITestUtils.*;
 import static org.junit.Assert.*;
 
 import java.lang.reflect.Constructor;
-import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -306,12 +305,5 @@ public class BaseUIBTestUtils {
 			assertTrue("list contains '" + v + "'", list.contains(v));
 		}
 	}
-
-	public static final Comparator<Object> OBJECT_COMPARATOR = new Comparator<Object>() {
-		@Override
-		public int compare(Object sf1, Object sf2) {
-			return System.identityHashCode(sf1) - System.identityHashCode(sf2);
-		}
-	};
 
 }

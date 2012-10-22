@@ -143,7 +143,6 @@ import com.rcpcompany.uibindings.extests.utils.ControlDecorationTest;
 import com.rcpcompany.uibindings.extests.utils.DeleteParticipantTest;
 import com.rcpcompany.uibindings.extests.utils.DoubleClickAdapterTest;
 import com.rcpcompany.uibindings.extests.utils.EcoreExtUtilsSubclassesTest;
-import com.rcpcompany.uibindings.extests.utils.EcoreExtUtilsSyncTest;
 import com.rcpcompany.uibindings.extests.utils.ExtendedCommandStackTest;
 import com.rcpcompany.uibindings.extests.utils.FeatureListMonitorTest;
 import com.rcpcompany.uibindings.extests.utils.FilterTest;
@@ -268,8 +267,8 @@ ManagerBasicFunctionalityTest.class, ManagerDecoratorProvidersTest.class, Manage
 		/*
 		 * Utilities
 		 */
-		BindingSpecTest.class, IPathMatcherTest.class, EcoreExtUtilsSyncTest.class, EcoreExtUtilsSubclassesTest.class,
-		ViewerToolBarBaseTest.class, ViewerToolBarFunctionTest.class, ViewerToolBarItemPresentTest.class,
+		BindingSpecTest.class, IPathMatcherTest.class, EcoreExtUtilsSubclassesTest.class, ViewerToolBarBaseTest.class,
+		ViewerToolBarFunctionTest.class, ViewerToolBarItemPresentTest.class,
 
 		DeleteParticipantTest.class,
 

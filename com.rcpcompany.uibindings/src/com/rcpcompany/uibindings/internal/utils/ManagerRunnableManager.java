@@ -16,7 +16,7 @@ import java.util.List;
 import org.eclipse.ui.PlatformUI;
 
 import com.rcpcompany.uibindings.IManager;
-import com.rcpcompany.uibindings.UIBindingsUtils;
+import com.rcpcompany.uibindings.model.utils.BasicUtils;
 import com.rcpcompany.uibindings.utils.IManagerRunnable;
 import com.rcpcompany.uibindings.utils.IManagerRunnableManager;
 import com.rcpcompany.utils.logging.LogUtils;
@@ -106,7 +106,7 @@ public class ManagerRunnableManager implements IManagerRunnableManager {
 	private Record findRecord(String type, Object key) {
 		if (type == null) return null;
 		for (final Record r : myRecords) {
-			if (UIBindingsUtils.equals(type, r.type) && UIBindingsUtils.equals(key, r.key)) return r;
+			if (BasicUtils.equals(type, r.type) && BasicUtils.equals(key, r.key)) return r;
 		}
 
 		return null;

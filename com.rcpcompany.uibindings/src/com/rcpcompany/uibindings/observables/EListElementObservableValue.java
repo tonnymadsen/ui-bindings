@@ -32,7 +32,7 @@ import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
 import com.rcpcompany.uibindings.IManager;
-import com.rcpcompany.uibindings.UIBindingsUtils;
+import com.rcpcompany.uibindings.model.utils.BasicUtils;
 import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 /**
@@ -147,7 +147,7 @@ public class EListElementObservableValue extends AbstractObservableValue impleme
 
 					value = list.get(myIndex);
 				} finally {
-					if (UIBindingsUtils.equals(value, myValue)) return;
+					if (BasicUtils.equals(value, myValue)) return;
 
 					fireValueChange(Diffs.createValueDiff(myValue, myValue = value));
 				}

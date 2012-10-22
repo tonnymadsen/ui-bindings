@@ -14,6 +14,7 @@ Require-Bundle: org.eclipse.core.runtime;bundle-version="3.8.0",
 Export-Package: com.rcpcompany.uibindings.tests.utils;version="1.0.0",
  com.rcpcompany.uibindings.tests.utils.views
 Import-Package: com.rcpcompany.uibindings,
+ com.rcpcompany.uibindings.model.utils,
  com.rcpcompany.uibindings.scripting;version="[2.0.0,3.0.0)",
  com.rcpcompany.uibindings.utils;version="[2.0.0,3.0.0)",
  com.rcpcompany.uibindings.validators;version="[2.0.0,3.0.0)",

@@ -36,6 +36,7 @@ import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.debug.IDebugFactory;
 import com.rcpcompany.uibindings.debug.IDebugPackage;
 import com.rcpcompany.uibindings.debug.IScriptConsoleContext;
+import com.rcpcompany.uibindings.model.utils.BasicUtils;
 import com.rcpcompany.uibindings.scripting.IScriptEngineDescriptor;
 import com.rcpcompany.uibindings.scripting.IScriptEvaluationContext;
 import com.rcpcompany.uibindings.scripting.IScriptExpression;
@@ -184,9 +185,9 @@ public class ScriptConsole extends ViewPart {
 				myData.setResult("");
 				return;
 			}
-		} else if (!UIBindingsUtils.equals(e.getScript(), myData.getScript())) {
+		} else if (!BasicUtils.equals(e.getScript(), myData.getScript())) {
 			e.setScript(myData.getScript());
-		} else if (!UIBindingsUtils.equals(e.getEvaluationContext().getVariables().get("SELECTION"), object)) {
+		} else if (!BasicUtils.equals(e.getEvaluationContext().getVariables().get("SELECTION"), object)) {
 			e.getEvaluationContext().getVariables().put("SELECTION", object);
 		}
 		// e.evaluate();

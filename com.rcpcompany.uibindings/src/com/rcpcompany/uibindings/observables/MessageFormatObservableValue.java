@@ -19,7 +19,7 @@ import org.eclipse.core.databinding.observable.value.AbstractObservableValue;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.runtime.Assert;
 
-import com.rcpcompany.uibindings.UIBindingsUtils;
+import com.rcpcompany.uibindings.model.utils.BasicUtils;
 
 /**
  * A decorating observable value that formats the decorated value with a {@link MessageFormat}.
@@ -130,7 +130,7 @@ public class MessageFormatObservableValue extends AbstractObservableValue {
 			decoratedValue = MessageFormat.format(myFormat, origValue);
 		}
 
-		if (UIBindingsUtils.equals(decoratedValue, myCurrectValue)) return;
+		if (BasicUtils.equals(decoratedValue, myCurrectValue)) return;
 
 		fireValueChange(Diffs.createValueDiff(myCurrectValue, myCurrectValue = decoratedValue));
 	}

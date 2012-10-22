@@ -31,7 +31,7 @@ import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
-import com.rcpcompany.uibindings.UIBindingsUtils;
+import com.rcpcompany.uibindings.model.utils.BasicUtils;
 
 /**
  * {@link IObservableValue Observable value} for a value from an element of an EMF {@link EList}
@@ -252,7 +252,7 @@ public class EListKeyedElementObservableValue<T extends EObject> extends Abstrac
 				if (!myElemenEClass.isSuperTypeOf(e.eClass())) {
 					continue;
 				}
-				if (UIBindingsUtils.equals(e.eGet(myKeySF), myKey)) {
+				if (BasicUtils.equals(e.eGet(myKeySF), myKey)) {
 					myIndex = i;
 					myElement = e;
 					break;
@@ -303,7 +303,7 @@ public class EListKeyedElementObservableValue<T extends EObject> extends Abstrac
 			}
 		}
 
-		if (!UIBindingsUtils.equals(myValue, myReportedValue)) {
+		if (!BasicUtils.equals(myValue, myReportedValue)) {
 			fireValueChange(Diffs.createValueDiff(myReportedValue, myReportedValue = myValue));
 		}
 	}
@@ -338,7 +338,7 @@ public class EListKeyedElementObservableValue<T extends EObject> extends Abstrac
 
 	@Override
 	protected void doSetValue(final Object value) {
-		if (UIBindingsUtils.equals(value, myValue)) return;
+		if (BasicUtils.equals(value, myValue)) return;
 		if (myList == null) throw new IndexOutOfBoundsException("No list in source");
 		final Command command;
 		/*

@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EcorePackage;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingContextFinalizer;
 import com.rcpcompany.uibindings.IValueBinding;
-import com.rcpcompany.uibindings.UIBindingsUtils;
+import com.rcpcompany.uibindings.model.utils.BasicUtils;
 import com.rcpcompany.uibindings.utils.IBindingEnabler;
 
 /**
@@ -103,7 +103,7 @@ public class BindingEnabler implements IBindingEnabler, IBindingContextFinalizer
 		final Object currentValue = mySourceOV.getValue();
 		boolean enabled = false;
 		for (final Object v : myValues) {
-			if (UIBindingsUtils.equals(currentValue, v)) {
+			if (BasicUtils.equals(currentValue, v)) {
 				enabled = true;
 				break;
 			}

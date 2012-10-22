@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.junit.Test;
 
-import com.rcpcompany.uibindings.EcoreExtUtils;
-import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
+import com.rcpcompany.uibindings.model.utils.BasicUtils;
+import com.rcpcompany.uibindings.model.utils.EcoreExtendedUtils;
 
 /**
  * Tests {@link EcoreExtUtils#getSubClasses(EClass)}.
@@ -36,15 +36,15 @@ public class EcoreExtUtilsSubclassesTest {
 	}
 
 	public void testOneResult(EClass sc, EClass... expectedSubClasses) {
-		final Collection<EClass> subClasses = EcoreExtUtils.getSubClasses(sc);
+		final Collection<EClass> subClasses = EcoreExtendedUtils.getSubClasses(sc);
 		// LogUtils.debug(this, sc.getName() + ": " + subClasses);
 		if (expectedSubClasses.length == 0) {
 			assertEquals(null, subClasses);
 			return;
 		}
 		final EClass[] foundSubClasses = subClasses.toArray(new EClass[subClasses.size()]);
-		Arrays.sort(expectedSubClasses, BaseUIBTestUtils.OBJECT_COMPARATOR);
-		Arrays.sort(foundSubClasses, BaseUIBTestUtils.OBJECT_COMPARATOR);
+		Arrays.sort(expectedSubClasses, BasicUtils.OBJECT_COMPARATOR);
+		Arrays.sort(foundSubClasses, BasicUtils.OBJECT_COMPARATOR);
 
 		assertArrayEquals(expectedSubClasses, foundSubClasses);
 	}

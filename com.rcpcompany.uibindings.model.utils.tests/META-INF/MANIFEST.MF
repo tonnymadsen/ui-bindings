@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tests for com.rcpcompany.uibindings.model.utils
+Bundle-SymbolicName: com.rcpcompany.uibindings.model.utils.tests
+Bundle-Version: 1.2.0.qualifier
+Bundle-Vendor: The RCP Company
+Require-Bundle: org.eclipse.core.runtime,
+ com.rcpcompany.test.utils;bundle-version="[1.0.1,2.0.0)",
+ com.rcpcompany.uibindings.model.utils;bundle-version="[1.2.0,2.0.0)",
+ com.rcpcompany.uibindings.tests.model;bundle-version="[1.6.0,2.0.0)"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.emf.edit.command,
+ org.eclipse.emf.edit.domain

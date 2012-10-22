@@ -8,7 +8,7 @@ import org.eclipse.jface.text.DocumentEvent;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.IDocumentListener;
 
-import com.rcpcompany.uibindings.UIBindingsUtils;
+import com.rcpcompany.uibindings.model.utils.BasicUtils;
 
 /**
  * {@link IObservableValue} for {@link IDocument}.
@@ -77,7 +77,7 @@ public class DocumentObservableValue extends AbstractObservableValue {
 		} else {
 			s = value.toString();
 		}
-		if (UIBindingsUtils.equals(s, doGetValue()))
+		if (BasicUtils.equals(s, doGetValue()))
 			return;
 		myDocument.set(s);
 	}

@@ -31,7 +31,7 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 import org.eclipse.ui.part.ViewPart;
 
 import com.rcpcompany.uibindings.IManager;
-import com.rcpcompany.uibindings.UIBindingsUtils;
+import com.rcpcompany.uibindings.model.utils.BasicUtils;
 import com.rcpcompany.uibindings.navigator.IEditorPart;
 import com.rcpcompany.uibindings.navigator.IEditorPartContext;
 import com.rcpcompany.uibindings.navigator.IEditorPartDescriptor;
@@ -187,7 +187,7 @@ public class BaseEditorView extends ViewPart implements ISetSelectionTarget, IGe
 		 * route and first dispose and then re-create the editor part.
 		 */
 		if (desc == myCurrentDescriptor
-				&& ((myCurrentEditorPart != null && myCurrentEditorPart.canAcceptObjectChanges()) || (myCurrentValue != null && UIBindingsUtils
+				&& ((myCurrentEditorPart != null && myCurrentEditorPart.canAcceptObjectChanges()) || (myCurrentValue != null && BasicUtils
 						.equals(obj, myCurrentValue.getValue())))) {
 			/*
 			 * The editor part itself did not change... just update the observable value.

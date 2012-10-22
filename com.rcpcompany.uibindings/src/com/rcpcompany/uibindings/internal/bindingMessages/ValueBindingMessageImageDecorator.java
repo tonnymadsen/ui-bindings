@@ -47,7 +47,6 @@ import com.rcpcompany.uibindings.IUIBindingDecoratorExtender;
 import com.rcpcompany.uibindings.IUIBindingDecoratorExtenderContext;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
-import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.decorators.extenders.AbstractUIBindingDecoratorExtender;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.Messages;
@@ -56,6 +55,7 @@ import com.rcpcompany.uibindings.internal.observables.DelayedChangeEvent;
 import com.rcpcompany.uibindings.internal.observables.IDelayedChangeListener;
 import com.rcpcompany.uibindings.internal.observables.IDelayedChangeObservable;
 import com.rcpcompany.uibindings.internal.observables.TextObservableValue;
+import com.rcpcompany.uibindings.model.utils.BasicUtils;
 import com.rcpcompany.uibindings.observables.IKeyedObservable;
 import com.rcpcompany.uibindings.utils.IManagerRunnable;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
@@ -611,10 +611,10 @@ public class ValueBindingMessageImageDecorator extends AdapterImpl implements ID
 		/*
 		 * If everything is the same, then do nothing
 		 */
-		if (UIBindingsUtils.equals(oldMessageDecorationImage, myMessageDecorationImage)
-				&& UIBindingsUtils.equals(oldMessageDecorationMessage, myMessageDecorationMessage)
-				&& UIBindingsUtils.equals(oldAlternativeDecorationImage, myAlternativeDecorationImage)
-				&& UIBindingsUtils.equals(oldAlternativeDecorationMessage, myAlternativeDecorationMessage)) return;
+		if (BasicUtils.equals(oldMessageDecorationImage, myMessageDecorationImage)
+				&& BasicUtils.equals(oldMessageDecorationMessage, myMessageDecorationMessage)
+				&& BasicUtils.equals(oldAlternativeDecorationImage, myAlternativeDecorationImage)
+				&& BasicUtils.equals(oldAlternativeDecorationMessage, myAlternativeDecorationMessage)) return;
 
 		/*
 		 * Update the binding

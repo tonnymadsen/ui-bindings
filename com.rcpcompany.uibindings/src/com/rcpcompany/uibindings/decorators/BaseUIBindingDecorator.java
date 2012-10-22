@@ -73,6 +73,7 @@ import com.rcpcompany.uibindings.internal.observables.DelayedChangeEvent;
 import com.rcpcompany.uibindings.internal.observables.IDelayedChangeListener;
 import com.rcpcompany.uibindings.internal.observables.IDelayedChangeObservable;
 import com.rcpcompany.uibindings.internal.utils.MyEMFUpdateValueStrategy;
+import com.rcpcompany.uibindings.model.utils.BasicUtils;
 import com.rcpcompany.uibindings.observables.MessageFormatObservableValue;
 import com.rcpcompany.uibindings.utils.CoreRuntimeException;
 import com.rcpcompany.uibindings.utils.IManagerRunnable;
@@ -395,7 +396,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 			myValueChangeListener = new IValueChangeListener() {
 				@Override
 				public void handleValueChange(ValueChangeEvent event) {
-					if (UIBindingsUtils.equals(event.diff.getOldValue(), event.diff.getNewValue())) return;
+					if (BasicUtils.equals(event.diff.getOldValue(), event.diff.getNewValue())) return;
 					if (uiToDecoratedDB != null) {
 						uiToDecoratedDB.updateTargetToModel();
 					}
@@ -1111,7 +1112,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		private IValueChangeListener targetChangeListener = new IValueChangeListener() {
 			@Override
 			public void handleValueChange(ValueChangeEvent event) {
-				if (!updatingTarget && !UIBindingsUtils.equals(event.diff.getOldValue(), event.diff.getNewValue())) {
+				if (!updatingTarget && !BasicUtils.equals(event.diff.getOldValue(), event.diff.getNewValue())) {
 					doUpdate(target, model, targetToModel, false, false);
 				}
 			}
@@ -1119,7 +1120,7 @@ public class BaseUIBindingDecorator extends UIBindingDecoratorImpl {
 		private IValueChangeListener modelChangeListener = new IValueChangeListener() {
 			@Override
 			public void handleValueChange(ValueChangeEvent event) {
-				if (!updatingModel && !UIBindingsUtils.equals(event.diff.getOldValue(), event.diff.getNewValue())) {
+				if (!updatingModel && !BasicUtils.equals(event.diff.getOldValue(), event.diff.getNewValue())) {
 					doUpdate(model, target, modelToTarget, false, false);
 				}
 			}

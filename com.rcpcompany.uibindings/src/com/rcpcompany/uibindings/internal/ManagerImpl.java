@@ -125,6 +125,7 @@ import com.rcpcompany.uibindings.UIBindingsUtils;
 import com.rcpcompany.uibindings.initializers.DefaultEObjectInitializer;
 import com.rcpcompany.uibindings.internal.formatters.DefaultFormatterProvider;
 import com.rcpcompany.uibindings.internal.observableFactories.DefaultEMFObservableFactory;
+import com.rcpcompany.uibindings.model.utils.BasicUtils;
 import com.rcpcompany.uibindings.participants.IAssignmentParticipant;
 import com.rcpcompany.uibindings.participants.IAssignmentParticipantContext;
 import com.rcpcompany.uibindings.participants.IDeleteParticipant;
@@ -260,9 +261,9 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			if (getClass() != obj.getClass()) return false;
 			final BindingProviderKey other = (BindingProviderKey) obj;
 			if (modelKind != other.modelKind) return false;
-			if (!UIBindingsUtils.equals(modelType, other.modelType)) return false;
-			if (!UIBindingsUtils.equals(type, other.type)) return false;
-			if (!UIBindingsUtils.equals(uiType, other.uiType)) return false;
+			if (!BasicUtils.equals(modelType, other.modelType)) return false;
+			if (!BasicUtils.equals(type, other.type)) return false;
+			if (!BasicUtils.equals(uiType, other.uiType)) return false;
 			return true;
 		}
 	}

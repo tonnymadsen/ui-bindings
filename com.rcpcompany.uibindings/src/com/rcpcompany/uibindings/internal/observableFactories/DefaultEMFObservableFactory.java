@@ -21,7 +21,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 
 import com.rcpcompany.uibindings.AbstractEMFObservableFactory;
 import com.rcpcompany.uibindings.IEMFObservableFactory;
-import com.rcpcompany.uibindings.UIBindingsUtils;
+import com.rcpcompany.uibindings.model.utils.BasicUtils;
 import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 
 /**
@@ -71,7 +71,7 @@ public class DefaultEMFObservableFactory extends AbstractEMFObservableFactory im
 
 		@Override
 		protected void doSetValue(Object value) {
-			if (UIBindingsUtils.equals(eObject.eGet(eStructuralFeature), value)) return;
+			if (BasicUtils.equals(eObject.eGet(eStructuralFeature), value)) return;
 			super.doSetValue(value);
 		}
 	}
