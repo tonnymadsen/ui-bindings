@@ -1270,6 +1270,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 				this.getShopItem(),
 				this.getShopItem_Shop(),
 				"shopItems", null, 0, -1, Shop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		getShop_ShopItems().getEKeys().add(theMOAOPackage.getNamedObject_Name());
 		initEReference(
 				getShop_Orders(),
 				this.getOrder(),
@@ -1658,7 +1659,8 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 				"modelName", "Shop", //$NON-NLS-1$ //$NON-NLS-2$
 				"codeFormatting", "true", //$NON-NLS-1$ //$NON-NLS-2$
 				"redirection", "", //$NON-NLS-1$ //$NON-NLS-2$
-				"updateClasspath", "false" //$NON-NLS-1$ //$NON-NLS-2$
+				"updateClasspath", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"containmentProxies", "false" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 		addAnnotation(getOrder_No(), source, new String[] { "suppressedSetVisibility", "true" //$NON-NLS-1$ //$NON-NLS-2$
 		});

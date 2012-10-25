@@ -14,13 +14,14 @@
       <package
             uri="http://rcp-company.com/schemas/uibindings/testModel"
             class="com.rcpcompany.uibinding.tests.model.TestModelPackage"
-            genModel="model/EX.genmodel"/>
+            genModel="model/EX.xcore"/>
+      <!-- @generated shop -->
       <package
+            uri="http://rcp-company.com/schemas/uibindings/shop.ecore"
             class="com.rcpcompany.uibindings.tests.shop.ShopPackage"
-            genModel="model/Shop.genmodel"
-            uri="http://rcp-company.com/schemas/uibindings/shop.ecore">
-      </package>
+            genModel="model/shop.xcore"/>
    </extension>
+
    <extension
          point="com.rcpcompany.uibindings.uiBindings">
       <bindingDecorator
@@ -62,5 +63,4 @@
          </feature>
       </model>
    </extension>
-
 </plugin>
