@@ -77,4 +77,11 @@ public interface IMOAOFactory extends EFactory {
 	 */
 	IMOAOPackage getMOAOPackage();
 
+	/**
+	 * Returns a new '<em>Message</em>'.
+	 * 
+	 * @return a new object of class '<em>Message</em>'.
+	 */
+	IMOAOMessage createMOAOMessage(IMOAO moao, EStructuralFeature feature, String owner, Severity severity,
+			String description, String details);
 } // IMOAOFactory

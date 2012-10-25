@@ -58,16 +58,6 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 	@Override
 	public IMOAO getObject() {
 		if (eContainerFeatureID() != IMOAOPackage.MOAO_FACET__OBJECT) return null;
-		return (IMOAO) eContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IMOAO basicGetObject() {
-		if (eContainerFeatureID() != IMOAOPackage.MOAO_FACET__OBJECT) return null;
 		return (IMOAO) eInternalContainer();
 	}
 
@@ -148,8 +138,7 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case IMOAOPackage.MOAO_FACET__OBJECT:
-			if (resolve) return getObject();
-			return basicGetObject();
+			return getObject();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -190,7 +179,7 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case IMOAOPackage.MOAO_FACET__OBJECT:
-			return basicGetObject() != null;
+			return getObject() != null;
 		}
 		return super.eIsSet(featureID);
 	}

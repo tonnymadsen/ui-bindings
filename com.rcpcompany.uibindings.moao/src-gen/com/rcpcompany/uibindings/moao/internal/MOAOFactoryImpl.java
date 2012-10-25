@@ -233,6 +233,23 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 		message.setOwner(owner);
 		message.setSeverity(severity);
 		message.setDescription(description);
+
+		message.setObject(moao);
+
+		return message;
+	}
+
+	@Override
+	public IMOAOMessage createMOAOMessage(IMOAO moao, EStructuralFeature feature, String owner, Severity severity,
+			String description, String details) {
+		final IMOAOMessage message = createMOAOMessage();
+
+		message.setFeature(feature);
+		message.setOwner(owner);
+		message.setSeverity(severity);
+		message.setDescription(description);
+		message.setDetails(details);
+
 		message.setObject(moao);
 
 		return message;
