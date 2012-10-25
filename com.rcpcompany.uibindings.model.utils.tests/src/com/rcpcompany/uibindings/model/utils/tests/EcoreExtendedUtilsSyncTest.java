@@ -19,9 +19,12 @@ import java.util.List;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EContentAdapter;
+import org.junit.Before;
 import org.junit.Test;
 
 import com.rcpcompany.test.utils.EMFTestUtils;
@@ -43,6 +46,19 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  * 
  */
 public class EcoreExtendedUtilsSyncTest {
+	/**
+	 * Check a few constraints on the model is correct
+	 */
+	@Before
+	public void modelRequirements() {
+		final EReference ref = ShopPackage.Literals.SHOP__SHOP_ITEMS;
+		assertNotNull(ref);
+		final List<EAttribute> keys = ref.getEKeys();
+		assertNotNull(keys);
+		assertEquals(1, keys.size());
+		assertEquals("name", keys.get(0).getName());
+	}
+
 	/**
 	 * Test sync of a single attribute
 	 */
@@ -402,9 +418,8 @@ public class EcoreExtendedUtilsSyncTest {
 			final EStructuralFeature sf = (EStructuralFeature) msg.getFeature();
 			if (sf == null)
 				return;
-			// LogUtils.debug(this, ">>> " + sf.getContainerClass().getName() +
-			// "." + sf.getName() +
-			// ": " + msg);
+			// LogUtils.debug(this, ">>> " + sf.getContainerClass().getName()
+			// + "." + sf.getName() + ": " + TSEMFUtils.toString(msg));
 			myChanges.add(sf);
 		}
 	};
