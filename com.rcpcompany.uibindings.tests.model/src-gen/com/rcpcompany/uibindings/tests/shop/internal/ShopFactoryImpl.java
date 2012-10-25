@@ -2,7 +2,6 @@
  */
 package com.rcpcompany.uibindings.tests.shop.internal;
 
-import com.rcpcompany.uibindings.tests.shop.*;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.Date;

@@ -934,7 +934,8 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 				"modelName", "TestModel", //$NON-NLS-1$ //$NON-NLS-2$
 				"codeFormatting", "true", //$NON-NLS-1$ //$NON-NLS-2$
 				"redirection", "", //$NON-NLS-1$ //$NON-NLS-2$
-				"updateClasspath", "false" //$NON-NLS-1$ //$NON-NLS-2$
+				"updateClasspath", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"containmentProxies", "false" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 	}
 

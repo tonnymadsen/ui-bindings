@@ -3,7 +3,7 @@
 		classNamePattern="{0}Impl", interfaceNamePattern="I{0}", suppressEMFModelTags="true",
 		fileExtensions="moao", suppressGenModelAnnotations="false", language="",
 		prefix="MOAO", modelName="MOAO", codeFormatting="true", redirection="",
-		updateClasspath="false")
+		updateClasspath="false", containmentProxies="false")
 package com.rcpcompany.uibindings.moao 
 
 import com.rcpcompany.uibindings.moao.IMOAOPackage$Literals

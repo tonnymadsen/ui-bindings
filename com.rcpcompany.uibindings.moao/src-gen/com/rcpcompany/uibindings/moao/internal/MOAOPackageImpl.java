@@ -500,7 +500,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 				getMOAOFacet_Object(),
 				this.getMOAO(),
 				this.getMOAO_Facets(),
-				"object", null, 0, 1, IMOAOFacet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"object", null, 0, 1, IMOAOFacet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(namedObjectEClass, INamedObject.class,
 				"NamedObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -583,7 +583,8 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 				"modelName", "MOAO", //$NON-NLS-1$ //$NON-NLS-2$
 				"codeFormatting", "true", //$NON-NLS-1$ //$NON-NLS-2$
 				"redirection", "", //$NON-NLS-1$ //$NON-NLS-2$
-				"updateClasspath", "false" //$NON-NLS-1$ //$NON-NLS-2$
+				"updateClasspath", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"containmentProxies", "false" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 		addAnnotation(iAdaptableEClass, source, new String[] {
 				"documentation", "*\n<p>\nIAdapable is used as an interface for MOAO." //$NON-NLS-1$ //$NON-NLS-2$

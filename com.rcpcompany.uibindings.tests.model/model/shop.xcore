@@ -3,7 +3,7 @@
 		classNamePattern="{0}Impl", interfaceNamePattern="{0}", suppressEMFModelTags="true",
 		fileExtensions="shop", suppressGenModelAnnotations="false", language="",
 		prefix="Shop", modelName="Shop", codeFormatting="true", redirection="",
-		updateClasspath="false")
+		updateClasspath="false", containmentProxies="false")
 
 package com.rcpcompany.uibindings.tests.shop
 

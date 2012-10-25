@@ -2,7 +2,6 @@
  */
 package com.rcpcompany.uibinding.tests.model.internal;
 
-import com.rcpcompany.uibinding.tests.model.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
