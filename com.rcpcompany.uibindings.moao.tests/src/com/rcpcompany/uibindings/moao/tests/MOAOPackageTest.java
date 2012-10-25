@@ -1,4 +1,4 @@
-package com.agetor.wb.server.model;
+package com.rcpcompany.uibindings.moao.tests;
 
 import static org.junit.Assert.*;
 
