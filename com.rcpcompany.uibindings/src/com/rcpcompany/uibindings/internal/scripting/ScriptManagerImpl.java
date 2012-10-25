@@ -45,7 +45,7 @@ import com.rcpcompany.uibindings.scripting.IScriptExpression;
 import com.rcpcompany.uibindings.scripting.IScriptManager;
 import com.rcpcompany.uibindings.scripting.ScriptEngineException;
 import com.rcpcompany.uibindings.utils.IManagerRunnable;
-import com.rcpcompany.utils.basic.ToStringUtils;
+import com.rcpcompany.utils.basic.TSEMFUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -491,7 +491,7 @@ public class ScriptManagerImpl extends EObjectImpl implements IScriptManager {
 
 			if (d.getKey() != null) {
 				// TODO
-				LogUtils.debug(this, "key=" + d.getKey() + "\nmsg=" + ToStringUtils.toString(msg));
+				LogUtils.debug(this, "key=" + d.getKey() + "\nmsg=" + TSEMFUtils.toString(msg));
 			}
 
 			/*

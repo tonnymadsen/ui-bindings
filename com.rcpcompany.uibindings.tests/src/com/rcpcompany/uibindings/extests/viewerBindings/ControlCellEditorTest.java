@@ -35,7 +35,7 @@ import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.utils.ITableCreator;
-import com.rcpcompany.utils.basic.ToStringUtils;
+import com.rcpcompany.utils.basic.TSEMFUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -158,7 +158,7 @@ public class ControlCellEditorTest {
 			public void notifyChanged(Notification msg) {
 				super.notifyChanged(msg);
 				if (msg.isTouch()) return;
-				LogUtils.debug(this, ToStringUtils.toString(msg));
+				LogUtils.debug(this, TSEMFUtils.toString(msg));
 			}
 		});
 
