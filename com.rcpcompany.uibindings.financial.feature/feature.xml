@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.rcpcompany.uibindings.financial.feature"
-      label="UI-Bindngs Financial Support"
+      label="UI-Bindings Financial Support"
       version="1.0.0.qualifier"
       provider-name="The RCP Company">
 
