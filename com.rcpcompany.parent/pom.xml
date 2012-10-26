@@ -33,6 +33,9 @@
 		<module>../com.rcpcompany.test.utils</module>
 
 		<module>../com.rcpcompany.utils.ui</module>
+		<module>../com.rcpcompany.utils.ui.rap</module>
+		<module>../com.rcpcompany.utils.ui.rcp</module>
+		
 		<module>../com.rcpcompany.utils.basic</module>
 		<module>../com.rcpcompany.utils.basic.tests</module>
 		<module>../com.rcpcompany.utils.databinding</module>
