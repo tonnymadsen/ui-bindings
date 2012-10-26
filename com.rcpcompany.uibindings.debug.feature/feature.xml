@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.rcpcompany.uibindings.debug.feature"
+      label="UI-Bindings Debug Support"
+      version="1.0.0.qualifier"
+      provider-name="The RCP Company">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <url>
+      <update label="The RCP Company" url="http://tonnymadsen.github.com/ui-bindings/updates/release"/>
+   </url>
+
+   <requires>
+      <import feature="com.rcpcompany.uibindings.feature" version="1.0.0.qualifier"/>
+   </requires>
+
+   <plugin
+         id="com.rcpcompany.uibindings.debug"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

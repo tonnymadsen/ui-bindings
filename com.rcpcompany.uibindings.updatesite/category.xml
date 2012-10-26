@@ -12,6 +12,30 @@
    <feature url="features/com.rcpcompany.uibindings.source.feature_1.0.0.qualifier.jar" id="com.rcpcompany.uibindings.source.feature" version="1.0.0.qualifier">
       <category name="com.rcpcompany.uibindings.category"/>
    </feature>
+   <feature url="features/com.rcpcompany.uibindings.grid.feature_1.0.0.qualifier.jar" id="com.rcpcompany.uibindings.grid.feature" version="1.0.0.qualifier">
+      <category name="com.rcpcompany.uibindings.addon.category"/>
+   </feature>
+   <feature url="features/com.rcpcompany.uibindings.grid.source.feature_1.0.0.qualifier.jar" id="com.rcpcompany.uibindings.grid.source.feature" version="1.0.0.qualifier">
+      <category name="com.rcpcompany.uibindings.addon.category"/>
+   </feature>
+   <feature url="features/com.rcpcompany.uibindings.debug.feature_1.0.0.qualifier.jar" id="com.rcpcompany.uibindings.debug.feature" version="1.0.0.qualifier">
+      <category name="com.rcpcompany.uibindings.addon.category"/>
+   </feature>
+   <feature url="features/com.rcpcompany.uibindings.debug.source.feature_1.0.0.qualifier.jar" id="com.rcpcompany.uibindings.debug.source.feature" version="1.0.0.qualifier">
+      <category name="com.rcpcompany.uibindings.addon.category"/>
+   </feature>
+   <feature url="features/com.rcpcompany.uibindings.financial.feature_1.0.0.qualifier.jar" id="com.rcpcompany.uibindings.financial.feature" version="1.0.0.qualifier">
+      <category name="com.rcpcompany.uibindings.addon.category"/>
+   </feature>
+   <feature url="features/com.rcpcompany.uibindings.financial.source.feature_1.0.0.qualifier.jar" id="com.rcpcompany.uibindings.financial.source.feature" version="1.0.0.qualifier">
+      <category name="com.rcpcompany.uibindings.addon.category"/>
+   </feature>
+   <feature url="features/com.rcpcompany.uibindings.navigator.feature_1.0.0.qualifier.jar" id="com.rcpcompany.uibindings.navigator.feature" version="1.0.0.qualifier">
+      <category name="com.rcpcompany.uibindings.addon.category"/>
+   </feature>
+   <feature url="features/com.rcpcompany.uibindings.navigator.source.feature_1.0.0.qualifier.jar" id="com.rcpcompany.uibindings.navigator.source.feature" version="1.0.0.qualifier">
+      <category name="com.rcpcompany.uibindings.addon.category"/>
+   </feature>
    <category-def name="com.rcpcompany.utils.category" label="The RCP Company Utils Features">
       <description>
          Various utility plug-ins used within The RCP Company.
@@ -20,6 +44,11 @@
    <category-def name="com.rcpcompany.uibindings.category" label="UI Bindings Features">
       <description>
          All plug-ins used for UI-Bindings
+      </description>
+   </category-def>
+   <category-def name="com.rcpcompany.uibindings.addon.category" label="UI Bindings Extensions">
+      <description>
+         Various extesnsions to UI Bindings
       </description>
    </category-def>
 </site>
