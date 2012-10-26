@@ -39,6 +39,11 @@
 									<type>target</type>
 									<classifier>uibindings-4.2</classifier>
 								</artifact>
+								<artifact>
+									<file>uibindings-3.8-rap.target</file>
+									<type>target</type>
+									<classifier>uibindings-3.8-rap</classifier>
+								</artifact>
 							</artifacts>
 						</configuration>
 					</execution>

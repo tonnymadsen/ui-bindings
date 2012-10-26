@@ -32,6 +32,7 @@
 
 		<module>../com.rcpcompany.test.utils</module>
 
+		<module>../com.rcpcompany.utils.ui</module>
 		<module>../com.rcpcompany.utils.basic</module>
 		<module>../com.rcpcompany.utils.basic.tests</module>
 		<module>../com.rcpcompany.utils.databinding</module>
@@ -86,10 +87,6 @@
 		<pluginRepository>
 			<id>tycho-snapshots</id>
 			<url>https://oss.sonatype.org/content/groups/public/</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>tycho-0.16.0-staged</id>
-			<url>https://oss.sonatype.org/content/repositories/orgeclipsetycho-207/</url>
 		</pluginRepository>
 	</pluginRepositories>
 
