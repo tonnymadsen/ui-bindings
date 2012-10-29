@@ -2,7 +2,7 @@
 <?metadataRepository version='1.1.0'?>
 <repository name='' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'>
   <properties size='1'>
-    <property name='p2.timestamp' value='1351543070053'/>
+    <property name='p2.timestamp' value='1351552613777'/>
   </properties>
   <units size='71'>
     <unit id='com.rcpcompany.utils.jface' version='1.2.0.201210291351' singleton='false'>
@@ -277,7 +277,7 @@
       <requires size='3'>
         <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.0.0,4.0.0)'/>
         <required namespace='osgi.bundle' name='com.rcpcompany.utils.logging' range='[1.1.0,2.0.0)'/>
-        <required namespace='osgi.bundle' name='com.rcpcompany.utils.ui' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='osgi.bundle' name='com.rcpcompany.utils.ui' range='[3.6.0,4.0.0)'/>
       </requires>
       <artifacts size='1'>
         <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.extensionpoints' version='1.2.0.201210291351'/>
@@ -1625,7 +1625,7 @@
         <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='[3.4.0,4.0.0)' optional='true' greedy='false'/>
         <required namespace='osgi.bundle' name='org.eclipse.emf.common' range='[2.6.0,3.0.0)'/>
         <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='[2.6.0,3.0.0)'/>
-        <required namespace='osgi.bundle' name='com.rcpcompany.utils.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='com.rcpcompany.utils.ui' range='[3.6.0,4.0.0)'/>
         <required namespace='java.package' name='com.rcpcompany.utils.basic' range='[1.6.0,2.0.0)'/>
         <required namespace='java.package' name='com.rcpcompany.utils.basic.ui' range='[1.6.0,2.0.0)'/>
         <required namespace='java.package' name='com.rcpcompany.utils.logging' range='[1.5.0,2.0.0)'/>
