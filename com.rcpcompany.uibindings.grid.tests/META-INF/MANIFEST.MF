@@ -20,5 +20,5 @@ Import-Package: com.rcpcompany.uibinding.tests.model,
  org.eclipse.emf.ecore.resource,
  org.eclipse.emf.ecore.resource.impl,
  org.eclipse.emf.edit.domain
-Require-Bundle: org.eclipse.ui,
+Require-Bundle: com.rcpcompany.utils.ui,
  com.rcpcompany.uibindings.tests.utils;bundle-version="1.0.0"

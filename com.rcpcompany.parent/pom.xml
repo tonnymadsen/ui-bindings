@@ -13,6 +13,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<tycho.version>0.16.0</tycho.version>
 		<tycho-extras.version>0.16.0</tycho-extras.version>
+		
+		<!-- The target platform. Must be one of the target platforms defined
+		in com.rcpcompany.target. -->
 		<eclipse.platform.version>3.8</eclipse.platform.version>
 
 		<!-- OS Specific Flags for Java - see profiles below -->
@@ -33,9 +36,9 @@
 		<module>../com.rcpcompany.test.utils</module>
 
 		<module>../com.rcpcompany.utils.ui</module>
-		<module>../com.rcpcompany.utils.ui.rap</module>
+		<!-- <module>../com.rcpcompany.utils.ui.rap</module> -->
 		<module>../com.rcpcompany.utils.ui.rcp</module>
-		
+
 		<module>../com.rcpcompany.utils.basic</module>
 		<module>../com.rcpcompany.utils.basic.tests</module>
 		<module>../com.rcpcompany.utils.databinding</module>
@@ -136,6 +139,9 @@
 				<artifactId>target-platform-configuration</artifactId>
 				<version>${tycho.version}</version>
 				<configuration>
+					<dependency-resolution>
+						<!-- <optionalDependencies>ignore</optionalDependencies> -->
+					</dependency-resolution>
 					<resolver>p2</resolver>
 					<ignoreTychoRepositories>true</ignoreTychoRepositories>
 					<target>

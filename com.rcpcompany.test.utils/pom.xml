@@ -13,4 +13,8 @@
 		<version>1-SNAPSHOT</version>
 		<relativePath>../com.rcpcompany.parent</relativePath>
 	</parent>
+
+	<properties>
+		<maven.compiler.verbose>true</maven.compiler.verbose>
+	</properties>
 </project>

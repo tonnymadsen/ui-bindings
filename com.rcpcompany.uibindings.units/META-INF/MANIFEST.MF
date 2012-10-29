@@ -5,7 +5,7 @@ Bundle-SymbolicName: com.rcpcompany.uibindings.units
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.rcpcompany.uibindings.units.internals.Activator
 Bundle-Vendor: The RCP Company
-Require-Bundle: org.eclipse.ui,
+Require-Bundle: com.rcpcompany.utils.ui,
  org.eclipse.core.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy

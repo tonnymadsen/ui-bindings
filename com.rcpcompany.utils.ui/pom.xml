@@ -13,4 +13,21 @@
 		<version>1-SNAPSHOT</version>
 		<relativePath>../com.rcpcompany.parent</relativePath>
 	</parent>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>target-platform-configuration</artifactId>
+					<version>${tycho.version}</version>
+					<configuration>
+						<dependency-resolution>
+							<!-- <optionalDependencies>ignore</optionalDependencies> -->
+						</dependency-resolution>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 </project>

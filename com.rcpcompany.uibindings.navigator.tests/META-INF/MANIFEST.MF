@@ -20,9 +20,7 @@ Import-Package: com.rcpcompany.uibindings,
  org.eclipse.emf.ecore,
  org.eclipse.jface.action,
  org.eclipse.jface.preference,
- org.eclipse.jface.viewers,
- org.eclipse.swt,
- org.eclipse.swt.widgets
+ org.eclipse.jface.viewers
 Export-Package: com.rcpcompany.uibindings.navigator.extests,
  com.rcpcompany.uibindings.navigator.extests.editors,
  com.rcpcompany.uibindings.navigator.extests.manager,

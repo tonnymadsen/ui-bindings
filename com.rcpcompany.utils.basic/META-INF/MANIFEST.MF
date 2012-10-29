@@ -8,9 +8,6 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: com.rcpcompany.utils.basic;version="1.5.0"
 Import-Package: org.eclipse.core.runtime;version="3.4.0",
  org.eclipse.emf.common.notify,
- org.eclipse.emf.ecore,
- org.eclipse.swt;resolution:=optional,
- org.eclipse.swt.events;resolution:=optional,
- org.eclipse.swt.graphics;resolution:=optional,
- org.eclipse.swt.widgets;resolution:=optional
+ org.eclipse.emf.ecore
 Bundle-ActivationPolicy: lazy
+Require-Bundle: com.rcpcompany.utils.ui;bundle-version="[3.6.0,4.0.0)"

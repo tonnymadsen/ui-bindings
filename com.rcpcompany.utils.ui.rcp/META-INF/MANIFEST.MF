@@ -2,7 +2,8 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: RCP Frament for com.rcpcompany.utils.ui
 Bundle-SymbolicName: com.rcpcompany.utils.ui.rcp
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 3.6.0.qualifier
 Bundle-Vendor: The RCP Company
-Fragment-Host: com.rcpcompany.utils.ui;bundle-version="[1.0.0,2.0.0)"
+Fragment-Host: com.rcpcompany.utils.ui;bundle-version="[3.6,4)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Eclipse-PlatformFilter: (!(osgi.ws=rap))
