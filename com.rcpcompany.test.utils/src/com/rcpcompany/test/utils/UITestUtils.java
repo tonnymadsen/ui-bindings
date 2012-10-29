@@ -41,7 +41,7 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.services.IServiceLocator;
 
-import com.rcpcompany.utils.basic.ToStringUtils;
+import com.rcpcompany.utils.basic.ui.TSSWTUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -286,6 +286,7 @@ public class UITestUtils {
 			assertTrue(c.getDisplay().post(event));
 		}
 	}
+
 	/**
 	 * Posts the specified keystroke to the specified control which will get
 	 * focus.
@@ -304,7 +305,7 @@ public class UITestUtils {
 			final Class<? extends IHandler> handlerClass) {
 		final ICommandService cs = (ICommandService) locator
 				.getService(ICommandService.class);
-		final boolean[] executed = new boolean[]{false};
+		final boolean[] executed = new boolean[] { false };
 		final IExecutionListener listener = new IExecutionListener() {
 			@Override
 			public void preExecute(String commandId, ExecutionEvent event) {
@@ -635,7 +636,7 @@ public class UITestUtils {
 	public final static Listener SWT_EVENT_LISTENER = new Listener() {
 		@Override
 		public void handleEvent(Event event) {
-			LogUtils.debug(this, ToStringUtils.toString(event));
+			LogUtils.debug(this, TSSWTUtils.toString(event));
 		}
 	};
 

@@ -10,18 +10,6 @@
 
 <plugin>
 
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <package
-            uri="http://rcp-company.com/schemas/uibindings/testModel"
-            class="com.rcpcompany.uibinding.tests.model.TestModelPackage"
-            genModel="model/EX.xcore"/>
-      <!-- @generated shop -->
-      <package
-            uri="http://rcp-company.com/schemas/uibindings/shop.ecore"
-            class="com.rcpcompany.uibindings.tests.shop.ShopPackage"
-            genModel="model/shop.xcore"/>
-   </extension>
-
    <extension
          point="com.rcpcompany.uibindings.uiBindings">
       <bindingDecorator
@@ -63,4 +51,20 @@
          </feature>
       </model>
    </extension>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated shop -->
+      <package
+            uri="http://rcp-company.com/schemas/uibindings/shop.ecore"
+            class="com.rcpcompany.uibindings.tests.shop.ShopPackage"
+            genModel="model/shop.xcore"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated EX -->
+      <package
+            uri="http://rcp-company.com/schemas/uibindings/testModel"
+            class="com.rcpcompany.uibinding.tests.model.TestModelPackage"
+            genModel="model/EX.xcore"/>
+   </extension>
+
 </plugin>

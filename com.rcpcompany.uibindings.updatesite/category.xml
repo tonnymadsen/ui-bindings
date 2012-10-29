@@ -30,10 +30,10 @@
    <feature url="features/com.rcpcompany.uibindings.navigator.source.feature_1.0.0.qualifier.jar" id="com.rcpcompany.uibindings.navigator.source.feature" version="1.0.0.qualifier">
       <category name="com.rcpcompany.uibindings.addon.category"/>
    </feature>
-   <feature url="features/com.rcpcompany.utils.feature_1.2.0.qualifier.jar" id="com.rcpcompany.utils.feature" version="1.2.0.qualifier">
+   <feature url="features/com.rcpcompany.utils.feature_1.3.0.qualifier.jar" id="com.rcpcompany.utils.feature" version="1.3.0.qualifier">
       <category name="com.rcpcompany.utils.category"/>
    </feature>
-   <feature url="features/com.rcpcompany.utils.source.feature_1.2.0.qualifier.jar" id="com.rcpcompany.utils.source.feature" version="1.2.0.qualifier">
+   <feature url="features/com.rcpcompany.utils.source.feature_1.3.0.qualifier.jar" id="com.rcpcompany.utils.source.feature" version="1.3.0.qualifier">
       <category name="com.rcpcompany.utils.category"/>
    </feature>
    <category-def name="com.rcpcompany.utils.category" label="The RCP Company Utils Features">

@@ -43,7 +43,7 @@ import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
-import com.rcpcompany.utils.basic.ToStringUtils;
+import com.rcpcompany.utils.basic.ui.TSSWTUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -92,7 +92,7 @@ public class ViewerEditCellCommitStrategiesTest {
 		final Listener listener = new Listener() {
 			@Override
 			public void handleEvent(Event event) {
-				LogUtils.debug(this, ToStringUtils.toString(event));
+				LogUtils.debug(this, TSSWTUtils.toString(event));
 			}
 		};
 		for (int i = SWT.None; i <= SWT.ImeComposition; i++) {
@@ -100,7 +100,6 @@ public class ViewerEditCellCommitStrategiesTest {
 		}
 
 		myTableViewer.getColumnViewerEditor().addEditorActivationListener(new ColumnViewerEditorActivationListener() {
-
 			@Override
 			public void beforeEditorDeactivated(ColumnViewerEditorDeactivationEvent event) {
 				// LogUtils.debug(this, "");

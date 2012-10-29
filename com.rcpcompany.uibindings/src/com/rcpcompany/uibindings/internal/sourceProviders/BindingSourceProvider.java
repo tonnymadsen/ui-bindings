@@ -50,7 +50,7 @@ import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.model.utils.BasicUtils;
 import com.rcpcompany.uibindings.utils.IManagerRunnable;
 import com.rcpcompany.utils.basic.ClassUtils;
-import com.rcpcompany.utils.basic.ToStringUtils;
+import com.rcpcompany.utils.basic.ui.TSSWTUtils;
 import com.rcpcompany.utils.extensionpoints.CEObjectHolder;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -240,7 +240,7 @@ public class BindingSourceProvider extends AbstractSourceProvider {
 	 */
 	public Map<String, Object> reportSourceChanges(Event event) {
 		if (Activator.getDefault().TRACE_SOURCE_PROVIDER_VERBOSE && Activator.getDefault().TRACE_EVENTS_SWT) {
-			LogUtils.debug(this, (event == myPreviousValueEvent ? "REPLAY " : "") + ToStringUtils.toString(event));
+			LogUtils.debug(this, (event == myPreviousValueEvent ? "REPLAY " : "") + TSSWTUtils.toString(event));
 		}
 
 		/*

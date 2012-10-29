@@ -81,7 +81,7 @@ import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.utils.ITableCreator;
 import com.rcpcompany.uibindings.validators.EValidatorAdapter;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
-import com.rcpcompany.utils.basic.ToStringUtils;
+import com.rcpcompany.utils.basic.ui.TSSWTUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -639,8 +639,8 @@ public class FormCreator implements IFormCreator {
 		 */
 		final Control focusControl = Display.getCurrent().getFocusControl();
 		// Problem!
-		final String ws = ToStringUtils.toPath(focusControl);
-		final String is = ToStringUtils.toPath(myLastFocusControl);
+		final String ws = TSSWTUtils.toPath(focusControl);
+		final String is = TSSWTUtils.toPath(myLastFocusControl);
 		// LogUtils.debug(this, "FOCUS\nwas: " + ws + "\nlast: " + is);
 		if (myLastFocusControl != null && !myLastFocusControl.isDisposed() && myLastFocusControl != focusControl) {
 			myLastFocusControl.forceFocus();

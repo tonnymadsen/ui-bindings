@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Basic UI Utilities
+Bundle-SymbolicName: com.rcpcompany.utils.basic.ui
+Bundle-Version: 1.6.0.qualifier
+Bundle-Vendor: The RCP Company
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: com.rcpcompany.utils.basic.ui;version="1.6.0"
+Bundle-ActivationPolicy: lazy
+Require-Bundle: com.rcpcompany.utils.ui;bundle-version="3.6.0"

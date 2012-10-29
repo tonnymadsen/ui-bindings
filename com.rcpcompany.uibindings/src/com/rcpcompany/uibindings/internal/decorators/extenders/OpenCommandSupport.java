@@ -51,7 +51,7 @@ import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.decorators.extenders.AbstractUIBindingDecoratorExtender;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.sourceProviders.BindingSourceProvider;
-import com.rcpcompany.utils.basic.ToStringUtils;
+import com.rcpcompany.utils.basic.ui.TSSWTUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -160,7 +160,7 @@ public class OpenCommandSupport {
 					hoverWanted = event.stateMask == SWT.MOD1 && event.keyCode != SWT.MOD1;
 					break;
 				default:
-					LogUtils.error(this, "Unknown event ignored: " + ToStringUtils.toString(event));
+					LogUtils.error(this, "Unknown event ignored: " + TSSWTUtils.toString(event));
 					return;
 				}
 			}
@@ -169,7 +169,7 @@ public class OpenCommandSupport {
 			if (hoverWanted == isHoverListenerInstalled) return;
 			isHoverListenerInstalled = hoverWanted;
 			if (Activator.getDefault().TRACE_OPEN_COMMAND && Activator.getDefault().TRACE_EVENTS_SWT) {
-				LogUtils.debug(this, ToStringUtils.toString(event));
+				LogUtils.debug(this, TSSWTUtils.toString(event));
 			}
 
 			final Display display = Display.getCurrent();
@@ -224,7 +224,7 @@ public class OpenCommandSupport {
 		 */
 		protected void handleHoverEvent(Event event) {
 			if (Activator.getDefault().TRACE_OPEN_COMMAND && Activator.getDefault().TRACE_EVENTS_SWT) {
-				LogUtils.debug(this, ToStringUtils.toString(event));
+				LogUtils.debug(this, TSSWTUtils.toString(event));
 			}
 			final Map<String, Object> currentState = theBindingSourceProvider.getCurrentState(event);
 			final ParameterizedCommand pc = getCommand(event, currentState);
@@ -265,7 +265,7 @@ public class OpenCommandSupport {
 		 */
 		protected ParameterizedCommand getCommand(Event event, Map<String, Object> currentState) {
 			if (Activator.getDefault().TRACE_OPEN_COMMAND && Activator.getDefault().TRACE_EVENTS_SWT) {
-				LogUtils.debug(this, ToStringUtils.toString(event));
+				LogUtils.debug(this, TSSWTUtils.toString(event));
 			}
 			ParameterizedCommand pc = null;
 

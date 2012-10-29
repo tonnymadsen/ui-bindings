@@ -26,7 +26,7 @@
 
 		<java.debug.host>localhost</java.debug.host>
 
-		<uibindings-build-user-password>xxx</uibindings-build-user-password>
+		<uibindings-build-user.password>xxx</uibindings-build-user.password>
 	</properties>
 
 	<!-- the modules that should be built together -->
@@ -41,6 +41,8 @@
 
 		<module>../com.rcpcompany.utils.basic</module>
 		<module>../com.rcpcompany.utils.basic.tests</module>
+		<module>../com.rcpcompany.utils.basic.ui</module>
+		<module>../com.rcpcompany.utils.basic.ui.tests</module>
 		<module>../com.rcpcompany.utils.databinding</module>
 		<module>../com.rcpcompany.utils.extensionpoints</module>
 		<module>../com.rcpcompany.utils.jface</module>

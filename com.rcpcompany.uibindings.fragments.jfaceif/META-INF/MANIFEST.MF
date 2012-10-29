@@ -5,4 +5,4 @@ Bundle-SymbolicName: com.rcpcompany.uibindings.fragments.jfaceif
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: The RCP Company
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: com.rcpcompany.uibindings.fragments.jfaceif
+Export-Package: com.rcpcompany.uibindings.fragments.jfaceif;version="1.0.0"

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test of com.rcpcompany.utils.basic.ui
+Bundle-SymbolicName: com.rcpcompany.utils.basic.ui.tests;singleton:=true
+Bundle-Version: 1.0.1.qualifier
+Bundle-Vendor: The RCP Company
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: com.rcpcompany.utils.basic.ui;bundle-version="[1.4.0,2.0.0)",
+ org.eclipse.core.runtime,
+ com.rcpcompany.test.utils;bundle-version="[1.0.0,2.0.0)",
+ com.rcpcompany.utils.ui

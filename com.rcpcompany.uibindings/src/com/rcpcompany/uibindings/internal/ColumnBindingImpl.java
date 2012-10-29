@@ -100,7 +100,7 @@ import com.rcpcompany.uibindings.observables.MapperObservableValue;
 import com.rcpcompany.uibindings.uiAttributes.UIAttributePainter;
 import com.rcpcompany.uibindings.uiAttributes.VirtualUIAttribute;
 import com.rcpcompany.uibindings.utils.IColumnChooser;
-import com.rcpcompany.utils.basic.ToStringUtils;
+import com.rcpcompany.utils.basic.ui.TSSWTUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -711,7 +711,7 @@ public class ColumnBindingImpl extends BindingImpl implements IColumnBinding {
 				LogUtils.debug(labelBinding, labelBinding + " paint: " + ci.getDisplayText()); //$NON-NLS-1$
 			}
 			if (Activator.getDefault().TRACE_EVENTS_LABELPROVIDERS && Activator.getDefault().TRACE_EVENTS_SWT) {
-				LogUtils.debug(labelBinding, ToStringUtils.toString(event));
+				LogUtils.debug(labelBinding, TSSWTUtils.toString(event));
 			}
 
 			if (labelBinding.eIsSet(IUIBindingsPackage.Literals.BINDING__ERROR_CONDITIONS)) return;
