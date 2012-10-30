@@ -13,9 +13,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<tycho.version>0.16.0</tycho.version>
 		<tycho-extras.version>0.16.0</tycho-extras.version>
-		
-		<!-- The target platform. Must be one of the target platforms defined
-		in com.rcpcompany.target. -->
+
+		<!-- The target platform. Must be one of the target platforms defined in 
+			com.rcpcompany.target. -->
 		<eclipse.platform.version>3.8</eclipse.platform.version>
 
 		<!-- OS Specific Flags for Java - see profiles below -->
@@ -144,8 +144,20 @@
 				<configuration>
 					<dependency-resolution>
 						<optionalDependencies>ignore</optionalDependencies>
+						<extraRequirements>
+							<requirement>
+								<type>eclipse-plugin</type>
+								<id>org.eclipse.ui</id>
+								<versionRange>0.0.0</versionRange>
+							</requirement>
+							<requirement>
+								<type>eclipse-plugin</type>
+								<id>org.eclipse.ui.views</id>
+								<versionRange>0.0.0</versionRange>
+							</requirement>
+						</extraRequirements>
 					</dependency-resolution>
-					<resolver>p2</resolver>
+S					<resolver>p2</resolver>
 					<ignoreTychoRepositories>true</ignoreTychoRepositories>
 					<target>
 						<artifact>

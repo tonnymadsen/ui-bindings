@@ -6,5 +6,6 @@ Bundle-Version: 3.6.0.qualifier
 Bundle-Vendor: The RCP Company
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.6.0,4.0.0)",
- org.eclipse.ui;visibility:=reexport
+ org.eclipse.ui;resolution:=optional;visibility:=reexport,
+ org.eclipse.rap.ui;resolution:=optional;visibility:=reexport
 Bundle-Activator: com.rcpcompany.utils.ui.internal.Activator
