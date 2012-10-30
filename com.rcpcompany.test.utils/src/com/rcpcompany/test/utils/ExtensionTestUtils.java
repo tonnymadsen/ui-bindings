@@ -13,20 +13,13 @@ package com.rcpcompany.test.utils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-import org.eclipse.core.expressions.IEvaluationContext;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.ui.ISourceProvider;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.services.ISourceProviderService;
-
-import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * Base class for all tests.
+ * Various test methods for the extension registry.
  * <p>
  * Provides a number of convenience methods...
  * 
@@ -59,34 +52,5 @@ public class ExtensionTestUtils {
 		}
 
 		return list;
-	}
-
-	/**
-	 * 
-	 * @param sourceName
-	 */
-	public static void dumpBindingSourceState(String sourceName) {
-		final ISourceProviderService sourceProviders = (ISourceProviderService) PlatformUI
-				.getWorkbench().getService(ISourceProviderService.class);
-		final ISourceProvider provider = sourceProviders
-				.getSourceProvider(sourceName);
-		@SuppressWarnings("unchecked")
-		final Map<String, Object> currentState = provider.getCurrentState();
-
-		final StringBuilder sb = new StringBuilder("Binding sources state:");
-		for (final Map.Entry<String, Object> i : currentState.entrySet()) {
-			final String s = i.getKey();
-			sb.append("\n  ").append(s).append("='");
-			final Object v = i.getValue();
-			if (v == null) {
-				sb.append("<null>");
-			} else if (v == IEvaluationContext.UNDEFINED_VARIABLE) {
-				sb.append("<undef>");
-			} else {
-				sb.append(v.toString());
-			}
-			sb.append("'");
-		}
-		LogUtils.debug(provider, sb.toString());
 	}
 }

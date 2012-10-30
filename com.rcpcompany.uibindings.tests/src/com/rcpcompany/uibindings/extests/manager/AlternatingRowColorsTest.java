@@ -11,7 +11,7 @@
 
 package com.rcpcompany.uibindings.extests.manager;
 
-import static com.rcpcompany.test.utils.UITestUtils.*;
+import static com.rcpcompany.test.utils.ui.UITestUtils.*;
 
 import java.util.Arrays;
 import java.util.Collection;

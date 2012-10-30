@@ -34,6 +34,7 @@
 		<module>../com.rcpcompany.target</module>
 
 		<module>../com.rcpcompany.test.utils</module>
+		<module>../com.rcpcompany.test.utils.ui</module>
 
 		<module>../com.rcpcompany.utils.ui</module>
 		<!-- <module>../com.rcpcompany.utils.ui.rap</module> -->

@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.utils;
 
-import static com.rcpcompany.test.utils.UITestUtils.*;
+import static com.rcpcompany.test.utils.ui.UITestUtils.*;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;

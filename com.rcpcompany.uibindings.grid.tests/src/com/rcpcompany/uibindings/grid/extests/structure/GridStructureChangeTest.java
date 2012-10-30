@@ -11,7 +11,7 @@
 package com.rcpcompany.uibindings.grid.extests.structure;
 
 import static com.rcpcompany.test.utils.BaseTestUtils.*;
-import static com.rcpcompany.test.utils.UITestUtils.*;
+import static com.rcpcompany.test.utils.ui.UITestUtils.*;
 import static com.rcpcompany.uibindings.grid.extests.GridBaseTestUtils.*;
 import static org.junit.Assert.*;
 

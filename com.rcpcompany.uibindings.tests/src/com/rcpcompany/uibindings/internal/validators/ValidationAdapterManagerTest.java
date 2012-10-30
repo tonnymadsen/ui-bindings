@@ -11,7 +11,7 @@
 package com.rcpcompany.uibindings.internal.validators;
 
 import static com.rcpcompany.test.utils.EMFTestUtils.*;
-import static com.rcpcompany.test.utils.UITestUtils.*;
+import static com.rcpcompany.test.utils.ui.UITestUtils.*;
 import static org.junit.Assert.*;
 
 import org.junit.Before;

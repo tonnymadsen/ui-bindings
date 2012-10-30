@@ -1,4 +1,4 @@
-package com.rcpcompany.test.utils;
+package com.rcpcompany.test.utils.ui;
 
 /*******************************************************************************
  * Copyright (c) 2006-2011 The RCP Company and others.
@@ -41,6 +41,7 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.services.IServiceLocator;
 
+import com.rcpcompany.test.utils.BaseTestUtils;
 import com.rcpcompany.utils.basic.ui.TSSWTUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 

@@ -21,7 +21,7 @@ import org.eclipse.ui.handlers.IHandlerService;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.rcpcompany.test.utils.UITestUtils;
+import com.rcpcompany.test.utils.ui.UITestUtils;
 import com.rcpcompany.uibindings.navigator.IEditorPartView;
 import com.rcpcompany.uibindings.navigator.INavigatorManager;
 import com.rcpcompany.uibindings.navigator.extests.NavigatorTestUtils;

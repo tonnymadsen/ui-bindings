@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.nebula.widgets.grid.Grid;
 
-import com.rcpcompany.test.utils.UITestUtils;
+import com.rcpcompany.test.utils.ui.UITestUtils;
 import com.rcpcompany.uibinding.tests.model.TestGrid;
 import com.rcpcompany.uibinding.tests.model.TestGridCell;
 import com.rcpcompany.uibinding.tests.model.TestGridColumn;

@@ -23,7 +23,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.junit.Test;
 
-import com.rcpcompany.test.utils.UITestUtils;
+import com.rcpcompany.test.utils.ui.UITestUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**

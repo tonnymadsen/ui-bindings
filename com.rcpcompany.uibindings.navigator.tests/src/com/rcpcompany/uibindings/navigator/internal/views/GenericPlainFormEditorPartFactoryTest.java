@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.navigator.internal.views;
 
-import static com.rcpcompany.test.utils.UITestUtils.*;
+import static com.rcpcompany.test.utils.ui.UITestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.emf.ecore.EAttribute;

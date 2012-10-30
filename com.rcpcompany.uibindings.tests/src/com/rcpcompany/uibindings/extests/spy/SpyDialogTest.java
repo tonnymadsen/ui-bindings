@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.spy;
 
-import static com.rcpcompany.test.utils.UITestUtils.*;
+import static com.rcpcompany.test.utils.ui.UITestUtils.*;
 import static org.junit.Assert.*;
 
 import org.eclipse.swt.widgets.Composite;

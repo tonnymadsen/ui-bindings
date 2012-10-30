@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.bindings.extenders;
 
-import static com.rcpcompany.test.utils.UITestUtils.*;
+import static com.rcpcompany.test.utils.ui.UITestUtils.*;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Table;

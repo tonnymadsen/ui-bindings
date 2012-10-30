@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.extests.uiAttributeFactories.contentAdapters;
 
-import static com.rcpcompany.test.utils.UITestUtils.*;
+import static com.rcpcompany.test.utils.ui.UITestUtils.*;
 import static com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils.*;
 import static org.junit.Assert.*;
 
