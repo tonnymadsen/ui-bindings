@@ -2,7 +2,7 @@
 <?metadataRepository version='1.1.0'?>
 <repository name='' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'>
   <properties size='1'>
-    <property name='p2.timestamp' value='1351594838916'/>
+    <property name='p2.timestamp' value='1351628866291'/>
   </properties>
   <units size='294'>
     <unit id='com.rcpcompany.utils.extensionpoints' version='1.2.0.201210260829' singleton='false'>
