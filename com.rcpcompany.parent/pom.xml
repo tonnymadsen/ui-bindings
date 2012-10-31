@@ -17,7 +17,7 @@
 		<!-- The target platform. Must be one of the target platforms defined in 
 			com.rcpcompany.target. -->
 		<eclipse.platform.version>3.8</eclipse.platform.version>
-		
+
 		<!-- See below... -->
 		<eclipse.ui.tech>none</eclipse.ui.tech>
 
@@ -34,71 +34,24 @@
 
 	<!-- the modules that should be built together -->
 	<modules>
+		<module>../com.rcpcompany.parent.rcp</module>
+		<module>../com.rcpcompany.parent.rap</module>
 		<module>../com.rcpcompany.target</module>
 
 		<module>../com.rcpcompany.test.utils</module>
-		<module>../com.rcpcompany.test.utils.ui</module>
 
 		<module>../com.rcpcompany.utils.ui</module>
-		<!-- <module>../com.rcpcompany.utils.ui.rap</module> -->
-		<module>../com.rcpcompany.utils.ui.rcp</module>
 
 		<module>../com.rcpcompany.utils.basic</module>
 		<module>../com.rcpcompany.utils.basic.tests</module>
-		<module>../com.rcpcompany.utils.basic.ui</module>
-		<module>../com.rcpcompany.utils.basic.ui.tests</module>
-		<module>../com.rcpcompany.utils.databinding</module>
-		<module>../com.rcpcompany.utils.extensionpoints</module>
-		<module>../com.rcpcompany.utils.jface</module>
 		<module>../com.rcpcompany.utils.logging</module>
 		<module>../com.rcpcompany.utils.logging.tests</module>
 		<module>../com.rcpcompany.utils.logging.tests.helper</module>
-		<module>../com.rcpcompany.utils.selection</module>
 
 		<module>../com.rcpcompany.uibindings.moao</module>
 		<module>../com.rcpcompany.uibindings.moao.tests</module>
-		<module>../com.rcpcompany.uibindings.moao.ui</module>
 		<module>../com.rcpcompany.uibindings.model.utils</module>
 		<module>../com.rcpcompany.uibindings.model.utils.tests</module>
-
-		<module>../com.rcpcompany.uibindings</module>
-		<module>../com.rcpcompany.uibindings.fragments.jface</module>
-		<module>../com.rcpcompany.uibindings.fragments.jfaceif</module>
-		<module>../com.rcpcompany.uibindings.fragments.ecore</module>
-		<module>../com.rcpcompany.uibindings.tests.utils</module>
-		<!-- <module>../com.rcpcompany.uibindings.tests</module> -->
-		<module>../com.rcpcompany.uibindings.tests.api</module>
-		<module>../com.rcpcompany.uibindings.tests.model</module>
-
-		<module>../com.rcpcompany.uibindings.debug</module>
-		<module>../com.rcpcompany.uibindings.std</module>
-
-		<module>../com.rcpcompany.uibindings.grid</module>
-		<!-- <module>../com.rcpcompany.uibindings.grid.tests</module> -->
-
-		<module>../com.rcpcompany.uibindings.financial</module>
-		<module>../com.rcpcompany.uibindings.navigator</module>
-		<!-- <module>../com.rcpcompany.uibindings.navigator.tests</module> -->
-		<!-- <module>../com.rcpcompany.uibindings.scripting</module> -->
-		<!-- <module>../com.rcpcompany.uibindings.scripting.tests</module> -->
-		<!-- <module>../com.rcpcompany.uibindings.scriptengines.javascript</module> -->
-		<!-- <module>../com.rcpcompany.uibindings.scriptengines.javascript.tests</module> -->
-		<module>../com.rcpcompany.uibindings.units</module>
-
-		<!-- <module>../com.rcpcompany.uibindings.bindings.xtext</module> <module>../com.rcpcompany.uibindings.bindings.xtext.tests</module> -->
-
-		<module>../com.rcpcompany.utils.feature</module>
-		<module>../com.rcpcompany.utils.source.feature</module>
-		<module>../com.rcpcompany.uibindings.feature</module>
-		<module>../com.rcpcompany.uibindings.source.feature</module>
-		<module>../com.rcpcompany.uibindings.grid.feature</module>
-		<module>../com.rcpcompany.uibindings.grid.source.feature</module>
-		<module>../com.rcpcompany.uibindings.debug.feature</module>
-		<module>../com.rcpcompany.uibindings.debug.source.feature</module>
-		<module>../com.rcpcompany.uibindings.navigator.feature</module>
-		<module>../com.rcpcompany.uibindings.navigator.source.feature</module>
-		<module>../com.rcpcompany.uibindings.financial.feature</module>
-		<module>../com.rcpcompany.uibindings.financial.source.feature</module>
 
 		<module>../com.rcpcompany.uibindings.updatesite</module>
 	</modules>
@@ -390,7 +343,7 @@
 						<artifactId>tycho-surefire-plugin</artifactId>
 						<version>${tycho.version}</version>
 						<configuration>
-							<argLine>${java.debug.args}</argLine>
+							<argLine>${tycho.testArgLine} ${java.debug.args}</argLine>
 						</configuration>
 					</plugin>
 				</plugins>
@@ -403,10 +356,6 @@
 			<id>eclipse.ui.tech-rcp</id>
 			<activation>
 				<activeByDefault>false</activeByDefault>
-				<property>
-					<name>eclipse.ui.tech</name>
-					<value>rcp</value>
-				</property>
 			</activation>
 			<build>
 				<plugins>
@@ -439,10 +388,6 @@
 			<id>eclipse.ui.tech-rap</id>
 			<activation>
 				<activeByDefault>false</activeByDefault>
-				<property>
-					<name>eclipse.ui.tech</name>
-					<value>client-rap</value>
-				</property>
 			</activation>
 			<build>
 				<plugins>
@@ -475,10 +420,6 @@
 			<id>eclipse.ui.tech-none</id>
 			<activation>
 				<activeByDefault>false</activeByDefault>
-				<property>
-					<name>eclipse.ui.tech</name>
-					<value>none</value>
-				</property>
 			</activation>
 		</profile>
 

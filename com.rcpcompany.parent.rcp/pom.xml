@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>com.rcpcompany.parent.rcp</artifactId>
+	<version>1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<parent>
+		<groupId>com.rcpcompany</groupId>
+		<artifactId>com.rcpcompany.parent</artifactId>
+		<version>1-SNAPSHOT</version>
+		<relativePath>../com.rcpcompany.parent</relativePath>
+	</parent>
+
+	<modules>
+		<module>../com.rcpcompany.test.utils.ui</module>
+		<module>../com.rcpcompany.utils.ui.rcp</module>
+
+		<module>../com.rcpcompany.utils.basic.ui</module>
+		<module>../com.rcpcompany.utils.basic.ui.tests</module>
+
+		<module>../com.rcpcompany.utils.extensionpoints</module>
+		<module>../com.rcpcompany.utils.jface</module>
+		<module>../com.rcpcompany.utils.selection</module>
+
+		<module>../com.rcpcompany.uibindings.moao.ui</module>
+
+		<module>../com.rcpcompany.uibindings</module>
+		<module>../com.rcpcompany.uibindings.fragments.jface</module>
+		<module>../com.rcpcompany.uibindings.fragments.jfaceif</module>
+		<module>../com.rcpcompany.uibindings.fragments.ecore</module>
+		<module>../com.rcpcompany.uibindings.tests.utils</module>
+		<!-- <module>../com.rcpcompany.uibindings.tests</module> -->
+		<module>../com.rcpcompany.uibindings.tests.api</module>
+		<module>../com.rcpcompany.uibindings.tests.model</module>
+
+		<module>../com.rcpcompany.uibindings.debug</module>
+		<module>../com.rcpcompany.uibindings.std</module>
+
+		<module>../com.rcpcompany.uibindings.grid</module>
+		<!-- <module>../com.rcpcompany.uibindings.grid.tests</module> -->
+
+		<module>../com.rcpcompany.uibindings.financial</module>
+		<module>../com.rcpcompany.uibindings.navigator</module>
+		<!-- <module>../com.rcpcompany.uibindings.navigator.tests</module> -->
+		<!-- <module>../com.rcpcompany.uibindings.scripting</module> -->
+		<!-- <module>../com.rcpcompany.uibindings.scripting.tests</module> -->
+		<!-- <module>../com.rcpcompany.uibindings.scriptengines.javascript</module> -->
+		<!-- <module>../com.rcpcompany.uibindings.scriptengines.javascript.tests</module> -->
+		<module>../com.rcpcompany.uibindings.units</module>
+
+		<!-- <module>../com.rcpcompany.uibindings.bindings.xtext</module> <module>../com.rcpcompany.uibindings.bindings.xtext.tests</module> -->
+
+		<module>../com.rcpcompany.utils.feature</module>
+		<module>../com.rcpcompany.utils.source.feature</module>
+		<module>../com.rcpcompany.uibindings.feature</module>
+		<module>../com.rcpcompany.uibindings.source.feature</module>
+		<module>../com.rcpcompany.uibindings.grid.feature</module>
+		<module>../com.rcpcompany.uibindings.grid.source.feature</module>
+		<module>../com.rcpcompany.uibindings.debug.feature</module>
+		<module>../com.rcpcompany.uibindings.debug.source.feature</module>
+		<module>../com.rcpcompany.uibindings.navigator.feature</module>
+		<module>../com.rcpcompany.uibindings.navigator.source.feature</module>
+		<module>../com.rcpcompany.uibindings.financial.feature</module>
+		<module>../com.rcpcompany.uibindings.financial.source.feature</module>
+	</modules>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<dependency-resolution>
+						<optionalDependencies>ignore</optionalDependencies>
+						<extraRequirements>
+							<requirement>
+								<type>eclipse-plugin</type>
+								<id>org.eclipse.ui</id>
+								<versionRange>0.0.0</versionRange>
+							</requirement>
+							<requirement>
+								<type>eclipse-plugin</type>
+								<id>org.eclipse.ui.views</id>
+								<versionRange>0.0.0</versionRange>
+							</requirement>
+						</extraRequirements>
+					</dependency-resolution>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

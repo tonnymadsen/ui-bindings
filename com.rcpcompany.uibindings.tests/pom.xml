@@ -9,9 +9,9 @@
 
 	<parent>
 		<groupId>com.rcpcompany</groupId>
-		<artifactId>com.rcpcompany.parent</artifactId>
+		<artifactId>com.rcpcompany.parent.rcp</artifactId>
 		<version>1-SNAPSHOT</version>
-		<relativePath>../com.rcpcompany.parent</relativePath>
+		<relativePath>../com.rcpcompany.parent.rcp</relativePath>
 	</parent>
 
 	<build>
@@ -23,7 +23,7 @@
 				<configuration>
 					<useUIHarness>true</useUIHarness>
 					<useUIThread>true</useUIThread>
-					<argLine>-Xms40m -Xmx1G ${java.os.args} ${java.debug.args}</argLine>
+					<argLine>${tycho.testArgLine} -Xms40m -Xmx1G ${java.os.args} ${java.debug.args}</argLine>
 				</configuration>
 			</plugin>
 		</plugins>

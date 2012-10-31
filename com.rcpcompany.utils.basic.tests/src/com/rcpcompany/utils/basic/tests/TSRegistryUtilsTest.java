@@ -25,24 +25,24 @@ public class TSRegistryUtilsTest {
 		assertNotNull(registry);
 
 		final IExtension extension = registry.getExtension(
-				"org.eclipse.ui.views", "test.V1");
+				"org.eclipse.core.runtime.adapters", "test.V1");
 		assertNotNull(extension);
 
 		final IConfigurationElement[] ce1 = extension
 				.getConfigurationElements();
 		assertNotNull(ce1);
 		assertEquals(1, ce1.length);
-		assertEquals("view", ce1[0].getName());
+		assertEquals("factory", ce1[0].getName());
 		assertEquals(
-				"{com.rcpcompany.utils.basic.tests/org.eclipse.ui.views[id=test.V1]/view[id=com.rcpcompany.utils.basic.tests.views.V1]}",
+				"{com.rcpcompany.utils.basic.tests/org.eclipse.core.runtime.adapters[id=test.V1]/factory[class=com.rcpcompany.utils.basic.tests.AdapterFactory1]}",
 				TSRegistryUtils.toString(ce1[0]));
 
 		final IConfigurationElement[] ce2 = ce1[0].getChildren();
 		assertNotNull(ce2);
 		assertEquals(1, ce2.length);
-		assertEquals("description", ce2[0].getName());
+		assertEquals("adapter", ce2[0].getName());
 		assertEquals(
-				"{com.rcpcompany.utils.basic.tests/org.eclipse.ui.views[id=test.V1]/view[id=com.rcpcompany.utils.basic.tests.views.V1]/description}",
+				"{com.rcpcompany.utils.basic.tests/org.eclipse.core.runtime.adapters[id=test.V1]/factory[class=com.rcpcompany.utils.basic.tests.AdapterFactory1]/adapter[type=com.rcpcompany.utils.basic.tests.Adapter1]}",
 				TSRegistryUtils.toString(ce2[0]));
 	}
 }

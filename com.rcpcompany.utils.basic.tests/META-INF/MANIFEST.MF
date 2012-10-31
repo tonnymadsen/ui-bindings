@@ -7,5 +7,5 @@ Bundle-Vendor: The RCP Company
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: com.rcpcompany.utils.basic;bundle-version="[1.4.0,2.0.0)",
  org.eclipse.core.runtime,
- com.rcpcompany.test.utils;bundle-version="[1.0.0,2.0.0)",
- com.rcpcompany.utils.ui
+ com.rcpcompany.test.utils;bundle-version="[1.0.0,2.0.0)"
+Bundle-ActivationPolicy: lazy
