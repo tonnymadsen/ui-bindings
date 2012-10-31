@@ -13,4 +13,8 @@
 		<version>1-SNAPSHOT</version>
 		<relativePath>../com.rcpcompany.parent</relativePath>
 	</parent>
+
+	<properties>
+		<eclipse.ui.tech>none</eclipse.ui.tech>
+	</properties>
 </project>

@@ -12,6 +12,10 @@
 		<relativePath>../com.rcpcompany.parent</relativePath>
 	</parent>
 
+	<properties>
+		<eclipse.ui.tech>none</eclipse.ui.tech>
+	</properties>
+
 	<build>
 		<plugins>
 			<plugin>

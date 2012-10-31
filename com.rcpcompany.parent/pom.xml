@@ -17,6 +17,9 @@
 		<!-- The target platform. Must be one of the target platforms defined in 
 			com.rcpcompany.target. -->
 		<eclipse.platform.version>3.8</eclipse.platform.version>
+		
+		<!-- See below... -->
+		<eclipse.ui.tech>none</eclipse.ui.tech>
 
 		<!-- OS Specific Flags for Java - see profiles below -->
 		<java.os.args /> <!-- for the default case -->
@@ -144,20 +147,9 @@
 				<configuration>
 					<dependency-resolution>
 						<optionalDependencies>ignore</optionalDependencies>
-						<extraRequirements>
-							<requirement>
-								<type>eclipse-plugin</type>
-								<id>org.eclipse.ui</id>
-								<versionRange>0.0.0</versionRange>
-							</requirement>
-							<requirement>
-								<type>eclipse-plugin</type>
-								<id>org.eclipse.ui.views</id>
-								<versionRange>0.0.0</versionRange>
-							</requirement>
-						</extraRequirements>
 					</dependency-resolution>
-S					<resolver>p2</resolver>
+
+					<resolver>p2</resolver>
 					<ignoreTychoRepositories>true</ignoreTychoRepositories>
 					<target>
 						<artifact>
@@ -403,6 +395,91 @@ S					<resolver>p2</resolver>
 					</plugin>
 				</plugins>
 			</build>
+		</profile>
+
+		<!-- UI technology used in bundle. Set in bundle via property: <properties> 
+			<eclipse.ui.tech>rcp|rap|none</eclipse.ui.tech> </properties> -->
+		<profile>
+			<id>eclipse.ui.tech-rcp</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+				<property>
+					<name>eclipse.ui.tech</name>
+					<value>rcp</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho.version}</version>
+						<configuration>
+							<dependency-resolution>
+								<optionalDependencies>ignore</optionalDependencies>
+								<extraRequirements>
+									<requirement>
+										<type>eclipse-plugin</type>
+										<id>org.eclipse.ui</id>
+										<versionRange>0.0.0</versionRange>
+									</requirement>
+									<requirement>
+										<type>eclipse-plugin</type>
+										<id>org.eclipse.ui.views</id>
+										<versionRange>0.0.0</versionRange>
+									</requirement>
+								</extraRequirements>
+							</dependency-resolution>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>eclipse.ui.tech-rap</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+				<property>
+					<name>eclipse.ui.tech</name>
+					<value>client-rap</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<dependency-resolution>
+								<optionalDependencies>ignore</optionalDependencies>
+								<extraRequirements>
+									<requirement>
+										<type>eclipse-plugin</type>
+										<id>org.eclipse.rap.ui</id>
+										<versionRange>0.0.0</versionRange>
+									</requirement>
+									<requirement>
+										<type>eclipse-plugin</type>
+										<id>org.eclipse.rap.ui.views</id>
+										<versionRange>0.0.0</versionRange>
+									</requirement>
+								</extraRequirements>
+							</dependency-resolution>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>eclipse.ui.tech-none</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+				<property>
+					<name>eclipse.ui.tech</name>
+					<value>none</value>
+				</property>
+			</activation>
 		</profile>
 
 		<!-- Platform specific profiles -->
