@@ -75,7 +75,7 @@ public final class EcoreExtendedUtils {
 	 * @param source the object synchronized from
 	 */
 	public static <T extends EObject> SyncController sync(EditingDomain domain, T target, T source) {
-		Assert.isTrue(source.getClass() == target.getClass(), "target and source must have exactly the same types");
+		Assert.isTrue(source.eClass() == target.eClass(), "target and source must have exactly the same types");
 		final SyncController controller = new SyncController();
 		controller.setEditingDomain(domain);
 		controller.sync(target, source);
