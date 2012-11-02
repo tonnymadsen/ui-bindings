@@ -21,6 +21,7 @@
 		<module>../com.rcpcompany.utils.basic.ui</module>
 		<module>../com.rcpcompany.utils.basic.ui.tests</module>
 
+		<module>../com.rcpcompany.utils.databinding</module>
 		<module>../com.rcpcompany.utils.extensionpoints</module>
 		<module>../com.rcpcompany.utils.jface</module>
 		<module>../com.rcpcompany.utils.selection</module>
