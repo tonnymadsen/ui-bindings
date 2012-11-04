@@ -111,10 +111,10 @@ public final class LogUtils {
 				context,
 				LogService.LOG_WARNING,
 				message,
-				exception != null
-						? new RuntimeException(message, exception)
+				exception != null ? new RuntimeException(message, exception)
 						: null);
 	}
+
 	/**
 	 * Logs the specified error message.
 	 * 
@@ -158,8 +158,7 @@ public final class LogUtils {
 				context,
 				LogService.LOG_ERROR,
 				message,
-				exception != null
-						? new RuntimeException(message, exception)
+				exception != null ? new RuntimeException(message, exception)
 						: null);
 	}
 
@@ -220,6 +219,26 @@ public final class LogUtils {
 			sb.append(dic.get(Constants.BUNDLE_SYMBOLICNAME));
 			sb.append(" - ");
 			sb.append(dic.get(Constants.BUNDLE_VERSION));
+			switch (bundle.getState()) {
+			case Bundle.ACTIVE:
+				sb.append(" (ACTIVE)");
+				break;
+			case Bundle.INSTALLED:
+				sb.append(" (INSTALLED)");
+				break;
+			case Bundle.RESOLVED:
+				sb.append(" (RESOLVED)");
+				break;
+			case Bundle.STARTING:
+				sb.append(" (STARTING)");
+				break;
+			case Bundle.STOPPING:
+				sb.append(" (STOPPING)");
+				break;
+			case Bundle.UNINSTALLED:
+				sb.append(" (UNINSTALLED)");
+				break;
+			}
 		}
 		debug(context.getBundle().getSymbolicName(),
 				"Plugin versions:" + sb.toString());
