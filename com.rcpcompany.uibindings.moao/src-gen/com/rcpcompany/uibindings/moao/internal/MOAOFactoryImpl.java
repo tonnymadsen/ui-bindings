@@ -12,6 +12,7 @@ package com.rcpcompany.uibindings.moao.internal;
 
 import java.util.Map;
 
+import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -28,31 +29,33 @@ import com.rcpcompany.uibindings.moao.IMOAOMessage;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.moao.INamedObject;
 import com.rcpcompany.uibindings.moao.Severity;
+import com.rcpcompany.utils.basic.TSRegistryUtils;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static IMOAOFactory init() {
 		try {
-			IMOAOFactory theMOAOFactory = (IMOAOFactory) EPackage.Registry.INSTANCE
+			final IMOAOFactory theMOAOFactory = (IMOAOFactory) EPackage.Registry.INSTANCE
 					.getEFactory("http://rcp-company.com/schemas/uibindings/moao.ecore"); //$NON-NLS-1$ 
-			if (theMOAOFactory != null) { return theMOAOFactory; }
-		} catch (Exception exception) {
+			if (theMOAOFactory != null) return theMOAOFactory;
+		} catch (final Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new MOAOFactoryImpl();
 	}
 
 	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public MOAOFactoryImpl() {
@@ -61,6 +64,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -81,6 +85,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -99,6 +104,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -117,48 +123,53 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public IMOAO createMOAO() {
-		MOAOImpl moao = new MOAOImpl();
+		final MOAOImpl moao = new MOAOImpl();
 		return moao;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IMOAOFacet createMOAOFacet() {
-		MOAOFacetImpl moaoFacet = new MOAOFacetImpl();
+		final MOAOFacetImpl moaoFacet = new MOAOFacetImpl();
 		return moaoFacet;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public INamedObject createNamedObject() {
-		NamedObjectImpl namedObject = new NamedObjectImpl();
+		final NamedObjectImpl namedObject = new NamedObjectImpl();
 		return namedObject;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IMOAOMessage createMOAOMessage() {
-		MOAOMessageImpl moaoMessage = new MOAOMessageImpl();
+		final MOAOMessageImpl moaoMessage = new MOAOMessageImpl();
 		return moaoMessage;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Severity createSeverityFromString(EDataType eDataType, String initialValue) {
-		Severity result = Severity.get(initialValue);
+		final Severity result = Severity.get(initialValue);
 		if (result == null)
 			throw new IllegalArgumentException(
 					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -167,6 +178,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertSeverityToString(EDataType eDataType, Object instanceValue) {
@@ -175,6 +187,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public DiagnosticChain createEDiagnosticChainFromString(EDataType eDataType, String initialValue) {
@@ -183,6 +196,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertEDiagnosticChainToString(EDataType eDataType, Object instanceValue) {
@@ -191,6 +205,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Map<?, ?> createEMapFromString(EDataType eDataType, String initialValue) {
@@ -199,6 +214,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertEMapToString(EDataType eDataType, Object instanceValue) {
@@ -207,6 +223,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -216,6 +233,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @deprecated
 	 * @generated
 	 */
@@ -253,6 +271,27 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 		message.setObject(moao);
 
 		return message;
+	}
+
+	@Override
+	public IMOAOMessage createMOAOMessage(IMOAO moao, EStructuralFeature feature, String owner, Severity severity,
+			String description, IConfigurationElement... ces) {
+		String details;
+		switch (ces.length) {
+		case 0:
+			details = "";
+			break;
+		case 1:
+			details = "Location " + TSRegistryUtils.toString(ces[0]);
+			break;
+		default:
+			details = "Locations:";
+			for (final IConfigurationElement ce : ces) {
+				details += "\n - " + TSRegistryUtils.toString(ce);
+			}
+			break;
+		}
+		return createMOAOMessage(moao, feature, owner, severity, description, details);
 	}
 
 } // MOAOFactoryImpl
