@@ -405,7 +405,7 @@ public class ViewerBindingImpl extends ContainerBindingImpl implements IViewerBi
 						actSupport, feature);
 			} else if (viewer instanceof TreeViewer) {
 				final Class<?> cls = Class.forName("org.eclipse.jface.viewers.MyTreeViewerFocusCellManager");
-				final Constructor<?> constructor = cls.getConstructor(TableViewer.class, FocusCellHighlighter.class,
+				final Constructor<?> constructor = cls.getConstructor(TreeViewer.class, FocusCellHighlighter.class,
 						CellNavigationStrategy.class);
 				myViewerFocusCellManager = (IMyViewerFocusCellManager) constructor.newInstance(viewer,
 						focusDrawingDelegate, theCellNavigationStrategy);
