@@ -11,6 +11,7 @@
 package com.rcpcompany.uibindings;
 
 import org.eclipse.emf.ecore.EFactory;
+import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
@@ -80,6 +81,15 @@ public interface IUIBindingsFactory extends EFactory {
 	 * @return a new object of class '<em>Binding Context</em>'.
 	 */
 	IBindingContext createBindingContext(ScrolledForm top);
+
+	/**
+	 * Returns a new object of class '<em>Binding Context</em>' for the specified
+	 * {@link TitleAreaDialog}.
+	 * 
+	 * @param top the top {@link TitleAreaDialog}
+	 * @return a new object of class '<em>Binding Context</em>'.
+	 */
+	IBindingContext createBindingContext(TitleAreaDialog top);
 
 	/**
 	 * Returns a new object of class '<em>Value Binding</em>'. <!-- begin-user-doc --> <!--

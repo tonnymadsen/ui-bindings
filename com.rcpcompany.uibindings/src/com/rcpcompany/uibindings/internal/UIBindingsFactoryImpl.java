@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.widgets.Composite;
@@ -289,6 +290,13 @@ public class UIBindingsFactoryImpl extends EFactoryImpl implements IUIBindingsFa
 
 	@Override
 	public IBindingContext createBindingContext(ScrolledForm top) {
+		final BindingContextImpl context = new BindingContextImpl();
+		context.setTop(top);
+		return context;
+	}
+
+	@Override
+	public IBindingContext createBindingContext(TitleAreaDialog top) {
 		final BindingContextImpl context = new BindingContextImpl();
 		context.setTop(top);
 		return context;

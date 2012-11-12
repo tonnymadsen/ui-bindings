@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.databinding.swt.SWTObservables;
+import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.jface.viewers.ColumnViewer;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -66,6 +67,7 @@ import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.internal.bindingMessages.ContextMessageDecorator;
 import com.rcpcompany.uibindings.internal.bindingMessages.IContextMessageDecoratorAdapter;
 import com.rcpcompany.uibindings.internal.bindingMessages.contextAdapters.ScrolledFormContextMessageDecoratorAdapter;
+import com.rcpcompany.uibindings.internal.bindingMessages.contextAdapters.TitleAreaDialogContextMessageDecoratorAdapter;
 import com.rcpcompany.uibindings.internal.bindingMessages.contextAdapters.WizardPageContextMessageDecoratorAdapter;
 import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 import com.rcpcompany.uibindings.utils.IManagerRunnable;
@@ -367,6 +369,30 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 	}
 
 	/**
+	 * Sets the top-level element for the context to the specified TitleAreaDialog.
+	 * 
+	 * @param top the top element
+	 */
+	protected void setTop(final TitleAreaDialog top) {
+		myContextMessageDecoratorAdapter = new TitleAreaDialogContextMessageDecoratorAdapter(top);
+		myFormReflow = new IFormReflow() {
+			@Override
+			public void reflow() {
+				if (top.getShell().isDisposed()) return;
+				IManagerRunnable.Factory.asyncExec("reflow", top, new Runnable() {
+					@Override
+					public void run() {
+						if (top.getShell() == null || top.getShell().isDisposed()) return;
+						top.getShell().layout(true, true);
+					}
+				});
+			}
+		};
+
+		setTop(top.getShell());
+	}
+
+	/**
 	 * Sets the top-level element for the context to the specified wizard page.
 	 * 
 	 * @param page the wizard page
@@ -406,7 +432,6 @@ public class BindingContextImpl extends BaseObjectImpl implements IBindingContex
 
 		if (myFormReflow == null) {
 			myFormReflow = new IFormReflow() {
-
 				@Override
 				public void reflow() {
 					if (getTop().isDisposed()) return;

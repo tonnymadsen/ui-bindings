@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.jface.viewers.ColumnViewer;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.widgets.Composite;
@@ -148,6 +149,17 @@ public interface IBindingContext extends IBaseObject, IDisposable {
 		 */
 		public static IBindingContext createContext(Dialog dialog) {
 			return IUIBindingsFactory.eINSTANCE.createBindingContext(dialog.getShell());
+		}
+
+		/**
+		 * Constructs and returns a new binding context for a {@link Dialog dialog}.
+		 * 
+		 * @param dialog the dialog
+		 * 
+		 * @return the new context
+		 */
+		public static IBindingContext createContext(TitleAreaDialog dialog) {
+			return IUIBindingsFactory.eINSTANCE.createBindingContext(dialog);
 		}
 
 		/**
