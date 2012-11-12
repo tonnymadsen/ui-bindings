@@ -178,6 +178,7 @@ public class NewHandlerMenuContributor extends CompoundContributionItem implemen
 				 */
 				initializeCommand = IManager.Factory.getManager().initializeObject(myEditingDomain, mySpec.getParent(),
 						mySpec.getReference(), child, false);
+				if (initializeCommand == null) return;
 			} else {
 				child = null;
 				UIBEcoreUtils.showErrorDialog("New Aborted", "Cannot add the selected objects", null);

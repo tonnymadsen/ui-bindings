@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.participants;
 
+import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -23,6 +24,8 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  * <p>
  * Please note that the object is <em>not</em> yet included in the containment tree when this method
  * is called.
+ * <p>
+ * The initialization can be aborted by throwing a {@link OperationCanceledException}.
  * 
  * @author Tonny Madsen, The RCP Company
  */

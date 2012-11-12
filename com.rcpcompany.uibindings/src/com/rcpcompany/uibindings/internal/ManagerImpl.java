@@ -34,6 +34,7 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
+import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
@@ -3519,8 +3520,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			}
 		};
 		/*
-		 * Make sure the parent is seen from the start... though it is only added asa command at the
-		 * end - see below...
+		 * Make sure the parent is seen from the start... though it is only added as a command at
+		 * the end - see below...
 		 */
 		if (parent != null && reference != null && reference.getEOpposite() != null) {
 			context.getValueMap().put(reference.getEOpposite(), parent);
@@ -3528,6 +3529,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 
 		try {
 			initializer.initialize(context, eClass);
+		} catch (final OperationCanceledException ex) {
+			return null;
 		} catch (final Exception ex) {
 			LogUtils.error(initializer, ex);
 		}
