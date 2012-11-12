@@ -1089,7 +1089,7 @@ public interface IManager extends IBaseObject {
 	 * Initializes the specified object by creating a set of {@link Command commands} that will set
 	 * all relevant fields.
 	 * <p>
-	 * The default initilizer for {@link EClass} is {@link DefaultEObjectInitializer}, which will
+	 * The default initializer for {@link EClass} is {@link DefaultEObjectInitializer}, which will
 	 * initialize all features of the object in question.
 	 * <p>
 	 * Please note that the object is <em>not</em> included in the containment tree by this method
