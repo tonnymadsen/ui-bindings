@@ -24,19 +24,20 @@ import com.rcpcompany.uibindings.moao.INamedObject;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.moao.internal.NamedObjectImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.moao.internal.NamedObjectImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.moao.internal.NamedObjectImpl#getUuid <em>Uuid</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.moao.internal.NamedObjectImpl#getName <em>Name</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.moao.internal.NamedObjectImpl#getDescription <em>Description
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.moao.internal.NamedObjectImpl#getUuid <em>Uuid</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -44,9 +45,9 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -74,9 +75,9 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getUuid() <em>Uuid</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The default value of the '{@link #getUuid() <em>Uuid</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getUuid()
 	 * @generated
 	 * @ordered
@@ -84,9 +85,9 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 	protected static final String UUID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getUuid() <em>Uuid</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getUuid() <em>Uuid</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getUuid()
 	 * @generated
 	 * @ordered
@@ -106,6 +107,7 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -115,6 +117,7 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -124,18 +127,21 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setName(String newName) {
-		String oldName = name;
+		final String oldName = name;
 		name = newName;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, IMOAOPackage.NAMED_OBJECT__NAME, oldName, name));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -145,19 +151,22 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setDescription(String newDescription) {
-		String oldDescription = description;
+		final String oldDescription = description;
 		description = newDescription;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, IMOAOPackage.NAMED_OBJECT__DESCRIPTION,
 					oldDescription, description));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -167,17 +176,20 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setUuid(String newUuid) {
-		String oldUuid = uuid;
+		final String oldUuid = uuid;
 		uuid = newUuid;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, IMOAOPackage.NAMED_OBJECT__UUID, oldUuid, uuid));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -195,6 +207,7 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -215,6 +228,7 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -235,6 +249,7 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -252,13 +267,14 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: "); //$NON-NLS-1$
 		result.append(name);
 		result.append(", description: "); //$NON-NLS-1$
