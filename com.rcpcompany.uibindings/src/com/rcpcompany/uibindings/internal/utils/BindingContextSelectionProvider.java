@@ -32,8 +32,6 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.MenuEvent;
-import org.eclipse.swt.events.MenuListener;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
@@ -315,17 +313,17 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		// myMenuManager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 		myMenuManager.createContextMenu(getContext().getTop());
 		getContext().getTop().setMenu(myMenuManager.getMenu());
-		myMenuManager.getMenu().addMenuListener(new MenuListener() {
-			@Override
-			public void menuShown(MenuEvent e) {
-				LogUtils.debug(BindingContextSelectionProvider.this, "");
-			}
-
-			@Override
-			public void menuHidden(MenuEvent e) {
-				LogUtils.debug(BindingContextSelectionProvider.this, "");
-			}
-		});
+		// myMenuManager.getMenu().addMenuListener(new MenuListener() {
+		// @Override
+		// public void menuShown(MenuEvent e) {
+		// LogUtils.debug(BindingContextSelectionProvider.this, "");
+		// }
+		//
+		// @Override
+		// public void menuHidden(MenuEvent e) {
+		// LogUtils.debug(BindingContextSelectionProvider.this, "");
+		// }
+		// });
 
 		myPopupMenuExtender = new PopupMenuExtender(mySite.getId(), myMenuManager, this, mySite.getPart(), false);
 	}
@@ -451,8 +449,8 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	 */
 	protected void fireSelectionChanged(final SelectionChangedEvent event) {
 		final Object[] listeners = selectionChangedListeners.getListeners();
-		for (int i = 0; i < listeners.length; ++i) {
-			final ISelectionChangedListener l = (ISelectionChangedListener) listeners[i];
+		for (final Object listener : listeners) {
+			final ISelectionChangedListener l = (ISelectionChangedListener) listener;
 			SafeRunnable.run(new SafeRunnable() {
 				@Override
 				public void run() {
