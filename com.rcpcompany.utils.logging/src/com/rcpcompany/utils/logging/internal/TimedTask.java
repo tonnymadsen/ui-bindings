@@ -50,8 +50,7 @@ public class TimedTask implements ITimedTask {
 		sb.append('\n');
 		sb.append(">> ").append(getName()).append(": 0 ns").append('\n');
 		appendChildren(sb, "   ");
-		sb.append(">> ").append(getName()).append(": +")
-				.append(endTime - myStartTime).append(" ns");
+		sb.append(">> ").append(getName()).append(": +").append(endTime - myStartTime).append(" ns");
 
 		LogUtils.debug(this, sb.toString());
 	}
@@ -63,9 +62,8 @@ public class TimedTask implements ITimedTask {
 		long prevTime = myStartTime;
 
 		for (final TimedTask c : myChildren) {
-			sb.append(prefix).append(">> ").append(c.getName()).append(": +")
-					.append(c.myStartTime - myStartTime).append('/')
-					.append(c.myStartTime - prevTime).append(" ns\n");
+			sb.append(prefix).append(">> ").append(c.getName()).append(": +").append(c.myStartTime - myStartTime)
+					.append('/').append(c.myStartTime - prevTime).append(" ns\n");
 			prevTime = c.myStartTime;
 			c.appendChildren(sb, prefix + "   ");
 		}

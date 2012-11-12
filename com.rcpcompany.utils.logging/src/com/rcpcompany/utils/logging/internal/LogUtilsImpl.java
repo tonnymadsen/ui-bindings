@@ -75,19 +75,15 @@ public class LogUtilsImpl {
 	 * @param message
 	 *            the message to print
 	 * @param exception
-	 *            any exception associated with the log message or
-	 *            <code>null</code>
+	 *            any exception associated with the log message or <code>null</code>
 	 */
-	public void log(Object context, int logLevel, String message,
-			Throwable exception) {
+	public void log(Object context, int logLevel, String message, Throwable exception) {
 
 		if (exception instanceof InvocationTargetException) {
-			exception = ((InvocationTargetException) exception)
-					.getTargetException();
+			exception = ((InvocationTargetException) exception).getTargetException();
 		}
 		/*
-		 * Special case: if the exception is the same as last time!! So don't
-		 * report it again...
+		 * Special case: if the exception is the same as last time!! So don't report it again...
 		 */
 		if (exception != null && exception == lastException)
 			return;
@@ -136,9 +132,8 @@ public class LogUtilsImpl {
 					}
 				}
 				if (bundle != null) {
-					log = myExtendedLogService.getLogger(bundle,
-							"org.eclipse.equinox.logger"); // TODO which logger
-															// name to use
+					log = myExtendedLogService.getLogger(bundle, "org.eclipse.equinox.logger"); // TODO which logger
+																								// name to use
 				}
 			}
 			lastMessageUsedStdErr = false;
@@ -156,8 +151,7 @@ public class LogUtilsImpl {
 	}
 
 	/**
-	 * Returns the ID of the bundle that loaded the class of the specified
-	 * object.
+	 * Returns the ID of the bundle that loaded the class of the specified object.
 	 * 
 	 * @param obj
 	 *            the object in question
@@ -204,10 +198,8 @@ public class LogUtilsImpl {
 			if (className.startsWith(LogUtilsImpl.class.getName())) {
 				continue;
 			}
-			buffer.append(ClassUtils.getLastClassName(className)).append('.')
-					.append(st.getMethodName()).append(" (")
-					.append(st.getFileName()).append(':')
-					.append(st.getLineNumber()).append(")");
+			buffer.append(ClassUtils.getLastClassName(className)).append('.').append(st.getMethodName()).append(" (")
+					.append(st.getFileName()).append(':').append(st.getLineNumber()).append(")");
 			break;
 		}
 

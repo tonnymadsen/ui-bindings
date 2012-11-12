@@ -22,13 +22,10 @@ import org.osgi.service.log.LogService;
 import com.rcpcompany.utils.logging.internal.LogUtilsImpl;
 
 /**
- * This utility class provides a number of static functions that can ease
- * logging of information.
+ * This utility class provides a number of static functions that can ease logging of information.
  * <p>
- * Almost all of the log utility methods have an object as the first object.
- * This object is used to determine the plug-in that is responsible for a
- * specific message. The object is handled as follows depending on the
- * type/Class:
+ * Almost all of the log utility methods have an object as the first object. This object is used to determine the
+ * plug-in that is responsible for a specific message. The object is handled as follows depending on the type/Class:
  * <dl>
  * <dt>{@link IConfigurationElement}</dt>
  * <dd>The contributor is used as the plug-in name</dd>
@@ -37,13 +34,12 @@ import com.rcpcompany.utils.logging.internal.LogUtilsImpl;
  * <dt><code>null</code></dt>
  * <dd><code>{@link #UNKNOWN_PLUGIN &lt;unknown&gt;}</code> used</dd>
  * <dt>all other</dt>
- * <dd>The OSGi Admin service is used to query for the plug-in that defined the
- * class</dd>
+ * <dd>The OSGi Admin service is used to query for the plug-in that defined the class</dd>
  * </dl>
  * <h2>Some Possible Enhancements</h2>
  * <ul>
- * <li>Could get the log to use from bundle in question and only use the current
- * log of this plug-in for the unknown cases...</li>
+ * <li>Could get the log to use from bundle in question and only use the current log of this plug-in for the unknown
+ * cases...</li>
  * <li>Change the format of the time stamp</li>
  * </ul>
  * <p>
@@ -63,8 +59,7 @@ public final class LogUtils {
 	 *            the message to print
 	 */
 	public static void debug(Object context, String message) {
-		LogUtilsImpl.getInstance().log(context, LogService.LOG_INFO, message,
-				null);
+		LogUtilsImpl.getInstance().log(context, LogService.LOG_INFO, message, null);
 	}
 
 	/**
@@ -76,8 +71,7 @@ public final class LogUtils {
 	 *            the message to print
 	 */
 	public static void warning(Object context, String message) {
-		LogUtilsImpl.getInstance().log(context, LogService.LOG_ERROR, message,
-				null);
+		LogUtilsImpl.getInstance().log(context, LogService.LOG_ERROR, message, null);
 	}
 
 	/**
@@ -86,12 +80,10 @@ public final class LogUtils {
 	 * @param context
 	 *            the context related to the message
 	 * @param exception
-	 *            any exception associated with the log message or
-	 *            <code>null</code>
+	 *            any exception associated with the log message or <code>null</code>
 	 */
 	public static void warning(Object context, Throwable exception) {
-		LogUtilsImpl.getInstance().log(context, LogService.LOG_WARNING, null,
-				exception);
+		LogUtilsImpl.getInstance().log(context, LogService.LOG_WARNING, null, exception);
 	}
 
 	/**
@@ -102,17 +94,11 @@ public final class LogUtils {
 	 * @param message
 	 *            the message
 	 * @param exception
-	 *            any exception associated with the log message or
-	 *            <code>null</code>
+	 *            any exception associated with the log message or <code>null</code>
 	 */
-	public static void warning(Object context, String message,
-			Throwable exception) {
-		LogUtilsImpl.getInstance().log(
-				context,
-				LogService.LOG_WARNING,
-				message,
-				exception != null ? new RuntimeException(message, exception)
-						: null);
+	public static void warning(Object context, String message, Throwable exception) {
+		LogUtilsImpl.getInstance().log(context, LogService.LOG_WARNING, message,
+				exception != null ? new RuntimeException(message, exception) : null);
 	}
 
 	/**
@@ -124,8 +110,7 @@ public final class LogUtils {
 	 *            the message to print
 	 */
 	public static void error(Object context, String message) {
-		LogUtilsImpl.getInstance().log(context, LogService.LOG_ERROR, message,
-				null);
+		LogUtilsImpl.getInstance().log(context, LogService.LOG_ERROR, message, null);
 	}
 
 	/**
@@ -134,12 +119,10 @@ public final class LogUtils {
 	 * @param context
 	 *            the context related to the message
 	 * @param exception
-	 *            any exception associated with the log message or
-	 *            <code>null</code>
+	 *            any exception associated with the log message or <code>null</code>
 	 */
 	public static void error(Object context, Throwable exception) {
-		LogUtilsImpl.getInstance().log(context, LogService.LOG_ERROR, null,
-				exception);
+		LogUtilsImpl.getInstance().log(context, LogService.LOG_ERROR, null, exception);
 	}
 
 	/**
@@ -150,43 +133,33 @@ public final class LogUtils {
 	 * @param message
 	 *            the message
 	 * @param exception
-	 *            any exception associated with the log message or
-	 *            <code>null</code>
+	 *            any exception associated with the log message or <code>null</code>
 	 */
 	public static void error(Object context, String message, Throwable exception) {
-		LogUtilsImpl.getInstance().log(
-				context,
-				LogService.LOG_ERROR,
-				message,
-				exception != null ? new RuntimeException(message, exception)
-						: null);
+		LogUtilsImpl.getInstance().log(context, LogService.LOG_ERROR, message,
+				exception != null ? new RuntimeException(message, exception) : null);
 	}
 
 	/**
-	 * Logs and <em>throws</em> the specified error message as an
-	 * {@link RuntimeException}.
+	 * Logs and <em>throws</em> the specified error message as an {@link RuntimeException}.
 	 * 
 	 * @param context
 	 *            the context related to the message
 	 * @param message
 	 *            the message
 	 * @param exception
-	 *            any exception associated with the log message or
-	 *            <code>null</code>
+	 *            any exception associated with the log message or <code>null</code>
 	 */
-	public static void throwException(Object context, String message,
-			Throwable exception) {
-		final RuntimeException ex = new RuntimeException(message);
+	public static void throwException(Object context, String message, Throwable exception) {
+		final RuntimeException ex = new RuntimeException(message != null ? message : exception.toString());
 		ex.fillInStackTrace();
 		ex.initCause(exception);
-		LogUtilsImpl.getInstance().log(context, LogService.LOG_ERROR, message,
-				ex);
+		LogUtilsImpl.getInstance().log(context, LogService.LOG_ERROR, message, ex);
 		throw ex;
 	}
 
 	/**
-	 * Returns the ID of the bundle that loaded the class of the specified
-	 * object.
+	 * Returns the ID of the bundle that loaded the class of the specified object.
 	 * 
 	 * @param obj
 	 *            the object in question
@@ -240,7 +213,6 @@ public final class LogUtils {
 				break;
 			}
 		}
-		debug(context.getBundle().getSymbolicName(),
-				"Plugin versions:" + sb.toString());
+		debug(context.getBundle().getSymbolicName(), "Plugin versions:" + sb.toString());
 	}
 }
