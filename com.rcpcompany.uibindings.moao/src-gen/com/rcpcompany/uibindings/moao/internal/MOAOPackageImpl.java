@@ -38,77 +38,82 @@ import com.rcpcompany.uibindings.moao.util.MOAOValidator;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass moaoEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass moaoFacetEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass namedObjectEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass moaoMessageEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EEnum severityEEnum = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType eDiagnosticChainEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType eMapEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass iAdaptableEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass eStructuralFeatureEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
-	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
-	 * package URI value.
-	 * <p>Note: the correct way to create the package is via the static
-	 * factory method {@link #init init()}, which also performs
-	 * initialization of the package, or returns the registered package,
-	 * if one already exists.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package package URI
+	 * value.
+	 * <p>
+	 * Note: the correct way to create the package is via the static factory method {@link #init
+	 * init()}, which also performs initialization of the package, or returns the registered
+	 * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see com.rcpcompany.uibindings.moao.IMOAOPackage#eNS_URI
 	 * @see #init()
@@ -120,16 +125,20 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others
+	 * upon which it depends.
 	 * 
-	 * <p>This method is used to initialize {@link IMOAOPackage#eINSTANCE} when that field is accessed.
-	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <p>
+	 * This method is used to initialize {@link IMOAOPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to
+	 * obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
@@ -139,7 +148,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 		if (isInited) return (IMOAOPackage) EPackage.Registry.INSTANCE.getEPackage(IMOAOPackage.eNS_URI);
 
 		// Obtain or create and register package
-		MOAOPackageImpl theMOAOPackage = (MOAOPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof MOAOPackageImpl ? EPackage.Registry.INSTANCE
+		final MOAOPackageImpl theMOAOPackage = (MOAOPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof MOAOPackageImpl ? EPackage.Registry.INSTANCE
 				.get(eNS_URI) : new MOAOPackageImpl());
 
 		isInited = true;
@@ -155,6 +164,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put(theMOAOPackage, new EValidator.Descriptor() {
+			@Override
 			public EValidator getEValidator() {
 				return MOAOValidator.INSTANCE;
 			}
@@ -170,6 +180,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -179,6 +190,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -187,34 +199,38 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EOperation getMOAO__IsValid__DiagnosticChain_Map() {
 		return moaoEClass.getEOperations().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EOperation getMOAO__RemoveMessagesByOwner__String() {
 		return moaoEClass.getEOperations().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EOperation getMOAO__RemoveMessagesByOwner__EStructuralFeature_String() {
 		return moaoEClass.getEOperations().get(2);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -224,6 +240,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -233,6 +250,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -242,6 +260,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -251,6 +270,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -260,6 +280,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -268,88 +289,98 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getMOAOMessage() {
 		return moaoMessageEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMOAOMessage_Owner() {
 		return (EAttribute) moaoMessageEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getMOAOMessage_Feature() {
 		return (EReference) moaoMessageEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMOAOMessage_Description() {
 		return (EAttribute) moaoMessageEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMOAOMessage_Severity() {
 		return (EAttribute) moaoMessageEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMOAOMessage_Details() {
 		return (EAttribute) moaoMessageEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EEnum getSeverity() {
 		return severityEEnum;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getEDiagnosticChain() {
 		return eDiagnosticChainEDataType;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getEMap() {
 		return eMapEDataType;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -358,16 +389,18 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getEStructuralFeature() {
 		return eStructuralFeatureEClass;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -377,14 +410,15 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isCreated = false;
 
 	/**
-	 * Creates the meta-model objects for the package.  This method is
-	 * guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Creates the meta-model objects for the package. This method is guarded to have no affect on
+	 * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void createPackageContents() {
@@ -427,14 +461,15 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isInitialized = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model.  This
-	 * method is guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Complete the initialization of the package and its meta-model. This method is guarded to have
+	 * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void initializePackageContents() {
@@ -447,7 +482,8 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+		final EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE
+				.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 		addETypeParameter(eMapEDataType, "K"); //$NON-NLS-1$
@@ -478,7 +514,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 		EOperation op = initEOperation(getMOAO__IsValid__DiagnosticChain_Map(), theEcorePackage.getEBoolean(),
 				"isValid", 0, 1, !IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, this.getEDiagnosticChain(), "diagnostics", 0, 1, !IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		EGenericType g1 = createEGenericType(this.getEMap());
+		final EGenericType g1 = createEGenericType(this.getEMap());
 		EGenericType g2 = createEGenericType(theEcorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(theEcorePackage.getEJavaObject());
@@ -568,7 +604,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 	 * @generated
 	 */
 	protected void createGenModelAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/GenModel"; //$NON-NLS-1$		
+		final String source = "http://www.eclipse.org/emf/2002/GenModel"; //$NON-NLS-1$		
 		addAnnotation(this, source, new String[] { "basePackage", "com.rcpcompany.uibindings", //$NON-NLS-1$ //$NON-NLS-2$
 				"nonNLSMarkers", "true", //$NON-NLS-1$ //$NON-NLS-2$
 				"classPackageSuffix", "internal", //$NON-NLS-1$ //$NON-NLS-2$
@@ -593,7 +629,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 				"documentation", "*\n<p>\nStructural Feature from ECore" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 		addAnnotation(moaoEClass, source, new String[] {
-				"documentation", "*\n<p>\nTop-level \"Mother of all Objects\"." //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				"documentation", "*\n<p>\nTop-level \"Mother of all Objects\"." //$NON-NLS-1$ //$NON-NLS-2$ 
 		});
 		addAnnotation(getMOAO__IsValid__DiagnosticChain_Map(), source, new String[] {
 				"documentation", "*\n<p>\nValidation of this object.\n<p>\nExtend in your own class.", //$NON-NLS-1$ //$NON-NLS-2$

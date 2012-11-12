@@ -137,6 +137,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IMOAOFacet createMOAOFacet() {
 		final MOAOFacetImpl moaoFacet = new MOAOFacetImpl();
 		return moaoFacet;
@@ -158,6 +159,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 	 * 
 	 * @generated
 	 */
+	@Override
 	public IMOAOMessage createMOAOMessage() {
 		final MOAOMessageImpl moaoMessage = new MOAOMessageImpl();
 		return moaoMessage;

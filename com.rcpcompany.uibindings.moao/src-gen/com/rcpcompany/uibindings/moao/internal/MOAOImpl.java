@@ -33,16 +33,17 @@ import com.rcpcompany.uibindings.moao.IMOAOPackage.Literals;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.moao.internal.MOAOImpl#getFacets <em>Facets</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.moao.internal.MOAOImpl#getFacets <em>Facets</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 	/**
 	 * The cached value of the '{@link #getFacets() <em>Facets</em>}' containment reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getFacets()
 	 * @generated
 	 * @ordered
@@ -51,6 +52,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected MOAOImpl() {
@@ -59,6 +61,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -68,8 +71,10 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<IMOAOFacet> getFacets() {
 		if (facets == null) {
 			facets = new EObjectContainmentWithInverseEList<IMOAOFacet>(IMOAOFacet.class, this,
@@ -80,20 +85,24 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public boolean isValid(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
 		return true;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public void removeMessagesByOwner(final String owner) {
-		IMOAO _this = this;
+		final IMOAO _this = this;
 		final TreeIterator<EObject> allContents = _this.eAllContents();
-		boolean _hasNext = allContents.hasNext();
+		final boolean _hasNext = allContents.hasNext();
 		boolean _while = _hasNext;
 		while (_while) {
 			{
@@ -103,28 +112,30 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 					if (next instanceof IMOAO) {
 						final IMOAO _iMOAO = (IMOAO) next;
 						_matched = true;
-						((IMOAO) _iMOAO).removeMessagesByOwner(null, owner);
+						_iMOAO.removeMessagesByOwner(null, owner);
 					}
 				}
 			}
-			boolean _hasNext_1 = allContents.hasNext();
+			final boolean _hasNext_1 = allContents.hasNext();
 			_while = _hasNext_1;
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public void removeMessagesByOwner(final EStructuralFeature feature, final String owner) {
-		IMOAO _this = this;
-		boolean _eIsSet = _this.eIsSet(Literals.MOAO__FACETS);
-		boolean _not = (!_eIsSet);
-		if (_not) { return; }
-		IMOAO _this_1 = this;
-		EList<IMOAOFacet> _facets = _this_1.getFacets();
+		final IMOAO _this = this;
+		final boolean _eIsSet = _this.eIsSet(Literals.MOAO__FACETS);
+		final boolean _not = (!_eIsSet);
+		if (_not) return;
+		final IMOAO _this_1 = this;
+		final EList<IMOAOFacet> _facets = _this_1.getFacets();
 		final Iterator<IMOAOFacet> iterator = _facets.iterator();
-		boolean _hasNext = iterator.hasNext();
+		final boolean _hasNext = iterator.hasNext();
 		boolean _while = _hasNext;
 		while (_while) {
 			{
@@ -134,22 +145,22 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 					if (next instanceof IMOAOMessage) {
 						final IMOAOMessage _iMOAOMessage = (IMOAOMessage) next;
 						_matched = true;
-						final IMOAOMessage m = ((IMOAOMessage) _iMOAOMessage);
+						final IMOAOMessage m = (_iMOAOMessage);
 						boolean _and = false;
 						boolean _and_1 = false;
-						boolean _notEquals = (!Objects.equal(feature, null));
+						final boolean _notEquals = (!Objects.equal(feature, null));
 						if (!_notEquals) {
 							_and_1 = false;
 						} else {
-							EStructuralFeature _feature = m.getFeature();
-							boolean _equals = Objects.equal(feature, _feature);
+							final EStructuralFeature _feature = m.getFeature();
+							final boolean _equals = Objects.equal(feature, _feature);
 							_and_1 = (_notEquals && _equals);
 						}
 						if (!_and_1) {
 							_and = false;
 						} else {
-							String _owner = m.getOwner();
-							boolean _equals_1 = Objects.equal(owner, _owner);
+							final String _owner = m.getOwner();
+							final boolean _equals_1 = Objects.equal(owner, _owner);
 							_and = (_and_1 && _equals_1);
 						}
 						if (_and) {
@@ -158,13 +169,14 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 					}
 				}
 			}
-			boolean _hasNext_1 = iterator.hasNext();
+			final boolean _hasNext_1 = iterator.hasNext();
 			_while = _hasNext_1;
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -179,6 +191,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -192,6 +205,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -205,6 +219,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -221,6 +236,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -235,6 +251,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -248,6 +265,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
