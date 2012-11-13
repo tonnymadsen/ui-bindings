@@ -7,9 +7,9 @@ Bundle-Vendor: The RCP Company
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: com.rcpcompany.uibindings.tests.utils.StartActivator
-Require-Bundle: org.eclipse.core.runtime;bundle-version="3.8.0",
- com.rcpcompany.test.utils;bundle-version="[1.0.0,1.1.0)";visibility:=reexport,
- com.rcpcompany.utils.ui;visibility:=reexport,
+Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.6.0,4.0.0)",
+ com.rcpcompany.test.utils;bundle-version="[1.0.0,2.0.0)";visibility:=reexport,
+ com.rcpcompany.utils.ui;bundle-version="[3.6.0,4.0.0)";visibility:=reexport,
  org.eclipse.ui.forms;bundle-version="[3.5.0,4.0.0)",
  com.rcpcompany.test.utils.ui;bundle-version="[1.0.0,2.0.0)";visibility:=reexport
 Export-Package: com.rcpcompany.uibindings.tests.utils;version="1.0.0",
