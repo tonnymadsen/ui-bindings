@@ -1,6 +1,7 @@
 package com.rcpcompany.test.utils;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 
@@ -19,8 +20,7 @@ public class MonitoredMonitor implements IProgressMonitor {
 
 	public MonitoredMonitor(boolean sysout) {
 		doSysout = sysout;
-		myPrefix = getClass().getSimpleName() + "@"
-				+ System.identityHashCode(this);
+		myPrefix = getClass().getSimpleName() + "@" + System.identityHashCode(this);
 	}
 
 	private final String myPrefix;
@@ -41,8 +41,7 @@ public class MonitoredMonitor implements IProgressMonitor {
 		myState = MonitorState.OPEN;
 		myTotalWork = totalWork;
 		if (doSysout) {
-			LogUtils.debug(this, myPrefix + ": '" + name + "' (" + totalWork
-					+ ")");
+			LogUtils.debug(this, myPrefix + ": '" + name + "' (" + totalWork + ")");
 		}
 	}
 
@@ -76,16 +75,19 @@ public class MonitoredMonitor implements IProgressMonitor {
 
 	@Override
 	public void setTaskName(String name) {
+		if (doSysout) {
+			LogUtils.debug(this, myPrefix + ": '" + name + "'");
+		}
 		assertEquals(MonitorState.OPEN, myState);
 	}
 
 	@Override
 	public void subTask(String name) {
-		assertEquals(MonitorState.OPEN, myState);
 		if (doSysout) {
 			LogUtils.debug(this, myPrefix + ": '" + name + "'");
 		}
 		mySubTasks++;
+		assertEquals(MonitorState.OPEN, myState);
 	}
 
 	@Override
@@ -96,12 +98,8 @@ public class MonitoredMonitor implements IProgressMonitor {
 			assertTrue(myWorkDone <= myTotalWork);
 		}
 		if (doSysout) {
-			LogUtils.debug(this, myPrefix
-					+ ": "
-					+ myWorkDone
-					+ "/"
-					+ (myTotalWork == IProgressMonitor.UNKNOWN ? "unknown" : ""
-							+ myTotalWork));
+			LogUtils.debug(this, myPrefix + ": " + myWorkDone + "/"
+					+ (myTotalWork == IProgressMonitor.UNKNOWN ? "unknown" : "" + myTotalWork));
 		}
 	}
 
