@@ -12,7 +12,7 @@
 <feature
       id="com.rcpcompany.uibindings.source.feature"
       label="UI Bindings Sources"
-      version="1.0.0.qualifier"
+      version="1.0.1.qualifier"
       provider-name="The RCP Company">
 
    <description url="http://www.example.com/description">
@@ -81,6 +81,13 @@
 
    <plugin
          id="com.rcpcompany.uibindings.moao.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.rcpcompany.uibindings.moao.ui.source"
          download-size="0"
          install-size="0"
          version="0.0.0"
