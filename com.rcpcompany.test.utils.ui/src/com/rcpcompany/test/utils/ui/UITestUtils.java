@@ -11,7 +11,11 @@ package com.rcpcompany.test.utils.ui;
  *     The RCP Company - initial API and implementation
  *******************************************************************************/
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -51,6 +55,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  * Provides a number of convenience methods...
  * 
  * @author Tonny Madsen, The RCP Company
+ * @since 1.1
  */
 public class UITestUtils {
 	private UITestUtils() {
@@ -60,8 +65,7 @@ public class UITestUtils {
 	 * Resets the complete test environment.
 	 */
 	public static void resetUI() {
-		final Shell shell = PlatformUI.getWorkbench()
-				.getActiveWorkbenchWindow().getShell();
+		final Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 		Event e = new Event();
 		e.type = SWT.KeyUp;
 		e.keyCode = SWT.SHIFT;
@@ -100,14 +104,11 @@ public class UITestUtils {
 	public static TestView createTestView(Object creatingObject) {
 		TestView view = null;
 		try {
-			final IWorkbenchPage page = PlatformUI.getWorkbench()
-					.getActiveWorkbenchWindow().getActivePage();
-			view = (TestView) page.showView(
-					"com.agetor.wb.tests.utils.TestView", "" + (testViewSeq++),
+			final IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+			view = (TestView) page.showView("com.agetor.wb.tests.utils.TestView", "" + (testViewSeq++),
 					IWorkbenchPage.VIEW_ACTIVATE);
 			assertNotNull(view);
-			view.setPartName("Test View: "
-					+ creatingObject.getClass().getSimpleName());
+			view.setPartName("Test View: " + creatingObject.getClass().getSimpleName());
 		} catch (final Exception ex) {
 			fail(ex.getMessage());
 		}
@@ -126,8 +127,7 @@ public class UITestUtils {
 	public static IViewPart showView(String viewID) {
 		IViewPart view = null;
 		try {
-			final IWorkbenchPage page = PlatformUI.getWorkbench()
-					.getActiveWorkbenchWindow().getActivePage();
+			final IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
 			view = page.showView(viewID, null, IWorkbenchPage.VIEW_ACTIVATE);
 			assertNotNull(view);
 		} catch (final Exception ex) {
@@ -183,8 +183,7 @@ public class UITestUtils {
 	}
 
 	/**
-	 * Posts the specified keystroke to the specified control which will get
-	 * focus.
+	 * Posts the specified keystroke to the specified control which will get focus.
 	 * 
 	 * @param c
 	 *            the control
@@ -248,8 +247,7 @@ public class UITestUtils {
 	 * @param down
 	 *            <code>true</code> for keyDown and <code>false</code> for keyUp
 	 */
-	public static void postModifierKeys(Control c, KeyStroke keyStroke,
-			boolean down) {
+	public static void postModifierKeys(Control c, KeyStroke keyStroke, boolean down) {
 		if ((keyStroke.getModifierKeys() & SWT.COMMAND) == SWT.COMMAND) {
 			final Event event = new Event();
 			event.type = down ? SWT.KeyDown : SWT.KeyUp;
@@ -289,8 +287,7 @@ public class UITestUtils {
 	}
 
 	/**
-	 * Posts the specified keystroke to the specified control which will get
-	 * focus.
+	 * Posts the specified keystroke to the specified control which will get focus.
 	 * 
 	 * @param c
 	 *            the control
@@ -301,18 +298,15 @@ public class UITestUtils {
 	 * @param handlerClass
 	 *            the expected handler class
 	 */
-	public static void postKeyStroke(Control c, final String stroke,
-			IServiceLocator locator,
+	public static void postKeyStroke(Control c, final String stroke, IServiceLocator locator,
 			final Class<? extends IHandler> handlerClass) {
-		final ICommandService cs = (ICommandService) locator
-				.getService(ICommandService.class);
+		final ICommandService cs = (ICommandService) locator.getService(ICommandService.class);
 		final boolean[] executed = new boolean[] { false };
 		final IExecutionListener listener = new IExecutionListener() {
 			@Override
 			public void preExecute(String commandId, ExecutionEvent event) {
 				final IHandler handler = event.getCommand().getHandler();
-				assertNotNull("No handler active for "
-						+ event.getCommand().getId(), handler);
+				assertNotNull("No handler active for " + event.getCommand().getId(), handler);
 				String hName = handler.toString();
 				if (hName.indexOf('@') >= 0) {
 					hName = hName.substring(0, hName.indexOf('@'));
@@ -322,8 +316,7 @@ public class UITestUtils {
 				// hc = ((HandlerProxy) handler).getClass();
 				// }
 				if (!hName.equals("org.eclipse.ui.internal.MakeHandlersGo")) {
-					assertEquals("Stroke '" + stroke + "' command '"
-							+ commandId + "'", handlerClass.getName(), hName);
+					assertEquals("Stroke '" + stroke + "' command '" + commandId + "'", handlerClass.getName(), hName);
 				}
 				executed[0] = true;
 			}
@@ -334,14 +327,12 @@ public class UITestUtils {
 			}
 
 			@Override
-			public void postExecuteFailure(String commandId,
-					ExecutionException exception) {
+			public void postExecuteFailure(String commandId, ExecutionException exception) {
 				fail(exception.getMessage());
 			}
 
 			@Override
-			public void notHandled(String commandId,
-					NotHandledException exception) {
+			public void notHandled(String commandId, NotHandledException exception) {
 				fail(exception.getMessage());
 			}
 		};
@@ -425,8 +416,7 @@ public class UITestUtils {
 	 * @param p
 	 *            the point
 	 */
-	public static void postMouseDown(String modifiers, final int button,
-			final Control c, final int noClicks) {
+	public static void postMouseDown(String modifiers, final int button, final Control c, final int noClicks) {
 		final long now = System.currentTimeMillis();
 
 		if (lastMouseOperationExpireTime > now) {
@@ -462,14 +452,11 @@ public class UITestUtils {
 					assertTrue(c.getDisplay().post(e));
 
 					/*
-					 * Problem on MACOSX: the event handler for the MouseDown
-					 * event, seems to be actively waiting for the MouseUp
-					 * event. While this happens, Display.readAndDispatch is
-					 * blocked. Not event timer events are executed, only system
-					 * events.
+					 * Problem on MACOSX: the event handler for the MouseDown event, seems to be actively waiting for
+					 * the MouseUp event. While this happens, Display.readAndDispatch is blocked. Not event timer events
+					 * are executed, only system events.
 					 * 
-					 * The "solution" seems to be to avoid all waiting at this
-					 * point!
+					 * The "solution" seems to be to avoid all waiting at this point!
 					 */
 					// sleep(50);
 					// yield();
@@ -492,8 +479,7 @@ public class UITestUtils {
 			postModifierKeys(c, keyStroke, false);
 		}
 
-		lastMouseOperationExpireTime = now
-				+ c.getDisplay().getDoubleClickTime() + 50;
+		lastMouseOperationExpireTime = now + c.getDisplay().getDoubleClickTime() + 50;
 	}
 
 	/**
@@ -508,8 +494,7 @@ public class UITestUtils {
 	 * @param noClicks
 	 *            the number of clicks
 	 */
-	public static void postMouse(final String modifiers, final Control c,
-			final Point p, final int noClicks) {
+	public static void postMouse(final String modifiers, final Control c, final Point p, final int noClicks) {
 		postMouseMove(c, p);
 		postMouseDown(modifiers, 1, c, noClicks);
 	}
@@ -535,8 +520,7 @@ public class UITestUtils {
 	 *            the bound of the area to click
 	 */
 	public static void postMouseMove(Control c, Rectangle bounds) {
-		postMouseMove(c, new Point(bounds.x + bounds.width / 2, bounds.y
-				+ bounds.height / 2));
+		postMouseMove(c, new Point(bounds.x + bounds.width / 2, bounds.y + bounds.height / 2));
 	}
 
 	/**
@@ -595,8 +579,7 @@ public class UITestUtils {
 	 * @param noClicks
 	 *            the number of clicks
 	 */
-	public static void postMouse(String modifiers, Table t, int column,
-			int row, int noClicks) {
+	public static void postMouse(String modifiers, Table t, int column, int row, int noClicks) {
 		postMouse(modifiers, t, t.getItem(row).getBounds(column), noClicks);
 	}
 
@@ -611,8 +594,7 @@ public class UITestUtils {
 	 *            the number of clicks
 	 */
 	public static void postMouse(Control c, Rectangle bounds, int noClicks) {
-		postMouse(null, c, new Point(bounds.x + bounds.width / 2, bounds.y
-				+ bounds.height / 2), noClicks);
+		postMouse(null, c, new Point(bounds.x + bounds.width / 2, bounds.y + bounds.height / 2), noClicks);
 	}
 
 	/**
@@ -625,10 +607,8 @@ public class UITestUtils {
 	 * @param noClicks
 	 *            the number of clicks
 	 */
-	public static void postMouse(String modifiers, Control c, Rectangle bounds,
-			int noClicks) {
-		postMouse(modifiers, c, new Point(bounds.x + bounds.width / 2, bounds.y
-				+ bounds.height / 2), noClicks);
+	public static void postMouse(String modifiers, Control c, Rectangle bounds, int noClicks) {
+		postMouse(modifiers, c, new Point(bounds.x + bounds.width / 2, bounds.y + bounds.height / 2), noClicks);
 	}
 
 	protected static boolean cont = false;
@@ -661,8 +641,7 @@ public class UITestUtils {
 	}
 
 	/**
-	 * Tests that the pixel of the specified control have the specified RGB
-	 * value.
+	 * Tests that the pixel of the specified control have the specified RGB value.
 	 * 
 	 * @param control
 	 *            the control
@@ -673,8 +652,7 @@ public class UITestUtils {
 	 * @param expectedRGB
 	 *            the expected color
 	 */
-	public static void assertPixelColor(String what, Control control, int x,
-			int y, RGB expectedRGB) {
+	public static void assertPixelColor(String what, Control control, int x, int y, RGB expectedRGB) {
 		/*
 		 * Map to the shell to avoid negative coordinates
 		 */
@@ -698,8 +676,8 @@ public class UITestUtils {
 		assertEquals(what, expectedRGB, actualRGB);
 	}
 
-	public static void dumpPixels(Control control, final int x, final int y,
-			final int width, final int height, RGB expectedRGB) {
+	public static void dumpPixels(Control control, final int x, final int y, final int width, final int height,
+			RGB expectedRGB) {
 		/*
 		 * Map to the shell to avoid negative coordinates
 		 */
@@ -711,8 +689,7 @@ public class UITestUtils {
 			sb.append("Expected " + expectedRGB);
 		}
 
-		final Point p = display.map(control, shell, new Point(x - width, y
-				- height));
+		final Point p = display.map(control, shell, new Point(x - width, y - height));
 		final GC gc = new GC(shell);
 		final Image image = new Image(display, width * 2 + 1, height * 2 + 1);
 		gc.copyArea(image, p.x - width, p.y - height);
@@ -721,8 +698,7 @@ public class UITestUtils {
 
 		for (int dx = -width; dx < width; dx++) {
 			for (int dy = -height; dy < height; dy++) {
-				final int actualPixel = imageData.getPixel(dx + width, dy
-						+ height);
+				final int actualPixel = imageData.getPixel(dx + width, dy + height);
 				final RGB actualRGB = imageData.palette.getRGB(actualPixel);
 				sb.append("\n(" + dx + ";" + dy + "): " + actualRGB);
 			}
@@ -740,8 +716,7 @@ public class UITestUtils {
 		sleep(500);
 	}
 
-	public static void assertPixelColorVerbose(Control control, int x, int y,
-			RGB expectedRGB) {
+	public static void assertPixelColorVerbose(Control control, int x, int y, RGB expectedRGB) {
 		/*
 		 * Map to the shell to avoid negative coordinates
 		 */
@@ -760,8 +735,7 @@ public class UITestUtils {
 		sleep(1003);
 		for (int dx = -5; dx <= 5; dx++) {
 			for (int dy = -5; dy <= 5; dy++) {
-				final Point p = display.map(control, shell, new Point(x + dx, y
-						+ dx));
+				final Point p = display.map(control, shell, new Point(x + dx, y + dx));
 
 				final GC gc = new GC(shell);
 				final Image image = new Image(display, 1, 1);
@@ -780,8 +754,7 @@ public class UITestUtils {
 	}
 
 	/**
-	 * Waits until the Workbench have been fully loaded and a workbench window
-	 * is active.
+	 * Waits until the Workbench have been fully loaded and a workbench window is active.
 	 */
 	public static void waitForWorkbench() {
 		final IWorkbench workbench = PlatformUI.getWorkbench();
