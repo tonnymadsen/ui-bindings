@@ -605,8 +605,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 	 */
 	protected void createGenModelAnnotations() {
 		final String source = "http://www.eclipse.org/emf/2002/GenModel"; //$NON-NLS-1$		
-		addAnnotation(this, source, new String[] { "basePackage", "com.rcpcompany.uibindings", //$NON-NLS-1$ //$NON-NLS-2$
-				"nonNLSMarkers", "true", //$NON-NLS-1$ //$NON-NLS-2$
+		addAnnotation(this, source, new String[] { "nonNLSMarkers", "true", //$NON-NLS-1$ //$NON-NLS-2$
 				"classPackageSuffix", "internal", //$NON-NLS-1$ //$NON-NLS-2$
 				"adapterFactory", "false", //$NON-NLS-1$ //$NON-NLS-2$
 				"classNamePattern", "{0}Impl", //$NON-NLS-1$ //$NON-NLS-2$
@@ -620,7 +619,8 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 				"codeFormatting", "true", //$NON-NLS-1$ //$NON-NLS-2$
 				"redirection", "", //$NON-NLS-1$ //$NON-NLS-2$
 				"updateClasspath", "false", //$NON-NLS-1$ //$NON-NLS-2$
-				"containmentProxies", "false" //$NON-NLS-1$ //$NON-NLS-2$
+				"containmentProxies", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"basePackage", "com.rcpcompany.uibindings" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 		addAnnotation(iAdaptableEClass, source, new String[] {
 				"documentation", "*\n<p>\nIAdapable is used as an interface for MOAO." //$NON-NLS-1$ //$NON-NLS-2$
