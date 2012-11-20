@@ -1,6 +1,8 @@
 package com.rcpcompany.test.utils;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.fail;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspace;
@@ -29,13 +31,14 @@ public class ResourceTestUtils {
 	 * Deletes the specified project if it exists.
 	 * 
 	 * @param projectName
+	 *            the name of the project to delete
 	 */
 	public static void deleteProject(String projectName) {
 		final IProject p = ROOT.getProject(projectName);
 		try {
 			p.delete(true, new NullProgressMonitor());
 		} catch (final CoreException ex) {
-			// Ignore!
+			fail("" + ex);
 		}
 		assertFalse("project deleted", p.exists());
 	}
