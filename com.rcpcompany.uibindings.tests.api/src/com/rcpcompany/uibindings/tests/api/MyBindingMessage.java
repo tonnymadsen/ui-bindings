@@ -85,7 +85,7 @@ public class MyBindingMessage extends AbstractBindingMessage implements IBinding
 
 	@Override
 	public IValueBinding getBinding() {
-		return getBinding();
+		return super.getBinding();
 	}
 
 	@Override
@@ -94,27 +94,27 @@ public class MyBindingMessage extends AbstractBindingMessage implements IBinding
 
 	@Override
 	public String getMessage() {
-		return getMessage();
+		return super.getMessage();
 	}
 
 	@Override
 	public BindingMessageSeverity getSeverity() {
-		return getSeverity();
+		return super.getSeverity();
 	}
 
 	@Override
 	public Object getData() {
-		return getData();
+		return super.getData();
 	}
 
 	@Override
 	public int getCode() {
-		return getCode();
+		return super.getCode();
 	}
 
 	@Override
 	public String getDetails() {
-		return getDetails();
+		return super.getDetails();
 	}
 
 	@Override

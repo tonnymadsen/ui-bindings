@@ -25,8 +25,6 @@ import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Table;
 import org.junit.After;
 import org.junit.Before;
@@ -43,8 +41,6 @@ import com.rcpcompany.uibindings.tests.shop.ShopItem;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
-import com.rcpcompany.utils.basic.ui.TSSWTUtils;
-import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Tests that the cell editor leaves the value current after an edit.
@@ -88,16 +84,6 @@ public class ViewerEditCellCommitStrategiesTest {
 
 		myView.getSite().getPage().activate(myView);
 		myBody.layout();
-
-		final Listener listener = new Listener() {
-			@Override
-			public void handleEvent(Event event) {
-				LogUtils.debug(this, TSSWTUtils.toString(event));
-			}
-		};
-		for (int i = SWT.None; i <= SWT.ImeComposition; i++) {
-			// myTable.getDisplay().addFilter(i, listener);
-		}
 
 		myTableViewer.getColumnViewerEditor().addEditorActivationListener(new ColumnViewerEditorActivationListener() {
 			@Override

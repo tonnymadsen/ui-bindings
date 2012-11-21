@@ -37,7 +37,7 @@ public class BindingServicesSection implements IBindingSpySection {
 
 		final Table table = subform.getToolkit().createTable(subform.getTop(),
 				SWT.FULL_SELECTION | SWT.V_SCROLL | SWT.H_SCROLL | SWT.SINGLE);
-		final TableColumn column = new TableColumn(table, SWT.None);
+		new TableColumn(table, SWT.None);
 
 		// subform.getContext().addViewer(table, b,
 		// IUIBindingsPackage.Literals.SERVICE_REGISTRY__SERVICES);

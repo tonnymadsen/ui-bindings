@@ -74,7 +74,8 @@ public class NumberConstraintProvider implements IConstraintValidatorAdapterCons
 				d = (BigDecimal) value;
 			} else if (c == BigInteger.class) {
 				d = new BigDecimal((BigInteger) value);
-			}
+			} else
+				return null;
 
 			final String m = myDecorator.checkRange(value, d);
 			if (m == null) return null;

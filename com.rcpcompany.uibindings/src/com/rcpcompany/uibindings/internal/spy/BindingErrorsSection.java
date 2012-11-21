@@ -38,7 +38,7 @@ public class BindingErrorsSection implements IBindingSpySection {
 
 		final Table table = subform.getToolkit()
 				.createTable(subform.getTop(), SWT.V_SCROLL | SWT.H_SCROLL | SWT.SINGLE);
-		final TableColumn column = new TableColumn(table, SWT.None);
+		new TableColumn(table, SWT.None);
 
 		for (final String e : b.getErrorConditions()) {
 			final TableItem item = new TableItem(table, SWT.NONE);

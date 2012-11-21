@@ -134,12 +134,16 @@ public final class UIBEcoreUtils {
 	public static void showErrorDialog(String title, String description, Map<EObject, Collection<Setting>> references) {
 		LogUtils.debug("", title);
 
-		description += "\n\nThe following references are found:\n";
-		for (final Entry<EObject, Collection<Setting>> e : references.entrySet()) {
-			description += "\n    " + IBindingObjectInformation.Factory.getQualifiedName(e.getKey()) + ":";
-			for (final Setting s : e.getValue()) {
-				description += "\n       " + s.getEStructuralFeature().getName() + " of "
-						+ IBindingObjectInformation.Factory.getQualifiedName(s.getEObject());
+		if (references == null) {
+			description += "\n\nReferences are found.";
+		} else {
+			description += "\n\nThe following references are found:\n";
+			for (final Entry<EObject, Collection<Setting>> e : references.entrySet()) {
+				description += "\n    " + IBindingObjectInformation.Factory.getQualifiedName(e.getKey()) + ":";
+				for (final Setting s : e.getValue()) {
+					description += "\n       " + s.getEStructuralFeature().getName() + " of "
+							+ IBindingObjectInformation.Factory.getQualifiedName(s.getEObject());
+				}
 			}
 		}
 

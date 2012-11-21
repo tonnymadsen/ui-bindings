@@ -152,7 +152,7 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 		if (vr == null) {
 			vr = new ValidationRoot(root);
 		}
-		final ValidationRootAdapter vra = new ValidationRootAdapter(vr, validationAdapter);
+		new ValidationRootAdapter(vr, validationAdapter);
 		vr.markForValidation();
 		delayValidation();
 	}

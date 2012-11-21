@@ -45,13 +45,13 @@ public class ManagerRunnableManager implements IManagerRunnableManager {
 
 	@Override
 	public void asyncExec(String type, Object key, Runnable runnable) {
-		Record r = findRecord(type, key);
+		final Record r = findRecord(type, key);
 
 		if (r != null) {
 			r.replaceRunnable(runnable);
 			return;
 		}
-		r = new Record(type, key, runnable);
+		new Record(type, key, runnable);
 
 		startDisplayRunnable();
 	}

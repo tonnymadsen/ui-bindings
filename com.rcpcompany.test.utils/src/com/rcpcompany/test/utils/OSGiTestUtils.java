@@ -35,10 +35,13 @@ public class OSGiTestUtils {
 	 */
 	public static PackageAdmin getPackageAdmin() {
 		if (bundleTrackerPackageAdmin == null) {
-			bundleTrackerPackageAdmin = new ServiceTracker(Activator
-					.getDefault().getContext(), PackageAdmin.class.getName(),
-					null);
-			bundleTrackerPackageAdmin.open();
+			synchronized (OSGiTestUtils.class) {
+				if (bundleTrackerPackageAdmin == null) {
+					bundleTrackerPackageAdmin = new ServiceTracker(Activator.getDefault().getContext(),
+							PackageAdmin.class.getName(), null);
+					bundleTrackerPackageAdmin.open();
+				}
+			}
 		}
 		return (PackageAdmin) bundleTrackerPackageAdmin.getService();
 	}
@@ -50,10 +53,14 @@ public class OSGiTestUtils {
 	 */
 	public static PlatformAdmin getPlatformAdmin() {
 		if (bundleTrackerPlatformAdmin == null) {
-			bundleTrackerPlatformAdmin = new ServiceTracker(Activator
-					.getDefault().getContext(), PlatformAdmin.class.getName(),
-					null);
-			bundleTrackerPlatformAdmin.open();
+			synchronized (OSGiTestUtils.class) {
+				if (bundleTrackerPlatformAdmin == null) {
+					bundleTrackerPlatformAdmin = new ServiceTracker(Activator.getDefault().getContext(),
+							PlatformAdmin.class.getName(), null);
+					bundleTrackerPlatformAdmin.open();
+				}
+
+			}
 		}
 		return (PlatformAdmin) bundleTrackerPlatformAdmin.getService();
 	}

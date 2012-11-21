@@ -33,6 +33,7 @@ import org.eclipse.jface.viewers.LabelProviderChangedEvent;
 import org.eclipse.ui.model.IWorkbenchAdapter;
 
 import com.rcpcompany.uibindings.internal.Activator;
+import com.rcpcompany.uibindings.model.utils.BasicUtils;
 import com.rcpcompany.uibindings.validators.IValidationAdapterManagerChangeEvent;
 import com.rcpcompany.uibindings.validators.IValidationAdapterManagerChangeListener;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
@@ -244,7 +245,7 @@ public class ValidationLabelDecorator implements ILightweightLabelDecorator, IEx
 		final Set<Object> deletedObjects = new HashSet<Object>();
 		for (final Map.Entry<Object, Integer> e : newSeverities.entrySet()) {
 			final Object o = e.getKey();
-			if (myObjectSeverities.get(o) == e.getValue()) {
+			if (BasicUtils.equals(myObjectSeverities.get(o), e.getValue())) {
 				continue;
 			}
 			if (Activator.getDefault().TRACE_LABEL_DECORATOR) {

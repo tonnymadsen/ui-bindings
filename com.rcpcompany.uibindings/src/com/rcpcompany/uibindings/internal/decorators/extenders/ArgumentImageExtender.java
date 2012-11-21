@@ -39,7 +39,7 @@ public class ArgumentImageExtender extends AbstractUIBindingDecoratorExtender {
 		 * Forget about checkboxes and toggles, etc
 		 */
 		if (control instanceof Button) {
-			if ((control.getStyle() & SWT.CHECK | SWT.TOGGLE | SWT.RADIO) != 0) return false;
+			if ((control.getStyle() & (SWT.CHECK | SWT.TOGGLE | SWT.RADIO)) != 0) return false;
 		}
 		final ImageDescriptor id = binding.getArgument(Constants.ARG_IMAGE, ImageDescriptor.class, null);
 		return id != null;

@@ -298,7 +298,7 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 	/**
 	 * The precision and rounding mode used.
 	 */
-	private static final MathContext MATH_CONTEXT = MathContext.DECIMAL64;
+	protected static final MathContext MATH_CONTEXT = MathContext.DECIMAL64;
 
 	/**
 	 * Sets whether limits have been set.
@@ -1123,9 +1123,9 @@ public class NumberBindingDecorator extends SimpleUIBindingDecorator implements 
 		public Object scale(Object fromObject, double factor, boolean viewToUI) {
 			final BigDecimal i = (BigDecimal) fromObject;
 			if (viewToUI)
-				return i.multiply(new BigDecimal(factor, null), MATH_CONTEXT);
+				return i.multiply(new BigDecimal(factor, MATH_CONTEXT), MATH_CONTEXT);
 			else
-				return i.divide(new BigDecimal(factor, null), MATH_CONTEXT);
+				return i.divide(new BigDecimal(factor, MATH_CONTEXT), MATH_CONTEXT);
 		};
 
 		@Override
