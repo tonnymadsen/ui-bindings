@@ -36,7 +36,7 @@ import org.eclipse.swt.widgets.Widget;
  * a element. Use {@link ViewerCell#setStyleRanges(StyleRange[])} to set style ranges on the label.
  * </p>
  * 
- * @since 3.4
+ * @since 1.1
  */
 public abstract class MyStyledCellLabelProvider extends OwnerDrawLabelProvider {
 

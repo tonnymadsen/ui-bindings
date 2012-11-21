@@ -28,7 +28,7 @@ import org.eclipse.swt.widgets.TableItem;
  * {@link #processTraverseEvent(int, ViewerRow, org.eclipse.swt.events.TraverseEvent)}. The original
  * {@link TableViewerEditor} is final, therefore this copy.
  * 
- * @since 3.3
+ * @since 1.1
  * 
  */
 public class MyTableViewerEditor extends ColumnViewerEditor {

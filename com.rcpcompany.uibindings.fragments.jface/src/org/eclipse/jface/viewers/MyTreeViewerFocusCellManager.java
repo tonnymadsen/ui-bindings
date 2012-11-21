@@ -24,6 +24,7 @@ import com.rcpcompany.uibindings.fragments.jfaceif.IMyViewerFocusCellManager;
  * </ul>
  * 
  * @author Tonny Madsen, The RCP Company
+ * @since 1.1
  */
 public class MyTreeViewerFocusCellManager extends TreeViewerFocusCellManager implements IMyViewerFocusCellManager {
 	public MyTreeViewerFocusCellManager(TreeViewer viewer, FocusCellHighlighter focusDrawingDelegate) {

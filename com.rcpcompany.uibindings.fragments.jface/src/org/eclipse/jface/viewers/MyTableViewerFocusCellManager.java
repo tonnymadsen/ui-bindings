@@ -24,6 +24,7 @@ import com.rcpcompany.uibindings.fragments.jfaceif.IMyViewerFocusCellManager;
  * </ul>
  * 
  * @author Tonny Madsen, The RCP Company
+ * @since 1.1
  */
 public class MyTableViewerFocusCellManager extends TableViewerFocusCellManager implements IMyViewerFocusCellManager {
 	public MyTableViewerFocusCellManager(TableViewer viewer, FocusCellHighlighter focusDrawingDelegate) {
