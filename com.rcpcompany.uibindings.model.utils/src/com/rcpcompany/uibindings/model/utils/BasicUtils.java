@@ -72,6 +72,8 @@ public class BasicUtils {
 
 	/**
 	 * Returns whether the two objects are equal or both <code>null</code>.
+	 * <p>
+	 * See Objects of Guava
 	 * 
 	 * @param a object a
 	 * @param b object b
