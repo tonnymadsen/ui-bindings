@@ -49,7 +49,7 @@ public class ShopBasicsView extends ViewPart {
 
 	private Table myTable;
 	private Text myShopName;
-	private final FormToolkit myToolkit = IManager.Factory.getManager().getFormToolkit();
+	private FormToolkit myToolkit;
 	private ScrolledForm myTop;
 	private TableColumn myCountryName;
 	private TableColumn myCountryAbbrev;
@@ -59,6 +59,7 @@ public class ShopBasicsView extends ViewPart {
 
 	@Override
 	public void createPartControl(Composite parent) {
+		myToolkit = IManager.Factory.getManager().getFormToolkit(parent);
 		myTop = myToolkit.createScrolledForm(parent);
 		myTop.setText("Basic Shop Information");
 		final Composite body = myTop.getBody();

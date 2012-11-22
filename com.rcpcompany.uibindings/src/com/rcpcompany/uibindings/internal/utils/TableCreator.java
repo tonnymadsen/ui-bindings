@@ -107,7 +107,7 @@ public class TableCreator implements ITableCreator {
 
 		if ((style & ITableCreator.FILTER) == ITableCreator.FILTER) {
 			style &= ~ITableCreator.FILTER;
-			p = manager.getFormToolkit().createComposite(p);
+			p = manager.getFormToolkit(parent).createComposite(p);
 			final GridLayout l = new GridLayout();
 			l.marginHeight = 0;
 			l.marginWidth = 0;
@@ -117,7 +117,7 @@ public class TableCreator implements ITableCreator {
 
 		if ((style & ITableCreator.RESIZE) == ITableCreator.RESIZE) {
 			style &= ~ITableCreator.RESIZE;
-			p = manager.getFormToolkit().createComposite(p);
+			p = manager.getFormToolkit(p).createComposite(p);
 			myTableLayout = new TableColumnLayout();
 			p.setLayout(myTableLayout);
 			if (myFilter != null) {
@@ -125,7 +125,7 @@ public class TableCreator implements ITableCreator {
 			}
 		}
 
-		myTable = manager.getFormToolkit().createTable(p, style | SWT.FULL_SELECTION);
+		myTable = manager.getFormToolkit(p).createTable(p, style | SWT.FULL_SELECTION);
 		if (p != parent) {
 			myTable.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 		}

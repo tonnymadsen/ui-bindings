@@ -25,7 +25,6 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.ui.forms.widgets.ExpandableComposite;
-import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
 import org.junit.After;
 import org.junit.Before;
@@ -242,8 +241,8 @@ public class BindingSetFocusTest {
 		public void createComposite() {
 			final Composite composite = myForm.addComposite();
 
-			final FormToolkit toolkit = IManager.Factory.getManager().getFormToolkit();
-			mySection = toolkit.createSection(composite, ExpandableComposite.TITLE_BAR | ExpandableComposite.TWISTIE);
+			mySection = myForm.getToolkit().createSection(composite,
+					ExpandableComposite.TITLE_BAR | ExpandableComposite.TWISTIE);
 			mySection.clientVerticalSpacing = 6;
 			mySection.setText("label");
 

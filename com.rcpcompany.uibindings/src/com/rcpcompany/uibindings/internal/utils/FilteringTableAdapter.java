@@ -271,7 +271,7 @@ public class FilteringTableAdapter implements IFilteringTableAdapter, DisposeLis
 	 * @return the Text field
 	 */
 	public static Text createFilter(Composite parent) {
-		final FormToolkit toolkit = IManager.Factory.getManager().getFormToolkit();
+		final FormToolkit toolkit = IManager.Factory.getManager().getFormToolkit(parent);
 		final Composite top = toolkit.createComposite(parent, SWT.BORDER);
 		top.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false));
 

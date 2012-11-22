@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.uibindings.tests.utils.views;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;
@@ -26,7 +26,7 @@ import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.utils.IGlobalNavigationManager.IGetSelectionTarget;
 
 public class UIBTestView extends ViewPart implements IGetSelectionTarget, ISetSelectionTarget {
-	private final FormToolkit myToolkit = IManager.Factory.getManager().getFormToolkit();
+	private FormToolkit myToolkit;
 	private Composite myParent;
 
 	private IFormCreator myForm;
@@ -98,6 +98,7 @@ public class UIBTestView extends ViewPart implements IGetSelectionTarget, ISetSe
 	@Override
 	public void createPartControl(Composite parent) {
 		myParent = parent;
+		myToolkit = IManager.Factory.getManager().getFormToolkit(parent);
 	}
 
 	@Override

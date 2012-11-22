@@ -67,6 +67,8 @@ public class ViewerToolBar implements IViewerToolBar, IDisposable {
 	public ViewerToolBar(IViewerBinding viewer, int style) {
 		myViewer = viewer;
 		myStyle = style;
+		final Control control = myViewer.getControl();
+		final Composite parent = control.getParent();
 
 		// TODO: Check style
 
@@ -75,7 +77,7 @@ public class ViewerToolBar implements IViewerToolBar, IDisposable {
 		final IManager manager = IManager.Factory.getManager();
 		FormToolkit toolkit = myViewer.getContext().getService(FormToolkit.class);
 		if (toolkit == null) {
-			toolkit = manager.getFormToolkit();
+			toolkit = manager.getFormToolkit(parent);
 		}
 
 		final IServiceLocator serviceLocator = getViewer().getContext().getServiceLocator();
@@ -92,8 +94,6 @@ public class ViewerToolBar implements IViewerToolBar, IDisposable {
 		 * 
 		 * Then add the toolbar itself on the correct side of the control
 		 */
-		final Control control = myViewer.getControl();
-		final Composite parent = control.getParent();
 
 		myComposite = toolkit.createComposite(parent);
 		myComposite.setLayoutData(control.getLayoutData());

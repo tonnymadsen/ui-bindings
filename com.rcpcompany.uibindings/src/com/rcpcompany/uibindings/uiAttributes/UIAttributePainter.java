@@ -100,7 +100,7 @@ public class UIAttributePainter {
 			JFaceResources.getImageRegistry().put(UNCHECKED_KEY, makeShot(parentControl, false));
 			JFaceResources.getImageRegistry().put(CHECKED_KEY, makeShot(parentControl, true));
 		}
-		final FormColors colors = IManager.Factory.getManager().getFormToolkit().getColors();
+		final FormColors colors = IManager.Factory.getManager().getFormToolkit(parentControl).getColors();
 
 		mySelectionBackground = JFaceResources.getColorRegistry().get(
 				Constants.COLOR_DEFINITIONS_SELECTION_FOCUS_BACKGROUND);

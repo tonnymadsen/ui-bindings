@@ -69,6 +69,8 @@ import org.eclipse.jface.viewers.ColumnViewerEditorActivationEvent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.Clipboard;
 import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.Widget;
@@ -2667,6 +2669,23 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 			formToolkit = new FormToolkit(Display.getCurrent());
 		}
 		return formToolkit;
+	}
+
+	@Override
+	public FormToolkit getFormToolkit(Control c) {
+		final FormToolkit toolkit = new FormToolkit(c.getDisplay());
+		/*
+		 * Walk up the parent chain to find the background color
+		 */
+		Color col = null;
+		for (Control p = c; col == null && p != null; p = p.getParent()) {
+			col = p.getBackground();
+			// TODO Look at background mode
+		}
+		if (col != null) {
+			toolkit.getColors().setBackground(col);
+		}
+		return toolkit;
 	}
 
 	/**

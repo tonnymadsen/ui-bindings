@@ -53,7 +53,7 @@ public abstract class BaseTextButtonWidget extends Composite {
 	}
 
 	private void buildWidget(Image buttonImage) {
-		final FormToolkit toolkit = IManager.Factory.getManager().getFormToolkit();
+		final FormToolkit toolkit = IManager.Factory.getManager().getFormToolkit(this);
 
 		final GridLayout filterLayout = new GridLayout(2, false);
 		filterLayout.marginHeight = 0;
@@ -115,6 +115,7 @@ public abstract class BaseTextButtonWidget extends Composite {
 		return myText.getEchoChar();
 	}
 
+	@Override
 	public int getOrientation() {
 		return myText.getOrientation();
 	}
@@ -193,6 +194,7 @@ public abstract class BaseTextButtonWidget extends Composite {
 		myDialogButton.setMenu(menu);
 	}
 
+	@Override
 	public void setOrientation(int orientation) {
 		myText.setOrientation(orientation);
 	}

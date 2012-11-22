@@ -23,11 +23,9 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 
 import com.rcpcompany.uibindings.IBinding;
-import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 
 /**
@@ -36,12 +34,6 @@ import com.rcpcompany.uibindings.utils.IFormCreator;
  * @author Tonny Madsen, The RCP Company
  */
 public class BindingSpyDialog extends PopupDialog {
-
-	/**
-	 * The form toolkit used for the dialog
-	 */
-	private final FormToolkit myToolkit;
-
 	/**
 	 * The binding is question...
 	 */
@@ -69,8 +61,6 @@ public class BindingSpyDialog extends PopupDialog {
 
 		myBinding = binding;
 		myEvent = event;
-
-		myToolkit = IManager.Factory.getManager().getFormToolkit();
 	}
 
 	/*

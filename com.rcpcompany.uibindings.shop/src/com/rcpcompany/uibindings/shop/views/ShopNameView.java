@@ -31,11 +31,12 @@ import com.rcpcompany.uibindings.utils.IDnDSupport;
 public class ShopNameView extends ViewPart {
 
 	public Text myShopName;
-	private final FormToolkit myToolkit = IManager.Factory.getManager().getFormToolkit();
+	private FormToolkit myToolkit;
 	private ScrolledForm myForm;
 
 	@Override
 	public void createPartControl(Composite parent) {
+		myToolkit = IManager.Factory.getManager().getFormToolkit(parent);
 		myForm = myToolkit.createScrolledForm(parent);
 		final Composite body = myForm.getBody();
 		final GridLayout gridLayout = new GridLayout();

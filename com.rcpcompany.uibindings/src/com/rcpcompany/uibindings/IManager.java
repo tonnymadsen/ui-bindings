@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.viewers.ColumnViewerEditorActivationEvent;
 import org.eclipse.swt.dnd.Clipboard;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Widget;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 
@@ -955,6 +956,15 @@ public interface IManager extends IBaseObject {
 	 * @generated
 	 */
 	FormToolkit getFormToolkit();
+
+	/**
+	 * Returns a new {@link FormToolkit} suitable for creation of new {@link Control Controls} in
+	 * the specified parent.
+	 * 
+	 * @param c the parent {@link Control}
+	 * @return the toolkit
+	 */
+	FormToolkit getFormToolkit(Control c);
 
 	/**
 	 * Sets the value of the '{@link com.rcpcompany.uibindings.IManager#getFormToolkit

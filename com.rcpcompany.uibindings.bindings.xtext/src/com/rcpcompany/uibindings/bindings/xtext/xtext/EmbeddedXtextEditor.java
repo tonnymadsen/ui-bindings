@@ -74,18 +74,6 @@ import org.eclipse.ui.texteditor.MarkerAnnotationPreferences;
 import org.eclipse.ui.texteditor.SourceViewerDecorationSupport;
 import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.resource.XtextResource;
-import org.eclipse.xtext.ui.editor.XtextSourceViewer;
-import org.eclipse.xtext.ui.editor.XtextSourceViewerConfiguration;
-import org.eclipse.xtext.ui.editor.bracketmatching.BracketMatchingPreferencesInitializer;
-import org.eclipse.xtext.ui.editor.bracketmatching.CharacterPairMatcher;
-import org.eclipse.xtext.ui.editor.model.IXtextDocument;
-import org.eclipse.xtext.ui.editor.model.XtextDocument;
-import org.eclipse.xtext.ui.editor.preferences.IPreferenceStoreAccess;
-import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionProvider;
-import org.eclipse.xtext.ui.editor.validation.AnnotationIssueProcessor;
-import org.eclipse.xtext.ui.editor.validation.IValidationIssueProcessor;
-import org.eclipse.xtext.ui.editor.validation.ValidationJob;
-import org.eclipse.xtext.ui.resource.IResourceSetProvider;
 import org.eclipse.xtext.util.StringInputStream;
 import org.eclipse.xtext.validation.CheckMode;
 import org.eclipse.xtext.validation.IResourceValidator;
@@ -179,9 +167,12 @@ public class EmbeddedXtextEditor {
 	 * Creates a new EmbeddedXtextEditor. It must have the SWT.V_SCROLL style at least not to throw NPE when computing
 	 * overview ruler.
 	 * 
-	 * @param binding the parent composite that will contain the editor
-	 * @param injector the Guice injector to get Xtext configuration elements
-	 * @param style the SWT style of the {@link SourceViewer} of this editor.
+	 * @param binding
+	 *            the parent composite that will contain the editor
+	 * @param injector
+	 *            the Guice injector to get Xtext configuration elements
+	 * @param style
+	 *            the SWT style of the {@link SourceViewer} of this editor.
 	 */
 	public EmbeddedXtextEditor(IValueBinding binding, Injector injector, int style) {
 		myBinding = binding;
@@ -297,7 +288,8 @@ public class EmbeddedXtextEditor {
 	/**
 	 * Creates the annotation ruler column. Subclasses may re-implement or extend.
 	 * 
-	 * @param ruler the composite ruler that the column will be added
+	 * @param ruler
+	 *            the composite ruler that the column will be added
 	 * @return an annotation ruler column
 	 * @since 3.2
 	 */
@@ -313,7 +305,7 @@ public class EmbeddedXtextEditor {
 		/*
 		 * Borders..
 		 */
-		final FormToolkit formToolkit = IManager.Factory.getManager().getFormToolkit();
+		final FormToolkit formToolkit = IManager.Factory.getManager().getFormToolkit(parent);
 		formToolkit.adapt(mySourceViewer.getTextWidget(), true, true);
 		formToolkit.paintBordersFor(mySourceViewer.getTextWidget().getParent());
 
@@ -387,7 +379,8 @@ public class EmbeddedXtextEditor {
 	/**
 	 * Returns the source viewer decoration support.
 	 * 
-	 * @param viewer the viewer for which to return a decoration support
+	 * @param viewer
+	 *            the viewer for which to return a decoration support
 	 * @return the source viewer decoration support
 	 */
 	private SourceViewerDecorationSupport getSourceViewerDecorationSupport(ISourceViewer viewer) {
@@ -403,7 +396,8 @@ public class EmbeddedXtextEditor {
 	 * Configures the decoration support for this editor's source viewer. Subclasses may override this method, but
 	 * should call their superclass' implementation at some point.
 	 * 
-	 * @param support the decoration support to configure
+	 * @param support
+	 *            the decoration support to configure
 	 */
 	private void configureSourceViewerDecorationSupport(SourceViewerDecorationSupport support) {
 		final Iterator<AnnotationPreference> e = Iterators.filter(myAnnotationPreferences.getAnnotationPreferences()

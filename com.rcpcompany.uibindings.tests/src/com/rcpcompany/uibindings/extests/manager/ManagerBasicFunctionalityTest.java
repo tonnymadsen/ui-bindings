@@ -126,6 +126,8 @@ public class ManagerBasicFunctionalityTest {
 		m.setFormToolkit(toolkitOrig);
 	}
 
+	// TODO getFormToolkit(Composite)
+
 	@Test
 	public void testGetObservableFactory() {
 		final TestObject to = TestModelFactory.eINSTANCE.createTestObject();

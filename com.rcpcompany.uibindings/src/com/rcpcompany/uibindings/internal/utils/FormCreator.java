@@ -217,7 +217,7 @@ public class FormCreator implements IFormCreator {
 			}
 		}
 		if (toolkit == null) {
-			toolkit = IManager.Factory.getManager().getFormToolkit();
+			toolkit = IManager.Factory.getManager().getFormToolkit(top);
 		}
 		myToolkit = toolkit;
 		if (topForm == null) {
@@ -248,7 +248,7 @@ public class FormCreator implements IFormCreator {
 	}
 
 	public FormCreator(final EObject obj, WizardPage page, Composite parent) {
-		this(obj, page, IManager.Factory.getManager().getFormToolkit(), parent);
+		this(obj, page, IManager.Factory.getManager().getFormToolkit(parent), parent);
 	}
 
 	public FormCreator(final EObject obj, WizardPage page, FormToolkit toolkit, Composite parent) {

@@ -27,7 +27,7 @@ public class CheckBoxControlFactory implements IControlFactory {
 
 	@Override
 	public Control create(IControlFactoryContext context) {
-		final FormToolkit toolkit = IManager.Factory.getManager().getFormToolkit();
+		final FormToolkit toolkit = IManager.Factory.getManager().getFormToolkit(context.getParent());
 		/*
 		 * Remove SWT.READ_ONLY as it also means SWT.PUSH.
 		 */

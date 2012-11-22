@@ -240,7 +240,7 @@ public class TableCreatorTest {
 	}
 
 	private void doTestColumnResize(int style) {
-		final Composite top = IManager.Factory.getManager().getFormToolkit().createComposite(myBody);
+		final Composite top = IManager.Factory.getManager().getFormToolkit(myBody).createComposite(myBody);
 		final IBindingContext context = IBindingContext.Factory.createContext(myBody);
 		final IObservableList items = UIBindingsEMFObservables.observeList(context.getEditingDomain(), myShop,
 				ShopPackage.Literals.SHOP__SHOP_ITEMS);

@@ -51,7 +51,7 @@ import com.rcpcompany.uibindings.UIBindingsEMFObservables;
  */
 public class PrimitiveWidgetsView extends ViewPart {
 
-	private final FormToolkit myToolkit = IManager.Factory.getManager().getFormToolkit();
+	private FormToolkit myToolkit;
 
 	private final IObservableValue myTestObject;
 	private final TestContainer myTestContainer;
@@ -107,6 +107,8 @@ public class PrimitiveWidgetsView extends ViewPart {
 
 	@Override
 	public void createPartControl(Composite parent) {
+		myToolkit = IManager.Factory.getManager().getFormToolkit(parent);
+
 		System.currentTimeMillis();
 		myForm = myToolkit.createScrolledForm(parent);
 		final Composite body = myForm.getBody();

@@ -84,7 +84,7 @@ public interface IFormCreator extends IDisposable {
 		 * @return the created form creator
 		 */
 		public static IFormCreator createForm(Composite parent) {
-			return createForm(null, (EObject) null, IManager.Factory.getManager().getFormToolkit(), parent);
+			return createForm(null, (EObject) null, IManager.Factory.getManager().getFormToolkit(parent), parent);
 		}
 
 		/**
@@ -126,7 +126,8 @@ public interface IFormCreator extends IDisposable {
 		 * @return the created form creator
 		 */
 		public static IFormCreator createScrolledForm(IObservableValue value, Composite parent, String formHeader) {
-			return createScrolledForm(null, value, IManager.Factory.getManager().getFormToolkit(), parent, formHeader);
+			return createScrolledForm(null, value, IManager.Factory.getManager().getFormToolkit(parent), parent,
+					formHeader);
 		}
 
 		/**
@@ -138,7 +139,8 @@ public interface IFormCreator extends IDisposable {
 		 * @return the created form creator
 		 */
 		public static IFormCreator createScrolledForm(EObject obj, Composite parent, String formHeader) {
-			return createScrolledForm(null, obj, IManager.Factory.getManager().getFormToolkit(), parent, formHeader);
+			return createScrolledForm(null, obj, IManager.Factory.getManager().getFormToolkit(parent), parent,
+					formHeader);
 		}
 
 		/**
