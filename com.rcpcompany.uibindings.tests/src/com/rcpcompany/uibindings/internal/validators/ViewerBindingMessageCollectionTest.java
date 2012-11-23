@@ -52,7 +52,6 @@ import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.utils.IPaintDecoration;
 import com.rcpcompany.uibindings.utils.ITableCreator;
 import com.rcpcompany.uibindings.validators.ConstraintValidatorAdapter;
-import com.rcpcompany.uibindings.validators.IValidatorAdapter;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 import com.rcpcompany.utils.logging.LogUtils;
 
@@ -95,7 +94,6 @@ public class ViewerBindingMessageCollectionTest {
 	private ShopItem myItem;
 	private ValueBindingMessageImageDecorator myMessageDecorator;
 	private IValidatorAdapterManager myValidatorManager;
-	private final IValidatorAdapter myValidationAdapter = new ConstraintValidatorAdapter();
 	private Shop myShop;
 	private IColumnBinding myPriceColumn;
 	private ITableCreator myTable;
@@ -180,7 +178,7 @@ public class ViewerBindingMessageCollectionTest {
 		if (myView != null) {
 			myView.getSite().getPage().hideView(myView);
 		}
-		myValidatorManager.removeRoot(myShop, myValidationAdapter);
+		myValidatorManager.removeRoot(myShop);
 
 	}
 
@@ -192,7 +190,7 @@ public class ViewerBindingMessageCollectionTest {
 		final int initNoUnboundMessage = myValidatorManager.getUnboundMessages().size();
 		assertEquals(0, initNoUnboundMessage);
 
-		myValidatorManager.addRoot(myShop, myValidationAdapter);
+		myValidatorManager.addRoot(myShop, new ConstraintValidatorAdapter());
 
 		final int noUnboundMessage = myValidatorManager.getUnboundMessages().size();
 		assertTrue(noUnboundMessage >= initNoUnboundMessage);
@@ -280,7 +278,7 @@ public class ViewerBindingMessageCollectionTest {
 	 */
 	@Test
 	public void testCellErrorWithRowDelete() {
-		myValidatorManager.addRoot(myShop, myValidationAdapter);
+		myValidatorManager.addRoot(myShop, new ConstraintValidatorAdapter());
 
 		final Table t = (Table) myTable.getBinding().getControl();
 		final Rectangle cellBounds = t.getItem(0).getBounds(1 + myTable.getBinding().getFirstTableColumnOffset());
@@ -324,7 +322,7 @@ public class ViewerBindingMessageCollectionTest {
 	 */
 	@Test
 	public void testBasicUpdateOfMessage() {
-		myValidatorManager.addRoot(myShop, myValidationAdapter);
+		myValidatorManager.addRoot(myShop, new ConstraintValidatorAdapter());
 		/*
 		 * Initial situation
 		 */

@@ -132,14 +132,11 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 
 	@Override
 	public void reset() {
-		final List<ValidationRootAdapter> as = new ArrayList<ValidatorAdapterManager.ValidationRootAdapter>();
-		for (final ValidationRoot root : myValidationRoots.values()) {
-			as.addAll(root.getAdapters());
+		for (final ValidationRoot root : myValidationRoots.values().toArray(
+				new ValidationRoot[myValidationRoots.values().size()])) {
+			removeRoot(root.getRoot());
 		}
 
-		for (final ValidationRootAdapter a : as) {
-			removeRoot(a.getRoot().getRoot(), a.getValidationAdapter());
-		}
 		myUnboundMessages.clear();
 	}
 

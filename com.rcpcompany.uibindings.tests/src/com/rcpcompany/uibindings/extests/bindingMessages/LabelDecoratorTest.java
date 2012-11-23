@@ -57,7 +57,6 @@ public class LabelDecoratorTest {
 	private Country c0;
 	private Country c1;
 
-	final private EValidatorAdapter validationAdapter = new EValidatorAdapter();
 	final private IValidatorAdapterManager myValidatorManager = IValidatorAdapterManager.Factory.getManager();
 	private ValidationLabelDecorator myLabelDecorator;
 
@@ -69,7 +68,7 @@ public class LabelDecoratorTest {
 
 		createModel();
 
-		myValidatorManager.addRoot(myShop, validationAdapter);
+		myValidatorManager.addRoot(myShop, new EValidatorAdapter());
 
 		myLabelDecorator = new ValidationLabelDecorator();
 	}
@@ -95,7 +94,7 @@ public class LabelDecoratorTest {
 			myLabelDecorator.dispose();
 		}
 
-		myValidatorManager.removeRoot(myShop, validationAdapter);
+		myValidatorManager.removeRoot(myShop);
 	}
 
 	/**

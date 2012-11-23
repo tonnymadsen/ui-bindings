@@ -24,7 +24,6 @@ import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.validators.EValidatorAdapter;
-import com.rcpcompany.uibindings.validators.IValidatorAdapter;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 
 /**
@@ -38,7 +37,6 @@ public class BasicMessageCollectionTest {
 	private IValidatorAdapterManager myManager;
 	private Shop myShop;
 	private Country myCountry;
-	private IValidatorAdapter myValidationAdapter;
 
 	@Before
 	public void before() {
@@ -49,13 +47,12 @@ public class BasicMessageCollectionTest {
 		myShop.setName("xx");
 
 		myManager = IValidatorAdapterManager.Factory.getManager();
-		myValidationAdapter = new EValidatorAdapter();
-		myManager.addRoot(myShop, myValidationAdapter);
+		myManager.addRoot(myShop, new EValidatorAdapter());
 	}
 
 	@After
 	public void after() {
-		myManager.removeRoot(myShop, myValidationAdapter);
+		myManager.removeRoot(myShop);
 	}
 
 	@Test

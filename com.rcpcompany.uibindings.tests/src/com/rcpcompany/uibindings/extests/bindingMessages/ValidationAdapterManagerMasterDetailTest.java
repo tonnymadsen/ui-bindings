@@ -35,7 +35,6 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 import com.rcpcompany.uibindings.validators.ConstraintValidatorAdapter;
-import com.rcpcompany.uibindings.validators.IValidatorAdapter;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 
 /**
@@ -62,7 +61,7 @@ public class ValidationAdapterManagerMasterDetailTest {
 	private IValueBinding myBinding;
 	private ValueBindingMessageImageDecorator myMessageDecorator;
 	private IValidatorAdapterManager myValidatorManager;
-	private final IValidatorAdapter myValidationAdapter = new ConstraintValidatorAdapter();
+
 	/**
 	 * The current item - corresponding the selection of a viewer
 	 */
@@ -83,7 +82,7 @@ public class ValidationAdapterManagerMasterDetailTest {
 		myValidatorManager = IValidatorAdapterManager.Factory.getManager();
 		myMessageDecorator = myBinding.getService(ValueBindingMessageImageDecorator.class);
 		// implies an immediate validation
-		myValidatorManager.addRoot(myShop, myValidationAdapter);
+		myValidatorManager.addRoot(myShop, new ConstraintValidatorAdapter());
 	}
 
 	private void createModel() {
@@ -122,7 +121,7 @@ public class ValidationAdapterManagerMasterDetailTest {
 
 	@After
 	public void after() {
-		myValidatorManager.removeRoot(myShop, myValidationAdapter);
+		myValidatorManager.removeRoot(myShop);
 	}
 
 	@Test

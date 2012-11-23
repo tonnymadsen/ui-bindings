@@ -23,7 +23,6 @@ import org.junit.Test;
 
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
-import com.rcpcompany.uibindings.IValueBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
@@ -34,7 +33,6 @@ import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 import com.rcpcompany.uibindings.utils.EditingDomainUtils;
 import com.rcpcompany.uibindings.validators.ConstraintValidatorAdapter;
-import com.rcpcompany.uibindings.validators.IValidatorAdapter;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 
 /**
@@ -58,10 +56,7 @@ public class ContextAdapterCollectionTest {
 	private String myOldName;
 	private float myOldPrice;
 	private IBindingContext myContext;
-	private IValueBinding myNameBinding;
-	private IValueBinding myPriceBinding;
 	private ValidatorAdapterManager myValidatorManager;
-	private final IValidatorAdapter myValidationAdapter = new ConstraintValidatorAdapter();
 
 	@Before
 	public void before() {
@@ -87,8 +82,8 @@ public class ContextAdapterCollectionTest {
 		myValidatorManager = (ValidatorAdapterManager) IValidatorAdapterManager.Factory.getManager();
 
 		myContext = IBindingContext.Factory.createContext(myView.getScrolledForm());
-		myNameBinding = myContext.addBinding(nameText, myItem, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
-		myPriceBinding = myContext.addBinding(priceText, myItem, ShopPackage.Literals.SHOP_ITEM__PRICE);
+		myContext.addBinding(nameText, myItem, IMOAOPackage.Literals.NAMED_OBJECT__NAME);
+		myContext.addBinding(priceText, myItem, ShopPackage.Literals.SHOP_ITEM__PRICE);
 
 		myContext.finish();
 	}
@@ -104,7 +99,7 @@ public class ContextAdapterCollectionTest {
 	public void after() {
 		myItem.setName(myOldName);
 		myItem.setPrice(myOldPrice);
-		myValidatorManager.removeRoot(myShop, myValidationAdapter);
+		myValidatorManager.removeRoot(myShop);
 	}
 
 	@Test
@@ -116,7 +111,7 @@ public class ContextAdapterCollectionTest {
 
 		final int shopAdapterCount = myShop.eAdapters().size();
 		final int itemAdapterCount = myItem.eAdapters().size();
-		myValidatorManager.addRoot(myShop, myValidationAdapter);
+		myValidatorManager.addRoot(myShop, new ConstraintValidatorAdapter());
 		assertTrue(shopAdapterCount < myShop.eAdapters().size());
 		assertTrue(itemAdapterCount < myItem.eAdapters().size());
 		assertEquals(initValidationAdapters + 1, myValidatorManager.myValidationRoots.size());
@@ -146,7 +141,7 @@ public class ContextAdapterCollectionTest {
 		sleep(300);
 		assertEquals(noMessageFactories, myValidatorManager.getUnboundMessages().size());
 
-		myValidatorManager.removeRoot(myShop, myValidationAdapter);
+		myValidatorManager.removeRoot(myShop);
 		assertEquals(shopAdapterCount, myShop.eAdapters().size());
 		assertEquals(itemAdapterCount, myItem.eAdapters().size());
 		assertEquals(initNoMessageFactories, myValidatorManager.getUnboundMessages().size());

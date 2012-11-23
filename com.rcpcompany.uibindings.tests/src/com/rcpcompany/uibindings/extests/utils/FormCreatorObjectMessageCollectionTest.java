@@ -74,7 +74,7 @@ public class FormCreatorObjectMessageCollectionTest {
 		if (myView != null) {
 			myView.getSite().getPage().hideView(myView);
 		}
-		myValidatorManager.removeRoot(myValidationAdapter.getShop(), myValidationAdapter);
+		myValidatorManager.removeRoot(myValidationAdapter.getShop());
 	}
 
 	public void test(Runnable run) {

@@ -59,7 +59,6 @@ public class NamingQuickfixTest {
 	private IValueBinding myBinding;
 	private ValueBindingMessageImageDecorator myMessageDecorator;
 	private IValidatorAdapterManager myValidatorManager;
-	private final EValidatorAdapter myValidationAdapter = new EValidatorAdapter();
 	private Text myText;
 
 	@Before
@@ -90,7 +89,7 @@ public class NamingQuickfixTest {
 
 		myMessageDecorator = myBinding.getService(ValueBindingMessageImageDecorator.class);
 
-		myValidatorManager.addRoot(myShop, myValidationAdapter);
+		myValidatorManager.addRoot(myShop, new EValidatorAdapter());
 	}
 
 	@After
@@ -103,7 +102,7 @@ public class NamingQuickfixTest {
 	@After
 	public void after() {
 		myContact.setCountry(myOldCountry);
-		myValidatorManager.removeRoot(myShop, myValidationAdapter);
+		myValidatorManager.removeRoot(myShop);
 	}
 
 	@Test

@@ -61,7 +61,6 @@ public class DiagnosticChainTest {
 	private IValueBinding myBinding;
 	private ValueBindingMessageImageDecorator myMessageDecorator;
 	private ValidatorAdapterManager myValidatorManager;
-	private final EValidatorAdapter myValidationAdapter = new EValidatorAdapter();
 	private ShopItemProperties myProperty;
 
 	/**
@@ -102,7 +101,7 @@ public class DiagnosticChainTest {
 
 		myMessageDecorator = myBinding.getService(ValueBindingMessageImageDecorator.class);
 
-		myValidatorManager.addRoot(myShop, myValidationAdapter);
+		myValidatorManager.addRoot(myShop, new EValidatorAdapter());
 	}
 
 	@After
@@ -114,7 +113,7 @@ public class DiagnosticChainTest {
 
 	@After
 	public void after() {
-		myValidatorManager.removeRoot(myShop, myValidationAdapter);
+		myValidatorManager.removeRoot(myShop);
 	}
 
 	@Test

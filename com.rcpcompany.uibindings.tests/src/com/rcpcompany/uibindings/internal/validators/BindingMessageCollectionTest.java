@@ -48,7 +48,6 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 import com.rcpcompany.uibindings.validators.ConstraintValidatorAdapter;
-import com.rcpcompany.uibindings.validators.IValidatorAdapter;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 
 /**
@@ -93,7 +92,6 @@ public class BindingMessageCollectionTest {
 	private IValueBinding myBinding;
 	private ValueBindingMessageImageDecorator myMessageDecorator;
 	private ValidatorAdapterManager myValidatorManager;
-	private final IValidatorAdapter myValidationAdapter = new ConstraintValidatorAdapter();
 	private Text myText;
 	private Label myLabel;
 	private Shop myShop;
@@ -156,7 +154,7 @@ public class BindingMessageCollectionTest {
 		if (myView != null) {
 			myView.getSite().getPage().hideView(myView);
 		}
-		myValidatorManager.removeRoot(myShop, myValidationAdapter);
+		myValidatorManager.removeRoot(myShop);
 	}
 
 	@Test
@@ -169,7 +167,7 @@ public class BindingMessageCollectionTest {
 		final int initNoUnboundMessage = myValidatorManager.getUnboundMessages().size();
 		assertEquals(0, initNoUnboundMessage);
 
-		myValidatorManager.addRoot(myShop, myValidationAdapter);
+		myValidatorManager.addRoot(myShop, new ConstraintValidatorAdapter());
 
 		final int noUnboundMessage = myValidatorManager.getUnboundMessages().size();
 		assertTrue(noUnboundMessage >= initNoUnboundMessage);
@@ -240,7 +238,7 @@ public class BindingMessageCollectionTest {
 	 */
 	@Test
 	public void testBasicUpdateOfMessage() {
-		myValidatorManager.addRoot(myShop, myValidationAdapter);
+		myValidatorManager.addRoot(myShop, new ConstraintValidatorAdapter());
 		/*
 		 * Initial situation
 		 */

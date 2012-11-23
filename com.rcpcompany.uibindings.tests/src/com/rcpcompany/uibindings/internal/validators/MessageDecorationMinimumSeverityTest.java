@@ -37,7 +37,6 @@ import com.rcpcompany.uibindings.tests.utils.BaseUIBTestUtils;
 import com.rcpcompany.uibindings.tests.utils.views.UIBTestView;
 import com.rcpcompany.uibindings.utils.IFormCreator;
 import com.rcpcompany.uibindings.validators.EValidatorAdapter;
-import com.rcpcompany.uibindings.validators.IValidatorAdapter;
 import com.rcpcompany.uibindings.validators.IValidatorAdapterManager;
 
 /**
@@ -76,7 +75,6 @@ public class MessageDecorationMinimumSeverityTest {
 
 	private IValidatorAdapterManager myManager;
 	private static final int VD = 200;
-	private IValidatorAdapter myValidationAdapter;
 
 	@Before
 	public void setup() {
@@ -89,8 +87,7 @@ public class MessageDecorationMinimumSeverityTest {
 		createModel();
 
 		myManager = IValidatorAdapterManager.Factory.getManager();
-		myValidationAdapter = new EValidatorAdapter();
-		myManager.addRoot(myCountry, myValidationAdapter);
+		myManager.addRoot(myCountry, new EValidatorAdapter());
 
 		createView();
 	}
@@ -120,7 +117,7 @@ public class MessageDecorationMinimumSeverityTest {
 
 	@After
 	public void after() {
-		myManager.removeRoot(myCountry, myValidationAdapter);
+		myManager.removeRoot(myCountry);
 	}
 
 	@Test

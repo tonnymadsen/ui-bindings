@@ -260,8 +260,7 @@ public class FormCreator implements IFormCreator {
 		myTop = createTopComposite(parent);
 
 		final IValidatorAdapterManager vam = IValidatorAdapterManager.Factory.getManager();
-		final EValidatorAdapter validationAdapter = new EValidatorAdapter();
-		vam.addRoot(obj, validationAdapter);
+		vam.addRoot(obj, new EValidatorAdapter());
 
 		/*
 		 * Make sure the validation adapter is removed again when the page is disposed...
@@ -272,7 +271,7 @@ public class FormCreator implements IFormCreator {
 		final IDisposable adapterDisposer = new IDisposable() {
 			@Override
 			public void dispose() {
-				vam.removeRoot(obj, validationAdapter);
+				vam.removeRoot(obj);
 			}
 		};
 		getContext().registerService(adapterDisposer);
