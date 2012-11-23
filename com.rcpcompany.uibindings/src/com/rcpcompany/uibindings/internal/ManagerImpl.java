@@ -70,6 +70,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.Clipboard;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Tree;
@@ -2671,18 +2672,33 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		return formToolkit;
 	}
 
+	/**
+	 * All used toolkits based on RGB for the background.
+	 */
+	private final Map<RGB, FormToolkit> myToolkitRegistry = new HashMap<RGB, FormToolkit>();
+
 	@Override
 	public FormToolkit getFormToolkit(Control c) {
-		final FormToolkit toolkit = new FormToolkit(c.getDisplay());
 		/*
-		 * Walk up the parent chain to find the background color
+		 * Walk up the parent chain to find the background color.
+		 * 
+		 * It is not clear if Control.getBackground() automatically walk up the parent chain...
 		 */
 		Color col = null;
-		for (Control p = c; col == null && p != null; p = p.getParent()) {
-			col = p.getBackground();
-			// TODO Look at background mode
+		for (Control bgControl = c; col == null && bgControl != null; bgControl = bgControl.getParent()) {
+			col = bgControl.getBackground();
 		}
-		if (col != null) {
+
+		if (col == null) return getFormToolkit();
+
+		/*
+		 * Check if we already have a match; otherwise create a new toolkit.
+		 */
+		final RGB rgb = col.getRGB();
+		FormToolkit toolkit = myToolkitRegistry.get(rgb);
+		if (toolkit == null) {
+			toolkit = new FormToolkit(c.getDisplay());
+			myToolkitRegistry.put(rgb, toolkit);
 			toolkit.getColors().setBackground(col);
 		}
 		return toolkit;
