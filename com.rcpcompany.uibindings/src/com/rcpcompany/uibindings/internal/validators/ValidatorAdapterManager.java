@@ -158,6 +158,20 @@ public class ValidatorAdapterManager extends EventManager implements IValidatorA
 	}
 
 	@Override
+	public void removeRoot(EObject root) {
+		Assert.isNotNull(root);
+
+		final ValidationRoot vr = myValidationRoots.get(root);
+		if (vr == null) return;
+		for (final ValidationRootAdapter vra : vr.getAdapters().toArray(
+				new ValidationRootAdapter[vr.getAdapters().size()])) {
+			vra.dispose();
+		}
+		vr.dispose();
+		validate();
+	}
+
+	@Override
 	public void removeRoot(EObject root, IValidatorAdapter validationAdapter) {
 		Assert.isNotNull(root);
 		Assert.isNotNull(validationAdapter);

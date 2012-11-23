@@ -65,6 +65,9 @@ public class ValidationAdapterManagerTest {
 		final int initShopAdapterCount = myShop.eAdapters().size();
 		final int initItemAdapterCount = myItem.eAdapters().size();
 
+		/*
+		 * Add adapter: one more root and one more adapter on all objects
+		 */
 		vam.addRoot(myShop, validationAdapter);
 		assertEquals(initValidationAdapters + 1, vam.myValidationRoots.size());
 
@@ -74,13 +77,47 @@ public class ValidationAdapterManagerTest {
 		assertTrue(initShopAdapterCount < shopAdapterCount);
 		assertTrue(initItemAdapterCount < itemAdapterCount);
 
+		/*
+		 * Add extra adapter: no change
+		 */
+		vam.addRoot(myShop, altValidationAdapter);
+		assertEquals(initValidationAdapters + 1, vam.myValidationRoots.size());
+
+		assertAdapters(shopAdapterCount, myShop);
+		assertAdapters(itemAdapterCount, myItem);
+
+		/*
+		 * remove adapter: no change
+		 */
 		vam.removeRoot(myShop, altValidationAdapter);
 		assertEquals(initValidationAdapters + 1, vam.myValidationRoots.size());
 
 		assertAdapters(shopAdapterCount, myShop);
 		assertAdapters(itemAdapterCount, myItem);
 
+		/*
+		 * remove last adapter: root and adapters removed
+		 */
 		vam.removeRoot(myShop, validationAdapter);
+		assertEquals(initValidationAdapters, vam.myValidationRoots.size());
+
+		assertAdapters(initShopAdapterCount, myShop);
+		assertAdapters(initItemAdapterCount, myItem);
+
+		/*
+		 * Add two adapters: root and adapters added again
+		 */
+		vam.addRoot(myShop, validationAdapter);
+		vam.addRoot(myShop, altValidationAdapter);
+		assertEquals(initValidationAdapters + 1, vam.myValidationRoots.size());
+
+		assertAdapters(shopAdapterCount, myShop);
+		assertAdapters(itemAdapterCount, myItem);
+
+		/*
+		 * remove all adapters: root and adapters removed
+		 */
+		vam.removeRoot(myShop);
 		assertEquals(initValidationAdapters, vam.myValidationRoots.size());
 
 		assertAdapters(initShopAdapterCount, myShop);

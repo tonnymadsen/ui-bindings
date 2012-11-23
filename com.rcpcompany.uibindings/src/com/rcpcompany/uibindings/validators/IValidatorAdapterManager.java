@@ -86,6 +86,13 @@ public interface IValidatorAdapterManager {
 	void removeRoot(EObject root, IValidatorAdapter validationAdapter);
 
 	/**
+	 * Removes an existing root object from the set of objects for which validation is done.
+	 * 
+	 * @param root the root to remove
+	 */
+	void removeRoot(EObject root);
+
+	/**
 	 * Returns a list of all current messages.
 	 * 
 	 * @return a list
