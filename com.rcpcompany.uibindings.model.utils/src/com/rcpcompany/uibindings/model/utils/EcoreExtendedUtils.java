@@ -71,8 +71,10 @@ public final class EcoreExtendedUtils {
 	 * <p>
 	 * The sync is potentially destructive for the <code>source</code> object.
 	 * 
+	 * @param domain to editing domain used for all changes - created if not specified
 	 * @param target the object synchronized into
 	 * @param source the object synchronized from
+	 * @return the controller used for all the changes
 	 */
 	public static <T extends EObject> SyncController sync(EditingDomain domain, T target, T source) {
 		Assert.isTrue(source.eClass() == target.eClass(), "target and source must have exactly the same types");
