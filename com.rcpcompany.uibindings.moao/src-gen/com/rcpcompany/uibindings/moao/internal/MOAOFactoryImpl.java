@@ -236,8 +236,8 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @deprecated
-	 * @generated
+	 * @deprecated Use eINSTANCE
+	 * @generated NOT
 	 */
 	@Deprecated
 	public static IMOAOPackage getPackage() {
