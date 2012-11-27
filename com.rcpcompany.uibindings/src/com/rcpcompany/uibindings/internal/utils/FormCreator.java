@@ -50,6 +50,8 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Layout;
 import org.eclipse.swt.widgets.Link;
 import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Spinner;
+import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.commands.ICommandService;
@@ -358,9 +360,18 @@ public class FormCreator implements IFormCreator {
 		return subForm(parent, myObservableValue, 0);
 	}
 
+	private void adapt(Control c) {
+		if (myTop == null) return;
+		if (c instanceof Text) return;
+		if (c instanceof StyledText) return;
+		if (c instanceof Spinner) return;
+		c.setBackground(myTop.getBackground());
+	}
+
 	@Override
 	public void addLabel(String labelText) {
 		final Label label = myToolkit.createLabel(myTop, labelText, SWT.NONE);
+		adapt(label);
 
 		final TableWrapData ld = new TableWrapData(TableWrapData.FILL_GRAB, TableWrapData.TOP);
 		label.setLayoutData(ld);
@@ -435,6 +446,7 @@ public class FormCreator implements IFormCreator {
 	private void createField(final IValueBinding binding, int style) {
 		final Composite fieldComp = getFieldsComposite();
 		final Label labelControl = myToolkit.createLabel(fieldComp, "");
+		adapt(labelControl);
 		labelControl.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false));
 		final Label placeholderControl = new Label(fieldComp, SWT.NONE);
 		myBindings.add(new BindingDescription(binding, labelControl, placeholderControl, style));
@@ -488,6 +500,7 @@ public class FormCreator implements IFormCreator {
 	 */
 	private Composite createFieldsComposite() {
 		final Composite fc = myToolkit.createComposite(myTop, SWT.NONE);
+		adapt(fc);
 		fc.setLayoutData(new TableWrapData(TableWrapData.FILL_GRAB, TableWrapData.TOP));
 		final GridLayout layout = new GridLayout(2, false);
 		layout.marginHeight = 0;
@@ -534,6 +547,7 @@ public class FormCreator implements IFormCreator {
 		 */
 		final Composite parent = description.placeholderControl.getParent();
 		final Control c = description.binding.createPreferredControl(parent, style | myToolkit.getBorderStyle(), false);
+		adapt(c);
 
 		/*
 		 * Figure out the layout to use
@@ -656,6 +670,7 @@ public class FormCreator implements IFormCreator {
 	@Override
 	public Composite addComposite(boolean grabHorizontal, boolean grabVertical) {
 		final Composite c = myToolkit.createComposite(myTop);
+		adapt(c);
 		setLayoutData(c, grabHorizontal, grabVertical);
 		c.setLayout(new FillLayout());
 		return c;
@@ -707,6 +722,7 @@ public class FormCreator implements IFormCreator {
 	public IFormCreator addSection(String label, IObservableValue ov, boolean grabVertical) {
 		final Section section = myToolkit.createSection(myTop, label != null ? ExpandableComposite.TITLE_BAR
 				| ExpandableComposite.TWISTIE | ExpandableComposite.EXPANDED : ExpandableComposite.NO_TITLE);
+		adapt(section);
 		section.clientVerticalSpacing = 6;
 		if (label != null) {
 			section.setText(label);
@@ -728,6 +744,7 @@ public class FormCreator implements IFormCreator {
 	@Override
 	public void addSeparator() {
 		final Label label = myToolkit.createLabel(myTop, "", SWT.SEPARATOR | SWT.HORIZONTAL);
+		adapt(label);
 
 		final TableWrapData ld = new TableWrapData(TableWrapData.FILL_GRAB, TableWrapData.TOP);
 		label.setLayoutData(ld);
@@ -755,6 +772,7 @@ public class FormCreator implements IFormCreator {
 			break;
 		}
 		final Label sep = myToolkit.createLabel(myTop, "", style);
+		adapt(sep);
 
 		final TableWrapData ld = new TableWrapData(TableWrapData.FILL_GRAB, TableWrapData.TOP);
 		ld.heightHint = height;
@@ -772,6 +790,7 @@ public class FormCreator implements IFormCreator {
 		final ScrolledForm form = myToolkit.createScrolledForm(parent);
 		myToolkit.decorateFormHeading(form.getForm());
 		form.setText(formHeader);
+		adapt(form);
 		/*
 		 * See FormUtil.processKey(int keyCode, Control c)
 		 * 
@@ -822,6 +841,7 @@ public class FormCreator implements IFormCreator {
 	 */
 	protected Composite createTopComposite(final Composite parent) {
 		final Composite c = myToolkit.createComposite(parent, SWT.NONE);
+		c.setBackground(parent.getBackground());
 		final Layout l = parent.getLayout();
 		if (l == null) {
 			parent.setLayout(new FillLayout());
