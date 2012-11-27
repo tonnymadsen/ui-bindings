@@ -38,6 +38,7 @@ public class ResourceTestUtils {
 		try {
 			p.delete(true, new NullProgressMonitor());
 		} catch (final CoreException ex) {
+			ex.printStackTrace();
 			fail("" + ex);
 		}
 		assertFalse("project deleted", p.exists());
