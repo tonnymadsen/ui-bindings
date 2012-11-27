@@ -213,6 +213,6 @@ public final class LogUtils {
 				break;
 			}
 		}
-		debug(context.getBundle().getSymbolicName(), "Plugin versions:" + sb.toString());
+		debug(context.getBundle().getSymbolicName(), "Plugin versions (and state):" + sb.toString());
 	}
 }
