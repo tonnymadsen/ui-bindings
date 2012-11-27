@@ -63,13 +63,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ColumnViewerEditorActivationEvent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.Clipboard;
 import org.eclipse.swt.events.MouseEvent;
-import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
@@ -130,6 +130,7 @@ import com.rcpcompany.uibindings.initializers.DefaultEObjectInitializer;
 import com.rcpcompany.uibindings.internal.formatters.DefaultFormatterProvider;
 import com.rcpcompany.uibindings.internal.observableFactories.DefaultEMFObservableFactory;
 import com.rcpcompany.uibindings.model.utils.BasicUtils;
+import com.rcpcompany.uibindings.model.utils.UIBindingRealm;
 import com.rcpcompany.uibindings.participants.IAssignmentParticipant;
 import com.rcpcompany.uibindings.participants.IAssignmentParticipantContext;
 import com.rcpcompany.uibindings.participants.IDeleteParticipant;
@@ -1024,6 +1025,8 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		assignmentParticiantsManager = new AssignmentParticipantsManagerImpl();
 
 		extensionReader();
+
+		UIBindingRealm.setUIRealm(SWTObservables.getRealm(PlatformUI.getWorkbench().getDisplay()));
 	}
 
 	/**
@@ -2679,29 +2682,31 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 
 	@Override
 	public FormToolkit getFormToolkit(Control c) {
-		/*
-		 * Walk up the parent chain to find the background color.
-		 * 
-		 * It is not clear if Control.getBackground() automatically walk up the parent chain...
-		 */
-		Color col = null;
-		for (Control bgControl = c; col == null && bgControl != null; bgControl = bgControl.getParent()) {
-			col = bgControl.getBackground();
-		}
-
-		if (col == null) return getFormToolkit();
-
-		/*
-		 * Check if we already have a match; otherwise create a new toolkit.
-		 */
-		final RGB rgb = col.getRGB();
-		FormToolkit toolkit = myToolkitRegistry.get(rgb);
-		if (toolkit == null) {
-			toolkit = new FormToolkit(c.getDisplay());
-			myToolkitRegistry.put(rgb, toolkit);
-			toolkit.getColors().setBackground(col);
-		}
-		return toolkit;
+		return getFormToolkit();
+		// /*
+		// * Walk up the parent chain to find the background color.
+		// *
+		// * It is not clear if Control.getBackground() automatically walk up the parent chain...
+		// */
+		// Color col = null;
+		// for (Control bgControl = c; col == null && bgControl != null; bgControl =
+		// bgControl.getParent()) {
+		// col = bgControl.getBackground();
+		// }
+		//
+		// if (col == null) return getFormToolkit();
+		//
+		// /*
+		// * Check if we already have a match; otherwise create a new toolkit.
+		// */
+		// final RGB rgb = col.getRGB();
+		// FormToolkit toolkit = myToolkitRegistry.get(rgb);
+		// if (toolkit == null) {
+		// toolkit = new FormToolkit(c.getDisplay());
+		// myToolkitRegistry.put(rgb, toolkit);
+		// toolkit.getColors().setBackground(col);
+		// }
+		// return toolkit;
 	}
 
 	/**
