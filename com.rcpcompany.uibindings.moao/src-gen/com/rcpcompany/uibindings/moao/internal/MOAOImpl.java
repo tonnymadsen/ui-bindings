@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 
+import com.google.common.base.Objects;
 import com.rcpcompany.uibindings.moao.IMOAO;
 import com.rcpcompany.uibindings.moao.IMOAOFacet;
 import com.rcpcompany.uibindings.moao.IMOAOMessage;
@@ -148,19 +148,19 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 						final IMOAOMessage m = (_iMOAOMessage);
 						boolean _and = false;
 						boolean _and_1 = false;
-						final boolean _notEquals = ObjectExtensions.operator_notEquals(feature, null);
+						final boolean _notEquals = (!Objects.equal(feature, null));
 						if (!_notEquals) {
 							_and_1 = false;
 						} else {
 							final EStructuralFeature _feature = m.getFeature();
-							final boolean _equals = ObjectExtensions.operator_equals(feature, _feature);
+							final boolean _equals = Objects.equal(feature, _feature);
 							_and_1 = (_notEquals && _equals);
 						}
 						if (!_and_1) {
 							_and = false;
 						} else {
 							final String _owner = m.getOwner();
-							final boolean _equals_1 = ObjectExtensions.operator_equals(owner, _owner);
+							final boolean _equals_1 = Objects.equal(owner, _owner);
 							_and = (_and_1 && _equals_1);
 						}
 						if (_and) {
