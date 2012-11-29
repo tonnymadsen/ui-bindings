@@ -23,7 +23,9 @@ public class UIBindingRealm {
 	 */
 	public static Realm getUIRealm() {
 		try {
-			return theUIRealm.get(10, TimeUnit.SECONDS);
+			final Realm realm = theUIRealm.get(10, TimeUnit.SECONDS);
+			LogUtils.debug(theUIRealm, "" + realm);
+			return realm;
 		} catch (final Exception ex) {
 			LogUtils.error(theUIRealm, ex);
 			return null;
@@ -31,6 +33,7 @@ public class UIBindingRealm {
 	}
 
 	public static void setUIRealm(Realm r) {
+		LogUtils.debug(theUIRealm, "" + r);
 		theUIRealm.set(r);
 	}
 
@@ -43,6 +46,7 @@ public class UIBindingRealm {
 		theUIRealm.addListener(new Runnable() {
 			@Override
 			public void run() {
+				LogUtils.debug(theUIRealm, "" + runnable);
 				getUIRealm().asyncExec(runnable);
 			}
 		}, MoreExecutors.sameThreadExecutor());
