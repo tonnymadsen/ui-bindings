@@ -35,6 +35,14 @@ public class ResourceTestUtils {
 	 */
 	public static void deleteProject(String projectName) {
 		final IProject p = ROOT.getProject(projectName);
+		if (!p.exists())
+			return;
+		try {
+			p.close(new MonitoredMonitor());
+		} catch (final CoreException ex) {
+			ex.printStackTrace();
+			fail("" + ex);
+		}
 		try {
 			p.delete(true, new NullProgressMonitor());
 		} catch (final CoreException ex) {
@@ -50,9 +58,16 @@ public class ResourceTestUtils {
 	public static void deleteEverything() {
 		for (final IProject p : ROOT.getProjects()) {
 			try {
+				p.close(new MonitoredMonitor());
+			} catch (final CoreException ex) {
+				ex.printStackTrace();
+				fail("" + ex);
+			}
+			try {
 				p.delete(true, new NullProgressMonitor());
 			} catch (final CoreException ex) {
-				// Ignore!
+				ex.printStackTrace();
+				fail("" + ex);
 			}
 		}
 		assertEquals("no projects left", 0, ROOT.getProjects().length);
