@@ -174,6 +174,7 @@ public final class LogUtils {
 	 * The number of stack levels to include in log messages.
 	 */
 	public static int DEBUG_STRACK_LEVELS;
+	private static boolean logBundleVersionsCalled = false;
 
 	/**
 	 * Logs information about all the plug-ins installed.
@@ -182,6 +183,9 @@ public final class LogUtils {
 	 *            the bundle context
 	 */
 	public static void logBundleVersions(BundleContext context) {
+		if (logBundleVersionsCalled)
+			return;
+		logBundleVersionsCalled = true;
 		final Bundle[] bundles = context.getBundles();
 
 		final StringBuilder sb = new StringBuilder();
