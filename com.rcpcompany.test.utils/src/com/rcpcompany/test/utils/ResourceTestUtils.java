@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -45,6 +46,12 @@ public class ResourceTestUtils {
 		if (!p.exists())
 			return;
 		try {
+			p.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+		} catch (final Exception ex) {
+			ex.printStackTrace();
+			fail("" + ex);
+		}
+		try {
 			p.close(new MonitoredMonitor());
 		} catch (final CoreException ex) {
 			ex.printStackTrace();
@@ -63,6 +70,12 @@ public class ResourceTestUtils {
 	 * Deletes everything in the workspace.
 	 */
 	public static void deleteEverything() {
+		try {
+			ROOT.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+		} catch (final Exception ex) {
+			ex.printStackTrace();
+			fail("" + ex);
+		}
 		for (final IProject p : ROOT.getProjects(IWorkspaceRoot.INCLUDE_HIDDEN)) {
 			try {
 				p.close(new MonitoredMonitor());
