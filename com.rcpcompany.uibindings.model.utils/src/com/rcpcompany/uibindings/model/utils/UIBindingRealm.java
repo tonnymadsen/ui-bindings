@@ -48,4 +48,18 @@ public class UIBindingRealm {
 			}
 		}, MoreExecutors.sameThreadExecutor());
 	}
+
+	/**
+	 * Executes the specified {@link Runnable} in the {@link Realm} when it is available.
+	 * 
+	 * @param runnable the runnable to execute
+	 */
+	public static void exec(final Runnable runnable) {
+		theUIRealm.addListener(new Runnable() {
+			@Override
+			public void run() {
+				getUIRealm().exec(runnable);
+			}
+		}, MoreExecutors.sameThreadExecutor());
+	}
 }
