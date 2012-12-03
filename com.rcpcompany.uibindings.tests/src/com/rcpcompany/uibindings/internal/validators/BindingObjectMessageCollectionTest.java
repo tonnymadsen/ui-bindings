@@ -78,7 +78,7 @@ public class BindingObjectMessageCollectionTest {
 	private ValueBindingMessageImageDecorator myMessageDecorator;
 	private ValidatorAdapterManager myValidatorManager;
 
-	private final TestObjectValidatorAdapter myValidationAdapter = ;
+	private final TestObjectValidatorAdapter myValidationAdapter = new TestObjectValidatorAdapter();
 
 	@Before
 	public void before() {
