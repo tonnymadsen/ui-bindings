@@ -139,7 +139,7 @@ public final class TSResourcesUtils {
 							sb.append("CHANGED - ");
 							break;
 						}
-						sb.append(md.getMarker().getId());
+						sb.append(md.getType() + "[" + md.getId() + "]");
 					}
 					sb.append("\n");
 
