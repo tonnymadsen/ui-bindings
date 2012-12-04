@@ -112,8 +112,15 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 		} else if (valueType == Object.class) {
 			valueType = null;
 		}
-		final MyDetailObservableValue newObjectValue = new MyDetailObservableValue(getSourceValue(),
-				column.getFactory(), valueType);
+		MyDetailObservableValue newObjectValue = null;
+		String errorText = null;
+		try {
+			newObjectValue = new MyDetailObservableValue(getSourceValue(), column.getFactory(), valueType);
+		} catch (final Exception ex) {
+			LogUtils.error(column.getFactory(), "Cannot create the detail", ex);
+			errorText = "Cannot create the detail: " + ex;
+			newObjectValue = null;
+		}
 		setObjectValue(newObjectValue);
 
 		/*
@@ -130,6 +137,9 @@ public class ColumnBindingCellInformationImpl extends EObjectImpl implements ICo
 
 		final IBindingContext context = getColumn().getContext();
 		final IValueBinding lb = context.addBinding().model(newObjectValue).ui(attribute);
+		if (errorText != null) {
+			lb.addErrorCondition(errorText);
+		}
 		/*
 		 * The column is not added as an extra argument provider as it is already the parent
 		 */
