@@ -22,8 +22,8 @@ import org.eclipse.emf.ecore.EClass;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
- * A {@link IndexObservableList} that filters the entries of another {@link IndexObservableList}
- * based on a filter.
+ * A {@link IndexObservableList} that filters the entries of another {@link IObservableList} based
+ * on a filter.
  * <p>
  * If the filter changes, it must call #updateList()
  * 
