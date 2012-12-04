@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.rcpcompany.utils.basic;
 
+import org.eclipse.core.resources.IMarkerDelta;
 import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.resources.IResourceDeltaVisitor;
 import org.eclipse.core.runtime.CoreException;
@@ -35,10 +36,11 @@ public final class TSResourcesUtils {
 			delta.accept(new IResourceDeltaVisitor() {
 				@Override
 				public boolean visit(IResourceDelta delta) throws CoreException {
+					String indent = "";
 					for (int i = 0; i < delta.getFullPath().segmentCount(); i++) {
-						sb.append("  ");
+						indent = indent + "  ";
 					}
-					sb.append(delta.getFullPath()).append(" - ");
+					sb.append(indent).append(delta.getFullPath()).append(" - ");
 					switch (delta.getKind()) {
 					case IResourceDelta.ADDED:
 						sb.append("ADDED");
@@ -107,14 +109,38 @@ public final class TSResourcesUtils {
 						sb.append("CONTENT+"); //$NON-NLS-1$
 						d &= ~IResourceDelta.CONTENT;
 					}
+					if ((d & IResourceDelta.REPLACED) == IResourceDelta.REPLACED) {
+						sb.append("REPLACED+"); //$NON-NLS-1$
+						d &= ~IResourceDelta.REPLACED;
+					}
+					if ((d & IResourceDelta.LOCAL_CHANGED) == IResourceDelta.LOCAL_CHANGED) {
+						sb.append("LOCAL_CHANGED+"); //$NON-NLS-1$
+						d &= ~IResourceDelta.LOCAL_CHANGED;
+					}
 
-					if (d == 0 && delta.getFlags() != 0) {
+					if (delta.getFlags() == 0) {
+						sb.append("-");
+					} else if (d == 0) {
 						sb.deleteCharAt(sb.length() - 1);
 					} else {
 						sb.append(d);
 					}
 
-					// TODO delta.getMarkerDeltas()
+					for (final IMarkerDelta md : delta.getMarkerDeltas()) {
+						sb.append("\n" + indent + "    * ");
+						switch (md.getKind()) {
+						case IResourceDelta.ADDED:
+							sb.append("ADDED - ");
+							break;
+						case IResourceDelta.REMOVED:
+							sb.append("REMOVED - ");
+							break;
+						case IResourceDelta.CHANGED:
+							sb.append("CHANGED - ");
+							break;
+						}
+						sb.append(md.getMarker().getId());
+					}
 					sb.append("\n");
 
 					return true;
