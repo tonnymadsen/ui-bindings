@@ -54,6 +54,7 @@ class MOAO extends IAdaptable {
 	 * @param owner the owner
 	 */
     op void removeMessagesByOwner(String owner) {
+		removeMessagesByOwner(null, owner)
     	val allContents = eAllContents()
 		while (allContents.hasNext()) {
 			val next = allContents.next()

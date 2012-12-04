@@ -101,7 +101,9 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 	@Override
 	public void removeMessagesByOwner(final String owner) {
 		final IMOAO _this = this;
-		final TreeIterator<EObject> allContents = _this.eAllContents();
+		_this.removeMessagesByOwner(null, owner);
+		final IMOAO _this_1 = this;
+		final TreeIterator<EObject> allContents = _this_1.eAllContents();
 		final boolean _hasNext = allContents.hasNext();
 		boolean _while = _hasNext;
 		while (_while) {
