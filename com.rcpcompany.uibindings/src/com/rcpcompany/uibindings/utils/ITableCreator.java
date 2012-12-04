@@ -19,6 +19,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableColumn;
 
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IColumnBinding;
@@ -206,4 +207,15 @@ public interface ITableCreator extends IDisposable {
 	 * @return the column binding
 	 */
 	IColumnBinding addColumn(IColumnBinding baseColumn, EStructuralFeature feature, int width);
+
+	/**
+	 * Creates a new {@link TableColumn}...
+	 * <p>
+	 * <em>NOTE</em>: the new column is bound to anything!!!
+	 * 
+	 * @param width the width
+	 * @param style the style
+	 * @return the new column
+	 */
+	TableColumn createTableColumn(int width, int style);
 }

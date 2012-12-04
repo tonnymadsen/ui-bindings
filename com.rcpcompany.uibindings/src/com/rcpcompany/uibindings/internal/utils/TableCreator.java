@@ -179,21 +179,21 @@ public class TableCreator implements ITableCreator {
 	@Override
 	public IColumnBinding addColumn(EStructuralFeature feature, int width) {
 		Assert.isNotNull(myViewerBinding);
-		final TableColumn column = createColumn(width, SWT.NONE);
+		final TableColumn column = createTableColumn(width, SWT.NONE);
 		return myViewerBinding.addColumn(column, feature);
 	}
 
 	@Override
 	public IColumnBinding addColumn(SpecialBinding columnType, int width) {
 		Assert.isNotNull(myViewerBinding);
-		final TableColumn column = createColumn(width, SWT.RIGHT);
+		final TableColumn column = createTableColumn(width, SWT.RIGHT);
 		return myViewerBinding.addColumn().column(column).model(columnType);
 	}
 
 	@Override
 	public IColumnBinding addColumn(IColumnBinding baseColumn, EStructuralFeature feature, int width) {
 		Assert.isNotNull(myViewerBinding);
-		final TableColumn column = createColumn(width, SWT.NONE);
+		final TableColumn column = createTableColumn(width, SWT.NONE);
 		return myViewerBinding.addColumn().column(column).model(baseColumn, feature);
 	}
 
@@ -221,7 +221,7 @@ public class TableCreator implements ITableCreator {
 			final EStructuralFeature feature;
 			switch (s.getType()) {
 			case NONE:
-				final TableColumn column = createColumn(0, SWT.NONE);
+				final TableColumn column = createTableColumn(0, SWT.NONE);
 				foundColumn = myViewerBinding.addColumn().column(column);
 				break;
 			case ROW_NO:
@@ -276,7 +276,7 @@ public class TableCreator implements ITableCreator {
 						}
 					};
 					Assert.isNotNull(myViewerBinding);
-					final TableColumn newColumn = createColumn(0, SWT.RIGHT);
+					final TableColumn newColumn = createTableColumn(0, SWT.RIGHT);
 					if (parentColumn == null) {
 						foundColumn = myViewerBinding.addColumn().column(newColumn).model(factory, s.getValueFeature());
 					} else {
@@ -333,14 +333,8 @@ public class TableCreator implements ITableCreator {
 		return parentColumn;
 	}
 
-	/**
-	 * Creates a new table column...
-	 * 
-	 * @param width the width
-	 * @param style the style
-	 * @return the new column
-	 */
-	private TableColumn createColumn(int width, int style) {
+	@Override
+	public TableColumn createTableColumn(int width, int style) {
 		final TableColumn column = new TableColumn(myTable, style);
 		column.setWidth(width);
 		column.setMoveable(true);
