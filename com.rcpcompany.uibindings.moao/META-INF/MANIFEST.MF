@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: UI Bindings MOAO Base Model
 Bundle-SymbolicName: com.rcpcompany.uibindings.moao;singleton:=true
-Bundle-Version: 1.2.1.qualifier
+Bundle-Version: 1.2.2.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: The RCP Company
 Bundle-Localization: plugin
@@ -13,7 +13,7 @@ Export-Package: com.rcpcompany.uibindings.moao;version="1.2.0",
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.xtext.xbase.lib;bundle-version="[2.3.0,3.0.0)";visibility:=reexport,
  org.eclipse.emf.ecore;bundle-version="[2.8.0,3.0.0)";visibility:=reexport,
- org.eclipse.emf.ecore.xcore.lib;bundle-version="1.0.0"
+ org.eclipse.emf.ecore.xcore.lib;bundle-version="1.0.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Import-Package: com.rcpcompany.utils.basic;version="[1.6.0,2.0.0)",
  org.eclipse.emf.common.notify,
