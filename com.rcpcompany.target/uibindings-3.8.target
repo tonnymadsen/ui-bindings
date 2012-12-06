@@ -21,22 +21,22 @@
 <repository location="http://download.eclipse.org/releases/juno/"/>
 </location>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.xtext.xbase.source.feature.group" version="2.4.0.v201212040840"/>
-<unit id="org.eclipse.xtext.xbase.lib.source.feature.group" version="2.4.0.v201212040840"/>
-<unit id="org.eclipse.xtext.xbase.feature.group" version="2.4.0.v201212040840"/>
-<unit id="org.eclipse.xtext.xbase.lib.feature.group" version="2.4.0.v201212040840"/>
-<unit id="org.eclipse.xtext.runtime.feature.group" version="2.4.0.v201212040840"/>
+<unit id="org.eclipse.xtext.xbase.source.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.xtext.xbase.lib.source.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.xtext.xbase.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.xtext.xbase.lib.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.xtext.runtime.feature.group" version="0.0.0"/>
 <repository location="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/latest"/>
 </location>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.emf.ecore.feature.group" version="2.9.0.v20121129-0306"/>
-<unit id="org.eclipse.emf.sdk.feature.group" version="2.9.0.v20121129-0309"/>
-<unit id="org.eclipse.emf.ecore.xcore.lib.feature.group" version="1.1.0.v20121202-2029"/>
-<unit id="org.eclipse.emf.ecore.xcore.feature.group" version="1.1.0.v20121202-2029"/>
-<unit id="org.eclipse.emf.source.feature.group" version="2.9.0.v20121129-0309"/>
-<unit id="org.eclipse.emf.sdk.source.feature.group" version="2.9.0.v20121129-0309"/>
-<unit id="org.eclipse.emf.ecore.xcore.lib.source.feature.group" version="1.1.0.v20121202-2029"/>
-<unit id="org.eclipse.emf.ecore.xcore.source.feature.group" version="1.1.0.v20121202-2029"/>
+<unit id="org.eclipse.emf.ecore.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.emf.sdk.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.emf.ecore.xcore.lib.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.emf.ecore.xcore.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.emf.source.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.emf.sdk.source.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.emf.ecore.xcore.lib.source.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.emf.ecore.xcore.source.feature.group" version="0.0.0"/>
 <repository location="http://download.eclipse.org/modeling/emf/emf/updates/nightly/"/>
 </location>
 </locations>
