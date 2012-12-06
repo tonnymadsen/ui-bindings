@@ -103,7 +103,8 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 	public void init() {
 		if (mySetupSelectionProvider) {
 			if (mySite.getSelectionProvider() != null) {
-				LogUtils.error(this, "Site already have a selection provider: " + mySite.getSelectionProvider());
+				LogUtils.error(this,
+						"Site '" + mySite + "' already have a selection provider: " + mySite.getSelectionProvider());
 			}
 			mySite.setSelectionProvider(this);
 		}
