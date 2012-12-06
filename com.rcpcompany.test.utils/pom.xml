@@ -14,7 +14,24 @@
 		<relativePath>../com.rcpcompany.parent</relativePath>
 	</parent>
 
-	<properties>
-		<maven.compiler.verbose>true</maven.compiler.verbose>
-	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<dependency-resolution>
+						<extraRequirements combine.children="append">
+							<requirement>
+								<type>eclipse-plugin</type>
+								<id>org.eclipse.core.resources</id>
+								<versionRange>0.0.0</versionRange>
+							</requirement>
+						</extraRequirements>
+					</dependency-resolution>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
