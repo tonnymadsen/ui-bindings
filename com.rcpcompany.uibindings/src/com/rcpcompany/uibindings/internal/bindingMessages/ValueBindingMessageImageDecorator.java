@@ -47,6 +47,7 @@ import com.rcpcompany.uibindings.IUIBindingDecoratorExtender;
 import com.rcpcompany.uibindings.IUIBindingDecoratorExtenderContext;
 import com.rcpcompany.uibindings.IUIBindingsPackage;
 import com.rcpcompany.uibindings.IValueBinding;
+import com.rcpcompany.uibindings.contextAdapters.ContextMessageDecorator;
 import com.rcpcompany.uibindings.decorators.extenders.AbstractUIBindingDecoratorExtender;
 import com.rcpcompany.uibindings.internal.Activator;
 import com.rcpcompany.uibindings.internal.Messages;

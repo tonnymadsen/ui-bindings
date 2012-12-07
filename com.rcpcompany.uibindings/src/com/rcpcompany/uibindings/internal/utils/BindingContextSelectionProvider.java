@@ -477,7 +477,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		 */
 		private final IObservableValue myValue;
 
-		private ObservableValueSelectionProvider(IObservableValue value) {
+		protected ObservableValueSelectionProvider(IObservableValue value) {
 			myValue = value;
 			value.addValueChangeListener(this);
 			handleValueChange(null);
@@ -546,7 +546,7 @@ public class BindingContextSelectionProvider extends AbstractContextMonitor impl
 		 */
 		private final IObservableList myList;
 
-		private ObservableListSelectionProvider(IObservableList list) {
+		protected ObservableListSelectionProvider(IObservableList list) {
 			myList = list;
 			list.addListChangeListener(this);
 		}

@@ -8,7 +8,7 @@
  * Contributors:
  *     The RCP Company - initial API and implementation
  *******************************************************************************/
-package com.rcpcompany.uibindings.internal.bindingMessages;
+package com.rcpcompany.uibindings.contextAdapters;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +20,7 @@ import org.eclipse.jface.dialogs.IMessageProvider;
 
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingMessage;
+import com.rcpcompany.uibindings.internal.bindingMessages.IContextMessageProvider;
 import com.rcpcompany.uibindings.internal.utils.AbstractContextMonitor;
 import com.rcpcompany.uibindings.utils.IManagerRunnable;
 

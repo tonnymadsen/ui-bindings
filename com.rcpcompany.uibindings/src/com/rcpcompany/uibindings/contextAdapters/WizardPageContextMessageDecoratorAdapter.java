@@ -8,7 +8,7 @@
  * Contributors:
  *     The RCP Company - initial API and implementation
  *******************************************************************************/
-package com.rcpcompany.uibindings.internal.bindingMessages.contextAdapters;
+package com.rcpcompany.uibindings.contextAdapters;
 
 import java.util.List;
 
@@ -19,7 +19,6 @@ import org.eclipse.jface.wizard.WizardPage;
 import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.bindingMessages.AbstractBindingMessage;
-import com.rcpcompany.uibindings.internal.bindingMessages.IContextMessageDecoratorAdapter;
 
 /**
  * Decoration support for a single {@link IBindingContext} based on a {@link IWizardPage}.

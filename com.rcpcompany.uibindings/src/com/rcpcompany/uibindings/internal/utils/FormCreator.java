@@ -242,7 +242,12 @@ public class FormCreator implements IFormCreator {
 			}
 			context.registerService(myToolkit);
 		} else {
-			top = createTopComposite(top);
+			if (formHeader != null) {
+				myScrolledForm = createScrolledForm(top, formHeader);
+				top = myScrolledForm.getBody();
+			} else {
+				top = createTopComposite(top);
+			}
 		}
 		myContext = context;
 		myObservableValue = value;
@@ -457,20 +462,22 @@ public class FormCreator implements IFormCreator {
 	/**
 	 * 
 	 */
-	private void delayContextFinish() {
-		if (isTopForm()) {
-			if (myContextListener == null && myContext != null) {
-				myContextListener = new AdapterImpl() {
-					@Override
-					public void notifyChanged(Notification msg) {
-						if (msg.isTouch()) return;
-						if (msg.getFeature() != IUIBindingsPackage.Literals.BINDING_CONTEXT__STATE) return;
+	void delayContextFinish() {
+		if (!isTopForm()) {
+			myTopForm.delayContextFinish();
+			return;
+		}
+		if (myContextListener == null && myContext != null) {
+			myContextListener = new AdapterImpl() {
+				@Override
+				public void notifyChanged(Notification msg) {
+					if (msg.isTouch()) return;
+					if (msg.getFeature() != IUIBindingsPackage.Literals.BINDING_CONTEXT__STATE) return;
 
-						finish();
-					}
-				};
-				myContext.eAdapters().add(myContextListener);
-			}
+					finish();
+				}
+			};
+			myContext.eAdapters().add(myContextListener);
 		}
 	}
 

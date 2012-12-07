@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: com.rcpcompany.uibindings;singleton:=true
-Bundle-Version: 2.15.1.qualifier
+Bundle-Version: 2.16.0.qualifier
 Bundle-Activator: com.rcpcompany.uibindings.internal.Activator
 Bundle-Vendor: %Bundle-Vendor
 Require-Bundle: com.rcpcompany.utils.ui;visibility:=reexport,
@@ -14,6 +14,7 @@ Export-Package: com.rcpcompany.uibindings;version="2.0.0",
  com.rcpcompany.uibindings.bindingMessages;version="2.0.0",
  com.rcpcompany.uibindings.compositeform;version="2.0.0",
  com.rcpcompany.uibindings.compositeform.utils;version="2.0.0",
+ com.rcpcompany.uibindings.contextAdapters,
  com.rcpcompany.uibindings.decorators;version="2.0.0",
  com.rcpcompany.uibindings.decorators.extenders;version="2.0.0",
  com.rcpcompany.uibindings.handlers;version="2.0.0",

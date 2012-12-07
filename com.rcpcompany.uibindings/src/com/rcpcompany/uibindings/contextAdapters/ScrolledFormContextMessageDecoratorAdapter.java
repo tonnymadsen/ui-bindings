@@ -8,7 +8,7 @@
  * Contributors:
  *     The RCP Company - initial API and implementation
  *******************************************************************************/
-package com.rcpcompany.uibindings.internal.bindingMessages.contextAdapters;
+package com.rcpcompany.uibindings.contextAdapters;
 
 import java.util.List;
 
@@ -25,7 +25,6 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IBindingMessage;
 import com.rcpcompany.uibindings.bindingMessages.AbstractBindingMessage;
 import com.rcpcompany.uibindings.internal.Messages;
-import com.rcpcompany.uibindings.internal.bindingMessages.IContextMessageDecoratorAdapter;
 import com.rcpcompany.uibindings.utils.IBindingMessagesPopup;
 
 /**
