@@ -27,7 +27,7 @@ import com.rcpcompany.uibindings.IBindingContext;
 import com.rcpcompany.uibindings.IManager;
 import com.rcpcompany.uibindings.IViewerBinding;
 import com.rcpcompany.uibindings.TextCommitStrategy;
-import com.rcpcompany.uibindings.internal.bindingMessages.ContextMessageDecorator;
+import com.rcpcompany.uibindings.contextAdapters.ContextMessageDecorator;
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Shop;
 import com.rcpcompany.uibindings.tests.shop.ShopFactory;
