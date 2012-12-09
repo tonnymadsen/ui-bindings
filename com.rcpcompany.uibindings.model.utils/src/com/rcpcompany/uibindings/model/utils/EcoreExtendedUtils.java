@@ -23,15 +23,18 @@ import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EPackage.Registry;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.MoveCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
@@ -57,9 +60,10 @@ public final class EcoreExtendedUtils {
 	 * @param source the object synchronized from
 	 */
 	public static <T extends EObject> SyncController sync(EditingDomain domain, EList<T> target, EList<T> source) {
-		final SyncController controller = new SyncController();
+		final SyncController controller = new SyncController(source);
 		controller.setEditingDomain(domain);
 		controller.sync(target, source);
+		controller.handleDeferredOperations();
 		controller.commit();
 
 		return controller;
@@ -78,9 +82,10 @@ public final class EcoreExtendedUtils {
 	 */
 	public static <T extends EObject> SyncController sync(EditingDomain domain, T target, T source) {
 		Assert.isTrue(source.eClass() == target.eClass(), "target and source must have exactly the same types");
-		final SyncController controller = new SyncController();
+		final SyncController controller = new SyncController(source);
 		controller.setEditingDomain(domain);
 		controller.sync(target, source);
+		controller.handleDeferredOperations();
 		controller.commit();
 
 		return controller;
@@ -95,7 +100,126 @@ public final class EcoreExtendedUtils {
 		/**
 		 * A compound command that collects all the created commands.
 		 */
-		private CompoundCommand myCompoundCommand;
+		private CompoundCommand myCommitCommand;
+
+		public <T extends EObject> SyncController(T source) {
+			addSourceMappingObjects(source);
+		}
+
+		public <T extends EObject> SyncController(EList<T> source) {
+			for (final T o : source) {
+				addSourceMappingObjects(o);
+			}
+		}
+
+		/**
+		 * A mapping of all contained objects in the source tree to the corresponding objects in the
+		 * target tree.
+		 * <p>
+		 * Until an object in the source tree is first encountered, the target object for a source
+		 * object in the map is set to <code>null</code>.
+		 * <p>
+		 * Initially the map is seeded from the contained objects in the source tree.
+		 * <p>
+		 * Basically the target of the mapping is filled in when a new containment relation is
+		 * encountered (see {@link #registerMapping(EObject, EObject)}) and used when
+		 * non-containment (pure reference) relations are encountered (see #).
+		 */
+		private final Map<EObject, EObject> sourceToTargetMapping = new HashMap<EObject, EObject>(200);
+
+		/**
+		 * A list of sync operations that has been deferred until all containment relations have
+		 * been handled.
+		 */
+		private final List<DeferedSyncRecord<EObject>> myDeferedSyncRecords = new ArrayList<DeferedSyncRecord<EObject>>(
+				200);
+
+		/**
+		 * Adds all the objects in the source tree based on the specified root to the set of source
+		 * objects.
+		 * 
+		 * @param sourceTreeRoot the root
+		 */
+		private <T extends EObject> void addSourceMappingObjects(T sourceTreeRoot) {
+			final TreeIterator<EObject> contents = EcoreUtil.getAllContents(sourceTreeRoot, true);
+			while (contents.hasNext()) {
+				sourceToTargetMapping.put(contents.next(), null);
+			}
+		}
+
+		/**
+		 * Registers a new mapping between source and target objects.
+		 * 
+		 * @param target the target object
+		 * @param source the source object
+		 */
+		private <T extends EObject> void registerMapping(T target, T source) {
+			if (source == null) return;
+			if (!sourceToTargetMapping.containsKey(source)) return;
+
+			// LogUtils.DEBUG_STRACK_LEVELS = 8;
+			// LogUtils.debug(this, "Added mapping\nsource: " + source + "\ntarget: " + target);
+
+			/*
+			 * Check that we only register a mapping once
+			 */
+			Assert.isTrue(sourceToTargetMapping.get(source) == null, "Already have a mapping for " + source);
+			sourceToTargetMapping.put(source, target);
+		}
+
+		/**
+		 * Returns the target (if known) for the specified source.
+		 * <p>
+		 * If no mapping is known, the original value is returned
+		 * 
+		 * @param source the source object
+		 * @return the corresponding target object or <code>source</code> if not known.
+		 */
+		private <T extends EObject> T getMapping(T source) {
+			if (sourceToTargetMapping.containsKey(source)) return (T) sourceToTargetMapping.get(source);
+			return source;
+		}
+
+		private <T extends EObject> void syncNonContainment(EStructuralFeature sf, T target, T source) {
+			if (sf.getEType() instanceof EDataType) {
+				if (sf.isMany()) {
+					syncNonContainmentList(sf, target, source);
+				} else {
+					syncNonContainmentValue(sf, target, source);
+				}
+				return;
+			}
+			/*
+			 * We defer the sync until all containment objects have been handled...
+			 */
+			myDeferedSyncRecords.add(new DeferedSyncRecord<EObject>(sf, target, source));
+		}
+
+		public void handleDeferredOperations() {
+			for (final DeferedSyncRecord<EObject> d : myDeferedSyncRecords) {
+				d.sync();
+			}
+		}
+
+		private class DeferedSyncRecord<T extends EObject> {
+			private final EStructuralFeature mySf;
+			private final T myTarget;
+			private final T mySource;
+
+			public DeferedSyncRecord(EStructuralFeature sf, T target, T source) {
+				mySf = sf;
+				myTarget = target;
+				mySource = source;
+			}
+
+			public void sync() {
+				if (mySf.isMany()) {
+					syncNonContainmentList(mySf, myTarget, mySource);
+				} else {
+					syncNonContainmentValue(mySf, myTarget, mySource);
+				}
+			}
+		}
 
 		/**
 		 * Returns the compound command that collects all the created commands.
@@ -103,7 +227,7 @@ public final class EcoreExtendedUtils {
 		 * @return the command
 		 */
 		public CompoundCommand getCompoundCommand() {
-			return myCompoundCommand;
+			return myCommitCommand;
 		}
 
 		/**
@@ -125,6 +249,7 @@ public final class EcoreExtendedUtils {
 		public <T extends EObject> void sync(T target, T source) {
 			Assert.isNotNull(source);
 			Assert.isNotNull(target);
+			registerMapping(target, source);
 			for (final EStructuralFeature sf : source.eClass().getEAllStructuralFeatures()) {
 				if (!sf.isChangeable() || sf.isDerived()) {
 					continue;
@@ -167,9 +292,9 @@ public final class EcoreExtendedUtils {
 		 * Commits the commands in the compound command if not empty.
 		 */
 		public void commit() {
-			if (myCompoundCommand == null) return;
+			if (myCommitCommand == null) return;
 
-			myCompoundCommand.execute();
+			myCommitCommand.execute();
 		}
 
 		/**
@@ -181,28 +306,42 @@ public final class EcoreExtendedUtils {
 		 * @param target the object synchronized into
 		 * @param source the object synchronized from
 		 */
-		private <T extends EObject> void syncNonContainment(EStructuralFeature sf, T target, T source) {
+		protected <T extends EObject> void syncNonContainmentValue(EStructuralFeature sf, T target, T source) {
 			final Object targetValue = target.eGet(sf);
-			final Object sourceValue = source.eGet(sf);
+			Object sourceValue = source.eGet(sf);
 
-			if (BasicUtils.equals(targetValue, sourceValue)) return;
-			if (!sf.isMany()) {
-				/*
-				 * Simple attribute
-				 */
-				addCommand(SetCommand.create(getEditingDomain(), target, sf, sourceValue));
-				return;
+			if (sourceValue instanceof EObject) {
+				sourceValue = getMapping((EObject) sourceValue);
 			}
 
+			if (BasicUtils.equals(targetValue, sourceValue)) return;
 			/*
-			 * To-many attribute
+			 * Simple attribute
 			 */
-			final EList<Object> targetList = new BasicEList<Object>((List<?>) targetValue);
-			final EList<?> sourceList = (EList<?>) sourceValue;
+			addCommand(SetCommand.create(getEditingDomain(), target, sf, sourceValue));
+		}
+
+		/**
+		 * Synchronizes the specified non-containment structural feature from the
+		 * <code>source</code> object into the <code>target</code> object.
+		 * 
+		 * @param <T> the type of the involved objects
+		 * @param sf the structural feature to synchronize
+		 * @param target the object synchronized into
+		 * @param source the object synchronized from
+		 */
+		protected <T extends EObject> void syncNonContainmentList(EStructuralFeature sf, T target, T source) {
+			final EList<Object> targetList = new BasicEList<Object>((List<?>) target.eGet(sf));
+			final EList<?> sourceList = (EList<?>) source.eGet(sf);
 			for (int index = 0; index < sourceList.size(); index++) {
-				final Object sourceObject = sourceList.get(index);
+				Object sourceObject = sourceList.get(index);
+
+				if (sourceObject instanceof EObject) {
+					sourceObject = getMapping((EObject) sourceObject);
+				}
+
 				/*
-				 * Is targetList long enougth
+				 * Is targetList long enough
 				 */
 				if (index >= targetList.size()) {
 					addCommand(AddCommand.create(getEditingDomain(), target, sf, sourceObject));
@@ -308,11 +447,12 @@ public final class EcoreExtendedUtils {
 			for (int sourceIndex = 0; sourceIndex < sourceListSize; sourceIndex++) {
 				final EObject sourceObject = sourceList.get(sourceIndex);
 				/*
-				 * Is targetList long enougth
+				 * Is targetList long enough
 				 */
 				if (sourceIndex >= targetList.size()) {
 					addCommand(AddCommand.create(getEditingDomain(), target, ref, sourceObject));
 					targetList.add(sourceObject);
+					registerMapping(sourceObject, sourceObject);
 					continue;
 				}
 
@@ -324,6 +464,7 @@ public final class EcoreExtendedUtils {
 					 */
 					final EObject targetObject = targetList.get(sourceIndex);
 					if (BasicUtils.equals(targetObject, sourceObject)) {
+						registerMapping(targetObject, sourceObject);
 						continue;
 					}
 
@@ -332,7 +473,9 @@ public final class EcoreExtendedUtils {
 					 * then.
 					 */
 					if (BasicUtils.equals(targetObject, sourceObject, key)) {
-						if (key != null) {
+						if (key == null) {
+							registerMapping(targetObject, sourceObject);
+						} else {
 							sync(targetObject, sourceObject);
 						}
 						continue;
@@ -351,6 +494,7 @@ public final class EcoreExtendedUtils {
 						 * The object does not exist in the target list already, so we have to
 						 * either add it or replace the exiting target object if it is not needed
 						 */
+						registerMapping(sourceObject, sourceObject);
 						if (targetIndex == -1) {
 							addCommand(SetCommand.create(getEditingDomain(), target, ref, sourceObject, sourceIndex));
 							addRemovedObject(targetObject);
@@ -388,6 +532,7 @@ public final class EcoreExtendedUtils {
 					}
 					addCommand(MoveCommand.create(getEditingDomain(), target, ref, existingTargetObject, sourceIndex));
 					targetList.move(targetIndex, sourceIndex);
+					registerMapping(sourceObject, sourceObject);
 					sync(targetList.get(sourceIndex), sourceObject);
 				} while (!done);
 			}
@@ -408,6 +553,8 @@ public final class EcoreExtendedUtils {
 			final EObject targetValue = (EObject) target.eGet(ref);
 			final EObject sourceValue = (EObject) source.eGet(ref);
 
+			registerMapping(targetValue, sourceValue);
+
 			if (targetValue == sourceValue) return;
 
 			/*
@@ -418,6 +565,9 @@ public final class EcoreExtendedUtils {
 			 */
 			if (targetValue == null || sourceValue == null) {
 				addCommand(SetCommand.create(getEditingDomain(), target, ref, sourceValue));
+				if (sourceValue == null) {
+					addRemovedObject(targetValue);
+				}
 				return;
 			}
 			if (BasicUtils.equals(targetValue, sourceValue, key)) {
@@ -458,12 +608,12 @@ public final class EcoreExtendedUtils {
 		 * @param c the new command to add
 		 */
 		public void addCommand(Command c) {
-			if (myCompoundCommand == null) {
-				myCompoundCommand = new CompoundCommand();
+			if (myCommitCommand == null) {
+				myCommitCommand = new CompoundCommand();
 			}
 
 			// LogUtils.debug(this, EcoreExtUtils.toString(c));
-			myCompoundCommand.append(c);
+			myCommitCommand.append(c);
 		}
 
 		/**
