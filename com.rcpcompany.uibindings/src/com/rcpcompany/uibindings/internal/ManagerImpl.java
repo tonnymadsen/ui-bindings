@@ -231,7 +231,7 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		 * @param uiType the wanted UI type
 		 * @param type the wanted type (optional)
 		 */
-		private BindingProviderKey(Class<?> modelType, ModelValueKind modelKind, Class<?> uiType, String type) {
+		protected BindingProviderKey(Class<?> modelType, ModelValueKind modelKind, Class<?> uiType, String type) {
 			this.modelType = modelType;
 			this.modelKind = modelKind;
 			this.uiType = uiType;
