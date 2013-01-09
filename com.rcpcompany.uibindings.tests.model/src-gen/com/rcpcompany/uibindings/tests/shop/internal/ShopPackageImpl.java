@@ -2,8 +2,23 @@
  */
 package com.rcpcompany.uibindings.tests.shop.internal;
 
-import com.rcpcompany.uibindings.moao.IMOAOPackage;
+import java.util.Date;
+import java.util.Map;
 
+import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EValidator;
+import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.tests.shop.Contact;
 import com.rcpcompany.uibindings.tests.shop.Country;
 import com.rcpcompany.uibindings.tests.shop.CountryInfo;
@@ -24,189 +39,170 @@ import com.rcpcompany.uibindings.tests.shop.ShopItemProperties;
 import com.rcpcompany.uibindings.tests.shop.ShopItemURL;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 import com.rcpcompany.uibindings.tests.shop.ShopURL;
-
 import com.rcpcompany.uibindings.tests.shop.util.ShopValidator;
 
-import java.util.Date;
-import java.util.Map;
-import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EGenericType;
-import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EValidator;
-import org.eclipse.emf.ecore.EcorePackage;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model <b>Package</b>.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass shopEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass customerEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass customerGroupEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass shopItemEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass shopItemPropertiesEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass shopItemGroupEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass orderEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass orderItemEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass contactEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass countryEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass countryInfoEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass shopItemInformationEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass shopItemDescriptionEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass shopItemURLEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass shopInformationEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass shopURLEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass shopAddressEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EEnum customerTypeEEnum = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType eDiagnosticChainEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType eMapEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType eDateEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
-	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
-	 * package URI value.
-	 * <p>Note: the correct way to create the package is via the static
-	 * factory method {@link #init init()}, which also performs
-	 * initialization of the package, or returns the registered package,
-	 * if one already exists.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package package URI
+	 * value.
+	 * <p>
+	 * Note: the correct way to create the package is via the static factory method {@link #init
+	 * init()}, which also performs initialization of the package, or returns the registered
+	 * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#eNS_URI
 	 * @see #init()
@@ -217,19 +213,21 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others
+	 * upon which it depends.
 	 * 
-	 * <p>This method is used to initialize {@link ShopPackage#eINSTANCE} when that field is accessed.
-	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <p>
+	 * This method is used to initialize {@link ShopPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to
+	 * obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
@@ -239,7 +237,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		if (isInited) return (ShopPackage) EPackage.Registry.INSTANCE.getEPackage(ShopPackage.eNS_URI);
 
 		// Obtain or create and register package
-		ShopPackageImpl theShopPackage = (ShopPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ShopPackageImpl ? EPackage.Registry.INSTANCE
+		final ShopPackageImpl theShopPackage = (ShopPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ShopPackageImpl ? EPackage.Registry.INSTANCE
 				.get(eNS_URI) : new ShopPackageImpl());
 
 		isInited = true;
@@ -255,6 +253,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put(theShopPackage, new EValidator.Descriptor() {
+			@Override
 			public EValidator getEValidator() {
 				return ShopValidator.INSTANCE;
 			}
@@ -269,809 +268,896 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getShop() {
 		return shopEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getShop_NextOrderNo() {
 		return (EAttribute) shopEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getShop_NextCustomerNo() {
 		return (EAttribute) shopEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getShop_TmpDir() {
 		return (EAttribute) shopEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShop_Countries() {
 		return (EReference) shopEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShop_Contacts() {
 		return (EReference) shopEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShop_ShopItems() {
 		return (EReference) shopEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShop_Orders() {
 		return (EReference) shopEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShop_Customers() {
 		return (EReference) shopEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShop_CustomerGroups() {
 		return (EReference) shopEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShop_ShopGroups() {
 		return (EReference) shopEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShop_Infos() {
 		return (EReference) shopEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EOperation getShop__Save() {
 		return shopEClass.getEOperations().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EOperation getShop__NameLengthOK__DiagnosticChain_Map() {
 		return shopEClass.getEOperations().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getCustomer() {
 		return customerEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getCustomer_Shop() {
 		return (EReference) customerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getCustomer_Contact() {
 		return (EReference) customerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getCustomer_Orders() {
 		return (EReference) customerEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCustomer_Loyalty() {
 		return (EAttribute) customerEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCustomer_LogoFileName() {
 		return (EAttribute) customerEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getCustomerGroup() {
 		return customerGroupEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getCustomerGroup_Shop() {
 		return (EReference) customerGroupEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getCustomerGroup_Customers() {
 		return (EReference) customerGroupEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getShopItem() {
 		return shopItemEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShopItem_Shop() {
 		return (EReference) shopItemEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getShopItem_Price() {
 		return (EAttribute) shopItemEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getShopItem_AdvancedPrice() {
 		return (EAttribute) shopItemEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShopItem_OrderItems() {
 		return (EReference) shopItemEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getShopItem_ForSale() {
 		return (EAttribute) shopItemEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShopItem_Information() {
 		return (EReference) shopItemEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShopItem_Group() {
 		return (EReference) shopItemEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getShopItem_Locations() {
 		return (EAttribute) shopItemEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShopItem_Properties() {
 		return (EReference) shopItemEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EOperation getShopItem__NamePriceOK__DiagnosticChain_Map() {
 		return shopItemEClass.getEOperations().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EOperation getShopItem__NameOK__DiagnosticChain_Map() {
 		return shopItemEClass.getEOperations().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getShopItemProperties() {
 		return shopItemPropertiesEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShopItemProperties_Item() {
 		return (EReference) shopItemPropertiesEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getShopItemProperties_Value() {
 		return (EAttribute) shopItemPropertiesEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getShopItemGroup() {
 		return shopItemGroupEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShopItemGroup_Shop() {
 		return (EReference) shopItemGroupEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getShopItemGroup_Items() {
 		return (EReference) shopItemGroupEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getOrder() {
 		return orderEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getOrder_Shop() {
 		return (EReference) orderEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOrder_No() {
 		return (EAttribute) orderEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getOrder_Customer() {
 		return (EReference) orderEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOrder_Price() {
 		return (EAttribute) orderEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getOrder_Items() {
 		return (EReference) orderEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOrder_Discount() {
 		return (EAttribute) orderEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getOrderItem() {
 		return orderItemEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getOrderItem_Order() {
 		return (EReference) orderItemEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOrderItem_No() {
 		return (EAttribute) orderItemEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getOrderItem_Item() {
 		return (EReference) orderItemEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOrderItem_Count() {
 		return (EAttribute) orderItemEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOrderItem_Id() {
 		return (EAttribute) orderItemEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getContact() {
 		return contactEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getContact_Shop() {
 		return (EReference) contactEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getContact_Address() {
 		return (EAttribute) contactEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getContact_City() {
 		return (EAttribute) contactEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getContact_Zip() {
 		return (EAttribute) contactEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getContact_Country() {
 		return (EReference) contactEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getContact_Customer() {
 		return (EReference) contactEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getContact_Newsletter() {
 		return (EAttribute) contactEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getContact_Birthday() {
 		return (EAttribute) contactEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getCountry() {
 		return countryEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getCountry_Shop() {
 		return (EReference) countryEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCountry_Abbreviation() {
 		return (EAttribute) countryEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getCountry_Contacts() {
 		return (EReference) countryEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getCountry_Information() {
 		return (EReference) countryEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EOperation getCountry__AbbreviationLengthOK__DiagnosticChain_Map() {
 		return countryEClass.getEOperations().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EOperation getCountry__AbbreviationCaseOK__DiagnosticChain_Map() {
 		return countryEClass.getEOperations().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getCountryInfo() {
 		return countryInfoEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCountryInfo_Population() {
 		return (EAttribute) countryInfoEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCountryInfo_Currency() {
 		return (EAttribute) countryInfoEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getShopItemInformation() {
 		return shopItemInformationEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getShopItemDescription() {
 		return shopItemDescriptionEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getShopItemURL() {
 		return shopItemURLEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getShopItemURL_Url() {
 		return (EAttribute) shopItemURLEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getShopInformation() {
 		return shopInformationEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getShopInformation_Value() {
 		return (EAttribute) shopInformationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getShopURL() {
 		return shopURLEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getShopURL_Url() {
 		return (EAttribute) shopURLEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getShopAddress() {
 		return shopAddressEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getShopAddress_Url() {
 		return (EAttribute) shopAddressEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EEnum getCustomerType() {
 		return customerTypeEEnum;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getEDiagnosticChain() {
 		return eDiagnosticChainEDataType;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getEMap() {
 		return eMapEDataType;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getEDate() {
 		return eDateEDataType;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public ShopFactory getShopFactory() {
 		return (ShopFactory) getEFactoryInstance();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isCreated = false;
 
 	/**
-	 * Creates the meta-model objects for the package.  This method is
-	 * guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates the meta-model objects for the package. This method is guarded to have no affect on
+	 * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void createPackageContents() {
@@ -1189,17 +1275,16 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isInitialized = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model.  This
-	 * method is guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Complete the initialization of the package and its meta-model. This method is guarded to have
+	 * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void initializePackageContents() {
@@ -1212,8 +1297,9 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		IMOAOPackage theMOAOPackage = (IMOAOPackage) EPackage.Registry.INSTANCE.getEPackage(IMOAOPackage.eNS_URI);
-		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+		final IMOAOPackage theMOAOPackage = (IMOAOPackage) EPackage.Registry.INSTANCE.getEPackage(IMOAOPackage.eNS_URI);
+		final EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE
+				.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 		addETypeParameter(eMapEDataType, "K"); //$NON-NLS-1$
@@ -1638,13 +1724,13 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	}
 
 	/**
-	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/GenModel</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/GenModel</b>. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void createGenModelAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/GenModel"; //$NON-NLS-1$		
+		final String source = "http://www.eclipse.org/emf/2002/GenModel"; //$NON-NLS-1$		
 		addAnnotation(this, source, new String[] { "basePackage", "com.rcpcompany.uibindings.tests", //$NON-NLS-1$ //$NON-NLS-2$
 				"nonNLSMarkers", "true", //$NON-NLS-1$ //$NON-NLS-2$
 				"classPackageSuffix", "internal", //$NON-NLS-1$ //$NON-NLS-2$
@@ -1669,27 +1755,27 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	}
 
 	/**
-	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2011/Xcore</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2011/Xcore</b>. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void createXcoreAnnotations() {
-		String source = "http://www.eclipse.org/emf/2011/Xcore"; //$NON-NLS-1$			
+		final String source = "http://www.eclipse.org/emf/2011/Xcore"; //$NON-NLS-1$			
 		addAnnotation(this, source, new String[] { "uibindings", "http://rcp-company.com/schemas/uibindings" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 	}
 
 	/**
-	 * Initializes the annotations for <b>http://rcp-company.com/schemas/uibindings</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Initializes the annotations for <b>http://rcp-company.com/schemas/uibindings</b>. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void createUibindingsAnnotations() {
-		String source = "http://rcp-company.com/schemas/uibindings"; //$NON-NLS-1$						
+		final String source = "http://rcp-company.com/schemas/uibindings"; //$NON-NLS-1$						
 		addAnnotation(countryEClass, source, new String[] { "featureName", "abbreviation" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 	}
 
-} //ShopPackageImpl
+} // ShopPackageImpl

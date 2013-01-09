@@ -2,6 +2,19 @@
  */
 package com.rcpcompany.uibinding.tests.model.internal;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.Date;
+
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import com.rcpcompany.uibinding.tests.model.AmountAndCurrency;
 import com.rcpcompany.uibinding.tests.model.AmountAndCurrencyOld;
 import com.rcpcompany.uibinding.tests.model.SubTestObject;
@@ -16,134 +29,119 @@ import com.rcpcompany.uibinding.tests.model.TestObject;
 import com.rcpcompany.uibinding.tests.model.TimeUnit;
 import com.rcpcompany.uibinding.tests.model.WeightUnit;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.util.Date;
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EcorePackage;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model <b>Package</b>.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class TestModelPackageImpl extends EPackageImpl implements TestModelPackage {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass testObjectEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass subTestObjectEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass testContainerEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass amountAndCurrencyEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass testGridEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass testGridColumnEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass testGridRowEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass testGridCellEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EEnum weightUnitEEnum = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EEnum timeUnitEEnum = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType eDateEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType eBigDecimalEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType eBigIntegerEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType amountAndCurrencyStructEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
-	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
-	 * package URI value.
-	 * <p>Note: the correct way to create the package is via the static
-	 * factory method {@link #init init()}, which also performs
-	 * initialization of the package, or returns the registered package,
-	 * if one already exists.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package package URI
+	 * value.
+	 * <p>
+	 * Note: the correct way to create the package is via the static factory method {@link #init
+	 * init()}, which also performs initialization of the package, or returns the registered
+	 * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#eNS_URI
 	 * @see #init()
@@ -154,19 +152,21 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others
+	 * upon which it depends.
 	 * 
-	 * <p>This method is used to initialize {@link TestModelPackage#eINSTANCE} when that field is accessed.
-	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <p>
+	 * This method is used to initialize {@link TestModelPackage#eINSTANCE} when that field is
+	 * accessed. Clients should not invoke it directly. Instead, they should simply access that
+	 * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
@@ -176,8 +176,9 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 		if (isInited) return (TestModelPackage) EPackage.Registry.INSTANCE.getEPackage(TestModelPackage.eNS_URI);
 
 		// Obtain or create and register package
-		TestModelPackageImpl theTestModelPackage = (TestModelPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof TestModelPackageImpl ? EPackage.Registry.INSTANCE
-				.get(eNS_URI) : new TestModelPackageImpl());
+		final TestModelPackageImpl theTestModelPackage = (TestModelPackageImpl) (EPackage.Registry.INSTANCE
+				.get(eNS_URI) instanceof TestModelPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
+				: new TestModelPackageImpl());
 
 		isInited = true;
 
@@ -199,431 +200,476 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getTestObject() {
 		return testObjectEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_Number() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_D() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_F() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_Date() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_Text() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getTestObject_Parent() {
 		return (EReference) testObjectEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_B() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_Ac() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_Unit() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_TimeUnit() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_Byte() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_Short() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_Long() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_BigDecimal() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestObject_BigInteger() {
 		return (EAttribute) testObjectEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getSubTestObject() {
 		return subTestObjectEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getTestContainer() {
 		return testContainerEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getTestContainer_Children() {
 		return (EReference) testContainerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getTestContainer_Current() {
 		return (EReference) testContainerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getAmountAndCurrency() {
 		return amountAndCurrencyEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAmountAndCurrency_Amount() {
 		return (EAttribute) amountAndCurrencyEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAmountAndCurrency_Currency() {
 		return (EAttribute) amountAndCurrencyEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getTestGrid() {
 		return testGridEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getTestGrid_Columns() {
 		return (EReference) testGridEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getTestGrid_Rows() {
 		return (EReference) testGridEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getTestGridColumn() {
 		return testGridColumnEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getTestGridColumn_Grid() {
 		return (EReference) testGridColumnEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestGridColumn_Name() {
 		return (EAttribute) testGridColumnEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getTestGridColumn_Cells() {
 		return (EReference) testGridColumnEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getTestGridRow() {
 		return testGridRowEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getTestGridRow_Grid() {
 		return (EReference) testGridRowEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestGridRow_Number() {
 		return (EAttribute) testGridRowEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getTestGridRow_Cells() {
 		return (EReference) testGridRowEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EClass getTestGridCell() {
 		return testGridCellEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestGridCell_Details() {
 		return (EAttribute) testGridCellEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTestGridCell_Price() {
 		return (EAttribute) testGridCellEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getTestGridCell_Column() {
 		return (EReference) testGridCellEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EReference getTestGridCell_Row() {
 		return (EReference) testGridCellEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EEnum getWeightUnit() {
 		return weightUnitEEnum;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EEnum getTimeUnit() {
 		return timeUnitEEnum;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getEDate() {
 		return eDateEDataType;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getEBigDecimal() {
 		return eBigDecimalEDataType;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getEBigInteger() {
 		return eBigIntegerEDataType;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EDataType getAmountAndCurrencyStruct() {
 		return amountAndCurrencyStructEDataType;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public TestModelFactory getTestModelFactory() {
 		return (TestModelFactory) getEFactoryInstance();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isCreated = false;
 
 	/**
-	 * Creates the meta-model objects for the package.  This method is
-	 * guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates the meta-model objects for the package. This method is guarded to have no affect on
+	 * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void createPackageContents() {
@@ -690,17 +736,16 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isInitialized = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model.  This
-	 * method is guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Complete the initialization of the package and its meta-model. This method is guarded to have
+	 * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void initializePackageContents() {
@@ -713,7 +758,8 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+		final EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE
+				.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -913,13 +959,13 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	}
 
 	/**
-	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/GenModel</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/GenModel</b>. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void createGenModelAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/GenModel"; //$NON-NLS-1$		
+		final String source = "http://www.eclipse.org/emf/2002/GenModel"; //$NON-NLS-1$		
 		addAnnotation(this, source, new String[] { "nonNLSMarkers", "true", //$NON-NLS-1$ //$NON-NLS-2$
 				"classPackageSuffix", "internal", //$NON-NLS-1$ //$NON-NLS-2$
 				"adapterFactory", "false", //$NON-NLS-1$ //$NON-NLS-2$
@@ -940,25 +986,25 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	}
 
 	/**
-	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2011/Xcore</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2011/Xcore</b>. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void createXcoreAnnotations() {
-		String source = "http://www.eclipse.org/emf/2011/Xcore"; //$NON-NLS-1$			
+		final String source = "http://www.eclipse.org/emf/2011/Xcore"; //$NON-NLS-1$			
 		addAnnotation(this, source, new String[] { "uibindings", "http://rcp-company.com/schemas/uibindings" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 	}
 
 	/**
-	 * Initializes the annotations for <b>http://rcp-company.com/schemas/uibindings</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Initializes the annotations for <b>http://rcp-company.com/schemas/uibindings</b>. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void createUibindingsAnnotations() {
-		String source = "http://rcp-company.com/schemas/uibindings"; //$NON-NLS-1$				
+		final String source = "http://rcp-company.com/schemas/uibindings"; //$NON-NLS-1$				
 		addAnnotation(testObjectEClass, source, new String[] { "foobar_Sequence_all", "TestObject (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
 				"foobar_Sequence_parent", "TestObject (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
 				"foobar_Sequence_targetType", "TestObject (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
@@ -1002,4 +1048,4 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 		});
 	}
 
-} //TestModelPackageImpl
+} // TestModelPackageImpl

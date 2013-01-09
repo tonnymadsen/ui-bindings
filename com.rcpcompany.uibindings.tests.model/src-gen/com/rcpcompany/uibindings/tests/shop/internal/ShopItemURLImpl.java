@@ -2,40 +2,39 @@
  */
 package com.rcpcompany.uibindings.tests.shop.internal;
 
-import com.rcpcompany.uibindings.tests.shop.ShopItemURL;
-import com.rcpcompany.uibindings.tests.shop.ShopPackage;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import com.rcpcompany.uibindings.tests.shop.ShopItemURL;
+import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Item URL</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Item URL</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemURLImpl#getUrl <em>Url</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemURLImpl#getUrl <em>Url</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ShopItemURLImpl extends ShopItemInformationImpl implements ShopItemURL {
 	/**
-	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String URL_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -43,8 +42,8 @@ public class ShopItemURLImpl extends ShopItemInformationImpl implements ShopItem
 	protected String url = URL_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ShopItemURLImpl() {
@@ -52,8 +51,8 @@ public class ShopItemURLImpl extends ShopItemInformationImpl implements ShopItem
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -62,29 +61,32 @@ public class ShopItemURLImpl extends ShopItemInformationImpl implements ShopItem
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public String getUrl() {
 		return url;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public void setUrl(String newUrl) {
-		String oldUrl = url;
+		final String oldUrl = url;
 		url = newUrl;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_ITEM_URL__URL, oldUrl, url));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -97,8 +99,8 @@ public class ShopItemURLImpl extends ShopItemInformationImpl implements ShopItem
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -112,8 +114,8 @@ public class ShopItemURLImpl extends ShopItemInformationImpl implements ShopItem
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -127,8 +129,8 @@ public class ShopItemURLImpl extends ShopItemInformationImpl implements ShopItem
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -141,19 +143,19 @@ public class ShopItemURLImpl extends ShopItemInformationImpl implements ShopItem
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (url: "); //$NON-NLS-1$
 		result.append(url);
 		result.append(')');
 		return result.toString();
 	}
 
-} //ShopItemURLImpl
+} // ShopItemURLImpl

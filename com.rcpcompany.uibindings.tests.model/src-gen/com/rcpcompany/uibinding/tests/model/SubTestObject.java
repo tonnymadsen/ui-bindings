@@ -3,11 +3,10 @@
 package com.rcpcompany.uibinding.tests.model;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Sub Test Object</b></em>'.
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Sub Test Object</b></em>'.
  * <!-- end-user-doc -->
- *
- *
+ * 
+ * 
  * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getSubTestObject()
  * @generated
  */

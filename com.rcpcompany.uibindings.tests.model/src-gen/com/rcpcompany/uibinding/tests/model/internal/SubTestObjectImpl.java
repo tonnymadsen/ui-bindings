@@ -2,24 +2,23 @@
  */
 package com.rcpcompany.uibinding.tests.model.internal;
 
+import org.eclipse.emf.ecore.EClass;
+
 import com.rcpcompany.uibinding.tests.model.SubTestObject;
 import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 
-import org.eclipse.emf.ecore.EClass;
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Sub Test Object</b></em>'.
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Sub Test Object</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class SubTestObjectImpl extends TestObjectImpl implements SubTestObject {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected SubTestObjectImpl() {
@@ -27,8 +26,8 @@ public class SubTestObjectImpl extends TestObjectImpl implements SubTestObject {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -36,4 +35,4 @@ public class SubTestObjectImpl extends TestObjectImpl implements SubTestObject {
 		return TestModelPackage.Literals.SUB_TEST_OBJECT;
 	}
 
-} //SubTestObjectImpl
+} // SubTestObjectImpl

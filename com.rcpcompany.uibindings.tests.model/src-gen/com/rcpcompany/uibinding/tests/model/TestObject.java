@@ -4,50 +4,48 @@ package com.rcpcompany.uibinding.tests.model;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-
 import java.util.Date;
 
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Test Object</b></em>'.
- * <!-- end-user-doc -->
- *
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Test Object</b></em>'. <!--
+ * end-user-doc -->
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getNumber <em>Number</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getD <em>D</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getF <em>F</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getDate <em>Date</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getText <em>Text</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getParent <em>Parent</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#isB <em>B</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getAc <em>Ac</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getUnit <em>Unit</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getTimeUnit <em>Time Unit</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getByte <em>Byte</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getShort <em>Short</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getLong <em>Long</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getBigDecimal <em>Big Decimal</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getBigInteger <em>Big Integer</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getNumber <em>Number</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getD <em>D</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getF <em>F</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getDate <em>Date</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getText <em>Text</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getParent <em>Parent</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#isB <em>B</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getAc <em>Ac</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getUnit <em>Unit</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getTimeUnit <em>Time Unit</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getByte <em>Byte</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getShort <em>Short</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getLong <em>Long</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getBigDecimal <em>Big Decimal</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.TestObject#getBigInteger <em>Big Integer</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestObject()
  * @generated
  */
 public interface TestObject extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Number</b></em>' attribute.
-	 * The default value is <code>"0"</code>.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Number</b></em>' attribute. The default value is
+	 * <code>"0"</code>. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Number</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Number</em>' attribute isn't clear, there really should be more of
+	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Number</em>' attribute.
 	 * @see #isSetNumber()
 	 * @see #unsetNumber()
@@ -58,9 +56,9 @@ public interface TestObject extends EObject {
 	int getNumber();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getNumber <em>Number</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getNumber
+	 * <em>Number</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Number</em>' attribute.
 	 * @see #isSetNumber()
 	 * @see #unsetNumber()
@@ -70,9 +68,9 @@ public interface TestObject extends EObject {
 	void setNumber(int value);
 
 	/**
-	 * Unsets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getNumber <em>Number</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Unsets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getNumber
+	 * <em>Number</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isSetNumber()
 	 * @see #getNumber()
 	 * @see #setNumber(int)
@@ -81,9 +79,10 @@ public interface TestObject extends EObject {
 	void unsetNumber();
 
 	/**
-	 * Returns whether the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getNumber <em>Number</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns whether the value of the '
+	 * {@link com.rcpcompany.uibinding.tests.model.TestObject#getNumber <em>Number</em>}' attribute
+	 * is set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return whether the value of the '<em>Number</em>' attribute is set.
 	 * @see #unsetNumber()
 	 * @see #getNumber()
@@ -93,13 +92,13 @@ public interface TestObject extends EObject {
 	boolean isSetNumber();
 
 	/**
-	 * Returns the value of the '<em><b>D</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>D</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>D</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>D</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>D</em>' attribute.
 	 * @see #setD(double)
 	 * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestObject_D()
@@ -108,9 +107,9 @@ public interface TestObject extends EObject {
 	double getD();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getD <em>D</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getD
+	 * <em>D</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>D</em>' attribute.
 	 * @see #getD()
 	 * @generated
@@ -118,13 +117,13 @@ public interface TestObject extends EObject {
 	void setD(double value);
 
 	/**
-	 * Returns the value of the '<em><b>F</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>F</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>F</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>F</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>F</em>' attribute.
 	 * @see #setF(float)
 	 * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestObject_F()
@@ -133,9 +132,9 @@ public interface TestObject extends EObject {
 	float getF();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getF <em>F</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getF
+	 * <em>F</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>F</em>' attribute.
 	 * @see #getF()
 	 * @generated
@@ -143,13 +142,13 @@ public interface TestObject extends EObject {
 	void setF(float value);
 
 	/**
-	 * Returns the value of the '<em><b>Date</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Date</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Date</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Date</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Date</em>' attribute.
 	 * @see #setDate(Date)
 	 * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestObject_Date()
@@ -158,9 +157,9 @@ public interface TestObject extends EObject {
 	Date getDate();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getDate <em>Date</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getDate
+	 * <em>Date</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Date</em>' attribute.
 	 * @see #getDate()
 	 * @generated
@@ -168,13 +167,13 @@ public interface TestObject extends EObject {
 	void setDate(Date value);
 
 	/**
-	 * Returns the value of the '<em><b>Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Text</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Text</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Text</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Text</em>' attribute.
 	 * @see #setText(String)
 	 * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestObject_Text()
@@ -183,9 +182,9 @@ public interface TestObject extends EObject {
 	String getText();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getText <em>Text</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getText
+	 * <em>Text</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Text</em>' attribute.
 	 * @see #getText()
 	 * @generated
@@ -193,13 +192,13 @@ public interface TestObject extends EObject {
 	void setText(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Parent</b></em>' reference.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Parent</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Parent</em>' reference isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Parent</em>' reference isn't clear, there really should be more of
+	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Parent</em>' reference.
 	 * @see #setParent(TestContainer)
 	 * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestObject_Parent()
@@ -208,9 +207,9 @@ public interface TestObject extends EObject {
 	TestContainer getParent();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getParent <em>Parent</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getParent
+	 * <em>Parent</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Parent</em>' reference.
 	 * @see #getParent()
 	 * @generated
@@ -218,13 +217,13 @@ public interface TestObject extends EObject {
 	void setParent(TestContainer value);
 
 	/**
-	 * Returns the value of the '<em><b>B</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>B</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>B</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>B</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>B</em>' attribute.
 	 * @see #setB(boolean)
 	 * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestObject_B()
@@ -233,9 +232,9 @@ public interface TestObject extends EObject {
 	boolean isB();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#isB <em>B</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#isB <em>B</em>}
+	 * ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>B</em>' attribute.
 	 * @see #isB()
 	 * @generated
@@ -243,13 +242,13 @@ public interface TestObject extends EObject {
 	void setB(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Ac</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Ac</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Ac</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Ac</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Ac</em>' attribute.
 	 * @see #setAc(AmountAndCurrencyOld)
 	 * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestObject_Ac()
@@ -258,9 +257,9 @@ public interface TestObject extends EObject {
 	AmountAndCurrencyOld getAc();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getAc <em>Ac</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getAc
+	 * <em>Ac</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Ac</em>' attribute.
 	 * @see #getAc()
 	 * @generated
@@ -268,14 +267,14 @@ public interface TestObject extends EObject {
 	void setAc(AmountAndCurrencyOld value);
 
 	/**
-	 * Returns the value of the '<em><b>Unit</b></em>' attribute.
-	 * The literals are from the enumeration {@link com.rcpcompany.uibinding.tests.model.WeightUnit}.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Unit</b></em>' attribute. The literals are from the
+	 * enumeration {@link com.rcpcompany.uibinding.tests.model.WeightUnit}. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Unit</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Unit</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Unit</em>' attribute.
 	 * @see com.rcpcompany.uibinding.tests.model.WeightUnit
 	 * @see #setUnit(WeightUnit)
@@ -285,9 +284,9 @@ public interface TestObject extends EObject {
 	WeightUnit getUnit();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getUnit <em>Unit</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getUnit
+	 * <em>Unit</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Unit</em>' attribute.
 	 * @see com.rcpcompany.uibinding.tests.model.WeightUnit
 	 * @see #getUnit()
@@ -296,14 +295,14 @@ public interface TestObject extends EObject {
 	void setUnit(WeightUnit value);
 
 	/**
-	 * Returns the value of the '<em><b>Time Unit</b></em>' attribute.
-	 * The literals are from the enumeration {@link com.rcpcompany.uibinding.tests.model.TimeUnit}.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Time Unit</b></em>' attribute. The literals are from the
+	 * enumeration {@link com.rcpcompany.uibinding.tests.model.TimeUnit}. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Time Unit</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Time Unit</em>' attribute isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Time Unit</em>' attribute.
 	 * @see com.rcpcompany.uibinding.tests.model.TimeUnit
 	 * @see #setTimeUnit(TimeUnit)
@@ -313,9 +312,9 @@ public interface TestObject extends EObject {
 	TimeUnit getTimeUnit();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getTimeUnit <em>Time Unit</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getTimeUnit
+	 * <em>Time Unit</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Time Unit</em>' attribute.
 	 * @see com.rcpcompany.uibinding.tests.model.TimeUnit
 	 * @see #getTimeUnit()
@@ -324,13 +323,13 @@ public interface TestObject extends EObject {
 	void setTimeUnit(TimeUnit value);
 
 	/**
-	 * Returns the value of the '<em><b>Byte</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Byte</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Byte</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Byte</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Byte</em>' attribute.
 	 * @see #setByte(byte)
 	 * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestObject_Byte()
@@ -339,9 +338,9 @@ public interface TestObject extends EObject {
 	byte getByte();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getByte <em>Byte</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getByte
+	 * <em>Byte</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Byte</em>' attribute.
 	 * @see #getByte()
 	 * @generated
@@ -349,13 +348,13 @@ public interface TestObject extends EObject {
 	void setByte(byte value);
 
 	/**
-	 * Returns the value of the '<em><b>Short</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Short</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Short</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Short</em>' attribute isn't clear, there really should be more of
+	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Short</em>' attribute.
 	 * @see #setShort(short)
 	 * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestObject_Short()
@@ -364,9 +363,9 @@ public interface TestObject extends EObject {
 	short getShort();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getShort <em>Short</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getShort
+	 * <em>Short</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Short</em>' attribute.
 	 * @see #getShort()
 	 * @generated
@@ -374,13 +373,13 @@ public interface TestObject extends EObject {
 	void setShort(short value);
 
 	/**
-	 * Returns the value of the '<em><b>Long</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Long</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Long</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Long</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Long</em>' attribute.
 	 * @see #setLong(long)
 	 * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestObject_Long()
@@ -389,9 +388,9 @@ public interface TestObject extends EObject {
 	long getLong();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getLong <em>Long</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getLong
+	 * <em>Long</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Long</em>' attribute.
 	 * @see #getLong()
 	 * @generated
@@ -399,13 +398,13 @@ public interface TestObject extends EObject {
 	void setLong(long value);
 
 	/**
-	 * Returns the value of the '<em><b>Big Decimal</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Big Decimal</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Big Decimal</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Big Decimal</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Big Decimal</em>' attribute.
 	 * @see #setBigDecimal(BigDecimal)
 	 * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestObject_BigDecimal()
@@ -414,9 +413,9 @@ public interface TestObject extends EObject {
 	BigDecimal getBigDecimal();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getBigDecimal <em>Big Decimal</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getBigDecimal
+	 * <em>Big Decimal</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Big Decimal</em>' attribute.
 	 * @see #getBigDecimal()
 	 * @generated
@@ -424,13 +423,13 @@ public interface TestObject extends EObject {
 	void setBigDecimal(BigDecimal value);
 
 	/**
-	 * Returns the value of the '<em><b>Big Integer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Big Integer</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Big Integer</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Big Integer</em>' attribute isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Big Integer</em>' attribute.
 	 * @see #setBigInteger(BigInteger)
 	 * @see com.rcpcompany.uibinding.tests.model.TestModelPackage#getTestObject_BigInteger()
@@ -439,9 +438,9 @@ public interface TestObject extends EObject {
 	BigInteger getBigInteger();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getBigInteger <em>Big Integer</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibinding.tests.model.TestObject#getBigInteger
+	 * <em>Big Integer</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Big Integer</em>' attribute.
 	 * @see #getBigInteger()
 	 * @generated

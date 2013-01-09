@@ -2,24 +2,23 @@
  */
 package com.rcpcompany.uibindings.tests.shop.internal;
 
+import org.eclipse.emf.ecore.EClass;
+
 import com.rcpcompany.uibindings.tests.shop.ShopItemDescription;
 import com.rcpcompany.uibindings.tests.shop.ShopPackage;
 
-import org.eclipse.emf.ecore.EClass;
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Item Description</b></em>'.
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Item Description</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class ShopItemDescriptionImpl extends ShopItemInformationImpl implements ShopItemDescription {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ShopItemDescriptionImpl() {
@@ -27,8 +26,8 @@ public class ShopItemDescriptionImpl extends ShopItemInformationImpl implements 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -36,4 +35,4 @@ public class ShopItemDescriptionImpl extends ShopItemInformationImpl implements 
 		return ShopPackage.Literals.SHOP_ITEM_DESCRIPTION;
 	}
 
-} //ShopItemDescriptionImpl
+} // ShopItemDescriptionImpl

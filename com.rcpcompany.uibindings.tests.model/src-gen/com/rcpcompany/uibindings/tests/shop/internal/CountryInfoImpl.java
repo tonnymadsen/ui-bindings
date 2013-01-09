@@ -2,61 +2,61 @@
  */
 package com.rcpcompany.uibindings.tests.shop.internal;
 
-import com.rcpcompany.uibindings.moao.internal.MOAOImpl;
-
-import com.rcpcompany.uibindings.tests.shop.CountryInfo;
-import com.rcpcompany.uibindings.tests.shop.ShopPackage;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import com.rcpcompany.uibindings.moao.internal.MOAOImpl;
+import com.rcpcompany.uibindings.tests.shop.CountryInfo;
+import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Country Info</b></em>'.
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Country Info</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CountryInfoImpl#getPopulation <em>Population</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CountryInfoImpl#getCurrency <em>Currency</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CountryInfoImpl#getPopulation <em>
+ * Population</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CountryInfoImpl#getCurrency <em>Currency
+ * </em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class CountryInfoImpl extends MOAOImpl implements CountryInfo {
 	/**
-	 * The default value of the '{@link #getPopulation() <em>Population</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getPopulation() <em>Population</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getPopulation()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final int POPULATION_EDEFAULT = 0;
 	/**
-	 * The cached value of the '{@link #getPopulation() <em>Population</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getPopulation() <em>Population</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getPopulation()
 	 * @generated
 	 * @ordered
 	 */
 	protected int population = POPULATION_EDEFAULT;
 	/**
-	 * The default value of the '{@link #getCurrency() <em>Currency</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getCurrency() <em>Currency</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getCurrency()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String CURRENCY_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getCurrency() <em>Currency</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getCurrency() <em>Currency</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getCurrency()
 	 * @generated
 	 * @ordered
@@ -64,8 +64,8 @@ public class CountryInfoImpl extends MOAOImpl implements CountryInfo {
 	protected String currency = CURRENCY_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected CountryInfoImpl() {
@@ -73,8 +73,8 @@ public class CountryInfoImpl extends MOAOImpl implements CountryInfo {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -83,52 +83,58 @@ public class CountryInfoImpl extends MOAOImpl implements CountryInfo {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public int getPopulation() {
 		return population;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public void setPopulation(int newPopulation) {
-		int oldPopulation = population;
+		final int oldPopulation = population;
 		population = newPopulation;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.COUNTRY_INFO__POPULATION, oldPopulation,
 					population));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public String getCurrency() {
 		return currency;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public void setCurrency(String newCurrency) {
-		String oldCurrency = currency;
+		final String oldCurrency = currency;
 		currency = newCurrency;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.COUNTRY_INFO__CURRENCY, oldCurrency,
 					currency));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -143,8 +149,8 @@ public class CountryInfoImpl extends MOAOImpl implements CountryInfo {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -161,8 +167,8 @@ public class CountryInfoImpl extends MOAOImpl implements CountryInfo {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -179,8 +185,8 @@ public class CountryInfoImpl extends MOAOImpl implements CountryInfo {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -195,15 +201,15 @@ public class CountryInfoImpl extends MOAOImpl implements CountryInfo {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (population: "); //$NON-NLS-1$
 		result.append(population);
 		result.append(", currency: "); //$NON-NLS-1$
@@ -212,4 +218,4 @@ public class CountryInfoImpl extends MOAOImpl implements CountryInfo {
 		return result.toString();
 	}
 
-} //CountryInfoImpl
+} // CountryInfoImpl

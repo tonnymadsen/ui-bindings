@@ -2,44 +2,40 @@
  */
 package com.rcpcompany.uibinding.tests.model.internal;
 
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import com.rcpcompany.uibinding.tests.model.TestGrid;
 import com.rcpcompany.uibinding.tests.model.TestGridColumn;
 import com.rcpcompany.uibinding.tests.model.TestGridRow;
 import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Test Grid</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Test Grid</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridImpl#getColumns <em>Columns</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridImpl#getRows <em>Rows</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridImpl#getColumns <em>Columns
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridImpl#getRows <em>Rows</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class TestGridImpl extends MinimalEObjectImpl.Container implements TestGrid {
 	/**
-	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getColumns()
 	 * @generated
 	 * @ordered
@@ -47,9 +43,9 @@ public class TestGridImpl extends MinimalEObjectImpl.Container implements TestGr
 	protected EList<TestGridColumn> columns;
 
 	/**
-	 * The cached value of the '{@link #getRows() <em>Rows</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getRows() <em>Rows</em>}' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getRows()
 	 * @generated
 	 * @ordered
@@ -57,8 +53,8 @@ public class TestGridImpl extends MinimalEObjectImpl.Container implements TestGr
 	protected EList<TestGridRow> rows;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected TestGridImpl() {
@@ -66,8 +62,8 @@ public class TestGridImpl extends MinimalEObjectImpl.Container implements TestGr
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -76,10 +72,11 @@ public class TestGridImpl extends MinimalEObjectImpl.Container implements TestGr
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<TestGridColumn> getColumns() {
 		if (columns == null) {
 			columns = new EObjectWithInverseResolvingEList<TestGridColumn>(TestGridColumn.class, this,
@@ -89,10 +86,11 @@ public class TestGridImpl extends MinimalEObjectImpl.Container implements TestGr
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<TestGridRow> getRows() {
 		if (rows == null) {
 			rows = new EObjectWithInverseResolvingEList<TestGridRow>(TestGridRow.class, this,
@@ -102,8 +100,8 @@ public class TestGridImpl extends MinimalEObjectImpl.Container implements TestGr
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -119,8 +117,8 @@ public class TestGridImpl extends MinimalEObjectImpl.Container implements TestGr
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -135,8 +133,8 @@ public class TestGridImpl extends MinimalEObjectImpl.Container implements TestGr
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -151,8 +149,8 @@ public class TestGridImpl extends MinimalEObjectImpl.Container implements TestGr
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -172,8 +170,8 @@ public class TestGridImpl extends MinimalEObjectImpl.Container implements TestGr
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -190,8 +188,8 @@ public class TestGridImpl extends MinimalEObjectImpl.Container implements TestGr
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -205,4 +203,4 @@ public class TestGridImpl extends MinimalEObjectImpl.Container implements TestGr
 		return super.eIsSet(featureID);
 	}
 
-} //TestGridImpl
+} // TestGridImpl

@@ -41,20 +41,27 @@ import com.rcpcompany.utils.logging.LogUtils;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopImpl#getNextOrderNo <em>Next Order No</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopImpl#getNextCustomerNo <em>Next Customer No</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopImpl#getTmpDir <em>Tmp Dir</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopImpl#getCountries <em>Countries</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopImpl#getContacts <em>Contacts</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopImpl#getShopItems <em>Shop Items</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopImpl#getOrders <em>Orders</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopImpl#getCustomers <em>Customers</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopImpl#getCustomerGroups <em>Customer Groups</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopImpl#getShopGroups <em>Shop Groups</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopImpl#getInfos <em>Infos</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopImpl#getNextOrderNo <em>Next Order
+ * No</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopImpl#getNextCustomerNo <em>Next
+ * Customer No</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopImpl#getTmpDir <em>Tmp Dir</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopImpl#getCountries <em>Countries
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopImpl#getContacts <em>Contacts</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopImpl#getShopItems <em>Shop Items
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopImpl#getOrders <em>Orders</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopImpl#getCustomers <em>Customers
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopImpl#getCustomerGroups <em>Customer
+ * Groups</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopImpl#getShopGroups <em>Shop Groups
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopImpl#getInfos <em>Infos</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ShopImpl extends NamedObjectImpl implements Shop {
@@ -79,6 +86,7 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 	/**
 	 * The default value of the '{@link #getNextCustomerNo() <em>Next Customer No</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getNextCustomerNo()
 	 * @generated
 	 * @ordered
@@ -87,6 +95,7 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 	/**
 	 * The cached value of the '{@link #getNextCustomerNo() <em>Next Customer No</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getNextCustomerNo()
 	 * @generated
 	 * @ordered
@@ -111,24 +120,27 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 	 */
 	protected String tmpDir = TMP_DIR_EDEFAULT;
 	/**
-	 * The cached value of the '{@link #getCountries() <em>Countries</em>}' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getCountries() <em>Countries</em>}' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getCountries()
 	 * @generated
 	 * @ordered
 	 */
 	protected EList<Country> countries;
 	/**
-	 * The cached value of the '{@link #getContacts() <em>Contacts</em>}' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getContacts() <em>Contacts</em>}' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getContacts()
 	 * @generated
 	 * @ordered
 	 */
 	protected EList<Contact> contacts;
 	/**
-	 * The cached value of the '{@link #getShopItems() <em>Shop Items</em>}' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getShopItems() <em>Shop Items</em>}' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getShopItems()
 	 * @generated
 	 * @ordered
@@ -137,30 +149,34 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 	/**
 	 * The cached value of the '{@link #getOrders() <em>Orders</em>}' containment reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getOrders()
 	 * @generated
 	 * @ordered
 	 */
 	protected EList<Order> orders;
 	/**
-	 * The cached value of the '{@link #getCustomers() <em>Customers</em>}' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getCustomers() <em>Customers</em>}' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getCustomers()
 	 * @generated
 	 * @ordered
 	 */
 	protected EList<Customer> customers;
 	/**
-	 * The cached value of the '{@link #getCustomerGroups() <em>Customer Groups</em>}' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getCustomerGroups() <em>Customer Groups</em>}' containment
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getCustomerGroups()
 	 * @generated
 	 * @ordered
 	 */
 	protected EList<CustomerGroup> customerGroups;
 	/**
-	 * The cached value of the '{@link #getShopGroups() <em>Shop Groups</em>}' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getShopGroups() <em>Shop Groups</em>}' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getShopGroups()
 	 * @generated
 	 * @ordered
@@ -178,6 +194,7 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ShopImpl() {
@@ -186,6 +203,7 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -195,67 +213,84 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public int getNextOrderNo() {
 		return nextOrderNo;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public void setNextOrderNo(int newNextOrderNo) {
-		int oldNextOrderNo = nextOrderNo;
+		final int oldNextOrderNo = nextOrderNo;
 		nextOrderNo = newNextOrderNo;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP__NEXT_ORDER_NO, oldNextOrderNo,
 					nextOrderNo));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public int getNextCustomerNo() {
 		return nextCustomerNo;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public void setNextCustomerNo(int newNextCustomerNo) {
-		int oldNextCustomerNo = nextCustomerNo;
+		final int oldNextCustomerNo = nextCustomerNo;
 		nextCustomerNo = newNextCustomerNo;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP__NEXT_CUSTOMER_NO,
 					oldNextCustomerNo, nextCustomerNo));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public String getTmpDir() {
 		return tmpDir;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public void setTmpDir(String newTmpDir) {
-		String oldTmpDir = tmpDir;
+		final String oldTmpDir = tmpDir;
 		tmpDir = newTmpDir;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP__TMP_DIR, oldTmpDir, tmpDir));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<Country> getCountries() {
 		if (countries == null) {
 			countries = new EObjectContainmentWithInverseEList<Country>(Country.class, this,
@@ -266,8 +301,10 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<Contact> getContacts() {
 		if (contacts == null) {
 			contacts = new EObjectContainmentWithInverseEList<Contact>(Contact.class, this, ShopPackage.SHOP__CONTACTS,
@@ -278,8 +315,10 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<ShopItem> getShopItems() {
 		if (shopItems == null) {
 			shopItems = new EObjectContainmentWithInverseEList<ShopItem>(ShopItem.class, this,
@@ -290,8 +329,10 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<Order> getOrders() {
 		if (orders == null) {
 			orders = new EObjectContainmentWithInverseEList<Order>(Order.class, this, ShopPackage.SHOP__ORDERS,
@@ -302,8 +343,10 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<Customer> getCustomers() {
 		if (customers == null) {
 			customers = new EObjectContainmentWithInverseEList<Customer>(Customer.class, this,
@@ -314,8 +357,10 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<CustomerGroup> getCustomerGroups() {
 		if (customerGroups == null) {
 			customerGroups = new EObjectContainmentWithInverseEList<CustomerGroup>(CustomerGroup.class, this,
@@ -326,8 +371,10 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<ShopItemGroup> getShopGroups() {
 		if (shopGroups == null) {
 			shopGroups = new EObjectContainmentWithInverseEList<ShopItemGroup>(ShopItemGroup.class, this,
@@ -338,8 +385,10 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<ShopInformation> getInfos() {
 		if (infos == null) {
 			infos = new EObjectContainmentEList<ShopInformation>(ShopInformation.class, this, ShopPackage.SHOP__INFOS);
@@ -352,6 +401,7 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public void save() {
 		try {
 			eResource().save(null);
@@ -381,6 +431,7 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -407,6 +458,7 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -434,6 +486,7 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -467,6 +520,7 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -520,6 +574,7 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -564,6 +619,7 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -597,6 +653,7 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -614,13 +671,14 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (nextOrderNo: "); //$NON-NLS-1$
 		result.append(nextOrderNo);
 		result.append(", nextCustomerNo: "); //$NON-NLS-1$

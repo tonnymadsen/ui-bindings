@@ -2,14 +2,8 @@
  */
 package com.rcpcompany.uibindings.tests.shop.internal;
 
-import com.rcpcompany.uibindings.moao.internal.NamedObjectImpl;
-
-import com.rcpcompany.uibindings.tests.shop.Customer;
-import com.rcpcompany.uibindings.tests.shop.CustomerGroup;
-import com.rcpcompany.uibindings.tests.shop.Shop;
-import com.rcpcompany.uibindings.tests.shop.ShopPackage;
-
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -19,25 +13,32 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import com.rcpcompany.uibindings.moao.internal.NamedObjectImpl;
+import com.rcpcompany.uibindings.tests.shop.Customer;
+import com.rcpcompany.uibindings.tests.shop.CustomerGroup;
+import com.rcpcompany.uibindings.tests.shop.Shop;
+import com.rcpcompany.uibindings.tests.shop.ShopPackage;
+
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Customer Group</b></em>'.
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Customer Group</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CustomerGroupImpl#getShop <em>Shop</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CustomerGroupImpl#getCustomers <em>Customers</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CustomerGroupImpl#getShop <em>Shop</em>}
+ * </li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CustomerGroupImpl#getCustomers <em>
+ * Customers</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class CustomerGroupImpl extends NamedObjectImpl implements CustomerGroup {
 	/**
-	 * The cached value of the '{@link #getCustomers() <em>Customers</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getCustomers() <em>Customers</em>}' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getCustomers()
 	 * @generated
 	 * @ordered
@@ -45,8 +46,8 @@ public class CustomerGroupImpl extends NamedObjectImpl implements CustomerGroup 
 	protected EList<Customer> customers;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected CustomerGroupImpl() {
@@ -54,8 +55,8 @@ public class CustomerGroupImpl extends NamedObjectImpl implements CustomerGroup 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -64,18 +65,19 @@ public class CustomerGroupImpl extends NamedObjectImpl implements CustomerGroup 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public Shop getShop() {
 		if (eContainerFeatureID() != ShopPackage.CUSTOMER_GROUP__SHOP) return null;
 		return (Shop) eInternalContainer();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetShop(Shop newShop, NotificationChain msgs) {
@@ -84,31 +86,39 @@ public class CustomerGroupImpl extends NamedObjectImpl implements CustomerGroup 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public void setShop(Shop newShop) {
 		if (newShop != eInternalContainer()
 				|| (eContainerFeatureID() != ShopPackage.CUSTOMER_GROUP__SHOP && newShop != null)) {
 			if (EcoreUtil.isAncestor(this, newShop))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
-			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
-			if (newShop != null)
+			if (eInternalContainer() != null) {
+				msgs = eBasicRemoveFromContainer(msgs);
+			}
+			if (newShop != null) {
 				msgs = ((InternalEObject) newShop).eInverseAdd(this, ShopPackage.SHOP__CUSTOMER_GROUPS, Shop.class,
 						msgs);
+			}
 			msgs = basicSetShop(newShop, msgs);
-			if (msgs != null) msgs.dispatch();
-		} else if (eNotificationRequired())
+			if (msgs != null) {
+				msgs.dispatch();
+			}
+		} else if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.CUSTOMER_GROUP__SHOP, newShop, newShop));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<Customer> getCustomers() {
 		if (customers == null) {
 			customers = new EObjectEList<Customer>(Customer.class, this, ShopPackage.CUSTOMER_GROUP__CUSTOMERS);
@@ -117,23 +127,25 @@ public class CustomerGroupImpl extends NamedObjectImpl implements CustomerGroup 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case ShopPackage.CUSTOMER_GROUP__SHOP:
-			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
+			if (eInternalContainer() != null) {
+				msgs = eBasicRemoveFromContainer(msgs);
+			}
 			return basicSetShop((Shop) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -146,8 +158,8 @@ public class CustomerGroupImpl extends NamedObjectImpl implements CustomerGroup 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -160,8 +172,8 @@ public class CustomerGroupImpl extends NamedObjectImpl implements CustomerGroup 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -176,8 +188,8 @@ public class CustomerGroupImpl extends NamedObjectImpl implements CustomerGroup 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -196,8 +208,8 @@ public class CustomerGroupImpl extends NamedObjectImpl implements CustomerGroup 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -214,8 +226,8 @@ public class CustomerGroupImpl extends NamedObjectImpl implements CustomerGroup 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -229,4 +241,4 @@ public class CustomerGroupImpl extends NamedObjectImpl implements CustomerGroup 
 		return super.eIsSet(featureID);
 	}
 
-} //CustomerGroupImpl
+} // CustomerGroupImpl

@@ -21,66 +21,66 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.OrderItemImpl#getOrder <em>Order</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.OrderItemImpl#getNo <em>No</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.OrderItemImpl#getItem <em>Item</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.OrderItemImpl#getCount <em>Count</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.OrderItemImpl#getId <em>Id</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.OrderItemImpl#getOrder <em>Order</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.OrderItemImpl#getNo <em>No</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.OrderItemImpl#getItem <em>Item</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.OrderItemImpl#getCount <em>Count</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.OrderItemImpl#getId <em>Id</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class OrderItemImpl extends MOAOImpl implements OrderItem {
 	/**
-	 * The default value of the '{@link #getNo() <em>No</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getNo() <em>No</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getNo()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final int NO_EDEFAULT = 0;
 	/**
-	 * The cached value of the '{@link #getNo() <em>No</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getNo() <em>No</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getNo()
 	 * @generated
 	 * @ordered
 	 */
 	protected int no = NO_EDEFAULT;
 	/**
-	 * The cached value of the '{@link #getItem() <em>Item</em>}' reference.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getItem() <em>Item</em>}' reference. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getItem()
 	 * @generated
 	 * @ordered
 	 */
 	protected ShopItem item;
 	/**
-	 * The default value of the '{@link #getCount() <em>Count</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The default value of the '{@link #getCount() <em>Count</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getCount()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final int COUNT_EDEFAULT = 1;
 	/**
-	 * The cached value of the '{@link #getCount() <em>Count</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The cached value of the '{@link #getCount() <em>Count</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getCount()
 	 * @generated
 	 * @ordered
 	 */
 	protected int count = COUNT_EDEFAULT;
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -89,6 +89,7 @@ public class OrderItemImpl extends MOAOImpl implements OrderItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected OrderItemImpl() {
@@ -97,6 +98,7 @@ public class OrderItemImpl extends MOAOImpl implements OrderItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -106,8 +108,10 @@ public class OrderItemImpl extends MOAOImpl implements OrderItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public Order getOrder() {
 		if (eContainerFeatureID() != ShopPackage.ORDER_ITEM__ORDER) return null;
 		return (Order) eInternalContainer();
@@ -148,6 +152,7 @@ public class OrderItemImpl extends MOAOImpl implements OrderItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetOrderGen(Order newOrder, NotificationChain msgs) {
@@ -157,67 +162,87 @@ public class OrderItemImpl extends MOAOImpl implements OrderItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public void setOrder(Order newOrder) {
 		if (newOrder != eInternalContainer()
 				|| (eContainerFeatureID() != ShopPackage.ORDER_ITEM__ORDER && newOrder != null)) {
 			if (EcoreUtil.isAncestor(this, newOrder))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
-			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
-			if (newOrder != null)
+			if (eInternalContainer() != null) {
+				msgs = eBasicRemoveFromContainer(msgs);
+			}
+			if (newOrder != null) {
 				msgs = ((InternalEObject) newOrder).eInverseAdd(this, ShopPackage.ORDER__ITEMS, Order.class, msgs);
+			}
 			msgs = basicSetOrder(newOrder, msgs);
-			if (msgs != null) msgs.dispatch();
-		} else if (eNotificationRequired())
+			if (msgs != null) {
+				msgs.dispatch();
+			}
+		} else if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.ORDER_ITEM__ORDER, newOrder, newOrder));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public int getNo() {
 		return no;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public ShopItem getItem() {
 		return item;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public void setItem(ShopItem newItem) {
-		ShopItem oldItem = item;
+		final ShopItem oldItem = item;
 		item = newItem;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.ORDER_ITEM__ITEM, oldItem, item));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public int getCount() {
 		return count;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public void setCount(int newCount) {
-		int oldCount = count;
+		final int oldCount = count;
 		count = newCount;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.ORDER_ITEM__COUNT, oldCount, count));
+		}
 	}
 
 	/**
@@ -225,19 +250,23 @@ public class OrderItemImpl extends MOAOImpl implements OrderItem {
 	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public String getId() {
 		return getOrder().getNo() + "-" + getNo();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case ShopPackage.ORDER_ITEM__ORDER:
-			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
+			if (eInternalContainer() != null) {
+				msgs = eBasicRemoveFromContainer(msgs);
+			}
 			return basicSetOrder((Order) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -245,6 +274,7 @@ public class OrderItemImpl extends MOAOImpl implements OrderItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -258,6 +288,7 @@ public class OrderItemImpl extends MOAOImpl implements OrderItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -271,6 +302,7 @@ public class OrderItemImpl extends MOAOImpl implements OrderItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -292,6 +324,7 @@ public class OrderItemImpl extends MOAOImpl implements OrderItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -312,6 +345,7 @@ public class OrderItemImpl extends MOAOImpl implements OrderItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -332,6 +366,7 @@ public class OrderItemImpl extends MOAOImpl implements OrderItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -353,13 +388,14 @@ public class OrderItemImpl extends MOAOImpl implements OrderItem {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (no: "); //$NON-NLS-1$
 		result.append(no);
 		result.append(", count: "); //$NON-NLS-1$

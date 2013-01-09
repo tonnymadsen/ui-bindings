@@ -2,43 +2,40 @@
  */
 package com.rcpcompany.uibinding.tests.model.internal;
 
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
 import com.rcpcompany.uibinding.tests.model.TestContainer;
 import com.rcpcompany.uibinding.tests.model.TestModelPackage;
 import com.rcpcompany.uibinding.tests.model.TestObject;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Test Container</b></em>'.
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Test Container</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestContainerImpl#getChildren <em>Children</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestContainerImpl#getCurrent <em>Current</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestContainerImpl#getChildren <em>
+ * Children</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestContainerImpl#getCurrent <em>Current
+ * </em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class TestContainerImpl extends MinimalEObjectImpl.Container implements TestContainer {
 	/**
-	 * The cached value of the '{@link #getChildren() <em>Children</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getChildren() <em>Children</em>}' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getChildren()
 	 * @generated
 	 * @ordered
@@ -46,9 +43,9 @@ public class TestContainerImpl extends MinimalEObjectImpl.Container implements T
 	protected EList<TestObject> children;
 
 	/**
-	 * The cached value of the '{@link #getCurrent() <em>Current</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getCurrent() <em>Current</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getCurrent()
 	 * @generated
 	 * @ordered
@@ -56,17 +53,17 @@ public class TestContainerImpl extends MinimalEObjectImpl.Container implements T
 	protected TestObject current;
 
 	/**
-	 * This is true if the Current reference has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Current reference has been set. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean currentESet;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected TestContainerImpl() {
@@ -74,8 +71,8 @@ public class TestContainerImpl extends MinimalEObjectImpl.Container implements T
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -84,10 +81,11 @@ public class TestContainerImpl extends MinimalEObjectImpl.Container implements T
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public EList<TestObject> getChildren() {
 		if (children == null) {
 			children = new EObjectResolvingEList<TestObject>(TestObject.class, this,
@@ -97,26 +95,28 @@ public class TestContainerImpl extends MinimalEObjectImpl.Container implements T
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public TestObject getCurrent() {
 		if (current != null && current.eIsProxy()) {
-			InternalEObject oldCurrent = (InternalEObject) current;
+			final InternalEObject oldCurrent = (InternalEObject) current;
 			current = (TestObject) eResolveProxy(oldCurrent);
 			if (current != oldCurrent) {
-				if (eNotificationRequired())
+				if (eNotificationRequired()) {
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TestModelPackage.TEST_CONTAINER__CURRENT,
 							oldCurrent, current));
+				}
 			}
 		}
 		return current;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public TestObject basicGetCurrent() {
@@ -124,47 +124,52 @@ public class TestContainerImpl extends MinimalEObjectImpl.Container implements T
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public void setCurrent(TestObject newCurrent) {
-		TestObject oldCurrent = current;
+		final TestObject oldCurrent = current;
 		current = newCurrent;
-		boolean oldCurrentESet = currentESet;
+		final boolean oldCurrentESet = currentESet;
 		currentESet = true;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_CONTAINER__CURRENT, oldCurrent,
 					current, !oldCurrentESet));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public void unsetCurrent() {
-		TestObject oldCurrent = current;
-		boolean oldCurrentESet = currentESet;
+		final TestObject oldCurrent = current;
+		final boolean oldCurrentESet = currentESet;
 		current = null;
 		currentESet = false;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.UNSET, TestModelPackage.TEST_CONTAINER__CURRENT,
 					oldCurrent, null, oldCurrentESet));
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
+	@Override
 	public boolean isSetCurrent() {
 		return currentESet;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -180,8 +185,8 @@ public class TestContainerImpl extends MinimalEObjectImpl.Container implements T
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -200,8 +205,8 @@ public class TestContainerImpl extends MinimalEObjectImpl.Container implements T
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -218,8 +223,8 @@ public class TestContainerImpl extends MinimalEObjectImpl.Container implements T
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -233,4 +238,4 @@ public class TestContainerImpl extends MinimalEObjectImpl.Container implements T
 		return super.eIsSet(featureID);
 	}
 
-} //TestContainerImpl
+} // TestContainerImpl
