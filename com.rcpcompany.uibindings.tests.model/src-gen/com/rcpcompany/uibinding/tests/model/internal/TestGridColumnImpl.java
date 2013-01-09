@@ -25,22 +25,19 @@ import com.rcpcompany.uibinding.tests.model.TestModelPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridColumnImpl#getGrid <em>Grid
- * </em>}</li>
- * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridColumnImpl#getName <em>Name
- * </em>}</li>
- * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridColumnImpl#getCells <em>Cells
- * </em>}</li>
+ *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridColumnImpl#getGrid <em>Grid</em>}</li>
+ *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridColumnImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridColumnImpl#getCells <em>Cells</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class TestGridColumnImpl extends MinimalEObjectImpl.Container implements TestGridColumn {
 	/**
-	 * The cached value of the '{@link #getGrid() <em>Grid</em>}' reference. <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getGrid() <em>Grid</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getGrid()
 	 * @generated
 	 * @ordered
@@ -48,9 +45,9 @@ public class TestGridColumnImpl extends MinimalEObjectImpl.Container implements 
 	protected TestGrid grid;
 
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -58,9 +55,9 @@ public class TestGridColumnImpl extends MinimalEObjectImpl.Container implements 
 	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -79,7 +76,6 @@ public class TestGridColumnImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected TestGridColumnImpl() {
@@ -88,7 +84,6 @@ public class TestGridColumnImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -98,19 +93,17 @@ public class TestGridColumnImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public TestGrid getGrid() {
 		if (grid != null && grid.eIsProxy()) {
-			final InternalEObject oldGrid = (InternalEObject) grid;
+			InternalEObject oldGrid = (InternalEObject) grid;
 			grid = (TestGrid) eResolveProxy(oldGrid);
 			if (grid != oldGrid) {
-				if (eNotificationRequired()) {
+				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TestModelPackage.TEST_GRID_COLUMN__GRID,
 							oldGrid, grid));
-				}
 			}
 		}
 		return grid;
@@ -118,7 +111,6 @@ public class TestGridColumnImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public TestGrid basicGetGrid() {
@@ -127,54 +119,45 @@ public class TestGridColumnImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetGrid(TestGrid newGrid, NotificationChain msgs) {
-		final TestGrid oldGrid = grid;
+		TestGrid oldGrid = grid;
 		grid = newGrid;
 		if (eNotificationRequired()) {
-			final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					TestModelPackage.TEST_GRID_COLUMN__GRID, oldGrid, newGrid);
-			if (msgs == null) {
+			if (msgs == null)
 				msgs = notification;
-			} else {
+			else
 				msgs.add(notification);
-			}
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void setGrid(TestGrid newGrid) {
 		if (newGrid != grid) {
 			NotificationChain msgs = null;
-			if (grid != null) {
+			if (grid != null)
 				msgs = ((InternalEObject) grid).eInverseRemove(this, TestModelPackage.TEST_GRID__COLUMNS,
 						TestGrid.class, msgs);
-			}
-			if (newGrid != null) {
+			if (newGrid != null)
 				msgs = ((InternalEObject) newGrid).eInverseAdd(this, TestModelPackage.TEST_GRID__COLUMNS,
 						TestGrid.class, msgs);
-			}
 			msgs = basicSetGrid(newGrid, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
+			if (msgs != null) msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_GRID_COLUMN__GRID, newGrid,
 					newGrid));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -184,22 +167,19 @@ public class TestGridColumnImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void setName(String newName) {
-		final String oldName = name;
+		String oldName = name;
 		name = newName;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_GRID_COLUMN__NAME, oldName,
 					name));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -213,7 +193,6 @@ public class TestGridColumnImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -221,10 +200,9 @@ public class TestGridColumnImpl extends MinimalEObjectImpl.Container implements 
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case TestModelPackage.TEST_GRID_COLUMN__GRID:
-			if (grid != null) {
+			if (grid != null)
 				msgs = ((InternalEObject) grid).eInverseRemove(this, TestModelPackage.TEST_GRID__COLUMNS,
 						TestGrid.class, msgs);
-			}
 			return basicSetGrid((TestGrid) otherEnd, msgs);
 		case TestModelPackage.TEST_GRID_COLUMN__CELLS:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getCells()).basicAdd(otherEnd, msgs);
@@ -234,7 +212,6 @@ public class TestGridColumnImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -250,7 +227,6 @@ public class TestGridColumnImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -269,7 +245,6 @@ public class TestGridColumnImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -292,7 +267,6 @@ public class TestGridColumnImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -313,7 +287,6 @@ public class TestGridColumnImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -331,14 +304,13 @@ public class TestGridColumnImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		final StringBuffer result = new StringBuffer(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: "); //$NON-NLS-1$
 		result.append(name);
 		result.append(')');

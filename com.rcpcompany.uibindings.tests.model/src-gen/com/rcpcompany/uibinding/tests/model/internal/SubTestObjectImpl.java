@@ -12,13 +12,12 @@ import com.rcpcompany.uibinding.tests.model.TestModelPackage;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class SubTestObjectImpl extends TestObjectImpl implements SubTestObject {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected SubTestObjectImpl() {
@@ -27,7 +26,6 @@ public class SubTestObjectImpl extends TestObjectImpl implements SubTestObject {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

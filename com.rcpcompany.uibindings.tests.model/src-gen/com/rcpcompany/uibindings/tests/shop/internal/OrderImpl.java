@@ -29,33 +29,31 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.OrderImpl#getShop <em>Shop</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.OrderImpl#getNo <em>No</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.OrderImpl#getCustomer <em>Customer</em>}
- * </li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.OrderImpl#getPrice <em>Price</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.OrderImpl#getItems <em>Items</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.OrderImpl#getDiscount <em>Discount</em>}
- * </li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.OrderImpl#getShop <em>Shop</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.OrderImpl#getNo <em>No</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.OrderImpl#getCustomer <em>Customer</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.OrderImpl#getPrice <em>Price</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.OrderImpl#getItems <em>Items</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.OrderImpl#getDiscount <em>Discount</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class OrderImpl extends MOAOImpl implements Order {
 	/**
-	 * The default value of the '{@link #getNo() <em>No</em>}' attribute. <!-- begin-user-doc -->
+	 * The default value of the '{@link #getNo() <em>No</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getNo()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final int NO_EDEFAULT = 0;
 	/**
-	 * The cached value of the '{@link #getNo() <em>No</em>}' attribute. <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getNo() <em>No</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getNo()
 	 * @generated
 	 * @ordered
@@ -71,18 +69,18 @@ public class OrderImpl extends MOAOImpl implements Order {
 	 */
 	protected Customer customer;
 	/**
-	 * The default value of the '{@link #getPrice() <em>Price</em>}' attribute. <!-- begin-user-doc
+	 * The default value of the '{@link #getPrice() <em>Price</em>}' attribute.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @see #getPrice()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final float PRICE_EDEFAULT = 0.0F;
 	/**
-	 * The cached value of the '{@link #getPrice() <em>Price</em>}' attribute. <!-- begin-user-doc
+	 * The cached value of the '{@link #getPrice() <em>Price</em>}' attribute.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @see #getPrice()
 	 * @generated
 	 * @ordered
@@ -116,9 +114,9 @@ public class OrderImpl extends MOAOImpl implements Order {
 	 */
 	protected float discount = DISCOUNT_EDEFAULT;
 	/**
-	 * This is true if the Discount attribute has been set. <!-- begin-user-doc --> <!--
+	 * This is true if the Discount attribute has been set.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -195,7 +193,6 @@ public class OrderImpl extends MOAOImpl implements Order {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -205,7 +202,6 @@ public class OrderImpl extends MOAOImpl implements Order {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -216,7 +212,6 @@ public class OrderImpl extends MOAOImpl implements Order {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetShop(Shop newShop, NotificationChain msgs) {
@@ -226,7 +221,6 @@ public class OrderImpl extends MOAOImpl implements Order {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -235,24 +229,17 @@ public class OrderImpl extends MOAOImpl implements Order {
 			if (EcoreUtil.isAncestor(this, newShop))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
-			if (eInternalContainer() != null) {
-				msgs = eBasicRemoveFromContainer(msgs);
-			}
-			if (newShop != null) {
+			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
+			if (newShop != null)
 				msgs = ((InternalEObject) newShop).eInverseAdd(this, ShopPackage.SHOP__ORDERS, Shop.class, msgs);
-			}
 			msgs = basicSetShop(newShop, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
+			if (msgs != null) msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.ORDER__SHOP, newShop, newShop));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -262,20 +249,17 @@ public class OrderImpl extends MOAOImpl implements Order {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setNo(int newNo) {
-		final int oldNo = no;
+		int oldNo = no;
 		no = newNo;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.ORDER__NO, oldNo, no));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -285,53 +269,44 @@ public class OrderImpl extends MOAOImpl implements Order {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetCustomer(Customer newCustomer, NotificationChain msgs) {
-		final Customer oldCustomer = customer;
+		Customer oldCustomer = customer;
 		customer = newCustomer;
 		if (eNotificationRequired()) {
-			final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					ShopPackage.ORDER__CUSTOMER, oldCustomer, newCustomer);
-			if (msgs == null) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ShopPackage.ORDER__CUSTOMER,
+					oldCustomer, newCustomer);
+			if (msgs == null)
 				msgs = notification;
-			} else {
+			else
 				msgs.add(notification);
-			}
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void setCustomer(Customer newCustomer) {
 		if (newCustomer != customer) {
 			NotificationChain msgs = null;
-			if (customer != null) {
+			if (customer != null)
 				msgs = ((InternalEObject) customer).eInverseRemove(this, ShopPackage.CUSTOMER__ORDERS, Customer.class,
 						msgs);
-			}
-			if (newCustomer != null) {
+			if (newCustomer != null)
 				msgs = ((InternalEObject) newCustomer).eInverseAdd(this, ShopPackage.CUSTOMER__ORDERS, Customer.class,
 						msgs);
-			}
 			msgs = basicSetCustomer(newCustomer, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
+			if (msgs != null) msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.ORDER__CUSTOMER, newCustomer, newCustomer));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -352,20 +327,17 @@ public class OrderImpl extends MOAOImpl implements Order {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setPriceGen(float newPrice) {
-		final float oldPrice = price;
+		float oldPrice = price;
 		price = newPrice;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.ORDER__PRICE, oldPrice, price));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -379,7 +351,6 @@ public class OrderImpl extends MOAOImpl implements Order {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -389,41 +360,36 @@ public class OrderImpl extends MOAOImpl implements Order {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void setDiscount(float newDiscount) {
-		final float oldDiscount = discount;
+		float oldDiscount = discount;
 		discount = newDiscount;
-		final boolean oldDiscountESet = discountESet;
+		boolean oldDiscountESet = discountESet;
 		discountESet = true;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.ORDER__DISCOUNT, oldDiscount, discount,
 					!oldDiscountESet));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void unsetDiscount() {
-		final float oldDiscount = discount;
-		final boolean oldDiscountESet = discountESet;
+		float oldDiscount = discount;
+		boolean oldDiscountESet = discountESet;
 		discount = DISCOUNT_EDEFAULT;
 		discountESet = false;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.UNSET, ShopPackage.ORDER__DISCOUNT, oldDiscount,
 					DISCOUNT_EDEFAULT, oldDiscountESet));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -433,7 +399,6 @@ public class OrderImpl extends MOAOImpl implements Order {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -441,15 +406,12 @@ public class OrderImpl extends MOAOImpl implements Order {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case ShopPackage.ORDER__SHOP:
-			if (eInternalContainer() != null) {
-				msgs = eBasicRemoveFromContainer(msgs);
-			}
+			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
 			return basicSetShop((Shop) otherEnd, msgs);
 		case ShopPackage.ORDER__CUSTOMER:
-			if (customer != null) {
+			if (customer != null)
 				msgs = ((InternalEObject) customer).eInverseRemove(this, ShopPackage.CUSTOMER__ORDERS, Customer.class,
 						msgs);
-			}
 			return basicSetCustomer((Customer) otherEnd, msgs);
 		case ShopPackage.ORDER__ITEMS:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getItems()).basicAdd(otherEnd, msgs);
@@ -459,7 +421,6 @@ public class OrderImpl extends MOAOImpl implements Order {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -477,7 +438,6 @@ public class OrderImpl extends MOAOImpl implements Order {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -491,7 +451,6 @@ public class OrderImpl extends MOAOImpl implements Order {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -515,7 +474,6 @@ public class OrderImpl extends MOAOImpl implements Order {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -547,7 +505,6 @@ public class OrderImpl extends MOAOImpl implements Order {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -577,7 +534,6 @@ public class OrderImpl extends MOAOImpl implements Order {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -601,24 +557,22 @@ public class OrderImpl extends MOAOImpl implements Order {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		final StringBuffer result = new StringBuffer(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (no: "); //$NON-NLS-1$
 		result.append(no);
 		result.append(", price: "); //$NON-NLS-1$
 		result.append(price);
 		result.append(", discount: "); //$NON-NLS-1$
-		if (discountESet) {
+		if (discountESet)
 			result.append(discount);
-		} else {
+		else
 			result.append("<unset>"); //$NON-NLS-1$
-		}
 		result.append(')');
 		return result.toString();
 	}

@@ -29,29 +29,28 @@ import com.rcpcompany.uibinding.tests.model.WeightUnit;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
  * @generated
  */
 public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFactory {
 	/**
-	 * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static TestModelFactory init() {
 		try {
-			final TestModelFactory theTestModelFactory = (TestModelFactory) EPackage.Registry.INSTANCE
+			TestModelFactory theTestModelFactory = (TestModelFactory) EPackage.Registry.INSTANCE
 					.getEFactory("http://rcp-company.com/schemas/uibindings/testModel"); //$NON-NLS-1$ 
-			if (theTestModelFactory != null) return theTestModelFactory;
-		} catch (final Exception exception) {
+			if (theTestModelFactory != null) { return theTestModelFactory; }
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new TestModelFactoryImpl();
 	}
 
 	/**
-	 * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public TestModelFactoryImpl() {
@@ -60,7 +59,6 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -89,7 +87,6 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -114,7 +111,6 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -139,99 +135,90 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public TestObject createTestObject() {
-		final TestObjectImpl testObject = new TestObjectImpl();
+		TestObjectImpl testObject = new TestObjectImpl();
 		return testObject;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public SubTestObject createSubTestObject() {
-		final SubTestObjectImpl subTestObject = new SubTestObjectImpl();
+		SubTestObjectImpl subTestObject = new SubTestObjectImpl();
 		return subTestObject;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public TestContainer createTestContainer() {
-		final TestContainerImpl testContainer = new TestContainerImpl();
+		TestContainerImpl testContainer = new TestContainerImpl();
 		return testContainer;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public AmountAndCurrency createAmountAndCurrency() {
-		final AmountAndCurrencyImpl amountAndCurrency = new AmountAndCurrencyImpl();
+		AmountAndCurrencyImpl amountAndCurrency = new AmountAndCurrencyImpl();
 		return amountAndCurrency;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public TestGrid createTestGrid() {
-		final TestGridImpl testGrid = new TestGridImpl();
+		TestGridImpl testGrid = new TestGridImpl();
 		return testGrid;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public TestGridColumn createTestGridColumn() {
-		final TestGridColumnImpl testGridColumn = new TestGridColumnImpl();
+		TestGridColumnImpl testGridColumn = new TestGridColumnImpl();
 		return testGridColumn;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public TestGridRow createTestGridRow() {
-		final TestGridRowImpl testGridRow = new TestGridRowImpl();
+		TestGridRowImpl testGridRow = new TestGridRowImpl();
 		return testGridRow;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public TestGridCell createTestGridCell() {
-		final TestGridCellImpl testGridCell = new TestGridCellImpl();
+		TestGridCellImpl testGridCell = new TestGridCellImpl();
 		return testGridCell;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public WeightUnit createWeightUnitFromString(EDataType eDataType, String initialValue) {
-		final WeightUnit result = WeightUnit.get(initialValue);
+		WeightUnit result = WeightUnit.get(initialValue);
 		if (result == null)
 			throw new IllegalArgumentException(
 					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -240,7 +227,6 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertWeightUnitToString(EDataType eDataType, Object instanceValue) {
@@ -249,11 +235,10 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public TimeUnit createTimeUnitFromString(EDataType eDataType, String initialValue) {
-		final TimeUnit result = TimeUnit.get(initialValue);
+		TimeUnit result = TimeUnit.get(initialValue);
 		if (result == null)
 			throw new IllegalArgumentException(
 					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -262,7 +247,6 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertTimeUnitToString(EDataType eDataType, Object instanceValue) {
@@ -271,7 +255,6 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Date createEDateFromString(EDataType eDataType, String initialValue) {
@@ -280,7 +263,6 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertEDateToString(EDataType eDataType, Object instanceValue) {
@@ -289,7 +271,6 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BigDecimal createEBigDecimalFromString(EDataType eDataType, String initialValue) {
@@ -298,7 +279,6 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertEBigDecimalToString(EDataType eDataType, Object instanceValue) {
@@ -307,7 +287,6 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BigInteger createEBigIntegerFromString(EDataType eDataType, String initialValue) {
@@ -316,7 +295,6 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertEBigIntegerToString(EDataType eDataType, Object instanceValue) {
@@ -325,7 +303,6 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public AmountAndCurrencyOld createAmountAndCurrencyStructFromString(EDataType eDataType, String initialValue) {
@@ -334,7 +311,6 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertAmountAndCurrencyStructToString(EDataType eDataType, Object instanceValue) {
@@ -343,7 +319,6 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -353,7 +328,6 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @deprecated
 	 * @generated
 	 */

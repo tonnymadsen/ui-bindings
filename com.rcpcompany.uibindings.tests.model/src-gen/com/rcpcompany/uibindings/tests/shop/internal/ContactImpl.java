@@ -24,22 +24,17 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ContactImpl#getShop <em>Shop</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ContactImpl#getAddress <em>Address</em>}
- * </li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ContactImpl#getCity <em>City</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ContactImpl#getZip <em>Zip</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ContactImpl#getCountry <em>Country</em>}
- * </li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ContactImpl#getCustomer <em>Customer
- * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ContactImpl#isNewsletter <em>Newsletter
- * </em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ContactImpl#getBirthday <em>Birthday
- * </em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ContactImpl#getShop <em>Shop</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ContactImpl#getAddress <em>Address</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ContactImpl#getCity <em>City</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ContactImpl#getZip <em>Zip</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ContactImpl#getCountry <em>Country</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ContactImpl#getCustomer <em>Customer</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ContactImpl#isNewsletter <em>Newsletter</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ContactImpl#getBirthday <em>Birthday</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ContactImpl extends NamedObjectImpl implements Contact {
@@ -62,36 +57,36 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 	 */
 	protected String address = ADDRESS_EDEFAULT;
 	/**
-	 * The default value of the '{@link #getCity() <em>City</em>}' attribute. <!-- begin-user-doc
+	 * The default value of the '{@link #getCity() <em>City</em>}' attribute.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @see #getCity()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String CITY_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getCity() <em>City</em>}' attribute. <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getCity() <em>City</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getCity()
 	 * @generated
 	 * @ordered
 	 */
 	protected String city = CITY_EDEFAULT;
 	/**
-	 * The default value of the '{@link #getZip() <em>Zip</em>}' attribute. <!-- begin-user-doc -->
+	 * The default value of the '{@link #getZip() <em>Zip</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getZip()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String ZIP_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getZip() <em>Zip</em>}' attribute. <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getZip() <em>Zip</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getZip()
 	 * @generated
 	 * @ordered
@@ -154,7 +149,6 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ContactImpl() {
@@ -163,7 +157,6 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -173,7 +166,6 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -184,7 +176,6 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetShop(Shop newShop, NotificationChain msgs) {
@@ -194,7 +185,6 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -203,24 +193,17 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 			if (EcoreUtil.isAncestor(this, newShop))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
-			if (eInternalContainer() != null) {
-				msgs = eBasicRemoveFromContainer(msgs);
-			}
-			if (newShop != null) {
+			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
+			if (newShop != null)
 				msgs = ((InternalEObject) newShop).eInverseAdd(this, ShopPackage.SHOP__CONTACTS, Shop.class, msgs);
-			}
 			msgs = basicSetShop(newShop, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
+			if (msgs != null) msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.CONTACT__SHOP, newShop, newShop));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -230,21 +213,18 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void setAddress(String newAddress) {
-		final String oldAddress = address;
+		String oldAddress = address;
 		address = newAddress;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.CONTACT__ADDRESS, oldAddress, address));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -254,21 +234,18 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void setCity(String newCity) {
-		final String oldCity = city;
+		String oldCity = city;
 		city = newCity;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.CONTACT__CITY, oldCity, city));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -278,21 +255,18 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void setZip(String newZip) {
-		final String oldZip = zip;
+		String oldZip = zip;
 		zip = newZip;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.CONTACT__ZIP, oldZip, zip));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -302,65 +276,55 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetCountry(Country newCountry, NotificationChain msgs) {
-		final Country oldCountry = country;
+		Country oldCountry = country;
 		country = newCountry;
 		if (eNotificationRequired()) {
-			final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					ShopPackage.CONTACT__COUNTRY, oldCountry, newCountry);
-			if (msgs == null) {
+			if (msgs == null)
 				msgs = notification;
-			} else {
+			else
 				msgs.add(notification);
-			}
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void setCountry(Country newCountry) {
 		if (newCountry != country) {
 			NotificationChain msgs = null;
-			if (country != null) {
+			if (country != null)
 				msgs = ((InternalEObject) country).eInverseRemove(this, ShopPackage.COUNTRY__CONTACTS, Country.class,
 						msgs);
-			}
-			if (newCountry != null) {
+			if (newCountry != null)
 				msgs = ((InternalEObject) newCountry).eInverseAdd(this, ShopPackage.COUNTRY__CONTACTS, Country.class,
 						msgs);
-			}
 			msgs = basicSetCountry(newCountry, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
+			if (msgs != null) msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.CONTACT__COUNTRY, newCountry, newCountry));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Customer getCustomer() {
 		if (customer != null && customer.eIsProxy()) {
-			final InternalEObject oldCustomer = (InternalEObject) customer;
+			InternalEObject oldCustomer = (InternalEObject) customer;
 			customer = (Customer) eResolveProxy(oldCustomer);
 			if (customer != oldCustomer) {
-				if (eNotificationRequired()) {
+				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ShopPackage.CONTACT__CUSTOMER,
 							oldCustomer, customer));
-				}
 			}
 		}
 		return customer;
@@ -368,7 +332,6 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Customer basicGetCustomer() {
@@ -377,54 +340,45 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetCustomer(Customer newCustomer, NotificationChain msgs) {
-		final Customer oldCustomer = customer;
+		Customer oldCustomer = customer;
 		customer = newCustomer;
 		if (eNotificationRequired()) {
-			final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					ShopPackage.CONTACT__CUSTOMER, oldCustomer, newCustomer);
-			if (msgs == null) {
+			if (msgs == null)
 				msgs = notification;
-			} else {
+			else
 				msgs.add(notification);
-			}
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void setCustomer(Customer newCustomer) {
 		if (newCustomer != customer) {
 			NotificationChain msgs = null;
-			if (customer != null) {
+			if (customer != null)
 				msgs = ((InternalEObject) customer).eInverseRemove(this, ShopPackage.CUSTOMER__CONTACT, Customer.class,
 						msgs);
-			}
-			if (newCustomer != null) {
+			if (newCustomer != null)
 				msgs = ((InternalEObject) newCustomer).eInverseAdd(this, ShopPackage.CUSTOMER__CONTACT, Customer.class,
 						msgs);
-			}
 			msgs = basicSetCustomer(newCustomer, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
+			if (msgs != null) msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.CONTACT__CUSTOMER, newCustomer,
 					newCustomer));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -434,22 +388,19 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void setNewsletter(boolean newNewsletter) {
-		final boolean oldNewsletter = newsletter;
+		boolean oldNewsletter = newsletter;
 		newsletter = newNewsletter;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.CONTACT__NEWSLETTER, oldNewsletter,
 					newsletter));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -459,42 +410,35 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void setBirthday(Date newBirthday) {
-		final Date oldBirthday = birthday;
+		Date oldBirthday = birthday;
 		birthday = newBirthday;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.CONTACT__BIRTHDAY, oldBirthday, birthday));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case ShopPackage.CONTACT__SHOP:
-			if (eInternalContainer() != null) {
-				msgs = eBasicRemoveFromContainer(msgs);
-			}
+			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
 			return basicSetShop((Shop) otherEnd, msgs);
 		case ShopPackage.CONTACT__COUNTRY:
-			if (country != null) {
+			if (country != null)
 				msgs = ((InternalEObject) country).eInverseRemove(this, ShopPackage.COUNTRY__CONTACTS, Country.class,
 						msgs);
-			}
 			return basicSetCountry((Country) otherEnd, msgs);
 		case ShopPackage.CONTACT__CUSTOMER:
-			if (customer != null) {
+			if (customer != null)
 				msgs = ((InternalEObject) customer).eInverseRemove(this, ShopPackage.CUSTOMER__CONTACT, Customer.class,
 						msgs);
-			}
 			return basicSetCustomer((Customer) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -502,7 +446,6 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -520,7 +463,6 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -534,7 +476,6 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -563,7 +504,6 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -599,7 +539,6 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -635,7 +574,6 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -663,14 +601,13 @@ public class ContactImpl extends NamedObjectImpl implements Contact {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		final StringBuffer result = new StringBuffer(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (address: "); //$NON-NLS-1$
 		result.append(address);
 		result.append(", city: "); //$NON-NLS-1$

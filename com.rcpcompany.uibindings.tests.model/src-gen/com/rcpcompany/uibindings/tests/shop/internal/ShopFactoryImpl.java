@@ -41,29 +41,28 @@ import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
  * @generated
  */
 public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 	/**
-	 * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static ShopFactory init() {
 		try {
-			final ShopFactory theShopFactory = (ShopFactory) EPackage.Registry.INSTANCE
+			ShopFactory theShopFactory = (ShopFactory) EPackage.Registry.INSTANCE
 					.getEFactory("http://rcp-company.com/schemas/uibindings/shop.ecore"); //$NON-NLS-1$ 
-			if (theShopFactory != null) return theShopFactory;
-		} catch (final Exception exception) {
+			if (theShopFactory != null) { return theShopFactory; }
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new ShopFactoryImpl();
 	}
 
 	/**
-	 * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public ShopFactoryImpl() {
@@ -105,7 +104,6 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -150,7 +148,6 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -171,7 +168,6 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -192,187 +188,170 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Shop createShop() {
-		final ShopImpl shop = new ShopImpl();
+		ShopImpl shop = new ShopImpl();
 		return shop;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Customer createCustomer() {
-		final CustomerImpl customer = new CustomerImpl();
+		CustomerImpl customer = new CustomerImpl();
 		return customer;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public CustomerGroup createCustomerGroup() {
-		final CustomerGroupImpl customerGroup = new CustomerGroupImpl();
+		CustomerGroupImpl customerGroup = new CustomerGroupImpl();
 		return customerGroup;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public ShopItem createShopItem() {
-		final ShopItemImpl shopItem = new ShopItemImpl();
+		ShopItemImpl shopItem = new ShopItemImpl();
 		return shopItem;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public ShopItemProperties createShopItemProperties() {
-		final ShopItemPropertiesImpl shopItemProperties = new ShopItemPropertiesImpl();
+		ShopItemPropertiesImpl shopItemProperties = new ShopItemPropertiesImpl();
 		return shopItemProperties;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public ShopItemGroup createShopItemGroup() {
-		final ShopItemGroupImpl shopItemGroup = new ShopItemGroupImpl();
+		ShopItemGroupImpl shopItemGroup = new ShopItemGroupImpl();
 		return shopItemGroup;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Order createOrder() {
-		final OrderImpl order = new OrderImpl();
+		OrderImpl order = new OrderImpl();
 		return order;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public OrderItem createOrderItem() {
-		final OrderItemImpl orderItem = new OrderItemImpl();
+		OrderItemImpl orderItem = new OrderItemImpl();
 		return orderItem;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Contact createContact() {
-		final ContactImpl contact = new ContactImpl();
+		ContactImpl contact = new ContactImpl();
 		return contact;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Country createCountry() {
-		final CountryImpl country = new CountryImpl();
+		CountryImpl country = new CountryImpl();
 		return country;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public CountryInfo createCountryInfo() {
-		final CountryInfoImpl countryInfo = new CountryInfoImpl();
+		CountryInfoImpl countryInfo = new CountryInfoImpl();
 		return countryInfo;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public ShopItemInformation createShopItemInformation() {
-		final ShopItemInformationImpl shopItemInformation = new ShopItemInformationImpl();
+		ShopItemInformationImpl shopItemInformation = new ShopItemInformationImpl();
 		return shopItemInformation;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public ShopItemDescription createShopItemDescription() {
-		final ShopItemDescriptionImpl shopItemDescription = new ShopItemDescriptionImpl();
+		ShopItemDescriptionImpl shopItemDescription = new ShopItemDescriptionImpl();
 		return shopItemDescription;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public ShopItemURL createShopItemURL() {
-		final ShopItemURLImpl shopItemURL = new ShopItemURLImpl();
+		ShopItemURLImpl shopItemURL = new ShopItemURLImpl();
 		return shopItemURL;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public ShopURL createShopURL() {
-		final ShopURLImpl shopURL = new ShopURLImpl();
+		ShopURLImpl shopURL = new ShopURLImpl();
 		return shopURL;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public ShopAddress createShopAddress() {
-		final ShopAddressImpl shopAddress = new ShopAddressImpl();
+		ShopAddressImpl shopAddress = new ShopAddressImpl();
 		return shopAddress;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public CustomerType createCustomerTypeFromString(EDataType eDataType, String initialValue) {
-		final CustomerType result = CustomerType.get(initialValue);
+		CustomerType result = CustomerType.get(initialValue);
 		if (result == null)
 			throw new IllegalArgumentException(
 					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -381,7 +360,6 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertCustomerTypeToString(EDataType eDataType, Object instanceValue) {
@@ -390,7 +368,6 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public DiagnosticChain createEDiagnosticChainFromString(EDataType eDataType, String initialValue) {
@@ -399,7 +376,6 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertEDiagnosticChainToString(EDataType eDataType, Object instanceValue) {
@@ -408,7 +384,6 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Map<?, ?> createEMapFromString(EDataType eDataType, String initialValue) {
@@ -417,7 +392,6 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertEMapToString(EDataType eDataType, Object instanceValue) {
@@ -426,7 +400,6 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Date createEDateFromString(EDataType eDataType, String initialValue) {
@@ -435,7 +408,6 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String convertEDateToString(EDataType eDataType, Object instanceValue) {
@@ -444,7 +416,6 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -454,7 +425,6 @@ public class ShopFactoryImpl extends EFactoryImpl implements ShopFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @deprecated
 	 * @generated
 	 */

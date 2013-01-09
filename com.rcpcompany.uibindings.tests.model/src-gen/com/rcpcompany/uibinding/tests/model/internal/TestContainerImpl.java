@@ -22,13 +22,11 @@ import com.rcpcompany.uibinding.tests.model.TestObject;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestContainerImpl#getChildren <em>
- * Children</em>}</li>
- * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestContainerImpl#getCurrent <em>Current
- * </em>}</li>
+ *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestContainerImpl#getChildren <em>Children</em>}</li>
+ *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestContainerImpl#getCurrent <em>Current</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class TestContainerImpl extends MinimalEObjectImpl.Container implements TestContainer {
@@ -63,7 +61,6 @@ public class TestContainerImpl extends MinimalEObjectImpl.Container implements T
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected TestContainerImpl() {
@@ -72,7 +69,6 @@ public class TestContainerImpl extends MinimalEObjectImpl.Container implements T
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -82,7 +78,6 @@ public class TestContainerImpl extends MinimalEObjectImpl.Container implements T
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -96,19 +91,17 @@ public class TestContainerImpl extends MinimalEObjectImpl.Container implements T
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public TestObject getCurrent() {
 		if (current != null && current.eIsProxy()) {
-			final InternalEObject oldCurrent = (InternalEObject) current;
+			InternalEObject oldCurrent = (InternalEObject) current;
 			current = (TestObject) eResolveProxy(oldCurrent);
 			if (current != oldCurrent) {
-				if (eNotificationRequired()) {
+				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TestModelPackage.TEST_CONTAINER__CURRENT,
 							oldCurrent, current));
-				}
 			}
 		}
 		return current;
@@ -116,7 +109,6 @@ public class TestContainerImpl extends MinimalEObjectImpl.Container implements T
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public TestObject basicGetCurrent() {
@@ -125,41 +117,36 @@ public class TestContainerImpl extends MinimalEObjectImpl.Container implements T
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void setCurrent(TestObject newCurrent) {
-		final TestObject oldCurrent = current;
+		TestObject oldCurrent = current;
 		current = newCurrent;
-		final boolean oldCurrentESet = currentESet;
+		boolean oldCurrentESet = currentESet;
 		currentESet = true;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_CONTAINER__CURRENT, oldCurrent,
 					current, !oldCurrentESet));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void unsetCurrent() {
-		final TestObject oldCurrent = current;
-		final boolean oldCurrentESet = currentESet;
+		TestObject oldCurrent = current;
+		boolean oldCurrentESet = currentESet;
 		current = null;
 		currentESet = false;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.UNSET, TestModelPackage.TEST_CONTAINER__CURRENT,
 					oldCurrent, null, oldCurrentESet));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -169,7 +156,6 @@ public class TestContainerImpl extends MinimalEObjectImpl.Container implements T
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -186,7 +172,6 @@ public class TestContainerImpl extends MinimalEObjectImpl.Container implements T
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -206,7 +191,6 @@ public class TestContainerImpl extends MinimalEObjectImpl.Container implements T
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -224,7 +208,6 @@ public class TestContainerImpl extends MinimalEObjectImpl.Container implements T
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

@@ -43,166 +43,144 @@ import com.rcpcompany.uibindings.tests.shop.util.ShopValidator;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- * 
  * @generated
  */
 public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass shopEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass customerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass customerGroupEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass shopItemEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass shopItemPropertiesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass shopItemGroupEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass orderEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass orderItemEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass contactEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass countryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass countryInfoEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass shopItemInformationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass shopItemDescriptionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass shopItemURLEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass shopInformationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass shopURLEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass shopAddressEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EEnum customerTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType eDiagnosticChainEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType eMapEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EDataType eDateEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
-	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package package URI
-	 * value.
-	 * <p>
-	 * Note: the correct way to create the package is via the static factory method {@link #init
-	 * init()}, which also performs initialization of the package, or returns the registered
-	 * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
+	 * package URI value.
+	 * <p>Note: the correct way to create the package is via the static
+	 * factory method {@link #init init()}, which also performs
+	 * initialization of the package, or returns the registered package,
+	 * if one already exists.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#eNS_URI
 	 * @see #init()
@@ -214,20 +192,16 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others
-	 * upon which it depends.
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 * 
-	 * <p>
-	 * This method is used to initialize {@link ShopPackage#eINSTANCE} when that field is accessed.
-	 * Clients should not invoke it directly. Instead, they should simply access that field to
-	 * obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <p>This method is used to initialize {@link ShopPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
@@ -237,7 +211,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		if (isInited) return (ShopPackage) EPackage.Registry.INSTANCE.getEPackage(ShopPackage.eNS_URI);
 
 		// Obtain or create and register package
-		final ShopPackageImpl theShopPackage = (ShopPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ShopPackageImpl ? EPackage.Registry.INSTANCE
+		ShopPackageImpl theShopPackage = (ShopPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ShopPackageImpl ? EPackage.Registry.INSTANCE
 				.get(eNS_URI) : new ShopPackageImpl());
 
 		isInited = true;
@@ -253,7 +227,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put(theShopPackage, new EValidator.Descriptor() {
-			@Override
 			public EValidator getEValidator() {
 				return ShopValidator.INSTANCE;
 			}
@@ -269,7 +242,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -279,7 +251,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -289,7 +260,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -299,7 +269,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -309,7 +278,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -319,7 +287,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -329,7 +296,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -339,7 +305,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -349,7 +314,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -359,7 +323,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -369,7 +332,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -379,7 +341,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -389,7 +350,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -399,7 +359,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -409,7 +368,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -419,7 +377,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -429,7 +386,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -439,7 +395,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -449,7 +404,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -459,7 +413,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -469,7 +422,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -479,7 +431,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -489,7 +440,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -499,7 +449,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -509,7 +458,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -519,7 +467,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -529,7 +476,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -539,7 +485,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -549,7 +494,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -559,7 +503,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -569,7 +512,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -579,7 +521,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -589,7 +530,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -599,7 +539,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -609,7 +548,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -619,7 +557,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -629,7 +566,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -639,7 +575,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -649,7 +584,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -659,7 +593,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -669,7 +602,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -679,7 +611,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -689,7 +620,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -699,7 +629,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -709,7 +638,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -719,7 +647,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -729,7 +656,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -739,7 +665,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -749,7 +674,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -759,7 +683,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -769,7 +692,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -779,7 +701,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -789,7 +710,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -799,7 +719,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -809,7 +728,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -819,7 +737,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -829,7 +746,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -839,7 +755,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -849,7 +764,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -859,7 +773,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -869,7 +782,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -879,7 +791,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -889,7 +800,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -899,7 +809,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -909,7 +818,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -919,7 +827,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -929,7 +836,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -939,7 +845,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -949,7 +854,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -959,7 +863,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -969,7 +872,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -979,7 +881,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -989,7 +890,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -999,7 +899,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -1009,7 +908,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -1019,7 +917,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -1029,7 +926,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -1039,7 +935,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -1049,7 +944,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -1059,7 +953,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -1069,7 +962,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -1079,7 +971,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -1089,7 +980,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -1099,7 +989,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -1109,7 +998,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -1119,7 +1007,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -1129,7 +1016,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -1139,7 +1025,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -1149,15 +1034,14 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private boolean isCreated = false;
 
 	/**
-	 * Creates the meta-model objects for the package. This method is guarded to have no affect on
-	 * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Creates the meta-model objects for the package.  This method is
+	 * guarded to have no affect on any invocation but its first.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void createPackageContents() {
@@ -1276,15 +1160,14 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private boolean isInitialized = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model. This method is guarded to have
-	 * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Complete the initialization of the package and its meta-model.  This
+	 * method is guarded to have no affect on any invocation but its first.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void initializePackageContents() {
@@ -1297,9 +1180,8 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		final IMOAOPackage theMOAOPackage = (IMOAOPackage) EPackage.Registry.INSTANCE.getEPackage(IMOAOPackage.eNS_URI);
-		final EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE
-				.getEPackage(EcorePackage.eNS_URI);
+		IMOAOPackage theMOAOPackage = (IMOAOPackage) EPackage.Registry.INSTANCE.getEPackage(IMOAOPackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 		addETypeParameter(eMapEDataType, "K"); //$NON-NLS-1$
@@ -1356,7 +1238,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 				this.getShopItem(),
 				this.getShopItem_Shop(),
 				"shopItems", null, 0, -1, Shop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		getShop_ShopItems().getEKeys().add(theMOAOPackage.getNamedObject_Name());
 		initEReference(
 				getShop_Orders(),
 				this.getOrder(),
@@ -1730,9 +1611,8 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	protected void createGenModelAnnotations() {
-		final String source = "http://www.eclipse.org/emf/2002/GenModel"; //$NON-NLS-1$		
-		addAnnotation(this, source, new String[] { "basePackage", "com.rcpcompany.uibindings.tests", //$NON-NLS-1$ //$NON-NLS-2$
-				"nonNLSMarkers", "true", //$NON-NLS-1$ //$NON-NLS-2$
+		String source = "http://www.eclipse.org/emf/2002/GenModel"; //$NON-NLS-1$		
+		addAnnotation(this, source, new String[] { "nonNLSMarkers", "true", //$NON-NLS-1$ //$NON-NLS-2$
 				"classPackageSuffix", "internal", //$NON-NLS-1$ //$NON-NLS-2$
 				"adapterFactory", "false", //$NON-NLS-1$ //$NON-NLS-2$
 				"classNamePattern", "{0}Impl", //$NON-NLS-1$ //$NON-NLS-2$
@@ -1746,7 +1626,8 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 				"codeFormatting", "true", //$NON-NLS-1$ //$NON-NLS-2$
 				"redirection", "", //$NON-NLS-1$ //$NON-NLS-2$
 				"updateClasspath", "false", //$NON-NLS-1$ //$NON-NLS-2$
-				"containmentProxies", "false" //$NON-NLS-1$ //$NON-NLS-2$
+				"containmentProxies", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"basePackage", "com.rcpcompany.uibindings.tests" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 		addAnnotation(getOrder_No(), source, new String[] { "suppressedSetVisibility", "true" //$NON-NLS-1$ //$NON-NLS-2$
 		});
@@ -1761,7 +1642,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	protected void createXcoreAnnotations() {
-		final String source = "http://www.eclipse.org/emf/2011/Xcore"; //$NON-NLS-1$			
+		String source = "http://www.eclipse.org/emf/2011/Xcore"; //$NON-NLS-1$			
 		addAnnotation(this, source, new String[] { "uibindings", "http://rcp-company.com/schemas/uibindings" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 	}
@@ -1773,7 +1654,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	protected void createUibindingsAnnotations() {
-		final String source = "http://rcp-company.com/schemas/uibindings"; //$NON-NLS-1$						
+		String source = "http://rcp-company.com/schemas/uibindings"; //$NON-NLS-1$						
 		addAnnotation(countryEClass, source, new String[] { "featureName", "abbreviation" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 	}

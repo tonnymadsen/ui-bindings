@@ -16,13 +16,11 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CountryInfoImpl#getPopulation <em>
- * Population</em>}</li>
- * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CountryInfoImpl#getCurrency <em>Currency
- * </em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CountryInfoImpl#getPopulation <em>Population</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CountryInfoImpl#getCurrency <em>Currency</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class CountryInfoImpl extends MOAOImpl implements CountryInfo {
@@ -65,7 +63,6 @@ public class CountryInfoImpl extends MOAOImpl implements CountryInfo {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected CountryInfoImpl() {
@@ -74,7 +71,6 @@ public class CountryInfoImpl extends MOAOImpl implements CountryInfo {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -84,7 +80,6 @@ public class CountryInfoImpl extends MOAOImpl implements CountryInfo {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -94,22 +89,19 @@ public class CountryInfoImpl extends MOAOImpl implements CountryInfo {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void setPopulation(int newPopulation) {
-		final int oldPopulation = population;
+		int oldPopulation = population;
 		population = newPopulation;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.COUNTRY_INFO__POPULATION, oldPopulation,
 					population));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -119,22 +111,19 @@ public class CountryInfoImpl extends MOAOImpl implements CountryInfo {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void setCurrency(String newCurrency) {
-		final String oldCurrency = currency;
+		String oldCurrency = currency;
 		currency = newCurrency;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.COUNTRY_INFO__CURRENCY, oldCurrency,
 					currency));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -150,7 +139,6 @@ public class CountryInfoImpl extends MOAOImpl implements CountryInfo {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -168,7 +156,6 @@ public class CountryInfoImpl extends MOAOImpl implements CountryInfo {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -186,7 +173,6 @@ public class CountryInfoImpl extends MOAOImpl implements CountryInfo {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -202,14 +188,13 @@ public class CountryInfoImpl extends MOAOImpl implements CountryInfo {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		final StringBuffer result = new StringBuffer(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (population: "); //$NON-NLS-1$
 		result.append(population);
 		result.append(", currency: "); //$NON-NLS-1$
