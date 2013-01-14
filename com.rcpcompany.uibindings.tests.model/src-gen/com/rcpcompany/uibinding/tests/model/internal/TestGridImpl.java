@@ -23,11 +23,12 @@ import com.rcpcompany.uibinding.tests.model.TestModelPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridImpl#getColumns <em>Columns</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridImpl#getRows <em>Rows</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridImpl#getColumns <em>Columns
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestGridImpl#getRows <em>Rows</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class TestGridImpl extends MinimalEObjectImpl.Container implements TestGrid {
@@ -53,6 +54,7 @@ public class TestGridImpl extends MinimalEObjectImpl.Container implements TestGr
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected TestGridImpl() {
@@ -61,6 +63,7 @@ public class TestGridImpl extends MinimalEObjectImpl.Container implements TestGr
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -70,6 +73,7 @@ public class TestGridImpl extends MinimalEObjectImpl.Container implements TestGr
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -83,6 +87,7 @@ public class TestGridImpl extends MinimalEObjectImpl.Container implements TestGr
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -96,6 +101,7 @@ public class TestGridImpl extends MinimalEObjectImpl.Container implements TestGr
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -112,6 +118,7 @@ public class TestGridImpl extends MinimalEObjectImpl.Container implements TestGr
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -127,6 +134,7 @@ public class TestGridImpl extends MinimalEObjectImpl.Container implements TestGr
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -142,6 +150,7 @@ public class TestGridImpl extends MinimalEObjectImpl.Container implements TestGr
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -162,6 +171,7 @@ public class TestGridImpl extends MinimalEObjectImpl.Container implements TestGr
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -179,6 +189,7 @@ public class TestGridImpl extends MinimalEObjectImpl.Container implements TestGr
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

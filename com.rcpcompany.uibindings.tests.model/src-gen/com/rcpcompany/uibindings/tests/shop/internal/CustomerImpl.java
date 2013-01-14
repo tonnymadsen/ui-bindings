@@ -28,14 +28,17 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CustomerImpl#getShop <em>Shop</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CustomerImpl#getContact <em>Contact</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CustomerImpl#getOrders <em>Orders</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CustomerImpl#getLoyalty <em>Loyalty</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CustomerImpl#getLogoFileName <em>Logo File Name</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CustomerImpl#getShop <em>Shop</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CustomerImpl#getContact <em>Contact
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CustomerImpl#getOrders <em>Orders</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CustomerImpl#getLoyalty <em>Loyalty
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CustomerImpl#getLogoFileName <em>Logo
+ * File Name</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class CustomerImpl extends MOAOImpl implements Customer {
@@ -101,6 +104,7 @@ public class CustomerImpl extends MOAOImpl implements Customer {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected CustomerImpl() {
@@ -109,6 +113,7 @@ public class CustomerImpl extends MOAOImpl implements Customer {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -118,6 +123,7 @@ public class CustomerImpl extends MOAOImpl implements Customer {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -128,6 +134,7 @@ public class CustomerImpl extends MOAOImpl implements Customer {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetShop(Shop newShop, NotificationChain msgs) {
@@ -137,6 +144,7 @@ public class CustomerImpl extends MOAOImpl implements Customer {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -145,17 +153,24 @@ public class CustomerImpl extends MOAOImpl implements Customer {
 			if (EcoreUtil.isAncestor(this, newShop))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
-			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
-			if (newShop != null)
+			if (eInternalContainer() != null) {
+				msgs = eBasicRemoveFromContainer(msgs);
+			}
+			if (newShop != null) {
 				msgs = ((InternalEObject) newShop).eInverseAdd(this, ShopPackage.SHOP__CUSTOMERS, Shop.class, msgs);
+			}
 			msgs = basicSetShop(newShop, msgs);
-			if (msgs != null) msgs.dispatch();
-		} else if (eNotificationRequired())
+			if (msgs != null) {
+				msgs.dispatch();
+			}
+		} else if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.CUSTOMER__SHOP, newShop, newShop));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -165,44 +180,53 @@ public class CustomerImpl extends MOAOImpl implements Customer {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetContact(Contact newContact, NotificationChain msgs) {
-		Contact oldContact = contact;
+		final Contact oldContact = contact;
 		contact = newContact;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+			final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					ShopPackage.CUSTOMER__CONTACT, oldContact, newContact);
-			if (msgs == null)
+			if (msgs == null) {
 				msgs = notification;
-			else
+			} else {
 				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setContact(Contact newContact) {
 		if (newContact != contact) {
 			NotificationChain msgs = null;
-			if (contact != null)
+			if (contact != null) {
 				msgs = ((InternalEObject) contact).eInverseRemove(this, ShopPackage.CONTACT__CUSTOMER, Contact.class,
 						msgs);
-			if (newContact != null)
+			}
+			if (newContact != null) {
 				msgs = ((InternalEObject) newContact).eInverseAdd(this, ShopPackage.CONTACT__CUSTOMER, Contact.class,
 						msgs);
+			}
 			msgs = basicSetContact(newContact, msgs);
-			if (msgs != null) msgs.dispatch();
-		} else if (eNotificationRequired())
+			if (msgs != null) {
+				msgs.dispatch();
+			}
+		} else if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.CUSTOMER__CONTACT, newContact, newContact));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -216,6 +240,7 @@ public class CustomerImpl extends MOAOImpl implements Customer {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -225,18 +250,21 @@ public class CustomerImpl extends MOAOImpl implements Customer {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setLoyalty(CustomerType newLoyalty) {
-		CustomerType oldLoyalty = loyalty;
+		final CustomerType oldLoyalty = loyalty;
 		loyalty = newLoyalty == null ? LOYALTY_EDEFAULT : newLoyalty;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.CUSTOMER__LOYALTY, oldLoyalty, loyalty));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -246,19 +274,22 @@ public class CustomerImpl extends MOAOImpl implements Customer {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setLogoFileName(String newLogoFileName) {
-		String oldLogoFileName = logoFileName;
+		final String oldLogoFileName = logoFileName;
 		logoFileName = newLogoFileName;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.CUSTOMER__LOGO_FILE_NAME,
 					oldLogoFileName, logoFileName));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -266,12 +297,15 @@ public class CustomerImpl extends MOAOImpl implements Customer {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case ShopPackage.CUSTOMER__SHOP:
-			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
+			if (eInternalContainer() != null) {
+				msgs = eBasicRemoveFromContainer(msgs);
+			}
 			return basicSetShop((Shop) otherEnd, msgs);
 		case ShopPackage.CUSTOMER__CONTACT:
-			if (contact != null)
+			if (contact != null) {
 				msgs = ((InternalEObject) contact).eInverseRemove(this, ShopPackage.CONTACT__CUSTOMER, Contact.class,
 						msgs);
+			}
 			return basicSetContact((Contact) otherEnd, msgs);
 		case ShopPackage.CUSTOMER__ORDERS:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getOrders()).basicAdd(otherEnd, msgs);
@@ -281,6 +315,7 @@ public class CustomerImpl extends MOAOImpl implements Customer {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -298,6 +333,7 @@ public class CustomerImpl extends MOAOImpl implements Customer {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -311,6 +347,7 @@ public class CustomerImpl extends MOAOImpl implements Customer {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -332,6 +369,7 @@ public class CustomerImpl extends MOAOImpl implements Customer {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -360,6 +398,7 @@ public class CustomerImpl extends MOAOImpl implements Customer {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -386,6 +425,7 @@ public class CustomerImpl extends MOAOImpl implements Customer {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -408,13 +448,14 @@ public class CustomerImpl extends MOAOImpl implements Customer {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (loyalty: "); //$NON-NLS-1$
 		result.append(loyalty);
 		result.append(", logoFileName: "); //$NON-NLS-1$

@@ -253,6 +253,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put(theShopPackage, new EValidator.Descriptor() {
+			@Override
 			public EValidator getEValidator() {
 				return ShopValidator.INSTANCE;
 			}

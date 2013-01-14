@@ -16,26 +16,27 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopInformationImpl#getValue <em>Value</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopInformationImpl#getValue <em>Value
+ * </em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public abstract class ShopInformationImpl extends NamedObjectImpl implements ShopInformation {
 	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String VALUE_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
@@ -44,6 +45,7 @@ public abstract class ShopInformationImpl extends NamedObjectImpl implements Sho
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ShopInformationImpl() {
@@ -52,6 +54,7 @@ public abstract class ShopInformationImpl extends NamedObjectImpl implements Sho
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -61,6 +64,7 @@ public abstract class ShopInformationImpl extends NamedObjectImpl implements Sho
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -70,18 +74,21 @@ public abstract class ShopInformationImpl extends NamedObjectImpl implements Sho
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setValue(String newValue) {
-		String oldValue = value;
+		final String oldValue = value;
 		value = newValue;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_INFORMATION__VALUE, oldValue, value));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -95,6 +102,7 @@ public abstract class ShopInformationImpl extends NamedObjectImpl implements Sho
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -109,6 +117,7 @@ public abstract class ShopInformationImpl extends NamedObjectImpl implements Sho
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -123,6 +132,7 @@ public abstract class ShopInformationImpl extends NamedObjectImpl implements Sho
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -136,13 +146,14 @@ public abstract class ShopInformationImpl extends NamedObjectImpl implements Sho
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (value: "); //$NON-NLS-1$
 		result.append(value);
 		result.append(')');

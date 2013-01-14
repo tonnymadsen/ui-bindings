@@ -23,41 +23,43 @@ import com.rcpcompany.uibindings.moao.IMOAOPackage;
  * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * 
  * @see com.rcpcompany.uibindings.tests.shop.ShopFactory
  * @generated
  */
 public interface ShopPackage extends EPackage {
 	/**
-	 * The package name.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	String eNAME = "shop"; //$NON-NLS-1$
 
 	/**
-	 * The package namespace URI.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The package namespace URI. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	String eNS_URI = "http://rcp-company.com/schemas/uibindings/shop.ecore"; //$NON-NLS-1$
 
 	/**
-	 * The package namespace name.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	String eNS_PREFIX = "shop"; //$NON-NLS-1$
 
 	/**
-	 * The singleton instance of the package.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The singleton instance of the package. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	ShopPackage eINSTANCE = com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.internal.ShopImpl <em>Shop</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.internal.ShopImpl
+	 * <em>Shop</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopImpl
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getShop()
 	 * @generated
@@ -74,54 +76,54 @@ public interface ShopPackage extends EPackage {
 	int SHOP__FACETS = IMOAOPackage.NAMED_OBJECT__FACETS;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP__NAME = IMOAOPackage.NAMED_OBJECT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP__DESCRIPTION = IMOAOPackage.NAMED_OBJECT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP__UUID = IMOAOPackage.NAMED_OBJECT__UUID;
 
 	/**
-	 * The feature id for the '<em><b>Next Order No</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Next Order No</b></em>' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP__NEXT_ORDER_NO = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Next Customer No</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Next Customer No</b></em>' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP__NEXT_CUSTOMER_NO = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Tmp Dir</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Tmp Dir</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -200,36 +202,36 @@ public interface ShopPackage extends EPackage {
 	int SHOP__INFOS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 10;
 
 	/**
-	 * The number of structural features of the '<em>Shop</em>' class.
-	 * <!-- begin-user-doc --> <!--
+	 * The number of structural features of the '<em>Shop</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 11;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc --> <!--
+	 * The operation id for the '<em>Is Valid</em>' operation. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP___IS_VALID__DIAGNOSTICCHAIN_MAP = IMOAOPackage.NAMED_OBJECT___IS_VALID__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP___REMOVE_MESSAGES_BY_OWNER__STRING = IMOAOPackage.NAMED_OBJECT___REMOVE_MESSAGES_BY_OWNER__STRING;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -245,26 +247,28 @@ public interface ShopPackage extends EPackage {
 	int SHOP___SAVE = IMOAOPackage.NAMED_OBJECT_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Name Length OK</em>' operation.
-	 * <!-- begin-user-doc --> <!--
+	 * The operation id for the '<em>Name Length OK</em>' operation. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP___NAME_LENGTH_OK__DIAGNOSTICCHAIN_MAP = IMOAOPackage.NAMED_OBJECT_OPERATION_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Shop</em>' class.
-	 * <!-- begin-user-doc --> <!--
+	 * The number of operations of the '<em>Shop</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_OPERATION_COUNT = IMOAOPackage.NAMED_OBJECT_OPERATION_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.internal.CustomerImpl <em>Customer</em>}' class.
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.tests.shop.internal.CustomerImpl <em>Customer</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.CustomerImpl
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getCustomer()
 	 * @generated
@@ -281,98 +285,100 @@ public interface ShopPackage extends EPackage {
 	int CUSTOMER__FACETS = IMOAOPackage.MOAO__FACETS;
 
 	/**
-	 * The feature id for the '<em><b>Shop</b></em>' container reference.
-	 * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Shop</b></em>' container reference. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CUSTOMER__SHOP = IMOAOPackage.MOAO_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Contact</b></em>' reference.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Contact</b></em>' reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CUSTOMER__CONTACT = IMOAOPackage.MOAO_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Orders</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Orders</b></em>' reference list. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CUSTOMER__ORDERS = IMOAOPackage.MOAO_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Loyalty</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Loyalty</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CUSTOMER__LOYALTY = IMOAOPackage.MOAO_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Logo File Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Logo File Name</b></em>' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CUSTOMER__LOGO_FILE_NAME = IMOAOPackage.MOAO_FEATURE_COUNT + 4;
 
 	/**
-	 * The number of structural features of the '<em>Customer</em>' class.
-	 * <!-- begin-user-doc -->
+	 * The number of structural features of the '<em>Customer</em>' class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CUSTOMER_FEATURE_COUNT = IMOAOPackage.MOAO_FEATURE_COUNT + 5;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc --> <!--
+	 * The operation id for the '<em>Is Valid</em>' operation. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CUSTOMER___IS_VALID__DIAGNOSTICCHAIN_MAP = IMOAOPackage.MOAO___IS_VALID__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CUSTOMER___REMOVE_MESSAGES_BY_OWNER__STRING = IMOAOPackage.MOAO___REMOVE_MESSAGES_BY_OWNER__STRING;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CUSTOMER___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING = IMOAOPackage.MOAO___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING;
 
 	/**
-	 * The number of operations of the '<em>Customer</em>' class.
-	 * <!-- begin-user-doc --> <!--
+	 * The number of operations of the '<em>Customer</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CUSTOMER_OPERATION_COUNT = IMOAOPackage.MOAO_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.internal.CustomerGroupImpl <em>Customer Group</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.tests.shop.internal.CustomerGroupImpl
+	 * <em>Customer Group</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.CustomerGroupImpl
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getCustomerGroup()
 	 * @generated
@@ -389,90 +395,90 @@ public interface ShopPackage extends EPackage {
 	int CUSTOMER_GROUP__FACETS = IMOAOPackage.NAMED_OBJECT__FACETS;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CUSTOMER_GROUP__NAME = IMOAOPackage.NAMED_OBJECT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CUSTOMER_GROUP__DESCRIPTION = IMOAOPackage.NAMED_OBJECT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CUSTOMER_GROUP__UUID = IMOAOPackage.NAMED_OBJECT__UUID;
 
 	/**
-	 * The feature id for the '<em><b>Shop</b></em>' container reference.
-	 * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Shop</b></em>' container reference. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CUSTOMER_GROUP__SHOP = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Customers</b></em>' reference list.
-	 * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Customers</b></em>' reference list. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CUSTOMER_GROUP__CUSTOMERS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Customer Group</em>' class.
-	 * <!-- begin-user-doc
+	 * The number of structural features of the '<em>Customer Group</em>' class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CUSTOMER_GROUP_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc --> <!--
+	 * The operation id for the '<em>Is Valid</em>' operation. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CUSTOMER_GROUP___IS_VALID__DIAGNOSTICCHAIN_MAP = IMOAOPackage.NAMED_OBJECT___IS_VALID__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CUSTOMER_GROUP___REMOVE_MESSAGES_BY_OWNER__STRING = IMOAOPackage.NAMED_OBJECT___REMOVE_MESSAGES_BY_OWNER__STRING;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CUSTOMER_GROUP___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING = IMOAOPackage.NAMED_OBJECT___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING;
 
 	/**
-	 * The number of operations of the '<em>Customer Group</em>' class.
-	 * <!-- begin-user-doc --> <!--
+	 * The number of operations of the '<em>Customer Group</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -499,99 +505,99 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM__FACETS = IMOAOPackage.NAMED_OBJECT__FACETS;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM__NAME = IMOAOPackage.NAMED_OBJECT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM__DESCRIPTION = IMOAOPackage.NAMED_OBJECT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM__UUID = IMOAOPackage.NAMED_OBJECT__UUID;
 
 	/**
-	 * The feature id for the '<em><b>Shop</b></em>' container reference.
-	 * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Shop</b></em>' container reference. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM__SHOP = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Price</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Price</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM__PRICE = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Advanced Price</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Advanced Price</b></em>' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM__ADVANCED_PRICE = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Order Items</b></em>' reference list.
-	 * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Order Items</b></em>' reference list. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM__ORDER_ITEMS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>For Sale</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>For Sale</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM__FOR_SALE = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Information</b></em>' reference.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Information</b></em>' reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM__INFORMATION = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Group</b></em>' reference.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Group</b></em>' reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM__GROUP = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Locations</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Locations</b></em>' attribute list. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -607,71 +613,73 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM__PROPERTIES = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 8;
 
 	/**
-	 * The number of structural features of the '<em>Item</em>' class.
-	 * <!-- begin-user-doc --> <!--
+	 * The number of structural features of the '<em>Item</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 9;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc --> <!--
+	 * The operation id for the '<em>Is Valid</em>' operation. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM___IS_VALID__DIAGNOSTICCHAIN_MAP = IMOAOPackage.NAMED_OBJECT___IS_VALID__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM___REMOVE_MESSAGES_BY_OWNER__STRING = IMOAOPackage.NAMED_OBJECT___REMOVE_MESSAGES_BY_OWNER__STRING;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING = IMOAOPackage.NAMED_OBJECT___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING;
 
 	/**
-	 * The operation id for the '<em>Name Price OK</em>' operation.
-	 * <!-- begin-user-doc --> <!--
+	 * The operation id for the '<em>Name Price OK</em>' operation. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM___NAME_PRICE_OK__DIAGNOSTICCHAIN_MAP = IMOAOPackage.NAMED_OBJECT_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Name OK</em>' operation.
-	 * <!-- begin-user-doc --> <!--
+	 * The operation id for the '<em>Name OK</em>' operation. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM___NAME_OK__DIAGNOSTICCHAIN_MAP = IMOAOPackage.NAMED_OBJECT_OPERATION_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Item</em>' class.
-	 * <!-- begin-user-doc --> <!--
+	 * The number of operations of the '<em>Item</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_OPERATION_COUNT = IMOAOPackage.NAMED_OBJECT_OPERATION_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemPropertiesImpl <em>Item Properties</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemPropertiesImpl
+	 * <em>Item Properties</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopItemPropertiesImpl
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getShopItemProperties()
 	 * @generated
@@ -688,45 +696,45 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM_PROPERTIES__FACETS = IMOAOPackage.NAMED_OBJECT__FACETS;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_PROPERTIES__NAME = IMOAOPackage.NAMED_OBJECT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_PROPERTIES__DESCRIPTION = IMOAOPackage.NAMED_OBJECT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_PROPERTIES__UUID = IMOAOPackage.NAMED_OBJECT__UUID;
 
 	/**
-	 * The feature id for the '<em><b>Item</b></em>' container reference.
-	 * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Item</b></em>' container reference. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_PROPERTIES__ITEM = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Value</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -742,44 +750,46 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM_PROPERTIES_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc --> <!--
+	 * The operation id for the '<em>Is Valid</em>' operation. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_PROPERTIES___IS_VALID__DIAGNOSTICCHAIN_MAP = IMOAOPackage.NAMED_OBJECT___IS_VALID__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_PROPERTIES___REMOVE_MESSAGES_BY_OWNER__STRING = IMOAOPackage.NAMED_OBJECT___REMOVE_MESSAGES_BY_OWNER__STRING;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_PROPERTIES___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING = IMOAOPackage.NAMED_OBJECT___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING;
 
 	/**
-	 * The number of operations of the '<em>Item Properties</em>' class.
-	 * <!-- begin-user-doc -->
+	 * The number of operations of the '<em>Item Properties</em>' class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_PROPERTIES_OPERATION_COUNT = IMOAOPackage.NAMED_OBJECT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemGroupImpl <em>Item Group</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemGroupImpl <em>Item Group</em>}'
+	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopItemGroupImpl
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getShopItemGroup()
 	 * @generated
@@ -796,98 +806,99 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM_GROUP__FACETS = IMOAOPackage.NAMED_OBJECT__FACETS;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_GROUP__NAME = IMOAOPackage.NAMED_OBJECT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_GROUP__DESCRIPTION = IMOAOPackage.NAMED_OBJECT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_GROUP__UUID = IMOAOPackage.NAMED_OBJECT__UUID;
 
 	/**
-	 * The feature id for the '<em><b>Shop</b></em>' container reference.
-	 * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Shop</b></em>' container reference. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_GROUP__SHOP = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Items</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Items</b></em>' reference list. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_GROUP__ITEMS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Item Group</em>' class.
-	 * <!-- begin-user-doc -->
+	 * The number of structural features of the '<em>Item Group</em>' class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_GROUP_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc --> <!--
+	 * The operation id for the '<em>Is Valid</em>' operation. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_GROUP___IS_VALID__DIAGNOSTICCHAIN_MAP = IMOAOPackage.NAMED_OBJECT___IS_VALID__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_GROUP___REMOVE_MESSAGES_BY_OWNER__STRING = IMOAOPackage.NAMED_OBJECT___REMOVE_MESSAGES_BY_OWNER__STRING;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_GROUP___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING = IMOAOPackage.NAMED_OBJECT___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING;
 
 	/**
-	 * The number of operations of the '<em>Item Group</em>' class.
-	 * <!-- begin-user-doc --> <!--
+	 * The number of operations of the '<em>Item Group</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_GROUP_OPERATION_COUNT = IMOAOPackage.NAMED_OBJECT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.internal.OrderImpl <em>Order</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.internal.OrderImpl
+	 * <em>Order</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.OrderImpl
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getOrder()
 	 * @generated
@@ -904,36 +915,36 @@ public interface ShopPackage extends EPackage {
 	int ORDER__FACETS = IMOAOPackage.MOAO__FACETS;
 
 	/**
-	 * The feature id for the '<em><b>Shop</b></em>' container reference.
-	 * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Shop</b></em>' container reference. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int ORDER__SHOP = IMOAOPackage.MOAO_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>No</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>No</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int ORDER__NO = IMOAOPackage.MOAO_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Customer</b></em>' reference.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Customer</b></em>' reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int ORDER__CUSTOMER = IMOAOPackage.MOAO_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Price</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Price</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -949,62 +960,64 @@ public interface ShopPackage extends EPackage {
 	int ORDER__ITEMS = IMOAOPackage.MOAO_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Discount</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Discount</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int ORDER__DISCOUNT = IMOAOPackage.MOAO_FEATURE_COUNT + 5;
 
 	/**
-	 * The number of structural features of the '<em>Order</em>' class.
-	 * <!-- begin-user-doc --> <!--
+	 * The number of structural features of the '<em>Order</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int ORDER_FEATURE_COUNT = IMOAOPackage.MOAO_FEATURE_COUNT + 6;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc --> <!--
+	 * The operation id for the '<em>Is Valid</em>' operation. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int ORDER___IS_VALID__DIAGNOSTICCHAIN_MAP = IMOAOPackage.MOAO___IS_VALID__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int ORDER___REMOVE_MESSAGES_BY_OWNER__STRING = IMOAOPackage.MOAO___REMOVE_MESSAGES_BY_OWNER__STRING;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int ORDER___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING = IMOAOPackage.MOAO___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING;
 
 	/**
-	 * The number of operations of the '<em>Order</em>' class.
-	 * <!-- begin-user-doc --> <!--
+	 * The number of operations of the '<em>Order</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int ORDER_OPERATION_COUNT = IMOAOPackage.MOAO_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.internal.OrderItemImpl <em>Order Item</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.tests.shop.internal.OrderItemImpl <em>Order Item</em>}'
+	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.OrderItemImpl
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getOrderItem()
 	 * @generated
@@ -1021,98 +1034,99 @@ public interface ShopPackage extends EPackage {
 	int ORDER_ITEM__FACETS = IMOAOPackage.MOAO__FACETS;
 
 	/**
-	 * The feature id for the '<em><b>Order</b></em>' container reference.
-	 * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Order</b></em>' container reference. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int ORDER_ITEM__ORDER = IMOAOPackage.MOAO_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>No</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>No</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int ORDER_ITEM__NO = IMOAOPackage.MOAO_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Item</b></em>' reference.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Item</b></em>' reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int ORDER_ITEM__ITEM = IMOAOPackage.MOAO_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Count</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Count</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int ORDER_ITEM__COUNT = IMOAOPackage.MOAO_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int ORDER_ITEM__ID = IMOAOPackage.MOAO_FEATURE_COUNT + 4;
 
 	/**
-	 * The number of structural features of the '<em>Order Item</em>' class.
-	 * <!-- begin-user-doc -->
+	 * The number of structural features of the '<em>Order Item</em>' class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int ORDER_ITEM_FEATURE_COUNT = IMOAOPackage.MOAO_FEATURE_COUNT + 5;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc --> <!--
+	 * The operation id for the '<em>Is Valid</em>' operation. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int ORDER_ITEM___IS_VALID__DIAGNOSTICCHAIN_MAP = IMOAOPackage.MOAO___IS_VALID__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int ORDER_ITEM___REMOVE_MESSAGES_BY_OWNER__STRING = IMOAOPackage.MOAO___REMOVE_MESSAGES_BY_OWNER__STRING;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int ORDER_ITEM___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING = IMOAOPackage.MOAO___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING;
 
 	/**
-	 * The number of operations of the '<em>Order Item</em>' class.
-	 * <!-- begin-user-doc --> <!--
+	 * The number of operations of the '<em>Order Item</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int ORDER_ITEM_OPERATION_COUNT = IMOAOPackage.MOAO_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.internal.ContactImpl <em>Contact</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.internal.ContactImpl
+	 * <em>Contact</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ContactImpl
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getContact()
 	 * @generated
@@ -1129,152 +1143,153 @@ public interface ShopPackage extends EPackage {
 	int CONTACT__FACETS = IMOAOPackage.NAMED_OBJECT__FACETS;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CONTACT__NAME = IMOAOPackage.NAMED_OBJECT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CONTACT__DESCRIPTION = IMOAOPackage.NAMED_OBJECT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CONTACT__UUID = IMOAOPackage.NAMED_OBJECT__UUID;
 
 	/**
-	 * The feature id for the '<em><b>Shop</b></em>' container reference.
-	 * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Shop</b></em>' container reference. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CONTACT__SHOP = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Address</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Address</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CONTACT__ADDRESS = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>City</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>City</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CONTACT__CITY = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Zip</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Zip</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CONTACT__ZIP = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Country</b></em>' reference.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Country</b></em>' reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CONTACT__COUNTRY = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Customer</b></em>' reference.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Customer</b></em>' reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CONTACT__CUSTOMER = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Newsletter</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Newsletter</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CONTACT__NEWSLETTER = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Birthday</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Birthday</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CONTACT__BIRTHDAY = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 7;
 
 	/**
-	 * The number of structural features of the '<em>Contact</em>' class.
-	 * <!-- begin-user-doc -->
+	 * The number of structural features of the '<em>Contact</em>' class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CONTACT_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 8;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc --> <!--
+	 * The operation id for the '<em>Is Valid</em>' operation. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CONTACT___IS_VALID__DIAGNOSTICCHAIN_MAP = IMOAOPackage.NAMED_OBJECT___IS_VALID__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CONTACT___REMOVE_MESSAGES_BY_OWNER__STRING = IMOAOPackage.NAMED_OBJECT___REMOVE_MESSAGES_BY_OWNER__STRING;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CONTACT___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING = IMOAOPackage.NAMED_OBJECT___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING;
 
 	/**
-	 * The number of operations of the '<em>Contact</em>' class.
-	 * <!-- begin-user-doc --> <!--
+	 * The number of operations of the '<em>Contact</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CONTACT_OPERATION_COUNT = IMOAOPackage.NAMED_OBJECT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.internal.CountryImpl <em>Country</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.internal.CountryImpl
+	 * <em>Country</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.CountryImpl
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getCountry()
 	 * @generated
@@ -1291,54 +1306,54 @@ public interface ShopPackage extends EPackage {
 	int COUNTRY__FACETS = IMOAOPackage.NAMED_OBJECT__FACETS;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int COUNTRY__NAME = IMOAOPackage.NAMED_OBJECT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int COUNTRY__DESCRIPTION = IMOAOPackage.NAMED_OBJECT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int COUNTRY__UUID = IMOAOPackage.NAMED_OBJECT__UUID;
 
 	/**
-	 * The feature id for the '<em><b>Shop</b></em>' container reference.
-	 * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Shop</b></em>' container reference. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int COUNTRY__SHOP = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Abbreviation</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Abbreviation</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int COUNTRY__ABBREVIATION = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Contacts</b></em>' reference list.
-	 * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Contacts</b></em>' reference list. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1354,71 +1369,73 @@ public interface ShopPackage extends EPackage {
 	int COUNTRY__INFORMATION = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of structural features of the '<em>Country</em>' class.
-	 * <!-- begin-user-doc -->
+	 * The number of structural features of the '<em>Country</em>' class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int COUNTRY_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc --> <!--
+	 * The operation id for the '<em>Is Valid</em>' operation. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int COUNTRY___IS_VALID__DIAGNOSTICCHAIN_MAP = IMOAOPackage.NAMED_OBJECT___IS_VALID__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int COUNTRY___REMOVE_MESSAGES_BY_OWNER__STRING = IMOAOPackage.NAMED_OBJECT___REMOVE_MESSAGES_BY_OWNER__STRING;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int COUNTRY___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING = IMOAOPackage.NAMED_OBJECT___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING;
 
 	/**
-	 * The operation id for the '<em>Abbreviation Length OK</em>' operation.
-	 * <!-- begin-user-doc -->
+	 * The operation id for the '<em>Abbreviation Length OK</em>' operation. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int COUNTRY___ABBREVIATION_LENGTH_OK__DIAGNOSTICCHAIN_MAP = IMOAOPackage.NAMED_OBJECT_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Abbreviation Case OK</em>' operation.
-	 * <!-- begin-user-doc -->
+	 * The operation id for the '<em>Abbreviation Case OK</em>' operation. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int COUNTRY___ABBREVIATION_CASE_OK__DIAGNOSTICCHAIN_MAP = IMOAOPackage.NAMED_OBJECT_OPERATION_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Country</em>' class.
-	 * <!-- begin-user-doc --> <!--
+	 * The number of operations of the '<em>Country</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int COUNTRY_OPERATION_COUNT = IMOAOPackage.NAMED_OBJECT_OPERATION_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.internal.CountryInfoImpl <em>Country Info</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.tests.shop.internal.CountryInfoImpl <em>Country Info</em>}'
+	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.CountryInfoImpl
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getCountryInfo()
 	 * @generated
@@ -1435,71 +1452,73 @@ public interface ShopPackage extends EPackage {
 	int COUNTRY_INFO__FACETS = IMOAOPackage.MOAO__FACETS;
 
 	/**
-	 * The feature id for the '<em><b>Population</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Population</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int COUNTRY_INFO__POPULATION = IMOAOPackage.MOAO_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Currency</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Currency</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int COUNTRY_INFO__CURRENCY = IMOAOPackage.MOAO_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Country Info</em>' class.
-	 * <!-- begin-user-doc
+	 * The number of structural features of the '<em>Country Info</em>' class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int COUNTRY_INFO_FEATURE_COUNT = IMOAOPackage.MOAO_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc --> <!--
+	 * The operation id for the '<em>Is Valid</em>' operation. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int COUNTRY_INFO___IS_VALID__DIAGNOSTICCHAIN_MAP = IMOAOPackage.MOAO___IS_VALID__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int COUNTRY_INFO___REMOVE_MESSAGES_BY_OWNER__STRING = IMOAOPackage.MOAO___REMOVE_MESSAGES_BY_OWNER__STRING;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int COUNTRY_INFO___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING = IMOAOPackage.MOAO___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING;
 
 	/**
-	 * The number of operations of the '<em>Country Info</em>' class.
-	 * <!-- begin-user-doc --> <!--
+	 * The number of operations of the '<em>Country Info</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int COUNTRY_INFO_OPERATION_COUNT = IMOAOPackage.MOAO_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemInformationImpl <em>Item Information</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemInformationImpl
+	 * <em>Item Information</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopItemInformationImpl
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getShopItemInformation()
 	 * @generated
@@ -1525,44 +1544,46 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM_INFORMATION_FEATURE_COUNT = IMOAOPackage.MOAO_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc --> <!--
+	 * The operation id for the '<em>Is Valid</em>' operation. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_INFORMATION___IS_VALID__DIAGNOSTICCHAIN_MAP = IMOAOPackage.MOAO___IS_VALID__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_INFORMATION___REMOVE_MESSAGES_BY_OWNER__STRING = IMOAOPackage.MOAO___REMOVE_MESSAGES_BY_OWNER__STRING;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_INFORMATION___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING = IMOAOPackage.MOAO___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING;
 
 	/**
-	 * The number of operations of the '<em>Item Information</em>' class.
-	 * <!-- begin-user-doc -->
+	 * The number of operations of the '<em>Item Information</em>' class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_INFORMATION_OPERATION_COUNT = IMOAOPackage.MOAO_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemDescriptionImpl <em>Item Description</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemDescriptionImpl
+	 * <em>Item Description</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopItemDescriptionImpl
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getShopItemDescription()
 	 * @generated
@@ -1588,44 +1609,46 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM_DESCRIPTION_FEATURE_COUNT = SHOP_ITEM_INFORMATION_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc --> <!--
+	 * The operation id for the '<em>Is Valid</em>' operation. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_DESCRIPTION___IS_VALID__DIAGNOSTICCHAIN_MAP = SHOP_ITEM_INFORMATION___IS_VALID__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_DESCRIPTION___REMOVE_MESSAGES_BY_OWNER__STRING = SHOP_ITEM_INFORMATION___REMOVE_MESSAGES_BY_OWNER__STRING;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_DESCRIPTION___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING = SHOP_ITEM_INFORMATION___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING;
 
 	/**
-	 * The number of operations of the '<em>Item Description</em>' class.
-	 * <!-- begin-user-doc -->
+	 * The number of operations of the '<em>Item Description</em>' class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_DESCRIPTION_OPERATION_COUNT = SHOP_ITEM_INFORMATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemURLImpl <em>Item URL</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemURLImpl <em>Item URL</em>}'
+	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopItemURLImpl
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getShopItemURL()
 	 * @generated
@@ -1642,62 +1665,64 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM_URL__FACETS = SHOP_ITEM_INFORMATION__FACETS;
 
 	/**
-	 * The feature id for the '<em><b>Url</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Url</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_URL__URL = SHOP_ITEM_INFORMATION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Item URL</em>' class.
-	 * <!-- begin-user-doc -->
+	 * The number of structural features of the '<em>Item URL</em>' class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_URL_FEATURE_COUNT = SHOP_ITEM_INFORMATION_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc --> <!--
+	 * The operation id for the '<em>Is Valid</em>' operation. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_URL___IS_VALID__DIAGNOSTICCHAIN_MAP = SHOP_ITEM_INFORMATION___IS_VALID__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_URL___REMOVE_MESSAGES_BY_OWNER__STRING = SHOP_ITEM_INFORMATION___REMOVE_MESSAGES_BY_OWNER__STRING;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_URL___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING = SHOP_ITEM_INFORMATION___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING;
 
 	/**
-	 * The number of operations of the '<em>Item URL</em>' class.
-	 * <!-- begin-user-doc --> <!--
+	 * The number of operations of the '<em>Item URL</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ITEM_URL_OPERATION_COUNT = SHOP_ITEM_INFORMATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.internal.ShopInformationImpl <em>Information</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.tests.shop.internal.ShopInformationImpl
+	 * <em>Information</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopInformationImpl
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getShopInformation()
 	 * @generated
@@ -1714,89 +1739,90 @@ public interface ShopPackage extends EPackage {
 	int SHOP_INFORMATION__FACETS = IMOAOPackage.NAMED_OBJECT__FACETS;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_INFORMATION__NAME = IMOAOPackage.NAMED_OBJECT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_INFORMATION__DESCRIPTION = IMOAOPackage.NAMED_OBJECT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_INFORMATION__UUID = IMOAOPackage.NAMED_OBJECT__UUID;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Value</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_INFORMATION__VALUE = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Information</em>' class.
-	 * <!-- begin-user-doc
+	 * The number of structural features of the '<em>Information</em>' class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_INFORMATION_FEATURE_COUNT = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc --> <!--
+	 * The operation id for the '<em>Is Valid</em>' operation. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_INFORMATION___IS_VALID__DIAGNOSTICCHAIN_MAP = IMOAOPackage.NAMED_OBJECT___IS_VALID__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_INFORMATION___REMOVE_MESSAGES_BY_OWNER__STRING = IMOAOPackage.NAMED_OBJECT___REMOVE_MESSAGES_BY_OWNER__STRING;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_INFORMATION___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING = IMOAOPackage.NAMED_OBJECT___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING;
 
 	/**
-	 * The number of operations of the '<em>Information</em>' class.
-	 * <!-- begin-user-doc --> <!--
+	 * The number of operations of the '<em>Information</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_INFORMATION_OPERATION_COUNT = IMOAOPackage.NAMED_OBJECT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.internal.ShopURLImpl <em>URL</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.internal.ShopURLImpl
+	 * <em>URL</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopURLImpl
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getShopURL()
 	 * @generated
@@ -1813,98 +1839,100 @@ public interface ShopPackage extends EPackage {
 	int SHOP_URL__FACETS = SHOP_INFORMATION__FACETS;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_URL__NAME = SHOP_INFORMATION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_URL__DESCRIPTION = SHOP_INFORMATION__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_URL__UUID = SHOP_INFORMATION__UUID;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Value</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_URL__VALUE = SHOP_INFORMATION__VALUE;
 
 	/**
-	 * The feature id for the '<em><b>Url</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Url</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_URL__URL = SHOP_INFORMATION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>URL</em>' class.
-	 * <!-- begin-user-doc --> <!--
+	 * The number of structural features of the '<em>URL</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_URL_FEATURE_COUNT = SHOP_INFORMATION_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc --> <!--
+	 * The operation id for the '<em>Is Valid</em>' operation. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_URL___IS_VALID__DIAGNOSTICCHAIN_MAP = SHOP_INFORMATION___IS_VALID__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_URL___REMOVE_MESSAGES_BY_OWNER__STRING = SHOP_INFORMATION___REMOVE_MESSAGES_BY_OWNER__STRING;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_URL___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING = SHOP_INFORMATION___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING;
 
 	/**
-	 * The number of operations of the '<em>URL</em>' class.
-	 * <!-- begin-user-doc --> <!--
+	 * The number of operations of the '<em>URL</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_URL_OPERATION_COUNT = SHOP_INFORMATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.internal.ShopAddressImpl <em>Address</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '
+	 * {@link com.rcpcompany.uibindings.tests.shop.internal.ShopAddressImpl <em>Address</em>}'
+	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopAddressImpl
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getShopAddress()
 	 * @generated
@@ -1921,98 +1949,99 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ADDRESS__FACETS = SHOP_INFORMATION__FACETS;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ADDRESS__NAME = SHOP_INFORMATION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ADDRESS__DESCRIPTION = SHOP_INFORMATION__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Uuid</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Uuid</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ADDRESS__UUID = SHOP_INFORMATION__UUID;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Value</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ADDRESS__VALUE = SHOP_INFORMATION__VALUE;
 
 	/**
-	 * The feature id for the '<em><b>Url</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Url</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ADDRESS__URL = SHOP_INFORMATION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Address</em>' class.
-	 * <!-- begin-user-doc -->
+	 * The number of structural features of the '<em>Address</em>' class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ADDRESS_FEATURE_COUNT = SHOP_INFORMATION_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc --> <!--
+	 * The operation id for the '<em>Is Valid</em>' operation. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ADDRESS___IS_VALID__DIAGNOSTICCHAIN_MAP = SHOP_INFORMATION___IS_VALID__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ADDRESS___REMOVE_MESSAGES_BY_OWNER__STRING = SHOP_INFORMATION___REMOVE_MESSAGES_BY_OWNER__STRING;
 
 	/**
-	 * The operation id for the '<em>Remove Messages By Owner</em>' operation.
-	 * <!-- begin-user-doc
+	 * The operation id for the '<em>Remove Messages By Owner</em>' operation. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ADDRESS___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING = SHOP_INFORMATION___REMOVE_MESSAGES_BY_OWNER__ESTRUCTURALFEATURE_STRING;
 
 	/**
-	 * The number of operations of the '<em>Address</em>' class.
-	 * <!-- begin-user-doc --> <!--
+	 * The number of operations of the '<em>Address</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SHOP_ADDRESS_OPERATION_COUNT = SHOP_INFORMATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.CustomerType <em>Customer Type</em>}' enum.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link com.rcpcompany.uibindings.tests.shop.CustomerType
+	 * <em>Customer Type</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see com.rcpcompany.uibindings.tests.shop.CustomerType
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getCustomerType()
 	 * @generated
@@ -2020,9 +2049,9 @@ public interface ShopPackage extends EPackage {
 	int CUSTOMER_TYPE = 17;
 
 	/**
-	 * The meta object id for the '<em>EDiagnostic Chain</em>' data type.
-	 * <!-- begin-user-doc -->
+	 * The meta object id for the '<em>EDiagnostic Chain</em>' data type. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see org.eclipse.emf.common.util.DiagnosticChain
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getEDiagnosticChain()
 	 * @generated
@@ -2030,9 +2059,9 @@ public interface ShopPackage extends EPackage {
 	int EDIAGNOSTIC_CHAIN = 18;
 
 	/**
-	 * The meta object id for the '<em>EMap</em>' data type.
-	 * <!-- begin-user-doc --> <!--
+	 * The meta object id for the '<em>EMap</em>' data type. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see java.util.Map
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getEMap()
 	 * @generated
@@ -2040,9 +2069,9 @@ public interface ShopPackage extends EPackage {
 	int EMAP = 19;
 
 	/**
-	 * The meta object id for the '<em>EDate</em>' data type.
-	 * <!-- begin-user-doc --> <!--
+	 * The meta object id for the '<em>EDate</em>' data type. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see java.util.Date
 	 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getEDate()
 	 * @generated
@@ -2050,8 +2079,9 @@ public interface ShopPackage extends EPackage {
 	int EDATE = 20;
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.Shop <em>Shop</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.Shop
+	 * <em>Shop</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Shop</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.Shop
 	 * @generated
@@ -2059,8 +2089,10 @@ public interface ShopPackage extends EPackage {
 	EClass getShop();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.tests.shop.Shop#getNextOrderNo <em>Next Order No</em>}'.
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.tests.shop.Shop#getNextOrderNo <em>Next Order No</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the attribute '<em>Next Order No</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.Shop#getNextOrderNo()
 	 * @see #getShop()
@@ -2069,8 +2101,10 @@ public interface ShopPackage extends EPackage {
 	EAttribute getShop_NextOrderNo();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.tests.shop.Shop#getNextCustomerNo <em>Next Customer No</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.tests.shop.Shop#getNextCustomerNo <em>Next Customer No</em>}
+	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the attribute '<em>Next Customer No</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.Shop#getNextCustomerNo()
 	 * @see #getShop()
@@ -2151,8 +2185,10 @@ public interface ShopPackage extends EPackage {
 	EReference getShop_Customers();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.rcpcompany.uibindings.tests.shop.Shop#getCustomerGroups <em>Customer Groups</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the containment reference list '
+	 * {@link com.rcpcompany.uibindings.tests.shop.Shop#getCustomerGroups <em>Customer Groups</em>}
+	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the containment reference list '<em>Customer Groups</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.Shop#getCustomerGroups()
 	 * @see #getShop()
@@ -2185,8 +2221,9 @@ public interface ShopPackage extends EPackage {
 	EReference getShop_Infos();
 
 	/**
-	 * Returns the meta object for the '{@link com.rcpcompany.uibindings.tests.shop.Shop#save() <em>Save</em>}' operation.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the '{@link com.rcpcompany.uibindings.tests.shop.Shop#save()
+	 * <em>Save</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the '<em>Save</em>' operation.
 	 * @see com.rcpcompany.uibindings.tests.shop.Shop#save()
 	 * @generated
@@ -2194,17 +2231,21 @@ public interface ShopPackage extends EPackage {
 	EOperation getShop__Save();
 
 	/**
-	 * Returns the meta object for the '{@link com.rcpcompany.uibindings.tests.shop.Shop#nameLengthOK(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Name Length OK</em>}' operation.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the '
+	 * {@link com.rcpcompany.uibindings.tests.shop.Shop#nameLengthOK(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * <em>Name Length OK</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the '<em>Name Length OK</em>' operation.
-	 * @see com.rcpcompany.uibindings.tests.shop.Shop#nameLengthOK(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @see com.rcpcompany.uibindings.tests.shop.Shop#nameLengthOK(org.eclipse.emf.common.util.DiagnosticChain,
+	 *      java.util.Map)
 	 * @generated
 	 */
 	EOperation getShop__NameLengthOK__DiagnosticChain_Map();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.Customer <em>Customer</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.Customer
+	 * <em>Customer</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Customer</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.Customer
 	 * @generated
@@ -2260,8 +2301,10 @@ public interface ShopPackage extends EPackage {
 	EAttribute getCustomer_Loyalty();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.tests.shop.Customer#getLogoFileName <em>Logo File Name</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.tests.shop.Customer#getLogoFileName <em>Logo File Name</em>}
+	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the attribute '<em>Logo File Name</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.Customer#getLogoFileName()
 	 * @see #getCustomer()
@@ -2270,8 +2313,9 @@ public interface ShopPackage extends EPackage {
 	EAttribute getCustomer_LogoFileName();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.CustomerGroup <em>Customer Group</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.CustomerGroup
+	 * <em>Customer Group</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Customer Group</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.CustomerGroup
 	 * @generated
@@ -2291,8 +2335,10 @@ public interface ShopPackage extends EPackage {
 	EReference getCustomerGroup_Shop();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.rcpcompany.uibindings.tests.shop.CustomerGroup#getCustomers <em>Customers</em>}'.
+	 * Returns the meta object for the reference list '
+	 * {@link com.rcpcompany.uibindings.tests.shop.CustomerGroup#getCustomers <em>Customers</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the reference list '<em>Customers</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.CustomerGroup#getCustomers()
 	 * @see #getCustomerGroup()
@@ -2301,8 +2347,9 @@ public interface ShopPackage extends EPackage {
 	EReference getCustomerGroup_Customers();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.ShopItem <em>Item</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.ShopItem
+	 * <em>Item</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Item</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopItem
 	 * @generated
@@ -2334,8 +2381,10 @@ public interface ShopPackage extends EPackage {
 	EAttribute getShopItem_Price();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getAdvancedPrice <em>Advanced Price</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItem#getAdvancedPrice
+	 * <em>Advanced Price</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the attribute '<em>Advanced Price</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopItem#getAdvancedPrice()
 	 * @see #getShopItem()
@@ -2344,8 +2393,10 @@ public interface ShopPackage extends EPackage {
 	EAttribute getShopItem_AdvancedPrice();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getOrderItems <em>Order Items</em>}'.
+	 * Returns the meta object for the reference list '
+	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItem#getOrderItems <em>Order Items</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the reference list '<em>Order Items</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopItem#getOrderItems()
 	 * @see #getShopItem()
@@ -2366,8 +2417,10 @@ public interface ShopPackage extends EPackage {
 	EAttribute getShopItem_ForSale();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getInformation <em>Information</em>}'.
+	 * Returns the meta object for the reference '
+	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItem#getInformation <em>Information</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the reference '<em>Information</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopItem#getInformation()
 	 * @see #getShopItem()
@@ -2400,8 +2453,10 @@ public interface ShopPackage extends EPackage {
 	EAttribute getShopItem_Locations();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getProperties <em>Properties</em>}'.
+	 * Returns the meta object for the containment reference list '
+	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItem#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the containment reference list '<em>Properties</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopItem#getProperties()
 	 * @see #getShopItem()
@@ -2410,26 +2465,34 @@ public interface ShopPackage extends EPackage {
 	EReference getShopItem_Properties();
 
 	/**
-	 * Returns the meta object for the '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#namePriceOK(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Name Price OK</em>}' operation.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the '
+	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItem#namePriceOK(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * <em>Name Price OK</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the '<em>Name Price OK</em>' operation.
-	 * @see com.rcpcompany.uibindings.tests.shop.ShopItem#namePriceOK(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopItem#namePriceOK(org.eclipse.emf.common.util.DiagnosticChain,
+	 *      java.util.Map)
 	 * @generated
 	 */
 	EOperation getShopItem__NamePriceOK__DiagnosticChain_Map();
 
 	/**
-	 * Returns the meta object for the '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#nameOK(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Name OK</em>}' operation.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the '
+	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItem#nameOK(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * <em>Name OK</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the '<em>Name OK</em>' operation.
-	 * @see com.rcpcompany.uibindings.tests.shop.ShopItem#nameOK(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopItem#nameOK(org.eclipse.emf.common.util.DiagnosticChain,
+	 *      java.util.Map)
 	 * @generated
 	 */
 	EOperation getShopItem__NameOK__DiagnosticChain_Map();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.ShopItemProperties <em>Item Properties</em>}'.
+	 * Returns the meta object for class '
+	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItemProperties <em>Item Properties</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Item Properties</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopItemProperties
 	 * @generated
@@ -2449,8 +2512,10 @@ public interface ShopPackage extends EPackage {
 	EReference getShopItemProperties_Item();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.tests.shop.ShopItemProperties#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItemProperties#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the attribute '<em>Value</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopItemProperties#getValue()
 	 * @see #getShopItemProperties()
@@ -2459,8 +2524,9 @@ public interface ShopPackage extends EPackage {
 	EAttribute getShopItemProperties_Value();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.ShopItemGroup <em>Item Group</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.ShopItemGroup
+	 * <em>Item Group</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Item Group</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopItemGroup
 	 * @generated
@@ -2492,8 +2558,9 @@ public interface ShopPackage extends EPackage {
 	EReference getShopItemGroup_Items();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.Order <em>Order</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.Order
+	 * <em>Order</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Order</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.Order
 	 * @generated
@@ -2513,9 +2580,10 @@ public interface ShopPackage extends EPackage {
 	EReference getOrder_Shop();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.tests.shop.Order#getNo <em>No</em>}'.
-	 * <!-- begin-user-doc
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.tests.shop.Order#getNo <em>No</em>}'. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the attribute '<em>No</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.Order#getNo()
 	 * @see #getOrder()
@@ -2572,8 +2640,9 @@ public interface ShopPackage extends EPackage {
 	EAttribute getOrder_Discount();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.OrderItem <em>Order Item</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.OrderItem
+	 * <em>Order Item</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Order Item</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.OrderItem
 	 * @generated
@@ -2641,8 +2710,9 @@ public interface ShopPackage extends EPackage {
 	EAttribute getOrderItem_Id();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.Contact <em>Contact</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.Contact
+	 * <em>Contact</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Contact</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.Contact
 	 * @generated
@@ -2746,8 +2816,9 @@ public interface ShopPackage extends EPackage {
 	EAttribute getContact_Birthday();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.Country <em>Country</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.Country
+	 * <em>Country</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Country</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.Country
 	 * @generated
@@ -2767,8 +2838,10 @@ public interface ShopPackage extends EPackage {
 	EReference getCountry_Shop();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.tests.shop.Country#getAbbreviation <em>Abbreviation</em>}'.
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.tests.shop.Country#getAbbreviation <em>Abbreviation</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the attribute '<em>Abbreviation</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.Country#getAbbreviation()
 	 * @see #getCountry()
@@ -2789,8 +2862,10 @@ public interface ShopPackage extends EPackage {
 	EReference getCountry_Contacts();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.rcpcompany.uibindings.tests.shop.Country#getInformation <em>Information</em>}'.
+	 * Returns the meta object for the containment reference '
+	 * {@link com.rcpcompany.uibindings.tests.shop.Country#getInformation <em>Information</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the containment reference '<em>Information</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.Country#getInformation()
 	 * @see #getCountry()
@@ -2799,26 +2874,33 @@ public interface ShopPackage extends EPackage {
 	EReference getCountry_Information();
 
 	/**
-	 * Returns the meta object for the '{@link com.rcpcompany.uibindings.tests.shop.Country#abbreviationLengthOK(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Abbreviation Length OK</em>}' operation.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the '
+	 * {@link com.rcpcompany.uibindings.tests.shop.Country#abbreviationLengthOK(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * <em>Abbreviation Length OK</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the '<em>Abbreviation Length OK</em>' operation.
-	 * @see com.rcpcompany.uibindings.tests.shop.Country#abbreviationLengthOK(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @see com.rcpcompany.uibindings.tests.shop.Country#abbreviationLengthOK(org.eclipse.emf.common.util.DiagnosticChain,
+	 *      java.util.Map)
 	 * @generated
 	 */
 	EOperation getCountry__AbbreviationLengthOK__DiagnosticChain_Map();
 
 	/**
-	 * Returns the meta object for the '{@link com.rcpcompany.uibindings.tests.shop.Country#abbreviationCaseOK(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Abbreviation Case OK</em>}' operation.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the '
+	 * {@link com.rcpcompany.uibindings.tests.shop.Country#abbreviationCaseOK(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * <em>Abbreviation Case OK</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the '<em>Abbreviation Case OK</em>' operation.
-	 * @see com.rcpcompany.uibindings.tests.shop.Country#abbreviationCaseOK(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @see com.rcpcompany.uibindings.tests.shop.Country#abbreviationCaseOK(org.eclipse.emf.common.util.DiagnosticChain,
+	 *      java.util.Map)
 	 * @generated
 	 */
 	EOperation getCountry__AbbreviationCaseOK__DiagnosticChain_Map();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.CountryInfo <em>Country Info</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.CountryInfo
+	 * <em>Country Info</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Country Info</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.CountryInfo
 	 * @generated
@@ -2826,8 +2908,10 @@ public interface ShopPackage extends EPackage {
 	EClass getCountryInfo();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.rcpcompany.uibindings.tests.shop.CountryInfo#getPopulation <em>Population</em>}'.
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.tests.shop.CountryInfo#getPopulation <em>Population</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the attribute '<em>Population</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.CountryInfo#getPopulation()
 	 * @see #getCountryInfo()
@@ -2848,8 +2932,10 @@ public interface ShopPackage extends EPackage {
 	EAttribute getCountryInfo_Currency();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.ShopItemInformation <em>Item Information</em>}'.
+	 * Returns the meta object for class '
+	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItemInformation <em>Item Information</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Item Information</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopItemInformation
 	 * @generated
@@ -2857,8 +2943,10 @@ public interface ShopPackage extends EPackage {
 	EClass getShopItemInformation();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.ShopItemDescription <em>Item Description</em>}'.
+	 * Returns the meta object for class '
+	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItemDescription <em>Item Description</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Item Description</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopItemDescription
 	 * @generated
@@ -2866,8 +2954,9 @@ public interface ShopPackage extends EPackage {
 	EClass getShopItemDescription();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.ShopItemURL <em>Item URL</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.ShopItemURL
+	 * <em>Item URL</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Item URL</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopItemURL
 	 * @generated
@@ -2910,8 +2999,9 @@ public interface ShopPackage extends EPackage {
 	EAttribute getShopInformation_Value();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.ShopURL <em>URL</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.ShopURL
+	 * <em>URL</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>URL</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopURL
 	 * @generated
@@ -2931,8 +3021,9 @@ public interface ShopPackage extends EPackage {
 	EAttribute getShopURL_Url();
 
 	/**
-	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.ShopAddress <em>Address</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.ShopAddress
+	 * <em>Address</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Address</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopAddress
 	 * @generated
@@ -2952,8 +3043,9 @@ public interface ShopPackage extends EPackage {
 	EAttribute getShopAddress_Url();
 
 	/**
-	 * Returns the meta object for enum '{@link com.rcpcompany.uibindings.tests.shop.CustomerType <em>Customer Type</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for enum '{@link com.rcpcompany.uibindings.tests.shop.CustomerType
+	 * <em>Customer Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for enum '<em>Customer Type</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.CustomerType
 	 * @generated
@@ -2961,8 +3053,9 @@ public interface ShopPackage extends EPackage {
 	EEnum getCustomerType();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.emf.common.util.DiagnosticChain <em>EDiagnostic Chain</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for data type '{@link org.eclipse.emf.common.util.DiagnosticChain
+	 * <em>EDiagnostic Chain</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for data type '<em>EDiagnostic Chain</em>'.
 	 * @see org.eclipse.emf.common.util.DiagnosticChain
 	 * @generated
@@ -2990,9 +3083,9 @@ public interface ShopPackage extends EPackage {
 	EDataType getEDate();
 
 	/**
-	 * Returns the factory that creates the instances of the model.
-	 * <!-- begin-user-doc --> <!--
+	 * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
@@ -3008,6 +3101,7 @@ public interface ShopPackage extends EPackage {
 	 * <li>and each data type</li>
 	 * </ul>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	interface Literals {
@@ -3033,6 +3127,7 @@ public interface ShopPackage extends EPackage {
 		/**
 		 * The meta object literal for the '<em><b>Next Customer No</b></em>' attribute feature.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EAttribute SHOP__NEXT_CUSTOMER_NO = eINSTANCE.getShop_NextCustomerNo();
@@ -3046,65 +3141,73 @@ public interface ShopPackage extends EPackage {
 		EAttribute SHOP__TMP_DIR = eINSTANCE.getShop_TmpDir();
 
 		/**
-		 * The meta object literal for the '<em><b>Countries</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Countries</b></em>' containment reference list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EReference SHOP__COUNTRIES = eINSTANCE.getShop_Countries();
 
 		/**
-		 * The meta object literal for the '<em><b>Contacts</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Contacts</b></em>' containment reference list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EReference SHOP__CONTACTS = eINSTANCE.getShop_Contacts();
 
 		/**
-		 * The meta object literal for the '<em><b>Shop Items</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Shop Items</b></em>' containment reference list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EReference SHOP__SHOP_ITEMS = eINSTANCE.getShop_ShopItems();
 
 		/**
-		 * The meta object literal for the '<em><b>Orders</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Orders</b></em>' containment reference list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EReference SHOP__ORDERS = eINSTANCE.getShop_Orders();
 
 		/**
-		 * The meta object literal for the '<em><b>Customers</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Customers</b></em>' containment reference list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EReference SHOP__CUSTOMERS = eINSTANCE.getShop_Customers();
 
 		/**
-		 * The meta object literal for the '<em><b>Customer Groups</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Customer Groups</b></em>' containment reference
+		 * list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EReference SHOP__CUSTOMER_GROUPS = eINSTANCE.getShop_CustomerGroups();
 
 		/**
-		 * The meta object literal for the '<em><b>Shop Groups</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Shop Groups</b></em>' containment reference list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EReference SHOP__SHOP_GROUPS = eINSTANCE.getShop_ShopGroups();
 
 		/**
-		 * The meta object literal for the '<em><b>Infos</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Infos</b></em>' containment reference list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EReference SHOP__INFOS = eINSTANCE.getShop_Infos();
 
 		/**
-		 * The meta object literal for the '<em><b>Save</b></em>' operation.
-		 * <!-- begin-user-doc -->
+		 * The meta object literal for the '<em><b>Save</b></em>' operation. <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EOperation SHOP___SAVE = eINSTANCE.getShop__Save();
@@ -3118,8 +3221,10 @@ public interface ShopPackage extends EPackage {
 		EOperation SHOP___NAME_LENGTH_OK__DIAGNOSTICCHAIN_MAP = eINSTANCE.getShop__NameLengthOK__DiagnosticChain_Map();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.tests.shop.internal.CustomerImpl <em>Customer</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.tests.shop.internal.CustomerImpl <em>Customer</em>}'
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.CustomerImpl
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getCustomer()
 		 * @generated
@@ -3167,8 +3272,10 @@ public interface ShopPackage extends EPackage {
 		EAttribute CUSTOMER__LOGO_FILE_NAME = eINSTANCE.getCustomer_LogoFileName();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.tests.shop.internal.CustomerGroupImpl <em>Customer Group</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.tests.shop.internal.CustomerGroupImpl
+		 * <em>Customer Group</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.CustomerGroupImpl
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getCustomerGroup()
 		 * @generated
@@ -3192,8 +3299,10 @@ public interface ShopPackage extends EPackage {
 		EReference CUSTOMER_GROUP__CUSTOMERS = eINSTANCE.getCustomerGroup_Customers();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemImpl <em>Item</em>}' class.
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemImpl <em>Item</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopItemImpl
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getShopItem()
 		 * @generated
@@ -3227,6 +3336,7 @@ public interface ShopPackage extends EPackage {
 		/**
 		 * The meta object literal for the '<em><b>Order Items</b></em>' reference list feature.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EReference SHOP_ITEM__ORDER_ITEMS = eINSTANCE.getShopItem_OrderItems();
@@ -3264,8 +3374,9 @@ public interface ShopPackage extends EPackage {
 		EAttribute SHOP_ITEM__LOCATIONS = eINSTANCE.getShopItem_Locations();
 
 		/**
-		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EReference SHOP_ITEM__PROPERTIES = eINSTANCE.getShopItem_Properties();
@@ -3280,16 +3391,18 @@ public interface ShopPackage extends EPackage {
 				.getShopItem__NamePriceOK__DiagnosticChain_Map();
 
 		/**
-		 * The meta object literal for the '<em><b>Name OK</b></em>' operation.
-		 * <!-- begin-user-doc
+		 * The meta object literal for the '<em><b>Name OK</b></em>' operation. <!-- begin-user-doc
 		 * --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EOperation SHOP_ITEM___NAME_OK__DIAGNOSTICCHAIN_MAP = eINSTANCE.getShopItem__NameOK__DiagnosticChain_Map();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemPropertiesImpl <em>Item Properties</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemPropertiesImpl
+		 * <em>Item Properties</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopItemPropertiesImpl
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getShopItemProperties()
 		 * @generated
@@ -3313,8 +3426,10 @@ public interface ShopPackage extends EPackage {
 		EAttribute SHOP_ITEM_PROPERTIES__VALUE = eINSTANCE.getShopItemProperties_Value();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemGroupImpl <em>Item Group</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemGroupImpl
+		 * <em>Item Group</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopItemGroupImpl
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getShopItemGroup()
 		 * @generated
@@ -3338,8 +3453,10 @@ public interface ShopPackage extends EPackage {
 		EReference SHOP_ITEM_GROUP__ITEMS = eINSTANCE.getShopItemGroup_Items();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.tests.shop.internal.OrderImpl <em>Order</em>}' class.
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.tests.shop.internal.OrderImpl <em>Order</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.OrderImpl
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getOrder()
 		 * @generated
@@ -3379,8 +3496,9 @@ public interface ShopPackage extends EPackage {
 		EAttribute ORDER__PRICE = eINSTANCE.getOrder_Price();
 
 		/**
-		 * The meta object literal for the '<em><b>Items</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Items</b></em>' containment reference list
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EReference ORDER__ITEMS = eINSTANCE.getOrder_Items();
@@ -3394,8 +3512,10 @@ public interface ShopPackage extends EPackage {
 		EAttribute ORDER__DISCOUNT = eINSTANCE.getOrder_Discount();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.tests.shop.internal.OrderItemImpl <em>Order Item</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.tests.shop.internal.OrderItemImpl <em>Order Item</em>}'
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.OrderItemImpl
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getOrderItem()
 		 * @generated
@@ -3443,8 +3563,10 @@ public interface ShopPackage extends EPackage {
 		EAttribute ORDER_ITEM__ID = eINSTANCE.getOrderItem_Id();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.tests.shop.internal.ContactImpl <em>Contact</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.tests.shop.internal.ContactImpl <em>Contact</em>}'
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ContactImpl
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getContact()
 		 * @generated
@@ -3516,8 +3638,10 @@ public interface ShopPackage extends EPackage {
 		EAttribute CONTACT__BIRTHDAY = eINSTANCE.getContact_Birthday();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.tests.shop.internal.CountryImpl <em>Country</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.tests.shop.internal.CountryImpl <em>Country</em>}'
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.CountryImpl
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getCountry()
 		 * @generated
@@ -3549,8 +3673,9 @@ public interface ShopPackage extends EPackage {
 		EReference COUNTRY__CONTACTS = eINSTANCE.getCountry_Contacts();
 
 		/**
-		 * The meta object literal for the '<em><b>Information</b></em>' containment reference feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Information</b></em>' containment reference
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EReference COUNTRY__INFORMATION = eINSTANCE.getCountry_Information();
@@ -3574,8 +3699,10 @@ public interface ShopPackage extends EPackage {
 				.getCountry__AbbreviationCaseOK__DiagnosticChain_Map();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.tests.shop.internal.CountryInfoImpl <em>Country Info</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.tests.shop.internal.CountryInfoImpl
+		 * <em>Country Info</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.CountryInfoImpl
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getCountryInfo()
 		 * @generated
@@ -3599,8 +3726,10 @@ public interface ShopPackage extends EPackage {
 		EAttribute COUNTRY_INFO__CURRENCY = eINSTANCE.getCountryInfo_Currency();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemInformationImpl <em>Item Information</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemInformationImpl
+		 * <em>Item Information</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopItemInformationImpl
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getShopItemInformation()
 		 * @generated
@@ -3608,8 +3737,10 @@ public interface ShopPackage extends EPackage {
 		EClass SHOP_ITEM_INFORMATION = eINSTANCE.getShopItemInformation();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemDescriptionImpl <em>Item Description</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemDescriptionImpl
+		 * <em>Item Description</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopItemDescriptionImpl
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getShopItemDescription()
 		 * @generated
@@ -3617,8 +3748,10 @@ public interface ShopPackage extends EPackage {
 		EClass SHOP_ITEM_DESCRIPTION = eINSTANCE.getShopItemDescription();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemURLImpl <em>Item URL</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemURLImpl <em>Item URL</em>}'
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopItemURLImpl
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getShopItemURL()
 		 * @generated
@@ -3634,8 +3767,10 @@ public interface ShopPackage extends EPackage {
 		EAttribute SHOP_ITEM_URL__URL = eINSTANCE.getShopItemURL_Url();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.tests.shop.internal.ShopInformationImpl <em>Information</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.tests.shop.internal.ShopInformationImpl
+		 * <em>Information</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopInformationImpl
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getShopInformation()
 		 * @generated
@@ -3651,8 +3786,10 @@ public interface ShopPackage extends EPackage {
 		EAttribute SHOP_INFORMATION__VALUE = eINSTANCE.getShopInformation_Value();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.tests.shop.internal.ShopURLImpl <em>URL</em>}' class.
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.tests.shop.internal.ShopURLImpl <em>URL</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopURLImpl
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getShopURL()
 		 * @generated
@@ -3668,8 +3805,10 @@ public interface ShopPackage extends EPackage {
 		EAttribute SHOP_URL__URL = eINSTANCE.getShopURL_Url();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.tests.shop.internal.ShopAddressImpl <em>Address</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.tests.shop.internal.ShopAddressImpl <em>Address</em>}'
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopAddressImpl
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getShopAddress()
 		 * @generated
@@ -3685,8 +3824,10 @@ public interface ShopPackage extends EPackage {
 		EAttribute SHOP_ADDRESS__URL = eINSTANCE.getShopAddress_Url();
 
 		/**
-		 * The meta object literal for the '{@link com.rcpcompany.uibindings.tests.shop.CustomerType <em>Customer Type</em>}' enum.
+		 * The meta object literal for the '
+		 * {@link com.rcpcompany.uibindings.tests.shop.CustomerType <em>Customer Type</em>}' enum.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see com.rcpcompany.uibindings.tests.shop.CustomerType
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getCustomerType()
 		 * @generated
@@ -3704,9 +3845,9 @@ public interface ShopPackage extends EPackage {
 		EDataType EDIAGNOSTIC_CHAIN = eINSTANCE.getEDiagnosticChain();
 
 		/**
-		 * The meta object literal for the '<em>EMap</em>' data type.
-		 * <!-- begin-user-doc --> <!--
+		 * The meta object literal for the '<em>EMap</em>' data type. <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
+		 * 
 		 * @see java.util.Map
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getEMap()
 		 * @generated
@@ -3714,9 +3855,9 @@ public interface ShopPackage extends EPackage {
 		EDataType EMAP = eINSTANCE.getEMap();
 
 		/**
-		 * The meta object literal for the '<em>EDate</em>' data type.
-		 * <!-- begin-user-doc --> <!--
+		 * The meta object literal for the '<em>EDate</em>' data type. <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
+		 * 
 		 * @see java.util.Date
 		 * @see com.rcpcompany.uibindings.tests.shop.internal.ShopPackageImpl#getEDate()
 		 * @generated

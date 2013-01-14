@@ -26,11 +26,13 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemGroupImpl#getShop <em>Shop</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemGroupImpl#getItems <em>Items</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemGroupImpl#getShop <em>Shop</em>}
+ * </li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemGroupImpl#getItems <em>Items
+ * </em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ShopItemGroupImpl extends NamedObjectImpl implements ShopItemGroup {
@@ -46,6 +48,7 @@ public class ShopItemGroupImpl extends NamedObjectImpl implements ShopItemGroup 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ShopItemGroupImpl() {
@@ -54,6 +57,7 @@ public class ShopItemGroupImpl extends NamedObjectImpl implements ShopItemGroup 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -63,6 +67,7 @@ public class ShopItemGroupImpl extends NamedObjectImpl implements ShopItemGroup 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -73,6 +78,7 @@ public class ShopItemGroupImpl extends NamedObjectImpl implements ShopItemGroup 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetShop(Shop newShop, NotificationChain msgs) {
@@ -82,6 +88,7 @@ public class ShopItemGroupImpl extends NamedObjectImpl implements ShopItemGroup 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -91,17 +98,24 @@ public class ShopItemGroupImpl extends NamedObjectImpl implements ShopItemGroup 
 			if (EcoreUtil.isAncestor(this, newShop))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
-			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
-			if (newShop != null)
+			if (eInternalContainer() != null) {
+				msgs = eBasicRemoveFromContainer(msgs);
+			}
+			if (newShop != null) {
 				msgs = ((InternalEObject) newShop).eInverseAdd(this, ShopPackage.SHOP__SHOP_GROUPS, Shop.class, msgs);
+			}
 			msgs = basicSetShop(newShop, msgs);
-			if (msgs != null) msgs.dispatch();
-		} else if (eNotificationRequired())
+			if (msgs != null) {
+				msgs.dispatch();
+			}
+		} else if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_ITEM_GROUP__SHOP, newShop, newShop));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -115,6 +129,7 @@ public class ShopItemGroupImpl extends NamedObjectImpl implements ShopItemGroup 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -122,7 +137,9 @@ public class ShopItemGroupImpl extends NamedObjectImpl implements ShopItemGroup 
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case ShopPackage.SHOP_ITEM_GROUP__SHOP:
-			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
+			if (eInternalContainer() != null) {
+				msgs = eBasicRemoveFromContainer(msgs);
+			}
 			return basicSetShop((Shop) otherEnd, msgs);
 		case ShopPackage.SHOP_ITEM_GROUP__ITEMS:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getItems()).basicAdd(otherEnd, msgs);
@@ -132,6 +149,7 @@ public class ShopItemGroupImpl extends NamedObjectImpl implements ShopItemGroup 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -147,6 +165,7 @@ public class ShopItemGroupImpl extends NamedObjectImpl implements ShopItemGroup 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -160,6 +179,7 @@ public class ShopItemGroupImpl extends NamedObjectImpl implements ShopItemGroup 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -175,6 +195,7 @@ public class ShopItemGroupImpl extends NamedObjectImpl implements ShopItemGroup 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -194,6 +215,7 @@ public class ShopItemGroupImpl extends NamedObjectImpl implements ShopItemGroup 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -211,6 +233,7 @@ public class ShopItemGroupImpl extends NamedObjectImpl implements ShopItemGroup 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

@@ -15,26 +15,26 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopAddressImpl#getUrl <em>Url</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopAddressImpl#getUrl <em>Url</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ShopAddressImpl extends ShopInformationImpl implements ShopAddress {
 	/**
-	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String URL_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -43,6 +43,7 @@ public class ShopAddressImpl extends ShopInformationImpl implements ShopAddress 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ShopAddressImpl() {
@@ -51,6 +52,7 @@ public class ShopAddressImpl extends ShopInformationImpl implements ShopAddress 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -60,6 +62,7 @@ public class ShopAddressImpl extends ShopInformationImpl implements ShopAddress 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -69,18 +72,21 @@ public class ShopAddressImpl extends ShopInformationImpl implements ShopAddress 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setUrl(String newUrl) {
-		String oldUrl = url;
+		final String oldUrl = url;
 		url = newUrl;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_ADDRESS__URL, oldUrl, url));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -94,6 +100,7 @@ public class ShopAddressImpl extends ShopInformationImpl implements ShopAddress 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -108,6 +115,7 @@ public class ShopAddressImpl extends ShopInformationImpl implements ShopAddress 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -122,6 +130,7 @@ public class ShopAddressImpl extends ShopInformationImpl implements ShopAddress 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -135,13 +144,14 @@ public class ShopAddressImpl extends ShopInformationImpl implements ShopAddress 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (url: "); //$NON-NLS-1$
 		result.append(url);
 		result.append(')');

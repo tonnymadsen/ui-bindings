@@ -20,27 +20,29 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemPropertiesImpl#getItem <em>Item</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemPropertiesImpl#getValue <em>Value</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemPropertiesImpl#getItem <em>Item
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.ShopItemPropertiesImpl#getValue <em>
+ * Value</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ShopItemPropertiesImpl extends NamedObjectImpl implements ShopItemProperties {
 	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String VALUE_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
@@ -49,6 +51,7 @@ public class ShopItemPropertiesImpl extends NamedObjectImpl implements ShopItemP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ShopItemPropertiesImpl() {
@@ -57,6 +60,7 @@ public class ShopItemPropertiesImpl extends NamedObjectImpl implements ShopItemP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -66,6 +70,7 @@ public class ShopItemPropertiesImpl extends NamedObjectImpl implements ShopItemP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -76,6 +81,7 @@ public class ShopItemPropertiesImpl extends NamedObjectImpl implements ShopItemP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetItem(ShopItem newItem, NotificationChain msgs) {
@@ -85,6 +91,7 @@ public class ShopItemPropertiesImpl extends NamedObjectImpl implements ShopItemP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -94,19 +101,26 @@ public class ShopItemPropertiesImpl extends NamedObjectImpl implements ShopItemP
 			if (EcoreUtil.isAncestor(this, newItem))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
-			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
-			if (newItem != null)
+			if (eInternalContainer() != null) {
+				msgs = eBasicRemoveFromContainer(msgs);
+			}
+			if (newItem != null) {
 				msgs = ((InternalEObject) newItem).eInverseAdd(this, ShopPackage.SHOP_ITEM__PROPERTIES, ShopItem.class,
 						msgs);
+			}
 			msgs = basicSetItem(newItem, msgs);
-			if (msgs != null) msgs.dispatch();
-		} else if (eNotificationRequired())
+			if (msgs != null) {
+				msgs.dispatch();
+			}
+		} else if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_ITEM_PROPERTIES__ITEM, newItem,
 					newItem));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -116,26 +130,31 @@ public class ShopItemPropertiesImpl extends NamedObjectImpl implements ShopItemP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setValue(String newValue) {
-		String oldValue = value;
+		final String oldValue = value;
 		value = newValue;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_ITEM_PROPERTIES__VALUE, oldValue,
 					value));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case ShopPackage.SHOP_ITEM_PROPERTIES__ITEM:
-			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
+			if (eInternalContainer() != null) {
+				msgs = eBasicRemoveFromContainer(msgs);
+			}
 			return basicSetItem((ShopItem) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -143,6 +162,7 @@ public class ShopItemPropertiesImpl extends NamedObjectImpl implements ShopItemP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -156,6 +176,7 @@ public class ShopItemPropertiesImpl extends NamedObjectImpl implements ShopItemP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -169,6 +190,7 @@ public class ShopItemPropertiesImpl extends NamedObjectImpl implements ShopItemP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -184,6 +206,7 @@ public class ShopItemPropertiesImpl extends NamedObjectImpl implements ShopItemP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -201,6 +224,7 @@ public class ShopItemPropertiesImpl extends NamedObjectImpl implements ShopItemP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -218,6 +242,7 @@ public class ShopItemPropertiesImpl extends NamedObjectImpl implements ShopItemP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -233,13 +258,14 @@ public class ShopItemPropertiesImpl extends NamedObjectImpl implements ShopItemP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (value: "); //$NON-NLS-1$
 		result.append(value);
 		result.append(')');

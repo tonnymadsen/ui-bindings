@@ -16,11 +16,13 @@ import com.rcpcompany.uibinding.tests.model.TestModelPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.AmountAndCurrencyImpl#getAmount <em>Amount</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.AmountAndCurrencyImpl#getCurrency <em>Currency</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.AmountAndCurrencyImpl#getAmount <em>
+ * Amount</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.AmountAndCurrencyImpl#getCurrency <em>
+ * Currency</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class AmountAndCurrencyImpl extends MinimalEObjectImpl.Container implements AmountAndCurrency {
@@ -35,9 +37,9 @@ public class AmountAndCurrencyImpl extends MinimalEObjectImpl.Container implemen
 	protected static final float AMOUNT_EDEFAULT = 0.0F;
 
 	/**
-	 * The cached value of the '{@link #getAmount() <em>Amount</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The cached value of the '{@link #getAmount() <em>Amount</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getAmount()
 	 * @generated
 	 * @ordered
@@ -66,6 +68,7 @@ public class AmountAndCurrencyImpl extends MinimalEObjectImpl.Container implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected AmountAndCurrencyImpl() {
@@ -74,6 +77,7 @@ public class AmountAndCurrencyImpl extends MinimalEObjectImpl.Container implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -83,6 +87,7 @@ public class AmountAndCurrencyImpl extends MinimalEObjectImpl.Container implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -92,19 +97,22 @@ public class AmountAndCurrencyImpl extends MinimalEObjectImpl.Container implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setAmount(float newAmount) {
-		float oldAmount = amount;
+		final float oldAmount = amount;
 		amount = newAmount;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.AMOUNT_AND_CURRENCY__AMOUNT,
 					oldAmount, amount));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -114,19 +122,22 @@ public class AmountAndCurrencyImpl extends MinimalEObjectImpl.Container implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setCurrency(String newCurrency) {
-		String oldCurrency = currency;
+		final String oldCurrency = currency;
 		currency = newCurrency;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.AMOUNT_AND_CURRENCY__CURRENCY,
 					oldCurrency, currency));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -142,6 +153,7 @@ public class AmountAndCurrencyImpl extends MinimalEObjectImpl.Container implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -159,6 +171,7 @@ public class AmountAndCurrencyImpl extends MinimalEObjectImpl.Container implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -176,6 +189,7 @@ public class AmountAndCurrencyImpl extends MinimalEObjectImpl.Container implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -191,13 +205,14 @@ public class AmountAndCurrencyImpl extends MinimalEObjectImpl.Container implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (amount: "); //$NON-NLS-1$
 		result.append(amount);
 		result.append(", currency: "); //$NON-NLS-1$

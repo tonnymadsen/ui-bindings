@@ -12,12 +12,13 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class ShopItemDescriptionImpl extends ShopItemInformationImpl implements ShopItemDescription {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ShopItemDescriptionImpl() {
@@ -26,6 +27,7 @@ public class ShopItemDescriptionImpl extends ShopItemInformationImpl implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

@@ -12,37 +12,38 @@ import com.rcpcompany.uibindings.moao.INamedObject;
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Shop</b></em>'. <!--
  * end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getNextOrderNo <em>Next Order No</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getNextCustomerNo <em>Next Customer No</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getTmpDir <em>Tmp Dir</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getCountries <em>Countries</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getContacts <em>Contacts</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getShopItems <em>Shop Items</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getOrders <em>Orders</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getCustomers <em>Customers</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getCustomerGroups <em>Customer Groups</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getShopGroups <em>Shop Groups</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getInfos <em>Infos</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getNextOrderNo <em>Next Order No</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getNextCustomerNo <em>Next Customer No</em>}
+ * </li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getTmpDir <em>Tmp Dir</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getCountries <em>Countries</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getContacts <em>Contacts</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getShopItems <em>Shop Items</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getOrders <em>Orders</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getCustomers <em>Customers</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getCustomerGroups <em>Customer Groups</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getShopGroups <em>Shop Groups</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.Shop#getInfos <em>Infos</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShop()
  * @generated
  */
 public interface Shop extends INamedObject {
 
 	/**
-	 * Returns the value of the '<em><b>Next Order No</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Next Order No</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Next Order No</em>' attribute isn't clear, there really should be
 	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Next Order No</em>' attribute.
 	 * @see #setNextOrderNo(int)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShop_NextOrderNo()
@@ -51,8 +52,9 @@ public interface Shop extends INamedObject {
 	int getNextOrderNo();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Shop#getNextOrderNo <em>Next Order No</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Shop#getNextOrderNo
+	 * <em>Next Order No</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Next Order No</em>' attribute.
 	 * @see #getNextOrderNo()
 	 * @generated
@@ -60,14 +62,14 @@ public interface Shop extends INamedObject {
 	void setNextOrderNo(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Next Customer No</b></em>' attribute.
-	 * <!-- begin-user-doc
+	 * Returns the value of the '<em><b>Next Customer No</b></em>' attribute. <!-- begin-user-doc
 	 * -->
 	 * <p>
 	 * If the meaning of the '<em>Next Customer No</em>' attribute isn't clear, there really should
 	 * be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Next Customer No</em>' attribute.
 	 * @see #setNextCustomerNo(int)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShop_NextCustomerNo()
@@ -76,8 +78,9 @@ public interface Shop extends INamedObject {
 	int getNextCustomerNo();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Shop#getNextCustomerNo <em>Next Customer No</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Shop#getNextCustomerNo
+	 * <em>Next Customer No</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Next Customer No</em>' attribute.
 	 * @see #getNextCustomerNo()
 	 * @generated
@@ -85,14 +88,14 @@ public interface Shop extends INamedObject {
 	void setNextCustomerNo(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Tmp Dir</b></em>' attribute.
-	 * The default value is <code>"C:\\Windows\\Temp"</code>.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Tmp Dir</b></em>' attribute. The default value is
+	 * <code>"C:\\Windows\\Temp"</code>. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Tmp Dir</em>' attribute isn't clear, there really should be more
 	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Tmp Dir</em>' attribute.
 	 * @see #setTmpDir(String)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShop_TmpDir()
@@ -101,8 +104,9 @@ public interface Shop extends INamedObject {
 	String getTmpDir();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Shop#getTmpDir <em>Tmp Dir</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.Shop#getTmpDir
+	 * <em>Tmp Dir</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Tmp Dir</em>' attribute.
 	 * @see #getTmpDir()
 	 * @generated
@@ -167,15 +171,16 @@ public interface Shop extends INamedObject {
 	EList<ShopItem> getShopItems();
 
 	/**
-	 * Returns the value of the '<em><b>Orders</b></em>' containment reference list.
-	 * The list contents are of type {@link com.rcpcompany.uibindings.tests.shop.Order}.
-	 * It is bidirectional and its opposite is '{@link com.rcpcompany.uibindings.tests.shop.Order#getShop <em>Shop</em>}'.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Orders</b></em>' containment reference list. The list
+	 * contents are of type {@link com.rcpcompany.uibindings.tests.shop.Order}. It is bidirectional
+	 * and its opposite is '{@link com.rcpcompany.uibindings.tests.shop.Order#getShop <em>Shop</em>}
+	 * '. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Orders</em>' containment reference list isn't clear, there really
 	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Orders</em>' containment reference list.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShop_Orders()
 	 * @see com.rcpcompany.uibindings.tests.shop.Order#getShop
@@ -258,12 +263,14 @@ public interface Shop extends INamedObject {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	void save();
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	boolean nameLengthOK(DiagnosticChain diagnostics, Map<Object, Object> context);

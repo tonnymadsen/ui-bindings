@@ -13,12 +13,13 @@ import com.rcpcompany.uibindings.tests.shop.ShopPackage;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class ShopItemInformationImpl extends MOAOImpl implements ShopItemInformation {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ShopItemInformationImpl() {
@@ -27,6 +28,7 @@ public class ShopItemInformationImpl extends MOAOImpl implements ShopItemInforma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

@@ -32,13 +32,16 @@ import com.rcpcompany.uibindings.tests.shop.util.ShopValidator;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CountryImpl#getShop <em>Shop</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CountryImpl#getAbbreviation <em>Abbreviation</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CountryImpl#getContacts <em>Contacts</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CountryImpl#getInformation <em>Information</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CountryImpl#getShop <em>Shop</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CountryImpl#getAbbreviation <em>
+ * Abbreviation</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CountryImpl#getContacts <em>Contacts
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.tests.shop.internal.CountryImpl#getInformation <em>
+ * Information</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class CountryImpl extends NamedObjectImpl implements Country {
@@ -70,8 +73,9 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 	 */
 	protected EList<Contact> contacts;
 	/**
-	 * The cached value of the '{@link #getInformation() <em>Information</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getInformation() <em>Information</em>}' containment
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getInformation()
 	 * @generated
 	 * @ordered
@@ -80,6 +84,7 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected CountryImpl() {
@@ -88,6 +93,7 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -97,6 +103,7 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -107,6 +114,7 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetShop(Shop newShop, NotificationChain msgs) {
@@ -116,6 +124,7 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -124,17 +133,24 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 			if (EcoreUtil.isAncestor(this, newShop))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
-			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
-			if (newShop != null)
+			if (eInternalContainer() != null) {
+				msgs = eBasicRemoveFromContainer(msgs);
+			}
+			if (newShop != null) {
 				msgs = ((InternalEObject) newShop).eInverseAdd(this, ShopPackage.SHOP__COUNTRIES, Shop.class, msgs);
+			}
 			msgs = basicSetShop(newShop, msgs);
-			if (msgs != null) msgs.dispatch();
-		} else if (eNotificationRequired())
+			if (msgs != null) {
+				msgs.dispatch();
+			}
+		} else if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.COUNTRY__SHOP, newShop, newShop));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -144,19 +160,22 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setAbbreviation(String newAbbreviation) {
-		String oldAbbreviation = abbreviation;
+		final String oldAbbreviation = abbreviation;
 		abbreviation = newAbbreviation;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.COUNTRY__ABBREVIATION, oldAbbreviation,
 					abbreviation));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -170,6 +189,7 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -179,41 +199,49 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetInformation(CountryInfo newInformation, NotificationChain msgs) {
-		CountryInfo oldInformation = information;
+		final CountryInfo oldInformation = information;
 		information = newInformation;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+			final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					ShopPackage.COUNTRY__INFORMATION, oldInformation, newInformation);
-			if (msgs == null)
+			if (msgs == null) {
 				msgs = notification;
-			else
+			} else {
 				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setInformation(CountryInfo newInformation) {
 		if (newInformation != information) {
 			NotificationChain msgs = null;
-			if (information != null)
+			if (information != null) {
 				msgs = ((InternalEObject) information).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- ShopPackage.COUNTRY__INFORMATION, null, msgs);
-			if (newInformation != null)
+			}
+			if (newInformation != null) {
 				msgs = ((InternalEObject) newInformation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- ShopPackage.COUNTRY__INFORMATION, null, msgs);
+			}
 			msgs = basicSetInformation(newInformation, msgs);
-			if (msgs != null) msgs.dispatch();
-		} else if (eNotificationRequired())
+			if (msgs != null) {
+				msgs.dispatch();
+			}
+		} else if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.COUNTRY__INFORMATION, newInformation,
 					newInformation));
+		}
 	}
 
 	/**
@@ -257,6 +285,7 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -264,7 +293,9 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case ShopPackage.COUNTRY__SHOP:
-			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
+			if (eInternalContainer() != null) {
+				msgs = eBasicRemoveFromContainer(msgs);
+			}
 			return basicSetShop((Shop) otherEnd, msgs);
 		case ShopPackage.COUNTRY__CONTACTS:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getContacts()).basicAdd(otherEnd, msgs);
@@ -274,6 +305,7 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -291,6 +323,7 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -304,6 +337,7 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -323,6 +357,7 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -348,6 +383,7 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -371,6 +407,7 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -390,6 +427,7 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -406,13 +444,14 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (abbreviation: "); //$NON-NLS-1$
 		result.append(abbreviation);
 		result.append(')');

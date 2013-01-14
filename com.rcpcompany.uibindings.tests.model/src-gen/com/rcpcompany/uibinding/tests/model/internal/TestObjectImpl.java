@@ -25,24 +25,29 @@ import com.rcpcompany.uibinding.tests.model.WeightUnit;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getNumber <em>Number</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getD <em>D</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getF <em>F</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getDate <em>Date</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getText <em>Text</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getParent <em>Parent</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#isB <em>B</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getAc <em>Ac</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getUnit <em>Unit</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getTimeUnit <em>Time Unit</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getByte <em>Byte</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getShort <em>Short</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getLong <em>Long</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getBigDecimal <em>Big Decimal</em>}</li>
- *   <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getBigInteger <em>Big Integer</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getNumber <em>Number
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getD <em>D</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getF <em>F</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getDate <em>Date</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getText <em>Text</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getParent <em>Parent
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#isB <em>B</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getAc <em>Ac</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getUnit <em>Unit</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getTimeUnit <em>Time Unit
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getByte <em>Byte</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getShort <em>Short</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getLong <em>Long</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getBigDecimal <em>Big
+ * Decimal</em>}</li>
+ * <li>{@link com.rcpcompany.uibinding.tests.model.internal.TestObjectImpl#getBigInteger <em>Big
+ * Integer</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class TestObjectImpl extends MinimalEObjectImpl.Container implements TestObject {
@@ -57,9 +62,9 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	protected static final int NUMBER_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getNumber() <em>Number</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The cached value of the '{@link #getNumber() <em>Number</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getNumber()
 	 * @generated
 	 * @ordered
@@ -76,9 +81,9 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	protected boolean numberESet;
 
 	/**
-	 * The default value of the '{@link #getD() <em>D</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getD() <em>D</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getD()
 	 * @generated
 	 * @ordered
@@ -86,9 +91,9 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	protected static final double D_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getD() <em>D</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getD() <em>D</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getD()
 	 * @generated
 	 * @ordered
@@ -96,9 +101,9 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	protected double d = D_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getF() <em>F</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getF() <em>F</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getF()
 	 * @generated
 	 * @ordered
@@ -106,9 +111,9 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	protected static final float F_EDEFAULT = 0.0F;
 
 	/**
-	 * The cached value of the '{@link #getF() <em>F</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getF() <em>F</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getF()
 	 * @generated
 	 * @ordered
@@ -116,9 +121,9 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	protected float f = F_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getDate() <em>Date</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The default value of the '{@link #getDate() <em>Date</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getDate()
 	 * @generated
 	 * @ordered
@@ -126,9 +131,9 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	protected static final Date DATE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDate() <em>Date</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getDate() <em>Date</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDate()
 	 * @generated
 	 * @ordered
@@ -136,9 +141,9 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	protected Date date = DATE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The default value of the '{@link #getText() <em>Text</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getText()
 	 * @generated
 	 * @ordered
@@ -146,9 +151,9 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	protected static final String TEXT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getText() <em>Text</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getText() <em>Text</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getText()
 	 * @generated
 	 * @ordered
@@ -156,9 +161,9 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	protected String text = TEXT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
-	 * <!-- begin-user-doc
+	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getParent()
 	 * @generated
 	 * @ordered
@@ -166,9 +171,9 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	protected TestContainer parent;
 
 	/**
-	 * The default value of the '{@link #isB() <em>B</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #isB() <em>B</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #isB()
 	 * @generated
 	 * @ordered
@@ -176,9 +181,9 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	protected static final boolean B_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isB() <em>B</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #isB() <em>B</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #isB()
 	 * @generated
 	 * @ordered
@@ -186,9 +191,9 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	protected boolean b = B_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getAc() <em>Ac</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getAc() <em>Ac</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getAc()
 	 * @generated
 	 * @ordered
@@ -196,9 +201,9 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	protected static final AmountAndCurrencyOld AC_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getAc() <em>Ac</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getAc() <em>Ac</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getAc()
 	 * @generated
 	 * @ordered
@@ -206,9 +211,9 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	protected AmountAndCurrencyOld ac = AC_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getUnit() <em>Unit</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The default value of the '{@link #getUnit() <em>Unit</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getUnit()
 	 * @generated
 	 * @ordered
@@ -216,9 +221,9 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	protected static final WeightUnit UNIT_EDEFAULT = WeightUnit.G;
 
 	/**
-	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getUnit()
 	 * @generated
 	 * @ordered
@@ -246,9 +251,9 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	protected TimeUnit timeUnit = TIME_UNIT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getByte() <em>Byte</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The default value of the '{@link #getByte() <em>Byte</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getByte()
 	 * @generated
 	 * @ordered
@@ -256,9 +261,9 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	protected static final byte BYTE_EDEFAULT = 0x00;
 
 	/**
-	 * The cached value of the '{@link #getByte() <em>Byte</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getByte() <em>Byte</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getByte()
 	 * @generated
 	 * @ordered
@@ -266,9 +271,9 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	protected byte byte_ = BYTE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getShort() <em>Short</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The default value of the '{@link #getShort() <em>Short</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getShort()
 	 * @generated
 	 * @ordered
@@ -276,9 +281,9 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	protected static final short SHORT_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getShort() <em>Short</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The cached value of the '{@link #getShort() <em>Short</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getShort()
 	 * @generated
 	 * @ordered
@@ -286,9 +291,9 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	protected short short_ = SHORT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getLong() <em>Long</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The default value of the '{@link #getLong() <em>Long</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getLong()
 	 * @generated
 	 * @ordered
@@ -296,9 +301,9 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	protected static final long LONG_EDEFAULT = 0L;
 
 	/**
-	 * The cached value of the '{@link #getLong() <em>Long</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getLong() <em>Long</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getLong()
 	 * @generated
 	 * @ordered
@@ -347,6 +352,7 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected TestObjectImpl() {
@@ -355,6 +361,7 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -364,6 +371,7 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -373,36 +381,41 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setNumber(int newNumber) {
-		int oldNumber = number;
+		final int oldNumber = number;
 		number = newNumber;
-		boolean oldNumberESet = numberESet;
+		final boolean oldNumberESet = numberESet;
 		numberESet = true;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__NUMBER, oldNumber,
 					number, !oldNumberESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void unsetNumber() {
-		int oldNumber = number;
-		boolean oldNumberESet = numberESet;
+		final int oldNumber = number;
+		final boolean oldNumberESet = numberESet;
 		number = NUMBER_EDEFAULT;
 		numberESet = false;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.UNSET, TestModelPackage.TEST_OBJECT__NUMBER, oldNumber,
 					NUMBER_EDEFAULT, oldNumberESet));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -412,6 +425,7 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -421,18 +435,21 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setD(double newD) {
-		double oldD = d;
+		final double oldD = d;
 		d = newD;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__D, oldD, d));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -442,18 +459,21 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setF(float newF) {
-		float oldF = f;
+		final float oldF = f;
 		f = newF;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__F, oldF, f));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -463,18 +483,21 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setDate(Date newDate) {
-		Date oldDate = date;
+		final Date oldDate = date;
 		date = newDate;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__DATE, oldDate, date));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -484,29 +507,33 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setText(String newText) {
-		String oldText = text;
+		final String oldText = text;
 		text = newText;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__TEXT, oldText, text));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public TestContainer getParent() {
 		if (parent != null && parent.eIsProxy()) {
-			InternalEObject oldParent = (InternalEObject) parent;
+			final InternalEObject oldParent = (InternalEObject) parent;
 			parent = (TestContainer) eResolveProxy(oldParent);
 			if (parent != oldParent) {
-				if (eNotificationRequired())
+				if (eNotificationRequired()) {
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TestModelPackage.TEST_OBJECT__PARENT,
 							oldParent, parent));
+				}
 			}
 		}
 		return parent;
@@ -514,6 +541,7 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public TestContainer basicGetParent() {
@@ -522,19 +550,22 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setParent(TestContainer newParent) {
-		TestContainer oldParent = parent;
+		final TestContainer oldParent = parent;
 		parent = newParent;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__PARENT, oldParent,
 					parent));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -544,18 +575,21 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setB(boolean newB) {
-		boolean oldB = b;
+		final boolean oldB = b;
 		b = newB;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__B, oldB, b));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -565,18 +599,21 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setAc(AmountAndCurrencyOld newAc) {
-		AmountAndCurrencyOld oldAc = ac;
+		final AmountAndCurrencyOld oldAc = ac;
 		ac = newAc;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__AC, oldAc, ac));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -586,18 +623,21 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setUnit(WeightUnit newUnit) {
-		WeightUnit oldUnit = unit;
+		final WeightUnit oldUnit = unit;
 		unit = newUnit == null ? UNIT_EDEFAULT : newUnit;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__UNIT, oldUnit, unit));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -607,19 +647,22 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setTimeUnit(TimeUnit newTimeUnit) {
-		TimeUnit oldTimeUnit = timeUnit;
+		final TimeUnit oldTimeUnit = timeUnit;
 		timeUnit = newTimeUnit == null ? TIME_UNIT_EDEFAULT : newTimeUnit;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__TIME_UNIT, oldTimeUnit,
 					timeUnit));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -629,18 +672,21 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setByte(byte newByte) {
-		byte oldByte = byte_;
+		final byte oldByte = byte_;
 		byte_ = newByte;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__BYTE, oldByte, byte_));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -650,18 +696,21 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setShort(short newShort) {
-		short oldShort = short_;
+		final short oldShort = short_;
 		short_ = newShort;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__SHORT, oldShort, short_));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -671,18 +720,21 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setLong(long newLong) {
-		long oldLong = long_;
+		final long oldLong = long_;
 		long_ = newLong;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__LONG, oldLong, long_));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -692,19 +744,22 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setBigDecimal(BigDecimal newBigDecimal) {
-		BigDecimal oldBigDecimal = bigDecimal;
+		final BigDecimal oldBigDecimal = bigDecimal;
 		bigDecimal = newBigDecimal;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__BIG_DECIMAL,
 					oldBigDecimal, bigDecimal));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -714,19 +769,22 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setBigInteger(BigInteger newBigInteger) {
-		BigInteger oldBigInteger = bigInteger;
+		final BigInteger oldBigInteger = bigInteger;
 		bigInteger = newBigInteger;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__BIG_INTEGER,
 					oldBigInteger, bigInteger));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -769,6 +827,7 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -825,6 +884,7 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -881,6 +941,7 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -922,18 +983,20 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (number: "); //$NON-NLS-1$
-		if (numberESet)
+		if (numberESet) {
 			result.append(number);
-		else
+		} else {
 			result.append("<unset>"); //$NON-NLS-1$
+		}
 		result.append(", d: "); //$NON-NLS-1$
 		result.append(d);
 		result.append(", f: "); //$NON-NLS-1$
