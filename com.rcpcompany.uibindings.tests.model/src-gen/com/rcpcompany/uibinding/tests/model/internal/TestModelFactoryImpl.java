@@ -41,7 +41,7 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	public static TestModelFactory init() {
 		try {
 			final TestModelFactory theTestModelFactory = (TestModelFactory) EPackage.Registry.INSTANCE
-					.getEFactory("http://rcp-company.com/schemas/uibindings/testModel"); //$NON-NLS-1$ 
+					.getEFactory(TestModelPackage.eNS_URI);
 			if (theTestModelFactory != null) return theTestModelFactory;
 		} catch (final Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);

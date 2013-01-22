@@ -45,7 +45,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 	public static IMOAOFactory init() {
 		try {
 			final IMOAOFactory theMOAOFactory = (IMOAOFactory) EPackage.Registry.INSTANCE
-					.getEFactory("http://rcp-company.com/schemas/uibindings/moao.ecore"); //$NON-NLS-1$ 
+					.getEFactory(IMOAOPackage.eNS_URI);
 			if (theMOAOFactory != null) return theMOAOFactory;
 		} catch (final Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
