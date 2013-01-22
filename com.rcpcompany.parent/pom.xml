@@ -196,6 +196,7 @@
 								<Built-By>${project.organization.name}</Built-By>
 								<Bundle-Vendor>${project.organization.name}</Bundle-Vendor>
 							</manifestEntries>
+							<addMavenDescriptor>false</addMavenDescriptor>
 						</archive>
 					</configuration>
 				</plugin>
