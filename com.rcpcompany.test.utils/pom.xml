@@ -4,7 +4,7 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>com.rcpcompany.test.utils</artifactId>
-	<version>1.2.0-SNAPSHOT</version>
+	<version>1.3.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 
 	<parent>
@@ -26,6 +26,11 @@
 							<requirement>
 								<type>eclipse-plugin</type>
 								<id>org.eclipse.core.resources</id>
+								<versionRange>0.0.0</versionRange>
+							</requirement>
+							<requirement>
+								<type>eclipse-plugin</type>
+								<id>com.rcpcompany.uibindings.moao</id>
 								<versionRange>0.0.0</versionRange>
 							</requirement>
 						</extraRequirements>
