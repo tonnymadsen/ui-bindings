@@ -59,7 +59,7 @@ public final class LogUtils {
 	 *            the message to print
 	 */
 	public static void debug(Object context, String message) {
-		LogUtilsImpl.getInstance().log(context, LogService.LOG_INFO, message, null);
+		LogUtilsImpl.getInstance().log(context, LogService.LOG_DEBUG, message, null);
 	}
 
 	/**
