@@ -13,6 +13,7 @@ import org.osgi.service.log.LogService;
 
 import com.rcpcompany.utils.basic.ClassUtils;
 import com.rcpcompany.utils.basic.TSRegistryUtils;
+import com.rcpcompany.utils.logging.ILogUtilsForwardHandler;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -21,6 +22,7 @@ import com.rcpcompany.utils.logging.LogUtils;
  * @author Tonny Madsen, tma@bording.dk
  */
 public class LogUtilsImpl {
+	private ILogUtilsForwardHandler myLogHandler = null;
 	/**
 	 * The basic OSGi log service if defined.
 	 */
@@ -34,7 +36,12 @@ public class LogUtilsImpl {
 	/**
 	 * The handler instance (singleton).
 	 */
-	private final static LogUtilsImpl INSTANCE = new LogUtilsImpl();
+	private final static LogUtilsImpl INSTANCE;
+
+	static {
+		INSTANCE = new LogUtilsImpl();
+		INSTANCE.initLogForwarder();
+	}
 
 	/**
 	 * Returns this hander singleton instance.
@@ -49,6 +56,24 @@ public class LogUtilsImpl {
 	 * Constructs and returns a new {@link LogUtils} handler.
 	 */
 	private LogUtilsImpl() {
+	}
+
+	private void initLogForwarder() {
+		Class<ILogUtilsForwardHandler> handlerClass = null;
+		try {
+			handlerClass = (Class<ILogUtilsForwardHandler>) Class
+					.forName("com.rcpcompany.utils.logging.forwarder.ForwardHandler");
+		} catch (final ClassNotFoundException ex) {
+			return;
+		}
+		try {
+			myLogHandler = handlerClass.newInstance();
+		} catch (final InstantiationException ex) {
+
+		} catch (final IllegalAccessException ex) {
+			// TODO Auto-generated catch block
+			ex.printStackTrace();
+		}
 	}
 
 	/**
@@ -87,7 +112,10 @@ public class LogUtilsImpl {
 		 */
 		if (exception != null && exception == lastException)
 			return;
-		lastException = exception;
+		if (myLogHandler != null) {
+			myLogHandler.log(context, logLevel, message, exception);
+			return;
+		}
 		String bundleID = UNKNOWN_PLUGIN;
 		String messagePrefix = null;
 		if (context instanceof IConfigurationElement) {

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Logging Utilities
 Bundle-SymbolicName: com.rcpcompany.utils.logging
-Bundle-Version: 1.5.0.qualifier
+Bundle-Version: 1.6.0.qualifier
 Bundle-Activator: com.rcpcompany.utils.logging.internal.Activator
 Bundle-Vendor: The RCP Company
 Export-Package: com.rcpcompany.utils.logging;version="1.5.0"
