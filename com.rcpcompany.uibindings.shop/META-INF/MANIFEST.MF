@@ -37,6 +37,7 @@ Import-Package: com.rcpcompany.uibinding.tests.model,
  org.eclipse.emf.databinding,
  org.eclipse.emf.ecore,
  org.eclipse.emf.edit.domain,
+ org.eclipse.jface.databinding.swt,
  org.eclipse.nebula.widgets.grid,
  org.eclipse.nebula.widgets.radiogroup,
  org.eclipse.ui.forms.widgets
