@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="uibindings"
-    nsURI="http://rcp-company.com/schemas/uibindings/model.ecore" nsPrefix="uibindings">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="uibindings" nsURI="http://rcp-company.com/schemas/uibindings/model.ecore"
+    nsPrefix="uibindings">
   <eClassifiers xsi:type="ecore:EClass" name="BaseObject" abstract="true" eSuperTypes="#//ServiceRegistry"/>
   <eClassifiers xsi:type="ecore:EClass" name="Manager" eSuperTypes="#//BaseObject">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="editingDomain" lowerBound="1"
@@ -129,7 +128,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="textCommitStrategy" lowerBound="1"
-        eType="#//TextCommitStrategy" transient="true" defaultValueLiteral="true"/>
+        eType="#//TextCommitStrategy" transient="true" defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="textCommitStrategyCalculated"
         lowerBound="1" eType="#//TextCommitStrategy" changeable="false" transient="true"
         derived="true">
