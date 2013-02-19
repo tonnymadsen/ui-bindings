@@ -14,22 +14,24 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 
 /**
- * This utility class provides a number of static functions that can ease
- * formatting of data.
+ * This utility class provides a number of static functions that can ease formatting of data.
  * 
  * @author Tonny Madsen, The RCP Company
  */
 
 public final class TSStatusUtils {
 	/**
-	 * Returns a generic <code>toString</code> representation for
-	 * {@link IStatus}.
+	 * Returns a generic <code>toString</code> representation for {@link IStatus}.
 	 * 
 	 * @param status
 	 *            the status object
 	 * @return the string for the status object
 	 */
 	public static String toString(IStatus status) {
+		return toString(status, "");
+	}
+
+	public static String toString(IStatus status, String prefix) {
 		if (status == Status.OK_STATUS)
 			return "STATUS[OK]";
 		if (status == Status.CANCEL_STATUS)
@@ -59,8 +61,7 @@ public final class TSStatusUtils {
 			sb.append("#").append(status.getSeverity());
 			break;
 		}
-		sb.append(", \"").append(status.getMessage()).append("\", ")
-				.append(status.getCode());
+		sb.append(", \"").append(status.getMessage()).append("\", ").append(status.getCode());
 
 		final Throwable ex = status.getException();
 		if (ex != null) {
@@ -68,19 +69,19 @@ public final class TSStatusUtils {
 			final StackTraceElement[] stackTrace = ex.getStackTrace();
 			if (stackTrace != null && stackTrace.length > 0) {
 				final StackTraceElement ste = stackTrace[0];
-				sb.append("[").append(ste.getFileName()).append(":")
-						.append(ste.getLineNumber()).append("]");
+				sb.append(" (").append(ste.getFileName()).append(":").append(ste.getLineNumber()).append(") ");
 			}
 		}
 		sb.append("]");
 
 		final IStatus[] children = status.getChildren();
 		if (children != null && children.length > 0) {
+			final String p = prefix + "  ";
 			sb.append(" contains {\n");
 			for (final IStatus cs : children) {
-				sb.append(TSStatusUtils.toString(cs)).append("\n");
+				sb.append(p).append(TSStatusUtils.toString(cs, p)).append("\n");
 			}
-			sb.append("}");
+			sb.append(prefix).append("}");
 		}
 
 		return sb.toString();

@@ -21,8 +21,7 @@ public class TSStatusUtilsTest {
 	@Test
 	public void testStandardStatus() {
 		assertEquals("STATUS[OK]", TSStatusUtils.toString(Status.OK_STATUS));
-		assertEquals("STATUS[CANCEL]",
-				TSStatusUtils.toString(Status.CANCEL_STATUS));
+		assertEquals("STATUS[CANCEL]", TSStatusUtils.toString(Status.CANCEL_STATUS));
 	}
 
 	/**
@@ -31,16 +30,12 @@ public class TSStatusUtilsTest {
 	@Test
 	public void testSimpleStatus() {
 		assertEquals("Status[xyz, INFO, \"hello\", 0]",
-				TSStatusUtils
-						.toString(new Status(IStatus.INFO, "xyz", "hello")));
+				TSStatusUtils.toString(new Status(IStatus.INFO, "xyz", "hello")));
 		// Fragile!!!
-		assertEquals(
-				"Status[xyz, INFO, \"hello\", 0, java.lang.NullPointerException[TSStatusUtilsTest.java:40]]",
-				TSStatusUtils.toString(new Status(IStatus.INFO, "xyz", "hello",
-						new NullPointerException())));
+		assertEquals("Status[xyz, INFO, \"hello\", 0, java.lang.NullPointerException (TSStatusUtilsTest.java:36) ]",
+				TSStatusUtils.toString(new Status(IStatus.INFO, "xyz", "hello", new NullPointerException())));
 		assertEquals("Status[xyz, INFO, \"hello\", 123]",
-				TSStatusUtils.toString(new Status(IStatus.INFO, "xyz", 123,
-						"hello", null)));
+				TSStatusUtils.toString(new Status(IStatus.INFO, "xyz", 123, "hello", null)));
 	}
 
 	/**
@@ -55,10 +50,7 @@ public class TSStatusUtilsTest {
 		s.add(s1);
 		s.add(s2);
 
-		assertEquals(
-				"MultiStatus[xyz, WARNING, \"compound\", 100] contains {\n"
-						+ "Status[xyz, INFO, \"1\", 0]\n"
-						+ "Status[xyz, WARNING, \"2\", 0]\n" + "}",
-				TSStatusUtils.toString(s));
+		assertEquals("MultiStatus[xyz, WARNING, \"compound\", 100] contains {\n" + "  Status[xyz, INFO, \"1\", 0]\n"
+				+ "  Status[xyz, WARNING, \"2\", 0]\n" + "}", TSStatusUtils.toString(s));
 	}
 }
