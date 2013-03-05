@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?>
-
-<target name="UI Bindings 3.8.x target" sequenceNumber="25">
+<?pde version="3.8"?><target name="UI Bindings 3.8.x target" sequenceNumber="26">
 <locations>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.nebula.feature.feature.group" version="0.0.0"/>
@@ -12,11 +10,11 @@
 <repository location="http://download.eclipse.org/technology/nebula/incubation/snapshot"/>
 </location>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.platform.sdk" version="3.8.1.M20120914-1540"/>
+<unit id="org.eclipse.platform.sdk" version="3.8.2.M20130131-0800"/>
 <repository location="http://download.eclipse.org/eclipse/updates/3.8"/>
 </location>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.jdt.feature.group" version="3.8.1.v20120814-104540-8-8nFqpFNOfwKDRVz-tXOcL5d_83"/>
+<unit id="org.eclipse.jdt.feature.group" version="3.8.2.v20130116-090414-8-8nFu3FNOfwKLRuqgXKIy9z0I83"/>
 <unit id="org.eclipse.wst.jsdt.feature.feature.group" version="1.4.1.v201208171701-7H7DFg0FC7sReqSyfqesWi"/>
 <repository location="http://download.eclipse.org/releases/juno/"/>
 </location>
@@ -38,6 +36,13 @@
 <unit id="org.eclipse.emf.ecore.xcore.lib.source.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.emf.ecore.xcore.source.feature.group" version="0.0.0"/>
 <repository location="http://download.eclipse.org/modeling/emf/emf/updates/nightly/"/>
+</location>
+<location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.hamcrest.library" version="1.1.0.v20090501071000"/>
+<unit id="org.hamcrest.library.source" version="1.1.0.v20090501071000"/>
+<unit id="org.hamcrest.text" version="1.1.0.v20090501071000"/>
+<unit id="org.hamcrest.text.source" version="1.1.0.v20090501071000"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/I20130304045055/repository/"/>
 </location>
 </locations>
 </target>
