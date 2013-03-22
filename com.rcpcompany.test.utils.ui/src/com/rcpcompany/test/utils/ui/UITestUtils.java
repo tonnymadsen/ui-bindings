@@ -41,6 +41,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.services.IServiceLocator;
@@ -127,11 +128,17 @@ public class UITestUtils {
 	public static IViewPart showView(String viewID) {
 		IViewPart view = null;
 		try {
-			final IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+			final IWorkbench workbench = PlatformUI.getWorkbench();
+			assertNotNull("no workbench?", workbench);
+			final IWorkbenchWindow window = workbench.getActiveWorkbenchWindow();
+			assertNotNull("no active window?", window);
+			final IWorkbenchPage page = window.getActivePage();
+			assertNotNull("no active page?", page);
 			view = page.showView(viewID, null, IWorkbenchPage.VIEW_ACTIVATE);
 			assertNotNull(view);
 		} catch (final Exception ex) {
-			fail(ex.getMessage());
+			ex.printStackTrace();
+			fail("" + ex);
 		}
 		view.getSite().getPage().activate(view);
 		return view;
