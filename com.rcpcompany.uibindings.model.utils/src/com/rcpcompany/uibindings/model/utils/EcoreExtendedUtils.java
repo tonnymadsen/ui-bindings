@@ -59,7 +59,7 @@ public final class EcoreExtendedUtils {
 	 * @param target the object synchronized into
 	 * @param source the object synchronized from
 	 */
-	public static <T extends EObject> SyncController sync(EditingDomain domain, EList<T> target, EList<T> source) {
+	public static <T extends EObject> SyncController sync(EditingDomain domain, EList<T> target, List<T> source) {
 		final SyncController controller = new SyncController(source);
 		controller.setEditingDomain(domain);
 		controller.sync(target, source);
@@ -106,7 +106,7 @@ public final class EcoreExtendedUtils {
 			addSourceMappingObjects(source);
 		}
 
-		public <T extends EObject> SyncController(EList<T> source) {
+		public <T extends EObject> SyncController(List<T> source) {
 			for (final T o : source) {
 				addSourceMappingObjects(o);
 			}
@@ -650,7 +650,7 @@ public final class EcoreExtendedUtils {
 		 * @param target the object synchronized into
 		 * @param source the object synchronized from
 		 */
-		public <T extends EObject> void sync(EList<T> target, EList<T> source) {
+		public <T extends EObject> void sync(EList<T> target, List<T> source) {
 			if (target == source) return;
 			Assert.isTrue(target instanceof EObjectContainmentEList);
 			final EObjectContainmentEList<T> tEList = (EObjectContainmentEList<T>) target;
