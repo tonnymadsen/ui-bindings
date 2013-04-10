@@ -35,9 +35,9 @@
 
 	<!-- the modules that should be built together -->
 	<modules>
+		<module>../com.rcpcompany.target</module>
 		<module>../com.rcpcompany.parent.rcp</module>
 		<module>../com.rcpcompany.parent.rap</module>
-		<module>../com.rcpcompany.target</module>
 
 		<module>../com.rcpcompany.test.utils</module>
 
