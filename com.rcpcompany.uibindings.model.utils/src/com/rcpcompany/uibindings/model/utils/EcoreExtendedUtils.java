@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EPackage.Registry;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.MoveCommand;
@@ -652,8 +652,8 @@ public final class EcoreExtendedUtils {
 		 */
 		public <T extends EObject> void sync(EList<T> target, List<T> source) {
 			if (target == source) return;
-			Assert.isTrue(target instanceof EObjectContainmentEList);
-			final EObjectContainmentEList<T> tEList = (EObjectContainmentEList<T>) target;
+			Assert.isTrue(target instanceof EObjectEList);
+			final EObjectEList<T> tEList = (EObjectEList<T>) target;
 			syncContainmentList((EReference) tEList.getEStructuralFeature(), (T) tEList.getEObject(), source);
 		}
 
