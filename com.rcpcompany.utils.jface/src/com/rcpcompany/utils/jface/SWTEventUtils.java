@@ -30,6 +30,8 @@ public final class SWTEventUtils {
 
 	}
 
+	private static final int MAX_EVENT_NO = 50;
+
 	public final static Listener SWT_EVENT_LISTENER = new Listener() {
 		@Override
 		public void handleEvent(Event event) {
@@ -43,7 +45,7 @@ public final class SWTEventUtils {
 	 * @param c the control in question
 	 */
 	public static void swtListen(Control c) {
-		for (int i = SWT.None; i < SWT.ImeComposition; i++) {
+		for (int i = SWT.None; i < MAX_EVENT_NO; i++) {
 			c.addListener(i, SWT_EVENT_LISTENER);
 		}
 	}
@@ -55,12 +57,12 @@ public final class SWTEventUtils {
 	 */
 	public static void swtDisplayListen(Runnable runnable) {
 		try {
-			for (int i = SWT.None; i < SWT.ImeComposition; i++) {
+			for (int i = SWT.None; i < MAX_EVENT_NO; i++) {
 				Display.getCurrent().addFilter(i, SWT_EVENT_LISTENER);
 			}
 			runnable.run();
 		} finally {
-			for (int i = SWT.None; i < SWT.ImeComposition; i++) {
+			for (int i = SWT.None; i < MAX_EVENT_NO; i++) {
 				Display.getCurrent().removeFilter(i, SWT_EVENT_LISTENER);
 			}
 		}

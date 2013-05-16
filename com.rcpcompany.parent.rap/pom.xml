@@ -14,8 +14,16 @@
 		<relativePath>../com.rcpcompany.parent</relativePath>
 	</parent>
 
+	<properties>
+		<eclipse.platform.type>rap</eclipse.platform.type>
+	</properties>
+
 	<modules>
-		<!-- <module>../com.rcpcompany.utils.ui.rap</module> -->
+		<module>../com.rcpcompany.test.utils.rap</module>
+		<module>../com.rcpcompany.utils.ui.rap</module>
+		
+		<module>../com.rcpcompany.utils.rap.feature</module>
+		<module>../com.rcpcompany.updatesite.rap</module>
 	</modules>
 
 	<build>
@@ -40,6 +48,13 @@
 							</requirement>
 						</extraRequirements>
 					</dependency-resolution>
+					<environments>
+						<environment>
+							<os>win32</os>
+							<ws>rap</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
 				</configuration>
 			</plugin>
 		</plugins>

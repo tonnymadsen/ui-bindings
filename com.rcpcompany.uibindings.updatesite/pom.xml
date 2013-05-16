@@ -7,9 +7,9 @@
 
 	<parent>
 		<groupId>com.rcpcompany</groupId>
-		<artifactId>com.rcpcompany.parent</artifactId>
+		<artifactId>com.rcpcompany.parent.rcp</artifactId>
 		<version>1-SNAPSHOT</version>
-		<relativePath>../com.rcpcompany.parent</relativePath>
+		<relativePath>../com.rcpcompany.parent.rcp</relativePath>
 	</parent>
 
 	<!-- This pom is based on https://github.com/msbarry/Xtest/tree/master/releng/org.xtest.updatesite -->

@@ -22,7 +22,7 @@ import com.rcpcompany.utils.logging.LogUtils;
 /**
  * Various test utilities that are good for testing the workspace...
  * 
- * @author Tonny Madsen, tma@bording.dk
+ * @author Tonny Madsen, tonny.madsen@gmail.com
  */
 public class ResourceTestUtils {
 	/**

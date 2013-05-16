@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2011 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+<feature
+      id="com.rcpcompany.utils.rap.feature"
+      label="The RCP Company Utility RAP Feature"
+      version="1.0.0.qualifier"
+      provider-name="The RCP Company">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <url>
+      <update label="The RCP Company" url="http://tonnymadsen.github.com/ui-bindings/updates/release"/>
+   </url>
+
+   <requires>
+      <import plugin="com.rcpcompany.utils.ui" version="3.6.0" match="compatible"/>
+      <import plugin="org.eclipse.rap.rwt.osgi" version="2.0.0" match="equivalent"/>
+      <import plugin="org.eclipse.rap.rwt.testfixture" version="2.0.0" match="equivalent"/>
+      <import plugin="org.junit"/>
+      <import plugin="org.eclipse.core.runtime" version="3.4.0" match="compatible"/>
+      <import plugin="org.junit" version="4.8.0" match="compatible"/>
+      <import plugin="org.eclipse.emf.common" version="2.6.0" match="compatible"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.6.0" match="compatible"/>
+      <import plugin="org.hamcrest.library" version="1.1.0" match="compatible"/>
+      <import plugin="org.hamcrest.text" version="1.1.0" match="compatible"/>
+      <import plugin="org.eclipse.core.expressions"/>
+      <import plugin="org.eclipse.emf.edit"/>
+      <import plugin="org.eclipse.osgi.services"/>
+      <import plugin="org.eclipse.core.runtime" version="3.0.0" match="compatible"/>
+      <import plugin="com.rcpcompany.utils.logging" version="1.1.0" match="compatible"/>
+      <import plugin="com.rcpcompany.utils.basic.ui"/>
+      <import plugin="org.eclipse.jdt.annotation"/>
+      <import plugin="org.eclipse.core.runtime" version="3.6.0" match="compatible"/>
+      <import plugin="org.eclipse.rap.ui.forms"/>
+   </requires>
+
+   <plugin
+         id="com.rcpcompany.test.utils.rap"
+         ws="rap"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.rcpcompany.utils.ui.rap"
+         ws="rap"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"/>
+
+   <plugin
+         id="com.rcpcompany.test.utils"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.rcpcompany.utils.basic"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.rcpcompany.utils.extensionpoints"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.rcpcompany.utils.jface"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.rcpcompany.utils.logging"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.rcpcompany.utils.selection"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.rcpcompany.utils.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+</feature>

@@ -12,7 +12,7 @@
 <feature
       id="com.rcpcompany.utils.source.feature"
       label="The RCP Company Utility Sources"
-      version="1.6.0.qualifier"
+      version="1.7.0.qualifier"
       provider-name="The RCP Company">
 
    <description url="http://www.example.com/description">
@@ -133,5 +133,19 @@
          version="0.0.0"
          fragment="true"
          unpack="false"/>
+
+   <plugin
+         id="com.rcpcompany.test.utils.rap.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.rcpcompany.utils.ui.rap.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"/>
 
 </feature>

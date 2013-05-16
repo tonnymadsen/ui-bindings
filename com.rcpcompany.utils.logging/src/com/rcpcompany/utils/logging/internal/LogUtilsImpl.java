@@ -19,7 +19,7 @@ import com.rcpcompany.utils.logging.LogUtils;
 /**
  * Internal implementation for {@link LogUtils}.
  * 
- * @author Tonny Madsen, tma@bording.dk
+ * @author Tonny Madsen, tonny.madsen@gmail.com
  */
 public class LogUtilsImpl {
 	private ILogUtilsForwardHandler myLogHandler = null;

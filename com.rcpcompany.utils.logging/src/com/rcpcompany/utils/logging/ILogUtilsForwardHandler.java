@@ -8,7 +8,7 @@ package com.rcpcompany.utils.logging;
  * <p>
  * All log messages will then be sent via this forwarder.
  * 
- * @author Tonny Madsen, tma@bording.dk
+ * @author Tonny Madsen, tonny.madsen@gmail.com
  */
 public interface ILogUtilsForwardHandler {
 	/**

@@ -10,7 +10,7 @@ import com.rcpcompany.utils.logging.LogUtils;
 /**
  * Test {@link IProgressMonitor}.
  * 
- * @author Tonny Madsen, Bording Data A/S
+ * @author Tonny Madsen, tonny.madsen@gmail.com
  */
 public class MonitoredMonitor implements IProgressMonitor {
 

@@ -9,7 +9,7 @@ import com.rcpcompany.utils.logging.LogUtils;
 /**
  * Basic tests of logging..
  * 
- * @author Tonny Madsen, tma@bording.dk
+ * @author Tonny Madsen, tonny.madsen@gmail.com
  */
 public class BasicTest {
 	@Test

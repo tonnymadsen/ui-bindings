@@ -12,7 +12,7 @@ import com.rcpcompany.utils.basic.TSStatusUtils;
 /**
  * Tests of {@link TSStatusUtils}.
  * 
- * @author Tonny Madsen, tma@bording.dk
+ * @author Tonny Madsen, tonny.madsen@gmail.com
  */
 public class TSStatusUtilsTest {
 	/**

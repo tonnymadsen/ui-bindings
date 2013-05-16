@@ -5,7 +5,7 @@ import org.junit.Test;
 /**
  * Tests of {@link TSRegistryUtils}.
  * 
- * @author Tonny Madsen, tma@bording.dk
+ * @author Tonny Madsen, tonny.madsen@gmail.com
  */
 public class UtilsTest {
 	/**

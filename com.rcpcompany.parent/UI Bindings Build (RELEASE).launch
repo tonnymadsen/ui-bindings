@@ -7,15 +7,18 @@
 <stringAttribute key="M2_PROFILES" value="release,update-site"/>
 <listAttribute key="M2_PROPERTIES">
 <listEntry value="uibindings-build-user.password=superfly42"/>
-<listEntry value="tycho.version=0.16.0"/>
-<listEntry value="tycho-extras.version=0.16.0"/>
+<listEntry value="tycho.version=0.17.0"/>
+<listEntry value="tycho.localArtifacts=ignore"/>
 </listAttribute>
 <stringAttribute key="M2_RUNTIME" value="EMBEDDED"/>
 <booleanAttribute key="M2_SKIP_TESTS" value="false"/>
+<intAttribute key="M2_THREADS" value="0"/>
 <booleanAttribute key="M2_UPDATE_SNAPSHOTS" value="false"/>
 <booleanAttribute key="M2_WORKSPACE_RESOLUTION" value="false"/>
+<stringAttribute key="org.eclipse.debug.ui.ATTR_CAPTURE_IN_FILE" value="${user_homedir}/Desktop/ui-bindings-build.txt"/>
 <listAttribute key="org.eclipse.debug.ui.favoriteGroups">
 <listEntry value="org.eclipse.debug.ui.launchGroup.run"/>
 </listAttribute>
-<stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="${project_loc:com.rcpcompany.uibindings.updatesite}"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Xmx2048m -XX:MaxPermSize=256m -Dtycho.debug.resolver=true"/>
+<stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="${project_loc:com.rcpcompany.parent}"/>
 </launchConfiguration>

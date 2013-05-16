@@ -16,7 +16,7 @@ import com.rcpcompany.uibindings.moao.Severity;
 /**
  * Various test utilities for {@link IMOAO}
  * 
- * @author Tonny Madsen, tma@bording.dk
+ * @author Tonny Madsen, tonny.madsen@gmail.com
  */
 public class MOAOTestUtils {
 	/**

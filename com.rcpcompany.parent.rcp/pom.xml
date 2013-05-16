@@ -14,6 +14,10 @@
 		<relativePath>../com.rcpcompany.parent</relativePath>
 	</parent>
 
+	<properties>
+		<eclipse.platform.type>rcp</eclipse.platform.type>
+	</properties>
+
 	<modules>
 		<module>../com.rcpcompany.test.utils.ui</module>
 		<module>../com.rcpcompany.utils.ui.rcp</module>
@@ -69,6 +73,8 @@
 		<module>../com.rcpcompany.uibindings.navigator.source.feature</module>
 		<module>../com.rcpcompany.uibindings.financial.feature</module>
 		<module>../com.rcpcompany.uibindings.financial.source.feature</module>
+
+		<module>../com.rcpcompany.updatesite.rcp</module>
 	</modules>
 
 	<build>

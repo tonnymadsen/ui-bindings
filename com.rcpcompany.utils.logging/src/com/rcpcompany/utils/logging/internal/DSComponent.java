@@ -10,7 +10,7 @@ import org.osgi.service.log.LogService;
  * <p>
  * All real work happens in {@link LogUtilsImpl}.
  * 
- * @author Tonny Madsen, tma@bording.dk
+ * @author Tonny Madsen, tonny.madsen@gmail.com
  */
 @Component
 public class DSComponent {

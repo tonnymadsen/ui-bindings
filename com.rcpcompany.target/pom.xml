@@ -12,10 +12,6 @@
 		<relativePath>../com.rcpcompany.parent</relativePath>
 	</parent>
 
-	<properties>
-		<eclipse.ui.tech>none</eclipse.ui.tech>
-	</properties>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -34,19 +30,24 @@
 							<artifacts>
 									<!-- note: the file name must be ${classifier}.target -->
 								<artifact>
-									<file>uibindings-3.8.target</file>
+									<file>uibindings-3.8-rcp.target</file>
 									<type>target</type>
-									<classifier>uibindings-3.8</classifier>
-								</artifact>
-								<artifact>
-									<file>uibindings-4.2.target</file>
-									<type>target</type>
-									<classifier>uibindings-4.2</classifier>
+									<classifier>uibindings-3.8-rcp</classifier>
 								</artifact>
 								<artifact>
 									<file>uibindings-3.8-rap.target</file>
 									<type>target</type>
 									<classifier>uibindings-3.8-rap</classifier>
+								</artifact>
+								<artifact>
+									<file>uibindings-3.8-none.target</file>
+									<type>target</type>
+									<classifier>uibindings-3.8-none</classifier>
+								</artifact>
+								<artifact>
+									<file>uibindings-4.2.target</file>
+									<type>target</type>
+									<classifier>uibindings-4.2</classifier>
 								</artifact>
 							</artifacts>
 						</configuration>

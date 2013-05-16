@@ -4,7 +4,8 @@ Bundle-Name: Selection Utilities
 Bundle-SymbolicName: com.rcpcompany.utils.selection
 Bundle-Version: 1.1.0.qualifier
 Bundle-Vendor: The RCP Company
-Require-Bundle: org.eclipse.jface, org.eclipse.core.runtime,
- org.eclipse.ui.forms
+Require-Bundle: org.eclipse.core.runtime,
+ com.rcpcompany.utils.ui;bundle-version="[3.6.0,4.0.0)"
 Export-Package: com.rcpcompany.utils.selection;version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.ui.forms.widgets

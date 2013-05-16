@@ -11,7 +11,7 @@ import com.rcpcompany.utils.logging.LogUtils;
 /**
  * Simple Utility class that can provide a useful {@link Realm}.
  * 
- * @author Tonny Madsen, tma@bording.dk
+ * @author Tonny Madsen, tonny.madsen@gmail.com
  */
 public class UIBindingRealm {
 	private static SettableFuture<Realm> theUIRealm = SettableFuture.create();

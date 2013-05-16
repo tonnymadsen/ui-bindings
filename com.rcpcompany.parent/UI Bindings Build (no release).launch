@@ -8,16 +8,17 @@
 <listAttribute key="M2_PROPERTIES">
 <listEntry value="uibindings-build-user.password=superfly42"/>
 <listEntry value="tycho.baseline.replace=none"/>
-<listEntry value="tycho.version=0.17.0-SNAPSHOT"/>
-<listEntry value="tycho-extras.version=0.17.0-SNAPSHOT"/>
+<listEntry value="tycho.version=0.17.0"/>
 </listAttribute>
 <stringAttribute key="M2_RUNTIME" value="EMBEDDED"/>
 <booleanAttribute key="M2_SKIP_TESTS" value="false"/>
+<intAttribute key="M2_THREADS" value="0"/>
 <booleanAttribute key="M2_UPDATE_SNAPSHOTS" value="false"/>
 <booleanAttribute key="M2_WORKSPACE_RESOLUTION" value="false"/>
 <stringAttribute key="org.eclipse.debug.ui.ATTR_CAPTURE_IN_FILE" value="/Users/tonny/Desktop/m2.output.txt"/>
 <listAttribute key="org.eclipse.debug.ui.favoriteGroups">
 <listEntry value="org.eclipse.debug.ui.launchGroup.run"/>
 </listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Xmx2048m -XX:MaxPermSize=256m -Dtycho.debug.resolver=true"/>
 <stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="${project_loc:com.rcpcompany.parent}"/>
 </launchConfiguration>

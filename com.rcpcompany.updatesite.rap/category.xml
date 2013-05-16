@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.rcpcompany.utils.rap.feature_1.0.0.qualifier.jar" id="com.rcpcompany.utils.rap.feature" version="1.0.0.qualifier">
+      <category name="com.rcpcompany.utils.category"/>
+   </feature>
+   <category-def name="com.rcpcompany.utils.category" label="The RCP Company Utils Features">
+      <description>
+         Various utility plug-ins used within The RCP Company.
+      </description>
+   </category-def>
+   <category-def name="com.rcpcompany.uibindings.category" label="UI Bindings Features">
+      <description>
+         All plug-ins used for UI-Bindings
+      </description>
+   </category-def>
+   <category-def name="com.rcpcompany.uibindings.addon.category" label="UI Bindings Extensions">
+      <description>
+         Various extesnsions to UI Bindings
+      </description>
+   </category-def>
+</site>
