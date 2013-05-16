@@ -2,7 +2,7 @@
 <?metadataRepository version='1.1.0'?>
 <repository name='' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'>
   <properties size='2'>
-    <property name='p2.timestamp' value='1368703618089'/>
+    <property name='p2.timestamp' value='1368705503945'/>
     <property name='p2.compressed' value='false'/>
   </properties>
   <references size='2'>
