@@ -62,17 +62,11 @@
 		<!-- <module>../com.rcpcompany.uibindings.bindings.xtext</module> <module>../com.rcpcompany.uibindings.bindings.xtext.tests</module> -->
 
 		<module>../com.rcpcompany.utils.feature</module>
-		<module>../com.rcpcompany.utils.source.feature</module>
 		<module>../com.rcpcompany.uibindings.feature</module>
-		<module>../com.rcpcompany.uibindings.source.feature</module>
 		<module>../com.rcpcompany.uibindings.grid.feature</module>
-		<module>../com.rcpcompany.uibindings.grid.source.feature</module>
 		<module>../com.rcpcompany.uibindings.debug.feature</module>
-		<module>../com.rcpcompany.uibindings.debug.source.feature</module>
 		<module>../com.rcpcompany.uibindings.navigator.feature</module>
-		<module>../com.rcpcompany.uibindings.navigator.source.feature</module>
 		<module>../com.rcpcompany.uibindings.financial.feature</module>
-		<module>../com.rcpcompany.uibindings.financial.source.feature</module>
 
 		<module>../com.rcpcompany.updatesite.rcp</module>
 	</modules>
