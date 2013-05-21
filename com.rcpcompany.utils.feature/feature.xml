@@ -2,7 +2,7 @@
 <feature
       id="com.rcpcompany.utils.feature"
       label="The RCP Company Utility Feature"
-      version="1.7.0.qualifier"
+      version="1.8.0.qualifier"
       provider-name="The RCP Company">
 
    <description url="http://www.example.com/description">
@@ -133,6 +133,28 @@
          download-size="0"
          install-size="0"
          version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.rcpcompany.uibindings.model.utils"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.rcpcompany.uibindings.moao"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.rcpcompany.uibindings.model.utils.uifragment"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
          unpack="false"/>
 
 </feature>
