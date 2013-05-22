@@ -55,11 +55,11 @@
 <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/S20130308121626/repository/"/>
 </location>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.emf.sdk.feature.group" version="2.9.0.v20130204-1146"/>
+<unit id="org.eclipse.emf.sdk.feature.group" version="2.9.0.v20130521-0350"/>
 <unit id="org.eclipse.emf.ecore.xcore.lib.feature.group" version="1.1.0.v20130206-0459"/>
 <unit id="org.eclipse.emf.ecore.xcore.feature.group" version="1.1.0.v20130206-0459"/>
 <unit id="org.eclipse.emf.ecore.xcore.sdk.feature.group" version="1.1.0.v20130206-0459"/>
-<unit id="org.eclipse.emf.sdk.source.feature.group" version="2.9.0.v20130204-1146"/>
+<unit id="org.eclipse.emf.sdk.source.feature.group" version="2.9.0.v20130521-0350"/>
 <unit id="org.eclipse.emf.ecore.xcore.lib.source.feature.group" version="1.1.0.v20130206-0459"/>
 <unit id="org.eclipse.emf.ecore.xcore.source.feature.group" version="1.1.0.v20130206-0459"/>
 <unit id="org.eclipse.emf.ecore.xcore.sdk.source.feature.group" version="1.1.0.v20130206-0459"/>
