@@ -43,6 +43,16 @@
 							</requirement>
 							<requirement>
 								<type>eclipse-plugin</type>
+								<id>org.eclipse.rap.ui.forms</id>
+								<versionRange>0.0.0</versionRange>
+							</requirement>
+							<requirement>
+								<type>eclipse-plugin</type>
+								<id>org.eclipse.rap.jface.databinding</id>
+								<versionRange>0.0.0</versionRange>
+							</requirement>
+							<requirement>
+								<type>eclipse-plugin</type>
 								<id>org.eclipse.rap.ui.views</id>
 								<versionRange>0.0.0</versionRange>
 							</requirement>
