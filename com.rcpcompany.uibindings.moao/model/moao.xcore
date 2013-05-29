@@ -3,7 +3,8 @@
 		classNamePattern="{0}Impl", interfaceNamePattern="I{0}", suppressEMFModelTags="true",
 		fileExtensions="moao", suppressGenModelAnnotations="false", language="",
 		prefix="MOAO", modelName="MOAO", codeFormatting="true", redirection="",
-		updateClasspath="false", containmentProxies="false")
+		updateClasspath="false", containmentProxies="false",
+		modelDirectory="/com.rcpcompany.uibindings.moao/src-gen")
 package com.rcpcompany.uibindings.moao 
 
 import com.rcpcompany.uibindings.moao.IMOAOPackage$Literals
@@ -57,9 +58,9 @@ class MOAO extends IAdaptable {
 		removeMessagesByOwner(null, owner)
     	val allContents = eAllContents()
 		while (allContents.hasNext()) {
-			val next = allContents.next()
-			switch next {
-				IMOAO : (next as IMOAO).removeMessagesByOwner(null, owner)
+			val o = allContents.next()
+			switch o {
+				IMOAO : o.removeMessagesByOwner(null, owner)
 			}
 		}
     }
@@ -77,10 +78,9 @@ class MOAO extends IAdaptable {
 		
 		val iterator = facets.iterator
 		while (iterator.hasNext) {
-			val next = iterator.next
-			switch next {
+			val m = iterator.next
+			switch m {
 				IMOAOMessage : {
-					val m = next as IMOAOMessage
 					if (feature != null && feature == m.feature && owner == m.owner)
 				  		iterator.remove 
 				}
