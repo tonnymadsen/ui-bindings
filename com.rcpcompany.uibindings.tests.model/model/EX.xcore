@@ -3,7 +3,8 @@
 		classNamePattern="{0}Impl", interfaceNamePattern="{0}", suppressEMFModelTags="true",
 		fileExtensions="aserver", suppressGenModelAnnotations="false", language="",
 		prefix="TestModel", modelName="TestModel", codeFormatting="true", redirection="",
-		updateClasspath="false", containmentProxies="false")
+		updateClasspath="false", containmentProxies="false",
+		modelDirectory="/com.rcpcompany.uibindings.tests.model/src-gen")
 package com.rcpcompany.uibinding.tests.model
 
 import java.math.BigDecimal

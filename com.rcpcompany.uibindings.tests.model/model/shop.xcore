@@ -3,7 +3,8 @@
 		classNamePattern="{0}Impl", interfaceNamePattern="{0}", suppressEMFModelTags="true",
 		fileExtensions="shop", suppressGenModelAnnotations="false", language="",
 		prefix="Shop", modelName="Shop", codeFormatting="true", redirection="",
-		updateClasspath="false", containmentProxies="false")
+		updateClasspath="false", containmentProxies="false",
+		modelDirectory="/com.rcpcompany.uibindings.tests.model/src-gen")
 
 package com.rcpcompany.uibindings.tests.shop
 

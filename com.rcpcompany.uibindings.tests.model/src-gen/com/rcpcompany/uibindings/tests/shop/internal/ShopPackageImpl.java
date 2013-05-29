@@ -1746,6 +1746,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 				"redirection", "", //$NON-NLS-1$ //$NON-NLS-2$
 				"updateClasspath", "false", //$NON-NLS-1$ //$NON-NLS-2$
 				"containmentProxies", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"modelDirectory", "/com.rcpcompany.uibindings.tests.model/src-gen", //$NON-NLS-1$ //$NON-NLS-2$
 				"basePackage", "com.rcpcompany.uibindings.tests" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 		addAnnotation(getOrder_No(), source, new String[] { "suppressedSetVisibility", "true" //$NON-NLS-1$ //$NON-NLS-2$
