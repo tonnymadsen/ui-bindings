@@ -15,11 +15,14 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.common.command.IdentityCommand;
+import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
@@ -43,6 +46,8 @@ import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 
+import com.rcpcompany.utils.logging.LogUtils;
+
 /**
  * Various Ecore oriented utility methods.
  * 
@@ -63,6 +68,7 @@ public final class EcoreExtendedUtils {
 		final SyncController controller = new SyncController(source);
 		controller.setEditingDomain(domain);
 		controller.sync(target, source);
+		controller.assertFullMappings();
 		controller.handleDeferredOperations();
 		controller.commit();
 
@@ -81,14 +87,131 @@ public final class EcoreExtendedUtils {
 	 * @return the controller used for all the changes
 	 */
 	public static <T extends EObject> SyncController sync(EditingDomain domain, T target, T source) {
+		return sync(domain, target, source, null);
+	}
+
+	/**
+	 * Synchronizes the information from the <code>source</code> object into the <code>target</code>
+	 * object.
+	 * <p>
+	 * The sync is potentially destructive for the <code>source</code> object.
+	 * 
+	 * @param domain to editing domain used for all changes - created if not specified
+	 * @param target the object synchronized into
+	 * @param source the object synchronized from
+	 * @param ignoredFeatures a List of features that will be ignored in the synchronization
+	 * @return the controller used for all the changes
+	 */
+	public static <T extends EObject> SyncController sync(EditingDomain domain, T target, T source,
+			List<EStructuralFeature> ignoredFeatures) {
 		Assert.isTrue(source.eClass() == target.eClass(), "target and source must have exactly the same types");
 		final SyncController controller = new SyncController(source);
 		controller.setEditingDomain(domain);
+		if (ignoredFeatures != null) {
+			for (final EStructuralFeature sf : ignoredFeatures) {
+				controller.addIgnoredFeature(sf);
+			}
+		}
 		controller.sync(target, source);
+		controller.assertFullMappings();
 		controller.handleDeferredOperations();
 		controller.commit();
 
 		return controller;
+	}
+
+	/**
+	 * Returns a string that describes the specified command is clear human readable text.
+	 * 
+	 * @param c the command
+	 * @return the clear text description
+	 */
+	public static String toString(Command c) {
+		if (c == null) return "<null>";
+
+		final StringBuilder sb = new StringBuilder(50);
+
+		sb.append(c.getClass().getSimpleName()).append('(');
+		if (c instanceof IdentityCommand) {
+		} else if (c instanceof UnexecutableCommand) {
+		} else if (c instanceof AddCommand) {
+			final AddCommand cc = (AddCommand) c;
+
+			sb.append(getEObjectName(cc.getOwner())).append(", ").append(cc.getFeature().getName()).append(", ")
+					.append(toString(cc.getCollection()));
+			if (cc.getFeature().isMany() && cc.getIndex() != -1) {
+				sb.append(", ").append(cc.getIndex());
+			}
+		} else if (c instanceof RemoveCommand) {
+			final RemoveCommand cc = (RemoveCommand) c;
+
+			sb.append(getEObjectName(cc.getOwner())).append(", ").append(cc.getFeature().getName()).append(", ")
+					.append(toString(cc.getCollection()));
+		} else if (c instanceof MoveCommand) {
+			final MoveCommand cc = (MoveCommand) c;
+
+			sb.append(getEObjectName(cc.getOwner())).append(", ").append(cc.getFeature().getName()).append(", ")
+					.append(toString(cc.getValue())).append(", ").append(cc.getIndex());
+		} else if (c instanceof SetCommand) {
+			final SetCommand cc = (SetCommand) c;
+
+			sb.append(getEObjectName(cc.getOwner())).append(", ").append(cc.getFeature().getName()).append(", ")
+					.append(formatSetCommandArg(cc.getOldValue())).append(", ")
+					.append(formatSetCommandArg(cc.getValue()));
+			if (cc.getFeature().isMany()) {
+				sb.append(", ").append(cc.getIndex());
+			}
+		} else if (c instanceof CompoundCommand) {
+			final CompoundCommand cc = (CompoundCommand) c;
+			boolean first = true;
+			for (final Command ic : cc.getCommandList()) {
+				if (!first) {
+					sb.append(", ");
+				}
+				sb.append(toString(ic));
+				first = false;
+
+			}
+			// } else if (c instanceof ContainerDragAndDropCommand) {
+			// final ContainerDragAndDropCommand cc = (ContainerDragAndDropCommand) c;
+			// sb.append(toString(cc.getDragCommand())).append(", ").append(toString(cc.getDropCommand()));
+		} else {
+			sb.append("...");
+		}
+		sb.append(')');
+		return sb.toString();
+	}
+
+	private static String toString(Object o) {
+		final StringBuilder sb = new StringBuilder(200);
+		if (o instanceof EObject) {
+			sb.append(o);
+			// sb.append(IBindingObjectInformation.Factory.getLongName((EObject) o));
+		} else {
+			sb.append(o);
+		}
+		return sb.toString();
+	}
+
+	private static String toString(Collection<?> collection) {
+		final StringBuilder sb = new StringBuilder(200);
+		sb.append('[');
+		for (final Object o : collection) {
+			if (sb.length() > 1) {
+				sb.append(", ");
+			}
+			sb.append(toString(o));
+		}
+		sb.append(']');
+		return sb.toString();
+	}
+
+	private static String formatSetCommandArg(Object oldValue) {
+		return (oldValue == SetCommand.UNSET_VALUE) ? "<default> " : ("" + oldValue);
+	}
+
+	private static String getEObjectName(EObject owner) {
+		return "" + owner; // IBindingObjectInformation.Factory.getQualifiedName(owner);
 	}
 
 	/**
@@ -163,8 +286,19 @@ public final class EcoreExtendedUtils {
 			/*
 			 * Check that we only register a mapping once
 			 */
-			Assert.isTrue(sourceToTargetMapping.get(source) == null, "Already have a mapping for " + source);
+			final EObject existingMapping = sourceToTargetMapping.get(source);
+			Assert.isTrue(existingMapping == null, "Already have a mapping for " + source);
 			sourceToTargetMapping.put(source, target);
+		}
+
+		/**
+		 * Asserts that all source objects are properly mapped to target objects.
+		 */
+		public void assertFullMappings() {
+			for (final Entry<EObject, EObject> e : sourceToTargetMapping.entrySet()) {
+				// Assert.isTrue(e.getValue() != null, "No mapping registered for source object " +
+				// e.getKey());
+			}
 		}
 
 		/**
@@ -277,6 +411,22 @@ public final class EcoreExtendedUtils {
 			}
 		}
 
+		private List<EStructuralFeature> myIgnoredFeatures = null;
+
+		/**
+		 * Adds a new feature that should be ignored in
+		 * {@link #skipStructuralFeature(EStructuralFeature)}.
+		 * 
+		 * @param ignoredFeature the new feature
+		 */
+		public void addIgnoredFeature(EStructuralFeature ignoredFeature) {
+			if (myIgnoredFeatures == null) {
+				myIgnoredFeatures = new ArrayList<EStructuralFeature>();
+			}
+
+			myIgnoredFeatures.add(ignoredFeature);
+		}
+
 		/**
 		 * Returns whether a specific structural feature should be skipped in the sync process.
 		 * 
@@ -285,7 +435,9 @@ public final class EcoreExtendedUtils {
 		 * @return <code>true</code> if the feature should be skipped
 		 */
 		protected boolean skipStructuralFeature(EStructuralFeature sf) {
-			return false;
+			if (myIgnoredFeatures == null) return false;
+
+			return myIgnoredFeatures.contains(sf);
 		}
 
 		/**
@@ -469,8 +621,8 @@ public final class EcoreExtendedUtils {
 					}
 
 					/*
-					 * An object with the correct key already exist in the correct place. Sync these
-					 * then.
+					 * An object with the correct key already exist in the correct place (uses a
+					 * deep equals). Sync these then.
 					 */
 					if (BasicUtils.equals(targetObject, sourceObject, key)) {
 						if (key == null) {
@@ -482,17 +634,17 @@ public final class EcoreExtendedUtils {
 					}
 
 					/*
-					 * See if the source already exists somewhere in the target list.
+					 * See if the source object already exists somewhere in the target list.
 					 * 
-					 * Also see if the target object at the wanted index is found anywhere in the
-					 * source list.
+					 * Also see if the target object at the wanted (source) index is found anywhere
+					 * in the source list.
 					 */
 					final int existingTargetIndex = indexOf(targetList, key, sourceObject, sourceIndex);
 					int targetIndex = indexOf((List<EObject>) sourceList, key, targetObject, sourceIndex);
 					if (existingTargetIndex == -1) {
 						/*
-						 * The object does not exist in the target list already, so we have to
-						 * either add it or replace the exiting target object if it is not needed
+						 * The source object does not exist in the target list yet, so we have to
+						 * either add it or replace the exiting target object if this is not needed
 						 */
 						registerMapping(sourceObject, sourceObject);
 						if (targetIndex == -1) {
@@ -505,22 +657,26 @@ public final class EcoreExtendedUtils {
 						}
 						continue;
 					}
-					final EObject existingTargetObject = targetList.get(existingTargetIndex);
 
-					/*
-					 * There are no use for the current target element - just remove it
-					 */
 					if (targetIndex == -1) {
+						/*
+						 * There are no use for the current target object - just remove it
+						 */
 						addCommand(RemoveCommand.create(getEditingDomain(), target, ref, targetObject));
 						addRemovedObject(sourceObject);
 						targetList.remove(sourceIndex);
 						done = false;
 						continue;
 					}
-					/*
-					 * There are a later use for the target element...
-					 */
+					final EObject existingTargetObject = targetList.get(existingTargetIndex);
+
 					if (targetIndex > existingTargetIndex) {
+						/*
+						 * There are a later use for the target element...
+						 * 
+						 * So we just move it to the wanted index (though not outside the target
+						 * list).
+						 */
 						if (targetList.size() <= targetIndex) {
 							targetIndex = targetList.size() - 1;
 						}
@@ -530,9 +686,14 @@ public final class EcoreExtendedUtils {
 						done = false;
 						continue;
 					}
+					/*
+					 * So we found an equivalent for the source object in the target list.
+					 * 
+					 * Move this to the correct position and sync
+					 */
 					addCommand(MoveCommand.create(getEditingDomain(), target, ref, existingTargetObject, sourceIndex));
 					targetList.move(targetIndex, sourceIndex);
-					registerMapping(sourceObject, sourceObject);
+					// registerMapping(sourceObject, sourceObject);
 					sync(targetList.get(sourceIndex), sourceObject);
 				} while (!done);
 			}
@@ -612,7 +773,7 @@ public final class EcoreExtendedUtils {
 				myCommitCommand = new CompoundCommand();
 			}
 
-			// LogUtils.debug(this, EcoreExtUtils.toString(c));
+			LogUtils.debug(this, EcoreExtendedUtils.toString(c));
 			myCommitCommand.append(c);
 		}
 
