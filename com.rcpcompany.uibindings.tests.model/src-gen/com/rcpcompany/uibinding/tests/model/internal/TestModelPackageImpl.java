@@ -981,6 +981,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 				"redirection", "", //$NON-NLS-1$ //$NON-NLS-2$
 				"updateClasspath", "false", //$NON-NLS-1$ //$NON-NLS-2$
 				"containmentProxies", "false", //$NON-NLS-1$ //$NON-NLS-2$
+				"modelDirectory", "/com.rcpcompany.uibindings.tests.model/src-gen", //$NON-NLS-1$ //$NON-NLS-2$
 				"basePackage", "com.rcpcompany.uibinding.tests" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 	}
@@ -993,7 +994,9 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 */
 	protected void createXcoreAnnotations() {
 		final String source = "http://www.eclipse.org/emf/2011/Xcore"; //$NON-NLS-1$			
-		addAnnotation(this, source, new String[] { "uibindings", "http://rcp-company.com/schemas/uibindings" //$NON-NLS-1$ //$NON-NLS-2$
+		addAnnotation(this, source, new String[] { "Ecore", "http://www.eclipse.org/emf/2002/Ecore", //$NON-NLS-1$ //$NON-NLS-2$
+				"GenModel", "http://www.eclipse.org/emf/2002/GenModel", //$NON-NLS-1$ //$NON-NLS-2$
+				"uibindings", "http://rcp-company.com/schemas/uibindings" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 	}
 

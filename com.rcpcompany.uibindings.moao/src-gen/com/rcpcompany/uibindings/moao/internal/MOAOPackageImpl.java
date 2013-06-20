@@ -595,6 +595,8 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/GenModel
 		createGenModelAnnotations();
+		// http://www.eclipse.org/emf/2011/Xcore
+		createXcoreAnnotations();
 	}
 
 	/**
@@ -699,6 +701,19 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 				"documentation", "*\n<p>\nInformational message." //$NON-NLS-1$ //$NON-NLS-2$
 		});
 		addAnnotation(severityEEnum.getELiterals().get(3), source, new String[] { "documentation", "*\n<p>\nComment." //$NON-NLS-1$ //$NON-NLS-2$
+		});
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2011/Xcore</b>. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void createXcoreAnnotations() {
+		final String source = "http://www.eclipse.org/emf/2011/Xcore"; //$NON-NLS-1$			
+		addAnnotation(this, source, new String[] { "Ecore", "http://www.eclipse.org/emf/2002/Ecore", //$NON-NLS-1$ //$NON-NLS-2$
+				"GenModel", "http://www.eclipse.org/emf/2002/GenModel" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 	}
 
