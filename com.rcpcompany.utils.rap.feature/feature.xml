@@ -44,6 +44,7 @@
       <import plugin="org.eclipse.core.databinding.observable"/>
       <import plugin="org.eclipse.osgi"/>
       <import plugin="org.eclipse.rap.jface.databinding"/>
+      <import plugin="org.eclipse.swt"/>
       <import plugin="org.eclipse.xtext.xbase.lib" version="2.3.0" match="compatible"/>
       <import plugin="org.eclipse.emf.ecore" version="2.8.0" match="compatible"/>
       <import plugin="org.eclipse.emf.ecore.xcore.lib" version="1.0.0" match="equivalent"/>
