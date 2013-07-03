@@ -5,11 +5,6 @@ Bundle-SymbolicName: com.rcpcompany.uibindings;singleton:=true
 Bundle-Version: 2.16.0.qualifier
 Bundle-Activator: com.rcpcompany.uibindings.internal.Activator
 Bundle-Vendor: %Bundle-Vendor
-Require-Bundle: com.rcpcompany.utils.ui;visibility:=reexport,
- org.eclipse.core.runtime;bundle-version="[3.5.0,4.0.0)",
- org.eclipse.emf.common;bundle-version="[2.4.0,3.0.0)";visibility:=reexport,
- org.eclipse.emf.ecore;bundle-version="[2.4.0,3.0.0)";visibility:=reexport
-Bundle-ActivationPolicy: lazy
 Export-Package: com.rcpcompany.uibindings;version="2.0.0",
  com.rcpcompany.uibindings.bindingMessages;version="2.0.0",
  com.rcpcompany.uibindings.compositeform;version="2.0.0",
@@ -33,7 +28,14 @@ Export-Package: com.rcpcompany.uibindings;version="2.0.0",
  com.rcpcompany.uibindings.validators;version="2.0.0",
  com.rcpcompany.uibindings.views;version="2.0.0",
  com.rcpcompany.uibindings.widgets;version="2.0.0"
+Require-Bundle: com.rcpcompany.utils.ui;visibility:=reexport,
+ org.eclipse.core.runtime;bundle-version="[3.5.0,4.0.0)",
+ org.eclipse.emf.common;bundle-version="[2.4.0,3.0.0)";visibility:=reexport,
+ org.eclipse.emf.ecore;bundle-version="[2.4.0,3.0.0)";visibility:=reexport,
+ org.eclipse.equinox.ds;bundle-version="[1.4.1,1.5.0)"
+Service-Component: OSGI-INF/com.rcpcompany.uibindings.internal.DSWorkbench.xml
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
 Import-Package: com.ibm.icu.text;version="[4.2.0,5.0.0)",
  com.rcpcompany.uibindings.fragments.jfaceif;version="[1.0.0,2.0.0)",
  com.rcpcompany.uibindings.model.utils;version="[1.2.0,2.0.0)",
@@ -69,4 +71,5 @@ Import-Package: com.ibm.icu.text;version="[4.2.0,5.0.0)",
  org.eclipse.ui.forms,
  org.eclipse.ui.forms.events,
  org.eclipse.ui.forms.widgets,
- org.osgi.framework;version="1.5.0"
+ org.osgi.framework;version="1.5.0",
+ org.osgi.service.component.annotations;version="[1.2.0,2.0.0)"
