@@ -5,7 +5,6 @@ package com.rcpcompany.uibindings.tests.shop.internal;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Map;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -16,7 +15,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import com.rcpcompany.uibindings.moao.internal.NamedObjectImpl;
 import com.rcpcompany.uibindings.model.utils.EValidatorAdapterUtils;
 import com.rcpcompany.uibindings.tests.shop.Contact;
@@ -133,19 +131,13 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 			if (EcoreUtil.isAncestor(this, newShop))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
-			if (eInternalContainer() != null) {
-				msgs = eBasicRemoveFromContainer(msgs);
-			}
-			if (newShop != null) {
+			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
+			if (newShop != null)
 				msgs = ((InternalEObject) newShop).eInverseAdd(this, ShopPackage.SHOP__COUNTRIES, Shop.class, msgs);
-			}
 			msgs = basicSetShop(newShop, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
+			if (msgs != null) msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.COUNTRY__SHOP, newShop, newShop));
-		}
 	}
 
 	/**
@@ -165,12 +157,11 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 	 */
 	@Override
 	public void setAbbreviation(String newAbbreviation) {
-		final String oldAbbreviation = abbreviation;
+		String oldAbbreviation = abbreviation;
 		abbreviation = newAbbreviation;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.COUNTRY__ABBREVIATION, oldAbbreviation,
 					abbreviation));
-		}
 	}
 
 	/**
@@ -203,16 +194,15 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 	 * @generated
 	 */
 	public NotificationChain basicSetInformation(CountryInfo newInformation, NotificationChain msgs) {
-		final CountryInfo oldInformation = information;
+		CountryInfo oldInformation = information;
 		information = newInformation;
 		if (eNotificationRequired()) {
-			final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					ShopPackage.COUNTRY__INFORMATION, oldInformation, newInformation);
-			if (msgs == null) {
+			if (msgs == null)
 				msgs = notification;
-			} else {
+			else
 				msgs.add(notification);
-			}
 		}
 		return msgs;
 	}
@@ -226,22 +216,17 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 	public void setInformation(CountryInfo newInformation) {
 		if (newInformation != information) {
 			NotificationChain msgs = null;
-			if (information != null) {
+			if (information != null)
 				msgs = ((InternalEObject) information).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- ShopPackage.COUNTRY__INFORMATION, null, msgs);
-			}
-			if (newInformation != null) {
+			if (newInformation != null)
 				msgs = ((InternalEObject) newInformation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- ShopPackage.COUNTRY__INFORMATION, null, msgs);
-			}
 			msgs = basicSetInformation(newInformation, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
+			if (msgs != null) msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.COUNTRY__INFORMATION, newInformation,
 					newInformation));
-		}
 	}
 
 	/**
@@ -293,9 +278,7 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case ShopPackage.COUNTRY__SHOP:
-			if (eInternalContainer() != null) {
-				msgs = eBasicRemoveFromContainer(msgs);
-			}
+			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
 			return basicSetShop((Shop) otherEnd, msgs);
 		case ShopPackage.COUNTRY__CONTACTS:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getContacts()).basicAdd(otherEnd, msgs);
@@ -451,7 +434,7 @@ public class CountryImpl extends NamedObjectImpl implements Country {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		final StringBuffer result = new StringBuffer(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (abbreviation: "); //$NON-NLS-1$
 		result.append(abbreviation);
 		result.append(')');

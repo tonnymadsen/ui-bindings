@@ -577,8 +577,8 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM__FOR_SALE = IMOAOPackage.NAMED_OBJECT_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Information</b></em>' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Information</b></em>' containment reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1600,13 +1600,22 @@ public interface ShopPackage extends EPackage {
 	int SHOP_ITEM_DESCRIPTION__FACETS = SHOP_ITEM_INFORMATION__FACETS;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SHOP_ITEM_DESCRIPTION__DESCRIPTION = SHOP_ITEM_INFORMATION_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Item Description</em>' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SHOP_ITEM_DESCRIPTION_FEATURE_COUNT = SHOP_ITEM_INFORMATION_FEATURE_COUNT + 0;
+	int SHOP_ITEM_DESCRIPTION_FEATURE_COUNT = SHOP_ITEM_INFORMATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation. <!-- begin-user-doc --> <!--
@@ -2417,11 +2426,11 @@ public interface ShopPackage extends EPackage {
 	EAttribute getShopItem_ForSale();
 
 	/**
-	 * Returns the meta object for the reference '
+	 * Returns the meta object for the containment reference '
 	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItem#getInformation <em>Information</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the reference '<em>Information</em>'.
+	 * @return the meta object for the containment reference '<em>Information</em>'.
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopItem#getInformation()
 	 * @see #getShopItem()
 	 * @generated
@@ -2952,6 +2961,18 @@ public interface ShopPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getShopItemDescription();
+
+	/**
+	 * Returns the meta object for the attribute '
+	 * {@link com.rcpcompany.uibindings.tests.shop.ShopItemDescription#getDescription
+	 * <em>Description</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.rcpcompany.uibindings.tests.shop.ShopItemDescription#getDescription()
+	 * @see #getShopItemDescription()
+	 * @generated
+	 */
+	EAttribute getShopItemDescription_Description();
 
 	/**
 	 * Returns the meta object for class '{@link com.rcpcompany.uibindings.tests.shop.ShopItemURL
@@ -3746,6 +3767,14 @@ public interface ShopPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SHOP_ITEM_DESCRIPTION = eINSTANCE.getShopItemDescription();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute SHOP_ITEM_DESCRIPTION__DESCRIPTION = eINSTANCE.getShopItemDescription_Description();
 
 		/**
 		 * The meta object literal for the '

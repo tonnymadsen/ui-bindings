@@ -102,7 +102,7 @@ public interface Customer extends IMOAO {
 
 	/**
 	 * Returns the value of the '<em><b>Loyalty</b></em>' attribute. The default value is
-	 * <code>"BRONCE"</code>. The literals are from the enumeration
+	 * <code>"Bronce"</code>. The literals are from the enumeration
 	 * {@link com.rcpcompany.uibindings.tests.shop.CustomerType}. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Loyalty</em>' attribute isn't clear, there really should be more

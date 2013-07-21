@@ -8,7 +8,8 @@
 <listAttribute key="M2_PROPERTIES">
 <listEntry value="uibindings-build-user.password=superfly42"/>
 <listEntry value="tycho.baseline.replace=none"/>
-<listEntry value="tycho.version=0.17.0"/>
+<listEntry value="tycho.version=0.18.0"/>
+<listEntry value="tycho.localArtifacts=ignore"/>
 </listAttribute>
 <stringAttribute key="M2_RUNTIME" value="EMBEDDED"/>
 <booleanAttribute key="M2_SKIP_TESTS" value="false"/>
@@ -19,6 +20,7 @@
 <listAttribute key="org.eclipse.debug.ui.favoriteGroups">
 <listEntry value="org.eclipse.debug.ui.launchGroup.run"/>
 </listAttribute>
+<booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
 <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Xmx2048m -XX:MaxPermSize=256m -Dtycho.debug.resolver=true"/>
 <stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="${project_loc:com.rcpcompany.parent}"/>
 </launchConfiguration>

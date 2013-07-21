@@ -4,7 +4,7 @@
 		fileExtensions="aserver", suppressGenModelAnnotations="false", language="",
 		prefix="TestModel", modelName="TestModel", codeFormatting="true", redirection="",
 		updateClasspath="false", containmentProxies="false",
-		modelDirectory="/com.rcpcompany.uibindings.tests.model/src-gen")
+		modelDirectory="/com.rcpcompany.uibindings.tests.model/src-gen", commentFormatting="true")
 package com.rcpcompany.uibinding.tests.model
 
 import java.math.BigDecimal

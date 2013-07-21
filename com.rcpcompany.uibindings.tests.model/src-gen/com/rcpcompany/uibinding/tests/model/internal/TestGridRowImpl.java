@@ -103,13 +103,12 @@ public class TestGridRowImpl extends MinimalEObjectImpl.Container implements Tes
 	@Override
 	public TestGrid getGrid() {
 		if (grid != null && grid.eIsProxy()) {
-			final InternalEObject oldGrid = (InternalEObject) grid;
+			InternalEObject oldGrid = (InternalEObject) grid;
 			grid = (TestGrid) eResolveProxy(oldGrid);
 			if (grid != oldGrid) {
-				if (eNotificationRequired()) {
+				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TestModelPackage.TEST_GRID_ROW__GRID,
 							oldGrid, grid));
-				}
 			}
 		}
 		return grid;
@@ -130,16 +129,15 @@ public class TestGridRowImpl extends MinimalEObjectImpl.Container implements Tes
 	 * @generated
 	 */
 	public NotificationChain basicSetGrid(TestGrid newGrid, NotificationChain msgs) {
-		final TestGrid oldGrid = grid;
+		TestGrid oldGrid = grid;
 		grid = newGrid;
 		if (eNotificationRequired()) {
-			final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					TestModelPackage.TEST_GRID_ROW__GRID, oldGrid, newGrid);
-			if (msgs == null) {
+			if (msgs == null)
 				msgs = notification;
-			} else {
+			else
 				msgs.add(notification);
-			}
 		}
 		return msgs;
 	}
@@ -153,22 +151,17 @@ public class TestGridRowImpl extends MinimalEObjectImpl.Container implements Tes
 	public void setGrid(TestGrid newGrid) {
 		if (newGrid != grid) {
 			NotificationChain msgs = null;
-			if (grid != null) {
+			if (grid != null)
 				msgs = ((InternalEObject) grid).eInverseRemove(this, TestModelPackage.TEST_GRID__ROWS, TestGrid.class,
 						msgs);
-			}
-			if (newGrid != null) {
+			if (newGrid != null)
 				msgs = ((InternalEObject) newGrid).eInverseAdd(this, TestModelPackage.TEST_GRID__ROWS, TestGrid.class,
 						msgs);
-			}
 			msgs = basicSetGrid(newGrid, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
+			if (msgs != null) msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_GRID_ROW__GRID, newGrid,
 					newGrid));
-		}
 	}
 
 	/**
@@ -188,12 +181,11 @@ public class TestGridRowImpl extends MinimalEObjectImpl.Container implements Tes
 	 */
 	@Override
 	public void setNumber(int newNumber) {
-		final int oldNumber = number;
+		int oldNumber = number;
 		number = newNumber;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_GRID_ROW__NUMBER, oldNumber,
 					number));
-		}
 	}
 
 	/**
@@ -220,10 +212,9 @@ public class TestGridRowImpl extends MinimalEObjectImpl.Container implements Tes
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case TestModelPackage.TEST_GRID_ROW__GRID:
-			if (grid != null) {
+			if (grid != null)
 				msgs = ((InternalEObject) grid).eInverseRemove(this, TestModelPackage.TEST_GRID__ROWS, TestGrid.class,
 						msgs);
-			}
 			return basicSetGrid((TestGrid) otherEnd, msgs);
 		case TestModelPackage.TEST_GRID_ROW__CELLS:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getCells()).basicAdd(otherEnd, msgs);
@@ -337,7 +328,7 @@ public class TestGridRowImpl extends MinimalEObjectImpl.Container implements Tes
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		final StringBuffer result = new StringBuffer(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (number: "); //$NON-NLS-1$
 		result.append(number);
 		result.append(')');

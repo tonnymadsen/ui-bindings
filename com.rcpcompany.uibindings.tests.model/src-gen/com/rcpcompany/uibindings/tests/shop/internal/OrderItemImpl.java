@@ -172,19 +172,13 @@ public class OrderItemImpl extends MOAOImpl implements OrderItem {
 			if (EcoreUtil.isAncestor(this, newOrder))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
-			if (eInternalContainer() != null) {
-				msgs = eBasicRemoveFromContainer(msgs);
-			}
-			if (newOrder != null) {
+			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
+			if (newOrder != null)
 				msgs = ((InternalEObject) newOrder).eInverseAdd(this, ShopPackage.ORDER__ITEMS, Order.class, msgs);
-			}
 			msgs = basicSetOrder(newOrder, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
+			if (msgs != null) msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.ORDER_ITEM__ORDER, newOrder, newOrder));
-		}
 	}
 
 	/**
@@ -214,11 +208,10 @@ public class OrderItemImpl extends MOAOImpl implements OrderItem {
 	 */
 	@Override
 	public void setItem(ShopItem newItem) {
-		final ShopItem oldItem = item;
+		ShopItem oldItem = item;
 		item = newItem;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.ORDER_ITEM__ITEM, oldItem, item));
-		}
 	}
 
 	/**
@@ -238,11 +231,10 @@ public class OrderItemImpl extends MOAOImpl implements OrderItem {
 	 */
 	@Override
 	public void setCount(int newCount) {
-		final int oldCount = count;
+		int oldCount = count;
 		count = newCount;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.ORDER_ITEM__COUNT, oldCount, count));
-		}
 	}
 
 	/**
@@ -264,9 +256,7 @@ public class OrderItemImpl extends MOAOImpl implements OrderItem {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case ShopPackage.ORDER_ITEM__ORDER:
-			if (eInternalContainer() != null) {
-				msgs = eBasicRemoveFromContainer(msgs);
-			}
+			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
 			return basicSetOrder((Order) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -395,7 +385,7 @@ public class OrderItemImpl extends MOAOImpl implements OrderItem {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		final StringBuffer result = new StringBuffer(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (no: "); //$NON-NLS-1$
 		result.append(no);
 		result.append(", count: "); //$NON-NLS-1$

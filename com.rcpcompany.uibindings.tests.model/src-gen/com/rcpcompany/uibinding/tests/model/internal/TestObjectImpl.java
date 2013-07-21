@@ -386,14 +386,13 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	 */
 	@Override
 	public void setNumber(int newNumber) {
-		final int oldNumber = number;
+		int oldNumber = number;
 		number = newNumber;
-		final boolean oldNumberESet = numberESet;
+		boolean oldNumberESet = numberESet;
 		numberESet = true;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__NUMBER, oldNumber,
 					number, !oldNumberESet));
-		}
 	}
 
 	/**
@@ -403,14 +402,13 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	 */
 	@Override
 	public void unsetNumber() {
-		final int oldNumber = number;
-		final boolean oldNumberESet = numberESet;
+		int oldNumber = number;
+		boolean oldNumberESet = numberESet;
 		number = NUMBER_EDEFAULT;
 		numberESet = false;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.UNSET, TestModelPackage.TEST_OBJECT__NUMBER, oldNumber,
 					NUMBER_EDEFAULT, oldNumberESet));
-		}
 	}
 
 	/**
@@ -440,11 +438,10 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	 */
 	@Override
 	public void setD(double newD) {
-		final double oldD = d;
+		double oldD = d;
 		d = newD;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__D, oldD, d));
-		}
 	}
 
 	/**
@@ -464,11 +461,10 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	 */
 	@Override
 	public void setF(float newF) {
-		final float oldF = f;
+		float oldF = f;
 		f = newF;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__F, oldF, f));
-		}
 	}
 
 	/**
@@ -488,11 +484,10 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	 */
 	@Override
 	public void setDate(Date newDate) {
-		final Date oldDate = date;
+		Date oldDate = date;
 		date = newDate;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__DATE, oldDate, date));
-		}
 	}
 
 	/**
@@ -512,11 +507,10 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	 */
 	@Override
 	public void setText(String newText) {
-		final String oldText = text;
+		String oldText = text;
 		text = newText;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__TEXT, oldText, text));
-		}
 	}
 
 	/**
@@ -527,13 +521,12 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	@Override
 	public TestContainer getParent() {
 		if (parent != null && parent.eIsProxy()) {
-			final InternalEObject oldParent = (InternalEObject) parent;
+			InternalEObject oldParent = (InternalEObject) parent;
 			parent = (TestContainer) eResolveProxy(oldParent);
 			if (parent != oldParent) {
-				if (eNotificationRequired()) {
+				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TestModelPackage.TEST_OBJECT__PARENT,
 							oldParent, parent));
-				}
 			}
 		}
 		return parent;
@@ -555,12 +548,11 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	 */
 	@Override
 	public void setParent(TestContainer newParent) {
-		final TestContainer oldParent = parent;
+		TestContainer oldParent = parent;
 		parent = newParent;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__PARENT, oldParent,
 					parent));
-		}
 	}
 
 	/**
@@ -580,11 +572,10 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	 */
 	@Override
 	public void setB(boolean newB) {
-		final boolean oldB = b;
+		boolean oldB = b;
 		b = newB;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__B, oldB, b));
-		}
 	}
 
 	/**
@@ -604,11 +595,10 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	 */
 	@Override
 	public void setAc(AmountAndCurrencyOld newAc) {
-		final AmountAndCurrencyOld oldAc = ac;
+		AmountAndCurrencyOld oldAc = ac;
 		ac = newAc;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__AC, oldAc, ac));
-		}
 	}
 
 	/**
@@ -628,11 +618,10 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	 */
 	@Override
 	public void setUnit(WeightUnit newUnit) {
-		final WeightUnit oldUnit = unit;
+		WeightUnit oldUnit = unit;
 		unit = newUnit == null ? UNIT_EDEFAULT : newUnit;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__UNIT, oldUnit, unit));
-		}
 	}
 
 	/**
@@ -652,12 +641,11 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	 */
 	@Override
 	public void setTimeUnit(TimeUnit newTimeUnit) {
-		final TimeUnit oldTimeUnit = timeUnit;
+		TimeUnit oldTimeUnit = timeUnit;
 		timeUnit = newTimeUnit == null ? TIME_UNIT_EDEFAULT : newTimeUnit;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__TIME_UNIT, oldTimeUnit,
 					timeUnit));
-		}
 	}
 
 	/**
@@ -677,11 +665,10 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	 */
 	@Override
 	public void setByte(byte newByte) {
-		final byte oldByte = byte_;
+		byte oldByte = byte_;
 		byte_ = newByte;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__BYTE, oldByte, byte_));
-		}
 	}
 
 	/**
@@ -701,11 +688,10 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	 */
 	@Override
 	public void setShort(short newShort) {
-		final short oldShort = short_;
+		short oldShort = short_;
 		short_ = newShort;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__SHORT, oldShort, short_));
-		}
 	}
 
 	/**
@@ -725,11 +711,10 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	 */
 	@Override
 	public void setLong(long newLong) {
-		final long oldLong = long_;
+		long oldLong = long_;
 		long_ = newLong;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__LONG, oldLong, long_));
-		}
 	}
 
 	/**
@@ -749,12 +734,11 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	 */
 	@Override
 	public void setBigDecimal(BigDecimal newBigDecimal) {
-		final BigDecimal oldBigDecimal = bigDecimal;
+		BigDecimal oldBigDecimal = bigDecimal;
 		bigDecimal = newBigDecimal;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__BIG_DECIMAL,
 					oldBigDecimal, bigDecimal));
-		}
 	}
 
 	/**
@@ -774,12 +758,11 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	 */
 	@Override
 	public void setBigInteger(BigInteger newBigInteger) {
-		final BigInteger oldBigInteger = bigInteger;
+		BigInteger oldBigInteger = bigInteger;
 		bigInteger = newBigInteger;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_OBJECT__BIG_INTEGER,
 					oldBigInteger, bigInteger));
-		}
 	}
 
 	/**
@@ -990,13 +973,12 @@ public class TestObjectImpl extends MinimalEObjectImpl.Container implements Test
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		final StringBuffer result = new StringBuffer(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (number: "); //$NON-NLS-1$
-		if (numberESet) {
+		if (numberESet)
 			result.append(number);
-		} else {
+		else
 			result.append("<unset>"); //$NON-NLS-1$
-		}
 		result.append(", d: "); //$NON-NLS-1$
 		result.append(d);
 		result.append(", f: "); //$NON-NLS-1$

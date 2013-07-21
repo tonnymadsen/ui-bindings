@@ -86,8 +86,8 @@ public enum TimeUnit implements Enumerator {
 	 */
 	public static TimeUnit get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			final TimeUnit result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) return result;
+			TimeUnit result = VALUES_ARRAY[i];
+			if (result.toString().equals(literal)) { return result; }
 		}
 		return null;
 	}
@@ -100,8 +100,8 @@ public enum TimeUnit implements Enumerator {
 	 */
 	public static TimeUnit getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			final TimeUnit result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) return result;
+			TimeUnit result = VALUES_ARRAY[i];
+			if (result.getName().equals(name)) { return result; }
 		}
 		return null;
 	}

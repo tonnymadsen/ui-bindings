@@ -79,11 +79,10 @@ public abstract class ShopInformationImpl extends NamedObjectImpl implements Sho
 	 */
 	@Override
 	public void setValue(String newValue) {
-		final String oldValue = value;
+		String oldValue = value;
 		value = newValue;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_INFORMATION__VALUE, oldValue, value));
-		}
 	}
 
 	/**
@@ -153,7 +152,7 @@ public abstract class ShopInformationImpl extends NamedObjectImpl implements Sho
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		final StringBuffer result = new StringBuffer(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (value: "); //$NON-NLS-1$
 		result.append(value);
 		result.append(')');

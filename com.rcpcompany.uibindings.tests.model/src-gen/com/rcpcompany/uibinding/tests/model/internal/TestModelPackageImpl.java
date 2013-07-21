@@ -176,9 +176,8 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 		if (isInited) return (TestModelPackage) EPackage.Registry.INSTANCE.getEPackage(TestModelPackage.eNS_URI);
 
 		// Obtain or create and register package
-		final TestModelPackageImpl theTestModelPackage = (TestModelPackageImpl) (EPackage.Registry.INSTANCE
-				.get(eNS_URI) instanceof TestModelPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-				: new TestModelPackageImpl());
+		TestModelPackageImpl theTestModelPackage = (TestModelPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof TestModelPackageImpl ? EPackage.Registry.INSTANCE
+				.get(eNS_URI) : new TestModelPackageImpl());
 
 		isInited = true;
 
@@ -758,8 +757,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		final EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE
-				.getEPackage(EcorePackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -965,7 +963,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * @generated
 	 */
 	protected void createGenModelAnnotations() {
-		final String source = "http://www.eclipse.org/emf/2002/GenModel"; //$NON-NLS-1$		
+		String source = "http://www.eclipse.org/emf/2002/GenModel"; //$NON-NLS-1$		
 		addAnnotation(this, source, new String[] { "nonNLSMarkers", "true", //$NON-NLS-1$ //$NON-NLS-2$
 				"classPackageSuffix", "internal", //$NON-NLS-1$ //$NON-NLS-2$
 				"adapterFactory", "false", //$NON-NLS-1$ //$NON-NLS-2$
@@ -982,6 +980,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 				"updateClasspath", "false", //$NON-NLS-1$ //$NON-NLS-2$
 				"containmentProxies", "false", //$NON-NLS-1$ //$NON-NLS-2$
 				"modelDirectory", "/com.rcpcompany.uibindings.tests.model/src-gen", //$NON-NLS-1$ //$NON-NLS-2$
+				"commentFormatting", "true", //$NON-NLS-1$ //$NON-NLS-2$
 				"basePackage", "com.rcpcompany.uibinding.tests" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 	}
@@ -993,7 +992,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * @generated
 	 */
 	protected void createXcoreAnnotations() {
-		final String source = "http://www.eclipse.org/emf/2011/Xcore"; //$NON-NLS-1$			
+		String source = "http://www.eclipse.org/emf/2011/Xcore"; //$NON-NLS-1$			
 		addAnnotation(this, source, new String[] { "Ecore", "http://www.eclipse.org/emf/2002/Ecore", //$NON-NLS-1$ //$NON-NLS-2$
 				"GenModel", "http://www.eclipse.org/emf/2002/GenModel", //$NON-NLS-1$ //$NON-NLS-2$
 				"uibindings", "http://rcp-company.com/schemas/uibindings" //$NON-NLS-1$ //$NON-NLS-2$
@@ -1007,7 +1006,7 @@ public class TestModelPackageImpl extends EPackageImpl implements TestModelPacka
 	 * @generated
 	 */
 	protected void createUibindingsAnnotations() {
-		final String source = "http://rcp-company.com/schemas/uibindings"; //$NON-NLS-1$				
+		String source = "http://rcp-company.com/schemas/uibindings"; //$NON-NLS-1$				
 		addAnnotation(testObjectEClass, source, new String[] { "foobar_Sequence_all", "TestObject (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
 				"foobar_Sequence_parent", "TestObject (annotation)", //$NON-NLS-1$ //$NON-NLS-2$
 				"foobar_Sequence_targetType", "TestObject (annotation)", //$NON-NLS-1$ //$NON-NLS-2$

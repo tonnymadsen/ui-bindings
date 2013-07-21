@@ -109,8 +109,8 @@ public enum WeightUnit implements Enumerator {
 	 */
 	public static WeightUnit get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			final WeightUnit result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) return result;
+			WeightUnit result = VALUES_ARRAY[i];
+			if (result.toString().equals(literal)) { return result; }
 		}
 		return null;
 	}
@@ -123,8 +123,8 @@ public enum WeightUnit implements Enumerator {
 	 */
 	public static WeightUnit getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			final WeightUnit result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) return result;
+			WeightUnit result = VALUES_ARRAY[i];
+			if (result.getName().equals(name)) { return result; }
 		}
 		return null;
 	}

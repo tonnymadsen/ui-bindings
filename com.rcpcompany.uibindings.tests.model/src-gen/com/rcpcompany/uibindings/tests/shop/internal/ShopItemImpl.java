@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -23,7 +22,6 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.moao.internal.NamedObjectImpl;
 import com.rcpcompany.uibindings.model.utils.EValidatorAdapterUtils;
@@ -215,19 +213,13 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 			if (EcoreUtil.isAncestor(this, newShop))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
-			if (eInternalContainer() != null) {
-				msgs = eBasicRemoveFromContainer(msgs);
-			}
-			if (newShop != null) {
+			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
+			if (newShop != null)
 				msgs = ((InternalEObject) newShop).eInverseAdd(this, ShopPackage.SHOP__SHOP_ITEMS, Shop.class, msgs);
-			}
 			msgs = basicSetShop(newShop, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
+			if (msgs != null) msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_ITEM__SHOP, newShop, newShop));
-		}
 	}
 
 	/**
@@ -247,11 +239,10 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 	 */
 	@Override
 	public void setPrice(float newPrice) {
-		final float oldPrice = price;
+		float oldPrice = price;
 		price = newPrice;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_ITEM__PRICE, oldPrice, price));
-		}
 	}
 
 	/**
@@ -271,12 +262,11 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 	 */
 	@Override
 	public void setAdvancedPrice(String newAdvancedPrice) {
-		final String oldAdvancedPrice = advancedPrice;
+		String oldAdvancedPrice = advancedPrice;
 		advancedPrice = newAdvancedPrice;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_ITEM__ADVANCED_PRICE,
 					oldAdvancedPrice, advancedPrice));
-		}
 	}
 
 	/**
@@ -309,11 +299,10 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 	 */
 	@Override
 	public void setForSale(boolean newForSale) {
-		final boolean oldForSale = forSale;
+		boolean oldForSale = forSale;
 		forSale = newForSale;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_ITEM__FOR_SALE, oldForSale, forSale));
-		}
 	}
 
 	/**
@@ -323,16 +312,6 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 	 */
 	@Override
 	public ShopItemInformation getInformation() {
-		if (information != null && information.eIsProxy()) {
-			final InternalEObject oldInformation = (InternalEObject) information;
-			information = (ShopItemInformation) eResolveProxy(oldInformation);
-			if (information != oldInformation) {
-				if (eNotificationRequired()) {
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ShopPackage.SHOP_ITEM__INFORMATION,
-							oldInformation, information));
-				}
-			}
-		}
 		return information;
 	}
 
@@ -341,8 +320,18 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 	 * 
 	 * @generated
 	 */
-	public ShopItemInformation basicGetInformation() {
-		return information;
+	public NotificationChain basicSetInformation(ShopItemInformation newInformation, NotificationChain msgs) {
+		ShopItemInformation oldInformation = information;
+		information = newInformation;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					ShopPackage.SHOP_ITEM__INFORMATION, oldInformation, newInformation);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -352,12 +341,19 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 	 */
 	@Override
 	public void setInformation(ShopItemInformation newInformation) {
-		final ShopItemInformation oldInformation = information;
-		information = newInformation;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_ITEM__INFORMATION, oldInformation,
-					information));
-		}
+		if (newInformation != information) {
+			NotificationChain msgs = null;
+			if (information != null)
+				msgs = ((InternalEObject) information).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- ShopPackage.SHOP_ITEM__INFORMATION, null, msgs);
+			if (newInformation != null)
+				msgs = ((InternalEObject) newInformation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- ShopPackage.SHOP_ITEM__INFORMATION, null, msgs);
+			msgs = basicSetInformation(newInformation, msgs);
+			if (msgs != null) msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_ITEM__INFORMATION, newInformation,
+					newInformation));
 	}
 
 	/**
@@ -376,16 +372,15 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 	 * @generated
 	 */
 	public NotificationChain basicSetGroup(ShopItemGroup newGroup, NotificationChain msgs) {
-		final ShopItemGroup oldGroup = group;
+		ShopItemGroup oldGroup = group;
 		group = newGroup;
 		if (eNotificationRequired()) {
-			final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					ShopPackage.SHOP_ITEM__GROUP, oldGroup, newGroup);
-			if (msgs == null) {
+			if (msgs == null)
 				msgs = notification;
-			} else {
+			else
 				msgs.add(notification);
-			}
 		}
 		return msgs;
 	}
@@ -399,21 +394,16 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 	public void setGroup(ShopItemGroup newGroup) {
 		if (newGroup != group) {
 			NotificationChain msgs = null;
-			if (group != null) {
+			if (group != null)
 				msgs = ((InternalEObject) group).eInverseRemove(this, ShopPackage.SHOP_ITEM_GROUP__ITEMS,
 						ShopItemGroup.class, msgs);
-			}
-			if (newGroup != null) {
+			if (newGroup != null)
 				msgs = ((InternalEObject) newGroup).eInverseAdd(this, ShopPackage.SHOP_ITEM_GROUP__ITEMS,
 						ShopItemGroup.class, msgs);
-			}
 			msgs = basicSetGroup(newGroup, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
+			if (msgs != null) msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP_ITEM__GROUP, newGroup, newGroup));
-		}
 	}
 
 	/**
@@ -540,15 +530,12 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case ShopPackage.SHOP_ITEM__SHOP:
-			if (eInternalContainer() != null) {
-				msgs = eBasicRemoveFromContainer(msgs);
-			}
+			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
 			return basicSetShop((Shop) otherEnd, msgs);
 		case ShopPackage.SHOP_ITEM__GROUP:
-			if (group != null) {
+			if (group != null)
 				msgs = ((InternalEObject) group).eInverseRemove(this, ShopPackage.SHOP_ITEM_GROUP__ITEMS,
 						ShopItemGroup.class, msgs);
-			}
 			return basicSetGroup((ShopItemGroup) otherEnd, msgs);
 		case ShopPackage.SHOP_ITEM__PROPERTIES:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getProperties()).basicAdd(otherEnd, msgs);
@@ -566,6 +553,8 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 		switch (featureID) {
 		case ShopPackage.SHOP_ITEM__SHOP:
 			return basicSetShop(null, msgs);
+		case ShopPackage.SHOP_ITEM__INFORMATION:
+			return basicSetInformation(null, msgs);
 		case ShopPackage.SHOP_ITEM__GROUP:
 			return basicSetGroup(null, msgs);
 		case ShopPackage.SHOP_ITEM__PROPERTIES:
@@ -607,8 +596,7 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 		case ShopPackage.SHOP_ITEM__FOR_SALE:
 			return isForSale();
 		case ShopPackage.SHOP_ITEM__INFORMATION:
-			if (resolve) return getInformation();
-			return basicGetInformation();
+			return getInformation();
 		case ShopPackage.SHOP_ITEM__GROUP:
 			return getGroup();
 		case ShopPackage.SHOP_ITEM__LOCATIONS:
@@ -758,7 +746,7 @@ public class ShopItemImpl extends NamedObjectImpl implements ShopItem {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		final StringBuffer result = new StringBuffer(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (price: "); //$NON-NLS-1$
 		result.append(price);
 		result.append(", advancedPrice: "); //$NON-NLS-1$

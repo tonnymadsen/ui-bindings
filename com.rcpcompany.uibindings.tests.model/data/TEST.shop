@@ -8,27 +8,24 @@
   <countries name="Finland" uuid="_otUH0MrREd-YTtT6Fix4Zw" abbreviation="FI"/>
   <countries name="Germany" uuid="_3XfrkB5HEeCperwZGSwMCg" abbreviation="GE"/>
   <contacts name="Thomas" uuid="_0g5AAMgSEd-Mv9urbjVCgg" city="Turku" country="DK" birthday="1964-11-16T00:00:00.000+0100"/>
-  <contacts name="Anders Jensen" uuid="_L0u6YMBGEd-siJXnD8pfBQ" address="Rued Langgaards Vej 7, 5D12" city="København" zip="2300" country="DK" customer="//@customers.0" newsletter="false" birthday="1964-11-16T00:00:00.000+0100"/>
-  <contacts name="Henrik Hansen" uuid="_L0wvkMBGEd-siJXnD8pfBQ" city="Søborg" country="SE" customer="//@customers.2" birthday="1964-11-16T00:00:00.000+0100"/>
+  <contacts name="Anders Jensen" uuid="_L0u6YMBGEd-siJXnD8pfBQ" address="Rued Langgaards Vej 7, 5D12" city="København" zip="2300" country="DK" birthday="1964-11-16T00:00:00.000+0100"/>
+  <contacts name="Henrik Hansen" uuid="_L0wvkMBGEd-siJXnD8pfBQ" city="Søborg" country="SE" birthday="1964-11-16T00:00:00.000+0100"/>
   <contacts name="Brian" uuid="_L00Z8MBGEd-siJXnD8pfBQ" city="Køge" country="NO" birthday="1964-11-16T00:00:00.000+0100"/>
   <contacts name="Tue Aller" uuid="_LsEGkMBGEd-siJXnD8pfBQ" address="Algade 4" city="Trondheim" zip="3400" country="NO" birthday="1999-10-10T00:00:00.000+0200"/>
-  <contacts name="Hans Jörgensen" uuid="_L0m-kMBGEd-siJXnD8pfBQ" address="Vasagatan 5" city="Stockholm" zip="21 145" country="NO" customer="//@customers.1" birthday="1976-12-16T00:00:00.000+0100"/>
+  <contacts name="Hans Jörgensen" uuid="_L0m-kMBGEd-siJXnD8pfBQ" address="Vasagatan 5" city="Stockholm" zip="21 145" country="NO" birthday="1976-12-16T00:00:00.000+0100"/>
   <contacts name="Allan" uuid="_L01oEMBGEd-siJXnD8pfBQ" city="Hvidovre" country="NO" birthday="1964-11-16T00:00:00.000+0100"/>
   <contacts name="Søren Søren" uuid="_L0ykwMBGEd-siJXnD8pfBQ" city="Århus" country="DK" birthday="1964-11-16T00:00:00.000+0100"/>
   <shopItems name="EMF Eclipse Modeling Framework" uuid="_L05ScMBGEd-siJXnD8pfBQ" price="1.0" advancedPrice="Hello world!">
+    <information xsi:type="shop:ShopItemDescription" description="dd"/>
     <properties name="type" uuid="_nDc2cAa7EeC_n9ThbP5loA" value="a"/>
-    <properties name="type" uuid="_k9p_kGdbEeCZePVdzCtDKg"/>
+    <properties name="type2" uuid="_k9p_kGdbEeCZePVdzCtDKg"/>
   </shopItems>
   <shopItems name="RCP Principles" uuid="_L05SccBGEd-siJXnD8pfBQ" price="2.0">
     <properties name="type" uuid="_nDeroAa7EeC_n9ThbP5loA" value="b"/>
   </shopItems>
-  <shopItems name="Eclipse Plug-ins" uuid="_L05ScsBGEd-siJXnD8pfBQ" price="300.0" group="_L0_ZEMBGEd-siJXnD8pfBQ">
-    <information xsi:type="shop:ShopItemURL" url="hhh"/>
-  </shopItems>
-  <shopItems name="FAQ (online)" uuid="_L06gkMBGEd-siJXnD8pfBQ" price="5.0" forSale="true" group="_L0_ZEMBGEd-siJXnD8pfBQ">
-    <information xsi:type="shop:ShopItemURL" url="http://hello"/>
-  </shopItems>
-  <orders customer="//@customers.1" discount="40.0">
+  <shopItems name="Eclipse Plug-ins" uuid="_L05ScsBGEd-siJXnD8pfBQ" price="300.0" group="_L0_ZEMBGEd-siJXnD8pfBQ"/>
+  <shopItems name="FAQ (online)" uuid="_L06gkMBGEd-siJXnD8pfBQ" price="5.0" forSale="true" group="_L0_ZEMBGEd-siJXnD8pfBQ"/>
+  <orders customer="//@customers.1" discount="18.0">
     <items item="_L06gkMBGEd-siJXnD8pfBQ" count="2"/>
     <items item="_L05ScMBGEd-siJXnD8pfBQ"/>
     <items item="_L05SccBGEd-siJXnD8pfBQ" count="3"/>
@@ -39,9 +36,10 @@
   <orders no="1222" customer="//@customers.1">
     <items item="_L05ScsBGEd-siJXnD8pfBQ"/>
   </orders>
-  <customers contact="_L0u6YMBGEd-siJXnD8pfBQ" orders="1" loyalty="Silver"/>
-  <customers contact="_L0m-kMBGEd-siJXnD8pfBQ" orders="//@orders[no='0'] 1222" loyalty="Gold"/>
+  <customers contact="_LsEGkMBGEd-siJXnD8pfBQ" loyalty="Gold"/>
+  <customers contact="_L0m-kMBGEd-siJXnD8pfBQ" loyalty="Gold"/>
   <customers contact="_L0wvkMBGEd-siJXnD8pfBQ"/>
+  <customers contact="_L0u6YMBGEd-siJXnD8pfBQ"/>
   <customerGroups name="Danes" uuid="_ZVS-YOJeEd-ufo4VJo3Xqw"/>
   <shopGroups name="Eclipse" uuid="_L0_ZEMBGEd-siJXnD8pfBQ" items="_L06gkMBGEd-siJXnD8pfBQ _L05ScsBGEd-siJXnD8pfBQ"/>
   <shopGroups name="Fitness" uuid="_L0_ZEcBGEd-siJXnD8pfBQ"/>

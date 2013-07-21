@@ -39,6 +39,9 @@ public class CBasic extends ViewPart {
 
 	@Override
 	public void createPartControl(Composite parent) {
+
+		// Controls
+
 		final Composite top = new Composite(parent, SWT.NONE);
 		top.setLayout(new GridLayout(2, false));
 
@@ -56,6 +59,8 @@ public class CBasic extends ViewPart {
 
 		final TableColumn orderPriceColumn = new TableColumn(table, SWT.LEAD);
 		orderPriceColumn.setWidth(100);
+
+		// Bindings
 
 		final IBindingContext context = IBindingContext.Factory.createContext(top);
 

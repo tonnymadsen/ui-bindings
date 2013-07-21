@@ -74,7 +74,7 @@ public class FileNameControlDecorator extends BaseUIBindingDecorator implements 
 	}
 
 	/**
-	 * Validates the specified value and returns a coresponding status.
+	 * Validates the specified value and returns a corresponding status.
 	 * 
 	 * @param value the {@link String} value to validate
 	 * @return the status value

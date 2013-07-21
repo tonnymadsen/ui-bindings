@@ -107,8 +107,8 @@ public enum CustomerType implements Enumerator {
 	 */
 	public static CustomerType get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			final CustomerType result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) return result;
+			CustomerType result = VALUES_ARRAY[i];
+			if (result.toString().equals(literal)) { return result; }
 		}
 		return null;
 	}
@@ -121,8 +121,8 @@ public enum CustomerType implements Enumerator {
 	 */
 	public static CustomerType getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			final CustomerType result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) return result;
+			CustomerType result = VALUES_ARRAY[i];
+			if (result.getName().equals(name)) { return result; }
 		}
 		return null;
 	}

@@ -63,7 +63,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ColumnViewerEditorActivationEvent;
@@ -130,7 +129,6 @@ import com.rcpcompany.uibindings.initializers.DefaultEObjectInitializer;
 import com.rcpcompany.uibindings.internal.formatters.DefaultFormatterProvider;
 import com.rcpcompany.uibindings.internal.observableFactories.DefaultEMFObservableFactory;
 import com.rcpcompany.uibindings.model.utils.BasicUtils;
-import com.rcpcompany.uibindings.model.utils.UIBindingRealm;
 import com.rcpcompany.uibindings.participants.IAssignmentParticipant;
 import com.rcpcompany.uibindings.participants.IAssignmentParticipantContext;
 import com.rcpcompany.uibindings.participants.IDeleteParticipant;
@@ -1025,8 +1023,6 @@ public class ManagerImpl extends BaseObjectImpl implements IManager {
 		assignmentParticiantsManager = new AssignmentParticipantsManagerImpl();
 
 		extensionReader();
-
-		UIBindingRealm.setUIRealm(SWTObservables.getRealm(PlatformUI.getWorkbench().getDisplay()));
 	}
 
 	/**

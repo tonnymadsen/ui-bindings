@@ -129,12 +129,11 @@ public class TestGridCellImpl extends MinimalEObjectImpl.Container implements Te
 	 */
 	@Override
 	public void setDetails(String newDetails) {
-		final String oldDetails = details;
+		String oldDetails = details;
 		details = newDetails;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_GRID_CELL__DETAILS, oldDetails,
 					details));
-		}
 	}
 
 	/**
@@ -154,12 +153,11 @@ public class TestGridCellImpl extends MinimalEObjectImpl.Container implements Te
 	 */
 	@Override
 	public void setPrice(float newPrice) {
-		final float oldPrice = price;
+		float oldPrice = price;
 		price = newPrice;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_GRID_CELL__PRICE, oldPrice,
 					price));
-		}
 	}
 
 	/**
@@ -170,13 +168,12 @@ public class TestGridCellImpl extends MinimalEObjectImpl.Container implements Te
 	@Override
 	public TestGridColumn getColumn() {
 		if (column != null && column.eIsProxy()) {
-			final InternalEObject oldColumn = (InternalEObject) column;
+			InternalEObject oldColumn = (InternalEObject) column;
 			column = (TestGridColumn) eResolveProxy(oldColumn);
 			if (column != oldColumn) {
-				if (eNotificationRequired()) {
+				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TestModelPackage.TEST_GRID_CELL__COLUMN,
 							oldColumn, column));
-				}
 			}
 		}
 		return column;
@@ -197,16 +194,15 @@ public class TestGridCellImpl extends MinimalEObjectImpl.Container implements Te
 	 * @generated
 	 */
 	public NotificationChain basicSetColumn(TestGridColumn newColumn, NotificationChain msgs) {
-		final TestGridColumn oldColumn = column;
+		TestGridColumn oldColumn = column;
 		column = newColumn;
 		if (eNotificationRequired()) {
-			final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					TestModelPackage.TEST_GRID_CELL__COLUMN, oldColumn, newColumn);
-			if (msgs == null) {
+			if (msgs == null)
 				msgs = notification;
-			} else {
+			else
 				msgs.add(notification);
-			}
 		}
 		return msgs;
 	}
@@ -220,22 +216,17 @@ public class TestGridCellImpl extends MinimalEObjectImpl.Container implements Te
 	public void setColumn(TestGridColumn newColumn) {
 		if (newColumn != column) {
 			NotificationChain msgs = null;
-			if (column != null) {
+			if (column != null)
 				msgs = ((InternalEObject) column).eInverseRemove(this, TestModelPackage.TEST_GRID_COLUMN__CELLS,
 						TestGridColumn.class, msgs);
-			}
-			if (newColumn != null) {
+			if (newColumn != null)
 				msgs = ((InternalEObject) newColumn).eInverseAdd(this, TestModelPackage.TEST_GRID_COLUMN__CELLS,
 						TestGridColumn.class, msgs);
-			}
 			msgs = basicSetColumn(newColumn, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
+			if (msgs != null) msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_GRID_CELL__COLUMN, newColumn,
 					newColumn));
-		}
 	}
 
 	/**
@@ -246,13 +237,12 @@ public class TestGridCellImpl extends MinimalEObjectImpl.Container implements Te
 	@Override
 	public TestGridRow getRow() {
 		if (row != null && row.eIsProxy()) {
-			final InternalEObject oldRow = (InternalEObject) row;
+			InternalEObject oldRow = (InternalEObject) row;
 			row = (TestGridRow) eResolveProxy(oldRow);
 			if (row != oldRow) {
-				if (eNotificationRequired()) {
+				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TestModelPackage.TEST_GRID_CELL__ROW,
 							oldRow, row));
-				}
 			}
 		}
 		return row;
@@ -273,16 +263,15 @@ public class TestGridCellImpl extends MinimalEObjectImpl.Container implements Te
 	 * @generated
 	 */
 	public NotificationChain basicSetRow(TestGridRow newRow, NotificationChain msgs) {
-		final TestGridRow oldRow = row;
+		TestGridRow oldRow = row;
 		row = newRow;
 		if (eNotificationRequired()) {
-			final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					TestModelPackage.TEST_GRID_CELL__ROW, oldRow, newRow);
-			if (msgs == null) {
+			if (msgs == null)
 				msgs = notification;
-			} else {
+			else
 				msgs.add(notification);
-			}
 		}
 		return msgs;
 	}
@@ -296,21 +285,16 @@ public class TestGridCellImpl extends MinimalEObjectImpl.Container implements Te
 	public void setRow(TestGridRow newRow) {
 		if (newRow != row) {
 			NotificationChain msgs = null;
-			if (row != null) {
+			if (row != null)
 				msgs = ((InternalEObject) row).eInverseRemove(this, TestModelPackage.TEST_GRID_ROW__CELLS,
 						TestGridRow.class, msgs);
-			}
-			if (newRow != null) {
+			if (newRow != null)
 				msgs = ((InternalEObject) newRow).eInverseAdd(this, TestModelPackage.TEST_GRID_ROW__CELLS,
 						TestGridRow.class, msgs);
-			}
 			msgs = basicSetRow(newRow, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
+			if (msgs != null) msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_GRID_CELL__ROW, newRow, newRow));
-		}
 	}
 
 	/**
@@ -322,16 +306,14 @@ public class TestGridCellImpl extends MinimalEObjectImpl.Container implements Te
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case TestModelPackage.TEST_GRID_CELL__COLUMN:
-			if (column != null) {
+			if (column != null)
 				msgs = ((InternalEObject) column).eInverseRemove(this, TestModelPackage.TEST_GRID_COLUMN__CELLS,
 						TestGridColumn.class, msgs);
-			}
 			return basicSetColumn((TestGridColumn) otherEnd, msgs);
 		case TestModelPackage.TEST_GRID_CELL__ROW:
-			if (row != null) {
+			if (row != null)
 				msgs = ((InternalEObject) row).eInverseRemove(this, TestModelPackage.TEST_GRID_ROW__CELLS,
 						TestGridRow.class, msgs);
-			}
 			return basicSetRow((TestGridRow) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -452,7 +434,7 @@ public class TestGridCellImpl extends MinimalEObjectImpl.Container implements Te
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		final StringBuffer result = new StringBuffer(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (details: "); //$NON-NLS-1$
 		result.append(details);
 		result.append(", price: "); //$NON-NLS-1$

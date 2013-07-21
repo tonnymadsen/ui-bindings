@@ -27,13 +27,13 @@
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>${project.artifactId}.rcp</artifactId>
-			<version>5.0.1-SNAPSHOT</version>
+			<version>3.0.0-SNAPSHOT</version>
 			<type>eclipse-repository</type>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>${project.artifactId}.rap</artifactId>
-			<version>5.0.1-SNAPSHOT</version>
+			<version>3.0.0-SNAPSHOT</version>
 			<type>eclipse-repository</type>
 		</dependency>
 	</dependencies>

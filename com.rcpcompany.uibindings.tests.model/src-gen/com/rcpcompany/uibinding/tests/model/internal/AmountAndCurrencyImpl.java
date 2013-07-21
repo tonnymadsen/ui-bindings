@@ -102,12 +102,11 @@ public class AmountAndCurrencyImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	@Override
 	public void setAmount(float newAmount) {
-		final float oldAmount = amount;
+		float oldAmount = amount;
 		amount = newAmount;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.AMOUNT_AND_CURRENCY__AMOUNT,
 					oldAmount, amount));
-		}
 	}
 
 	/**
@@ -127,12 +126,11 @@ public class AmountAndCurrencyImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	@Override
 	public void setCurrency(String newCurrency) {
-		final String oldCurrency = currency;
+		String oldCurrency = currency;
 		currency = newCurrency;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.AMOUNT_AND_CURRENCY__CURRENCY,
 					oldCurrency, currency));
-		}
 	}
 
 	/**
@@ -212,7 +210,7 @@ public class AmountAndCurrencyImpl extends MinimalEObjectImpl.Container implemen
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		final StringBuffer result = new StringBuffer(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (amount: "); //$NON-NLS-1$
 		result.append(amount);
 		result.append(", currency: "); //$NON-NLS-1$

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.2"?>
+<?eclipse version="3.4"?>
 <plugin>
 
    <extension
@@ -519,6 +519,12 @@
          <standardArguments
                featureName="url">
          </standardArguments>
+         <feature
+               name="url">
+            <standardArguments
+                  type="">
+            </standardArguments>
+         </feature>
       </model>
       <model
             class="com.rcpcompany.uibindings.tests.shop.ShopItemDescription">

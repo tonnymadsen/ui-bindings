@@ -137,7 +137,7 @@ public class UITestUtils {
 			view = page.showView(viewID, null, IWorkbenchPage.VIEW_ACTIVATE);
 			assertNotNull(view);
 		} catch (final Exception ex) {
-			ex.printStackTrace();
+			LogUtils.error(null, "viewID=" + viewID, ex);
 			fail("" + ex);
 		}
 		view.getSite().getPage().activate(view);

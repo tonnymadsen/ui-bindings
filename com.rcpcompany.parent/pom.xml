@@ -11,8 +11,7 @@
 	<properties>
 		<project.source.sourceEncoding>UTF-8</project.source.sourceEncoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<!-- <tycho.version>0.16.0</tycho.version> -->
-		<tycho.version>0.17.0</tycho.version>
+		<tycho.version>0.18.0</tycho.version>
 		<tycho-extras.version>${tycho.version}</tycho-extras.version>
 
 		<!-- The target platform. Must be one of the target platforms defined in 
@@ -344,8 +343,7 @@
 			<id>debug</id>
 
 			<properties>
-				<java.debug.args>-Xdebug
-					-Xrunjdwp:transport=dt_socket,server=n,address=${java.debug.host}:5005</java.debug.args>
+				<java.debug.args>-Xdebug -Xrunjdwp:transport=dt_socket,server=n,address=${java.debug.host}:5005</java.debug.args>
 			</properties>
 			<build>
 				<plugins>

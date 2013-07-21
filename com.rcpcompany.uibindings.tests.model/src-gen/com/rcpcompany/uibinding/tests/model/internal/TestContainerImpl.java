@@ -102,13 +102,12 @@ public class TestContainerImpl extends MinimalEObjectImpl.Container implements T
 	@Override
 	public TestObject getCurrent() {
 		if (current != null && current.eIsProxy()) {
-			final InternalEObject oldCurrent = (InternalEObject) current;
+			InternalEObject oldCurrent = (InternalEObject) current;
 			current = (TestObject) eResolveProxy(oldCurrent);
 			if (current != oldCurrent) {
-				if (eNotificationRequired()) {
+				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TestModelPackage.TEST_CONTAINER__CURRENT,
 							oldCurrent, current));
-				}
 			}
 		}
 		return current;
@@ -130,14 +129,13 @@ public class TestContainerImpl extends MinimalEObjectImpl.Container implements T
 	 */
 	@Override
 	public void setCurrent(TestObject newCurrent) {
-		final TestObject oldCurrent = current;
+		TestObject oldCurrent = current;
 		current = newCurrent;
-		final boolean oldCurrentESet = currentESet;
+		boolean oldCurrentESet = currentESet;
 		currentESet = true;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TestModelPackage.TEST_CONTAINER__CURRENT, oldCurrent,
 					current, !oldCurrentESet));
-		}
 	}
 
 	/**
@@ -147,14 +145,13 @@ public class TestContainerImpl extends MinimalEObjectImpl.Container implements T
 	 */
 	@Override
 	public void unsetCurrent() {
-		final TestObject oldCurrent = current;
-		final boolean oldCurrentESet = currentESet;
+		TestObject oldCurrent = current;
+		boolean oldCurrentESet = currentESet;
 		current = null;
 		currentESet = false;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.UNSET, TestModelPackage.TEST_CONTAINER__CURRENT,
 					oldCurrent, null, oldCurrentESet));
-		}
 	}
 
 	/**

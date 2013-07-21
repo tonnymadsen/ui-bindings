@@ -5,14 +5,12 @@ package com.rcpcompany.uibinding.tests.model.internal;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import com.rcpcompany.uibinding.tests.model.AmountAndCurrency;
 import com.rcpcompany.uibinding.tests.model.AmountAndCurrencyOld;
 import com.rcpcompany.uibinding.tests.model.SubTestObject;
@@ -40,10 +38,10 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	 */
 	public static TestModelFactory init() {
 		try {
-			final TestModelFactory theTestModelFactory = (TestModelFactory) EPackage.Registry.INSTANCE
+			TestModelFactory theTestModelFactory = (TestModelFactory) EPackage.Registry.INSTANCE
 					.getEFactory(TestModelPackage.eNS_URI);
-			if (theTestModelFactory != null) return theTestModelFactory;
-		} catch (final Exception exception) {
+			if (theTestModelFactory != null) { return theTestModelFactory; }
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new TestModelFactoryImpl();
@@ -144,7 +142,7 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	 */
 	@Override
 	public TestObject createTestObject() {
-		final TestObjectImpl testObject = new TestObjectImpl();
+		TestObjectImpl testObject = new TestObjectImpl();
 		return testObject;
 	}
 
@@ -155,7 +153,7 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	 */
 	@Override
 	public SubTestObject createSubTestObject() {
-		final SubTestObjectImpl subTestObject = new SubTestObjectImpl();
+		SubTestObjectImpl subTestObject = new SubTestObjectImpl();
 		return subTestObject;
 	}
 
@@ -166,7 +164,7 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	 */
 	@Override
 	public TestContainer createTestContainer() {
-		final TestContainerImpl testContainer = new TestContainerImpl();
+		TestContainerImpl testContainer = new TestContainerImpl();
 		return testContainer;
 	}
 
@@ -177,7 +175,7 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	 */
 	@Override
 	public AmountAndCurrency createAmountAndCurrency() {
-		final AmountAndCurrencyImpl amountAndCurrency = new AmountAndCurrencyImpl();
+		AmountAndCurrencyImpl amountAndCurrency = new AmountAndCurrencyImpl();
 		return amountAndCurrency;
 	}
 
@@ -188,7 +186,7 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	 */
 	@Override
 	public TestGrid createTestGrid() {
-		final TestGridImpl testGrid = new TestGridImpl();
+		TestGridImpl testGrid = new TestGridImpl();
 		return testGrid;
 	}
 
@@ -199,7 +197,7 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	 */
 	@Override
 	public TestGridColumn createTestGridColumn() {
-		final TestGridColumnImpl testGridColumn = new TestGridColumnImpl();
+		TestGridColumnImpl testGridColumn = new TestGridColumnImpl();
 		return testGridColumn;
 	}
 
@@ -210,7 +208,7 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	 */
 	@Override
 	public TestGridRow createTestGridRow() {
-		final TestGridRowImpl testGridRow = new TestGridRowImpl();
+		TestGridRowImpl testGridRow = new TestGridRowImpl();
 		return testGridRow;
 	}
 
@@ -221,7 +219,7 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	 */
 	@Override
 	public TestGridCell createTestGridCell() {
-		final TestGridCellImpl testGridCell = new TestGridCellImpl();
+		TestGridCellImpl testGridCell = new TestGridCellImpl();
 		return testGridCell;
 	}
 
@@ -231,7 +229,7 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	 * @generated
 	 */
 	public WeightUnit createWeightUnitFromString(EDataType eDataType, String initialValue) {
-		final WeightUnit result = WeightUnit.get(initialValue);
+		WeightUnit result = WeightUnit.get(initialValue);
 		if (result == null)
 			throw new IllegalArgumentException(
 					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -253,7 +251,7 @@ public class TestModelFactoryImpl extends EFactoryImpl implements TestModelFacto
 	 * @generated
 	 */
 	public TimeUnit createTimeUnitFromString(EDataType eDataType, String initialValue) {
-		final TimeUnit result = TimeUnit.get(initialValue);
+		TimeUnit result = TimeUnit.get(initialValue);
 		if (result == null)
 			throw new IllegalArgumentException(
 					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$

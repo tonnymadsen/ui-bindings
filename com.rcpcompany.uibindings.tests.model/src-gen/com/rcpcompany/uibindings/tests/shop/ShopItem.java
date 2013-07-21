@@ -154,14 +154,15 @@ public interface ShopItem extends INamedObject {
 	void setForSale(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Information</b></em>' reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Information</b></em>' containment reference. <!--
+	 * begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Information</em>' containment reference list isn't clear, there
 	 * really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Information</em>' reference.
+	 * @return the value of the '<em>Information</em>' containment reference.
 	 * @see #setInformation(ShopItemInformation)
 	 * @see com.rcpcompany.uibindings.tests.shop.ShopPackage#getShopItem_Information()
 	 * @generated
@@ -170,9 +171,9 @@ public interface ShopItem extends INamedObject {
 
 	/**
 	 * Sets the value of the '{@link com.rcpcompany.uibindings.tests.shop.ShopItem#getInformation
-	 * <em>Information</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <em>Information</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @param value the new value of the '<em>Information</em>' reference.
+	 * @param value the new value of the '<em>Information</em>' containment reference.
 	 * @see #getInformation()
 	 * @generated
 	 */

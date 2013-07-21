@@ -12,16 +12,15 @@ package com.rcpcompany.utils.extensionpoints;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.Platform;
 import org.osgi.framework.Bundle;
 
-import com.rcpcompany.utils.extensionpoints.internals.Activator;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * Simple holder pattern.
  * <p>
- * Used to hold a reference to an object that is created via the extension
- * registry.
+ * Used to hold a reference to an object that is created via the extension registry.
  * 
  * @author Tonny Madsen, The RCP Company
  * 
@@ -44,8 +43,7 @@ public class CEObjectHolder<X> {
 	private final String myAttrName;
 
 	/**
-	 * Constructs and returns a new holder object for the specified
-	 * configuration element.
+	 * Constructs and returns a new holder object for the specified configuration element.
 	 * <p>
 	 * Short for <code>CEObjectHolder(ce, "class")</code>
 	 * 
@@ -57,8 +55,7 @@ public class CEObjectHolder<X> {
 	}
 
 	/**
-	 * Constructs and returns a new holder object for the specified
-	 * configuration element.
+	 * Constructs and returns a new holder object for the specified configuration element.
 	 * 
 	 * @param ce
 	 *            the configuration element
@@ -109,19 +106,17 @@ public class CEObjectHolder<X> {
 	 */
 	@SuppressWarnings("unchecked")
 	public Class<X> getObjectClass() {
-		final String name = myCE.getContributor().getName();
+		final String bundleID = myCE.getContributor().getName();
 		final String className = myCE.getAttribute(myAttrName);
-		final Bundle bundle = Activator.getDefault().getBundle(name);
+		final Bundle bundle = Platform.getBundle(bundleID);
 		if (bundle == null) {
-			LogUtils.error(myCE, myAttrName
-					+ ": cannot find bundle configuration element");
+			LogUtils.error(myCE, myAttrName + ": cannot find bundle configuration element");
 			return null;
 		}
 		try {
 			return (Class<X>) bundle.loadClass(className);
 		} catch (final ClassNotFoundException ex) {
-			LogUtils.error(myCE, myAttrName + ": class cannot be loaded: "
-					+ className, ex);
+			LogUtils.error(myCE, myAttrName + ": class cannot be loaded: " + className, ex);
 			return null;
 		}
 	}

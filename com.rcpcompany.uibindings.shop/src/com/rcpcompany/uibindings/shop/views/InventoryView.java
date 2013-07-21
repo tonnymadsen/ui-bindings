@@ -110,7 +110,7 @@ public class InventoryView extends ViewPart {
 			@Override
 			public void createForm(IBindingContext context, IObservableValue discriminant, Composite parent) {
 				final IFormCreator sub = detailsForm.subForm(parent);
-				final IObservableValue subValue = new WritableValue(myForm.getObservableValue().getValue(),
+				final IObservableValue subValue = new WritableValue(discriminant.getValue(),
 						ShopPackage.Literals.SHOP_ITEM_DESCRIPTION);
 				sub.addField(subValue, "description");
 				sub.finish();
@@ -120,7 +120,7 @@ public class InventoryView extends ViewPart {
 			@Override
 			public void createForm(IBindingContext context, IObservableValue discriminant, Composite parent) {
 				final IFormCreator sub = myForm.subForm(parent);
-				final IObservableValue subValue = new WritableValue(myForm.getObservableValue().getValue(),
+				final IObservableValue subValue = new WritableValue(discriminant.getValue(),
 						ShopPackage.Literals.SHOP_ITEM_URL);
 				sub.addField(subValue, "url(label='URL')");
 				sub.finish();

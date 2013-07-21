@@ -97,20 +97,14 @@ public class CustomerGroupImpl extends NamedObjectImpl implements CustomerGroup 
 			if (EcoreUtil.isAncestor(this, newShop))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
-			if (eInternalContainer() != null) {
-				msgs = eBasicRemoveFromContainer(msgs);
-			}
-			if (newShop != null) {
+			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
+			if (newShop != null)
 				msgs = ((InternalEObject) newShop).eInverseAdd(this, ShopPackage.SHOP__CUSTOMER_GROUPS, Shop.class,
 						msgs);
-			}
 			msgs = basicSetShop(newShop, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
+			if (msgs != null) msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.CUSTOMER_GROUP__SHOP, newShop, newShop));
-		}
 	}
 
 	/**
@@ -135,9 +129,7 @@ public class CustomerGroupImpl extends NamedObjectImpl implements CustomerGroup 
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case ShopPackage.CUSTOMER_GROUP__SHOP:
-			if (eInternalContainer() != null) {
-				msgs = eBasicRemoveFromContainer(msgs);
-			}
+			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
 			return basicSetShop((Shop) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);

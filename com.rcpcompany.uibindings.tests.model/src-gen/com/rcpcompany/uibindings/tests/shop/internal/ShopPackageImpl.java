@@ -237,7 +237,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		if (isInited) return (ShopPackage) EPackage.Registry.INSTANCE.getEPackage(ShopPackage.eNS_URI);
 
 		// Obtain or create and register package
-		final ShopPackageImpl theShopPackage = (ShopPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ShopPackageImpl ? EPackage.Registry.INSTANCE
+		ShopPackageImpl theShopPackage = (ShopPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ShopPackageImpl ? EPackage.Registry.INSTANCE
 				.get(eNS_URI) : new ShopPackageImpl());
 
 		isInited = true;
@@ -253,7 +253,6 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put(theShopPackage, new EValidator.Descriptor() {
-			@Override
 			public EValidator getEValidator() {
 				return ShopValidator.INSTANCE;
 			}
@@ -1023,6 +1022,16 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getShopItemDescription_Description() {
+		return (EAttribute) shopItemDescriptionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getShopItemURL() {
 		return shopItemURLEClass;
 	}
@@ -1252,6 +1261,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		shopItemInformationEClass = createEClass(SHOP_ITEM_INFORMATION);
 
 		shopItemDescriptionEClass = createEClass(SHOP_ITEM_DESCRIPTION);
+		createEAttribute(shopItemDescriptionEClass, SHOP_ITEM_DESCRIPTION__DESCRIPTION);
 
 		shopItemURLEClass = createEClass(SHOP_ITEM_URL);
 		createEAttribute(shopItemURLEClass, SHOP_ITEM_URL__URL);
@@ -1297,9 +1307,8 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		final IMOAOPackage theMOAOPackage = (IMOAOPackage) EPackage.Registry.INSTANCE.getEPackage(IMOAOPackage.eNS_URI);
-		final EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE
-				.getEPackage(EcorePackage.eNS_URI);
+		IMOAOPackage theMOAOPackage = (IMOAOPackage) EPackage.Registry.INSTANCE.getEPackage(IMOAOPackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 		addETypeParameter(eMapEDataType, "K"); //$NON-NLS-1$
@@ -1415,7 +1424,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 		initEAttribute(
 				getCustomer_Loyalty(),
 				this.getCustomerType(),
-				"loyalty", "BRONCE", 0, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+				"loyalty", "Bronce", 0, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 		initEAttribute(
 				getCustomer_LogoFileName(),
 				theEcorePackage.getEString(),
@@ -1461,7 +1470,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 				getShopItem_Information(),
 				this.getShopItemInformation(),
 				null,
-				"information", null, 0, 1, ShopItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+				"information", null, 0, 1, ShopItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(
 				getShopItem_Group(),
 				this.getShopItemGroup(),
@@ -1671,6 +1680,10 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 
 		initEClass(shopItemDescriptionEClass, ShopItemDescription.class,
 				"ShopItemDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(
+				getShopItemDescription_Description(),
+				theEcorePackage.getEString(),
+				"description", null, 0, 1, ShopItemDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(shopItemURLEClass, ShopItemURL.class,
 				"ShopItemURL", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -1730,7 +1743,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	protected void createGenModelAnnotations() {
-		final String source = "http://www.eclipse.org/emf/2002/GenModel"; //$NON-NLS-1$		
+		String source = "http://www.eclipse.org/emf/2002/GenModel"; //$NON-NLS-1$		
 		addAnnotation(this, source, new String[] { "nonNLSMarkers", "true", //$NON-NLS-1$ //$NON-NLS-2$
 				"classPackageSuffix", "internal", //$NON-NLS-1$ //$NON-NLS-2$
 				"adapterFactory", "false", //$NON-NLS-1$ //$NON-NLS-2$
@@ -1747,6 +1760,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 				"updateClasspath", "false", //$NON-NLS-1$ //$NON-NLS-2$
 				"containmentProxies", "false", //$NON-NLS-1$ //$NON-NLS-2$
 				"modelDirectory", "/com.rcpcompany.uibindings.tests.model/src-gen", //$NON-NLS-1$ //$NON-NLS-2$
+				"commentFormatting", "true", //$NON-NLS-1$ //$NON-NLS-2$
 				"basePackage", "com.rcpcompany.uibindings.tests" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 		addAnnotation(getOrder_No(), source, new String[] { "suppressedSetVisibility", "true" //$NON-NLS-1$ //$NON-NLS-2$
@@ -1762,8 +1776,10 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	protected void createXcoreAnnotations() {
-		final String source = "http://www.eclipse.org/emf/2011/Xcore"; //$NON-NLS-1$			
-		addAnnotation(this, source, new String[] { "uibindings", "http://rcp-company.com/schemas/uibindings" //$NON-NLS-1$ //$NON-NLS-2$
+		String source = "http://www.eclipse.org/emf/2011/Xcore"; //$NON-NLS-1$			
+		addAnnotation(this, source, new String[] { "Ecore", "http://www.eclipse.org/emf/2002/Ecore", //$NON-NLS-1$ //$NON-NLS-2$
+				"GenModel", "http://www.eclipse.org/emf/2002/GenModel", //$NON-NLS-1$ //$NON-NLS-2$
+				"uibindings", "http://rcp-company.com/schemas/uibindings" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 	}
 
@@ -1774,7 +1790,7 @@ public class ShopPackageImpl extends EPackageImpl implements ShopPackage {
 	 * @generated
 	 */
 	protected void createUibindingsAnnotations() {
-		final String source = "http://rcp-company.com/schemas/uibindings"; //$NON-NLS-1$						
+		String source = "http://rcp-company.com/schemas/uibindings"; //$NON-NLS-1$						
 		addAnnotation(countryEClass, source, new String[] { "featureName", "abbreviation" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 	}

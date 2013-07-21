@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Map;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicDiagnostic;
@@ -19,7 +18,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import com.rcpcompany.uibindings.moao.IMOAOPackage;
 import com.rcpcompany.uibindings.moao.internal.NamedObjectImpl;
 import com.rcpcompany.uibindings.tests.shop.Contact;
@@ -228,12 +226,11 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 	 */
 	@Override
 	public void setNextOrderNo(int newNextOrderNo) {
-		final int oldNextOrderNo = nextOrderNo;
+		int oldNextOrderNo = nextOrderNo;
 		nextOrderNo = newNextOrderNo;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP__NEXT_ORDER_NO, oldNextOrderNo,
 					nextOrderNo));
-		}
 	}
 
 	/**
@@ -253,12 +250,11 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 	 */
 	@Override
 	public void setNextCustomerNo(int newNextCustomerNo) {
-		final int oldNextCustomerNo = nextCustomerNo;
+		int oldNextCustomerNo = nextCustomerNo;
 		nextCustomerNo = newNextCustomerNo;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP__NEXT_CUSTOMER_NO,
 					oldNextCustomerNo, nextCustomerNo));
-		}
 	}
 
 	/**
@@ -278,11 +274,10 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 	 */
 	@Override
 	public void setTmpDir(String newTmpDir) {
-		final String oldTmpDir = tmpDir;
+		String oldTmpDir = tmpDir;
 		tmpDir = newTmpDir;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ShopPackage.SHOP__TMP_DIR, oldTmpDir, tmpDir));
-		}
 	}
 
 	/**
@@ -678,7 +673,7 @@ public class ShopImpl extends NamedObjectImpl implements Shop {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		final StringBuffer result = new StringBuffer(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (nextOrderNo: "); //$NON-NLS-1$
 		result.append(nextOrderNo);
 		result.append(", nextCustomerNo: "); //$NON-NLS-1$

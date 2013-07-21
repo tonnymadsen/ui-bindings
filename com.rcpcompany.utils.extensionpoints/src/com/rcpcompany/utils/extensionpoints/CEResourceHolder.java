@@ -10,16 +10,21 @@
  *******************************************************************************/
 package com.rcpcompany.utils.extensionpoints;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.osgi.framework.Bundle;
 
 /**
  * Simple holder pattern for images in the extension registry.
  * <p>
- * Used to hold a reference to a resource that is created via the extension
- * registry.
+ * Used to hold a reference to a resource that is created via the extension registry.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -30,8 +35,7 @@ public class CEResourceHolder {
 	private final String myAttrName;
 
 	/**
-	 * Constructs and returns a new holder object for the specified
-	 * configuration element.
+	 * Constructs and returns a new holder object for the specified configuration element.
 	 * <p>
 	 * Short for <code>CEObjectHolder(ce, "image")</code>
 	 * 
@@ -43,8 +47,7 @@ public class CEResourceHolder {
 	}
 
 	/**
-	 * Constructs and returns a new holder object for the specified
-	 * configuration element.
+	 * Constructs and returns a new holder object for the specified configuration element.
 	 * 
 	 * @param ce
 	 *            the configuration element
@@ -79,10 +82,24 @@ public class CEResourceHolder {
 	public ImageDescriptor getImageDescriptor() {
 		if (myImageDescriptor == null) {
 			final String imageName = myCE.getAttribute(myAttrName);
-			if (imageName != null) {
-				myImageDescriptor = AbstractUIPlugin.imageDescriptorFromPlugin(
-						myCE.getContributor().getName(), imageName);
+			if (imageName == null)
+				return null;
+			final Bundle bundle = Platform.getBundle(myCE.getContributor().getName());
+			URL url = FileLocator.find(bundle, new Path(imageName), null);
+			if (url == null) {
+				try {
+					url = new URL(imageName);
+				} catch (final MalformedURLException e) {
+					return null;
+				}
+
 			}
+			if (url == null)
+				return null;
+
+			myImageDescriptor = ImageDescriptor.createFromURL(url);
+			;
+
 		}
 		return myImageDescriptor;
 	}

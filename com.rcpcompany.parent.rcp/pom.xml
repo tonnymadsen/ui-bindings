@@ -27,6 +27,7 @@
 
 		<module>../com.rcpcompany.utils.databinding</module>
 		<module>../com.rcpcompany.utils.extensionpoints</module>
+		<module>../com.rcpcompany.utils.extensionpoints.tests</module>
 		<module>../com.rcpcompany.utils.jface</module>
 		<module>../com.rcpcompany.utils.selection</module>
 

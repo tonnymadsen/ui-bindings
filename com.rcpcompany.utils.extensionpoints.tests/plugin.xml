@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="com.rcpcompany.utils.extensionpoints.tests"
+         point="org.eclipse.ui.views">
+      <view
+            class="com.rcpcompany.utils.extensionpoints.tests.ViewPart1"
+            icon="images/Value_16x16.gif"
+            id="com.rcpcompany.utils.extensionpoints.tests.view1"
+            name="1"
+            restorable="true">
+      </view>
+   </extension>
+
+</plugin>
