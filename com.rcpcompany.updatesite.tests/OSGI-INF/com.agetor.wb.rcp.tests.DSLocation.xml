@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:component name="com.agetor.wb.rcp.tests.DSLocation" xmlns:ns2="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <reference bind="setManager" target="(type=osgi.instance.area)" interface="org.eclipse.osgi.service.datalocation.Location" name="Manager"/>
+    <implementation class="com.agetor.wb.rcp.tests.DSLocation"/>
+</ns2:component>
