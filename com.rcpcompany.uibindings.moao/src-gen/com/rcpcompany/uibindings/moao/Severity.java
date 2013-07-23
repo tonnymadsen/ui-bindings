@@ -121,8 +121,8 @@ public enum Severity implements Enumerator {
 	 */
 	public static Severity get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			final Severity result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) return result;
+			Severity result = VALUES_ARRAY[i];
+			if (result.toString().equals(literal)) { return result; }
 		}
 		return null;
 	}
@@ -135,8 +135,8 @@ public enum Severity implements Enumerator {
 	 */
 	public static Severity getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			final Severity result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) return result;
+			Severity result = VALUES_ARRAY[i];
+			if (result.getName().equals(name)) { return result; }
 		}
 		return null;
 	}

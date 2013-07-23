@@ -148,7 +148,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 		if (isInited) return (IMOAOPackage) EPackage.Registry.INSTANCE.getEPackage(IMOAOPackage.eNS_URI);
 
 		// Obtain or create and register package
-		final MOAOPackageImpl theMOAOPackage = (MOAOPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof MOAOPackageImpl ? EPackage.Registry.INSTANCE
+		MOAOPackageImpl theMOAOPackage = (MOAOPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof MOAOPackageImpl ? EPackage.Registry.INSTANCE
 				.get(eNS_URI) : new MOAOPackageImpl());
 
 		isInited = true;
@@ -164,7 +164,6 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put(theMOAOPackage, new EValidator.Descriptor() {
-			@Override
 			public EValidator getEValidator() {
 				return MOAOValidator.INSTANCE;
 			}
@@ -482,8 +481,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		final EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE
-				.getEPackage(EcorePackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 		addETypeParameter(eMapEDataType, "K"); //$NON-NLS-1$
@@ -514,7 +512,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 		EOperation op = initEOperation(getMOAO__IsValid__DiagnosticChain_Map(), theEcorePackage.getEBoolean(),
 				"isValid", 0, 1, !IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, this.getEDiagnosticChain(), "diagnostics", 0, 1, !IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		final EGenericType g1 = createEGenericType(this.getEMap());
+		EGenericType g1 = createEGenericType(this.getEMap());
 		EGenericType g2 = createEGenericType(theEcorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(theEcorePackage.getEJavaObject());
@@ -606,7 +604,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 	 * @generated
 	 */
 	protected void createGenModelAnnotations() {
-		final String source = "http://www.eclipse.org/emf/2002/GenModel"; //$NON-NLS-1$		
+		String source = "http://www.eclipse.org/emf/2002/GenModel"; //$NON-NLS-1$		
 		addAnnotation(this, source, new String[] { "nonNLSMarkers", "true", //$NON-NLS-1$ //$NON-NLS-2$
 				"classPackageSuffix", "internal", //$NON-NLS-1$ //$NON-NLS-2$
 				"adapterFactory", "false", //$NON-NLS-1$ //$NON-NLS-2$
@@ -623,6 +621,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 				"updateClasspath", "false", //$NON-NLS-1$ //$NON-NLS-2$
 				"containmentProxies", "false", //$NON-NLS-1$ //$NON-NLS-2$
 				"modelDirectory", "/com.rcpcompany.uibindings.moao/src-gen", //$NON-NLS-1$ //$NON-NLS-2$
+				"commentFormatting", "true", //$NON-NLS-1$ //$NON-NLS-2$
 				"basePackage", "com.rcpcompany.uibindings" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 		addAnnotation(iAdaptableEClass, source, new String[] {
@@ -632,7 +631,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 				"documentation", "*\n<p>\nStructural Feature from ECore" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 		addAnnotation(moaoEClass, source, new String[] {
-				"documentation", "*\n<p>\nTop-level \"Mother of all Objects\"." //$NON-NLS-1$ //$NON-NLS-2$ 
+				"documentation", "*\n<p>\nTop-level \"Mother of all Objects\"." //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		});
 		addAnnotation(getMOAO__IsValid__DiagnosticChain_Map(), source, new String[] {
 				"documentation", "*\n<p>\nValidation of this object.\n<p>\nExtend in your own class.", //$NON-NLS-1$ //$NON-NLS-2$
@@ -711,7 +710,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 	 * @generated
 	 */
 	protected void createXcoreAnnotations() {
-		final String source = "http://www.eclipse.org/emf/2011/Xcore"; //$NON-NLS-1$			
+		String source = "http://www.eclipse.org/emf/2011/Xcore"; //$NON-NLS-1$			
 		addAnnotation(this, source, new String[] { "Ecore", "http://www.eclipse.org/emf/2002/Ecore", //$NON-NLS-1$ //$NON-NLS-2$
 				"GenModel", "http://www.eclipse.org/emf/2002/GenModel" //$NON-NLS-1$ //$NON-NLS-2$
 		});

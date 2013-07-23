@@ -132,11 +132,10 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 	 */
 	@Override
 	public void setName(String newName) {
-		final String oldName = name;
+		String oldName = name;
 		name = newName;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, IMOAOPackage.NAMED_OBJECT__NAME, oldName, name));
-		}
 	}
 
 	/**
@@ -156,12 +155,11 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 	 */
 	@Override
 	public void setDescription(String newDescription) {
-		final String oldDescription = description;
+		String oldDescription = description;
 		description = newDescription;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, IMOAOPackage.NAMED_OBJECT__DESCRIPTION,
 					oldDescription, description));
-		}
 	}
 
 	/**
@@ -180,11 +178,10 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 	 * @generated
 	 */
 	public void setUuid(String newUuid) {
-		final String oldUuid = uuid;
+		String oldUuid = uuid;
 		uuid = newUuid;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, IMOAOPackage.NAMED_OBJECT__UUID, oldUuid, uuid));
-		}
 	}
 
 	/**
@@ -274,7 +271,7 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		final StringBuffer result = new StringBuffer(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: "); //$NON-NLS-1$
 		result.append(name);
 		result.append(", description: "); //$NON-NLS-1$

@@ -11,7 +11,6 @@
 package com.rcpcompany.uibindings.moao.internal;
 
 import java.util.Map;
-
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
@@ -21,7 +20,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import com.rcpcompany.uibindings.moao.IMOAO;
 import com.rcpcompany.uibindings.moao.IMOAOFacet;
 import com.rcpcompany.uibindings.moao.IMOAOFactory;
@@ -44,10 +42,9 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 	 */
 	public static IMOAOFactory init() {
 		try {
-			final IMOAOFactory theMOAOFactory = (IMOAOFactory) EPackage.Registry.INSTANCE
-					.getEFactory(IMOAOPackage.eNS_URI);
-			if (theMOAOFactory != null) return theMOAOFactory;
-		} catch (final Exception exception) {
+			IMOAOFactory theMOAOFactory = (IMOAOFactory) EPackage.Registry.INSTANCE.getEFactory(IMOAOPackage.eNS_URI);
+			if (theMOAOFactory != null) { return theMOAOFactory; }
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new MOAOFactoryImpl();
@@ -128,7 +125,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 	 */
 	@Override
 	public IMOAO createMOAO() {
-		final MOAOImpl moao = new MOAOImpl();
+		MOAOImpl moao = new MOAOImpl();
 		return moao;
 	}
 
@@ -139,7 +136,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 	 */
 	@Override
 	public IMOAOFacet createMOAOFacet() {
-		final MOAOFacetImpl moaoFacet = new MOAOFacetImpl();
+		MOAOFacetImpl moaoFacet = new MOAOFacetImpl();
 		return moaoFacet;
 	}
 
@@ -150,7 +147,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 	 */
 	@Override
 	public INamedObject createNamedObject() {
-		final NamedObjectImpl namedObject = new NamedObjectImpl();
+		NamedObjectImpl namedObject = new NamedObjectImpl();
 		return namedObject;
 	}
 
@@ -161,7 +158,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 	 */
 	@Override
 	public IMOAOMessage createMOAOMessage() {
-		final MOAOMessageImpl moaoMessage = new MOAOMessageImpl();
+		MOAOMessageImpl moaoMessage = new MOAOMessageImpl();
 		return moaoMessage;
 	}
 
@@ -171,7 +168,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 	 * @generated
 	 */
 	public Severity createSeverityFromString(EDataType eDataType, String initialValue) {
-		final Severity result = Severity.get(initialValue);
+		Severity result = Severity.get(initialValue);
 		if (result == null)
 			throw new IllegalArgumentException(
 					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$

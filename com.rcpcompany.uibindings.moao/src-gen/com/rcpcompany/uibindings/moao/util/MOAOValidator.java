@@ -7,7 +7,6 @@
 package com.rcpcompany.uibindings.moao.util;
 
 import java.util.Map;
-
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -15,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EObjectValidator;
-
 import com.rcpcompany.uibindings.moao.IMOAO;
 import com.rcpcompany.uibindings.moao.IMOAOFacet;
 import com.rcpcompany.uibindings.moao.IMOAOMessage;
@@ -131,30 +129,15 @@ public class MOAOValidator extends EObjectValidator {
 	public boolean validateMOAO(IMOAO moao, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (!validate_NoCircularContainment(moao, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(moao, diagnostics, context);
-		if (result || diagnostics != null) {
-			result &= validate_EveryDataValueConforms(moao, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_EveryReferenceIsContained(moao, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(moao, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(moao, diagnostics, context);
+		if (result || diagnostics != null)
 			result &= validate_EveryBidirectionalReferenceIsPaired(moao, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_EveryProxyResolves(moao, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_UniqueID(moao, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_EveryKeyUnique(moao, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_EveryMapEntryUnique(moao, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validateMOAO_isValid(moao, diagnostics, context);
-		}
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(moao, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(moao, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(moao, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(moao, diagnostics, context);
+		if (result || diagnostics != null) result &= validateMOAO_isValid(moao, diagnostics, context);
 		return result;
 	}
 
@@ -176,30 +159,16 @@ public class MOAOValidator extends EObjectValidator {
 	public boolean validateMOAOFacet(IMOAOFacet moaoFacet, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (!validate_NoCircularContainment(moaoFacet, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(moaoFacet, diagnostics, context);
-		if (result || diagnostics != null) {
-			result &= validate_EveryDataValueConforms(moaoFacet, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(moaoFacet, diagnostics, context);
+		if (result || diagnostics != null)
 			result &= validate_EveryReferenceIsContained(moaoFacet, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
+		if (result || diagnostics != null)
 			result &= validate_EveryBidirectionalReferenceIsPaired(moaoFacet, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_EveryProxyResolves(moaoFacet, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_UniqueID(moaoFacet, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_EveryKeyUnique(moaoFacet, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_EveryMapEntryUnique(moaoFacet, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validateMOAO_isValid(moaoFacet, diagnostics, context);
-		}
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(moaoFacet, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(moaoFacet, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(moaoFacet, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(moaoFacet, diagnostics, context);
+		if (result || diagnostics != null) result &= validateMOAO_isValid(moaoFacet, diagnostics, context);
 		return result;
 	}
 
@@ -212,30 +181,17 @@ public class MOAOValidator extends EObjectValidator {
 			Map<Object, Object> context) {
 		if (!validate_NoCircularContainment(namedObject, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(namedObject, diagnostics, context);
-		if (result || diagnostics != null) {
+		if (result || diagnostics != null)
 			result &= validate_EveryDataValueConforms(namedObject, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
+		if (result || diagnostics != null)
 			result &= validate_EveryReferenceIsContained(namedObject, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
+		if (result || diagnostics != null)
 			result &= validate_EveryBidirectionalReferenceIsPaired(namedObject, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_EveryProxyResolves(namedObject, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_UniqueID(namedObject, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_EveryKeyUnique(namedObject, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_EveryMapEntryUnique(namedObject, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validateMOAO_isValid(namedObject, diagnostics, context);
-		}
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(namedObject, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(namedObject, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(namedObject, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(namedObject, diagnostics, context);
+		if (result || diagnostics != null) result &= validateMOAO_isValid(namedObject, diagnostics, context);
 		return result;
 	}
 
@@ -248,30 +204,17 @@ public class MOAOValidator extends EObjectValidator {
 			Map<Object, Object> context) {
 		if (!validate_NoCircularContainment(moaoMessage, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(moaoMessage, diagnostics, context);
-		if (result || diagnostics != null) {
+		if (result || diagnostics != null)
 			result &= validate_EveryDataValueConforms(moaoMessage, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
+		if (result || diagnostics != null)
 			result &= validate_EveryReferenceIsContained(moaoMessage, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
+		if (result || diagnostics != null)
 			result &= validate_EveryBidirectionalReferenceIsPaired(moaoMessage, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_EveryProxyResolves(moaoMessage, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_UniqueID(moaoMessage, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_EveryKeyUnique(moaoMessage, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validate_EveryMapEntryUnique(moaoMessage, diagnostics, context);
-		}
-		if (result || diagnostics != null) {
-			result &= validateMOAO_isValid(moaoMessage, diagnostics, context);
-		}
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(moaoMessage, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(moaoMessage, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(moaoMessage, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(moaoMessage, diagnostics, context);
+		if (result || diagnostics != null) result &= validateMOAO_isValid(moaoMessage, diagnostics, context);
 		return result;
 	}
 
@@ -319,7 +262,7 @@ public class MOAOValidator extends EObjectValidator {
 	 */
 	public boolean validateEStructuralFeature(EStructuralFeature eStructuralFeature, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(eStructuralFeature, diagnostics, context);
+		return validate_EveryDefaultConstraint((EObject) eStructuralFeature, diagnostics, context);
 	}
 
 	/**

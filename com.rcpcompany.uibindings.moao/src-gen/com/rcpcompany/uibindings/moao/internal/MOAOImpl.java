@@ -100,11 +100,11 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 	 */
 	@Override
 	public void removeMessagesByOwner(final String owner) {
-		final IMOAO _this = this;
+		IMOAO _this = this;
 		_this.removeMessagesByOwner(null, owner);
-		final IMOAO _this_1 = this;
+		IMOAO _this_1 = this;
 		final TreeIterator<EObject> allContents = _this_1.eAllContents();
-		final boolean _hasNext = allContents.hasNext();
+		boolean _hasNext = allContents.hasNext();
 		boolean _while = _hasNext;
 		while (_while) {
 			{
@@ -118,7 +118,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 					}
 				}
 			}
-			final boolean _hasNext_1 = allContents.hasNext();
+			boolean _hasNext_1 = allContents.hasNext();
 			_while = _hasNext_1;
 		}
 	}
@@ -130,14 +130,14 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 	 */
 	@Override
 	public void removeMessagesByOwner(final EStructuralFeature feature, final String owner) {
-		final IMOAO _this = this;
-		final boolean _eIsSet = _this.eIsSet(Literals.MOAO__FACETS);
-		final boolean _not = (!_eIsSet);
-		if (_not) return;
-		final IMOAO _this_1 = this;
-		final EList<IMOAOFacet> _facets = _this_1.getFacets();
+		IMOAO _this = this;
+		boolean _eIsSet = _this.eIsSet(Literals.MOAO__FACETS);
+		boolean _not = (!_eIsSet);
+		if (_not) { return; }
+		IMOAO _this_1 = this;
+		EList<IMOAOFacet> _facets = _this_1.getFacets();
 		final Iterator<IMOAOFacet> iterator = _facets.iterator();
-		final boolean _hasNext = iterator.hasNext();
+		boolean _hasNext = iterator.hasNext();
 		boolean _while = _hasNext;
 		while (_while) {
 			{
@@ -149,19 +149,19 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 						_matched = true;
 						boolean _and = false;
 						boolean _and_1 = false;
-						final boolean _notEquals = (!Objects.equal(feature, null));
+						boolean _notEquals = (!Objects.equal(feature, null));
 						if (!_notEquals) {
 							_and_1 = false;
 						} else {
-							final EStructuralFeature _feature = _iMOAOMessage.getFeature();
-							final boolean _equals = Objects.equal(feature, _feature);
+							EStructuralFeature _feature = _iMOAOMessage.getFeature();
+							boolean _equals = Objects.equal(feature, _feature);
 							_and_1 = (_notEquals && _equals);
 						}
 						if (!_and_1) {
 							_and = false;
 						} else {
-							final String _owner = _iMOAOMessage.getOwner();
-							final boolean _equals_1 = Objects.equal(owner, _owner);
+							String _owner = _iMOAOMessage.getOwner();
+							boolean _equals_1 = Objects.equal(owner, _owner);
 							_and = (_and_1 && _equals_1);
 						}
 						if (_and) {
@@ -170,7 +170,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 					}
 				}
 			}
-			final boolean _hasNext_1 = iterator.hasNext();
+			boolean _hasNext_1 = iterator.hasNext();
 			_while = _hasNext_1;
 		}
 	}

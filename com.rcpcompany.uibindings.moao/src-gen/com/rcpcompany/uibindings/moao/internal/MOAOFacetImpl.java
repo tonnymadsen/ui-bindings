@@ -86,19 +86,13 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 			if (EcoreUtil.isAncestor(this, newObject))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
-			if (eInternalContainer() != null) {
-				msgs = eBasicRemoveFromContainer(msgs);
-			}
-			if (newObject != null) {
+			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
+			if (newObject != null)
 				msgs = ((InternalEObject) newObject).eInverseAdd(this, IMOAOPackage.MOAO__FACETS, IMOAO.class, msgs);
-			}
 			msgs = basicSetObject(newObject, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
+			if (msgs != null) msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, IMOAOPackage.MOAO_FACET__OBJECT, newObject, newObject));
-		}
 	}
 
 	/**
@@ -110,9 +104,7 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case IMOAOPackage.MOAO_FACET__OBJECT:
-			if (eInternalContainer() != null) {
-				msgs = eBasicRemoveFromContainer(msgs);
-			}
+			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
 			return basicSetObject((IMOAO) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);

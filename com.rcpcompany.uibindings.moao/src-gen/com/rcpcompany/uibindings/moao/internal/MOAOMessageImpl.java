@@ -158,11 +158,10 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 	 */
 	@Override
 	public void setOwner(String newOwner) {
-		final String oldOwner = owner;
+		String oldOwner = owner;
 		owner = newOwner;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, IMOAOPackage.MOAO_MESSAGE__OWNER, oldOwner, owner));
-		}
 	}
 
 	/**
@@ -173,13 +172,12 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 	@Override
 	public EStructuralFeature getFeature() {
 		if (feature != null && ((EObject) feature).eIsProxy()) {
-			final InternalEObject oldFeature = (InternalEObject) feature;
+			InternalEObject oldFeature = (InternalEObject) feature;
 			feature = (EStructuralFeature) eResolveProxy(oldFeature);
 			if (feature != oldFeature) {
-				if (eNotificationRequired()) {
+				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, IMOAOPackage.MOAO_MESSAGE__FEATURE,
 							oldFeature, feature));
-				}
 			}
 		}
 		return feature;
@@ -201,12 +199,11 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 	 */
 	@Override
 	public void setFeature(EStructuralFeature newFeature) {
-		final EStructuralFeature oldFeature = feature;
+		EStructuralFeature oldFeature = feature;
 		feature = newFeature;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, IMOAOPackage.MOAO_MESSAGE__FEATURE, oldFeature,
 					feature));
-		}
 	}
 
 	/**
@@ -226,12 +223,11 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 	 */
 	@Override
 	public void setDescription(String newDescription) {
-		final String oldDescription = description;
+		String oldDescription = description;
 		description = newDescription;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, IMOAOPackage.MOAO_MESSAGE__DESCRIPTION,
 					oldDescription, description));
-		}
 	}
 
 	/**
@@ -251,12 +247,11 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 	 */
 	@Override
 	public void setSeverity(Severity newSeverity) {
-		final Severity oldSeverity = severity;
+		Severity oldSeverity = severity;
 		severity = newSeverity == null ? SEVERITY_EDEFAULT : newSeverity;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, IMOAOPackage.MOAO_MESSAGE__SEVERITY, oldSeverity,
 					severity));
-		}
 	}
 
 	/**
@@ -276,12 +271,11 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 	 */
 	@Override
 	public void setDetails(String newDetails) {
-		final String oldDetails = details;
+		String oldDetails = details;
 		details = newDetails;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, IMOAOPackage.MOAO_MESSAGE__DETAILS, oldDetails,
 					details));
-		}
 	}
 
 	/**
@@ -392,7 +386,7 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		final StringBuffer result = new StringBuffer(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (owner: "); //$NON-NLS-1$
 		result.append(owner);
 		result.append(", description: "); //$NON-NLS-1$
