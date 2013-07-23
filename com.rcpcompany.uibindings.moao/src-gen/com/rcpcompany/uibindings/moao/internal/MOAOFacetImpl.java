@@ -27,16 +27,15 @@ import com.rcpcompany.uibindings.moao.IMOAOPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link com.rcpcompany.uibindings.moao.internal.MOAOFacetImpl#getObject <em>Object</em>}</li>
+ *   <li>{@link com.rcpcompany.uibindings.moao.internal.MOAOFacetImpl#getObject <em>Object</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected MOAOFacetImpl() {
@@ -45,7 +44,6 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -55,7 +53,6 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -66,7 +63,6 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetObject(IMOAO newObject, NotificationChain msgs) {
@@ -76,7 +72,6 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -86,33 +81,24 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 			if (EcoreUtil.isAncestor(this, newObject))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
-			if (eInternalContainer() != null) {
-				msgs = eBasicRemoveFromContainer(msgs);
-			}
-			if (newObject != null) {
+			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
+			if (newObject != null)
 				msgs = ((InternalEObject) newObject).eInverseAdd(this, IMOAOPackage.MOAO__FACETS, IMOAO.class, msgs);
-			}
 			msgs = basicSetObject(newObject, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			}
-		} else if (eNotificationRequired()) {
+			if (msgs != null) msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, IMOAOPackage.MOAO_FACET__OBJECT, newObject, newObject));
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case IMOAOPackage.MOAO_FACET__OBJECT:
-			if (eInternalContainer() != null) {
-				msgs = eBasicRemoveFromContainer(msgs);
-			}
+			if (eInternalContainer() != null) msgs = eBasicRemoveFromContainer(msgs);
 			return basicSetObject((IMOAO) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -120,7 +106,6 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -134,7 +119,6 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -148,7 +132,6 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -162,7 +145,6 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -177,7 +159,6 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -192,7 +173,6 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

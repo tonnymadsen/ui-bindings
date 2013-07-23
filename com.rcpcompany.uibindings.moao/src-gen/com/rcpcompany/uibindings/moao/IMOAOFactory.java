@@ -17,38 +17,37 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 /**
  * <!-- begin-user-doc --> The <b>Factory</b> for the model. It provides a create method for each
  * non-abstract class of the model. <!-- end-user-doc -->
- * 
  * @see com.rcpcompany.uibindings.moao.IMOAOPackage
  * @generated
  */
 public interface IMOAOFactory extends EFactory {
 	/**
-	 * The singleton instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The singleton instance of the factory.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	IMOAOFactory eINSTANCE = com.rcpcompany.uibindings.moao.internal.MOAOFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>MOAO</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns a new object of class '<em>MOAO</em>'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return a new object of class '<em>MOAO</em>'.
 	 * @generated
 	 */
 	IMOAO createMOAO();
 
 	/**
-	 * Returns a new object of class '<em>Facet</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns a new object of class '<em>Facet</em>'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return a new object of class '<em>Facet</em>'.
 	 * @generated
 	 */
 	IMOAOFacet createMOAOFacet();
 
 	/**
-	 * Returns a new object of class '<em>Named Object</em>'. <!-- begin-user-doc --> <!--
+	 * Returns a new object of class '<em>Named Object</em>'.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @return a new object of class '<em>Named Object</em>'.
 	 * @generated
 	 */
@@ -88,8 +87,8 @@ public interface IMOAOFactory extends EFactory {
 			String description, IConfigurationElement... ces);
 
 	/**
-	 * Returns the package supported by this factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the package supported by this factory.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the package supported by this factory.
 	 * @generated
 	 */
