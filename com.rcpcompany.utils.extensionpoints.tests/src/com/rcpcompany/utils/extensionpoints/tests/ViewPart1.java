@@ -6,7 +6,7 @@ import org.eclipse.ui.part.ViewPart;
 /**
  * Skeleton view part used for testing...
  * 
- * @author Tonny Madsen, tma@bording.dk
+ * @author Tonny Madsen, The RCP Company
  */
 public class ViewPart1 extends ViewPart {
 	@Override

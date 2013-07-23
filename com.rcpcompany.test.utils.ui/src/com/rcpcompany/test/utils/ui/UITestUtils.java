@@ -106,7 +106,7 @@ public class UITestUtils {
 		TestView view = null;
 		try {
 			final IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-			view = (TestView) page.showView("com.agetor.wb.tests.utils.TestView", "" + (testViewSeq++),
+			view = (TestView) page.showView("com.rcpcompany.test.utils.ui.TestView", "" + (testViewSeq++),
 					IWorkbenchPage.VIEW_ACTIVATE);
 			assertNotNull(view);
 			view.setPartName("Test View: " + creatingObject.getClass().getSimpleName());
