@@ -5,24 +5,24 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 import java.util.Set;
 
-import javax.tools.FileObject;
-
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.vfs2.FileContent;
+import org.apache.commons.vfs2.FileObject;
+import org.apache.commons.vfs2.FileSystemException;
+import org.apache.commons.vfs2.FileSystemManager;
+import org.apache.commons.vfs2.VFS;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.URIUtil;
 import org.eclipse.equinox.internal.p2.rollback.FormerState;
@@ -50,9 +50,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import com.agetor.constants.AgetorServerConstants;
-import com.agetor.test.utils.ARCH;
-import com.google.common.io.LineReader;
 import com.rcpcompany.test.utils.MonitoredMonitor;
 import com.rcpcompany.utils.basic.TSStatusUtils;
 
@@ -66,8 +63,17 @@ import com.rcpcompany.utils.basic.TSStatusUtils;
  */
 @RunWith(Parameterized.class)
 public class InstallationIntegrationTest {
+	private static final String FEATURE_SUFFIX = ".feature.group";
+
 	@Rule
 	public Timeout globalTimeout = new Timeout(20 * 60 * 1000); // 20 minutes max per method tested
+
+	String[] FEATURE_IDS = new String[] { "com.rcpcompany.uibindings.debug.feature",
+			"com.rcpcompany.uibindings.feature", "com.rcpcompany.uibindings.financial.feature",
+			"com.rcpcompany.uibindings.grid.feature", "com.rcpcompany.uibindings.navigator.feature",
+			"com.rcpcompany.utils.feature",
+	// "com.rcpcompany.utils.rap.feature",
+	};
 
 	/**
 	 * Path to the installation area for the package.
@@ -77,17 +83,12 @@ public class InstallationIntegrationTest {
 	/**
 	 * Main repository as an URI.
 	 */
-	private URI WB_REPO;
+	private URI REPO;
 
 	/**
 	 * The URL for the installation package as supported by Apache Commons VFS
 	 */
 	private final String myInstallationURL;
-
-	/**
-	 * The architecture of the installation package.
-	 */
-	private final ARCH myArch;
 
 	/**
 	 * The relative path inside the installation package to the Product root (usually "eclipse").
@@ -118,53 +119,47 @@ public class InstallationIntegrationTest {
 		/*
 		 * The lost of the known products what should be installed into
 		 * 
-		 * Format: VFS URL for package file/dir, architecture, internal path for product root, internal path for p2
-		 * root, p2 profile (null means use the only defined)
+		 * Format: VFS URL for package file/dir, internal path for product root, internal path for p2 root, p2 profile
+		 * (null means use the only defined)
 		 */
 		final Object[][] bruttoList = new Object[][] {
 				// { "tgz:file:eclipse-rcp-juno-macosx-cocoa-x86_64.tar.gz", ARCH.MACOSX,
 				// "eclipse", "eclipse/p2",
 				// null },
-				{ "file:eclipse-SDK-3.8-macosx-cocoa-x86_64", ARCH.MACOSX, "eclipse", "eclipse/p2", null },
-				{ "file:eclipse-SDK-3.8-win32-x86_64", ARCH.WIN32_64, "eclipse", "eclipse/p2", null },
-				{ "file:eclipse-SDK-3.8.1-macosx-cocoa-x86_64", ARCH.MACOSX, "eclipse", "eclipse/p2", null },
-				{ "file:eclipse-SDK-3.8.2-linux-gtk-x86_64", ARCH.LINUX_64, "eclipse", "eclipse/p2", null },
-				{ "file:eclipse-SDK-3.8.2-macosx-cocoa-x86_64", ARCH.MACOSX, "eclipse", "eclipse/p2", null },
+				{ "file:eclipse-SDK-3.8-macosx-cocoa-x86_64", "eclipse", "eclipse/p2", null },
+				{ "file:eclipse-SDK-3.8-win32-x86_64", "eclipse", "eclipse/p2", null },
+				{ "file:eclipse-SDK-3.8.1-macosx-cocoa-x86_64", "eclipse", "eclipse/p2", null },
+				{ "file:eclipse-SDK-3.8.2-linux-gtk-x86_64", "eclipse", "eclipse/p2", null },
+				{ "file:eclipse-SDK-3.8.2-macosx-cocoa-x86_64", "eclipse", "eclipse/p2", null },
 				// { "file:eclipse-SDK-3.8.2-solaris-gtk", ARCH.SOLARIS_64, "eclipse", "eclipse/p2", null
 				// },
-				{ "file:eclipse-SDK-3.8.2-win32-x86_64", ARCH.WIN32_64, "eclipse", "eclipse/p2", null },
-				{ "file:eclipse-java-kepler-R-win32-x86_64", ARCH.WIN32_64, "eclipse", "eclipse/p2", null },
-				{ "file:eclipse-jee-juno-SR2-macosx-cocoa-x86_64", ARCH.MACOSX, "eclipse", "eclipse/p2", null },
-				{ "file:eclipse-jee-juno-SR2-win32-x86_64", ARCH.WIN32_64, "eclipse", "eclipse/p2", null },
-				{ "file:eclipse-jee-kepler-R-macosx-cocoa-x86_64", ARCH.MACOSX, "eclipse", "eclipse/p2", null },
-				{ "file:eclipse-jee-kepler-R-win32-x86_64", ARCH.WIN32_64, "eclipse", "eclipse/p2", null },
-				{ "file:eclipse-platform-3.8.2-macosx-cocoa-x86_64", ARCH.MACOSX, "eclipse", "eclipse/p2", null },
-				{ "file:eclipse-platform-3.8.2-win32-x86_64", ARCH.WIN32_64, "eclipse", "eclipse/p2", null },
-				{ "file:eclipse-rcp-indigo-SR2-macosx-cocoa-x86_64", ARCH.MACOSX, "eclipse", "eclipse/p2", null },
-				{ "file:eclipse-rcp-juno-SR1-macosx-cocoa-x86_64", ARCH.MACOSX, "eclipse", "eclipse/p2", null },
-				{ "file:eclipse-rcp-juno-SR1-win32-x86_64", ARCH.WIN32_64, "eclipse", "eclipse/p2", null },
-				{ "file:eclipse-rcp-juno-SR2-macosx-cocoa-x86_64", ARCH.MACOSX, "eclipse", "eclipse/p2", null },
-				{ "file:eclipse-rcp-juno-SR2-win32-x86_64", ARCH.WIN32_64, "eclipse", "eclipse/p2", null },
-				{ "file:eclipse-rcp-juno-macosx-cocoa-x86_64", ARCH.MACOSX, "eclipse", "eclipse/p2", null },
-				{ "file:eclipse-rcp-kepler-R-macosx-cocoa-x86_64", ARCH.MACOSX, "eclipse", "eclipse/p2", null },
-				{ "file:eclipse-rcp-kepler-R-win32-x86_64", ARCH.WIN32_64, "eclipse", "eclipse/p2", null },
-				{ "file:eclipse-reporting-kepler-R-win32-x86_64", ARCH.WIN32_64, "eclipse", "eclipse/p2", null },
-				{ "file:eclipse-standard-kepler-R-macosx-cocoa-x86_64", ARCH.MACOSX, "eclipse", "eclipse/p2", null },
-		// { "file:eclipse-rcp-kepler-R-macosx-cocoa-x86_64", ARCH.MACOSX, "eclipse", "eclipse/p2", null },
+				{ "file:eclipse-SDK-3.8.2-win32-x86_64", "eclipse", "eclipse/p2", null },
+				{ "file:eclipse-java-kepler-R-win32-x86_64", "eclipse", "eclipse/p2", null },
+				{ "file:eclipse-jee-juno-SR2-macosx-cocoa-x86_64", "eclipse", "eclipse/p2", null },
+				{ "file:eclipse-jee-juno-SR2-win32-x86_64", "eclipse", "eclipse/p2", null },
+				{ "file:eclipse-jee-kepler-R-macosx-cocoa-x86_64", "eclipse", "eclipse/p2", null },
+				{ "file:eclipse-jee-kepler-R-win32-x86_64", "eclipse", "eclipse/p2", null },
+				{ "file:eclipse-platform-3.8.2-macosx-cocoa-x86_64", "eclipse", "eclipse/p2", null },
+				{ "file:eclipse-platform-3.8.2-win32-x86_64", "eclipse", "eclipse/p2", null },
+				{ "file:eclipse-rcp-indigo-SR2-macosx-cocoa-x86_64", "eclipse", "eclipse/p2", null },
+				{ "file:eclipse-rcp-juno-SR1-macosx-cocoa-x86_64", "eclipse", "eclipse/p2", null },
+				{ "file:eclipse-rcp-juno-SR1-win32-x86_64", "eclipse", "eclipse/p2", null },
+				{ "file:eclipse-rcp-juno-SR2-macosx-cocoa-x86_64", "eclipse", "eclipse/p2", null },
+				{ "file:eclipse-rcp-juno-SR2-win32-x86_64", "eclipse", "eclipse/p2", null },
+				{ "file:eclipse-rcp-juno-macosx-cocoa-x86_64", "eclipse", "eclipse/p2", null },
+				{ "file:eclipse-rcp-kepler-R-macosx-cocoa-x86_64", "eclipse", "eclipse/p2", null },
+				{ "file:eclipse-rcp-kepler-R-win32-x86_64", "eclipse", "eclipse/p2", null },
+				{ "file:eclipse-reporting-kepler-R-win32-x86_64", "eclipse", "eclipse/p2", null },
+				{ "file:eclipse-standard-kepler-R-macosx-cocoa-x86_64", "eclipse", "eclipse/p2", null },
+		// { "file:eclipse-rcp-kepler-R-macosx-cocoa-x86_64", "eclipse", "eclipse/p2", null },
 
 		};
-		final List<ARCH> testArchs = ARCH.getTestValues();
 		final List<Object[]> found = new ArrayList<Object[]>();
 		for (final Object[] l : bruttoList) {
 			String url = (String) l[0];
-			final ARCH arch = (ARCH) l[1];
-			final String productPath = (String) l[2];
-			final String p2Path = (String) l[3];
-			final String p2Profile = (String) l[4];
-
-			if (!testArchs.contains(arch)) {
-				continue;
-			}
+			final String productPath = (String) l[1];
+			final String p2Path = (String) l[2];
+			final String p2Profile = (String) l[3];
 
 			final int i = url.indexOf("file:");
 			if (i != -1) {
@@ -183,15 +178,13 @@ public class InstallationIntegrationTest {
 				url = url.substring(0, i) + ff;
 			}
 
-			found.add(new Object[] { url, arch, productPath, p2Path, p2Profile });
+			found.add(new Object[] { url, productPath, p2Path, p2Profile });
 		}
 		return found;
 	}
 
-	public InstallationIntegrationTest(String installaionURL, ARCH arch, String productPath, String p2Path,
-			String p2Profile) {
+	public InstallationIntegrationTest(String installaionURL, String productPath, String p2Path, String p2Profile) {
 		myInstallationURL = installaionURL;
-		myArch = arch;
 		myProductPath = productPath;
 		myP2Path = p2Path;
 		myP2Profile = p2Profile;
@@ -216,11 +209,11 @@ public class InstallationIntegrationTest {
 	@Before
 	public void setupManager() {
 		System.out.println("    - Setup");
-		final String prop = System.getProperty("WB_REPO");
-		assertNotNull("No WB_REPO property specified", prop);
+		final String prop = System.getProperty("REPO");
+		assertNotNull("No REPO property specified", prop);
 		final File f = new File(prop);
 		assertTrue("WB Repository does not exist: " + f, f.exists());
-		WB_REPO = f.toURI();
+		REPO = f.toURI();
 
 		assertNotNull(what + ": location defined", DSLocation.get());
 		assertEquals(what + ": Only file: location protocol is supported", "file", DSLocation.get().getURL()
@@ -400,80 +393,36 @@ public class InstallationIntegrationTest {
 	@Test
 	public void testUpdate() {
 		try {
-			System.out.println("    - Adding repository location: " + WB_REPO);
-			myMetadataManager.loadRepository(WB_REPO, null);
-			myArtifactManager.addRepository(WB_REPO);
+			System.out.println("    - Adding repository location: " + REPO);
+			myMetadataManager.loadRepository(REPO, null);
+			myArtifactManager.addRepository(REPO);
 
-			final IInstallableUnit iu = findFeature();
+			final List<IInstallableUnit> ius = findFeaturse();
 			updateProperties();
-			installFeature(iu);
+			installFeature(ius);
 
 			// assertBundleInfo();
 		} catch (final Exception ex) {
 			fail(what + ": " + ex);
 		} finally {
-			myMetadataManager.removeRepository(WB_REPO);
-			myArtifactManager.removeRepository(WB_REPO);
+			myMetadataManager.removeRepository(REPO);
+			myArtifactManager.removeRepository(REPO);
 		}
 	}
 
-	public void assertBundleInfo() throws Exception {
-		final String configPath = myProductURI.getPath() + "/configuration/config.ini";
-		final File configFile = new File(configPath);
-		assertTrue("config.ini does not exist", configFile.exists());
-		final Properties configProperties = new Properties();
-		FileInputStream configIS = null;
-		try {
-			configIS = new FileInputStream(configFile);
-			configProperties.load(configIS);
-		} catch (final FileNotFoundException ex) {
-			fail(what + ": " + ex);
-		} catch (final IOException ex) {
-			fail(what + ": " + ex);
-		} finally {
-			IOUtils.closeQuietly(configIS);
+	public List<IInstallableUnit> findFeaturse() {
+		final List<IInstallableUnit> l = new ArrayList<IInstallableUnit>();
+		for (final String f : FEATURE_IDS) {
+			System.out.println("    - Finding feature " + f);
+			final IQuery<IInstallableUnit> query = QueryUtil.createIUQuery(f + FEATURE_SUFFIX);
+			final IQueryResult<IInstallableUnit> result = myMetadataManager.query(query, new MonitoredMonitor());
+			final Set<IInstallableUnit> set = result.toSet();
+			assertEquals(what + ": did not find one result: " + set, 1, set.size());
+			final IInstallableUnit iu = set.iterator().next();
+			assertNotNull(iu);
+			l.add(iu);
 		}
-		/*
-		 * Find bundle.info
-		 */
-		final String biURL = (String) configProperties.get("org.eclipse.equinox.simpleconfigurator.configUrl");
-		assertNotNull("Cannot find bundle.info", biURL);
-		final URI biURI = URIUtil
-				.makeAbsolute(URIUtil.fromString(biURL), URIUtil.append(myProductURI, "configuration"));
-		final File biFile = URIUtil.toFile(biURI);
-		/*
-		 * Parse the bundle.info file
-		 */
-		FileInputStream biIS = null;
-		try {
-			biIS = new FileInputStream(biFile);
-			final LineReader lr = new LineReader(new InputStreamReader(new BufferedInputStream(biIS)));
-			String l;
-			while ((l = lr.readLine()) != null) {
-				if (l.startsWith("#")) {
-					continue;
-				}
-				final String[] s = l.split(",");
-				if (s[0].equals("com.agetor.core.logging.impl")) {
-					assertEquals("start-level of " + s[0], "1", s[3]);
-					assertEquals("auto-start of " + s[0], "true", s[4]);
-				}
-			}
-		} finally {
-			IOUtils.closeQuietly(biIS);
-		}
-	}
-
-	public IInstallableUnit findFeature() {
-		System.out.println("    - Finding feature " + AgetorServerConstants.WB_FEATURE_ID);
-		final IQuery<IInstallableUnit> query = QueryUtil.createIUQuery(AgetorServerConstants.WB_FEATURE_ID
-				+ AgetorServerConstants.FEATURE_SUFFIX);
-		final IQueryResult<IInstallableUnit> result = myMetadataManager.query(query, new MonitoredMonitor());
-		final Set<IInstallableUnit> set = result.toSet();
-		assertEquals(what + ": did not find one result: " + set, 1, set.size());
-		final IInstallableUnit iu = set.iterator().next();
-		assertNotNull(iu);
-		return iu;
+		return l;
 	}
 
 	public void updateProperties() {
@@ -503,17 +452,19 @@ public class InstallationIntegrationTest {
 		assertTrue(what + ": Cannot update properties:\n" + TSStatusUtils.toString(status), status.isOK());
 	}
 
-	public void installFeature(final IInstallableUnit iu) {
+	public void installFeature(final List<IInstallableUnit> ius) {
 		System.out.println("    - Installing iu");
 		final IProfileChangeRequest request = myPlanner.createChangeRequest(myProfile);
 		assertNotNull(request);
-		request.add(iu);
+		for (final IInstallableUnit iu : ius) {
+			request.add(iu);
+		}
 
 		final ProvisioningContext context = new ProvisioningContext(myAgent);
 		/*
 		 * Only download from our own repository
 		 */
-		final URI[] repositories = new URI[] { WB_REPO };
+		final URI[] repositories = new URI[] { REPO };
 		context.setMetadataRepositories(repositories);
 		context.setArtifactRepositories(repositories);
 		/*
@@ -522,17 +473,13 @@ public class InstallationIntegrationTest {
 		final IProvisioningPlan plan = myPlanner.getProvisioningPlan(request, context, new MonitoredMonitor());
 		assertNotNull(plan);
 		IStatus status = plan.getStatus();
-		assertTrue(
-				what + ": Cannot plan " + AgetorServerConstants.WB_FEATURE_ID + ":\n" + TSStatusUtils.toString(status),
-				status.isOK());
+		assertTrue(what + ": Cannot plan:\n" + TSStatusUtils.toString(status), status.isOK());
 
 		/*
 		 * Do test installation
 		 */
 		status = myEngine.perform(plan, new MonitoredMonitor());
-		assertTrue(
-				what + ": Cannot install " + AgetorServerConstants.WB_FEATURE_ID + ":\n"
-						+ TSStatusUtils.toString(status), status.isOK());
+		assertTrue(what + ": Cannot install:\n" + TSStatusUtils.toString(status), status.isOK());
 	}
 
 	private void unpack(final FileObject archive) throws FileSystemException, FileNotFoundException, IOException {

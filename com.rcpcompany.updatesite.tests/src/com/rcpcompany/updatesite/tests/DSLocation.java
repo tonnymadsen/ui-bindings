@@ -5,7 +5,7 @@ import org.eclipse.osgi.service.datalocation.Location;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
-import com.agetor.core.utils.ds.DSStore;
+import com.rcpcompany.utils.basic.DSStore;
 
 @Component
 public class DSLocation {

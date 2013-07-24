@@ -7,7 +7,6 @@ Bundle-ClassPath: libs/commons-vfs2-2.0.jar,
  .
 Bundle-Vendor: Tonny Madsen
 Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.8.0,4.0.0)",
- org.eclipse.utils.ui;bundle-version="[3.6.0,4.0.0)",
  com.rcpcompany.test.utils;bundle-version="[1.1.0,2.0.0)",
  org.eclipse.equinox.p2.artifact.repository;bundle-version="[1.1.200,2.0.0)",
  org.eclipse.equinox.p2.core;bundle-version="[2.2.0,3.0.0)",
@@ -25,7 +24,6 @@ Import-Package:
  com.rcpcompany.utils.basic;version="1.7.0",
  org.apache.commons.io,
  org.eclipse.jdt.annotation,
- org.eclipse.jface.resource,
  org.osgi.service.component.annotations;version="[1.2.0,2.0.0)"
 Service-Component: OSGI-INF/com.rcpcompany.updatesite.tests.DSAgent.xml,
  OSGI-INF/com.rcpcompany.updatesite.tests.DSLocation.xml

@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ns2:component name="com.agetor.wb.rcp.tests.DSAgent" xmlns:ns2="http://www.osgi.org/xmlns/scr/v1.1.0">
-    <reference bind="setManager" interface="org.eclipse.equinox.p2.core.IProvisioningAgentProvider" name="Manager"/>
-    <implementation class="com.agetor.wb.rcp.tests.DSAgent"/>
-</ns2:component>
