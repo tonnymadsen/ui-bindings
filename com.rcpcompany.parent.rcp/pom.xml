@@ -43,6 +43,7 @@
 		<module>../com.rcpcompany.uibindings.tests.model</module>
 
 		<module>../com.rcpcompany.uibindings.model.utils.uifragment</module>
+		<module>../com.rcpcompany.uibindings.model.utils.uifragment.tests</module>
 
 
 		<module>../com.rcpcompany.uibindings.debug</module>
