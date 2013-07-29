@@ -32,7 +32,7 @@ Require-Bundle: com.rcpcompany.utils.ui;visibility:=reexport,
  org.eclipse.core.runtime;bundle-version="[3.5.0,4.0.0)",
  org.eclipse.emf.common;bundle-version="[2.4.0,3.0.0)";visibility:=reexport,
  org.eclipse.emf.ecore;bundle-version="[2.4.0,3.0.0)";visibility:=reexport,
- org.eclipse.equinox.ds;bundle-version="[1.4.1,1.5.0)"
+ org.eclipse.equinox.ds;bundle-version="[1.4.0,2.0.0)"
 Service-Component: OSGI-INF/com.rcpcompany.uibindings.internal.DSWorkbench.xml
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
