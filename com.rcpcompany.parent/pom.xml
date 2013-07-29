@@ -38,8 +38,10 @@
 		<module>../com.rcpcompany.parent.rap</module>
 
 		<module>../com.rcpcompany.test.utils</module>
-		<module>../com.rcpcompany.test.utils.tests</module>
+		<!-- See https://bugs.eclipse.org/bugs/show_bug.cgi?id=402420 for sequence -->
+		<module>../com.rcpcompany.test.utils.tests.host</module>
 		<module>../com.rcpcompany.test.utils.tests.fragment</module>
+		<module>../com.rcpcompany.test.utils.tests</module>
 
 		<module>../com.rcpcompany.utils.ui</module>
 

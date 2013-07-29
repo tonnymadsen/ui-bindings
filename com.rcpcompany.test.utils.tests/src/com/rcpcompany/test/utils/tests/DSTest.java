@@ -17,6 +17,6 @@ public class DSTest {
 
 	@Test
 	public void testDSFilesPresent() {
-		DSTestUtils.checkDSFiles("com.rcpcompany.test.utils.tests");
+		DSTestUtils.checkDSFiles("com.rcpcompany.test.utils.tests.host");
 	}
 }
