@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tests for com.rcpcompany.uibindings.model.utils.uifragment
+Bundle-SymbolicName: com.rcpcompany.uibindings.model.utils.uifragment.tests
+Bundle-Version: 1.2.0.qualifier
+Bundle-Vendor: The RCP Company
+Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.4.0,4.0.0)",
+ com.rcpcompany.test.utils;bundle-version="[1.0.1,2.0.0)",
+ com.rcpcompany.uibindings.model.utils;bundle-version="[1.2.0,2.0.0)",
+ com.rcpcompany.utils.logging;bundle-version="[1.5.0,2.0.0)",
+ com.rcpcompany.utils.basic;bundle-version="[1.4.1,2.0.0)"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.emf.edit.command,
+ org.eclipse.emf.edit.domain

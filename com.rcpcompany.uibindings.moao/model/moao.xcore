@@ -4,7 +4,7 @@
 		fileExtensions="moao", suppressGenModelAnnotations="false", language="",
 		prefix="MOAO", modelName="MOAO", codeFormatting="true", redirection="",
 		updateClasspath="false", containmentProxies="false",
-		modelDirectory="/com.rcpcompany.uibindings.moao/src-gen")
+		modelDirectory="/com.rcpcompany.uibindings.moao/src-gen", commentFormatting="true")
 package com.rcpcompany.uibindings.moao 
 
 import com.rcpcompany.uibindings.moao.IMOAOPackage$Literals

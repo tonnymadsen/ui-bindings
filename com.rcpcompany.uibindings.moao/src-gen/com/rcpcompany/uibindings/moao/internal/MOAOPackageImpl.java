@@ -582,6 +582,7 @@ public class MOAOPackageImpl extends EPackageImpl implements IMOAOPackage {
 				"updateClasspath", "false", //$NON-NLS-1$ //$NON-NLS-2$
 				"containmentProxies", "false", //$NON-NLS-1$ //$NON-NLS-2$
 				"modelDirectory", "/com.rcpcompany.uibindings.moao/src-gen", //$NON-NLS-1$ //$NON-NLS-2$
+				"commentFormatting", "true", //$NON-NLS-1$ //$NON-NLS-2$
 				"basePackage", "com.rcpcompany.uibindings" //$NON-NLS-1$ //$NON-NLS-2$
 		});
 		addAnnotation(iAdaptableEClass, source, new String[] {
