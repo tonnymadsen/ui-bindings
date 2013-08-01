@@ -13,22 +13,20 @@ package com.rcpcompany.uibindings.moao;
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Named Object</b></em>'. <!--
  * end-user-doc -->
- *
- * <!-- begin-model-doc -->
- * *
+ * 
+ * <!-- begin-model-doc --> *
  * <p>
- * MOAO with a name and description.
- * <!-- end-model-doc -->
- *
+ * MOAO with a name and description. <!-- end-model-doc -->
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.moao.INamedObject#getName <em>Name</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.moao.INamedObject#getDescription <em>Description</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.moao.INamedObject#getUuid <em>Uuid</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.moao.INamedObject#getName <em>Name</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.moao.INamedObject#getDescription <em>Description</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.moao.INamedObject#getUuid <em>Uuid</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see com.rcpcompany.uibindings.moao.IMOAOPackage#getNamedObject()
  * @generated
  */
@@ -51,8 +49,9 @@ public interface INamedObject extends IMOAO {
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.moao.INamedObject#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.moao.INamedObject#getName
+	 * <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
@@ -77,8 +76,9 @@ public interface INamedObject extends IMOAO {
 	String getDescription();
 
 	/**
-	 * Sets the value of the '{@link com.rcpcompany.uibindings.moao.INamedObject#getDescription <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link com.rcpcompany.uibindings.moao.INamedObject#getDescription
+	 * <em>Description</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Description</em>' attribute.
 	 * @see #getDescription()
 	 * @generated

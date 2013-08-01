@@ -31,12 +31,13 @@ import com.rcpcompany.utils.basic.TSRegistryUtils;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static IMOAOFactory init() {
@@ -50,8 +51,8 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 	}
 
 	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public MOAOFactoryImpl() {
@@ -60,6 +61,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -80,6 +82,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -98,6 +101,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -116,6 +120,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -126,6 +131,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -136,6 +142,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -146,6 +153,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -156,6 +164,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Severity createSeverityFromString(EDataType eDataType, String initialValue) {
@@ -168,6 +177,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertSeverityToString(EDataType eDataType, Object instanceValue) {
@@ -176,6 +186,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public DiagnosticChain createEDiagnosticChainFromString(EDataType eDataType, String initialValue) {
@@ -184,6 +195,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertEDiagnosticChainToString(EDataType eDataType, Object instanceValue) {
@@ -192,6 +204,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Map<?, ?> createEMapFromString(EDataType eDataType, String initialValue) {
@@ -200,6 +213,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertEMapToString(EDataType eDataType, Object instanceValue) {
@@ -208,6 +222,7 @@ public class MOAOFactoryImpl extends EFactoryImpl implements IMOAOFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

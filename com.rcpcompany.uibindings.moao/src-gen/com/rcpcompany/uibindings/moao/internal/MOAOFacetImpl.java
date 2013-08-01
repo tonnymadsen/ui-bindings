@@ -27,15 +27,16 @@ import com.rcpcompany.uibindings.moao.IMOAOPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.moao.internal.MOAOFacetImpl#getObject <em>Object</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.moao.internal.MOAOFacetImpl#getObject <em>Object</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected MOAOFacetImpl() {
@@ -44,6 +45,7 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -53,6 +55,7 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -63,6 +66,7 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetObject(IMOAO newObject, NotificationChain msgs) {
@@ -72,6 +76,7 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -92,6 +97,7 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -106,6 +112,7 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -119,6 +126,7 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -132,6 +140,7 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -145,6 +154,7 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -159,6 +169,7 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -173,6 +184,7 @@ public class MOAOFacetImpl extends MOAOImpl implements IMOAOFacet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

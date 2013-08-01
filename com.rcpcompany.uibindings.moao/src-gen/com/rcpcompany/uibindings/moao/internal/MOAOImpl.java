@@ -33,16 +33,17 @@ import com.rcpcompany.uibindings.moao.IMOAOPackage.Literals;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.moao.internal.MOAOImpl#getFacets <em>Facets</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.moao.internal.MOAOImpl#getFacets <em>Facets</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 	/**
 	 * The cached value of the '{@link #getFacets() <em>Facets</em>}' containment reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getFacets()
 	 * @generated
 	 * @ordered
@@ -51,6 +52,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected MOAOImpl() {
@@ -59,6 +61,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -68,6 +71,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -81,6 +85,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -90,6 +95,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -119,6 +125,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -170,6 +177,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -184,6 +192,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -197,6 +206,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -210,6 +220,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -226,6 +237,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -240,6 +252,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -253,6 +266,7 @@ public class MOAOImpl extends MinimalEObjectImpl.Container implements IMOAO {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

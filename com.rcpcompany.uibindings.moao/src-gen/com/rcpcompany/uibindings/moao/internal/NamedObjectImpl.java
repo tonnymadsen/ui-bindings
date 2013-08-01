@@ -24,19 +24,20 @@ import com.rcpcompany.uibindings.moao.INamedObject;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.moao.internal.NamedObjectImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.moao.internal.NamedObjectImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.moao.internal.NamedObjectImpl#getUuid <em>Uuid</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.moao.internal.NamedObjectImpl#getName <em>Name</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.moao.internal.NamedObjectImpl#getDescription <em>Description
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.moao.internal.NamedObjectImpl#getUuid <em>Uuid</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -44,9 +45,9 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -74,9 +75,9 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getUuid() <em>Uuid</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The default value of the '{@link #getUuid() <em>Uuid</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getUuid()
 	 * @generated
 	 * @ordered
@@ -84,9 +85,9 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 	protected static final String UUID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getUuid() <em>Uuid</em>}' attribute.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getUuid() <em>Uuid</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getUuid()
 	 * @generated
 	 * @ordered
@@ -106,6 +107,7 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -115,6 +117,7 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -124,6 +127,7 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -136,6 +140,7 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -145,6 +150,7 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -158,6 +164,7 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -167,6 +174,7 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setUuid(String newUuid) {
@@ -178,6 +186,7 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -195,6 +204,7 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -215,6 +225,7 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -235,6 +246,7 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -252,6 +264,7 @@ public class NamedObjectImpl extends MOAOImpl implements INamedObject {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

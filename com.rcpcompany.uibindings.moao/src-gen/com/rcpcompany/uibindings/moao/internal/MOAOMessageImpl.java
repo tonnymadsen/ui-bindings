@@ -19,21 +19,23 @@ import com.rcpcompany.uibindings.moao.Severity;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.moao.internal.MOAOMessageImpl#getOwner <em>Owner</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.moao.internal.MOAOMessageImpl#getFeature <em>Feature</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.moao.internal.MOAOMessageImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.moao.internal.MOAOMessageImpl#getSeverity <em>Severity</em>}</li>
- *   <li>{@link com.rcpcompany.uibindings.moao.internal.MOAOMessageImpl#getDetails <em>Details</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.moao.internal.MOAOMessageImpl#getOwner <em>Owner</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.moao.internal.MOAOMessageImpl#getFeature <em>Feature</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.moao.internal.MOAOMessageImpl#getDescription <em>Description
+ * </em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.moao.internal.MOAOMessageImpl#getSeverity <em>Severity</em>}
+ * </li>
+ * <li>{@link com.rcpcompany.uibindings.moao.internal.MOAOMessageImpl#getDetails <em>Details</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 	/**
-	 * The default value of the '{@link #getOwner() <em>Owner</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The default value of the '{@link #getOwner() <em>Owner</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getOwner()
 	 * @generated
 	 * @ordered
@@ -41,9 +43,9 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 	protected static final String OWNER_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getOwner() <em>Owner</em>}' attribute.
-	 * <!-- begin-user-doc
+	 * The cached value of the '{@link #getOwner() <em>Owner</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getOwner()
 	 * @generated
 	 * @ordered
@@ -122,6 +124,7 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected MOAOMessageImpl() {
@@ -130,6 +133,7 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -139,6 +143,7 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -148,6 +153,7 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -160,6 +166,7 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -178,6 +185,7 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EStructuralFeature basicGetFeature() {
@@ -186,6 +194,7 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -199,6 +208,7 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -208,6 +218,7 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -221,6 +232,7 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -230,6 +242,7 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -243,6 +256,7 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -252,6 +266,7 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -265,6 +280,7 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -287,6 +303,7 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -313,6 +330,7 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -339,6 +357,7 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -360,6 +379,7 @@ public class MOAOMessageImpl extends MOAOFacetImpl implements IMOAOMessage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

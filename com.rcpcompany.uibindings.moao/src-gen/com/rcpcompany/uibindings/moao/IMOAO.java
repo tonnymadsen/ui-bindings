@@ -21,20 +21,18 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>MOAO</b></em>'. <!--
  * end-user-doc -->
- *
- * <!-- begin-model-doc -->
- * *
+ * 
+ * <!-- begin-model-doc --> *
  * <p>
- * Top-level "Mother of all Objects".
- * <!-- end-model-doc -->
- *
+ * Top-level "Mother of all Objects". <!-- end-model-doc -->
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link com.rcpcompany.uibindings.moao.IMOAO#getFacets <em>Facets</em>}</li>
+ * <li>{@link com.rcpcompany.uibindings.moao.IMOAO#getFacets <em>Facets</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see com.rcpcompany.uibindings.moao.IMOAOPackage#getMOAO()
  * @generated
  */

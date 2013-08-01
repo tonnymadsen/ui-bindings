@@ -23,20 +23,23 @@ import com.rcpcompany.uibindings.moao.Severity;
 
 /**
  * <!-- begin-user-doc --> The <b>Validator</b> for the model. <!-- end-user-doc -->
+ * 
  * @see com.rcpcompany.uibindings.moao.IMOAOPackage
  * @generated
  */
 public class MOAOValidator extends EObjectValidator {
 	/**
-	 * The cached model package
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final MOAOValidator INSTANCE = new MOAOValidator();
 
 	/**
-	 * A constant for the {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes} from this package.
+	 * A constant for the {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of
+	 * diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes} from this package.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see org.eclipse.emf.common.util.Diagnostic#getSource()
 	 * @see org.eclipse.emf.common.util.Diagnostic#getCode()
 	 * @generated
@@ -44,29 +47,32 @@ public class MOAOValidator extends EObjectValidator {
 	public static final String DIAGNOSTIC_SOURCE = "com.rcpcompany.uibindings.moao";
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Is Valid' of 'MOAO'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Is Valid'
+	 * of 'MOAO'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final int MOAO__IS_VALID = 1;
 
 	/**
-	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * A constant with a fixed name that can be used as the base value for additional hand written
+	 * constants. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 1;
 
 	/**
-	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * A constant with a fixed name that can be used as the base value for additional hand written
+	 * constants in a derived class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected static final int DIAGNOSTIC_CODE_COUNT = GENERATED_DIAGNOSTIC_CODE_COUNT;
 
 	/**
-	 * Creates an instance of the switch.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public MOAOValidator() {
@@ -74,8 +80,8 @@ public class MOAOValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Returns the package of this validator switch.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the package of this validator switch. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -117,6 +123,7 @@ public class MOAOValidator extends EObjectValidator {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean validateMOAO(IMOAO moao, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -135,9 +142,9 @@ public class MOAOValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the isValid constraint of '<em>MOAO</em>'.
-	 * <!-- begin-user-doc --> <!--
+	 * Validates the isValid constraint of '<em>MOAO</em>'. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean validateMOAO_isValid(IMOAO moao, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -146,6 +153,7 @@ public class MOAOValidator extends EObjectValidator {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean validateMOAOFacet(IMOAOFacet moaoFacet, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -166,6 +174,7 @@ public class MOAOValidator extends EObjectValidator {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean validateNamedObject(INamedObject namedObject, DiagnosticChain diagnostics,
@@ -188,6 +197,7 @@ public class MOAOValidator extends EObjectValidator {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean validateMOAOMessage(IMOAOMessage moaoMessage, DiagnosticChain diagnostics,
@@ -210,6 +220,7 @@ public class MOAOValidator extends EObjectValidator {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean validateSeverity(Severity severity, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -218,6 +229,7 @@ public class MOAOValidator extends EObjectValidator {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean validateEDiagnosticChain(DiagnosticChain eDiagnosticChain, DiagnosticChain diagnostics,
@@ -227,6 +239,7 @@ public class MOAOValidator extends EObjectValidator {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean validateEMap(Map<?, ?> eMap, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -235,6 +248,7 @@ public class MOAOValidator extends EObjectValidator {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean validateIAdaptable(IAdaptable iAdaptable, DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -243,6 +257,7 @@ public class MOAOValidator extends EObjectValidator {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean validateEStructuralFeature(EStructuralFeature eStructuralFeature, DiagnosticChain diagnostics,
@@ -251,8 +266,9 @@ public class MOAOValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Returns the resource locator that will be used to fetch messages for this validator's diagnostics.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the resource locator that will be used to fetch messages for this validator's
+	 * diagnostics. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
