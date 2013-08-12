@@ -17,7 +17,7 @@
 		<!-- The target platform. Must be one of the target platforms defined in 
 			com.rcpcompany.target. -->
 		<eclipse.platform.version>3.8</eclipse.platform.version>
-		<!-- One or 'none', 'rap' or 'rcp' -->
+		<!-- One or 'none', 'non-test', 'rap', 'rap-test', or 'rcp' -->
 		<eclipse.platform.type>none</eclipse.platform.type>
 
 		<!-- OS Specific Flags for Java - see profiles below -->
@@ -59,6 +59,7 @@
 
 		<!-- <module>../com.rcpcompany.uibindings.updatesite</module> -->
 		<module>../com.rcpcompany.updatesite</module>
+		<!-- <module>../com.rcpcompany.updatesite.tests</module> -->
 	</modules>
 
 	<pluginRepositories>

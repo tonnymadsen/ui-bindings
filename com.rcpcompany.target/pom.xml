@@ -40,9 +40,19 @@
 									<classifier>uibindings-3.8-rap</classifier>
 								</artifact>
 								<artifact>
+									<file>uibindings-3.8-rap-test.target</file>
+									<type>target</type>
+									<classifier>uibindings-3.8-rap-test</classifier>
+								</artifact>
+								<artifact>
 									<file>uibindings-3.8-none.target</file>
 									<type>target</type>
 									<classifier>uibindings-3.8-none</classifier>
+								</artifact>
+								<artifact>
+									<file>uibindings-3.8-none-test.target</file>
+									<type>target</type>
+									<classifier>uibindings-3.8-none-test</classifier>
 								</artifact>
 								<artifact>
 									<file>uibindings-4.2.target</file>
