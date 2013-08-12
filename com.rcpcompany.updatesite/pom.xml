@@ -19,7 +19,7 @@
 		<repository>develop</repository>
 		<repository.append>false</repository.append>
 		<repository.base.redirect>../</repository.base.redirect>
-		<repository.base.directory>${project.build.directory}/../../${repository.base.redirect}ui-bindings-pages/updates</repository.base.directory>
+		<repository.base.directory>${basedir}/../${repository.base.redirect}ui-bindings-pages/updates</repository.base.directory>
 		<LAST_COMMIT>Unknown</LAST_COMMIT>
 	</properties>
 

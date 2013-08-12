@@ -68,7 +68,9 @@ public class InstallationIntegrationTest {
 	@Rule
 	public Timeout globalTimeout = new Timeout(20 * 60 * 1000); // 20 minutes max per method tested
 
-	String[] FEATURE_IDS = new String[] { "com.rcpcompany.uibindings.debug.feature",
+	String[] FEATURE_IDS = new String[] {
+
+			// "com.rcpcompany.uibindings.debug.feature",
 			"com.rcpcompany.uibindings.feature", "com.rcpcompany.uibindings.financial.feature",
 			"com.rcpcompany.uibindings.grid.feature", "com.rcpcompany.uibindings.navigator.feature",
 			"com.rcpcompany.utils.feature",
@@ -212,7 +214,7 @@ public class InstallationIntegrationTest {
 		final String prop = System.getProperty("REPO");
 		assertNotNull("No REPO property specified", prop);
 		final File f = new File(prop);
-		assertTrue("WB Repository does not exist: " + f, f.exists());
+		assertTrue("Repository does not exist: " + f, f.exists());
 		REPO = f.toURI();
 
 		assertNotNull(what + ": location defined", DSLocation.get());
@@ -385,11 +387,10 @@ public class InstallationIntegrationTest {
 	}
 
 	/**
-	 * Tests whether the product can be updated with {@link AgetorServerConstants#WB_FEATURE_ID}.
+	 * Tests whether the product can be updated with {@link #FEATURE_IDS}.
 	 * <p>
 	 * Only the planner is run - the product is not actually updated.
 	 */
-	@SuppressWarnings("resource")
 	@Test
 	public void testUpdate() {
 		try {

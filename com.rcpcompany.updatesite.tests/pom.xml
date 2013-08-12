@@ -13,12 +13,21 @@
 		<relativePath>../com.rcpcompany.parent</relativePath>
 	</parent>
 
+	<properties>
+		<eclipse.platform.type>none-test</eclipse.platform.type>
+		<!-- Default properties - development release -->
+		<repository>develop</repository>
+		<repository.base.redirect>../</repository.base.redirect>
+		<repository.base.directory>${basedir}/../${repository.base.redirect}ui-bindings-pages/updates/${repository}</repository.base.directory>
+		<LAST_COMMIT>Unknown</LAST_COMMIT>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>com.rcpcompany</groupId>
 			<artifactId>com.rcpcompany.updatesite</artifactId>
 			<version>3.0.0-SNAPSHOT</version>
-			<type>eclipse-repository</type>
+			<type>pom</type>
 		</dependency>
 	</dependencies>
 
@@ -29,10 +38,30 @@
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-surefire-plugin</artifactId>
 					<configuration>
-						<argLine>-DREPO=${basedir}/../com.rcpcompany.updatesite/target/repository ${java.os.args} ${java.debug.args}</argLine>
+						<argLine>-DREPO=${repository.base.directory} ${java.os.args} ${java.debug.args}</argLine>
+					<dependency-resolution>
+						<optionalDependencies>ignore</optionalDependencies>
+						<extraRequirements>
+							<requirement>
+								<type>eclipse-plugin</type>
+								<id>org.eclipse.core.net</id>
+								<versionRange>0.0.0</versionRange>
+							</requirement>
+						</extraRequirements>
+					</dependency-resolution>
 					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
+
+	<!-- Profile-specific properties -->
+	<profiles>
+		<profile>
+			<id>release</id>
+			<properties>
+				<repository>release</repository>
+			</properties>
+		</profile>
+	</profiles>
 </project>
