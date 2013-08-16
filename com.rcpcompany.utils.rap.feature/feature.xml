@@ -2,7 +2,7 @@
 <feature
       id="com.rcpcompany.utils.rap.feature"
       label="The RCP Company Utility RAP Feature"
-      version="1.1.1.qualifier"
+      version="1.1.2.qualifier"
       provider-name="The RCP Company">
 
    <description url="http://www.example.com/description">
