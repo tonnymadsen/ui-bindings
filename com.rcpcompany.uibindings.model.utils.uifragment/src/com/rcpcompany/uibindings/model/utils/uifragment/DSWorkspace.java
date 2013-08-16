@@ -10,7 +10,7 @@ import com.rcpcompany.uibindings.model.utils.UIBindingRealm;
 
 @Component
 public class DSWorkspace {
-	@Reference
+	@Reference(unbind = "-")
 	public void setWorkbench(IWorkbench w) {
 		final Realm realm = SWTObservables.getRealm(w.getDisplay());
 		UIBindingRealm.setUIRealm(realm);
