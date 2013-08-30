@@ -59,17 +59,17 @@
 						<executions>
 							<execution>
 								<id>add-rest</id>
-								<phase>install</phase>
+								<phase>verify</phase>
 								<goals>
 									<goal>add</goal>
 								</goals>
 								<configuration>
-									<includes>.,*,binary/**/*,features/**/*</includes>
+									<excludes>plugins/**/*</excludes>
 								</configuration>
 							</execution>
 							<execution>
 								<id>add-plugins</id>
-								<phase>install</phase>
+								<phase>verify</phase>
 								<goals>
 									<goal>add</goal>
 								</goals>
@@ -84,7 +84,7 @@
 									<goal>checkin</goal>
 								</goals>
 								<configuration>
-									<message>New updated update site based on ${LAST_COMMIT}</message>
+									<message>New updated update site via Tycho</message>
 								</configuration>
 							</execution>
 						</executions>
@@ -110,7 +110,7 @@
 				<executions>
 					<execution>
 						<id>checkout</id>
-						<phase></phase>
+						<phase>prepare-package</phase>
 						<goals>
 							<goal>checkout</goal>
 						</goals>
