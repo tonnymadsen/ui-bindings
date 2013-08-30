@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/com.rcpcompany.utils.rap.feature_1.1.2.qualifier.jar" id="com.rcpcompany.utils.rap.feature" version="1.1.2.qualifier">
+   <feature id="com.rcpcompany.utils.rap.feature" version="0.0.0">
       <category name="com.rcpcompany.utils.category"/>
    </feature>
-   <feature url="features/com.rcpcompany.utils.rap.feature.sources_1.1.2.qualifier.jar" id="com.rcpcompany.utils.rap.feature.source" version="1.1.2.qualifier">
+   <feature id="com.rcpcompany.utils.rap.feature.source" version="0.0.0">
+      <category name="com.rcpcompany.utils.category"/>
+   </feature>
+   <feature id="com.rcpcompany.test.utils.rap.feature" version="0.0.0">
+      <category name="com.rcpcompany.utils.category"/>
+   </feature>
+   <feature id="com.rcpcompany.test.utils.rap.feature.source" version="0.0.0">
       <category name="com.rcpcompany.utils.category"/>
    </feature>
    <category-def name="com.rcpcompany.utils.category" label="The RCP Company Utils Features">
@@ -14,6 +20,11 @@
    <category-def name="com.rcpcompany.uibindings.category" label="UI Bindings Features">
       <description>
          All plug-ins used for UI-Bindings
+      </description>
+   </category-def>
+   <category-def name="com.rcpcompany.uibindings.test.category" label="Test Utilities">
+      <description>
+         Various Test Utilities for RCP and RAP applications
       </description>
    </category-def>
    <category-def name="com.rcpcompany.uibindings.addon.category" label="UI Bindings Extensions">

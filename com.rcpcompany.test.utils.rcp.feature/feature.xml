@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="com.rcpcompany.utils.feature"
-      label="The RCP Company Utility Feature"
-      version="1.9.0.qualifier"
+      id="com.rcpcompany.test.utils.rcp.feature"
+      label="The RCP Company Test Utility (RCP) Feature"
+      version="1.0.0.qualifier"
       provider-name="The RCP Company">
 
    <description url="http://www.example.com/description">
@@ -20,6 +20,10 @@
    <url>
       <update label="The RCP Company" url="http://tonnymadsen.github.com/ui-bindings/updates/release"/>
    </url>
+
+   <includes
+         id="com.rcpcompany.utils.feature"
+         version="0.0.0"/>
 
    <requires>
       <import plugin="org.eclipse.core.runtime"/>
@@ -51,96 +55,17 @@
    </requires>
 
    <plugin
-         id="com.rcpcompany.utils.basic"
+         id="com.rcpcompany.test.utils"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="com.rcpcompany.utils.basic.ui"
+         id="com.rcpcompany.test.utils.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.rcpcompany.utils.extensionpoints"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.rcpcompany.utils.logging"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.rcpcompany.utils.selection"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.rcpcompany.utils.databinding"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.rcpcompany.utils.jface"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.rcpcompany.utils.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.rcpcompany.utils.ui.rcp"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         fragment="true"
-         unpack="false"/>
-
-   <plugin
-         id="com.rcpcompany.utils.basic.resource"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.rcpcompany.uibindings.model.utils"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.rcpcompany.uibindings.moao"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.rcpcompany.uibindings.model.utils.uifragment"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         fragment="true"
          unpack="false"/>
 
 </feature>

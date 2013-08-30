@@ -23,6 +23,7 @@
 		<module>../com.rcpcompany.utils.ui.rap</module>
 		
 		<module>../com.rcpcompany.utils.rap.feature</module>
+		<module>../com.rcpcompany.test.utils.rap.feature</module>
 		<module>../com.rcpcompany.updatesite.rap</module>
 	</modules>
 
