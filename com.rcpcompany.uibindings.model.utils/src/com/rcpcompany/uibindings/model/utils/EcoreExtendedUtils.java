@@ -46,15 +46,12 @@ import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 
-import com.rcpcompany.utils.logging.LogUtils;
-
 /**
  * Various Ecore oriented utility methods.
  * 
  * @author Tonny Madsen, The RCP Company
  */
 public final class EcoreExtendedUtils {
-
 	/**
 	 * Synchronizes the information from the <code>source</code> object into the <code>target</code>
 	 * object.
@@ -773,7 +770,7 @@ public final class EcoreExtendedUtils {
 				myCommitCommand = new CompoundCommand();
 			}
 
-			LogUtils.debug(this, EcoreExtendedUtils.toString(c));
+			// LogUtils.debug(this, EcoreExtendedUtils.toString(c));
 			myCommitCommand.append(c);
 		}
 
