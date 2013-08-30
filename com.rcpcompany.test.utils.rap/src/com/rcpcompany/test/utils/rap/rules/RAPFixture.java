@@ -25,9 +25,11 @@ public class RAPFixture extends ExternalResource {
 	@Override
 	protected void after() {
 		if (myShell != null) {
+			myShell.getDisplay().dispose();
 			myShell.dispose();
 		}
 		myShell = null;
+
 		Fixture.tearDown();
 	}
 
