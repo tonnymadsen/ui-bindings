@@ -21,6 +21,12 @@
 <unit id="org.hamcrest.library.source" version="1.1.0.v20090501071000"/>
 <unit id="org.hamcrest.text" version="1.1.0.v20090501071000"/>
 <unit id="org.hamcrest.text.source" version="1.1.0.v20090501071000"/>
+
+<unit id='org.objectweb.asm' version='4.0.0.v201302062210' />
+<unit id='org.objectweb.asm.source' version='4.0.0.v201302062210' />
+
+<unit id='org.apache.commons.io' version='2.0.1.v201105210651' />
+<unit id='org.apache.commons.io.source' version='2.0.1.v201105210651' />
 <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20130517111416/repository/"/>
 </location>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">

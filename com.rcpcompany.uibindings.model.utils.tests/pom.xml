@@ -12,4 +12,8 @@
 		<version>1-SNAPSHOT</version>
 		<relativePath>../com.rcpcompany.parent</relativePath>
 	</parent>
+
+	<properties>
+		<eclipse.platform.type>none-test</eclipse.platform.type>
+	</properties>
 </project>

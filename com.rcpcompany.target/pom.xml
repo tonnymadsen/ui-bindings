@@ -35,6 +35,11 @@
 									<classifier>uibindings-3.8-rcp</classifier>
 								</artifact>
 								<artifact>
+									<file>uibindings-3.8-rcp-test.target</file>
+									<type>target</type>
+									<classifier>uibindings-3.8-rcp-test</classifier>
+								</artifact>
+								<artifact>
 									<file>uibindings-3.8-rap.target</file>
 									<type>target</type>
 									<classifier>uibindings-3.8-rap</classifier>

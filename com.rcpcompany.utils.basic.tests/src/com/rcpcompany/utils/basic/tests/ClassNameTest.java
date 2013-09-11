@@ -35,10 +35,8 @@ public class ClassNameTest {
 	@Test
 	public void testGetLastClassNameString() {
 		assertEquals("String", ClassUtils.getLastClassName("java.lang.String"));
-		assertEquals("Dummy",
-				ClassUtils.getLastClassName(Dummy.class.getName()));
-		assertEquals(ClassUtils.getLastClassName(this.getClass().getName())
-				+ "$1",
+		assertEquals("Dummy", ClassUtils.getLastClassName(Dummy.class.getName()));
+		assertEquals(ClassUtils.getLastClassName(this.getClass().getName()) + "$1",
 				ClassUtils.getLastClassName(anonymous.getClass().getName()));
 	}
 
@@ -46,7 +44,14 @@ public class ClassNameTest {
 	public void testGetLastClassNameObject() {
 		assertEquals("ClassNameTest", ClassUtils.getLastClassName(this));
 		assertEquals("Dummy", ClassUtils.getLastClassName(new Dummy()));
-		assertEquals(ClassUtils.getLastClassName(this) + "$1",
-				ClassUtils.getLastClassName(anonymous));
+		assertEquals(ClassUtils.getLastClassName(this) + "$1", ClassUtils.getLastClassName(anonymous));
+	}
+
+	@Test
+	public void testCompressedClassNameString() {
+		assertEquals("String", ClassUtils.getCompressedClassName("java.lang.String"));
+		assertEquals("c.r.u.b.t.ClassNameTest$Dummy", ClassUtils.getCompressedClassName(Dummy.class.getName()));
+		assertEquals(ClassUtils.getCompressedClassName(this.getClass().getName()) + "$1",
+				ClassUtils.getCompressedClassName(anonymous.getClass().getName()));
 	}
 }

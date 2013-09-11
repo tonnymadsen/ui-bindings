@@ -12,6 +12,10 @@
 		<relativePath>../com.rcpcompany.parent.rap</relativePath>
 	</parent>
 
+	<properties>
+		<eclipse.platform.type>rap-test</eclipse.platform.type>
+	</properties>
+
 	<build>
 		<plugins>
 			<plugin>

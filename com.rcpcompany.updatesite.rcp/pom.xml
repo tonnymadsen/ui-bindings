@@ -12,6 +12,10 @@
 		<relativePath>../com.rcpcompany.parent.rcp</relativePath>
 	</parent>
 
+	<properties>
+		<eclipse.platform.type>rcp-test</eclipse.platform.type>
+	</properties>
+
 	<build>
 		<plugins>
 			<plugin>

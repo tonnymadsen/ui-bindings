@@ -11,8 +11,7 @@
 package com.rcpcompany.utils.basic;
 
 /**
- * This utility class provides a number of static functions that can ease
- * handling of classes.
+ * This utility class provides a number of static functions that can ease handling of classes.
  * 
  * @author Tonny Madsen, The RCP Company
  */
@@ -37,6 +36,29 @@ public final class ClassUtils {
 			clsName = clsName.substring(i + 1);
 		}
 		return clsName;
+	}
+
+	/**
+	 * Returns a compressed name the specified full class name.
+	 * <p>
+	 * E.g.
+	 * <ul>
+	 * <li>"java.lang.String" -&gt; "String"</li>
+	 * <li>"java.util.Set" -&gt; "ju.Set"</li>
+	 * <li>"org.eclipse.jetty.server.Server" -&gt; "oejs.Server"</li>
+	 * </ul>
+	 * <p>
+	 * For anonymous classes the containing class is included as well.
+	 * 
+	 * @param clsName
+	 *            the full class name
+	 * @return the compressed name
+	 */
+	public static String getCompressedClassName(String clsName) {
+		if (clsName.startsWith("java.lang.")) {
+			clsName = clsName.substring(10);
+		}
+		return clsName.replaceAll("([_a-zA-Z])[_a-zA-Z0-9]+\\.", "$1.");
 	}
 
 	/**

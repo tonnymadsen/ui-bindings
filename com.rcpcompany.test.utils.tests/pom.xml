@@ -13,6 +13,10 @@
 		<relativePath>../com.rcpcompany.parent</relativePath>
 	</parent>
 
+	<properties>
+		<eclipse.platform.type>none-test</eclipse.platform.type>
+	</properties>
+
 	<build>
 		<pluginManagement>
 			<plugins>
