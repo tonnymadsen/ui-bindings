@@ -50,7 +50,7 @@ public class ClassNameTest {
 	@Test
 	public void testCompressedClassNameString() {
 		assertEquals("String", ClassUtils.getCompressedClassName("java.lang.String"));
-		assertEquals("c.r.u.b.t.ClassNameTest$Dummy", ClassUtils.getCompressedClassName(Dummy.class.getName()));
+		assertEquals("crubt.ClassNameTest$Dummy", ClassUtils.getCompressedClassName(Dummy.class.getName()));
 		assertEquals(ClassUtils.getCompressedClassName(this.getClass().getName()) + "$1",
 				ClassUtils.getCompressedClassName(anonymous.getClass().getName()));
 	}

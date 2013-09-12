@@ -10,6 +10,9 @@
  *******************************************************************************/
 package com.rcpcompany.utils.basic;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * This utility class provides a number of static functions that can ease handling of classes.
  * 
@@ -38,6 +41,8 @@ public final class ClassUtils {
 		return clsName;
 	}
 
+	private static Map<String, String> theCompressedClassNames = new HashMap<String, String>();
+
 	/**
 	 * Returns a compressed name the specified full class name.
 	 * <p>
@@ -49,16 +54,39 @@ public final class ClassUtils {
 	 * </ul>
 	 * <p>
 	 * For anonymous classes the containing class is included as well.
+	 * <p>
+	 * The result is cached for speed...
 	 * 
 	 * @param clsName
 	 *            the full class name
 	 * @return the compressed name
 	 */
 	public static String getCompressedClassName(String clsName) {
-		if (clsName.startsWith("java.lang.")) {
-			clsName = clsName.substring(10);
+		String c = theCompressedClassNames.get(clsName);
+		if (c != null)
+			return c;
+
+		c = clsName;
+
+		if (c.startsWith("java.lang.")) {
+			c = c.substring(10);
 		}
-		return clsName.replaceAll("([_a-zA-Z])[_a-zA-Z0-9]+\\.", "$1.");
+		c = c.replaceAll("([_a-z])[_a-zA-Z0-9]+\\.", "$1.");
+		for (int i = 0; i < c.length(); i++) {
+			final char c0 = c.charAt(i + 0);
+			final char c1 = c.charAt(i + 1);
+			final char c2 = c.charAt(i + 2);
+			final char c3 = c.charAt(i + 3);
+
+			if (c1 != '.' || c3 != '.') {
+				break;
+			}
+			c = c.substring(0, i) + c0 + c2 + c.substring(i + 3);
+		}
+
+		theCompressedClassNames.put(clsName, c);
+
+		return c;
 	}
 
 	/**
