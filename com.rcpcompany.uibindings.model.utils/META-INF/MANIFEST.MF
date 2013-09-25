@@ -4,6 +4,8 @@ Bundle-Name: UI Bindings: Model Utilities
 Bundle-SymbolicName: com.rcpcompany.uibindings.model.utils
 Bundle-Version: 1.4.2.qualifier
 Bundle-Vendor: The RCP Company
+Export-Package: com.rcpcompany.uibindings.model.utils;version="1.4.2"
+Require-Bundle: org.eclipse.equinox.ds;bundle-version="[1.4.0,2.0.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: com.google.common.util.concurrent;version="[10.0.1,20.0.0)",
  com.rcpcompany.utils.basic;version="[1.6.0,2.0.0)",
@@ -19,8 +21,7 @@ Import-Package: com.google.common.util.concurrent;version="[10.0.1,20.0.0)",
  org.eclipse.emf.edit.domain,
  org.eclipse.emf.edit.provider,
  org.osgi.framework;version="[1.7.0,1.8.0)",
+ org.osgi.service.component.annotations,
  org.osgi.util.tracker;version="[1.5.1,1.6.0)"
+Service-Component: OSGI-INF/com.rcpcompany.uibindings.model.utils.internal.DummyDS.xml, OSGI-INF/*.xml
 Bundle-ActivationPolicy: lazy
-Export-Package: com.rcpcompany.uibindings.model.utils;version="1.4.2"
-Service-Component: OSGI-INF/*.xml
-Require-Bundle: org.eclipse.equinox.ds;bundle-version="[1.4.0,2.0.0)"

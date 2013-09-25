@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:component name="com.rcpcompany.uibindings.model.utils.internal.DummyDS" xmlns:ns2="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <implementation class="com.rcpcompany.uibindings.model.utils.internal.DummyDS"/>
+</ns2:component>
