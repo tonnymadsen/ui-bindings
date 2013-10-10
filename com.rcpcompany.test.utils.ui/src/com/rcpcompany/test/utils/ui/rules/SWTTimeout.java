@@ -2,6 +2,8 @@ package com.rcpcompany.test.utils.ui.rules;
 
 import static org.junit.Assert.assertNotNull;
 
+import java.util.concurrent.TimeUnit;
+
 import org.eclipse.swt.widgets.Display;
 import org.junit.rules.TestRule;
 import org.junit.runner.Description;
@@ -35,6 +37,16 @@ public class SWTTimeout implements TestRule {
 	 */
 	public SWTTimeout(int millis) {
 		myTimeout = millis;
+	}
+
+	/**
+	 * @param timeout
+	 *            the timeout
+	 * @param unit
+	 *            the unit
+	 */
+	public SWTTimeout(int timeout, TimeUnit unit) {
+		this((int) unit.toMillis(timeout));
 	}
 
 	@Override
