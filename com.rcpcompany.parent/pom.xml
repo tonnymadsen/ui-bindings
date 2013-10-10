@@ -64,12 +64,12 @@
 
 	<pluginRepositories>
 		<pluginRepository>
-			<id>tycho-snapshots</id>
-			<url>https://oss.sonatype.org/content/groups/public/</url>
-		</pluginRepository>
-		<pluginRepository>
 			<id>central</id>
 			<url>http://repo1.maven.org/maven2/</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>tycho-snapshots</id>
+			<url>https://oss.sonatype.org/content/groups/public/</url>
 		</pluginRepository>
 		<pluginRepository>
 			<id>xtend</id>
@@ -175,6 +175,32 @@
 										<goals>
 											<goal>compile</goal>
 											<goal>validate-version</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-clean-plugin</artifactId>
+										<versionRange>[2.4.1,)</versionRange>
+										<goals>
+											<goal>clean</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.eclipse.tycho</groupId>
+										<artifactId>tycho-packaging-plugin</artifactId>
+										<versionRange>[0.14.1,)</versionRange>
+										<goals>
+											<goal>build-qualifier</goal>
 										</goals>
 									</pluginExecutionFilter>
 									<action>
