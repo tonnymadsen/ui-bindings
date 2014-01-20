@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.m2e.Maven2LaunchConfigurationType">
-<booleanAttribute key="M2_DEBUG_OUTPUT" value="false"/>
+<booleanAttribute key="M2_DEBUG_OUTPUT" value="true"/>
 <stringAttribute key="M2_GOALS" value="clean verify"/>
 <booleanAttribute key="M2_NON_RECURSIVE" value="false"/>
 <booleanAttribute key="M2_OFFLINE" value="false"/>
 <stringAttribute key="M2_PROFILES" value="release,update-site"/>
 <listAttribute key="M2_PROPERTIES">
 <listEntry value="uibindings-build-user.password=superfly42"/>
-<listEntry value="tycho.version=0.17.0"/>
+<listEntry value="tycho.version=0.19.0"/>
 <listEntry value="tycho.localArtifacts=ignore"/>
 </listAttribute>
 <stringAttribute key="M2_RUNTIME" value="EMBEDDED"/>
 <booleanAttribute key="M2_SKIP_TESTS" value="false"/>
-<intAttribute key="M2_THREADS" value="0"/>
+<intAttribute key="M2_THREADS" value="1"/>
 <booleanAttribute key="M2_UPDATE_SNAPSHOTS" value="false"/>
 <booleanAttribute key="M2_WORKSPACE_RESOLUTION" value="false"/>
 <stringAttribute key="org.eclipse.debug.ui.ATTR_CAPTURE_IN_FILE" value="${user_homedir}/Desktop/ui-bindings-build.txt"/>
