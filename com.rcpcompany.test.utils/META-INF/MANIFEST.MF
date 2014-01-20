@@ -5,7 +5,7 @@ Bundle-SymbolicName: com.rcpcompany.test.utils
 Bundle-Version: 1.5.1.qualifier
 Bundle-Activator: com.rcpcompany.test.utils.internal.Activator
 Bundle-Vendor: The RCP Company
-Export-Package: com.rcpcompany.test.utils;version="1.0.0",
+Export-Package: com.rcpcompany.test.utils;version="1.5.1",
  com.rcpcompany.test.utils.xml;version="1.5.0"
 Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.4.0,4.0.0)";visibility:=reexport,
  org.junit;bundle-version="[4.8.0,5.0.0)";visibility:=reexport,
