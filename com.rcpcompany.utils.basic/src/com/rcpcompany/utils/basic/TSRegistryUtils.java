@@ -14,19 +14,17 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtension;
 
 /**
- * This utility class provides a number of static functions that can ease
- * formatting of data.
+ * This utility class provides a number of static functions that can ease formatting of data.
  * 
  * @author Tonny Madsen, The RCP Company
  */
 
 public final class TSRegistryUtils {
 	/**
-	 * Returns a generic <code>toString</code> representation for
-	 * {@link IConfigurationElement}.
+	 * Returns a generic <code>toString</code> representation for {@link IConfigurationElement}.
 	 * <p>
-	 * The output is to a large extend decided via heuristics. E.g which
-	 * attributes of an element that are likely to be the key for the element.
+	 * The output is to a large extend decided via heuristics. E.g which attributes of an element that are likely to be
+	 * the key for the element.
 	 * 
 	 * @param ce
 	 *            the element
@@ -65,10 +63,9 @@ public final class TSRegistryUtils {
 			}
 			str = m + "/" + str;
 		}
-		str = "{" + ce.getContributor().getName() + "/" + str + "}";
+		str = "CE{" + ce.getContributor().getName() + "/" + str + "}";
 		return str;
 	}
 
-	private static final String[] ID_ATTRIBUTES = { "id", "name", "class",
-			"type" };
+	private static final String[] ID_ATTRIBUTES = { "id", "name", "class", "type" };
 }
