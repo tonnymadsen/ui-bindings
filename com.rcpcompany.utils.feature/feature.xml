@@ -45,7 +45,6 @@
       <import plugin="com.rcpcompany.utils.ui" version="3.6.0" match="compatible"/>
       <import plugin="org.eclipse.core.runtime" version="3.4.0" match="compatible"/>
       <import plugin="org.hamcrest.library" version="1.1.0" match="compatible"/>
-      <import plugin="org.hamcrest.text" version="1.1.0" match="compatible"/>
       <import plugin="org.eclipse.core.runtime" version="3.6.0" match="compatible"/>
       <import plugin="com.rcpcompany.test.utils" version="1.0.1" match="compatible"/>
    </requires>
