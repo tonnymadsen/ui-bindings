@@ -23,5 +23,5 @@ Import-Package: com.google.common.util.concurrent;version="[10.0.1,20.0.0)",
  org.osgi.framework;version="[1.7.0,1.8.0)",
  org.osgi.service.component.annotations,
  org.osgi.util.tracker;version="[1.5.1,1.6.0)"
-Service-Component: OSGI-INF/com.rcpcompany.uibindings.model.utils.internal.DummyDS.xml, OSGI-INF/*.xml
+Service-Component: OSGI-INF/*.xml
 Bundle-ActivationPolicy: lazy
