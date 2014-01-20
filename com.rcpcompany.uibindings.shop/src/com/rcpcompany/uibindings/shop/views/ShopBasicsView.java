@@ -18,6 +18,8 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Text;
@@ -39,6 +41,8 @@ import com.rcpcompany.uibindings.utils.IBindingContextSelectionProvider;
 import com.rcpcompany.uibindings.utils.IDnDSupport;
 import com.rcpcompany.uibindings.utils.ISortableTableAdapter;
 import com.rcpcompany.uibindings.utils.IViewerToolBar;
+import com.rcpcompany.utils.basic.ui.TSSWTUtils;
+import com.rcpcompany.utils.logging.LogUtils;
 
 /**
  * A view that shows the basic shop information such as the name and all defined countries.
@@ -47,7 +51,7 @@ import com.rcpcompany.uibindings.utils.IViewerToolBar;
  */
 public class ShopBasicsView extends ViewPart {
 
-	private Table myTable;
+	protected Table myTable;
 	private Text myShopName;
 	private FormToolkit myToolkit;
 	private ScrolledForm myTop;
@@ -75,7 +79,7 @@ public class ShopBasicsView extends ViewPart {
 		myShopName.setLayoutData(gd_shopName);
 
 		final Section countriesSection = myToolkit.createSection(body, SWT.NONE);
-		final GridData gd_countriesSection = new GridData(SWT.FILL, SWT.TOP, true, true, 2, 1);
+		final GridData gd_countriesSection = new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1);
 		countriesSection.setLayoutData(gd_countriesSection);
 		countriesSection.setText("Countries");
 
@@ -84,9 +88,9 @@ public class ShopBasicsView extends ViewPart {
 		myToolkit.paintBordersFor(countriesComposite);
 		countriesSection.setClient(countriesComposite);
 
-		myTable = myToolkit.createTable(countriesComposite, SWT.FULL_SELECTION);
+		myTable = myToolkit.createTable(countriesComposite, SWT.FULL_SELECTION | SWT.V_SCROLL);
 		myTableViewer = new TableViewer(myTable);
-		myTable.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, true));
+		myTable.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 		myTable.setLinesVisible(true);
 		myTable.setHeaderVisible(true);
 
@@ -124,6 +128,13 @@ public class ShopBasicsView extends ViewPart {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				shop.save();
+			}
+		});
+
+		myTable.addListener(SWT.Resize, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				LogUtils.debug(myTable, TSSWTUtils.toString(event));
 			}
 		});
 	}
