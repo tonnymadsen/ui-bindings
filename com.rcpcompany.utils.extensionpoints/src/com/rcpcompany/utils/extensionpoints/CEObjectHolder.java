@@ -15,6 +15,8 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
 import org.osgi.framework.Bundle;
 
+import com.rcpcompany.utils.basic.ClassUtils;
+import com.rcpcompany.utils.basic.TSRegistryUtils;
 import com.rcpcompany.utils.logging.LogUtils;
 
 /**
@@ -119,5 +121,15 @@ public class CEObjectHolder<X> {
 			LogUtils.error(myCE, myAttrName + ": class cannot be loaded: " + className, ex);
 			return null;
 		}
+	}
+
+	@Override
+	public String toString() {
+		String s = ClassUtils.getLastClassName(this);
+		if (myCE != null) {
+			s += "[" + TSRegistryUtils.toString(myCE) + " attr: " + myAttrName + "]";
+		}
+		s += "=" + myObject;
+		return s;
 	}
 }
