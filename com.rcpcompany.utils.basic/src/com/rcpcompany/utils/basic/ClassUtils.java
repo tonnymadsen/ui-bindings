@@ -72,17 +72,17 @@ public final class ClassUtils {
 			c = c.substring(10);
 		}
 		c = c.replaceAll("([_a-z])[_a-zA-Z0-9]+\\.", "$1.");
-		for (int i = 0; i < c.length(); i++) {
-			final char c0 = c.charAt(i + 0);
-			final char c1 = c.charAt(i + 1);
-			final char c2 = c.charAt(i + 2);
-			final char c3 = c.charAt(i + 3);
-
-			if (c1 != '.' || c3 != '.') {
-				break;
-			}
-			c = c.substring(0, i) + c0 + c2 + c.substring(i + 3);
-		}
+		// for (int i = 0; i < c.length(); i++) {
+		// final char c0 = c.charAt(i + 0);
+		// final char c1 = c.charAt(i + 1);
+		// final char c2 = c.charAt(i + 2);
+		// final char c3 = c.charAt(i + 3);
+		//
+		// if (c1 != '.' || c3 != '.') {
+		// break;
+		// }
+		// c = c.substring(0, i) + c0 + c2 + c.substring(i + 3);
+		// }
 
 		theCompressedClassNames.put(clsName, c);
 
