@@ -11,7 +11,7 @@
 	<properties>
 		<project.source.sourceEncoding>UTF-8</project.source.sourceEncoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<tycho.version>0.18.0</tycho.version>
+		<tycho.version>0.19.0</tycho.version>
 		<tycho-extras.version>${tycho.version}</tycho-extras.version>
 
 		<!-- The target platform. Must be one of the target platforms defined in 
