@@ -2,7 +2,7 @@
 <?artifactRepository version='1.1.0'?>
 <repository name='' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
   <properties size='3'>
-    <property name='p2.timestamp' value='1390223099399'/>
+    <property name='p2.timestamp' value='1390296595773'/>
     <property name='p2.compressed' value='false'/>
     <property name='publishPackFilesAsSiblings' value='true'/>
   </properties>
@@ -13,7 +13,7 @@
     <rule filter='(&amp; (classifier=org.eclipse.update.feature) (format=packed))' output='${repoUrl}/features/${id}_${version}.jar.pack.gz'/>
     <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
   </mappings>
-  <artifacts size='492'>
+  <artifacts size='508'>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.fragments.jfaceif.source' version='1.0.0.201210292034'>
       <properties size='3'>
         <property name='artifact.size' value='2107'/>
@@ -228,6 +228,16 @@
         <property name='maven-version' value='1.0.0-SNAPSHOT'/>
       </properties>
     </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.feature' version='1.1.1.201401210924'>
+      <properties size='6'>
+        <property name='artifact.size' value='1290'/>
+        <property name='download.size' value='1290'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.feature'/>
+        <property name='maven-version' value='1.1.1-SNAPSHOT'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.extensionpoints' version='1.2.0.201211201948'>
       <properties size='3'>
         <property name='artifact.size' value='6226'/>
@@ -249,14 +259,14 @@
         <property name='download.md5' value='16b1a5d78db0e94c50ef203cbda599f4'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.test.utils.ui.source' version='1.1.0.201303221106'>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.feature' version='1.9.0.201401210924'>
       <properties size='6'>
-        <property name='artifact.size' value='9894'/>
-        <property name='download.size' value='9894'/>
+        <property name='artifact.size' value='1328'/>
+        <property name='download.size' value='1328'/>
         <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.test.utils.ui'/>
-        <property name='maven-version' value='1.1.0-SNAPSHOT'/>
-        <property name='maven-classifier' value='sources'/>
+        <property name='maven-artifactId' value='com.rcpcompany.utils.feature'/>
+        <property name='maven-version' value='1.9.0-SNAPSHOT'/>
+        <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.feature.source' version='1.1.1.201308011929'>
@@ -268,6 +278,16 @@
         <property name='maven-version' value='1.1.1-SNAPSHOT'/>
         <property name='maven-classifier' value='sources-feature'/>
         <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.test.utils.ui.source' version='1.1.0.201303221106'>
+      <properties size='6'>
+        <property name='artifact.size' value='9894'/>
+        <property name='download.size' value='9894'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.test.utils.ui'/>
+        <property name='maven-version' value='1.1.0-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.financial' version='1.1.0.201211201948'>
@@ -287,16 +307,6 @@
         <property name='maven-classifier' value='sources'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.model.utils.source' version='1.4.0.201304081119'>
-      <properties size='6'>
-        <property name='artifact.size' value='12472'/>
-        <property name='download.size' value='12472'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.model.utils'/>
-        <property name='maven-version' value='1.4.0-SNAPSHOT'/>
-        <property name='maven-classifier' value='sources'/>
-      </properties>
-    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.financial.feature.source' version='1.0.0.201305161122'>
       <properties size='7'>
         <property name='artifact.size' value='2457'/>
@@ -306,6 +316,16 @@
         <property name='maven-version' value='1.0.0-SNAPSHOT'/>
         <property name='maven-classifier' value='sources-feature'/>
         <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.model.utils.source' version='1.4.0.201304081119'>
+      <properties size='6'>
+        <property name='artifact.size' value='12472'/>
+        <property name='download.size' value='12472'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.model.utils'/>
+        <property name='maven-version' value='1.4.0-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.rap.feature.source' version='1.1.2.201308300825'>
@@ -379,23 +399,14 @@
         <property name='download.md5' value='94e1fba66385a60bb15f866163f3ccb5'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.feature' version='1.1.1.201401201256'>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.grid.feature' version='1.0.0.201309111811'>
       <properties size='6'>
-        <property name='artifact.size' value='1287'/>
-        <property name='download.size' value='1287'/>
+        <property name='artifact.size' value='906'/>
+        <property name='download.size' value='906'/>
         <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.feature'/>
-        <property name='maven-version' value='1.1.1-SNAPSHOT'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.grid.feature'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
         <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.financial' version='1.1.0.201305161122'>
-      <properties size='5'>
-        <property name='artifact.size' value='8732'/>
-        <property name='download.size' value='8732'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.financial'/>
-        <property name='maven-version' value='1.1.0-SNAPSHOT'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.rap.feature.source' version='1.0.1.201305170915'>
@@ -409,13 +420,22 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.grid.feature' version='1.0.0.201309111811'>
-      <properties size='6'>
-        <property name='artifact.size' value='906'/>
-        <property name='download.size' value='906'/>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.financial' version='1.1.0.201305161122'>
+      <properties size='5'>
+        <property name='artifact.size' value='8732'/>
+        <property name='download.size' value='8732'/>
         <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.grid.feature'/>
-        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.financial'/>
+        <property name='maven-version' value='1.1.0-SNAPSHOT'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.feature' version='1.1.1.201401201256'>
+      <properties size='6'>
+        <property name='artifact.size' value='1287'/>
+        <property name='download.size' value='1287'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.feature'/>
+        <property name='maven-version' value='1.1.1-SNAPSHOT'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -439,13 +459,6 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.ui.rcp.source' version='3.6.0.201211041125'>
-      <properties size='3'>
-        <property name='artifact.size' value='962'/>
-        <property name='download.size' value='962'/>
-        <property name='download.md5' value='13bc54f19d0ec9c934cab21b675559fd'/>
-      </properties>
-    </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.logging.source' version='1.6.0.201305161122'>
       <properties size='6'>
         <property name='artifact.size' value='10882'/>
@@ -454,6 +467,13 @@
         <property name='maven-artifactId' value='com.rcpcompany.utils.logging'/>
         <property name='maven-version' value='1.6.0-SNAPSHOT'/>
         <property name='maven-classifier' value='sources'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.ui.rcp.source' version='3.6.0.201211041125'>
+      <properties size='3'>
+        <property name='artifact.size' value='962'/>
+        <property name='download.size' value='962'/>
+        <property name='download.md5' value='13bc54f19d0ec9c934cab21b675559fd'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.test.utils' version='1.5.0.201305160859'>
@@ -772,6 +792,17 @@
         <property name='maven-classifier' value='sources'/>
       </properties>
     </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.feature.source' version='1.9.0.201401210924'>
+      <properties size='7'>
+        <property name='artifact.size' value='2550'/>
+        <property name='download.size' value='2550'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.utils.feature'/>
+        <property name='maven-version' value='1.9.0-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources-feature'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.units' version='1.0.0.201211201948'>
       <properties size='3'>
         <property name='artifact.size' value='8108'/>
@@ -916,16 +947,6 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.source' version='2.16.0.201305161122'>
-      <properties size='6'>
-        <property name='artifact.size' value='888969'/>
-        <property name='download.size' value='888969'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings'/>
-        <property name='maven-version' value='2.16.0-SNAPSHOT'/>
-        <property name='maven-classifier' value='sources'/>
-      </properties>
-    </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.databinding.source' version='1.1.0.201305161122'>
       <properties size='6'>
         <property name='artifact.size' value='5810'/>
@@ -936,13 +957,13 @@
         <property name='maven-classifier' value='sources'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.moao.source' version='1.2.2.201305221244'>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.source' version='2.16.0.201305161122'>
       <properties size='6'>
-        <property name='artifact.size' value='27570'/>
-        <property name='download.size' value='27570'/>
+        <property name='artifact.size' value='888969'/>
+        <property name='download.size' value='888969'/>
         <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.moao'/>
-        <property name='maven-version' value='1.2.2-SNAPSHOT'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings'/>
+        <property name='maven-version' value='2.16.0-SNAPSHOT'/>
         <property name='maven-classifier' value='sources'/>
       </properties>
     </artifact>
@@ -955,6 +976,16 @@
         <property name='maven-version' value='1.9.0-SNAPSHOT'/>
         <property name='maven-classifier' value='sources-feature'/>
         <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.moao.source' version='1.2.2.201305221244'>
+      <properties size='6'>
+        <property name='artifact.size' value='27570'/>
+        <property name='download.size' value='27570'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.moao'/>
+        <property name='maven-version' value='1.2.2-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.fragments.jface.source' version='1.1.0.201211210734'>
@@ -974,12 +1005,21 @@
         <property name='maven-classifier' value='sources'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.source.feature' version='1.1.1.201302190831'>
-      <properties size='4'>
-        <property name='artifact.size' value='1298'/>
-        <property name='download.size' value='1298'/>
-        <property name='download.md5' value='9bf0d8621925333661e764e742648436'/>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.test.utils.rap.feature' version='1.0.0.201401201205'>
+      <properties size='6'>
+        <property name='artifact.size' value='1167'/>
+        <property name='download.size' value='1167'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.test.utils.rap.feature'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
         <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.basic.resource' version='1.0.0.201212042149'>
+      <properties size='3'>
+        <property name='artifact.size' value='5497'/>
+        <property name='download.size' value='5497'/>
+        <property name='download.md5' value='0c4d1609dc3533997aa1919dddccf691'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.debug.feature.source' version='1.0.0.201401200927'>
@@ -993,20 +1033,39 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.basic.resource' version='1.0.0.201212042149'>
-      <properties size='3'>
-        <property name='artifact.size' value='5497'/>
-        <property name='download.size' value='5497'/>
-        <property name='download.md5' value='0c4d1609dc3533997aa1919dddccf691'/>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.source.feature' version='1.1.1.201302190831'>
+      <properties size='4'>
+        <property name='artifact.size' value='1298'/>
+        <property name='download.size' value='1298'/>
+        <property name='download.md5' value='9bf0d8621925333661e764e742648436'/>
+        <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.test.utils.rap.feature' version='1.0.0.201401201205'>
-      <properties size='6'>
-        <property name='artifact.size' value='1167'/>
-        <property name='download.size' value='1167'/>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.rap.feature.source' version='1.1.2.201401210924'>
+      <properties size='7'>
+        <property name='artifact.size' value='2558'/>
+        <property name='download.size' value='2558'/>
         <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.test.utils.rap.feature'/>
-        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+        <property name='maven-artifactId' value='com.rcpcompany.utils.rap.feature'/>
+        <property name='maven-version' value='1.1.2-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources-feature'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.moao.ui.source' version='1.1.0.201211201948'>
+      <properties size='3'>
+        <property name='artifact.size' value='12403'/>
+        <property name='download.size' value='12403'/>
+        <property name='download.md5' value='32751d6ffddd5f83bc8ae36a80e2cc09'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.source.feature' version='1.6.0.201303221108'>
+      <properties size='6'>
+        <property name='artifact.size' value='1409'/>
+        <property name='download.size' value='1409'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.utils.source.feature'/>
+        <property name='maven-version' value='1.6.0-SNAPSHOT'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -1020,21 +1079,15 @@
         <property name='maven-classifier' value='sources'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.source.feature' version='1.6.0.201303221108'>
-      <properties size='6'>
-        <property name='artifact.size' value='1409'/>
-        <property name='download.size' value='1409'/>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.debug.feature.source' version='1.0.0.201305161122'>
+      <properties size='7'>
+        <property name='artifact.size' value='2421'/>
+        <property name='download.size' value='2421'/>
         <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.utils.source.feature'/>
-        <property name='maven-version' value='1.6.0-SNAPSHOT'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.debug.feature'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources-feature'/>
         <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.moao.ui.source' version='1.1.0.201211201948'>
-      <properties size='3'>
-        <property name='artifact.size' value='12403'/>
-        <property name='download.size' value='12403'/>
-        <property name='download.md5' value='32751d6ffddd5f83bc8ae36a80e2cc09'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.test.utils.rcp.feature.source' version='1.0.0.201309111811'>
@@ -1043,17 +1096,6 @@
         <property name='download.size' value='2491'/>
         <property name='maven-groupId' value='com.rcpcompany'/>
         <property name='maven-artifactId' value='com.rcpcompany.test.utils.rcp.feature'/>
-        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
-        <property name='maven-classifier' value='sources-feature'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.debug.feature.source' version='1.0.0.201305161122'>
-      <properties size='7'>
-        <property name='artifact.size' value='2421'/>
-        <property name='download.size' value='2421'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.debug.feature'/>
         <property name='maven-version' value='1.0.0-SNAPSHOT'/>
         <property name='maven-classifier' value='sources-feature'/>
         <property name='download.contentType' value='application/zip'/>
@@ -1106,6 +1148,16 @@
         <property name='maven-classifier' value='sources'/>
       </properties>
     </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.test.utils.rcp.feature' version='1.0.0.201401210924'>
+      <properties size='6'>
+        <property name='artifact.size' value='1132'/>
+        <property name='download.size' value='1132'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.test.utils.rcp.feature'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.grid.feature.source' version='1.0.0.201308300825'>
       <properties size='7'>
         <property name='artifact.size' value='2472'/>
@@ -1140,14 +1192,6 @@
         <property name='maven-version' value='1.2.2-SNAPSHOT'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.navigator.source.feature' version='1.0.0.201211201948'>
-      <properties size='4'>
-        <property name='artifact.size' value='2286'/>
-        <property name='download.size' value='2286'/>
-        <property name='download.md5' value='4fd644a35f47c334a34587e6a05e25df'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.std.source' version='1.0.0.201307230747'>
       <properties size='6'>
         <property name='artifact.size' value='961'/>
@@ -1156,6 +1200,14 @@
         <property name='maven-artifactId' value='com.rcpcompany.uibindings.std'/>
         <property name='maven-version' value='1.0.0-SNAPSHOT'/>
         <property name='maven-classifier' value='sources'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.navigator.source.feature' version='1.0.0.201211201948'>
+      <properties size='4'>
+        <property name='artifact.size' value='2286'/>
+        <property name='download.size' value='2286'/>
+        <property name='download.md5' value='4fd644a35f47c334a34587e6a05e25df'/>
+        <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.grid.feature.source' version='1.0.0.201305221244'>
@@ -1224,6 +1276,15 @@
         <property name='maven-version' value='1.0.0-SNAPSHOT'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.extensionpoints' version='1.2.1.201307230747'>
+      <properties size='5'>
+        <property name='artifact.size' value='3994'/>
+        <property name='download.size' value='3994'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.utils.extensionpoints'/>
+        <property name='maven-version' value='1.2.1-SNAPSHOT'/>
+      </properties>
+    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.grid.feature.source' version='1.0.0.201308161830'>
       <properties size='7'>
         <property name='artifact.size' value='2471'/>
@@ -1233,15 +1294,6 @@
         <property name='maven-version' value='1.0.0-SNAPSHOT'/>
         <property name='maven-classifier' value='sources-feature'/>
         <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.extensionpoints' version='1.2.1.201307230747'>
-      <properties size='5'>
-        <property name='artifact.size' value='3994'/>
-        <property name='download.size' value='3994'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.utils.extensionpoints'/>
-        <property name='maven-version' value='1.2.1-SNAPSHOT'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.feature' version='1.1.1.201302190831'>
@@ -1288,16 +1340,6 @@
         <property name='download.md5' value='0537c5ec0a6d5d66e1e5fce75f2e8c72'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.rap.feature' version='1.1.0.201305210823'>
-      <properties size='6'>
-        <property name='artifact.size' value='1246'/>
-        <property name='download.size' value='1246'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.utils.rap.feature'/>
-        <property name='maven-version' value='1.1.0-SNAPSHOT'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.grid.feature.source' version='1.0.0.201307231056'>
       <properties size='7'>
         <property name='artifact.size' value='2446'/>
@@ -1306,6 +1348,16 @@
         <property name='maven-artifactId' value='com.rcpcompany.uibindings.grid.feature'/>
         <property name='maven-version' value='1.0.0-SNAPSHOT'/>
         <property name='maven-classifier' value='sources-feature'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.rap.feature' version='1.1.0.201305210823'>
+      <properties size='6'>
+        <property name='artifact.size' value='1246'/>
+        <property name='download.size' value='1246'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.utils.rap.feature'/>
+        <property name='maven-version' value='1.1.0-SNAPSHOT'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -1330,6 +1382,15 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings' version='2.16.0.201305161122'>
+      <properties size='5'>
+        <property name='artifact.size' value='1400516'/>
+        <property name='download.size' value='1400516'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings'/>
+        <property name='maven-version' value='2.16.0-SNAPSHOT'/>
+      </properties>
+    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.feature' version='1.1.1.201401201028'>
       <properties size='6'>
         <property name='artifact.size' value='1287'/>
@@ -1338,15 +1399,6 @@
         <property name='maven-artifactId' value='com.rcpcompany.uibindings.feature'/>
         <property name='maven-version' value='1.1.1-SNAPSHOT'/>
         <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings' version='2.16.0.201305161122'>
-      <properties size='5'>
-        <property name='artifact.size' value='1400516'/>
-        <property name='download.size' value='1400516'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings'/>
-        <property name='maven-version' value='2.16.0-SNAPSHOT'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.moao.ui.source' version='1.1.0.201307230747'>
@@ -1359,16 +1411,6 @@
         <property name='maven-classifier' value='sources'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.model.utils.source' version='1.4.2.201401201028'>
-      <properties size='6'>
-        <property name='artifact.size' value='14074'/>
-        <property name='download.size' value='14074'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.model.utils'/>
-        <property name='maven-version' value='1.4.2-SNAPSHOT'/>
-        <property name='maven-classifier' value='sources'/>
-      </properties>
-    </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.test.utils.rap.source' version='1.1.0.201308300737'>
       <properties size='6'>
         <property name='artifact.size' value='3847'/>
@@ -1376,6 +1418,16 @@
         <property name='maven-groupId' value='com.rcpcompany'/>
         <property name='maven-artifactId' value='com.rcpcompany.test.utils.rap'/>
         <property name='maven-version' value='1.1.0-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.model.utils.source' version='1.4.2.201401201028'>
+      <properties size='6'>
+        <property name='artifact.size' value='14074'/>
+        <property name='download.size' value='14074'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.model.utils'/>
+        <property name='maven-version' value='1.4.2-SNAPSHOT'/>
         <property name='maven-classifier' value='sources'/>
       </properties>
     </artifact>
@@ -1398,6 +1450,13 @@
         <property name='maven-version' value='1.6.0-SNAPSHOT'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.moao.ui' version='1.1.0.201211201948'>
+      <properties size='3'>
+        <property name='artifact.size' value='20881'/>
+        <property name='download.size' value='20881'/>
+        <property name='download.md5' value='b37deb3bae6c555e59ba3b71f644e4ec'/>
+      </properties>
+    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.test.utils.rap.feature' version='1.0.0.201401201256'>
       <properties size='6'>
         <property name='artifact.size' value='1158'/>
@@ -1406,13 +1465,6 @@
         <property name='maven-artifactId' value='com.rcpcompany.test.utils.rap.feature'/>
         <property name='maven-version' value='1.0.0-SNAPSHOT'/>
         <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.moao.ui' version='1.1.0.201211201948'>
-      <properties size='3'>
-        <property name='artifact.size' value='20881'/>
-        <property name='download.size' value='20881'/>
-        <property name='download.md5' value='b37deb3bae6c555e59ba3b71f644e4ec'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.model.utils.source' version='1.4.2.201306201127'>
@@ -1425,20 +1477,20 @@
         <property name='maven-classifier' value='sources'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.moao.source' version='1.2.2.201306201127'>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.moao.source' version='1.2.2.201308011929'>
       <properties size='6'>
-        <property name='artifact.size' value='27609'/>
-        <property name='download.size' value='27609'/>
+        <property name='artifact.size' value='27572'/>
+        <property name='download.size' value='27572'/>
         <property name='maven-groupId' value='com.rcpcompany'/>
         <property name='maven-artifactId' value='com.rcpcompany.uibindings.moao'/>
         <property name='maven-version' value='1.2.2-SNAPSHOT'/>
         <property name='maven-classifier' value='sources'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.moao.source' version='1.2.2.201308011929'>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.moao.source' version='1.2.2.201306201127'>
       <properties size='6'>
-        <property name='artifact.size' value='27572'/>
-        <property name='download.size' value='27572'/>
+        <property name='artifact.size' value='27609'/>
+        <property name='download.size' value='27609'/>
         <property name='maven-groupId' value='com.rcpcompany'/>
         <property name='maven-artifactId' value='com.rcpcompany.uibindings.moao'/>
         <property name='maven-version' value='1.2.2-SNAPSHOT'/>
@@ -1494,6 +1546,13 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.fragments.jfaceif.source' version='1.0.0.201210100938'>
+      <properties size='3'>
+        <property name='artifact.size' value='2108'/>
+        <property name='download.size' value='2108'/>
+        <property name='download.md5' value='97359764a47a7df574c1a3d2bc90aaa6'/>
+      </properties>
+    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.navigator.feature.source' version='1.0.0.201401200927'>
       <properties size='7'>
         <property name='artifact.size' value='2481'/>
@@ -1503,13 +1562,6 @@
         <property name='maven-version' value='1.0.0-SNAPSHOT'/>
         <property name='maven-classifier' value='sources-feature'/>
         <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.fragments.jfaceif.source' version='1.0.0.201210100938'>
-      <properties size='3'>
-        <property name='artifact.size' value='2108'/>
-        <property name='download.size' value='2108'/>
-        <property name='download.md5' value='97359764a47a7df574c1a3d2bc90aaa6'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.moao.source' version='1.2.2.201301091403'>
@@ -1556,19 +1608,19 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.basic.ui' version='1.6.0.201211201948'>
-      <properties size='3'>
-        <property name='artifact.size' value='8575'/>
-        <property name='download.size' value='8575'/>
-        <property name='download.md5' value='5c882a27415227f96d0ac983efec1bf4'/>
-      </properties>
-    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.feature' version='1.1.1.201302070918'>
       <properties size='4'>
         <property name='artifact.size' value='1515'/>
         <property name='download.size' value='1515'/>
         <property name='download.md5' value='e52923182cdb8637918954a204c74861'/>
         <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.basic.ui' version='1.6.0.201211201948'>
+      <properties size='3'>
+        <property name='artifact.size' value='8575'/>
+        <property name='download.size' value='8575'/>
+        <property name='download.md5' value='5c882a27415227f96d0ac983efec1bf4'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.test.utils.source' version='1.5.0.201307292009'>
@@ -1591,13 +1643,6 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.fragments.jface' version='1.1.0.201211210734'>
-      <properties size='3'>
-        <property name='artifact.size' value='11530'/>
-        <property name='download.size' value='11530'/>
-        <property name='download.md5' value='6fd2d7c0aca3d67bde77889f5247a5dd'/>
-      </properties>
-    </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.test.utils' version='1.3.0.201301271633'>
       <properties size='3'>
         <property name='artifact.size' value='16928'/>
@@ -1605,11 +1650,11 @@
         <property name='download.md5' value='2c86df299e5aba388299edd19cb5d452'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.test.utils.source' version='1.4.0.201303051953'>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.fragments.jface' version='1.1.0.201211210734'>
       <properties size='3'>
-        <property name='artifact.size' value='9576'/>
-        <property name='download.size' value='9576'/>
-        <property name='download.md5' value='f3edb058f65758c4db175ea4e0aedb26'/>
+        <property name='artifact.size' value='11530'/>
+        <property name='download.size' value='11530'/>
+        <property name='download.md5' value='6fd2d7c0aca3d67bde77889f5247a5dd'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.moao' version='1.2.2.201303050652'>
@@ -1617,6 +1662,13 @@
         <property name='artifact.size' value='33919'/>
         <property name='download.size' value='33919'/>
         <property name='download.md5' value='afbbaf282300e9592dd6b3580154a136'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.test.utils.source' version='1.4.0.201303051953'>
+      <properties size='3'>
+        <property name='artifact.size' value='9576'/>
+        <property name='download.size' value='9576'/>
+        <property name='download.md5' value='f3edb058f65758c4db175ea4e0aedb26'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.feature' version='1.8.0.201305210823'>
@@ -1649,16 +1701,6 @@
         <property name='maven-version' value='1.8.1-SNAPSHOT'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.financial.feature' version='1.0.0.201305161122'>
-      <properties size='6'>
-        <property name='artifact.size' value='857'/>
-        <property name='download.size' value='857'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.financial.feature'/>
-        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.test.utils.rap.source' version='1.2.0.201308301120'>
       <properties size='6'>
         <property name='artifact.size' value='3844'/>
@@ -1669,11 +1711,14 @@
         <property name='maven-classifier' value='sources'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.databinding.source' version='1.1.0.201211201948'>
-      <properties size='3'>
-        <property name='artifact.size' value='5805'/>
-        <property name='download.size' value='5805'/>
-        <property name='download.md5' value='ee6d1c4878f104335a71fb4efc26b65f'/>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.financial.feature' version='1.0.0.201305161122'>
+      <properties size='6'>
+        <property name='artifact.size' value='857'/>
+        <property name='download.size' value='857'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.financial.feature'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+        <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.feature.source' version='1.8.0.201305221244'>
@@ -1685,6 +1730,13 @@
         <property name='maven-version' value='1.8.0-SNAPSHOT'/>
         <property name='maven-classifier' value='sources-feature'/>
         <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.databinding.source' version='1.1.0.201211201948'>
+      <properties size='3'>
+        <property name='artifact.size' value='5805'/>
+        <property name='download.size' value='5805'/>
+        <property name='download.md5' value='ee6d1c4878f104335a71fb4efc26b65f'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.feature' version='1.1.1.201305161122'>
@@ -1716,23 +1768,22 @@
         <property name='maven-classifier' value='sources'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.fragments.jfaceif.source' version='1.0.0.201401200927'>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.feature' version='1.1.1.201401201158'>
       <properties size='6'>
-        <property name='artifact.size' value='2105'/>
-        <property name='download.size' value='2105'/>
+        <property name='artifact.size' value='1287'/>
+        <property name='download.size' value='1287'/>
         <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.fragments.jfaceif'/>
-        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
-        <property name='maven-classifier' value='sources'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.feature'/>
+        <property name='maven-version' value='1.1.1-SNAPSHOT'/>
+        <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.moao' version='1.2.2.201307230756'>
-      <properties size='5'>
-        <property name='artifact.size' value='33721'/>
-        <property name='download.size' value='33721'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.moao'/>
-        <property name='maven-version' value='1.2.2-SNAPSHOT'/>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.financial.source.feature' version='1.0.0.201210291351'>
+      <properties size='4'>
+        <property name='artifact.size' value='2282'/>
+        <property name='download.size' value='2282'/>
+        <property name='download.md5' value='0e172ccbba95d2528e02bc458194dba9'/>
+        <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.feature.source' version='1.8.0.201305210823'>
@@ -1746,22 +1797,23 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.financial.source.feature' version='1.0.0.201210291351'>
-      <properties size='4'>
-        <property name='artifact.size' value='2282'/>
-        <property name='download.size' value='2282'/>
-        <property name='download.md5' value='0e172ccbba95d2528e02bc458194dba9'/>
-        <property name='download.contentType' value='application/zip'/>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.moao' version='1.2.2.201307230756'>
+      <properties size='5'>
+        <property name='artifact.size' value='33721'/>
+        <property name='download.size' value='33721'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.moao'/>
+        <property name='maven-version' value='1.2.2-SNAPSHOT'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.feature' version='1.1.1.201401201158'>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.fragments.jfaceif.source' version='1.0.0.201401200927'>
       <properties size='6'>
-        <property name='artifact.size' value='1287'/>
-        <property name='download.size' value='1287'/>
+        <property name='artifact.size' value='2105'/>
+        <property name='download.size' value='2105'/>
         <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.feature'/>
-        <property name='maven-version' value='1.1.1-SNAPSHOT'/>
-        <property name='download.contentType' value='application/zip'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.fragments.jfaceif'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.debug' version='1.0.0.201211301353'>
@@ -1771,13 +1823,6 @@
         <property name='download.md5' value='ee09f650de7fb32015e23119453cc60a'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.std' version='1.0.0.201210100938'>
-      <properties size='3'>
-        <property name='artifact.size' value='4531'/>
-        <property name='download.size' value='4531'/>
-        <property name='download.md5' value='1410071652bef477ed25c8553cd8b4d9'/>
-      </properties>
-    </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.model.utils' version='1.4.1.201304081119'>
       <properties size='5'>
         <property name='artifact.size' value='18698'/>
@@ -1785,6 +1830,13 @@
         <property name='maven-groupId' value='com.rcpcompany'/>
         <property name='maven-artifactId' value='com.rcpcompany.uibindings.model.utils'/>
         <property name='maven-version' value='1.4.1-SNAPSHOT'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.std' version='1.0.0.201210100938'>
+      <properties size='3'>
+        <property name='artifact.size' value='4531'/>
+        <property name='download.size' value='4531'/>
+        <property name='download.md5' value='1410071652bef477ed25c8553cd8b4d9'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.ui.source' version='3.6.0.201210311448'>
@@ -2312,6 +2364,15 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.test.utils' version='1.5.1.201401210924'>
+      <properties size='5'>
+        <property name='artifact.size' value='36372'/>
+        <property name='download.size' value='36372'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.test.utils'/>
+        <property name='maven-version' value='1.5.1-SNAPSHOT'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.ui.rap.source' version='3.6.1.201307230757'>
       <properties size='6'>
         <property name='artifact.size' value='965'/>
@@ -2420,6 +2481,17 @@
         <property name='maven-artifactId' value='com.rcpcompany.uibindings.units'/>
         <property name='maven-version' value='1.0.0-SNAPSHOT'/>
         <property name='maven-classifier' value='sources'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.test.utils.rap.feature.source' version='1.0.0.201401210924'>
+      <properties size='7'>
+        <property name='artifact.size' value='2503'/>
+        <property name='download.size' value='2503'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.test.utils.rap.feature'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources-feature'/>
+        <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.test.utils.ui.source' version='1.2.0.201305161237'>
@@ -3140,6 +3212,27 @@
         <property name='maven-classifier' value='sources'/>
       </properties>
     </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.rap.feature' version='1.1.2.201401210924'>
+      <properties size='6'>
+        <property name='artifact.size' value='1292'/>
+        <property name='download.size' value='1292'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.utils.rap.feature'/>
+        <property name='maven-version' value='1.1.2-SNAPSHOT'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.feature.source' version='1.1.1.201401210924'>
+      <properties size='7'>
+        <property name='artifact.size' value='2571'/>
+        <property name='download.size' value='2571'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.feature'/>
+        <property name='maven-version' value='1.1.1-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources-feature'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.test.utils.rap' version='1.1.0.201305170915'>
       <properties size='5'>
         <property name='artifact.size' value='6743'/>
@@ -3163,6 +3256,16 @@
         <property name='maven-groupId' value='com.rcpcompany'/>
         <property name='maven-artifactId' value='com.rcpcompany.uibindings.moao'/>
         <property name='maven-version' value='1.2.2-SNAPSHOT'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.moao.source' version='1.2.2.201401210922'>
+      <properties size='6'>
+        <property name='artifact.size' value='27581'/>
+        <property name='download.size' value='27581'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.moao'/>
+        <property name='maven-version' value='1.2.2-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.feature.source' version='1.1.1.201401201028'>
@@ -3204,6 +3307,15 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.moao' version='1.2.2.201401210922'>
+      <properties size='5'>
+        <property name='artifact.size' value='33723'/>
+        <property name='download.size' value='33723'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.moao'/>
+        <property name='maven-version' value='1.2.2-SNAPSHOT'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.moao' version='1.2.2.201308161336'>
       <properties size='5'>
         <property name='artifact.size' value='33719'/>
@@ -3239,6 +3351,16 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.grid.feature' version='1.0.0.201401210924'>
+      <properties size='6'>
+        <property name='artifact.size' value='904'/>
+        <property name='download.size' value='904'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.grid.feature'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.moao.ui.source' version='1.1.0.201305161122'>
       <properties size='6'>
         <property name='artifact.size' value='12419'/>
@@ -3256,6 +3378,16 @@
         <property name='maven-groupId' value='com.rcpcompany'/>
         <property name='maven-artifactId' value='com.rcpcompany.utils.feature'/>
         <property name='maven-version' value='1.9.0-SNAPSHOT'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.test.utils.rap.feature' version='1.0.0.201401210924'>
+      <properties size='6'>
+        <property name='artifact.size' value='1144'/>
+        <property name='download.size' value='1144'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.test.utils.rap.feature'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -3301,6 +3433,16 @@
         <property name='maven-artifactId' value='com.rcpcompany.utils.rap.feature'/>
         <property name='maven-version' value='1.1.2-SNAPSHOT'/>
         <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.test.utils.source' version='1.5.1.201401210924'>
+      <properties size='6'>
+        <property name='artifact.size' value='17087'/>
+        <property name='download.size' value='17087'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.test.utils'/>
+        <property name='maven-version' value='1.5.1-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.feature' version='1.7.0.201305161237'>
@@ -3656,6 +3798,13 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.moao.ui' version='1.1.0.201211121910'>
+      <properties size='3'>
+        <property name='artifact.size' value='20880'/>
+        <property name='download.size' value='20880'/>
+        <property name='download.md5' value='c0ed1e88301e8220238480e9c65e4251'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings' version='2.16.0.201305160859'>
       <properties size='5'>
         <property name='artifact.size' value='1400518'/>
@@ -3665,13 +3814,6 @@
         <property name='maven-version' value='2.16.0-SNAPSHOT'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.moao.ui' version='1.1.0.201211121910'>
-      <properties size='3'>
-        <property name='artifact.size' value='20880'/>
-        <property name='download.size' value='20880'/>
-        <property name='download.md5' value='c0ed1e88301e8220238480e9c65e4251'/>
-      </properties>
-    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.feature' version='1.7.0.201305161122'>
       <properties size='6'>
         <property name='artifact.size' value='1288'/>
@@ -3679,6 +3821,17 @@
         <property name='maven-groupId' value='com.rcpcompany'/>
         <property name='maven-artifactId' value='com.rcpcompany.utils.feature'/>
         <property name='maven-version' value='1.7.0-SNAPSHOT'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.test.utils.rcp.feature.source' version='1.0.0.201401210924'>
+      <properties size='7'>
+        <property name='artifact.size' value='2494'/>
+        <property name='download.size' value='2494'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.test.utils.rcp.feature'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources-feature'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -3757,6 +3910,25 @@
         <property name='maven-version' value='1.1.0-SNAPSHOT'/>
       </properties>
     </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.grid.feature.source' version='1.0.0.201401210924'>
+      <properties size='7'>
+        <property name='artifact.size' value='2469'/>
+        <property name='download.size' value='2469'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.grid.feature'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources-feature'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.grid.feature' version='1.0.0.201302190831'>
+      <properties size='4'>
+        <property name='artifact.size' value='907'/>
+        <property name='download.size' value='907'/>
+        <property name='download.md5' value='62ecb93b6b7ca2a9b1354a8ac6a4c56a'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.model.utils.source' version='1.4.1.201304081119'>
       <properties size='6'>
         <property name='artifact.size' value='12466'/>
@@ -3767,11 +3939,22 @@
         <property name='maven-classifier' value='sources'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.grid.feature' version='1.0.0.201302190831'>
-      <properties size='4'>
-        <property name='artifact.size' value='907'/>
-        <property name='download.size' value='907'/>
-        <property name='download.md5' value='62ecb93b6b7ca2a9b1354a8ac6a4c56a'/>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.fragments.ecore' version='1.0.0.201305161122'>
+      <properties size='5'>
+        <property name='artifact.size' value='983'/>
+        <property name='download.size' value='983'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.fragments.ecore'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.feature' version='1.7.0.201305160859'>
+      <properties size='6'>
+        <property name='artifact.size' value='1513'/>
+        <property name='download.size' value='1513'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.utils.feature'/>
+        <property name='maven-version' value='1.7.0-SNAPSHOT'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -3786,25 +3969,6 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.feature' version='1.7.0.201305160859'>
-      <properties size='6'>
-        <property name='artifact.size' value='1513'/>
-        <property name='download.size' value='1513'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.utils.feature'/>
-        <property name='maven-version' value='1.7.0-SNAPSHOT'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.fragments.ecore' version='1.0.0.201305161122'>
-      <properties size='5'>
-        <property name='artifact.size' value='983'/>
-        <property name='download.size' value='983'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.fragments.ecore'/>
-        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
-      </properties>
-    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.feature' version='1.1.1.201304091223'>
       <properties size='6'>
         <property name='artifact.size' value='1519'/>
@@ -3813,15 +3977,6 @@
         <property name='maven-artifactId' value='com.rcpcompany.uibindings.feature'/>
         <property name='maven-version' value='1.1.1-SNAPSHOT'/>
         <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.jface' version='1.3.0.201401200927'>
-      <properties size='5'>
-        <property name='artifact.size' value='8707'/>
-        <property name='download.size' value='8707'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.utils.jface'/>
-        <property name='maven-version' value='1.3.0-SNAPSHOT'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.basic' version='1.7.0.201305161122'>
@@ -3833,13 +3988,13 @@
         <property name='maven-version' value='1.7.0-SNAPSHOT'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings' version='2.16.0.201307230747'>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.jface' version='1.3.0.201401200927'>
       <properties size='5'>
-        <property name='artifact.size' value='1401642'/>
-        <property name='download.size' value='1401642'/>
+        <property name='artifact.size' value='8707'/>
+        <property name='download.size' value='8707'/>
         <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings'/>
-        <property name='maven-version' value='2.16.0-SNAPSHOT'/>
+        <property name='maven-artifactId' value='com.rcpcompany.utils.jface'/>
+        <property name='maven-version' value='1.3.0-SNAPSHOT'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.jface' version='1.3.0.201305230757'>
@@ -3851,13 +4006,13 @@
         <property name='maven-version' value='1.3.0-SNAPSHOT'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.basic' version='1.8.0.201307230748'>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings' version='2.16.0.201307230747'>
       <properties size='5'>
-        <property name='artifact.size' value='9911'/>
-        <property name='download.size' value='9911'/>
+        <property name='artifact.size' value='1401642'/>
+        <property name='download.size' value='1401642'/>
         <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.utils.basic'/>
-        <property name='maven-version' value='1.8.0-SNAPSHOT'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings'/>
+        <property name='maven-version' value='2.16.0-SNAPSHOT'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.debug.source.feature' version='1.0.0.201210291351'>
@@ -3866,6 +4021,15 @@
         <property name='download.size' value='2258'/>
         <property name='download.md5' value='499993708ebefe8f3cf75d704267bd07'/>
         <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.basic' version='1.8.0.201307230748'>
+      <properties size='5'>
+        <property name='artifact.size' value='9911'/>
+        <property name='download.size' value='9911'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.utils.basic'/>
+        <property name='maven-version' value='1.8.0-SNAPSHOT'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.rap.feature' version='1.0.1.201305170915'>
@@ -3878,6 +4042,15 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.test.utils.rap' version='1.1.0.201307292010'>
+      <properties size='5'>
+        <property name='artifact.size' value='6785'/>
+        <property name='download.size' value='6785'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.test.utils.rap'/>
+        <property name='maven-version' value='1.1.0-SNAPSHOT'/>
+      </properties>
+    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.grid.feature' version='1.0.0.201304081119'>
       <properties size='6'>
         <property name='artifact.size' value='916'/>
@@ -3888,29 +4061,11 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.test.utils.rap' version='1.1.0.201307292010'>
-      <properties size='5'>
-        <property name='artifact.size' value='6785'/>
-        <property name='download.size' value='6785'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.test.utils.rap'/>
-        <property name='maven-version' value='1.1.0-SNAPSHOT'/>
-      </properties>
-    </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.debug.source' version='1.0.0.201211301353'>
       <properties size='3'>
         <property name='artifact.size' value='20016'/>
         <property name='download.size' value='20016'/>
         <property name='download.md5' value='e3c1b73631c3b795f0a70673443ad094'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.test.utils.rap' version='1.2.0.201310100736'>
-      <properties size='5'>
-        <property name='artifact.size' value='6933'/>
-        <property name='download.size' value='6933'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.test.utils.rap'/>
-        <property name='maven-version' value='1.2.0-SNAPSHOT'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.test.utils.rcp.feature' version='1.0.0.201309111811'>
@@ -3921,6 +4076,15 @@
         <property name='maven-artifactId' value='com.rcpcompany.test.utils.rcp.feature'/>
         <property name='maven-version' value='1.0.0-SNAPSHOT'/>
         <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.test.utils.rap' version='1.2.0.201310100736'>
+      <properties size='5'>
+        <property name='artifact.size' value='6933'/>
+        <property name='download.size' value='6933'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.test.utils.rap'/>
+        <property name='maven-version' value='1.2.0-SNAPSHOT'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.fragments.ecore.source' version='1.0.0.201210100938'>
@@ -4051,6 +4215,15 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.fragments.ecore' version='1.0.0.201307230747'>
+      <properties size='5'>
+        <property name='artifact.size' value='983'/>
+        <property name='download.size' value='983'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.fragments.ecore'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+      </properties>
+    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.test.utils.rap.feature' version='1.0.0.201401201028'>
       <properties size='6'>
         <property name='artifact.size' value='1163'/>
@@ -4059,15 +4232,6 @@
         <property name='maven-artifactId' value='com.rcpcompany.test.utils.rap.feature'/>
         <property name='maven-version' value='1.0.0-SNAPSHOT'/>
         <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.fragments.ecore' version='1.0.0.201307230747'>
-      <properties size='5'>
-        <property name='artifact.size' value='983'/>
-        <property name='download.size' value='983'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.fragments.ecore'/>
-        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.navigator.feature.source' version='1.0.0.201305161122'>
@@ -4092,19 +4256,19 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.ui.rcp' version='3.6.0.201211021624'>
-      <properties size='3'>
-        <property name='artifact.size' value='1831'/>
-        <property name='download.size' value='1831'/>
-        <property name='download.md5' value='eda0b38f95c5a3536a0425f7ca6d87c5'/>
-      </properties>
-    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.source.feature' version='1.1.1.201302070918'>
       <properties size='4'>
         <property name='artifact.size' value='1300'/>
         <property name='download.size' value='1300'/>
         <property name='download.md5' value='d02d5958cd7fff9e59786b6fb547128c'/>
         <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.ui.rcp' version='3.6.0.201211021624'>
+      <properties size='3'>
+        <property name='artifact.size' value='1831'/>
+        <property name='download.size' value='1831'/>
+        <property name='download.md5' value='eda0b38f95c5a3536a0425f7ca6d87c5'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.financial.feature' version='1.0.0.201401200927'>
@@ -4127,6 +4291,15 @@
         <property name='maven-classifier' value='sources'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.ui' version='3.6.1.201307230757'>
+      <properties size='5'>
+        <property name='artifact.size' value='600'/>
+        <property name='download.size' value='600'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.utils.ui'/>
+        <property name='maven-version' value='3.6.1-SNAPSHOT'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.basic.source' version='1.8.1.201309111811'>
       <properties size='6'>
         <property name='artifact.size' value='8850'/>
@@ -4135,15 +4308,6 @@
         <property name='maven-artifactId' value='com.rcpcompany.utils.basic'/>
         <property name='maven-version' value='1.8.1-SNAPSHOT'/>
         <property name='maven-classifier' value='sources'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.ui' version='3.6.1.201307230757'>
-      <properties size='5'>
-        <property name='artifact.size' value='600'/>
-        <property name='download.size' value='600'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.utils.ui'/>
-        <property name='maven-version' value='3.6.1-SNAPSHOT'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.fragments.ecore.source' version='1.0.0.201307230747'>
@@ -4174,17 +4338,6 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.feature.source' version='1.7.0.201305161122'>
-      <properties size='7'>
-        <property name='artifact.size' value='2464'/>
-        <property name='download.size' value='2464'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.utils.feature'/>
-        <property name='maven-version' value='1.7.0-SNAPSHOT'/>
-        <property name='maven-classifier' value='sources-feature'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.rap.feature.source' version='1.1.1.201308011929'>
       <properties size='7'>
         <property name='artifact.size' value='2580'/>
@@ -4192,6 +4345,17 @@
         <property name='maven-groupId' value='com.rcpcompany'/>
         <property name='maven-artifactId' value='com.rcpcompany.utils.rap.feature'/>
         <property name='maven-version' value='1.1.1-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources-feature'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.feature.source' version='1.7.0.201305161122'>
+      <properties size='7'>
+        <property name='artifact.size' value='2464'/>
+        <property name='download.size' value='2464'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.utils.feature'/>
+        <property name='maven-version' value='1.7.0-SNAPSHOT'/>
         <property name='maven-classifier' value='sources-feature'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
@@ -4229,6 +4393,16 @@
         <property name='maven-classifier' value='sources'/>
       </properties>
     </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.grid.feature' version='1.0.0.201308011929'>
+      <properties size='6'>
+        <property name='artifact.size' value='906'/>
+        <property name='download.size' value='906'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.grid.feature'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.grid.feature.source' version='1.0.0.201309111811'>
       <properties size='7'>
         <property name='artifact.size' value='2474'/>
@@ -4240,31 +4414,12 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.grid.feature' version='1.0.0.201308011929'>
-      <properties size='6'>
-        <property name='artifact.size' value='906'/>
-        <property name='download.size' value='906'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.grid.feature'/>
-        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.financial.source.feature' version='1.0.0.201211201948'>
       <properties size='4'>
         <property name='artifact.size' value='2281'/>
         <property name='download.size' value='2281'/>
         <property name='download.md5' value='7761671a12741956b089441178f3bdc0'/>
         <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.basic' version='1.8.1.201309111811'>
-      <properties size='5'>
-        <property name='artifact.size' value='10058'/>
-        <property name='download.size' value='10058'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.utils.basic'/>
-        <property name='maven-version' value='1.8.1-SNAPSHOT'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.test.utils.ui' version='1.1.0.201303221106'>
@@ -4274,6 +4429,15 @@
         <property name='maven-groupId' value='com.rcpcompany'/>
         <property name='maven-artifactId' value='com.rcpcompany.test.utils.ui'/>
         <property name='maven-version' value='1.1.0-SNAPSHOT'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.basic' version='1.8.1.201309111811'>
+      <properties size='5'>
+        <property name='artifact.size' value='10058'/>
+        <property name='download.size' value='10058'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.utils.basic'/>
+        <property name='maven-version' value='1.8.1-SNAPSHOT'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.logging.source' version='1.6.0.201401200927'>
@@ -4286,14 +4450,6 @@
         <property name='maven-classifier' value='sources'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.navigator.feature' version='1.0.0.201211201948'>
-      <properties size='4'>
-        <property name='artifact.size' value='2268'/>
-        <property name='download.size' value='2268'/>
-        <property name='download.md5' value='c2953125d1afe79c584e2263081663fd'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.test.utils.rap.feature' version='1.0.0.201309111811'>
       <properties size='6'>
         <property name='artifact.size' value='1160'/>
@@ -4301,6 +4457,14 @@
         <property name='maven-groupId' value='com.rcpcompany'/>
         <property name='maven-artifactId' value='com.rcpcompany.test.utils.rap.feature'/>
         <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.uibindings.navigator.feature' version='1.0.0.201211201948'>
+      <properties size='4'>
+        <property name='artifact.size' value='2268'/>
+        <property name='download.size' value='2268'/>
+        <property name='download.md5' value='c2953125d1afe79c584e2263081663fd'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -4356,15 +4520,6 @@
         <property name='maven-version' value='1.1.0-SNAPSHOT'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.model.utils.uifragment' version='1.0.0.201307292010'>
-      <properties size='5'>
-        <property name='artifact.size' value='2737'/>
-        <property name='download.size' value='2737'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.uibindings.model.utils.uifragment'/>
-        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
-      </properties>
-    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.feature.source' version='1.8.0.201305230848'>
       <properties size='7'>
         <property name='artifact.size' value='2535'/>
@@ -4374,6 +4529,15 @@
         <property name='maven-version' value='1.8.0-SNAPSHOT'/>
         <property name='maven-classifier' value='sources-feature'/>
         <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.model.utils.uifragment' version='1.0.0.201307292010'>
+      <properties size='5'>
+        <property name='artifact.size' value='2737'/>
+        <property name='download.size' value='2737'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.uibindings.model.utils.uifragment'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.rcpcompany.utils.feature.source' version='1.9.0.201401201256'>
@@ -4460,15 +4624,6 @@
         <property name='download.md5' value='f108d49d1e1396a65aea8a11cca50f56'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='com.rcpcompany.test.utils' version='1.5.1.201401201027'>
-      <properties size='5'>
-        <property name='artifact.size' value='36391'/>
-        <property name='download.size' value='36391'/>
-        <property name='maven-groupId' value='com.rcpcompany'/>
-        <property name='maven-artifactId' value='com.rcpcompany.test.utils'/>
-        <property name='maven-version' value='1.5.1-SNAPSHOT'/>
-      </properties>
-    </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.uibindings.model.utils' version='1.4.2.201308300738'>
       <properties size='5'>
         <property name='artifact.size' value='20797'/>
@@ -4476,6 +4631,15 @@
         <property name='maven-groupId' value='com.rcpcompany'/>
         <property name='maven-artifactId' value='com.rcpcompany.uibindings.model.utils'/>
         <property name='maven-version' value='1.4.2-SNAPSHOT'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.rcpcompany.test.utils' version='1.5.1.201401201027'>
+      <properties size='5'>
+        <property name='artifact.size' value='36391'/>
+        <property name='download.size' value='36391'/>
+        <property name='maven-groupId' value='com.rcpcompany'/>
+        <property name='maven-artifactId' value='com.rcpcompany.test.utils'/>
+        <property name='maven-version' value='1.5.1-SNAPSHOT'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='com.rcpcompany.utils.selection.source' version='1.1.0.201305160859'>
